@@ -1,0 +1,24 @@
+[Unit]
+Description=The Echo Archives website and API
+After=network-online.target ollama.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=charlie
+Group=charlie
+WorkingDirectory=/home/charlie/The-Echo-Archives/podcast-ai
+Environment=PORT=3010
+Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
+Environment=SERVE_STATIC=true
+Environment=DB_PATH=/home/charlie/The-Echo-Archives/podcast-ai/data/community.sqlite
+Environment=REQUEST_TIMEOUT_MS=30000
+ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/podcast-ai/server.js
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

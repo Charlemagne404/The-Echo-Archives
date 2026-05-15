@@ -1,0 +1,6 @@
+podcast-ai/node_modules/
+podcast-ai/.env
+podcast-ai/data/*.sqlite
+podcast-ai/data/*.sqlite-*
+podcast-ai/.DS_Store
+*.log
