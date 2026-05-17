@@ -33,6 +33,7 @@ if (document.body.classList.contains("home-page")) {
 }
 
 initializeDetailRatingPage();
+initializeDetailPageControls();
 initializeSharedChat();
 initializeBackToTop();
 
@@ -40,6 +41,10 @@ function initializeHomePage() {
   const searchInput = document.getElementById("search");
   const filterToggle = document.getElementById("filterToggle");
   const filterDropdown = document.getElementById("filterDropdown");
+  const filterCount = document.getElementById("filterCount");
+  const filterClear = document.getElementById("filterClear");
+  const filterOptions = Array.from(document.querySelectorAll(".filter-option"));
+  const archiveGrid = document.getElementById("podcast-grid");
   const noResultsMsg = document.getElementById("noResultsMsg");
   const resultsSummary = document.getElementById("resultsSummary");
   const quickFilters = Array.from(document.querySelectorAll(".quick-filter"));
@@ -145,15 +150,33 @@ function initializeHomePage() {
         filterToggle.setAttribute("aria-expanded", "false");
       }
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      filterDropdown.classList.add("hidden");
+      filterToggle.setAttribute("aria-expanded", "false");
+    });
   }
 
-  document.querySelectorAll('#filterDropdown input[type="checkbox"]').forEach((checkbox) => {
-    checkbox.addEventListener("change", () => {
-      state.selectedTags = new Set(
-        Array.from(document.querySelectorAll('#filterDropdown input[type="checkbox"]:checked')).map((input) => input.value),
-      );
+  if (filterClear) {
+    filterClear.addEventListener("click", () => {
+      state.selectedTags.clear();
       state.topRatedOnly = false;
       renderCards();
+    });
+  }
+
+  filterOptions.forEach((button) => {
+    button.addEventListener("click", () => {
+      const tag = button.getAttribute("data-filter-tag");
+      if (!tag) {
+        return;
+      }
+
+      toggleTag(tag);
     });
   });
 
@@ -183,7 +206,6 @@ function initializeHomePage() {
   });
 
   renderCards();
-  void initializeArchiveRatings(cards);
 
   function toggleTag(tag) {
     state.topRatedOnly = false;
@@ -200,6 +222,7 @@ function initializeHomePage() {
   function renderCards() {
     let visibleCount = 0;
     let visibleLiveReviews = 0;
+    const visibleEntries = [];
 
     cards.forEach((entry) => {
       const matchesQuery = state.query === "" || entry.searchText.includes(state.query);
@@ -208,18 +231,17 @@ function initializeHomePage() {
         Array.from(state.selectedTags).every((tag) => entry.tags.includes(tag));
       const matchesTopRated = !state.topRatedOnly || entry.isTopRated;
       const shouldShow = matchesQuery && matchesTags && matchesTopRated;
-      const visibilityNode = getCardVisibilityNode(entry.card);
-
-      visibilityNode.hidden = !shouldShow;
 
       if (shouldShow) {
         visibleCount += 1;
+        visibleEntries.push(entry);
         if (entry.isLiveReview) {
           visibleLiveReviews += 1;
         }
       }
     });
 
+    syncVisibleCards(visibleEntries);
     syncControls();
 
     if (noResultsMsg) {
@@ -236,7 +258,27 @@ function initializeHomePage() {
     }
   }
 
+  function syncVisibleCards(visibleEntries) {
+    if (!archiveGrid) {
+      return;
+    }
+
+    cards.forEach(({ card }) => {
+      const visibilityNode = getCardVisibilityNode(card);
+      archiveGrid.appendChild(visibilityNode);
+      visibilityNode.hidden = true;
+    });
+
+    visibleEntries.forEach(({ card }) => {
+      const visibilityNode = getCardVisibilityNode(card);
+      archiveGrid.appendChild(visibilityNode);
+      visibilityNode.hidden = false;
+    });
+  }
+
   function syncControls() {
+    const selectedCount = state.selectedTags.size;
+
     quickFilters.forEach((button) => {
       const filter = button.getAttribute("data-chip-filter");
       const isActive =
@@ -248,9 +290,21 @@ function initializeHomePage() {
       button.setAttribute("aria-pressed", String(isActive));
     });
 
-    document.querySelectorAll('#filterDropdown input[type="checkbox"]').forEach((checkbox) => {
-      checkbox.checked = state.selectedTags.has(checkbox.value);
+    filterOptions.forEach((button) => {
+      const tag = button.getAttribute("data-filter-tag");
+      const isActive = Boolean(tag && state.selectedTags.has(tag));
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
     });
+
+    if (filterCount) {
+      filterCount.hidden = selectedCount === 0;
+      filterCount.textContent = String(selectedCount);
+    }
+
+    if (filterClear) {
+      filterClear.hidden = selectedCount === 0 && !state.topRatedOnly;
+    }
   }
 }
 
@@ -302,6 +356,46 @@ async function initializeDetailRatingPage() {
   } catch (error) {
     widget.summary.textContent = "Community ratings are offline right now.";
   }
+}
+
+function initializeDetailPageControls() {
+  const detailRoot = document.querySelector(".podcast-detail");
+  if (!detailRoot) {
+    return;
+  }
+
+  const seasonButtons = Array.from(detailRoot.querySelectorAll(".season-filter-button"));
+  const episodeItems = Array.from(detailRoot.querySelectorAll(".episode-list li"));
+  if (seasonButtons.length === 0 || episodeItems.length === 0) {
+    return;
+  }
+
+  const detailEpisodes = detailRoot.querySelector(".detail-episodes-section");
+  const defaultSeason =
+    detailEpisodes?.getAttribute("data-default-season") || seasonButtons[0]?.getAttribute("data-season-target") || "";
+
+  function renderSeason(season) {
+    seasonButtons.forEach((button) => {
+      const isActive = button.getAttribute("data-season-target") === season;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    episodeItems.forEach((item) => {
+      item.hidden = !item.classList.contains(season);
+    });
+  }
+
+  seasonButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const season = button.getAttribute("data-season-target");
+      if (season) {
+        renderSeason(season);
+      }
+    });
+  });
+
+  renderSeason(defaultSeason);
 }
 
 function initializeSharedChat() {
@@ -710,7 +804,7 @@ function createRatingSelect(selectedValue, podcastId) {
 
   const placeholder = document.createElement("option");
   placeholder.value = "";
-  placeholder.textContent = "1-10";
+  placeholder.textContent = "Pick a score";
   select.appendChild(placeholder);
 
   for (let rating = 1; rating <= 10; rating += 1) {
@@ -729,6 +823,7 @@ function createRatingSelect(selectedValue, podcastId) {
 function mountArchiveRatingWidget(entry) {
   const shell = ensurePodcastCardShell(entry.card);
   shell.dataset.podcastId = entry.podcastId;
+  bindArchiveWidgetDismissal();
 
   if (entry.card._communityWidget) {
     return entry.card._communityWidget;
@@ -739,6 +834,31 @@ function mountArchiveRatingWidget(entry) {
 
   const toggle = document.createElement("summary");
   toggle.className = "community-card-toggle";
+
+  const info = document.createElement("div");
+  info.className = "community-card-info";
+
+  const kicker = document.createElement("span");
+  kicker.className = "community-card-kicker";
+  kicker.textContent = "Community";
+
+  const stats = document.createElement("div");
+  stats.className = "community-card-stats";
+
+  const scoreGroup = document.createElement("div");
+  scoreGroup.className = "community-card-score-group";
+
+  const scoreValue = document.createElement("span");
+  scoreValue.className = "community-card-score";
+  scoreValue.textContent = "--";
+
+  const scoreScale = document.createElement("span");
+  scoreScale.className = "community-card-score-scale";
+  scoreScale.textContent = "/10";
+
+  const count = document.createElement("span");
+  count.className = "community-card-count";
+  count.textContent = "No ratings yet";
 
   const summary = document.createElement("p");
   summary.className = "community-card-summary";
@@ -802,13 +922,26 @@ function mountArchiveRatingWidget(entry) {
     }
   });
 
-  toggle.append(summary, action);
+  widget.addEventListener("toggle", () => {
+    if (!widget.open) {
+      return;
+    }
+
+    closeOtherArchiveWidgets(widget);
+  });
+
+  scoreGroup.append(scoreValue, scoreScale);
+  stats.append(scoreGroup, count);
+  info.append(kicker, stats, summary);
+  toggle.replaceChildren(info, action);
   controls.append(select, saveButton, clearButton);
   widget.append(toggle, controls);
   shell.appendChild(widget);
 
   entry.card._communityWidget = {
     root: widget,
+    scoreValue,
+    count,
     summary,
     action,
     select,
@@ -825,7 +958,9 @@ function syncArchiveRatingWidget(card, summary) {
     return;
   }
 
-  widget.summary.textContent = formatCommunitySummary(summary);
+  widget.scoreValue.textContent = formatCommunityAverageValue(summary);
+  widget.count.textContent = formatCommunityCountLabel(summary);
+  widget.summary.textContent = formatArchiveWidgetNote(summary);
   widget.action.textContent = summary.myRating ? "Edit" : "Rate";
   widget.select.value = summary.myRating ? String(summary.myRating) : "";
   widget.clearButton.hidden = !summary.myRating;
@@ -848,6 +983,37 @@ function setArchiveWidgetMessage(card, message) {
   if (widget) {
     widget.summary.textContent = message;
   }
+}
+
+function closeOtherArchiveWidgets(activeWidget) {
+  document.querySelectorAll(".community-card-widget[open]").forEach((widget) => {
+    if (widget !== activeWidget) {
+      widget.open = false;
+    }
+  });
+}
+
+function bindArchiveWidgetDismissal() {
+  if (document.body.dataset.archiveWidgetDismissBound === "true") {
+    return;
+  }
+
+  document.body.dataset.archiveWidgetDismissBound = "true";
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element) || target.closest(".community-card-widget")) {
+      return;
+    }
+
+    closeOtherArchiveWidgets(null);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeOtherArchiveWidgets(null);
+    }
+  });
 }
 
 function mountDetailRatingWidget(detailRoot, podcast) {
@@ -938,7 +1104,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   section.append(kicker, title, summary, buttons, clearButton, distribution);
 
-  const firstSection = detailRoot.querySelector(".section-container");
+  const firstSection = detailRoot.querySelector(".detail-section, .section-container");
   if (firstSection) {
     detailRoot.insertBefore(section, firstSection);
   } else {
@@ -1004,6 +1170,35 @@ function formatCommunitySummary(summary) {
   const yourRating = summary.myRating ? ` Your rating: ${summary.myRating}/10.` : "";
   const noun = summary.ratingCount === 1 ? "rating" : "ratings";
   return `Community score ${summary.averageRating.toFixed(1)}/10 from ${summary.ratingCount} ${noun}.${yourRating}`;
+}
+
+function formatCommunityAverageValue(summary) {
+  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+    return "--";
+  }
+
+  return summary.averageRating.toFixed(1);
+}
+
+function formatCommunityCountLabel(summary) {
+  if (!summary || summary.ratingCount === 0) {
+    return "No ratings yet";
+  }
+
+  const noun = summary.ratingCount === 1 ? "rating" : "ratings";
+  return `${summary.ratingCount} ${noun}`;
+}
+
+function formatArchiveWidgetNote(summary) {
+  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+    return "Be the first to score this one.";
+  }
+
+  if (summary.myRating) {
+    return `You rated it ${summary.myRating}/10.`;
+  }
+
+  return "Add your score to shape the archive.";
 }
 
 async function ensureCommunityProfile() {

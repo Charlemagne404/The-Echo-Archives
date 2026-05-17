@@ -87,23 +87,33 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
                 </svg>
-                <span>Filters</span>
+                <span class="filter-toggle-label">Filters</span>
+                <span id="filterCount" class="filter-count" hidden>0</span>
               </button>
 
               <div id="filterDropdown" class="dropdown hidden">
-                <label><input type="checkbox" value="sci-fi" /> Sci-Fi</label>
-                <label><input type="checkbox" value="comedy" /> Comedy</label>
-                <label><input type="checkbox" value="mystery" /> Mystery</label>
-                <label><input type="checkbox" value="space" /> Space</label>
-                <label><input type="checkbox" value="survival" /> Survival</label>
-                <label><input type="checkbox" value="science" /> Science</label>
-                <label><input type="checkbox" value="thriller" /> Thriller</label>
-                <label><input type="checkbox" value="horror" /> Horror</label>
-                <label><input type="checkbox" value="time-travel" /> Time Travel</label>
-                <label><input type="checkbox" value="supernatural" /> Supernatural</label>
-                <label><input type="checkbox" value="future" /> Future</label>
-                <label><input type="checkbox" value="fantasy" /> Fantasy</label>
-                <label><input type="checkbox" value="isolation" /> Isolation</label>
+                <div class="filter-dropdown-header">
+                  <div>
+                    <p class="filter-dropdown-kicker">Refine the archive</p>
+                    <p class="filter-dropdown-copy">Stack tags to narrow the catalog by mood, setting, or tone.</p>
+                  </div>
+                  <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
+                </div>
+                <div class="filter-option-grid">
+                  <button class="filter-option" type="button" data-filter-tag="sci-fi" aria-pressed="false">Sci-Fi</button>
+                  <button class="filter-option" type="button" data-filter-tag="comedy" aria-pressed="false">Comedy</button>
+                  <button class="filter-option" type="button" data-filter-tag="mystery" aria-pressed="false">Mystery</button>
+                  <button class="filter-option" type="button" data-filter-tag="space" aria-pressed="false">Space</button>
+                  <button class="filter-option" type="button" data-filter-tag="survival" aria-pressed="false">Survival</button>
+                  <button class="filter-option" type="button" data-filter-tag="science" aria-pressed="false">Science</button>
+                  <button class="filter-option" type="button" data-filter-tag="thriller" aria-pressed="false">Thriller</button>
+                  <button class="filter-option" type="button" data-filter-tag="horror" aria-pressed="false">Horror</button>
+                  <button class="filter-option" type="button" data-filter-tag="time-travel" aria-pressed="false">Time Travel</button>
+                  <button class="filter-option" type="button" data-filter-tag="supernatural" aria-pressed="false">Supernatural</button>
+                  <button class="filter-option" type="button" data-filter-tag="future" aria-pressed="false">Future</button>
+                  <button class="filter-option" type="button" data-filter-tag="fantasy" aria-pressed="false">Fantasy</button>
+                  <button class="filter-option" type="button" data-filter-tag="isolation" aria-pressed="false">Isolation</button>
+                </div>
               </div>
             </div>
 

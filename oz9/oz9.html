@@ -2,729 +2,345 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OZ9 - The Echo Archives</title>
-  <link rel="stylesheet" href="../style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.24/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="icon" href="../images/TEA-Logo-S-W.png" type="image/x-icon">
-
+  <link rel="stylesheet" href="../style.css?v=11" />
+  <link rel="stylesheet" href="../home.css?v=10" />
+  <link rel="stylesheet" href="../detail.css?v=1" />
+  <link rel="icon" href="../images/TEA-Logo-S-W.png" type="image/x-icon" />
 </head>
-<body>
-      
-  <main class="podcast-detail">
-    <!-- Back to all podcasts link -->
-    <a href="../index.html" class="back">← Back to all podcasts</a>
-    
-    <!-- Main podcast details header -->
-    <header class="podcast-header">
-      <h1>OZ 9</h1>
-      <img src="../oz9/oz9.jpeg" alt="Oz 9 cover" class="cover"/>
-    </header>
+<body class="home-page detail-page" style="--detail-accent: #07ac3e; --detail-accent-rgb: 7, 172, 62;">
+  <header class="site-header">
+    <a class="site-brand" href="../index.html" aria-label="The Echo Archives home">
+      <img src="../images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
 
-<!-- Place this in your HTML -->
-<style>
-  .section-container {
-    background: linear-gradient(to right, #1f1f1f, #2c2c2c);
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    color: #f0f0f0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+    <nav class="site-nav" aria-label="Primary">
+      <a href="../index.html#browse">Browse</a>
+      <a href="../index.html#collections">Collections</a>
+      <a href="../index.html#site-footer">About</a>
+      <a href="../contact.html">Submit</a>
+    </nav>
 
-  .summary-item,
-  .rating-item {
-    margin-bottom: 12px;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: #2a2a2a;
-    transition: background-color 0.2s ease;
-  }
-
-  .summary-item:hover,
-  .rating-item:hover {
-    background-color: #3a3a3a;
-  }
-
-  .rating {
-    font-weight: bold;
-    color: #07ac3e;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-  }
-
-  .tag {
-    background-color: #07ac3e;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    transition: background-color 0.2s ease;
-  }
-
-  .tag:hover {
-    background-color: #07ac3e;
-  }
-
-  .progress-bar {
-    background-color: #444;
-    border-radius: 10px;
-    height: 10px;
-    margin-top: 4px;
-  }
-
-  .progress {
-    background-color: #07ac3e;
-    height: 100%;
-    border-radius: 10px;
-  }
-
-  blockquote.quote {
-    font-size: 1.4rem;
-    background: linear-gradient(to right, #333, #111);
-    padding: 20px;
-    margin: 30px 0;
-    border-left: 5px solid #07ac3e;
-    font-style: italic;
-    color: #ccc;
-    position: relative;
-  }
-
-  blockquote.quote::before {
-    content: "";
-    font-size: 3rem;
-    color: #07ac3e;
-    position: absolute;
-    top: -10px;
-    left: -15px;
-  }
-
-  .expandable {
-    background-color: #2a2a2a;
-    padding: 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-  }
-
-  .expandable:hover {
-    background-color: #3a3a3a;
-  }
-
-  .expandable-content {
-    display: none;
-    margin-top: 10px;
-  }
-
-  .expandable.open .expandable-content {
-    display: block;
-  }
-  .cta {
-  background-color: #07ac3e;
-  color: white;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 30px;
-}
-
-.cta:hover {
-  background-color: #079135;
-}
-.podcast-detail a.back:hover {
-  background-color: #079135;
-  color: white;
-}
-</style>
-
-<section class="section-container">
-  <div class="summary-item">
-    <strong>Final Rating:</strong> <span class="rating">10/10</span>
-  </div>
-  <div class="summary-item">
-    <strong>Tags:</strong>
-    <div class="tags">
-      <span class="tag">Space</span>
-      <span class="tag">Unserious</span>
-      <span class="tag">Comedy</span>
-      <span class="tag">Sci-fi</span>
-      <span class="tag">Future</span>
+    <div class="header-actions">
+      <button id="chat-toggle" class="chat-toggle-button" type="button" aria-expanded="false" aria-controls="chat-container">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 10h10M7 14h6M5 19l1.4-3.1A7 7 0 1 1 19 17H8a7 7 0 0 1-3-0.7Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+        </svg>
+        <span>Open chat</span>
+      </button>
     </div>
-  </div>
-  <div class="summary-item"><strong>Length:</strong> 5/6 seasons - 20 episodes per season - 54 hours total</div>
-  <div class="summary-item"><strong>Structure:</strong> Bounces around to different characters and places</div>
-  <div class="summary-item"><strong>Narrator:</strong> Yes (in-universe character)</div>
-  <div class="summary-item"><strong>Ads:</strong> No</div>
-  <div class="summary-item"><strong>Would re-listen:</strong> No</div>
-  <div class="summary-item"><strong>Favorite episodes:</strong> season 4, Episode 20</div>
-</section>
+  </header>
 
-<section class="section-container">
-  <h3>Ratings</h3>
-  <div class="rating-item">
-    <strong>Voice Acting:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
-  </div>
-  <div class="rating-item">
-    <strong>Sound Design:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
-  </div>
-  <div class="rating-item">
-    <strong>Story:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
-  </div>
-  <div class="rating-item">
-    <strong>Characters:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
-  </div>
-  <div class="rating-item">
-    <strong>Ads:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
-  </div>
-  <div class="rating-item">
-    <strong>Length:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
-  </div>
-  <div class="rating-item">
-    <strong>Etc.:</strong>
-    <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
-  </div>
-</section>
-
-
-<blockquote class="quote">
-  "-”
-</blockquote>
-
-<section class="section-container">
-  <h3>Summary</h3>
-  <p><strong>Oz 9</strong> Oz 9 is a space comedy following the wildly incompetent crew of a spaceship called the Oz 9. Built by a shady corporation named Gated Galaxies, the ship was supposedly designed to transport rich people across the universe to colonize new planets — but as the journey unfolds, it becomes clear that's not its only purpose. <br>
-    The Oz 9, in particular, is staffed by a crew of stunningly stupid idiots and a somewhat horny AI, and together they stumble their way through one disaster after another in deep space.    
-    </p>
-
-  <div class="expandable" onclick="this.classList.toggle('open')">
-    <h3>Own Thoughts</h3>
-    <div class="expandable-content">
-      <p>I wasn't the biggest fan of Oz 9 at first — it took a while to get going, and I usually prefer more serious audio dramas. This was the exact opposite of that. That said, it does get more interesting after the first season, and I get why some people really love it. It's chaotic, unserious, and definitely has its moments. Not for me, but not bad either, just not my style.</p>
-    </div>
-  </div>
-
-  <div class="similar-to">
-    <h3 style="margin-top: 20px;">Similar to:</h3>
-  
-    <div class="item">
-      <img src="../station151/Station151.jpeg" alt="Station 151 Cover">
-      <div class="info">
-        <div class="text">Station 151</div>
-        <a class="cta" href="../station151/station151.html">Find out more</a>
+  <aside id="chat-container" aria-hidden="true">
+    <div class="chat-panel-header">
+      <div class="chat-panel-heading">
+        <p class="chat-kicker">Archive assistant</p>
+        <h2>Ask the archive</h2>
+        <p id="chatStatus" class="chat-status" aria-live="polite">Checking archive assistant...</p>
+      </div>
+      <div class="chat-panel-actions">
+        <button id="chat-clear" class="chat-secondary-button" type="button">Reset</button>
+        <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+        </button>
       </div>
     </div>
-  
-    <div class="item">
-      <img src="../eos10/EOS10.jpeg" alt="EOS 10 Cover">
-      <div class="info">
-        <div class="text">EOS 10</div>
-        <a class="cta" href="../eos10/eos10.html">Find out more</a>
-      </div>
+    <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
+    <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
+    <div class="chat-input-area">
+      <label class="sr-only" for="userInput">Ask about a podcast</label>
+      <input type="text" id="userInput" placeholder="Ask about a podcast, mood, or theme" />
+      <button id="sendMessageButton" type="button">Ask</button>
     </div>
+    <p class="chat-footnote">Ask for moods, themes, genres, or a specific show already in the archive.</p>
+  </aside>
 
-    <div class="item">
-      <img src="../wolf359/wolf359.jpeg" alt="Wolf 359 Cover">
-      <div class="info">
-        <div class="text">Wolf 359</div>
-        <a class="cta" href="../wolf359/wolf359.html">Find out more</a>
-      </div>
-    </div>
-  </div>
-  
-  
-</section>
-
-
-<script>
-  // Optional: Auto-expand thoughts on larger screens
-  if (window.innerWidth > 768) {
-    document.querySelector('.expandable').classList.add('open');
-  }
-</script>
-
-
-        <!-- Season Selector -->
-        <div class="season-selector flex items-center gap-2 text-sm">
-          <label for="season-select" class="text-gray-700 font-medium">Season:</label>
-          <select id="season-select" onchange="filterEpisodes()"
-                  class="rounded-xl border border-gray-300 bg-white px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
-            <option value="season1">Season 1</option>
-            <option value="season2">Season 2</option>
-            <option value="season3">Season 3</option>
-          </select>
+  <main class="detail-main podcast-detail">
+    <section class="detail-hero-shell">
+      <div class="detail-hero-panel" style="--detail-cover-image: url('../oz9/oz9.jpeg');">
+        <div class="detail-breadcrumbs">
+          <a href="../index.html">Archive</a>
+          <span class="detail-breadcrumb-divider">/</span>
+          <span>OZ 9</span>
         </div>
 
+        <div class="detail-hero-grid">
+          <div class="detail-hero-copy">
+            <div class="detail-status-row">
+              <span class="detail-status-chip is-accent">Comedy pick</span>
+              <span class="detail-status-chip">Full review</span>
+              <span class="detail-status-chip">Space chaos</span>
+            </div>
 
-<!-- Episode List -->
-<div class="episode-list">
-  <ul id="episode-list">
-    <li class="season1">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7e6tFzqtjQ8TeVgnIDw4na?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6R5sJQVXuEqddDM6qEDTfu?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4vt5adWqz639XSYbL16yAT?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/25HNJKs2Rn0buPMN1sCCeX?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1EpcUTpqORfvaqVepZM3Hj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3tVa35pa5oQzxRMWeJQKdO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6H62BXnluBbUpdFLy4Wp1q?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/61wBt9Xip4qYDl57h8hq1y?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3I5Nr6EwaCrYMRnZxS4az7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1xjAAJZEHS8eY7cOLM0d96?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/34H0iEavqK45oRrqAI5KBc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5YqvAt2XAThBrr2INspjSJ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7cmr60gE1RcTs3fwnPhzoe?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0uRcUe6lhlCeNCbHIuFU9z?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2mDk189o6W4UdZpZjaUFqx?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4kyH92yczvse9R8TIGB7AM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3QzpOXEKvk3RihSVjQPZ3R?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6gGK7HWQauKY5ybzSKam2P?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3zBP9yRWDPAJCICfxZ8b6a?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6j1HZnqDHL7C1AsMyNNdAt?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6UWezZCQ6hZu4oONeSM3UK?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4p75q3mIHSgXYM03TPLnHs?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/489fFUQteTpnphUpnTYxuj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
+            <header class="podcast-header">
+              <h1>OZ 9</h1>
+            </header>
 
+            <p>Corporate deep-space nonsense, incompetent crew energy, and a review that admits the audience is stronger than the personal fit.</p>
 
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7FAyB3F0YlXpH7QSssJfDY?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6eLRQI8YwVn8SY39xX2CTQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4AM1EEgSIDUhnO1j9mokzN?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2ua2EbRMG7qZNzYa9QkhE1?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3TnxoQOL1IzPEeVWuxp36J?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6rVNEiL5LupelFXw9ivSl2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6hg3Z2JiHOcuSh2kMZsf4F?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0IaYku6cmj70TaPtk8HYXk?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2uPFktLwNqXz2gscVeuEl6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/54XND24Luf4O7P8NzzSgZ0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2obPY726OlN7pJL0ZtqFzD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
+            <div class="detail-meta-grid">
+              <article class="detail-meta-card">
+                <span class="detail-meta-label">Final rating</span>
+                <span class="detail-meta-value">10/10</span>
+              </article>
+              <article class="detail-meta-card">
+                <span class="detail-meta-label">Runtime</span>
+                <span class="detail-meta-value">54 hours</span>
+              </article>
+              <article class="detail-meta-card">
+                <span class="detail-meta-label">Format</span>
+                <span class="detail-meta-value">5 to 6 seasons</span>
+              </article>
+            </div>
 
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4IdTHIOC8DGkOUANW87ujz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5QFAh9rnUPPHfLlR43tCq0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6yDJjLg4pwvvtFTXZoEe3G?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0nT7HJo3aaUE5Qv2FPD6B6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6wbz7xJ5kJpi8lAgCoABEt?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/18UdljkPQRgZ451ASNMwVc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0vg5HuyJ11mO2koJeDGvdx?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/64HubzXJWspyC5LSUoquhn?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season2">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2XYSqMWXY5ucuZoBwInqr6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
+            <div class="detail-tag-list" aria-label="Tags">
+              <span class="detail-tag">Space</span>
+              <span class="detail-tag">Unserious</span>
+              <span class="detail-tag">Comedy</span>
+              <span class="detail-tag">Sci-fi</span>
+              <span class="detail-tag">Future</span>
+            </div>
 
+            <div class="detail-actions">
+              <a class="detail-primary-action" href="#listen-now">Jump to episodes</a>
+              <a class="detail-secondary-action" href="#review-notes">Read the review</a>
+            </div>
+          </div>
 
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7k7R7bzllThDmnHfbUZzLc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1qSkLGMCW1cleBDuX2spKY?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7N3mlj9TUZPATVTSv9FPQ0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1sQ9Joc0gdm7duw78m0jqU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0qmZm006et6xAHT7SCI6bI?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2jqZREMKFf29KqGQ2pgae3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5sIhjDAV7cYx0jQoEMM7uz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/411Pm7Osll0FUjq8gKdl0l?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7ohgFenyvRuYAsqZJCWXcZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7u87H5XEddLMVc7BGtjjEW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3DQ5RjfQyuuVTHmDZhUot0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/69XVMPXqu7MyfmItcAbkUY?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2f78Dsc1QfGv43D87RDYKQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0ubcYhBxxBDGJiiWq1PBjM?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1dbiNzeVrnAcQa9AE2dGRr?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3fa4LRLuNxXVTOMFy0YLnN?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4TLOsoZafCggjR4aeFKj13?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4TMGWqcsqYCGdpR9QidfT1?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1KZs8WHSLbFGiDOdZTRLqH?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/24IzMz9a88rQWRGSBMfREQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7bdEneAhU7QWRD6Vlcm2F3?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1Hf89UDFG3bRHozeLMCWGF?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2UEM8UhFvyMi9AsCuuQzCH?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0e2sPb9xZ1nN7l39FBawj6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/05NpVrOYgjuYP8rHO8eM23?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7GHCm1GGKRuTZUPCBgTSXz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0dgZoNLbH32aeBwjfkbmjB?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0rI96Q2Ipax5mtkxwV7WGT?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/56FEOq0SLDgE3OHMHNsbwl?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2DdVHHTZsYqYqRZ4NBeXdd?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/68Zo7gV4FydAhh3ZBhyMUH?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/460iXth0KQW5PSyEIDSTj6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/721KzaNEylYGTS1VIPsSdw?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4uEKt4wBgdPpj6Er3cn7QY?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0tCqZSQIXvPIQ7DBdqxNHc?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6fLTsiX2BJ9auyLYi1FSg2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5lN99DwicnpDVsSm0PLuQT?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2c25SvpwN1keG72cl38lay?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/78dm7IKfr5kd8WHyukenBH?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/61MNFatb1BDsXPgDaNjHWD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2nkYii3cbQ8D0pTfViNhlB?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4xRwnKED0Y13qgRfzajJJk?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6XMhCr3jkYmCfnU5ndivM1?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2OpoWOQ6KCWhwgS93mYaDI?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3bwDIwdTt9k3XWP36cRnJ0?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4Bko5XPCcaIJrV2SxElG4h?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3aYMc0OaT6wGs10XMkjKu2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3uwGgV0kM5Qhh0gGnumHE6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6e5cxcz7DkLxMHtuAnzczL?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7LJOewmGIaZRMP2rxF9igk?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/78r1NxjKlwtzMpz1oSs8qa?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1IVeBGn9LgU0KU5pmmqiV4?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6UR3V8UcLsno9Qv650ZwrV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2zX4706dMe5xQNYZT6nYaV?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4bt8aad4YJ6TlarFcX9mJI?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4yCPv7jB1frZ7wgoWIDD7U?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5Bv8I6r9RDUYAA9M02QUtD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3SzYYh4N5AFLFH89oSTxPA?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6nBrzH1R6A8vU5qOT4MA5N?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/2hVmchtwtzGcuKILHZ1g7k?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/62dF5YGUO0nkDewMjArlzS?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/60KQ8MyEcxdkDy3OzEb1Sk?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/52JtKNCWsl3FfocdYx0ZSp?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/66fV1gLBTpOZvKyp8aiWXD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5FAMXb8yIr6iB0TjKmTeoe?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3KfeExJvtaiUiOfCge2GLa?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7l342X7VwJjcvBVur0WFTS?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7wSio80dqXc9XfBCTXjR50?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1DplXeNgNNmWMNB9E2DVZR?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1IVzaaGsXjJnzAM2YZ0qd4?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3RjlEDU8Xwpv358aoi77jD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3UsoO4E5jx8EQdzKODCfH8?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5XltuHvPUCM1Q7Z6ebF8tb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1GYuDyniqbkexgvip3pcgf?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7CSpTtX6uvCZ7z1DFshiOU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7u92gbhtCLQPeFW9gTn9k6?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/59g1HJA4F959M80tn5Ekyg?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6Fr1mKcoc7nPPPtcsvagON?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6DWpNEKSlIpr0cWQyjG96U?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1b8HJgN07fzr6GR4S9c8Lj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7lNyQ8c6yli3yApCCYBywi?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/29mSGhBnDAmRIEEGhrEmka?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7wBd0MmlOl7Myq96l5hHfZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/21NRLt9PgdzqIHRg0d3gbw?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1nCPeuhnTCrxHIuOjEKCzn?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/07JBB0p2dVm9VKeu4MEYDW?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3zEPOwmcij7r8IElvl0Yt8?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/08uwsOOAzIzlC9Nlzf8Z0G?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1HvKF1nxYw18bAcZ8M7ZvQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6AxI7qCvfcgoy9xepZ3rXt?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/56lHajNMG3AWZfS1bzh7JZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4yE39MDfDmLmdiw0rA5bFb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0jv1TXCT6LJBdBVDju0kOO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7h2sUmI6zFhr7RcHRFBBvz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4yFmCKGtl6xu1Azc8b9iaZ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/0km1eCVxMQ9uc4nLgmMpXj?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6n0xQy8UkpggwrKCmIezYz?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/028FVXu0OoDTsqRx6Dpt2T?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-    <li class="season1">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6SOPDszDIiMVFE4DJiIj8y?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </li>
-  
-  </ul>
-</div>
-<script>
-  function filterEpisodes() {
-    const season = document.getElementById('season-select').value;
-    const episodes = document.querySelectorAll('.episode-list ul li');
-    
-    episodes.forEach(ep => {
-      if (ep.classList.contains(season)) {
-        ep.style.display = 'block';
-      } else {
-        ep.style.display = 'none';
-      }
-    });
-  }
-  
-  // Initially, show Season 1 episodes
-  filterEpisodes();
-</script>
-<script src="../script.js"></script>
+          <div class="detail-cover-column">
+            <div class="detail-cover-card">
+              <img src="../oz9/oz9.jpeg" alt="OZ 9 cover art" />
+            </div>
+            <article class="detail-highlight-card">
+              <h2>Archive take</h2>
+              <p>Chaotic, unserious, and easy to understand once you stop waiting for it to behave like a straight sci-fi drama.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <div class="detail-layout">
+      <section class="detail-section">
+        <div class="detail-section-header">
+          <div>
+            <h2>Archive snapshot</h2>
+            <p>Fast context before you give a long-running comedy this much of your time.</p>
+          </div>
+        </div>
+
+        <div class="detail-fact-grid">
+          <article class="detail-fact-card">
+            <h3>Length</h3>
+            <p>5 or 6 seasons, around 20 episodes per season, roughly 54 hours total.</p>
+          </article>
+          <article class="detail-fact-card">
+            <h3>Structure</h3>
+            <p>Bounces around to different characters and places instead of staying locked to one lead.</p>
+          </article>
+          <article class="detail-fact-card">
+            <h3>Narration</h3>
+            <p>Yes. An in-universe character keeps the show stitched together.</p>
+          </article>
+          <article class="detail-fact-card">
+            <h3>Ads</h3>
+            <p>No.</p>
+          </article>
+          <article class="detail-fact-card">
+            <h3>Re-listen</h3>
+            <p>No.</p>
+          </article>
+          <article class="detail-fact-card">
+            <h3>Favorite episode</h3>
+            <p>Season 4, episode 20.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-header">
+          <div>
+            <h2>Score breakdown</h2>
+            <p>The design got sharper; the verdict stayed honest.</p>
+          </div>
+        </div>
+
+        <div class="detail-ratings-grid">
+          <article class="detail-rating-card">
+            <div class="detail-rating-topline"><span>Voice acting</span><span>6/10</span></div>
+            <div class="detail-rating-bar"><div class="detail-rating-fill" style="width: 60%"></div></div>
+          </article>
+          <article class="detail-rating-card">
+            <div class="detail-rating-topline"><span>Sound design</span><span>5/10</span></div>
+            <div class="detail-rating-bar"><div class="detail-rating-fill" style="width: 50%"></div></div>
+          </article>
+          <article class="detail-rating-card">
+            <div class="detail-rating-topline"><span>Story</span><span>6/10</span></div>
+            <div class="detail-rating-bar"><div class="detail-rating-fill" style="width: 60%"></div></div>
+          </article>
+          <article class="detail-rating-card">
+            <div class="detail-rating-topline"><span>Characters</span><span>7/10</span></div>
+            <div class="detail-rating-bar"><div class="detail-rating-fill" style="width: 70%"></div></div>
+          </article>
+          <article class="detail-rating-card">
+            <div class="detail-rating-topline"><span>Ads</span><span>8/10</span></div>
+            <div class="detail-rating-bar"><div class="detail-rating-fill" style="width: 80%"></div></div>
+          </article>
+          <article class="detail-rating-card">
+            <div class="detail-rating-topline"><span>Length</span><span>9.5/10</span></div>
+            <div class="detail-rating-bar"><div class="detail-rating-fill" style="width: 95%"></div></div>
+          </article>
+        </div>
+      </section>
+
+      <blockquote class="detail-quote">
+        &ldquo;A crew of stunningly stupid idiots and a somewhat horny AI.&rdquo;
+        <cite>Archive note</cite>
+      </blockquote>
+
+      <section class="detail-section" id="review-notes">
+        <div class="detail-section-header">
+          <div>
+            <h2>Review notes</h2>
+            <p>Premise first, reaction second, all inside the same visual language as the home page.</p>
+          </div>
+        </div>
+
+        <div class="detail-review-grid">
+          <article class="detail-summary">
+            <h3>Summary</h3>
+            <p><strong>OZ 9</strong> is a space comedy following the wildly incompetent crew of a spaceship called the Oz 9. Built by a shady corporation named Gated Galaxies, the ship was supposedly designed to transport rich people across the universe to colonize new planets, but it becomes clear quickly that that is not its only purpose. The crew are disasters, the AI is deeply unhelpful, and most of the fun comes from watching the whole thing keep getting worse in exactly the dumbest way possible.</p>
+          </article>
+          <article class="detail-thoughts">
+            <h3>Own thoughts</h3>
+            <p>I was not the biggest fan of <em>OZ 9</em> at first. It takes a while to get going, and I usually prefer more serious audio dramas. This is the exact opposite of that. It gets more interesting after the first season, and I get why some people really love it. Not really for me, but not bad either.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="detail-section-header">
+          <div>
+            <h2>Start next</h2>
+            <p>Closest archive neighbors if you want more shipboard nonsense.</p>
+          </div>
+        </div>
+
+        <div class="detail-similar-grid">
+          <article class="detail-similar-card">
+            <img src="../station151/Station151.jpeg" alt="Station 151 cover art" />
+            <div class="detail-card-copy">
+              <h3>Station 151</h3>
+              <p>Isolation comedy with similar willingness to derail itself on purpose.</p>
+              <a class="detail-archive-link" href="../index.html#archive">Browse the archive</a>
+            </div>
+          </article>
+          <article class="detail-similar-card">
+            <img src="../eos10/EOS10.jpeg" alt="EOS 10 cover art" />
+            <div class="detail-card-copy">
+              <h3>EOS 10</h3>
+              <p>Another space-first comedy when you want banter before discipline.</p>
+              <a class="detail-archive-link" href="../index.html#archive">Browse the archive</a>
+            </div>
+          </article>
+          <article class="detail-similar-card">
+            <img src="../wolf359/Wolf359.jpeg" alt="Wolf 359 cover art" />
+            <div class="detail-card-copy">
+              <h3>Wolf 359</h3>
+              <p>A cleaner tonal bridge from comedy into bigger sci-fi stakes.</p>
+              <a class="detail-archive-link" href="../index.html#archive">Browse the archive</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="detail-section detail-episodes-section" id="listen-now" data-default-season="season1">
+        <div class="detail-episode-toolbar">
+          <div>
+            <h2>Episode guide</h2>
+            <p class="detail-episode-note">A cleaner season switcher with a focused set of embeds for each run.</p>
+          </div>
+          <div class="season-filter-group" role="tablist" aria-label="OZ 9 seasons">
+            <button class="season-filter-button" type="button" data-season-target="season1" aria-pressed="false">Season 1</button>
+            <button class="season-filter-button" type="button" data-season-target="season2" aria-pressed="false">Season 2</button>
+            <button class="season-filter-button" type="button" data-season-target="season3" aria-pressed="false">Season 3</button>
+          </div>
+        </div>
+
+        <div class="episode-list">
+          <ul id="episode-list">
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/7e6tFzqtjQ8TeVgnIDw4na?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/6R5sJQVXuEqddDM6qEDTfu?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/4vt5adWqz639XSYbL16yAT?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/25HNJKs2Rn0buPMN1sCCeX?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/1EpcUTpqORfvaqVepZM3Hj?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/3tVa35pa5oQzxRMWeJQKdO?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/6H62BXnluBbUpdFLy4Wp1q?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/61wBt9Xip4qYDl57h8hq1y?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/3I5Nr6EwaCrYMRnZxS4az7?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/1xjAAJZEHS8eY7cOLM0d96?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/34H0iEavqK45oRrqAI5KBc?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season1"><iframe src="https://open.spotify.com/embed/episode/5YqvAt2XAThBrr2INspjSJ?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/7FAyB3F0YlXpH7QSssJfDY?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/6eLRQI8YwVn8SY39xX2CTQ?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/4AM1EEgSIDUhnO1j9mokzN?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/2ua2EbRMG7qZNzYa9QkhE1?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/3TnxoQOL1IzPEeVWuxp36J?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/6rVNEiL5LupelFXw9ivSl2?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/6hg3Z2JiHOcuSh2kMZsf4F?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/0IaYku6cmj70TaPtk8HYXk?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/2uPFktLwNqXz2gscVeuEl6?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/54XND24Luf4O7P8NzzSgZ0?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/2obPY726OlN7pJL0ZtqFzD?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season2"><iframe src="https://open.spotify.com/embed/episode/4IdTHIOC8DGkOUANW87ujz?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/7k7R7bzllThDmnHfbUZzLc?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/1qSkLGMCW1cleBDuX2spKY?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/7N3mlj9TUZPATVTSv9FPQ0?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/1sQ9Joc0gdm7duw78m0jqU?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/0qmZm006et6xAHT7SCI6bI?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/2jqZREMKFf29KqGQ2pgae3?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/5sIhjDAV7cYx0jQoEMM7uz?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/411Pm7Osll0FUjq8gKdl0l?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/7ohgFenyvRuYAsqZJCWXcZ?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/7u87H5XEddLMVc7BGtjjEW?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/3DQ5RjfQyuuVTHmDZhUot0?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+            <li class="season3"><iframe src="https://open.spotify.com/embed/episode/69XVMPXqu7MyfmItcAbkUY?utm_source=generator&amp;theme=0" width="100%" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <button id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+    </svg>
+  </button>
+
+  <footer id="site-footer">
+    <div class="left-content">
+      <img src="../images/C2-dark.png" alt="Continental Studios logo" />
+      <span>A product of Continental Studios</span>
+    </div>
+    <div class="center-content">
+      <p>
+        © 2025 PClaystation |
+        <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">GitHub</a> |
+        <a href="../contact.html">Contact Us</a>
+      </p>
+    </div>
+    <div class="right-content">
+      <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer" aria-label="Support on Patreon">
+        <img src="../images/patreon.svg" alt="Patreon" />
+      </a>
+    </div>
+  </footer>
+
+  <script src="../script.js?v=11"></script>
 </body>
 </html>
