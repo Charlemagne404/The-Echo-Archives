@@ -1,46 +1,58 @@
 # Open Questions
 
-## Architecture
+This file now tracks only the real unresolved decisions that remain after the foundation phase.
 
-- Should the site stay mostly static with versioned JSON files for the next stage, or is there already a good reason to move to a full database-backed catalog?
-- Should the frontend fetch data client-side, or should the backend pre-render selected pages from the catalog?
-- Should `podcast-data.json` be migrated directly into `data/shows.json`, or should it be treated as legacy input and replaced manually during migration?
+Questions that already have roadmap defaults are no longer listed as open.
 
-## Submission workflow
+## Locked Decisions
 
-- Should show submissions keep using Tally for now, or move to GitHub issues, email, or a custom backend flow?
-- How should creator corrections be submitted and tracked?
-- What minimum data is required before a submitted show is allowed into the archive?
+- The site stays JSON-first through the current roadmap.
+- Indexed-only entries remain a normal and permanent archive state.
+- Archive Rating and Community Rating stay separate.
+- The assistant naming standard is `Ask the Archivist`.
+- Accounts, comments, forums, subscriptions, and a heavy CMS remain out of scope for the current roadmap.
 
-## Catalog boundaries
+## Decisions To Resolve In Phase 2
 
-- What exactly counts as an "audio drama" versus a fiction podcast more broadly?
-- Should actual play shows be included?
-- Should non-English shows be included?
-- Should anthology feeds with mixed formats be included?
+- Where is the exact inclusion boundary between audio drama, fiction podcast, and adjacent narrative formats?
+- Will actual play remain out of scope, partially in scope, or collection-specific?
+- Will non-English shows stay out of scope for now, or enter through a limited pilot?
 
-## Editorial model
+Recommended default:
 
-- Should full reviews be required for inclusion, or should indexed-only entries be a normal and permanent part of the archive?
-- How should incomplete data be displayed on show pages?
-- Should episode guides exist for every show, or only for full-review entries?
-- How formal should the curation policy be?
+- keep scope tight until the archive reaches 50+ shows with consistent metadata quality
 
-## Ratings
+## Decisions To Resolve In Phase 3
 
-- Should user ratings remain anonymous indefinitely?
-- At what vote count should a community average become publicly visible?
-- Should Archive Rating and Community Rating always be shown separately?
-- How much anti-spam protection is necessary before public launch?
+- Should runtime filtering use coarse buckets only, or expose more precise listening-commitment ranges?
+- How much recommendation reasoning should be stored as structured data versus written inline in review content?
 
-## Product scope
+Recommended default:
 
-- At what point are accounts actually worth adding?
-- How many shows should be indexed before a broader public launch push?
-- Should there be creator, network, or franchise pages in the first public version?
-- Should "similar to" pages be hand-curated, data-derived, or both?
+- keep filters simple and high-signal first; avoid taxonomy bloat
 
-## Brand and positioning
+## Decisions To Resolve In Phase 4
 
-- Should the footer continue to say "A product of Continental Studios," or is "A Continental project" the better long-term label?
-- Should the chat assistant be fully renamed in the UI to "Ask the Archivist" across the site?
+- What is the minimum acceptable moderation burden for listener reviews before publication becomes too noisy?
+- Should creator verification live as a lightweight badge plus provenance note, or as a fuller metadata audit state?
+
+Recommended default:
+
+- start with the lightest system that still makes source trust visible
+
+## Decisions To Resolve In Phase 5
+
+- Which creators and networks are important enough to deserve dedicated pages first?
+- Should creator notes and Q&A live on show pages, creator pages, or both?
+
+Recommended default:
+
+- only create creator or network pages when they improve discovery for multiple shows
+
+## Revisit Later, Not During This Timeline
+
+- accounts
+- public API
+- advanced recommendation engine
+- native mobile apps
+- paid features

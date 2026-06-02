@@ -1,56 +1,64 @@
 # Feature Priorities
 
-## Must-have for public MVP
+This file now supports the unified roadmap in `DEVELOPMENT_TIMELINE.md`.
 
-- searchable catalog
-- dynamic show cards rendered from structured data
-- reusable show pages
-- curated collections
-- submit show page
-- archive stats
-- clear about page
-- spoiler-free reviews
-- listen links
-- clear distinction between indexed shows and full reviews
+The old MVP list is largely complete. The priorities below are the next-stage priorities from the current live baseline to the final vision.
 
-## Should-have soon
+## Priority 1 - Stabilize And Signal Trust
 
-- Ask the Archivist polish
-- community ratings polish
+- archive stats on the homepage
+- visible last-updated or changelog signal
+- consistent Ask the Archivist naming
+- metadata cleanup and broken-link cleanup
+- documented correction and submission handling
+
+## Priority 2 - Expand Useful Coverage
+
+- grow from 27 to 50+ indexed shows
+- grow from 3 to 8 to 10 full reviews
+- grow from 6 to 10+ collections
+- lock controlled vocabulary v1
+- add recommendation reasons
+
+## Priority 3 - Improve Discovery Quality
+
+- stronger filters for completion status, review status, runtime, and best-for
+- recently added and recently updated views
+- better collection browse depth
+- better empty-state recovery paths
+
+## Priority 4 - Add Safe Community And Creator Input
+
+- listener review intake with moderation
+- creator verification for factual metadata
+- clearer distinction between archive rating and community rating
+- anti-spam protection for public contribution paths
+
+## Priority 5 - Deepen Archive Context
+
 - creator pages
 - network pages
-- completion-status filters
-- "best for long walks" collection
-- "similar to" recommendation pages
-- recently added section
-- better archive update signals
+- richer changelog
+- creator notes or Q&A in a clearly separate format
+- stronger similar-show and collection relationships
 
-## Later
+## Explicitly Deferred
 
-- accounts
-- personal listen lists
-- user reviews
-- advanced recommendation engine
-- creator claim or verification
-- moderation dashboard
-- public API
-- richer editorial series or guides
-
-## Explicitly not now
-
-- streaming or audio hosting
-- forums
-- comments
-- complex social network features
+- user accounts
+- comments or forums
 - paid subscriptions
-- creator marketplace
-- massive authentication system
-- overcomplicated analytics stack
+- native mobile apps
+- public API
+- full CMS migration
+- heavyweight moderation dashboard
+- advanced recommendation engine beyond grounded archive logic
 
-## Why this matters
+## Scope Rule
 
-The biggest risk is scope creep. The next milestone is not "build everything a media platform could someday have."
+The archive still wins on:
 
-The next milestone is:
+- better catalog judgment
+- better discovery paths
+- better trust signals
 
-**Turn the current site into a maintainable, data-driven discovery archive that is already useful on its own.**
+It does not win by racing toward generic platform features too early.

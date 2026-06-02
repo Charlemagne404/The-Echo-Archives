@@ -58,3 +58,5 @@ Product and architecture notes still live in [`docs/`](docs):
 - [`docs/BRANDING.md`](docs/BRANDING.md)
 - [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md)
 - [`docs/IMPLEMENTATION_CHECKLIST.md`](docs/IMPLEMENTATION_CHECKLIST.md)
+- [`docs/MOBILE_QA.md`](docs/MOBILE_QA.md)
+- [`docs/LAUNCH_PLAN.md`](docs/LAUNCH_PLAN.md)

@@ -2,262 +2,131 @@
 
 ## Summary
 
-The current project is a mostly static website with a small Node/Express service in `podcast-ai/` that serves three roles:
+The project is now a structured, mostly static archive with a small Node/Express backend in `podcast-ai/`.
 
-- same-origin archive chat API
-- anonymous community ratings API
-- optional static file server for the frontend
+The system has three clear layers:
 
-The frontend already has a strong visual direction. The main architectural weakness is that catalog data is duplicated across handwritten HTML and JSON, with the backend reading the HTML as an input source.
+- a static frontend with reusable routes
+- structured catalog data in `data/`
+- backend services for chat, submissions, ratings, and sitemap support
 
-## Static frontend
+The main architecture problem is no longer "how do we migrate away from handwritten catalog truth."
 
-The site root is a static frontend built from:
+The main architecture problem is now "how do we scale trust, metadata quality, moderation, and discovery depth without overbuilding."
 
-- `index.html`
-- `script.js`
-- `style.css`
-- `home.css`
-- `detail.css`
+## Frontend
 
-Assets live in show-specific folders plus `images/`.
+Primary public routes:
 
-The root homepage is fully handwritten HTML. It is not rendered from structured catalog data at runtime.
-
-## Homepage
-
-`index.html` contains:
-
-- brand header and nav
-- hero copy
-- search field
-- dropdown tag filters
-- quick genre chips
-- a hardcoded grid of podcast cards
-- three hardcoded collection cards
-- chat drawer UI
-- Continental-branded footer
+- `/`
+- `/collections.html`
+- `/collection.html?id=<collection-id>`
+- `/show.html?id=<show-id>`
+- `/about.html`
+- `/submit.html`
 
-The page already communicates the right product direction, especially the headline "Find your next audio obsession."
-
-## Podcast cards
-
-The homepage currently hardcodes **27** podcast cards directly in HTML.
-
-Each card contains:
-
-- title
-- href
-- image path
-- visible tags
-- visible editorial rating
-- `data-tags` metadata
-
-Only **3** linked detail pages actually exist right now:
+The frontend remains lightweight and largely static in presentation, but it now renders browse and show state from structured catalog data instead of handwritten card grids.
 
-- `Impact Winter/impact-winter.html`
-- `ars paradoxica/ars-paradoxica.html`
-- `oz9/oz9.html`
+## Structured Catalog
 
-The remaining **24** indexed shows are browseable in the grid but do not have real detail pages yet.
+The editorial source of truth lives in:
 
-Indexed shows today:
+- `data/shows.json`
+- `data/collections.json`
+- `data/schema.md`
 
-- Solar
-- Story
-- From Now
-- The Deca Tapes
-- Earth Eclipsed
-- Vast Horizon
-- How I Died
-- Windfall
-- The Waystation
-- We're Alive
-- Impact Winter
-- Oz 9
-- Ars Paradoxica
-- Red Valley
-- The White Vault
-- EOS 10
-- Desert Skies
-- Wolf 359
-- Station 151
-- Midnight Burger
-- Spectre
-- The Phenomenon
-- Paralyzed
-- Derelict
-- Crystal Blues
-- End of all Hope
-- Tower 4
+`script.js` loads the catalog and collections client-side for homepage, show-page, and collection-page rendering.
 
-## Detail pages
+Current baseline:
 
-There are currently 3 static show pages:
+- 27 show records
+- 6 collection records
+- 3 full reviews
 
-- `Impact Winter/impact-winter.html`
-- `ars paradoxica/ars-paradoxica.html`
-- `oz9/oz9.html`
+## Show And Collection Rendering
 
-These pages reuse the shared header, footer, chat drawer, and JS bundle, but their page bodies are manually authored. They are not generated from a shared show template.
+The archive now uses reusable routes:
 
-The current detail page structure is much cleaner than the older one-off inline-style approach, but it is still duplicated page-by-page.
+- `show.html` for show pages
+- `collection.html` for individual collections
+- `collections.html` for collection browse
 
-## `podcast-data.json`
+Legacy detail pages still exist as compatibility entry points, but the reusable routes are the real product path.
 
-`podcast-data.json` currently stores detailed review data for **3** shows:
+## Backend
 
-- Impact Winter
-- Ars Paradoxica
-- OZ 9
+`podcast-ai/server.js` serves:
 
-Each entry contains fields such as:
+- catalog-grounded archive chat
+- anonymous community ratings
+- submission and correction intake
+- generated sitemap support
+- optional static file serving
 
-- title
-- category ratings
-- final rating
-- tags
-- length
-- structure
-- narrator
-- ads
-- would re-listen
-- favorite episodes
-- quote
-- summary
-- thoughts
-- best-for
-- similar-to
+Current API areas include:
 
-This file contains richer catalog information than the homepage cards, but only for a small subset of the indexed shows.
+- health
+- chat
+- community ratings
+- submissions
 
-## `script.js`
+## Catalog Loading
 
-`script.js` handles most interactive behavior:
+`podcast-ai/lib/catalog.js` now loads structured catalog data directly from `data/shows.json` and `data/collections.json`.
 
-- homepage search and filtering
-- quick filter chips
-- hiding links for cards without live review pages
-- results count updates
-- collection filter buttons
-- chat drawer open/close, persistence, suggestions, and API calls
-- detail-page episode season switching
-- back-to-top button
-- community rating UI for detail pages
+It validates:
 
-Important current behavior:
+- unique ids
+- known enum values
+- valid URLs
+- duplicate taxonomy terms
+- `similarTo` references
+- collection references
 
-- The homepage uses a hardcoded `liveReviewPaths` set to decide which cards stay clickable.
-- Cards without live reviews have their `href` removed in the browser and become disabled.
-- Search/filter behavior works only against DOM content already present on the page.
+This is a major improvement over the older HTML-scraping approach.
 
-There is also code for homepage community-rating widgets on archive cards, but it is not currently wired into the homepage initialization flow. The visible homepage ratings are still hardcoded editorial values from the HTML cards.
+## Community Layer
 
-## Filters and search
+Community ratings are real backend-backed data.
 
-Search and filters are entirely client-side.
+The archive currently supports:
 
-Current inputs are handwritten in HTML:
+- anonymous profile creation
+- rating submission and removal
+- rating summary fetches
+- client-side persistence for anonymous identity
 
-- search input
-- filter dropdown buttons
-- quick filter buttons
-- three collection cards
+The next-stage challenge is not basic ratings support.
 
-Current filter tags are not generated from a controlled vocabulary or shared data model. They are maintained manually in the markup.
+It is handling trust, thresholds, anti-spam, and moderation cleanly as public use increases.
 
-## Community ratings
+## Submission Layer
 
-Community ratings exist as a real backend-backed feature.
+The archive has a first-party submit flow with correction support.
 
-Frontend behavior:
+That gives the roadmap a real intake surface already. The next work is to turn intake into a reliable editorial workflow instead of just a form destination.
 
-- detail pages mount a community rating panel dynamically
-- users can rate from 1 to 10
-- users can clear their rating
-- profile identity is anonymous and persisted in `localStorage`
+## Testing And Quality
 
-Backend behavior:
+There is already backend test coverage for:
 
-- ratings are keyed by `podcastId`
-- rating summaries include average, count, user rating, and distribution
-- submissions are tracked as upserts per anonymous profile
-- rating events are stored separately for history
+- catalog loading
+- sitemap generation
+- submission flows
+- community flows
 
-This is a meaningful feature already, but it still depends on the current catalog loading approach.
+The roadmap should extend that safety net as discovery and moderation logic grows.
 
-## Chat assistant
+## Current Gaps
 
-The site includes a shared "Ask the archive" chat drawer.
+The important current gaps are:
 
-Frontend:
-
-- stores chat history in `localStorage`
-- calls `/api/chat/health`
-- sends prompts to `/api/chat`
-- shows suggested follow-up prompts
-
-Backend:
-
-- ranks catalog matches using simple heuristic scoring
-- optionally sends a grounded prompt to Ollama
-- falls back to deterministic recommendation text when Ollama is unavailable or the query is vague
-
-Important constraint:
-
-The assistant can only recommend from the locally loaded archive catalog. That is good. The issue is that the catalog source is still partially derived from HTML.
-
-## `podcast-ai/` backend
-
-`podcast-ai/server.js` boots the Express app.
-
-Current API surface:
-
-- `GET /api/health`
-- `GET /api/chat/health`
-- `POST /api/chat`
-- `POST /api/community/profiles/anonymous`
-- `GET /api/community/ratings/summary`
-- `PUT /api/community/podcasts/:podcastId/rating`
-- `DELETE /api/community/podcasts/:podcastId/rating`
-
-If `SERVE_STATIC` is enabled, the same Express process also serves the static site from the repo root.
-
-## Catalog loading
-
-This is the biggest architectural note in the current system.
-
-`podcast-ai/lib/catalog.js` does the following:
-
-1. reads `index.html`
-2. parses podcast cards out of the homepage HTML with regex
-3. reads `podcast-data.json`
-4. merges the JSON detail data onto the parsed homepage card records
-5. checks whether the card href points to an existing page
-6. builds a derived catalog used by chat and community features
-
-That means the current source of truth is effectively split across:
-
-- homepage HTML
-- `podcast-data.json`
-- the presence or absence of actual detail page files
-
-This is acceptable for the current version, but it is not scalable or safe for a larger archive.
-
-## SQLite database
-
-The backend uses SQLite via `better-sqlite3`.
-
-Current tables:
-
-- `podcasts`
-- `community_profiles`
-- `rating_submissions`
-- `rating_events`
-
-Catalog entries are synced into the `podcasts` table from the merged in-memory catalog on service startup.
-
-The database is therefore not the canonical catalog source. It is currently a supporting store for community features.
+- limited catalog breadth relative to the final vision
+- limited full-review coverage
+- limited discovery depth on top of the catalog
+- limited visible archive activity signals
+- no listener-review moderation layer yet
+- no creator or network browse layer yet
 
 ## Submit/contact flow
 
