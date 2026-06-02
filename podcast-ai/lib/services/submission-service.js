@@ -1,9 +1,11 @@
 function createSubmissionService({
   store,
+  knownShowIds = null,
   throttleWindowMs = 60 * 60 * 1000,
   maxSubmissionsPerWindow = 3,
 }) {
   const recentByIp = new Map();
+  const allowedSubmissionTypes = new Set(["show", "correction"]);
 
   function trimString(value, maxLength = 2000) {
     return String(value || "").trim().slice(0, maxLength);
@@ -45,6 +47,8 @@ function createSubmissionService({
   }
 
   function submitShow({
+    submissionType,
+    existingShowId,
     showTitle,
     creatorName,
     contactEmail,
@@ -65,6 +69,8 @@ function createSubmissionService({
 
     checkThrottle(sourceIp);
 
+    const normalizedSubmissionType = allowedSubmissionTypes.has(submissionType) ? submissionType : "show";
+    const normalizedExistingShowId = trimString(existingShowId, 120);
     const normalizedShowTitle = trimString(showTitle, 160);
     const normalizedCreatorName = trimString(creatorName, 160);
     const normalizedContactEmail = trimString(contactEmail, 160).toLowerCase();
@@ -77,6 +83,20 @@ function createSubmissionService({
       const error = new Error("Show title is required.");
       error.statusCode = 400;
       throw error;
+    }
+
+    if (normalizedSubmissionType === "correction") {
+      if (!normalizedExistingShowId) {
+        const error = new Error("Choose the existing archive entry you are correcting.");
+        error.statusCode = 400;
+        throw error;
+      }
+
+      if (knownShowIds instanceof Set && !knownShowIds.has(normalizedExistingShowId)) {
+        const error = new Error("Unknown archive entry selected for correction.");
+        error.statusCode = 400;
+        throw error;
+      }
     }
 
     if (!normalizedContactEmail || !isValidEmail(normalizedContactEmail)) {
@@ -99,6 +119,8 @@ function createSubmissionService({
 
     const submission = store.createShowSubmission({
       status: "new",
+      submissionType: normalizedSubmissionType,
+      existingShowId: normalizedExistingShowId,
       showTitle: normalizedShowTitle,
       creatorName: normalizedCreatorName,
       contactEmail: normalizedContactEmail,

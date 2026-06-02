@@ -42,6 +42,7 @@ function createCommunityRouter({ communityService, config }) {
         profileId: getProfileId(req),
         userAgent: req.get("user-agent") || "",
         source: "web",
+        sourceIp: req.ip || "",
       });
       res.json(result);
     } catch (error) {
@@ -56,6 +57,7 @@ function createCommunityRouter({ communityService, config }) {
         profileId: getProfileId(req),
         userAgent: req.get("user-agent") || "",
         source: "web",
+        sourceIp: req.ip || "",
       });
       res.json(result);
     } catch (error) {

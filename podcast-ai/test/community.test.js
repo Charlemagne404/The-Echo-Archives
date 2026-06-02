@@ -86,3 +86,39 @@ test("community ratings can be removed for a profile", () => {
   db.close();
   fs.rmSync(tempDir, { recursive: true, force: true });
 });
+
+test("community rating writes are throttled after the configured burst limit", () => {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-"));
+  const dbPath = path.join(tempDir, "community.sqlite");
+  const db = openDatabase(dbPath);
+  const catalog = loadCatalog(siteRoot);
+  const store = createCommunityStore({ db, catalog });
+  const community = createCommunityService({
+    store,
+    writeThrottleWindowMs: 60_000,
+    maxWritesPerWindow: 2,
+  });
+
+  const profileId = community.createAnonymousProfile(null, "test-agent").profileId;
+  const basePayload = {
+    podcastId: "impact-winter",
+    profileId,
+    userAgent: "test-agent",
+    sourceIp: "127.0.0.1",
+  };
+
+  community.submitRating({ ...basePayload, rating: 9 });
+  community.submitRating({ ...basePayload, rating: 8 });
+
+  assert.throws(
+    () => {
+      community.removeRating(basePayload);
+    },
+    {
+      message: /too many rating actions/i,
+    },
+  );
+
+  db.close();
+  fs.rmSync(tempDir, { recursive: true, force: true });
+});

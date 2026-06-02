@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submit a Show - The Echo Archives</title>
+  <title>Collections - The Echo Archives</title>
   <meta
     name="description"
-    content="Submit a fiction podcast or audio drama to The Echo Archives review queue."
+    content="Browse every curated discovery collection in The Echo Archives."
   />
-  <link rel="canonical" href="https://echo.continental-hub.com/submit.html" />
+  <link rel="canonical" href="https://echo.continental-hub.com/collections.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Submit a Show - The Echo Archives" />
-  <meta property="og:description" content="Submit a fiction podcast or audio drama to The Echo Archives review queue." />
-  <meta property="og:url" content="https://echo.continental-hub.com/submit.html" />
+  <meta property="og:title" content="Collections - The Echo Archives" />
+  <meta property="og:description" content="Browse every curated discovery collection in The Echo Archives." />
+  <meta property="og:url" content="https://echo.continental-hub.com/collections.html" />
   <meta property="og:image" content="https://echo.continental-hub.com/images/Logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Submit a Show - The Echo Archives" />
-  <meta name="twitter:description" content="Submit a fiction podcast or audio drama to The Echo Archives review queue." />
+  <meta name="twitter:title" content="Collections - The Echo Archives" />
+  <meta name="twitter:description" content="Browse every curated discovery collection in The Echo Archives." />
   <meta name="twitter:image" content="https://echo.continental-hub.com/images/Logo.png" />
   <link rel="stylesheet" href="style.css?v=12" />
   <link rel="stylesheet" href="home.css?v=12" />
   <link rel="icon" href="images/TEA-Logo-S-W.png" type="image/x-icon" />
 </head>
-<body class="home-page submit-page info-page">
+<body class="home-page collections-page info-page">
   <header class="site-header">
     <a class="site-brand" href="/index.html" aria-label="The Echo Archives home">
       <img src="images/Horizontal-Logo-W.png" alt="The Echo Archives" />
@@ -30,9 +30,9 @@
 
     <nav class="site-nav" aria-label="Primary">
       <a href="/index.html#browse">Browse</a>
-      <a href="/collections.html">Collections</a>
+      <a class="is-active" href="/collections.html">Collections</a>
       <a href="/about.html">About</a>
-      <a class="is-active" href="/submit.html">Submit</a>
+      <a href="/submit.html">Submit</a>
     </nav>
 
     <div class="header-actions">
@@ -75,84 +75,34 @@
     <section class="hero-shell">
       <div class="hero-panel page-panel">
         <div class="hero-copy">
-          <h1>Submit a show</h1>
+          <h1>Collections built for actual listening intent</h1>
           <p>
-            Send a fiction podcast or audio drama into the archive review queue. This is not an auto-publish form. The catalog stays curated.
+            Browse the archive by route instead of scrolling blind. These collections stay hand-curated and meant to feel like useful starting points.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="page-stack">
-      <article class="page-card">
-        <h2>Archive intake</h2>
-        <p>Give the archive enough to verify the show and place it correctly. A contact email plus either an official site or an RSS/listen link is required.</p>
+    <section class="page-grid">
+      <article class="page-card stat-card">
+        <span class="page-card-kicker">Collections</span>
+        <strong id="collectionsCount">-</strong>
       </article>
-
-      <article class="page-card">
-        <form id="showSubmitForm" class="submit-form">
-          <label>
-            <span>Submission type</span>
-            <select id="submissionType" name="submissionType">
-              <option value="show">Submit a new show</option>
-              <option value="correction">Send a correction to an existing entry</option>
-            </select>
-          </label>
-
-          <label id="existingShowField" hidden>
-            <span>Existing archive entry</span>
-            <select id="existingShowId" name="existingShowId">
-              <option value="">Choose a show</option>
-            </select>
-          </label>
-
-          <label>
-            <span>Show title</span>
-            <input type="text" name="showTitle" required maxlength="160" />
-          </label>
-
-          <label>
-            <span>Creator or network</span>
-            <input type="text" name="creatorName" maxlength="160" />
-          </label>
-
-          <label>
-            <span>Contact email</span>
-            <input type="email" name="contactEmail" required maxlength="160" />
-          </label>
-
-          <label>
-            <span>Official site</span>
-            <input type="url" name="officialSite" placeholder="https://example.com" />
-          </label>
-
-          <label>
-            <span>RSS or listen link</span>
-            <input type="url" name="rssOrListenLink" placeholder="https://example.com/feed" />
-          </label>
-
-          <label>
-            <span>Genres or tags</span>
-            <input type="text" name="genres" maxlength="300" placeholder="sci-fi, mystery, comedy" />
-          </label>
-
-          <label>
-            <span>Why it belongs in the archive</span>
-            <textarea name="notes" rows="7" maxlength="4000" placeholder="Give the archive context about tone, format, strengths, and who it fits."></textarea>
-          </label>
-
-          <label class="hp-field" aria-hidden="true">
-            <span>Website</span>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" />
-          </label>
-
-          <div class="submit-form-actions">
-            <button type="submit" class="detail-primary-action">Submit to the archive</button>
-            <p id="submitStatus" class="submit-status" aria-live="polite">Nothing submitted yet.</p>
-          </div>
-        </form>
+      <article class="page-card stat-card">
+        <span class="page-card-kicker">Featured</span>
+        <strong id="collectionsFeaturedCount">-</strong>
+      </article>
+      <article class="page-card stat-card">
+        <span class="page-card-kicker">Shows covered</span>
+        <strong id="collectionsShowReach">-</strong>
+      </article>
+      <article class="page-card stat-card">
+        <span class="page-card-kicker">Last updated</span>
+        <strong id="collectionsLastUpdated">-</strong>
       </article>
     </section>
+
+    <section id="collectionsDirectory" class="collection-directory-grid" aria-label="Collection directory"></section>
   </main>
 
   <button id="backToTop" type="button" aria-label="Back to top">
@@ -170,8 +120,8 @@
       <p>
         © 2026 PClaystation |
         <a href="/index.html">Browse the archive</a> |
-        <a href="/collections.html">Collections</a> |
-        <a href="/about.html">About the archive</a>
+        <a href="/about.html">About the archive</a> |
+        <a href="/submit.html">Submit a show</a>
       </p>
     </div>
     <div class="right-content">

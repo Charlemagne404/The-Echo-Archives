@@ -6,6 +6,8 @@ function createSubmissionStore({ db }) {
       INSERT INTO show_submissions (
         id,
         status,
+        submission_type,
+        existing_show_id,
         show_title,
         creator_name,
         contact_email,
@@ -18,6 +20,8 @@ function createSubmissionStore({ db }) {
       ) VALUES (
         @id,
         @status,
+        @submissionType,
+        @existingShowId,
         @showTitle,
         @creatorName,
         @contactEmail,
@@ -33,6 +37,8 @@ function createSubmissionStore({ db }) {
       SELECT
         id,
         status,
+        submission_type,
+        existing_show_id,
         submitted_at,
         show_title,
         creator_name,
@@ -54,6 +60,8 @@ function createSubmissionStore({ db }) {
     statements.insertShowSubmission.run({
       id,
       status: payload.status || "new",
+      submissionType: payload.submissionType || "show",
+      existingShowId: payload.existingShowId || "",
       showTitle: payload.showTitle,
       creatorName: payload.creatorName || "",
       contactEmail: payload.contactEmail,

@@ -2,7 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
 
-const { loadCatalog, loadCollections, scoreCatalog } = require("../lib/catalog");
+const { loadCatalog, loadCollections, resolveCollectionView, scoreCatalog } = require("../lib/catalog");
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/chat");
 
 const siteRoot = path.resolve(__dirname, "../..");
@@ -27,6 +27,43 @@ test("loadCollections reads curated collections against the catalog ids", () => 
 
   assert.equal(collections.length, 6);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
+});
+
+test("resolveCollectionView returns published shows for a known collection", () => {
+  const collection = {
+    id: "test-collection",
+    title: "Test collection",
+    description: "Description",
+    showIds: ["published-show", "draft-show"],
+  };
+  const catalog = [
+    { id: "published-show", status: "published", title: "Published Show" },
+    { id: "draft-show", status: "draft", title: "Draft Show" },
+  ];
+
+  const result = resolveCollectionView({
+    catalog,
+    collections: [collection],
+    collectionId: "test-collection",
+  });
+
+  assert.equal(result.collection.id, "test-collection");
+  assert.deepEqual(result.shows.map((show) => show.id), ["published-show"]);
+});
+
+test("resolveCollectionView rejects unknown collections", () => {
+  assert.throws(
+    () => {
+      resolveCollectionView({
+        catalog: [],
+        collections: [],
+        collectionId: "missing-collection",
+      });
+    },
+    {
+      message: /unknown collection/i,
+    },
+  );
 });
 
 test("scoreCatalog ranks relevant matches first", () => {

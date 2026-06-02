@@ -12,6 +12,7 @@ The repo now uses a JSON-first catalog:
 - `podcast-ai/` serves the static site, archive chat API, anonymous community ratings, and the first-party show submission endpoint
 
 The visual language stays largely static, but the homepage, show pages, chat grounding, and community features now read from the same catalog records.
+Collections now have first-class browse routes, the submit flow also accepts correction-mode intake for existing entries, and the site exposes `robots.txt` plus a generated sitemap.
 
 ## Local development
 
@@ -36,9 +37,11 @@ npm test
 ## Main routes
 
 - `/` - data-driven homepage
+- `/collections.html` - browse all curated collections
+- `/collection.html?id=<collection-id>` - reusable collection page
 - `/show.html?id=<show-id>` - reusable show page
 - `/about.html` - curation and rating policy
-- `/submit.html` - first-party show submission form
+- `/submit.html` - new-show and correction intake form
 
 Legacy full-review URLs still exist as redirects to `show.html`.
 

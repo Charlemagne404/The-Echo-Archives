@@ -1,5 +1,6 @@
 const SHOWS_DATA_URL = "/data/shows.json";
 const COLLECTIONS_DATA_URL = "/data/collections.json";
+const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 const CHAT_STORAGE_KEY = "echo-archives-chat-v2";
 const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
@@ -15,6 +16,7 @@ const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survi
 const dataCache = {
   shows: null,
   collections: null,
+  communitySummaries: new Map(),
 };
 
 const chatState = {
@@ -54,6 +56,14 @@ async function initializeApp() {
     await initializeShowPage();
   }
 
+  if (document.body.classList.contains("collections-page")) {
+    await initializeCollectionsPage();
+  }
+
+  if (document.body.classList.contains("collection-page")) {
+    await initializeCollectionPage();
+  }
+
   if (document.body.classList.contains("about-page")) {
     await initializeAboutPage();
   }
@@ -89,6 +99,32 @@ async function loadCollections() {
 
   dataCache.collections = await fetchJson(COLLECTIONS_DATA_URL);
   return dataCache.collections;
+}
+
+function getPublishedShows(shows) {
+  return shows.filter((show) => show.status === "published");
+}
+
+function buildCollectionMap(collections) {
+  return new Map(collections.map((collection) => [collection.id, collection]));
+}
+
+function getCollectionShows(collection, showMap) {
+  if (!collection) {
+    return [];
+  }
+
+  return collection.showIds
+    .map((showId) => showMap.get(showId))
+    .filter((show) => show && show.status === "published");
+}
+
+function createCollectionHref(collectionId) {
+  return `/collection.html?id=${encodeURIComponent(collectionId)}`;
+}
+
+function createArchiveCollectionHref(collectionId) {
+  return `/index.html?collection=${encodeURIComponent(collectionId)}#archive`;
 }
 
 function normalizeShowRecord(record) {
@@ -192,7 +228,7 @@ async function initializeHomePage() {
   const filterTags = getVisibleFilterTags(shows);
   const quickFilters = getQuickFilters(filterTags);
   const featuredCollections = collections.filter((collection) => collection.featured);
-  const collectionsById = new Map(collections.map((collection) => [collection.id, collection]));
+  const collectionsById = buildCollectionMap(collections);
 
   const state = {
     query: "",
@@ -200,6 +236,11 @@ async function initializeHomePage() {
     selectedCollectionId: "",
     topRatedOnly: false,
   };
+
+  const initialCollectionId = new URLSearchParams(window.location.search).get("collection") || "";
+  if (collectionsById.has(initialCollectionId)) {
+    state.selectedCollectionId = initialCollectionId;
+  }
 
   renderFilterOptions();
   renderQuickFilters();
@@ -311,24 +352,12 @@ async function initializeHomePage() {
       const description = document.createElement("p");
       description.textContent = collection.description;
 
-      const button = document.createElement("button");
-      button.className = "collection-action";
-      button.type = "button";
-      button.dataset.collectionId = collection.id;
-      button.textContent = "Browse collection";
-      button.addEventListener("click", () => {
-        if (state.selectedCollectionId === collection.id) {
-          state.selectedCollectionId = "";
-        } else {
-          state.selectedCollectionId = collection.id;
-        }
-        state.selectedTags.clear();
-        state.topRatedOnly = false;
-        renderHomeResults();
-        document.getElementById("archive")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+      const link = document.createElement("a");
+      link.className = "collection-action";
+      link.href = createCollectionHref(collection.id);
+      link.textContent = "Browse collection";
 
-      card.append(kicker, title, description, button);
+      card.append(kicker, title, description, link);
       collectionGrid.appendChild(card);
     });
   }
@@ -365,10 +394,13 @@ async function initializeHomePage() {
       archiveGrid.appendChild(createShowCard(show));
     });
 
+    void syncCommunityCardBadges(archiveGrid, visibleShows);
+
     if (resultsSummary) {
       const fullReviewCount = visibleShows.filter((show) => show.reviewStatus === "full-review").length;
       const suffix = fullReviewCount === 1 ? "full review" : "full reviews";
-      resultsSummary.textContent = `${visibleShows.length} results • ${fullReviewCount} ${suffix}`;
+      const collectionPrefix = selectedCollection ? `${selectedCollection.title} • ` : "";
+      resultsSummary.textContent = `${collectionPrefix}${visibleShows.length} results • ${fullReviewCount} ${suffix}`;
     }
 
     if (noResultsMsg) {
@@ -401,12 +433,6 @@ async function initializeHomePage() {
       button.setAttribute("aria-pressed", String(isActive));
     });
 
-    collectionGrid.querySelectorAll(".collection-action").forEach((button) => {
-      const isActive = button.dataset.collectionId === state.selectedCollectionId;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
-    });
-
     if (filterCount) {
       filterCount.hidden = selectedCount === 0;
       filterCount.textContent = String(selectedCount);
@@ -421,6 +447,7 @@ async function initializeHomePage() {
 function createShowCard(show) {
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
+  shell.dataset.podcastId = show.id;
 
   const card = document.createElement("a");
   card.className = "podcast-card";
@@ -451,7 +478,12 @@ function createShowCard(show) {
   rating.textContent = `${formatRating(show.finalRating)}/10`;
 
   card.append(image, title, tags, rating);
-  shell.appendChild(card);
+  const communityBadge = document.createElement("p");
+  communityBadge.className = "community-card-badge";
+  communityBadge.dataset.podcastId = show.id;
+  communityBadge.hidden = true;
+
+  shell.append(card, communityBadge);
   return shell;
 }
 
@@ -473,14 +505,14 @@ async function initializeShowPage() {
     return;
   }
 
-  document.title = `${show.title} - The Echo Archives`;
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute("content", show.description);
-  }
-
   document.body.style.setProperty("--detail-accent", show.accent?.hex || "#e54838");
   document.body.style.setProperty("--detail-accent-rgb", show.accent?.rgb || "229, 72, 56");
+  updateDocumentMetadata({
+    title: `${show.title} - The Echo Archives`,
+    description: show.description,
+    path: `/show.html?id=${encodeURIComponent(show.id)}`,
+    image: `/${show.cover}`,
+  });
 
   showRoot.innerHTML = createShowPageMarkup(show, showMap);
   const detailRoot = showRoot.querySelector(".podcast-detail");
@@ -492,7 +524,12 @@ async function initializeShowPage() {
 }
 
 function renderMissingShowPage(showRoot) {
-  document.title = "Show not found - The Echo Archives";
+  updateDocumentMetadata({
+    title: "Show not found - The Echo Archives",
+    description: "The requested Echo Archives show page could not be found.",
+    path: "/show.html",
+    image: DEFAULT_SOCIAL_IMAGE,
+  });
   showRoot.innerHTML = `
     <section class="detail-main podcast-detail">
       <section class="detail-section detail-empty-state">
@@ -506,6 +543,138 @@ function renderMissingShowPage(showRoot) {
       </section>
     </section>
   `;
+}
+
+async function initializeCollectionsPage() {
+  const shows = await loadShows();
+  const collections = await loadCollections();
+  const publishedShows = getPublishedShows(shows);
+  const showMap = buildShowMap(publishedShows);
+  const directoryRoot = document.getElementById("collectionsDirectory");
+
+  if (!directoryRoot) {
+    return;
+  }
+
+  const featuredCount = collections.filter((collection) => collection.featured).length;
+  const coveredShowIds = new Set(collections.flatMap((collection) => collection.showIds));
+  const latestUpdatedAt = collections
+    .map((collection) => collection.updatedAt)
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+
+  setTextContent("collectionsCount", String(collections.length));
+  setTextContent("collectionsFeaturedCount", String(featuredCount));
+  setTextContent("collectionsShowReach", String(coveredShowIds.size));
+  setTextContent("collectionsLastUpdated", latestUpdatedAt ? formatDate(latestUpdatedAt) : "Unknown");
+
+  directoryRoot.textContent = "";
+  collections.forEach((collection) => {
+    directoryRoot.appendChild(createCollectionDirectoryCard(collection, getCollectionShows(collection, showMap)));
+  });
+}
+
+function createCollectionDirectoryCard(collection, shows) {
+  const article = document.createElement("article");
+  article.className = "page-card collection-directory-card";
+
+  const kicker = document.createElement("p");
+  kicker.className = "page-card-kicker";
+  kicker.textContent = collection.featured ? "Featured collection" : "Collection";
+
+  const title = document.createElement("h2");
+  title.textContent = collection.title;
+
+  const description = document.createElement("p");
+  description.textContent = collection.description;
+
+  const meta = document.createElement("p");
+  meta.className = "collection-directory-meta";
+  meta.textContent = `${shows.length} shows • ${collection.kind || "curated"}`;
+
+  const actions = document.createElement("div");
+  actions.className = "collection-directory-actions";
+
+  const collectionLink = document.createElement("a");
+  collectionLink.className = "collection-action";
+  collectionLink.href = createCollectionHref(collection.id);
+  collectionLink.textContent = "Open collection";
+
+  const archiveLink = document.createElement("a");
+  archiveLink.className = "collection-secondary-link";
+  archiveLink.href = createArchiveCollectionHref(collection.id);
+  archiveLink.textContent = "Browse in archive";
+
+  actions.append(collectionLink, archiveLink);
+  article.append(kicker, title, description, meta, actions);
+  return article;
+}
+
+async function initializeCollectionPage() {
+  const shows = await loadShows();
+  const collections = await loadCollections();
+  const publishedShows = getPublishedShows(shows);
+  const showMap = buildShowMap(publishedShows);
+  const collectionMap = buildCollectionMap(collections);
+
+  const collectionId = new URLSearchParams(window.location.search).get("id") || "";
+  const collection = collectionMap.get(collectionId);
+  const root = document.getElementById("collectionRoot");
+  const grid = document.getElementById("collectionShowGrid");
+  const archiveSection = document.getElementById("collectionArchiveSection");
+
+  if (!root || !grid || !archiveSection) {
+    return;
+  }
+
+  if (!collection) {
+    updateDocumentMetadata({
+      title: "Collection not found - The Echo Archives",
+      description: "The requested Echo Archives collection could not be found.",
+      path: "/collection.html",
+      image: DEFAULT_SOCIAL_IMAGE,
+    });
+    root.innerHTML = `
+      <article class="page-card">
+        <h2>Collection not found</h2>
+        <p>The requested collection is missing or has not been published yet.</p>
+        <div class="collection-directory-actions">
+          <a class="collection-action" href="/collections.html">Browse collections</a>
+          <a class="collection-secondary-link" href="/index.html#archive">Back to archive</a>
+        </div>
+      </article>
+    `;
+    archiveSection.remove();
+    return;
+  }
+
+  const collectionShows = getCollectionShows(collection, showMap);
+  const firstCover = collectionShows[0]?.cover ? `/${collectionShows[0].cover}` : DEFAULT_SOCIAL_IMAGE;
+  updateDocumentMetadata({
+    title: `${collection.title} - The Echo Archives`,
+    description: collection.description,
+    path: `/collection.html?id=${encodeURIComponent(collection.id)}`,
+    image: firstCover,
+  });
+
+  setTextContent("collectionTitle", collection.title);
+  setTextContent("collectionDescription", collection.description);
+  setTextContent("collectionShowCount", String(collectionShows.length));
+  setTextContent("collectionKind", toDisplayTag(collection.kind || "curated"));
+  setTextContent("collectionFeatured", collection.featured ? "Yes" : "No");
+  setTextContent("collectionLastUpdated", collection.updatedAt ? formatDate(collection.updatedAt) : "Unknown");
+
+  const archiveLink = document.getElementById("collectionArchiveLink");
+  if (archiveLink) {
+    archiveLink.href = createArchiveCollectionHref(collection.id);
+  }
+
+  grid.textContent = "";
+  collectionShows.forEach((show) => {
+    grid.appendChild(createShowCard(show));
+  });
+  void syncCommunityCardBadges(grid, collectionShows);
 }
 
 function createShowPageMarkup(show, showMap) {
@@ -821,9 +990,43 @@ async function initializeAboutPage() {
 async function initializeSubmitPage() {
   const form = document.getElementById("showSubmitForm");
   const status = document.getElementById("submitStatus");
-  if (!form || !status) {
+  const submissionType = document.getElementById("submissionType");
+  const existingShowField = document.getElementById("existingShowField");
+  const existingShowId = document.getElementById("existingShowId");
+  if (!form || !status || !submissionType || !existingShowField || !existingShowId) {
     return;
   }
+
+  const shows = await loadShows();
+  const publishedShows = getPublishedShows(shows).sort((left, right) => left.title.localeCompare(right.title));
+  publishedShows.forEach((show) => {
+    const option = document.createElement("option");
+    option.value = show.id;
+    option.textContent = show.title;
+    existingShowId.appendChild(option);
+  });
+
+  const showTitleInput = form.querySelector('input[name="showTitle"]');
+
+  function syncSubmissionMode() {
+    const isCorrection = submissionType.value === "correction";
+    existingShowField.hidden = !isCorrection;
+    existingShowId.required = isCorrection;
+  }
+
+  submissionType.addEventListener("change", syncSubmissionMode);
+  existingShowId.addEventListener("change", () => {
+    if (submissionType.value !== "correction" || !(showTitleInput instanceof HTMLInputElement) || showTitleInput.value) {
+      return;
+    }
+
+    const selectedOption = existingShowId.selectedOptions[0];
+    if (selectedOption?.textContent) {
+      showTitleInput.value = selectedOption.textContent;
+    }
+  });
+
+  syncSubmissionMode();
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -839,6 +1042,8 @@ async function initializeSubmitPage() {
 
     const formData = new FormData(form);
     const payload = {
+      submissionType: formData.get("submissionType"),
+      existingShowId: formData.get("existingShowId"),
       showTitle: formData.get("showTitle"),
       creatorName: formData.get("creatorName"),
       contactEmail: formData.get("contactEmail"),
@@ -1504,6 +1709,74 @@ async function clearCommunityRating(podcastId) {
   return response.json();
 }
 
+async function loadCommunitySummaries(podcastIds) {
+  const ids = Array.from(new Set((Array.isArray(podcastIds) ? podcastIds : []).filter(Boolean)));
+  const missingIds = ids.filter((id) => !dataCache.communitySummaries.has(id));
+
+  if (missingIds.length > 0) {
+    const summaries = await fetchRatingSummaries(missingIds, null);
+    Object.entries(summaries).forEach(([id, summary]) => {
+      dataCache.communitySummaries.set(id, summary);
+    });
+  }
+
+  return ids.reduce((result, id) => {
+    result[id] = dataCache.communitySummaries.get(id) || null;
+    return result;
+  }, {});
+}
+
+function formatCommunityBadgeSummary(summary) {
+  if (!hasVisibleCommunityAverage(summary)) {
+    return "";
+  }
+
+  const noun = summary.ratingCount === 1 ? "rating" : "ratings";
+  return `Community ${summary.averageRating.toFixed(1)}/10 • ${summary.ratingCount} ${noun}`;
+}
+
+async function syncCommunityCardBadges(container, shows) {
+  if (!container) {
+    return;
+  }
+
+  const requestId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  container.dataset.communityRequestId = requestId;
+
+  const badges = Array.from(container.querySelectorAll(".community-card-badge"));
+  badges.forEach((badge) => {
+    badge.hidden = true;
+    badge.textContent = "";
+  });
+
+  const ids = shows.map((show) => show.id);
+  if (ids.length === 0) {
+    return;
+  }
+
+  try {
+    const summaries = await loadCommunitySummaries(ids);
+    if (container.dataset.communityRequestId !== requestId) {
+      return;
+    }
+
+    badges.forEach((badge) => {
+      const summary = summaries[badge.dataset.podcastId || ""];
+      const text = formatCommunityBadgeSummary(summary);
+      badge.textContent = text;
+      badge.hidden = !text;
+    });
+  } catch (_error) {
+    if (container.dataset.communityRequestId !== requestId) {
+      return;
+    }
+
+    badges.forEach((badge) => {
+      badge.hidden = true;
+    });
+  }
+}
+
 function getEditorialStatusLabel(show) {
   if ((show.finalRating || 0) >= 9 && show.reviewStatus === "full-review") {
     return "Top rated • Full review";
@@ -1589,6 +1862,63 @@ function formatDate(value) {
     month: "long",
     day: "numeric",
   }).format(date);
+}
+
+function getSiteOrigin() {
+  const canonicalHref = document.querySelector('link[rel="canonical"]')?.getAttribute("href");
+  const candidate = canonicalHref || window.location.origin;
+
+  try {
+    return new URL(candidate, window.location.origin).origin;
+  } catch (_error) {
+    return window.location.origin;
+  }
+}
+
+function buildAbsoluteUrl(value = "") {
+  const fallback = new URL(DEFAULT_SOCIAL_IMAGE, getSiteOrigin()).toString();
+  if (!value) {
+    return fallback;
+  }
+
+  try {
+    return new URL(value, window.location.origin).toString();
+  } catch (_error) {
+    return fallback;
+  }
+}
+
+function setMetaContent(selector, value) {
+  const node = document.querySelector(selector);
+  if (node) {
+    node.setAttribute("content", value);
+  }
+}
+
+function setCanonicalHref(value) {
+  const node = document.querySelector('link[rel="canonical"]');
+  if (node) {
+    node.setAttribute("href", value);
+  }
+}
+
+function updateDocumentMetadata({ title, description, path, image }) {
+  const resolvedTitle = title || "The Echo Archives";
+  const resolvedDescription =
+    description || "Curated fiction podcasts, filtered by mood, genre, and listening intent.";
+  const resolvedUrl = buildAbsoluteUrl(path || window.location.pathname);
+  const resolvedImage = buildAbsoluteUrl(image || DEFAULT_SOCIAL_IMAGE);
+
+  document.title = resolvedTitle;
+  setMetaContent('meta[name="description"]', resolvedDescription);
+  setMetaContent('meta[property="og:title"]', resolvedTitle);
+  setMetaContent('meta[property="og:description"]', resolvedDescription);
+  setMetaContent('meta[property="og:url"]', resolvedUrl);
+  setMetaContent('meta[property="og:image"]', resolvedImage);
+  setMetaContent('meta[name="twitter:title"]', resolvedTitle);
+  setMetaContent('meta[name="twitter:description"]', resolvedDescription);
+  setMetaContent('meta[name="twitter:image"]', resolvedImage);
+  setCanonicalHref(resolvedUrl);
 }
 
 function setTextContent(id, value) {

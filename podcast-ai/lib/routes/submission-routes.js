@@ -6,6 +6,8 @@ function createSubmissionRouter({ submissionService }) {
   router.post("/shows", (req, res, next) => {
     try {
       const result = submissionService.submitShow({
+        submissionType: req.body?.submissionType,
+        existingShowId: req.body?.existingShowId,
         showTitle: req.body?.showTitle,
         creatorName: req.body?.creatorName,
         contactEmail: req.body?.contactEmail,

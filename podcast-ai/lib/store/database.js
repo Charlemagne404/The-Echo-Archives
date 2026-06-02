@@ -2,6 +2,15 @@ const fs = require("node:fs");
 const path = require("node:path");
 const Database = require("better-sqlite3");
 
+function ensureColumn(db, tableName, columnName, definition) {
+  const columns = db.prepare(`PRAGMA table_info(${tableName})`).all();
+  const hasColumn = columns.some((column) => column.name === columnName);
+
+  if (!hasColumn) {
+    db.exec(`ALTER TABLE ${tableName} ADD COLUMN ${definition}`);
+  }
+}
+
 function migrate(db) {
   db.exec(`
     CREATE TABLE IF NOT EXISTS podcasts (
@@ -53,6 +62,8 @@ function migrate(db) {
     CREATE TABLE IF NOT EXISTS show_submissions (
       id TEXT PRIMARY KEY,
       status TEXT NOT NULL DEFAULT 'new',
+      submission_type TEXT NOT NULL DEFAULT 'show',
+      existing_show_id TEXT NOT NULL DEFAULT '',
       submitted_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       show_title TEXT NOT NULL,
       creator_name TEXT NOT NULL DEFAULT '',
@@ -77,6 +88,9 @@ function migrate(db) {
     CREATE INDEX IF NOT EXISTS idx_show_submissions_status
       ON show_submissions (status, submitted_at DESC);
   `);
+
+  ensureColumn(db, "show_submissions", "submission_type", "submission_type TEXT NOT NULL DEFAULT 'show'");
+  ensureColumn(db, "show_submissions", "existing_show_id", "existing_show_id TEXT NOT NULL DEFAULT ''");
 }
 
 function openDatabase(dbPath) {

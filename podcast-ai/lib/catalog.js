@@ -247,6 +247,28 @@ function loadCollections(siteRoot, knownShowIds = null) {
   return records;
 }
 
+function resolveCollectionView({ catalog, collections, collectionId }) {
+  const collectionRecords = Array.isArray(collections) ? collections : [];
+  const catalogRecords = Array.isArray(catalog) ? catalog : [];
+  const collection = collectionRecords.find((entry) => entry.id === collectionId);
+
+  if (!collection) {
+    const error = new Error(`Unknown collection "${collectionId}".`);
+    error.statusCode = 404;
+    throw error;
+  }
+
+  const showsById = new Map(catalogRecords.map((record) => [record.id, record]));
+  const shows = collection.showIds
+    .map((showId) => showsById.get(showId))
+    .filter((show) => show && show.status === "published");
+
+  return {
+    collection,
+    shows,
+  };
+}
+
 function loadCatalog(siteRoot) {
   return loadShows(siteRoot);
 }
@@ -328,6 +350,7 @@ module.exports = {
   loadCatalog,
   loadCollections,
   loadShows,
+  resolveCollectionView,
   scoreCatalog,
   tokenizeQuery,
 };
