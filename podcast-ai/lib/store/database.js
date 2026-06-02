@@ -50,6 +50,21 @@ function migrate(db) {
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
 
+    CREATE TABLE IF NOT EXISTS show_submissions (
+      id TEXT PRIMARY KEY,
+      status TEXT NOT NULL DEFAULT 'new',
+      submitted_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      show_title TEXT NOT NULL,
+      creator_name TEXT NOT NULL DEFAULT '',
+      contact_email TEXT NOT NULL,
+      official_site TEXT NOT NULL DEFAULT '',
+      rss_or_listen_link TEXT NOT NULL DEFAULT '',
+      genres TEXT NOT NULL DEFAULT '',
+      notes TEXT NOT NULL DEFAULT '',
+      source_ip TEXT NOT NULL DEFAULT '',
+      user_agent TEXT NOT NULL DEFAULT ''
+    );
+
     CREATE INDEX IF NOT EXISTS idx_rating_submissions_podcast
       ON rating_submissions (podcast_id);
 
@@ -58,6 +73,9 @@ function migrate(db) {
 
     CREATE INDEX IF NOT EXISTS idx_rating_events_podcast
       ON rating_events (podcast_id, created_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_show_submissions_status
+      ON show_submissions (status, submitted_at DESC);
   `);
 }
 

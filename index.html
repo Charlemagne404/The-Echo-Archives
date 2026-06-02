@@ -6,10 +6,10 @@
   <title>The Echo Archives</title>
   <meta
     name="description"
-    content="Curated fiction podcasts, filtered by mood, genre, and how hard they linger after the credits."
+    content="Curated fiction podcasts, filtered by mood, genre, and listening intent."
   />
-  <link rel="stylesheet" href="style.css?v=9" />
-  <link rel="stylesheet" href="home.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="home.css?v=12" />
   <link rel="icon" href="images/TEA-Logo-S-W.png" type="image/x-icon" />
 </head>
 <body class="home-page">
@@ -21,8 +21,8 @@
     <nav class="site-nav" aria-label="Primary">
       <a class="is-active" href="#browse">Browse</a>
       <a href="#collections">Collections</a>
-      <a href="#site-footer">About</a>
-      <a href="contact.html">Submit</a>
+      <a href="about.html">About</a>
+      <a href="submit.html">Submit</a>
     </nav>
 
     <div class="header-actions">
@@ -30,7 +30,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7 10h10M7 14h6M5 19l1.4-3.1A7 7 0 1 1 19 17H8a7 7 0 0 1-3-0.7Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
         </svg>
-        <span>Open chat</span>
+        <span>Ask the Archivist</span>
       </button>
     </div>
   </header>
@@ -39,7 +39,7 @@
     <div class="chat-panel-header">
       <div class="chat-panel-heading">
         <p class="chat-kicker">Archive assistant</p>
-        <h2>Ask the archive</h2>
+        <h2>Ask the Archivist</h2>
         <p id="chatStatus" class="chat-status" aria-live="polite">Checking archive assistant...</p>
       </div>
       <div class="chat-panel-actions">
@@ -67,7 +67,7 @@
         <div class="hero-copy">
           <h1>Find your next audio obsession</h1>
           <p>
-            Curated fiction podcasts, filtered by mood, genre, and how hard they linger after the credits.
+            Curated fiction podcasts, filtered by mood, genre, and listening intent instead of generic app sprawl.
           </p>
         </div>
 
@@ -95,37 +95,15 @@
                 <div class="filter-dropdown-header">
                   <div>
                     <p class="filter-dropdown-kicker">Refine the archive</p>
-                    <p class="filter-dropdown-copy">Stack tags to narrow the catalog by mood, setting, or tone.</p>
+                    <p class="filter-dropdown-copy">Stack tags to narrow the catalog by mood, tone, or listening intent.</p>
                   </div>
                   <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
                 </div>
-                <div class="filter-option-grid">
-                  <button class="filter-option" type="button" data-filter-tag="sci-fi" aria-pressed="false">Sci-Fi</button>
-                  <button class="filter-option" type="button" data-filter-tag="comedy" aria-pressed="false">Comedy</button>
-                  <button class="filter-option" type="button" data-filter-tag="mystery" aria-pressed="false">Mystery</button>
-                  <button class="filter-option" type="button" data-filter-tag="space" aria-pressed="false">Space</button>
-                  <button class="filter-option" type="button" data-filter-tag="survival" aria-pressed="false">Survival</button>
-                  <button class="filter-option" type="button" data-filter-tag="science" aria-pressed="false">Science</button>
-                  <button class="filter-option" type="button" data-filter-tag="thriller" aria-pressed="false">Thriller</button>
-                  <button class="filter-option" type="button" data-filter-tag="horror" aria-pressed="false">Horror</button>
-                  <button class="filter-option" type="button" data-filter-tag="time-travel" aria-pressed="false">Time Travel</button>
-                  <button class="filter-option" type="button" data-filter-tag="supernatural" aria-pressed="false">Supernatural</button>
-                  <button class="filter-option" type="button" data-filter-tag="future" aria-pressed="false">Future</button>
-                  <button class="filter-option" type="button" data-filter-tag="fantasy" aria-pressed="false">Fantasy</button>
-                  <button class="filter-option" type="button" data-filter-tag="isolation" aria-pressed="false">Isolation</button>
-                </div>
+                <div id="filterOptionGrid" class="filter-option-grid"></div>
               </div>
             </div>
 
-            <div class="quick-filters" role="group" aria-label="Quick filters">
-              <button class="quick-filter is-active" type="button" data-chip-filter="all" aria-pressed="true">All</button>
-              <button class="quick-filter" type="button" data-chip-filter="sci-fi" aria-pressed="false">Sci-Fi</button>
-              <button class="quick-filter" type="button" data-chip-filter="mystery" aria-pressed="false">Mystery</button>
-              <button class="quick-filter" type="button" data-chip-filter="horror" aria-pressed="false">Horror</button>
-              <button class="quick-filter" type="button" data-chip-filter="comedy" aria-pressed="false">Comedy</button>
-              <button class="quick-filter" type="button" data-chip-filter="survival" aria-pressed="false">Survival</button>
-              <button class="quick-filter" type="button" data-chip-filter="time-travel" aria-pressed="false">Time Travel</button>
-            </div>
+            <div class="quick-filters" id="quickFilters" role="group" aria-label="Quick filters"></div>
           </div>
         </div>
       </div>
@@ -135,202 +113,12 @@
       <div class="section-heading">
         <div>
           <h2>Browse the archive</h2>
-          <p>Only a few full reviews are live today. The rest of the entries stay searchable while the archive fills out.</p>
+          <p>Full reviews stay selective. Indexed entries still get real archive pages so discovery does not stall.</p>
         </div>
-        <p id="resultsSummary" class="results-summary">0 results</p>
+        <p id="resultsSummary" class="results-summary">Loading archive...</p>
       </div>
 
-      <div id="podcast-grid">
-        <a class="podcast-card" href="solar/solar.html" data-tags="sci-fi,space,thriller">
-          <img src="solar/solar.jpeg" alt="Solar Cover" />
-          <h2>Solar</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Space</span> <span class="tag">Thriller</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="story/story.html" data-tags="drama,mystery,adventure">
-          <img src="story/story.jpg" alt="Story Cover" />
-          <h2>Story</h2>
-          <p class="tags"><span class="tag">Drama</span> <span class="tag">Mystery</span> <span class="tag">Adventure</span></p>
-          <p class="rating">Rating: 7/10</p>
-        </a>
-
-        <a class="podcast-card" href="from-now/from-now.html" data-tags="sci-fi,time-travel,thriller">
-          <img src="from now/fromnow.jpeg" alt="From Now Cover" />
-          <h2>From Now</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Time Travel</span> <span class="tag">Thriller</span></p>
-          <p class="rating">Rating: 7/10</p>
-        </a>
-
-        <a class="podcast-card" href="the-deca-tapes/the-deca-tapes.html" data-tags="mystery,thriller,science">
-          <img src="deca tapes/decatapes.jpeg" alt="The Deca Tapes Cover" />
-          <h2>The Deca Tapes</h2>
-          <p class="tags"><span class="tag">Mystery</span> <span class="tag">Thriller</span> <span class="tag">Science</span></p>
-          <p class="rating">Rating: 6/10</p>
-        </a>
-
-        <a class="podcast-card" href="earth-eclipsed/earth-eclipsed.html" data-tags="sci-fi,dystopia,thriller">
-          <img src="earth eclipsed/eartheclipsed.jpeg" alt="Earth Eclipsed Cover" />
-          <h2>Earth Eclipsed</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Dystopia</span> <span class="tag">Thriller</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="vast-horizon/vast-horizon.html" data-tags="sci-fi,space,adventure">
-          <img src="vast horizon/vasthorizon.jpeg" alt="Vast Horizon Cover" />
-          <h2>Vast Horizon</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Space</span> <span class="tag">Adventure</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="how-i-died/how-i-died.html" data-tags="horror,supernatural,mystery">
-          <img src="how i died/howidied.jpeg" alt="How I Died Cover" />
-          <h2>How I Died</h2>
-          <p class="tags"><span class="tag">Horror</span> <span class="tag">Supernatural</span> <span class="tag">Mystery</span></p>
-          <p class="rating">Rating: 9/10</p>
-        </a>
-
-        <a class="podcast-card" href="windfall/windfall.html" data-tags="thriller,mystery,dystopia">
-          <img src="windfall/windfall.jpeg" alt="Windfall Cover" />
-          <h2>Windfall</h2>
-          <p class="tags"><span class="tag">Thriller</span> <span class="tag">Mystery</span> <span class="tag">Dystopia</span></p>
-          <p class="rating">Rating: 9/10</p>
-        </a>
-
-        <a class="podcast-card" href="the-waystation/the-waystation.html" data-tags="sci-fi,adventure,space">
-          <img src="the waystation/waystation.jpeg" alt="The Waystation Cover" />
-          <h2>The Waystation</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Adventure</span> <span class="tag">Space</span></p>
-          <p class="rating">Rating: 7/10</p>
-        </a>
-
-        <a class="podcast-card" href="were-alive/were-alive.html" data-tags="thriller,apocalypse,survival">
-          <img src="were alive/WereAlive.jpeg" alt="We're Alive Cover" />
-          <h2>We're Alive</h2>
-          <p class="tags"><span class="tag">Thriller</span> <span class="tag">Apocalypse</span> <span class="tag">Survival</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="Impact Winter/impact-winter.html" data-tags="sci-fi,fantasy,survival">
-          <img src="Impact Winter/Impact-winter.jpeg" alt="Impact Winter Cover" />
-          <h2>Impact Winter</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Fantasy</span> <span class="tag">Survival</span></p>
-          <p class="rating">Rating: 10/10</p>
-        </a>
-
-        <a class="podcast-card" href="oz9/oz9.html" data-tags="space,sci-fi,comedy">
-          <img src="oz9/oz9.jpeg" alt="Oz 9 Cover" />
-          <h2>Oz 9</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Space</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 6/10</p>
-        </a>
-
-        <a class="podcast-card" href="ars paradoxica/ars-paradoxica.html" data-tags="sci-fi,science,time-travel">
-          <img src="ars paradoxica/ArsParadoxica.jpeg" alt="Ars Paradoxica Cover" />
-          <h2>Ars Paradoxica</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Science</span> <span class="tag">Time Travel</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="red valley/red-valley.html" data-tags="sci-fi,future,mystery">
-          <img src="red valley/RedValley.jpeg" alt="Red Valley Cover" />
-          <h2>Red Valley</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Future</span> <span class="tag">Mystery</span></p>
-          <p class="rating">Rating: 7/10</p>
-        </a>
-
-        <a class="podcast-card" href="white-vault/white-vault.html" data-tags="mystery,survival,thriller">
-          <img src="white-vault/WhiteVault.jpeg" alt="The White Vault Cover" />
-          <h2>The White Vault</h2>
-          <p class="tags"><span class="tag">Mystery</span> <span class="tag">Survival</span> <span class="tag">Thriller</span></p>
-          <p class="rating">Rating: 9/10</p>
-        </a>
-
-        <a class="podcast-card" href="eos10/eos10.html" data-tags="sci-fi,science,comedy">
-          <img src="eos10/EOS10.jpeg" alt="EOS10 Cover" />
-          <h2>EOS 10</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Science</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 7/10</p>
-        </a>
-
-        <a class="podcast-card" href="desert-skies/desert-skies.html" data-tags="emotion,fantasy,comedy">
-          <img src="desert-skies/DesertSkies.jpeg" alt="Desert Skies Cover" />
-          <h2>Desert Skies</h2>
-          <p class="tags"><span class="tag">Emotion</span> <span class="tag">Fantasy</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 6/10</p>
-        </a>
-
-        <a class="podcast-card" href="wolf359/wolf359.html" data-tags="space,sci-fi,comedy">
-          <img src="wolf359/Wolf359.jpeg" alt="Wolf 359 Cover" />
-          <h2>Wolf 359</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Space</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="station151/station151.html" data-tags="sci-fi,isolation,comedy">
-          <img src="station151/Station151.jpeg" alt="Station 151 Cover" />
-          <h2>Station 151</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Isolation</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 6/10</p>
-        </a>
-
-        <a class="podcast-card" href="midnight burger/midnight-burger.html" data-tags="sci-fi,science,comedy">
-          <img src="midnight burger/MidnightBurger.jpeg" alt="Midnight Burger Cover" />
-          <h2>Midnight Burger</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Science</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 10/10</p>
-        </a>
-
-        <a class="podcast-card" href="spectre/spectre.html" data-tags="sci-fi,space,mystery">
-          <img src="spectre/Spectre.jpeg" alt="Spectre Cover" />
-          <h2>Spectre</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Space</span> <span class="tag">Mystery</span></p>
-          <p class="rating">Rating: 6/10</p>
-        </a>
-
-        <a class="podcast-card" href="the phenomenon/the-phenomenon.html" data-tags="survival,science,mystery">
-          <img src="the phenomenon/Phenomenon.jpeg" alt="The Phenomenon Cover" />
-          <h2>The Phenomenon</h2>
-          <p class="tags"><span class="tag">Survival</span> <span class="tag">Science</span> <span class="tag">Mystery</span></p>
-          <p class="rating">Rating: 5/10</p>
-        </a>
-
-        <a class="podcast-card" href="paralyzed/Paralyzed.html" data-tags="mystery,horror,supernatural">
-          <img src="paralyzed/Paralyzed.jpeg" alt="Paralyzed Cover" />
-          <h2>Paralyzed</h2>
-          <p class="tags"><span class="tag">Mystery</span> <span class="tag">Horror</span> <span class="tag">Supernat.</span></p>
-          <p class="rating">Rating: 7/10</p>
-        </a>
-
-        <a class="podcast-card" href="derelict/derelict.html" data-tags="sci-fi,thriller,mystery">
-          <img src="derelict/Derelict.jpeg" alt="Derelict Cover" />
-          <h2>Derelict</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Thriller</span> <span class="tag">Mystery</span></p>
-          <p class="rating">Rating: 10/10</p>
-        </a>
-
-        <a class="podcast-card" href="crystal-blue/crystal-blue.html" data-tags="sci-fi,future,comedy">
-          <img src="crystal-blue/CrystalBlue.jpeg" alt="Crystal Blue Cover" />
-          <h2>Crystal Blues</h2>
-          <p class="tags"><span class="tag">Sci-fi</span> <span class="tag">Future</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 5/10</p>
-        </a>
-
-        <a class="podcast-card" href="eoah/eoah.html" data-tags="survival,aliens,comedy">
-          <img src="eoah/EOAH.jpeg" alt="End of all Hope Cover" />
-          <h2>End of all Hope</h2>
-          <p class="tags"><span class="tag">Survival</span> <span class="tag">Aliens</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 8/10</p>
-        </a>
-
-        <a class="podcast-card" href="tower4/Tower4.html" data-tags="mystery,isolation,comedy">
-          <img src="towe4/Tower4.jpeg" alt="Tower 4 Cover" />
-          <h2>Tower 4</h2>
-          <p class="tags"><span class="tag">Mystery</span> <span class="tag">Isolation</span> <span class="tag">Comedy</span></p>
-          <p class="rating">Rating: 10/10</p>
-        </a>
-      </div>
-
+      <div id="podcast-grid"></div>
       <p id="noResultsMsg" hidden>No results found. Try clearing a filter or searching a broader mood.</p>
     </section>
 
@@ -338,32 +126,11 @@
       <div class="section-heading">
         <div>
           <h2 id="collections-title">Start somewhere worth following</h2>
-          <p>Small entry points into the catalog when you do not want to scroll blind.</p>
+          <p>Curated entry points into the catalog when you do not want to scroll blind.</p>
         </div>
       </div>
 
-      <div class="collection-grid">
-        <article class="collection-card">
-          <p>Orbiting trouble</p>
-          <h3>Space signals</h3>
-          <p>Station comedies, shipboard disasters, and deep-space paranoia.</p>
-          <button class="collection-action" type="button" data-chip-filter="space">Filter to Space</button>
-        </article>
-
-        <article class="collection-card">
-          <p>Needling aftertaste</p>
-          <h3>Dark transmissions</h3>
-          <p>Horror, survival, and mystery picks that do not leave quietly.</p>
-          <button class="collection-action" type="button" data-chip-filter="horror">Filter to Horror</button>
-        </article>
-
-        <article class="collection-card">
-          <p>High replay value</p>
-          <h3>Top-rated archive</h3>
-          <p>The strongest scores in the catalog, with live write-ups marked in the grid.</p>
-          <button class="collection-action" type="button" data-chip-filter="all" data-highlight="top-rated">Show top rated</button>
-        </article>
-      </div>
+      <div class="collection-grid" id="collectionGrid"></div>
     </section>
   </main>
 
@@ -380,9 +147,9 @@
     </div>
     <div class="center-content">
       <p>
-        © 2025 PClaystation |
-        <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">GitHub</a> |
-        <a href="contact.html">Contact Us</a>
+        © 2026 PClaystation |
+        <a href="about.html">About the archive</a> |
+        <a href="submit.html">Submit a show</a>
       </p>
     </div>
     <div class="right-content">
@@ -392,6 +159,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>

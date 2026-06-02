@@ -23,13 +23,13 @@ test("community ratings persist and update aggregate summaries", () => {
   const secondProfile = community.createAnonymousProfile(null, "test-agent").profileId;
 
   const firstSubmission = community.submitRating({
-    podcastId: "impactwinter",
+    podcastId: "impact-winter",
     rating: 9,
     profileId: firstProfile,
     userAgent: "test-agent",
   });
   const secondSubmission = community.submitRating({
-    podcastId: "impactwinter",
+    podcastId: "impact-winter",
     rating: 7,
     profileId: secondProfile,
     userAgent: "test-agent",
@@ -40,7 +40,7 @@ test("community ratings persist and update aggregate summaries", () => {
   assert.equal(secondSubmission.summary.ratingCount, 2);
 
   const updatedSubmission = community.submitRating({
-    podcastId: "impactwinter",
+    podcastId: "impact-winter",
     rating: 10,
     profileId: firstProfile,
     userAgent: "test-agent",
@@ -67,14 +67,14 @@ test("community ratings can be removed for a profile", () => {
 
   const profileId = community.createAnonymousProfile(null, "test-agent").profileId;
   community.submitRating({
-    podcastId: "arsparadoxica",
+    podcastId: "ars-paradoxica",
     rating: 8,
     profileId,
     userAgent: "test-agent",
   });
 
   const afterDelete = community.removeRating({
-    podcastId: "arsparadoxica",
+    podcastId: "ars-paradoxica",
     profileId,
     userAgent: "test-agent",
   });

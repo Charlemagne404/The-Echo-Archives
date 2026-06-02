@@ -1,168 +1,254 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-function normalizeTitle(value = "") {
-  return value
+const VALID_REVIEW_STATUSES = new Set(["full-review", "spotlight", "indexed-only", "planned"]);
+const VALID_STATUS_VALUES = new Set(["published", "draft"]);
+const VALID_RELEASE_STATUSES = new Set(["active", "completed", "hiatus", "inactive", "unknown"]);
+const VALID_COMPLETION_STATUSES = new Set(["ongoing", "finished", "cancelled", "unclear"]);
+
+function readJsonFile(filePath) {
+  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+}
+
+function normalizeTag(value = "") {
+  return String(value)
+    .trim()
     .toLowerCase()
-    .replace(/&amp;/g, "and")
-    .replace(/[^a-z0-9]+/g, "")
-    .trim();
+    .replace(/\./g, "")
+    .replace(/\s+/g, "-");
 }
 
-function stripHtml(value = "") {
-  return value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-}
-
-function parseCardTags(rawTags = "", body = "") {
-  if (rawTags.trim()) {
-    return rawTags
-      .split(",")
-      .map((tag) => tag.trim())
-      .filter(Boolean);
+function isValidUrl(value = "") {
+  if (!value) {
+    return true;
   }
 
-  const matches = Array.from(body.matchAll(/<span class="tag">([^<]+)<\/span>/g));
-  return matches.map((match) => match[1].trim()).filter(Boolean);
-}
-
-function parseHomepageCards(indexHtml) {
-  const cards = [];
-  const cardPattern =
-    /<a class="podcast-card" href="([^"]+)"(?:[^>]*?)data-tags="([^"]*)"[^>]*>([\s\S]*?)<\/a>/g;
-
-  let match;
-  while ((match = cardPattern.exec(indexHtml)) !== null) {
-    const [, href, rawTags, body] = match;
-    const titleMatch = body.match(/<h2>([^<]+)<\/h2>/);
-    const imageMatch = body.match(/<img src="([^"]+)" alt="([^"]*)"/);
-    const ratingMatch = body.match(/Rating:\s*(\d+(?:\.\d+)?)\/10/i);
-    const title = titleMatch ? stripHtml(titleMatch[1]) : "";
-    const tags = parseCardTags(rawTags, body);
-
-    if (!title) {
-      continue;
-    }
-
-    cards.push({
-      id: normalizeTitle(title),
-      title,
-      href,
-      image: imageMatch ? imageMatch[1] : "",
-      imageAlt: imageMatch ? imageMatch[2] : `${title} cover`,
-      tags,
-      siteRating: ratingMatch ? Number.parseFloat(ratingMatch[1]) : null,
-    });
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (_error) {
+    return false;
   }
-
-  return cards;
 }
 
-function mergeTags(...collections) {
-  const merged = new Map();
+function assertUniqueNormalized(collection, fieldName, showId) {
+  const seen = new Set();
 
-  collections.flat().forEach((tag) => {
-    if (typeof tag !== "string") {
+  (Array.isArray(collection) ? collection : []).forEach((value) => {
+    const normalized = normalizeTag(value);
+    if (!normalized) {
       return;
     }
 
-    const trimmed = tag.trim();
-    if (!trimmed) {
-      return;
+    if (seen.has(normalized)) {
+      throw new Error(`Show "${showId}" contains duplicate ${fieldName} value "${value}".`);
     }
 
-    const key = trimmed.toLowerCase();
-    if (!merged.has(key)) {
-      merged.set(key, trimmed);
-    }
+    seen.add(normalized);
   });
+}
 
-  return Array.from(merged.values());
+function formatShowHref(id) {
+  return `/show.html?id=${encodeURIComponent(id)}`;
 }
 
 function buildSearchText(record) {
   return [
     record.title,
-    ...(record.tags || []),
-    record.summary,
+    record.subtitle,
+    record.description,
+    record.archiveTake,
+    record.spoilerFreeReview,
     record.thoughts,
-    record.bestFor,
-    record.length,
-    record.structure,
-    record.narrator,
-    record.ads,
-    ...(record.similarTo || []),
+    ...(record.tags || []),
+    ...(record.genres || []),
+    ...(record.tones || []),
+    ...(record.formats || []),
+    ...(record.bestFor || []),
   ]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
 }
 
-function loadCatalog(siteRoot) {
-  const homePath = path.join(siteRoot, "index.html");
-  const dataPath = path.join(siteRoot, "podcast-data.json");
-  const indexHtml = fs.readFileSync(homePath, "utf8");
-  const cards = parseHomepageCards(indexHtml);
-  const detailed = JSON.parse(fs.readFileSync(dataPath, "utf8"));
-  const detailedMap = new Map(
-    detailed.map((entry) => {
-      const tags = Array.isArray(entry.tags) ? entry.tags.filter(Boolean) : [];
-      return [
-        normalizeTitle(entry.title),
-        {
-          summary: entry.summary || "",
-          thoughts: entry.thoughts || "",
-          bestFor: entry.best_for || "",
-          similarTo: Array.isArray(entry.similar_to) ? entry.similar_to.filter(Boolean) : [],
-          finalRating: typeof entry.final_rating === "number" ? entry.final_rating : null,
-          ratings: entry.ratings || {},
-          length: entry.length || "",
-          structure: entry.structure || "",
-          narrator: entry.narrator || "",
-          ads: entry.ads || "",
-          wouldRelisten: Boolean(entry.would_relisten),
-          favoriteEpisodes: entry.favorite_episodes || "",
-          quote: entry.quote || "",
-          detailedTags: tags,
-        },
-      ];
-    }),
-  );
+function normalizeRecord(record) {
+  const tags = Array.isArray(record.tags) ? record.tags.filter(Boolean) : [];
+  const genres = Array.isArray(record.genres) ? record.genres.filter(Boolean) : [];
+  const tones = Array.isArray(record.tones) ? record.tones.filter(Boolean) : [];
+  const formats = Array.isArray(record.formats) ? record.formats.filter(Boolean) : [];
+  const bestFor = Array.isArray(record.bestFor) ? record.bestFor.filter(Boolean) : [];
+  const similarTo = Array.isArray(record.similarTo) ? record.similarTo.filter(Boolean) : [];
+  const ratings = record.ratings && typeof record.ratings === "object" ? record.ratings : {};
+  const finalRating =
+    typeof ratings.archive === "number"
+      ? ratings.archive
+      : typeof ratings.archive === "string"
+        ? Number.parseFloat(ratings.archive)
+        : null;
 
-  return cards.map((card) => {
-    const detail = detailedMap.get(card.id) || {};
-    const tags = mergeTags(detail.detailedTags || [], card.tags || []);
-    const absolutePagePath = path.join(siteRoot, card.href);
-    const hasPage = fs.existsSync(absolutePagePath);
+  const normalized = {
+    ...record,
+    tags,
+    genres,
+    tones,
+    formats,
+    bestFor,
+    similarTo,
+    ratings,
+    finalRating: Number.isFinite(finalRating) ? finalRating : null,
+    href: formatShowHref(record.id),
+    hasPage: record.status === "published",
+    image: record.cover || "",
+    imageAlt: record.coverAlt || `${record.title} cover art`,
+    summary: record.description || "",
+    searchText: "",
+  };
 
-    const record = {
-      id: card.id,
-      title: card.title,
-      href: hasPage ? card.href : "",
-      hasPage,
-      image: card.image,
-      imageAlt: card.imageAlt,
-      tags,
-      siteRating: card.siteRating,
-      finalRating: detail.finalRating ?? card.siteRating,
-      summary: detail.summary || "",
-      thoughts: detail.thoughts || "",
-      bestFor: detail.bestFor || "",
-      similarTo: detail.similarTo || [],
-      ratings: detail.ratings || {},
-      length: detail.length || "",
-      structure: detail.structure || "",
-      narrator: detail.narrator || "",
-      ads: detail.ads || "",
-      wouldRelisten: detail.wouldRelisten || false,
-      favoriteEpisodes: detail.favoriteEpisodes || "",
-      quote: detail.quote || "",
-    };
+  normalized.searchText = buildSearchText(normalized);
+  return normalized;
+}
 
-    return {
-      ...record,
-      searchText: buildSearchText(record),
-    };
+function validateShowRecord(record, seenIds) {
+  if (!record || typeof record !== "object") {
+    throw new Error("Every show record must be an object.");
+  }
+
+  if (typeof record.id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.id)) {
+    throw new Error(`Invalid show id "${record.id}".`);
+  }
+
+  if (seenIds.has(record.id)) {
+    throw new Error(`Duplicate show id "${record.id}".`);
+  }
+  seenIds.add(record.id);
+
+  if (typeof record.title !== "string" || !record.title.trim()) {
+    throw new Error(`Show "${record.id}" is missing a title.`);
+  }
+
+  if (typeof record.description !== "string" || !record.description.trim()) {
+    throw new Error(`Show "${record.id}" is missing a description.`);
+  }
+
+  if (typeof record.cover !== "string" || !record.cover.trim()) {
+    throw new Error(`Show "${record.id}" is missing a cover path.`);
+  }
+
+  if (!VALID_STATUS_VALUES.has(record.status)) {
+    throw new Error(`Show "${record.id}" has invalid status "${record.status}".`);
+  }
+
+  if (!VALID_REVIEW_STATUSES.has(record.reviewStatus)) {
+    throw new Error(`Show "${record.id}" has invalid reviewStatus "${record.reviewStatus}".`);
+  }
+
+  if (record.releaseStatus && !VALID_RELEASE_STATUSES.has(record.releaseStatus)) {
+    throw new Error(`Show "${record.id}" has invalid releaseStatus "${record.releaseStatus}".`);
+  }
+
+  if (record.completionStatus && !VALID_COMPLETION_STATUSES.has(record.completionStatus)) {
+    throw new Error(`Show "${record.id}" has invalid completionStatus "${record.completionStatus}".`);
+  }
+
+  if (
+    !record.ratings ||
+    typeof record.ratings !== "object" ||
+    !Number.isFinite(Number(record.ratings.archive))
+  ) {
+    throw new Error(`Show "${record.id}" is missing a numeric ratings.archive value.`);
+  }
+
+  assertUniqueNormalized(record.tags, "tags", record.id);
+  assertUniqueNormalized(record.genres, "genres", record.id);
+  assertUniqueNormalized(record.tones, "tones", record.id);
+  assertUniqueNormalized(record.formats, "formats", record.id);
+
+  const listenLinks = record.listenLinks && typeof record.listenLinks === "object" ? record.listenLinks : {};
+  Object.entries(listenLinks).forEach(([key, value]) => {
+    if (!isValidUrl(value || "")) {
+      throw new Error(`Show "${record.id}" has invalid listenLinks.${key} URL.`);
+    }
   });
+
+  if (record.reviewStatus === "full-review") {
+    const hasRichContent =
+      typeof record.archiveTake === "string" &&
+      record.archiveTake.trim() &&
+      typeof record.spoilerFreeReview === "string" &&
+      record.spoilerFreeReview.trim();
+
+    if (!hasRichContent) {
+      throw new Error(`Show "${record.id}" is marked full-review without richer review content.`);
+    }
+  }
+}
+
+function validateCollectionRecord(record, seenIds, knownShowIds) {
+  if (!record || typeof record !== "object") {
+    throw new Error("Every collection record must be an object.");
+  }
+
+  if (typeof record.id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.id)) {
+    throw new Error(`Invalid collection id "${record.id}".`);
+  }
+
+  if (seenIds.has(record.id)) {
+    throw new Error(`Duplicate collection id "${record.id}".`);
+  }
+  seenIds.add(record.id);
+
+  if (!Array.isArray(record.showIds) || record.showIds.length === 0) {
+    throw new Error(`Collection "${record.id}" must include showIds.`);
+  }
+
+  record.showIds.forEach((showId) => {
+    if (!knownShowIds.has(showId)) {
+      throw new Error(`Collection "${record.id}" references unknown show "${showId}".`);
+    }
+  });
+}
+
+function loadShows(siteRoot) {
+  const showsPath = path.join(siteRoot, "data", "shows.json");
+  const records = readJsonFile(showsPath);
+  const seenIds = new Set();
+
+  if (!Array.isArray(records)) {
+    throw new Error("data/shows.json must contain an array.");
+  }
+
+  records.forEach((record) => validateShowRecord(record, seenIds));
+
+  const normalized = records.map(normalizeRecord);
+  const idSet = new Set(normalized.map((record) => record.id));
+
+  normalized.forEach((record) => {
+    record.similarTo.forEach((showId) => {
+      if (!idSet.has(showId)) {
+        throw new Error(`Show "${record.id}" references unknown similarTo id "${showId}".`);
+      }
+    });
+  });
+
+  return normalized;
+}
+
+function loadCollections(siteRoot, knownShowIds = null) {
+  const collectionsPath = path.join(siteRoot, "data", "collections.json");
+  const records = readJsonFile(collectionsPath);
+  const seenIds = new Set();
+  const showIdSet = knownShowIds || new Set(loadShows(siteRoot).map((record) => record.id));
+
+  if (!Array.isArray(records)) {
+    throw new Error("data/collections.json must contain an array.");
+  }
+
+  records.forEach((record) => validateCollectionRecord(record, seenIds, showIdSet));
+  return records;
+}
+
+function loadCatalog(siteRoot) {
+  return loadShows(siteRoot);
 }
 
 function tokenizeQuery(message = "") {
@@ -199,6 +285,13 @@ function scoreCatalog(catalog, message) {
         }
       }
 
+      for (const genre of record.genres) {
+        if (lowered.includes(genre.toLowerCase())) {
+          score += 3;
+          reasons.push(`fits ${genre}`);
+        }
+      }
+
       for (const token of tokens) {
         if (record.searchText.includes(token)) {
           score += 1;
@@ -207,10 +300,10 @@ function scoreCatalog(catalog, message) {
 
       if (record.finalRating && record.finalRating >= 9 && /(best|favorite|top|highest|amazing)/i.test(lowered)) {
         score += 3;
-        reasons.push("one of the archive's highest rated picks");
+        reasons.push("one of the archive's strongest rated picks");
       }
 
-      if (record.wouldRelisten && /(relisten|rewatch|comfort|return)/i.test(lowered)) {
+      if (record.facts?.wouldRelisten && /(relisten|rewatch|comfort|return)/i.test(lowered)) {
         score += 2;
         reasons.push("strong replay value");
       }
@@ -233,8 +326,8 @@ function scoreCatalog(catalog, message) {
 
 module.exports = {
   loadCatalog,
-  normalizeTitle,
-  parseHomepageCards,
+  loadCollections,
+  loadShows,
   scoreCatalog,
   tokenizeQuery,
 };

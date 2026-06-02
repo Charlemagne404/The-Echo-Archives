@@ -607,6 +607,19 @@
   box-shadow: 0 22px 48px rgba(0, 0, 0, 0.28);
 }
 
+.detail-review-grid-single {
+  grid-template-columns: 1fr;
+}
+
+.detail-actions-wrap {
+  align-items: flex-start;
+}
+
+.detail-empty-state h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2.4rem, 4vw, 3.3rem);
+}
+
 @media (max-width: 1120px) {
   .detail-hero-grid,
   .detail-review-grid,

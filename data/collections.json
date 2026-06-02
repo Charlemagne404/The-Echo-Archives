@@ -1,0 +1,96 @@
+[
+  {
+    "id": "best-for-long-walks",
+    "title": "Best for long walks",
+    "description": "Long-burn shows with enough momentum to carry a full walk without going slack.",
+    "kind": "curated",
+    "showIds": [
+      "impact-winter",
+      "derelict",
+      "midnight-burger",
+      "the-white-vault",
+      "wolf-359",
+      "tower-4"
+    ],
+    "featured": true,
+    "updatedAt": "2026-06-02"
+  },
+  {
+    "id": "serious-sci-fi",
+    "title": "Serious sci-fi",
+    "description": "High-stakes science fiction with a stronger appetite for tension than banter.",
+    "kind": "curated",
+    "showIds": [
+      "impact-winter",
+      "ars-paradoxica",
+      "solar",
+      "vast-horizon",
+      "derelict",
+      "spectre"
+    ],
+    "featured": true,
+    "updatedAt": "2026-06-02"
+  },
+  {
+    "id": "funny-space-disasters",
+    "title": "Funny space disasters",
+    "description": "Shipboard chaos, station nonsense, and the kind of space comedy that keeps spiraling outward.",
+    "kind": "curated",
+    "showIds": [
+      "oz-9",
+      "eos-10",
+      "wolf-359",
+      "station-151",
+      "midnight-burger",
+      "crystal-blues"
+    ],
+    "featured": true,
+    "updatedAt": "2026-06-02"
+  },
+  {
+    "id": "cold-isolation-horror",
+    "title": "Cold isolation horror",
+    "description": "Bleak settings, locked-in pressure, and the feeling that the air itself is against you.",
+    "kind": "curated",
+    "showIds": [
+      "the-white-vault",
+      "tower-4",
+      "station-151",
+      "impact-winter",
+      "how-i-died",
+      "the-phenomenon"
+    ],
+    "featured": true,
+    "updatedAt": "2026-06-02"
+  },
+  {
+    "id": "time-bent-and-weird",
+    "title": "Time-bent and weird",
+    "description": "Loops, paradoxes, and shows that start by pulling the floor out from causality.",
+    "kind": "curated",
+    "showIds": [
+      "from-now",
+      "ars-paradoxica",
+      "red-valley",
+      "midnight-burger"
+    ],
+    "featured": false,
+    "updatedAt": "2026-06-02"
+  },
+  {
+    "id": "easy-first-steps",
+    "title": "Easy first steps",
+    "description": "Accessible archive picks for someone who wants a clear entry point instead of a homework assignment.",
+    "kind": "curated",
+    "showIds": [
+      "story",
+      "desert-skies",
+      "wolf-359",
+      "how-i-died",
+      "vast-horizon",
+      "midnight-burger"
+    ],
+    "featured": false,
+    "updatedAt": "2026-06-02"
+  }
+]

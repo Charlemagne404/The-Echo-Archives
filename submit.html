@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit a Show - The Echo Archives</title>
+  <meta
+    name="description"
+    content="Submit a fiction podcast or audio drama to The Echo Archives review queue."
+  />
+  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="home.css?v=12" />
+  <link rel="icon" href="images/TEA-Logo-S-W.png" type="image/x-icon" />
+</head>
+<body class="home-page submit-page info-page">
+  <header class="site-header">
+    <a class="site-brand" href="/index.html" aria-label="The Echo Archives home">
+      <img src="images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html#browse">Browse</a>
+      <a href="/index.html#collections">Collections</a>
+      <a href="/about.html">About</a>
+      <a class="is-active" href="/submit.html">Submit</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="chat-toggle" class="chat-toggle-button" type="button" aria-expanded="false" aria-controls="chat-container">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 10h10M7 14h6M5 19l1.4-3.1A7 7 0 1 1 19 17H8a7 7 0 0 1-3-0.7Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+        </svg>
+        <span>Ask the Archivist</span>
+      </button>
+    </div>
+  </header>
+
+  <aside id="chat-container" aria-hidden="true">
+    <div class="chat-panel-header">
+      <div class="chat-panel-heading">
+        <p class="chat-kicker">Archive assistant</p>
+        <h2>Ask the Archivist</h2>
+        <p id="chatStatus" class="chat-status" aria-live="polite">Checking archive assistant...</p>
+      </div>
+      <div class="chat-panel-actions">
+        <button id="chat-clear" class="chat-secondary-button" type="button">Reset</button>
+        <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
+    <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
+    <div class="chat-input-area">
+      <label class="sr-only" for="userInput">Ask about a podcast</label>
+      <input type="text" id="userInput" placeholder="Ask about a podcast, mood, or theme" />
+      <button id="sendMessageButton" type="button">Ask</button>
+    </div>
+    <p class="chat-footnote">Ask for moods, themes, genres, or a specific show already in the archive.</p>
+  </aside>
+
+  <main class="home-main page-main">
+    <section class="hero-shell">
+      <div class="hero-panel page-panel">
+        <div class="hero-copy">
+          <h1>Submit a show</h1>
+          <p>
+            Send a fiction podcast or audio drama into the archive review queue. This is not an auto-publish form. The catalog stays curated.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-stack">
+      <article class="page-card">
+        <h2>Archive intake</h2>
+        <p>Give the archive enough to verify the show and place it correctly. A contact email plus either an official site or an RSS/listen link is required.</p>
+      </article>
+
+      <article class="page-card">
+        <form id="showSubmitForm" class="submit-form">
+          <label>
+            <span>Show title</span>
+            <input type="text" name="showTitle" required maxlength="160" />
+          </label>
+
+          <label>
+            <span>Creator or network</span>
+            <input type="text" name="creatorName" maxlength="160" />
+          </label>
+
+          <label>
+            <span>Contact email</span>
+            <input type="email" name="contactEmail" required maxlength="160" />
+          </label>
+
+          <label>
+            <span>Official site</span>
+            <input type="url" name="officialSite" placeholder="https://example.com" />
+          </label>
+
+          <label>
+            <span>RSS or listen link</span>
+            <input type="url" name="rssOrListenLink" placeholder="https://example.com/feed" />
+          </label>
+
+          <label>
+            <span>Genres or tags</span>
+            <input type="text" name="genres" maxlength="300" placeholder="sci-fi, mystery, comedy" />
+          </label>
+
+          <label>
+            <span>Why it belongs in the archive</span>
+            <textarea name="notes" rows="7" maxlength="4000" placeholder="Give the archive context about tone, format, strengths, and who it fits."></textarea>
+          </label>
+
+          <label class="hp-field" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+
+          <div class="submit-form-actions">
+            <button type="submit" class="detail-primary-action">Submit to the archive</button>
+            <p id="submitStatus" class="submit-status" aria-live="polite">Nothing submitted yet.</p>
+          </div>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <button id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+    </svg>
+  </button>
+
+  <footer id="site-footer">
+    <div class="left-content">
+      <img src="images/C2-dark.png" alt="Continental Studios logo" />
+      <span>A product of Continental Studios</span>
+    </div>
+    <div class="center-content">
+      <p>
+        © 2026 PClaystation |
+        <a href="/index.html">Browse the archive</a> |
+        <a href="/about.html">About the archive</a>
+      </p>
+    </div>
+    <div class="right-content">
+      <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer" aria-label="Support on Patreon">
+        <img src="images/patreon.svg" alt="Patreon" />
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=12"></script>
+</body>
+</html>

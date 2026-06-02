@@ -4,11 +4,11 @@ This service runs the archive assistant for The Echo Archives and lives inside t
 
 ## What it does
 
-- Loads the homepage podcast cards from `../index.html`
-- Merges those cards with detailed review data from `../podcast-data.json`
+- Loads the structured archive catalog from `../data/shows.json`
 - Exposes a same-origin chat API at `/api/chat`
 - Persists anonymous community ratings in SQLite for future participation features
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
+- Exposes show submission intake at `/api/submissions/shows`
 - Uses Ollama when available and falls back to grounded heuristic recommendations when it is not
 
 ## Run locally

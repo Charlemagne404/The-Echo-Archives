@@ -2,20 +2,31 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
 
-const { loadCatalog, scoreCatalog } = require("../lib/catalog");
+const { loadCatalog, loadCollections, scoreCatalog } = require("../lib/catalog");
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/chat");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
-test("loadCatalog merges homepage cards with detailed archive data", () => {
+test("loadCatalog reads the structured show catalog", () => {
   const catalog = loadCatalog(siteRoot);
   const impactWinter = catalog.find((entry) => entry.title === "Impact Winter");
+  const ids = new Set(catalog.map((entry) => entry.id));
 
-  assert.ok(catalog.length >= 10);
+  assert.equal(catalog.length, 27);
+  assert.equal(ids.size, 27);
   assert.ok(impactWinter);
   assert.equal(impactWinter.finalRating, 10);
   assert.equal(impactWinter.hasPage, true);
-  assert.match(impactWinter.summary, /post-apocalyptic audio drama/i);
+  assert.equal(impactWinter.href, "/show.html?id=impact-winter");
+  assert.match(impactWinter.summary, /endless winter/i);
+});
+
+test("loadCollections reads curated collections against the catalog ids", () => {
+  const catalog = loadCatalog(siteRoot);
+  const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
+
+  assert.equal(collections.length, 6);
+  assert.ok(collections.every((collection) => collection.showIds.length > 0));
 });
 
 test("scoreCatalog ranks relevant matches first", () => {
