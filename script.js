@@ -218,7 +218,12 @@ function applyArchiveStats(prefix, stats) {
   setTextContent(`${prefix}ShowCount`, String(stats.showCount));
   setTextContent(`${prefix}ReviewCount`, String(stats.fullReviewCount));
   setTextContent(`${prefix}CollectionCount`, String(stats.collectionCount));
-  setTextContent(`${prefix}LastUpdated`, stats.latestUpdatedAt ? formatDate(stats.latestUpdatedAt) : "Unknown");
+  const formattedDate = stats.latestUpdatedAt
+    ? prefix === "home"
+      ? formatCompactDate(stats.latestUpdatedAt)
+      : formatDate(stats.latestUpdatedAt)
+    : "Unknown";
+  setTextContent(`${prefix}LastUpdated`, formattedDate);
 }
 
 function getVisibleFilterTags(shows) {
@@ -301,6 +306,7 @@ function getStructuredFilterGroups(shows) {
 async function initializeHomePage() {
   const shows = await loadShows();
   const collections = await loadCollections();
+  const showMap = buildShowMap(shows);
   updateDocumentMetadata({
     title: "The Echo Archives",
     description: "Curated fiction podcasts, filtered by mood, genre, and listening intent.",
@@ -320,11 +326,12 @@ async function initializeHomePage() {
   const noResultsMsg = document.getElementById("noResultsMsg");
   const resultsSummary = document.getElementById("resultsSummary");
   const quickFiltersRoot = document.getElementById("quickFilters");
+  const collectionsSection = document.getElementById("collections");
   const collectionGrid = document.getElementById("collectionGrid");
   const clearResultsState = document.getElementById("clearResultsState");
   const openArchivistAction = document.getElementById("openArchivistAction");
 
-  if (!archiveGrid || !filterOptionGrid || !quickFiltersRoot || !collectionGrid || !browseModesRoot) {
+  if (!archiveGrid || !filterOptionGrid || !quickFiltersRoot || !collectionsSection || !collectionGrid || !browseModesRoot) {
     return;
   }
 
@@ -401,6 +408,10 @@ async function initializeHomePage() {
       userInput.value = "Help me find something finished or easy to jump into.";
       userInput.focus();
     }
+  });
+
+  window.addEventListener("resize", () => {
+    renderHomeResults();
   });
 
   function clearAllFilters() {
@@ -487,26 +498,39 @@ async function initializeHomePage() {
 
   function renderCollections() {
     collectionGrid.textContent = "";
+    collectionsSection.hidden = featuredCollections.length === 0;
 
     featuredCollections.forEach((collection, index) => {
-      const card = document.createElement("article");
+      const collectionShows = getCollectionShows(collection, showMap);
+      const coverShow = collectionShows[0];
+      const card = document.createElement("a");
       card.className = "collection-card";
+      card.href = createCollectionHref(collection.id);
+      card.setAttribute("aria-label", `Browse the ${collection.title} collection`);
+      if (coverShow?.cover) {
+        card.style.setProperty("--collection-cover-image", `url("/${coverShow.cover}")`);
+      }
 
-      const kicker = document.createElement("p");
-      kicker.textContent = index % 2 === 0 ? "Curated route" : "Archive collection";
+      const badge = document.createElement("span");
+      badge.className = "collection-card-badge";
+      badge.textContent = index % 2 === 0 ? "Featured route" : "Archive collection";
 
       const title = document.createElement("h3");
       title.textContent = collection.title;
 
-      const description = document.createElement("p");
-      description.textContent = collection.description;
+      const footer = document.createElement("div");
+      footer.className = "collection-card-footer";
 
-      const link = document.createElement("a");
-      link.className = "collection-action";
-      link.href = createCollectionHref(collection.id);
-      link.textContent = "Browse collection";
+      const count = document.createElement("p");
+      count.className = "collection-card-count";
+      count.textContent = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"}`;
 
-      card.append(kicker, title, description, link);
+      const cta = document.createElement("span");
+      cta.className = "collection-card-cta";
+      cta.textContent = "Browse";
+
+      footer.append(count, cta);
+      card.append(badge, title, footer);
       collectionGrid.appendChild(card);
     });
   }
@@ -598,6 +622,7 @@ async function initializeHomePage() {
     visibleShows.forEach((show) => {
       archiveGrid.appendChild(createShowCard(show));
     });
+    insertCollectionsSection(visibleShows.length);
 
     void syncCommunityCardBadges(archiveGrid, visibleShows);
 
@@ -656,6 +681,28 @@ async function initializeHomePage() {
       filterClear.hidden = selectedCount === 0 && !state.selectedCollectionId && state.sortMode === "default";
     }
   }
+
+  function insertCollectionsSection(visibleShowCount) {
+    if (collectionsSection.hidden) {
+      return;
+    }
+
+    const insertIndex = Math.min(visibleShowCount, getHomeGridColumnCount() * 2);
+    const insertionPoint = archiveGrid.children[insertIndex] || null;
+    archiveGrid.insertBefore(collectionsSection, insertionPoint);
+  }
+
+  function getHomeGridColumnCount() {
+    if (window.matchMedia("(max-width: 780px)").matches) {
+      return 1;
+    }
+
+    if (window.matchMedia("(max-width: 1180px)").matches) {
+      return 2;
+    }
+
+    return 6;
+  }
 }
 
 function createShowCard(show) {
@@ -679,12 +726,11 @@ function createShowCard(show) {
   const tags = document.createElement("p");
   tags.className = "tags";
 
-  show.tags.slice(0, 3).forEach((tag) => {
+  show.tags.slice(0, 2).forEach((tag) => {
     const chip = document.createElement("span");
     chip.className = "tag";
     chip.textContent = toDisplayTag(tag);
     tags.appendChild(chip);
-    tags.append(" ");
   });
 
   const rating = document.createElement("p");
@@ -2294,6 +2340,18 @@ function formatDate(value) {
   return new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
+    day: "numeric",
+  }).format(date);
+}
+
+function formatCompactDate(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
     day: "numeric",
   }).format(date);
 }

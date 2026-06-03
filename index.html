@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Curated fiction podcasts, filtered by mood, genre, and listening intent." />
   <meta name="twitter:image" content="https://echo.continental-hub.com/images/Logo.png" />
   <link rel="stylesheet" href="style.css?v=12" />
-  <link rel="stylesheet" href="home.css?v=13" />
+  <link rel="stylesheet" href="home.css?v=15" />
   <link rel="icon" href="images/TEA-Logo-S-W.png" type="image/x-icon" />
 </head>
 <body class="home-page">
@@ -29,10 +29,11 @@
     </a>
 
     <nav class="site-nav" aria-label="Primary">
-      <a class="is-active" href="#browse">Browse</a>
+      <a class="is-active" href="/index.html">Browse</a>
       <a href="/collections.html">Collections</a>
       <a href="about.html">About</a>
       <a href="submit.html">Submit</a>
+      <button type="button">For creators</button>
     </nav>
 
     <div class="header-actions">
@@ -117,26 +118,13 @@
             <div class="quick-filters" id="quickFilters" role="group" aria-label="Quick filters"></div>
           </div>
         </div>
+        <section class="archive-trust-grid" aria-label="Archive trust signals">
+          <p class="archive-trust-item"><strong id="homeShowCount">-</strong> <span>shows indexed</span></p>
+          <p class="archive-trust-item"><strong id="homeReviewCount">-</strong> <span>reviews</span></p>
+          <p class="archive-trust-item"><strong id="homeCollectionCount">-</strong> <span>collections</span></p>
+          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">-</strong></p>
+        </section>
       </div>
-    </section>
-
-    <section class="page-grid archive-trust-grid" aria-label="Archive trust signals">
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Shows indexed</span>
-        <strong id="homeShowCount">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Full reviews</span>
-        <strong id="homeReviewCount">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Collections</span>
-        <strong id="homeCollectionCount">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Last updated</span>
-        <strong id="homeLastUpdated">-</strong>
-      </article>
     </section>
 
     <section class="archive-section" id="archive">
@@ -163,9 +151,10 @@
     <section class="collection-band" id="collections" aria-labelledby="collections-title">
       <div class="section-heading">
         <div>
-          <h2 id="collections-title">Start somewhere worth following</h2>
-          <p>Curated entry points into the catalog when you do not want to scroll blind.</p>
+          <h2 id="collections-title">Featured collections</h2>
+          <p>Curated entry points into the archive when you want a stronger starting signal than endless scrolling.</p>
         </div>
+        <a class="section-link" href="/collections.html">View all collections</a>
       </div>
 
       <div class="collection-grid" id="collectionGrid"></div>
@@ -185,7 +174,7 @@
     </div>
     <div class="center-content">
       <p>
-        © 2026 PClaystation |
+        © 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a> |
         <a href="collections.html">Collections</a> |
         <a href="about.html">About the archive</a> |
         <a href="submit.html">Submit a show</a>
@@ -198,6 +187,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>
