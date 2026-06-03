@@ -183,6 +183,8 @@
 .chat-close-button:focus-visible,
 #filterToggle:hover,
 #filterToggle:focus-visible,
+.browse-mode-button:hover,
+.browse-mode-button:focus-visible,
 .collection-action:hover,
 .collection-action:focus-visible,
 #sendMessageButton:hover,
@@ -583,10 +585,14 @@
 }
 
 .browse-modes {
-  display: none;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  align-items: center;
 }
 
 .quick-filter,
+.browse-mode-button,
 .collection-action {
   display: inline-flex;
   align-items: center;
@@ -606,7 +612,9 @@
 }
 
 .quick-filter.is-active,
-.quick-filter[aria-pressed="true"] {
+.quick-filter[aria-pressed="true"],
+.browse-mode-button.is-active,
+.browse-mode-button[aria-pressed="true"] {
   color: var(--text-primary);
   border-color: rgba(229, 72, 56, 0.88);
   background: rgba(36, 19, 16, 0.94);
