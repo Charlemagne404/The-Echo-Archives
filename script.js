@@ -465,22 +465,6 @@ async function initializeHomePage() {
 
   function renderBrowseModes() {
     browseModesRoot.textContent = "";
-
-    [
-      { id: "default", label: "Curated browse" },
-      { id: "recently-updated", label: "Recently updated" },
-    ].forEach((mode) => {
-      const button = document.createElement("button");
-      button.className = "quick-filter browse-mode-button";
-      button.type = "button";
-      button.dataset.browseMode = mode.id;
-      button.textContent = mode.label;
-      button.addEventListener("click", () => {
-        state.sortMode = mode.id;
-        renderHomeResults();
-      });
-      browseModesRoot.appendChild(button);
-    });
   }
 
   function createQuickFilterButton(tag) {
