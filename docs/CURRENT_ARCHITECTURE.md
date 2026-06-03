@@ -26,6 +26,7 @@ Primary public routes:
 - `/submit.html`
 
 The frontend remains lightweight and largely static in presentation, but it now renders browse and show state from structured catalog data instead of handwritten card grids.
+The homepage also derives archive trust stats from the live catalog, supports structured browse filters, and exposes a "recently updated" mode without introducing a frontend build step.
 
 ## Structured Catalog
 
@@ -59,7 +60,7 @@ Legacy detail pages still exist as compatibility entry points, but the reusable 
 
 - catalog-grounded archive chat
 - anonymous community ratings
-- submission and correction intake
+- show, correction, listener-review, and creator-verification intake
 - generated sitemap support
 - optional static file serving
 
@@ -81,9 +82,11 @@ It validates:
 - valid URLs
 - duplicate taxonomy terms
 - `similarTo` references
+- optional `similarReasons` references
+- optional `createdAt`, `creatorId`, and `networkId` fields
 - collection references
 
-This is a major improvement over the older HTML-scraping approach.
+Optional future datasets such as `creators.json`, `networks.json`, and `changelog.json` are also validated when present, but remain invisible to the public site until real data exists.
 
 ## Community Layer
 
@@ -102,18 +105,38 @@ It is handling trust, thresholds, anti-spam, and moderation cleanly as public us
 
 ## Submission Layer
 
-The archive has a first-party submit flow with correction support.
+The archive now has a first-party intake flow for:
 
-That gives the roadmap a real intake surface already. The next work is to turn intake into a reliable editorial workflow instead of just a form destination.
+- new shows
+- corrections
+- listener reviews
+- creator verification requests
+
+All intake still lands in SQLite for manual review. The operational layer now stores typed payload JSON, provenance JSON, and moderation metadata without turning SQLite into the editorial source of truth.
 
 ## Testing And Quality
 
 There is already backend test coverage for:
 
 - catalog loading
+- optional archive-context loading
 - sitemap generation
 - submission flows
 - community flows
+
+There is also lightweight browser smoke coverage for:
+
+- main public routes
+- homepage structured filters and empty-state recovery
+- Ask the Archivist open and close behavior
+- submit-form mode switching
+
+Release tooling now includes:
+
+- `npm run validate:data`
+- `npm run check:links`
+- `npm run test:smoke`
+- `npm run verify`
 
 The roadmap should extend that safety net as discovery and moderation logic grows.
 
@@ -123,16 +146,16 @@ The important current gaps are:
 
 - limited catalog breadth relative to the final vision
 - limited full-review coverage
-- limited discovery depth on top of the catalog
-- limited visible archive activity signals
-- no listener-review moderation layer yet
+- no public changelog route yet
+- no public listener-review surface yet
 - no creator or network browse layer yet
+- no trustworthy `createdAt` backfill for "recently added"
 
 ## Submit/contact flow
 
 [`contact.html`](/Users/charliearnerstal/Documents/GitHub/The-Echo-Archives/contact.html) is a thin wrapper around an embedded Tally form.
 
-This works as a low-friction submit/contact flow for now, but it is generic rather than catalog-specific.
+This still works as a lightweight general contact surface, but the primary archive intake is now the catalog-specific `/submit.html` workflow.
 
 ## Deployment assumptions
 
@@ -150,13 +173,11 @@ Operational assumptions:
 
 ## Current architecture problems
 
-The main issues are structural, not visual:
+The remaining issues are now mostly about scale and editorial throughput rather than platform fragility:
 
-- catalog data is duplicated between homepage HTML and `podcast-data.json`
-- backend catalog loading depends on parsing handwritten markup
-- most indexed shows do not have reusable detail pages
-- slugs and paths are inconsistent across folders, filenames, and titles
-- filters and collections are maintained manually in markup
-- homepage rendering does not scale cleanly beyond a small handcrafted catalog
+- recommendation reasons are scaffolded but not yet populated
+- optional creator, network, and changelog datasets are supported but not yet populated
+- moderation remains intentionally manual and low-automation
+- runtime and commitment data are still too sparse for a trustworthy public filter
 
-The current build proves the concept. It is not yet set up to grow into a real archive.
+The current build is technically quieter than the original foundation, but it still depends on future editorial growth to reach the final vision.

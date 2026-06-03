@@ -6,10 +6,10 @@ const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
 const COMMUNITY_PUBLIC_THRESHOLD = 5;
 const DEFAULT_CHAT_SUGGESTIONS = [
-  "Give me a sci-fi show with strong worldbuilding",
-  "I want something funny in space",
+  "Give me a finished show with strong worldbuilding",
+  "I want something easy to jump into late at night",
   "Recommend a darker survival story",
-  "Which podcast should I start with if I like time travel?",
+  "What should I start with if I want a full review first?",
 ];
 const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
 
@@ -97,12 +97,33 @@ async function loadCollections() {
     return dataCache.collections;
   }
 
-  dataCache.collections = await fetchJson(COLLECTIONS_DATA_URL);
+  const records = await fetchJson(COLLECTIONS_DATA_URL);
+  dataCache.collections = records.map((record) => normalizeCollectionRecord(record));
   return dataCache.collections;
 }
 
 function getPublishedShows(shows) {
   return shows.filter((show) => show.status === "published");
+}
+
+function normalizeKeyedTextMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([key, text]) => [String(key || "").trim(), String(text || "").trim()])
+      .filter(([key, text]) => key && text),
+  );
+}
+
+function normalizeCollectionRecord(record) {
+  return {
+    ...record,
+    showIds: Array.isArray(record.showIds) ? record.showIds.filter(Boolean) : [],
+    showReasons: normalizeKeyedTextMap(record.showReasons),
+  };
 }
 
 function buildCollectionMap(collections) {
@@ -134,6 +155,7 @@ function normalizeShowRecord(record) {
   const formats = Array.isArray(record.formats) ? record.formats.filter(Boolean) : [];
   const bestFor = Array.isArray(record.bestFor) ? record.bestFor.filter(Boolean) : [];
   const similarTo = Array.isArray(record.similarTo) ? record.similarTo.filter(Boolean) : [];
+  const similarReasons = normalizeKeyedTextMap(record.similarReasons);
   const rating = Number(record.ratings?.archive);
   const searchText = [
     record.title,
@@ -160,15 +182,43 @@ function normalizeShowRecord(record) {
     formats,
     bestFor,
     similarTo,
+    similarReasons,
     href: `/show.html?id=${encodeURIComponent(record.id)}`,
     finalRating: Number.isFinite(rating) ? rating : null,
     searchText,
     tagTokens: tags.map((tag) => normalizeTag(tag)),
+    bestForTokens: bestFor.map((tag) => normalizeTag(tag)),
   };
 }
 
 function buildShowMap(shows) {
   return new Map(shows.map((show) => [show.id, show]));
+}
+
+function getArchiveStats(shows, collections) {
+  const publishedShows = getPublishedShows(shows);
+  const fullReviewCount = publishedShows.filter((show) => show.reviewStatus === "full-review").length;
+  const latestUpdatedAt = [
+    ...publishedShows.map((show) => show.updatedAt),
+    ...(Array.isArray(collections) ? collections.map((collection) => collection.updatedAt) : []),
+  ]
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+
+  return {
+    showCount: publishedShows.length,
+    fullReviewCount,
+    collectionCount: Array.isArray(collections) ? collections.length : 0,
+    latestUpdatedAt: latestUpdatedAt || "",
+  };
+}
+
+function applyArchiveStats(prefix, stats) {
+  setTextContent(`${prefix}ShowCount`, String(stats.showCount));
+  setTextContent(`${prefix}ReviewCount`, String(stats.fullReviewCount));
+  setTextContent(`${prefix}CollectionCount`, String(stats.collectionCount));
+  setTextContent(`${prefix}LastUpdated`, stats.latestUpdatedAt ? formatDate(stats.latestUpdatedAt) : "Unknown");
 }
 
 function getVisibleFilterTags(shows) {
@@ -205,9 +255,59 @@ function getQuickFilters(filterTags) {
   return PREFERRED_QUICK_FILTERS.filter((id) => tagsById.has(id)).map((id) => tagsById.get(id));
 }
 
+function createCountedOptions(shows, selector, formatter = toDisplayTag) {
+  const counts = new Map();
+
+  shows.forEach((show) => {
+    const values = Array.isArray(selector(show)) ? selector(show) : [];
+    values.forEach((value) => {
+      const normalized = String(value || "").trim();
+      if (!normalized) {
+        return;
+      }
+
+      const current = counts.get(normalized) || {
+        id: normalized,
+        label: formatter(normalized),
+        count: 0,
+      };
+      current.count += 1;
+      counts.set(normalized, current);
+    });
+  });
+
+  return Array.from(counts.values()).sort((left, right) => {
+    if (right.count !== left.count) {
+      return right.count - left.count;
+    }
+
+    return left.label.localeCompare(right.label);
+  });
+}
+
+function getStructuredFilterGroups(shows) {
+  return [
+    { id: "reviewStatus", label: "Coverage", options: createCountedOptions(shows, (show) => [show.reviewStatus], toLabel) },
+    {
+      id: "completionStatus",
+      label: "Completion",
+      options: createCountedOptions(shows, (show) => [show.completionStatus], toDisplayTag),
+    },
+    { id: "bestFor", label: "Best for", options: createCountedOptions(shows, (show) => show.bestFor, toDisplayTag) },
+    { id: "tags", label: "Tags", options: getVisibleFilterTags(shows) },
+  ].filter((group) => group.options.length > 0);
+}
+
 async function initializeHomePage() {
   const shows = await loadShows();
   const collections = await loadCollections();
+  updateDocumentMetadata({
+    title: "The Echo Archives",
+    description: "Curated fiction podcasts, filtered by mood, genre, and listening intent.",
+    path: "/",
+    image: DEFAULT_SOCIAL_IMAGE,
+  });
+  applyArchiveStats("home", getArchiveStats(shows, collections));
 
   const searchInput = document.getElementById("search");
   const filterToggle = document.getElementById("filterToggle");
@@ -215,26 +315,35 @@ async function initializeHomePage() {
   const filterCount = document.getElementById("filterCount");
   const filterClear = document.getElementById("filterClear");
   const filterOptionGrid = document.getElementById("filterOptionGrid");
+  const browseModesRoot = document.getElementById("browseModes");
   const archiveGrid = document.getElementById("podcast-grid");
   const noResultsMsg = document.getElementById("noResultsMsg");
   const resultsSummary = document.getElementById("resultsSummary");
   const quickFiltersRoot = document.getElementById("quickFilters");
   const collectionGrid = document.getElementById("collectionGrid");
+  const clearResultsState = document.getElementById("clearResultsState");
+  const openArchivistAction = document.getElementById("openArchivistAction");
 
-  if (!archiveGrid || !filterOptionGrid || !quickFiltersRoot || !collectionGrid) {
+  if (!archiveGrid || !filterOptionGrid || !quickFiltersRoot || !collectionGrid || !browseModesRoot) {
     return;
   }
 
   const filterTags = getVisibleFilterTags(shows);
+  const structuredFilterGroups = getStructuredFilterGroups(shows);
   const quickFilters = getQuickFilters(filterTags);
   const featuredCollections = collections.filter((collection) => collection.featured);
   const collectionsById = buildCollectionMap(collections);
 
   const state = {
     query: "",
-    selectedTags: new Set(),
+    filters: {
+      tags: new Set(),
+      bestFor: new Set(),
+      completionStatus: new Set(),
+      reviewStatus: new Set(),
+    },
     selectedCollectionId: "",
-    topRatedOnly: false,
+    sortMode: "default",
   };
 
   const initialCollectionId = new URLSearchParams(window.location.search).get("collection") || "";
@@ -244,6 +353,7 @@ async function initializeHomePage() {
 
   renderFilterOptions();
   renderQuickFilters();
+  renderBrowseModes();
   renderCollections();
   renderHomeResults();
 
@@ -278,29 +388,69 @@ async function initializeHomePage() {
   });
 
   filterClear?.addEventListener("click", () => {
-    state.selectedTags.clear();
+    clearAllFilters();
+  });
+
+  clearResultsState?.addEventListener("click", () => {
+    clearAllFilters();
+  });
+
+  openArchivistAction?.addEventListener("click", () => {
+    setChatOpen(true);
+    if (userInput) {
+      userInput.value = "Help me find something finished or easy to jump into.";
+      userInput.focus();
+    }
+  });
+
+  function clearAllFilters() {
+    Object.values(state.filters).forEach((values) => values.clear());
     state.selectedCollectionId = "";
-    state.topRatedOnly = false;
+    state.sortMode = "default";
+    state.query = "";
     if (searchInput) {
       searchInput.value = "";
-      state.query = "";
     }
     renderHomeResults();
-  });
+  }
 
   function renderFilterOptions() {
     filterOptionGrid.textContent = "";
 
-    filterTags.forEach((tag) => {
-      const button = document.createElement("button");
-      button.className = "filter-option";
-      button.type = "button";
-      button.dataset.filterTag = tag.id;
-      button.textContent = tag.label;
-      button.addEventListener("click", () => {
-        toggleTag(tag.id);
+    structuredFilterGroups.forEach((group) => {
+      const section = document.createElement("section");
+      section.className = "filter-group";
+
+      const heading = document.createElement("div");
+      heading.className = "filter-group-heading";
+
+      const title = document.createElement("p");
+      title.className = "filter-group-title";
+      title.textContent = group.label;
+
+      const count = document.createElement("p");
+      count.className = "filter-group-count";
+      count.textContent = `${group.options.length} options`;
+
+      const optionGrid = document.createElement("div");
+      optionGrid.className = "filter-group-options";
+
+      group.options.forEach((option) => {
+        const button = document.createElement("button");
+        button.className = "filter-option";
+        button.type = "button";
+        button.dataset.filterGroup = group.id;
+        button.dataset.filterValue = option.id;
+        button.textContent = option.label;
+        button.addEventListener("click", () => {
+          toggleFilter(group.id, option.id);
+        });
+        optionGrid.appendChild(button);
       });
-      filterOptionGrid.appendChild(button);
+
+      heading.append(title, count);
+      section.append(heading, optionGrid);
+      filterOptionGrid.appendChild(section);
     });
   }
 
@@ -313,6 +463,26 @@ async function initializeHomePage() {
     });
   }
 
+  function renderBrowseModes() {
+    browseModesRoot.textContent = "";
+
+    [
+      { id: "default", label: "Curated browse" },
+      { id: "recently-updated", label: "Recently updated" },
+    ].forEach((mode) => {
+      const button = document.createElement("button");
+      button.className = "quick-filter browse-mode-button";
+      button.type = "button";
+      button.dataset.browseMode = mode.id;
+      button.textContent = mode.label;
+      button.addEventListener("click", () => {
+        state.sortMode = mode.id;
+        renderHomeResults();
+      });
+      browseModesRoot.appendChild(button);
+    });
+  }
+
   function createQuickFilterButton(tag) {
     const button = document.createElement("button");
     button.className = "quick-filter";
@@ -321,17 +491,12 @@ async function initializeHomePage() {
     button.textContent = tag.label;
     button.addEventListener("click", () => {
       if (tag.id === "all") {
-        state.selectedTags.clear();
-        state.selectedCollectionId = "";
-        state.topRatedOnly = false;
+        clearAllFilters();
       } else {
         state.selectedCollectionId = "";
-        state.topRatedOnly = false;
-        toggleTag(tag.id);
+        toggleFilter("tags", tag.id);
         return;
       }
-
-      renderHomeResults();
     });
     return button;
   }
@@ -362,16 +527,72 @@ async function initializeHomePage() {
     });
   }
 
-  function toggleTag(tagId) {
-    if (state.selectedTags.has(tagId)) {
-      state.selectedTags.delete(tagId);
+  function toggleFilter(groupId, filterId) {
+    const selectedValues = state.filters[groupId];
+    if (!selectedValues) {
+      return;
+    }
+
+    if (selectedValues.has(filterId)) {
+      selectedValues.delete(filterId);
     } else {
-      state.selectedTags.add(tagId);
+      selectedValues.add(filterId);
     }
 
     state.selectedCollectionId = "";
-    state.topRatedOnly = false;
     renderHomeResults();
+  }
+
+  function getActiveFilterCount() {
+    return Object.values(state.filters).reduce((count, values) => count + values.size, 0);
+  }
+
+  function matchesSelectedFilters(show) {
+    return Object.entries(state.filters).every(([groupId, selectedValues]) => {
+      if (selectedValues.size === 0) {
+        return true;
+      }
+
+      const values = (() => {
+        switch (groupId) {
+          case "tags":
+            return show.tagTokens;
+          case "bestFor":
+            return show.bestForTokens;
+          case "completionStatus":
+            return [show.completionStatus || "unclear"];
+          case "reviewStatus":
+            return [show.reviewStatus || "indexed-only"];
+          default:
+            return [];
+        }
+      })();
+
+      return Array.from(selectedValues).some((value) => values.includes(value));
+    });
+  }
+
+  function sortVisibleShows(visibleShows, selectedCollection) {
+    const sortedShows = [...visibleShows];
+
+    if (state.sortMode === "recently-updated") {
+      return sortedShows.sort((left, right) => {
+        const leftValue = left.updatedAt || "";
+        const rightValue = right.updatedAt || "";
+        if (rightValue !== leftValue) {
+          return rightValue.localeCompare(leftValue);
+        }
+
+        return left.title.localeCompare(right.title);
+      });
+    }
+
+    if (!selectedCollection) {
+      return sortedShows;
+    }
+
+    const collectionOrder = new Map(selectedCollection.showIds.map((id, index) => [id, index]));
+    return sortedShows.sort((left, right) => (collectionOrder.get(left.id) || 0) - (collectionOrder.get(right.id) || 0));
   }
 
   function renderHomeResults() {
@@ -379,15 +600,15 @@ async function initializeHomePage() {
       ? collectionsById.get(state.selectedCollectionId)
       : null;
 
-    const visibleShows = shows.filter((show) => {
-      const matchesQuery = !state.query || show.searchText.includes(state.query);
-      const matchesTags =
-        state.selectedTags.size === 0 ||
-        Array.from(state.selectedTags).every((tag) => show.tagTokens.includes(tag));
-      const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
-      const matchesTopRated = !state.topRatedOnly || (show.finalRating || 0) >= 9;
-      return matchesQuery && matchesTags && matchesCollection && matchesTopRated;
-    });
+    const visibleShows = sortVisibleShows(
+      shows.filter((show) => {
+        const matchesQuery = !state.query || show.searchText.includes(state.query);
+        const matchesFilters = matchesSelectedFilters(show);
+        const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
+        return matchesQuery && matchesFilters && matchesCollection;
+      }),
+      selectedCollection,
+    );
 
     archiveGrid.textContent = "";
     visibleShows.forEach((show) => {
@@ -400,7 +621,8 @@ async function initializeHomePage() {
       const fullReviewCount = visibleShows.filter((show) => show.reviewStatus === "full-review").length;
       const suffix = fullReviewCount === 1 ? "full review" : "full reviews";
       const collectionPrefix = selectedCollection ? `${selectedCollection.title} • ` : "";
-      resultsSummary.textContent = `${collectionPrefix}${visibleShows.length} results • ${fullReviewCount} ${suffix}`;
+      const modePrefix = state.sortMode === "recently-updated" ? "Recently updated • " : "";
+      resultsSummary.textContent = `${collectionPrefix}${modePrefix}${visibleShows.length} results • ${fullReviewCount} ${suffix}`;
     }
 
     if (noResultsMsg) {
@@ -411,24 +633,32 @@ async function initializeHomePage() {
   }
 
   function syncHomeControls() {
-    const selectedCount = state.selectedTags.size;
+    const selectedCount = getActiveFilterCount();
 
     quickFiltersRoot.querySelectorAll(".quick-filter").forEach((button) => {
       const filter = button.dataset.chipFilter || "";
       const isActive =
         (filter === "all" &&
-          state.selectedTags.size === 0 &&
+          selectedCount === 0 &&
           !state.selectedCollectionId &&
-          !state.topRatedOnly) ||
-        (filter !== "all" && state.selectedTags.has(filter));
+          state.sortMode === "default") ||
+        (filter !== "all" && state.filters.tags.has(filter));
 
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     });
 
+    browseModesRoot.querySelectorAll(".browse-mode-button").forEach((button) => {
+      const mode = button.dataset.browseMode || "default";
+      const isActive = state.sortMode === mode;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
     filterOptionGrid.querySelectorAll(".filter-option").forEach((button) => {
-      const tag = button.dataset.filterTag || "";
-      const isActive = state.selectedTags.has(tag);
+      const groupId = button.dataset.filterGroup || "";
+      const value = button.dataset.filterValue || "";
+      const isActive = Boolean(state.filters[groupId]?.has(value));
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-pressed", String(isActive));
     });
@@ -439,7 +669,7 @@ async function initializeHomePage() {
     }
 
     if (filterClear) {
-      filterClear.hidden = selectedCount === 0 && !state.selectedCollectionId && !state.topRatedOnly;
+      filterClear.hidden = selectedCount === 0 && !state.selectedCollectionId && state.sortMode === "default";
     }
   }
 }
@@ -484,6 +714,24 @@ function createShowCard(show) {
   communityBadge.hidden = true;
 
   shell.append(card, communityBadge);
+  return shell;
+}
+
+function getCollectionShowReason(collection, showId) {
+  const reason = collection?.showReasons?.[showId];
+  return typeof reason === "string" && reason.trim() ? reason.trim() : "";
+}
+
+function createCollectionShowCard(show, reason = "") {
+  const shell = createShowCard(show);
+  if (!reason) {
+    return shell;
+  }
+
+  const reasonNode = document.createElement("p");
+  reasonNode.className = "collection-card-reason";
+  reasonNode.textContent = reason;
+  shell.appendChild(reasonNode);
   return shell;
 }
 
@@ -548,6 +796,12 @@ function renderMissingShowPage(showRoot) {
 async function initializeCollectionsPage() {
   const shows = await loadShows();
   const collections = await loadCollections();
+  updateDocumentMetadata({
+    title: "Collections - The Echo Archives",
+    description: "Browse every curated discovery collection in The Echo Archives.",
+    path: "/collections.html",
+    image: DEFAULT_SOCIAL_IMAGE,
+  });
   const publishedShows = getPublishedShows(shows);
   const showMap = buildShowMap(publishedShows);
   const directoryRoot = document.getElementById("collectionsDirectory");
@@ -672,7 +926,7 @@ async function initializeCollectionPage() {
 
   grid.textContent = "";
   collectionShows.forEach((show) => {
-    grid.appendChild(createShowCard(show));
+    grid.appendChild(createCollectionShowCard(show, getCollectionShowReason(collection, show.id)));
   });
   void syncCommunityCardBadges(grid, collectionShows);
 }
@@ -958,6 +1212,7 @@ function renderSimilarSection(show, showMap) {
                 <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" />
                 <div class="detail-card-copy">
                   <h3>${escapeHtml(neighbor.title)}</h3>
+                  ${getSimilarReason(show, neighbor.id) ? `<p class="detail-similar-reason">${escapeHtml(getSimilarReason(show, neighbor.id))}</p>` : ""}
                   <p>${escapeHtml(neighbor.archiveTake || neighbor.description)}</p>
                   <a class="detail-archive-link" href="${escapeHtml(neighbor.href)}">Open show</a>
                 </div>
@@ -970,30 +1225,70 @@ function renderSimilarSection(show, showMap) {
   `;
 }
 
+function getSimilarReason(show, neighborId) {
+  const reason = show?.similarReasons?.[neighborId];
+  return typeof reason === "string" && reason.trim() ? reason.trim() : "";
+}
+
 async function initializeAboutPage() {
   const shows = await loadShows();
   const collections = await loadCollections();
-  const publishedShows = shows.filter((show) => show.status === "published");
-  const fullReviews = publishedShows.filter((show) => show.reviewStatus === "full-review");
-  const latestUpdatedAt = publishedShows
-    .map((show) => show.updatedAt)
-    .filter(Boolean)
-    .sort()
-    .at(-1);
-
-  setTextContent("aboutShowCount", String(publishedShows.length));
-  setTextContent("aboutReviewCount", String(fullReviews.length));
-  setTextContent("aboutCollectionCount", String(collections.length));
-  setTextContent("aboutLastUpdated", latestUpdatedAt ? formatDate(latestUpdatedAt) : "Unknown");
+  updateDocumentMetadata({
+    title: "About - The Echo Archives",
+    description: "How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy.",
+    path: "/about.html",
+    image: DEFAULT_SOCIAL_IMAGE,
+  });
+  applyArchiveStats("about", getArchiveStats(shows, collections));
 }
 
 async function initializeSubmitPage() {
+  updateDocumentMetadata({
+    title: "Submit a Show - The Echo Archives",
+    description: "Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives.",
+    path: "/submit.html",
+    image: DEFAULT_SOCIAL_IMAGE,
+  });
   const form = document.getElementById("showSubmitForm");
   const status = document.getElementById("submitStatus");
   const submissionType = document.getElementById("submissionType");
+  const submissionHelp = document.getElementById("submissionHelp");
   const existingShowField = document.getElementById("existingShowField");
   const existingShowId = document.getElementById("existingShowId");
-  if (!form || !status || !submissionType || !existingShowField || !existingShowId) {
+  const showTitleInput = document.getElementById("showTitleInput");
+  const showTitleLabel = document.getElementById("showTitleLabel");
+  const creatorField = document.getElementById("creatorField");
+  const officialSiteField = document.getElementById("officialSiteField");
+  const rssField = document.getElementById("rssField");
+  const genresField = document.getElementById("genresField");
+  const listenerRatingField = document.getElementById("listenerRatingField");
+  const listenerSpoilerLevelField = document.getElementById("listenerSpoilerLevelField");
+  const listenerReviewField = document.getElementById("listenerReviewField");
+  const verificationSourcesField = document.getElementById("verificationSourcesField");
+  const provenanceNotesField = document.getElementById("provenanceNotesField");
+  const notesField = document.getElementById("notesField");
+  const notesLabel = document.getElementById("notesLabel");
+  if (
+    !form ||
+    !status ||
+    !submissionType ||
+    !submissionHelp ||
+    !existingShowField ||
+    !existingShowId ||
+    !(showTitleInput instanceof HTMLInputElement) ||
+    !showTitleLabel ||
+    !creatorField ||
+    !officialSiteField ||
+    !rssField ||
+    !genresField ||
+    !listenerRatingField ||
+    !listenerSpoilerLevelField ||
+    !listenerReviewField ||
+    !verificationSourcesField ||
+    !provenanceNotesField ||
+    !notesField ||
+    !notesLabel
+  ) {
     return;
   }
 
@@ -1006,24 +1301,160 @@ async function initializeSubmitPage() {
     existingShowId.appendChild(option);
   });
 
-  const showTitleInput = form.querySelector('input[name="showTitle"]');
+  const creatorInput = creatorField.querySelector("input");
+  const officialSiteInput = officialSiteField.querySelector("input");
+  const rssOrListenInput = rssField.querySelector("input");
+  const genresInput = genresField.querySelector("input");
+  const listenerRatingInput = listenerRatingField.querySelector("select");
+  const listenerSpoilerLevelInput = listenerSpoilerLevelField.querySelector("select");
+  const listenerReviewInput = listenerReviewField.querySelector("textarea");
+  const verificationSourcesInput = verificationSourcesField.querySelector("textarea");
+  const provenanceNotesInput = provenanceNotesField.querySelector("textarea");
+  const notesInput = notesField.querySelector("textarea");
 
-  function syncSubmissionMode() {
-    const isCorrection = submissionType.value === "correction";
-    existingShowField.hidden = !isCorrection;
-    existingShowId.required = isCorrection;
+  const modeConfig = {
+    show: {
+      help: "New-show submissions need enough links and context for the archive to verify the entry.",
+      showTitleLabel: "Show title",
+      notesLabel: "Why it belongs in the archive",
+      notesPlaceholder: "Give the archive context about tone, format, strengths, and who it fits.",
+      requiresExistingShow: false,
+      lockTitle: false,
+      visibleFields: ["creator", "officialSite", "rss", "genres", "notes"],
+      requiredFields: [],
+    },
+    correction: {
+      help: "Correction requests stay manual. Point to the existing entry and explain exactly what needs to change.",
+      showTitleLabel: "Archive entry title",
+      notesLabel: "Correction details",
+      notesPlaceholder: "Describe the factual issue and what should replace it.",
+      requiresExistingShow: true,
+      lockTitle: true,
+      visibleFields: ["notes"],
+      requiredFields: ["notes"],
+    },
+    "listener-review": {
+      help: "Listener reviews enter moderation before anything is surfaced publicly. Keep the spoiler level honest.",
+      showTitleLabel: "Reviewed show",
+      notesLabel: "Extra notes for the archive",
+      notesPlaceholder: "Optional context for moderation, edits, or edge cases.",
+      requiresExistingShow: true,
+      lockTitle: true,
+      visibleFields: ["listenerRating", "listenerSpoilerLevel", "listenerReview", "notes"],
+      requiredFields: ["listenerRating", "listenerReview"],
+    },
+    "creator-verification": {
+      help: "Creator verification is for factual metadata only. Include source links so the archive can confirm the update.",
+      showTitleLabel: "Archive entry title",
+      notesLabel: "Verification context",
+      notesPlaceholder: "Optional background for the archive reviewer.",
+      requiresExistingShow: true,
+      lockTitle: true,
+      visibleFields: ["creator", "officialSite", "verificationSources", "provenanceNotes", "notes"],
+      requiredFields: ["verificationSources", "provenanceNotes"],
+    },
+  };
+
+  const fieldRegistry = {
+    creator: creatorField,
+    officialSite: officialSiteField,
+    rss: rssField,
+    genres: genresField,
+    listenerRating: listenerRatingField,
+    listenerSpoilerLevel: listenerSpoilerLevelField,
+    listenerReview: listenerReviewField,
+    verificationSources: verificationSourcesField,
+    provenanceNotes: provenanceNotesField,
+    notes: notesField,
+  };
+
+  function setFieldHidden(field, hidden) {
+    field.hidden = hidden;
+    field.querySelectorAll("input, textarea, select").forEach((control) => {
+      if (!(control instanceof HTMLInputElement) && !(control instanceof HTMLTextAreaElement) && !(control instanceof HTMLSelectElement)) {
+        return;
+      }
+
+      control.disabled = hidden;
+      if (hidden) {
+        control.required = false;
+      }
+    });
   }
 
-  submissionType.addEventListener("change", syncSubmissionMode);
-  existingShowId.addEventListener("change", () => {
-    if (submissionType.value !== "correction" || !(showTitleInput instanceof HTMLInputElement) || showTitleInput.value) {
+  function syncSubmissionMode() {
+    const mode = modeConfig[submissionType.value] || modeConfig.show;
+    submissionHelp.textContent = mode.help;
+    showTitleLabel.textContent = mode.showTitleLabel;
+    notesLabel.textContent = mode.notesLabel;
+    if (notesInput instanceof HTMLTextAreaElement) {
+      notesInput.placeholder = mode.notesPlaceholder;
+    }
+
+    existingShowField.hidden = !mode.requiresExistingShow;
+    existingShowId.disabled = !mode.requiresExistingShow;
+    existingShowId.required = mode.requiresExistingShow;
+    showTitleInput.readOnly = mode.lockTitle;
+
+    Object.entries(fieldRegistry).forEach(([key, field]) => {
+      setFieldHidden(field, !mode.visibleFields.includes(key));
+    });
+
+    if (creatorInput instanceof HTMLInputElement) {
+      creatorInput.required = false;
+    }
+    if (officialSiteInput instanceof HTMLInputElement) {
+      officialSiteInput.required = false;
+    }
+    if (rssOrListenInput instanceof HTMLInputElement) {
+      rssOrListenInput.required = false;
+    }
+    if (genresInput instanceof HTMLInputElement) {
+      genresInput.required = false;
+    }
+    if (listenerRatingInput instanceof HTMLSelectElement) {
+      listenerRatingInput.required = mode.requiredFields.includes("listenerRating");
+    }
+    if (listenerSpoilerLevelInput instanceof HTMLSelectElement) {
+      listenerSpoilerLevelInput.required = false;
+    }
+    if (listenerReviewInput instanceof HTMLTextAreaElement) {
+      listenerReviewInput.required = mode.requiredFields.includes("listenerReview");
+    }
+    if (verificationSourcesInput instanceof HTMLTextAreaElement) {
+      verificationSourcesInput.required = mode.requiredFields.includes("verificationSources");
+    }
+    if (provenanceNotesInput instanceof HTMLTextAreaElement) {
+      provenanceNotesInput.required = mode.requiredFields.includes("provenanceNotes");
+    }
+    if (notesInput instanceof HTMLTextAreaElement) {
+      notesInput.required = mode.requiredFields.includes("notes");
+    }
+
+    if (mode.requiresExistingShow) {
+      const selectedOption = existingShowId.selectedOptions[0];
+      if (selectedOption?.textContent && (!showTitleInput.value || showTitleInput.dataset.autoFilled === "true")) {
+        showTitleInput.value = selectedOption.textContent;
+        showTitleInput.dataset.autoFilled = "true";
+      }
       return;
     }
 
+    showTitleInput.dataset.autoFilled = "false";
+  }
+
+  submissionType.addEventListener("change", syncSubmissionMode);
+  showTitleInput.addEventListener("input", () => {
+    showTitleInput.dataset.autoFilled = "false";
+  });
+  existingShowId.addEventListener("change", () => {
     const selectedOption = existingShowId.selectedOptions[0];
-    if (selectedOption?.textContent) {
-      showTitleInput.value = selectedOption.textContent;
+    if (!selectedOption?.textContent) {
+      return;
     }
+
+    showTitleInput.value = selectedOption.textContent;
+    showTitleInput.dataset.autoFilled = "true";
   });
 
   syncSubmissionMode();
@@ -1037,12 +1468,25 @@ async function initializeSubmitPage() {
       submitButton.textContent = "Submitting...";
     }
 
-    status.textContent = "Sending your show to the archive queue...";
+    const formData = new FormData(form);
+    const mode = formData.get("submissionType");
+    const pendingLabel = (() => {
+      switch (mode) {
+        case "correction":
+          return "Sending your correction into the archive queue...";
+        case "listener-review":
+          return "Sending your listener review into moderation...";
+        case "creator-verification":
+          return "Sending your verification request into moderation...";
+        default:
+          return "Sending your show to the archive queue...";
+      }
+    })();
+    status.textContent = pendingLabel;
     status.dataset.state = "pending";
 
-    const formData = new FormData(form);
     const payload = {
-      submissionType: formData.get("submissionType"),
+      submissionType: mode,
       existingShowId: formData.get("existingShowId"),
       showTitle: formData.get("showTitle"),
       creatorName: formData.get("creatorName"),
@@ -1050,6 +1494,11 @@ async function initializeSubmitPage() {
       officialSite: formData.get("officialSite"),
       rssOrListenLink: formData.get("rssOrListenLink"),
       genres: formData.get("genres"),
+      listenerRating: formData.get("listenerRating"),
+      spoilerLevel: formData.get("spoilerLevel"),
+      listenerReview: formData.get("listenerReview"),
+      verificationSources: formData.get("verificationSources"),
+      provenanceNotes: formData.get("provenanceNotes"),
       notes: formData.get("notes"),
       website: formData.get("website"),
     };
@@ -1069,7 +1518,8 @@ async function initializeSubmitPage() {
       }
 
       form.reset();
-      status.textContent = "Submission received. The archive review queue now has it.";
+      syncSubmissionMode();
+      status.textContent = "Submission received. It is now in the manual archive review queue.";
       status.dataset.state = "success";
     } catch (error) {
       status.textContent = error.message || "Submission failed. Try again.";
@@ -1202,11 +1652,11 @@ function resetChatThread() {
   chatState.history = [];
   renderAndStoreEntry({
     role: "assistant",
-    content: "Tell me a genre, mood, theme, or specific show and I'll narrow the archive down.",
+    content: "Tell me if you want something finished or ongoing, a mood, a listening context, or a specific title already in the archive.",
     recommendations: [],
   });
   updateChatSuggestions(DEFAULT_CHAT_SUGGESTIONS);
-  setChatStatus("Ask for a vibe, a genre, or a title already in the archive.");
+  setChatStatus("Ask for a completion status, mood, listening context, or title already in the archive.");
 }
 
 async function syncChatHealth() {
@@ -1217,7 +1667,7 @@ async function syncChatHealth() {
     }
 
     const result = await response.json();
-    setChatStatus(`Ask the Archivist is ready - ${result.catalogCount} shows indexed`);
+    setChatStatus(`Ask the Archivist is ready. ${result.catalogCount} shows are indexed.`);
   } catch (_error) {
     setChatStatus("Chat server offline. Start `podcast-ai` to enable live replies.");
   }

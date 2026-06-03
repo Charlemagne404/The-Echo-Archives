@@ -2,6 +2,7 @@ const path = require("node:path");
 const express = require("express");
 
 const config = require("./lib/config");
+const { loadArchiveContext } = require("./lib/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
 const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
@@ -16,6 +17,7 @@ const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const app = express();
 const catalog = loadCatalog(config.STATIC_ROOT);
 const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
+loadArchiveContext(config.STATIC_ROOT, catalog, collections);
 const database = openDatabase(config.DB_PATH);
 const communityStore = createCommunityStore({ db: database, catalog });
 const submissionStore = createSubmissionStore({ db: database });

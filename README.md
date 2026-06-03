@@ -12,7 +12,7 @@ The repo now uses a JSON-first catalog:
 - `podcast-ai/` serves the static site, archive chat API, anonymous community ratings, and the first-party show submission endpoint
 
 The visual language stays largely static, but the homepage, show pages, chat grounding, and community features now read from the same catalog records.
-Collections now have first-class browse routes, the submit flow also accepts correction-mode intake for existing entries, and the site exposes `robots.txt` plus a generated sitemap.
+Collections now have first-class browse routes, the homepage exposes archive trust stats plus structured filtering, the submit flow supports new shows, corrections, listener reviews, and creator verification requests, and the site exposes `robots.txt` plus a generated sitemap.
 
 ## Local development
 
@@ -32,6 +32,10 @@ Useful scripts:
 cd podcast-ai
 npm run dev
 npm test
+npm run validate:data
+npm run check:links
+npm run test:smoke
+npm run verify
 ```
 
 ## Main routes
@@ -41,7 +45,7 @@ npm test
 - `/collection.html?id=<collection-id>` - reusable collection page
 - `/show.html?id=<show-id>` - reusable show page
 - `/about.html` - curation and rating policy
-- `/submit.html` - new-show and correction intake form
+- `/submit.html` - show, correction, listener-review, and creator-verification intake form
 
 Legacy full-review URLs still exist as redirects to `show.html`.
 
@@ -60,3 +64,6 @@ Product and architecture notes still live in [`docs/`](docs):
 - [`docs/IMPLEMENTATION_CHECKLIST.md`](docs/IMPLEMENTATION_CHECKLIST.md)
 - [`docs/MOBILE_QA.md`](docs/MOBILE_QA.md)
 - [`docs/LAUNCH_PLAN.md`](docs/LAUNCH_PLAN.md)
+- [`docs/ROADMAP_STATUS.md`](docs/ROADMAP_STATUS.md)
+- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md)
+- [`docs/SUBMISSION_MODERATION_WORKFLOW.md`](docs/SUBMISSION_MODERATION_WORKFLOW.md)

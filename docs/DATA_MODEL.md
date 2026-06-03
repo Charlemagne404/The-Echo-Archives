@@ -26,8 +26,8 @@ Do not overengineer this on day one. Start with the fields that support:
   "reviewStatus": "full-review",
   "releaseStatus": "active",
   "completionStatus": "ongoing",
-  "creator": "Example Creator",
-  "network": "Example Network",
+  "creatorId": "example-creator",
+  "networkId": "example-network",
   "officialSite": "",
   "listenLinks": {
     "spotify": "",
@@ -58,6 +58,9 @@ Do not overengineer this on day one. Start with the fields that support:
   },
   "bestFor": ["long-walks", "binge-listening", "high-production-sci-fi"],
   "similarTo": ["were-alive", "end-of-all-hope"],
+  "similarReasons": {
+    "were-alive": "Another high-tension survival listen with strong ensemble stakes."
+  },
   "wouldRelisten": true,
   "featured": true,
   "spoilerFreeReview": "",
@@ -74,9 +77,11 @@ Do not overengineer this on day one. Start with the fields that support:
 - `reviewStatus`: whether the show has a full review, short entry, or is indexed-only
 - `releaseStatus`: whether the real-world show is active, finished, inactive, or unknown
 - `completionStatus`: listener-facing completion signal
+- `creatorId` and `networkId`: optional future entity links when creator or network pages exist
 - `description`: short spoiler-free archive description
 - `archiveTake`: short editorial viewpoint for cards and summaries
 - `spoilerFreeReview`: longer review text when available
+- `similarReasons`: optional hidden-gated explanation strings keyed by ids that already exist in `similarTo`
 
 ## Recommended controlled vocabularies
 
@@ -165,7 +170,11 @@ These should stay small at first. Expand only when the archive actually needs mo
   "description": "Shows that hold momentum for extended listening sessions.",
   "kind": "curated",
   "showIds": ["impact-winter", "derelict", "midnight-burger"],
+  "showReasons": {
+    "impact-winter": "Sustains momentum across longer listening sessions."
+  },
   "featured": true,
+  "createdAt": "YYYY-MM-DD",
   "updatedAt": "YYYY-MM-DD"
 }
 ```
@@ -196,10 +205,21 @@ These should stay small at first. Expand only when the archive actually needs mo
 
 - every `show.id` must be unique
 - every `similarTo` id must resolve to a real show
+- every `similarReasons` key should also appear in `similarTo`
 - every `bestFor` value should come from a known vocabulary
 - every link field may be blank, but if present must be valid URL text
+- `createdAt` and `updatedAt` should be valid date strings when present
+- `creatorId` and `networkId` are optional until the related datasets exist, but must resolve when used
 - `ratings.archive` is editorial and optional for indexed-only entries
 - `reviewStatus` must not imply a full review exists when one does not
+
+## Optional companion datasets
+
+- `data/creators.json`
+- `data/networks.json`
+- `data/changelog.json`
+
+These datasets are optional. The loader accepts them when present and the UI stays hidden until the corresponding data is real and internally consistent.
 
 ## Start practical
 

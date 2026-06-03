@@ -7,7 +7,11 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "test": "node --test"
+    "test": "node --test test/*.test.js",
+    "test:smoke": "node --test test/browser.smoke.js",
+    "validate:data": "node scripts/validate-data.js",
+    "check:links": "node scripts/check-links.js",
+    "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },
   "engines": {
     "node": ">=20"
@@ -15,5 +19,8 @@
   "dependencies": {
     "better-sqlite3": "^12.10.0",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
   }
 }

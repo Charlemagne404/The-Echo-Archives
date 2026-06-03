@@ -8,13 +8,14 @@ const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
 
-function createTempSubmissionService() {
+function createTempSubmissionService({ knownShowIds = null } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-submissions-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
   const store = createSubmissionStore({ db });
   const service = createSubmissionService({
     store,
+    knownShowIds,
     throttleWindowMs: 60_000,
     maxSubmissionsPerWindow: 2,
   });
@@ -44,6 +45,10 @@ test("show submissions are stored in the SQLite review queue", () => {
   assert.equal(result.submission.submission_type, "show");
   assert.equal(result.submission.show_title, "Test Show");
   assert.equal(result.submission.contact_email, "hello@example.com");
+  assert.deepEqual(result.submission.payload_json, {
+    genres: "sci-fi, mystery",
+    notes: "A concise intake note.",
+  });
 
   db.close();
   fs.rmSync(tempDir, { recursive: true, force: true });
@@ -104,15 +109,8 @@ test("submission throttling rejects repeated posts from one IP", () => {
 });
 
 test("correction submissions require a known archive entry and persist it", () => {
-  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-submissions-"));
-  const dbPath = path.join(tempDir, "community.sqlite");
-  const db = openDatabase(dbPath);
-  const store = createSubmissionStore({ db });
-  const service = createSubmissionService({
-    store,
+  const { tempDir, db, service } = createTempSubmissionService({
     knownShowIds: new Set(["impact-winter"]),
-    throttleWindowMs: 60_000,
-    maxSubmissionsPerWindow: 2,
   });
 
   const result = service.submitShow({
@@ -121,7 +119,7 @@ test("correction submissions require a known archive entry and persist it", () =
     showTitle: "Impact Winter",
     creatorName: "",
     contactEmail: "hello@example.com",
-    officialSite: "https://example.com",
+    officialSite: "",
     rssOrListenLink: "",
     genres: "",
     notes: "Archive note correction.",
@@ -132,6 +130,9 @@ test("correction submissions require a known archive entry and persist it", () =
 
   assert.equal(result.submission.submission_type, "correction");
   assert.equal(result.submission.existing_show_id, "impact-winter");
+  assert.deepEqual(result.submission.payload_json, {
+    correctionDetails: "Archive note correction.",
+  });
 
   assert.throws(
     () => {
@@ -152,6 +153,109 @@ test("correction submissions require a known archive entry and persist it", () =
     },
     {
       message: /unknown archive entry/i,
+    },
+  );
+
+  db.close();
+  fs.rmSync(tempDir, { recursive: true, force: true });
+});
+
+test("listener review submissions persist typed review payload", () => {
+  const { tempDir, db, service } = createTempSubmissionService({
+    knownShowIds: new Set(["impact-winter"]),
+  });
+
+  const result = service.submitShow({
+    submissionType: "listener-review",
+    existingShowId: "impact-winter",
+    showTitle: "Impact Winter",
+    creatorName: "",
+    contactEmail: "listener@example.com",
+    officialSite: "",
+    rssOrListenLink: "",
+    genres: "",
+    listenerRating: "9",
+    spoilerLevel: "spoiler-free",
+    listenerReview: "A strong starting point with great atmosphere.",
+    verificationSources: "",
+    provenanceNotes: "",
+    notes: "Keep this spoiler-safe.",
+    honeypot: "",
+    sourceIp: "127.0.0.3",
+    userAgent: "test-agent",
+  });
+
+  assert.equal(result.submission.submission_type, "listener-review");
+  assert.deepEqual(result.submission.payload_json, {
+    rating: 9,
+    spoilerLevel: "spoiler-free",
+    review: "A strong starting point with great atmosphere.",
+    notes: "Keep this spoiler-safe.",
+  });
+
+  db.close();
+  fs.rmSync(tempDir, { recursive: true, force: true });
+});
+
+test("creator verification submissions require provenance links and persist them separately", () => {
+  const { tempDir, db, service } = createTempSubmissionService({
+    knownShowIds: new Set(["impact-winter"]),
+  });
+
+  const result = service.submitShow({
+    submissionType: "creator-verification",
+    existingShowId: "impact-winter",
+    showTitle: "Impact Winter",
+    creatorName: "Example Studio",
+    contactEmail: "creator@example.com",
+    officialSite: "https://example.com",
+    rssOrListenLink: "",
+    genres: "",
+    listenerRating: "",
+    spoilerLevel: "",
+    listenerReview: "",
+    verificationSources: "https://example.com/source-one\nhttps://example.com/source-two",
+    provenanceNotes: "Update the official site and release status.",
+    notes: "Creator supplied factual correction.",
+    honeypot: "",
+    sourceIp: "127.0.0.4",
+    userAgent: "test-agent",
+  });
+
+  assert.equal(result.submission.submission_type, "creator-verification");
+  assert.deepEqual(result.submission.payload_json, {
+    sourceLinks: ["https://example.com/source-one", "https://example.com/source-two"],
+    factsToVerify: "Update the official site and release status.",
+    notes: "Creator supplied factual correction.",
+  });
+  assert.deepEqual(result.submission.provenance_json, {
+    sourceLinks: ["https://example.com/source-one", "https://example.com/source-two"],
+  });
+
+  assert.throws(
+    () => {
+      service.submitShow({
+        submissionType: "creator-verification",
+        existingShowId: "impact-winter",
+        showTitle: "Impact Winter",
+        creatorName: "Example Studio",
+        contactEmail: "creator@example.com",
+        officialSite: "",
+        rssOrListenLink: "",
+        genres: "",
+        listenerRating: "",
+        spoilerLevel: "",
+        listenerReview: "",
+        verificationSources: "",
+        provenanceNotes: "Update the official site and release status.",
+        notes: "",
+        honeypot: "",
+        sourceIp: "127.0.0.5",
+        userAgent: "test-agent",
+      });
+    },
+    {
+      message: /verification source link/i,
     },
   );
 

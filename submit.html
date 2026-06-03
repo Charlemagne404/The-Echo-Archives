@@ -6,17 +6,17 @@
   <title>Submit a Show - The Echo Archives</title>
   <meta
     name="description"
-    content="Submit a fiction podcast or audio drama to The Echo Archives review queue."
+    content="Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives."
   />
   <link rel="canonical" href="https://echo.continental-hub.com/submit.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Submit a Show - The Echo Archives" />
-  <meta property="og:description" content="Submit a fiction podcast or audio drama to The Echo Archives review queue." />
+  <meta property="og:description" content="Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives." />
   <meta property="og:url" content="https://echo.continental-hub.com/submit.html" />
   <meta property="og:image" content="https://echo.continental-hub.com/images/Logo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Submit a Show - The Echo Archives" />
-  <meta name="twitter:description" content="Submit a fiction podcast or audio drama to The Echo Archives review queue." />
+  <meta name="twitter:description" content="Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives." />
   <meta name="twitter:image" content="https://echo.continental-hub.com/images/Logo.png" />
   <link rel="stylesheet" href="style.css?v=12" />
   <link rel="stylesheet" href="home.css?v=12" />
@@ -50,7 +50,7 @@
       <div class="chat-panel-heading">
         <p class="chat-kicker">Archive assistant</p>
         <h2>Ask the Archivist</h2>
-        <p id="chatStatus" class="chat-status" aria-live="polite">Checking archive assistant...</p>
+        <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
       </div>
       <div class="chat-panel-actions">
         <button id="chat-clear" class="chat-secondary-button" type="button">Reset</button>
@@ -68,7 +68,7 @@
       <input type="text" id="userInput" placeholder="Ask about a podcast, mood, or theme" />
       <button id="sendMessageButton" type="button">Ask</button>
     </div>
-    <p class="chat-footnote">Ask for moods, themes, genres, or a specific show already in the archive.</p>
+    <p class="chat-footnote">Ask the Archivist for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
 
   <main class="home-main page-main">
@@ -77,7 +77,7 @@
         <div class="hero-copy">
           <h1>Submit a show</h1>
           <p>
-            Send a fiction podcast or audio drama into the archive review queue. This is not an auto-publish form. The catalog stays curated.
+            Send a show into the archive queue, flag a correction, share a listener review, or verify factual metadata. Nothing here auto-publishes.
           </p>
         </div>
       </div>
@@ -86,7 +86,12 @@
     <section class="page-stack">
       <article class="page-card">
         <h2>Archive intake</h2>
-        <p>Give the archive enough to verify the show and place it correctly. A contact email plus either an official site or an RSS/listen link is required.</p>
+        <p>Pick the intake path that fits what you are sending. The archive stays curated, moderation is manual, and contact details help resolve follow-up questions.</p>
+      </article>
+
+      <article class="page-card">
+        <h2>Moderation note</h2>
+        <p>New shows, corrections, listener reviews, and creator verification requests all enter the same review queue. Editorial stance stays separate from community or creator input.</p>
       </article>
 
       <article class="page-card">
@@ -96,8 +101,12 @@
             <select id="submissionType" name="submissionType">
               <option value="show">Submit a new show</option>
               <option value="correction">Send a correction to an existing entry</option>
+              <option value="listener-review">Submit a listener review</option>
+              <option value="creator-verification">Verify factual metadata</option>
             </select>
           </label>
+
+          <p id="submissionHelp" class="submit-help">New-show submissions need enough links and context for the archive to verify the entry.</p>
 
           <label id="existingShowField" hidden>
             <span>Existing archive entry</span>
@@ -107,11 +116,11 @@
           </label>
 
           <label>
-            <span>Show title</span>
-            <input type="text" name="showTitle" required maxlength="160" />
+            <span id="showTitleLabel">Show title</span>
+            <input type="text" id="showTitleInput" name="showTitle" required maxlength="160" />
           </label>
 
-          <label>
+          <label id="creatorField">
             <span>Creator or network</span>
             <input type="text" name="creatorName" maxlength="160" />
           </label>
@@ -121,23 +130,64 @@
             <input type="email" name="contactEmail" required maxlength="160" />
           </label>
 
-          <label>
+          <label id="officialSiteField">
             <span>Official site</span>
             <input type="url" name="officialSite" placeholder="https://example.com" />
           </label>
 
-          <label>
+          <label id="rssField">
             <span>RSS or listen link</span>
             <input type="url" name="rssOrListenLink" placeholder="https://example.com/feed" />
           </label>
 
-          <label>
+          <label id="genresField">
             <span>Genres or tags</span>
             <input type="text" name="genres" maxlength="300" placeholder="sci-fi, mystery, comedy" />
           </label>
 
-          <label>
-            <span>Why it belongs in the archive</span>
+          <label id="listenerRatingField" hidden>
+            <span>Listener rating</span>
+            <select name="listenerRating">
+              <option value="">Choose a rating</option>
+              <option value="10">10</option>
+              <option value="9">9</option>
+              <option value="8">8</option>
+              <option value="7">7</option>
+              <option value="6">6</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </label>
+
+          <label id="listenerSpoilerLevelField" hidden>
+            <span>Spoiler level</span>
+            <select name="spoilerLevel">
+              <option value="spoiler-free">Spoiler-free</option>
+              <option value="light-spoilers">Light spoilers</option>
+              <option value="full-spoilers">Full spoilers</option>
+            </select>
+          </label>
+
+          <label id="listenerReviewField" hidden>
+            <span>Listener review</span>
+            <textarea name="listenerReview" rows="7" maxlength="4000" placeholder="What worked, who it fits, and anything listeners should know before starting."></textarea>
+          </label>
+
+          <label id="verificationSourcesField" hidden>
+            <span>Verification source links</span>
+            <textarea name="verificationSources" rows="5" maxlength="4000" placeholder="One source URL per line."></textarea>
+          </label>
+
+          <label id="provenanceNotesField" hidden>
+            <span>Facts to verify or update</span>
+            <textarea name="provenanceNotes" rows="6" maxlength="4000" placeholder="List the factual metadata that needs correction or verification."></textarea>
+          </label>
+
+          <label id="notesField">
+            <span id="notesLabel">Why it belongs in the archive</span>
             <textarea name="notes" rows="7" maxlength="4000" placeholder="Give the archive context about tone, format, strengths, and who it fits."></textarea>
           </label>
 

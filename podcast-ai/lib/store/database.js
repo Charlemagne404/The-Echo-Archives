@@ -72,6 +72,11 @@ function migrate(db) {
       rss_or_listen_link TEXT NOT NULL DEFAULT '',
       genres TEXT NOT NULL DEFAULT '',
       notes TEXT NOT NULL DEFAULT '',
+      payload_json TEXT NOT NULL DEFAULT '{}',
+      provenance_json TEXT NOT NULL DEFAULT '{}',
+      review_notes TEXT NOT NULL DEFAULT '',
+      reviewed_by TEXT NOT NULL DEFAULT '',
+      reviewed_at TEXT,
       source_ip TEXT NOT NULL DEFAULT '',
       user_agent TEXT NOT NULL DEFAULT ''
     );
@@ -91,6 +96,11 @@ function migrate(db) {
 
   ensureColumn(db, "show_submissions", "submission_type", "submission_type TEXT NOT NULL DEFAULT 'show'");
   ensureColumn(db, "show_submissions", "existing_show_id", "existing_show_id TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "show_submissions", "payload_json", "payload_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "show_submissions", "provenance_json", "provenance_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "show_submissions", "review_notes", "review_notes TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "show_submissions", "reviewed_by", "reviewed_by TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "show_submissions", "reviewed_at", "reviewed_at TEXT");
 }
 
 function openDatabase(dbPath) {

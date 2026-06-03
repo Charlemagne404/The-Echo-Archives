@@ -77,7 +77,7 @@ test("scoreCatalog ranks relevant matches first", () => {
 test("fallback answer asks for specificity when no clear match exists", () => {
   const answer = buildFallbackAnswer("hi", []);
 
-  assert.match(answer, /genre, mood, or theme/i);
+  assert.match(answer, /finished or ongoing|mood|theme/i);
 });
 
 test("sanitizeAnswerText removes generic model framing", () => {

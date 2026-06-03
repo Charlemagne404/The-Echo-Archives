@@ -31,6 +31,31 @@ function isValidUrl(value = "") {
   }
 }
 
+function isValidDateValue(value = "") {
+  if (!value) {
+    return true;
+  }
+
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp);
+}
+
+function isValidSlug(value = "") {
+  return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
+}
+
+function normalizeTextMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([key, text]) => [String(key || "").trim(), String(text || "").trim()])
+      .filter(([key, text]) => key && text),
+  );
+}
+
 function assertUniqueNormalized(collection, fieldName, showId) {
   const seen = new Set();
 
@@ -78,6 +103,7 @@ function normalizeRecord(record) {
   const formats = Array.isArray(record.formats) ? record.formats.filter(Boolean) : [];
   const bestFor = Array.isArray(record.bestFor) ? record.bestFor.filter(Boolean) : [];
   const similarTo = Array.isArray(record.similarTo) ? record.similarTo.filter(Boolean) : [];
+  const similarReasons = normalizeTextMap(record.similarReasons);
   const ratings = record.ratings && typeof record.ratings === "object" ? record.ratings : {};
   const finalRating =
     typeof ratings.archive === "number"
@@ -94,6 +120,7 @@ function normalizeRecord(record) {
     formats,
     bestFor,
     similarTo,
+    similarReasons,
     ratings,
     finalRating: Number.isFinite(finalRating) ? finalRating : null,
     href: formatShowHref(record.id),
@@ -162,6 +189,27 @@ function validateShowRecord(record, seenIds) {
   assertUniqueNormalized(record.genres, "genres", record.id);
   assertUniqueNormalized(record.tones, "tones", record.id);
   assertUniqueNormalized(record.formats, "formats", record.id);
+  assertUniqueNormalized(record.bestFor, "bestFor", record.id);
+
+  if (record.createdAt && !isValidDateValue(record.createdAt)) {
+    throw new Error(`Show "${record.id}" has invalid createdAt "${record.createdAt}".`);
+  }
+
+  if (record.updatedAt && !isValidDateValue(record.updatedAt)) {
+    throw new Error(`Show "${record.id}" has invalid updatedAt "${record.updatedAt}".`);
+  }
+
+  if (record.creatorId && !isValidSlug(record.creatorId)) {
+    throw new Error(`Show "${record.id}" has invalid creatorId "${record.creatorId}".`);
+  }
+
+  if (record.networkId && !isValidSlug(record.networkId)) {
+    throw new Error(`Show "${record.id}" has invalid networkId "${record.networkId}".`);
+  }
+
+  if (record.similarReasons && (typeof record.similarReasons !== "object" || Array.isArray(record.similarReasons))) {
+    throw new Error(`Show "${record.id}" has invalid similarReasons data.`);
+  }
 
   const listenLinks = record.listenLinks && typeof record.listenLinks === "object" ? record.listenLinks : {};
   Object.entries(listenLinks).forEach(([key, value]) => {
@@ -201,9 +249,27 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     throw new Error(`Collection "${record.id}" must include showIds.`);
   }
 
+  if (record.updatedAt && !isValidDateValue(record.updatedAt)) {
+    throw new Error(`Collection "${record.id}" has invalid updatedAt "${record.updatedAt}".`);
+  }
+
+  if (record.createdAt && !isValidDateValue(record.createdAt)) {
+    throw new Error(`Collection "${record.id}" has invalid createdAt "${record.createdAt}".`);
+  }
+
   record.showIds.forEach((showId) => {
     if (!knownShowIds.has(showId)) {
       throw new Error(`Collection "${record.id}" references unknown show "${showId}".`);
+    }
+  });
+
+  if (record.showReasons && (typeof record.showReasons !== "object" || Array.isArray(record.showReasons))) {
+    throw new Error(`Collection "${record.id}" has invalid showReasons data.`);
+  }
+
+  Object.keys(normalizeTextMap(record.showReasons)).forEach((showId) => {
+    if (!record.showIds.includes(showId)) {
+      throw new Error(`Collection "${record.id}" defines a showReason for unknown show "${showId}".`);
     }
   });
 }
@@ -228,6 +294,16 @@ function loadShows(siteRoot) {
         throw new Error(`Show "${record.id}" references unknown similarTo id "${showId}".`);
       }
     });
+
+    Object.keys(record.similarReasons).forEach((showId) => {
+      if (!idSet.has(showId)) {
+        throw new Error(`Show "${record.id}" references unknown similarReasons id "${showId}".`);
+      }
+
+      if (!record.similarTo.includes(showId)) {
+        throw new Error(`Show "${record.id}" defines a similarReason for "${showId}" without listing it in similarTo.`);
+      }
+    });
   });
 
   return normalized;
@@ -244,7 +320,10 @@ function loadCollections(siteRoot, knownShowIds = null) {
   }
 
   records.forEach((record) => validateCollectionRecord(record, seenIds, showIdSet));
-  return records;
+  return records.map((record) => ({
+    ...record,
+    showReasons: normalizeTextMap(record.showReasons),
+  }));
 }
 
 function resolveCollectionView({ catalog, collections, collectionId }) {
@@ -312,6 +391,29 @@ function scoreCatalog(catalog, message) {
           score += 3;
           reasons.push(`fits ${genre}`);
         }
+      }
+
+      for (const bestFor of record.bestFor) {
+        const label = bestFor.replace(/-/g, " ");
+        if (lowered.includes(label)) {
+          score += 3;
+          reasons.push(`good for ${label}`);
+        }
+      }
+
+      if (record.completionStatus === "finished" && /(finished|complete|completed)/i.test(lowered)) {
+        score += 3;
+        reasons.push("finished listen");
+      }
+
+      if (record.completionStatus === "ongoing" && /(ongoing|active|unfinished)/i.test(lowered)) {
+        score += 2;
+        reasons.push("still ongoing");
+      }
+
+      if (record.reviewStatus === "full-review" && /(full review|reviewed|review first)/i.test(lowered)) {
+        score += 3;
+        reasons.push("has a full review");
       }
 
       for (const token of tokens) {

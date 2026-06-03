@@ -58,6 +58,9 @@ Each show record uses this practical v1 shape:
   },
   "bestFor": ["long-walks", "headphones-on"],
   "similarTo": ["were-alive", "end-of-all-hope"],
+  "similarReasons": {
+    "were-alive": "Another survival-first ensemble listen with strong urgency."
+  },
   "archiveTake": "Short editorial take used on cards and detail pages.",
   "spoilerFreeReview": "Longer review text when available.",
   "thoughts": "Personal archive reaction when available.",
@@ -66,6 +69,9 @@ Each show record uses this practical v1 shape:
     "attribution": "Rook"
   },
   "featured": true,
+  "createdAt": "2026-06-01",
+  "creatorId": "example-creator",
+  "networkId": "example-network",
   "accent": {
     "hex": "#851a28",
     "rgb": "133, 26, 40"
@@ -170,8 +176,11 @@ Each show record uses this practical v1 shape:
 
 - Every `id` must be unique.
 - Every `similarTo` id must resolve to a real show.
+- Every `similarReasons` key must also appear in `similarTo`.
 - Every populated URL in `listenLinks` must be a valid absolute URL.
-- `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
+- `createdAt` and `updatedAt` must be valid dates when present.
+- `creatorId` and `networkId` must use slug ids when present.
+- `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 
 ## Collection Shape
@@ -185,10 +194,24 @@ Collections stay simple in v1:
   "description": "Shows that keep momentum over longer listening sessions.",
   "kind": "curated",
   "showIds": ["impact-winter", "derelict"],
+  "showReasons": {
+    "impact-winter": "Sustains momentum during longer listening blocks."
+  },
   "featured": true,
+  "createdAt": "2026-06-01",
   "updatedAt": "2026-06-02"
 }
 ```
+
+## Optional companion datasets
+
+The loader also accepts these files when they exist:
+
+- `data/creators.json`
+- `data/networks.json`
+- `data/changelog.json`
+
+Their public routes and UI stay hidden until the data is present and valid.
 
 ## Maintainability Rules
 

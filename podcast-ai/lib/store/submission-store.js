@@ -15,6 +15,11 @@ function createSubmissionStore({ db }) {
         rss_or_listen_link,
         genres,
         notes,
+        payload_json,
+        provenance_json,
+        review_notes,
+        reviewed_by,
+        reviewed_at,
         source_ip,
         user_agent
       ) VALUES (
@@ -29,6 +34,11 @@ function createSubmissionStore({ db }) {
         @rssOrListenLink,
         @genres,
         @notes,
+        @payloadJson,
+        @provenanceJson,
+        @reviewNotes,
+        @reviewedBy,
+        @reviewedAt,
         @sourceIp,
         @userAgent
       )
@@ -47,12 +57,29 @@ function createSubmissionStore({ db }) {
         rss_or_listen_link,
         genres,
         notes,
+        payload_json,
+        provenance_json,
+        review_notes,
+        reviewed_by,
+        reviewed_at,
         source_ip,
         user_agent
       FROM show_submissions
       WHERE id = ?
     `),
   };
+
+  function hydrateSubmission(row) {
+    if (!row) {
+      return null;
+    }
+
+    return {
+      ...row,
+      payload_json: JSON.parse(row.payload_json || "{}"),
+      provenance_json: JSON.parse(row.provenance_json || "{}"),
+    };
+  }
 
   function createShowSubmission(payload) {
     const id = randomUUID();
@@ -69,11 +96,16 @@ function createSubmissionStore({ db }) {
       rssOrListenLink: payload.rssOrListenLink || "",
       genres: payload.genres || "",
       notes: payload.notes || "",
+      payloadJson: JSON.stringify(payload.payload || {}),
+      provenanceJson: JSON.stringify(payload.provenance || {}),
+      reviewNotes: payload.reviewNotes || "",
+      reviewedBy: payload.reviewedBy || "",
+      reviewedAt: payload.reviewedAt || null,
       sourceIp: payload.sourceIp || "",
       userAgent: payload.userAgent || "",
     });
 
-    return statements.getShowSubmission.get(id);
+    return hydrateSubmission(statements.getShowSubmission.get(id));
   }
 
   return {

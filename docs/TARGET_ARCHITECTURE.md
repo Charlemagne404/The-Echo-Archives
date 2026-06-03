@@ -37,7 +37,10 @@ data/
   schema.md
 ```
 
-These should only be added when the content actually exists and improves browsing or trust.
+The loader layer already supports these datasets as optional inputs.
+
+They should only be added when the content actually exists and improves browsing or trust.
+Until then, the related routes and UI remain hidden by data-presence gating.
 
 ## Backend Role
 
@@ -45,9 +48,12 @@ The backend should continue to own:
 
 - chat orchestration
 - submissions and corrections
+- listener-review and creator-verification intake
 - community ratings
 - moderation-supporting data where needed
 - sitemap generation
+
+It should also keep validating optional archive datasets at startup so future content additions fail fast when malformed.
 
 SQLite or another operational store should remain a participation and workflow layer, not the editorial source of truth.
 
@@ -57,18 +63,25 @@ The frontend should continue to:
 
 - render from structured catalog data
 - derive browse views from shared metadata
+- derive archive stats and trust signals from live catalog data
 - keep the current visual identity
 - avoid duplication across routes
+
+Hidden future features should activate only when their backing data exists. No manual feature-flag layer is needed for creator pages, network pages, changelog surfaces, or recommendation reasons.
 
 If the catalog becomes much larger, add lightweight derived indexes before considering a full framework rewrite.
 
 ## Moderation And Contribution Model
 
-The next target architecture should support:
+The next target architecture now already supports intake for:
 
 - listener-review intake
 - creator verification metadata
 - provenance for factual corrections
+- typed submission payload storage
+
+It should next support public surfaces for:
+
 - changelog or activity history
 
 That does not require a large admin product during the current roadmap.
