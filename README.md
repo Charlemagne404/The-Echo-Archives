@@ -38,6 +38,14 @@ npm run test:smoke
 npm run verify
 ```
 
+Update a deployed checkout and restart the live service:
+
+```bash
+./update-echo-archives.sh
+```
+
+The script fast-forwards from `origin`, runs `npm install` in `podcast-ai`, restarts `echo-archives.service`, reloads Caddy when present, and finishes with a local health check. It stops if the working tree has uncommitted changes.
+
 ## Main routes
 
 - `/` - data-driven homepage
