@@ -35,7 +35,9 @@ const clearChatButton = document.getElementById("chat-clear");
 const chatContainer = document.getElementById("chat-container");
 const chatLog = document.getElementById("chatLog");
 const chatStatus = document.getElementById("chatStatus");
+const chatSuggestionRegion = document.getElementById("chatSuggestionRegion");
 const chatSuggestions = document.getElementById("chatSuggestions");
+const chatFootnote = document.querySelector(".chat-footnote");
 const userInput = document.getElementById("userInput");
 const sendMessageButton = document.getElementById("sendMessageButton");
 
@@ -326,11 +328,26 @@ async function initializeHomePage() {
   const resultsSummary = document.getElementById("resultsSummary");
   const quickFiltersRoot = document.getElementById("quickFilters");
   const collectionsSection = document.getElementById("collections");
+  const collectionCarousel = document.getElementById("collectionCarousel");
+  const collectionViewport = document.getElementById("collectionViewport");
   const collectionGrid = document.getElementById("collectionGrid");
+  const collectionPrev = document.getElementById("collectionPrev");
+  const collectionNext = document.getElementById("collectionNext");
   const clearResultsState = document.getElementById("clearResultsState");
   const openArchivistAction = document.getElementById("openArchivistAction");
 
-  if (!archiveGrid || !filterOptionGrid || !quickFiltersRoot || !collectionsSection || !collectionGrid || !browseModesRoot) {
+  if (
+    !archiveGrid ||
+    !filterOptionGrid ||
+    !quickFiltersRoot ||
+    !collectionsSection ||
+    !collectionCarousel ||
+    !collectionViewport ||
+    !collectionGrid ||
+    !collectionPrev ||
+    !collectionNext ||
+    !browseModesRoot
+  ) {
     return;
   }
 
@@ -339,6 +356,7 @@ async function initializeHomePage() {
   const quickFilters = getQuickFilters(filterTags);
   const featuredCollections = collections.filter((collection) => collection.featured);
   const collectionsById = buildCollectionMap(collections);
+  let collectionCarouselControls = null;
 
   const state = {
     query: "",
@@ -411,6 +429,7 @@ async function initializeHomePage() {
 
   window.addEventListener("resize", () => {
     renderHomeResults();
+    collectionCarouselControls?.refresh();
   });
 
   function clearAllFilters() {
@@ -514,40 +533,274 @@ async function initializeHomePage() {
   function renderCollections() {
     collectionGrid.textContent = "";
     collectionsSection.hidden = featuredCollections.length === 0;
+    collectionCarouselControls?.destroy();
+    collectionCarouselControls = null;
+    collectionPrev.hidden = true;
+    collectionNext.hidden = true;
 
-    featuredCollections.forEach((collection, index) => {
-      const collectionShows = getCollectionShows(collection, showMap);
-      const coverShow = collectionShows[0];
-      const card = document.createElement("a");
-      card.className = "collection-card";
-      card.href = createCollectionHref(collection.id);
-      card.setAttribute("aria-label", `Browse the ${collection.title} collection`);
-      if (coverShow?.cover) {
-        card.style.setProperty("--collection-cover-image", `url("/${coverShow.cover}")`);
+    if (featuredCollections.length === 0) {
+      return;
+    }
+
+    const carouselGroups = featuredCollections.length > 1 ? [0, 1, 2] : [1];
+    carouselGroups.forEach((groupIndex) => {
+      featuredCollections.forEach((collection, index) => {
+        const card = createCollectionCard(collection, index, {
+          isClone: featuredCollections.length > 1 && groupIndex !== 1,
+        });
+        collectionGrid.appendChild(card);
+      });
+    });
+
+    if (featuredCollections.length > 1) {
+      collectionPrev.hidden = false;
+      collectionNext.hidden = false;
+      collectionCarouselControls = initializeCollectionCarousel();
+    }
+  }
+
+  function createCollectionCard(collection, index, { isClone = false } = {}) {
+    const collectionShows = getCollectionShows(collection, showMap);
+    const coverShow = collectionShows[0];
+    const card = document.createElement("a");
+    card.className = "collection-card";
+    card.href = createCollectionHref(collection.id);
+    card.setAttribute("aria-label", `Browse the ${collection.title} collection`);
+    card.dataset.collectionId = collection.id;
+    if (isClone) {
+      card.dataset.collectionClone = "true";
+      card.tabIndex = -1;
+      card.setAttribute("aria-hidden", "true");
+    }
+
+    if (coverShow?.cover) {
+      card.style.setProperty("--collection-cover-image", `url("/${coverShow.cover}")`);
+    }
+
+    const badge = document.createElement("span");
+    badge.className = "collection-card-badge";
+    badge.textContent = index % 2 === 0 ? "Featured route" : "Archive collection";
+
+    const title = document.createElement("h3");
+    title.textContent = collection.title;
+
+    const footer = document.createElement("div");
+    footer.className = "collection-card-footer";
+
+    const count = document.createElement("p");
+    count.className = "collection-card-count";
+    count.textContent = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"}`;
+
+    const cta = document.createElement("span");
+    cta.className = "collection-card-cta";
+    cta.textContent = "Browse";
+
+    footer.append(count, cta);
+    card.append(badge, title, footer);
+    return card;
+  }
+
+  function initializeCollectionCarousel() {
+    const originalsPerSet = featuredCollections.length;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const autoScrollSpeedPxPerSecond = 28;
+    const manualScrollDurationMs = 420;
+    let autoScrollTimer = 0;
+    let manualScrollFrame = 0;
+    let normalizeFrame = 0;
+    let lastAutoScrollAt = 0;
+    let stepSize = 0;
+    let middleStart = 0;
+    let setWidth = 0;
+    let paused = false;
+
+    const cards = Array.from(collectionGrid.querySelectorAll(".collection-card"));
+
+    function setViewportScroll(left) {
+      const previousBehavior = collectionViewport.style.scrollBehavior;
+      collectionViewport.style.scrollBehavior = "auto";
+      collectionViewport.scrollLeft = left;
+      collectionViewport.style.scrollBehavior = previousBehavior;
+    }
+
+    function getRelativeProgress(left) {
+      if (!setWidth) {
+        return 0;
       }
 
-      const badge = document.createElement("span");
-      badge.className = "collection-card-badge";
-      badge.textContent = index % 2 === 0 ? "Featured route" : "Archive collection";
+      return ((left - middleStart) % setWidth + setWidth) % setWidth;
+    }
 
-      const title = document.createElement("h3");
-      title.textContent = collection.title;
+    function measure({ preservePosition = true } = {}) {
+      const relativeProgress = preservePosition ? getRelativeProgress(collectionViewport.scrollLeft) : 0;
+      const middleCards = cards.slice(originalsPerSet, originalsPerSet * 2);
+      const firstMiddleCard = middleCards[0];
+      const secondMiddleCard = middleCards[1];
+      const nextSetFirstCard = cards[originalsPerSet * 2];
 
-      const footer = document.createElement("div");
-      footer.className = "collection-card-footer";
+      if (!firstMiddleCard || !nextSetFirstCard) {
+        return;
+      }
 
-      const count = document.createElement("p");
-      count.className = "collection-card-count";
-      count.textContent = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"}`;
+      middleStart = firstMiddleCard.offsetLeft;
+      setWidth = nextSetFirstCard.offsetLeft - middleStart;
+      stepSize = secondMiddleCard ? secondMiddleCard.offsetLeft - firstMiddleCard.offsetLeft : setWidth;
+      setViewportScroll(middleStart + relativeProgress);
+    }
 
-      const cta = document.createElement("span");
-      cta.className = "collection-card-cta";
-      cta.textContent = "Browse";
+    function normalizeLoopPosition() {
+      if (!setWidth) {
+        return;
+      }
 
-      footer.append(count, cta);
-      card.append(badge, title, footer);
-      collectionGrid.appendChild(card);
-    });
+      const maxScrollLeft = Math.max(collectionGrid.scrollWidth - collectionViewport.clientWidth, 0);
+      if (collectionViewport.scrollLeft <= 1) {
+        setViewportScroll(collectionViewport.scrollLeft + setWidth);
+      } else if (collectionViewport.scrollLeft >= maxScrollLeft - 1) {
+        setViewportScroll(collectionViewport.scrollLeft - setWidth);
+      }
+    }
+
+    function queueNormalize() {
+      if (normalizeFrame) {
+        return;
+      }
+
+      normalizeFrame = window.requestAnimationFrame(() => {
+        normalizeFrame = 0;
+        normalizeLoopPosition();
+      });
+    }
+
+    function stopManualScroll() {
+      if (manualScrollFrame) {
+        window.cancelAnimationFrame(manualScrollFrame);
+        manualScrollFrame = 0;
+      }
+    }
+
+    function animateManualScroll(direction) {
+      stopManualScroll();
+      normalizeLoopPosition();
+
+      const startLeft = collectionViewport.scrollLeft;
+      const targetLeft = startLeft + stepSize * direction;
+      const startedAt = window.performance.now();
+
+      const tick = (timestamp) => {
+        const progress = Math.min((timestamp - startedAt) / manualScrollDurationMs, 1);
+        const eased = 1 - (1 - progress) ** 3;
+        setViewportScroll(startLeft + (targetLeft - startLeft) * eased);
+        normalizeLoopPosition();
+
+        if (progress < 1) {
+          manualScrollFrame = window.requestAnimationFrame(tick);
+          return;
+        }
+
+        manualScrollFrame = 0;
+      };
+
+      manualScrollFrame = window.requestAnimationFrame(tick);
+    }
+
+    function stopAutoScroll() {
+      if (autoScrollTimer) {
+        window.clearInterval(autoScrollTimer);
+        autoScrollTimer = 0;
+      }
+      lastAutoScrollAt = 0;
+    }
+
+    function startAutoScroll() {
+      stopAutoScroll();
+      if (prefersReducedMotion || paused) {
+        return;
+      }
+
+      lastAutoScrollAt = window.performance.now();
+      autoScrollTimer = window.setInterval(() => {
+        const now = window.performance.now();
+        const elapsedMs = Math.min(now - lastAutoScrollAt, 32);
+        lastAutoScrollAt = now;
+        setViewportScroll(collectionViewport.scrollLeft + (autoScrollSpeedPxPerSecond * elapsedMs) / 1000);
+        normalizeLoopPosition();
+      }, 16);
+    }
+
+    function pauseCarousel() {
+      paused = true;
+      stopAutoScroll();
+    }
+
+    function resumeCarousel() {
+      paused = false;
+      if (collectionCarousel.matches(":hover") || collectionCarousel.matches(":focus-within")) {
+        return;
+      }
+
+      startAutoScroll();
+    }
+
+    const handlePointerEnter = () => {
+      pauseCarousel();
+    };
+    const handlePointerLeave = () => {
+      resumeCarousel();
+    };
+    const handleFocusIn = () => {
+      pauseCarousel();
+    };
+    const handleFocusOut = (event) => {
+      const nextTarget = event.relatedTarget;
+      if (nextTarget instanceof Node && collectionCarousel.contains(nextTarget)) {
+        return;
+      }
+
+      resumeCarousel();
+    };
+    const handleViewportScroll = () => {
+      queueNormalize();
+    };
+    const handlePrevClick = () => {
+      pauseCarousel();
+      animateManualScroll(-1);
+    };
+    const handleNextClick = () => {
+      pauseCarousel();
+      animateManualScroll(1);
+    };
+
+    measure({ preservePosition: false });
+    collectionCarousel.addEventListener("mouseenter", handlePointerEnter);
+    collectionCarousel.addEventListener("mouseleave", handlePointerLeave);
+    collectionCarousel.addEventListener("focusin", handleFocusIn);
+    collectionCarousel.addEventListener("focusout", handleFocusOut);
+    collectionViewport.addEventListener("scroll", handleViewportScroll, { passive: true });
+    collectionPrev.addEventListener("click", handlePrevClick);
+    collectionNext.addEventListener("click", handleNextClick);
+    startAutoScroll();
+
+    return {
+      refresh() {
+        measure();
+      },
+      destroy() {
+        stopAutoScroll();
+        stopManualScroll();
+        if (normalizeFrame) {
+          window.cancelAnimationFrame(normalizeFrame);
+          normalizeFrame = 0;
+        }
+        collectionCarousel.removeEventListener("mouseenter", handlePointerEnter);
+        collectionCarousel.removeEventListener("mouseleave", handlePointerLeave);
+        collectionCarousel.removeEventListener("focusin", handleFocusIn);
+        collectionCarousel.removeEventListener("focusout", handleFocusOut);
+        collectionViewport.removeEventListener("scroll", handleViewportScroll);
+        collectionPrev.removeEventListener("click", handlePrevClick);
+        collectionNext.removeEventListener("click", handleNextClick);
+      },
+    };
   }
 
   function toggleFilter(groupId, filterId) {
@@ -729,11 +982,12 @@ function createShowCard(show) {
   card.className = "podcast-card";
   card.href = show.href;
   card.dataset.podcastId = show.id;
-  card.dataset.statusLabel = getEditorialStatusLabel(show);
 
   const image = document.createElement("img");
   image.src = show.cover;
   image.alt = show.coverAlt;
+
+  const editorialBadges = createEditorialBadges(show);
 
   const title = document.createElement("h2");
   title.textContent = show.title;
@@ -751,27 +1005,68 @@ function createShowCard(show) {
   const rating = document.createElement("div");
   rating.className = "rating";
 
-  const archiveRating = document.createElement("span");
+  const archiveRating = document.createElement("div");
   archiveRating.className = "archive-inline-score";
-  archiveRating.textContent = `${formatRating(show.finalRating)}/10`;
+  archiveRating.innerHTML = `
+    <span class="inline-score-topline">
+      <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+      <span class="inline-score-value">${formatRating(show.finalRating)}/10</span>
+    </span>
+    <span class="inline-score-label">Archive Rating</span>
+  `;
 
-  const communityBadge = document.createElement("span");
+  const communityBadge = document.createElement("div");
   communityBadge.className = "community-inline-score";
   communityBadge.dataset.podcastId = show.id;
   communityBadge.dataset.fallbackRating = String(formatRating(show.finalRating));
   communityBadge.hidden = false;
   communityBadge.setAttribute("aria-label", `Community score ${formatRating(show.finalRating)}/10`);
   communityBadge.innerHTML = `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M3 18C3 15.3945 4.66081 13.1768 6.98156 12.348C7.61232 12.1227 8.29183 12 9 12C9.70817 12 10.3877 12.1227 11.0184 12.348C11.3611 12.4703 11.6893 12.623 12 12.8027C12.3107 12.623 12.6389 12.4703 12.9816 12.348C13.6123 12.1227 14.2918 12 15 12C15.7082 12 16.3877 12.1227 17.0184 12.348C19.3392 13.1768 21 15.3945 21 18V21H15.75V19.5H19.5V18C19.5 15.5147 17.4853 13.5 15 13.5C14.4029 13.5 13.833 13.6163 13.3116 13.8275C14.3568 14.9073 15 16.3785 15 18V21H3V18ZM9 11.25C8.31104 11.25 7.66548 11.0642 7.11068 10.74C5.9977 10.0896 5.25 8.88211 5.25 7.5C5.25 5.42893 6.92893 3.75 9 3.75C10.2267 3.75 11.3158 4.33901 12 5.24963C12.6842 4.33901 13.7733 3.75 15 3.75C17.0711 3.75 18.75 5.42893 18.75 7.5C18.75 8.88211 18.0023 10.0896 16.8893 10.74C16.3345 11.0642 15.689 11.25 15 11.25C14.311 11.25 13.6655 11.0642 13.1107 10.74C12.6776 10.4869 12.2999 10.1495 12 9.75036C11.7001 10.1496 11.3224 10.4869 10.8893 10.74C10.3345 11.0642 9.68896 11.25 9 11.25ZM13.5 18V19.5H4.5V18C4.5 15.5147 6.51472 13.5 9 13.5C11.4853 13.5 13.5 15.5147 13.5 18ZM11.25 7.5C11.25 8.74264 10.2426 9.75 9 9.75C7.75736 9.75 6.75 8.74264 6.75 7.5C6.75 6.25736 7.75736 5.25 9 5.25C10.2426 5.25 11.25 6.25736 11.25 7.5ZM15 5.25C13.7574 5.25 12.75 6.25736 12.75 7.5C12.75 8.74264 13.7574 9.75 15 9.75C16.2426 9.75 17.25 8.74264 17.25 7.5C17.25 6.25736 16.2426 5.25 15 5.25Z" />
-    </svg>
-    <span class="community-inline-score-value">${formatRating(show.finalRating)}/10</span>
+    <span class="inline-score-topline">
+      <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+        <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+        <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+        <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+        <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+        <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+      </svg>
+      <span class="community-inline-score-value">${formatRating(show.finalRating)}/10</span>
+    </span>
+    <span class="inline-score-label">Community Rating</span>
   `;
-  rating.append(archiveRating, communityBadge);
 
-  card.append(image, title, tags, rating);
+  const ratingDivider = document.createElement("span");
+  ratingDivider.className = "rating-divider";
+  ratingDivider.setAttribute("aria-hidden", "true");
+
+  rating.append(archiveRating, ratingDivider, communityBadge);
+
+  card.append(editorialBadges, image, title, tags, rating);
   shell.append(card);
   return shell;
+}
+
+function createEditorialBadges(show) {
+  const badges = document.createElement("div");
+  badges.className = "editorial-badges";
+  badges.setAttribute("aria-hidden", "true");
+
+  if ((show.finalRating || 0) >= 9) {
+    const topRatedBadge = document.createElement("span");
+    topRatedBadge.className = "editorial-badge editorial-badge-corner";
+    topRatedBadge.textContent = "Top rated";
+    badges.appendChild(topRatedBadge);
+  }
+
+  if (show.reviewStatus === "full-review") {
+    const fullReviewBadge = document.createElement("span");
+    fullReviewBadge.className = "editorial-badge editorial-badge-pill";
+    fullReviewBadge.textContent = "Full review";
+    badges.appendChild(fullReviewBadge);
+  }
+
+  return badges;
 }
 
 function getCollectionShowReason(collection, showId) {
@@ -880,8 +1175,20 @@ async function initializeCollectionsPage() {
   setTextContent("collectionsShowReach", String(coveredShowIds.size));
   setTextContent("collectionsLastUpdated", latestUpdatedAt ? formatDate(latestUpdatedAt) : "Unknown");
 
+  const featuredCollections = collections.filter((collection) => collection.featured);
+  const standardCollections = collections.filter((collection) => !collection.featured);
+
   directoryRoot.textContent = "";
-  collections.forEach((collection) => {
+
+  featuredCollections.forEach((collection) => {
+    directoryRoot.appendChild(createCollectionDirectoryCard(collection, getCollectionShows(collection, showMap)));
+  });
+
+  if (featuredCollections.length > 0 && standardCollections.length > 0) {
+    directoryRoot.appendChild(createCollectionDirectoryDivider());
+  }
+
+  standardCollections.forEach((collection) => {
     directoryRoot.appendChild(createCollectionDirectoryCard(collection, getCollectionShows(collection, showMap)));
   });
 }
@@ -920,6 +1227,19 @@ function createCollectionDirectoryCard(collection, shows) {
   actions.append(collectionLink, archiveLink);
   article.append(kicker, title, description, meta, actions);
   return article;
+}
+
+function createCollectionDirectoryDivider() {
+  const divider = document.createElement("div");
+  divider.className = "collection-directory-divider";
+  divider.setAttribute("aria-hidden", "true");
+
+  const label = document.createElement("span");
+  label.className = "collection-directory-divider-label";
+  label.textContent = "More collections";
+
+  divider.appendChild(label);
+  return divider;
 }
 
 async function initializeCollectionPage() {
@@ -1661,6 +1981,7 @@ function initializeBackToTop() {
   }
 
   const siteFooter = document.getElementById("site-footer");
+  const floatingChatToggle = toggleBtn;
 
   function syncBackToTopState() {
     backToTopBtn.style.display = window.scrollY > 420 ? "flex" : "none";
@@ -1673,6 +1994,9 @@ function initializeBackToTop() {
     const footerOverlap = Math.max(0, window.innerHeight - footerRect.top);
     const clearance = Math.min(Math.max(footerOverlap + 18, 18), Math.round(window.innerHeight * 0.35));
     backToTopBtn.style.bottom = `${clearance}px`;
+    if (floatingChatToggle) {
+      floatingChatToggle.style.bottom = `${clearance}px`;
+    }
   }
 
   window.addEventListener("scroll", syncBackToTopState, { passive: true });
@@ -1704,6 +2028,7 @@ function hydrateChat() {
   });
 
   updateChatSuggestions(DEFAULT_CHAT_SUGGESTIONS);
+  syncChatSuggestionsVisibility();
   scrollChatToBottom();
 }
 
@@ -1719,7 +2044,7 @@ function resetChatThread() {
     recommendations: [],
   });
   updateChatSuggestions(DEFAULT_CHAT_SUGGESTIONS);
-  setChatStatus("Ask for a completion status, mood, listening context, or title already in the archive.");
+  syncChatSuggestionsVisibility();
 }
 
 async function syncChatHealth() {
@@ -1896,6 +2221,8 @@ function updateChatSuggestions(suggestions) {
     });
     chatSuggestions.appendChild(button);
   });
+
+  syncChatSuggestionsVisibility();
 }
 
 function setPendingState(isPending) {
@@ -1913,6 +2240,8 @@ function setPendingState(isPending) {
   chatSuggestions?.querySelectorAll("button").forEach((button) => {
     button.disabled = isPending;
   });
+
+  syncChatSuggestionsVisibility();
 }
 
 function persistChatState() {
@@ -1949,6 +2278,31 @@ function scrollChatToBottom() {
 function setChatStatus(message) {
   if (chatStatus) {
     chatStatus.textContent = message;
+  }
+}
+
+function syncChatSuggestionsVisibility() {
+  const hasUserMessages = chatState.history.some((entry) => entry.role === "user");
+  chatContainer?.classList.toggle("has-history", hasUserMessages);
+
+  if (chatFootnote) {
+    chatFootnote.hidden = hasUserMessages;
+  }
+
+  if (!chatSuggestions && !chatSuggestionRegion) {
+    return;
+  }
+
+  const hasSuggestionButtons = Boolean(chatSuggestions && chatSuggestions.childElementCount > 0);
+  const shouldShowSuggestions = hasSuggestionButtons && !hasUserMessages && !chatState.pending;
+
+  if (chatSuggestionRegion) {
+    chatSuggestionRegion.hidden = !shouldShowSuggestions;
+    return;
+  }
+
+  if (chatSuggestions) {
+    chatSuggestions.hidden = !shouldShowSuggestions;
   }
 }
 
@@ -2303,25 +2657,17 @@ async function syncCommunityCardBadges(container, shows) {
     }
 
     badges.forEach((badge) => {
-      badge.hidden = true;
+      const fallbackText = badge.dataset.fallbackRating ? `${badge.dataset.fallbackRating}/10` : "";
+      const value = badge.querySelector(".community-inline-score-value");
+      badge.hidden = !fallbackText;
+      if (value) {
+        value.textContent = fallbackText;
+      }
+      if (fallbackText) {
+        badge.setAttribute("aria-label", `Community score ${fallbackText}`);
+      }
     });
   }
-}
-
-function getEditorialStatusLabel(show) {
-  if ((show.finalRating || 0) >= 9 && show.reviewStatus === "full-review") {
-    return "Top rated • Full review";
-  }
-
-  if ((show.finalRating || 0) >= 9) {
-    return "Top rated";
-  }
-
-  if (show.reviewStatus === "full-review") {
-    return "Full review";
-  }
-
-  return "";
 }
 
 function getRuntimeLabel(show) {

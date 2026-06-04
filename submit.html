@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives." />
   <meta name="twitter:image" content="https://echo.continental-hub.com/images/Logo.png" />
   <link rel="stylesheet" href="style.css?v=12" />
-  <link rel="stylesheet" href="home.css?v=14" />
+  <link rel="stylesheet" href="home.css?v=18" />
   <link rel="icon" href="images/TEA-Logo-S-W.png" type="image/x-icon" />
 </head>
 <body class="home-page submit-page info-page">
@@ -37,11 +37,13 @@
     </nav>
 
     <div class="header-actions">
-      <button id="chat-toggle" class="chat-toggle-button" type="button" aria-expanded="false" aria-controls="chat-container">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-        </svg>
-        <span>Ask the Archivist</span>
+      <button class="profile-button" type="button" aria-label="Profile" title="Profile">
+        <span class="profile-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M4.75 20.25a7.25 7.25 0 0 1 14.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+          </svg>
+        </span>
       </button>
     </div>
   </header>
@@ -49,12 +51,18 @@
   <aside id="chat-container" aria-hidden="true">
     <div class="chat-panel-header">
       <div class="chat-panel-heading">
-        <p class="chat-kicker">Archive assistant</p>
         <h2>Ask the Archivist</h2>
         <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
       </div>
       <div class="chat-panel-actions">
-        <button id="chat-clear" class="chat-secondary-button" type="button">Reset</button>
+        <button id="chat-clear" class="chat-secondary-button chat-icon-button" type="button" aria-label="Start a new chat" title="New chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+          <span class="sr-only">New chat</span>
+        </button>
         <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
@@ -62,14 +70,19 @@
         </button>
       </div>
     </div>
-    <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
-    <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
+    <div class="chat-stage">
+      <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
+      <div id="chatSuggestionRegion" class="chat-suggestion-region">
+        <p class="chat-suggestion-label">Prompt ideas</p>
+        <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
+      </div>
+    </div>
     <div class="chat-input-area">
       <label class="sr-only" for="userInput">Ask about a podcast</label>
       <input type="text" id="userInput" placeholder="Ask about a podcast, mood, or theme" />
       <button id="sendMessageButton" type="button">Ask</button>
     </div>
-    <p class="chat-footnote">Ask the Archivist for a finished show, a mood, a listening context, or a title already in the archive.</p>
+    <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
 
   <main class="home-main page-main">
@@ -206,6 +219,12 @@
     </section>
   </main>
 
+  <button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" aria-controls="chat-container" title="Ask the Archivist">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+    </svg>
+  </button>
+
   <button id="backToTop" type="button" aria-label="Back to top">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
@@ -232,6 +251,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
