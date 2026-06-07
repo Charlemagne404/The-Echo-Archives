@@ -2,7 +2,7 @@
 
 ## Verification date
 
-- June 2, 2026
+- June 7, 2026
 
 ## Local environment
 
@@ -29,6 +29,7 @@
 - Console warnings and errors were clean across the main routes.
 - No real horizontal overflow appeared at the tested mobile widths.
 - Homepage filters opened correctly on mobile.
+- Homepage expanding archive cards opened inline on touch, dismissed via outside tap and close control, and kept the footer CTA usable on mobile widths.
 - Show-page community rating controls remained interactive on mobile.
 - Submit-page correction mode still revealed the existing-entry selector on mobile.
 

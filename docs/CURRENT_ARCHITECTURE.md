@@ -26,7 +26,7 @@ Primary public routes:
 - `/submit.html`
 
 The frontend remains lightweight and largely static in presentation, but it now renders browse and show state from structured catalog data instead of handwritten card grids.
-The homepage also derives archive trust stats from the live catalog, supports structured browse filters, and exposes a "recently updated" mode without introducing a frontend build step.
+The homepage also derives archive trust stats from the live catalog, supports structured browse filters, exposes a "recently updated" mode, and uses inline-expanding archive cards with viewport-aware placement plus touch/keyboard support without introducing a frontend build step.
 
 ## Structured Catalog
 
@@ -128,6 +128,7 @@ There is also lightweight browser smoke coverage for:
 
 - main public routes
 - homepage structured filters and empty-state recovery
+- homepage expanding archive cards across hover, touch, keyboard, constrained-height, and reduced-motion cases
 - Ask the Archivist open and close behavior
 - submit-form mode switching
 

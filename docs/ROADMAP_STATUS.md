@@ -8,12 +8,13 @@
 
 ## Current baseline
 
-As of June 3, 2026, the technical continuation work is in place without adding any new catalog entries, reviews, collections, changelog entries, creator records, or network records.
+As of June 7, 2026, the technical continuation work is in place without adding any new catalog entries, reviews, collections, changelog entries, creator records, or network records.
 
 Implemented in this pass:
 
 - homepage trust stats and last-updated signal
 - structured homepage filters plus a public recently-updated mode
+- homepage expanding archive-card previews with viewport-aware placement, explicit close control, and updated touch/keyboard behavior
 - empty-state recovery actions
 - consistent Ask the Archivist copy updates
 - expanded intake support for listener reviews and creator verification

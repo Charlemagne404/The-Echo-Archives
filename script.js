@@ -11,6 +11,12 @@ const DEFAULT_CHAT_SUGGESTIONS = [
   "What should I start with if I want a full review first?",
 ];
 const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
+const SHOW_CARD_PREVIEW_DELAY_MS = 650;
+const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
+const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 170;
+const SHOW_CARD_PREVIEW_SCROLL_IDLE_MS = 140;
+const SHOW_CARD_PREVIEW_EDGE_GUTTER_PX = 16;
+const HOME_CARD_PREVIEW_ID_PREFIX = "archiveCardPreview";
 
 const dataCache = {
   shows: null,
@@ -323,6 +329,7 @@ async function initializeHomePage() {
   const filterClear = document.getElementById("filterClear");
   const filterOptionGrid = document.getElementById("filterOptionGrid");
   const browseModesRoot = document.getElementById("browseModes");
+  const archiveSection = document.getElementById("archive");
   const archiveGrid = document.getElementById("podcast-grid");
   const noResultsMsg = document.getElementById("noResultsMsg");
   const resultsSummary = document.getElementById("resultsSummary");
@@ -338,6 +345,7 @@ async function initializeHomePage() {
 
   if (
     !archiveGrid ||
+    !archiveSection ||
     !filterOptionGrid ||
     !quickFiltersRoot ||
     !collectionsSection ||
@@ -374,6 +382,11 @@ async function initializeHomePage() {
   if (collectionsById.has(initialCollectionId)) {
     state.selectedCollectionId = initialCollectionId;
   }
+
+  const previewController = initializeHomePreviewController({
+    archiveGrid,
+    archiveSection,
+  });
 
   renderFilterOptions();
   renderQuickFilters();
@@ -428,6 +441,7 @@ async function initializeHomePage() {
   });
 
   window.addEventListener("resize", () => {
+    previewController.closeActivePreview({ immediate: true });
     renderHomeResults();
     collectionCarouselControls?.refresh();
   });
@@ -872,6 +886,8 @@ async function initializeHomePage() {
   }
 
   function renderHomeResults() {
+    previewController.closeActivePreview({ immediate: true });
+
     const selectedCollection = state.selectedCollectionId
       ? collectionsById.get(state.selectedCollectionId)
       : null;
@@ -888,7 +904,7 @@ async function initializeHomePage() {
 
     archiveGrid.textContent = "";
     visibleShows.forEach((show) => {
-      archiveGrid.appendChild(createShowCard(show));
+      archiveGrid.appendChild(createShowCard(show, { previewMode: "inline-expand" }));
     });
     insertCollectionsSection(visibleShows.length);
 
@@ -961,10 +977,6 @@ async function initializeHomePage() {
   }
 
   function getHomeGridColumnCount() {
-    if (window.matchMedia("(max-width: 780px)").matches) {
-      return 1;
-    }
-
     if (window.matchMedia("(max-width: 1180px)").matches) {
       return 2;
     }
@@ -973,15 +985,617 @@ async function initializeHomePage() {
   }
 }
 
-function createShowCard(show) {
+function initializeHomePreviewController({ archiveGrid, archiveSection }) {
+  const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+  const hoverlessPointerQuery = window.matchMedia("(hover: none)");
+  const state = {
+    activeShell: null,
+    pendingShell: null,
+    openTimer: 0,
+    closeTimer: 0,
+    hideTimer: 0,
+    scrollStopTimer: 0,
+    hoverShell: null,
+    focusShell: null,
+    isUserScrolling: false,
+    lastPointerType: "mouse",
+  };
+
+  function getPreviewShell(target) {
+    if (!(target instanceof Element)) {
+      return null;
+    }
+
+    return target.closest('.podcast-card-shell[data-preview-card="true"]');
+  }
+
+  function clearOpenTimer() {
+    if (state.openTimer) {
+      window.clearTimeout(state.openTimer);
+      state.openTimer = 0;
+    }
+
+    state.pendingShell = null;
+  }
+
+  function clearCloseTimer() {
+    if (state.closeTimer) {
+      window.clearTimeout(state.closeTimer);
+      state.closeTimer = 0;
+    }
+  }
+
+  function clearHideTimer() {
+    if (state.hideTimer) {
+      window.clearTimeout(state.hideTimer);
+      state.hideTimer = 0;
+    }
+  }
+
+  function clearScrollStopTimer() {
+    if (state.scrollStopTimer) {
+      window.clearTimeout(state.scrollStopTimer);
+      state.scrollStopTimer = 0;
+    }
+  }
+
+  function getSourceCard(shell) {
+    if (!shell) {
+      return null;
+    }
+
+    return shell.querySelector(".podcast-card-primary");
+  }
+
+  function getPreviewLayer(shell) {
+    if (!shell) {
+      return null;
+    }
+
+    return shell.querySelector(".home-card-preview-layer");
+  }
+
+  function getPreviewPanel(shell) {
+    if (!shell) {
+      return null;
+    }
+
+    return shell.querySelector(".home-card-preview");
+  }
+
+  function getPreviewOpenLink(shell) {
+    if (!shell) {
+      return null;
+    }
+
+    return shell.querySelector(".preview-open-link");
+  }
+
+  function getPreviewCloseButton(shell) {
+    if (!shell) {
+      return null;
+    }
+
+    return shell.querySelector(".preview-close-button");
+  }
+
+  function isWithinPreview(target) {
+    if (!(target instanceof Node)) {
+      return false;
+    }
+
+    return state.activeShell?.contains(target) || false;
+  }
+
+  function hasFocusedPreviewTarget(shell) {
+    const activeElement = document.activeElement;
+    if (!shell || !(activeElement instanceof Element) || !shell.contains(activeElement)) {
+      return false;
+    }
+
+    return !activeElement.closest(".home-card-preview-layer[hidden]");
+  }
+
+  function getEligibleOpenShell() {
+    if (state.focusShell?.isConnected && hasFocusedPreviewTarget(state.focusShell)) {
+      return state.focusShell;
+    }
+
+    if (state.hoverShell?.isConnected && state.hoverShell.matches(":hover")) {
+      return state.hoverShell;
+    }
+
+    return null;
+  }
+
+  function syncSourceState(shell, isActive) {
+    const card = getSourceCard(shell);
+    if (!shell || !card) {
+      return;
+    }
+
+    shell.classList.toggle("preview-source-active", isActive);
+    card.setAttribute("aria-expanded", String(isActive));
+  }
+
+  function hideOverlayImmediately(shell) {
+    const layer = getPreviewLayer(shell);
+    const panel = getPreviewPanel(shell);
+    const closeButton = getPreviewCloseButton(shell);
+    const openLink = getPreviewOpenLink(shell);
+
+    clearHideTimer();
+    shell?.classList.remove("is-preview-expanded", "is-preview-closing", "is-preview-measuring");
+    if (layer) {
+      layer.hidden = true;
+      layer.setAttribute("aria-hidden", "true");
+    }
+    if (panel) {
+      panel.removeAttribute("data-preview-layout");
+      panel.removeAttribute("data-preview-placement");
+      panel.scrollTop = 0;
+    }
+    closeButton?.setAttribute("tabindex", "-1");
+    openLink?.setAttribute("tabindex", "-1");
+  }
+
+  function closeShell(shell, { immediate = false, returnFocus = false } = {}) {
+    if (!shell) {
+      clearOpenTimer();
+      clearCloseTimer();
+      clearHideTimer();
+      if (state.activeShell) {
+        syncSourceState(state.activeShell, false);
+        hideOverlayImmediately(state.activeShell);
+      }
+      state.activeShell = null;
+      return;
+    }
+
+    const layer = getPreviewLayer(shell);
+    const closeButton = getPreviewCloseButton(shell);
+    const openLink = getPreviewOpenLink(shell);
+
+    if (state.pendingShell === shell) {
+      clearOpenTimer();
+    }
+
+    clearCloseTimer();
+    clearHideTimer();
+    syncSourceState(shell, false);
+
+    if (state.activeShell === shell) {
+      state.activeShell = null;
+    }
+
+    if (returnFocus && shell.contains(document.activeElement)) {
+      getSourceCard(shell)?.focus();
+    }
+
+    if (immediate || !layer) {
+      hideOverlayImmediately(shell);
+      return;
+    }
+
+    shell.classList.remove("is-preview-expanded", "is-preview-measuring");
+    shell.classList.add("is-preview-closing");
+    layer.setAttribute("aria-hidden", "true");
+    closeButton?.setAttribute("tabindex", "-1");
+    openLink?.setAttribute("tabindex", "-1");
+    state.hideTimer = window.setTimeout(() => {
+      hideOverlayImmediately(shell);
+    }, SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS);
+  }
+
+  function openShell(shell, { force = false } = {}) {
+    if (!shell) {
+      return;
+    }
+
+    const layer = getPreviewLayer(shell);
+    const panel = getPreviewPanel(shell);
+    const closeButton = getPreviewCloseButton(shell);
+    const openLink = getPreviewOpenLink(shell);
+
+    clearOpenTimer();
+    clearCloseTimer();
+    clearHideTimer();
+
+    if (state.activeShell && state.activeShell !== shell) {
+      closeShell(state.activeShell, { immediate: true });
+    }
+
+    if (!layer || !panel || !closeButton || !openLink) {
+      return;
+    }
+
+    if (!force && (state.isUserScrolling || getEligibleOpenShell() !== shell)) {
+      return;
+    }
+
+    layer.hidden = false;
+    layer.setAttribute("aria-hidden", "false");
+    closeButton.removeAttribute("tabindex");
+    openLink.removeAttribute("tabindex");
+    panel.scrollTop = 0;
+    shell.classList.remove("is-preview-closing");
+    shell.classList.add("is-preview-measuring");
+    positionHomeCardPreview(shell, archiveGrid, archiveSection);
+    syncSourceState(shell, true);
+
+    state.activeShell = shell;
+    window.requestAnimationFrame(() => {
+      shell.classList.remove("is-preview-measuring");
+      window.requestAnimationFrame(() => {
+        shell.classList.add("is-preview-expanded");
+      });
+    });
+  }
+
+  function scheduleOpen(shell) {
+    if (!shell) {
+      return;
+    }
+
+    clearCloseTimer();
+
+    if (state.activeShell === shell || state.isUserScrolling) {
+      return;
+    }
+
+    clearOpenTimer();
+    state.pendingShell = shell;
+    state.openTimer = window.setTimeout(() => {
+      openShell(shell);
+    }, SHOW_CARD_PREVIEW_DELAY_MS);
+  }
+
+  function handleScrollActivity() {
+    state.isUserScrolling = true;
+    clearOpenTimer();
+    clearScrollStopTimer();
+    closeActivePreview({ immediate: true });
+    state.scrollStopTimer = window.setTimeout(() => {
+      state.isUserScrolling = false;
+      const shell = getEligibleOpenShell();
+      if (shell) {
+        scheduleOpen(shell);
+      }
+    }, SHOW_CARD_PREVIEW_SCROLL_IDLE_MS);
+  }
+
+  function scheduleClose(shell, { immediate = false, returnFocus = false } = {}) {
+    if (!shell) {
+      return;
+    }
+
+    if (state.pendingShell === shell) {
+      clearOpenTimer();
+    }
+
+    if (immediate) {
+      closeShell(shell, { immediate: true, returnFocus });
+      return;
+    }
+
+    clearCloseTimer();
+    state.closeTimer = window.setTimeout(() => {
+      closeShell(shell, { returnFocus });
+    }, SHOW_CARD_PREVIEW_CLOSE_DELAY_MS);
+  }
+
+  function closeActivePreview({ immediate = false, returnFocus = false } = {}) {
+    if (state.pendingShell && state.pendingShell !== state.activeShell) {
+      clearOpenTimer();
+    }
+
+    if (!state.activeShell) {
+      clearCloseTimer();
+      return;
+    }
+
+    scheduleClose(state.activeShell, { immediate, returnFocus });
+  }
+
+  function isTouchLikeActivation(event) {
+    if (event.detail === 0) {
+      return false;
+    }
+
+    if (state.lastPointerType === "touch" || state.lastPointerType === "pen") {
+      return true;
+    }
+
+    return coarsePointerQuery.matches || hoverlessPointerQuery.matches;
+  }
+
+  const handlePointerOver = (event) => {
+    if (event.pointerType && event.pointerType !== "mouse") {
+      state.lastPointerType = event.pointerType;
+      return;
+    }
+
+    state.lastPointerType = "mouse";
+    const shell = getPreviewShell(event.target);
+    if (!shell) {
+      return;
+    }
+
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget instanceof Node && shell.contains(relatedTarget)) {
+      return;
+    }
+
+    state.hoverShell = shell;
+    scheduleOpen(shell);
+  };
+
+  const handlePointerOut = (event) => {
+    if (event.pointerType && event.pointerType !== "mouse") {
+      return;
+    }
+
+    const shell = getPreviewShell(event.target);
+    if (!shell) {
+      return;
+    }
+
+    const relatedTarget = event.relatedTarget;
+    if (relatedTarget instanceof Node && shell.contains(relatedTarget)) {
+      return;
+    }
+
+    if (state.hoverShell === shell) {
+      state.hoverShell = null;
+    }
+    scheduleClose(shell);
+  };
+
+  const handleFocusIn = (event) => {
+    const shell = getPreviewShell(event.target);
+    if (!shell) {
+      return;
+    }
+
+    state.focusShell = shell;
+    scheduleOpen(shell);
+  };
+
+  const handleFocusOut = (event) => {
+    const shell = getPreviewShell(event.target);
+    if (!shell) {
+      return;
+    }
+
+    const nextTarget = event.relatedTarget;
+    if (nextTarget instanceof Node && shell.contains(nextTarget)) {
+      return;
+    }
+
+    if (state.focusShell === shell) {
+      state.focusShell = null;
+    }
+    scheduleClose(shell, { immediate: true });
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    if (!state.activeShell || !isWithinPreview(event.target)) {
+      return;
+    }
+
+    event.preventDefault();
+    closeShell(state.activeShell, { immediate: true, returnFocus: true });
+  };
+
+  const handleCardClick = (event) => {
+    const card = event.target instanceof Element ? event.target.closest(".podcast-card-primary") : null;
+    if (!(card instanceof HTMLAnchorElement) || !archiveGrid.contains(card)) {
+      return;
+    }
+
+    if (!isTouchLikeActivation(event)) {
+      return;
+    }
+
+    const shell = getPreviewShell(card);
+    if (!shell) {
+      return;
+    }
+
+    event.preventDefault();
+    openShell(shell, { force: true });
+  };
+
+  const handlePreviewCloseClick = (event) => {
+    const closeButton = event.target instanceof Element ? event.target.closest(".preview-close-button") : null;
+    if (!(closeButton instanceof HTMLButtonElement) || !archiveGrid.contains(closeButton)) {
+      return;
+    }
+
+    const shell = getPreviewShell(closeButton);
+    if (!shell) {
+      return;
+    }
+
+    event.preventDefault();
+    closeShell(shell, { immediate: true, returnFocus: event.detail === 0 });
+  };
+
+  const handleDocumentPointerDown = (event) => {
+    if (event.pointerType) {
+      state.lastPointerType = event.pointerType;
+    }
+
+    const activeShell = state.activeShell;
+    const pendingShell = state.pendingShell;
+
+    if (!activeShell && !pendingShell) {
+      return;
+    }
+
+    const target = event.target;
+    if (target instanceof Node && (activeShell?.contains(target) || pendingShell?.contains(target))) {
+      return;
+    }
+
+    closeActivePreview({ immediate: true });
+  };
+
+  const handleViewportChange = () => {
+    if (!state.activeShell) {
+      return;
+    }
+
+    positionHomeCardPreview(state.activeShell, archiveGrid, archiveSection);
+  };
+
+  archiveGrid.addEventListener("pointerover", handlePointerOver);
+  archiveGrid.addEventListener("pointerout", handlePointerOut);
+  archiveGrid.addEventListener("focusin", handleFocusIn);
+  archiveGrid.addEventListener("focusout", handleFocusOut);
+  archiveGrid.addEventListener("keydown", handleKeyDown);
+  archiveGrid.addEventListener("click", handlePreviewCloseClick);
+  archiveGrid.addEventListener("click", handleCardClick);
+  document.addEventListener("pointerdown", handleDocumentPointerDown);
+  window.addEventListener("scroll", handleScrollActivity, { passive: true });
+  window.addEventListener("wheel", handleScrollActivity, { passive: true });
+  window.addEventListener("touchmove", handleScrollActivity, { passive: true });
+  window.addEventListener("resize", handleViewportChange);
+
+  return {
+    closeActivePreview,
+  };
+}
+
+function positionHomeCardPreview(shell, archiveGrid, archiveSection) {
+  const panel = getShellPreviewPanel(shell);
+  if (!panel) {
+    return;
+  }
+
+  const shellRect = shell.getBoundingClientRect();
+  const cardRect = shell.querySelector(".podcast-card-primary")?.getBoundingClientRect() || shellRect;
+  const gridRect = archiveGrid.getBoundingClientRect();
+  const sectionRect = archiveSection.getBoundingClientRect();
+  const gridStyles = window.getComputedStyle(archiveGrid);
+  const columnGap = Number.parseFloat(gridStyles.columnGap) || 24;
+  const isStackedLayout = window.matchMedia("(max-width: 780px)").matches;
+  const previewOffset = isStackedLayout ? 0 : 18;
+  const viewportTopLimit = SHOW_CARD_PREVIEW_EDGE_GUTTER_PX;
+  const viewportBottomLimit = window.innerHeight - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX;
+  const maxViewportHeight = Math.max(0, viewportBottomLimit - viewportTopLimit);
+  let width = 0;
+  let viewportLeft = 0;
+  let viewportTop = 0;
+  let placement = "below";
+  let maxHeight = maxViewportHeight;
+  const minHeight = Math.min(shellRect.height, maxViewportHeight);
+
+  if (isStackedLayout) {
+    width = Math.min(gridRect.width, window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX * 2);
+    viewportLeft = Math.min(
+      Math.max(gridRect.left, SHOW_CARD_PREVIEW_EDGE_GUTTER_PX),
+      Math.max(SHOW_CARD_PREVIEW_EDGE_GUTTER_PX, window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX - width),
+    );
+  } else {
+    const desiredWidth = Math.min(
+      Math.max(shellRect.width * 2.6 + columnGap, 620),
+      720,
+      window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX * 2,
+    );
+    const centeredLeft = shellRect.left + shellRect.width / 2 - desiredWidth / 2;
+    const minLeft = Math.max(gridRect.left, SHOW_CARD_PREVIEW_EDGE_GUTTER_PX);
+    const maxLeft = Math.min(
+      sectionRect.right - desiredWidth,
+      window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX - desiredWidth,
+    );
+    width = desiredWidth;
+    viewportLeft = Math.min(Math.max(centeredLeft, minLeft), Math.max(minLeft, maxLeft));
+  }
+
+  shell.style.setProperty("--preview-width", `${width}px`);
+  shell.style.setProperty("--preview-left", `${viewportLeft - shellRect.left}px`);
+  shell.style.setProperty("--preview-min-height", `${minHeight}px`);
+  panel.dataset.previewLayout = isStackedLayout ? "stack" : "split";
+  shell.style.setProperty("--preview-max-height", `${maxViewportHeight}px`);
+
+  const naturalHeight = panel.scrollHeight || panel.getBoundingClientRect().height || 0;
+  const preferredBelowTop = Math.max(isStackedLayout ? shellRect.top : shellRect.top - previewOffset, viewportTopLimit);
+  const preferredAboveBottom = Math.min(shellRect.bottom + previewOffset, viewportBottomLimit);
+  const availableBelow = Math.max(0, viewportBottomLimit - preferredBelowTop);
+  const availableAbove = Math.max(0, preferredAboveBottom - viewportTopLimit);
+  const belowFits = naturalHeight <= availableBelow;
+  const aboveFits = naturalHeight <= availableAbove;
+
+  if (!belowFits && (aboveFits || availableAbove > availableBelow)) {
+    placement = "above";
+  }
+
+  if (placement === "above") {
+    maxHeight = Math.min(maxViewportHeight, availableAbove, naturalHeight || availableAbove);
+    viewportTop = Math.max(viewportTopLimit, preferredAboveBottom - maxHeight);
+  } else {
+    maxHeight = Math.min(maxViewportHeight, availableBelow, naturalHeight || availableBelow);
+    viewportTop = Math.max(preferredBelowTop, viewportTopLimit);
+    if (viewportTop + maxHeight > viewportBottomLimit) {
+      viewportTop = Math.max(viewportTopLimit, viewportBottomLimit - maxHeight);
+    }
+  }
+
+  panel.dataset.previewPlacement = placement;
+  shell.style.setProperty("--preview-top", `${viewportTop - shellRect.top}px`);
+  shell.style.setProperty("--preview-max-height", `${maxHeight}px`);
+
+  const previewHeight = panel.getBoundingClientRect().height || maxHeight || 0;
+  const startScaleX = clampValue(cardRect.width / width, 0.34, 0.58);
+  const startScaleY = clampValue(cardRect.height / Math.max(previewHeight, 1), 0.34, 0.94);
+  const startShiftX = cardRect.left - viewportLeft;
+  const startShiftY = cardRect.top - viewportTop;
+
+  shell.style.setProperty("--preview-top", `${viewportTop - shellRect.top}px`);
+  shell.style.setProperty("--preview-start-scale-x", `${startScaleX}`);
+  shell.style.setProperty("--preview-start-scale-y", `${startScaleY}`);
+  shell.style.setProperty("--preview-shift-x", `${startShiftX}px`);
+  shell.style.setProperty("--preview-shift-y", `${startShiftY}px`);
+}
+
+function clampValue(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function createShowCard(show, { previewMode = "" } = {}) {
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
   shell.dataset.podcastId = show.id;
+  if (previewMode === "inline-expand") {
+    shell.dataset.previewCard = "true";
+  }
 
+  const previewId = previewMode === "inline-expand" ? buildHomeCardPreviewId(show.id) : "";
+  const card = createShowCardPrimary(show, {
+    isPreviewTrigger: previewMode === "inline-expand",
+    previewId,
+  });
+  shell.append(card);
+  if (previewMode === "inline-expand") {
+    shell.append(createHomeCardPreviewPanel(show, previewId));
+  }
+  return shell;
+}
+
+function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" } = {}) {
   const card = document.createElement("a");
-  card.className = "podcast-card";
+  card.className = isPreviewTrigger ? "podcast-card podcast-card-primary" : "podcast-card";
   card.href = show.href;
   card.dataset.podcastId = show.id;
+  if (isPreviewTrigger) {
+    card.setAttribute("aria-controls", previewId);
+    card.setAttribute("aria-expanded", "false");
+  }
 
   const image = document.createElement("img");
   image.src = show.cover;
@@ -1005,6 +1619,12 @@ function createShowCard(show) {
   const rating = document.createElement("div");
   rating.className = "rating";
 
+  rating.append(createArchiveScoreElement(show), createRatingDividerElement(), createCommunityScoreElement(show));
+  card.append(editorialBadges, image, title, tags, rating);
+  return card;
+}
+
+function createArchiveScoreElement(show) {
   const archiveRating = document.createElement("div");
   archiveRating.className = "archive-inline-score";
   archiveRating.innerHTML = `
@@ -1014,7 +1634,10 @@ function createShowCard(show) {
     </span>
     <span class="inline-score-label">Archive Rating</span>
   `;
+  return archiveRating;
+}
 
+function createCommunityScoreElement(show) {
   const communityBadge = document.createElement("div");
   communityBadge.className = "community-inline-score";
   communityBadge.dataset.podcastId = show.id;
@@ -1035,16 +1658,152 @@ function createShowCard(show) {
     </span>
     <span class="inline-score-label">Community Rating</span>
   `;
+  return communityBadge;
+}
 
+function createRatingDividerElement() {
   const ratingDivider = document.createElement("span");
   ratingDivider.className = "rating-divider";
   ratingDivider.setAttribute("aria-hidden", "true");
+  return ratingDivider;
+}
 
-  rating.append(archiveRating, ratingDivider, communityBadge);
+function syncInlineScoreGroup(group) {
+  if (!group) {
+    return;
+  }
 
-  card.append(editorialBadges, image, title, tags, rating);
-  shell.append(card);
-  return shell;
+  const divider = group.querySelector(".rating-divider");
+  const archiveScore = group.querySelector(".archive-inline-score");
+  const communityScore = group.querySelector(".community-inline-score");
+  if (!divider || !archiveScore) {
+    return;
+  }
+
+  divider.hidden = !communityScore || communityScore.hidden;
+}
+
+function buildHomeCardPreviewId(value) {
+  return `${HOME_CARD_PREVIEW_ID_PREFIX}-${String(value).replace(/[^a-zA-Z0-9_-]+/g, "-")}`;
+}
+
+function getShellPreviewPanel(shell) {
+  if (!shell) {
+    return null;
+  }
+
+  return shell.querySelector(".home-card-preview");
+}
+
+function createHomeCardPreviewPanel(show, previewId) {
+  const layer = document.createElement("div");
+  layer.className = "home-card-preview-layer";
+  layer.hidden = true;
+  layer.setAttribute("aria-hidden", "true");
+
+  const panel = document.createElement("article");
+  panel.className = "home-card-preview";
+  panel.id = previewId;
+  panel.dataset.podcastId = show.id;
+  panel.setAttribute("role", "group");
+
+  const titleId = `${previewId}-title`;
+  panel.setAttribute("aria-labelledby", titleId);
+
+  const closeButton = document.createElement("button");
+  closeButton.className = "preview-close-button";
+  closeButton.type = "button";
+  closeButton.setAttribute("tabindex", "-1");
+  closeButton.setAttribute("aria-label", `Close the ${show.title} archive preview`);
+  closeButton.textContent = "Close";
+
+  const media = document.createElement("div");
+  media.className = "home-card-preview-media";
+
+  const image = document.createElement("img");
+  image.src = show.cover;
+  image.alt = show.coverAlt;
+  media.appendChild(image);
+
+  const content = document.createElement("div");
+  content.className = "home-card-preview-content";
+
+  const kicker = document.createElement("p");
+  kicker.className = "home-card-preview-kicker";
+  kicker.textContent = "Archive entry";
+
+  const title = document.createElement("h3");
+  title.className = "home-card-preview-title";
+  title.id = titleId;
+  title.textContent = show.title;
+
+  const accentRule = document.createElement("span");
+  accentRule.className = "home-card-preview-rule";
+  accentRule.setAttribute("aria-hidden", "true");
+
+  const copy = document.createElement("div");
+  copy.className = "home-card-preview-copy";
+
+  const lead = document.createElement("p");
+  lead.className = "preview-lead";
+  lead.textContent = String(show.subtitle || "").trim();
+  lead.hidden = !lead.textContent;
+
+  const goodFor = document.createElement("p");
+  goodFor.className = "preview-good-for";
+
+  const goodForLabel = document.createElement("span");
+  goodForLabel.className = "preview-good-for-label";
+  goodForLabel.textContent = "Good for:";
+  const goodForText = document.createElement("span");
+  const bestForValues = show.bestFor.slice(0, 3).map((value) => toDisplayTag(value));
+  goodForText.textContent = bestForValues.length > 0 ? ` ${bestForValues.join(", ")}` : "";
+  goodFor.append(goodForLabel, goodForText);
+  goodFor.hidden = bestForValues.length === 0;
+
+  const previewTags = document.createElement("div");
+  previewTags.className = "preview-tags";
+  show.tags.slice(0, 3).forEach((tag) => {
+    const chip = document.createElement("span");
+    chip.className = "tag";
+    chip.textContent = toDisplayTag(tag);
+    previewTags.appendChild(chip);
+  });
+  previewTags.hidden = previewTags.childElementCount === 0;
+
+  const footer = document.createElement("div");
+  footer.className = "home-card-preview-footer";
+
+  const ratings = document.createElement("div");
+  ratings.className = "home-card-preview-ratings";
+  ratings.append(
+    createArchiveScoreElement(show),
+    createRatingDividerElement(),
+    createCommunityScoreElement(show),
+  );
+  syncInlineScoreGroup(ratings);
+  footer.appendChild(ratings);
+
+  const openLink = document.createElement("a");
+  openLink.className = "preview-open-link";
+  openLink.href = show.href;
+  openLink.setAttribute("tabindex", "-1");
+  openLink.setAttribute("aria-label", `Open the ${show.title} archive page`);
+  const openText = document.createElement("span");
+  openText.textContent = "Open archive";
+  const openArrow = document.createElement("span");
+  openArrow.className = "preview-open-link-arrow";
+  openArrow.setAttribute("aria-hidden", "true");
+  openArrow.textContent = "→";
+  openLink.append(openText, openArrow);
+  footer.appendChild(openLink);
+
+  copy.append(lead, goodFor, previewTags);
+  content.append(kicker, title, accentRule, copy);
+  panel.append(closeButton, media, content, footer);
+  layer.appendChild(panel);
+
+  return layer;
 }
 
 function createEditorialBadges(show) {
@@ -2624,6 +3383,9 @@ async function syncCommunityCardBadges(container, shows) {
       badge.setAttribute("aria-label", `Community score ${fallbackText}`);
     }
   });
+  container.querySelectorAll(".rating, .home-card-preview-ratings").forEach((group) => {
+    syncInlineScoreGroup(group);
+  });
 
   const ids = shows.map((show) => show.id);
   if (ids.length === 0) {
@@ -2651,6 +3413,9 @@ async function syncCommunityCardBadges(container, shows) {
       }
       badge.hidden = !text;
     });
+    container.querySelectorAll(".rating, .home-card-preview-ratings").forEach((group) => {
+      syncInlineScoreGroup(group);
+    });
   } catch (_error) {
     if (container.dataset.communityRequestId !== requestId) {
       return;
@@ -2666,6 +3431,9 @@ async function syncCommunityCardBadges(container, shows) {
       if (fallbackText) {
         badge.setAttribute("aria-label", `Community score ${fallbackText}`);
       }
+    });
+    container.querySelectorAll(".rating, .home-card-preview-ratings").forEach((group) => {
+      syncInlineScoreGroup(group);
     });
   }
 }
