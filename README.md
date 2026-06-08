@@ -57,21 +57,22 @@ The script fast-forwards from `origin`, runs `npm install` in `podcast-ai`, rest
 
 Legacy full-review URLs still exist as redirects to `show.html`.
 
-## Planning docs
+## Docs
 
-Product and architecture notes still live in [`docs/`](docs):
+The active repo-wide docs are intentionally small:
 
-- [`docs/VISION.md`](docs/VISION.md)
-- [`docs/CURRENT_ARCHITECTURE.md`](docs/CURRENT_ARCHITECTURE.md)
-- [`docs/TARGET_ARCHITECTURE.md`](docs/TARGET_ARCHITECTURE.md)
-- [`docs/DATA_MODEL.md`](docs/DATA_MODEL.md)
-- [`docs/MIGRATION_PLAN.md`](docs/MIGRATION_PLAN.md)
-- [`docs/FEATURE_PRIORITIES.md`](docs/FEATURE_PRIORITIES.md)
-- [`docs/BRANDING.md`](docs/BRANDING.md)
-- [`docs/OPEN_QUESTIONS.md`](docs/OPEN_QUESTIONS.md)
-- [`docs/IMPLEMENTATION_CHECKLIST.md`](docs/IMPLEMENTATION_CHECKLIST.md)
-- [`docs/MOBILE_QA.md`](docs/MOBILE_QA.md)
-- [`docs/LAUNCH_PLAN.md`](docs/LAUNCH_PLAN.md)
-- [`docs/ROADMAP_STATUS.md`](docs/ROADMAP_STATUS.md)
-- [`docs/RELEASE_CHECKLIST.md`](docs/RELEASE_CHECKLIST.md)
-- [`docs/SUBMISSION_MODERATION_WORKFLOW.md`](docs/SUBMISSION_MODERATION_WORKFLOW.md)
+- [`docs/PRODUCT.md`](docs/PRODUCT.md)
+- [`docs/ROADMAP.md`](docs/ROADMAP.md)
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- [`docs/OPERATIONS.md`](docs/OPERATIONS.md)
+- [`data/schema.md`](data/schema.md)
+- [`podcast-ai/README.md`](podcast-ai/README.md)
+
+Supporting records:
+
+- [`HANDOFF.md`](HANDOFF.md)
+- [`MEMORY.md`](MEMORY.md)
+- [`TODO.md`](TODO.md)
+- [`docs/qa/`](docs/qa)
+- [`docs/research/feedback/`](docs/research/feedback)
+- [`docs/archive/`](docs/archive)
