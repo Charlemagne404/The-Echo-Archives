@@ -1,6 +1,7 @@
 const SHOWS_DATA_URL = "/data/shows.json";
 const COLLECTIONS_DATA_URL = "/data/collections.json";
 const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
+const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 const CHAT_STORAGE_KEY = "echo-archives-chat-v2";
 const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
@@ -1567,6 +1568,13 @@ function clampValue(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
+function formatInlineTagList(tags, maxItems) {
+  return tags
+    .slice(0, maxItems)
+    .map((tag) => toDisplayTag(tag))
+    .join(" • ");
+}
+
 function createShowCard(show, { previewMode = "" } = {}) {
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
@@ -1608,23 +1616,22 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" 
 
   const tags = document.createElement("p");
   tags.className = "tags";
-
-  show.tags.slice(0, 2).forEach((tag) => {
-    const chip = document.createElement("span");
-    chip.className = "tag";
-    chip.textContent = toDisplayTag(tag);
-    tags.appendChild(chip);
-  });
+  tags.textContent = formatInlineTagList(show.tags, 2);
+  tags.hidden = !tags.textContent;
 
   const rating = document.createElement("div");
   rating.className = "rating";
 
-  rating.append(createArchiveScoreElement(show), createRatingDividerElement(), createCommunityScoreElement(show));
+  rating.append(
+    createArchiveScoreElement(show, { showLabel: false }),
+    createRatingDividerElement(),
+    createCommunityScoreElement(show, { showLabel: false }),
+  );
   card.append(editorialBadges, image, title, tags, rating);
   return card;
 }
 
-function createArchiveScoreElement(show) {
+function createArchiveScoreElement(show, { showLabel = true } = {}) {
   const archiveRating = document.createElement("div");
   archiveRating.className = "archive-inline-score";
   archiveRating.innerHTML = `
@@ -1632,12 +1639,12 @@ function createArchiveScoreElement(show) {
       <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
       <span class="inline-score-value">${formatRating(show.finalRating)}/10</span>
     </span>
-    <span class="inline-score-label">Archive Rating</span>
+    ${showLabel ? '<span class="inline-score-label">Archive Rating</span>' : ""}
   `;
   return archiveRating;
 }
 
-function createCommunityScoreElement(show) {
+function createCommunityScoreElement(show, { showLabel = true } = {}) {
   const communityBadge = document.createElement("div");
   communityBadge.className = "community-inline-score";
   communityBadge.dataset.podcastId = show.id;
@@ -1656,7 +1663,7 @@ function createCommunityScoreElement(show) {
       </svg>
       <span class="community-inline-score-value">${formatRating(show.finalRating)}/10</span>
     </span>
-    <span class="inline-score-label">Community Rating</span>
+    ${showLabel ? '<span class="inline-score-label">Community Rating</span>' : ""}
   `;
   return communityBadge;
 }
@@ -1763,13 +1770,8 @@ function createHomeCardPreviewPanel(show, previewId) {
 
   const previewTags = document.createElement("div");
   previewTags.className = "preview-tags";
-  show.tags.slice(0, 3).forEach((tag) => {
-    const chip = document.createElement("span");
-    chip.className = "tag";
-    chip.textContent = toDisplayTag(tag);
-    previewTags.appendChild(chip);
-  });
-  previewTags.hidden = previewTags.childElementCount === 0;
+  previewTags.textContent = formatInlineTagList(show.tags, 3);
+  previewTags.hidden = !previewTags.textContent;
 
   const footer = document.createElement("div");
   footer.className = "home-card-preview-footer";
@@ -1814,14 +1816,21 @@ function createEditorialBadges(show) {
   if ((show.finalRating || 0) >= 9) {
     const topRatedBadge = document.createElement("span");
     topRatedBadge.className = "editorial-badge editorial-badge-corner";
-    topRatedBadge.textContent = "Top rated";
+    const topRatedArtwork = document.createElement("img");
+    topRatedArtwork.className = "editorial-badge-artwork";
+    topRatedArtwork.src = TOP_RATED_BADGE_ASSET_URL;
+    topRatedArtwork.alt = "";
+    topRatedBadge.appendChild(topRatedArtwork);
     badges.appendChild(topRatedBadge);
   }
 
   if (show.reviewStatus === "full-review") {
     const fullReviewBadge = document.createElement("span");
-    fullReviewBadge.className = "editorial-badge editorial-badge-pill";
-    fullReviewBadge.textContent = "Full review";
+    fullReviewBadge.className = "editorial-badge editorial-badge-ribbon";
+    const fullReviewLabel = document.createElement("span");
+    fullReviewLabel.className = "editorial-badge-ribbon-label";
+    fullReviewLabel.textContent = "Full review";
+    fullReviewBadge.appendChild(fullReviewLabel);
     badges.appendChild(fullReviewBadge);
   }
 
