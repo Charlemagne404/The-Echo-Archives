@@ -44,6 +44,8 @@ npm run verify
 
 The maintainer review workflow keeps `data/shows.json` focused on show metadata while `data/reviews/<show-id>.json` holds longer editorial copy. Run `review:new` to scaffold a review file, `review:publish` to promote a drafted review to `full-review`, and `review:report` to audit catalog gaps.
 
+Root-level delivery files are intentionally present for both the live Node deployment and simpler static hosting setups, including `404.html`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, and the basic policy pages.
+
 Update a deployed checkout and restart the live service:
 
 ```bash
@@ -59,6 +61,10 @@ The script fast-forwards from `origin`, runs `npm install` in `podcast-ai`, rest
 - `/collection.html?id=<collection-id>` - reusable collection page
 - `/show.html?id=<show-id>` - reusable show page
 - `/about.html` - curation and rating policy
+- `/contact.html` - redirect shim to `contact.continental-hub.com`
+- `/privacy.html` - privacy summary for the current implementation
+- `/terms.html` - site usage terms
+- `/cookies.html` - browser storage and cookie notes
 - `/submit.html` - show, correction, listener-review, and creator-verification intake form
 
 Legacy full-review URLs still exist as redirects to `show.html`.

@@ -2,6 +2,7 @@ const SHOWS_DATA_URL = "/data/shows.json";
 const COLLECTIONS_DATA_URL = "/data/collections.json";
 const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
+const archiveSearch = globalThis.EchoArchiveSearch;
 const CHAT_STORAGE_KEY = "echo-archives-chat-v2";
 const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
@@ -12,6 +13,7 @@ const DEFAULT_CHAT_SUGGESTIONS = [
   "What should I start with if I want a full review first?",
 ];
 const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
+const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
 const SHOW_CARD_PREVIEW_DELAY_MS = 650;
 const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
 const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 170;
@@ -46,6 +48,10 @@ const chatSuggestions = document.getElementById("chatSuggestions");
 const chatFootnote = document.querySelector(".chat-footnote");
 const userInput = document.getElementById("userInput");
 const sendMessageButton = document.getElementById("sendMessageButton");
+
+if (!archiveSearch) {
+  throw new Error("EchoArchiveSearch helper was not loaded before script.js.");
+}
 
 initializeApp().catch((error) => {
   console.error("Failed to initialize the Echo Archives app.", error);
@@ -95,7 +101,7 @@ async function loadShows() {
   }
 
   const records = await fetchJson(SHOWS_DATA_URL);
-  dataCache.shows = records.map((record) => normalizeShowRecord(record));
+  dataCache.shows = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
   return dataCache.shows;
 }
 
@@ -204,24 +210,6 @@ function normalizeShowRecord(record) {
     : joinReviewParagraphs(spoilerFreeReviewParagraphs);
   const thoughts = typeof record.thoughts === "string" ? record.thoughts.trim() : joinReviewParagraphs(thoughtsParagraphs);
   const rating = Number(record.ratings?.archive);
-  const searchText = [
-    record.title,
-    record.subtitle,
-    record.description,
-    record.archiveTake,
-    spoilerFreeReview,
-    thoughts,
-    spoilerFreeReviewParagraphs.join(" "),
-    thoughtsParagraphs.join(" "),
-    tags.join(" "),
-    genres.join(" "),
-    tones.join(" "),
-    formats.join(" "),
-    bestFor.join(" "),
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
 
   return {
     ...record,
@@ -238,7 +226,7 @@ function normalizeShowRecord(record) {
     thoughtsParagraphs,
     href: `/show.html?id=${encodeURIComponent(record.id)}`,
     finalRating: Number.isFinite(rating) ? rating : null,
-    searchText,
+    searchText: "",
     tagTokens: tags.map((tag) => normalizeTag(tag)),
     bestForTokens: bestFor.map((tag) => normalizeTag(tag)),
   };
@@ -376,6 +364,8 @@ async function initializeHomePage() {
   const filterOptionGrid = document.getElementById("filterOptionGrid");
   const browseModesRoot = document.getElementById("browseModes");
   const archiveSection = document.getElementById("archive");
+  const popularSection = document.getElementById("mostPopular");
+  const popularGrid = document.getElementById("popularGrid");
   const archiveGrid = document.getElementById("podcast-grid");
   const noResultsMsg = document.getElementById("noResultsMsg");
   const resultsSummary = document.getElementById("resultsSummary");
@@ -392,6 +382,8 @@ async function initializeHomePage() {
   if (
     !archiveGrid ||
     !archiveSection ||
+    !popularSection ||
+    !popularGrid ||
     !filterOptionGrid ||
     !quickFiltersRoot ||
     !collectionsSection ||
@@ -409,6 +401,9 @@ async function initializeHomePage() {
   const structuredFilterGroups = getStructuredFilterGroups(shows);
   const quickFilters = getQuickFilters(filterTags);
   const featuredCollections = collections.filter((collection) => collection.featured);
+  const mostPopularShows = HOME_MOST_POPULAR_IDS
+    .map((showId) => showMap.get(showId))
+    .filter((show) => show && show.status === "published");
   const collectionsById = buildCollectionMap(collections);
   let collectionCarouselControls = null;
 
@@ -437,11 +432,12 @@ async function initializeHomePage() {
   renderFilterOptions();
   renderQuickFilters();
   renderBrowseModes();
+  renderMostPopularSection();
   renderCollections();
   renderHomeResults();
 
   searchInput?.addEventListener("input", () => {
-    state.query = searchInput.value.trim().toLowerCase();
+    state.query = searchInput.value.trim();
     renderHomeResults();
   });
 
@@ -588,6 +584,35 @@ async function initializeHomePage() {
       }
     });
     return button;
+  }
+
+  function renderMostPopularSection() {
+    popularGrid.textContent = "";
+
+    if (mostPopularShows.length === 0) {
+      popularSection.hidden = true;
+      return;
+    }
+
+    mostPopularShows.forEach((show) => {
+      popularGrid.appendChild(createMostPopularCard(show));
+    });
+    syncMostPopularSectionVisibility();
+    void syncCommunityCardBadges(popularGrid, mostPopularShows);
+  }
+
+  function shouldShowMostPopularSection() {
+    return (
+      mostPopularShows.length > 0 &&
+      !state.query &&
+      getActiveFilterCount() === 0 &&
+      !state.selectedCollectionId &&
+      state.sortMode === "default"
+    );
+  }
+
+  function syncMostPopularSectionVisibility() {
+    popularSection.hidden = !shouldShowMostPopularSection();
   }
 
   function renderCollections() {
@@ -938,16 +963,20 @@ async function initializeHomePage() {
       ? collectionsById.get(state.selectedCollectionId)
       : null;
 
-    const visibleShows = sortVisibleShows(
-      shows.filter((show) => {
-        const matchesQuery = !state.query || show.searchText.includes(state.query);
-        const matchesFilters = matchesSelectedFilters(show);
-        const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
-        return matchesQuery && matchesFilters && matchesCollection;
-      }),
-      selectedCollection,
-    );
+    const filteredShows = shows.filter((show) => {
+      const matchesFilters = matchesSelectedFilters(show);
+      const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
+      return matchesFilters && matchesCollection;
+    });
+    const visibleShows = state.query
+      ? (() => {
+          const scoredResults = archiveSearch.scoreCatalog(shows, state.query);
+          const filteredIds = new Set(filteredShows.map((show) => show.id));
+          return scoredResults.filter((show) => filteredIds.has(show.id));
+        })()
+      : sortVisibleShows(filteredShows, selectedCollection);
 
+    syncMostPopularSectionVisibility();
     archiveGrid.textContent = "";
     visibleShows.forEach((show) => {
       archiveGrid.appendChild(createShowCard(show, { previewMode: "inline-expand" }));
@@ -960,8 +989,9 @@ async function initializeHomePage() {
       const fullReviewCount = visibleShows.filter((show) => show.reviewStatus === "full-review").length;
       const suffix = fullReviewCount === 1 ? "full review" : "full reviews";
       const collectionPrefix = selectedCollection ? `${selectedCollection.title} • ` : "";
-      const modePrefix = state.sortMode === "recently-updated" ? "Recently updated • " : "";
-      resultsSummary.textContent = `${collectionPrefix}${modePrefix}${visibleShows.length} results • ${fullReviewCount} ${suffix}`;
+      const searchPrefix = state.query ? `${visibleShows.length} results for "${state.query}"` : `${visibleShows.length} results`;
+      const modePrefix = !state.query && state.sortMode === "recently-updated" ? "Recently updated • " : "";
+      resultsSummary.textContent = `${collectionPrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`;
     }
 
     if (noResultsMsg) {
@@ -979,6 +1009,7 @@ async function initializeHomePage() {
       const isActive =
         (filter === "all" &&
           selectedCount === 0 &&
+          !state.query &&
           !state.selectedCollectionId &&
           state.sortMode === "default") ||
         (filter !== "all" && state.filters.tags.has(filter));
@@ -1008,7 +1039,7 @@ async function initializeHomePage() {
     }
 
     if (filterClear) {
-      filterClear.hidden = selectedCount === 0 && !state.selectedCollectionId && state.sortMode === "default";
+      filterClear.hidden = selectedCount === 0 && !state.query && !state.selectedCollectionId && state.sortMode === "default";
     }
   }
 
@@ -1624,6 +1655,115 @@ function formatInlineTagList(tags, maxItems) {
     .slice(0, maxItems)
     .map((tag) => toDisplayTag(tag))
     .join(" • ");
+}
+
+function createMostPopularCard(show) {
+  const card = document.createElement("a");
+  card.className = "popular-card";
+  card.href = show.href;
+  card.dataset.podcastId = show.id;
+  card.setAttribute("aria-label", `Open ${show.title} in the archive`);
+
+  if (show.accent?.rgb) {
+    card.style.setProperty("--popular-card-accent-rgb", show.accent.rgb);
+  }
+
+  const media = document.createElement("div");
+  media.className = "popular-card-media";
+
+  const image = document.createElement("img");
+  image.src = show.cover;
+  image.alt = show.coverAlt;
+  media.appendChild(image);
+
+  const body = document.createElement("div");
+  body.className = "popular-card-body";
+
+  const statusRow = document.createElement("div");
+  statusRow.className = "popular-card-status";
+  getMostPopularCardStatusLabels(show).forEach((status) => {
+    statusRow.appendChild(createMostPopularStatusChip(status));
+  });
+  statusRow.hidden = statusRow.childElementCount === 0;
+
+  const title = document.createElement("h3");
+  title.className = "popular-card-title";
+  title.textContent = show.title;
+
+  const subtitle = document.createElement("p");
+  subtitle.className = "popular-card-subtitle";
+  subtitle.textContent = String(show.subtitle || "").trim();
+  subtitle.hidden = !subtitle.textContent;
+
+  const metadata = document.createElement("p");
+  metadata.className = "popular-card-meta";
+  metadata.textContent = getMostPopularCardMetaText(show);
+  metadata.hidden = !metadata.textContent;
+
+  const copy = document.createElement("p");
+  copy.className = "popular-card-copy";
+  copy.textContent = String(show.archiveTake || show.description || "").trim();
+  copy.hidden = !copy.textContent;
+
+  const footer = document.createElement("div");
+  footer.className = "popular-card-footer";
+
+  const ratings = document.createElement("div");
+  ratings.className = "popular-card-ratings";
+  ratings.append(
+    createArchiveScoreElement(show),
+    createRatingDividerElement(),
+    createCommunityScoreElement(show),
+  );
+  syncInlineScoreGroup(ratings);
+  footer.appendChild(ratings);
+
+  body.append(statusRow, title, subtitle, metadata, copy, footer);
+  card.append(media, body);
+  return card;
+}
+
+function createMostPopularStatusChip({ label, tone = "default" }) {
+  const chip = document.createElement("span");
+  chip.className = `popular-card-chip${tone ? ` is-${tone}` : ""}`;
+  chip.textContent = label;
+  return chip;
+}
+
+function getMostPopularCardStatusLabels(show) {
+  const labels = [];
+
+  if ((show.finalRating || 0) >= 9) {
+    labels.push({ label: "Top rated", tone: "accent" });
+  }
+
+  if (show.reviewStatus === "full-review") {
+    labels.push({ label: "Full review", tone: "review" });
+  }
+
+  const lifecycleLabel = getMostPopularCardLifecycleLabel(show);
+  if (lifecycleLabel) {
+    labels.push({ label: lifecycleLabel, tone: "muted" });
+  }
+
+  return labels;
+}
+
+function getMostPopularCardLifecycleLabel(show) {
+  if (show.completionStatus && show.completionStatus !== "unclear") {
+    return toDisplayTag(show.completionStatus);
+  }
+
+  if (show.releaseStatus && show.releaseStatus !== "unknown") {
+    return toDisplayTag(show.releaseStatus);
+  }
+
+  return "";
+}
+
+function getMostPopularCardMetaText(show) {
+  const preferredValues = show.bestFor.length > 0 ? show.bestFor.slice(0, 2) : show.tags.slice(0, 2);
+  return preferredValues.map((value) => toDisplayTag(value)).join(" • ");
 }
 
 function createShowCard(show, { previewMode = "" } = {}) {
@@ -3997,7 +4137,7 @@ async function syncCommunityCardBadges(container, shows) {
       badge.setAttribute("aria-label", `Community score ${fallbackText}`);
     }
   });
-  container.querySelectorAll(".rating, .home-card-preview-ratings").forEach((group) => {
+  container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
     syncInlineScoreGroup(group);
   });
 
@@ -4027,7 +4167,7 @@ async function syncCommunityCardBadges(container, shows) {
       }
       badge.hidden = !text;
     });
-    container.querySelectorAll(".rating, .home-card-preview-ratings").forEach((group) => {
+    container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
       syncInlineScoreGroup(group);
     });
   } catch (_error) {
@@ -4046,7 +4186,7 @@ async function syncCommunityCardBadges(container, shows) {
         badge.setAttribute("aria-label", `Community score ${fallbackText}`);
       }
     });
-    container.querySelectorAll(".rating, .home-card-preview-ratings").forEach((group) => {
+    container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
       syncInlineScoreGroup(group);
     });
   }

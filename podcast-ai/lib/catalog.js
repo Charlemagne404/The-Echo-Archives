@@ -2,6 +2,12 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const { hasRichReviewContent, mergeReviewContent, readReviewRecord } = require("./reviews");
+const {
+  hydrateCatalogSearch,
+  normalizeTag,
+  scoreCatalog,
+  tokenizeQuery,
+} = require("../../shared/archive-search");
 
 const VALID_REVIEW_STATUSES = new Set(["full-review", "spotlight", "indexed-only", "planned"]);
 const VALID_STATUS_VALUES = new Set(["published", "draft"]);
@@ -10,14 +16,6 @@ const VALID_COMPLETION_STATUSES = new Set(["ongoing", "finished", "cancelled", "
 
 function readJsonFile(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
-
-function normalizeTag(value = "") {
-  return String(value)
-    .trim()
-    .toLowerCase()
-    .replace(/\./g, "")
-    .replace(/\s+/g, "-");
 }
 
 function isValidUrl(value = "") {
@@ -79,27 +77,6 @@ function formatShowHref(id) {
   return `/show.html?id=${encodeURIComponent(id)}`;
 }
 
-function buildSearchText(record) {
-  return [
-    record.title,
-    record.subtitle,
-    record.description,
-    record.archiveTake,
-    record.spoilerFreeReview,
-    record.thoughts,
-    ...(record.spoilerFreeReviewParagraphs || []),
-    ...(record.thoughtsParagraphs || []),
-    ...(record.tags || []),
-    ...(record.genres || []),
-    ...(record.tones || []),
-    ...(record.formats || []),
-    ...(record.bestFor || []),
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLowerCase();
-}
-
 function normalizeRecord(record) {
   const tags = Array.isArray(record.tags) ? record.tags.filter(Boolean) : [];
   const genres = Array.isArray(record.genres) ? record.genres.filter(Boolean) : [];
@@ -136,8 +113,6 @@ function normalizeRecord(record) {
     thoughtsParagraphs: Array.isArray(record.thoughtsParagraphs) ? record.thoughtsParagraphs : [],
     searchText: "",
   };
-
-  normalized.searchText = buildSearchText(normalized);
   return normalized;
 }
 
@@ -306,7 +281,7 @@ function loadShows(siteRoot) {
     });
   });
 
-  return normalized;
+  return hydrateCatalogSearch(normalized);
 }
 
 function loadCollections(siteRoot, knownShowIds = null) {
@@ -350,102 +325,6 @@ function resolveCollectionView({ catalog, collections, collectionId }) {
 
 function loadCatalog(siteRoot) {
   return loadShows(siteRoot);
-}
-
-function tokenizeQuery(message = "") {
-  return Array.from(
-    new Set(
-      message
-        .toLowerCase()
-        .split(/[^a-z0-9]+/)
-        .map((token) => token.trim())
-        .filter((token) => token.length > 1),
-    ),
-  );
-}
-
-function scoreCatalog(catalog, message) {
-  const lowered = message.toLowerCase();
-  const tokens = tokenizeQuery(message);
-
-  return catalog
-    .map((record) => {
-      let score = 0;
-      const reasons = [];
-
-      if (lowered.includes(record.title.toLowerCase())) {
-        score += 10;
-        reasons.push(`direct title match for ${record.title}`);
-      }
-
-      for (const tag of record.tags) {
-        const normalizedTag = tag.toLowerCase();
-        if (lowered.includes(normalizedTag)) {
-          score += 4;
-          reasons.push(`matches ${tag}`);
-        }
-      }
-
-      for (const genre of record.genres) {
-        if (lowered.includes(genre.toLowerCase())) {
-          score += 3;
-          reasons.push(`fits ${genre}`);
-        }
-      }
-
-      for (const bestFor of record.bestFor) {
-        const label = bestFor.replace(/-/g, " ");
-        if (lowered.includes(label)) {
-          score += 3;
-          reasons.push(`good for ${label}`);
-        }
-      }
-
-      if (record.completionStatus === "finished" && /(finished|complete|completed)/i.test(lowered)) {
-        score += 3;
-        reasons.push("finished listen");
-      }
-
-      if (record.completionStatus === "ongoing" && /(ongoing|active|unfinished)/i.test(lowered)) {
-        score += 2;
-        reasons.push("still ongoing");
-      }
-
-      if (record.reviewStatus === "full-review" && /(full review|reviewed|review first)/i.test(lowered)) {
-        score += 3;
-        reasons.push("has a full review");
-      }
-
-      for (const token of tokens) {
-        if (record.searchText.includes(token)) {
-          score += 1;
-        }
-      }
-
-      if (record.finalRating && record.finalRating >= 9 && /(best|favorite|top|highest|amazing)/i.test(lowered)) {
-        score += 3;
-        reasons.push("one of the archive's strongest rated picks");
-      }
-
-      if (record.facts?.wouldRelisten && /(relisten|rewatch|comfort|return)/i.test(lowered)) {
-        score += 2;
-        reasons.push("strong replay value");
-      }
-
-      return {
-        ...record,
-        score,
-        reasons: Array.from(new Set(reasons)),
-      };
-    })
-    .filter((record) => record.score > 0)
-    .sort((left, right) => {
-      if (right.score !== left.score) {
-        return right.score - left.score;
-      }
-
-      return (right.finalRating || 0) - (left.finalRating || 0);
-    });
 }
 
 module.exports = {

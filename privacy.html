@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - The Echo Archives</title>
+  <title>Privacy - The Echo Archives</title>
   <meta
     name="description"
-    content="How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy."
+    content="How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data."
   />
-  <link rel="canonical" href="https://echo.continental-hub.com/about.html" />
+  <link rel="canonical" href="https://echo.continental-hub.com/privacy.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="About - The Echo Archives" />
-  <meta property="og:description" content="How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy." />
-  <meta property="og:url" content="https://echo.continental-hub.com/about.html" />
+  <meta property="og:title" content="Privacy - The Echo Archives" />
+  <meta property="og:description" content="How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data." />
+  <meta property="og:url" content="https://echo.continental-hub.com/privacy.html" />
   <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About - The Echo Archives" />
-  <meta name="twitter:description" content="How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy." />
+  <meta name="twitter:title" content="Privacy - The Echo Archives" />
+  <meta name="twitter:description" content="How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data." />
   <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="theme-color" content="#06080b" />
   <link rel="stylesheet" href="style.css?v=12" />
@@ -25,7 +25,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body class="home-page about-page info-page">
+<body class="home-page info-page">
   <header class="site-header">
     <a class="site-brand" href="/index.html" aria-label="The Echo Archives home">
       <img src="images/Horizontal-Logo-W.png" alt="The Echo Archives" />
@@ -34,9 +34,9 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/index.html">Browse</a>
       <a href="/collections.html">Collections</a>
-      <a class="is-active" href="/about.html">About</a>
+      <a href="/about.html">About</a>
       <a href="/submit.html">Submit</a>
-      <button type="button">For creators</button>
+      <a class="is-active" href="/privacy.html">Privacy</a>
     </nav>
 
     <div class="header-actions">
@@ -92,45 +92,38 @@
     <section class="hero-shell">
       <div class="hero-panel page-panel">
         <div class="hero-copy">
-          <h1>About the archive</h1>
+          <h1>Privacy</h1>
           <p>
-            The Echo Archives is built to help people find fiction podcasts by taste, tone, and listening intent, not by generic app rankings.
+            The Echo Archives keeps the data footprint small. This page describes what the site stores today and what it does not.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="page-grid">
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Shows indexed</span>
-        <strong id="aboutShowCount">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Full reviews</span>
-        <strong id="aboutReviewCount">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Collections</span>
-        <strong id="aboutCollectionCount">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Last updated</span>
-        <strong id="aboutLastUpdated">-</strong>
-      </article>
-    </section>
-
     <section class="page-stack">
       <article class="page-card">
-        <h2>Curation</h2>
-        <p>The archive is editorially guided. A show can be indexed before a long review exists if it is useful to the catalog and has enough verified metadata to recommend responsibly.</p>
+        <h2>What the site stores in your browser</h2>
+        <p>The chat panel keeps recent conversation history in session storage so it survives page refreshes during the same browser session. Anonymous community ratings use local storage to keep a generated profile identifier on your device so the site can associate your own rating with the same browser later.</p>
       </article>
       <article class="page-card">
-        <h2>Ratings</h2>
-        <p><strong>Archive Rating</strong> is the site's editorial stance. <strong>Community Rating</strong> is anonymous listener input and stays hidden until at least five ratings exist, so tiny samples do not pretend to be consensus.</p>
+        <h2>What the server receives</h2>
+        <p>When you submit a rating, correction, creator verification request, or new-show submission, the server receives the request body you send along with limited technical data such as IP address and user agent for moderation, abuse prevention, and rate limiting.</p>
       </article>
       <article class="page-card">
-        <h2>Scope</h2>
-        <p>The Echo Archives is not a playback app or a social network. It is a curated discovery archive for audio dramas and fiction podcasts.</p>
+        <h2>Submissions and contact details</h2>
+        <p>If you send a submission form with a contact email, that email is stored with the submission so the maintainer can review the request or follow up when necessary. Do not send private information that is not relevant to the archive.</p>
+      </article>
+      <article class="page-card">
+        <h2>Cookies</h2>
+        <p>The site does not currently set first-party application cookies for chat, ratings, or basic browsing. If that changes, this page and <a href="/cookies.html">the cookies page</a> should be updated alongside the implementation.</p>
+      </article>
+      <article class="page-card">
+        <h2>Third-party services</h2>
+        <p>The site links out to external listening platforms, official show sites, Patreon, GitHub, and other destinations chosen by the user. Those services operate under their own privacy terms once you leave The Echo Archives.</p>
+      </article>
+      <article class="page-card">
+        <h2>Changes</h2>
+        <p>If the archive adds accounts, analytics, newsletters, or other personal-data features later, this page should be revised to match the live behavior instead of relying on boilerplate policy text.</p>
       </article>
     </section>
   </main>
@@ -156,10 +149,10 @@
       <p>
         © 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a> |
         <a href="/index.html">Browse</a> |
-        <a href="/collections.html">Collections</a> |
+        <a href="/about.html">About</a> |
         <a href="https://contact.continental-hub.com/">Contact</a> |
-        <a href="/privacy.html">Privacy</a> |
-        <a href="/terms.html">Terms</a>
+        <a href="/terms.html">Terms</a> |
+        <a href="/cookies.html">Cookies</a>
       </p>
     </div>
     <div class="right-content">

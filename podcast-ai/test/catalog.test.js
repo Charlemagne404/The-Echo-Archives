@@ -119,6 +119,44 @@ test("scoreCatalog ranks relevant matches first", () => {
 
   assert.ok(results.length > 0);
   assert.equal(results[0].title, "Impact Winter");
+  assert.ok(results.every((show) => show.genres.includes("sci-fi")));
+  assert.ok(results.every((show) => /survival/i.test(show.searchText)));
+  assert.ok(results.every((show) => /vampire/i.test(show.searchText)));
+});
+
+test("scoreCatalog matches natural discovery phrases across status, intent, and similarity", () => {
+  const catalog = loadCatalog(siteRoot);
+
+  const completedSciFi = scoreCatalog(catalog, "completed sci fi");
+  assert.ok(completedSciFi.length > 0);
+  assert.equal(completedSciFi[0].completionStatus, "finished");
+  assert.ok(completedSciFi[0].genres.includes("sci-fi"));
+  assert.ok(completedSciFi.every((show) => show.completionStatus === "finished" && show.genres.includes("sci-fi")));
+
+  const easyEntry = scoreCatalog(catalog, "easy entry");
+  assert.ok(easyEntry.length > 0);
+  assert.ok(easyEntry[0].bestFor.includes("easy-entry"));
+
+  const longWalks = scoreCatalog(catalog, "long walks");
+  assert.ok(longWalks.length > 0);
+  assert.ok(longWalks[0].bestFor.includes("long-walks"));
+
+  const fullCastHorror = scoreCatalog(catalog, "full cast horror");
+  assert.ok(fullCastHorror.length > 0);
+  assert.ok(fullCastHorror[0].formats.includes("full-cast"));
+  assert.ok(fullCastHorror[0].genres.includes("horror"));
+  assert.ok(fullCastHorror.every((show) => show.formats.includes("full-cast")));
+  assert.ok(fullCastHorror.every((show) => /horror/i.test(show.searchText)));
+
+  const similarToMidnightBurger = scoreCatalog(catalog, "like Midnight Burger");
+  assert.ok(similarToMidnightBurger.length > 0);
+  assert.notEqual(similarToMidnightBurger[0].title, "Midnight Burger");
+  assert.ok(["Desert Skies", "Wolf 359"].includes(similarToMidnightBurger[0].title));
+  assert.ok(similarToMidnightBurger.every((show) => show.id !== "midnight-burger"));
+
+  const directTitle = scoreCatalog(catalog, "derelict");
+  assert.ok(directTitle.length > 0);
+  assert.equal(directTitle[0].title, "Derelict");
 });
 
 test("loadCatalog merges companion review files into the returned show record", () => {

@@ -1,5 +1,172 @@
 ## Current task
 
+Tighten archive search so multi-parameter queries return only shows that satisfy the full query instead of broad OR-style partial matches.
+
+## Files changed
+
+- `shared/archive-search.js`
+- `podcast-ai/test/catalog.test.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Changed shared archive search matching so recognized query clauses must all be satisfied before a show is returned.
+- Kept ranked ordering inside the matching set, so search still sorts the valid results by relevance instead of returning an unsorted filter.
+- Added clause-aware handling for alias phrases such as `sci fi`, `full cast`, `completed`, and `easy entry` so synonyms like `finished` still match correctly.
+- Preserved the existing `like <show>` similarity path while excluding the seed show itself from those results.
+- Added regression coverage proving the stricter all-parameters behavior for sentence queries, structured discovery phrases, and similarity queries.
+
+## What still needs work
+
+- If you want this to become fully field-strict later, the next refinement would be deciding which free-text terms should only match metadata facets versus archive copy.
+
+## Commands run
+
+- `rtk npm test`
+- `rtk npm run verify`
+
+## Known issues
+
+- No functional issues observed after the final `verify` run.
+
+## Current task
+
+Add the missing root-level delivery, policy, and metadata files needed for a complete web presence and simple static-host compatibility.
+
+## Files changed
+
+- `.gitignore`
+- `.env.example`
+- `LICENSE`
+- `SECURITY.md`
+- `README.md`
+- `index.html`
+- `about.html`
+- `collections.html`
+- `collection.html`
+- `show.html`
+- `submit.html`
+- `contact.html`
+- `privacy.html`
+- `terms.html`
+- `cookies.html`
+- `site.webmanifest`
+- `sitemap.xml`
+- `favicon.ico`
+- `apple-touch-icon.png`
+- `og-image.png`
+- `icon-192.png`
+- `icon-512.png`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added the missing root documentation and ops files: `LICENSE`, `SECURITY.md`, and a root `.env.example`.
+- Kept `contact.html` as a lightweight redirect shim to `https://contact.continental-hub.com/` and pointed site footer contact links at the external contact hub directly.
+- Added static-host-friendly root metadata assets and files: `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, plus manifest icons.
+- Updated the main archive pages to reference the new favicon, touch icon, manifest, and OG image instead of the previous direct image icon path.
+- Expanded the main footer links so the new policy/contact pages are reachable from the site shell.
+- Kept the existing dynamic `/sitemap.xml` server route intact; the new root `sitemap.xml` acts as a static fallback when the repo is served without the Node app.
+
+## What still needs work
+
+- `favicon.ico` is now a real multi-size ICO generated from the existing archive mark.
+
+## Commands run
+
+- `rtk proxy sips --help`
+- `rtk proxy sips --formats`
+- `rtk npm run test:smoke`
+- `rtk npm run verify`
+
+## Known issues
+
+- No functional issues observed after the final `verify` run.
+
+## Current task
+
+Improve archive search relevance and homepage search UX so natural discovery phrases work on the main browse surface instead of only exact contiguous text matches.
+
+## Files changed
+
+- `shared/archive-search.js`
+- `script.js`
+- `index.html`
+- `about.html`
+- `collection.html`
+- `collections.html`
+- `show.html`
+- `submit.html`
+- `podcast-ai/lib/catalog.js`
+- `podcast-ai/test/catalog.test.js`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added a shared lightweight search helper that both the browser and `podcast-ai/lib/catalog.js` use for normalization, alias expansion, similarity-title detection, and weighted relevance scoring.
+- Replaced the homepage’s old `searchText.includes(query)` filter with shared ranked search results while keeping the existing structured filters and browse layout intact.
+- Added support for natural archive queries such as `easy entry`, `long walks`, `completed sci fi`, `full cast horror`, and `like Midnight Burger`.
+- Kept chat/API shapes unchanged while improving `/api/chat` recommendation grounding automatically through the updated shared `scoreCatalog` path.
+- Updated homepage search copy and results-summary text so active queries read as a first-class browse state and the `All` quick filter no longer appears active during a search.
+- Added catalog and browser smoke coverage for the new relevance behavior and verified the full repo `verify` script after the change.
+
+## What still needs work
+
+- Search is functionally stronger and fully covered, but relevance tuning is still editorial rather than algorithmic; if the catalog grows a lot, weights and alias coverage may need another pass.
+
+## Commands run
+
+- `rtk npm run validate:data`
+- `rtk npm test`
+- `rtk npm run test:smoke`
+- `rtk npm run verify`
+
+## Known issues
+
+- No functional issues observed in this pass. Remaining follow-up would be tuning relevance weights or alias phrases if future catalog growth exposes weaker rankings.
+
+## Current task
+
+Add a dedicated `Most popular` band above the homepage browse grid with four larger non-expanding archive cards for `Midnight Burger`, `We're Alive`, `Red Valley`, and `Derelict`.
+
+## Files changed
+
+- `index.html`
+- `script.js`
+- `home.css`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added a new homepage `Most popular` section directly under the `Browse the archive` heading and above the regular archive grid.
+- Rendered a dedicated curated lineup in this exact order: `Midnight Burger`, `We're Alive`, `Red Valley`, `Derelict`, while keeping those same shows untouched in the normal browse grid below.
+- Built a new larger-card renderer that links straight to each show page and does not use the existing hover/touch inline-expand preview system.
+- Populated the larger cards with truthful existing catalog data only: cover art, compact status chips, subtitle, best-for or tag metadata, archive-take fallback copy, and archive/community ratings.
+- Hid the `Most popular` band automatically whenever search, filters, non-default sort, or collection-route browsing is active, then restored it when the default archive state returns.
+- Added smoke coverage for the curated lineup order, duplicate presence in the regular grid, visibility toggling, and the 4-up / 2-up / 1-up responsive layout.
+- Verified the rendered homepage in the in-app Browser at `http://127.0.0.1:3010/`, including default-state visibility, search-hide behavior, console health, and focused desktop/mobile screenshots of the new section.
+
+## What still needs work
+
+- No follow-up is required for this pass unless the curated lineup should move from a hard-coded homepage list into catalog data later.
+
+## Commands run
+
+- `rtk npm run validate:data`
+- `rtk npm test`
+- `rtk npm run test:smoke`
+- `rtk npm run check:links`
+- `rtk npm start`
+- Browser QA on `http://127.0.0.1:3010/`
+
+## Known issues
+
+- None observed in this pass.
+
+## Current task
+
 Rebalance the show page so official copy, community interaction, and archive opinion are easier to scan, while reducing the noisy facts rail and removing the lower-page right-column dead space.
 
 ## Files changed

@@ -6,7 +6,7 @@ const path = require("node:path");
 const { spawn } = require("node:child_process");
 
 const { chromium } = require("playwright");
-const { loadCatalog, loadCollections } = require("../lib/catalog");
+const { loadCatalog, loadCollections, scoreCatalog } = require("../lib/catalog");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -16,6 +16,10 @@ const basePort = 3310;
 const baseUrl = `http://127.0.0.1:${basePort}`;
 const firstCollectionId = collectionFixtures[0].id;
 const firstShowId = showFixtures[0].id;
+const homeMostPopularIds = ["midnight-burger", "were-alive", "red-valley", "derelict"];
+const homeMostPopularTitles = homeMostPopularIds.map(
+  (id) => showFixtures.find((show) => show.id === id)?.title || id,
+);
 
 let browser;
 let serverProcess;
@@ -168,6 +172,18 @@ async function getPreviewOverlapPoint(page, sourceIndex) {
     },
     { sourceIndex },
   );
+}
+
+function countDistinctRows(items, tolerance = 8) {
+  const rows = [];
+
+  items.forEach(({ top }) => {
+    if (!rows.some((rowTop) => Math.abs(rowTop - top) <= tolerance)) {
+      rows.push(top);
+    }
+  });
+
+  return rows.length;
 }
 
 test.before(async () => {
@@ -449,6 +465,7 @@ test("indexed-only detail page shows truthful empty states without narrow legacy
 
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
+  const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
@@ -478,8 +495,176 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
 
     const cardCount = await page.locator("#podcast-grid .podcast-card-shell").count();
     assert.ok(cardCount > 0);
+
+    const searchCases = [
+      { query: "easy entry" },
+      { query: "long walks" },
+      { query: "completed sci fi" },
+      { query: "like Midnight Burger", expectedTopTitle: expectedSimilarTitle },
+    ];
+
+    for (const searchCase of searchCases) {
+      await page.locator("#search").fill(searchCase.query);
+      await page.waitForFunction(
+        (query) => (document.querySelector("#resultsSummary")?.textContent || "").includes(`results for "${query}"`),
+        searchCase.query,
+      );
+
+      const searchState = await page.evaluate(() => {
+        const cards = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell")).slice(0, 5);
+        return {
+          allActive: document.querySelector('.quick-filter[data-chip-filter="all"]')?.classList.contains("is-active") || false,
+          summary: document.querySelector("#resultsSummary")?.textContent?.trim() || "",
+          titles: cards
+            .map((card) => card.querySelector(".podcast-card-title, h2, h3")?.textContent?.trim() || "")
+            .filter(Boolean),
+        };
+      });
+
+      assert.equal(searchState.allActive, false);
+      assert.match(searchState.summary, new RegExp(`results for "${searchCase.query}"`, "i"));
+      assert.ok(searchState.titles.length > 0);
+
+      if (searchCase.expectedTopTitle) {
+        assert.equal(searchState.titles[0], searchCase.expectedTopTitle);
+      }
+    }
+
+    await page.getByRole("button", { name: "All" }).click();
+    await page.waitForFunction(
+      (expectedCount) =>
+        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
+        (document.querySelector("#search")?.value || "") === "",
+      showFixtures.length,
+    );
   } finally {
     await page.close();
+  }
+});
+
+test("homepage most popular band renders curated cards and hides outside the default archive state", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.locator("#popularGrid .popular-card").first().waitFor();
+
+    const defaultState = await page.evaluate((popularIds) => ({
+      sectionHidden: document.getElementById("mostPopular")?.hidden ?? true,
+      cardIds: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || ""),
+      titles: Array.from(document.querySelectorAll("#popularGrid .popular-card-title")).map((node) => node.textContent?.trim() || ""),
+      hrefs: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.getAttribute("href") || ""),
+      shellCount: document.querySelectorAll("#popularGrid .podcast-card-shell").length,
+      previewCount: document.querySelectorAll("#popularGrid .home-card-preview, #popularGrid .home-card-preview-layer").length,
+      gridCounts: popularIds.map((id) => ({
+        id,
+        count: document.querySelectorAll(`#podcast-grid .podcast-card-shell[data-podcast-id="${id}"]`).length,
+      })),
+    }), homeMostPopularIds);
+
+    assert.equal(defaultState.sectionHidden, false);
+    assert.deepEqual(defaultState.cardIds, homeMostPopularIds);
+    assert.deepEqual(defaultState.titles, homeMostPopularTitles);
+    assert.equal(defaultState.shellCount, 0);
+    assert.equal(defaultState.previewCount, 0);
+    defaultState.hrefs.forEach((href, index) => {
+      assert.match(href, new RegExp(`show\\.html\\?id=${homeMostPopularIds[index]}$`));
+    });
+    defaultState.gridCounts.forEach(({ count }) => {
+      assert.equal(count, 1);
+    });
+
+    await page.locator("#search").fill("midnight");
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
+
+    await page.locator("#search").fill("");
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
+
+    await page.getByRole("button", { name: "Filters" }).click();
+    await page.evaluate(() => {
+      document
+        .querySelector('.filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]')
+        ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
+
+    await page.locator('.quick-filter[data-chip-filter="all"]').click();
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
+
+    await page.getByRole("button", { name: "Recently updated" }).click();
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
+
+    await page.getByRole("button", { name: "Default order" }).click();
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
+
+    await page.goto(`${baseUrl}/?collection=${firstCollectionId}#archive`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage most popular band uses 4-up, 2-up, and 1-up responsive layouts", async () => {
+  const desktopPage = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await desktopPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await desktopPage.locator("#popularGrid .popular-card").first().waitFor();
+
+    const desktopLayout = await desktopPage.evaluate(() =>
+      Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => {
+        const rect = card.getBoundingClientRect();
+        return { top: Math.round(rect.top), left: Math.round(rect.left) };
+      }),
+    );
+
+    assert.equal(countDistinctRows(desktopLayout), 1);
+    assert.ok(desktopLayout[1].left > desktopLayout[0].left);
+    assert.ok(desktopLayout[2].left > desktopLayout[1].left);
+    assert.ok(desktopLayout[3].left > desktopLayout[2].left);
+  } finally {
+    await desktopPage.close();
+  }
+
+  const tabletPage = await browser.newPage({ viewport: { width: 980, height: 1400 } });
+
+  try {
+    await tabletPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await tabletPage.locator("#popularGrid .popular-card").first().waitFor();
+
+    const tabletLayout = await tabletPage.evaluate(() =>
+      Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => {
+        const rect = card.getBoundingClientRect();
+        return { top: Math.round(rect.top), left: Math.round(rect.left) };
+      }),
+    );
+
+    assert.equal(countDistinctRows(tabletLayout), 2);
+    assert.ok(Math.abs(tabletLayout[0].top - tabletLayout[1].top) <= 8);
+    assert.ok(tabletLayout[2].top > tabletLayout[0].top + 8);
+  } finally {
+    await tabletPage.close();
+  }
+
+  const mobilePage = await browser.newPage({ viewport: { width: 390, height: 1400 } });
+
+  try {
+    await mobilePage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await mobilePage.locator("#popularGrid .popular-card").first().waitFor();
+
+    const mobileLayout = await mobilePage.evaluate(() =>
+      Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => {
+        const rect = card.getBoundingClientRect();
+        return { top: Math.round(rect.top), left: Math.round(rect.left) };
+      }),
+    );
+
+    assert.equal(countDistinctRows(mobileLayout), 4);
+    assert.ok(mobileLayout[1].top > mobileLayout[0].top + 8);
+    assert.ok(mobileLayout[2].top > mobileLayout[1].top + 8);
+    assert.ok(mobileLayout[3].top > mobileLayout[2].top + 8);
+  } finally {
+    await mobilePage.close();
   }
 });
 
@@ -692,6 +877,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
 
     const firstShell = touchPage.locator("#podcast-grid .podcast-card-shell").nth(0);
     const firstCard = firstShell.locator(".podcast-card-primary");
+    await firstCard.scrollIntoViewIfNeeded();
     const touchBefore = await getOverlayMetrics(touchPage, 0, 2);
     await firstCard.tap();
 
@@ -714,18 +900,34 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     await touchPage.waitForTimeout(180);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
 
+    await firstCard.scrollIntoViewIfNeeded();
     await firstCard.tap();
     await touchPage.waitForTimeout(360);
     await touchPage.touchscreen.tap(8, 8);
     await touchPage.waitForTimeout(180);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
 
-    await firstCard.tap();
-    await touchPage.waitForTimeout(200);
-    await firstShell.locator(".preview-open-link").tap();
-    await touchPage.waitForURL(`${baseUrl}/show.html?id=*`, { timeout: 5_000 });
   } finally {
     await touchPage.close();
+  }
+
+  const touchLinkPage = await browser.newPage({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+  });
+
+  try {
+    await touchLinkPage.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+
+    const firstShell = touchLinkPage.locator("#podcast-grid .podcast-card-shell").nth(0);
+    const firstCard = firstShell.locator(".podcast-card-primary");
+    await firstCard.scrollIntoViewIfNeeded();
+    await firstCard.tap();
+    await touchLinkPage.waitForTimeout(200);
+    await firstShell.locator(".preview-open-link").tap();
+    await touchLinkPage.waitForURL(`${baseUrl}/show.html?id=*`, { timeout: 5_000 });
+  } finally {
+    await touchLinkPage.close();
   }
 
   const narrowTouchPage = await browser.newPage({
@@ -745,6 +947,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.ok(narrowGridLayout[1].x > narrowGridLayout[0].x);
 
     const firstShell = narrowTouchPage.locator("#podcast-grid .podcast-card-shell").nth(0);
+    await firstShell.locator(".podcast-card-primary").scrollIntoViewIfNeeded();
     await firstShell.locator(".podcast-card-primary").tap();
     await narrowTouchPage.waitForTimeout(360);
 
