@@ -6,12 +6,12 @@ const path = require("node:path");
 const { spawn } = require("node:child_process");
 
 const { chromium } = require("playwright");
-
-const showFixtures = require("../../data/shows.json");
-const collectionFixtures = require("../../data/collections.json");
+const { loadCatalog, loadCollections } = require("../lib/catalog");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
+const showFixtures = loadCatalog(siteRoot);
+const collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
 const basePort = 3310;
 const baseUrl = `http://127.0.0.1:${basePort}`;
 const firstCollectionId = collectionFixtures[0].id;
@@ -45,22 +45,28 @@ async function getOverlayMetrics(page, sourceIndex, belowIndex) {
     ({ sourceIndex, belowIndex }) => {
       const shells = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"));
       const shell = shells[sourceIndex] || null;
+      const leftNeighbor = shells[sourceIndex - 1] || null;
+      const rightNeighbor = shells[sourceIndex + 1] || null;
       const below = shells[belowIndex] || null;
       const layer = shell?.querySelector(".home-card-preview-layer");
       const panel = layer?.querySelector(".home-card-preview");
       const closeButton = panel?.querySelector(".preview-close-button");
       const media = panel?.querySelector(".home-card-preview-media");
       const content = panel?.querySelector(".home-card-preview-content");
+      const kicker = panel?.querySelector(".home-card-preview-kicker");
       const goodFor = panel?.querySelector(".preview-good-for");
       const tags = panel?.querySelector(".preview-tags");
       const footer = panel?.querySelector(".home-card-preview-footer");
       const openLink = panel?.querySelector(".preview-open-link");
       const shellRect = shell?.getBoundingClientRect();
+      const leftNeighborRect = leftNeighbor?.getBoundingClientRect();
+      const rightNeighborRect = rightNeighbor?.getBoundingClientRect();
       const belowRect = below?.getBoundingClientRect();
       const panelRect = panel?.getBoundingClientRect();
       const mediaRect = media?.getBoundingClientRect();
       const contentRect = content?.getBoundingClientRect();
       const sourceCard = shell?.querySelector(".podcast-card-primary");
+      const openLinkStyles = openLink ? window.getComputedStyle(openLink) : null;
       const panelBoundsOk = [closeButton, goodFor, tags, footer, openLink]
         .filter(Boolean)
         .every((node) => {
@@ -86,6 +92,7 @@ async function getOverlayMetrics(page, sourceIndex, belowIndex) {
         panelTopDoc: panelRect ? panelRect.top + window.scrollY : 0,
         panelBottom: panelRect?.bottom || 0,
         panelWidth: panelRect?.width || 0,
+        panelHeight: panelRect?.height || 0,
         panelLayout: panel?.dataset.previewLayout || "",
         panelPlacement: panel?.dataset.previewPlacement || "",
         panelClientHeight: panel?.clientHeight || 0,
@@ -98,6 +105,14 @@ async function getOverlayMetrics(page, sourceIndex, belowIndex) {
         panelBoundsOk,
         viewport: window.innerWidth,
         viewportHeight: window.innerHeight,
+        leftNeighborWidth: leftNeighborRect?.width || 0,
+        rightNeighborWidth: rightNeighborRect?.width || 0,
+        overlapLeft: leftNeighborRect && panelRect ? Math.max(0, leftNeighborRect.right - panelRect.left) : 0,
+        overlapRight: rightNeighborRect && panelRect ? Math.max(0, panelRect.right - rightNeighborRect.left) : 0,
+        closeText: closeButton?.textContent?.trim() || "",
+        kickerText: kicker?.textContent?.trim() || "",
+        openLinkMinHeight: openLinkStyles ? Number.parseFloat(openLinkStyles.minHeight) || 0 : 0,
+        openLinkBoxShadow: openLinkStyles?.boxShadow || "",
         activeIsLink: document.activeElement?.classList.contains("preview-open-link") || false,
         activeIsCloseButton: document.activeElement?.classList.contains("preview-close-button") || false,
         activeIsCard: document.activeElement?.classList.contains("podcast-card-primary") || false,
@@ -107,6 +122,51 @@ async function getOverlayMetrics(page, sourceIndex, belowIndex) {
       };
     },
     { sourceIndex, belowIndex },
+  );
+}
+
+async function getPreviewOverlapPoint(page, sourceIndex) {
+  return page.evaluate(
+    ({ sourceIndex }) => {
+      const shells = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"));
+      const sourceShell = shells[sourceIndex] || null;
+      const panelRect = sourceShell?.querySelector(".home-card-preview")?.getBoundingClientRect();
+      if (!panelRect) {
+        return null;
+      }
+
+      let best = null;
+      shells.forEach((coveredShell, coveredIndex) => {
+        if (coveredIndex === sourceIndex) {
+          return;
+        }
+
+        const coveredRect = coveredShell.getBoundingClientRect();
+        const left = Math.max(panelRect.left, coveredRect.left);
+        const right = Math.min(panelRect.right, coveredRect.right);
+        const top = Math.max(panelRect.top, coveredRect.top);
+        const bottom = Math.min(panelRect.bottom, coveredRect.bottom);
+        const width = Math.max(0, right - left);
+        const height = Math.max(0, bottom - top);
+        const area = width * height;
+
+        if (width < 8 || height < 8 || area <= 0) {
+          return;
+        }
+
+        if (!best || area > best.area) {
+          best = {
+            area,
+            coveredIndex,
+            x: left + width / 2,
+            y: top + Math.min(24, height / 2),
+          };
+        }
+      });
+
+      return best;
+    },
+    { sourceIndex },
   );
 }
 
@@ -167,6 +227,226 @@ test("main routes render expected page titles", async () => {
   }
 });
 
+test("full-review detail page promotes community, trims the rail, and preserves rating interaction", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () => {
+        const heroCount = document.querySelector("[data-community-hero-count]");
+        return Boolean(heroCount && !/Checking listener signal/i.test(heroCount.textContent || ""));
+      },
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const layout = await page.evaluate(() => {
+      const main = document.querySelector(".detail-main");
+      const rail = document.querySelector(".detail-side-rail");
+      const mainColumn = document.querySelector(".detail-main-column");
+      const officialSummary = document.querySelector(".detail-official-summary-section");
+      const communityCard = document.querySelector(".community-review-panel");
+      const archiveTakeCard = document.querySelector(".detail-archive-take-card");
+      const communityBody = document.querySelector(".community-review-body");
+      const factLabels = Array.from(document.querySelectorAll(".detail-fact-row dt")).map((node) =>
+        (node.textContent || "").trim().toLowerCase(),
+      );
+      const disabledChips = document.querySelectorAll(".detail-link-chip.is-disabled").length;
+      const railHeadings = Array.from(rail?.querySelectorAll("h2") || []).map((node) => (node.textContent || "").trim());
+      const routeInRail = Boolean(rail?.querySelector(".detail-collections-section, .detail-collections-card"));
+      const correctionInRail = Boolean(rail?.querySelector(".detail-correction-section, .detail-correction-card"));
+      const routeSection = document.querySelector(".detail-collections-section");
+      const correctionSection = document.querySelector(".detail-correction-section");
+      const bestForLabel = document.querySelector(".detail-best-for-label")?.textContent?.trim() || "";
+      const bestForItems = document.querySelectorAll(".detail-best-for-item").length;
+      const boxedDiscoveryGroups = document.querySelectorAll(".detail-discovery-group").length;
+      const heroTagLabel = document.querySelector(".detail-hero-tag-label")?.textContent?.trim() || "";
+      const heroTagCount = document.querySelectorAll(".detail-hero-tag-list .detail-tag").length;
+      const reviewLinkHref = document.querySelector(".community-review-link")?.getAttribute("href") || "";
+
+      return {
+        mainWidth: main?.getBoundingClientRect().width || 0,
+        railLeft: communityCard?.getBoundingClientRect().left || 0,
+        mainLeft: mainColumn?.getBoundingClientRect().left || 0,
+        communityCollapsed: communityBody?.hidden ?? null,
+        factLabels,
+        disabledChips,
+        railHeadings,
+        routeInRail,
+        correctionInRail,
+        routeSectionWidth: routeSection?.getBoundingClientRect().width || 0,
+        correctionSectionWidth: correctionSection?.getBoundingClientRect().width || 0,
+        bestForLabel,
+        bestForItems,
+        boxedDiscoveryGroups,
+        heroTagLabel,
+        heroTagCount,
+        reviewLinkHref,
+        officialTop: officialSummary?.getBoundingClientRect().top || 0,
+        overviewTop: document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0,
+        communityTop: communityCard?.getBoundingClientRect().top || 0,
+        archiveTop: archiveTakeCard?.getBoundingClientRect().top || 0,
+        heroCommunityCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
+        heroCommunityValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
+      };
+    });
+
+    assert.ok(layout.mainWidth > 1200);
+    assert.ok(layout.railLeft > layout.mainLeft);
+    assert.equal(layout.communityCollapsed, true);
+    assert.equal(layout.bestForLabel, "Best for");
+    assert.ok(layout.bestForItems >= 1);
+    assert.equal(layout.boxedDiscoveryGroups, 0);
+    assert.equal(layout.heroTagLabel, "Key tags");
+    assert.ok(layout.heroTagCount >= 1);
+    assert.equal(layout.disabledChips, 4);
+    assert.deepEqual(layout.factLabels, [
+      "creator / network",
+      "official / listen links",
+      "status",
+      "seasons / episodes",
+      "first release",
+      "latest release",
+    ]);
+    assert.deepEqual(layout.railHeadings, ["Archive take", "Facts & links"]);
+    assert.equal(layout.routeInRail, false);
+    assert.equal(layout.correctionInRail, false);
+    assert.ok(layout.routeSectionWidth > 900);
+    assert.ok(layout.correctionSectionWidth > 900);
+    assert.ok(layout.officialTop < layout.overviewTop);
+    assert.ok(layout.communityTop <= layout.archiveTop);
+    assert.match(layout.reviewLinkHref, /submit\.html\?submissionType=listener-review&showId=impact-winter/);
+    assert.match(layout.heroCommunityCount, /No ratings yet/i);
+    assert.equal(layout.heroCommunityValue, "--");
+    assert.equal(await page.locator(".community-review-body").isVisible(), false);
+    assert.equal(await page.locator(".community-review-clear").isVisible(), false);
+    assert.equal(await page.locator(".community-review-link").isVisible(), true);
+
+    await page.getByRole("button", { name: "Rate this show" }).click();
+    await page.waitForFunction(
+      () => {
+        const body = document.querySelector(".community-review-body");
+        return Boolean(body && !body.hidden);
+      },
+      undefined,
+      { timeout: 2_000 },
+    );
+
+    await page.locator(".community-review-button").nth(7).click();
+    await page.waitForFunction(
+      () => /1 rating/i.test(document.querySelector("[data-community-hero-count]")?.textContent || ""),
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    let communityState = await page.evaluate(() => ({
+      heroCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
+      heroValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
+      railValue: document.querySelector(".community-review-metric-value")?.textContent?.trim() || "",
+      clearVisible: !document.querySelector(".community-review-clear")?.hidden,
+    }));
+    assert.match(communityState.heroCount, /1 rating/i);
+    assert.equal(communityState.heroValue, "8.0/10");
+    assert.equal(communityState.railValue, "8.0/10");
+    assert.equal(communityState.clearVisible, true);
+
+    await page.getByRole("button", { name: "Clear your rating" }).click();
+    await page.waitForFunction(
+      () => /No ratings yet/i.test(document.querySelector("[data-community-hero-count]")?.textContent || ""),
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    communityState = await page.evaluate(() => ({
+      heroCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
+      heroValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
+      clearVisible: !document.querySelector(".community-review-clear")?.hidden,
+    }));
+    assert.match(communityState.heroCount, /No ratings yet/i);
+    assert.equal(communityState.heroValue, "--");
+    assert.equal(communityState.clearVisible, false);
+  } finally {
+    await page.close();
+  }
+
+  const mobilePage = await browser.newPage({ viewport: { width: 900, height: 1600 } });
+
+  try {
+    await mobilePage.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await mobilePage.waitForFunction(
+      () => Boolean(document.querySelector(".detail-official-summary-section") && document.querySelector(".community-review-panel")),
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const mobileLayout = await mobilePage.evaluate(() => ({
+      officialTop: document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0,
+      communityTop: document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0,
+      overviewTop: document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0,
+      archiveTop: document.querySelector(".detail-archive-take-card")?.getBoundingClientRect().top || 0,
+    }));
+
+    assert.ok(mobileLayout.officialTop < mobileLayout.communityTop);
+    assert.ok(mobileLayout.communityTop < mobileLayout.overviewTop);
+    assert.ok(mobileLayout.archiveTop > mobileLayout.overviewTop);
+  } finally {
+    await mobilePage.close();
+  }
+});
+
+test("indexed-only detail page shows truthful empty states without narrow legacy layout constraints", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/show.html?id=solar`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () => Boolean(document.querySelector(".detail-side-rail") && document.querySelector(".detail-main-column")),
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const state = await page.evaluate(() => {
+      const main = document.querySelector(".detail-main");
+      const reviewHeading = Array.from(document.querySelectorAll(".detail-section-header h2"))
+        .map((node) => (node.textContent || "").trim())
+        .find((text) => /archive note|review notes/i.test(text)) || "";
+      const creatorValue = document.querySelector(".detail-fact-row:nth-child(1) dd")?.textContent?.trim() || "";
+      const linkStatus = document.querySelector(".detail-link-status")?.textContent?.trim() || "";
+      const firstRelease = Array.from(document.querySelectorAll(".detail-fact-row"))
+        .find((row) => /first release/i.test(row.querySelector("dt")?.textContent || ""))
+        ?.querySelector("dd")?.textContent?.trim() || "";
+      const latestRelease = Array.from(document.querySelectorAll(".detail-fact-row"))
+        .find((row) => /latest release/i.test(row.querySelector("dt")?.textContent || ""))
+        ?.querySelector("dd")?.textContent?.trim() || "";
+      const routeCount = document.querySelectorAll(".detail-collection-route").length;
+      const disabledChips = document.querySelectorAll(".detail-link-chip.is-disabled").length;
+
+      return {
+        mainWidth: main?.getBoundingClientRect().width || 0,
+        reviewHeading,
+        creatorValue,
+        linkStatus,
+        firstRelease,
+        latestRelease,
+        routeCount,
+        disabledChips,
+      };
+    });
+
+    assert.ok(state.mainWidth > 1200);
+    assert.equal(state.reviewHeading, "Archive note");
+    assert.match(state.creatorValue, /Not cataloged yet/i);
+    assert.match(state.linkStatus, /Links being verified/i);
+    assert.match(state.firstRelease, /Not cataloged yet/i);
+    assert.match(state.latestRelease, /Not cataloged yet/i);
+    assert.equal(state.disabledChips, 4);
+    assert.ok(state.routeCount >= 1);
+  } finally {
+    await page.close();
+  }
+});
+
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
 
@@ -203,7 +483,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   }
 });
 
-test("homepage expanding archive card supports stable hover, keyboard, touch, and edge-safe geometry", async () => {
+test("homepage expanding archive card supports stable hover, keyboard, touch, and compact anchored geometry", async () => {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 
   try {
@@ -211,7 +491,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
 
     const shells = page.locator("#podcast-grid .podcast-card-shell");
     const cardCount = await shells.count();
-    assert.ok(cardCount >= 6);
+    assert.ok(cardCount >= 8);
 
     const firstShell = shells.nth(0);
     const middleShell = shells.nth(1);
@@ -235,16 +515,21 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal(middleMetrics.overlayOpen, true);
     assert.equal(middleMetrics.sourceActive, true);
     assert.equal(middleMetrics.panelLayout, "split");
-    assert.ok(["above", "below"].includes(middleMetrics.panelPlacement));
+    assert.equal(middleMetrics.panelPlacement, "card");
     assert.ok(Math.abs(middleMetrics.shellTopDoc - middleBefore.shellTopDoc) < 1);
     assert.ok(Math.abs(middleMetrics.belowTopDoc - middleBefore.belowTopDoc) < 1);
-    assert.ok(middleMetrics.panelWidth > middleMetrics.shellWidth * 2.2);
-    assert.ok(middleMetrics.panelLeft >= 0);
-    assert.ok(middleMetrics.panelRight <= middleMetrics.viewport);
-    assert.ok(middleMetrics.panelBottom <= middleMetrics.viewportHeight);
+    assert.ok(middleMetrics.panelWidth > middleMetrics.shellWidth * 1.9);
+    assert.ok(middleMetrics.panelWidth < middleMetrics.shellWidth * 2.2);
     assert.ok(middleMetrics.panelTopDoc <= middleBefore.shellTopDoc);
+    assert.ok(middleBefore.shellTopDoc - middleMetrics.panelTopDoc < 12);
+    assert.ok(middleMetrics.overlapLeft <= middleMetrics.leftNeighborWidth * 0.55);
+    assert.ok(middleMetrics.overlapRight <= middleMetrics.rightNeighborWidth * 0.55);
     assert.ok(middleMetrics.mediaRight <= middleMetrics.contentLeft);
     assert.equal(middleMetrics.panelBoundsOk, true);
+    assert.equal(middleMetrics.closeText, "x");
+    assert.equal(middleMetrics.kickerText, "");
+    assert.ok(middleMetrics.openLinkMinHeight < 8);
+    assert.equal(middleMetrics.openLinkBoxShadow, "none");
     assert.ok(middleMetrics.sourceOpacity < 0.05);
 
     await page.mouse.wheel(0, 220);
@@ -263,6 +548,46 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.ok(Math.abs(middleClosed.shellTopDoc - middleBefore.shellTopDoc) < 1);
     assert.ok(Math.abs(middleClosed.belowTopDoc - middleBefore.belowTopDoc) < 1);
 
+    await middleShell.locator(".podcast-card-primary").hover();
+    await page.waitForFunction(
+      () => {
+        const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[1];
+        const layer = shell?.querySelector(".home-card-preview-layer");
+        return Boolean(layer && !layer.hidden && shell?.classList.contains("is-preview-expanded"));
+      },
+      undefined,
+      { timeout: 2_000 },
+    );
+    const overlapPoint = await getPreviewOverlapPoint(page, 1);
+    assert.ok(overlapPoint);
+    await page.mouse.move(overlapPoint.x, overlapPoint.y, { steps: 10 });
+    await page.waitForTimeout(140);
+    const overlapMetrics = await getOverlayMetrics(page, 1, 7);
+    assert.equal(overlapMetrics.overlayOpen, true);
+    assert.equal(overlapMetrics.sourceActive, true);
+
+    await shells.nth(4).locator(".podcast-card-primary").hover();
+    await page.waitForTimeout(140);
+    const movedOffMiddleMetrics = await getOverlayMetrics(page, 1, 7);
+    assert.equal(movedOffMiddleMetrics.overlayOpen, false);
+    assert.equal(movedOffMiddleMetrics.sourceActive, false);
+    await page.waitForFunction(
+      () => {
+        const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[4];
+        const layer = shell?.querySelector(".home-card-preview-layer");
+        return Boolean(layer && !layer.hidden && shell?.classList.contains("is-preview-expanded"));
+      },
+      undefined,
+      { timeout: 2_000 },
+    );
+    const switchedShellMetrics = await getOverlayMetrics(page, 4, 0);
+    assert.equal(switchedShellMetrics.overlayOpen, true);
+    assert.equal(switchedShellMetrics.sourceActive, true);
+
+    await page.locator("#resultsSummary").hover();
+    await page.waitForTimeout(240);
+    assert.equal((await getOverlayMetrics(page, 4, 0)).overlayOpen, false);
+
     await firstShell.locator(".podcast-card-primary").hover();
     await page.waitForFunction(
       () => {
@@ -275,13 +600,14 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     );
     const firstMetrics = await getOverlayMetrics(page, 0, 6);
     assert.equal(firstMetrics.overlayOpen, true);
-    assert.ok(firstMetrics.panelLeft >= 0);
-    assert.ok(firstMetrics.panelRight <= firstMetrics.viewport);
-    assert.ok(firstMetrics.panelBottom <= firstMetrics.viewportHeight);
+    assert.equal(firstMetrics.panelPlacement, "card");
+    assert.ok(firstMetrics.panelTopDoc <= firstMetrics.shellTopDoc);
+    assert.ok(firstMetrics.shellTopDoc - firstMetrics.panelTopDoc < 12);
+    assert.ok(firstMetrics.panelLeft < 0);
 
     await page.locator("#resultsSummary").hover();
     await page.waitForTimeout(240);
-    await rightEdgeShell.locator(".podcast-card-primary").hover();
+    await rightEdgeShell.locator(".podcast-card-primary").focus();
     await page.waitForFunction(
       () => {
         const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[5];
@@ -293,9 +619,10 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     );
     const rightMetrics = await getOverlayMetrics(page, 5, 11);
     assert.equal(rightMetrics.overlayOpen, true);
-    assert.ok(rightMetrics.panelLeft >= 0);
-    assert.ok(rightMetrics.panelRight <= rightMetrics.viewport);
-    assert.ok(rightMetrics.panelBottom <= rightMetrics.viewportHeight);
+    assert.equal(rightMetrics.panelPlacement, "card");
+    assert.ok(rightMetrics.panelTopDoc <= rightMetrics.shellTopDoc);
+    assert.ok(rightMetrics.shellTopDoc - rightMetrics.panelTopDoc < 12);
+    assert.ok(rightMetrics.panelRight > rightMetrics.viewport);
 
     await middleShell.locator(".podcast-card-primary").focus();
     await page.waitForFunction(
@@ -373,13 +700,14 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal(touchMetrics.overlayOpen, true);
     assert.equal(new URL(await touchPage.url()).pathname, "/");
     assert.equal(touchMetrics.panelLayout, "stack");
-    assert.equal(touchMetrics.panelPlacement, "below");
+    assert.equal(touchMetrics.panelPlacement, "card");
     assert.ok(Math.abs(touchMetrics.shellTopDoc - touchBefore.shellTopDoc) < 1);
     assert.ok(Math.abs(touchMetrics.belowTopDoc - touchBefore.belowTopDoc) < 1);
     assert.ok(touchMetrics.panelWidth > touchMetrics.shellWidth * 1.9);
-    assert.ok(touchMetrics.panelLeft >= 0);
-    assert.ok(touchMetrics.panelRight <= touchMetrics.viewport);
-    assert.ok(touchMetrics.panelBottom <= touchMetrics.viewportHeight);
+    assert.ok(touchMetrics.panelWidth < touchMetrics.shellWidth * 2.2);
+    assert.ok(touchMetrics.panelTopDoc <= touchBefore.shellTopDoc);
+    assert.ok(touchBefore.shellTopDoc - touchMetrics.panelTopDoc < 12);
+    assert.ok(touchMetrics.panelLeft < touchBefore.shellLeftDoc);
     assert.equal(touchMetrics.panelBoundsOk, true);
 
     await firstShell.locator(".preview-close-button").tap();
@@ -423,10 +751,12 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     const narrowMetrics = await getOverlayMetrics(narrowTouchPage, 0, 2);
     assert.equal(narrowMetrics.overlayOpen, true);
     assert.equal(narrowMetrics.panelLayout, "stack");
+    assert.equal(narrowMetrics.panelPlacement, "card");
     assert.ok(narrowMetrics.panelWidth > narrowMetrics.shellWidth * 1.9);
-    assert.ok(narrowMetrics.panelLeft >= 0);
-    assert.ok(narrowMetrics.panelRight <= narrowMetrics.viewport);
-    assert.ok(narrowMetrics.panelBottom <= narrowMetrics.viewportHeight);
+    assert.ok(narrowMetrics.panelWidth < narrowMetrics.shellWidth * 2.25);
+    assert.ok(narrowMetrics.panelTopDoc <= narrowMetrics.shellTopDoc);
+    assert.ok(narrowMetrics.shellTopDoc - narrowMetrics.panelTopDoc < 12);
+    assert.ok(narrowMetrics.panelLeft < narrowMetrics.shellLeftDoc);
     assert.equal(narrowMetrics.panelBoundsOk, true);
   } finally {
     await narrowTouchPage.close();
@@ -442,7 +772,15 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
 
     const middleShell = reducedMotionPage.locator("#podcast-grid .podcast-card-shell").nth(1);
     await middleShell.locator(".podcast-card-primary").hover();
-    await reducedMotionPage.waitForTimeout(780);
+    await reducedMotionPage.waitForFunction(
+      () => {
+        const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[1];
+        const layer = shell?.querySelector(".home-card-preview-layer");
+        return Boolean(layer && !layer.hidden && shell?.classList.contains("is-preview-expanded"));
+      },
+      undefined,
+      { timeout: 2_000 },
+    );
 
     const reducedMetrics = await getOverlayMetrics(reducedMotionPage, 1, 7);
     assert.equal(reducedMetrics.overlayOpen, true);
@@ -453,7 +791,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
   }
 });
 
-test("homepage expanding archive card flips above and caps height when viewport space is tight", async () => {
+test("homepage expanding archive card stays card-anchored and can overflow the viewport", async () => {
   const page = await browser.newPage({ viewport: { width: 1280, height: 400 } });
   const targetIndex = 12;
 
@@ -488,24 +826,12 @@ test("homepage expanding archive card flips above and caps height when viewport 
     const metrics = await getOverlayMetrics(page, targetIndex, targetIndex + 6);
     assert.equal(metrics.overlayOpen, true);
     assert.equal(metrics.panelLayout, "split");
-    assert.equal(metrics.panelPlacement, "above");
-    assert.ok(metrics.panelTop >= 0);
-    assert.ok(metrics.panelBottom <= metrics.viewportHeight + 2);
-    assert.ok(metrics.panelScrollHeight >= metrics.panelClientHeight);
-
-    if (metrics.panelScrollHeight > metrics.panelClientHeight + 2) {
-      await page.evaluate((index) => {
-        const shells = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"));
-        const panel = shells[index]?.querySelector(".home-card-preview");
-        if (panel) {
-          panel.scrollTop = panel.scrollHeight;
-        }
-      }, targetIndex);
-      await page.waitForTimeout(80);
-
-      const scrolledMetrics = await getOverlayMetrics(page, targetIndex, targetIndex + 6);
-      assert.ok(scrolledMetrics.panelScrollTop > 0);
-    }
+    assert.equal(metrics.panelPlacement, "card");
+    assert.ok(metrics.panelTopDoc <= metrics.shellTopDoc);
+    assert.ok(metrics.shellTopDoc - metrics.panelTopDoc < 12);
+    assert.ok(metrics.panelBottom > metrics.viewportHeight);
+    assert.ok(Math.abs(metrics.panelScrollHeight - metrics.panelClientHeight) < 2);
+    assert.equal(metrics.panelScrollTop, 0);
     assert.equal(await shell.locator(".preview-open-link").isVisible(), true);
     assert.equal(await shell.locator(".preview-close-button").isVisible(), true);
   } finally {
@@ -545,6 +871,37 @@ test("Ask the Archivist and submit mode switching work without exposing empty fu
     assert.equal(formState.listenerReviewHidden, true);
     assert.equal(formState.verificationSourcesHidden, false);
     assert.equal(formState.provenanceNotesHidden, false);
+
+    await page.goto(`${baseUrl}/submit.html?submissionType=listener-review&showId=impact-winter`, {
+      waitUntil: "networkidle",
+    });
+    await page.waitForFunction(
+      () => {
+        const submissionType = document.getElementById("submissionType");
+        const existingShowId = document.getElementById("existingShowId");
+        return Boolean(
+          submissionType instanceof HTMLSelectElement &&
+            existingShowId instanceof HTMLSelectElement &&
+            submissionType.value === "listener-review" &&
+            existingShowId.value === "impact-winter",
+        );
+      },
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const deepLinkState = await page.evaluate(() => ({
+      submissionType: document.getElementById("submissionType")?.value || "",
+      existingShowId: document.getElementById("existingShowId")?.value || "",
+      showTitle: document.getElementById("showTitleInput")?.value || "",
+      listenerReviewHidden: document.getElementById("listenerReviewField")?.hidden,
+      listenerRatingHidden: document.getElementById("listenerRatingField")?.hidden,
+    }));
+    assert.equal(deepLinkState.submissionType, "listener-review");
+    assert.equal(deepLinkState.existingShowId, "impact-winter");
+    assert.equal(deepLinkState.showTitle, "Impact Winter");
+    assert.equal(deepLinkState.listenerReviewHidden, false);
+    assert.equal(deepLinkState.listenerRatingHidden, false);
   } finally {
     await page.close();
   }

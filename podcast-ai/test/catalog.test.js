@@ -1,11 +1,57 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const os = require("node:os");
 const path = require("node:path");
 
 const { loadCatalog, loadCollections, resolveCollectionView, scoreCatalog } = require("../lib/catalog");
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/chat");
 
 const siteRoot = path.resolve(__dirname, "../..");
+
+function writeJson(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(value, null, 2));
+}
+
+function createTempSiteRoot() {
+  return fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-catalog-"));
+}
+
+function createShowRecord(overrides = {}) {
+  return {
+    id: "demo-show",
+    title: "Demo Show",
+    description: "A demo archive description.",
+    cover: "images/Logo.png",
+    coverAlt: "Demo Show cover art",
+    status: "published",
+    reviewStatus: "indexed-only",
+    releaseStatus: "completed",
+    completionStatus: "finished",
+    listenLinks: {
+      website: "https://example.com",
+    },
+    genres: ["sci-fi"],
+    tones: ["dark"],
+    formats: ["full-cast"],
+    tags: ["Time travel"],
+    ratings: {
+      archive: 8,
+    },
+    bestFor: ["easy-entry"],
+    similarTo: [],
+    archiveTake: "Worth indexing.",
+    spoilerFreeReview: "",
+    thoughts: "",
+    quote: {
+      text: "",
+      attribution: "",
+    },
+    updatedAt: "2026-06-02",
+    ...overrides,
+  };
+}
 
 test("loadCatalog reads the structured show catalog", () => {
   const catalog = loadCatalog(siteRoot);
@@ -19,6 +65,7 @@ test("loadCatalog reads the structured show catalog", () => {
   assert.equal(impactWinter.hasPage, true);
   assert.equal(impactWinter.href, "/show.html?id=impact-winter");
   assert.match(impactWinter.summary, /endless winter/i);
+  assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
 test("loadCollections reads curated collections against the catalog ids", () => {
@@ -72,6 +119,100 @@ test("scoreCatalog ranks relevant matches first", () => {
 
   assert.ok(results.length > 0);
   assert.equal(results[0].title, "Impact Winter");
+});
+
+test("loadCatalog merges companion review files into the returned show record", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const imagesRoot = path.join(tempRoot, "images");
+
+  fs.mkdirSync(imagesRoot, { recursive: true });
+  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({
+      reviewStatus: "full-review",
+      archiveTake: "",
+      spoilerFreeReview: "",
+    }),
+  ]);
+  writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
+    archiveTake: "Companion archive take.",
+    spoilerFreeReview: ["First paragraph.", "Second paragraph."],
+    thoughts: ["Archive reaction paragraph."],
+    quote: {
+      text: "Optional quote",
+      attribution: "Archive note",
+    },
+  });
+
+  const [show] = loadCatalog(tempRoot);
+
+  assert.equal(show.archiveTake, "Companion archive take.");
+  assert.equal(show.spoilerFreeReview, "First paragraph. Second paragraph.");
+  assert.deepEqual(show.spoilerFreeReviewParagraphs, ["First paragraph.", "Second paragraph."]);
+  assert.deepEqual(show.thoughtsParagraphs, ["Archive reaction paragraph."]);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("companion review content overrides stale inline review fields", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const imagesRoot = path.join(tempRoot, "images");
+
+  fs.mkdirSync(imagesRoot, { recursive: true });
+  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({
+      reviewStatus: "full-review",
+      archiveTake: "Old inline take.",
+      spoilerFreeReview: "Old inline review.",
+      thoughts: "Old inline thoughts.",
+    }),
+  ]);
+  writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
+    archiveTake: "Fresh companion take.",
+    spoilerFreeReview: ["Fresh companion review."],
+    thoughts: ["Fresh companion thoughts."],
+  });
+
+  const [show] = loadCatalog(tempRoot);
+
+  assert.equal(show.archiveTake, "Fresh companion take.");
+  assert.equal(show.spoilerFreeReview, "Fresh companion review.");
+  assert.equal(show.thoughts, "Fresh companion thoughts.");
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("full-review validation still fails when neither inline nor companion rich content exists", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const imagesRoot = path.join(tempRoot, "images");
+
+  fs.mkdirSync(imagesRoot, { recursive: true });
+  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({
+      reviewStatus: "full-review",
+      archiveTake: "",
+      spoilerFreeReview: "",
+    }),
+  ]);
+
+  assert.throws(
+    () => {
+      loadCatalog(tempRoot);
+    },
+    {
+      message: /full-review without richer review content/i,
+    },
+  );
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
 test("fallback answer asks for specificity when no clear match exists", () => {

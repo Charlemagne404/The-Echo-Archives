@@ -121,13 +121,13 @@ select:focus-visible {
 
 
 .podcast-detail {
-  max-width: 900px;
-  margin: 30px auto;
-  background-color: #1e1e1e;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
+  max-width: none;
+  margin: 0;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: inherit;
   color: #ccc;
 }
 

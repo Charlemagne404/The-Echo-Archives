@@ -16,7 +16,6 @@ const SHOW_CARD_PREVIEW_DELAY_MS = 650;
 const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
 const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 170;
 const SHOW_CARD_PREVIEW_SCROLL_IDLE_MS = 140;
-const SHOW_CARD_PREVIEW_EDGE_GUTTER_PX = 16;
 const HOME_CARD_PREVIEW_ID_PREFIX = "archiveCardPreview";
 
 const dataCache = {
@@ -134,6 +133,25 @@ function normalizeCollectionRecord(record) {
   };
 }
 
+function normalizeReviewParagraphs(value) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => String(entry || "").trim()).filter(Boolean);
+  }
+
+  if (typeof value !== "string") {
+    return [];
+  }
+
+  return String(value)
+    .split(/\n\s*\n+/)
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+}
+
+function joinReviewParagraphs(paragraphs) {
+  return normalizeReviewParagraphs(paragraphs).join(" ");
+}
+
 function buildCollectionMap(collections) {
   return new Map(collections.map((collection) => [collection.id, collection]));
 }
@@ -156,6 +174,19 @@ function createArchiveCollectionHref(collectionId) {
   return `/index.html?collection=${encodeURIComponent(collectionId)}#archive`;
 }
 
+function createSubmissionHref(submissionType = "", showId = "") {
+  const query = new URLSearchParams();
+  if (submissionType) {
+    query.set("submissionType", submissionType);
+  }
+  if (showId) {
+    query.set("showId", showId);
+  }
+
+  const search = query.toString();
+  return `/submit.html${search ? `?${search}` : ""}`;
+}
+
 function normalizeShowRecord(record) {
   const tags = Array.isArray(record.tags) ? record.tags.filter(Boolean) : [];
   const genres = Array.isArray(record.genres) ? record.genres.filter(Boolean) : [];
@@ -164,14 +195,24 @@ function normalizeShowRecord(record) {
   const bestFor = Array.isArray(record.bestFor) ? record.bestFor.filter(Boolean) : [];
   const similarTo = Array.isArray(record.similarTo) ? record.similarTo.filter(Boolean) : [];
   const similarReasons = normalizeKeyedTextMap(record.similarReasons);
+  const spoilerFreeReviewParagraphs = normalizeReviewParagraphs(
+    record.spoilerFreeReviewParagraphs ?? record.spoilerFreeReview,
+  );
+  const thoughtsParagraphs = normalizeReviewParagraphs(record.thoughtsParagraphs ?? record.thoughts);
+  const spoilerFreeReview = typeof record.spoilerFreeReview === "string"
+    ? record.spoilerFreeReview.trim()
+    : joinReviewParagraphs(spoilerFreeReviewParagraphs);
+  const thoughts = typeof record.thoughts === "string" ? record.thoughts.trim() : joinReviewParagraphs(thoughtsParagraphs);
   const rating = Number(record.ratings?.archive);
   const searchText = [
     record.title,
     record.subtitle,
     record.description,
     record.archiveTake,
-    record.spoilerFreeReview,
-    record.thoughts,
+    spoilerFreeReview,
+    thoughts,
+    spoilerFreeReviewParagraphs.join(" "),
+    thoughtsParagraphs.join(" "),
     tags.join(" "),
     genres.join(" "),
     tones.join(" "),
@@ -191,6 +232,10 @@ function normalizeShowRecord(record) {
     bestFor,
     similarTo,
     similarReasons,
+    spoilerFreeReview,
+    spoilerFreeReviewParagraphs,
+    thoughts,
+    thoughtsParagraphs,
     href: `/show.html?id=${encodeURIComponent(record.id)}`,
     finalRating: Number.isFinite(rating) ? rating : null,
     searchText,
@@ -1097,6 +1142,42 @@ function initializeHomePreviewController({ archiveGrid, archiveSection }) {
     return !activeElement.closest(".home-card-preview-layer[hidden]");
   }
 
+  function getTopPreviewShellAtPoint(clientX, clientY) {
+    if (!Number.isFinite(clientX) || !Number.isFinite(clientY)) {
+      return null;
+    }
+
+    const elements = document.elementsFromPoint(clientX, clientY);
+    for (const element of elements) {
+      const shell = getPreviewShell(element);
+      if (shell) {
+        return shell;
+      }
+    }
+
+    return null;
+  }
+
+  function isPointWithinPreviewPanel(shell, clientX, clientY) {
+    if (!shell || !Number.isFinite(clientX) || !Number.isFinite(clientY)) {
+      return false;
+    }
+
+    const layer = getPreviewLayer(shell);
+    const panel = getPreviewPanel(shell);
+    if (!layer || layer.hidden || !panel) {
+      return false;
+    }
+
+    const rect = panel.getBoundingClientRect();
+    return (
+      clientX >= rect.left &&
+      clientX <= rect.right &&
+      clientY >= rect.top &&
+      clientY <= rect.bottom
+    );
+  }
+
   function getEligibleOpenShell() {
     if (state.focusShell?.isConnected && hasFocusedPreviewTarget(state.focusShell)) {
       return state.focusShell;
@@ -1233,7 +1314,7 @@ function initializeHomePreviewController({ archiveGrid, archiveSection }) {
     });
   }
 
-  function scheduleOpen(shell) {
+  function scheduleOpen(shell, { force = false } = {}) {
     if (!shell) {
       return;
     }
@@ -1247,7 +1328,7 @@ function initializeHomePreviewController({ archiveGrid, archiveSection }) {
     clearOpenTimer();
     state.pendingShell = shell;
     state.openTimer = window.setTimeout(() => {
-      openShell(shell);
+      openShell(shell, { force });
     }, SHOW_CARD_PREVIEW_DELAY_MS);
   }
 
@@ -1317,14 +1398,28 @@ function initializeHomePreviewController({ archiveGrid, archiveSection }) {
     }
 
     state.lastPointerType = "mouse";
-    const shell = getPreviewShell(event.target);
-    if (!shell) {
+    const targetShell = getPreviewShell(event.target);
+    if (!targetShell) {
+      return;
+    }
+
+    if (isPointWithinPreviewPanel(state.activeShell, event.clientX, event.clientY)) {
+      state.hoverShell = state.activeShell;
+      return;
+    }
+
+    const shell = getTopPreviewShellAtPoint(event.clientX, event.clientY) || targetShell;
+    if (shell !== targetShell) {
       return;
     }
 
     const relatedTarget = event.relatedTarget;
     if (relatedTarget instanceof Node && shell.contains(relatedTarget)) {
       return;
+    }
+
+    if (state.activeShell && state.activeShell !== shell) {
+      closeShell(state.activeShell, { immediate: true });
     }
 
     state.hoverShell = shell;
@@ -1343,6 +1438,15 @@ function initializeHomePreviewController({ archiveGrid, archiveSection }) {
 
     const relatedTarget = event.relatedTarget;
     if (relatedTarget instanceof Node && shell.contains(relatedTarget)) {
+      return;
+    }
+
+    if (isPointWithinPreviewPanel(shell, event.clientX, event.clientY)) {
+      state.hoverShell = shell;
+      return;
+    }
+
+    if (getTopPreviewShellAtPoint(event.clientX, event.clientY) === shell) {
       return;
     }
 
@@ -1480,84 +1584,31 @@ function positionHomeCardPreview(shell, archiveGrid, archiveSection) {
 
   const shellRect = shell.getBoundingClientRect();
   const cardRect = shell.querySelector(".podcast-card-primary")?.getBoundingClientRect() || shellRect;
-  const gridRect = archiveGrid.getBoundingClientRect();
-  const sectionRect = archiveSection.getBoundingClientRect();
   const gridStyles = window.getComputedStyle(archiveGrid);
   const columnGap = Number.parseFloat(gridStyles.columnGap) || 24;
   const isStackedLayout = window.matchMedia("(max-width: 780px)").matches;
-  const previewOffset = isStackedLayout ? 0 : 18;
-  const viewportTopLimit = SHOW_CARD_PREVIEW_EDGE_GUTTER_PX;
-  const viewportBottomLimit = window.innerHeight - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX;
-  const maxViewportHeight = Math.max(0, viewportBottomLimit - viewportTopLimit);
-  let width = 0;
-  let viewportLeft = 0;
-  let viewportTop = 0;
-  let placement = "below";
-  let maxHeight = maxViewportHeight;
-  const minHeight = Math.min(shellRect.height, maxViewportHeight);
+  const previewWidth = shellRect.width * 2 + columnGap;
+  const previewLeft = cardRect.left + cardRect.width / 2 - previewWidth / 2;
+  const previewTop = cardRect.top;
+  const previewMinHeight = Math.max(
+    cardRect.height - (isStackedLayout ? 8 : 18),
+    Math.min(cardRect.height, 240),
+  );
 
-  if (isStackedLayout) {
-    width = Math.min(gridRect.width, window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX * 2);
-    viewportLeft = Math.min(
-      Math.max(gridRect.left, SHOW_CARD_PREVIEW_EDGE_GUTTER_PX),
-      Math.max(SHOW_CARD_PREVIEW_EDGE_GUTTER_PX, window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX - width),
-    );
-  } else {
-    const desiredWidth = Math.min(
-      Math.max(shellRect.width * 2.6 + columnGap, 620),
-      720,
-      window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX * 2,
-    );
-    const centeredLeft = shellRect.left + shellRect.width / 2 - desiredWidth / 2;
-    const minLeft = Math.max(gridRect.left, SHOW_CARD_PREVIEW_EDGE_GUTTER_PX);
-    const maxLeft = Math.min(
-      sectionRect.right - desiredWidth,
-      window.innerWidth - SHOW_CARD_PREVIEW_EDGE_GUTTER_PX - desiredWidth,
-    );
-    width = desiredWidth;
-    viewportLeft = Math.min(Math.max(centeredLeft, minLeft), Math.max(minLeft, maxLeft));
-  }
-
-  shell.style.setProperty("--preview-width", `${width}px`);
-  shell.style.setProperty("--preview-left", `${viewportLeft - shellRect.left}px`);
-  shell.style.setProperty("--preview-min-height", `${minHeight}px`);
+  void archiveSection;
+  shell.style.setProperty("--preview-width", `${previewWidth}px`);
+  shell.style.setProperty("--preview-left", `${previewLeft - shellRect.left}px`);
+  shell.style.setProperty("--preview-top", `${previewTop - shellRect.top}px`);
+  shell.style.setProperty("--preview-min-height", `${previewMinHeight}px`);
   panel.dataset.previewLayout = isStackedLayout ? "stack" : "split";
-  shell.style.setProperty("--preview-max-height", `${maxViewportHeight}px`);
+  panel.dataset.previewPlacement = "card";
 
-  const naturalHeight = panel.scrollHeight || panel.getBoundingClientRect().height || 0;
-  const preferredBelowTop = Math.max(isStackedLayout ? shellRect.top : shellRect.top - previewOffset, viewportTopLimit);
-  const preferredAboveBottom = Math.min(shellRect.bottom + previewOffset, viewportBottomLimit);
-  const availableBelow = Math.max(0, viewportBottomLimit - preferredBelowTop);
-  const availableAbove = Math.max(0, preferredAboveBottom - viewportTopLimit);
-  const belowFits = naturalHeight <= availableBelow;
-  const aboveFits = naturalHeight <= availableAbove;
-
-  if (!belowFits && (aboveFits || availableAbove > availableBelow)) {
-    placement = "above";
-  }
-
-  if (placement === "above") {
-    maxHeight = Math.min(maxViewportHeight, availableAbove, naturalHeight || availableAbove);
-    viewportTop = Math.max(viewportTopLimit, preferredAboveBottom - maxHeight);
-  } else {
-    maxHeight = Math.min(maxViewportHeight, availableBelow, naturalHeight || availableBelow);
-    viewportTop = Math.max(preferredBelowTop, viewportTopLimit);
-    if (viewportTop + maxHeight > viewportBottomLimit) {
-      viewportTop = Math.max(viewportTopLimit, viewportBottomLimit - maxHeight);
-    }
-  }
-
-  panel.dataset.previewPlacement = placement;
-  shell.style.setProperty("--preview-top", `${viewportTop - shellRect.top}px`);
-  shell.style.setProperty("--preview-max-height", `${maxHeight}px`);
-
-  const previewHeight = panel.getBoundingClientRect().height || maxHeight || 0;
-  const startScaleX = clampValue(cardRect.width / width, 0.34, 0.58);
+  const previewHeight = panel.getBoundingClientRect().height || panel.scrollHeight || previewMinHeight;
+  const startScaleX = clampValue(cardRect.width / previewWidth, 0.34, 0.68);
   const startScaleY = clampValue(cardRect.height / Math.max(previewHeight, 1), 0.34, 0.94);
-  const startShiftX = cardRect.left - viewportLeft;
-  const startShiftY = cardRect.top - viewportTop;
+  const startShiftX = cardRect.left - previewLeft;
+  const startShiftY = cardRect.top - previewTop;
 
-  shell.style.setProperty("--preview-top", `${viewportTop - shellRect.top}px`);
   shell.style.setProperty("--preview-start-scale-x", `${startScaleX}`);
   shell.style.setProperty("--preview-start-scale-y", `${startScaleY}`);
   shell.style.setProperty("--preview-shift-x", `${startShiftX}px`);
@@ -1722,7 +1773,7 @@ function createHomeCardPreviewPanel(show, previewId) {
   closeButton.type = "button";
   closeButton.setAttribute("tabindex", "-1");
   closeButton.setAttribute("aria-label", `Close the ${show.title} archive preview`);
-  closeButton.textContent = "Close";
+  closeButton.textContent = "x";
 
   const media = document.createElement("div");
   media.className = "home-card-preview-media";
@@ -1735,10 +1786,6 @@ function createHomeCardPreviewPanel(show, previewId) {
   const content = document.createElement("div");
   content.className = "home-card-preview-content";
 
-  const kicker = document.createElement("p");
-  kicker.className = "home-card-preview-kicker";
-  kicker.textContent = "Archive entry";
-
   const title = document.createElement("h3");
   title.className = "home-card-preview-title";
   title.id = titleId;
@@ -1750,6 +1797,9 @@ function createHomeCardPreviewPanel(show, previewId) {
 
   const copy = document.createElement("div");
   copy.className = "home-card-preview-copy";
+
+  const copyBody = document.createElement("div");
+  copyBody.className = "home-card-preview-copy-body";
 
   const lead = document.createElement("p");
   lead.className = "preview-lead";
@@ -1772,6 +1822,11 @@ function createHomeCardPreviewPanel(show, previewId) {
   previewTags.className = "preview-tags";
   previewTags.textContent = formatInlineTagList(show.tags, 3);
   previewTags.hidden = !previewTags.textContent;
+
+  const previewTake = document.createElement("p");
+  previewTake.className = "preview-take";
+  previewTake.textContent = String(show.archiveTake || show.description || "").trim();
+  previewTake.hidden = !previewTake.textContent;
 
   const footer = document.createElement("div");
   footer.className = "home-card-preview-footer";
@@ -1800,8 +1855,9 @@ function createHomeCardPreviewPanel(show, previewId) {
   openLink.append(openText, openArrow);
   footer.appendChild(openLink);
 
-  copy.append(lead, goodFor, previewTags);
-  content.append(kicker, title, accentRule, copy);
+  copyBody.append(lead, goodFor, previewTags);
+  copy.append(copyBody, previewTake);
+  content.append(title, accentRule, copy);
   panel.append(closeButton, media, content, footer);
   layer.appendChild(panel);
 
@@ -1857,6 +1913,7 @@ function createCollectionShowCard(show, reason = "") {
 
 async function initializeShowPage() {
   const shows = await loadShows();
+  const collections = await loadCollections();
   const showMap = buildShowMap(shows);
   const showRoot = document.getElementById("showRoot");
 
@@ -1882,7 +1939,7 @@ async function initializeShowPage() {
     image: `/${show.cover}`,
   });
 
-  showRoot.innerHTML = createShowPageMarkup(show, showMap);
+  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
   const detailRoot = showRoot.querySelector(".podcast-detail");
   if (detailRoot) {
     detailRoot.dataset.podcastId = show.id;
@@ -2076,13 +2133,24 @@ async function initializeCollectionPage() {
   void syncCommunityCardBadges(grid, collectionShows);
 }
 
-function createShowPageMarkup(show, showMap) {
+const DETAIL_LINK_LABELS = {
+  website: "Website",
+  apple: "Apple",
+  spotify: "Spotify",
+  rss: "RSS",
+};
+
+const DETAIL_LINK_ORDER = ["website", "apple", "spotify", "rss"];
+
+function createShowPageMarkup(show, showMap, collections = []) {
   const statusChips = [];
   if ((show.finalRating || 0) >= 9) {
     statusChips.push('<span class="detail-status-chip is-accent">Top rated</span>');
   }
   if (show.reviewStatus === "full-review") {
     statusChips.push('<span class="detail-status-chip">Full review</span>');
+  } else if (show.reviewStatus) {
+    statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>`);
   }
   if (show.tags[0]) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
@@ -2092,11 +2160,7 @@ function createShowPageMarkup(show, showMap) {
     <section class="detail-main podcast-detail">
       <section class="detail-hero-shell">
         <div class="detail-hero-panel" style="--detail-cover-image: url('${escapeHtml(show.cover)}');">
-          <div class="detail-breadcrumbs">
-            <a href="/index.html">Archive</a>
-            <span class="detail-breadcrumb-divider">/</span>
-            <span>${escapeHtml(show.title)}</span>
-          </div>
+          ${renderDetailBreadcrumbs(show)}
 
           <div class="detail-hero-grid">
             <div class="detail-hero-copy">
@@ -2104,25 +2168,32 @@ function createShowPageMarkup(show, showMap) {
                 ${statusChips.join("")}
               </div>
 
-              <header class="podcast-header">
+              <header class="detail-title-group">
                 <h1>${escapeHtml(show.title)}</h1>
+                ${show.subtitle ? `<p class="detail-subtitle">${escapeHtml(show.subtitle)}</p>` : ""}
+                ${renderHeroKeyTags(show)}
               </header>
 
-              <p>${escapeHtml(show.description)}</p>
-
               <div class="detail-meta-grid">
-                ${renderMetaCard("Archive rating", `${formatRating(show.finalRating)}/10`)}
-                ${renderMetaCard("Runtime", escapeHtml(getRuntimeLabel(show)))}
-                ${renderMetaCard("Format", escapeHtml(getFormatLabel(show)))}
-              </div>
-
-              <div class="detail-tag-list" aria-label="Tags">
-                ${show.tags.map((tag) => `<span class="detail-tag">${escapeHtml(toDisplayTag(tag))}</span>`).join("")}
+                ${renderHeroMetaCard("Archive rating", `${formatRating(show.finalRating)}/10`, "Echo score")}
+                ${renderHeroCommunityMetaCard()}
+                ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)), escapeHtml(getHeroRuntimeNote(show)))}
+                ${renderHeroMetaCard("Format", escapeHtml(getHeroFormatValue(show)), escapeHtml(getHeroFormatNote(show)))}
+                ${renderHeroMetaCard(
+                  "Completion",
+                  escapeHtml(toDisplayTag(show.completionStatus || "unclear")),
+                  escapeHtml(getCompletionNote(show)),
+                )}
+                ${renderHeroMetaCard(
+                  "Release status",
+                  escapeHtml(toDisplayTag(show.releaseStatus || "unknown")),
+                  escapeHtml(getReleaseNote(show)),
+                )}
               </div>
 
               <div class="detail-actions">
-                <a class="detail-primary-action" href="#archive-snapshot">Archive snapshot</a>
-                <a class="detail-secondary-action" href="#listen-links">Listen links</a>
+                <a class="detail-primary-action" href="#review-notes">Review notes</a>
+                <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
               </div>
             </div>
 
@@ -2130,103 +2201,380 @@ function createShowPageMarkup(show, showMap) {
               <div class="detail-cover-card">
                 <img src="/${escapeHtml(show.cover)}" alt="${escapeHtml(show.coverAlt)}" />
               </div>
-              <article class="detail-highlight-card">
-                <h2>Archive take</h2>
-                <p>${escapeHtml(show.archiveTake || show.description)}</p>
-              </article>
             </div>
           </div>
         </div>
+
+        ${renderBestForStrip(show)}
       </section>
 
-      <div class="detail-layout">
-        ${renderSnapshotSection(show)}
-        ${renderRatingsSection(show)}
-        ${renderQuoteSection(show)}
-        ${renderReviewSection(show)}
-        ${renderListenSection(show)}
+      <div class="detail-content-layout">
+        <div class="detail-main-stack">
+          ${renderOfficialSummarySection(show)}
+          <div class="detail-main-column">
+            ${renderOverviewSection(show)}
+            ${renderReviewSection(show)}
+            ${renderQuoteSection(show)}
+          </div>
+        </div>
+        <div class="detail-community-slot"></div>
+
+        <aside class="detail-side-rail">
+          ${renderArchiveTakeCard(show)}
+          ${renderFactsLinksCard(show)}
+        </aside>
+
         ${renderSimilarSection(show, showMap)}
+        ${renderCollectionsSection(show, collections)}
+        ${renderCorrectionSection(show)}
       </div>
     </section>
   `;
 }
 
-function renderMetaCard(label, value) {
+function renderDetailBreadcrumbs(show) {
+  const parts = ['<a href="/index.html">Archive</a>'];
+
+  if (show.genres[0]) {
+    parts.push('<span class="detail-breadcrumb-divider">/</span>');
+    parts.push(`<span>${escapeHtml(toDisplayTag(show.genres[0]))}</span>`);
+  }
+
+  parts.push('<span class="detail-breadcrumb-divider">/</span>');
+  parts.push(`<span>${escapeHtml(show.title)}</span>`);
+
+  return `<div class="detail-breadcrumbs">${parts.join("")}</div>`;
+}
+
+function renderHeroMetaCard(label, value, note = "") {
   return `
     <article class="detail-meta-card">
       <span class="detail-meta-label">${label}</span>
       <span class="detail-meta-value">${value}</span>
+      ${note ? `<span class="detail-meta-note">${note}</span>` : ""}
     </article>
   `;
 }
 
-function renderSnapshotSection(show) {
-  const cards = [];
+function renderHeroCommunityMetaCard() {
+  return `
+    <article class="detail-meta-card detail-meta-card-community">
+      <span class="detail-meta-label">Community rating</span>
+      <span class="detail-meta-value" data-community-hero-rating>--</span>
+      <span class="detail-meta-note" data-community-hero-count>Checking listener signal</span>
+    </article>
+  `;
+}
 
-  if (show.reviewStatus === "full-review") {
-    cards.push(createFactCard("Review status", "Full review"));
-  }
-  cards.push(createFactCard("Release", toDisplayTag(show.releaseStatus || "unknown")));
-  cards.push(createFactCard("Completion", toDisplayTag(show.completionStatus || "unclear")));
-  cards.push(createFactCard("Structure", show.facts?.structure || "Still being cataloged."));
-  cards.push(createFactCard("Narration", show.facts?.narrator || "Still being cataloged."));
-  cards.push(createFactCard("Ads", show.facts?.ads || "Still being cataloged."));
-
-  if (show.facts?.favoriteRun) {
-    cards.push(createFactCard("Favorite run", show.facts.favoriteRun));
-  }
-
-  if (typeof show.facts?.wouldRelisten === "boolean") {
-    cards.push(createFactCard("Re-listen", show.facts.wouldRelisten ? "Yes." : "No."));
-  }
-
-  if (show.reviewStatus !== "full-review") {
-    cards.push(
-      createFactCard(
-        "Archive note",
-        "Full review not published yet. This page stays live so the archive can index and recommend the show now.",
-      ),
-    );
+function renderHeroKeyTags(show) {
+  const tags = Array.isArray(show.tags) ? show.tags.slice(0, 4) : [];
+  if (tags.length === 0) {
+    return "";
   }
 
   return `
-    <section class="detail-section" id="archive-snapshot">
-      <div class="detail-section-header">
-        <div>
-          <h2>Archive snapshot</h2>
-          <p>Quick context before you decide whether to commit time to this one.</p>
-        </div>
+    <div class="detail-hero-tag-row" aria-label="Key tags">
+      <span class="detail-hero-tag-label">Key tags</span>
+      <div class="detail-hero-tag-list">
+        ${tags.map((value) => `<span class="detail-tag">${escapeHtml(toDisplayTag(value))}</span>`).join("")}
       </div>
+    </div>
+  `;
+}
 
-      <div class="detail-fact-grid">
-        ${cards.join("")}
+function renderBestForStrip(show) {
+  if (!Array.isArray(show.bestFor) || show.bestFor.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="detail-best-for-strip" aria-label="Best for">
+      <span class="detail-best-for-label">Best for</span>
+      <div class="detail-best-for-list">
+        ${show.bestFor
+          .map(
+            (value) => `
+              <article class="detail-best-for-item">
+                <span class="detail-best-for-icon" aria-hidden="true">${getBestForIconMarkup(value)}</span>
+                <span class="detail-best-for-text">${escapeHtml(toDisplayTag(value))}</span>
+              </article>
+            `,
+          )
+          .join("")}
       </div>
     </section>
   `;
 }
 
-function createFactCard(title, value) {
+function getBestForIconMarkup(value) {
+  const iconMap = {
+    "long-walks":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4.5c1.1 0 2 .9 2 2S9.1 8.5 8 8.5 6 7.6 6 6.5s.9-2 2-2Zm7 0c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2Zm-6.25 6.5 2.1 2.5L9.1 19.5H6.9l1.65-5.15-1.95-2.1 2.15-1.25Zm6.6 0 2.15 1.25-1.95 2.1 1.65 5.15H14.9l-1.75-6 2.2-2.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>',
+    "headphones-on":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.75 13.5a7.25 7.25 0 1 1 14.5 0v4.25a1.5 1.5 0 0 1-1.5 1.5h-1.25a1.5 1.5 0 0 1-1.5-1.5v-3a1.5 1.5 0 0 1 1.5-1.5h2.75m-13.5 0H7.5a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5H6.25a1.5 1.5 0 0 1-1.5-1.5V13.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>',
+    "serious-sci-fi":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75 14.2 9l5.55.45-4.25 3.65 1.3 5.4L12 15.6 7.2 18.5l1.3-5.4-4.25-3.65L9.8 9 12 3.75Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>',
+    worldbuilding:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75c4.56 0 8.25 3.69 8.25 8.25S16.56 20.25 12 20.25 3.75 16.56 3.75 12 7.44 3.75 12 3.75Zm0 0c2.1 2.2 3.25 5.15 3.25 8.25S14.1 18.05 12 20.25m0-16.5c-2.1 2.2-3.25 5.15-3.25 8.25S9.9 18.05 12 20.25m-7.9-5.25h15.8M4.1 9h15.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55"/></svg>',
+    "binge-listening":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6.5v11l8.75-5.5L6 6.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="M17.5 7.5v9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></svg>',
+    "late-night":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 15.9a6.8 6.8 0 0 1-8.7-8.7 7 7 0 1 0 8.7 8.7Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>',
+    "easy-entry":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.75h9v10.5H9m0-10.5-3 3m3-3 3 3m-3 7.5-3-3m3 3 3-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/></svg>',
+    "funny-space-disasters":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.25 15.75 15.9 8.1m-4.1-.35 4.45-1.2-1.2 4.45m-6.8 4.75-1.55 1.55m8.35-8.35 1.55-1.55m-9.1 4.3c-1.95 1.95-2.15 4.9-.45 6.6 1.7 1.7 4.65 1.5 6.6-.45l2.15-2.15-6.15-6.15-2.15 2.15Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55"/></svg>',
+    "cold-isolation-horror":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75v16.5M6.55 6.55l10.9 10.9M3.75 12h16.5M6.55 17.45l10.9-10.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.55"/></svg>',
+    "short-under-five-hours":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5.25v6l3.75 2.25M12 20.25a8.25 8.25 0 1 0 0-16.5 8.25 8.25 0 0 0 0 16.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/></svg>',
+  };
+
+  return (
+    iconMap[value] ||
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5 19.5 12 12 19.5 4.5 12 12 4.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>'
+  );
+}
+
+function renderOfficialSummarySection(show) {
+  const summaryText = String(show.description || show.subtitle || "").trim() || "Official summary not cataloged yet.";
+
   return `
-    <article class="detail-fact-card">
-      <h3>${escapeHtml(title)}</h3>
-      <p>${escapeHtml(value)}</p>
-    </article>
+    <section class="detail-section detail-official-summary-section">
+      <div class="detail-section-header">
+        <div>
+          <h2>Official summary</h2>
+          <p>The listener-facing setup and premise for the show, kept separate from the archive take.</p>
+        </div>
+      </div>
+
+      <article class="detail-summary detail-summary-official">
+        <p>${escapeHtml(summaryText)}</p>
+      </article>
+    </section>
   `;
 }
 
-function renderRatingsSection(show) {
+function renderArchiveTakeCard(show) {
+  const archiveTake = getArchivePerspectiveText(show);
+  const note =
+    show.reviewStatus === "full-review"
+      ? ""
+      : "Full review not published yet. This page stays live so the archive can still recommend the show now.";
+
+  return `
+    <section class="detail-side-card detail-archive-take-card">
+      <div class="detail-side-card-header">
+        <h2>Archive take</h2>
+      </div>
+      <p>${escapeHtml(archiveTake)}</p>
+      ${note ? `<p class="detail-side-note">${escapeHtml(note)}</p>` : ""}
+    </section>
+  `;
+}
+
+function renderFactsLinksCard(show) {
+  const creatorNetwork = getCreatorNetworkLabel(show);
+  const seasonsEpisodes = getSeasonsEpisodesLabel(show);
+  const firstRelease = getKnownDateLabel(getShowDateValue(show, "first"));
+  const latestRelease = getKnownDateLabel(getShowDateValue(show, "latest"));
+
+  return `
+    <section class="detail-side-card detail-facts-links-card" id="facts-links">
+      <div class="detail-side-card-header">
+        <h2>Facts &amp; links</h2>
+      </div>
+
+      <dl class="detail-fact-list">
+        ${renderFactRow("Creator / network", creatorNetwork.text, { isEmpty: creatorNetwork.isEmpty })}
+        ${renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true })}
+        ${renderFactRow("Status", renderStatusPills(show), { html: true })}
+        ${renderFactRow("Seasons / episodes", seasonsEpisodes.text, { isEmpty: seasonsEpisodes.isEmpty })}
+        ${renderFactRow("First release", firstRelease.text, { isEmpty: firstRelease.isEmpty })}
+        ${renderFactRow("Latest release", latestRelease.text, { isEmpty: latestRelease.isEmpty })}
+      </dl>
+    </section>
+  `;
+}
+
+function renderFactRow(label, value, { html = false, isEmpty = false } = {}) {
+  const content = html ? value : escapeHtml(value);
+  const classes = `detail-fact-value${isEmpty ? " is-empty" : ""}`;
+
+  return `
+    <div class="detail-fact-row">
+      <dt>${escapeHtml(label)}</dt>
+      <dd class="${classes}">${content}</dd>
+    </div>
+  `;
+}
+
+function renderStatusPills(show) {
+  const chips = [
+    { label: toDisplayTag(show.reviewStatus || "unknown"), accent: show.reviewStatus === "full-review" },
+    { label: toDisplayTag(show.releaseStatus || "unknown") },
+    { label: toDisplayTag(show.completionStatus || "unclear") },
+  ];
+
+  return `
+    <div class="detail-fact-pill-row">
+      ${chips
+        .map(
+          (chip) => `<span class="detail-fact-pill${chip.accent ? " is-accent" : ""}">${escapeHtml(chip.label)}</span>`,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderListenLinkCluster(show) {
+  const links = show.listenLinks || {};
+  const primaryLink = getPrimaryListenLink(show);
+
+  return `
+    <div class="detail-link-cluster">
+      ${
+        primaryLink
+          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">Open ${escapeHtml(
+              primaryLink.label,
+            )}</a>`
+          : '<p class="detail-link-status is-empty">Links being verified</p>'
+      }
+      <div class="detail-link-chip-row">
+        ${DETAIL_LINK_ORDER.map((key) => renderListenLinkChip(key, links[key])).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderListenLinkChip(key, href) {
+  const label = DETAIL_LINK_LABELS[key] || toLabel(key);
+  if (href) {
+    return `<a class="detail-link-chip" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
+  }
+
+  return `<span class="detail-link-chip is-disabled" aria-disabled="true">${escapeHtml(label)}</span>`;
+}
+
+function getPrimaryListenLink(show) {
+  const links = show.listenLinks || {};
+
+  for (const key of DETAIL_LINK_ORDER) {
+    if (links[key]) {
+      return {
+        key,
+        href: links[key],
+        label: DETAIL_LINK_LABELS[key] || toLabel(key),
+      };
+    }
+  }
+
+  return null;
+}
+
+function renderCollectionsSection(show, collections = []) {
+  const memberships = getShowCollectionMemberships(show.id, collections);
+
+  return `
+    <section class="detail-section detail-collections-section">
+      <div class="detail-section-header">
+        <div>
+          <h2>Discovery routes</h2>
+          <p>Curated listening paths already connected to this show in the archive.</p>
+        </div>
+      </div>
+      ${
+        memberships.length > 0
+          ? `<div class="detail-collection-route-list">${memberships
+              .map(
+                (collection) => `
+                  <a class="detail-collection-route" href="${escapeHtml(createCollectionHref(collection.id))}">
+                    <span class="detail-collection-route-title">${escapeHtml(collection.title)}</span>
+                    ${
+                      collection.reason
+                        ? `<span class="detail-collection-route-reason">${escapeHtml(collection.reason)}</span>`
+                        : `<span class="detail-collection-route-reason">Curated route in the archive.</span>`
+                    }
+                  </a>
+                `,
+              )
+              .join("")}</div>`
+          : '<p class="detail-side-note">No collection routes have been published for this show yet.</p>'
+      }
+    </section>
+  `;
+}
+
+function getShowCollectionMemberships(showId, collections = []) {
+  return collections
+    .filter((collection) => Array.isArray(collection.showIds) && collection.showIds.includes(showId))
+    .sort((left, right) => Number(Boolean(right.featured)) - Number(Boolean(left.featured)))
+    .map((collection) => ({
+      id: collection.id,
+      title: collection.title,
+      reason: getCollectionShowReason(collection, showId),
+      featured: Boolean(collection.featured),
+    }));
+}
+
+function renderCorrectionSection(show) {
+  return `
+    <section class="detail-section detail-correction-section">
+      <div class="detail-section-header">
+        <div>
+          <h2>Help keep the archive accurate.</h2>
+          <p>Spot a metadata issue, missing link, or verification problem? Send it into the review queue.</p>
+        </div>
+      </div>
+      <p>Use this when factual details need correction or an official source should be checked against the current entry.</p>
+      <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(
+        createSubmissionHref("correction", show.id),
+      )}">Suggest a correction</a>
+    </section>
+  `;
+}
+
+function renderOverviewSection(show) {
+  const isFullReview = show.reviewStatus === "full-review";
+  const reviewTitle = isFullReview ? "Spoiler-free review summary" : "Archive summary";
+  const reviewIntro = isFullReview
+    ? "Quick context before you drop into the longer archive notes."
+    : "This entry is indexed and recommendation-ready even though the full review has not been published yet.";
+  const reviewCopy = isFullReview
+    ? renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview || show.description)
+    : `<p>${escapeHtml(getArchivePerspectiveText(show))}</p>`;
+  const scoreCard = renderScoreBreakdownCard(show);
+
+  return `
+    <section class="detail-section detail-overview-section">
+      <div class="detail-section-header">
+        <div>
+          <h2>${reviewTitle}</h2>
+          <p>${reviewIntro}</p>
+        </div>
+      </div>
+
+      <div class="detail-overview-grid${scoreCard ? "" : " detail-overview-grid-single"}">
+        <article class="detail-summary">
+          ${reviewCopy}
+        </article>
+        ${scoreCard}
+      </div>
+    </section>
+  `;
+}
+
+function renderScoreBreakdownCard(show) {
   const ratingEntries = Object.entries(show.ratings || {}).filter(([key]) => key !== "archive");
   if (ratingEntries.length === 0) {
     return "";
   }
 
   return `
-    <section class="detail-section">
-      <div class="detail-section-header">
-        <div>
-          <h2>Score breakdown</h2>
-          <p>Where the show wins outright and where it simply stays solid.</p>
-        </div>
+    <article class="detail-score-card">
+      <div class="detail-score-card-header">
+        <h3>Score breakdown</h3>
+        <p>Where the show wins outright and where it simply stays solid.</p>
       </div>
 
       <div class="detail-ratings-grid">
@@ -2245,7 +2593,7 @@ function renderRatingsSection(show) {
           })
           .join("")}
       </div>
-    </section>
+    </article>
   `;
 }
 
@@ -2262,6 +2610,14 @@ function renderQuoteSection(show) {
   `;
 }
 
+function renderParagraphMarkup(paragraphs, fallbackText) {
+  const normalized = normalizeReviewParagraphs(paragraphs);
+  const fallback = String(fallbackText || "").trim();
+  const entries = normalized.length > 0 ? normalized : fallback ? [fallback] : [];
+
+  return entries.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("");
+}
+
 function renderReviewSection(show) {
   if (show.reviewStatus === "full-review") {
     return `
@@ -2269,18 +2625,18 @@ function renderReviewSection(show) {
         <div class="detail-section-header">
           <div>
             <h2>Review notes</h2>
-            <p>The spoiler-free read on why the show works and what kind of listener it fits.</p>
+            <p>The longer spoiler-free archive read, plus the more personal reaction once the basics are clear.</p>
           </div>
         </div>
 
         <div class="detail-review-grid">
           <article class="detail-summary">
             <h3>Spoiler-free review</h3>
-            <p>${escapeHtml(show.spoilerFreeReview || show.description)}</p>
+            ${renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview || show.description)}
           </article>
           <article class="detail-thoughts">
             <h3>Archive reaction</h3>
-            <p>${escapeHtml(show.thoughts || show.archiveTake || show.description)}</p>
+            ${renderParagraphMarkup(show.thoughtsParagraphs, show.thoughts || getArchivePerspectiveText(show))}
           </article>
         </div>
       </section>
@@ -2292,45 +2648,15 @@ function renderReviewSection(show) {
       <div class="detail-section-header">
         <div>
           <h2>Archive note</h2>
-          <p>This show is indexed and recommendation-ready, but the long-form review has not been published yet.</p>
+          <p>This show is indexed and recommendation-ready, but the long-form archive review has not been published yet.</p>
         </div>
       </div>
 
       <div class="detail-review-grid detail-review-grid-single">
         <article class="detail-summary">
           <h3>Why it is here</h3>
-          <p>${escapeHtml(show.archiveTake || show.description)}</p>
+          <p>${escapeHtml(getArchivePerspectiveText(show))}</p>
         </article>
-      </div>
-    </section>
-  `;
-}
-
-function renderListenSection(show) {
-  const links = Object.entries(show.listenLinks || {}).filter(([, value]) => Boolean(value));
-  const linkMarkup =
-    links.length > 0
-      ? links
-          .map(
-            ([key, value]) =>
-              `<a class="detail-secondary-action" href="${escapeHtml(value)}" target="_blank" rel="noreferrer">${escapeHtml(
-                toLabel(key),
-              )}</a>`,
-          )
-          .join("")
-      : '<p class="detail-section-intro">Listen links are still being verified for this entry.</p>';
-
-  return `
-    <section class="detail-section" id="listen-links">
-      <div class="detail-section-header">
-        <div>
-          <h2>Listen links</h2>
-          <p>Archive-ready linking support is built now, even where the specific destinations still need to be filled in.</p>
-        </div>
-      </div>
-
-      <div class="detail-actions detail-actions-wrap">
-        ${linkMarkup}
       </div>
     </section>
   `;
@@ -2343,7 +2669,7 @@ function renderSimilarSection(show, showMap) {
   }
 
   return `
-    <section class="detail-section">
+    <section class="detail-section detail-similar-section">
       <div class="detail-section-header">
         <div>
           <h2>Start next</h2>
@@ -2359,7 +2685,11 @@ function renderSimilarSection(show, showMap) {
                 <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" />
                 <div class="detail-card-copy">
                   <h3>${escapeHtml(neighbor.title)}</h3>
-                  ${getSimilarReason(show, neighbor.id) ? `<p class="detail-similar-reason">${escapeHtml(getSimilarReason(show, neighbor.id))}</p>` : ""}
+                  ${
+                    getSimilarReason(show, neighbor.id)
+                      ? `<p class="detail-similar-reason">${escapeHtml(getSimilarReason(show, neighbor.id))}</p>`
+                      : ""
+                  }
                   <p>${escapeHtml(neighbor.archiveTake || neighbor.description)}</p>
                   <a class="detail-archive-link" href="${escapeHtml(neighbor.href)}">Open show</a>
                 </div>
@@ -2370,6 +2700,149 @@ function renderSimilarSection(show, showMap) {
       </div>
     </section>
   `;
+}
+
+function getHeroRuntimeValue(show) {
+  if (typeof show.length?.totalHours === "number") {
+    const hours = formatRating(show.length.totalHours);
+    return `${hours} ${show.length.totalHours === 1 ? "hour" : "hours"}`;
+  }
+
+  return getRuntimeLabel(show);
+}
+
+function getHeroRuntimeNote(show) {
+  if (show.length?.label) {
+    return show.length.label;
+  }
+
+  return "Runtime being cataloged";
+}
+
+function getHeroFormatValue(show) {
+  if (show.formats[0]) {
+    return toDisplayTag(show.formats[0]);
+  }
+
+  return "Not cataloged";
+}
+
+function getHeroFormatNote(show) {
+  if (show.formats.length > 1) {
+    return show.formats
+      .slice(1, 3)
+      .map((format) => toDisplayTag(format))
+      .join(" • ");
+  }
+
+  return show.formats[0] ? "Archive format" : "Format being cataloged";
+}
+
+function getCompletionNote(show) {
+  const seasonsLabel = typeof show.length?.seasons === "number" ? `${show.length.seasons} seasons` : "";
+  const episodesLabel = typeof show.length?.episodes === "number" ? `${show.length.episodes} episodes` : "";
+  return [seasonsLabel, episodesLabel].filter(Boolean).join(" • ") || "Archive completion";
+}
+
+function getReleaseNote(show) {
+  const firstKnownDate = getShowDateValue(show, "first");
+  if (firstKnownDate) {
+    return formatCompactDate(firstKnownDate);
+  }
+
+  return "Catalog state";
+}
+
+function getFullFormatLabel(show) {
+  if (show.formats.length > 0) {
+    return show.formats.map((format) => toDisplayTag(format)).join(" • ");
+  }
+
+  return "Not cataloged yet";
+}
+
+function getCreatorNetworkLabel(show) {
+  const creator = show.creatorName || (show.creatorId ? toLabel(show.creatorId) : "");
+  const network = show.networkName || (show.networkId ? toLabel(show.networkId) : "");
+  const text = [creator, network].filter(Boolean).join(" • ");
+
+  if (!text) {
+    return { text: "Not cataloged yet", isEmpty: true };
+  }
+
+  return { text, isEmpty: false };
+}
+
+function getSeasonsEpisodesLabel(show) {
+  const seasons = typeof show.length?.seasons === "number" ? `${show.length.seasons} seasons` : "";
+  const episodes = typeof show.length?.episodes === "number" ? `${show.length.episodes} episodes` : "";
+  const text = [seasons, episodes].filter(Boolean).join(" • ");
+
+  if (!text) {
+    return { text: "Not cataloged yet", isEmpty: true };
+  }
+
+  return { text, isEmpty: false };
+}
+
+function getAverageEpisodeLabel(show) {
+  if (typeof show.length?.avgEpisodeMinutes === "number") {
+    return {
+      text: `${show.length.avgEpisodeMinutes} minutes`,
+      isEmpty: false,
+    };
+  }
+
+  return { text: "Not cataloged yet", isEmpty: true };
+}
+
+function getArchivePerspectiveText(show) {
+  const archiveTake = String(show.archiveTake || "").trim();
+  if (archiveTake) {
+    return archiveTake;
+  }
+
+  const spoilerFree = String(show.spoilerFreeReview || "").trim();
+  if (spoilerFree) {
+    return spoilerFree;
+  }
+
+  const thoughts = String(show.thoughts || "").trim();
+  if (thoughts) {
+    return thoughts;
+  }
+
+  return "Archive perspective is still being expanded. This entry stays live because the show is already useful in the discovery graph.";
+}
+
+function getShowDateValue(show, kind) {
+  if (kind === "first") {
+    return (
+      show.firstRelease ||
+      show.firstReleasedAt ||
+      show.releaseDates?.first ||
+      show.dates?.firstRelease ||
+      show.releaseWindow?.first ||
+      ""
+    );
+  }
+
+  return (
+    show.latestRelease ||
+    show.lastReleasedAt ||
+    show.releaseDates?.latest ||
+    show.dates?.latestRelease ||
+    show.releaseWindow?.latest ||
+    ""
+  );
+}
+
+function getKnownDateLabel(value) {
+  if (!value) {
+    return { text: "Not cataloged yet", isEmpty: true };
+  }
+
+  return { text: formatDate(value), isEmpty: false };
 }
 
 function getSimilarReason(show, neighborId) {
@@ -2458,6 +2931,9 @@ async function initializeSubmitPage() {
   const verificationSourcesInput = verificationSourcesField.querySelector("textarea");
   const provenanceNotesInput = provenanceNotesField.querySelector("textarea");
   const notesInput = notesField.querySelector("textarea");
+  const submitParams = new URLSearchParams(window.location.search);
+  const requestedSubmissionType = submitParams.get("submissionType") || "";
+  const requestedShowId = submitParams.get("showId") || "";
 
   const modeConfig = {
     show: {
@@ -2604,6 +3080,18 @@ async function initializeSubmitPage() {
     showTitleInput.dataset.autoFilled = "true";
   });
 
+  if (Object.hasOwn(modeConfig, requestedSubmissionType)) {
+    submissionType.value = requestedSubmissionType;
+  }
+  if (requestedShowId && publishedShows.some((show) => show.id === requestedShowId)) {
+    existingShowId.value = requestedShowId;
+    const selectedOption = existingShowId.selectedOptions[0];
+    if (selectedOption?.textContent) {
+      showTitleInput.value = selectedOption.textContent;
+      showTitleInput.dataset.autoFilled = "true";
+    }
+  }
+
   syncSubmissionMode();
 
   form.addEventListener("submit", async (event) => {
@@ -2689,7 +3177,6 @@ async function initializeDetailRatingPage(show) {
   const widget = mountDetailRatingWidget(detailRoot, {
     podcastId: show.id,
     title: show.title,
-    archiveRating: show.finalRating,
   });
 
   try {
@@ -2697,7 +3184,7 @@ async function initializeDetailRatingPage(show) {
     const summaries = await fetchRatingSummaries([show.id], profileId);
     syncDetailRatingWidget(widget, summaries[show.id]);
   } catch (_error) {
-    widget.summary.textContent = `${formatCommunitySummary(null, show.finalRating)} Community ratings are offline right now.`;
+    setCommunityWidgetUnavailable(widget);
   }
 }
 
@@ -3090,25 +3577,55 @@ function setChatOpen(isOpen) {
 
 function mountDetailRatingWidget(detailRoot, podcast) {
   const section = document.createElement("section");
-  section.className = "community-review-panel";
+  section.className = "detail-side-card community-review-panel";
   section.dataset.podcastId = podcast.podcastId;
 
   const kicker = document.createElement("p");
   kicker.className = "community-review-kicker";
-  kicker.textContent = "Community rating";
+  kicker.textContent = "Listener rating";
 
   const title = document.createElement("h2");
-  title.textContent = "Rate this show";
+  title.textContent = "Community voice";
+
+  const metricRow = document.createElement("div");
+  metricRow.className = "community-review-metric";
+
+  const metricValue = document.createElement("strong");
+  metricValue.className = "community-review-metric-value";
+  metricValue.textContent = "--";
+
+  const metricCount = document.createElement("span");
+  metricCount.className = "community-review-metric-count";
+  metricCount.textContent = "No ratings yet";
+
+  metricRow.append(metricValue, metricCount);
 
   const summary = document.createElement("p");
   summary.className = "community-review-summary";
-  summary.textContent = formatCommunitySummary(null, podcast.archiveRating);
+  summary.textContent = formatDetailCommunitySummary(null);
+
+  const toggleButton = document.createElement("button");
+  toggleButton.type = "button";
+  toggleButton.className = "community-review-toggle";
+  toggleButton.setAttribute("aria-expanded", "false");
+
+  const reviewLink = document.createElement("a");
+  reviewLink.className = "community-review-link";
+  reviewLink.href = createSubmissionHref("listener-review", podcast.podcastId);
+  reviewLink.textContent = "Submit a listener review";
+
+  const actions = document.createElement("div");
+  actions.className = "community-review-actions";
 
   const buttons = document.createElement("div");
   buttons.className = "community-review-buttons";
 
   const distribution = document.createElement("div");
   distribution.className = "community-review-distribution";
+
+  const body = document.createElement("div");
+  body.className = "community-review-body";
+  body.hidden = true;
 
   const clearButton = document.createElement("button");
   clearButton.type = "button";
@@ -3123,8 +3640,18 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     clearButton,
     ratingButtons,
     distribution,
-    fallbackRating: podcast.archiveRating,
+    metricValue,
+    metricCount,
+    toggleButton,
+    reviewLink,
+    body,
+    heroValue: detailRoot.querySelector("[data-community-hero-rating]"),
+    heroCount: detailRoot.querySelector("[data-community-hero-count]"),
   };
+
+  toggleButton.addEventListener("click", () => {
+    setDetailWidgetExpanded(widget, widget.body.hidden);
+  });
 
   for (let rating = 1; rating <= 10; rating += 1) {
     const button = document.createElement("button");
@@ -3183,15 +3710,18 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     distribution.appendChild(row);
   }
 
-  section.append(kicker, title, summary, buttons, clearButton, distribution);
+  actions.append(toggleButton, reviewLink);
+  body.append(buttons, clearButton, distribution);
+  section.append(kicker, title, metricRow, summary, actions, body);
 
-  const detailLayout = detailRoot.querySelector(".detail-layout");
-  if (detailLayout) {
-    detailRoot.insertBefore(section, detailLayout);
+  const communitySlot = detailRoot.querySelector(".detail-community-slot");
+  if (communitySlot) {
+    communitySlot.replaceWith(section);
   } else {
     detailRoot.appendChild(section);
   }
 
+  updateDetailWidgetToggleLabel(widget);
   return widget;
 }
 
@@ -3200,7 +3730,9 @@ function syncDetailRatingWidget(widget, summary) {
     return;
   }
 
-  widget.summary.textContent = formatCommunitySummary(summary, widget.fallbackRating);
+  widget.summary.textContent = formatDetailCommunitySummary(summary);
+  widget.metricValue.textContent = getDetailCommunityMetricValue(summary);
+  widget.metricCount.textContent = getDetailCommunityMetricCount(summary);
   widget.clearButton.hidden = !summary?.myRating;
 
   widget.ratingButtons.forEach((button, index) => {
@@ -3227,6 +3759,9 @@ function syncDetailRatingWidget(widget, summary) {
       countNode.textContent = String(count);
     }
   });
+
+  syncHeroCommunityMetric(widget, summary);
+  updateDetailWidgetToggleLabel(widget, summary);
 }
 
 function setDetailWidgetBusy(widget, isBusy) {
@@ -3234,6 +3769,76 @@ function setDetailWidgetBusy(widget, isBusy) {
     button.disabled = isBusy;
   });
   widget.clearButton.disabled = isBusy;
+  widget.toggleButton.disabled = isBusy;
+}
+
+function setDetailWidgetExpanded(widget, isExpanded) {
+  widget.body.hidden = !isExpanded;
+  widget.root.classList.toggle("is-expanded", isExpanded);
+  widget.toggleButton.setAttribute("aria-expanded", String(isExpanded));
+  updateDetailWidgetToggleLabel(widget);
+}
+
+function updateDetailWidgetToggleLabel(widget, summary = null) {
+  if (widget.body.hidden) {
+    const hasRating = Boolean(summary?.myRating);
+    widget.toggleButton.textContent = hasRating ? "Update your rating" : "Rate this show";
+    return;
+  }
+
+  widget.toggleButton.textContent = "Hide rating controls";
+}
+
+function formatDetailCommunitySummary(summary) {
+  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+    return "No community ratings yet. Listener scores stay separate from the archive rating and only appear once people actually rate the show.";
+  }
+
+  const noun = summary.ratingCount === 1 ? "rating" : "ratings";
+  const yourRating = summary.myRating ? ` Your rating: ${summary.myRating}/10.` : "";
+  return `Community average ${summary.averageRating.toFixed(1)}/10 from ${summary.ratingCount} ${noun}.${yourRating}`;
+}
+
+function getDetailCommunityMetricValue(summary) {
+  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+    return "--";
+  }
+
+  return `${summary.averageRating.toFixed(1)}/10`;
+}
+
+function getDetailCommunityMetricCount(summary) {
+  if (!summary || summary.ratingCount === 0) {
+    return "No ratings yet";
+  }
+
+  return `${summary.ratingCount} ${summary.ratingCount === 1 ? "rating" : "ratings"}`;
+}
+
+function syncHeroCommunityMetric(widget, summary) {
+  if (widget.heroValue) {
+    widget.heroValue.textContent = getDetailCommunityMetricValue(summary);
+  }
+
+  if (widget.heroCount) {
+    widget.heroCount.textContent = getDetailCommunityMetricCount(summary);
+  }
+}
+
+function setCommunityWidgetUnavailable(widget) {
+  widget.summary.textContent = "Community ratings are offline right now.";
+  widget.metricValue.textContent = "--";
+  widget.metricCount.textContent = "Offline";
+  widget.toggleButton.disabled = true;
+  widget.body.hidden = true;
+  widget.toggleButton.setAttribute("aria-expanded", "false");
+  widget.toggleButton.textContent = "Ratings offline";
+  if (widget.heroValue) {
+    widget.heroValue.textContent = "--";
+  }
+  if (widget.heroCount) {
+    widget.heroCount.textContent = "Offline";
+  }
 }
 
 function getDisplayedCommunityRating(summary, fallbackRating) {

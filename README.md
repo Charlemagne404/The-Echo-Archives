@@ -6,8 +6,9 @@ The Echo Archives is a curated discovery archive for audio dramas and fiction po
 
 The repo now uses a JSON-first catalog:
 
-- `data/shows.json` is the canonical show catalog
+- `data/shows.json` is the canonical show metadata index
 - `data/collections.json` is the canonical curated discovery layer
+- `data/reviews/*.json` stores long-form editorial review companions per show
 - `show.html` is the reusable show template for both full reviews and indexed-only entries
 - `podcast-ai/` serves the static site, archive chat API, anonymous community ratings, and the first-party show submission endpoint
 
@@ -35,8 +36,13 @@ npm test
 npm run validate:data
 npm run check:links
 npm run test:smoke
+npm run review:new -- <show-id>
+npm run review:publish -- <show-id>
+npm run review:report
 npm run verify
 ```
+
+The maintainer review workflow keeps `data/shows.json` focused on show metadata while `data/reviews/<show-id>.json` holds longer editorial copy. Run `review:new` to scaffold a review file, `review:publish` to promote a drafted review to `full-review`, and `review:report` to audit catalog gaps.
 
 Update a deployed checkout and restart the live service:
 

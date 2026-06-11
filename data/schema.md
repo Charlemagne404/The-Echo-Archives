@@ -2,8 +2,9 @@
 
 ## Purpose
 
-`data/shows.json` is the canonical editorial catalog.
+`data/shows.json` is the canonical editorial catalog index.
 `data/collections.json` is the canonical curated discovery layer.
+`data/reviews/*.json` stores optional long-form editorial review companions for individual shows.
 
 The frontend, chat assistant, and community features should all read from these files instead of scraping HTML.
 
@@ -79,6 +80,8 @@ Each show record uses this practical v1 shape:
   "updatedAt": "2026-06-02"
 }
 ```
+
+Long-form review fields may live inline in `data/shows.json` or in `data/reviews/<show-id>.json`. The loader merges companion review files into the final show record before validation and rendering.
 
 ## Required Fields
 
@@ -183,6 +186,22 @@ Each show record uses this practical v1 shape:
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 
+## Review Companion Shape
+
+When present, `data/reviews/<show-id>.json` should use this shape:
+
+```json
+{
+  "archiveTake": "Short editorial take used on cards and previews.",
+  "spoilerFreeReview": ["Paragraph one.", "Paragraph two."],
+  "thoughts": ["Paragraph one.", "Paragraph two."],
+  "quote": {
+    "text": "Optional quote text.",
+    "attribution": "Optional attribution"
+  }
+}
+```
+
 ## Collection Shape
 
 Collections stay simple in v1:
@@ -207,6 +226,7 @@ Collections stay simple in v1:
 
 The loader also accepts these files when they exist:
 
+- `data/reviews/<show-id>.json`
 - `data/creators.json`
 - `data/networks.json`
 - `data/changelog.json`
@@ -217,5 +237,6 @@ Their public routes and UI stay hidden until the data is present and valid.
 
 - One record per show.
 - One record per collection.
+- One optional review companion file per show when a longer editorial review exists or is being drafted.
 - Do not derive catalog truth from page filenames or DOM markup.
 - Keep v1 hand-editable.

@@ -1,6 +1,8 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
+const { hasRichReviewContent, mergeReviewContent, readReviewRecord } = require("./reviews");
+
 const VALID_REVIEW_STATUSES = new Set(["full-review", "spotlight", "indexed-only", "planned"]);
 const VALID_STATUS_VALUES = new Set(["published", "draft"]);
 const VALID_RELEASE_STATUSES = new Set(["active", "completed", "hiatus", "inactive", "unknown"]);
@@ -85,6 +87,8 @@ function buildSearchText(record) {
     record.archiveTake,
     record.spoilerFreeReview,
     record.thoughts,
+    ...(record.spoilerFreeReviewParagraphs || []),
+    ...(record.thoughtsParagraphs || []),
     ...(record.tags || []),
     ...(record.genres || []),
     ...(record.tones || []),
@@ -128,6 +132,8 @@ function normalizeRecord(record) {
     image: record.cover || "",
     imageAlt: record.coverAlt || `${record.title} cover art`,
     summary: record.description || "",
+    spoilerFreeReviewParagraphs: Array.isArray(record.spoilerFreeReviewParagraphs) ? record.spoilerFreeReviewParagraphs : [],
+    thoughtsParagraphs: Array.isArray(record.thoughtsParagraphs) ? record.thoughtsParagraphs : [],
     searchText: "",
   };
 
@@ -218,16 +224,8 @@ function validateShowRecord(record, seenIds) {
     }
   });
 
-  if (record.reviewStatus === "full-review") {
-    const hasRichContent =
-      typeof record.archiveTake === "string" &&
-      record.archiveTake.trim() &&
-      typeof record.spoilerFreeReview === "string" &&
-      record.spoilerFreeReview.trim();
-
-    if (!hasRichContent) {
+  if (record.reviewStatus === "full-review" && !hasRichReviewContent(record)) {
       throw new Error(`Show "${record.id}" is marked full-review without richer review content.`);
-    }
   }
 }
 
@@ -283,9 +281,11 @@ function loadShows(siteRoot) {
     throw new Error("data/shows.json must contain an array.");
   }
 
-  records.forEach((record) => validateShowRecord(record, seenIds));
+  const mergedRecords = records.map((record) => mergeReviewContent(record, readReviewRecord(siteRoot, record.id)));
 
-  const normalized = records.map(normalizeRecord);
+  mergedRecords.forEach((record) => validateShowRecord(record, seenIds));
+
+  const normalized = mergedRecords.map(normalizeRecord);
   const idSet = new Set(normalized.map((record) => record.id));
 
   normalized.forEach((record) => {

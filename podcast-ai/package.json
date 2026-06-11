@@ -11,6 +11,9 @@
     "test:smoke": "node --test test/browser.smoke.js",
     "validate:data": "node scripts/validate-data.js",
     "check:links": "node scripts/check-links.js",
+    "review:new": "node scripts/review-new.js",
+    "review:publish": "node scripts/review-publish.js",
+    "review:report": "node scripts/review-report.js",
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },
   "engines": {

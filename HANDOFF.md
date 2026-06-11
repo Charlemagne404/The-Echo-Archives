@@ -1,5 +1,233 @@
 ## Current task
 
+Rebalance the show page so official copy, community interaction, and archive opinion are easier to scan, while reducing the noisy facts rail and removing the lower-page right-column dead space.
+
+## Files changed
+
+- `script.js`
+- `detail.css`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Removed the hero-level full description, dropped the `Tone` band, moved `Key tags` into a quieter inline hero row, and replaced the old discovery boxes with an icon-led `Best for` strip.
+- Added a dedicated `Official summary` section sourced from the existing `description` field so that listener-facing setup stays visually separate from the editorial `Archive take`.
+- Promoted community interaction into a top-right `Community voice` card with stronger metric emphasis, a clearer rating CTA, and a deep link into the listener-review submit flow.
+- Trimmed `Facts & links` down to creator/network, official links, status, seasons/episodes, and release dates only.
+- Moved `Discovery routes` and the correction CTA out of the right rail and turned the lower `Start next`, `Discovery routes`, and correction blocks into full-width sections so the page no longer leaves a long empty right gutter under the facts rail.
+- Added submit-page query-param support for `submissionType` and `showId`, allowing preselected listener-review and correction links from the show page.
+- Updated smoke coverage for the new desktop/mobile ordering, reduced facts list, community CTA deep link, and the moved lower-page sections.
+- Verified the updated desktop render with a fresh Playwright screenshot after the final layout pass.
+
+## What still needs work
+
+- `Creator / network`, `First release`, and `Latest release` still render truthful empty states until the catalog actually carries that data.
+- The Browser plugin was not exposed as a callable local page-navigation tool in this session, so final visual QA used the repo’s Playwright dependency instead.
+
+## Commands run
+
+- `rtk npm test`
+- `rtk npm run validate:data`
+- `rtk npm run test:smoke`
+- `rtk npm start`
+- `rtk node - <<'NODE' ...` for final Playwright page screenshots of `show.html?id=impact-winter`
+
+## Known issues
+
+- No functional issues observed in this pass. Remaining gaps are data availability gaps, not renderer bugs.
+
+## Current task
+
+Redesign the podcast detail pages into a wider two-column archive layout with a persistent facts rail, a compact collapsed community module, stronger metadata surfacing, and truthful empty states for missing catalog fields.
+
+## Files changed
+
+- `script.js`
+- `detail.css`
+- `style.css`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Rebuilt the show-page renderer around a wide hero, a discovery band, a left main column, and a right utility rail instead of the old narrow stacked layout.
+- Added hero stat cards for archive rating, community summary, runtime, format, completion, and release state, plus compact `Best for`, `Tone`, and `Key tags` bands.
+- Replaced the old full-width snapshot/listen/community sections with rail cards for `Archive take`, `Facts & links`, `Discovery routes`, `Suggest a correction`, and a smaller collapsed `Listener rating` widget.
+- Surfaced data-backed facts already present in the catalog, including seasons/episodes, average episode length, narration, structure, ads, favorite run, and re-listen signal, while showing clear `Not cataloged yet` placeholders for creator/network and release-date fields that do not exist yet.
+- Updated the community widget so it stays collapsed by default, updates the new hero community stat card, and no longer leaks hidden controls into the rendered page.
+- Tightened related-show cards into a denser strip and updated indexed-only pages like `solar` to use the same rail/empty-state treatment.
+- Added smoke coverage for the new wide detail-page layout, collapsed community state, interaction flow, and sparse metadata handling on `impact-winter` and `solar`.
+- Verified fresh desktop/mobile renders with local Playwright screenshots after the implementation and the hidden-state fix.
+
+## What still needs work
+
+- `Creator / network`, `First release`, and `Latest release` remain empty-state placeholders until the catalog/schema actually carries that data.
+- The Browser plugin was not exposed as a callable local-page tool in this session, so visual QA used the repo's Playwright dependency instead.
+
+## Commands run
+
+- `rtk npm test`
+- `rtk npm run validate:data`
+- `rtk npm run test:smoke`
+- `rtk node - <<'NODE' ...` for local Playwright desktop/mobile screenshot captures of `impact-winter` and `solar`
+
+## Known issues
+
+- No functional issues observed in this pass. Remaining gaps are data availability gaps rather than renderer bugs.
+
+## Current task
+
+Implement a maintainer-first review workflow so long-form editorial reviews can live in companion files and be scaffolded/published/reported with small commands instead of hand-editing one large catalog file.
+
+## Files changed
+
+- `data/shows.json`
+- `data/reviews/impact-winter.json`
+- `data/reviews/oz-9.json`
+- `data/reviews/ars-paradoxica.json`
+- `data/schema.md`
+- `README.md`
+- `podcast-ai/README.md`
+- `podcast-ai/lib/reviews.js`
+- `podcast-ai/lib/catalog.js`
+- `podcast-ai/server.js`
+- `podcast-ai/scripts/review-helpers.js`
+- `podcast-ai/scripts/review-new.js`
+- `podcast-ai/scripts/review-publish.js`
+- `podcast-ai/scripts/review-report.js`
+- `podcast-ai/package.json`
+- `podcast-ai/test/catalog.test.js`
+- `podcast-ai/test/review-workflow.test.js`
+- `podcast-ai/test/browser.smoke.js`
+- `script.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added optional `data/reviews/<show-id>.json` companion files and migrated the three existing full reviews into them.
+- Extended the catalog loader to merge review companions into the loaded show records, preserve the existing string fields, expose paragraph arrays for rendering, and validate `full-review` entries against merged content.
+- Served the merged catalog from `/data/shows.json` so the frontend keeps working without duplicating long review copy back into the raw metadata file.
+- Updated show-page review rendering to support multiple paragraphs while keeping indexed and planned entries on the archive-note fallback path.
+- Added maintainer scripts for scaffolding, publishing, and auditing reviews: `npm run review:new -- <show-id>`, `npm run review:publish -- <show-id>`, and `npm run review:report`.
+- Added coverage for companion-review merge behavior, publish/scaffold/report workflow commands, and smoke coverage that now reads the merged loader-backed catalog instead of raw fixtures.
+- Updated the repo docs to describe the companion review dataset and the maintainer workflow.
+
+## What still needs work
+
+- The local badge asset files under `images/badges/` and the existing `home.css` changes remain unrelated to this pass and were left untouched.
+- If you want the static root to work under a generic file server again, it would need a build step that materializes the merged catalog instead of relying on the Node route.
+
+## Commands run
+
+- `rtk npm run validate:data`
+- `rtk npm test`
+- `rtk npm run check:links`
+- `rtk npm run test:smoke`
+
+## Known issues
+
+- The frontend now depends on the Node service's merged `/data/shows.json` response for companion review content; a plain static file server will only expose the raw metadata index.
+
+## Current task
+
+Repair the expanded browse-card hover behavior so the active preview stays open while the cursor remains on the expanded panel, even when that panel overlaps another card.
+
+## Files changed
+
+- `script.js`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reworked the hover controller so pointer transitions are ignored while the cursor is still inside the active expanded preview panel bounds, which stops covered cards from closing the open preview underneath the cursor.
+- Kept the previous handoff behavior for actually exposed cards, so moving to another visible card still closes the old preview and opens the new one after the normal delay.
+- Added a smoke-test regression that dynamically finds a real panel/card overlap in the current desktop layout and verifies that moving into that overlap zone does not close the active preview.
+- Reran the full `podcast-ai` verification suite successfully after the fix.
+
+## What still needs work
+
+- No follow-up is required for this hover fix unless you want additional timing or animation tuning.
+
+## Commands run
+
+- `rtk npm run test:smoke`
+- `rtk npm run verify`
+
+## Known issues
+
+- None observed in this pass.
+
+## Current task
+
+Tighten the expanded browse-card preview so the content fills the panel better, close the active preview as soon as another card is hovered, and extend the title accent rule.
+
+## Files changed
+
+- `script.js`
+- `home.css`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added a lower `archiveTake` note inside the expanded preview and redistributed the content column so the large empty band above the ratings/footer is replaced with useful archive copy instead of dead space.
+- Lengthened and softened the title accent rule so it fades out more naturally into the card background.
+- Changed desktop hover handoff so the currently open preview collapses immediately when a different card becomes hovered, instead of lingering until the next preview finishes opening.
+- Extended the smoke test to cover that hover-to-another-card dismissal path, then reran the full `podcast-ai` verification suite successfully.
+- Captured fresh desktop and mobile preview screenshots after the fix; the in-app browser could verify page identity and console health, but its exposed pointer-move API did not trigger this component's hover state, so screenshot proof used local Playwright fallback.
+
+## What still needs work
+
+- No follow-up is required for this pass unless you want another visual iteration on the preview copy hierarchy.
+
+## Commands run
+
+- `rtk npm run test:smoke`
+- `rtk npm run verify`
+- Browser QA on `http://127.0.0.1:3010/`
+- `rtk node /tmp/echo-preview-check.js`
+- `rtk node -e '...'` for a final desktop hover screenshot refresh
+
+## Known issues
+
+- The in-app browser's movement API did not put these cards into `:hover`, so visual hover screenshots were captured with the repo's local Playwright dependency instead.
+
+## Current task
+
+Compact the expanded browse-card preview, remove viewport-safe flipping/clamping, and keep the expanded panel anchored directly to the source card.
+
+## Files changed
+
+- `script.js`
+- `home.css`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reworked the expanded-card positioning logic so previews stay centered on the source card, keep the same hover/focus/touch behavior, and can overflow the viewport instead of flipping above or clamping inside the screen.
+- Removed the `ARCHIVE ENTRY` kicker, changed the close control to a compact ghost `x`, tightened spacing/typography/media proportions, and converted the heavy `Open archive` pill into a lighter inline archive link.
+- Updated the smoke suite to validate compact anchored geometry, reduced neighbor overlap, missing kicker text, inline link treatment, and allowed viewport overflow.
+- Ran the `podcast-ai` automated test suite after the UI change.
+
+## What still needs work
+
+- No functional follow-up is required for the expanded-card compaction pass unless further visual tuning is wanted after manual review.
+
+## Commands run
+
+- `rtk npm test`
+- `rtk npm run test:smoke`
+- `rtk git diff -- /Users/charliearnerstal/Documents/GitHub/The-Echo-Archives/script.js /Users/charliearnerstal/Documents/GitHub/The-Echo-Archives/home.css /Users/charliearnerstal/Documents/GitHub/The-Echo-Archives/podcast-ai/test/browser.smoke.js`
+
+## Known issues
+
+- The repo still has unrelated untracked badge image files in `images/badges/`; they were left untouched in this pass.
+
+## Current task
+
 Keep the compact browse-card `Full review` ribbon clipped to the card bounds without changing its placement.
 
 ## Files changed

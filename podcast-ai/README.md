@@ -4,7 +4,7 @@ This service runs the archive assistant for The Echo Archives and lives inside t
 
 ## What it does
 
-- Loads the structured archive catalog from `../data/shows.json`
+- Loads the structured archive catalog from `../data/shows.json` plus optional `../data/reviews/*.json` companion files
 - Exposes a same-origin chat API at `/api/chat`
 - Persists anonymous community ratings in SQLite for future participation features
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
@@ -32,3 +32,20 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request
 - `DB_PATH`: SQLite database path for community features
+
+## Maintainer review workflow
+
+The service exposes the merged catalog at `/data/shows.json`, so the frontend keeps working while long-form review copy lives in `data/reviews/<show-id>.json`.
+
+Useful maintainer commands:
+
+```bash
+cd podcast-ai
+npm run review:new -- <show-id>
+npm run review:publish -- <show-id>
+npm run review:report
+```
+
+- `review:new` creates a review companion file and moves `indexed-only` shows to `planned`
+- `review:publish` validates the companion review file and promotes the show to `full-review`
+- `review:report` prints a published-show audit for review coverage and metadata gaps

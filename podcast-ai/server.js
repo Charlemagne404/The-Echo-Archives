@@ -54,6 +54,10 @@ app.get("/sitemap.xml", (_req, res) => {
   );
 });
 
+app.get("/data/shows.json", (_req, res) => {
+  res.json(catalog);
+});
+
 app.use("/api/chat", createChatRouter({ catalog, config }));
 app.use("/api/community", createCommunityRouter({ communityService, config }));
 app.use("/api/submissions", createSubmissionRouter({ submissionService }));
