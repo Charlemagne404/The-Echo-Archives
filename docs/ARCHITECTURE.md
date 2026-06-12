@@ -49,6 +49,8 @@ The frontend should:
 - keep the current visual identity
 - expose trust signals and discovery features without requiring a frontend framework rewrite
 - hide future features until backing data actually exists
+- keep `script.js` as the single browser entry while `shared/app/` owns the runtime modules
+- keep the public CSS URLs stable while `shared/styles/` owns imported partials behind them
 
 If the catalog grows significantly, prefer lightweight derived indexes before considering a heavier stack migration.
 
@@ -111,6 +113,7 @@ Validation should continue to cover:
 - duplicate taxonomy terms
 - `similarTo` references
 - `similarReasons` references when present
+- optional release, verification, and richer metadata fields when present
 - optional `createdAt`, `creatorId`, and `networkId` fields
 - collection references
 
@@ -123,6 +126,7 @@ The system should fail fast on malformed structured data rather than silently de
 It defines:
 
 - the `show` object shape
+- the richer optional metadata the JSON catalog may store before the UI uses it
 - required fields
 - controlled values
 - validation rules
@@ -245,3 +249,5 @@ The current limitations are mostly editorial and scale-related:
 - Do not add a heavy platform migration without a demonstrated bottleneck.
 - Separate editorial truth from community and moderation workflow data.
 - Prefer additive optional datasets over duplicated route-specific data.
+- Keep the repo root as the intentional public web surface unless deployment requirements materially change.
+- Treat public routes, query params, API shapes, storage keys, and DOM hooks as compatibility boundaries during hygiene refactors.

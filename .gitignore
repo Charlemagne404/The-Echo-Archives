@@ -1,6 +1,8 @@
 podcast-ai/node_modules/
 podcast-ai/.env
 .env
+.DS_Store
+**/.DS_Store
 podcast-ai/data/*.sqlite
 podcast-ai/data/*.sqlite-*
 podcast-ai/.DS_Store

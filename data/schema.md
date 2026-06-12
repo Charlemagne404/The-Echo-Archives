@@ -34,12 +34,21 @@ Each show record uses this practical v1 shape:
   "tones": ["dark", "cinematic"],
   "formats": ["full-cast", "serialized"],
   "tags": ["Survival", "Post-apocalyptic", "Vampires"],
+  "aliases": ["Impact Winter Podcast"],
+  "themes": ["survival", "found family"],
+  "contentNotes": ["violence", "apocalyptic setting"],
+  "languages": ["English"],
+  "transcriptLanguages": ["English"],
   "length": {
     "label": "18 hours total",
     "seasons": 3,
     "episodes": 36,
     "avgEpisodeMinutes": 30,
     "totalHours": 18
+  },
+  "releaseDates": {
+    "first": "2022-02-01",
+    "latest": "2025-03-15"
   },
   "ratings": {
     "archive": 10,
@@ -69,6 +78,43 @@ Each show record uses this practical v1 shape:
     "text": "You make the choices you can live with.",
     "attribution": "Rook"
   },
+  "officialLinks": {
+    "website": "https://example.com",
+    "patreon": "https://patreon.com/example",
+    "discord": "https://discord.gg/example",
+    "youtube": "https://youtube.com/@example"
+  },
+  "credits": {
+    "creatorName": "Travis Beacham",
+    "cast": ["Actor One", "Actor Two"],
+    "writer": "Writer Name",
+    "director": "Director Name",
+    "soundDesign": "Studio Name"
+  },
+  "verification": {
+    "status": "creator-verified",
+    "verifiedAt": "2026-06-02",
+    "source": "Official site and creator email",
+    "note": "Verification covers factual metadata only."
+  },
+  "availability": {
+    "transcripts": "select episodes",
+    "captions": "n/a",
+    "regionNotes": "Global podcast platform availability"
+  },
+  "content": {
+    "setting": "post-apocalyptic UK",
+    "pov": "multi-character",
+    "sourceMaterial": "original fiction",
+    "intensity": "high"
+  },
+  "metadata": {
+    "awards": ["Example Award nominee"],
+    "schedule": {
+      "cadence": "seasonal",
+      "note": "Returns between seasons"
+    }
+  },
   "featured": true,
   "createdAt": "2026-06-01",
   "creatorId": "example-creator",
@@ -82,6 +128,8 @@ Each show record uses this practical v1 shape:
 ```
 
 Long-form review fields may live inline in `data/shows.json` or in `data/reviews/<show-id>.json`. The loader merges companion review files into the final show record before validation and rendering.
+
+The schema is intentionally allowed to be richer than the current UI. If structured metadata improves editorial accuracy or future discovery, keep it in `data/shows.json` even when it is not surfaced on the site yet.
 
 ## Required Fields
 
@@ -175,15 +223,45 @@ Long-form review fields may live inline in `data/shows.json` or in `data/reviews
 - `cold-isolation-horror`
 - `short-under-five-hours`
 
+## Optional Rich Metadata
+
+The archive should err toward storing useful structured show knowledge now and deciding later what deserves public UI.
+
+Common optional top-level fields:
+
+- `aliases`: alternate titles or search-friendly names
+- `themes`: recurring narrative or emotional ideas
+- `contentNotes`: spoiler-free intensity or content warnings
+- `languages`: spoken languages
+- `transcriptLanguages`: transcript availability languages
+- `creatorName` and `networkName`: display-ready labels before dedicated entity pages exist
+- `officialLinks`: non-listen links such as Patreon, Discord, merch, wiki, YouTube, social, or support pages
+- `releaseDates.first` and `releaseDates.latest`: preferred nested release-date home
+- `cast` and `creators`: simple string arrays for notable people when full entity modeling is unnecessary
+
+Useful optional structured objects:
+
+- `facts`: practical listening facts and archive notes
+- `credits`: creator, cast, writer, director, composer, studio, network, or production credits
+- `availability`: transcript, captions, region, platform, or access notes
+- `content`: setting, POV, source material, intensity, framing device, or similar descriptive metadata
+- `verification`: creator-verified or officially sourced factual status plus provenance
+- `metadata`: extra structured archive-only notes that do not fit elsewhere yet
+
+These fields are optional and may remain partially filled. Prefer truthful partial data over made-up completeness.
+
 ## Validation Rules
 
 - Every `id` must be unique.
 - Every `similarTo` id must resolve to a real show.
 - Every `similarReasons` key must also appear in `similarTo`.
 - Every populated URL in `listenLinks` must be a valid absolute URL.
+- Every populated URL in `officialLinks` must be a valid absolute URL.
 - `createdAt` and `updatedAt` must be valid dates when present.
+- `firstRelease`, `firstReleasedAt`, `latestRelease`, `lastReleasedAt`, `releaseDates.first`, `releaseDates.latest`, and `verification.verifiedAt` must be valid dates when present.
 - `creatorId` and `networkId` must use slug ids when present.
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
+- `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 
 ## Review Companion Shape

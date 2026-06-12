@@ -11,9 +11,12 @@ The repo now uses a JSON-first catalog:
 - `data/reviews/*.json` stores long-form editorial review companions per show
 - `show.html` is the reusable show template for both full reviews and indexed-only entries
 - `podcast-ai/` serves the static site, archive chat API, anonymous community ratings, and the first-party show submission endpoint
+- `script.js` is the thin browser entry and `shared/app/` owns the runtime frontend modules
+- `style.css`, `home.css`, and `detail.css` stay public root assets while `shared/styles/` owns the imported partial tree
 
 The visual language stays largely static, but the homepage, show pages, chat grounding, and community features now read from the same catalog records.
 Collections now have first-class browse routes, the homepage exposes archive trust stats plus structured filtering, the submit flow supports new shows, corrections, listener reviews, and creator verification requests, and the site exposes `robots.txt` plus a generated sitemap.
+The catalog schema is intentionally broader than the currently rendered UI so richer podcast metadata can live in JSON first and be surfaced later when it proves useful.
 
 ## Local development
 
@@ -45,6 +48,9 @@ npm run verify
 The maintainer review workflow keeps `data/shows.json` focused on show metadata while `data/reviews/<show-id>.json` holds longer editorial copy. Run `review:new` to scaffold a review file, `review:publish` to promote a drafted review to `full-review`, and `review:report` to audit catalog gaps.
 
 Root-level delivery files are intentionally present for both the live Node deployment and simpler static hosting setups, including `404.html`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, and the basic policy pages.
+The root public surface is intentional: no build step is required, Express can still serve the repo root directly, and simple static-host fallbacks continue to work.
+
+This repo hygiene refactor does not change public routes, query params, API shapes, catalog schema, DOM hooks, or storage keys.
 
 Update a deployed checkout and restart the live service:
 

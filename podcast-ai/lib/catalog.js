@@ -56,6 +56,80 @@ function normalizeTextMap(value) {
   );
 }
 
+function normalizeStringArray(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value.map((entry) => String(entry || "").trim()).filter(Boolean);
+}
+
+function normalizeUrlMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries(value)
+      .map(([key, href]) => [String(key || "").trim(), String(href || "").trim()])
+      .filter(([key, href]) => key && href),
+  );
+}
+
+function normalizeStructuredValue(value) {
+  if (typeof value === "string") {
+    const normalized = value.trim();
+    return normalized ? normalized : undefined;
+  }
+
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : undefined;
+  }
+
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    const normalized = value
+      .map((entry) => normalizeStructuredValue(entry))
+      .filter((entry) => entry !== undefined);
+    return normalized.length > 0 ? normalized : undefined;
+  }
+
+  if (!value || typeof value !== "object") {
+    return undefined;
+  }
+
+  const normalizedEntries = Object.entries(value)
+    .map(([key, entryValue]) => [String(key || "").trim(), normalizeStructuredValue(entryValue)])
+    .filter(([key, entryValue]) => key && entryValue !== undefined);
+
+  if (normalizedEntries.length === 0) {
+    return undefined;
+  }
+
+  return Object.fromEntries(normalizedEntries);
+}
+
+function normalizeStructuredObject(value) {
+  const normalized = normalizeStructuredValue(value);
+  if (!normalized || typeof normalized !== "object" || Array.isArray(normalized)) {
+    return {};
+  }
+
+  return normalized;
+}
+
+function validateUrlMap(showId, fieldName, value) {
+  const links = value && typeof value === "object" && !Array.isArray(value) ? value : {};
+  Object.entries(links).forEach(([key, href]) => {
+    if (!isValidUrl(href || "")) {
+      throw new Error(`Show "${showId}" has invalid ${fieldName}.${key} URL.`);
+    }
+  });
+}
+
 function assertUniqueNormalized(collection, fieldName, showId) {
   const seen = new Set();
 
@@ -78,13 +152,29 @@ function formatShowHref(id) {
 }
 
 function normalizeRecord(record) {
-  const tags = Array.isArray(record.tags) ? record.tags.filter(Boolean) : [];
-  const genres = Array.isArray(record.genres) ? record.genres.filter(Boolean) : [];
-  const tones = Array.isArray(record.tones) ? record.tones.filter(Boolean) : [];
-  const formats = Array.isArray(record.formats) ? record.formats.filter(Boolean) : [];
-  const bestFor = Array.isArray(record.bestFor) ? record.bestFor.filter(Boolean) : [];
-  const similarTo = Array.isArray(record.similarTo) ? record.similarTo.filter(Boolean) : [];
+  const tags = normalizeStringArray(record.tags);
+  const genres = normalizeStringArray(record.genres);
+  const tones = normalizeStringArray(record.tones);
+  const formats = normalizeStringArray(record.formats);
+  const bestFor = normalizeStringArray(record.bestFor);
+  const similarTo = normalizeStringArray(record.similarTo);
+  const aliases = normalizeStringArray(record.aliases);
+  const themes = normalizeStringArray(record.themes);
+  const contentNotes = normalizeStringArray(record.contentNotes);
+  const languages = normalizeStringArray(record.languages);
+  const transcriptLanguages = normalizeStringArray(record.transcriptLanguages);
+  const cast = normalizeStringArray(record.cast);
+  const creators = normalizeStringArray(record.creators);
   const similarReasons = normalizeTextMap(record.similarReasons);
+  const listenLinks = normalizeUrlMap(record.listenLinks);
+  const officialLinks = normalizeUrlMap(record.officialLinks);
+  const facts = normalizeStructuredObject(record.facts);
+  const credits = normalizeStructuredObject(record.credits);
+  const availability = normalizeStructuredObject(record.availability);
+  const content = normalizeStructuredObject(record.content);
+  const verification = normalizeStructuredObject(record.verification);
+  const metadata = normalizeStructuredObject(record.metadata);
+  const releaseDates = normalizeStructuredObject(record.releaseDates);
   const ratings = record.ratings && typeof record.ratings === "object" ? record.ratings : {};
   const finalRating =
     typeof ratings.archive === "number"
@@ -101,7 +191,27 @@ function normalizeRecord(record) {
     formats,
     bestFor,
     similarTo,
+    aliases,
+    themes,
+    contentNotes,
+    languages,
+    transcriptLanguages,
+    cast,
+    creators,
     similarReasons,
+    listenLinks,
+    officialLinks,
+    facts,
+    credits,
+    availability,
+    content,
+    verification,
+    metadata,
+    releaseDates: {
+      ...releaseDates,
+      first: record.firstRelease || record.firstReleasedAt || releaseDates.first || "",
+      latest: record.latestRelease || record.lastReleasedAt || releaseDates.latest || "",
+    },
     ratings,
     finalRating: Number.isFinite(finalRating) ? finalRating : null,
     href: formatShowHref(record.id),
@@ -171,6 +281,13 @@ function validateShowRecord(record, seenIds) {
   assertUniqueNormalized(record.tones, "tones", record.id);
   assertUniqueNormalized(record.formats, "formats", record.id);
   assertUniqueNormalized(record.bestFor, "bestFor", record.id);
+  assertUniqueNormalized(record.aliases, "aliases", record.id);
+  assertUniqueNormalized(record.themes, "themes", record.id);
+  assertUniqueNormalized(record.contentNotes, "contentNotes", record.id);
+  assertUniqueNormalized(record.languages, "languages", record.id);
+  assertUniqueNormalized(record.transcriptLanguages, "transcriptLanguages", record.id);
+  assertUniqueNormalized(record.cast, "cast", record.id);
+  assertUniqueNormalized(record.creators, "creators", record.id);
 
   if (record.createdAt && !isValidDateValue(record.createdAt)) {
     throw new Error(`Show "${record.id}" has invalid createdAt "${record.createdAt}".`);
@@ -192,15 +309,26 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" has invalid similarReasons data.`);
   }
 
-  const listenLinks = record.listenLinks && typeof record.listenLinks === "object" ? record.listenLinks : {};
-  Object.entries(listenLinks).forEach(([key, value]) => {
-    if (!isValidUrl(value || "")) {
-      throw new Error(`Show "${record.id}" has invalid listenLinks.${key} URL.`);
+  validateUrlMap(record.id, "listenLinks", record.listenLinks);
+  validateUrlMap(record.id, "officialLinks", record.officialLinks);
+
+  const datedFields = [
+    ["firstRelease", record.firstRelease],
+    ["firstReleasedAt", record.firstReleasedAt],
+    ["latestRelease", record.latestRelease],
+    ["lastReleasedAt", record.lastReleasedAt],
+    ["releaseDates.first", record.releaseDates?.first],
+    ["releaseDates.latest", record.releaseDates?.latest],
+    ["verification.verifiedAt", record.verification?.verifiedAt],
+  ];
+  datedFields.forEach(([fieldName, value]) => {
+    if (value && !isValidDateValue(value)) {
+      throw new Error(`Show "${record.id}" has invalid ${fieldName} "${value}".`);
     }
   });
 
   if (record.reviewStatus === "full-review" && !hasRichReviewContent(record)) {
-      throw new Error(`Show "${record.id}" is marked full-review without richer review content.`);
+    throw new Error(`Show "${record.id}" is marked full-review without richer review content.`);
   }
 }
 

@@ -225,6 +225,88 @@ test("companion review content overrides stale inline review fields", () => {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("loadCatalog preserves richer optional metadata for future show-page use", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const imagesRoot = path.join(tempRoot, "images");
+
+  fs.mkdirSync(imagesRoot, { recursive: true });
+  fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({
+      aliases: [" Demo Show ", "The Demo Show"],
+      themes: ["Isolation", "Hope"],
+      contentNotes: ["Loud audio spikes"],
+      languages: ["English"],
+      transcriptLanguages: ["English"],
+      cast: [" Actor One ", "Actor Two"],
+      creators: ["Creator One"],
+      creatorName: "Creator Display",
+      networkName: "Network Display",
+      officialLinks: {
+        website: "https://official.example.com",
+        discord: "https://discord.gg/example",
+      },
+      releaseDates: {
+        first: "2024-01-02",
+        latest: "2024-06-03",
+      },
+      firstRelease: "2024-01-02",
+      latestRelease: "2024-06-03",
+      facts: {
+        narrator: "Single narrator",
+        adBreaks: "mid-roll only",
+      },
+      credits: {
+        writer: "Writer Name",
+        cast: ["Actor One", "Actor Two"],
+      },
+      availability: {
+        transcripts: "select episodes",
+      },
+      content: {
+        setting: "deep space",
+        intensity: "high",
+      },
+      verification: {
+        status: "creator-verified",
+        verifiedAt: "2026-06-02",
+        note: "Facts only.",
+      },
+      metadata: {
+        awards: ["Example Award"],
+        schedule: {
+          cadence: "seasonal",
+        },
+      },
+    }),
+  ]);
+
+  const [show] = loadCatalog(tempRoot);
+
+  assert.deepEqual(show.aliases, ["Demo Show", "The Demo Show"]);
+  assert.deepEqual(show.themes, ["Isolation", "Hope"]);
+  assert.deepEqual(show.contentNotes, ["Loud audio spikes"]);
+  assert.deepEqual(show.languages, ["English"]);
+  assert.deepEqual(show.transcriptLanguages, ["English"]);
+  assert.deepEqual(show.cast, ["Actor One", "Actor Two"]);
+  assert.deepEqual(show.creators, ["Creator One"]);
+  assert.equal(show.creatorName, "Creator Display");
+  assert.equal(show.networkName, "Network Display");
+  assert.equal(show.officialLinks.discord, "https://discord.gg/example");
+  assert.equal(show.releaseDates.first, "2024-01-02");
+  assert.equal(show.releaseDates.latest, "2024-06-03");
+  assert.equal(show.facts.narrator, "Single narrator");
+  assert.deepEqual(show.credits.cast, ["Actor One", "Actor Two"]);
+  assert.equal(show.availability.transcripts, "select episodes");
+  assert.equal(show.content.setting, "deep space");
+  assert.equal(show.verification.status, "creator-verified");
+  assert.equal(show.metadata.schedule.cadence, "seasonal");
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
 test("full-review validation still fails when neither inline nor companion rich content exists", () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

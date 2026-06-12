@@ -12,6 +12,9 @@ const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
 const showFixtures = loadCatalog(siteRoot);
 const collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
+const legacyRedirectManifest = JSON.parse(
+  fs.readFileSync(path.resolve(siteRoot, "docs/archive/legacy-redirects.json"), "utf8"),
+);
 const basePort = 3310;
 const baseUrl = `http://127.0.0.1:${basePort}`;
 const firstCollectionId = collectionFixtures[0].id;
@@ -237,6 +240,36 @@ test("main routes render expected page titles", async () => {
       await page.goto(route.url, { waitUntil: "networkidle" });
       await page.waitForLoadState("domcontentloaded");
       assert.equal(await page.title(), route.title);
+    }
+  } finally {
+    await page.close();
+  }
+});
+
+test("static delivery files remain directly servable", async () => {
+  const staticPaths = [
+    "/404.html",
+    "/robots.txt",
+    "/site.webmanifest",
+    "/favicon.ico",
+    "/apple-touch-icon.png",
+    "/og-image.png",
+  ];
+
+  for (const staticPath of staticPaths) {
+    const response = await fetch(`${baseUrl}${staticPath}`);
+    assert.equal(response.ok, true, `${staticPath} should be directly servable.`);
+  }
+});
+
+test("legacy detail redirects still land on the canonical show route", async () => {
+  const page = await browser.newPage();
+
+  try {
+    for (const redirect of legacyRedirectManifest) {
+      await page.goto(encodeURI(`${baseUrl}/${redirect.path}`), { waitUntil: "load" });
+      await page.waitForURL(`${baseUrl}${redirect.target}`, { timeout: 5_000 });
+      assert.equal(new URL(await page.url()).pathname + new URL(await page.url()).search, redirect.target);
     }
   } finally {
     await page.close();
@@ -788,7 +821,8 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal(firstMetrics.panelPlacement, "card");
     assert.ok(firstMetrics.panelTopDoc <= firstMetrics.shellTopDoc);
     assert.ok(firstMetrics.shellTopDoc - firstMetrics.panelTopDoc < 12);
-    assert.ok(firstMetrics.panelLeft < 0);
+    assert.ok(firstMetrics.panelLeft >= 0);
+    assert.ok(firstMetrics.panelRight <= firstMetrics.viewport);
 
     await page.locator("#resultsSummary").hover();
     await page.waitForTimeout(240);
@@ -807,7 +841,8 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal(rightMetrics.panelPlacement, "card");
     assert.ok(rightMetrics.panelTopDoc <= rightMetrics.shellTopDoc);
     assert.ok(rightMetrics.shellTopDoc - rightMetrics.panelTopDoc < 12);
-    assert.ok(rightMetrics.panelRight > rightMetrics.viewport);
+    assert.ok(rightMetrics.panelLeft >= 0);
+    assert.ok(rightMetrics.panelRight <= rightMetrics.viewport);
 
     await middleShell.locator(".podcast-card-primary").focus();
     await page.waitForFunction(
@@ -893,7 +928,8 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.ok(touchMetrics.panelWidth < touchMetrics.shellWidth * 2.2);
     assert.ok(touchMetrics.panelTopDoc <= touchBefore.shellTopDoc);
     assert.ok(touchBefore.shellTopDoc - touchMetrics.panelTopDoc < 12);
-    assert.ok(touchMetrics.panelLeft < touchBefore.shellLeftDoc);
+    assert.ok(touchMetrics.panelLeft >= 0);
+    assert.ok(touchMetrics.panelRight <= touchMetrics.viewport);
     assert.equal(touchMetrics.panelBoundsOk, true);
 
     await firstShell.locator(".preview-close-button").tap();
@@ -959,7 +995,8 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.ok(narrowMetrics.panelWidth < narrowMetrics.shellWidth * 2.25);
     assert.ok(narrowMetrics.panelTopDoc <= narrowMetrics.shellTopDoc);
     assert.ok(narrowMetrics.shellTopDoc - narrowMetrics.panelTopDoc < 12);
-    assert.ok(narrowMetrics.panelLeft < narrowMetrics.shellLeftDoc);
+    assert.ok(narrowMetrics.panelLeft >= 0);
+    assert.ok(narrowMetrics.panelRight <= narrowMetrics.viewport);
     assert.equal(narrowMetrics.panelBoundsOk, true);
   } finally {
     await narrowTouchPage.close();
