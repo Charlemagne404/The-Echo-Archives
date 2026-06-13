@@ -7,7 +7,7 @@ export async function initializeAboutPage() {
   const collections = await loadCollections();
   updateDocumentMetadata({
     title: "About - The Echo Archives",
-    description: "How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy.",
+    description: "Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support.",
     path: "/about.html",
     image: DEFAULT_SOCIAL_IMAGE,
   });

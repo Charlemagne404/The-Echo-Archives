@@ -23,17 +23,32 @@ function createTempSubmissionService({ knownShowIds = null } = {}) {
   return { tempDir, db, service };
 }
 
-test("show submissions are stored in the SQLite review queue", () => {
-  const { tempDir, db, service } = createTempSubmissionService();
+function cleanupTempService({ tempDir, db }) {
+  db.close();
+  fs.rmSync(tempDir, { recursive: true, force: true });
+}
 
-  const result = service.submitShow({
+test("show submissions store the expanded structured intake payload", () => {
+  const context = createTempSubmissionService();
+
+  const result = context.service.submitShow({
+    submissionType: "show",
     showTitle: "Test Show",
     creatorName: "Example Studio",
     contactEmail: "hello@example.com",
     officialSite: "https://example.com",
     rssOrListenLink: "",
-    genres: "sci-fi, mystery",
-    notes: "A concise intake note.",
+    genres: "horror, sci-fi",
+    listenLinks: [
+      { label: "Spotify", url: "https://open.spotify.com/show/test" },
+      { label: "RSS Feed", url: "https://example.com/feed" },
+    ],
+    selectedTags: ["Horror", "Sci-fi", "Full-cast"],
+    completionStatus: "ongoing",
+    shortDescription: "A spoiler-free description of the show.",
+    archiveFitNote: "A strong archive fit with a clear audience.",
+    verificationNotes: "Press kit is available on the official site.",
+    notes: "A strong archive fit with a clear audience.",
     honeypot: "",
     sourceIp: "127.0.0.1",
     userAgent: "test-agent",
@@ -45,26 +60,37 @@ test("show submissions are stored in the SQLite review queue", () => {
   assert.equal(result.submission.submission_type, "show");
   assert.equal(result.submission.show_title, "Test Show");
   assert.equal(result.submission.contact_email, "hello@example.com");
+  assert.equal(result.submission.rss_or_listen_link, "https://open.spotify.com/show/test");
+  assert.equal(result.submission.genres, "Horror, Sci-fi, Full-cast");
   assert.deepEqual(result.submission.payload_json, {
-    genres: "sci-fi, mystery",
-    notes: "A concise intake note.",
+    listenLinks: [
+      { label: "Spotify", url: "https://open.spotify.com/show/test" },
+      { label: "RSS Feed", url: "https://example.com/feed" },
+    ],
+    selectedTags: ["Horror", "Sci-fi", "Full-cast"],
+    completionStatus: "ongoing",
+    shortDescription: "A spoiler-free description of the show.",
+    archiveFitNote: "A strong archive fit with a clear audience.",
+    verificationNotes: "Press kit is available on the official site.",
   });
 
-  db.close();
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  cleanupTempService(context);
 });
 
 test("honeypot submissions are accepted without creating queue entries", () => {
-  const { tempDir, db, service } = createTempSubmissionService();
+  const context = createTempSubmissionService();
 
-  const result = service.submitShow({
+  const result = context.service.submitShow({
+    submissionType: "show",
     showTitle: "Bot Show",
-    creatorName: "",
+    creatorName: "Bot Studio",
     contactEmail: "bot@example.com",
     officialSite: "https://example.com",
-    rssOrListenLink: "",
-    genres: "",
-    notes: "",
+    listenLinks: [{ label: "Website", url: "https://example.com" }],
+    selectedTags: ["Mystery"],
+    completionStatus: "unknown",
+    shortDescription: "A placeholder description.",
+    archiveFitNote: "Placeholder archive note.",
     honeypot: "filled",
     sourceIp: "127.0.0.1",
     userAgent: "test-agent",
@@ -73,81 +99,101 @@ test("honeypot submissions are accepted without creating queue entries", () => {
   assert.equal(result.accepted, true);
   assert.equal(result.filtered, true);
 
-  db.close();
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  cleanupTempService(context);
 });
 
 test("submission throttling rejects repeated posts from one IP", () => {
-  const { tempDir, db, service } = createTempSubmissionService();
+  const context = createTempSubmissionService();
 
   const basePayload = {
-    creatorName: "",
+    submissionType: "show",
+    creatorName: "Example Studio",
     contactEmail: "hello@example.com",
     officialSite: "https://example.com",
-    rssOrListenLink: "",
-    genres: "",
-    notes: "",
+    listenLinks: [{ label: "Website", url: "https://example.com" }],
+    selectedTags: ["Drama"],
+    completionStatus: "ongoing",
+    shortDescription: "A spoiler-free description.",
+    archiveFitNote: "An archive note.",
     honeypot: "",
     sourceIp: "127.0.0.1",
     userAgent: "test-agent",
   };
 
-  service.submitShow({ ...basePayload, showTitle: "First Show" });
-  service.submitShow({ ...basePayload, showTitle: "Second Show" });
+  context.service.submitShow({ ...basePayload, showTitle: "First Show" });
+  context.service.submitShow({ ...basePayload, showTitle: "Second Show" });
 
   assert.throws(
     () => {
-      service.submitShow({ ...basePayload, showTitle: "Third Show" });
+      context.service.submitShow({ ...basePayload, showTitle: "Third Show" });
     },
     {
       message: /too many submissions/i,
     },
   );
 
-  db.close();
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  cleanupTempService(context);
 });
 
-test("correction submissions require a known archive entry and persist it", () => {
-  const { tempDir, db, service } = createTempSubmissionService({
+test("correction submissions require a known archive entry, allow optional email, and persist structured sources", () => {
+  const context = createTempSubmissionService({
     knownShowIds: new Set(["impact-winter"]),
   });
 
-  const result = service.submitShow({
+  const result = context.service.submitShow({
     submissionType: "correction",
     existingShowId: "impact-winter",
     showTitle: "Impact Winter",
     creatorName: "",
-    contactEmail: "hello@example.com",
+    contactEmail: "",
     officialSite: "",
     rssOrListenLink: "",
     genres: "",
-    notes: "Archive note correction.",
+    correctionType: "broken-link",
+    issueDescription: "The official website link returns a 404.",
+    correctedInformation: "Use https://impactwinter.com instead.",
+    sourceLinks: [
+      { url: "https://impactwinter.com" },
+      { url: "https://x.com/impactwinter/status/1234567890123456789" },
+    ],
+    notes: "Confirmed via official site and verified social account.",
     honeypot: "",
-    sourceIp: "127.0.0.1",
+    sourceIp: "127.0.0.2",
     userAgent: "test-agent",
   });
 
   assert.equal(result.submission.submission_type, "correction");
   assert.equal(result.submission.existing_show_id, "impact-winter");
+  assert.equal(result.submission.contact_email, "");
   assert.deepEqual(result.submission.payload_json, {
-    correctionDetails: "Archive note correction.",
+    correctionType: "broken-link",
+    issueDescription: "The official website link returns a 404.",
+    correctedInformation: "Use https://impactwinter.com instead.",
+    sourceLinks: [
+      "https://impactwinter.com",
+      "https://x.com/impactwinter/status/1234567890123456789",
+    ],
+    notes: "Confirmed via official site and verified social account.",
+  });
+  assert.deepEqual(result.submission.provenance_json, {
+    sourceLinks: [
+      "https://impactwinter.com",
+      "https://x.com/impactwinter/status/1234567890123456789",
+    ],
   });
 
   assert.throws(
     () => {
-      service.submitShow({
+      context.service.submitShow({
         submissionType: "correction",
         existingShowId: "missing-show",
         showTitle: "Missing Show",
-        creatorName: "",
-        contactEmail: "hello@example.com",
-        officialSite: "https://example.com",
-        rssOrListenLink: "",
-        genres: "",
-        notes: "",
+        correctionType: "metadata",
+        issueDescription: "Missing creator credit.",
+        correctedInformation: "Add Example Studio.",
+        sourceLinks: [{ url: "https://example.com" }],
         honeypot: "",
-        sourceIp: "127.0.0.2",
+        sourceIp: "127.0.0.3",
         userAgent: "test-agent",
       });
     },
@@ -156,109 +202,127 @@ test("correction submissions require a known archive entry and persist it", () =
     },
   );
 
-  db.close();
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  cleanupTempService(context);
 });
 
-test("listener review submissions persist typed review payload", () => {
-  const { tempDir, db, service } = createTempSubmissionService({
+test("listener review submissions normalize 5 stars into the 10-point score and keep optional fields", () => {
+  const context = createTempSubmissionService({
     knownShowIds: new Set(["impact-winter"]),
   });
 
-  const result = service.submitShow({
+  const result = context.service.submitShow({
     submissionType: "listener-review",
     existingShowId: "impact-winter",
     showTitle: "Impact Winter",
     creatorName: "",
-    contactEmail: "listener@example.com",
+    contactEmail: "",
     officialSite: "",
     rssOrListenLink: "",
     genres: "",
-    listenerRating: "9",
+    ratingStars: 4,
     spoilerLevel: "spoiler-free",
-    listenerReview: "A strong starting point with great atmosphere.",
-    verificationSources: "",
-    provenanceNotes: "",
+    reviewTitle: "Atmospheric and sharply paced",
+    reviewText: "A strong starting point with great atmosphere and very clean momentum.",
+    whoWouldLikeThis: "Listeners who want horror with a polished production style.",
+    bestFor: ["Long walks", "Headphones on"],
+    workedBest: ["Atmosphere", "Sound design"],
+    similarShows: "The White Vault, Derelict",
+    alias: "Listener42",
     notes: "Keep this spoiler-safe.",
-    honeypot: "",
-    sourceIp: "127.0.0.3",
-    userAgent: "test-agent",
-  });
-
-  assert.equal(result.submission.submission_type, "listener-review");
-  assert.deepEqual(result.submission.payload_json, {
-    rating: 9,
-    spoilerLevel: "spoiler-free",
-    review: "A strong starting point with great atmosphere.",
-    notes: "Keep this spoiler-safe.",
-  });
-
-  db.close();
-  fs.rmSync(tempDir, { recursive: true, force: true });
-});
-
-test("creator verification submissions require provenance links and persist them separately", () => {
-  const { tempDir, db, service } = createTempSubmissionService({
-    knownShowIds: new Set(["impact-winter"]),
-  });
-
-  const result = service.submitShow({
-    submissionType: "creator-verification",
-    existingShowId: "impact-winter",
-    showTitle: "Impact Winter",
-    creatorName: "Example Studio",
-    contactEmail: "creator@example.com",
-    officialSite: "https://example.com",
-    rssOrListenLink: "",
-    genres: "",
-    listenerRating: "",
-    spoilerLevel: "",
-    listenerReview: "",
-    verificationSources: "https://example.com/source-one\nhttps://example.com/source-two",
-    provenanceNotes: "Update the official site and release status.",
-    notes: "Creator supplied factual correction.",
     honeypot: "",
     sourceIp: "127.0.0.4",
     userAgent: "test-agent",
   });
 
-  assert.equal(result.submission.submission_type, "creator-verification");
+  assert.equal(result.submission.submission_type, "listener-review");
+  assert.equal(result.submission.contact_email, "");
   assert.deepEqual(result.submission.payload_json, {
-    sourceLinks: ["https://example.com/source-one", "https://example.com/source-two"],
-    factsToVerify: "Update the official site and release status.",
-    notes: "Creator supplied factual correction.",
+    ratingStars: 4,
+    rating: 8,
+    spoilerLevel: "spoiler-free",
+    reviewTitle: "Atmospheric and sharply paced",
+    review: "A strong starting point with great atmosphere and very clean momentum.",
+    whoWouldLikeThis: "Listeners who want horror with a polished production style.",
+    bestFor: ["Long walks", "Headphones on"],
+    workedBest: ["Atmosphere", "Sound design"],
+    similarShows: "The White Vault, Derelict",
+    alias: "Listener42",
+    notes: "Keep this spoiler-safe.",
+  });
+
+  cleanupTempService(context);
+});
+
+test("creator verification submissions persist structured provenance without requiring contact email", () => {
+  const context = createTempSubmissionService({
+    knownShowIds: new Set(["impact-winter"]),
+  });
+
+  const result = context.service.submitShow({
+    submissionType: "creator-verification",
+    existingShowId: "impact-winter",
+    showTitle: "Impact Winter",
+    creatorName: "Example Studio",
+    contactEmail: "",
+    officialSite: "https://impactwinter.com",
+    role: "network-representative",
+    verificationMethod: "website",
+    proofUrl: "https://impactwinter.com/about",
+    requestedUpdates: "Update the official website, status, and Apple Podcasts link.",
+    preferredDescription: "The official horror thriller series from Example Studio.",
+    officialLinks: [
+      { label: "Website", url: "https://impactwinter.com" },
+      { label: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/impact-winter/id123" },
+    ],
+    notes: "Official update from the network team.",
+    honeypot: "",
+    sourceIp: "127.0.0.5",
+    userAgent: "test-agent",
+  });
+
+  assert.equal(result.submission.submission_type, "creator-verification");
+  assert.equal(result.submission.contact_email, "");
+  assert.deepEqual(result.submission.payload_json, {
+    role: "network-representative",
+    verificationMethod: "website",
+    proofUrl: "https://impactwinter.com/about",
+    requestedUpdates: "Update the official website, status, and Apple Podcasts link.",
+    preferredDescription: "The official horror thriller series from Example Studio.",
+    officialLinks: [
+      { label: "Website", url: "https://impactwinter.com" },
+      { label: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/impact-winter/id123" },
+    ],
+    notes: "Official update from the network team.",
   });
   assert.deepEqual(result.submission.provenance_json, {
-    sourceLinks: ["https://example.com/source-one", "https://example.com/source-two"],
+    proofUrl: "https://impactwinter.com/about",
+    officialLinks: [
+      { label: "Website", url: "https://impactwinter.com" },
+      { label: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/impact-winter/id123" },
+    ],
   });
 
   assert.throws(
     () => {
-      service.submitShow({
+      context.service.submitShow({
         submissionType: "creator-verification",
         existingShowId: "impact-winter",
         showTitle: "Impact Winter",
         creatorName: "Example Studio",
-        contactEmail: "creator@example.com",
-        officialSite: "",
-        rssOrListenLink: "",
-        genres: "",
-        listenerRating: "",
-        spoilerLevel: "",
-        listenerReview: "",
-        verificationSources: "",
-        provenanceNotes: "Update the official site and release status.",
-        notes: "",
+        role: "creator",
+        verificationMethod: "website",
+        proofUrl: "",
+        requestedUpdates: "Update the official site.",
+        officialLinks: [{ label: "Website", url: "not-a-url" }],
         honeypot: "",
-        sourceIp: "127.0.0.5",
+        sourceIp: "127.0.0.6",
         userAgent: "test-agent",
       });
     },
     {
-      message: /verification source link/i,
+      message: /(proof link|valid http or https)/i,
     },
   );
 
-  db.close();
-  fs.rmSync(tempDir, { recursive: true, force: true });
+  cleanupTempService(context);
 });

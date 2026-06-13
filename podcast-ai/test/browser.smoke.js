@@ -230,6 +230,7 @@ test("main routes render expected page titles", async () => {
     const routes = [
       { url: `${baseUrl}/`, title: "The Echo Archives" },
       { url: `${baseUrl}/about.html`, title: "About - The Echo Archives" },
+      { url: `${baseUrl}/supporters.html`, title: "Support the Archive - The Echo Archives" },
       { url: `${baseUrl}/collections.html`, title: "Collections - The Echo Archives" },
       { url: `${baseUrl}/collection.html?id=${firstCollectionId}`, title: `${collectionFixtures[0].title} - The Echo Archives` },
       { url: `${baseUrl}/show.html?id=${firstShowId}`, title: `${showFixtures[0].title} - The Echo Archives` },
@@ -1079,7 +1080,7 @@ test("homepage expanding archive card stays card-anchored and can overflow the v
   }
 });
 
-test("Ask the Archivist and submit mode switching work without exposing empty future sections", async () => {
+test("Ask the Archivist and the remade submit page interactions work across modes", async () => {
   const page = await browser.newPage();
 
   try {
@@ -1090,27 +1091,47 @@ test("Ask the Archivist and submit mode switching work without exposing empty fu
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
     await page.goto(`${baseUrl}/submit.html`, { waitUntil: "networkidle" });
+    await page.locator("#openSubmitArchivist").click();
+    await page.locator("#chat-container.is-open").waitFor();
+    await page.getByRole("button", { name: "Close chat" }).click();
+    await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
-    await page.locator("#submissionType").selectOption("listener-review");
-    await page.locator("#listenerReviewField").waitFor();
+    await page.locator('[data-submission-mode="listener-review"]').click();
+    await page.locator("#submitReviewText").waitFor();
     let formState = await page.evaluate(() => ({
-      listenerReviewHidden: document.getElementById("listenerReviewField")?.hidden,
-      verificationSourcesHidden: document.getElementById("verificationSourcesField")?.hidden,
+      submissionType: document.getElementById("submissionType")?.value || "",
+      reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
+      proofFieldVisible: Boolean(document.getElementById("submitProofUrl")),
     }));
-    assert.equal(formState.listenerReviewHidden, false);
-    assert.equal(formState.verificationSourcesHidden, true);
+    assert.equal(formState.submissionType, "listener-review");
+    assert.equal(formState.reviewFieldVisible, true);
+    assert.equal(formState.proofFieldVisible, false);
 
-    await page.locator("#submissionType").selectOption("creator-verification");
-    await page.locator("#verificationSourcesField").waitFor();
-    await page.locator("#provenanceNotesField").waitFor();
+    await page.locator('[data-submission-mode="creator-verification"]').click();
+    await page.locator("#submitProofUrl").waitFor();
+    await page.getByRole("button", { name: "Add another link" }).click();
     formState = await page.evaluate(() => ({
-      listenerReviewHidden: document.getElementById("listenerReviewField")?.hidden,
-      verificationSourcesHidden: document.getElementById("verificationSourcesField")?.hidden,
-      provenanceNotesHidden: document.getElementById("provenanceNotesField")?.hidden,
+      submissionType: document.getElementById("submissionType")?.value || "",
+      reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
+      proofFieldVisible: Boolean(document.getElementById("submitProofUrl")),
+      officialLinkRows: document.querySelectorAll('[data-link-list="officialLinks"][data-link-part="url"]').length,
     }));
-    assert.equal(formState.listenerReviewHidden, true);
-    assert.equal(formState.verificationSourcesHidden, false);
-    assert.equal(formState.provenanceNotesHidden, false);
+    assert.equal(formState.submissionType, "creator-verification");
+    assert.equal(formState.reviewFieldVisible, false);
+    assert.equal(formState.proofFieldVisible, true);
+    assert.equal(formState.officialLinkRows, 2);
+
+    await page.locator('[data-submission-mode="correction"]').click();
+    await page.locator("#submitExistingShowSearch").fill("Impact");
+    await page.locator('[data-show-option-id="impact-winter"]').click();
+    formState = await page.evaluate(() => ({
+      submissionType: document.getElementById("submissionType")?.value || "",
+      existingShowId: document.getElementById("existingShowId")?.value || "",
+      showSearch: document.getElementById("submitExistingShowSearch")?.value || "",
+    }));
+    assert.equal(formState.submissionType, "correction");
+    assert.equal(formState.existingShowId, "impact-winter");
+    assert.equal(formState.showSearch, "Impact Winter");
 
     await page.goto(`${baseUrl}/submit.html?submissionType=listener-review&showId=impact-winter`, {
       waitUntil: "networkidle",
@@ -1120,8 +1141,8 @@ test("Ask the Archivist and submit mode switching work without exposing empty fu
         const submissionType = document.getElementById("submissionType");
         const existingShowId = document.getElementById("existingShowId");
         return Boolean(
-          submissionType instanceof HTMLSelectElement &&
-            existingShowId instanceof HTMLSelectElement &&
+          submissionType instanceof HTMLInputElement &&
+            existingShowId instanceof HTMLInputElement &&
             submissionType.value === "listener-review" &&
             existingShowId.value === "impact-winter",
         );
@@ -1133,15 +1154,15 @@ test("Ask the Archivist and submit mode switching work without exposing empty fu
     const deepLinkState = await page.evaluate(() => ({
       submissionType: document.getElementById("submissionType")?.value || "",
       existingShowId: document.getElementById("existingShowId")?.value || "",
-      showTitle: document.getElementById("showTitleInput")?.value || "",
-      listenerReviewHidden: document.getElementById("listenerReviewField")?.hidden,
-      listenerRatingHidden: document.getElementById("listenerRatingField")?.hidden,
+      showSearch: document.getElementById("submitExistingShowSearch")?.value || "",
+      reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
+      ratingButtons: document.querySelectorAll("[data-rating-stars]").length,
     }));
     assert.equal(deepLinkState.submissionType, "listener-review");
     assert.equal(deepLinkState.existingShowId, "impact-winter");
-    assert.equal(deepLinkState.showTitle, "Impact Winter");
-    assert.equal(deepLinkState.listenerReviewHidden, false);
-    assert.equal(deepLinkState.listenerRatingHidden, false);
+    assert.equal(deepLinkState.showSearch, "Impact Winter");
+    assert.equal(deepLinkState.reviewFieldVisible, true);
+    assert.equal(deepLinkState.ratingButtons, 5);
   } finally {
     await page.close();
   }

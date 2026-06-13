@@ -6,21 +6,21 @@
   <title>About - The Echo Archives</title>
   <meta
     name="description"
-    content="How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy."
+    content="Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support."
   />
   <link rel="canonical" href="https://echo.continental-hub.com/about.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="About - The Echo Archives" />
-  <meta property="og:description" content="How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy." />
+  <meta property="og:description" content="Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support." />
   <meta property="og:url" content="https://echo.continental-hub.com/about.html" />
   <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About - The Echo Archives" />
-  <meta name="twitter:description" content="How The Echo Archives curates fiction podcasts, handles ratings, and keeps the catalog trustworthy." />
+  <meta name="twitter:description" content="Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support." />
   <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="theme-color" content="#06080b" />
   <link rel="stylesheet" href="style.css?v=12" />
-  <link rel="stylesheet" href="home.css?v=20" />
+  <link rel="stylesheet" href="home.css?v=21" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -88,49 +88,238 @@
     <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
 
-  <main class="home-main page-main">
+  <main class="home-main page-main about-main">
     <section class="hero-shell">
-      <div class="hero-panel page-panel">
-        <div class="hero-copy">
-          <h1>About the archive</h1>
+      <div class="hero-panel page-panel about-hero-panel">
+        <div class="hero-copy about-hero-copy">
+          <h1>Why Echo Archives Exists</h1>
           <p>
-            The Echo Archives is built to help people find fiction podcasts by taste, tone, and listening intent, not by generic app rankings.
+            Fiction podcasts deserve better than app store charts and algorithmic guesswork. Echo Archives exists to help you find the stories you'll love based on taste, mood, and listening intent, not marketing budgets or download numbers.
+          </p>
+          <p class="about-hero-signal">
+            <span class="about-inline-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M4.5 13h1.75" />
+                <path d="M8 9.5v7" />
+                <path d="M11.5 6.25v13.5" />
+                <path d="M15 8.5v9" />
+                <path d="M18.5 11v4" />
+                <path d="M21 12h-1" />
+              </svg>
+            </span>
+            <span>Curated. Independent. Listener-first.</span>
           </p>
         </div>
       </div>
     </section>
 
-    <section class="page-grid">
-      <article class="page-card stat-card">
+    <section class="page-grid about-stat-grid" aria-label="Archive snapshot">
+      <article class="page-card stat-card about-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <circle cx="12" cy="12" r="7.5" />
+            <circle cx="12" cy="12" r="3.5" />
+            <circle cx="12" cy="12" r="0.8" />
+            <path d="M17.5 6.5 15 9" />
+          </svg>
+        </span>
         <span class="page-card-kicker">Shows indexed</span>
         <strong id="aboutShowCount">-</strong>
+        <p>Fiction podcasts, constantly reviewed and updated.</p>
       </article>
-      <article class="page-card stat-card">
+      <article class="page-card stat-card about-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M4.5 19.5 15.8 8.2l2.8 2.8L7.3 22.3H4.5Z" />
+            <path d="m14.5 6.9 2.6-2.6a1.85 1.85 0 0 1 2.6 0l.9.9a1.85 1.85 0 0 1 0 2.6L18 10.4" />
+          </svg>
+        </span>
         <span class="page-card-kicker">Full reviews</span>
         <strong id="aboutReviewCount">-</strong>
+        <p>In-depth reviews with no sponsor influence.</p>
       </article>
-      <article class="page-card stat-card">
+      <article class="page-card stat-card about-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M4.75 9V7.4a2.15 2.15 0 0 1 2.15-2.15h3.4l1.9 1.95h4.9a1.9 1.9 0 0 1 1.9 1.9V9" />
+            <path d="M4.75 9.25h14.5" />
+            <path d="M4.75 9.25v7.1a2.15 2.15 0 0 0 2.15 2.15h10.2a2.15 2.15 0 0 0 2.15-2.15v-5.1a2 2 0 0 0-2-2Z" />
+          </svg>
+        </span>
         <span class="page-card-kicker">Collections</span>
         <strong id="aboutCollectionCount">-</strong>
+        <p>Curated lists to match your mood and intent.</p>
       </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Last updated</span>
-        <strong id="aboutLastUpdated">-</strong>
+      <article class="page-card stat-card about-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M12 3.75 18.5 6v5.1c0 4.15-2.63 7.94-6.5 9.15-3.87-1.21-6.5-5-6.5-9.15V6Z" />
+            <path d="m9.6 11.95 1.7 1.7 3.45-3.7" />
+          </svg>
+        </span>
+        <span class="page-card-kicker">Ad-free forever</span>
+        <strong>100%</strong>
+        <p>No ads. No tracking. Ever. Your experience, protected.</p>
       </article>
     </section>
 
-    <section class="page-stack">
-      <article class="page-card">
-        <h2>Curation</h2>
-        <p>The archive is editorially guided. A show can be indexed before a long review exists if it is useful to the catalog and has enough verified metadata to recommend responsibly.</p>
+    <section class="page-stack about-stack">
+      <article class="page-card about-split-card">
+        <div class="about-split-copy">
+          <h2>The problem with podcast discovery</h2>
+          <p>Most podcast apps are built to keep you scrolling, not help you find what's worth listening to.</p>
+          <p>Ranking systems reward popularity, not quality. Algorithms push what's trending, not what fits your mood. And ads interrupt the very stories you came to escape into.</p>
+          <p class="about-standout">You deserve better.</p>
+        </div>
+        <div class="about-split-media" aria-hidden="true">
+          <img src="images/about-discovery-panel.png" alt="" />
+        </div>
       </article>
-      <article class="page-card">
-        <h2>Ratings</h2>
-        <p><strong>Archive Rating</strong> is the site's editorial stance. <strong>Community Rating</strong> is anonymous listener input and stays hidden until at least five ratings exist, so tiny samples do not pretend to be consensus.</p>
-      </article>
-      <article class="page-card">
-        <h2>Scope</h2>
-        <p>The Echo Archives is not a playback app or a social network. It is a curated discovery archive for audio dramas and fiction podcasts.</p>
+
+      <section class="page-card about-feature-section" aria-labelledby="aboutDifferentHeading">
+        <h2 id="aboutDifferentHeading">What makes Echo Archives different</h2>
+        <div class="about-feature-grid">
+          <article class="about-feature-tile">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M12 7v10.75" />
+                <path d="M8.85 19.75 12 13.2l3.15 6.55" />
+                <path d="M9.35 10.1 12 7.45l2.65 2.65" />
+                <path d="M6.35 8.2a8.15 8.15 0 0 0 0 7.6" />
+                <path d="M17.65 8.2a8.15 8.15 0 0 1 0 7.6" />
+                <path d="M3.9 5.7a11.75 11.75 0 0 0 0 12.6" />
+                <path d="M20.1 5.7a11.75 11.75 0 0 1 0 12.6" />
+              </svg>
+            </span>
+            <h3>Independent</h3>
+            <p>We're not owned by a network or ad platform. We answer to no one but listeners.</p>
+          </article>
+          <article class="about-feature-tile">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M12 3.75 18.5 6v5.1c0 4.15-2.63 7.94-6.5 9.15-3.87-1.21-6.5-5-6.5-9.15V6Z" />
+                <path d="m9.6 11.95 1.7 1.7 3.45-3.7" />
+              </svg>
+            </span>
+            <h3>Ad-free</h3>
+            <p>No ads, no sponsorships, no native placements. Ever. Just honest discovery.</p>
+          </article>
+          <article class="about-feature-tile">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
+                <path d="M12.35 7.15v11.4" />
+                <path d="M7.25 9.35h2.6" />
+                <path d="M14.85 9.35h2.55" />
+              </svg>
+            </span>
+            <h3>Editorial</h3>
+            <p>Every show is reviewed by real people who care about storytelling and sound design.</p>
+          </article>
+          <article class="about-feature-tile">
+            <span class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M5.5 12.75a6.5 6.5 0 0 1 13 0" />
+                <path d="M6.2 12.75H6a2 2 0 0 0-2 2V17a2 2 0 0 0 2 2h2.4v-6.25Z" />
+                <path d="M17.8 12.75h.2a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2h-2.4v-6.25Z" />
+                <path d="M8.4 19h2.25" />
+                <path d="M13.35 19h2.25" />
+              </svg>
+            </span>
+            <h3>Listener-first</h3>
+            <p>Built for listeners, not metrics. We optimize for trust, clarity, and a better listening life.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-two-column">
+        <article class="page-card about-ratings-card">
+          <h2>Ratings you can trust</h2>
+          <p class="about-section-intro">We use two separate ratings to give you the full picture.</p>
+          <div class="about-rating-list">
+            <article class="about-rating-item">
+              <span class="about-rating-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation">
+                  <path d="m12 4.5 2.2 4.45 4.9.71-3.55 3.45.84 4.89L12 15.65 7.61 18l.84-4.89L4.9 9.66l4.9-.71Z" />
+                </svg>
+              </span>
+              <div>
+                <h3>Archive Rating</h3>
+                <p>Our editorial rating based on storytelling, sound, production, originality, and staying power.</p>
+              </div>
+            </article>
+            <article class="about-rating-item about-rating-item-community">
+              <span class="about-rating-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation">
+                  <path d="M4.5 13h1.75" />
+                  <path d="M8 9.5v7" />
+                  <path d="M11.5 6.25v13.5" />
+                  <path d="M15 8.5v9" />
+                  <path d="M18.5 11v4" />
+                  <path d="M21 12h-1" />
+                </svg>
+              </span>
+              <div>
+                <h3>Community Rating</h3>
+                <p>Anonymous listener input that reflects real-world enjoyment and recommendation.</p>
+              </div>
+            </article>
+          </div>
+          <p class="about-rating-note">
+            <span class="about-rating-icon about-rating-icon-muted" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <rect x="5.25" y="10.5" width="13.5" height="9" rx="2.1" />
+                <path d="M8.5 10.5V8.25a3.5 3.5 0 1 1 7 0v2.25" />
+              </svg>
+            </span>
+            <span>Money never affects ratings or placement. Not from networks. Not from creators. Not ever.</span>
+          </p>
+        </article>
+
+        <article class="page-card about-support-card">
+          <h2>Free to use. Supported by listeners.</h2>
+          <p class="about-section-intro">Echo Archives will always be free and ad-free. If it helps you find your next favorite show, consider supporting the archive so we can keep it that way.</p>
+          <div class="about-support-actions">
+            <a class="about-cta about-cta-primary" href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">
+              <span>Support the archive</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m12 19.25-1.05-.96C6.7 14.39 4.25 12.14 4.25 9.3A4.3 4.3 0 0 1 8.6 5a4.7 4.7 0 0 1 3.4 1.63A4.7 4.7 0 0 1 15.4 5a4.3 4.3 0 0 1 4.35 4.3c0 2.84-2.45 5.09-6.7 8.99Z" />
+              </svg>
+            </a>
+            <a class="about-cta about-cta-secondary" href="/supporters.html">
+              <span>View supporter wall</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8.25 11a2.75 2.75 0 1 0 0-5.5 2.75 2.75 0 0 0 0 5.5Z" />
+                <path d="M16.25 10a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" />
+                <path d="M3.75 18.5a4.75 4.75 0 0 1 9.5 0" />
+                <path d="M13.25 18.5a4 4 0 0 1 7 0" />
+              </svg>
+            </a>
+          </div>
+          <p class="about-support-note">Your support keeps the archive independent, ad-free, and growing.</p>
+          <p class="about-support-status">Supporter wall coming soon. Latest archive update: <span id="aboutLastUpdated">-</span>.</p>
+        </article>
+      </section>
+
+      <article class="page-card about-story-card about-continental-card">
+        <span class="about-continental-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M10.75 4.5a6.25 6.25 0 1 0 0 12.5" />
+            <path d="M10.75 4.5c1.9 1.1 3.15 3.45 3.15 6.25S12.65 15.9 10.75 17" />
+            <path d="M5.45 8.1h10.85" />
+            <path d="M5.45 13.4h8.1" />
+            <path d="M10.75 4.5V17" />
+            <path d="m14.45 16.05 5.1 2.1-1.3-4.55 3.25-2.95h-4.2l-2.85-4.2-1.7 3.35" />
+          </svg>
+        </span>
+        <div class="about-story-copy">
+          <h2>Part of Continental</h2>
+          <p>Echo Archives is a product of Continental Studios, an independent collective building worlds through fiction and sound.</p>
+          <a class="about-inline-link" href="https://continental-hub.com/" target="_blank" rel="noreferrer">Learn more about Continental Studios ↗</a>
+        </div>
+        <div class="about-story-orbit about-story-orbit-wide" aria-hidden="true">
+          <img src="images/about-continental-orbit.png" alt="" />
+        </div>
       </article>
     </section>
   </main>

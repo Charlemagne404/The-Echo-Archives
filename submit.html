@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="theme-color" content="#06080b" />
   <link rel="stylesheet" href="style.css?v=12" />
-  <link rel="stylesheet" href="home.css?v=20" />
+  <link rel="stylesheet" href="home.css?v=21" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -40,6 +40,21 @@
     </nav>
 
     <div class="header-actions">
+      <button
+        id="openSubmitArchivist"
+        class="submit-header-chat-button"
+        type="button"
+        aria-label="Ask the Archivist"
+        aria-controls="chat-container"
+        data-open-chat
+      >
+        <span class="submit-header-chat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M10.75 18.5a7.75 7.75 0 1 1 5.48-2.27l3.02 3.02" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+          </svg>
+        </span>
+        <span>Ask the Archivist</span>
+      </button>
       <button class="profile-button" type="button" aria-label="Profile" title="Profile">
         <span class="profile-avatar" aria-hidden="true">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -88,137 +103,97 @@
     <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
 
-  <main class="home-main page-main">
-    <section class="hero-shell">
-      <div class="hero-panel page-panel">
-        <div class="hero-copy">
-          <h1>Submit a show</h1>
+  <main class="home-main page-main submit-main">
+    <section class="submit-hero-shell">
+      <div class="submit-hero-panel">
+        <div class="submit-hero-copy">
+          <h1>Submit to the archive</h1>
           <p>
-            Send a show into the archive queue, flag a correction, share a listener review, or verify factual metadata. Nothing here auto-publishes.
+            Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.
           </p>
+        </div>
+        <div class="submit-hero-trust" aria-label="Archive trust signals">
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5.25a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+                <path d="M12 9v3.5l2.25 1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+              </svg>
+            </span>
+            Manual review
+          </span>
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/>
+                <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+              </svg>
+            </span>
+            Nothing auto-publishes
+          </span>
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 10.5h8M8 14h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.65"/>
+                <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+              </svg>
+            </span>
+            No paid rankings
+          </span>
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 14.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm11 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+                <path d="M9.5 11.25h5M7.75 18.25c.6-1.8 2.18-3 4.25-3 2.07 0 3.65 1.2 4.25 3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+              </svg>
+            </span>
+            Listener and creator input
+          </span>
         </div>
       </div>
     </section>
 
-    <section class="page-stack">
-      <article class="page-card">
-        <h2>Archive intake</h2>
-        <p>Pick the intake path that fits what you are sending. The archive stays curated, moderation is manual, and contact details help resolve follow-up questions.</p>
-      </article>
+    <section class="submit-mode-shell submit-surface-card">
+      <div class="submit-surface-heading">
+        <h2>Choose an intake path</h2>
+      </div>
+      <div id="submitModeCards" class="submit-mode-grid" role="radiogroup" aria-label="Submission type"></div>
+      <div id="submitStepsPanel" class="submit-steps-panel" aria-live="polite"></div>
+    </section>
 
-      <article class="page-card">
-        <h2>Moderation note</h2>
-        <p>New shows, corrections, listener reviews, and creator verification requests all enter the same review queue. Editorial stance stays separate from community or creator input.</p>
-      </article>
+    <section class="submit-content-shell">
+      <div class="submit-content-grid">
+        <article class="submit-surface-card submit-form-surface">
+          <div id="submitFormIntro" class="submit-surface-heading submit-form-intro" aria-live="polite"></div>
+          <form id="showSubmitForm" class="submit-remake-form" novalidate>
+            <input type="hidden" id="submissionType" name="submissionType" value="show" />
+            <input type="hidden" id="existingShowId" name="existingShowId" value="" />
 
-      <article class="page-card">
-        <form id="showSubmitForm" class="submit-form">
-          <label>
-            <span>Submission type</span>
-            <select id="submissionType" name="submissionType">
-              <option value="show">Submit a new show</option>
-              <option value="correction">Send a correction to an existing entry</option>
-              <option value="listener-review">Submit a listener review</option>
-              <option value="creator-verification">Verify factual metadata</option>
-            </select>
-          </label>
+            <label class="hp-field" aria-hidden="true">
+              <span>Website</span>
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
 
-          <p id="submissionHelp" class="submit-help">New-show submissions need enough links and context for the archive to verify the entry.</p>
+            <div id="submitDynamicFields" class="submit-dynamic-fields"></div>
 
-          <label id="existingShowField" hidden>
-            <span>Existing archive entry</span>
-            <select id="existingShowId" name="existingShowId">
-              <option value="">Choose a show</option>
-            </select>
-          </label>
-
-          <label>
-            <span id="showTitleLabel">Show title</span>
-            <input type="text" id="showTitleInput" name="showTitle" required maxlength="160" />
-          </label>
-
-          <label id="creatorField">
-            <span>Creator or network</span>
-            <input type="text" name="creatorName" maxlength="160" />
-          </label>
-
-          <label>
-            <span>Contact email</span>
-            <input type="email" name="contactEmail" required maxlength="160" />
-          </label>
-
-          <label id="officialSiteField">
-            <span>Official site</span>
-            <input type="url" name="officialSite" placeholder="https://example.com" />
-          </label>
-
-          <label id="rssField">
-            <span>RSS or listen link</span>
-            <input type="url" name="rssOrListenLink" placeholder="https://example.com/feed" />
-          </label>
-
-          <label id="genresField">
-            <span>Genres or tags</span>
-            <input type="text" name="genres" maxlength="300" placeholder="sci-fi, mystery, comedy" />
-          </label>
-
-          <label id="listenerRatingField" hidden>
-            <span>Listener rating</span>
-            <select name="listenerRating">
-              <option value="">Choose a rating</option>
-              <option value="10">10</option>
-              <option value="9">9</option>
-              <option value="8">8</option>
-              <option value="7">7</option>
-              <option value="6">6</option>
-              <option value="5">5</option>
-              <option value="4">4</option>
-              <option value="3">3</option>
-              <option value="2">2</option>
-              <option value="1">1</option>
-            </select>
-          </label>
-
-          <label id="listenerSpoilerLevelField" hidden>
-            <span>Spoiler level</span>
-            <select name="spoilerLevel">
-              <option value="spoiler-free">Spoiler-free</option>
-              <option value="light-spoilers">Light spoilers</option>
-              <option value="full-spoilers">Full spoilers</option>
-            </select>
-          </label>
-
-          <label id="listenerReviewField" hidden>
-            <span>Listener review</span>
-            <textarea name="listenerReview" rows="7" maxlength="4000" placeholder="What worked, who it fits, and anything listeners should know before starting."></textarea>
-          </label>
-
-          <label id="verificationSourcesField" hidden>
-            <span>Verification source links</span>
-            <textarea name="verificationSources" rows="5" maxlength="4000" placeholder="One source URL per line."></textarea>
-          </label>
-
-          <label id="provenanceNotesField" hidden>
-            <span>Facts to verify or update</span>
-            <textarea name="provenanceNotes" rows="6" maxlength="4000" placeholder="List the factual metadata that needs correction or verification."></textarea>
-          </label>
-
-          <label id="notesField">
-            <span id="notesLabel">Why it belongs in the archive</span>
-            <textarea name="notes" rows="7" maxlength="4000" placeholder="Give the archive context about tone, format, strengths, and who it fits."></textarea>
-          </label>
-
-          <label class="hp-field" aria-hidden="true">
-            <span>Website</span>
-            <input type="text" name="website" tabindex="-1" autocomplete="off" />
-          </label>
-
-          <div class="submit-form-actions">
-            <button type="submit" class="detail-primary-action">Submit to the archive</button>
+            <div class="submit-form-actions">
+              <button type="submit" id="submitPrimaryButton" class="submit-primary-button">
+                <span class="submit-primary-button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m4.75 11.75 13.5-6.25-5 13.5-2.5-4.75-6-2.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+                    <path d="M10.75 14.5 18.25 5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+                  </svg>
+                </span>
+                <span id="submitPrimaryButtonText">Send to archive review</span>
+              </button>
+              <p id="submitFooterNote" class="submit-footer-note" aria-live="polite"></p>
+            </div>
             <p id="submitStatus" class="submit-status" aria-live="polite">Nothing submitted yet.</p>
-          </div>
-        </form>
-      </article>
+          </form>
+        </article>
+
+        <aside id="submitSideRail" class="submit-side-rail" aria-live="polite"></aside>
+      </div>
     </section>
   </main>
 
@@ -241,18 +216,17 @@
     </div>
     <div class="center-content">
       <p>
-        © 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a> |
+        © 2026 Continental Studios |
         <a href="/index.html">Browse</a> |
         <a href="/collections.html">Collections</a> |
+        <a href="/about.html">About</a> |
         <a href="https://contact.continental-hub.com/">Contact</a> |
         <a href="/privacy.html">Privacy</a> |
         <a href="/terms.html">Terms</a>
       </p>
     </div>
     <div class="right-content">
-      <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer" aria-label="Support on Patreon">
-        <img src="images/patreon.svg" alt="Patreon" />
-      </a>
+      <img src="images/TEA-Logo-S-W.png" alt="The Echo Archives mark" />
     </div>
   </footer>
 
