@@ -1091,10 +1091,123 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
     await page.goto(`${baseUrl}/submit.html`, { waitUntil: "networkidle" });
-    await page.locator("#openSubmitArchivist").click();
+    await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
     await page.getByRole("button", { name: "Close chat" }).click();
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
+
+    let tagAndLinkState = await page.evaluate(() => ({
+      tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
+      completionTop: (() => {
+        const field = document.getElementById("submitCompletionStatus");
+        if (!field) {
+          return 0;
+        }
+        const rect = field.getBoundingClientRect();
+        return rect.top + window.scrollY;
+      })(),
+    }));
+    assert.equal(tagAndLinkState.tagMenuOpen, false);
+    const completionTopBeforeTagMenu = tagAndLinkState.completionTop;
+
+    await page.locator("[data-toggle-tag-picker]").click();
+    await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
+    tagAndLinkState = await page.evaluate(() => ({
+      tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
+      completionTop: (() => {
+        const field = document.getElementById("submitCompletionStatus");
+        if (!field) {
+          return 0;
+        }
+        const rect = field.getBoundingClientRect();
+        return rect.top + window.scrollY;
+      })(),
+    }));
+    assert.equal(tagAndLinkState.tagMenuOpen, true);
+    assert.equal(tagAndLinkState.completionTop, completionTopBeforeTagMenu);
+
+    await page.locator('.submit-tag-picker-menu:not([hidden]) [data-tag-suggestion="Horror"]').click();
+    tagAndLinkState = await page.evaluate(() => ({
+      selectedTags: Array.from(document.querySelectorAll(".submit-tag-picker-values .submit-chip")).map((node) =>
+        node.textContent?.replace("×", "").trim(),
+      ),
+      tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
+      completionTop: (() => {
+        const field = document.getElementById("submitCompletionStatus");
+        if (!field) {
+          return 0;
+        }
+        const rect = field.getBoundingClientRect();
+        return rect.top + window.scrollY;
+      })(),
+    }));
+    assert.deepEqual(tagAndLinkState.selectedTags, ["Horror"]);
+    assert.equal(tagAndLinkState.tagMenuOpen, false);
+    assert.equal(tagAndLinkState.completionTop > 0, true);
+
+    await page.locator("#submitTagInput").fill("ghost story");
+    await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
+    await page.locator("#submitTagInput").press("Enter");
+    tagAndLinkState = await page.evaluate(() => ({
+      selectedTags: Array.from(document.querySelectorAll(".submit-tag-picker-values .submit-chip")).map((node) =>
+        node.textContent?.replace("×", "").trim(),
+      ),
+      tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
+      tagInputValue: document.getElementById("submitTagInput")?.value || "",
+      completionTop: (() => {
+        const field = document.getElementById("submitCompletionStatus");
+        if (!field) {
+          return 0;
+        }
+        const rect = field.getBoundingClientRect();
+        return rect.top + window.scrollY;
+      })(),
+    }));
+    assert.deepEqual(tagAndLinkState.selectedTags, ["Horror", "Ghost Story"]);
+    assert.equal(tagAndLinkState.tagMenuOpen, false);
+    assert.equal(tagAndLinkState.tagInputValue, "");
+
+    for (const tag of ["Sci-fi", "Full-cast", "Mystery", "Serialized", "Thriller", "Comedy"]) {
+      await page.locator("[data-toggle-tag-picker]").click();
+      await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
+      await page.locator(`.submit-tag-picker-menu:not([hidden]) [data-tag-suggestion="${tag}"]`).click();
+    }
+
+    tagAndLinkState = await page.evaluate(() => ({
+      selectedTags: Array.from(document.querySelectorAll(".submit-tag-picker-values .submit-chip")).map((node) =>
+        node.textContent?.replace("×", "").trim(),
+      ),
+      tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
+      tagInputDisabled: Boolean(document.getElementById("submitTagInput")?.hasAttribute("disabled")),
+      tagToggleDisabled: Boolean(document.querySelector("[data-toggle-tag-picker]")?.hasAttribute("disabled")),
+      tagLimitMessage: document.querySelector(".submit-tag-limit")?.textContent?.trim() || "",
+    }));
+    assert.equal(tagAndLinkState.selectedTags.length, 8);
+    assert.equal(tagAndLinkState.tagMenuOpen, false);
+    assert.equal(tagAndLinkState.tagInputDisabled, true);
+    assert.equal(tagAndLinkState.tagToggleDisabled, true);
+    assert.match(tagAndLinkState.tagLimitMessage, /Tag limit reached \(8\/8\)/);
+
+    await page.getByRole("button", { name: "Add another link" }).click();
+    await page.locator('[data-link-list="listenLinks"][data-link-part="label"]').nth(1).selectOption("Apple Podcasts");
+    tagAndLinkState = await page.evaluate(() => ({
+      badgeLabels: Array.from(document.querySelectorAll(".submit-link-source-text")).map((node) => node.textContent?.trim()),
+      selectValues: Array.from(document.querySelectorAll('[data-link-list="listenLinks"][data-link-part="label"]')).map((node) => node.value),
+      removeIconSize: {
+        width: window.getComputedStyle(document.querySelector(".submit-link-remove svg")).width,
+        height: window.getComputedStyle(document.querySelector(".submit-link-remove svg")).height,
+      },
+    }));
+    assert.equal(tagAndLinkState.badgeLabels[1], "Apple Podcasts");
+    assert.equal(tagAndLinkState.selectValues[1], "Apple Podcasts");
+    assert.equal(tagAndLinkState.removeIconSize.width, "16px");
+    assert.equal(tagAndLinkState.removeIconSize.height, "16px");
+
+    await page.getByRole("button", { name: "Add another link" }).click();
+    tagAndLinkState = await page.evaluate(() => ({
+      selectValues: Array.from(document.querySelectorAll('[data-link-list="listenLinks"][data-link-part="label"]')).map((node) => node.value),
+    }));
+    assert.deepEqual(tagAndLinkState.selectValues, ["Spotify", "Apple Podcasts", "RSS Feed"]);
 
     await page.locator('[data-submission-mode="listener-review"]').click();
     await page.locator("#submitReviewText").waitFor();

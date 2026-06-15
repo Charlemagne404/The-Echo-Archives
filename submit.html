@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="theme-color" content="#06080b" />
   <link rel="stylesheet" href="style.css?v=12" />
-  <link rel="stylesheet" href="home.css?v=21" />
+  <link rel="stylesheet" href="home.css?v=24" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -40,21 +40,6 @@
     </nav>
 
     <div class="header-actions">
-      <button
-        id="openSubmitArchivist"
-        class="submit-header-chat-button"
-        type="button"
-        aria-label="Ask the Archivist"
-        aria-controls="chat-container"
-        data-open-chat
-      >
-        <span class="submit-header-chat-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M10.75 18.5a7.75 7.75 0 1 1 5.48-2.27l3.02 3.02" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-          </svg>
-        </span>
-        <span>Ask the Archivist</span>
-      </button>
       <button class="profile-button" type="button" aria-label="Profile" title="Profile">
         <span class="profile-avatar" aria-hidden="true">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -104,11 +89,11 @@
   </aside>
 
   <main class="home-main page-main submit-main">
-    <section class="submit-hero-shell">
-      <div class="submit-hero-panel">
+    <section class="hero-shell submit-hero-shell">
+      <div class="hero-panel page-panel submit-hero-panel">
         <div class="submit-hero-copy">
           <h1>Submit to the archive</h1>
-          <p>
+          <p id="submitHeroDescription">
             Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.
           </p>
         </div>
@@ -154,11 +139,14 @@
     </section>
 
     <section class="submit-mode-shell submit-surface-card">
-      <div class="submit-surface-heading">
+      <div class="submit-surface-heading submit-mode-heading">
         <h2>Choose an intake path</h2>
       </div>
       <div id="submitModeCards" class="submit-mode-grid" role="radiogroup" aria-label="Submission type"></div>
-      <div id="submitStepsPanel" class="submit-steps-panel" aria-live="polite"></div>
+      <div class="submit-steps-shell">
+        <h3>What happens next</h3>
+        <div id="submitStepsPanel" class="submit-steps-panel" aria-live="polite"></div>
+      </div>
     </section>
 
     <section class="submit-content-shell">
@@ -211,12 +199,12 @@
 
   <footer id="site-footer">
     <div class="left-content">
-      <img src="images/C2-dark.png" alt="Continental Studios logo" />
+      <img src="images/C2-new-white.png" alt="Continental Studios logo" />
       <span>A product of Continental Studios</span>
     </div>
     <div class="center-content">
       <p>
-        © 2026 Continental Studios |
+        © 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a> |
         <a href="/index.html">Browse</a> |
         <a href="/collections.html">Collections</a> |
         <a href="/about.html">About</a> |
@@ -226,11 +214,13 @@
       </p>
     </div>
     <div class="right-content">
-      <img src="images/TEA-Logo-S-W.png" alt="The Echo Archives mark" />
+      <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer" aria-label="Support on Patreon">
+        <img src="images/patreon.svg" alt="Patreon" />
+      </a>
     </div>
   </footer>
 
   <script src="shared/archive-search.js?v=1"></script>
-  <script type="module" src="script.js?v=19"></script>
+  <script type="module" src="script.js?v=22"></script>
 </body>
 </html>

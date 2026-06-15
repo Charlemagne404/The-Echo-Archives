@@ -5,7 +5,7 @@ import { initializeCollectionPage } from "./pages/collection.js";
 import { initializeCollectionsPage } from "./pages/collections.js";
 import { initializeHomePage } from "./pages/home.js";
 import { initializeShowPage } from "./pages/show.js";
-import { initializeSubmitPage } from "./pages/submit.js";
+import { initializeSubmitPage } from "./pages/submit.js?v=3";
 
 export async function initializeApp() {
   initializeSharedChat();

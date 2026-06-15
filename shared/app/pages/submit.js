@@ -115,9 +115,11 @@ const OFFICIAL_LINK_OPTIONS = ["Website", "RSS Feed", "Spotify", "Apple Podcasts
 
 const MODE_CONFIG = {
   show: {
+    heroDescription:
+      "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
     cardTitle: "Submit a new show",
     cardDescription: "Add a show that should be considered for the archive.",
-    cardIcon: "antenna",
+    cardIcon: "mode-show",
     introTitle: "Submission details",
     introDescription: "Provide accurate, verifiable information to help us review your submission.",
     introIcon: "document",
@@ -206,9 +208,11 @@ const MODE_CONFIG = {
     ],
   },
   correction: {
+    heroDescription:
+      "Help keep The Echo Archives accurate and complete. Choose the best path below and share verifiable information so we can make the archive stronger—together.",
     cardTitle: "Suggest a correction",
     cardDescription: "Fix factual data or update existing information.",
-    cardIcon: "pencil",
+    cardIcon: "mode-correction",
     introTitle: "Correction details",
     introDescription: "Provide accurate, verifiable information to help us fix or update the archive.",
     introIcon: "document",
@@ -217,15 +221,15 @@ const MODE_CONFIG = {
     steps: [
       {
         title: "You submit",
-        body: "Send the factual issue and the corrected information.",
+        body: "Send us the details using the form below.",
       },
       {
         title: "We review",
-        body: "Our team verifies the sources and notes.",
+        body: "Our team verifies and adds context as needed.",
       },
       {
-        title: "We update the archive",
-        body: "Accepted corrections improve the live archive entry.",
+        title: "It enters the archive",
+        body: "If accepted, it becomes part of the curated collection.",
       },
     ],
     railCards: [
@@ -297,9 +301,11 @@ const MODE_CONFIG = {
     ],
   },
   "listener-review": {
+    heroDescription:
+      "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
     cardTitle: "Submit a listener review",
     cardDescription: "Share your take to help other listeners discover.",
-    cardIcon: "review",
+    cardIcon: "mode-review",
     introTitle: "Listener review",
     introDescription: "Tell other listeners what to expect and why this show matters.",
     introIcon: "review",
@@ -315,8 +321,8 @@ const MODE_CONFIG = {
         body: "Our team reads and edits for clarity and respect.",
       },
       {
-        title: "It helps listeners discover",
-        body: "Approved reviews can appear on show pages and related collections.",
+        title: "It enters the archive",
+        body: "If accepted, it becomes part of the curated collection.",
       },
     ],
     railCards: [
@@ -383,9 +389,11 @@ const MODE_CONFIG = {
     ],
   },
   "creator-verification": {
+    heroDescription:
+      "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
     cardTitle: "Creator verification",
     cardDescription: "Verify your show or update official details.",
-    cardIcon: "shield",
+    cardIcon: "mode-creator",
     introTitle: "Creator or official update",
     introDescription: "Provide accurate, verifiable information to confirm or update official details.",
     introIcon: "shield",
@@ -394,15 +402,15 @@ const MODE_CONFIG = {
     steps: [
       {
         title: "You submit",
-        body: "Send official proof and the updates that should be confirmed.",
+        body: "Send us the details using the form below.",
       },
       {
         title: "We review",
-        body: "Our team checks the proof and may follow up for clarification.",
+        body: "Our team verifies and adds context as needed.",
       },
       {
-        title: "We update factual details",
-        body: "Accepted changes refresh links, bios, status, artwork, or metadata.",
+        title: "It enters the archive",
+        body: "If accepted, it becomes part of the curated collection.",
       },
     ],
     railCards: [
@@ -498,6 +506,7 @@ export async function initializeSubmitPage() {
     form: document.getElementById("showSubmitForm"),
     submissionType: document.getElementById("submissionType"),
     existingShowId: document.getElementById("existingShowId"),
+    heroDescription: document.getElementById("submitHeroDescription"),
     modeCards: document.getElementById("submitModeCards"),
     stepsPanel: document.getElementById("submitStepsPanel"),
     formIntro: document.getElementById("submitFormIntro"),
@@ -513,6 +522,7 @@ export async function initializeSubmitPage() {
     !(elements.form instanceof HTMLFormElement) ||
     !(elements.submissionType instanceof HTMLInputElement) ||
     !(elements.existingShowId instanceof HTMLInputElement) ||
+    !(elements.heroDescription instanceof HTMLElement) ||
     !elements.modeCards ||
     !elements.stepsPanel ||
     !elements.formIntro ||
@@ -530,6 +540,10 @@ export async function initializeSubmitPage() {
   const state = {
     activeMode: "show",
     searchOpen: false,
+    tagPickerOpen: false,
+    tagPickerPinned: false,
+    tagQuery: "",
+    tagHighlightIndex: -1,
     shows,
     showMap: new Map(shows.map((show) => [show.id, show])),
     tagOptions: buildTagOptions(shows),
@@ -558,6 +572,10 @@ export async function initializeSubmitPage() {
     captureCurrentDraft();
     state.activeMode = nextMode;
     state.searchOpen = false;
+    state.tagPickerOpen = false;
+    state.tagPickerPinned = false;
+    state.tagQuery = "";
+    state.tagHighlightIndex = -1;
     setStatus("Nothing submitted yet.");
     renderAll();
   });
@@ -579,6 +597,14 @@ export async function initializeSubmitPage() {
       state.searchOpen = false;
       updateSearchResults();
     }
+
+    const tagPicker = elements.form.querySelector("[data-tag-picker]");
+    if (tagPicker && target instanceof Node && !tagPicker.contains(target) && state.tagPickerOpen) {
+      state.tagPickerOpen = false;
+      state.tagPickerPinned = false;
+      state.tagHighlightIndex = -1;
+      renderActiveMode();
+    }
   });
 
   elements.form.addEventListener("focusin", (event) => {
@@ -590,6 +616,11 @@ export async function initializeSubmitPage() {
     if (target.id === "submitExistingShowSearch") {
       state.searchOpen = true;
       updateSearchResults();
+      return;
+    }
+
+    if (target.id === "submitTagInput") {
+      updateTagSuggestionState(target.value, { highlightIndex: -1 });
     }
   });
 
@@ -613,12 +644,98 @@ export async function initializeSubmitPage() {
       syncHiddenInputs();
       syncQueryState();
       updateSearchResults();
+      return;
+    }
+
+    if (target.id === "submitTagInput") {
+      state.tagPickerOpen = state.tagPickerPinned || Boolean(target.value.trim());
+      updateTagSuggestionState(target.value, { highlightIndex: -1 });
+      renderActiveMode();
+      focusTagInput(state.tagQuery.length);
     }
   });
 
-  elements.form.addEventListener("change", () => {
+  elements.form.addEventListener("change", (event) => {
+    const target = event.target;
     captureCurrentDraft();
     syncHiddenInputs();
+
+    if (target instanceof HTMLSelectElement && target.matches("[data-link-part=\"label\"]")) {
+      renderActiveMode();
+    }
+  });
+
+  elements.form.addEventListener("keydown", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement) || target.id !== "submitTagInput") {
+      return;
+    }
+
+    const draft = getActiveDraft(state);
+    const suggestions = getTagSuggestions(state.tagQuery, state.tagOptions, draft.selectedTags);
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      state.tagPickerPinned = true;
+      state.tagPickerOpen = true;
+      state.tagHighlightIndex = suggestions.length === 0
+        ? -1
+        : state.tagHighlightIndex < 0
+          ? 0
+          : Math.min(state.tagHighlightIndex + 1, suggestions.length - 1);
+      renderActiveMode();
+      focusTagInput(state.tagQuery.length);
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      state.tagPickerPinned = true;
+      state.tagPickerOpen = true;
+      state.tagHighlightIndex = suggestions.length === 0
+        ? -1
+        : state.tagHighlightIndex <= 0
+          ? suggestions.length - 1
+          : state.tagHighlightIndex - 1;
+      renderActiveMode();
+      focusTagInput(state.tagQuery.length);
+      return;
+    }
+
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const highlightedSuggestion = state.tagHighlightIndex >= 0 ? suggestions[state.tagHighlightIndex] : "";
+      const nextTag = resolveTagSubmission(state.tagQuery, highlightedSuggestion, state.tagOptions);
+      if (!nextTag) {
+        return;
+      }
+
+      addArrayValue(draft, "selectedTags", nextTag, 8);
+      state.tagPickerPinned = false;
+      state.tagPickerOpen = false;
+      updateTagSuggestionState("", { highlightIndex: -1 });
+      renderActiveMode();
+      focusTagInput();
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
+      state.tagPickerOpen = false;
+      state.tagPickerPinned = false;
+      state.tagHighlightIndex = -1;
+      renderActiveMode();
+      return;
+    }
+
+    if (event.key === "Backspace" && !state.tagQuery) {
+      const nextTags = Array.isArray(draft.selectedTags) ? [...draft.selectedTags] : [];
+      nextTags.pop();
+      draft.selectedTags = nextTags;
+      state.tagPickerOpen = state.tagPickerPinned || Boolean(state.tagQuery.trim());
+      renderActiveMode();
+      focusTagInput();
+    }
   });
 
   elements.form.addEventListener("click", (event) => {
@@ -630,12 +747,61 @@ export async function initializeSubmitPage() {
     const chip = target.closest("[data-chip-field]");
     if (chip) {
       event.preventDefault();
+      if (chip.closest("[data-tag-picker]")) {
+        event.stopPropagation();
+      }
       captureCurrentDraft();
       const field = chip.getAttribute("data-chip-field");
       const value = chip.getAttribute("data-chip-value");
       if (field && value) {
         toggleArrayValue(getActiveDraft(state), field, value);
         renderActiveMode();
+      }
+      return;
+    }
+
+    const tagSuggestion = target.closest("[data-tag-suggestion]");
+    if (tagSuggestion) {
+      event.preventDefault();
+      event.stopPropagation();
+      const value = tagSuggestion.getAttribute("data-tag-suggestion");
+      if (value) {
+        addArrayValue(getActiveDraft(state), "selectedTags", value, 8);
+        state.tagPickerPinned = false;
+        state.tagPickerOpen = false;
+        updateTagSuggestionState("", { highlightIndex: -1 });
+        renderActiveMode();
+        focusTagInput();
+      }
+      return;
+    }
+
+    const createTag = target.closest("[data-create-tag]");
+    if (createTag) {
+      event.preventDefault();
+      event.stopPropagation();
+      const value = normalizeCustomTag(createTag.getAttribute("data-create-tag"));
+      if (value) {
+        addArrayValue(getActiveDraft(state), "selectedTags", value, 8);
+        state.tagPickerPinned = false;
+        state.tagPickerOpen = false;
+        updateTagSuggestionState("", { highlightIndex: -1 });
+        renderActiveMode();
+        focusTagInput();
+      }
+      return;
+    }
+
+    const tagPickerToggle = target.closest("[data-toggle-tag-picker]");
+    if (tagPickerToggle) {
+      event.preventDefault();
+      event.stopPropagation();
+      state.tagPickerPinned = !state.tagPickerPinned;
+      state.tagPickerOpen = state.tagPickerPinned || Boolean(state.tagQuery.trim());
+      state.tagHighlightIndex = -1;
+      renderActiveMode();
+      if (state.tagPickerOpen) {
+        focusTagInput(state.tagQuery.length);
       }
       return;
     }
@@ -671,7 +837,15 @@ export async function initializeSubmitPage() {
       captureCurrentDraft();
       const field = addRow.getAttribute("data-add-link");
       if (field) {
-        appendLinkRow(getActiveDraft(state), field);
+        appendLinkRow(
+          getActiveDraft(state),
+          field,
+          field === "listenLinks"
+            ? LISTEN_LINK_OPTIONS
+            : field === "officialLinks"
+              ? OFFICIAL_LINK_OPTIONS
+              : [],
+        );
         renderActiveMode();
       }
       return;
@@ -794,6 +968,9 @@ export async function initializeSubmitPage() {
     const draft = getActiveDraft(state);
     const selectedShow = draft.existingShowId ? state.showMap.get(draft.existingShowId) || null : null;
 
+    elements.heroDescription.textContent = config.heroDescription;
+    document.body.dataset.submitMode = mode;
+
     elements.formIntro.innerHTML = `
       <div class="submit-form-intro-meta">
         <span class="submit-form-icon" aria-hidden="true">${iconMarkup(config.introIcon)}</span>
@@ -815,6 +992,9 @@ export async function initializeSubmitPage() {
 
     elements.dynamicFields.innerHTML = renderModeFields(mode, draft, {
       tagOptions: state.tagOptions,
+      tagPickerOpen: state.tagPickerOpen,
+      tagQuery: state.tagQuery,
+      tagHighlightIndex: state.tagHighlightIndex,
       selectedShow,
       searchResults: getShowMatches(state.shows, draft.showSearch),
       searchOpen: state.searchOpen,
@@ -936,6 +1116,25 @@ export async function initializeSubmitPage() {
     }
 
     delete elements.submitStatus.dataset.state;
+  }
+
+  function updateTagSuggestionState(query, { highlightIndex = state.tagHighlightIndex } = {}) {
+    state.tagQuery = query;
+    const suggestions = getTagSuggestions(query, state.tagOptions, getActiveDraft(state).selectedTags);
+    state.tagHighlightIndex = suggestions.length === 0
+      ? -1
+      : Math.max(-1, Math.min(highlightIndex, suggestions.length - 1));
+  }
+
+  function focusTagInput(selectionStart = 0) {
+    const input = document.getElementById("submitTagInput");
+    if (!(input instanceof HTMLInputElement)) {
+      return;
+    }
+
+    input.focus();
+    const nextPosition = Math.max(0, Math.min(selectionStart, input.value.length));
+    input.setSelectionRange(nextPosition, nextPosition);
   }
 
   function updateAllCounters() {
@@ -1078,13 +1277,13 @@ function getActiveDraft(state) {
   return state.drafts[state.activeMode];
 }
 
-function appendLinkRow(draft, fieldName) {
+function appendLinkRow(draft, fieldName, options = []) {
+  const currentRows = Array.isArray(draft[fieldName]) ? draft[fieldName] : [];
+  const nextLabel = pickNextLinkOption(currentRows, options);
   const row = fieldName === "sourceLinks"
     ? { url: "" }
-    : fieldName === "officialLinks"
-      ? { label: "Website", url: "" }
-      : { label: "Spotify", url: "" };
-  draft[fieldName] = [...draft[fieldName], row];
+    : { label: nextLabel, url: "" };
+  draft[fieldName] = [...currentRows, row];
 }
 
 function removeLinkRow(draft, fieldName, index) {
@@ -1110,6 +1309,21 @@ function toggleArrayValue(draft, field, value) {
     current.add(value);
   }
   draft[field] = [...current];
+}
+
+function addArrayValue(draft, field, value, limit = Number.POSITIVE_INFINITY) {
+  const normalizedValue = String(value || "").trim();
+  if (!normalizedValue) {
+    return;
+  }
+
+  const current = Array.isArray(draft[field]) ? [...draft[field]] : [];
+  const exists = current.some((entry) => entry.trim().toLowerCase() === normalizedValue.toLowerCase());
+  if (exists || current.length >= limit) {
+    return;
+  }
+
+  draft[field] = [...current, normalizedValue];
 }
 
 function validateDraft(mode, draft, showMap) {
@@ -1400,14 +1614,17 @@ function renderModeFields(mode, draft, context) {
           plain: false,
         }),
         renderFormRow([
-          renderChipGroupField({
-            fieldName: "selectedTags",
-            label: "Genres or tags",
-            helper: "Choose up to eight tags that help listeners find the show.",
-            required: true,
-            values: draft.selectedTags,
-            options: context.tagOptions,
-          }),
+        renderChipGroupField({
+          fieldName: "selectedTags",
+          label: "Genres or tags",
+          helper: "Choose up to eight tags that help listeners find the show.",
+          required: true,
+          values: draft.selectedTags,
+          options: context.tagOptions,
+          menuOpen: context.tagPickerOpen,
+          query: context.tagQuery,
+          highlightIndex: context.tagHighlightIndex,
+        }),
           renderSelectField({
             id: "submitCompletionStatus",
             label: "Completion status",
@@ -1720,7 +1937,7 @@ function renderRailCard(card) {
         </div>
       </div>
       ${Array.isArray(card.items) ? `<div class="submit-rail-list">${card.items.map((item) => renderRailItem(item)).join("")}</div>` : ""}
-      ${card.buttonLabel ? `<button type="button" class="submit-rail-help-button" data-open-chat>${iconMarkup("magnify")}<span>${escapeHtml(card.buttonLabel)}</span></button>` : ""}
+      ${card.buttonLabel ? `<button type="button" class="submit-rail-help-button" data-open-chat><span class="submit-rail-help-button-icon" aria-hidden="true">${iconMarkup("magnify")}</span><span>${escapeHtml(card.buttonLabel)}</span></button>` : ""}
       ${card.footer ? `<p>${escapeHtml(card.footer)}</p>` : ""}
     </article>
   `;
@@ -1757,9 +1974,6 @@ function renderTextInputField({
     label,
     required,
     helper,
-    counterTarget: maxLength ? id : "",
-    currentLength: String(value || "").length,
-    maxLength,
     controlHtml: `
       <input
         id="${id}"
@@ -1789,18 +2003,18 @@ function renderTextareaField({
     label,
     required,
     helper,
-    counterTarget: maxLength ? id : "",
-    currentLength: String(value || "").length,
-    maxLength,
     controlHtml: `
-      <textarea
-        id="${id}"
-        rows="${rows}"
-        maxlength="${maxLength}"
-        placeholder="${escapeAttribute(placeholder)}"
-        class="${short ? "submit-short-textarea" : ""}"
-        ${required ? "required" : ""}
-      >${escapeHtml(value)}</textarea>
+      <div class="submit-textarea-shell">
+        <textarea
+          id="${id}"
+          rows="${rows}"
+          maxlength="${maxLength}"
+          placeholder="${escapeAttribute(placeholder)}"
+          class="${short ? "submit-short-textarea" : ""}"
+          ${required ? "required" : ""}
+        >${escapeHtml(value)}</textarea>
+        <span class="submit-textarea-counter" data-counter-target="${id}">${String(value || "").length}/${maxLength}</span>
+      </div>
     `,
   });
 }
@@ -1821,26 +2035,98 @@ function renderSelectField({ id, label, value, options, required = false, helper
   });
 }
 
-function renderChipGroupField({ fieldName, label, values, options, helper = "", required = false }) {
+function renderChipGroupField({
+  fieldName,
+  label,
+  values,
+  options,
+  helper = "",
+  required = false,
+  menuOpen = false,
+  query = "",
+  highlightIndex = -1,
+}) {
+  const tagLimit = fieldName === "selectedTags" ? 8 : Number.POSITIVE_INFINITY;
+  const tagLimitReached = values.length >= tagLimit;
+  const effectiveQuery = tagLimitReached ? "" : query;
   const selectedValues = new Set(values);
+  const suggestions = getTagSuggestions(effectiveQuery, options, values);
+  const normalizedQuery = normalizeCustomTag(effectiveQuery);
+  const canCreateCustom = Boolean(
+    !tagLimitReached &&
+    normalizedQuery &&
+      !selectedValues.has(normalizedQuery) &&
+      !options.some((option) => option.trim().toLowerCase() === normalizedQuery.toLowerCase()),
+  );
   return renderFieldShell({
     label,
     required,
     helper,
     controlHtml: `
-      <div class="submit-chip-group">
-        ${options.map((option) => `
+      <div class="submit-tag-picker" data-tag-picker>
+        <div class="submit-tag-picker-input">
+          <div class="submit-tag-picker-values">
+            ${values.length > 0 ? values.map((option) => `
+              <button
+                type="button"
+                class="submit-chip is-selected"
+                data-chip-field="${fieldName}"
+                data-chip-value="${escapeAttribute(option)}"
+                aria-pressed="true"
+              >
+                <span>${escapeHtml(option)}</span>
+                <span class="submit-chip-close" aria-hidden="true">×</span>
+              </button>
+            `).join("") : ""}
+            <input
+              id="submitTagInput"
+              class="submit-tag-input"
+              type="text"
+              value="${escapeAttribute(effectiveQuery)}"
+              maxlength="48"
+              placeholder="${tagLimitReached ? "8 tags selected" : values.length > 0 ? "Add another tag" : "Select up to 8 tags."}"
+              autocomplete="off"
+              aria-label="Type a genre or tag"
+              ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
+            />
+          </div>
           <button
             type="button"
-            class="submit-chip ${selectedValues.has(option) ? "is-selected" : ""}"
-            data-chip-field="${fieldName}"
-            data-chip-value="${escapeAttribute(option)}"
-            aria-pressed="${String(selectedValues.has(option))}"
+            class="submit-tag-picker-toggle"
+            data-toggle-tag-picker
+            aria-expanded="${String(menuOpen && !tagLimitReached)}"
+            aria-label="Choose genres or tags"
+            ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
           >
-            <span>${escapeHtml(option)}</span>
-            ${selectedValues.has(option) ? '<span class="submit-chip-close" aria-hidden="true">×</span>' : ""}
+            ${iconMarkup("chevron-down")}
           </button>
-        `).join("")}
+        </div>
+        <div class="submit-tag-picker-menu" ${menuOpen && !tagLimitReached ? "" : "hidden"}>
+          <div class="submit-tag-picker-meta">Choose an existing tag or type your own and press Enter.</div>
+          ${canCreateCustom ? `
+            <button
+              type="button"
+              class="submit-tag-action"
+              data-create-tag="${escapeAttribute(query)}"
+            >
+              <span class="submit-tag-action-label">Create tag</span>
+              <span class="submit-tag-action-value">${escapeHtml(normalizedQuery)}</span>
+            </button>
+          ` : ""}
+          <div class="submit-chip-group submit-chip-group--menu">
+            ${suggestions.length > 0 ? suggestions.map((option, index) => `
+              <button
+                type="button"
+                class="submit-chip ${index === highlightIndex ? "is-highlighted" : ""}"
+                data-tag-suggestion="${escapeAttribute(option)}"
+                aria-pressed="false"
+              >
+                <span>${escapeHtml(option)}</span>
+              </button>
+            `).join("") : '<p class="submit-tag-picker-empty">No existing tags match yet. Press Enter to add your own.</p>'}
+          </div>
+        </div>
+        ${tagLimitReached ? `<p class="submit-tag-limit" role="status">Tag limit reached (${values.length}/${tagLimit}). Remove one to add another.</p>` : ""}
       </div>
     `,
   });
@@ -1940,9 +2226,15 @@ function renderLinkListField({ fieldName, label, rows, helper, options, plain, r
 
     return `
       <div class="submit-link-row">
-        <select data-link-list="${fieldName}" data-link-part="label" data-link-index="${index}">
-          ${options.map((option) => `<option value="${escapeAttribute(option)}" ${option === row.label ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
-        </select>
+        <label class="submit-link-source submit-link-source--${escapeAttribute(normalizeLinkTypeClass(row.label))}">
+          <span class="submit-link-source-badge" aria-hidden="true">
+            <span class="submit-link-source-icon submit-link-source-icon--${escapeAttribute(normalizeLinkTypeClass(row.label))}">${iconMarkup(getLinkTypeIcon(row.label))}</span>
+            <span class="submit-link-source-text">${escapeHtml(row.label)}</span>
+          </span>
+          <select data-link-list="${fieldName}" data-link-part="label" data-link-index="${index}" aria-label="Listen link type">
+            ${options.map((option) => `<option value="${escapeAttribute(option)}" ${option === row.label ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
+          </select>
+        </label>
         <input
           type="url"
           value="${escapeAttribute(row.url || "")}"
@@ -2002,17 +2294,42 @@ function renderRatingField(ratingStars) {
   });
 }
 
-function renderFieldShell({ label, required = false, helper = "", counterTarget = "", currentLength = 0, maxLength = 0, controlHtml }) {
+function renderFieldShell({ label, required = false, helper = "", controlHtml }) {
   return `
     <div class="submit-field">
       <span class="submit-field-label">
         <span class="submit-field-label-main">${escapeHtml(label)}${required ? '<span class="submit-required"> *</span>' : ""}</span>
-        ${counterTarget && maxLength ? `<span class="submit-field-counter" data-counter-target="${counterTarget}">${currentLength}/${maxLength}</span>` : ""}
       </span>
       ${controlHtml}
       ${helper ? `<span class="submit-field-helper">${escapeHtml(helper)}</span>` : ""}
     </div>
   `;
+}
+
+function normalizeLinkTypeClass(value = "") {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replaceAll(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "other";
+}
+
+function getLinkTypeIcon(value = "") {
+  switch (String(value || "").trim().toLowerCase()) {
+    case "spotify":
+      return "spotify";
+    case "apple podcasts":
+      return "apple-podcasts";
+    case "rss feed":
+      return "rss";
+    case "official website":
+    case "website":
+      return "globe";
+    case "youtube":
+      return "youtube";
+    default:
+      return "link";
+  }
 }
 
 function buildTagOptions(shows) {
@@ -2042,10 +2359,80 @@ function buildTagOptions(shows) {
   const derivedOptions = [...counts.values()]
     .sort((left, right) => right.count - left.count || left.label.localeCompare(right.label))
     .map((entry) => toDisplayLabel(entry.label))
-    .filter((value, index, collection) => collection.indexOf(value) === index)
-    .slice(0, 12);
+    .filter((value, index, collection) => collection.indexOf(value) === index);
 
-  return derivedOptions.length >= 8 ? derivedOptions : FALLBACK_TAG_OPTIONS;
+  return [...derivedOptions, ...FALLBACK_TAG_OPTIONS]
+    .filter((value, index, collection) => collection.findIndex((entry) => entry.toLowerCase() === value.toLowerCase()) === index)
+    .slice(0, 40);
+}
+
+function getTagSuggestions(query, options, selectedValues = []) {
+  const normalizedQuery = String(query || "").trim().toLowerCase();
+  const selectedSet = new Set(selectedValues.map((value) => value.trim().toLowerCase()));
+  const availableOptions = options.filter((option) => !selectedSet.has(option.trim().toLowerCase()));
+
+  if (!normalizedQuery) {
+    return availableOptions.slice(0, 16);
+  }
+
+  const prefixMatches = [];
+  const partialMatches = [];
+
+  availableOptions.forEach((option) => {
+    const normalizedOption = option.toLowerCase();
+    if (normalizedOption.startsWith(normalizedQuery)) {
+      prefixMatches.push(option);
+      return;
+    }
+
+    if (normalizedOption.includes(normalizedQuery)) {
+      partialMatches.push(option);
+    }
+  });
+
+  return [...prefixMatches, ...partialMatches].slice(0, 12);
+}
+
+function resolveTagSubmission(query, highlightedSuggestion, options) {
+  if (highlightedSuggestion) {
+    return highlightedSuggestion;
+  }
+
+  const normalizedQuery = normalizeCustomTag(query);
+  if (!normalizedQuery) {
+    return "";
+  }
+
+  const existingOption = options.find((option) => option.trim().toLowerCase() === normalizedQuery.toLowerCase());
+  return existingOption || normalizedQuery;
+}
+
+function normalizeCustomTag(value = "") {
+  const trimmed = String(value || "").trim().replace(/\s+/g, " ");
+  if (!trimmed) {
+    return "";
+  }
+
+  return trimmed
+    .split(" ")
+    .map((segment) => segment
+      .split("-")
+      .map((part) => {
+        if (!part) {
+          return "";
+        }
+
+        if ((part === part.toUpperCase() && part.length <= 6) || /[A-Z]/.test(part.slice(1))) {
+          return part;
+        }
+
+        return `${part.charAt(0).toUpperCase()}${part.slice(1).toLowerCase()}`;
+      })
+      .join("-"))
+    .join(" ")
+    .replace(/\bSci Fi\b/i, "Sci-fi")
+    .replace(/\bScifi\b/i, "Sci-fi")
+    .replace(/\bFull Cast\b/i, "Full-cast");
 }
 
 function getShowMatches(shows, query) {
@@ -2072,6 +2459,21 @@ function normalizeLinkRows(rows, plain) {
       url: String(row?.url || "").trim(),
     }))
     .filter((row) => row.url);
+}
+
+function pickNextLinkOption(rows, options) {
+  const normalizedOptions = Array.isArray(options) ? options.filter(Boolean) : [];
+  if (normalizedOptions.length === 0) {
+    return "Website";
+  }
+
+  const usedLabels = new Set(
+    (Array.isArray(rows) ? rows : [])
+      .map((row) => String(row?.label || "").trim())
+      .filter(Boolean),
+  );
+
+  return normalizedOptions.find((option) => !usedLabels.has(option)) || normalizedOptions[0];
 }
 
 function pickPrimaryListenLink(rows) {
@@ -2135,6 +2537,14 @@ function escapeAttribute(value) {
 
 function iconMarkup(name) {
   switch (name) {
+    case "mode-show":
+      return `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M15.5 26V18.5M11.25 26h8.5M12 18.25h7" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.35"/><path d="M16 17.75c0-6.35 3-10.1 8.2-10.45M16 17.75c0-6.35-3-10.1-8.2-10.45M11 11.5c-2.15 1.2-3.55 3.3-4 6M21 11.5c2.15 1.2 3.55 3.3 4 6" fill="none" stroke="#ff3b2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.35"/><circle cx="16" cy="10.15" r="2.35" fill="#474a50"/></svg>`;
+    case "mode-correction":
+      return `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7.5 24.5h5.2L25 12.2 19.8 7 7.5 19.3v5.2Z" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"/><path d="M18.9 7.9 24.1 13.1" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"/></svg>`;
+    case "mode-review":
+      return `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 8.5h16.5v10.75h-8.5l-4.75 4.1v-4.1H6z" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/><path d="m23.5 17.2 1.05 3.05 3.15.05-2.55 1.85.95 3-2.6-1.85-2.55 1.85.95-3-2.55-1.85 3.15-.05 1.05-3.05Z" fill="#ff3b2f"/></svg>`;
+    case "mode-creator":
+      return `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5.25 7.85 8.8v5.8c0 5 3.12 8.98 8.15 9.7 5.03-.72 8.15-4.7 8.15-9.7V8.8L16 5.25Z" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"/><path d="m12.1 15.95 2.5 2.55 5.3-5.4" fill="none" stroke="#ff3b2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.45"/><circle cx="24.85" cy="22.7" r="2.65" fill="#07090d" stroke="#ff3b2f" stroke-width="1.9"/></svg>`;
     case "antenna":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.25V14M8.5 20.25h7M9.25 14h5.5M12 13.75c0-5.4 2.45-8.75 6.75-8.75M12 13.75C12 8.35 9.55 5 5.25 5M8.25 8.25a5.25 5.25 0 0 0-3 4.7M15.75 8.25a5.25 5.25 0 0 1 3 4.7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "pencil":
@@ -2159,14 +2569,26 @@ function iconMarkup(name) {
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>`;
     case "plus":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5.5v13M5.5 12h13" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>`;
+    case "chevron-down":
+      return `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5.25 7.5 4.75 5 4.75-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "arrow-right":
-      return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13.5 6.5 19 12l-5.5 5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
+      return `<svg viewBox="0 0 28 12" aria-hidden="true"><path d="M2 6h18.5M16 2.25 21.5 6 16 9.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45"/></svg>`;
     case "clock":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18.25a6.25 6.25 0 1 0 0-12.5 6.25 6.25 0 0 0 0 12.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><path d="M12 9v3.25l2.25 1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "archive":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 8.5h10.5v8.75H6.75zM5.75 8.5h12.5V5.75H5.75zM10 12h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "link":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14 8.25 15.75a2.75 2.75 0 1 1-3.89-3.89L6.1 10.1a2.75 2.75 0 0 1 3.9 0M14 10l1.75-1.75a2.75 2.75 0 1 1 3.89 3.89L17.9 13.9a2.75 2.75 0 0 1-3.9 0M9.5 14.5l5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
+    case "spotify":
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1ed760"/><path d="M7.6 9.2c3.38-1 6.98-.66 10.32.9" fill="none" stroke="#08110d" stroke-linecap="round" stroke-width="1.85"/><path d="M8.35 12c2.78-.72 5.6-.42 8.08.82" fill="none" stroke="#08110d" stroke-linecap="round" stroke-width="1.65"/><path d="M9.05 14.65c2.16-.46 4.16-.2 5.98.72" fill="none" stroke="#08110d" stroke-linecap="round" stroke-width="1.5"/></svg>`;
+    case "apple-podcasts":
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#b150e2"/><circle cx="12" cy="8.35" r="1.6" fill="#fff"/><path d="M12 10.95c-1.3 0-2.35 1.08-2.35 2.42 0 .94.45 1.66 1.12 2.12l-.56 2.73a.82.82 0 0 0 1.61.34l.18-.84.18.84a.82.82 0 0 0 1.61-.34l-.56-2.73c.67-.46 1.12-1.18 1.12-2.12 0-1.34-1.05-2.42-2.35-2.42Z" fill="#fff"/><path d="M8.4 10.55a3.95 3.95 0 0 1 7.2 0M6.65 9.3a6 6 0 0 1 10.7 0" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.35"/></svg>`;
+    case "rss":
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.25" fill="#f68b1f"/><circle cx="7.25" cy="16.75" r="1.75" fill="#fff"/><path d="M6.5 11.6a5.9 5.9 0 0 1 5.9 5.9M6.5 7a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8"/></svg>`;
+    case "globe":
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#0f141a"/><circle cx="12" cy="12" r="7.2" fill="none" stroke="#ffffff" stroke-width="1.45"/><path d="M4.8 12h14.4M12 4.8a11 11 0 0 1 0 14.4M12 4.8a11 11 0 0 0 0 14.4" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.2"/></svg>`;
+    case "youtube":
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.3" width="18" height="11.4" rx="3.2" fill="#ff0033"/><path d="m10.3 9.45 5 2.55-5 2.55z" fill="#fff"/></svg>`;
     case "team":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.25 12a2.75 2.75 0 1 0 0-5.5 2.75 2.75 0 0 0 0 5.5Zm7.5-1.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5ZM5.25 18c.55-2.1 2.44-3.5 5-3.5s4.45 1.4 5 3.5M14.5 18c.33-1.28 1.41-2.15 2.95-2.15 1.44 0 2.41.73 2.8 1.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "star":
