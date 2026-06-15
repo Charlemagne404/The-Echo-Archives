@@ -105,6 +105,13 @@ The backend should continue to own:
 
 `podcast-ai/lib/catalog.js` loads structured catalog data directly from `data/`.
 
+Catalog load now also auto-syncs missing show cover art before validation:
+
+- source order is RSS, Apple, official website, then listen website
+- successful fetches are stored as managed local files in `images/covers/`
+- resolved local cover paths are written back into `data/shows.json`
+- unresolved covers fall back to a shared local placeholder for that process and log warnings instead of aborting startup
+
 Validation should continue to cover:
 
 - unique ids

@@ -157,8 +157,8 @@ function deriveFeatureAvailability({ catalog, collections, creators, networks, c
   };
 }
 
-function loadArchiveContext(siteRoot, catalog = null, collections = null) {
-  const resolvedCatalog = Array.isArray(catalog) ? catalog : loadCatalog(siteRoot);
+async function loadArchiveContext(siteRoot, catalog = null, collections = null, options = {}) {
+  const resolvedCatalog = Array.isArray(catalog) ? catalog : await loadCatalog(siteRoot, options);
   const resolvedCollections =
     Array.isArray(collections) ? collections : loadCollections(siteRoot, new Set(resolvedCatalog.map((show) => show.id)));
   const creators = loadCreators(siteRoot);
@@ -169,11 +169,11 @@ function loadArchiveContext(siteRoot, catalog = null, collections = null) {
   const networkIds = new Set(networks.map((record) => record.id));
 
   resolvedCatalog.forEach((show) => {
-    if (show.creatorId && !creatorIds.has(show.creatorId)) {
+    if (creatorIds.size > 0 && show.creatorId && !creatorIds.has(show.creatorId)) {
       throw new Error(`Show "${show.id}" references unknown creatorId "${show.creatorId}".`);
     }
 
-    if (show.networkId && !networkIds.has(show.networkId)) {
+    if (networkIds.size > 0 && show.networkId && !networkIds.has(show.networkId)) {
       throw new Error(`Show "${show.id}" references unknown networkId "${show.networkId}".`);
     }
   });

@@ -5,6 +5,7 @@ This service runs the archive assistant for The Echo Archives and lives inside t
 ## What it does
 
 - Loads the structured archive catalog from `../data/shows.json` plus optional `../data/reviews/*.json` companion files
+- Auto-fetches missing show cover art from RSS, Apple, or website metadata and stores managed files under `../images/covers/`
 - Exposes a same-origin chat API at `/api/chat`
 - Persists anonymous community ratings in SQLite for future participation features
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
@@ -36,6 +37,7 @@ Copy `.env.example` to `.env` if you want to override defaults.
 ## Maintainer review workflow
 
 The service exposes the merged catalog at `/data/shows.json`, so the frontend keeps working while long-form review copy lives in `data/reviews/<show-id>.json`.
+If a show record is missing a usable local `cover`, catalog load will try `listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`, download the discovered image into `images/covers/`, and rewrite `data/shows.json` with the new local path. Failed cover fetches fall back to a local placeholder for that process and log a warning instead of aborting startup.
 
 Useful maintainer commands:
 

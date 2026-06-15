@@ -4,24 +4,42 @@
     "title": "Solar",
     "subtitle": "A spacebound thriller with a steady pressure-cooker pulse.",
     "description": "A lean sci-fi survival pick for listeners who want tension, isolation, and an immediate sense of danger.",
-    "cover": "solar/solar.jpeg",
+    "cover": "shows/solar/solar.jpeg",
     "coverAlt": "Solar cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "inactive",
+    "completionStatus": "finished",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/solar/id1611848190",
+      "website": "https://www.solarthepodcast.com/",
       "rss": ""
     },
-    "genres": ["sci-fi", "thriller"],
-    "tones": ["tense", "cinematic"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Space", "Thriller"],
+    "genres": [
+      "sci-fi",
+      "thriller"
+    ],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Space",
+      "Thriller"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "12 main story episodes; Apple feed lists 48 Season 1 entries including bonus/recovered-audio/subscriber entries",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 35,
+      "totalHours": 7,
+      "feedEntries": 48
     },
     "ratings": {
       "archive": 8
@@ -33,8 +51,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night", "serious-sci-fi"],
-    "similarTo": ["vast-horizon", "spectre"],
+    "bestFor": [
+      "late-night",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "vast-horizon",
+      "spectre"
+    ],
     "archiveTake": "One of the archive's steadier space-thriller picks.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -47,31 +71,166 @@
       "hex": "#cc5b42",
       "rgb": "204, 91, 66"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "solar.json",
+    "releaseDates": {
+      "first": "2022-03-29",
+      "latest": "2022-06-07",
+      "note": "first/latest are main-story public episodes; Apple feed includes extra bonus/recovered-audio entries.",
+      "latestFeedItem": "2022-06-23"
+    },
+    "creatorName": "Chris Porter",
+    "networkName": "CurtCo Media / Workhouse Media",
+    "officialLinks": {
+      "website": "https://www.solarthepodcast.com/",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Chris Porter",
+      "director": [
+        "Jenny Curtis",
+        "Chris Porter"
+      ],
+      "producer": [
+        "Jenny Curtis",
+        "Chris Porter",
+        "Bill Curtis"
+      ],
+      "composer": "Chris Porter",
+      "cast": [
+        "Stephanie Beatriz",
+        "Alan Cumming",
+        "Helen Hunt",
+        "Jonathan Bangs"
+      ],
+      "productionCompany": "CurtCo Media",
+      "writer": [
+        "Chris Porter",
+        "Jenny Curtis"
+      ],
+      "soundDesign": "CJ Drumeller",
+      "network": "CurtCo Media",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available for all 12 transcript entries on official site",
+      "captions": "not applicable",
+      "regionNotes": "Podcast availability depends on platform region; official website is public."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "space / solar system survival scenario",
+      "pov": "multi-character",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.solarthepodcast.com/",
+        "https://www.solarthepodcast.com/meet-the-crew",
+        "https://www.solarthepodcast.com/crew",
+        "https://www.solarthepodcast.com/transcripts",
+        "https://www.solarthepodcast.com/episodes",
+        "https://podcasts.apple.com/us/podcast/solar/id1611848190"
+      ],
+      "objectiveNote": "Official Solar pages verify premise, transcript count, principal cast, creator, directors, producers, composer, and production-company credits. Platform episode counts should still be checked before treating runtimes as canonical.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/solar.json",
+      "researchGaps": [
+        "exact RSS feed URL",
+        "award history",
+        "whether the archive should display main-story count (12) or full platform feed count (48)"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.solarthepodcast.com/; https://www.solarthepodcast.com/meet-the-crew; https://www.solarthepodcast.com/crew; https://www.solarthepodcast.com/transcripts; https://www.solarthepodcast.com/episodes; https://podcasts.apple.com/us/podcast/solar/id1611848190",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Solar",
+      "Solar podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "space",
+      "thriller"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Chris Porter"
+    ],
+    "cast": [
+      "Stephanie Beatriz",
+      "Alan Cumming",
+      "Helen Hunt",
+      "Jonathan Bangs"
+    ],
+    "firstReleasedAt": "2022-03-29",
+    "firstRelease": "2022-03-29",
+    "lastReleasedAt": "2022-06-07",
+    "latestRelease": "2022-06-07",
+    "createdAt": "2026-06-01",
+    "creatorId": "chris-porter",
+    "networkId": "curtco-media-workhouse-media"
   },
   {
     "id": "story",
     "title": "Story",
     "subtitle": "A more grounded adventure-leaning mystery entry.",
     "description": "A softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog.",
-    "cover": "story/story.jpg",
+    "cover": "shows/story/story.jpg",
     "coverAlt": "Story cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
+    "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/story/id1312875502",
+      "website": "https://www.7lamb.com/audiodramas/story",
       "rss": ""
     },
-    "genres": ["drama", "mystery", "adventure"],
-    "tones": ["warm", "hopeful"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Drama", "Mystery", "Adventure"],
+    "genres": [
+      "drama",
+      "mystery",
+      "adventure"
+    ],
+    "tones": [
+      "warm",
+      "hopeful"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Drama",
+      "Mystery",
+      "Adventure"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "56 public feed episodes; anthology mini-series with different fictional tales by season",
+      "episodes": 56
     },
     "ratings": {
       "archive": 7
@@ -83,8 +242,12 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["easy-entry"],
-    "similarTo": ["the-waystation"],
+    "bestFor": [
+      "easy-entry"
+    ],
+    "similarTo": [
+      "the-waystation"
+    ],
     "archiveTake": "A cleaner starting point when you want mystery without a wall of lore.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -97,31 +260,141 @@
       "hex": "#976f48",
       "rgb": "151, 111, 72"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "story.json",
+    "creatorName": "7 Lamb Productions",
+    "networkName": "Bloody FM / 7 Lamb Productions",
+    "officialLinks": {
+      "website": "https://www.7lamb.com/audiodramas/story",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "7 Lamb Productions",
+      "creatorName": "7 Lamb Productions",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Bloody FM",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "pov": "seasonal anthology",
+      "intensity": "variable",
+      "setting": "Not verified"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/audiodramas/story",
+        "https://podcasts.apple.com/us/podcast/story/id1312875502"
+      ],
+      "objectiveNote": "Official 7 Lamb listing verifies anthology/mini-series premise. Detail-page platform links are image-heavy and did not expose clean episode metadata.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/story.json",
+      "researchGaps": [
+        "exact first episode date",
+        "exact latest episode date",
+        "per-season story breakdown",
+        "cast/crew beyond 7 Lamb/Bloody FM listing"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/story; https://podcasts.apple.com/us/podcast/story/id1312875502",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Story",
+      "7 Lamb Story",
+      "Story podcast"
+    ],
+    "themes": [
+      "drama",
+      "mystery",
+      "adventure"
+    ],
+    "contentNotes": [
+      "content notes not verified beyond public premise"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "cast": [],
+    "releaseDates": {
+      "note": "Apple lists years active 2017-2024; exact normalized first/latest episode dates were not pinned in this pass.",
+      "firstYear": 2017,
+      "latestYear": 2024
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "7-lamb-productions",
+    "networkId": "7-lamb-productions"
   },
   {
     "id": "from-now",
     "title": "From Now",
     "subtitle": "Time-travel sci-fi with a thriller spine.",
     "description": "A compact archive pick for listeners who want momentum, time-slip tension, and a cleaner sci-fi hook.",
-    "cover": "from now/fromnow.jpeg",
+    "cover": "shows/from now/fromnow.jpeg",
     "coverAlt": "From Now cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
+      "spotify": "https://open.spotify.com/show/1Jx1PpUmJrZgM68re3zMjJ",
+      "apple": "https://podcasts.apple.com/us/podcast/from-now/id1544239486",
+      "website": "https://qcodemedia.com/from-now",
       "rss": ""
     },
-    "genres": ["sci-fi", "thriller"],
-    "tones": ["tense", "cinematic"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Time Travel", "Thriller"],
+    "genres": [
+      "sci-fi",
+      "thriller"
+    ],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Time Travel",
+      "Thriller"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "6 main story episodes; Apple/QCODE+ listings include trailer and bonus entries",
+      "seasons": 1,
+      "episodes": 6,
+      "avgEpisodeMinutes": 35,
+      "totalHours": 3.5,
+      "feedEntries": 10
     },
     "ratings": {
       "archive": 7
@@ -133,8 +406,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["easy-entry"],
-    "similarTo": ["ars-paradoxica", "red-valley"],
+    "bestFor": [
+      "easy-entry"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "red-valley"
+    ],
     "archiveTake": "Useful when you want time-travel flavor without a massive commitment.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -147,31 +425,157 @@
       "hex": "#8d413e",
       "rgb": "141, 65, 62"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "from-now.json",
+    "releaseDates": {
+      "first": "2020-12-21",
+      "latest": "2021-01-25"
+    },
+    "creatorName": "Rhys Wakefield and William Day Frank",
+    "networkName": "QCODE",
+    "officialLinks": {
+      "website": "https://qcodemedia.com/from-now",
+      "youtube": "https://www.youtube.com/@QCODEMedia",
+      "patreon": "",
+      "discord": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": [
+        "Rhys Wakefield",
+        "William Day Frank"
+      ],
+      "writer": [
+        "Rhys Wakefield",
+        "William Day Frank"
+      ],
+      "producer": [
+        "Richard Madden",
+        "Brian Cox"
+      ],
+      "cast": [
+        "Richard Madden",
+        "Brian Cox"
+      ],
+      "productionCompany": "QCODE",
+      "director": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available for episodes 101-106 on official QCODE page",
+      "captions": "not applicable",
+      "regionNotes": "QCODE page links to Spotify and Apple/platform listening."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "far-future / returned spacecraft mystery",
+      "pov": "multi-character",
+      "intensity": "medium-high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://qcodemedia.com/from-now",
+        "https://podcasts.apple.com/us/podcast/from-now/id1544239486"
+      ],
+      "objectiveNote": "Official QCODE page verifies the six episode transcript entries, creators/writers, principal stars, and premise.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/from-now.json",
+      "researchGaps": [
+        "exact RSS feed URL"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://qcodemedia.com/from-now; https://podcasts.apple.com/us/podcast/from-now/id1544239486",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "From Now",
+      "From Now podcast",
+      "QCODE From Now"
+    ],
+    "themes": [
+      "sci-fi",
+      "time travel",
+      "thriller"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Rhys Wakefield and William Day Frank"
+    ],
+    "cast": [
+      "Richard Madden",
+      "Brian Cox"
+    ],
+    "firstReleasedAt": "2020-12-21",
+    "firstRelease": "2020-12-21",
+    "lastReleasedAt": "2021-01-25",
+    "latestRelease": "2021-01-25",
+    "createdAt": "2026-06-01",
+    "creatorId": "rhys-wakefield-and-william-day-frank",
+    "networkId": "qcode"
   },
   {
     "id": "the-deca-tapes",
     "title": "The Deca Tapes",
     "subtitle": "Mystery-first sci-fi built around controlled reveals.",
     "description": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
-    "cover": "deca tapes/decatapes.jpeg",
+    "cover": "shows/deca tapes/decatapes.jpeg",
     "coverAlt": "The Deca Tapes cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
+    "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
+      "spotify": "https://open.spotify.com/show/6S8iYyZ3eg9vP1Dcg9E0I3",
+      "apple": "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
+      "website": "https://www.thedecatapes.com/",
       "rss": ""
     },
-    "genres": ["mystery", "thriller", "science"],
-    "tones": ["tense", "weird"],
-    "formats": ["full-cast", "limited-series"],
-    "tags": ["Mystery", "Thriller", "Science"],
+    "genres": [
+      "mystery",
+      "thriller",
+      "science"
+    ],
+    "tones": [
+      "tense",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "limited-series"
+    ],
+    "tags": [
+      "Mystery",
+      "Thriller",
+      "Science"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 1: 8 episodes; Season 2: 13 episodes; 21 main episodes total",
+      "seasons": 2,
+      "episodes": 21,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 10.5
     },
     "ratings": {
       "archive": 6
@@ -183,8 +587,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night"],
-    "similarTo": ["spectre", "red-valley"],
+    "bestFor": [
+      "late-night"
+    ],
+    "similarTo": [
+      "spectre",
+      "red-valley"
+    ],
     "archiveTake": "More puzzle-box than emotional sprawl.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -197,31 +606,143 @@
       "hex": "#6f5664",
       "rgb": "111, 86, 100"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "the-deca-tapes.json",
+    "releaseDates": {
+      "first": "2019-08-08",
+      "latest": "2025-09-08",
+      "note": "Latest date is Season 2 Episode 13 / finale according to Apple Podcasts; future status not confirmed."
+    },
+    "creatorName": "Lex Noteboom",
+    "networkName": "Realm / Baumhouse Productions",
+    "officialLinks": {
+      "website": "https://www.thedecatapes.com/",
+      "patreon": "https://www.patreon.com/lexnbm",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Lex Noteboom",
+      "writer": "Lex Noteboom",
+      "director": "Lex Noteboom",
+      "composer": "Lex Noteboom",
+      "productionCompany": "Baumhouse Productions",
+      "network": "Realm",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official site links to Spotify, Apple, RSS, Patreon, and Bandcamp options."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "pov": "rotating tape / subject structure",
+      "intensity": "medium-high",
+      "setting": "controlled science-fiction mystery environment"
+    },
+    "metadata": {
+      "awards": [
+        "Dutch Podcast Awards 2019 nominee",
+        "Webby Awards 2020 nominee",
+        "The Lovie Awards 2020 finalist"
+      ],
+      "objectiveSources": [
+        "https://www.thedecatapes.com/",
+        "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
+        "https://www.lexnoteboom.com/en/the-deca-tapes/l70c11"
+      ],
+      "objectiveNote": "Official creator page verifies title, date, English (US), links, and Lex Noteboom writing/directing/composition. Apple page verifies current platform listing.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/the-deca-tapes.json",
+      "researchGaps": [
+        "full current RSS URL",
+        "future season status"
+      ],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.thedecatapes.com/; https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412; https://www.lexnoteboom.com/en/the-deca-tapes/l70c11",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "The Deca Tapes",
+      "DECA Tapes"
+    ],
+    "themes": [
+      "mystery",
+      "thriller",
+      "science"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Lex Noteboom"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2019-08-08",
+    "firstRelease": "2019-08-08",
+    "lastReleasedAt": "2025-09-08",
+    "latestRelease": "2025-09-08",
+    "createdAt": "2026-06-01",
+    "creatorId": "lex-noteboom",
+    "networkId": "realm-baumhouse-productions"
   },
   {
     "id": "earth-eclipsed",
     "title": "Earth Eclipsed",
     "subtitle": "Dystopian sci-fi with a heavier thriller edge.",
     "description": "A darker catalog entry for listeners who want genre pressure more than comfort.",
-    "cover": "earth eclipsed/eartheclipsed.jpeg",
+    "cover": "shows/earth eclipsed/eartheclipsed.jpeg",
     "coverAlt": "Earth Eclipsed cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
+    "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
       "spotify": "",
       "apple": "",
-      "website": "",
+      "website": "https://eartheclipsed.com/",
       "rss": ""
     },
-    "genres": ["sci-fi", "thriller"],
-    "tones": ["dark", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Dystopia", "Thriller"],
+    "genres": [
+      "sci-fi",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Dystopia",
+      "Thriller"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "8 episodes",
+      "seasons": 1,
+      "episodes": 8
     },
     "ratings": {
       "archive": 8
@@ -233,8 +754,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["serious-sci-fi"],
-    "similarTo": ["windfall", "impact-winter"],
+    "bestFor": [
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "windfall",
+      "impact-winter"
+    ],
     "archiveTake": "Useful when you want dystopia and pace before warmth.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -247,31 +773,139 @@
       "hex": "#4e657c",
       "rgb": "78, 101, 124"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "earth-eclipsed.json",
+    "releaseDates": {
+      "first": "2021-09-01",
+      "latest": "2021-10-20"
+    },
+    "creatorName": "The Lunar Company",
+    "networkName": "The Lunar Company / Apollo Podcasts",
+    "officialLinks": {
+      "website": "https://eartheclipsed.com/",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "The Lunar Company",
+      "creatorName": "Not verified",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "Platform availability not fully verified in this pass."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "dystopian science-fiction future",
+      "pov": "serialized audio drama",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://eartheclipsed.com/"
+      ],
+      "objectiveNote": "Official URL is identified, but current web capture was incomplete. Kept conservative metadata and included recheck notes rather than inventing missing facts.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/earth-eclipsed.json",
+      "researchGaps": [
+        "working official source capture",
+        "exact current platform count",
+        "complete credits"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://eartheclipsed.com/",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Earth Eclipsed",
+      "Earth Eclipsed podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "dystopia",
+      "thriller"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "The Lunar Company"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2021-09-01",
+    "firstRelease": "2021-09-01",
+    "lastReleasedAt": "2021-10-20",
+    "latestRelease": "2021-10-20",
+    "createdAt": "2026-06-01",
+    "creatorId": "the-lunar-company",
+    "networkId": "the-lunar-company-apollo-podcasts"
   },
   {
     "id": "vast-horizon",
     "title": "Vast Horizon",
     "subtitle": "Adventure-forward space fiction with a stronger scale sense.",
     "description": "A sci-fi archive entry that leans more toward exploration and forward motion than claustrophobic dread.",
-    "cover": "vast horizon/vasthorizon.jpeg",
+    "cover": "shows/vast horizon/vasthorizon.jpeg",
     "coverAlt": "Vast Horizon cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "listenLinks": {
       "spotify": "",
       "apple": "",
-      "website": "",
-      "rss": ""
+      "website": "https://www.foolandscholar.com/about-vast-horizon",
+      "rss": "https://vasthorizon.libsyn.com/rss"
     },
-    "genres": ["sci-fi", "adventure"],
-    "tones": ["cinematic", "hopeful"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Space", "Adventure"],
+    "genres": [
+      "sci-fi",
+      "adventure"
+    ],
+    "tones": [
+      "cinematic",
+      "hopeful"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Space",
+      "Adventure"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Complete series; 3 seasons; platform feeds may include bonus/trailer entries beyond main episodes",
+      "seasons": 3,
+      "episodes": 36,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 18.0
     },
     "ratings": {
       "archive": 8
@@ -283,8 +917,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["worldbuilding", "easy-entry"],
-    "similarTo": ["solar", "the-waystation"],
+    "bestFor": [
+      "worldbuilding",
+      "easy-entry"
+    ],
+    "similarTo": [
+      "solar",
+      "the-waystation"
+    ],
     "archiveTake": "A good bridge between harder survival sci-fi and lighter adventure runs.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -297,31 +937,155 @@
       "hex": "#457693",
       "rgb": "69, 118, 147"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "vast-horizon.json",
+    "releaseDates": {
+      "first": "2019-05-28",
+      "latest": "2022-11-29"
+    },
+    "creatorName": "K.A. Statz and Travis Vengroff",
+    "networkName": "Fool & Scholar Productions",
+    "officialLinks": {
+      "website": "https://www.foolandscholar.com/about-vast-horizon",
+      "patreon": "https://www.patreon.com/FoolandScholar",
+      "youtube": "https://www.youtube.com/@FoolandScholar",
+      "discord": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": [
+        "K.A. Statz",
+        "Travis Vengroff"
+      ],
+      "writer": "K.A. Statz",
+      "producer": "Travis Vengroff",
+      "soundDesign": "Travis Vengroff",
+      "cast": [
+        "Siobhan Lumsden",
+        "Tanja Milojevic",
+        "Daniel Dean Demerin",
+        "A.R. Olivieri",
+        "Christy Luse",
+        "Ewan Chung",
+        "Jordan Cobb",
+        "Sam Yeow"
+      ],
+      "productionCompany": "Fool & Scholar Productions",
+      "director": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "Official page says the award-winning sci-fi podcast is available in its entirety and links Spotify, Apple, YouTube, Patreon, and RSS."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "empty colony ship / deep space",
+      "pov": "serialized audio drama",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.foolandscholar.com/about-vast-horizon"
+      ],
+      "objectiveNote": "Official Fool & Scholar page confirms premise, complete availability, listening links, RSS, and cast list.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/vast-horizon.json",
+      "researchGaps": [],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.foolandscholar.com/about-vast-horizon",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Vast Horizon",
+      "Vast Horizon podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "space",
+      "adventure"
+    ],
+    "contentNotes": [
+      "content notes not verified beyond public premise"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "K.A. Statz and Travis Vengroff"
+    ],
+    "cast": [
+      "Siobhan Lumsden",
+      "Tanja Milojevic",
+      "Daniel Dean Demerin",
+      "A.R. Olivieri",
+      "Christy Luse",
+      "Ewan Chung",
+      "Jordan Cobb",
+      "Sam Yeow"
+    ],
+    "firstReleasedAt": "2019-05-28",
+    "firstRelease": "2019-05-28",
+    "lastReleasedAt": "2022-11-29",
+    "latestRelease": "2022-11-29",
+    "createdAt": "2026-06-01",
+    "creatorId": "k-a-statz-and-travis-vengroff",
+    "networkId": "fool-and-scholar-productions"
   },
   {
     "id": "how-i-died",
     "title": "How I Died",
     "subtitle": "Paranormal mystery with stronger horror hooks than melodrama.",
     "description": "One of the easier horror entries to recommend when someone wants ghosts, procedure, and mystery in the same lane.",
-    "cover": "how i died/howidied.jpeg",
+    "cover": "shows/how i died/howidied.jpeg",
     "coverAlt": "How I Died cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/how-i-died/id1450764373",
+      "website": "https://audiohmmedia.com/howidied/",
       "rss": ""
     },
-    "genres": ["horror", "supernatural", "mystery"],
-    "tones": ["dark", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Horror", "Supernatural", "Mystery"],
+    "genres": [
+      "horror",
+      "supernatural",
+      "mystery"
+    ],
+    "tones": [
+      "dark",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Supernatural",
+      "Mystery"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 4 released in 2025 with a planned 13-episode run; exact total feed count still needs RSS verification",
+      "seasons": 4,
+      "avgEpisodeMinutes": 30
     },
     "ratings": {
       "archive": 9
@@ -333,8 +1097,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night", "cold-isolation-horror"],
-    "similarTo": ["paralyzed", "the-white-vault"],
+    "bestFor": [
+      "late-night",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "paralyzed",
+      "the-white-vault"
+    ],
     "archiveTake": "One of the archive's cleaner horror recommendations.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -347,31 +1117,154 @@
       "hex": "#88506a",
       "rgb": "136, 80, 106"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "how-i-died.json",
+    "creatorName": "Vince Dajani",
+    "networkName": "Realm / Audiohm Media",
+    "officialLinks": {
+      "website": "https://audiohmmedia.com/howidied/",
+      "patreon": "https://www.patreon.com/howidied",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Vince Dajani",
+      "productionCompany": "Audiohm Media",
+      "cast": [
+        "Vince Dajani",
+        "Shaina Waring",
+        "David Dixon"
+      ],
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Realm",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available on official Audiohm pages",
+      "captions": "not applicable",
+      "regionNotes": "Official page lists broad podcast app availability."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Springfield / medical examiner paranormal mystery",
+      "pov": "investigative / forensic pathologist lead",
+      "intensity": "medium-high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://audiohmmedia.com/",
+        "https://audiohmmedia.com/howidied/",
+        "https://podcasts.apple.com/us/podcast/how-i-died/id1450764373"
+      ],
+      "objectiveNote": "Official Audiohm pages verify creator, full-cast serial format, principal cast, mature-audience note, transcript availability, and Season 4 status. Episode count remains deliberately unfilled because a clean current feed count was not captured.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/how-i-died.json",
+      "researchGaps": [
+        "exact total episode count",
+        "exact Season 4 final episode date",
+        "exact RSS feed URL"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://audiohmmedia.com/; https://audiohmmedia.com/howidied/; https://podcasts.apple.com/us/podcast/how-i-died/id1450764373",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "How I Died",
+      "How I Died podcast"
+    ],
+    "releaseDates": {
+      "first": "2019-01-11",
+      "latest": "2025-08-18",
+      "note": "Official transcript listing exposed Season 4 transcript files through at least Episode 11 on 2025-08-18; Season 4 was announced as a 13-episode run, so exact final public release date should still be feed-checked."
+    },
+    "themes": [
+      "horror",
+      "supernatural",
+      "mystery"
+    ],
+    "contentNotes": [
+      "genre violence / threat",
+      "horror or supernatural themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Vince Dajani"
+    ],
+    "cast": [
+      "Vince Dajani",
+      "Shaina Waring",
+      "David Dixon"
+    ],
+    "firstReleasedAt": "2019-01-11",
+    "firstRelease": "2019-01-11",
+    "lastReleasedAt": "2025-08-18",
+    "latestRelease": "2025-08-18",
+    "createdAt": "2026-06-01",
+    "creatorId": "vince-dajani",
+    "networkId": "audiohm-media"
   },
   {
     "id": "windfall",
     "title": "Windfall",
     "subtitle": "Mystery-thriller energy with a darker speculative edge.",
     "description": "A more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci-fi.",
-    "cover": "windfall/windfall.jpeg",
+    "cover": "shows/windfall/windfall.jpeg",
     "coverAlt": "Windfall cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "spotify": "https://open.spotify.com/show/4pxY61KvG5XgpL1ngmIucY",
+      "apple": "https://podcasts.apple.com/us/podcast/windfall/id1451671935",
+      "website": "https://roguedialogue.com/windfall",
+      "rss": "https://feeds.megaphone.fm/windfallpodcast"
     },
-    "genres": ["thriller", "mystery"],
-    "tones": ["dark", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Thriller", "Mystery", "Dystopia"],
+    "genres": [
+      "thriller",
+      "mystery"
+    ],
+    "tones": [
+      "dark",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Thriller",
+      "Mystery",
+      "Dystopia"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "2 seasons, 22 main story episodes; feed also includes trailers, bonuses, crossovers, and feed swaps",
+      "seasons": 2,
+      "episodes": 22,
+      "avgEpisodeMinutes": 34,
+      "totalHours": 12.5,
+      "feedEntries": 37
     },
     "ratings": {
       "archive": 9
@@ -383,8 +1276,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["long-walks", "late-night"],
-    "similarTo": ["earth-eclipsed", "the-deca-tapes"],
+    "bestFor": [
+      "long-walks",
+      "late-night"
+    ],
+    "similarTo": [
+      "earth-eclipsed",
+      "the-deca-tapes"
+    ],
     "archiveTake": "A higher-pressure mystery pick that stays moving.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -397,31 +1296,154 @@
       "hex": "#8f3b3e",
       "rgb": "143, 59, 62"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "windfall.json",
+    "releaseDates": {
+      "first": "2019-02-13",
+      "latest": "2025-12-17",
+      "note": "latest is Season 2 Episode 12 / main-story finale; feed swaps continued into 2026.",
+      "latestFeedItem": "2026-04-30"
+    },
+    "creatorName": "Rogue Dialogue Productions",
+    "networkName": "Rogue Dialogue Productions",
+    "officialLinks": {
+      "website": "https://roguedialogue.com/windfall",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "Rogue Dialogue Productions",
+      "creatorName": [
+        "Bob Raymonda",
+        "Christie Donato",
+        "Adam Raymonda"
+      ],
+      "writer": [
+        "Bob Raymonda",
+        "Christie Donato",
+        "Jess Miller"
+      ],
+      "director": [
+        "Bob Raymonda",
+        "Christie Donato",
+        "Jess Miller"
+      ],
+      "producer": "Rogue Dialogue Productions",
+      "soundDesign": "Adam Raymonda",
+      "composer": "Adam Raymonda",
+      "network": "Rogue Dialogue Productions",
+      "cast": "Not fully verified",
+      "coverArt": "Sam Twardy"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "Official page fetch failed in this pass; metadata should be rechecked against current feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "dystopian / speculative city",
+      "pov": "serialized audio drama",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://roguedialogue.com/windfall",
+        "https://roguedialogue.com/press",
+        "https://podcasts.apple.com/us/podcast/windfall/id1451671935",
+        "https://feeds.megaphone.fm/windfallpodcast"
+      ],
+      "objectiveNote": "Official Rogue Dialogue URL is identified, but current source capture was incomplete in this pass. Kept conservative metadata and recheck notes.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/windfall.json",
+      "researchGaps": [
+        "whether to mark series as ongoing after Season 2 finale or inactive until a future story season is announced"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://roguedialogue.com/windfall; https://roguedialogue.com/press; https://podcasts.apple.com/us/podcast/windfall/id1451671935; https://feeds.megaphone.fm/windfallpodcast",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Windfall",
+      "Windfall podcast",
+      "Rogue Dialogue Windfall"
+    ],
+    "themes": [
+      "thriller",
+      "mystery",
+      "dystopia"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Rogue Dialogue Productions"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2019-02-13",
+    "firstRelease": "2019-02-13",
+    "lastReleasedAt": "2025-12-17",
+    "latestRelease": "2025-12-17",
+    "createdAt": "2026-06-01",
+    "creatorId": "rogue-dialogue-productions",
+    "networkId": "rogue-dialogue-productions"
   },
   {
     "id": "the-waystation",
     "title": "The Waystation",
     "subtitle": "Space adventure for listeners who want a little more open sky.",
     "description": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
-    "cover": "the waystation/waystation.jpeg",
+    "cover": "shows/the waystation/waystation.jpeg",
     "coverAlt": "The Waystation cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
+    "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
+      "spotify": "https://open.spotify.com/show/2VNI54tTfmqn0hvbU8jKZn",
       "apple": "",
-      "website": "",
-      "rss": ""
+      "website": "https://thewaystation.carrd.co/",
+      "rss": "https://rss.com/podcasts/thewaystation/"
     },
-    "genres": ["sci-fi", "adventure"],
-    "tones": ["hopeful", "cinematic"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Adventure", "Space"],
+    "genres": [
+      "sci-fi",
+      "adventure"
+    ],
+    "tones": [
+      "hopeful",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Adventure",
+      "Space"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "12 feed episodes; Season 1 has 9 numbered episodes plus trailer/extra entries depending on platform",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 26
     },
     "ratings": {
       "archive": 7
@@ -433,8 +1455,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["worldbuilding", "easy-entry"],
-    "similarTo": ["vast-horizon", "story"],
+    "bestFor": [
+      "worldbuilding",
+      "easy-entry"
+    ],
+    "similarTo": [
+      "vast-horizon",
+      "story"
+    ],
     "archiveTake": "A cleaner browse recommendation when the archive starts feeling too bleak.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -447,31 +1475,138 @@
       "hex": "#497f8a",
       "rgb": "73, 127, 138"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "the-waystation.json",
+    "creatorName": "Wired Cowslip",
+    "networkName": "Wired Cowslip",
+    "officialLinks": {
+      "website": "",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Wired Cowslip",
+      "writer": "Elliot Somerfield",
+      "director": "Elliot Somerfield",
+      "producer": "Wired Cowslip",
+      "soundDesign": "Not verified",
+      "composer": "Tatenda Shamiso",
+      "productionCompany": "Wired Cowslip",
+      "network": "Wired Cowslip",
+      "cast": "Not verified",
+      "coverArt": "Paul Ignacio"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "No reliable official source captured in this pass."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "space / station",
+      "pov": "serialized audio drama",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://thewaystation.carrd.co/",
+        "https://rss.com/podcasts/thewaystation/",
+        "https://www.podchaser.com/podcasts/the-waystation-1953344"
+      ],
+      "objectiveNote": "No reliable official match found in this pass without high risk of mixing it with unrelated Waystation/Way Station works. Left objective fields explicitly unverified.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/the-waystation.json",
+      "researchGaps": [
+        "exact Apple Podcasts URL if still listed",
+        "current Season 2 status"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://thewaystation.carrd.co/; https://rss.com/podcasts/thewaystation/; https://www.podchaser.com/podcasts/the-waystation-1953344",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "The Waystation",
+      "Waystation podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "adventure",
+      "space"
+    ],
+    "contentNotes": [
+      "content notes not verified beyond public premise"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [],
+    "cast": [],
+    "releaseDates": {
+      "first": "2021-05-20",
+      "latest": "2021-12-01",
+      "note": "Platform counts vary: RSS.com exposes S01E09 on 2021-10-20; Podchaser reports 12 feed episodes and latest 2021-12-01. Season 2 was described as in pre-production on social profile, but no public Season 2 release was verified."
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "not-verified",
+    "networkId": "not-verified",
+    "firstReleasedAt": "2021-05-20",
+    "firstRelease": "2021-05-20",
+    "lastReleasedAt": "2021-12-01",
+    "latestRelease": "2021-12-01"
   },
   {
     "id": "were-alive",
     "title": "We're Alive",
     "subtitle": "A survival-first apocalypse staple with real archive gravity.",
     "description": "One of the archive's foundational survival recommendations: pressure, group dynamics, and a bigger commitment that pays off.",
-    "cover": "were alive/WereAlive.jpeg",
+    "cover": "shows/were alive/WereAlive.jpeg",
     "coverAlt": "We're Alive cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "completed",
-    "completionStatus": "finished",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/were-alive/id313300476",
+      "website": "https://www.werealive.com/",
       "rss": ""
     },
-    "genres": ["thriller", "survival"],
-    "tones": ["dark", "tense"],
-    "formats": ["full-cast", "long-running"],
-    "tags": ["Thriller", "Apocalypse", "Survival"],
+    "genres": [
+      "thriller",
+      "survival"
+    ],
+    "tones": [
+      "dark",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "long-running"
+    ],
+    "tags": [
+      "Thriller",
+      "Apocalypse",
+      "Survival"
+    ],
     "length": {
-      "label": "Long-running archive entry."
+      "label": "Franchise-level entry; official site states 70+ hours of content",
+      "seasons": 0,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 70
     },
     "ratings": {
       "archive": 8
@@ -483,8 +1618,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["long-walks", "binge-listening"],
-    "similarTo": ["impact-winter", "end-of-all-hope"],
+    "bestFor": [
+      "long-walks",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "impact-winter",
+      "end-of-all-hope"
+    ],
     "archiveTake": "A reliable recommendation when someone wants survival and ensemble pressure first.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -497,31 +1638,144 @@
       "hex": "#7d4f3e",
       "rgb": "125, 79, 62"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "were-alive.json",
+    "releaseDates": {
+      "first": "2009-05-04",
+      "latest": "2026-02-24"
+    },
+    "creatorName": "Kc Wayland",
+    "networkName": "Wayland Productions",
+    "officialLinks": {
+      "website": "https://www.werealive.com/",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": "",
+      "store": "https://www.werealive.com/shop/"
+    },
+    "credits": {
+      "creatorName": "Kc Wayland",
+      "producer": [
+        "Kc Wayland",
+        "Grayson Stone"
+      ],
+      "productionCompany": "Wayland Productions",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official site lists podcast platforms, Audible, and physical-media availability."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "post-apocalyptic zombie / infected survival franchise",
+      "pov": "multi-character ensemble",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.werealive.com/",
+        "https://podcasts.apple.com/us/podcast/were-alive/id313300476"
+      ],
+      "objectiveNote": "This entry is filled as a franchise-level record. Official site verifies 70+ hours, broad platform availability, downloads, and current Descendants/finale schedule through February 24, 2026.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/were-alive.json",
+      "researchGaps": [
+        "whether archive page should scope to A Story of Survival only or the whole franchise",
+        "full franchise episode count"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.werealive.com/; https://podcasts.apple.com/us/podcast/were-alive/id313300476",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "We're Alive",
+      "We’re Alive",
+      "We're Alive: A Story of Survival",
+      "We're Alive franchise"
+    ],
+    "themes": [
+      "thriller",
+      "apocalypse",
+      "survival"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Kc Wayland"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2009-05-04",
+    "firstRelease": "2009-05-04",
+    "lastReleasedAt": "2026-02-24",
+    "latestRelease": "2026-02-24",
+    "createdAt": "2026-06-01",
+    "creatorId": "kc-wayland",
+    "networkId": "wayland-productions"
   },
   {
     "id": "impact-winter",
     "title": "Impact Winter",
     "subtitle": "Post-apocalyptic vampire survival under endless winter.",
     "description": "Endless winter, bunker survival, and just enough vampire politics to keep the whole thing nasty in the right way.",
-    "cover": "Impact Winter/Impact-winter.jpeg",
+    "cover": "shows/Impact Winter/Impact-winter.jpeg",
     "coverAlt": "Impact Winter cover art",
     "status": "published",
     "reviewStatus": "full-review",
-    "releaseStatus": "active",
+    "releaseStatus": "inactive",
     "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
+      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
       "rss": ""
     },
-    "genres": ["sci-fi", "fantasy"],
-    "tones": ["dark", "cinematic", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Survival", "Post-apocalyptic", "Vampires", "Sci-fi", "Fantasy"],
+    "genres": [
+      "sci-fi",
+      "fantasy"
+    ],
+    "tones": [
+      "dark",
+      "cinematic",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Survival",
+      "Post-apocalyptic",
+      "Vampires",
+      "Sci-fi",
+      "Fantasy"
+    ],
     "length": {
-      "label": "18 hours total",
+      "label": "3 released seasons / 36 episodes; Season 3 released as an Audible Original on 2024-07-18",
       "seasons": 3,
       "episodes": 36,
       "avgEpisodeMinutes": 30,
@@ -543,8 +1797,15 @@
       "favoriteRun": "Season 1, episodes 4 through 8.",
       "wouldRelisten": true
     },
-    "bestFor": ["long-walks", "headphones-on", "serious-sci-fi"],
-    "similarTo": ["were-alive", "end-of-all-hope"],
+    "bestFor": [
+      "long-walks",
+      "headphones-on",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "were-alive",
+      "end-of-all-hope"
+    ],
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -557,14 +1818,110 @@
       "hex": "#851a28",
       "rgb": "133, 26, 40"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "impact-winter.json",
+    "releaseDates": {
+      "first": "2022-02-17",
+      "latest": "2024-07-18",
+      "note": "Latest verified released season is Season 3 on Audible. Previous 2025-07-17 value was not confirmed by the sources checked."
+    },
+    "creatorName": "Travis Beacham",
+    "networkName": "Audible Originals",
+    "officialLinks": {
+      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Travis Beacham",
+      "productionCompany": "Audible Originals",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "Audible Original also available on podcast platforms in some regions."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "post-apocalyptic Earth under endless winter",
+      "pov": "full-cast serialized drama",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
+        "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
+        "https://www.audible.com/pd/Impact-Winter-Season-3-Audiobook/B0D6GQWSBK"
+      ],
+      "objectiveNote": "Audible/Apple listings identify official distribution and Travis Beacham/Audible context. Existing opinion review text is preserved.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/impact-winter.json",
+      "researchGaps": [
+        "future season status beyond Season 3",
+        "exact RSS URL"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG; https://podcasts.apple.com/us/podcast/impact-winter/id1605294203; https://www.audible.com/pd/Impact-Winter-Season-3-Audiobook/B0D6GQWSBK",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Impact Winter",
+      "Impact Winter podcast",
+      "Impact Winter Audible"
+    ],
+    "themes": [
+      "survival",
+      "post-apocalyptic",
+      "vampires",
+      "sci-fi",
+      "fantasy"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Travis Beacham"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2022-02-17",
+    "firstRelease": "2022-02-17",
+    "lastReleasedAt": "2024-07-18",
+    "latestRelease": "2024-07-18",
+    "createdAt": "2026-06-01",
+    "creatorId": "travis-beacham",
+    "networkId": "audible-originals"
   },
   {
     "id": "oz-9",
     "title": "Oz 9",
     "subtitle": "Shipboard comedy powered by total incompetence and escalating nonsense.",
     "description": "Corporate deep-space nonsense, incompetent crew energy, and a review that admits the audience is stronger than the personal fit.",
-    "cover": "oz9/oz9.jpeg",
+    "cover": "shows/oz9/oz9.jpeg",
     "coverAlt": "Oz 9 cover art",
     "status": "published",
     "reviewStatus": "full-review",
@@ -572,18 +1929,34 @@
     "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/oz-9/id1446814974",
+      "website": "https://oz-9.com/",
       "rss": ""
     },
-    "genres": ["sci-fi", "comedy"],
-    "tones": ["funny", "chaotic", "weird"],
-    "formats": ["full-cast", "long-running"],
-    "tags": ["Space", "Unserious", "Comedy", "Sci-fi", "Future"],
+    "genres": [
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [
+      "funny",
+      "chaotic",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "long-running"
+    ],
+    "tags": [
+      "Space",
+      "Unserious",
+      "Comedy",
+      "Sci-fi",
+      "Future"
+    ],
     "length": {
-      "label": "54 hours total",
-      "seasons": 6,
-      "episodes": 120,
+      "label": "7 seasons; Apple lists 163 public feed episodes",
+      "seasons": 7,
+      "episodes": 163,
       "avgEpisodeMinutes": 27,
       "totalHours": 54
     },
@@ -603,8 +1976,15 @@
       "favoriteRun": "Season 4, episode 20.",
       "wouldRelisten": false
     },
-    "bestFor": ["funny-space-disasters", "binge-listening"],
-    "similarTo": ["station-151", "eos-10", "wolf-359"],
+    "bestFor": [
+      "funny-space-disasters",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "station-151",
+      "eos-10",
+      "wolf-359"
+    ],
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -617,35 +1997,148 @@
       "hex": "#07ac3e",
       "rgb": "7, 172, 62"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "oz-9.json",
+    "releaseDates": {
+      "first": "2018-10-31",
+      "latest": "2026-01-01"
+    },
+    "creatorName": "Shannon Perry",
+    "networkName": "Gated Galaxies / Fable & Folly Network",
+    "officialLinks": {
+      "website": "https://oz-9.com/",
+      "patreon": "https://www.patreon.com/Oz9podcast",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Shannon Perry",
+      "productionCompany": "Gated Galaxies / Oz 9 / Fable & Folly Network",
+      "writer": "Shannon Perry",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Mark Restuccia",
+      "composer": "John Faley",
+      "network": "Fable & Folly Network",
+      "cast": "Not fully verified",
+      "coverArt": "Lucas Elliott"
+    },
+    "availability": {
+      "transcripts": "available per-episode on official site",
+      "captions": "n/a",
+      "regionNotes": "Official site says transcripts are linked under episode players."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "spacecraft Oz 9",
+      "pov": "full-cast space comedy",
+      "intensity": "low"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://oz-9.com/",
+        "https://oz-9.com/meet-the-crew/",
+        "https://podcasts.apple.com/us/podcast/oz-9/id1446814974"
+      ],
+      "objectiveNote": "Official Oz 9 pages verify active site, crew/cast page, Fable & Folly association, and a long-running episode archive. Existing subjective review content is preserved.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/oz-9.json",
+      "researchGaps": [
+        "exact latest public episode date",
+        "whether display creator should be Shannon Perry or Apple-listed Gated Galaxies"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://oz-9.com/; https://oz-9.com/meet-the-crew/; https://podcasts.apple.com/us/podcast/oz-9/id1446814974",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Oz 9",
+      "Oz 9 podcast"
+    ],
+    "themes": [
+      "space",
+      "unserious",
+      "comedy",
+      "sci-fi",
+      "future"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Shannon Perry"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2018-10-31",
+    "firstRelease": "2018-10-31",
+    "lastReleasedAt": "2026-01-01",
+    "latestRelease": "2026-01-01",
+    "createdAt": "2026-06-01",
+    "creatorId": "shannon-perry",
+    "networkId": "fable-and-folly-network"
   },
   {
     "id": "ars-paradoxica",
     "title": "Ars Paradoxica",
     "subtitle": "Cold War sci-fi with real respect for paradox, secrecy, and consequence.",
     "description": "Cold War intrigue, scientific paranoia, and one of the archive's smarter time-travel spirals.",
-    "cover": "ars paradoxica/ArsParadoxica.jpeg",
+    "cover": "shows/ars paradoxica/ArsParadoxica.jpeg",
     "coverAlt": "Ars Paradoxica cover art",
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "spotify": "https://open.spotify.com/show/6zCjlwfTyQ8grdlLIW4EAq",
+      "apple": "https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000",
+      "website": "https://arsparadoxica.com/",
+      "rss": "https://arsparadoxica.libsyn.com/rss"
     },
-    "genres": ["sci-fi", "science", "mystery"],
-    "tones": ["tense", "cinematic", "weird"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Science", "Time travel", "Paradoxes", "Mystery"],
+    "genres": [
+      "sci-fi",
+      "science",
+      "mystery"
+    ],
+    "tones": [
+      "tense",
+      "cinematic",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Science",
+      "Time travel",
+      "Paradoxes",
+      "Mystery"
+    ],
     "length": {
-      "label": "18 hours total",
+      "label": "49 feed episodes / 3 seasons; 36 main story episodes plus minisodes and extras",
       "seasons": 3,
-      "episodes": 32,
-      "avgEpisodeMinutes": 34,
-      "totalHours": 18
+      "episodes": 49,
+      "avgEpisodeMinutes": 32,
+      "totalHours": 26.1
     },
     "ratings": {
       "archive": 7.5,
@@ -663,8 +2156,13 @@
       "favoriteRun": "Season 3, episode 14.",
       "wouldRelisten": true
     },
-    "bestFor": ["worldbuilding", "serious-sci-fi"],
-    "similarTo": ["red-valley"],
+    "bestFor": [
+      "worldbuilding",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "red-valley"
+    ],
     "archiveTake": "",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -677,31 +2175,164 @@
       "hex": "#217997",
       "rgb": "33, 121, 151"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "ars-paradoxica.json",
+    "releaseDates": {
+      "first": "2015-06-01",
+      "latest": "2018-06-06"
+    },
+    "creatorName": "Mischa Stanton and Daniel Manning",
+    "networkName": "The Whisperforge",
+    "officialLinks": {
+      "website": "https://arsparadoxica.com/",
+      "facebook": "https://www.facebook.com/arsparadoxica",
+      "instagram": "https://instagram.com/arsparadoxica",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": ""
+    },
+    "credits": {
+      "creatorName": [
+        "Mischa Stanton",
+        "Daniel Manning"
+      ],
+      "writer": [
+        "Daniel Manning",
+        "Mischa Stanton",
+        "Eli Barraza",
+        "Julian Mundy",
+        "Danielle Shemaiah",
+        "Tau Zaman"
+      ],
+      "composer": [
+        "Mischa Stanton",
+        "Eno Freedman-Brodmann"
+      ],
+      "productionCompany": "The Whisperforge",
+      "director": "Mischa Stanton",
+      "producer": "Mischa Stanton",
+      "soundDesign": "Mischa Stanton",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available on official episode pages",
+      "captions": "not applicable",
+      "regionNotes": "Official site links to Apple, Spotify, and RSS."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Cold War / time-travel alternate history",
+      "pov": "serialized full-cast / in-universe recordings",
+      "intensity": "medium-high"
+    },
+    "metadata": {
+      "awards": [
+        "Audio Verse Awards 2016 winner",
+        "Audio Verse Awards 2017 winner",
+        "Webby Awards 2017 nominee"
+      ],
+      "objectiveSources": [
+        "https://arsparadoxica.com/",
+        "https://arsparadoxica.com/crew",
+        "https://arsparadoxica.com/season-1",
+        "https://arsparadoxica.com/season-2",
+        "https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000",
+        "https://arsparadoxica.libsyn.com/rss"
+      ],
+      "objectiveNote": "Official site verifies story premise, crew, transcripts, awards, and platform links; Apple verifies 49 episodes and 3 seasons.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/ars-paradoxica.json",
+      "researchGaps": [
+        "exact main-series vs extras count modeling for UI"
+      ],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://arsparadoxica.com/; https://arsparadoxica.com/crew; https://arsparadoxica.com/season-1; https://arsparadoxica.com/season-2; https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000; https://arsparadoxica.libsyn.com/rss",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "ars PARADOXICA",
+      "arsPARADOXICA"
+    ],
+    "themes": [
+      "sci-fi",
+      "science",
+      "time travel",
+      "paradoxes",
+      "mystery"
+    ],
+    "contentNotes": [
+      "content notes not verified beyond public premise"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Mischa Stanton and Daniel Manning"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2015-06-01",
+    "firstRelease": "2015-06-01",
+    "lastReleasedAt": "2018-06-06",
+    "latestRelease": "2018-06-06",
+    "createdAt": "2026-06-01",
+    "creatorId": "mischa-stanton-and-daniel-manning",
+    "networkId": "the-whisperforge"
   },
   {
     "id": "red-valley",
     "title": "Red Valley",
     "subtitle": "A science-heavy mystery with enough conceptual weirdness to stick.",
     "description": "A smart archive-adjacent mystery pick when you want science, secrecy, and a colder conceptual frame.",
-    "cover": "red valley/RedValley.jpeg",
+    "cover": "shows/red valley/RedValley.jpeg",
     "coverAlt": "Red Valley cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
+      "website": "https://www.redvalleypod.com/",
       "rss": ""
     },
-    "genres": ["sci-fi", "mystery"],
-    "tones": ["weird", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Future", "Mystery"],
+    "genres": [
+      "sci-fi",
+      "mystery"
+    ],
+    "tones": [
+      "weird",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Future",
+      "Mystery"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "4 released seasons / 48 public feed episodes; final Season 5 announced for 2026",
+      "seasons": 4,
+      "episodes": 48,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 18,
+      "upcomingSeasons": 1
     },
     "ratings": {
       "archive": 7
@@ -713,8 +2344,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night", "serious-sci-fi"],
-    "similarTo": ["ars-paradoxica", "the-deca-tapes"],
+    "bestFor": [
+      "late-night",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "the-deca-tapes"
+    ],
     "archiveTake": "A good neighboring pick once Ars Paradoxica leaves you wanting more controlled weirdness.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -727,31 +2364,150 @@
       "hex": "#92605d",
       "rgb": "146, 96, 93"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "red-valley.json",
+    "releaseDates": {
+      "first": "2020-03-22",
+      "latest": "2025-06-01",
+      "note": "Current released feed includes Seasons 1-4. Final Season 5 is announced for 2026 but not counted as released yet.",
+      "upcoming": "Season 5 / final season announced for 2026"
+    },
+    "creatorName": "Jonathan Williams and Alan Mandel",
+    "networkName": "Red Valley / Fable & Folly",
+    "officialLinks": {
+      "website": "https://www.redvalleypod.com/",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "https://www.redvalleypod.com/shop.html",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "Red Valley",
+      "creatorName": [
+        "Jonathan Williams",
+        "Alan Mandel"
+      ],
+      "writer": "Jonathan Williams",
+      "director": "Alan Mandel",
+      "producer": "Alan Mandel",
+      "composer": "Richard Campbell",
+      "soundDesign": "Richard Campbell",
+      "network": "Fable & Folly",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official site says available on all podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Red Valley research-station / cryonics mystery",
+      "pov": "multi-character",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.redvalleypod.com/",
+        "https://www.redvalleypod.com/about.html",
+        "https://www.redvalleypod.com/cast--crew.html",
+        "https://podcasts.apple.com/us/podcast/red-valley/id1502771083"
+      ],
+      "objectiveNote": "Official site verifies premise, Fable & Folly association, listed season/mini-series structure, writer, director/producer, post-production/music, and recording studio context. Episode total is counted from visible official season/mini-series entries and should be rechecked if the site changes.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/red-valley.json",
+      "researchGaps": [
+        "exact RSS feed URL",
+        "exact total runtime",
+        "final Season 5 release date"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-upcoming-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.redvalleypod.com/; https://www.redvalleypod.com/about.html; https://www.redvalleypod.com/cast--crew.html; https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Red Valley",
+      "Red Valley Podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "future",
+      "mystery"
+    ],
+    "contentNotes": [
+      "content notes not verified beyond public premise"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Jonathan Williams and Alan Mandel"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2020-03-22",
+    "firstRelease": "2020-03-22",
+    "lastReleasedAt": "2025-06-01",
+    "latestRelease": "2025-06-01",
+    "createdAt": "2026-06-01",
+    "creatorId": "jonathan-williams-and-alan-mandel",
+    "networkId": "red-valley-fable-and-folly"
   },
   {
     "id": "the-white-vault",
     "title": "The White Vault",
     "subtitle": "Cold-weather dread with one of the archive's stronger isolation profiles.",
     "description": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
-    "cover": "white-vault/WhiteVault.jpeg",
+    "cover": "shows/white-vault/WhiteVault.jpeg",
     "coverAlt": "The White Vault cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "completed",
-    "completionStatus": "finished",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "spotify": "https://open.spotify.com/show/2zaOPON66InniTdoEoPai5",
+      "apple": "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
+      "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
+      "rss": "https://feeds.megaphone.fm/thewhitevault"
     },
-    "genres": ["horror", "mystery", "thriller"],
-    "tones": ["dark", "bleak", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Mystery", "Survival", "Thriller"],
+    "genres": [
+      "horror",
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "bleak",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Mystery",
+      "Survival",
+      "Thriller"
+    ],
     "length": {
-      "label": "Multi-season archive entry."
+      "label": "Shared Fool & Scholar feed; Apple shows Season 8 active, and public feed counts vary because related series/bonus entries are included",
+      "seasons": 8,
+      "episodes": 92,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 46.0,
+      "feedEntriesApprox": 119
     },
     "ratings": {
       "archive": 9
@@ -763,8 +2519,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["cold-isolation-horror", "late-night"],
-    "similarTo": ["tower-4", "how-i-died"],
+    "bestFor": [
+      "cold-isolation-horror",
+      "late-night"
+    ],
+    "similarTo": [
+      "tower-4",
+      "how-i-died"
+    ],
     "archiveTake": "One of the cleanest archive answers when someone asks for cold, remote dread.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -777,31 +2539,160 @@
       "hex": "#6c7e89",
       "rgb": "108, 126, 137"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "the-white-vault.json",
+    "releaseDates": {
+      "first": "2017-10-03",
+      "latest": "2026-06-01"
+    },
+    "creatorName": "K.A. Statz and Travis Vengroff",
+    "networkName": "Fool & Scholar Productions",
+    "officialLinks": {
+      "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
+      "patreon": "https://www.patreon.com/FoolandScholar",
+      "youtube": "https://www.youtube.com/@FoolandScholar",
+      "discord": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": [
+        "K.A. Statz",
+        "Travis Vengroff"
+      ],
+      "writer": "K.A. Statz",
+      "producer": "Travis Vengroff",
+      "soundDesign": "Travis Vengroff",
+      "cast": [
+        "Hem Brewster",
+        "Peter Joseph Lewis",
+        "Lani Minella",
+        "David Ault",
+        "Eyþór Viðarsson"
+      ],
+      "productionCompany": "Fool & Scholar Productions",
+      "director": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "free transcripts linked from show notes / Patreon posts; shop editions include transcript PDFs",
+      "captions": "n/a",
+      "regionNotes": "Official page says The White Vault and Goshawk share one RSS feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "remote arctic outpost / global horror sites",
+      "pov": "found footage / collected records",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.foolandscholar.com/the-white-vault-goshawk",
+        "https://www.foolandscholar.com/the-white-vault-1",
+        "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823"
+      ],
+      "objectiveNote": "Official Fool & Scholar page verifies shared White Vault/Goshawk feed handling, platform links, RSS, cast/crew context for Goshawk, and active award/status notes. White Vault historical episode totals should be handled carefully because the feed now includes related series.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/the-white-vault.json",
+      "researchGaps": [
+        "exact main-series count separated from shared-feed related series",
+        "whether archive should display 92 main/current entries or broader ~119 feed entries"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.foolandscholar.com/the-white-vault-goshawk; https://www.foolandscholar.com/the-white-vault-1; https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "The White Vault",
+      "Goshawk",
+      "The White Vault / Goshawk"
+    ],
+    "themes": [
+      "mystery",
+      "survival",
+      "thriller",
+      "horror"
+    ],
+    "contentNotes": [
+      "genre violence / threat",
+      "horror or supernatural themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "K.A. Statz and Travis Vengroff"
+    ],
+    "cast": [
+      "Hem Brewster",
+      "Peter Joseph Lewis",
+      "Lani Minella",
+      "David Ault",
+      "Eyþór Viðarsson"
+    ],
+    "firstReleasedAt": "2017-10-03",
+    "firstRelease": "2017-10-03",
+    "lastReleasedAt": "2026-06-01",
+    "latestRelease": "2026-06-01",
+    "createdAt": "2026-06-01",
+    "creatorId": "k-a-statz-and-travis-vengroff",
+    "networkId": "fool-and-scholar-productions"
   },
   {
     "id": "eos-10",
     "title": "EOS 10",
     "subtitle": "Space comedy with a stronger station-sitcom pulse.",
     "description": "A lighter archive pick for when you want jokes first and speculative stakes second.",
-    "cover": "eos10/EOS10.jpeg",
+    "cover": "shows/eos10/EOS10.jpeg",
     "coverAlt": "EOS 10 cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
+    "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/eos-10/id928069318",
+      "website": "https://www.planetm.io/eos10/",
       "rss": ""
     },
-    "genres": ["sci-fi", "comedy"],
-    "tones": ["funny", "chaotic"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Science", "Comedy"],
+    "genres": [
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [
+      "funny",
+      "chaotic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Science",
+      "Comedy"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "5 seasons; Apple lists 40 public episodes",
+      "seasons": 5,
+      "episodes": 40,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 18.3
     },
     "ratings": {
       "archive": 7
@@ -813,8 +2704,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["funny-space-disasters", "easy-entry"],
-    "similarTo": ["oz-9", "wolf-359"],
+    "bestFor": [
+      "funny-space-disasters",
+      "easy-entry"
+    ],
+    "similarTo": [
+      "oz-9",
+      "wolf-359"
+    ],
     "archiveTake": "A cleaner comedy pick when you want space banter without total tonal collapse.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -827,31 +2724,144 @@
       "hex": "#497b84",
       "rgb": "73, 123, 132"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "eos-10.json",
+    "releaseDates": {
+      "first": "2014-09-01",
+      "latest": "2022-01-01"
+    },
+    "creatorName": "Justin McLachlan",
+    "networkName": "PlanetM / Justin McLachlan",
+    "officialLinks": {
+      "website": "https://www.planetm.io/eos10/",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Justin McLachlan",
+      "productionCompany": "PlanetM",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "Official page not captured in this pass."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "space station EOS 10",
+      "pov": "full-cast medical space comedy",
+      "intensity": "low"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.planetm.io/eos10/",
+        "https://podcasts.apple.com/us/podcast/eos-10/id928069318"
+      ],
+      "objectiveNote": "Official PlanetM / platform pages should be used for final verification. Metadata is filled from known public listings but should be rechecked because search results did not expose a clean current official text page in this pass.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/eos-10.json",
+      "researchGaps": [
+        "exact latest release date",
+        "current production status",
+        "why third-party indexes report higher counts than Apple"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.planetm.io/eos10/; https://podcasts.apple.com/us/podcast/eos-10/id928069318",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "EOS 10",
+      "EOS10",
+      "EOS 10 podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "science",
+      "comedy"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Justin McLachlan"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2014-09-01",
+    "firstRelease": "2014-09-01",
+    "lastReleasedAt": "2022-01-01",
+    "latestRelease": "2022-01-01",
+    "createdAt": "2026-06-01",
+    "creatorId": "justin-mclachlan",
+    "networkId": "planetm-justin-mclachlan"
   },
   {
     "id": "desert-skies",
     "title": "Desert Skies",
     "subtitle": "A warmer, stranger fantasy-comedy entry.",
     "description": "A good archive reset when everything else starts feeling too grim, too metallic, or too self-serious.",
-    "cover": "desert-skies/DesertSkies.jpeg",
+    "cover": "shows/desert-skies/DesertSkies.jpeg",
     "coverAlt": "Desert Skies cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
+      "website": "https://desertskiespodcast.com/",
       "rss": ""
     },
-    "genres": ["fantasy", "comedy", "drama"],
-    "tones": ["warm", "weird", "hopeful"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Emotion", "Fantasy", "Comedy"],
+    "genres": [
+      "fantasy",
+      "comedy",
+      "drama"
+    ],
+    "tones": [
+      "warm",
+      "weird",
+      "hopeful"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Emotion",
+      "Fantasy",
+      "Comedy"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 3 active; 29 numbered story chapters verified through Chapter 29, plus bonus/FM/presenting feed entries",
+      "seasons": 3,
+      "episodes": 29,
+      "avgEpisodeMinutes": 37,
+      "totalHours": 8.2,
+      "feedEntriesApprox": 53
     },
     "ratings": {
       "archive": 6
@@ -863,8 +2873,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["easy-entry"],
-    "similarTo": ["midnight-burger", "story"],
+    "bestFor": [
+      "easy-entry"
+    ],
+    "similarTo": [
+      "midnight-burger",
+      "story"
+    ],
     "archiveTake": "Useful when the listener wants something gentler without losing personality.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -877,14 +2892,114 @@
       "hex": "#ae7b4c",
       "rgb": "174, 123, 76"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "desert-skies.json",
+    "releaseDates": {
+      "first": "2022-08-06",
+      "latest": "2026-06-08",
+      "note": "latest verified numbered story chapter is Chapter 29 on 2026-06-08; broader feed includes bonus/FM/presenting entries.",
+      "latestStory": "2026-06-08"
+    },
+    "creatorName": "Jared Carter",
+    "networkName": "Desert Skies / Jared Carter",
+    "officialLinks": {
+      "website": "https://desertskiespodcast.com/",
+      "patreon": "https://www.patreon.com/DesertSkies",
+      "discord": "",
+      "youtube": "",
+      "merch": "https://desertskiespodcast.com/merch/",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Jared Carter",
+      "writer": "Jared Carter",
+      "producer": "Jared Carter",
+      "cast": "Jared Carter voices every character",
+      "director": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "productionCompany": "Not verified",
+      "network": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available via official transcript index",
+      "captions": "not applicable",
+      "regionNotes": "Official site links to platform listening and support pages."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Astral Plane fuel and service station",
+      "pov": "serialized fantasy-comedy drama",
+      "intensity": "low"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://desertskiespodcast.com/",
+        "https://desertskiespodcast.com/about-the-podcast/",
+        "https://desertskiespodcast.com/transcripts/",
+        "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
+        "https://cms.megaphone.fm/channel/desertskies"
+      ],
+      "objectiveNote": "Official site verifies Jared Carter writes, produces, and voices every character; transcript index confirms listed chapters and bonus transcript pages.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/desert-skies.json",
+      "researchGaps": [
+        "exact current total feed entry count from RSS"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://desertskiespodcast.com/; https://desertskiespodcast.com/about-the-podcast/; https://desertskiespodcast.com/transcripts/; https://podcasts.apple.com/us/podcast/desert-skies/id1634726836; https://cms.megaphone.fm/channel/desertskies",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Desert Skies",
+      "Desert Skies podcast"
+    ],
+    "themes": [
+      "emotion",
+      "fantasy",
+      "comedy",
+      "drama"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Jared Carter"
+    ],
+    "cast": [
+      "Jared Carter voices every character"
+    ],
+    "firstReleasedAt": "2022-08-06",
+    "firstRelease": "2022-08-06",
+    "lastReleasedAt": "2026-06-08",
+    "latestRelease": "2026-06-08",
+    "createdAt": "2026-06-01",
+    "creatorId": "jared-carter",
+    "networkId": "desert-skies-jared-carter"
   },
   {
     "id": "wolf-359",
     "title": "Wolf 359",
     "subtitle": "The archive bridge between space comedy and bigger sci-fi stakes.",
     "description": "A dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later.",
-    "cover": "wolf359/Wolf359.jpeg",
+    "cover": "shows/wolf359/Wolf359.jpeg",
     "coverAlt": "Wolf 359 cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -892,16 +3007,33 @@
     "completionStatus": "finished",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "apple": "https://podcasts.apple.com/us/podcast/wolf-359/id909552816",
+      "website": "https://www.wolf359.fm/",
+      "rss": "https://feeds.megaphone.fm/wolf359radio"
     },
-    "genres": ["sci-fi", "comedy"],
-    "tones": ["funny", "cinematic"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Space", "Comedy"],
+    "genres": [
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [
+      "funny",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Space",
+      "Comedy"
+    ],
     "length": {
-      "label": "Longer archive entry."
+      "label": "61 episodes",
+      "seasons": 4,
+      "episodes": 61,
+      "avgEpisodeMinutes": 30,
+      "totalHours": 30.5
     },
     "ratings": {
       "archive": 8
@@ -913,8 +3045,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["funny-space-disasters", "binge-listening"],
-    "similarTo": ["eos-10", "oz-9"],
+    "bestFor": [
+      "funny-space-disasters",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "eos-10",
+      "oz-9"
+    ],
     "archiveTake": "One of the easiest archive answers when someone wants space comedy that can scale up later.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -927,31 +3065,148 @@
       "hex": "#728187",
       "rgb": "114, 129, 135"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "wolf-359.json",
+    "releaseDates": {
+      "first": "2014-08-15",
+      "latest": "2017-12-25"
+    },
+    "creatorName": "Gabriel Urbina",
+    "networkName": "Kinda Evil Genius Productions",
+    "officialLinks": {
+      "website": "https://www.wolf359.fm/",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Gabriel Urbina",
+      "writer": [
+        "Gabriel Urbina",
+        "Sarah Shachat"
+      ],
+      "producer": [
+        "Zach Valenti",
+        "Gabriel Urbina"
+      ],
+      "productionCompany": "Kinda Evil Genius Productions",
+      "director": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available on official site",
+      "captions": "n/a",
+      "regionNotes": "Completed original feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "U.S.S. Hephaestus orbiting Wolf 359",
+      "pov": "communications/log recordings",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.wolf359.fm/",
+        "https://podcasts.apple.com/us/podcast/wolf-359/id909552816",
+        "https://wolf359radio.libsyn.com/episode-61-brave-new-world"
+      ],
+      "objectiveNote": "Official site verifies premise and site identity; platform/reference data verifies completed four-season / 61-episode run.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/wolf-359.json",
+      "researchGaps": [
+        "exact RSS URL confirmation if feed host changes"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.wolf359.fm/; https://podcasts.apple.com/us/podcast/wolf-359/id909552816; https://wolf359radio.libsyn.com/episode-61-brave-new-world",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Wolf 359",
+      "Wolf 359 podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "space",
+      "comedy"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Gabriel Urbina"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2014-08-15",
+    "firstRelease": "2014-08-15",
+    "lastReleasedAt": "2017-12-25",
+    "latestRelease": "2017-12-25",
+    "createdAt": "2026-06-01",
+    "creatorId": "gabriel-urbina",
+    "networkId": "kinda-evil-genius-productions"
   },
   {
     "id": "station-151",
     "title": "Station 151",
     "subtitle": "Isolation comedy with a colder edge than the usual station banter.",
     "description": "A strange little archive pick when you want comedy, confinement, and just enough pressure under the jokes.",
-    "cover": "station151/Station151.jpeg",
+    "cover": "shows/station151/Station151.jpeg",
     "coverAlt": "Station 151 cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "spotify": "https://open.spotify.com/show/6ivVLrV6gUo1Xbi0BhMHnc",
+      "apple": "https://podcasts.apple.com/us/podcast/station-151/id1654016045",
+      "website": "https://www.station151.com/",
+      "rss": "https://feeds.buzzsprout.com/2046913.rss"
     },
-    "genres": ["sci-fi", "comedy"],
-    "tones": ["funny", "weird", "bleak"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Isolation", "Comedy"],
+    "genres": [
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [
+      "funny",
+      "weird",
+      "bleak"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Isolation",
+      "Comedy"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 3 began January 13, 2026; exact current feed count should be rechecked after the season resumes",
+      "seasons": 3,
+      "episodes": 36,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 15
     },
     "ratings": {
       "archive": 6
@@ -963,8 +3218,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["funny-space-disasters", "cold-isolation-horror"],
-    "similarTo": ["oz-9", "wolf-359"],
+    "bestFor": [
+      "funny-space-disasters",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "oz-9",
+      "wolf-359"
+    ],
     "archiveTake": "Useful when you want comedy but not warmth.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -977,31 +3238,150 @@
       "hex": "#5e7571",
       "rgb": "94, 117, 113"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "station-151.json",
+    "releaseDates": {
+      "first": "2022-10-31",
+      "latest": "2026-01-13",
+      "note": "Official site says Season 3 began January 13, 2026 but the rest of Season 3 would not immediately follow."
+    },
+    "creatorName": "Andy Scearce and Steven James Scearce",
+    "networkName": "Pale Matter / Realm",
+    "officialLinks": {
+      "website": "https://www.station151.com/",
+      "patreon": "https://patreon.com/station151",
+      "discord": "https://discord.gg/station151",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "writer": [
+        "Andy Scearce",
+        "Steven James Scearce"
+      ],
+      "producer": "Bear Weiter",
+      "productionCompany": "Pale Matter Productions",
+      "creatorName": [
+        "Andy Scearce",
+        "Steven James Scearce"
+      ],
+      "network": "Realm",
+      "director": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official site lists Apple, Spotify, Pocket Casts, Castbox, Podcast Addict, YouTube, and RSS listening."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Antarctic research station",
+      "pov": "station communications / first-person lead",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.station151.com/",
+        "https://www.station151.com/about/",
+        "https://www.station151.com/episodes/",
+        "https://podcasts.apple.com/us/podcast/station-151/id1654016045"
+      ],
+      "objectiveNote": "Official site verifies premise, writers/developers, producer, production company, listening links, and Season 3 date; Apple verifies 36 episodes across 3 seasons and Realm channel listing.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/station-151.json",
+      "researchGaps": [
+        "current feed count after Season 3 resumes",
+        "exact average runtime by feed"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.station151.com/; https://www.station151.com/about/; https://www.station151.com/episodes/; https://podcasts.apple.com/us/podcast/station-151/id1654016045",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Station 151",
+      "Station 151 podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "isolation",
+      "comedy"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Andy Scearce and Steven James Scearce"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2022-10-31",
+    "firstRelease": "2022-10-31",
+    "lastReleasedAt": "2026-01-13",
+    "latestRelease": "2026-01-13",
+    "createdAt": "2026-06-01",
+    "creatorId": "andy-scearce-and-steven-james-scearce",
+    "networkId": "pale-matter-realm"
   },
   {
     "id": "midnight-burger",
     "title": "Midnight Burger",
     "subtitle": "A warm, idea-rich sci-fi comedy with real range.",
     "description": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
-    "cover": "midnight burger/MidnightBurger.jpeg",
+    "cover": "shows/midnight burger/MidnightBurger.jpeg",
     "coverAlt": "Midnight Burger cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "spotify": "https://open.spotify.com/show/3flVB3CeXIfVHwXjcKkNk8",
+      "apple": "https://podcasts.apple.com/us/podcast/id1537653218?ls=1&mt=2",
+      "website": "https://www.weopenatsix.com/",
+      "rss": "https://feeds.megaphone.fm/midnightburger"
     },
-    "genres": ["sci-fi", "comedy", "science"],
-    "tones": ["warm", "funny", "weird"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Science", "Comedy"],
+    "genres": [
+      "sci-fi",
+      "comedy",
+      "science"
+    ],
+    "tones": [
+      "warm",
+      "funny",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Science",
+      "Comedy"
+    ],
     "length": {
-      "label": "Long-running archive entry."
+      "label": "105 episodes listed on official site; Season 5 active in 2026",
+      "seasons": 5,
+      "episodes": 105,
+      "avgEpisodeMinutes": 45,
+      "totalHours": 78.8
     },
     "ratings": {
       "archive": 10
@@ -1013,8 +3393,15 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["easy-entry", "worldbuilding", "binge-listening"],
-    "similarTo": ["desert-skies", "wolf-359"],
+    "bestFor": [
+      "easy-entry",
+      "worldbuilding",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "desert-skies",
+      "wolf-359"
+    ],
     "archiveTake": "A high-confidence recommendation when someone wants scope without losing warmth.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1027,31 +3414,141 @@
       "hex": "#b26745",
       "rgb": "178, 103, 69"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "midnight-burger.json",
+    "releaseDates": {
+      "first": "2020-10-27",
+      "latest": "2026-05-26",
+      "note": "Official episode archive count preserved; latest public episode date updated from the official episode archive / 2026 listings."
+    },
+    "creatorName": "Joe Fisher",
+    "networkName": "Business Goose Media",
+    "officialLinks": {
+      "website": "https://www.weopenatsix.com/",
+      "youtube": "https://www.youtube.com/@weopenatsix",
+      "instagram": "https://www.instagram.com/weopenatsix/",
+      "patreon": "",
+      "discord": "",
+      "merch": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Joe Fisher",
+      "productionCompany": "Business Goose Media",
+      "coverArt": "Ramsey Hong",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "Official site links Apple, Spotify, YouTube Music, RSS, Pocket Casts, Amazon Music, Audible, Goodpods, Castbox, Podcast Addict, and iHeartRadio."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "time-traveling, dimension-spanning diner",
+      "pov": "full-cast serialized comedy-drama",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.weopenatsix.com/",
+        "https://www.weopenatsix.com/episodes/",
+        "https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218"
+      ],
+      "objectiveNote": "Official site verifies premise, platform links, RSS, Business Goose Media, art credit, 105 total episode listings, season counts, and latest listed episode date.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/midnight-burger.json",
+      "researchGaps": [
+        "exact total runtime from RSS",
+        "exact award list"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.weopenatsix.com/; https://www.weopenatsix.com/episodes/; https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Midnight Burger",
+      "We Open at Six",
+      "Midnight Burger podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "science",
+      "comedy"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "Joe Fisher"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2020-10-27",
+    "firstRelease": "2020-10-27",
+    "lastReleasedAt": "2026-05-26",
+    "latestRelease": "2026-05-26",
+    "createdAt": "2026-06-01",
+    "creatorId": "joe-fisher",
+    "networkId": "business-goose-media"
   },
   {
     "id": "spectre",
     "title": "Spectre",
     "subtitle": "Space mystery with a colder, more watchful tone.",
     "description": "A lower-key archive mystery entry for listeners who want sci-fi atmosphere and uncertainty more than loud bombast.",
-    "cover": "spectre/Spectre.jpeg",
+    "cover": "shows/spectre/Spectre.jpeg",
     "coverAlt": "Spectre cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
+    "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/spectre/id1593110598",
+      "website": "https://www.spectrepod.com/",
       "rss": ""
     },
-    "genres": ["sci-fi", "mystery"],
-    "tones": ["dark", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Space", "Mystery"],
+    "genres": [
+      "sci-fi",
+      "mystery"
+    ],
+    "tones": [
+      "dark",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Space",
+      "Mystery"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "1 season / 12 public episodes",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 30
     },
     "ratings": {
       "archive": 6
@@ -1063,8 +3560,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night"],
-    "similarTo": ["solar", "the-deca-tapes"],
+    "bestFor": [
+      "late-night"
+    ],
+    "similarTo": [
+      "solar",
+      "the-deca-tapes"
+    ],
     "archiveTake": "An archive browse pick when the listener wants atmosphere first.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1077,14 +3579,107 @@
       "hex": "#61718c",
       "rgb": "97, 113, 140"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "spectre.json",
+    "creatorName": "Stef Howerton",
+    "networkName": "SPECTRE / indie",
+    "officialLinks": {
+      "website": "",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "Stef Howerton",
+      "writer": "Stef Howerton",
+      "director": "Not verified",
+      "producer": "Stef Howerton",
+      "soundDesign": "Not verified",
+      "composer": "Tim Rosko",
+      "productionCompany": "SPECTRE",
+      "network": "indie",
+      "cast": "Not fully verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a",
+      "regionNotes": "No reliable official source captured in this pass."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "space / mystery",
+      "pov": "serialized audio drama",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.spectrepod.com/",
+        "https://www.spectrepod.com/episodes/season/1/",
+        "https://www.timrosko.com/spectre-podcast",
+        "https://podcasts.apple.com/us/podcast/spectre/id1593110598"
+      ],
+      "objectiveNote": "No reliable official match found in this pass without high risk of mixing it with unrelated Spectre results. Left objective fields explicitly unverified.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/spectre.json",
+      "researchGaps": [
+        "exact finale date",
+        "RSS feed URL",
+        "complete cast/crew"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.spectrepod.com/; https://www.spectrepod.com/episodes/season/1/; https://www.timrosko.com/spectre-podcast; https://podcasts.apple.com/us/podcast/spectre/id1593110598",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Spectre",
+      "Spectre podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "space",
+      "mystery"
+    ],
+    "contentNotes": [
+      "content notes not verified beyond public premise"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [],
+    "cast": [],
+    "releaseDates": {
+      "first": "2022-05-22",
+      "latest": "2022-09-04",
+      "note": "First date from composer page / premiere note; official episode page exposes at least 1.07 on 2022-09-04. Exact final episode date should still be feed-checked."
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "not-verified",
+    "networkId": "not-verified",
+    "firstReleasedAt": "2022-05-22",
+    "firstRelease": "2022-05-22",
+    "lastReleasedAt": "2022-09-04",
+    "latestRelease": "2022-09-04"
   },
   {
     "id": "the-phenomenon",
     "title": "The Phenomenon",
     "subtitle": "Survival mystery built around a threat you feel before you understand.",
     "description": "A more severe survival entry for listeners who want fear, uncertainty, and pressure over character comfort.",
-    "cover": "the phenomenon/Phenomenon.jpeg",
+    "cover": "shows/the phenomenon/Phenomenon.jpeg",
     "coverAlt": "The Phenomenon cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -1092,16 +3687,34 @@
     "completionStatus": "finished",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
-      "rss": ""
+      "apple": "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225",
+      "website": "https://www.phenomenonpod.com/",
+      "rss": "https://phenomenonpod.libsyn.com/rss"
     },
-    "genres": ["mystery", "thriller", "science"],
-    "tones": ["bleak", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Survival", "Science", "Mystery"],
+    "genres": [
+      "mystery",
+      "thriller",
+      "science"
+    ],
+    "tones": [
+      "bleak",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Survival",
+      "Science",
+      "Mystery"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Seasons 1-3 serialized; Season 4 / Survivors anthology; platform feeds list anthology entries through 2022",
+      "seasons": 4,
+      "episodes": 34,
+      "avgEpisodeMinutes": 25,
+      "totalHours": 14.2
     },
     "ratings": {
       "archive": 5
@@ -1113,8 +3726,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night", "cold-isolation-horror"],
-    "similarTo": ["the-white-vault", "impact-winter"],
+    "bestFor": [
+      "late-night",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "the-white-vault",
+      "impact-winter"
+    ],
     "archiveTake": "A survival-forward pick for listeners who want dread before warmth.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1127,31 +3746,147 @@
       "hex": "#5a5e79",
       "rgb": "90, 94, 121"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "the-phenomenon.json",
+    "releaseDates": {
+      "first": "2017-10-02",
+      "latest": "2022-11-16",
+      "note": "Latest platform listing found is a Survivors anthology entry on 2022-11-16; official site distinguishes Seasons 1-3 serialized story from Survivors anthology."
+    },
+    "creatorName": "Jared J. Smith",
+    "networkName": "Luciola Creative",
+    "officialLinks": {
+      "website": "https://www.phenomenonpod.com/",
+      "youtube": "",
+      "instagram": "",
+      "facebook": "",
+      "patreon": "",
+      "discord": "",
+      "merch": ""
+    },
+    "credits": {
+      "director": "Jared J. Smith",
+      "writer": "Jared J. Smith (Seasons 1-3)",
+      "producer": [
+        "Öykü Çakar-Smith",
+        "Andrew Pomeroy",
+        "Jared J. Smith"
+      ],
+      "soundDesign": "Andrew Pomeroy",
+      "composer": "Andrew Pomeroy",
+      "coverArt": "Amanda Pecharsky",
+      "productionCompany": "Luciola Creative",
+      "creatorName": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available through official Google Drive link",
+      "captions": "n/a",
+      "regionNotes": "Official episodes page links Apple, Spotify, Pocket Casts, Podchaser, Overcast, Castbox, YouTube, RSS and transcripts."
+    },
+    "content": {
+      "sourceMaterial": "based on the novel The Phenomenon by R.K. Katic",
+      "setting": "global catastrophic extraterrestrial invasion",
+      "pov": "international ensemble",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.phenomenonpod.com/about",
+        "https://www.phenomenonpod.com/episodes",
+        "https://www.phenomenonpod.com/",
+        "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225"
+      ],
+      "objectiveNote": "Official site verifies production credits, source-material relationship, season structure, Survivors anthology, platform links, RSS, and transcript availability.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/the-phenomenon.json",
+      "researchGaps": [
+        "exact current platform episode count after extras"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.phenomenonpod.com/about; https://www.phenomenonpod.com/episodes; https://www.phenomenonpod.com/; https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "The Phenomenon",
+      "The Phenomenon podcast"
+    ],
+    "themes": [
+      "survival",
+      "science",
+      "mystery",
+      "thriller"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "Jared J. Smith"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2017-10-02",
+    "firstRelease": "2017-10-02",
+    "lastReleasedAt": "2022-11-16",
+    "latestRelease": "2022-11-16",
+    "createdAt": "2026-06-01",
+    "creatorId": "jared-j-smith",
+    "networkId": "luciola-creative"
   },
   {
     "id": "paralyzed",
     "title": "Paralyzed",
     "subtitle": "Supernatural mystery with a stronger horror pulse.",
     "description": "A browseable horror entry for listeners who want something paranormal, tense, and less sci-fi coded.",
-    "cover": "paralyzed/Paralyzed.jpeg",
+    "cover": "shows/paralyzed/Paralyzed.jpeg",
     "coverAlt": "Paralyzed cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
+      "website": "https://www.7lamb.com/audiodramas/paralyzed",
       "rss": ""
     },
-    "genres": ["mystery", "horror", "supernatural"],
-    "tones": ["dark", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Mystery", "Horror", "Supernatural"],
+    "genres": [
+      "mystery",
+      "horror",
+      "supernatural"
+    ],
+    "tones": [
+      "dark",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Mystery",
+      "Horror",
+      "Supernatural"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "117 public feed episodes; Apple lists years active 2015-2025",
+      "seasons": 5,
+      "episodes": 117
     },
     "ratings": {
       "archive": 7
@@ -1163,8 +3898,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["late-night"],
-    "similarTo": ["how-i-died", "the-white-vault"],
+    "bestFor": [
+      "late-night"
+    ],
+    "similarTo": [
+      "how-i-died",
+      "the-white-vault"
+    ],
     "archiveTake": "Useful when the request is horror-first and less interested in hard genre labeling.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1177,31 +3917,143 @@
       "hex": "#7e5a77",
       "rgb": "126, 90, 119"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "paralyzed.json",
+    "creatorName": "7 Lamb Productions",
+    "networkName": "Bloody FM / 7 Lamb Productions",
+    "officialLinks": {
+      "website": "https://www.7lamb.com/audiodramas/paralyzed",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "7 Lamb Productions",
+      "creatorName": "7 Lamb Productions",
+      "writer": "Robert Lamb",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Bloody FM",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "camping trip / nightmares / supernatural threat",
+      "pov": "serialized horror drama",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/audiodramas/paralyzed",
+        "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
+        "https://podcasts.bloody-disgusting.com/podcasts/paralyzed/"
+      ],
+      "objectiveNote": "Official 7 Lamb listing verifies premise about David, sleep paralysis, camping trip, and supernatural threat.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/paralyzed.json",
+      "researchGaps": [
+        "exact first episode date",
+        "exact latest episode date",
+        "cast/crew beyond creator/network"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/paralyzed; https://podcasts.apple.com/us/podcast/paralyzed/id993000668; https://podcasts.bloody-disgusting.com/podcasts/paralyzed/",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Paralyzed",
+      "Paralyzed podcast",
+      "7 Lamb Paralyzed"
+    ],
+    "themes": [
+      "mystery",
+      "horror",
+      "supernatural"
+    ],
+    "contentNotes": [
+      "genre violence / threat",
+      "horror or supernatural themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "cast": [],
+    "releaseDates": {
+      "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
+      "firstYear": 2015,
+      "latestYear": 2025
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "7-lamb-productions",
+    "networkId": "7-lamb-productions"
   },
   {
     "id": "derelict",
     "title": "Derelict",
     "subtitle": "Big-scale sci-fi tension with a thriller engine underneath it.",
     "description": "One of the archive's strongest high-intensity sci-fi picks when the user wants something serious, propulsive, and built to hit hard.",
-    "cover": "derelict/Derelict.jpeg",
+    "cover": "shows/derelict/Derelict.jpeg",
     "coverAlt": "Derelict cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "",
+      "spotify": "https://open.spotify.com/show/0RRSDPSo4fDJI5g7iHbJTy",
+      "apple": "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
+      "website": "https://www.derelictpodcast.com/",
       "rss": ""
     },
-    "genres": ["sci-fi", "thriller", "mystery"],
-    "tones": ["dark", "cinematic", "tense"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Thriller", "Mystery"],
+    "genres": [
+      "sci-fi",
+      "thriller",
+      "mystery"
+    ],
+    "tones": [
+      "dark",
+      "cinematic",
+      "tense"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Thriller",
+      "Mystery"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 1: FATHOM, 10 episodes; Season 2: DERELICT, 10 episodes; Season 3 / DERELICT WAR in crowdfunding/trailer stage",
+      "seasons": 2,
+      "episodes": 20,
+      "avgEpisodeMinutes": 65,
+      "totalHours": 21.7
     },
     "ratings": {
       "archive": 10
@@ -1213,8 +4065,15 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["long-walks", "serious-sci-fi", "headphones-on"],
-    "similarTo": ["impact-winter", "solar"],
+    "bestFor": [
+      "long-walks",
+      "serious-sci-fi",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "impact-winter",
+      "solar"
+    ],
     "archiveTake": "A high-confidence recommendation when someone wants strong production and sustained sci-fi pressure.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1227,31 +4086,148 @@
       "hex": "#4a6580",
       "rgb": "74, 101, 128"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "derelict.json",
+    "releaseDates": {
+      "first": "2019-07-18",
+      "latest": "2025-07-01",
+      "note": "latest is the most recent verified main-story episode in the existing data; the feed has 2026 Season 3 crowdfunding/trailer entries for DERELICT WAR.",
+      "latestFeedItem": "2026-03-24"
+    },
+    "creatorName": "J. Barton Mitchell",
+    "networkName": "Night Rocket Productions",
+    "officialLinks": {
+      "website": "https://www.derelictpodcast.com/",
+      "discord": "",
+      "merch": "https://derelictpodcast.myshopify.com/",
+      "patreon": "",
+      "youtube": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "creatorName": "J. Barton Mitchell",
+      "productionCompany": "Night Rocket Productions",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Not verified",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "available for Season One FATHOM and Season Two DERELICT episode pages",
+      "captions": "not applicable",
+      "regionNotes": "Official site links to Apple and pod.link/platform options."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "deep-sea / later science-fiction survival environment",
+      "pov": "full-cast ensemble",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.derelictpodcast.com/",
+        "https://www.derelictpodcast.com/season-one",
+        "https://www.derelictpodcast.com/season-two",
+        "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
+        "https://www.kickstarter.com/projects/nightrocket/derelict-war"
+      ],
+      "objectiveNote": "Official site verifies Night Rocket Productions and transcript lists for both seasons; Apple/podcast pages verify public listing. Season 3 is in development/crowdfunding context, so release status remains active/ongoing.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/derelict.json",
+      "researchGaps": [
+        "exact current RSS feed URL",
+        "Season 3 publication date",
+        "whether archive latestRelease should track main-story episodes or feed updates"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.derelictpodcast.com/; https://www.derelictpodcast.com/season-one; https://www.derelictpodcast.com/season-two; https://podcasts.apple.com/us/podcast/derelict/id1473460202; https://www.kickstarter.com/projects/nightrocket/derelict-war",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "DERELICT",
+      "Fathom",
+      "DERELICT/FATHOM"
+    ],
+    "themes": [
+      "sci-fi",
+      "thriller",
+      "mystery"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "creators": [
+      "J. Barton Mitchell"
+    ],
+    "cast": [],
+    "firstReleasedAt": "2019-07-18",
+    "firstRelease": "2019-07-18",
+    "lastReleasedAt": "2025-07-01",
+    "latestRelease": "2025-07-01",
+    "createdAt": "2026-06-01",
+    "creatorId": "j-barton-mitchell",
+    "networkId": "night-rocket-productions"
   },
   {
-    "id": "crystal-blues",
-    "title": "Crystal Blues",
+    "id": "crystal-blue",
+    "title": "Crystal Blue",
     "subtitle": "Future-facing sci-fi comedy with a lighter archive profile.",
     "description": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
-    "cover": "crystal-blue/CrystalBlue.jpeg",
+    "cover": "shows/crystal-blue/CrystalBlue.jpeg",
     "coverAlt": "Crystal Blues cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
+      "website": "https://www.7lamb.com/audiodramas/crystal-blue",
       "rss": ""
     },
-    "genres": ["sci-fi", "comedy"],
-    "tones": ["funny", "weird"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Sci-fi", "Future", "Comedy"],
+    "genres": [
+      "sci-fi",
+      "comedy"
+    ],
+    "tones": [
+      "funny",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Future",
+      "Comedy"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 1 has 9 story episodes released plus trailer/message entries; Apple episode numbering reaches 10 because of feed extras",
+      "seasons": 1,
+      "episodes": 9,
+      "feedEntries": 11,
+      "avgEpisodeMinutes": 40
     },
     "ratings": {
       "archive": 5
@@ -1263,8 +4239,13 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["funny-space-disasters"],
-    "similarTo": ["eos-10", "oz-9"],
+    "bestFor": [
+      "funny-space-disasters"
+    ],
+    "similarTo": [
+      "eos-10",
+      "oz-9"
+    ],
     "archiveTake": "More browse curiosity than flagship recommendation, but still useful in the lighter sci-fi lane.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1277,14 +4258,109 @@
       "hex": "#6c6ea0",
       "rgb": "108, 110, 160"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "crystal-blue.json",
+    "creatorName": "7 Lamb Productions",
+    "networkName": "Bloody FM / 7 Lamb Productions",
+    "officialLinks": {
+      "website": "https://www.7lamb.com/audiodramas",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "7 Lamb Productions",
+      "creatorName": "7 Lamb Productions",
+      "writer": "Not verified",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Bloody FM",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "distant planet / military outcasts",
+      "pov": "serialized sci-fi audio drama",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/audiodramas/crystal-blue",
+        "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190"
+      ],
+      "objectiveNote": "Official 7 Lamb listing uses the title Crystal Blue and verifies the distant-planet military-outpost premise. Existing archive ID/title Crystal Blues is preserved for compatibility.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/crystal-blue.json",
+      "researchGaps": [
+        "future Season 1 continuation status",
+        "complete cast/crew"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-title-normalization",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/crystal-blue; https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Crystal Blues",
+      "Crystal Blue",
+      "7 Lamb Crystal Blue",
+      "Crystal Blue podcast"
+    ],
+    "themes": [
+      "sci-fi",
+      "future",
+      "comedy"
+    ],
+    "contentNotes": [
+      "comedic tone"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "cast": [],
+    "releaseDates": {
+      "first": "2021-12-06",
+      "latest": "2025-07-07",
+      "note": "Canonical public title is Crystal Blue. Latest verified story episode is S1E9 / Trouble in Paradise, published July 7, 2025 UTC on Apple."
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "7-lamb-productions",
+    "networkId": "bloody-fm-7-lamb-productions",
+    "firstReleasedAt": "2021-12-06",
+    "firstRelease": "2021-12-06",
+    "lastReleasedAt": "2025-07-07",
+    "latestRelease": "2025-07-07"
   },
   {
     "id": "end-of-all-hope",
-    "title": "End of all Hope",
+    "title": "End of All Hope",
     "subtitle": "Creature pressure and survival pacing in a more pulpy register.",
     "description": "A survival-oriented archive entry for listeners who want threat, creatures, and forward motion more than elegance.",
-    "cover": "eoah/EOAH.jpeg",
+    "cover": "shows/eoah/EOAH.jpeg",
     "coverAlt": "End of all Hope cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -1292,16 +4368,32 @@
     "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560",
+      "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
       "rss": ""
     },
-    "genres": ["thriller", "survival", "sci-fi"],
-    "tones": ["tense", "cinematic"],
-    "formats": ["full-cast", "serialized"],
-    "tags": ["Survival", "Aliens", "Comedy"],
+    "genres": [
+      "thriller",
+      "survival",
+      "sci-fi"
+    ],
+    "tones": [
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Survival",
+      "Aliens",
+      "Comedy"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "99 public feed episodes; Apple lists years active 2015-2025",
+      "seasons": 6,
+      "episodes": 99
     },
     "ratings": {
       "archive": 8
@@ -1313,8 +4405,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["binge-listening", "late-night"],
-    "similarTo": ["impact-winter", "were-alive"],
+    "bestFor": [
+      "binge-listening",
+      "late-night"
+    ],
+    "similarTo": [
+      "impact-winter",
+      "were-alive"
+    ],
     "archiveTake": "A practical archive recommendation when the ask is simple: survival, creatures, and momentum.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1327,14 +4425,107 @@
       "hex": "#8d503f",
       "rgb": "141, 80, 63"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "end-of-all-hope.json",
+    "creatorName": "7 Lamb Productions",
+    "networkName": "Bloody FM / 7 Lamb Productions",
+    "officialLinks": {
+      "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "7 Lamb Productions",
+      "creatorName": "7 Lamb Productions",
+      "writer": "Robert Lamb",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Bloody FM",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "alien invasion survival road story",
+      "pov": "serialized ensemble survival drama",
+      "intensity": "high"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/audiodramas/end-of-all-hope",
+        "https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560",
+        "https://podcasts.bloody-disgusting.com/podcasts/end-hope/"
+      ],
+      "objectiveNote": "Official 7 Lamb listing verifies alien-invasion survival premise and three-survivor framing.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/end-of-all-hope.json",
+      "researchGaps": [
+        "exact first episode date",
+        "exact latest episode date",
+        "current season status"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/end-of-all-hope; https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560; https://podcasts.bloody-disgusting.com/podcasts/end-hope/",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "End of All Hope",
+      "7 Lamb End of All Hope"
+    ],
+    "themes": [
+      "survival",
+      "aliens",
+      "comedy",
+      "thriller",
+      "sci-fi"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "cast": [],
+    "releaseDates": {
+      "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
+      "firstYear": 2015,
+      "latestYear": 2025
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "7-lamb-productions",
+    "networkId": "7-lamb-productions"
   },
   {
     "id": "tower-4",
     "title": "Tower 4",
     "subtitle": "Isolation mystery with a slow-burn dread profile.",
     "description": "A good archive browse pick when the listener wants something remote, watchful, and just a little unsettling.",
-    "cover": "towe4/Tower4.jpeg",
+    "cover": "shows/towe4/Tower4.jpeg",
     "coverAlt": "Tower 4 cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
@@ -1342,16 +4533,33 @@
     "completionStatus": "ongoing",
     "listenLinks": {
       "spotify": "",
-      "apple": "",
-      "website": "",
+      "apple": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+      "website": "https://www.7lamb.com/audiodramas/tower-4",
       "rss": ""
     },
-    "genres": ["mystery", "thriller"],
-    "tones": ["bleak", "tense"],
-    "formats": ["narrated", "serialized"],
-    "tags": ["Mystery", "Isolation", "Comedy"],
+    "genres": [
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "bleak",
+      "tense"
+    ],
+    "formats": [
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Mystery",
+      "Isolation",
+      "Comedy"
+    ],
     "length": {
-      "label": "Length still being filled in."
+      "label": "Season 4 active; Apple lists S4E8 on 2026-05-04; numbered public episodes reach at least 62",
+      "seasons": 4,
+      "episodes": 62,
+      "feedEntriesApprox": 66,
+      "avgEpisodeMinutes": 40
     },
     "ratings": {
       "archive": 10
@@ -1363,8 +4571,14 @@
       "favoriteRun": "",
       "wouldRelisten": null
     },
-    "bestFor": ["cold-isolation-horror", "late-night"],
-    "similarTo": ["the-white-vault", "station-151"],
+    "bestFor": [
+      "cold-isolation-horror",
+      "late-night"
+    ],
+    "similarTo": [
+      "the-white-vault",
+      "station-151"
+    ],
     "archiveTake": "One of the archive's cleaner picks for remote-watchtower unease.",
     "spoilerFreeReview": "",
     "thoughts": "",
@@ -1377,6 +4591,101 @@
       "hex": "#7e6448",
       "rgb": "126, 100, 72"
     },
-    "updatedAt": "2026-06-02"
+    "updatedAt": "2026-06-15",
+    "reviewFile": "tower-4.json",
+    "creatorName": "7 Lamb Productions",
+    "networkName": "Bloody FM / 7 Lamb Productions",
+    "officialLinks": {
+      "website": "https://www.7lamb.com/audiodramas/tower-4",
+      "patreon": "",
+      "discord": "",
+      "youtube": "",
+      "merch": "",
+      "instagram": "",
+      "facebook": ""
+    },
+    "credits": {
+      "productionCompany": "7 Lamb Productions",
+      "creatorName": "7 Lamb Productions",
+      "writer": "Robert Lamb",
+      "director": "Not verified",
+      "producer": "Not verified",
+      "soundDesign": "Not verified",
+      "composer": "Not verified",
+      "network": "Bloody FM",
+      "cast": "Not verified",
+      "coverArt": "Not verified"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Wyoming woods / fire lookout tower",
+      "pov": "narrated serialized mystery",
+      "intensity": "medium"
+    },
+    "metadata": {
+      "objectiveSources": [
+        "https://www.7lamb.com/audiodramas",
+        "https://www.7lamb.com/audiodramas/tower-4",
+        "https://podcasts.apple.com/us/podcast/tower-4/id1533736348"
+      ],
+      "objectiveNote": "Official 7 Lamb listing verifies Mike Archer / Wyoming fire-watch premise.",
+      "objectiveVerifiedAt": "2026-06-15",
+      "reviewFile": "reviews/tower-4.json",
+      "researchGaps": [
+        "exact total feed entry count",
+        "complete cast/crew"
+      ],
+      "awards": [],
+      "schedule": {
+        "cadence": "unknown",
+        "note": "Schedule/cadence not fully verified."
+      },
+      "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    },
+    "verification": {
+      "status": "source-verified-with-feed-note",
+      "verifiedAt": "2026-06-15",
+      "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/tower-4; https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+      "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+    },
+    "aliases": [
+      "Tower 4",
+      "Tower 4 podcast",
+      "7 Lamb Tower 4"
+    ],
+    "themes": [
+      "mystery",
+      "isolation",
+      "comedy",
+      "thriller"
+    ],
+    "contentNotes": [
+      "genre violence / threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "cast": [],
+    "releaseDates": {
+      "first": "2020-09-14",
+      "latest": "2026-05-04",
+      "note": "Latest verified public episode in Apple/Amazon listings is S4E8: An Open Mind on 2026-05-04. Third-party feed counts differ, so episodes is a conservative numbered-episode count."
+    },
+    "createdAt": "2026-06-01",
+    "creatorId": "7-lamb-productions",
+    "networkId": "7-lamb-productions",
+    "firstReleasedAt": "2020-09-14",
+    "firstRelease": "2020-09-14",
+    "lastReleasedAt": "2026-05-04",
+    "latestRelease": "2026-05-04"
   }
 ]

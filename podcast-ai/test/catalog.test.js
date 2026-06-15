@@ -53,8 +53,8 @@ function createShowRecord(overrides = {}) {
   };
 }
 
-test("loadCatalog reads the structured show catalog", () => {
-  const catalog = loadCatalog(siteRoot);
+test("loadCatalog reads the structured show catalog", async () => {
+  const catalog = await loadCatalog(siteRoot);
   const impactWinter = catalog.find((entry) => entry.title === "Impact Winter");
   const ids = new Set(catalog.map((entry) => entry.id));
 
@@ -68,8 +68,8 @@ test("loadCatalog reads the structured show catalog", () => {
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
-test("loadCollections reads curated collections against the catalog ids", () => {
-  const catalog = loadCatalog(siteRoot);
+test("loadCollections reads curated collections against the catalog ids", async () => {
+  const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
 
   assert.equal(collections.length, 6);
@@ -113,8 +113,8 @@ test("resolveCollectionView rejects unknown collections", () => {
   );
 });
 
-test("scoreCatalog ranks relevant matches first", () => {
-  const catalog = loadCatalog(siteRoot);
+test("scoreCatalog ranks relevant matches first", async () => {
+  const catalog = await loadCatalog(siteRoot);
   const results = scoreCatalog(catalog, "I want a sci-fi survival show with vampires");
 
   assert.ok(results.length > 0);
@@ -124,8 +124,8 @@ test("scoreCatalog ranks relevant matches first", () => {
   assert.ok(results.every((show) => /vampire/i.test(show.searchText)));
 });
 
-test("scoreCatalog matches natural discovery phrases across status, intent, and similarity", () => {
-  const catalog = loadCatalog(siteRoot);
+test("scoreCatalog matches natural discovery phrases across status, intent, and similarity", async () => {
+  const catalog = await loadCatalog(siteRoot);
 
   const completedSciFi = scoreCatalog(catalog, "completed sci fi");
   assert.ok(completedSciFi.length > 0);
@@ -159,7 +159,7 @@ test("scoreCatalog matches natural discovery phrases across status, intent, and 
   assert.equal(directTitle[0].title, "Derelict");
 });
 
-test("loadCatalog merges companion review files into the returned show record", () => {
+test("loadCatalog merges companion review files into the returned show record", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   const imagesRoot = path.join(tempRoot, "images");
@@ -184,7 +184,7 @@ test("loadCatalog merges companion review files into the returned show record", 
     },
   });
 
-  const [show] = loadCatalog(tempRoot);
+  const [show] = await loadCatalog(tempRoot);
 
   assert.equal(show.archiveTake, "Companion archive take.");
   assert.equal(show.spoilerFreeReview, "First paragraph. Second paragraph.");
@@ -194,7 +194,7 @@ test("loadCatalog merges companion review files into the returned show record", 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("companion review content overrides stale inline review fields", () => {
+test("companion review content overrides stale inline review fields", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   const imagesRoot = path.join(tempRoot, "images");
@@ -216,7 +216,7 @@ test("companion review content overrides stale inline review fields", () => {
     thoughts: ["Fresh companion thoughts."],
   });
 
-  const [show] = loadCatalog(tempRoot);
+  const [show] = await loadCatalog(tempRoot);
 
   assert.equal(show.archiveTake, "Fresh companion take.");
   assert.equal(show.spoilerFreeReview, "Fresh companion review.");
@@ -225,7 +225,7 @@ test("companion review content overrides stale inline review fields", () => {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("loadCatalog preserves richer optional metadata for future show-page use", () => {
+test("loadCatalog preserves richer optional metadata for future show-page use", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   const imagesRoot = path.join(tempRoot, "images");
@@ -283,7 +283,7 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
     }),
   ]);
 
-  const [show] = loadCatalog(tempRoot);
+  const [show] = await loadCatalog(tempRoot);
 
   assert.deepEqual(show.aliases, ["Demo Show", "The Demo Show"]);
   assert.deepEqual(show.themes, ["Isolation", "Hope"]);
@@ -307,7 +307,7 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("full-review validation still fails when neither inline nor companion rich content exists", () => {
+test("full-review validation still fails when neither inline nor companion rich content exists", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   const imagesRoot = path.join(tempRoot, "images");
@@ -323,9 +323,9 @@ test("full-review validation still fails when neither inline nor companion rich 
     }),
   ]);
 
-  assert.throws(
-    () => {
-      loadCatalog(tempRoot);
+  await assert.rejects(
+    async () => {
+      await loadCatalog(tempRoot);
     },
     {
       message: /full-review without richer review content/i,

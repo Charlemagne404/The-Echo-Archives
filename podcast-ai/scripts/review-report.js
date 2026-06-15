@@ -5,9 +5,9 @@ function formatBoolean(value) {
   return value ? "yes" : "no";
 }
 
-function main() {
+async function main() {
   const siteRoot = resolveSiteRoot();
-  const catalog = loadCatalog(siteRoot).filter((show) => show.status === "published");
+  const catalog = (await loadCatalog(siteRoot)).filter((show) => show.status === "published");
   const headers = [
     "id",
     "title",
@@ -40,9 +40,7 @@ function main() {
   });
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error(error.message || error);
   process.exitCode = 1;
-}
+});

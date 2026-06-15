@@ -11,11 +11,11 @@ const { createCommunityService } = require("../lib/services/community-service");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
-test("community ratings persist and update aggregate summaries", () => {
+test("community ratings persist and update aggregate summaries", async () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
-  const catalog = loadCatalog(siteRoot);
+  const catalog = await loadCatalog(siteRoot);
   const store = createCommunityStore({ db, catalog });
   const community = createCommunityService({ store });
 
@@ -57,11 +57,11 @@ test("community ratings persist and update aggregate summaries", () => {
   fs.rmSync(tempDir, { recursive: true, force: true });
 });
 
-test("community ratings can be removed for a profile", () => {
+test("community ratings can be removed for a profile", async () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
-  const catalog = loadCatalog(siteRoot);
+  const catalog = await loadCatalog(siteRoot);
   const store = createCommunityStore({ db, catalog });
   const community = createCommunityService({ store });
 
@@ -87,11 +87,11 @@ test("community ratings can be removed for a profile", () => {
   fs.rmSync(tempDir, { recursive: true, force: true });
 });
 
-test("community rating writes are throttled after the configured burst limit", () => {
+test("community rating writes are throttled after the configured burst limit", async () => {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
-  const catalog = loadCatalog(siteRoot);
+  const catalog = await loadCatalog(siteRoot);
   const store = createCommunityStore({ db, catalog });
   const community = createCommunityService({
     store,

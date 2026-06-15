@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
+const { syncShowCovers } = require("./cover-sync");
 const { hasRichReviewContent, mergeReviewContent, readReviewRecord } = require("./reviews");
 const {
   hydrateCatalogSearch,
@@ -375,15 +376,17 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
   });
 }
 
-function loadShows(siteRoot) {
+async function loadShows(siteRoot, options = {}) {
   const showsPath = path.join(siteRoot, "data", "shows.json");
   const records = readJsonFile(showsPath);
-  const seenIds = new Set();
 
   if (!Array.isArray(records)) {
     throw new Error("data/shows.json must contain an array.");
   }
 
+  await syncShowCovers(siteRoot, records, options.coverSync);
+
+  const seenIds = new Set();
   const mergedRecords = records.map((record) => mergeReviewContent(record, readReviewRecord(siteRoot, record.id)));
 
   mergedRecords.forEach((record) => validateShowRecord(record, seenIds));
@@ -416,7 +419,13 @@ function loadCollections(siteRoot, knownShowIds = null) {
   const collectionsPath = path.join(siteRoot, "data", "collections.json");
   const records = readJsonFile(collectionsPath);
   const seenIds = new Set();
-  const showIdSet = knownShowIds || new Set(loadShows(siteRoot).map((record) => record.id));
+  const showIdSet =
+    knownShowIds ||
+    new Set(
+      readJsonFile(path.join(siteRoot, "data", "shows.json"))
+        .filter((record) => record && typeof record === "object" && typeof record.id === "string")
+        .map((record) => record.id),
+    );
 
   if (!Array.isArray(records)) {
     throw new Error("data/collections.json must contain an array.");
@@ -451,8 +460,8 @@ function resolveCollectionView({ catalog, collections, collectionId }) {
   };
 }
 
-function loadCatalog(siteRoot) {
-  return loadShows(siteRoot);
+async function loadCatalog(siteRoot, options = {}) {
+  return loadShows(siteRoot, options);
 }
 
 module.exports = {

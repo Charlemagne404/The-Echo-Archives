@@ -24,12 +24,13 @@ test("public runtime pages load archive-search before the module entry script", 
   runtimePages.forEach((pagePath) => {
     const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
     const searchScript = '<script src="shared/archive-search.js?v=1"></script>';
-    const runtimeScript = '<script type="module" src="script.js?v=19"></script>';
+    const runtimeScriptPattern = /<script type="module" src="script\.js\?v=\d+"><\/script>/;
+    const runtimeScriptMatch = html.match(runtimeScriptPattern);
 
     assert.ok(html.includes(searchScript), `${pagePath} should include the shared archive search helper.`);
-    assert.ok(html.includes(runtimeScript), `${pagePath} should include the module runtime entry.`);
+    assert.ok(runtimeScriptMatch, `${pagePath} should include the module runtime entry.`);
     assert.ok(
-      html.indexOf(searchScript) < html.indexOf(runtimeScript),
+      html.indexOf(searchScript) < html.indexOf(runtimeScriptMatch[0]),
       `${pagePath} should load archive-search before the runtime entry.`,
     );
   });

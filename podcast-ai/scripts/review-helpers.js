@@ -82,10 +82,10 @@ function assertShowExists(shows, showId) {
   return show;
 }
 
-function validateSiteData(siteRoot) {
-  const catalog = loadCatalog(siteRoot);
+async function validateSiteData(siteRoot) {
+  const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
-  loadArchiveContext(siteRoot, catalog, collections);
+  await loadArchiveContext(siteRoot, catalog, collections);
 }
 
 function hasDetailedLength(show) {

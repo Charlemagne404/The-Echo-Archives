@@ -9,6 +9,7 @@ The repo now uses a JSON-first catalog:
 - `data/shows.json` is the canonical show metadata index
 - `data/collections.json` is the canonical curated discovery layer
 - `data/reviews/*.json` stores long-form editorial review companions per show
+- missing show covers can now be auto-fetched into `images/covers/` during catalog load when a show has RSS, Apple, or website source links
 - `show.html` is the reusable show template for both full reviews and indexed-only entries
 - `podcast-ai/` serves the static site, archive chat API, anonymous community ratings, and the first-party show submission endpoint
 - `script.js` is the thin browser entry and `shared/app/` owns the runtime frontend modules
@@ -46,6 +47,7 @@ npm run verify
 ```
 
 The maintainer review workflow keeps `data/shows.json` focused on show metadata while `data/reviews/<show-id>.json` holds longer editorial copy. Run `review:new` to scaffold a review file, `review:publish` to promote a drafted review to `full-review`, and `review:report` to audit catalog gaps.
+Catalog validation and server startup now also auto-fill missing cover art into `images/covers/` when the show record has a usable RSS, Apple, or website source link, and may rewrite `data/shows.json` to persist the resolved local cover path.
 
 Root-level delivery files are intentionally present for both the live Node deployment and simpler static hosting setups, including `404.html`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, and the basic policy pages.
 The root public surface is intentional: no build step is required, Express can still serve the repo root directly, and simple static-host fallbacks continue to work.

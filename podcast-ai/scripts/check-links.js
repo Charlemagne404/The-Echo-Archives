@@ -47,27 +47,35 @@ function scanHtmlFile(relativePath) {
   }
 }
 
-mainPages.forEach(scanHtmlFile);
+async function main() {
+  mainPages.forEach(scanHtmlFile);
 
-const catalog = loadCatalog(siteRoot);
-const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+  const catalog = await loadCatalog(siteRoot);
+  const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
 
-catalog.forEach((show) => {
-  assertFileExists(path.join(siteRoot, show.cover), `Show "${show.id}" cover`);
-});
+  catalog.forEach((show) => {
+    assertFileExists(path.join(siteRoot, show.cover), `Show "${show.id}" cover`);
+  });
 
-collections.forEach((collection) => {
-  assertFileExists(path.join(siteRoot, "collection.html"), `Collection route for "${collection.id}"`);
-});
+  collections.forEach((collection) => {
+    assertFileExists(path.join(siteRoot, "collection.html"), `Collection route for "${collection.id}"`);
+  });
 
-catalog.forEach((show) => {
-  assertFileExists(path.join(siteRoot, "show.html"), `Show route for "${show.id}"`);
-});
+  catalog.forEach((show) => {
+    assertFileExists(path.join(siteRoot, "show.html"), `Show route for "${show.id}"`);
+  });
 
-if (failures.length > 0) {
-  console.error("Link and asset validation failed:");
-  failures.forEach((failure) => console.error(`- ${failure}`));
-  process.exitCode = 1;
-} else {
+  if (failures.length > 0) {
+    console.error("Link and asset validation failed:");
+    failures.forEach((failure) => console.error(`- ${failure}`));
+    process.exitCode = 1;
+    return;
+  }
+
   console.log(`Validated local links and assets for ${mainPages.length} primary pages, ${catalog.length} shows, and ${collections.length} collections.`);
 }
+
+main().catch((error) => {
+  console.error(error.message || error);
+  process.exitCode = 1;
+});

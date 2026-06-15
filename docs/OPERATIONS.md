@@ -23,6 +23,8 @@ npm run verify
 
 If `npm run verify` fails, do not publish.
 
+`npm run validate:data`, `npm run check:links`, and normal server startup may now auto-download missing cover art into `images/covers/` and rewrite `data/shows.json` with the resolved local asset path. Review and commit those generated changes before publishing.
+
 ## Manual Route QA
 
 Verify these routes before publishing significant catalog, route, or operational changes:

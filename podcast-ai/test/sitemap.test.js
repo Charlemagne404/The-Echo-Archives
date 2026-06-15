@@ -7,8 +7,8 @@ const { buildSitemapEntries, buildSitemapXml } = require("../lib/sitemap");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
-test("buildSitemapEntries includes public pages, shows, and collections", () => {
-  const catalog = loadCatalog(siteRoot);
+test("buildSitemapEntries includes public pages, shows, and collections", async () => {
+  const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   const entries = buildSitemapEntries({
     siteUrl: "https://echo.continental-hub.com",

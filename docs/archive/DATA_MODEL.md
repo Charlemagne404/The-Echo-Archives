@@ -20,7 +20,7 @@ Do not overengineer this on day one. Start with the fields that support:
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
   "description": "A spoiler-free archive description.",
-  "cover": "Impact Winter/Impact-winter.jpeg",
+  "cover": "shows/Impact Winter/Impact-winter.jpeg",
   "coverAlt": "Impact Winter cover art",
   "status": "published",
   "reviewStatus": "full-review",

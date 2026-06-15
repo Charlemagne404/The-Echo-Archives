@@ -47,9 +47,9 @@ function createShowRecord(overrides = {}) {
   };
 }
 
-test("loadArchiveContext returns empty optional datasets when they are absent", () => {
-  const catalog = loadCatalog(siteRoot);
-  const archiveContext = loadArchiveContext(siteRoot, catalog);
+test("loadArchiveContext returns empty optional datasets when they are absent", async () => {
+  const catalog = await loadCatalog(siteRoot);
+  const archiveContext = await loadArchiveContext(siteRoot, catalog);
 
   assert.deepEqual(archiveContext.creators, []);
   assert.deepEqual(archiveContext.networks, []);
@@ -59,7 +59,7 @@ test("loadArchiveContext returns empty optional datasets when they are absent", 
   assert.equal(archiveContext.featureAvailability.hasNetworkPages, false);
 });
 
-test("loadArchiveContext enables hidden feature availability when optional datasets and references exist", () => {
+test("loadArchiveContext enables hidden feature availability when optional datasets and references exist", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   const imagesRoot = path.join(tempRoot, "images");
@@ -110,7 +110,8 @@ test("loadArchiveContext enables hidden feature availability when optional datas
     },
   ]);
 
-  const archiveContext = loadArchiveContext(tempRoot);
+  const catalog = await loadCatalog(tempRoot);
+  const archiveContext = await loadArchiveContext(tempRoot, catalog);
 
   assert.equal(archiveContext.featureAvailability.hasPublicChangelog, true);
   assert.equal(archiveContext.featureAvailability.hasCreatorPages, true);
@@ -120,7 +121,7 @@ test("loadArchiveContext enables hidden feature availability when optional datas
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("loadCatalog rejects similarReasons that are not backed by similarTo", () => {
+test("loadCatalog rejects similarReasons that are not backed by similarTo", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   const imagesRoot = path.join(tempRoot, "images");
@@ -142,9 +143,9 @@ test("loadCatalog rejects similarReasons that are not backed by similarTo", () =
     }),
   ]);
 
-  assert.throws(
-    () => {
-      loadCatalog(tempRoot);
+  await assert.rejects(
+    async () => {
+      await loadCatalog(tempRoot);
     },
     {
       message: /similarreason/i,

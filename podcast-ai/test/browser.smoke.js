@@ -10,23 +10,21 @@ const { loadCatalog, loadCollections, scoreCatalog } = require("../lib/catalog")
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
-const showFixtures = loadCatalog(siteRoot);
-const collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
 const legacyRedirectManifest = JSON.parse(
   fs.readFileSync(path.resolve(siteRoot, "docs/archive/legacy-redirects.json"), "utf8"),
 );
 const basePort = 3310;
 const baseUrl = `http://127.0.0.1:${basePort}`;
-const firstCollectionId = collectionFixtures[0].id;
-const firstShowId = showFixtures[0].id;
 const homeMostPopularIds = ["midnight-burger", "were-alive", "red-valley", "derelict"];
-const homeMostPopularTitles = homeMostPopularIds.map(
-  (id) => showFixtures.find((show) => show.id === id)?.title || id,
-);
 
 let browser;
 let serverProcess;
 let tempDir;
+let showFixtures;
+let collectionFixtures;
+let firstCollectionId;
+let firstShowId;
+let homeMostPopularTitles;
 
 async function waitForServer(url, timeoutMs = 20_000) {
   const startedAt = Date.now();
@@ -192,6 +190,13 @@ function countDistinctRows(items, tolerance = 8) {
 test.before(async () => {
   tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-smoke-"));
   const dbPath = path.join(tempDir, "community.sqlite");
+  showFixtures = await loadCatalog(siteRoot);
+  collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
+  firstCollectionId = collectionFixtures[0].id;
+  firstShowId = showFixtures[0].id;
+  homeMostPopularTitles = homeMostPopularIds.map(
+    (id) => showFixtures.find((show) => show.id === id)?.title || id,
+  );
 
   serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: projectRoot,

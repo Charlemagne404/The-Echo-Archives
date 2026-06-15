@@ -246,7 +246,7 @@ Example fields:
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
   "description": "A spoiler-free archive description.",
-  "cover": "Impact Winter/Impact-winter.jpeg",
+  "cover": "shows/Impact Winter/Impact-winter.jpeg",
   "status": "published",
   "reviewStatus": "full-review",
   "releaseStatus": "active",

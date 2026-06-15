@@ -18,7 +18,7 @@ Each show record uses this practical v1 shape:
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
   "description": "Spoiler-free archive description.",
-  "cover": "Impact Winter/Impact-winter.jpeg",
+  "cover": "shows/Impact Winter/Impact-winter.jpeg",
   "coverAlt": "Impact Winter cover art",
   "status": "published",
   "reviewStatus": "full-review",
@@ -131,12 +131,25 @@ Long-form review fields may live inline in `data/shows.json` or in `data/reviews
 
 The schema is intentionally allowed to be richer than the current UI. If structured metadata improves editorial accuracy or future discovery, keep it in `data/shows.json` even when it is not surfaced on the site yet.
 
+## Automatic Cover Sync
+
+Authoring can now leave `cover` blank when the show has at least one usable source link:
+
+- `listenLinks.rss`
+- `listenLinks.apple`
+- `officialLinks.website`
+- `listenLinks.website`
+
+During catalog load, the Node service and validation scripts try those sources in that order, extract the best available show art, download it into `images/covers/`, and rewrite `data/shows.json` with the resolved local cover path.
+
+If no cover can be resolved, catalog load keeps running, logs a warning, and uses a shared local placeholder for that process. The resolved catalog still guarantees a usable `cover` string even when the authoring file does not.
+
 ## Required Fields
 
 - `id`
 - `title`
 - `description`
-- `cover`
+- `cover` in the resolved catalog; authoring may leave it blank when auto-sync source links are present
 - `coverAlt`
 - `status`
 - `reviewStatus`

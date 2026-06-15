@@ -9,7 +9,7 @@ const {
   writeShowsFile,
 } = require("./review-helpers");
 
-function main() {
+async function main() {
   const showId = String(process.argv[2] || "").trim();
   if (!showId) {
     throw new Error("Usage: npm run review:publish -- <show-id>");
@@ -33,7 +33,7 @@ function main() {
   writeShowsFile(siteRoot, shows);
 
   try {
-    validateSiteData(siteRoot);
+    await validateSiteData(siteRoot);
   } catch (error) {
     show.reviewStatus = previousReviewStatus;
     show.updatedAt = previousUpdatedAt;
@@ -44,9 +44,7 @@ function main() {
   console.log(`Published full review for "${showId}".`);
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error(error.message || error);
   process.exitCode = 1;
-}
+});
