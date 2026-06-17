@@ -106,6 +106,32 @@
     return normalized;
   }
 
+  function normalizeOptionalNumber(value) {
+    if (typeof value === "number") {
+      return Number.isFinite(value) ? value : undefined;
+    }
+
+    if (typeof value !== "string" || !value.trim()) {
+      return undefined;
+    }
+
+    const parsed = Number.parseFloat(value.trim());
+    return Number.isFinite(parsed) ? parsed : undefined;
+  }
+
+  function normalizePopularity(value) {
+    const normalized = normalizeStructuredObject(value);
+    const score = normalizeOptionalNumber(value?.score);
+
+    if (score !== undefined) {
+      normalized.score = score;
+    } else {
+      delete normalized.score;
+    }
+
+    return normalized;
+  }
+
   function normalizeReviewParagraphs(value) {
     if (Array.isArray(value)) {
       return value.map((entry) => String(entry || "").trim()).filter(Boolean);
@@ -176,6 +202,7 @@
     const content = normalizeStructuredObject(record.content);
     const verification = normalizeStructuredObject(record.verification);
     const metadata = normalizeStructuredObject(record.metadata);
+    const popularity = normalizePopularity(record.popularity);
     const releaseDates = normalizeStructuredObject(record.releaseDates);
     const ratings = normalizeRatings(record.ratings);
     const spoilerFreeReviewParagraphs = normalizeReviewParagraphs(
@@ -214,6 +241,7 @@
       content,
       verification,
       metadata,
+      popularity,
       releaseDates: {
         ...releaseDates,
         first: typeof releaseDates.first === "string" ? releaseDates.first : "",
@@ -240,6 +268,7 @@
     DEPRECATED_SHOW_FIELDS,
     createShowHref,
     normalizeCollectionRecord,
+    normalizePopularity,
     normalizeKeyedTextMap,
     normalizeReviewParagraphs,
     normalizeShowRecord,

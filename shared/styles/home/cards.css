@@ -707,6 +707,89 @@
   white-space: nowrap;
 }
 
+.active-browse-state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: -8px 0 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.active-browse-state[hidden] {
+  display: none !important;
+}
+
+.active-browse-state-label {
+  margin: 0;
+  color: rgba(240, 238, 233, 0.42);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.active-browse-chips {
+  display: flex;
+  align-items: center;
+  flex: 1 1 320px;
+  min-width: 0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.active-browse-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(240, 238, 233, 0.82);
+  font-size: 0.8rem;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease, color 180ms ease;
+}
+
+.active-browse-chip:hover,
+.active-browse-chip:focus-visible {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.active-browse-chip-remove {
+  color: rgba(240, 238, 233, 0.52);
+  font-size: 0.88rem;
+}
+
+.active-browse-clear {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 2px;
+  border: 0;
+  background: transparent;
+  color: rgba(240, 238, 233, 0.5);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.active-browse-clear:hover,
+.active-browse-clear:focus-visible {
+  color: var(--text-primary);
+  outline: none;
+}
+
 .collection-band {
   margin-bottom: 34px;
 }
@@ -3430,6 +3513,10 @@ footer .right-content img {
     white-space: normal;
   }
 
+  .active-browse-state {
+    align-items: flex-start;
+  }
+
   .home-page .podcast-card {
     --editorial-corner-width: 32px;
     --editorial-corner-top: -6px;
@@ -3666,6 +3753,18 @@ footer .right-content img {
 
   .browse-modes {
     grid-template-columns: 1fr;
+  }
+
+  .active-browse-state {
+    gap: 10px;
+  }
+
+  .active-browse-chips {
+    flex-basis: 100%;
+  }
+
+  .active-browse-clear {
+    padding: 0;
   }
 
   .popular-grid {

@@ -384,7 +384,7 @@ async function clearCommunityRating(podcastId) {
   return response.json();
 }
 
-async function loadCommunitySummaries(podcastIds) {
+export async function loadCommunitySummaries(podcastIds) {
   const ids = Array.from(new Set((Array.isArray(podcastIds) ? podcastIds : []).filter(Boolean)));
   const missingIds = ids.filter((id) => !dataCache.communitySummaries.has(id));
 

@@ -1,6 +1,6 @@
 import { normalizeReviewParagraphs } from "./data.js";
 import { getCollectionShowReason, getShowCollectionMemberships } from "./render-collections.js";
-import { createCollectionHref, createSubmissionHref } from "./urls.js";
+import { createArchiveGenreHref, createCollectionHref, createSubmissionHref } from "./urls.js";
 import {
   escapeHtml,
   formatCompactDate,
@@ -115,7 +115,9 @@ function renderDetailBreadcrumbs(show) {
 
   if (show.genres[0]) {
     parts.push('<span class="detail-breadcrumb-divider">/</span>');
-    parts.push(`<span>${escapeHtml(toDisplayTag(show.genres[0]))}</span>`);
+    parts.push(
+      `<a href="${escapeHtml(createArchiveGenreHref(show.genres[0]))}">${escapeHtml(toDisplayTag(show.genres[0]))}</a>`,
+    );
   }
 
   parts.push('<span class="detail-breadcrumb-divider">/</span>');

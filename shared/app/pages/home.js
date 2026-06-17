@@ -19,8 +19,10 @@ import { initializeHomePreviewController } from "../home-preview.js";
 import { createMostPopularCard, createShowCard } from "../render-cards.js";
 import { createCollectionCard, initializeCollectionCarousel } from "../render-collections.js";
 import { setChatOpen } from "../chat.js";
-import { syncCommunityCardBadges } from "../community.js";
-import { updateDocumentMetadata } from "../utils.js";
+import { loadCommunitySummaries, syncCommunityCardBadges } from "../community.js";
+import { normalizeTag, updateDocumentMetadata } from "../utils.js";
+
+const HOME_MOST_POPULAR_LIMIT = 4;
 
 export async function initializeHomePage() {
   const shows = await loadShows();
@@ -56,6 +58,9 @@ export async function initializeHomePage() {
   const collectionNext = document.getElementById("collectionNext");
   const clearResultsState = document.getElementById("clearResultsState");
   const openArchivistAction = document.getElementById("openArchivistAction");
+  const activeBrowseState = document.getElementById("activeBrowseState");
+  const activeBrowseChips = document.getElementById("activeBrowseChips");
+  const activeBrowseClear = document.getElementById("activeBrowseClear");
 
   if (
     !archiveGrid ||
@@ -79,15 +84,21 @@ export async function initializeHomePage() {
   const structuredFilterGroups = getStructuredFilterGroups(shows);
   const quickFilters = getQuickFilters(filterTags);
   const featuredCollections = collections.filter((collection) => collection.featured);
-  const mostPopularShows = HOME_MOST_POPULAR_IDS
-    .map((showId) => showMap.get(showId))
-    .filter((show) => show && show.status === "published");
+  const publishedShows = shows.filter((show) => show.status === "published");
+  const fallbackMostPopularShows = getFallbackMostPopularShows();
   const collectionsById = buildCollectionMap(collections);
+  const filterGroupsById = new Map(structuredFilterGroups.map((group) => [group.id, group]));
+  const filterOptionsByGroup = new Map(
+    structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
+  );
   let collectionCarouselControls = null;
+  let mostPopularShows = fallbackMostPopularShows;
+  let mostPopularResolutionToken = 0;
 
   const state = {
     query: "",
     filters: {
+      genres: new Set(),
       tags: new Set(),
       bestFor: new Set(),
       completionStatus: new Set(),
@@ -98,10 +109,19 @@ export async function initializeHomePage() {
     gridLayoutBucket: getHomeGridLayoutBucket(),
   };
 
-  const initialCollectionId = new URLSearchParams(window.location.search).get("collection") || "";
+  const params = new URLSearchParams(window.location.search);
+  const initialCollectionId = params.get("collection") || "";
   if (collectionsById.has(initialCollectionId)) {
     state.selectedCollectionId = initialCollectionId;
   }
+
+  params.getAll("genre").forEach((genreId) => {
+    const normalizedGenreId = normalizeTag(genreId);
+    const hasGenre = shows.some((show) => show.genreTokens.includes(normalizedGenreId));
+    if (hasGenre) {
+      state.filters.genres.add(normalizedGenreId);
+    }
+  });
 
   const previewController = initializeHomePreviewController({
     archiveGrid,
@@ -116,6 +136,7 @@ export async function initializeHomePage() {
   renderQuickFilters();
   renderBrowseModes();
   renderMostPopularSection();
+  void resolveMostPopularShows();
   renderCollections();
   renderHomeResults();
 
@@ -163,6 +184,10 @@ export async function initializeHomePage() {
     clearAllFilters();
   });
 
+  activeBrowseClear?.addEventListener("click", () => {
+    clearAllFilters();
+  });
+
   openArchivistAction?.addEventListener("click", () => {
     setChatOpen(true);
     if (userInput) {
@@ -194,6 +219,30 @@ export async function initializeHomePage() {
       searchInput.value = "";
     }
     renderHomeResults();
+  }
+
+  function syncBrowseUrlState() {
+    const nextParams = new URLSearchParams(window.location.search);
+    nextParams.delete("collection");
+    nextParams.delete("genre");
+
+    if (state.selectedCollectionId) {
+      nextParams.set("collection", state.selectedCollectionId);
+    }
+
+    Array.from(state.filters.genres)
+      .sort()
+      .forEach((genreId) => {
+        nextParams.append("genre", genreId);
+      });
+
+    const nextSearch = nextParams.toString();
+    const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}${window.location.hash}`;
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
+    if (nextUrl !== currentUrl) {
+      window.history.replaceState(window.history.state, "", nextUrl);
+    }
   }
 
   function renderFilterOptions() {
@@ -312,6 +361,99 @@ export async function initializeHomePage() {
     popularSection.hidden = !shouldShowMostPopularSection();
   }
 
+  function getFallbackMostPopularShows() {
+    return HOME_MOST_POPULAR_IDS
+      .map((showId) => showMap.get(showId))
+      .filter((show) => show && show.status === "published")
+      .slice(0, HOME_MOST_POPULAR_LIMIT);
+  }
+
+  function compareMostPopularShows(left, right) {
+    return (
+      right.summary.ratingCount - left.summary.ratingCount ||
+      (right.summary.averageRating || 0) - (left.summary.averageRating || 0) ||
+      left.show.title.localeCompare(right.show.title)
+    );
+  }
+
+  function appendUniqueMostPopularShows(target, seenIds, candidates) {
+    candidates.forEach((show) => {
+      if (!show || seenIds.has(show.id) || show.status !== "published" || target.length >= HOME_MOST_POPULAR_LIMIT) {
+        return;
+      }
+
+      seenIds.add(show.id);
+      target.push(show);
+    });
+  }
+
+  function buildMostPopularShows(communitySummaries) {
+    const rankedByCommunity = publishedShows
+      .map((show) => ({
+        show,
+        summary: communitySummaries[show.id] || null,
+      }))
+      .filter(({ summary }) => summary && summary.ratingCount > 0 && summary.averageRating !== null)
+      .sort(compareMostPopularShows)
+      .map(({ show }) => show);
+
+    const rankedByPopularityScore = [...publishedShows]
+      .filter((show) => Number.isFinite(show.popularity?.score))
+      .sort((left, right) => {
+        const leftScore = left.popularity?.score || 0;
+        const rightScore = right.popularity?.score || 0;
+        return rightScore - leftScore || left.title.localeCompare(right.title);
+      });
+
+    const resolved = [];
+    const seenIds = new Set();
+    appendUniqueMostPopularShows(resolved, seenIds, rankedByCommunity);
+    appendUniqueMostPopularShows(resolved, seenIds, rankedByPopularityScore);
+    appendUniqueMostPopularShows(resolved, seenIds, fallbackMostPopularShows);
+    return resolved.slice(0, HOME_MOST_POPULAR_LIMIT);
+  }
+
+  function hasSameShowOrder(left, right) {
+    if (left.length !== right.length) {
+      return false;
+    }
+
+    return left.every((show, index) => show?.id === right[index]?.id);
+  }
+
+  async function resolveMostPopularShows() {
+    if (publishedShows.length === 0) {
+      return;
+    }
+
+    const requestToken = ++mostPopularResolutionToken;
+
+    try {
+      const communitySummaries = await loadCommunitySummaries(publishedShows.map((show) => show.id));
+      if (requestToken !== mostPopularResolutionToken) {
+        return;
+      }
+
+      const nextMostPopularShows = buildMostPopularShows(communitySummaries);
+      mostPopularShows = nextMostPopularShows;
+
+      if (hasSameShowOrder(nextMostPopularShows, fallbackMostPopularShows)) {
+        void syncCommunityCardBadges(popularGrid, mostPopularShows);
+        syncMostPopularSectionVisibility();
+        return;
+      }
+
+      renderMostPopularSection();
+    } catch (_error) {
+      if (requestToken !== mostPopularResolutionToken) {
+        return;
+      }
+
+      mostPopularShows = fallbackMostPopularShows;
+      syncMostPopularSectionVisibility();
+    }
+  }
+
   function renderCollections() {
     collectionGrid.textContent = "";
     collectionsSection.hidden = featuredCollections.length === 0;
@@ -368,6 +510,83 @@ export async function initializeHomePage() {
     return Object.values(state.filters).reduce((count, values) => count + values.size, 0);
   }
 
+  function getActiveBrowseDescriptors() {
+    const descriptors = [];
+
+    structuredFilterGroups.forEach((group) => {
+      const selectedValues = state.filters[group.id];
+      if (!selectedValues || selectedValues.size === 0) {
+        return;
+      }
+
+      const optionLabels = filterOptionsByGroup.get(group.id) || new Map();
+      Array.from(selectedValues)
+        .sort((left, right) => {
+          const leftLabel = optionLabels.get(left) || left;
+          const rightLabel = optionLabels.get(right) || right;
+          return leftLabel.localeCompare(rightLabel);
+        })
+        .forEach((value) => {
+          const optionLabel = optionLabels.get(value) || value;
+          const groupLabel = filterGroupsById.get(group.id)?.label || group.id;
+          descriptors.push({
+            id: `${group.id}:${value}`,
+            label: `${groupLabel}: ${optionLabel}`,
+            remove: () => {
+              state.filters[group.id]?.delete(value);
+            },
+          });
+        });
+    });
+
+    return descriptors;
+  }
+
+  function renderActiveBrowseState() {
+    if (!activeBrowseState || !activeBrowseChips) {
+      return;
+    }
+
+    const descriptors = getActiveBrowseDescriptors();
+    activeBrowseState.hidden = descriptors.length === 0;
+    activeBrowseChips.textContent = "";
+
+    descriptors.forEach((descriptor) => {
+      const button = document.createElement("button");
+      button.className = "active-browse-chip";
+      button.type = "button";
+      button.dataset.activeBrowseId = descriptor.id;
+      button.setAttribute("aria-label", `Remove ${descriptor.label}`);
+
+      const label = document.createElement("span");
+      label.textContent = descriptor.label;
+
+      const remove = document.createElement("span");
+      remove.className = "active-browse-chip-remove";
+      remove.setAttribute("aria-hidden", "true");
+      remove.textContent = "×";
+
+      button.append(label, remove);
+      button.addEventListener("click", () => {
+        descriptor.remove();
+        renderHomeResults();
+      });
+      activeBrowseChips.appendChild(button);
+    });
+  }
+
+  function formatResultsSummaryPrefix(descriptors) {
+    if (descriptors.length === 0) {
+      return "";
+    }
+
+    if (descriptors.length <= 2) {
+      return `${descriptors.map((descriptor) => descriptor.label).join(" • ")} • `;
+    }
+
+    return `Filtered by ${descriptors[0].label}, ${descriptors[1].label} + ${descriptors.length - 2} more • `;
+  }
+
   function matchesSelectedFilters(show) {
     return Object.entries(state.filters).every(([groupId, selectedValues]) => {
       if (selectedValues.size === 0) {
@@ -376,6 +595,8 @@ export async function initializeHomePage() {
 
       const values = (() => {
         switch (groupId) {
+          case "genres":
+            return show.genreTokens;
           case "tags":
             return show.tagTokens;
           case "bestFor":
@@ -421,19 +642,23 @@ export async function initializeHomePage() {
 
     const selectedCollection = getSelectedCollection();
     const visibleShows = getVisibleShows(selectedCollection);
+    const activeDescriptors = getActiveBrowseDescriptors();
 
     syncMostPopularSectionVisibility();
     patchArchiveGrid(visibleShows);
+    renderActiveBrowseState();
+    syncBrowseUrlState();
 
     void syncCommunityCardBadges(archiveGrid, visibleShows);
 
     if (resultsSummary) {
       const fullReviewCount = visibleShows.filter((show) => show.reviewStatus === "full-review").length;
       const suffix = fullReviewCount === 1 ? "full review" : "full reviews";
-      const collectionPrefix = selectedCollection ? `${selectedCollection.title} • ` : "";
+      const collectionPrefix = selectedCollection ? `Collection: ${selectedCollection.title} • ` : "";
+      const browsePrefix = `${collectionPrefix}${formatResultsSummaryPrefix(activeDescriptors)}`;
       const searchPrefix = state.query ? `${visibleShows.length} results for "${state.query}"` : `${visibleShows.length} results`;
       const modePrefix = !state.query && state.sortMode === "recently-updated" ? "Recently updated • " : "";
-      resultsSummary.textContent = `${collectionPrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`;
+      resultsSummary.textContent = `${browsePrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`;
     }
 
     if (noResultsMsg) {

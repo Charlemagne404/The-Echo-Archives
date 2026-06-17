@@ -187,6 +187,55 @@ function countDistinctRows(items, tolerance = 8) {
   return rows.length;
 }
 
+function createEmptyDistribution() {
+  return Object.fromEntries(Array.from({ length: 10 }, (_, index) => [String(index + 1), 0]));
+}
+
+function createSummary({ averageRating, ratingCount, myRating = null, distribution = null }) {
+  return {
+    averageRating,
+    ratingCount,
+    myRating,
+    distribution: distribution || createEmptyDistribution(),
+  };
+}
+
+function buildSummaryPayload(summaryMap, requestUrl) {
+  const requestedIds = (new URL(requestUrl).searchParams.get("podcastIds") || "")
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean);
+
+  const summaries = {};
+  requestedIds.forEach((id) => {
+    if (summaryMap[id]) {
+      summaries[id] = summaryMap[id];
+    }
+  });
+
+  return { summaries };
+}
+
+async function getMostPopularBandState(page) {
+  return page.evaluate(() => ({
+    sectionHidden: document.getElementById("mostPopular")?.hidden ?? true,
+    cardIds: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || ""),
+    titles: Array.from(document.querySelectorAll("#popularGrid .popular-card-title")).map((node) => node.textContent?.trim() || ""),
+    hrefs: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.getAttribute("href") || ""),
+    shellCount: document.querySelectorAll("#popularGrid .podcast-card-shell").length,
+    previewCount: document.querySelectorAll("#popularGrid .home-card-preview, #popularGrid .home-card-preview-layer").length,
+  }));
+}
+
+async function waitForMostPopularBandIds(page, expectedIds) {
+  await page.waitForFunction(
+    (ids) =>
+      JSON.stringify(Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || "")) ===
+      JSON.stringify(ids),
+    expectedIds,
+  );
+}
+
 test.before(async () => {
   tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-smoke-"));
   const dbPath = path.join(tempDir, "community.sqlite");
@@ -640,12 +689,93 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
   }
 });
 
+test("show-page genre breadcrumb returns to the archive with that genre filter active", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/show.html?id=were-alive`, { waitUntil: "networkidle" });
+    await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
+    await page.waitForURL(`${baseUrl}/index.html?genre=thriller#archive`);
+    await page.waitForFunction(
+      () =>
+        document.querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')?.classList.contains("is-active") &&
+        document.getElementById("filterCount")?.textContent === "1" &&
+        document.querySelector('#activeBrowseState:not([hidden]) .active-browse-chip')?.textContent?.includes("Genre: Thriller") &&
+        document.querySelector("#resultsSummary")?.textContent?.includes("Genre: Thriller") &&
+        document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0,
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const state = await page.evaluate(() => ({
+      filterCount: document.getElementById("filterCount")?.textContent?.trim() || "",
+      genreActive:
+        document
+          .querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')
+          ?.classList.contains("is-active") || false,
+      activeChipText: document.querySelector("#activeBrowseState .active-browse-chip")?.textContent?.trim() || "",
+      summary: document.querySelector("#resultsSummary")?.textContent?.trim() || "",
+      cardIds: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"))
+        .map((node) => node.getAttribute("data-podcast-id") || "")
+        .filter(Boolean),
+    }));
+
+    assert.equal(state.filterCount, "1");
+    assert.equal(state.genreActive, true);
+    assert.match(state.activeChipText, /Genre:\s*Thriller/i);
+    assert.match(state.summary, /Genre:\s*Thriller/i);
+    assert.ok(state.cardIds.length > 0);
+    assert.ok(state.cardIds.includes("were-alive"));
+  } finally {
+    await page.close();
+  }
+});
+
+test("clearing a breadcrumb-driven genre filter also clears it from the URL after refresh", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/show.html?id=were-alive`, { waitUntil: "networkidle" });
+    await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
+    await page.waitForURL(`${baseUrl}/index.html?genre=thriller#archive`);
+    await page.locator('#activeBrowseState .active-browse-chip[data-active-browse-id="genres:thriller"]').click();
+    await page.waitForFunction(
+      () =>
+        !window.location.search.includes("genre=") &&
+        document.getElementById("filterCount")?.hidden === true &&
+        document.getElementById("activeBrowseState")?.hidden === true,
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    await page.reload({ waitUntil: "networkidle" });
+
+    const state = await page.evaluate(() => ({
+      search: window.location.search,
+      filterCountHidden: document.getElementById("filterCount")?.hidden ?? false,
+      activeBrowseHidden: document.getElementById("activeBrowseState")?.hidden ?? false,
+      thrillerActive:
+        document
+          .querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')
+          ?.classList.contains("is-active") || false,
+    }));
+
+    assert.equal(state.search.includes("genre="), false);
+    assert.equal(state.filterCountHidden, true);
+    assert.equal(state.activeBrowseHidden, true);
+    assert.equal(state.thrillerActive, false);
+  } finally {
+    await page.close();
+  }
+});
+
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
   const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("#activeBrowseState").isVisible(), false);
 
     await page.getByRole("button", { name: "Filters" }).click();
     await page.evaluate(() => {
@@ -661,6 +791,9 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     const filterCount = page.locator("#filterCount");
     await assert.doesNotReject(() => filterCount.waitFor());
     assert.equal(await filterCount.textContent(), "2");
+    assert.equal(await page.locator("#activeBrowseState").isVisible(), true);
+    assert.match((await page.locator("#activeBrowseState").textContent()) || "", /Completion:\s*Finished/i);
+    assert.match((await page.locator("#activeBrowseState").textContent()) || "", /Coverage:\s*Indexed Only/i);
 
     await page.getByRole("button", { name: "Recently updated" }).click();
     await page.locator("#resultsSummary").waitFor();
@@ -707,11 +840,12 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       }
     }
 
-    await page.getByRole("button", { name: "All" }).click();
+    await page.locator('.quick-filter[data-chip-filter="all"]').click();
     await page.waitForFunction(
       (expectedCount) =>
         document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
-        (document.querySelector("#search")?.value || "") === "",
+        (document.querySelector("#search")?.value || "") === "" &&
+        document.getElementById("activeBrowseState")?.hidden === true,
       showFixtures.length,
     );
   } finally {
@@ -719,35 +853,37 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   }
 });
 
-test("homepage most popular band renders curated cards and hides outside the default archive state", async () => {
+test("homepage most popular band renders a valid 4-card band and hides outside the default archive state", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#popularGrid .popular-card").first().waitFor();
 
-    const defaultState = await page.evaluate((popularIds) => ({
-      sectionHidden: document.getElementById("mostPopular")?.hidden ?? true,
-      cardIds: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || ""),
-      titles: Array.from(document.querySelectorAll("#popularGrid .popular-card-title")).map((node) => node.textContent?.trim() || ""),
-      hrefs: Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.getAttribute("href") || ""),
-      shellCount: document.querySelectorAll("#popularGrid .podcast-card-shell").length,
-      previewCount: document.querySelectorAll("#popularGrid .home-card-preview, #popularGrid .home-card-preview-layer").length,
-      gridCounts: popularIds.map((id) => ({
-        id,
-        count: document.querySelectorAll(`#podcast-grid .podcast-card-shell[data-podcast-id="${id}"]`).length,
-      })),
-    }), homeMostPopularIds);
+    const defaultState = await getMostPopularBandState(page);
+    const uniqueCardIds = new Set(defaultState.cardIds);
 
     assert.equal(defaultState.sectionHidden, false);
-    assert.deepEqual(defaultState.cardIds, homeMostPopularIds);
-    assert.deepEqual(defaultState.titles, homeMostPopularTitles);
+    assert.equal(defaultState.cardIds.length, 4);
+    assert.equal(uniqueCardIds.size, 4);
     assert.equal(defaultState.shellCount, 0);
     assert.equal(defaultState.previewCount, 0);
-    defaultState.hrefs.forEach((href, index) => {
-      assert.match(href, new RegExp(`show\\.html\\?id=${homeMostPopularIds[index]}$`));
+    defaultState.titles.forEach((title) => {
+      assert.ok(title);
     });
-    defaultState.gridCounts.forEach(({ count }) => {
+    defaultState.hrefs.forEach((href, index) => {
+      assert.match(href, new RegExp(`show\\.html\\?id=${defaultState.cardIds[index]}$`));
+    });
+
+    const gridCounts = await page.evaluate(
+      (cardIds) =>
+        cardIds.map((id) => ({
+          id,
+          count: document.querySelectorAll(`#podcast-grid .podcast-card-shell[data-podcast-id="${id}"]`).length,
+        })),
+      defaultState.cardIds,
+    );
+    gridCounts.forEach(({ count }) => {
       assert.equal(count, 1);
     });
 
@@ -776,6 +912,112 @@ test("homepage most popular band renders curated cards and hides outside the def
 
     await page.goto(`${baseUrl}/?collection=${firstCollectionId}#archive`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === true);
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage most popular band keeps the hardcoded fallback when community summaries are unavailable", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "offline" }),
+      });
+    });
+
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForMostPopularBandIds(page, homeMostPopularIds);
+
+    const fallbackState = await getMostPopularBandState(page);
+    assert.equal(fallbackState.sectionHidden, false);
+    assert.deepEqual(fallbackState.cardIds, homeMostPopularIds);
+    assert.deepEqual(fallbackState.titles, homeMostPopularTitles);
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage most popular band reorders by community rating volume and average", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const summaryMap = {
+    "midnight-burger": createSummary({ averageRating: 8.7, ratingCount: 12 }),
+    derelict: createSummary({ averageRating: 9.4, ratingCount: 10 }),
+    "were-alive": createSummary({ averageRating: 8.9, ratingCount: 10 }),
+    "red-valley": createSummary({ averageRating: 9.8, ratingCount: 3 }),
+  };
+  const expectedIds = ["midnight-burger", "derelict", "were-alive", "red-valley"];
+
+  try {
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(buildSummaryPayload(summaryMap, route.request().url())),
+      });
+    });
+
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForMostPopularBandIds(page, expectedIds);
+
+    const rankedState = await getMostPopularBandState(page);
+    assert.deepEqual(rankedState.cardIds, expectedIds);
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage most popular band fills remaining slots from popularity metadata before the hardcoded fallback", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const summaryMap = {
+    story: createSummary({ averageRating: 8.6, ratingCount: 7 }),
+    "station-151": createSummary({ averageRating: 9.2, ratingCount: 3 }),
+  };
+  const expectedIds = ["story", "station-151", "impact-winter", "ars-paradoxica"];
+
+  try {
+    await page.route("**/data/shows.json", async (route) => {
+      const records = showFixtures.map((show) => {
+        if (show.id === "impact-winter") {
+          return {
+            ...show,
+            popularity: { ...(show.popularity || {}), score: 98 },
+          };
+        }
+
+        if (show.id === "ars-paradoxica") {
+          return {
+            ...show,
+            popularity: { ...(show.popularity || {}), score: 97 },
+          };
+        }
+
+        return show;
+      });
+
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(records),
+      });
+    });
+
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(buildSummaryPayload(summaryMap, route.request().url())),
+      });
+    });
+
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForMostPopularBandIds(page, expectedIds);
+
+    const rankedState = await getMostPopularBandState(page);
+    assert.deepEqual(rankedState.cardIds, expectedIds);
   } finally {
     await page.close();
   }

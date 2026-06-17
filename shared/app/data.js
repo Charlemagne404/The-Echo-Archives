@@ -75,6 +75,7 @@ function normalizeShowRecord(record) {
 
   return {
     ...normalized,
+    genreTokens: normalized.genres.map((genre) => normalizeTag(genre)),
     tagTokens: normalized.tags.map((tag) => normalizeTag(tag)),
     bestForTokens: normalized.bestFor.map((tag) => normalizeTag(tag)),
   };
@@ -181,6 +182,7 @@ function createCountedOptions(shows, selector, formatter = toDisplayTag) {
 
 export function getStructuredFilterGroups(shows) {
   return [
+    { id: "genres", label: "Genre", options: createCountedOptions(shows, (show) => show.genres, toDisplayTag) },
     { id: "reviewStatus", label: "Coverage", options: createCountedOptions(shows, (show) => [show.reviewStatus], toLabel) },
     {
       id: "completionStatus",

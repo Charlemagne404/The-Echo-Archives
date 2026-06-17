@@ -51,6 +51,18 @@ function isValidSlug(value = "") {
   return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 }
 
+function isValidOptionalNumber(value) {
+  if (typeof value === "number") {
+    return Number.isFinite(value);
+  }
+
+  if (typeof value !== "string" || !value.trim()) {
+    return false;
+  }
+
+  return Number.isFinite(Number.parseFloat(value.trim()));
+}
+
 function validateUrlMap(showId, fieldName, value) {
   const links = value && typeof value === "object" && !Array.isArray(value) ? value : {};
   Object.entries(links).forEach(([key, href]) => {
@@ -168,6 +180,16 @@ function validateShowRecord(record, seenIds) {
 
   if (record.similarReasons && (typeof record.similarReasons !== "object" || Array.isArray(record.similarReasons))) {
     throw new Error(`Show "${record.id}" has invalid similarReasons data.`);
+  }
+
+  if (record.popularity !== undefined) {
+    if (!record.popularity || typeof record.popularity !== "object" || Array.isArray(record.popularity)) {
+      throw new Error(`Show "${record.id}" has invalid popularity data.`);
+    }
+
+    if (Object.hasOwn(record.popularity, "score") && !isValidOptionalNumber(record.popularity.score)) {
+      throw new Error(`Show "${record.id}" has invalid popularity.score value.`);
+    }
   }
 
   validateUrlMap(record.id, "listenLinks", record.listenLinks);

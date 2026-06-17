@@ -115,6 +115,9 @@ Each show record uses this practical v1 shape:
       "note": "Returns between seasons"
     }
   },
+  "popularity": {
+    "score": 92
+  },
   "featured": true,
   "createdAt": "2026-06-01",
   "creatorId": "example-creator",
@@ -251,6 +254,7 @@ Common optional top-level fields:
 - `officialLinks`: non-listen links such as Patreon, Discord, merch, wiki, YouTube, social, or support pages
 - `releaseDates.first` and `releaseDates.latest`: preferred nested release-date home
 - `cast` and `creators`: simple string arrays for notable people when full entity modeling is unnecessary
+- `popularity.score`: optional non-editorial popularity fallback for browse ordering when live community activity is unavailable
 
 Useful optional structured objects:
 
@@ -260,6 +264,7 @@ Useful optional structured objects:
 - `content`: setting, POV, source material, intensity, framing device, or similar descriptive metadata
 - `verification`: creator-verified or officially sourced factual status plus provenance
 - `metadata`: extra structured archive-only notes that do not fit elsewhere yet
+- `popularity`: archive-owned popularity metadata that must stay separate from `ratings.archive` and creator verification
 
 These fields are optional and may remain partially filled. Prefer truthful partial data over made-up completeness.
 
@@ -270,6 +275,7 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - Every `similarReasons` key must also appear in `similarTo`.
 - Every populated URL in `listenLinks` must be a valid absolute URL.
 - Every populated URL in `officialLinks` must be a valid absolute URL.
+- `popularity.score`, when present, must be numeric.
 - `createdAt` and `updatedAt` must be valid dates when present.
 - `firstRelease`, `firstReleasedAt`, `latestRelease`, `lastReleasedAt`, `releaseDates.first`, `releaseDates.latest`, and `verification.verifiedAt` must be valid dates when present.
 - `creatorId` and `networkId` must use slug ids when present.

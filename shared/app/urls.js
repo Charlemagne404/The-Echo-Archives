@@ -6,6 +6,10 @@ export function createArchiveCollectionHref(collectionId) {
   return `/index.html?collection=${encodeURIComponent(collectionId)}#archive`;
 }
 
+export function createArchiveGenreHref(genreId) {
+  return `/index.html?genre=${encodeURIComponent(genreId)}#archive`;
+}
+
 export function createSubmissionHref(submissionType = "", showId = "") {
   const query = new URLSearchParams();
   if (submissionType) {
