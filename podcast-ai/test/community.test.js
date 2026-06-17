@@ -93,10 +93,22 @@ test("community rating writes are throttled after the configured burst limit", a
   const db = openDatabase(dbPath);
   const catalog = await loadCatalog(siteRoot);
   const store = createCommunityStore({ db, catalog });
+  const calls = [];
+  let remainingWrites = 2;
   const community = createCommunityService({
     store,
-    writeThrottleWindowMs: 60_000,
-    maxWritesPerWindow: 2,
+    rateLimiter: {
+      check(scope, clientIp) {
+        calls.push({ scope, clientIp });
+        remainingWrites -= 1;
+        if (remainingWrites < 0) {
+          const error = new Error("Too many community requests from this address. Try again later.");
+          error.statusCode = 429;
+          error.retryAfterSeconds = 60;
+          throw error;
+        }
+      },
+    },
   });
 
   const profileId = community.createAnonymousProfile(null, "test-agent").profileId;
@@ -115,9 +127,14 @@ test("community rating writes are throttled after the configured burst limit", a
       community.removeRating(basePayload);
     },
     {
-      message: /too many rating actions/i,
+      message: /too many community requests/i,
     },
   );
+  assert.deepEqual(calls, [
+    { scope: "community", clientIp: "127.0.0.1" },
+    { scope: "community", clientIp: "127.0.0.1" },
+    { scope: "community", clientIp: "127.0.0.1" },
+  ]);
 
   db.close();
   fs.rmSync(tempDir, { recursive: true, force: true });

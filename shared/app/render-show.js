@@ -138,8 +138,8 @@ function renderHeroCommunityMetaCard() {
   return `
     <article class="detail-meta-card detail-meta-card-community">
       <span class="detail-meta-label">Community rating</span>
-      <span class="detail-meta-value" data-community-hero-rating>--</span>
-      <span class="detail-meta-note" data-community-hero-count>Checking listener signal</span>
+      <span class="detail-meta-value" data-community-hero-rating>--/10</span>
+      <span class="detail-meta-note" data-community-hero-count>No ratings yet</span>
     </article>
   `;
 }
@@ -628,8 +628,16 @@ function getFullFormatLabel(show) {
 }
 
 function getCreatorNetworkLabel(show) {
-  const creator = show.creatorName || (show.creatorId ? toLabel(show.creatorId) : "");
-  const network = show.networkName || (show.networkId ? toLabel(show.networkId) : "");
+  const creator = Array.isArray(show.creators) && show.creators.length > 0
+    ? show.creators.join(", ")
+    : show.creatorId
+      ? toLabel(show.creatorId)
+      : "";
+  const network = typeof show.credits?.network === "string" && show.credits.network
+    ? show.credits.network
+    : show.networkId
+      ? toLabel(show.networkId)
+      : "";
   const text = [creator, network].filter(Boolean).join(" • ");
 
   if (!text) {
@@ -683,24 +691,10 @@ function getArchivePerspectiveText(show) {
 
 function getShowDateValue(show, kind) {
   if (kind === "first") {
-    return (
-      show.firstRelease ||
-      show.firstReleasedAt ||
-      show.releaseDates?.first ||
-      show.dates?.firstRelease ||
-      show.releaseWindow?.first ||
-      ""
-    );
+    return show.releaseDates?.first || "";
   }
 
-  return (
-    show.latestRelease ||
-    show.lastReleasedAt ||
-    show.releaseDates?.latest ||
-    show.dates?.latestRelease ||
-    show.releaseWindow?.latest ||
-    ""
-  );
+  return show.releaseDates?.latest || "";
 }
 
 function getKnownDateLabel(value) {

@@ -11,31 +11,8 @@ function sanitizePodcastIds(value = "") {
 
 function createCommunityService({
   store,
-  writeThrottleWindowMs = 10 * 60 * 1000,
-  maxWritesPerWindow = 20,
+  rateLimiter = null,
 }) {
-  const recentWritesByIp = new Map();
-
-  function checkWriteThrottle(sourceIp) {
-    if (!sourceIp) {
-      return;
-    }
-
-    const now = Date.now();
-    const recent = (recentWritesByIp.get(sourceIp) || []).filter(
-      (timestamp) => now - timestamp < writeThrottleWindowMs,
-    );
-
-    if (recent.length >= maxWritesPerWindow) {
-      const error = new Error("Too many rating actions from this address. Try again later.");
-      error.statusCode = 429;
-      throw error;
-    }
-
-    recent.push(now);
-    recentWritesByIp.set(sourceIp, recent);
-  }
-
   function createAnonymousProfile(existingProfileId, userAgent) {
     return {
       profileId: store.ensureProfile(isValidProfileId(existingProfileId) ? existingProfileId : null, userAgent),
@@ -55,7 +32,7 @@ function createCommunityService({
   }
 
   function submitRating({ podcastId, rating, profileId, userAgent, source = "web", sourceIp = "" }) {
-    checkWriteThrottle(sourceIp);
+    rateLimiter?.check("community", sourceIp);
 
     const normalizedRating = Number.parseInt(String(rating), 10);
     if (!Number.isInteger(normalizedRating) || normalizedRating < 1 || normalizedRating > 10) {
@@ -87,7 +64,7 @@ function createCommunityService({
   }
 
   function removeRating({ podcastId, profileId, userAgent, source = "web", sourceIp = "" }) {
-    checkWriteThrottle(sourceIp);
+    rateLimiter?.check("community", sourceIp);
 
     const podcast = store.getPodcast(podcastId);
     if (!podcast) {

@@ -193,9 +193,8 @@ export function createCommunityScoreElement(show, { showLabel = true } = {}) {
   const communityBadge = document.createElement("div");
   communityBadge.className = "community-inline-score";
   communityBadge.dataset.podcastId = show.id;
-  communityBadge.dataset.fallbackRating = String(formatRating(show.finalRating));
   communityBadge.hidden = false;
-  communityBadge.setAttribute("aria-label", `Community score ${formatRating(show.finalRating)}/10`);
+  communityBadge.setAttribute("aria-label", "Community score --/10. No ratings yet.");
   communityBadge.innerHTML = `
     <span class="inline-score-topline">
       <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
@@ -206,7 +205,7 @@ export function createCommunityScoreElement(show, { showLabel = true } = {}) {
         <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
         <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
       </svg>
-      <span class="community-inline-score-value">${formatRating(show.finalRating)}/10</span>
+      <span class="community-inline-score-value">--/10</span>
     </span>
     ${showLabel ? '<span class="inline-score-label">Community Rating</span>' : ""}
   `;

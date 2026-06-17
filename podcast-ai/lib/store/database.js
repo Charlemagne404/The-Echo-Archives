@@ -81,6 +81,13 @@ function migrate(db) {
       user_agent TEXT NOT NULL DEFAULT ''
     );
 
+    CREATE TABLE IF NOT EXISTS rate_limit_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      scope TEXT NOT NULL,
+      client_ip TEXT NOT NULL,
+      created_at_ms INTEGER NOT NULL
+    );
+
     CREATE INDEX IF NOT EXISTS idx_rating_submissions_podcast
       ON rating_submissions (podcast_id);
 
@@ -92,6 +99,9 @@ function migrate(db) {
 
     CREATE INDEX IF NOT EXISTS idx_show_submissions_status
       ON show_submissions (status, submitted_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_rate_limit_scope_ip_created
+      ON rate_limit_events (scope, client_ip, created_at_ms);
   `);
 
   ensureColumn(db, "show_submissions", "submission_type", "submission_type TEXT NOT NULL DEFAULT 'show'");

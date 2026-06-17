@@ -95,6 +95,7 @@ export async function initializeHomePage() {
     },
     selectedCollectionId: "",
     sortMode: "default",
+    gridLayoutBucket: getHomeGridLayoutBucket(),
   };
 
   const initialCollectionId = new URLSearchParams(window.location.search).get("collection") || "";
@@ -106,6 +107,10 @@ export async function initializeHomePage() {
     archiveGrid,
     archiveSection,
   });
+  const archiveCardShellsById = new Map(
+    shows.map((show) => [show.id, createShowCard(show, { previewMode: "inline-expand" })]),
+  );
+  let searchRenderTimer = 0;
 
   renderFilterOptions();
   renderQuickFilters();
@@ -116,7 +121,13 @@ export async function initializeHomePage() {
 
   searchInput?.addEventListener("input", () => {
     state.query = searchInput.value.trim();
-    renderHomeResults();
+    if (searchRenderTimer) {
+      window.clearTimeout(searchRenderTimer);
+    }
+    searchRenderTimer = window.setTimeout(() => {
+      searchRenderTimer = 0;
+      renderHomeResults();
+    }, 150);
   });
 
   filterToggle?.addEventListener("click", () => {
@@ -162,11 +173,19 @@ export async function initializeHomePage() {
 
   window.addEventListener("resize", () => {
     previewController.closeActivePreview({ immediate: true });
-    renderHomeResults();
     collectionCarouselControls?.refresh();
+    const nextGridLayoutBucket = getHomeGridLayoutBucket();
+    if (state.gridLayoutBucket !== nextGridLayoutBucket) {
+      state.gridLayoutBucket = nextGridLayoutBucket;
+      renderHomeResults();
+    }
   });
 
   function clearAllFilters() {
+    if (searchRenderTimer) {
+      window.clearTimeout(searchRenderTimer);
+      searchRenderTimer = 0;
+    }
     Object.values(state.filters).forEach((values) => values.clear());
     state.selectedCollectionId = "";
     state.sortMode = "default";
@@ -400,29 +419,11 @@ export async function initializeHomePage() {
   function renderHomeResults() {
     previewController.closeActivePreview({ immediate: true });
 
-    const selectedCollection = state.selectedCollectionId
-      ? collectionsById.get(state.selectedCollectionId)
-      : null;
-
-    const filteredShows = shows.filter((show) => {
-      const matchesFilters = matchesSelectedFilters(show);
-      const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
-      return matchesFilters && matchesCollection;
-    });
-    const visibleShows = state.query
-      ? (() => {
-          const scoredResults = archiveSearch.scoreCatalog(shows, state.query);
-          const filteredIds = new Set(filteredShows.map((show) => show.id));
-          return scoredResults.filter((show) => filteredIds.has(show.id));
-        })()
-      : sortVisibleShows(filteredShows, selectedCollection);
+    const selectedCollection = getSelectedCollection();
+    const visibleShows = getVisibleShows(selectedCollection);
 
     syncMostPopularSectionVisibility();
-    archiveGrid.textContent = "";
-    visibleShows.forEach((show) => {
-      archiveGrid.appendChild(createShowCard(show, { previewMode: "inline-expand" }));
-    });
-    insertCollectionsSection(visibleShows.length);
+    patchArchiveGrid(visibleShows);
 
     void syncCommunityCardBadges(archiveGrid, visibleShows);
 
@@ -440,6 +441,26 @@ export async function initializeHomePage() {
     }
 
     syncHomeControls();
+  }
+
+  function getSelectedCollection() {
+    return state.selectedCollectionId ? collectionsById.get(state.selectedCollectionId) : null;
+  }
+
+  function getVisibleShows(selectedCollection) {
+    const filteredShows = shows.filter((show) => {
+      const matchesFilters = matchesSelectedFilters(show);
+      const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
+      return matchesFilters && matchesCollection;
+    });
+
+    if (!state.query) {
+      return sortVisibleShows(filteredShows, selectedCollection);
+    }
+
+    const scoredResults = archiveSearch.scoreCatalog(shows, state.query);
+    const filteredIds = new Set(filteredShows.map((show) => show.id));
+    return scoredResults.filter((show) => filteredIds.has(show.id));
   }
 
   function syncHomeControls() {
@@ -484,21 +505,35 @@ export async function initializeHomePage() {
     }
   }
 
-  function insertCollectionsSection(visibleShowCount) {
-    if (collectionsSection.hidden) {
-      return;
+  function patchArchiveGrid(visibleShows) {
+    const fragment = document.createDocumentFragment();
+    const collectionInsertIndex = collectionsSection.hidden
+      ? -1
+      : Math.min(visibleShows.length, getHomeGridColumnCount() * 2);
+
+    visibleShows.forEach((show, index) => {
+      if (index === collectionInsertIndex) {
+        fragment.appendChild(collectionsSection);
+      }
+
+      const shell = archiveCardShellsById.get(show.id);
+      if (shell) {
+        fragment.appendChild(shell);
+      }
+    });
+
+    if (!collectionsSection.hidden && collectionInsertIndex >= visibleShows.length) {
+      fragment.appendChild(collectionsSection);
     }
 
-    const insertIndex = Math.min(visibleShowCount, getHomeGridColumnCount() * 2);
-    const insertionPoint = archiveGrid.children[insertIndex] || null;
-    archiveGrid.insertBefore(collectionsSection, insertionPoint);
+    archiveGrid.replaceChildren(fragment);
   }
 
   function getHomeGridColumnCount() {
-    if (window.matchMedia("(max-width: 1180px)").matches) {
-      return 2;
-    }
+    return state.gridLayoutBucket === "compact" ? 2 : 6;
+  }
 
-    return 6;
+  function getHomeGridLayoutBucket() {
+    return window.matchMedia("(max-width: 1180px)").matches ? "compact" : "wide";
   }
 }

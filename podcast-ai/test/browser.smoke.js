@@ -355,7 +355,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.equal(layout.boxedDiscoveryGroups, 0);
     assert.equal(layout.heroTagLabel, "Key tags");
     assert.ok(layout.heroTagCount >= 1);
-    assert.equal(layout.disabledChips, 4);
+    assert.equal(layout.disabledChips, 2);
     assert.deepEqual(layout.factLabels, [
       "creator / network",
       "official / listen links",
@@ -373,7 +373,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.ok(layout.communityTop <= layout.archiveTop);
     assert.match(layout.reviewLinkHref, /submit\.html\?submissionType=listener-review&showId=impact-winter/);
     assert.match(layout.heroCommunityCount, /No ratings yet/i);
-    assert.equal(layout.heroCommunityValue, "--");
+    assert.equal(layout.heroCommunityValue, "--/10");
     assert.equal(await page.locator(".community-review-body").isVisible(), false);
     assert.equal(await page.locator(".community-review-clear").isVisible(), false);
     assert.equal(await page.locator(".community-review-link").isVisible(), true);
@@ -419,7 +419,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
       clearVisible: !document.querySelector(".community-review-clear")?.hidden,
     }));
     assert.match(communityState.heroCount, /No ratings yet/i);
-    assert.equal(communityState.heroValue, "--");
+    assert.equal(communityState.heroValue, "--/10");
     assert.equal(communityState.clearVisible, false);
   } finally {
     await page.close();
@@ -450,7 +450,144 @@ test("full-review detail page promotes community, trims the rail, and preserves 
   }
 });
 
-test("indexed-only detail page shows truthful empty states without narrow legacy layout constraints", async () => {
+test("homepage community badges stay truthful across empty, offline, and stale async summary updates", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+  const emptyShowId = "impact-winter";
+  const delayedShowId = "impact-winter";
+  const activeShowId = "midnight-burger";
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.locator(`#podcast-grid .podcast-card-shell[data-podcast-id="${emptyShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${emptyShowId}"]`).waitFor();
+
+    let badgeState = await page.evaluate((showId) => {
+      const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+      const value = badge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "";
+      return {
+        value,
+        aria: badge?.getAttribute("aria-label") || "",
+      };
+    }, emptyShowId);
+    assert.equal(badgeState.value, "--/10");
+    assert.match(badgeState.aria, /No ratings yet/i);
+
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      await route.fulfill({
+        status: 503,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "offline" }),
+      });
+    });
+
+    await page.evaluate(async (showId) => {
+      const { dataCache } = await import("/shared/app/constants.js");
+      const { syncCommunityCardBadges } = await import("/shared/app/community.js");
+      dataCache.communitySummaries.clear();
+      const container = document.getElementById("podcast-grid");
+      await syncCommunityCardBadges(container, [{ id: showId }]);
+    }, emptyShowId);
+
+    badgeState = await page.evaluate((showId) => {
+      const badge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${showId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${showId}"]`);
+      const value = badge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "";
+      return {
+        value,
+        aria: badge?.getAttribute("aria-label") || "",
+      };
+    }, emptyShowId);
+    assert.equal(badgeState.value, "--/10");
+    assert.match(badgeState.aria, /No ratings yet/i);
+
+    await page.unroute("**/api/community/ratings/summary?*");
+
+    let releaseDelayedResponse;
+    const delayedRequestSeen = new Promise((resolve) => {
+      releaseDelayedResponse = resolve;
+    });
+
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      const url = new URL(route.request().url());
+      const ids = url.searchParams.get("podcastIds") || "";
+
+      if (ids === delayedShowId) {
+        await delayedRequestSeen;
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({
+            summaries: {
+              [delayedShowId]: {
+                averageRating: 4,
+                ratingCount: 1,
+                myRating: null,
+                distribution: { "4": 1 },
+              },
+            },
+          }),
+        });
+        return;
+      }
+
+      if (ids === activeShowId) {
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: JSON.stringify({
+            summaries: {
+              [activeShowId]: {
+                averageRating: 6.5,
+                ratingCount: 2,
+                myRating: null,
+                distribution: { "6": 1, "7": 1 },
+              },
+            },
+          }),
+        });
+        return;
+      }
+
+      await route.continue();
+    });
+
+    await page.evaluate(async ({ delayedShowId, activeShowId }) => {
+      const { dataCache } = await import("/shared/app/constants.js");
+      const { syncCommunityCardBadges } = await import("/shared/app/community.js");
+      dataCache.communitySummaries.clear();
+      const container = document.getElementById("podcast-grid");
+      void syncCommunityCardBadges(container, [{ id: delayedShowId }]);
+      await syncCommunityCardBadges(container, [{ id: activeShowId }]);
+    }, { delayedShowId, activeShowId });
+
+    let staleState = await page.evaluate(({ delayedShowId, activeShowId }) => {
+      const delayedBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${delayedShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${delayedShowId}"]`);
+      const activeBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${activeShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${activeShowId}"]`);
+      return {
+        delayedValue: delayedBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
+        activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
+      };
+    }, { delayedShowId, activeShowId });
+    assert.equal(staleState.delayedValue, "--/10");
+    assert.equal(staleState.activeValue, "6.5/10");
+
+    releaseDelayedResponse();
+    await page.waitForTimeout(100);
+
+    staleState = await page.evaluate(({ delayedShowId, activeShowId }) => {
+      const delayedBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${delayedShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${delayedShowId}"]`);
+      const activeBadge = document.querySelector(`#podcast-grid .podcast-card-shell[data-podcast-id="${activeShowId}"] .podcast-card-primary .community-inline-score[data-podcast-id="${activeShowId}"]`);
+      return {
+        delayedValue: delayedBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
+        activeValue: activeBadge?.querySelector(".community-inline-score-value")?.textContent?.trim() || "",
+      };
+    }, { delayedShowId, activeShowId });
+    assert.equal(staleState.delayedValue, "--/10");
+    assert.equal(staleState.activeValue, "6.5/10");
+  } finally {
+    await page.close();
+  }
+});
+
+test("indexed-only detail page shows truthful canonical metadata without narrow legacy layout constraints", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
@@ -491,11 +628,12 @@ test("indexed-only detail page shows truthful empty states without narrow legacy
 
     assert.ok(state.mainWidth > 1200);
     assert.equal(state.reviewHeading, "Archive note");
-    assert.match(state.creatorValue, /Not cataloged yet/i);
-    assert.match(state.linkStatus, /Links being verified/i);
-    assert.match(state.firstRelease, /Not cataloged yet/i);
-    assert.match(state.latestRelease, /Not cataloged yet/i);
-    assert.equal(state.disabledChips, 4);
+    assert.match(state.creatorValue, /Chris Porter/i);
+    assert.match(state.creatorValue, /CurtCo Media/i);
+    assert.equal(state.linkStatus, "");
+    assert.match(state.firstRelease, /2022/i);
+    assert.match(state.latestRelease, /2022/i);
+    assert.equal(state.disabledChips, 2);
     assert.ok(state.routeCount >= 1);
   } finally {
     await page.close();

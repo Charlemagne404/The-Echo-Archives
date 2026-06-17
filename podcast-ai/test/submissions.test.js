@@ -16,8 +16,6 @@ function createTempSubmissionService({ knownShowIds = null } = {}) {
   const service = createSubmissionService({
     store,
     knownShowIds,
-    throttleWindowMs: 60_000,
-    maxSubmissionsPerWindow: 2,
   });
 
   return { tempDir, db, service };
@@ -28,10 +26,17 @@ function cleanupTempService({ tempDir, db }) {
   fs.rmSync(tempDir, { recursive: true, force: true });
 }
 
+function submit(context, rawBody, requestContext = {}) {
+  return context.service.submit(rawBody, {
+    sourceIp: requestContext.sourceIp || "127.0.0.1",
+    userAgent: requestContext.userAgent || "test-agent",
+  });
+}
+
 test("show submissions store the expanded structured intake payload", () => {
   const context = createTempSubmissionService();
 
-  const result = context.service.submitShow({
+  const result = submit(context, {
     submissionType: "show",
     showTitle: "Test Show",
     creatorName: "Example Studio",
@@ -49,9 +54,7 @@ test("show submissions store the expanded structured intake payload", () => {
     archiveFitNote: "A strong archive fit with a clear audience.",
     verificationNotes: "Press kit is available on the official site.",
     notes: "A strong archive fit with a clear audience.",
-    honeypot: "",
-    sourceIp: "127.0.0.1",
-    userAgent: "test-agent",
+    website: "",
   });
 
   assert.equal(result.accepted, true);
@@ -80,7 +83,7 @@ test("show submissions store the expanded structured intake payload", () => {
 test("honeypot submissions are accepted without creating queue entries", () => {
   const context = createTempSubmissionService();
 
-  const result = context.service.submitShow({
+  const result = submit(context, {
     submissionType: "show",
     showTitle: "Bot Show",
     creatorName: "Bot Studio",
@@ -91,9 +94,7 @@ test("honeypot submissions are accepted without creating queue entries", () => {
     completionStatus: "unknown",
     shortDescription: "A placeholder description.",
     archiveFitNote: "Placeholder archive note.",
-    honeypot: "filled",
-    sourceIp: "127.0.0.1",
-    userAgent: "test-agent",
+    website: "filled",
   });
 
   assert.equal(result.accepted, true);
@@ -104,6 +105,23 @@ test("honeypot submissions are accepted without creating queue entries", () => {
 
 test("submission throttling rejects repeated posts from one IP", () => {
   const context = createTempSubmissionService();
+  let remainingSubmissions = 2;
+  context.service = createSubmissionService({
+    store: createSubmissionStore({ db: context.db }),
+    rateLimiter: {
+      check(scope, clientIp) {
+        assert.equal(scope, "submissions");
+        assert.equal(clientIp, "127.0.0.1");
+        remainingSubmissions -= 1;
+        if (remainingSubmissions < 0) {
+          const error = new Error("Too many submissions requests from this address. Try again later.");
+          error.statusCode = 429;
+          error.retryAfterSeconds = 60;
+          throw error;
+        }
+      },
+    },
+  });
 
   const basePayload = {
     submissionType: "show",
@@ -115,17 +133,15 @@ test("submission throttling rejects repeated posts from one IP", () => {
     completionStatus: "ongoing",
     shortDescription: "A spoiler-free description.",
     archiveFitNote: "An archive note.",
-    honeypot: "",
-    sourceIp: "127.0.0.1",
-    userAgent: "test-agent",
+    website: "",
   };
 
-  context.service.submitShow({ ...basePayload, showTitle: "First Show" });
-  context.service.submitShow({ ...basePayload, showTitle: "Second Show" });
+  submit(context, { ...basePayload, showTitle: "First Show" });
+  submit(context, { ...basePayload, showTitle: "Second Show" });
 
   assert.throws(
     () => {
-      context.service.submitShow({ ...basePayload, showTitle: "Third Show" });
+      submit(context, { ...basePayload, showTitle: "Third Show" });
     },
     {
       message: /too many submissions/i,
@@ -140,7 +156,7 @@ test("correction submissions require a known archive entry, allow optional email
     knownShowIds: new Set(["impact-winter"]),
   });
 
-  const result = context.service.submitShow({
+  const result = submit(context, {
     submissionType: "correction",
     existingShowId: "impact-winter",
     showTitle: "Impact Winter",
@@ -157,9 +173,9 @@ test("correction submissions require a known archive entry, allow optional email
       { url: "https://x.com/impactwinter/status/1234567890123456789" },
     ],
     notes: "Confirmed via official site and verified social account.",
-    honeypot: "",
+    website: "",
+  }, {
     sourceIp: "127.0.0.2",
-    userAgent: "test-agent",
   });
 
   assert.equal(result.submission.submission_type, "correction");
@@ -184,7 +200,7 @@ test("correction submissions require a known archive entry, allow optional email
 
   assert.throws(
     () => {
-      context.service.submitShow({
+      submit(context, {
         submissionType: "correction",
         existingShowId: "missing-show",
         showTitle: "Missing Show",
@@ -192,9 +208,9 @@ test("correction submissions require a known archive entry, allow optional email
         issueDescription: "Missing creator credit.",
         correctedInformation: "Add Example Studio.",
         sourceLinks: [{ url: "https://example.com" }],
-        honeypot: "",
+        website: "",
+      }, {
         sourceIp: "127.0.0.3",
-        userAgent: "test-agent",
       });
     },
     {
@@ -210,7 +226,7 @@ test("listener review submissions normalize 5 stars into the 10-point score and 
     knownShowIds: new Set(["impact-winter"]),
   });
 
-  const result = context.service.submitShow({
+  const result = submit(context, {
     submissionType: "listener-review",
     existingShowId: "impact-winter",
     showTitle: "Impact Winter",
@@ -229,9 +245,9 @@ test("listener review submissions normalize 5 stars into the 10-point score and 
     similarShows: "The White Vault, Derelict",
     alias: "Listener42",
     notes: "Keep this spoiler-safe.",
-    honeypot: "",
+    website: "",
+  }, {
     sourceIp: "127.0.0.4",
-    userAgent: "test-agent",
   });
 
   assert.equal(result.submission.submission_type, "listener-review");
@@ -258,7 +274,7 @@ test("creator verification submissions persist structured provenance without req
     knownShowIds: new Set(["impact-winter"]),
   });
 
-  const result = context.service.submitShow({
+  const result = submit(context, {
     submissionType: "creator-verification",
     existingShowId: "impact-winter",
     showTitle: "Impact Winter",
@@ -275,9 +291,9 @@ test("creator verification submissions persist structured provenance without req
       { label: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/impact-winter/id123" },
     ],
     notes: "Official update from the network team.",
-    honeypot: "",
+    website: "",
+  }, {
     sourceIp: "127.0.0.5",
-    userAgent: "test-agent",
   });
 
   assert.equal(result.submission.submission_type, "creator-verification");
@@ -304,7 +320,7 @@ test("creator verification submissions persist structured provenance without req
 
   assert.throws(
     () => {
-      context.service.submitShow({
+      submit(context, {
         submissionType: "creator-verification",
         existingShowId: "impact-winter",
         showTitle: "Impact Winter",
@@ -314,9 +330,9 @@ test("creator verification submissions persist structured provenance without req
         proofUrl: "",
         requestedUpdates: "Update the official site.",
         officialLinks: [{ label: "Website", url: "not-a-url" }],
-        honeypot: "",
+        website: "",
+      }, {
         sourceIp: "127.0.0.6",
-        userAgent: "test-agent",
       });
     },
     {

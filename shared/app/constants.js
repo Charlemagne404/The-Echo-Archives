@@ -3,6 +3,7 @@ export const COLLECTIONS_DATA_URL = "/data/collections.json";
 export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
+export const archiveRecord = globalThis.EchoArchiveRecord;
 export const CHAT_STORAGE_KEY = "echo-archives-chat-v2";
 export const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 export const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
@@ -51,4 +52,8 @@ export const sendMessageButton = document.getElementById("sendMessageButton");
 
 if (!archiveSearch) {
   throw new Error("EchoArchiveSearch helper was not loaded before script.js.");
+}
+
+if (!archiveRecord) {
+  throw new Error("EchoArchiveRecord helper was not loaded before script.js.");
 }

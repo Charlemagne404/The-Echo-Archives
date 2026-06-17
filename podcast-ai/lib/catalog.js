@@ -9,6 +9,12 @@ const {
   scoreCatalog,
   tokenizeQuery,
 } = require("../../shared/archive-search");
+const {
+  DEPRECATED_SHOW_FIELDS,
+  normalizeCollectionRecord,
+  normalizeKeyedTextMap,
+  normalizeShowRecord,
+} = require("../../shared/archive-record");
 
 const VALID_REVIEW_STATUSES = new Set(["full-review", "spotlight", "indexed-only", "planned"]);
 const VALID_STATUS_VALUES = new Set(["published", "draft"]);
@@ -45,83 +51,6 @@ function isValidSlug(value = "") {
   return typeof value === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 }
 
-function normalizeTextMap(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    Object.entries(value)
-      .map(([key, text]) => [String(key || "").trim(), String(text || "").trim()])
-      .filter(([key, text]) => key && text),
-  );
-}
-
-function normalizeStringArray(value) {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
-  return value.map((entry) => String(entry || "").trim()).filter(Boolean);
-}
-
-function normalizeUrlMap(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    Object.entries(value)
-      .map(([key, href]) => [String(key || "").trim(), String(href || "").trim()])
-      .filter(([key, href]) => key && href),
-  );
-}
-
-function normalizeStructuredValue(value) {
-  if (typeof value === "string") {
-    const normalized = value.trim();
-    return normalized ? normalized : undefined;
-  }
-
-  if (typeof value === "number") {
-    return Number.isFinite(value) ? value : undefined;
-  }
-
-  if (typeof value === "boolean") {
-    return value;
-  }
-
-  if (Array.isArray(value)) {
-    const normalized = value
-      .map((entry) => normalizeStructuredValue(entry))
-      .filter((entry) => entry !== undefined);
-    return normalized.length > 0 ? normalized : undefined;
-  }
-
-  if (!value || typeof value !== "object") {
-    return undefined;
-  }
-
-  const normalizedEntries = Object.entries(value)
-    .map(([key, entryValue]) => [String(key || "").trim(), normalizeStructuredValue(entryValue)])
-    .filter(([key, entryValue]) => key && entryValue !== undefined);
-
-  if (normalizedEntries.length === 0) {
-    return undefined;
-  }
-
-  return Object.fromEntries(normalizedEntries);
-}
-
-function normalizeStructuredObject(value) {
-  const normalized = normalizeStructuredValue(value);
-  if (!normalized || typeof normalized !== "object" || Array.isArray(normalized)) {
-    return {};
-  }
-
-  return normalized;
-}
-
 function validateUrlMap(showId, fieldName, value) {
   const links = value && typeof value === "object" && !Array.isArray(value) ? value : {};
   Object.entries(links).forEach(([key, href]) => {
@@ -148,83 +77,12 @@ function assertUniqueNormalized(collection, fieldName, showId) {
   });
 }
 
-function formatShowHref(id) {
-  return `/show.html?id=${encodeURIComponent(id)}`;
-}
-
-function normalizeRecord(record) {
-  const tags = normalizeStringArray(record.tags);
-  const genres = normalizeStringArray(record.genres);
-  const tones = normalizeStringArray(record.tones);
-  const formats = normalizeStringArray(record.formats);
-  const bestFor = normalizeStringArray(record.bestFor);
-  const similarTo = normalizeStringArray(record.similarTo);
-  const aliases = normalizeStringArray(record.aliases);
-  const themes = normalizeStringArray(record.themes);
-  const contentNotes = normalizeStringArray(record.contentNotes);
-  const languages = normalizeStringArray(record.languages);
-  const transcriptLanguages = normalizeStringArray(record.transcriptLanguages);
-  const cast = normalizeStringArray(record.cast);
-  const creators = normalizeStringArray(record.creators);
-  const similarReasons = normalizeTextMap(record.similarReasons);
-  const listenLinks = normalizeUrlMap(record.listenLinks);
-  const officialLinks = normalizeUrlMap(record.officialLinks);
-  const facts = normalizeStructuredObject(record.facts);
-  const credits = normalizeStructuredObject(record.credits);
-  const availability = normalizeStructuredObject(record.availability);
-  const content = normalizeStructuredObject(record.content);
-  const verification = normalizeStructuredObject(record.verification);
-  const metadata = normalizeStructuredObject(record.metadata);
-  const releaseDates = normalizeStructuredObject(record.releaseDates);
-  const ratings = record.ratings && typeof record.ratings === "object" ? record.ratings : {};
-  const finalRating =
-    typeof ratings.archive === "number"
-      ? ratings.archive
-      : typeof ratings.archive === "string"
-        ? Number.parseFloat(ratings.archive)
-        : null;
-
-  const normalized = {
-    ...record,
-    tags,
-    genres,
-    tones,
-    formats,
-    bestFor,
-    similarTo,
-    aliases,
-    themes,
-    contentNotes,
-    languages,
-    transcriptLanguages,
-    cast,
-    creators,
-    similarReasons,
-    listenLinks,
-    officialLinks,
-    facts,
-    credits,
-    availability,
-    content,
-    verification,
-    metadata,
-    releaseDates: {
-      ...releaseDates,
-      first: record.firstRelease || record.firstReleasedAt || releaseDates.first || "",
-      latest: record.latestRelease || record.lastReleasedAt || releaseDates.latest || "",
-    },
-    ratings,
-    finalRating: Number.isFinite(finalRating) ? finalRating : null,
-    href: formatShowHref(record.id),
-    hasPage: record.status === "published",
-    image: record.cover || "",
-    imageAlt: record.coverAlt || `${record.title} cover art`,
-    summary: record.description || "",
-    spoilerFreeReviewParagraphs: Array.isArray(record.spoilerFreeReviewParagraphs) ? record.spoilerFreeReviewParagraphs : [],
-    thoughtsParagraphs: Array.isArray(record.thoughtsParagraphs) ? record.thoughtsParagraphs : [],
-    searchText: "",
-  };
-  return normalized;
+function validateDeprecatedShowFields(record) {
+  DEPRECATED_SHOW_FIELDS.forEach((fieldName) => {
+    if (Object.hasOwn(record, fieldName)) {
+      throw new Error(`Show "${record.id}" still uses deprecated field "${fieldName}".`);
+    }
+  });
 }
 
 function validateShowRecord(record, seenIds) {
@@ -235,6 +93,8 @@ function validateShowRecord(record, seenIds) {
   if (typeof record.id !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.id)) {
     throw new Error(`Invalid show id "${record.id}".`);
   }
+
+  validateDeprecatedShowFields(record);
 
   if (seenIds.has(record.id)) {
     throw new Error(`Duplicate show id "${record.id}".`);
@@ -314,10 +174,6 @@ function validateShowRecord(record, seenIds) {
   validateUrlMap(record.id, "officialLinks", record.officialLinks);
 
   const datedFields = [
-    ["firstRelease", record.firstRelease],
-    ["firstReleasedAt", record.firstReleasedAt],
-    ["latestRelease", record.latestRelease],
-    ["lastReleasedAt", record.lastReleasedAt],
     ["releaseDates.first", record.releaseDates?.first],
     ["releaseDates.latest", record.releaseDates?.latest],
     ["verification.verifiedAt", record.verification?.verifiedAt],
@@ -369,7 +225,7 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     throw new Error(`Collection "${record.id}" has invalid showReasons data.`);
   }
 
-  Object.keys(normalizeTextMap(record.showReasons)).forEach((showId) => {
+  Object.keys(normalizeKeyedTextMap(record.showReasons)).forEach((showId) => {
     if (!record.showIds.includes(showId)) {
       throw new Error(`Collection "${record.id}" defines a showReason for unknown show "${showId}".`);
     }
@@ -391,7 +247,7 @@ async function loadShows(siteRoot, options = {}) {
 
   mergedRecords.forEach((record) => validateShowRecord(record, seenIds));
 
-  const normalized = mergedRecords.map(normalizeRecord);
+  const normalized = mergedRecords.map((record) => normalizeShowRecord(record));
   const idSet = new Set(normalized.map((record) => record.id));
 
   normalized.forEach((record) => {
@@ -432,10 +288,7 @@ function loadCollections(siteRoot, knownShowIds = null) {
   }
 
   records.forEach((record) => validateCollectionRecord(record, seenIds, showIdSet));
-  return records.map((record) => ({
-    ...record,
-    showReasons: normalizeTextMap(record.showReasons),
-  }));
+  return records.map((record) => normalizeCollectionRecord(record));
 }
 
 function resolveCollectionView({ catalog, collections, collectionId }) {

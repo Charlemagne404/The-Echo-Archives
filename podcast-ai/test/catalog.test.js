@@ -242,8 +242,8 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
       transcriptLanguages: ["English"],
       cast: [" Actor One ", "Actor Two"],
       creators: ["Creator One"],
-      creatorName: "Creator Display",
-      networkName: "Network Display",
+      creatorId: "creator-display",
+      networkId: "network-display",
       officialLinks: {
         website: "https://official.example.com",
         discord: "https://discord.gg/example",
@@ -252,13 +252,12 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
         first: "2024-01-02",
         latest: "2024-06-03",
       },
-      firstRelease: "2024-01-02",
-      latestRelease: "2024-06-03",
       facts: {
         narrator: "Single narrator",
         adBreaks: "mid-roll only",
       },
       credits: {
+        network: "Network Display",
         writer: "Writer Name",
         cast: ["Actor One", "Actor Two"],
       },
@@ -292,8 +291,9 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
   assert.deepEqual(show.transcriptLanguages, ["English"]);
   assert.deepEqual(show.cast, ["Actor One", "Actor Two"]);
   assert.deepEqual(show.creators, ["Creator One"]);
-  assert.equal(show.creatorName, "Creator Display");
-  assert.equal(show.networkName, "Network Display");
+  assert.equal(show.creatorId, "creator-display");
+  assert.equal(show.networkId, "network-display");
+  assert.equal(show.credits.network, "Network Display");
   assert.equal(show.officialLinks.discord, "https://discord.gg/example");
   assert.equal(show.releaseDates.first, "2024-01-02");
   assert.equal(show.releaseDates.latest, "2024-06-03");
@@ -305,6 +305,44 @@ test("loadCatalog preserves richer optional metadata for future show-page use", 
   assert.equal(show.metadata.schedule.cadence, "seasonal");
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("loadCatalog rejects deprecated show aliases so schema drift cannot return", async () => {
+  const aliases = [
+    ["creatorName", "Creator Display"],
+    ["networkName", "Network Display"],
+    ["firstRelease", "2024-01-02"],
+    ["firstReleasedAt", "2024-01-02"],
+    ["latestRelease", "2024-06-03"],
+    ["lastReleasedAt", "2024-06-03"],
+    ["reviewFile", "reviews/demo-show.json"],
+  ];
+
+  for (const [fieldName, fieldValue] of aliases) {
+    const tempRoot = createTempSiteRoot();
+    const dataRoot = path.join(tempRoot, "data");
+    const imagesRoot = path.join(tempRoot, "images");
+
+    fs.mkdirSync(imagesRoot, { recursive: true });
+    fs.copyFileSync(path.join(siteRoot, "images", "Logo.png"), path.join(imagesRoot, "Logo.png"));
+
+    writeJson(path.join(dataRoot, "shows.json"), [
+      createShowRecord({
+        [fieldName]: fieldValue,
+      }),
+    ]);
+
+    await assert.rejects(
+      async () => {
+        await loadCatalog(tempRoot);
+      },
+      {
+        message: new RegExp(`deprecated field "${fieldName}"`, "i"),
+      },
+    );
+
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
 });
 
 test("full-review validation still fails when neither inline nor companion rich content exists", async () => {

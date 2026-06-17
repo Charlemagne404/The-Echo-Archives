@@ -7,8 +7,10 @@ const { loadCatalog, loadCollections } = require("./lib/catalog");
 const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
+const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
+const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
 const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
@@ -20,19 +22,38 @@ async function startServer() {
   const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
   await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
   const database = openDatabase(config.DB_PATH);
+  const rateLimitStore = createRateLimitStore({ db: database });
+  const rateLimitService = createRateLimitService({
+    store: rateLimitStore,
+    policies: {
+      chat: {
+        windowMs: config.CHAT_RATE_LIMIT_WINDOW_MS,
+        max: config.CHAT_RATE_LIMIT_MAX,
+      },
+      community: {
+        windowMs: config.COMMUNITY_WRITE_WINDOW_MS,
+        max: config.COMMUNITY_WRITE_MAX,
+      },
+      submissions: {
+        windowMs: config.SUBMISSION_RATE_LIMIT_WINDOW_MS,
+        max: config.SUBMISSION_RATE_LIMIT_MAX,
+      },
+    },
+  });
   const communityStore = createCommunityStore({ db: database, catalog });
   const submissionStore = createSubmissionStore({ db: database });
   const communityService = createCommunityService({
     store: communityStore,
-    writeThrottleWindowMs: config.COMMUNITY_WRITE_WINDOW_MS,
-    maxWritesPerWindow: config.COMMUNITY_WRITE_MAX,
+    rateLimiter: rateLimitService,
   });
   const submissionService = createSubmissionService({
     store: submissionStore,
     knownShowIds: new Set(catalog.map((show) => show.id)),
+    rateLimiter: rateLimitService,
   });
 
   app.disable("x-powered-by");
+  app.set("trust proxy", config.TRUST_PROXY);
   app.use(express.json({ limit: "24kb" }));
 
   app.get("/api/health", (_req, res) => {
@@ -40,7 +61,6 @@ async function startServer() {
       ok: true,
       service: "echo-archives",
       catalogCount: catalog.length,
-      databasePath: config.DB_PATH,
       model: config.OLLAMA_MODEL,
     });
   });
@@ -59,7 +79,7 @@ async function startServer() {
     res.json(catalog);
   });
 
-  app.use("/api/chat", createChatRouter({ catalog, config }));
+  app.use("/api/chat", createChatRouter({ catalog, config, rateLimiter: rateLimitService }));
   app.use("/api/community", createCommunityRouter({ communityService, config }));
   app.use("/api/submissions", createSubmissionRouter({ submissionService }));
 
@@ -80,8 +100,14 @@ async function startServer() {
 
   app.use((error, _req, res, _next) => {
     const statusCode = Number.isInteger(error.statusCode) ? error.statusCode : 500;
+    if (statusCode === 429 && Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0) {
+      res.set("Retry-After", String(error.retryAfterSeconds));
+    }
     res.status(statusCode).json({
       error: error.message || "Unexpected server error.",
+      ...(Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0
+        ? { retryAfterSeconds: error.retryAfterSeconds }
+        : {}),
     });
   });
 

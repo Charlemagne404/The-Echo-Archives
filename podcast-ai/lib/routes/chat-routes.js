@@ -10,7 +10,7 @@ const {
   sanitizeAnswerText,
 } = require("../chat");
 
-function createChatRouter({ catalog, config }) {
+function createChatRouter({ catalog, config, rateLimiter = null }) {
   const router = express.Router();
 
   router.get("/health", (_req, res) => {
@@ -37,6 +37,8 @@ function createChatRouter({ catalog, config }) {
     if (!message) {
       return res.status(400).json({ error: "A message is required." });
     }
+
+    rateLimiter?.check("chat", req.ip || "");
 
     const matches = scoreCatalog(catalog, message);
     const recommendations = matches.slice(0, 3).map(buildRecommendationCard);

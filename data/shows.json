@@ -72,15 +72,12 @@
       "rgb": "204, 91, 66"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "solar.json",
     "releaseDates": {
       "first": "2022-03-29",
       "latest": "2022-06-07",
       "note": "first/latest are main-story public episodes; Apple feed includes extra bonus/recovered-audio entries.",
       "latestFeedItem": "2022-06-23"
     },
-    "creatorName": "Chris Porter",
-    "networkName": "CurtCo Media / Workhouse Media",
     "officialLinks": {
       "website": "https://www.solarthepodcast.com/",
       "patreon": "",
@@ -185,10 +182,6 @@
       "Helen Hunt",
       "Jonathan Bangs"
     ],
-    "firstReleasedAt": "2022-03-29",
-    "firstRelease": "2022-03-29",
-    "lastReleasedAt": "2022-06-07",
-    "latestRelease": "2022-06-07",
     "createdAt": "2026-06-01",
     "creatorId": "chris-porter",
     "networkId": "curtco-media-workhouse-media"
@@ -261,9 +254,6 @@
       "rgb": "151, 111, 72"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "story.json",
-    "creatorName": "7 Lamb Productions",
-    "networkName": "Bloody FM / 7 Lamb Productions",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/story",
       "patreon": "",
@@ -348,7 +338,9 @@
     "releaseDates": {
       "note": "Apple lists years active 2017-2024; exact normalized first/latest episode dates were not pinned in this pass.",
       "firstYear": 2017,
-      "latestYear": 2024
+      "latestYear": 2024,
+      "first": "",
+      "latest": ""
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
@@ -426,13 +418,10 @@
       "rgb": "141, 65, 62"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "from-now.json",
     "releaseDates": {
       "first": "2020-12-21",
       "latest": "2021-01-25"
     },
-    "creatorName": "Rhys Wakefield and William Day Frank",
-    "networkName": "QCODE",
     "officialLinks": {
       "website": "https://qcodemedia.com/from-now",
       "youtube": "https://www.youtube.com/@QCODEMedia",
@@ -527,10 +516,6 @@
       "Richard Madden",
       "Brian Cox"
     ],
-    "firstReleasedAt": "2020-12-21",
-    "firstRelease": "2020-12-21",
-    "lastReleasedAt": "2021-01-25",
-    "latestRelease": "2021-01-25",
     "createdAt": "2026-06-01",
     "creatorId": "rhys-wakefield-and-william-day-frank",
     "networkId": "qcode"
@@ -607,14 +592,11 @@
       "rgb": "111, 86, 100"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "the-deca-tapes.json",
     "releaseDates": {
       "first": "2019-08-08",
       "latest": "2025-09-08",
       "note": "Latest date is Season 2 Episode 13 / finale according to Apple Podcasts; future status not confirmed."
     },
-    "creatorName": "Lex Noteboom",
-    "networkName": "Realm / Baumhouse Productions",
     "officialLinks": {
       "website": "https://www.thedecatapes.com/",
       "patreon": "https://www.patreon.com/lexnbm",
@@ -697,10 +679,6 @@
       "Lex Noteboom"
     ],
     "cast": [],
-    "firstReleasedAt": "2019-08-08",
-    "firstRelease": "2019-08-08",
-    "lastReleasedAt": "2025-09-08",
-    "latestRelease": "2025-09-08",
     "createdAt": "2026-06-01",
     "creatorId": "lex-noteboom",
     "networkId": "realm-baumhouse-productions"
@@ -774,13 +752,10 @@
       "rgb": "78, 101, 124"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "earth-eclipsed.json",
     "releaseDates": {
       "first": "2021-09-01",
       "latest": "2021-10-20"
     },
-    "creatorName": "The Lunar Company",
-    "networkName": "The Lunar Company / Apollo Podcasts",
     "officialLinks": {
       "website": "https://eartheclipsed.com/",
       "patreon": "",
@@ -858,10 +833,6 @@
       "The Lunar Company"
     ],
     "cast": [],
-    "firstReleasedAt": "2021-09-01",
-    "firstRelease": "2021-09-01",
-    "lastReleasedAt": "2021-10-20",
-    "latestRelease": "2021-10-20",
     "createdAt": "2026-06-01",
     "creatorId": "the-lunar-company",
     "networkId": "the-lunar-company-apollo-podcasts"
@@ -905,7 +876,7 @@
       "seasons": 3,
       "episodes": 36,
       "avgEpisodeMinutes": 30,
-      "totalHours": 18.0
+      "totalHours": 18
     },
     "ratings": {
       "archive": 8
@@ -938,13 +909,10 @@
       "rgb": "69, 118, 147"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "vast-horizon.json",
     "releaseDates": {
       "first": "2019-05-28",
       "latest": "2022-11-29"
     },
-    "creatorName": "K.A. Statz and Travis Vengroff",
-    "networkName": "Fool & Scholar Productions",
     "officialLinks": {
       "website": "https://www.foolandscholar.com/about-vast-horizon",
       "patreon": "https://www.patreon.com/FoolandScholar",
@@ -1039,10 +1007,6 @@
       "Jordan Cobb",
       "Sam Yeow"
     ],
-    "firstReleasedAt": "2019-05-28",
-    "firstRelease": "2019-05-28",
-    "lastReleasedAt": "2022-11-29",
-    "latestRelease": "2022-11-29",
     "createdAt": "2026-06-01",
     "creatorId": "k-a-statz-and-travis-vengroff",
     "networkId": "fool-and-scholar-productions"
@@ -1118,9 +1082,6 @@
       "rgb": "136, 80, 106"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "how-i-died.json",
-    "creatorName": "Vince Dajani",
-    "networkName": "Realm / Audiohm Media",
     "officialLinks": {
       "website": "https://audiohmmedia.com/howidied/",
       "patreon": "https://www.patreon.com/howidied",
@@ -1216,10 +1177,6 @@
       "Shaina Waring",
       "David Dixon"
     ],
-    "firstReleasedAt": "2019-01-11",
-    "firstRelease": "2019-01-11",
-    "lastReleasedAt": "2025-08-18",
-    "latestRelease": "2025-08-18",
     "createdAt": "2026-06-01",
     "creatorId": "vince-dajani",
     "networkId": "audiohm-media"
@@ -1297,15 +1254,12 @@
       "rgb": "143, 59, 62"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "windfall.json",
     "releaseDates": {
       "first": "2019-02-13",
       "latest": "2025-12-17",
       "note": "latest is Season 2 Episode 12 / main-story finale; feed swaps continued into 2026.",
       "latestFeedItem": "2026-04-30"
     },
-    "creatorName": "Rogue Dialogue Productions",
-    "networkName": "Rogue Dialogue Productions",
     "officialLinks": {
       "website": "https://roguedialogue.com/windfall",
       "patreon": "",
@@ -1397,10 +1351,6 @@
       "Rogue Dialogue Productions"
     ],
     "cast": [],
-    "firstReleasedAt": "2019-02-13",
-    "firstRelease": "2019-02-13",
-    "lastReleasedAt": "2025-12-17",
-    "latestRelease": "2025-12-17",
     "createdAt": "2026-06-01",
     "creatorId": "rogue-dialogue-productions",
     "networkId": "rogue-dialogue-productions"
@@ -1476,9 +1426,6 @@
       "rgb": "73, 127, 138"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "the-waystation.json",
-    "creatorName": "Wired Cowslip",
-    "networkName": "Wired Cowslip",
     "officialLinks": {
       "website": "",
       "patreon": "",
@@ -1553,7 +1500,9 @@
       "English"
     ],
     "transcriptLanguages": [],
-    "creators": [],
+    "creators": [
+      "Wired Cowslip"
+    ],
     "cast": [],
     "releaseDates": {
       "first": "2021-05-20",
@@ -1562,11 +1511,7 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "not-verified",
-    "networkId": "not-verified",
-    "firstReleasedAt": "2021-05-20",
-    "firstRelease": "2021-05-20",
-    "lastReleasedAt": "2021-12-01",
-    "latestRelease": "2021-12-01"
+    "networkId": "not-verified"
   },
   {
     "id": "were-alive",
@@ -1639,13 +1584,10 @@
       "rgb": "125, 79, 62"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "were-alive.json",
     "releaseDates": {
       "first": "2009-05-04",
       "latest": "2026-02-24"
     },
-    "creatorName": "Kc Wayland",
-    "networkName": "Wayland Productions",
     "officialLinks": {
       "website": "https://www.werealive.com/",
       "patreon": "",
@@ -1729,10 +1671,6 @@
       "Kc Wayland"
     ],
     "cast": [],
-    "firstReleasedAt": "2009-05-04",
-    "firstRelease": "2009-05-04",
-    "lastReleasedAt": "2026-02-24",
-    "latestRelease": "2026-02-24",
     "createdAt": "2026-06-01",
     "creatorId": "kc-wayland",
     "networkId": "wayland-productions"
@@ -1819,14 +1757,11 @@
       "rgb": "133, 26, 40"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "impact-winter.json",
     "releaseDates": {
       "first": "2022-02-17",
       "latest": "2024-07-18",
       "note": "Latest verified released season is Season 3 on Audible. Previous 2025-07-17 value was not confirmed by the sources checked."
     },
-    "creatorName": "Travis Beacham",
-    "networkName": "Audible Originals",
     "officialLinks": {
       "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
       "patreon": "",
@@ -1908,10 +1843,6 @@
       "Travis Beacham"
     ],
     "cast": [],
-    "firstReleasedAt": "2022-02-17",
-    "firstRelease": "2022-02-17",
-    "lastReleasedAt": "2024-07-18",
-    "latestRelease": "2024-07-18",
     "createdAt": "2026-06-01",
     "creatorId": "travis-beacham",
     "networkId": "audible-originals"
@@ -1998,13 +1929,10 @@
       "rgb": "7, 172, 62"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "oz-9.json",
     "releaseDates": {
       "first": "2018-10-31",
       "latest": "2026-01-01"
     },
-    "creatorName": "Shannon Perry",
-    "networkName": "Gated Galaxies / Fable & Folly Network",
     "officialLinks": {
       "website": "https://oz-9.com/",
       "patreon": "https://www.patreon.com/Oz9podcast",
@@ -2087,10 +2015,6 @@
       "Shannon Perry"
     ],
     "cast": [],
-    "firstReleasedAt": "2018-10-31",
-    "firstRelease": "2018-10-31",
-    "lastReleasedAt": "2026-01-01",
-    "latestRelease": "2026-01-01",
     "createdAt": "2026-06-01",
     "creatorId": "shannon-perry",
     "networkId": "fable-and-folly-network"
@@ -2176,13 +2100,10 @@
       "rgb": "33, 121, 151"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "ars-paradoxica.json",
     "releaseDates": {
       "first": "2015-06-01",
       "latest": "2018-06-06"
     },
-    "creatorName": "Mischa Stanton and Daniel Manning",
-    "networkName": "The Whisperforge",
     "officialLinks": {
       "website": "https://arsparadoxica.com/",
       "facebook": "https://www.facebook.com/arsparadoxica",
@@ -2284,10 +2205,6 @@
       "Mischa Stanton and Daniel Manning"
     ],
     "cast": [],
-    "firstReleasedAt": "2015-06-01",
-    "firstRelease": "2015-06-01",
-    "lastReleasedAt": "2018-06-06",
-    "latestRelease": "2018-06-06",
     "createdAt": "2026-06-01",
     "creatorId": "mischa-stanton-and-daniel-manning",
     "networkId": "the-whisperforge"
@@ -2365,15 +2282,12 @@
       "rgb": "146, 96, 93"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "red-valley.json",
     "releaseDates": {
       "first": "2020-03-22",
       "latest": "2025-06-01",
       "note": "Current released feed includes Seasons 1-4. Final Season 5 is announced for 2026 but not counted as released yet.",
       "upcoming": "Season 5 / final season announced for 2026"
     },
-    "creatorName": "Jonathan Williams and Alan Mandel",
-    "networkName": "Red Valley / Fable & Folly",
     "officialLinks": {
       "website": "https://www.redvalleypod.com/",
       "patreon": "",
@@ -2457,10 +2371,6 @@
       "Jonathan Williams and Alan Mandel"
     ],
     "cast": [],
-    "firstReleasedAt": "2020-03-22",
-    "firstRelease": "2020-03-22",
-    "lastReleasedAt": "2025-06-01",
-    "latestRelease": "2025-06-01",
     "createdAt": "2026-06-01",
     "creatorId": "jonathan-williams-and-alan-mandel",
     "networkId": "red-valley-fable-and-folly"
@@ -2506,7 +2416,7 @@
       "seasons": 8,
       "episodes": 92,
       "avgEpisodeMinutes": 30,
-      "totalHours": 46.0,
+      "totalHours": 46,
       "feedEntriesApprox": 119
     },
     "ratings": {
@@ -2540,13 +2450,10 @@
       "rgb": "108, 126, 137"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "the-white-vault.json",
     "releaseDates": {
       "first": "2017-10-03",
       "latest": "2026-06-01"
     },
-    "creatorName": "K.A. Statz and Travis Vengroff",
-    "networkName": "Fool & Scholar Productions",
     "officialLinks": {
       "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
       "patreon": "https://www.patreon.com/FoolandScholar",
@@ -2645,10 +2552,6 @@
       "David Ault",
       "Eyþór Viðarsson"
     ],
-    "firstReleasedAt": "2017-10-03",
-    "firstRelease": "2017-10-03",
-    "lastReleasedAt": "2026-06-01",
-    "latestRelease": "2026-06-01",
     "createdAt": "2026-06-01",
     "creatorId": "k-a-statz-and-travis-vengroff",
     "networkId": "fool-and-scholar-productions"
@@ -2725,13 +2628,10 @@
       "rgb": "73, 123, 132"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "eos-10.json",
     "releaseDates": {
       "first": "2014-09-01",
       "latest": "2022-01-01"
     },
-    "creatorName": "Justin McLachlan",
-    "networkName": "PlanetM / Justin McLachlan",
     "officialLinks": {
       "website": "https://www.planetm.io/eos10/",
       "patreon": "",
@@ -2811,10 +2711,6 @@
       "Justin McLachlan"
     ],
     "cast": [],
-    "firstReleasedAt": "2014-09-01",
-    "firstRelease": "2014-09-01",
-    "lastReleasedAt": "2022-01-01",
-    "latestRelease": "2022-01-01",
     "createdAt": "2026-06-01",
     "creatorId": "justin-mclachlan",
     "networkId": "planetm-justin-mclachlan"
@@ -2893,15 +2789,12 @@
       "rgb": "174, 123, 76"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "desert-skies.json",
     "releaseDates": {
       "first": "2022-08-06",
       "latest": "2026-06-08",
       "note": "latest verified numbered story chapter is Chapter 29 on 2026-06-08; broader feed includes bonus/FM/presenting entries.",
       "latestStory": "2026-06-08"
     },
-    "creatorName": "Jared Carter",
-    "networkName": "Desert Skies / Jared Carter",
     "officialLinks": {
       "website": "https://desertskiespodcast.com/",
       "patreon": "https://www.patreon.com/DesertSkies",
@@ -2986,10 +2879,6 @@
     "cast": [
       "Jared Carter voices every character"
     ],
-    "firstReleasedAt": "2022-08-06",
-    "firstRelease": "2022-08-06",
-    "lastReleasedAt": "2026-06-08",
-    "latestRelease": "2026-06-08",
     "createdAt": "2026-06-01",
     "creatorId": "jared-carter",
     "networkId": "desert-skies-jared-carter"
@@ -3066,13 +2955,10 @@
       "rgb": "114, 129, 135"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "wolf-359.json",
     "releaseDates": {
       "first": "2014-08-15",
       "latest": "2017-12-25"
     },
-    "creatorName": "Gabriel Urbina",
-    "networkName": "Kinda Evil Genius Productions",
     "officialLinks": {
       "website": "https://www.wolf359.fm/",
       "patreon": "",
@@ -3158,10 +3044,6 @@
       "Gabriel Urbina"
     ],
     "cast": [],
-    "firstReleasedAt": "2014-08-15",
-    "firstRelease": "2014-08-15",
-    "lastReleasedAt": "2017-12-25",
-    "latestRelease": "2017-12-25",
     "createdAt": "2026-06-01",
     "creatorId": "gabriel-urbina",
     "networkId": "kinda-evil-genius-productions"
@@ -3239,14 +3121,11 @@
       "rgb": "94, 117, 113"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "station-151.json",
     "releaseDates": {
       "first": "2022-10-31",
       "latest": "2026-01-13",
       "note": "Official site says Season 3 began January 13, 2026 but the rest of Season 3 would not immediately follow."
     },
-    "creatorName": "Andy Scearce and Steven James Scearce",
-    "networkName": "Pale Matter / Realm",
     "officialLinks": {
       "website": "https://www.station151.com/",
       "patreon": "https://patreon.com/station151",
@@ -3332,10 +3211,6 @@
       "Andy Scearce and Steven James Scearce"
     ],
     "cast": [],
-    "firstReleasedAt": "2022-10-31",
-    "firstRelease": "2022-10-31",
-    "lastReleasedAt": "2026-01-13",
-    "latestRelease": "2026-01-13",
     "createdAt": "2026-06-01",
     "creatorId": "andy-scearce-and-steven-james-scearce",
     "networkId": "pale-matter-realm"
@@ -3415,14 +3290,11 @@
       "rgb": "178, 103, 69"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "midnight-burger.json",
     "releaseDates": {
       "first": "2020-10-27",
       "latest": "2026-05-26",
       "note": "Official episode archive count preserved; latest public episode date updated from the official episode archive / 2026 listings."
     },
-    "creatorName": "Joe Fisher",
-    "networkName": "Business Goose Media",
     "officialLinks": {
       "website": "https://www.weopenatsix.com/",
       "youtube": "https://www.youtube.com/@weopenatsix",
@@ -3502,10 +3374,6 @@
       "Joe Fisher"
     ],
     "cast": [],
-    "firstReleasedAt": "2020-10-27",
-    "firstRelease": "2020-10-27",
-    "lastReleasedAt": "2026-05-26",
-    "latestRelease": "2026-05-26",
     "createdAt": "2026-06-01",
     "creatorId": "joe-fisher",
     "networkId": "business-goose-media"
@@ -3580,9 +3448,6 @@
       "rgb": "97, 113, 140"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "spectre.json",
-    "creatorName": "Stef Howerton",
-    "networkName": "SPECTRE / indie",
     "officialLinks": {
       "website": "",
       "patreon": "",
@@ -3659,7 +3524,9 @@
       "English"
     ],
     "transcriptLanguages": [],
-    "creators": [],
+    "creators": [
+      "Stef Howerton"
+    ],
     "cast": [],
     "releaseDates": {
       "first": "2022-05-22",
@@ -3668,11 +3535,7 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "not-verified",
-    "networkId": "not-verified",
-    "firstReleasedAt": "2022-05-22",
-    "firstRelease": "2022-05-22",
-    "lastReleasedAt": "2022-09-04",
-    "latestRelease": "2022-09-04"
+    "networkId": "not-verified"
   },
   {
     "id": "the-phenomenon",
@@ -3747,14 +3610,11 @@
       "rgb": "90, 94, 121"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "the-phenomenon.json",
     "releaseDates": {
       "first": "2017-10-02",
       "latest": "2022-11-16",
       "note": "Latest platform listing found is a Survivors anthology entry on 2022-11-16; official site distinguishes Seasons 1-3 serialized story from Survivors anthology."
     },
-    "creatorName": "Jared J. Smith",
-    "networkName": "Luciola Creative",
     "officialLinks": {
       "website": "https://www.phenomenonpod.com/",
       "youtube": "",
@@ -3840,10 +3700,6 @@
       "Jared J. Smith"
     ],
     "cast": [],
-    "firstReleasedAt": "2017-10-02",
-    "firstRelease": "2017-10-02",
-    "lastReleasedAt": "2022-11-16",
-    "latestRelease": "2022-11-16",
     "createdAt": "2026-06-01",
     "creatorId": "jared-j-smith",
     "networkId": "luciola-creative"
@@ -3918,9 +3774,6 @@
       "rgb": "126, 90, 119"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "paralyzed.json",
-    "creatorName": "7 Lamb Productions",
-    "networkName": "Bloody FM / 7 Lamb Productions",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/paralyzed",
       "patreon": "",
@@ -4006,7 +3859,9 @@
     "releaseDates": {
       "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
       "firstYear": 2015,
-      "latestYear": 2025
+      "latestYear": 2025,
+      "first": "",
+      "latest": ""
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
@@ -4087,15 +3942,12 @@
       "rgb": "74, 101, 128"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "derelict.json",
     "releaseDates": {
       "first": "2019-07-18",
       "latest": "2025-07-01",
       "note": "latest is the most recent verified main-story episode in the existing data; the feed has 2026 Season 3 crowdfunding/trailer entries for DERELICT WAR.",
       "latestFeedItem": "2026-03-24"
     },
-    "creatorName": "J. Barton Mitchell",
-    "networkName": "Night Rocket Productions",
     "officialLinks": {
       "website": "https://www.derelictpodcast.com/",
       "discord": "",
@@ -4180,10 +4032,6 @@
       "J. Barton Mitchell"
     ],
     "cast": [],
-    "firstReleasedAt": "2019-07-18",
-    "firstRelease": "2019-07-18",
-    "lastReleasedAt": "2025-07-01",
-    "latestRelease": "2025-07-01",
     "createdAt": "2026-06-01",
     "creatorId": "j-barton-mitchell",
     "networkId": "night-rocket-productions"
@@ -4259,9 +4107,6 @@
       "rgb": "108, 110, 160"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "crystal-blue.json",
-    "creatorName": "7 Lamb Productions",
-    "networkName": "Bloody FM / 7 Lamb Productions",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas",
       "patreon": "",
@@ -4349,11 +4194,7 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "bloody-fm-7-lamb-productions",
-    "firstReleasedAt": "2021-12-06",
-    "firstRelease": "2021-12-06",
-    "lastReleasedAt": "2025-07-07",
-    "latestRelease": "2025-07-07"
+    "networkId": "bloody-fm-7-lamb-productions"
   },
   {
     "id": "end-of-all-hope",
@@ -4426,9 +4267,6 @@
       "rgb": "141, 80, 63"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "end-of-all-hope.json",
-    "creatorName": "7 Lamb Productions",
-    "networkName": "Bloody FM / 7 Lamb Productions",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
       "patreon": "",
@@ -4514,7 +4352,9 @@
     "releaseDates": {
       "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
       "firstYear": 2015,
-      "latestYear": 2025
+      "latestYear": 2025,
+      "first": "",
+      "latest": ""
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
@@ -4592,9 +4432,6 @@
       "rgb": "126, 100, 72"
     },
     "updatedAt": "2026-06-15",
-    "reviewFile": "tower-4.json",
-    "creatorName": "7 Lamb Productions",
-    "networkName": "Bloody FM / 7 Lamb Productions",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/tower-4",
       "patreon": "",
@@ -4682,10 +4519,6 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "7-lamb-productions",
-    "firstReleasedAt": "2020-09-14",
-    "firstRelease": "2020-09-14",
-    "lastReleasedAt": "2026-05-04",
-    "latestRelease": "2026-05-04"
+    "networkId": "7-lamb-productions"
   }
 ]

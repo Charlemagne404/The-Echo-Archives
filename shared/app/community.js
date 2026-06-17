@@ -7,6 +7,8 @@ import {
 import { createSubmissionHref } from "./urls.js";
 import { syncInlineScoreGroup } from "./render-cards.js";
 
+const EMPTY_COMMUNITY_SCORE_TEXT = "--/10";
+
 export async function initializeDetailRatingPage(show) {
   const detailRoot = document.querySelector(".podcast-detail");
   if (!detailRoot || !show?.id) {
@@ -44,7 +46,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   const metricValue = document.createElement("strong");
   metricValue.className = "community-review-metric-value";
-  metricValue.textContent = "--";
+  metricValue.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
 
   const metricCount = document.createElement("span");
   metricCount.className = "community-review-metric-count";
@@ -253,7 +255,7 @@ function formatDetailCommunitySummary(summary) {
 
 function getDetailCommunityMetricValue(summary) {
   if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
-    return "--";
+    return EMPTY_COMMUNITY_SCORE_TEXT;
   }
 
   return `${summary.averageRating.toFixed(1)}/10`;
@@ -279,26 +281,18 @@ function syncHeroCommunityMetric(widget, summary) {
 
 function setCommunityWidgetUnavailable(widget) {
   widget.summary.textContent = "Community ratings are offline right now.";
-  widget.metricValue.textContent = "--";
+  widget.metricValue.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
   widget.metricCount.textContent = "Offline";
   widget.toggleButton.disabled = true;
   widget.body.hidden = true;
   widget.toggleButton.setAttribute("aria-expanded", "false");
   widget.toggleButton.textContent = "Ratings offline";
   if (widget.heroValue) {
-    widget.heroValue.textContent = "--";
+    widget.heroValue.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
   }
   if (widget.heroCount) {
     widget.heroCount.textContent = "Offline";
   }
-}
-
-function getDisplayedCommunityRating(summary, fallbackRating) {
-  if (summary && summary.averageRating !== null) {
-    return summary.averageRating;
-  }
-
-  return Number.isFinite(fallbackRating) ? fallbackRating : null;
 }
 
 async function ensureCommunityProfile() {
@@ -407,13 +401,21 @@ async function loadCommunitySummaries(podcastIds) {
   }, {});
 }
 
-function formatCommunityBadgeSummary(summary) {
-  const displayedRating = getDisplayedCommunityRating(summary, Number.parseFloat(summary?.fallbackRating ?? ""));
-  if (displayedRating === null) {
-    return "";
+function formatCommunityBadgeText(summary) {
+  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+    return EMPTY_COMMUNITY_SCORE_TEXT;
   }
 
-  return `${displayedRating.toFixed(1)}/10`;
+  return `${summary.averageRating.toFixed(1)}/10`;
+}
+
+function formatCommunityBadgeAriaLabel(summary) {
+  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+    return "Community score --/10. No ratings yet.";
+  }
+
+  const noun = summary.ratingCount === 1 ? "rating" : "ratings";
+  return `Community score ${summary.averageRating.toFixed(1)}/10 from ${summary.ratingCount} ${noun}.`;
 }
 
 export async function syncCommunityCardBadges(container, shows) {
@@ -426,15 +428,12 @@ export async function syncCommunityCardBadges(container, shows) {
 
   const badges = Array.from(container.querySelectorAll(".community-inline-score"));
   badges.forEach((badge) => {
-    const fallbackText = badge.dataset.fallbackRating ? `${badge.dataset.fallbackRating}/10` : "";
-    badge.hidden = !fallbackText;
     const value = badge.querySelector(".community-inline-score-value");
     if (value) {
-      value.textContent = fallbackText;
+      value.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
     }
-    if (fallbackText) {
-      badge.setAttribute("aria-label", `Community score ${fallbackText}`);
-    }
+    badge.hidden = false;
+    badge.setAttribute("aria-label", "Community score --/10. No ratings yet.");
   });
   container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
     syncInlineScoreGroup(group);
@@ -453,18 +452,13 @@ export async function syncCommunityCardBadges(container, shows) {
 
     badges.forEach((badge) => {
       const summary = summaries[badge.dataset.podcastId || ""];
-      const text = formatCommunityBadgeSummary({
-        ...(summary || {}),
-        fallbackRating: badge.dataset.fallbackRating || "",
-      });
+      const text = formatCommunityBadgeText(summary);
       const value = badge.querySelector(".community-inline-score-value");
       if (value) {
         value.textContent = text;
       }
-      if (text) {
-        badge.setAttribute("aria-label", `Community score ${text}`);
-      }
-      badge.hidden = !text;
+      badge.setAttribute("aria-label", formatCommunityBadgeAriaLabel(summary));
+      badge.hidden = false;
     });
     container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
       syncInlineScoreGroup(group);
@@ -475,15 +469,12 @@ export async function syncCommunityCardBadges(container, shows) {
     }
 
     badges.forEach((badge) => {
-      const fallbackText = badge.dataset.fallbackRating ? `${badge.dataset.fallbackRating}/10` : "";
       const value = badge.querySelector(".community-inline-score-value");
-      badge.hidden = !fallbackText;
       if (value) {
-        value.textContent = fallbackText;
+        value.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
       }
-      if (fallbackText) {
-        badge.setAttribute("aria-label", `Community score ${fallbackText}`);
-      }
+      badge.hidden = false;
+      badge.setAttribute("aria-label", "Community score --/10. No ratings yet.");
     });
     container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
       syncInlineScoreGroup(group);

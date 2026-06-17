@@ -2,6 +2,7 @@ import {
   SHOWS_DATA_URL,
   COLLECTIONS_DATA_URL,
   archiveSearch,
+  archiveRecord,
   dataCache,
   PREFERRED_QUICK_FILTERS,
 } from "./constants.js";
@@ -13,6 +14,12 @@ import {
   toDisplayTag,
   toLabel,
 } from "./utils.js";
+
+const {
+  normalizeCollectionRecord,
+  normalizeReviewParagraphs,
+  normalizeShowRecord: normalizeArchiveShowRecord,
+} = archiveRecord;
 
 export async function fetchJson(url) {
   const response = await fetch(url, { headers: { Accept: "application/json" } });
@@ -47,109 +54,7 @@ export function getPublishedShows(shows) {
   return shows.filter((show) => show.status === "published");
 }
 
-function normalizeStringArray(value) {
-  if (!Array.isArray(value)) {
-    return [];
-  }
-
-  return value.map((entry) => String(entry || "").trim()).filter(Boolean);
-}
-
-function normalizeKeyedTextMap(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    Object.entries(value)
-      .map(([key, text]) => [String(key || "").trim(), String(text || "").trim()])
-      .filter(([key, text]) => key && text),
-  );
-}
-
-function normalizeUrlMap(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    Object.entries(value)
-      .map(([key, href]) => [String(key || "").trim(), String(href || "").trim()])
-      .filter(([key, href]) => key && href),
-  );
-}
-
-function normalizeStructuredValue(value) {
-  if (typeof value === "string") {
-    const normalized = value.trim();
-    return normalized ? normalized : undefined;
-  }
-
-  if (typeof value === "number") {
-    return Number.isFinite(value) ? value : undefined;
-  }
-
-  if (typeof value === "boolean") {
-    return value;
-  }
-
-  if (Array.isArray(value)) {
-    const normalized = value
-      .map((entry) => normalizeStructuredValue(entry))
-      .filter((entry) => entry !== undefined);
-    return normalized.length > 0 ? normalized : undefined;
-  }
-
-  if (!value || typeof value !== "object") {
-    return undefined;
-  }
-
-  const normalizedEntries = Object.entries(value)
-    .map(([key, entryValue]) => [String(key || "").trim(), normalizeStructuredValue(entryValue)])
-    .filter(([key, entryValue]) => key && entryValue !== undefined);
-
-  if (normalizedEntries.length === 0) {
-    return undefined;
-  }
-
-  return Object.fromEntries(normalizedEntries);
-}
-
-function normalizeStructuredObject(value) {
-  const normalized = normalizeStructuredValue(value);
-  if (!normalized || typeof normalized !== "object" || Array.isArray(normalized)) {
-    return {};
-  }
-
-  return normalized;
-}
-
-function normalizeCollectionRecord(record) {
-  return {
-    ...record,
-    showIds: Array.isArray(record.showIds) ? record.showIds.filter(Boolean) : [],
-    showReasons: normalizeKeyedTextMap(record.showReasons),
-  };
-}
-
-export function normalizeReviewParagraphs(value) {
-  if (Array.isArray(value)) {
-    return value.map((entry) => String(entry || "").trim()).filter(Boolean);
-  }
-
-  if (typeof value !== "string") {
-    return [];
-  }
-
-  return String(value)
-    .split(/\n\s*\n+/)
-    .map((entry) => entry.trim())
-    .filter(Boolean);
-}
-
-function joinReviewParagraphs(paragraphs) {
-  return normalizeReviewParagraphs(paragraphs).join(" ");
-}
+export { normalizeReviewParagraphs };
 
 export function buildCollectionMap(collections) {
   return new Map(collections.map((collection) => [collection.id, collection]));
@@ -166,77 +71,12 @@ export function getCollectionShows(collection, showMap) {
 }
 
 function normalizeShowRecord(record) {
-  const tags = normalizeStringArray(record.tags);
-  const genres = normalizeStringArray(record.genres);
-  const tones = normalizeStringArray(record.tones);
-  const formats = normalizeStringArray(record.formats);
-  const bestFor = normalizeStringArray(record.bestFor);
-  const similarTo = normalizeStringArray(record.similarTo);
-  const aliases = normalizeStringArray(record.aliases);
-  const themes = normalizeStringArray(record.themes);
-  const contentNotes = normalizeStringArray(record.contentNotes);
-  const languages = normalizeStringArray(record.languages);
-  const transcriptLanguages = normalizeStringArray(record.transcriptLanguages);
-  const cast = normalizeStringArray(record.cast);
-  const creators = normalizeStringArray(record.creators);
-  const similarReasons = normalizeKeyedTextMap(record.similarReasons);
-  const listenLinks = normalizeUrlMap(record.listenLinks);
-  const officialLinks = normalizeUrlMap(record.officialLinks);
-  const facts = normalizeStructuredObject(record.facts);
-  const credits = normalizeStructuredObject(record.credits);
-  const availability = normalizeStructuredObject(record.availability);
-  const content = normalizeStructuredObject(record.content);
-  const verification = normalizeStructuredObject(record.verification);
-  const metadata = normalizeStructuredObject(record.metadata);
-  const releaseDates = normalizeStructuredObject(record.releaseDates);
-  const spoilerFreeReviewParagraphs = normalizeReviewParagraphs(
-    record.spoilerFreeReviewParagraphs ?? record.spoilerFreeReview,
-  );
-  const thoughtsParagraphs = normalizeReviewParagraphs(record.thoughtsParagraphs ?? record.thoughts);
-  const spoilerFreeReview = typeof record.spoilerFreeReview === "string"
-    ? record.spoilerFreeReview.trim()
-    : joinReviewParagraphs(spoilerFreeReviewParagraphs);
-  const thoughts = typeof record.thoughts === "string" ? record.thoughts.trim() : joinReviewParagraphs(thoughtsParagraphs);
-  const rating = Number(record.ratings?.archive);
+  const normalized = normalizeArchiveShowRecord(record);
 
   return {
-    ...record,
-    tags,
-    genres,
-    tones,
-    formats,
-    bestFor,
-    similarTo,
-    aliases,
-    themes,
-    contentNotes,
-    languages,
-    transcriptLanguages,
-    cast,
-    creators,
-    similarReasons,
-    listenLinks,
-    officialLinks,
-    facts,
-    credits,
-    availability,
-    content,
-    verification,
-    metadata,
-    releaseDates: {
-      ...releaseDates,
-      first: record.firstRelease || record.firstReleasedAt || releaseDates.first || "",
-      latest: record.latestRelease || record.lastReleasedAt || releaseDates.latest || "",
-    },
-    spoilerFreeReview,
-    spoilerFreeReviewParagraphs,
-    thoughts,
-    thoughtsParagraphs,
-    href: `/show.html?id=${encodeURIComponent(record.id)}`,
-    finalRating: Number.isFinite(rating) ? rating : null,
-    searchText: "",
-    tagTokens: tags.map((tag) => normalizeTag(tag)),
-    bestForTokens: bestFor.map((tag) => normalizeTag(tag)),
+    ...normalized,
+    tagTokens: normalized.tags.map((tag) => normalizeTag(tag)),
+    bestForTokens: normalized.bestFor.map((tag) => normalizeTag(tag)),
   };
 }
 
