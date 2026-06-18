@@ -6,17 +6,34 @@ const {
   buildMessages,
   buildRecommendationCard,
   buildSuggestedPrompts,
-  isClarificationRequest,
   sanitizeAnswerText,
 } = require("../chat");
+const {
+  classifyChatIntent,
+  isClarificationRequest,
+  promoteIntentWithMatches,
+} = require("../chat-intents");
+const { buildSiteHelpResponse } = require("../site-help");
 
-function createChatRouter({ catalog, config, rateLimiter = null }) {
+function normalizePageContext(value) {
+  const page = value && typeof value === "object" && !Array.isArray(value) ? value : {};
+
+  return {
+    path: typeof page.path === "string" ? page.path.slice(0, 200) : "",
+    pageType: typeof page.pageType === "string" ? page.pageType.slice(0, 60) : "",
+    showId: typeof page.showId === "string" ? page.showId.slice(0, 120) : "",
+    collectionId: typeof page.collectionId === "string" ? page.collectionId.slice(0, 120) : "",
+  };
+}
+
+function createChatRouter({ catalog, collections, config, siteHelpContext, rateLimiter = null }) {
   const router = express.Router();
 
   router.get("/health", (_req, res) => {
     res.json({
       ok: true,
       catalogCount: catalog.length,
+      collectionCount: collections.length,
       model: config.OLLAMA_MODEL,
     });
   });
@@ -33,6 +50,7 @@ function createChatRouter({ catalog, config, rateLimiter = null }) {
           )
           .slice(-8)
       : [];
+    const page = normalizePageContext(req.body.page);
 
     if (!message) {
       return res.status(400).json({ error: "A message is required." });
@@ -40,12 +58,63 @@ function createChatRouter({ catalog, config, rateLimiter = null }) {
 
     rateLimiter?.check("chat", req.ip || "");
 
-    const matches = scoreCatalog(catalog, message);
+    const initialIntent = classifyChatIntent({ message, page });
+
+    if (initialIntent.primary === "clarification") {
+      const helpResponse = buildSiteHelpResponse({
+        message,
+        helpTopic: initialIntent.helpTopic,
+        page,
+        catalog,
+        collections,
+        siteHelpContext,
+      });
+
+      return res.json({
+        answer: helpResponse.answer,
+        actions: helpResponse.actions,
+        recommendations: [],
+        suggestedPrompts: helpResponse.suggestedPrompts,
+        source: helpResponse.source,
+      });
+    }
+
+    const shouldScoreCatalog =
+      initialIntent.primary !== "site-help" || initialIntent.includeRecommendations || page.pageType === "show";
+    const matches = shouldScoreCatalog ? scoreCatalog(catalog, message) : [];
+    const intent = promoteIntentWithMatches({
+      intent: initialIntent,
+      message,
+      page,
+      matches,
+    });
     const recommendations = matches.slice(0, 3).map(buildRecommendationCard);
+
+    if (intent.primary === "site-help" || intent.primary === "show-detail" || intent.primary === "mixed") {
+      const helpResponse = buildSiteHelpResponse({
+        message,
+        helpTopic: intent.helpTopic,
+        page,
+        catalog,
+        collections,
+        siteHelpContext,
+        matches,
+        includeRecommendations: intent.includeRecommendations || intent.primary === "mixed",
+      });
+
+      return res.json({
+        answer: helpResponse.answer,
+        actions: helpResponse.actions,
+        recommendations: intent.includeRecommendations || intent.primary === "mixed" ? recommendations : [],
+        suggestedPrompts: helpResponse.suggestedPrompts,
+        source: helpResponse.source,
+      });
+    }
 
     if (isClarificationRequest(message) || matches.length === 0) {
       return res.json({
         answer: buildFallbackAnswer(message, matches),
+        actions: [],
         recommendations,
         suggestedPrompts: buildSuggestedPrompts(matches),
         source: "fallback",
@@ -88,6 +157,7 @@ function createChatRouter({ catalog, config, rateLimiter = null }) {
 
       return res.json({
         answer,
+        actions: [],
         recommendations,
         suggestedPrompts: buildSuggestedPrompts(matches),
         source: "ollama",
@@ -95,6 +165,7 @@ function createChatRouter({ catalog, config, rateLimiter = null }) {
     } catch (error) {
       return res.json({
         answer: buildFallbackAnswer(message, matches),
+        actions: [],
         recommendations,
         suggestedPrompts: buildSuggestedPrompts(matches),
         source: "fallback",

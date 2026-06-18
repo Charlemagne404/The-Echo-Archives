@@ -372,6 +372,19 @@ export async function initializeSubmitPage() {
       return;
     }
 
+    const addLinkOption = target.closest("[data-add-link-option]");
+    if (addLinkOption) {
+      event.preventDefault();
+      captureCurrentDraft();
+      const field = addLinkOption.getAttribute("data-add-link-option");
+      const preferredLabel = addLinkOption.getAttribute("data-add-link-value") || "";
+      if (field && preferredLabel) {
+        appendModeLinkRow(getActiveDraft(state), field, preferredLabel);
+        renderActiveMode();
+      }
+      return;
+    }
+
     const addRow = target.closest("[data-add-link]");
     if (addRow) {
       event.preventDefault();

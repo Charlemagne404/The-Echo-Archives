@@ -1472,12 +1472,58 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
+    let chatState = await page.evaluate(() => ({
+      placeholder: document.getElementById("userInput")?.getAttribute("placeholder") || "",
+      suggestions: Array.from(document.querySelectorAll("#chatSuggestions .chat-suggestion")).map((node) =>
+        node.textContent?.trim() || "",
+      ),
+    }));
+    assert.match(chatState.placeholder, /archive|site works/i);
+    assert.ok(chatState.suggestions.includes("How do I submit a correction?"));
+    assert.ok(chatState.suggestions.includes("What does creator verified mean?"));
+
+    await page.locator("#userInput").fill("How do I submit a correction?");
+    await page.locator("#sendMessageButton").click();
+    await page.waitForFunction(
+      () =>
+        Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
+          /Corrections are for metadata and links/i.test(node.textContent || ""),
+        ),
+      undefined,
+      { timeout: 5_000 },
+    );
+    await page.locator('.chat-action-link[href="/submit.html"]').waitFor();
+
+    await page.locator("#chat-clear").click();
+    await page.waitForFunction(
+      () =>
+        Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
+          /Ask about a show, the archive, ratings, creator verification, submissions/i.test(node.textContent || ""),
+        ),
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    await page.locator("#userInput").fill("Recommend a finished sci-fi show");
+    await page.locator("#sendMessageButton").click();
+    await page.locator(".chat-recommendation-card").first().waitFor({ timeout: 5_000 });
     await page.getByRole("button", { name: "Close chat" }).click();
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
     await page.goto(`${baseUrl}/submit.html`, { waitUntil: "networkidle" });
     await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
+    await page.locator("#userInput").fill("How do creator verification requests work?");
+    await page.locator("#sendMessageButton").click();
+    await page.waitForFunction(
+      () =>
+        Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
+          /creator verification|factual metadata/i.test(node.textContent || ""),
+        ),
+      undefined,
+      { timeout: 5_000 },
+    );
+    await page.locator('.chat-action-link[href="/submit.html"]').waitFor();
     await page.getByRole("button", { name: "Close chat" }).click();
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
@@ -1573,8 +1619,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(tagAndLinkState.tagToggleDisabled, true);
     assert.match(tagAndLinkState.tagLimitMessage, /Tag limit reached \(8\/8\)/);
 
-    await page.getByRole("button", { name: "Add another link" }).click();
-    await page.locator('[data-link-list="listenLinks"][data-link-part="label"]').nth(1).selectOption("Apple Podcasts");
+    await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="Apple Podcasts"]').click();
     tagAndLinkState = await page.evaluate(() => ({
       badgeLabels: Array.from(document.querySelectorAll(".submit-link-source-text")).map((node) => node.textContent?.trim()),
       selectValues: Array.from(document.querySelectorAll('[data-link-list="listenLinks"][data-link-part="label"]')).map((node) => node.value),
@@ -1582,17 +1627,21 @@ test("Ask the Archivist and the remade submit page interactions work across mode
         width: window.getComputedStyle(document.querySelector(".submit-link-remove svg")).width,
         height: window.getComputedStyle(document.querySelector(".submit-link-remove svg")).height,
       },
+      emptyStateVisible: Boolean(document.querySelector(".submit-link-list-empty")),
     }));
-    assert.equal(tagAndLinkState.badgeLabels[1], "Apple Podcasts");
-    assert.equal(tagAndLinkState.selectValues[1], "Apple Podcasts");
+    assert.equal(tagAndLinkState.emptyStateVisible, false);
+    assert.equal(tagAndLinkState.badgeLabels[0], "Apple Podcasts");
+    assert.equal(tagAndLinkState.selectValues[0], "Apple Podcasts");
     assert.equal(tagAndLinkState.removeIconSize.width, "16px");
     assert.equal(tagAndLinkState.removeIconSize.height, "16px");
 
-    await page.getByRole("button", { name: "Add another link" }).click();
+    await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="RSS Feed"]').click();
     tagAndLinkState = await page.evaluate(() => ({
       selectValues: Array.from(document.querySelectorAll('[data-link-list="listenLinks"][data-link-part="label"]')).map((node) => node.value),
+      addLinkOptionCount: document.querySelectorAll('[data-add-link-option="listenLinks"]').length,
     }));
-    assert.deepEqual(tagAndLinkState.selectValues, ["Spotify", "Apple Podcasts", "RSS Feed"]);
+    assert.deepEqual(tagAndLinkState.selectValues, ["Apple Podcasts", "RSS Feed"]);
+    assert.equal(tagAndLinkState.addLinkOptionCount, 6);
 
     await page.locator('[data-submission-mode="listener-review"]').click();
     await page.locator("#submitReviewText").waitFor();
@@ -1661,6 +1710,24 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(deepLinkState.showSearch, "Impact Winter");
     assert.equal(deepLinkState.reviewFieldVisible, true);
     assert.equal(deepLinkState.ratingButtons, 5);
+
+    await page.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.locator("#chat-toggle").click();
+    await page.locator("#chat-container.is-open").waitFor();
+    await page.locator("#userInput").fill("What does creator verified mean?");
+    await page.locator("#sendMessageButton").click();
+    await page.waitForFunction(
+      () =>
+        Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
+          /Impact Winter is marked creator verified/i.test(node.textContent || ""),
+        ),
+      undefined,
+      { timeout: 5_000 },
+    );
+    chatState = await page.evaluate(() => ({
+      actionHrefs: Array.from(document.querySelectorAll(".chat-action-link")).map((node) => node.getAttribute("href") || ""),
+    }));
+    assert.ok(chatState.actionHrefs.includes("/submit.html"));
   } finally {
     await page.close();
   }

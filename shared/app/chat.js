@@ -21,6 +21,7 @@ export function initializeSharedChat() {
     return;
   }
 
+  applyChatCopy();
   hydrateChat();
   syncChatHealth();
 
@@ -90,8 +91,10 @@ function resetChatThread() {
   chatState.history = [];
   renderAndStoreEntry({
     role: "assistant",
-    content: "Tell me if you want something finished or ongoing, a mood, a listening context, or a specific title already in the archive.",
+    content:
+      "Ask about a show, the archive, ratings, creator verification, submissions, or what to listen to next.",
     recommendations: [],
+    actions: [],
   });
   updateChatSuggestions(DEFAULT_CHAT_SUGGESTIONS);
   syncChatSuggestionsVisibility();
@@ -138,6 +141,7 @@ async function sendMessage(prefilledMessage) {
           role: entry.role,
           content: entry.content,
         })),
+        page: getChatPageContext(),
       }),
     });
 
@@ -152,19 +156,27 @@ async function sendMessage(prefilledMessage) {
       role: "assistant",
       content: result.answer || "I couldn't build a reply from the archive yet.",
       recommendations: Array.isArray(result.recommendations) ? result.recommendations : [],
+      actions: Array.isArray(result.actions) ? result.actions : [],
     });
     updateChatSuggestions(
       Array.isArray(result.suggestedPrompts) && result.suggestedPrompts.length > 0
         ? result.suggestedPrompts
         : DEFAULT_CHAT_SUGGESTIONS,
     );
-    setChatStatus(result.source === "ollama" ? "Live model connected to the archive." : "Using archive fallback recommendations.");
+    if (result.source === "ollama") {
+      setChatStatus("Live model connected to the archive.");
+    } else if (result.source === "site-help") {
+      setChatStatus("Using grounded archive help.");
+    } else {
+      setChatStatus("Using grounded archive fallback.");
+    }
   } catch (_error) {
     typingIndicator.remove();
     renderAndStoreEntry({
       role: "assistant",
       content: "I couldn't reach the archive assistant. Start the local `podcast-ai` service and try again.",
       recommendations: [],
+      actions: [],
     });
     setChatStatus("Chat request failed. The site could not reach `/api/chat`.");
   } finally {
@@ -179,10 +191,15 @@ function renderAndStoreEntry(entry) {
 }
 
 function renderHistoryEntry(entry) {
-  appendMessage(entry.content, entry.role === "assistant" ? "bot" : "user", entry.recommendations || []);
+  appendMessage(
+    entry.content,
+    entry.role === "assistant" ? "bot" : "user",
+    entry.recommendations || [],
+    entry.actions || [],
+  );
 }
 
-function appendMessage(text, sender, recommendations = []) {
+function appendMessage(text, sender, recommendations = [], actions = []) {
   if (!chatLog) {
     return;
   }
@@ -191,6 +208,10 @@ function appendMessage(text, sender, recommendations = []) {
   msgEl.className = `message ${sender}`;
   msgEl.textContent = text;
   chatLog.appendChild(msgEl);
+
+  if (sender === "bot" && actions.length > 0) {
+    chatLog.appendChild(createActionStrip(actions));
+  }
 
   if (sender === "bot" && recommendations.length > 0) {
     chatLog.appendChild(createRecommendationStrip(recommendations));
@@ -248,6 +269,31 @@ function createRecommendationStrip(recommendations) {
     }
 
     strip.appendChild(card);
+  });
+
+  return strip;
+}
+
+function createActionStrip(actions) {
+  const strip = document.createElement("div");
+  strip.className = "chat-actions";
+
+  actions.forEach((action) => {
+    if (!action || typeof action.href !== "string" || !action.href) {
+      return;
+    }
+
+    const link = document.createElement("a");
+    link.className = "chat-action-link";
+    link.href = action.href;
+    link.textContent = action.label || "Open";
+
+    if (action.external) {
+      link.target = "_blank";
+      link.rel = "noreferrer";
+    }
+
+    strip.appendChild(link);
   });
 
   return strip;
@@ -311,9 +357,14 @@ function readChatState() {
       return [];
     }
 
-    return parsed.filter(
-      (entry) => entry && (entry.role === "assistant" || entry.role === "user") && typeof entry.content === "string",
-    );
+    return parsed
+      .filter((entry) => entry && (entry.role === "assistant" || entry.role === "user") && typeof entry.content === "string")
+      .map((entry) => ({
+        role: entry.role,
+        content: entry.content,
+        recommendations: Array.isArray(entry.recommendations) ? entry.recommendations : [],
+        actions: Array.isArray(entry.actions) ? entry.actions : [],
+      }));
   } catch (_error) {
     return [];
   }
@@ -368,4 +419,91 @@ export function setChatOpen(isOpen) {
   if (isOpen) {
     userInput?.focus();
   }
+}
+
+function applyChatCopy() {
+  const inputLabel = document.querySelector('label[for="userInput"]');
+  if (inputLabel) {
+    inputLabel.textContent = "Ask about the archive or a show";
+  }
+
+  if (userInput) {
+    userInput.placeholder = "Ask about the archive, a show, or how the site works";
+  }
+
+  if (chatFootnote) {
+    chatFootnote.textContent =
+      "Ask for a recommendation, a correction path, rating help, privacy details, or what creator verified means.";
+  }
+}
+
+function getChatPageContext() {
+  const params = new URLSearchParams(window.location.search);
+  const pageType = getChatPageType();
+  const id = params.get("id") || "";
+
+  return {
+    path: window.location.pathname,
+    pageType,
+    showId: pageType === "show" ? id : "",
+    collectionId: pageType === "collection" ? id : "",
+  };
+}
+
+function getChatPageType() {
+  const path = window.location.pathname;
+
+  if (document.body.classList.contains("show-page")) {
+    return "show";
+  }
+
+  if (document.body.classList.contains("collection-page")) {
+    return "collection";
+  }
+
+  if (document.body.classList.contains("collections-page")) {
+    return "collections";
+  }
+
+  if (document.body.classList.contains("about-page")) {
+    return "about";
+  }
+
+  if (document.body.classList.contains("submit-page")) {
+    return "submit";
+  }
+
+  if (path.endsWith("/privacy.html")) {
+    return "privacy";
+  }
+
+  if (path.endsWith("/terms.html")) {
+    return "terms";
+  }
+
+  if (path.endsWith("/supporters.html")) {
+    return "supporters";
+  }
+
+  if (path.endsWith("/collections.html")) {
+    return "collections";
+  }
+
+  if (path.endsWith("/collection.html")) {
+    return "collection";
+  }
+
+  if (path.endsWith("/show.html")) {
+    return "show";
+  }
+
+  if (path.endsWith("/about.html")) {
+    return "about";
+  }
+
+  if (path.endsWith("/submit.html")) {
+    return "submit";
+  }
+
+  return path === "/" || path.endsWith("/index.html") ? "home" : "unknown";
 }

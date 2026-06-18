@@ -15,12 +15,14 @@ const { createSubmissionService } = require("./lib/services/submission-service")
 const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
+const { loadSiteHelpContext } = require("./lib/site-help");
 
 async function startServer() {
   const app = express();
   const catalog = await loadCatalog(config.STATIC_ROOT);
   const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
-  await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
+  const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
+  const siteHelpContext = loadSiteHelpContext({ catalog, collections, archiveContext });
   const database = openDatabase(config.DB_PATH);
   const rateLimitStore = createRateLimitStore({ db: database });
   const rateLimitService = createRateLimitService({
@@ -79,7 +81,16 @@ async function startServer() {
     res.json(catalog);
   });
 
-  app.use("/api/chat", createChatRouter({ catalog, config, rateLimiter: rateLimitService }));
+  app.use(
+    "/api/chat",
+    createChatRouter({
+      catalog,
+      collections,
+      config,
+      siteHelpContext,
+      rateLimiter: rateLimitService,
+    }),
+  );
   app.use("/api/community", createCommunityRouter({ communityService, config }));
   app.use("/api/submissions", createSubmissionRouter({ submissionService }));
 

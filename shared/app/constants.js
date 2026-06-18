@@ -4,14 +4,14 @@ export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
 export const archiveRecord = globalThis.EchoArchiveRecord;
-export const CHAT_STORAGE_KEY = "echo-archives-chat-v2";
+export const CHAT_STORAGE_KEY = "echo-archives-chat-v3";
 export const COMMUNITY_PROFILE_KEY = "echo-community-profile-id";
 export const COMMUNITY_PROFILE_HEADER = "x-echo-profile-id";
 export const DEFAULT_CHAT_SUGGESTIONS = [
-  "Give me a finished show with strong worldbuilding",
-  "I want something easy to jump into late at night",
-  "Recommend a darker survival story",
-  "What should I start with if I want a full review first?",
+  "How do I submit a correction?",
+  "What does creator verified mean?",
+  "How are community ratings different?",
+  "Recommend a finished show with strong worldbuilding",
 ];
 export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
 export const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];

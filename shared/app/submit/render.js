@@ -94,11 +94,13 @@ export function renderModeFields(mode, draft, context) {
         renderLinkListField({
           fieldName: "listenLinks",
           label: "Listen links (add at least one)",
-          helper: "Add official listen destinations for the archive review queue.",
+          helper: "Click a listener link type to add it, then paste the official destination URL.",
           required: true,
           rows: draft.listenLinks,
           options: LISTEN_LINK_OPTIONS,
           plain: false,
+          chooseBeforeAdd: true,
+          emptyMessage: "No listener links added yet.",
         }),
         renderFormRow([
           renderChipGroupField({
@@ -673,8 +675,24 @@ function renderExistingShowField({ label, value, helper, searchResults, searchOp
   });
 }
 
-function renderLinkListField({ fieldName, label, rows, helper, options, plain, required = false }) {
-  const normalizedRows = Array.isArray(rows) && rows.length > 0 ? rows : plain ? [{ url: "" }] : [{ label: options[0] || "Website", url: "" }];
+function renderLinkListField({
+  fieldName,
+  label,
+  rows,
+  helper,
+  options,
+  plain,
+  required = false,
+  chooseBeforeAdd = false,
+  emptyMessage = "",
+}) {
+  const normalizedRows = Array.isArray(rows) && rows.length > 0
+    ? rows
+    : plain
+      ? [{ url: "" }]
+      : chooseBeforeAdd
+        ? []
+        : [{ label: options[0] || "Website", url: "" }];
   const rowMarkup = normalizedRows.map((row, index) => {
     if (plain) {
       return `
@@ -726,11 +744,30 @@ function renderLinkListField({ fieldName, label, rows, helper, options, plain, r
     helper,
     controlHtml: `
       <div class="submit-link-list">
+        ${!plain && chooseBeforeAdd && normalizedRows.length === 0 && emptyMessage
+          ? `<p class="submit-link-list-empty">${escapeHtml(emptyMessage)}</p>`
+          : ""}
         ${rowMarkup}
-        <button type="button" class="submit-add-row" data-add-link="${fieldName}">
-          <span class="submit-add-row-icon" aria-hidden="true">${iconMarkup("plus")}</span>
-          <span>Add another link</span>
-        </button>
+        ${!plain && chooseBeforeAdd ? `
+          <div class="submit-add-link-options" role="group" aria-label="Add a listener link">
+            ${options.map((option) => `
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="${fieldName}"
+                data-add-link-value="${escapeAttribute(option)}"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--${escapeAttribute(normalizeLinkTypeClass(option))}" aria-hidden="true">${iconMarkup(getLinkTypeIcon(option))}</span>
+                <span>${escapeHtml(option)}</span>
+              </button>
+            `).join("")}
+          </div>
+        ` : `
+          <button type="button" class="submit-add-row" data-add-link="${fieldName}">
+            <span class="submit-add-row-icon" aria-hidden="true">${iconMarkup("plus")}</span>
+            <span>Add another link</span>
+          </button>
+        `}
       </div>
     `,
   });
@@ -768,8 +805,9 @@ function renderFieldShell({ label, required = false, helper = "", controlHtml })
   return `
     <div class="submit-field">
       <span class="submit-field-label">
-        <span>${escapeHtml(label)}</span>
-        ${required ? '<span class="submit-required">Required</span>' : ""}
+        <span class="submit-field-label-main">
+          ${escapeHtml(label)}${required ? '<span class="submit-required" aria-label="Required">*</span>' : ""}
+        </span>
       </span>
       ${controlHtml}
       ${helper ? `<p class="submit-field-helper">${escapeHtml(helper)}</p>` : ""}

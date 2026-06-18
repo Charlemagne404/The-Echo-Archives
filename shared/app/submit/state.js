@@ -44,7 +44,7 @@ export function createDraft(mode) {
         creatorName: "",
         contactEmail: "",
         officialSite: "",
-        listenLinks: [{ label: "Spotify", url: "" }],
+        listenLinks: [],
         selectedTags: [],
         completionStatus: "ongoing",
         shortDescription: "",
@@ -100,16 +100,16 @@ export function getActiveDraft(state) {
   return state.drafts[state.activeMode];
 }
 
-export function appendLinkRow(draft, fieldName, options = []) {
+export function appendLinkRow(draft, fieldName, options = [], preferredLabel = "") {
   const currentRows = Array.isArray(draft[fieldName]) ? draft[fieldName] : [];
-  const nextLabel = pickNextLinkOption(currentRows, options);
+  const nextLabel = String(preferredLabel || "").trim() || pickNextLinkOption(currentRows, options);
   const row = fieldName === "sourceLinks"
     ? { url: "" }
     : { label: nextLabel, url: "" };
   draft[fieldName] = [...currentRows, row];
 }
 
-export function appendModeLinkRow(draft, fieldName) {
+export function appendModeLinkRow(draft, fieldName, preferredLabel = "") {
   appendLinkRow(
     draft,
     fieldName,
@@ -118,6 +118,7 @@ export function appendModeLinkRow(draft, fieldName) {
       : fieldName === "officialLinks"
         ? OFFICIAL_LINK_OPTIONS
         : [],
+    preferredLabel,
   );
 }
 
@@ -126,6 +127,11 @@ export function removeLinkRow(draft, fieldName, index) {
   const nextRows = currentRows.filter((_, currentIndex) => currentIndex !== index);
   if (nextRows.length > 0) {
     draft[fieldName] = nextRows;
+    return;
+  }
+
+  if (fieldName === "listenLinks") {
+    draft[fieldName] = [];
     return;
   }
 

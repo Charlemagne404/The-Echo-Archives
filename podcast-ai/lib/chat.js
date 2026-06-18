@@ -82,7 +82,7 @@ function buildMessages({ message, history, matches }) {
 
 function buildFallbackAnswer(message, matches) {
   if (HELP_PATTERN.test(message)) {
-    return "Ask for a mood, completion status, listening context, or a specific show and I'll narrow the archive down for you.";
+    return "Ask about the archive, ratings, submissions, or what to listen to next, and I'll keep the answer grounded in Echo Archives.";
   }
 
   if (isClarificationRequest(message)) {
@@ -105,10 +105,10 @@ function buildFallbackAnswer(message, matches) {
 
 function buildSuggestedPrompts(matches) {
   const defaultPrompts = [
-    "Give me a finished show with strong worldbuilding",
-    "I want something easy to jump into late at night",
-    "Recommend a darker survival story",
-    "What should I start with if I want a full review first?",
+    "How do I submit a correction?",
+    "What does creator verified mean?",
+    "How are community ratings different?",
+    "Recommend a finished show with strong worldbuilding",
   ];
 
   if (matches.length === 0) {

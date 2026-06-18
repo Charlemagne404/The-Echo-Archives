@@ -427,13 +427,11 @@
 }
 
 .submit-field-label {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
+  display: block;
   color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 600;
+  line-height: 1.35;
 }
 
 .submit-field-label-main {
@@ -441,7 +439,12 @@
 }
 
 .submit-required {
+  display: inline-block;
+  margin-left: 4px;
   color: #ff5d4b;
+  font-size: 0.98em;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
 .submit-field-helper {
@@ -911,6 +914,16 @@
   gap: 10px;
 }
 
+.submit-link-list-empty {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(6, 9, 12, 0.54);
+  color: rgba(247, 247, 243, 0.52);
+  font-size: 0.88rem;
+}
+
 .submit-link-row {
   display: grid;
   grid-template-columns: minmax(118px, 156px) minmax(0, 1fr) auto;
@@ -1025,6 +1038,36 @@
 .submit-add-row:focus-visible {
   transform: translateY(-1px);
   border-color: rgba(255, 255, 255, 0.24);
+}
+
+.submit-add-link-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.submit-add-link-option {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(6, 9, 12, 0.82);
+  color: rgba(247, 247, 243, 0.86);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.submit-add-link-option:hover,
+.submit-add-link-option:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(12, 16, 20, 0.94);
+  color: #fff4ef;
 }
 
 .submit-add-row {
