@@ -423,17 +423,25 @@ export function setChatOpen(isOpen) {
 
 function applyChatCopy() {
   const inputLabel = document.querySelector('label[for="userInput"]');
+  const isCreatorsContext =
+    document.body.classList.contains("for-creators-page") || document.body.classList.contains("creator-standards-page");
+
   if (inputLabel) {
-    inputLabel.textContent = "Ask about the archive or a show";
+    inputLabel.textContent = isCreatorsContext
+      ? "Ask about creator verification or archive standards"
+      : "Ask about the archive or a show";
   }
 
   if (userInput) {
-    userInput.placeholder = "Ask about the archive, a show, or how the site works";
+    userInput.placeholder = isCreatorsContext
+      ? "Ask about creator verification, standards, or submissions"
+      : "Ask about the archive, a show, or how the site works";
   }
 
   if (chatFootnote) {
-    chatFootnote.textContent =
-      "Ask for a recommendation, a correction path, rating help, privacy details, or what creator verified means.";
+    chatFootnote.textContent = isCreatorsContext
+      ? "Ask how creator verification works, what stays editorially independent, or which submit path to use."
+      : "Ask for a recommendation, a correction path, rating help, privacy details, or what creator verified means.";
   }
 }
 
@@ -473,6 +481,10 @@ function getChatPageType() {
     return "submit";
   }
 
+  if (document.body.classList.contains("for-creators-page") || document.body.classList.contains("creator-standards-page")) {
+    return "creators";
+  }
+
   if (path.endsWith("/privacy.html")) {
     return "privacy";
   }
@@ -503,6 +515,10 @@ function getChatPageType() {
 
   if (path.endsWith("/submit.html")) {
     return "submit";
+  }
+
+  if (path.endsWith("/for-creators.html") || path.endsWith("/creator-standards.html")) {
+    return "creators";
   }
 
   return path === "/" || path.endsWith("/index.html") ? "home" : "unknown";

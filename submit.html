@@ -20,7 +20,7 @@
   <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
   <meta name="theme-color" content="#06080b" />
   <link rel="stylesheet" href="style.css?v=12" />
-  <link rel="stylesheet" href="home.css?v=24" />
+  <link rel="stylesheet" href="home.css?v=27" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
@@ -36,7 +36,7 @@
       <a href="/collections.html">Collections</a>
       <a href="/about.html">About</a>
       <a class="is-active" href="/submit.html">Submit</a>
-      <button type="button">For creators</button>
+      <a href="/for-creators.html">For creators</a>
     </nav>
 
     <div class="header-actions">
@@ -197,31 +197,60 @@
     </svg>
   </button>
 
-  <footer id="site-footer">
-    <div class="left-content">
-      <img src="images/C2-new-white.png" alt="Continental Studios logo" />
-      <span>A product of Continental Studios</span>
+<footer id="site-footer">
+  <div class="footer-brand">
+    <a class="footer-brand-mark" href="/index.html" aria-label="The Echo Archives home">
+      <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+    <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
+    <div class="footer-meta-row">
+      <p class="footer-brand-subnote">A product of Continental Studios.</p>
+      <p class="footer-meta">© 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a></p>
     </div>
-    <div class="center-content">
-      <p>
-        © 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a> |
-        <a href="/index.html">Browse</a> |
-        <a href="/collections.html">Collections</a> |
-        <a href="/about.html">About</a> |
-        <a href="https://contact.continental-hub.com/">Contact</a> |
-        <a href="/privacy.html">Privacy</a> |
-        <a href="/terms.html">Terms</a>
-      </p>
+  </div>
+  <div class="footer-links" aria-label="Footer">
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Explore</p>
+      <a href="/index.html">Browse all shows</a>
+      <a href="/collections.html">Collections</a>
+      <a href="/about.html">About the archive</a>
     </div>
-    <div class="right-content">
-      <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer" aria-label="Support on Patreon">
-        <img src="images/patreon.svg" alt="Patreon" />
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Creators</p>
+      <a href="/for-creators.html">For creators</a>
+      <a href="/submit.html">Submit or correct</a>
+      <a href="/creator-standards.html">Creator standards</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Support</p>
+      <a href="/supporters.html">Supporters</a>
+      <a href="https://contact.continental-hub.com/">Contact</a>
+      <a href="/submit.html">Send a correction</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Policies</p>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/cookies.html">Cookies</a>
+    </div>
+  </div>
+  <div class="footer-support-panel">
+    <div class="footer-support-body">
+      <p class="footer-support-kicker">Help improve the archive</p>
+      <p class="footer-support-copy">Submit a show, send a correction, or support independent recommendations that stay listener-first.</p>
+    </div>
+    <div class="footer-support-actions">
+      <a class="footer-support-primary" href="/submit.html">Submit to the archive</a>
+      <a class="footer-support-secondary" href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">
+        <img src="/images/patreon.svg" alt="" aria-hidden="true" />
+        <span>Support on Patreon</span>
       </a>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <script src="shared/archive-record.js?v=1"></script>
   <script src="shared/archive-search.js?v=1"></script>
-  <script type="module" src="script.js?v=22"></script>
+  <script type="module" src="script.js?v=21"></script>
 </body>
 </html>

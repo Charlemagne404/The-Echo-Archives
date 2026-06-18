@@ -1,6 +1,7 @@
 @import url("shared/styles/home/hero.css");
 @import url("shared/styles/home/filters.css");
-@import url("shared/styles/home/cards.css");
+@import url("shared/styles/home/cards.css?v=3");
 @import url("shared/styles/home/submit.css?v=2");
 @import url("shared/styles/home/collections.css");
+@import url("shared/styles/home/creators.css?v=1");
 @import url("shared/styles/home/responsive.css");

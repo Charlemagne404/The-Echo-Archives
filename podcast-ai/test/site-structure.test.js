@@ -8,6 +8,8 @@ const siteRoot = path.resolve(projectRoot, "..");
 const runtimePages = [
   "index.html",
   "about.html",
+  "for-creators.html",
+  "creator-standards.html",
   "supporters.html",
   "collections.html",
   "collection.html",

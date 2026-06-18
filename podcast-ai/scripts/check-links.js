@@ -4,7 +4,17 @@ const path = require("node:path");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 
 const siteRoot = path.resolve(__dirname, "../..");
-const mainPages = ["index.html", "about.html", "supporters.html", "collections.html", "collection.html", "show.html", "submit.html"];
+const mainPages = [
+  "index.html",
+  "about.html",
+  "for-creators.html",
+  "creator-standards.html",
+  "supporters.html",
+  "collections.html",
+  "collection.html",
+  "show.html",
+  "submit.html",
+];
 const failures = [];
 
 function normalizeLocalTarget(reference = "") {

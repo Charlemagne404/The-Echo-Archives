@@ -67,6 +67,22 @@ test("site help keeps external platform problems bounded", async () => {
   assert.match(response.answer, /platform/i);
 });
 
+test("site help recognizes the creators page context", async () => {
+  const context = await createContext();
+  const response = buildSiteHelpResponse({
+    message: "What can you do here?",
+    helpTopic: "assistant-capabilities",
+    page: { pageType: "creators", path: "/for-creators.html" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+  });
+
+  assert.match(response.answer, /creators page|verification|editorially independent/i);
+  assert.equal(response.actions[0].href, "/submit.html");
+  assert.equal(response.actions[1].href, "/for-creators.html");
+});
+
 test("site help can answer direct-title status questions with a referenced show", async () => {
   const context = await createContext();
   const finishedShow = context.catalog.find((show) => show.completionStatus === "finished");

@@ -19,6 +19,8 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
   return [
     { loc: `${baseUrl}/` },
     { loc: `${baseUrl}/about.html` },
+    { loc: `${baseUrl}/for-creators.html` },
+    { loc: `${baseUrl}/creator-standards.html` },
     { loc: `${baseUrl}/submit.html` },
     { loc: `${baseUrl}/collections.html` },
     ...publishedShows.map((show) => ({

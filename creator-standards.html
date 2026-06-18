@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creator Standards - The Echo Archives</title>
+  <meta
+    name="description"
+    content="The standards and trust rules The Echo Archives uses when handling creator submissions, verification, and metadata updates."
+  />
+  <link rel="canonical" href="https://echo.continental-hub.com/creator-standards.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Creator Standards - The Echo Archives" />
+  <meta property="og:description" content="The standards and trust rules The Echo Archives uses when handling creator submissions, verification, and metadata updates." />
+  <meta property="og:url" content="https://echo.continental-hub.com/creator-standards.html" />
+  <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Creator Standards - The Echo Archives" />
+  <meta name="twitter:description" content="The standards and trust rules The Echo Archives uses when handling creator submissions, verification, and metadata updates." />
+  <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
+  <meta name="theme-color" content="#06080b" />
+  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="home.css?v=27" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body class="home-page creator-standards-page info-page">
+  <header class="site-header">
+    <a class="site-brand" href="/index.html" aria-label="The Echo Archives home">
+      <img src="images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Browse</a>
+      <a href="/collections.html">Collections</a>
+      <a href="/about.html">About</a>
+      <a href="/submit.html">Submit</a>
+      <a class="is-active" href="/for-creators.html">For creators</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="profile-button" type="button" aria-label="Profile" title="Profile">
+        <span class="profile-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M4.75 20.25a7.25 7.25 0 0 1 14.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <aside id="chat-container" aria-hidden="true">
+    <div class="chat-panel-header">
+      <div class="chat-panel-heading">
+        <h2>Ask the Archivist</h2>
+        <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
+      </div>
+      <div class="chat-panel-actions">
+        <button id="chat-clear" class="chat-secondary-button chat-icon-button" type="button" aria-label="Start a new chat" title="New chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+          <span class="sr-only">New chat</span>
+        </button>
+        <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="chat-stage">
+      <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
+      <div id="chatSuggestionRegion" class="chat-suggestion-region">
+        <p class="chat-suggestion-label">Prompt ideas</p>
+        <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <label class="sr-only" for="userInput">Ask about creator verification or archive standards</label>
+      <input type="text" id="userInput" placeholder="Ask about creator verification, standards, or submissions" />
+      <button id="sendMessageButton" type="button">Ask</button>
+    </div>
+    <p class="chat-footnote">Ask how creator verification works, what stays editorially independent, or which submit path to use.</p>
+  </aside>
+
+  <main class="home-main page-main creator-standards-main">
+    <section class="hero-shell">
+      <div class="hero-panel page-panel creator-standards-hero-panel">
+        <div class="hero-copy creator-standards-hero-copy">
+          <h1>Creator standards</h1>
+          <p>
+            Echo Archives is built to help listeners trust what they are seeing. These standards explain how we handle creator submissions, factual updates, verification, and editorial boundaries.
+          </p>
+          <div class="creator-hero-actions">
+            <a class="about-cta about-cta-primary" href="/submit.html?submissionType=creator-verification">
+              <span>Request verification</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a class="about-cta about-cta-secondary" href="/for-creators.html">
+              <span>Back to creators</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14.5 6.5 8.75 12l5.75 5.5" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-card creator-standards-grid-card" aria-labelledby="creatorStandardsGridHeading">
+      <div class="creator-section-header">
+        <div>
+          <h2 id="creatorStandardsGridHeading">What guides archive decisions</h2>
+        </div>
+      </div>
+      <div class="creator-standard-grid">
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
+              <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
+            </svg>
+          </span>
+          <h3>Accuracy first</h3>
+          <p>Facts, links, credits, and release details need a trustworthy source trail.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
+              <path d="M5 8.5h14" />
+              <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
+              <path d="M8.5 12h7" />
+            </svg>
+          </span>
+          <h3>Transparency</h3>
+          <p>Verification confirms factual metadata only. It does not imply approval of ratings, reviews, or curation.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 19.25 10.95 18.29C6.7 14.39 4.25 12.14 4.25 9.3A4.3 4.3 0 0 1 8.6 5a4.7 4.7 0 0 1 3.4 1.63A4.7 4.7 0 0 1 15.4 5a4.3 4.3 0 0 1 4.35 4.3c0 2.84-2.45 5.09-6.7 8.99Z" />
+            </svg>
+          </span>
+          <h3>Respectful participation</h3>
+          <p>Submission channels exist to improve the archive, not to harass, spam, or distort it.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
+              <path d="M12.35 7.15v11.4" />
+            </svg>
+          </span>
+          <h3>Clarity for listeners</h3>
+          <p>Metadata should set honest expectations for tone, format, status, and listening commitment.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M7.25 5.25h7.5l3 3v10.5a1.75 1.75 0 0 1-1.75 1.75h-8.75A1.75 1.75 0 0 1 5.5 18.75V7a1.75 1.75 0 0 1 1.75-1.75Z" />
+              <path d="M14.75 5.25V8.5h3" />
+            </svg>
+          </span>
+          <h3>Rights and originality</h3>
+          <p>Archive records should respect ownership, attribution, and the distinction between official and editorial material.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M6.5 12.25A5.5 5.5 0 1 1 12 17.75" />
+              <path d="M12 6.75v5.25l3 1.75" />
+            </svg>
+          </span>
+          <h3>Ongoing review</h3>
+          <p>Archive entries can be updated over time, but every public change still goes through review.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="creator-standards-note-grid">
+      <article class="page-card creator-standards-note-card">
+        <span class="creator-standard-kicker">Verification and trust</span>
+        <h2>What verification changes</h2>
+        <ul>
+          <li>It adds a factual trust signal to a show record when the archive has official or representative proof.</li>
+          <li>It can improve credits, links, release details, and other objective metadata.</li>
+          <li>It helps separate confirmed facts from placeholders or unresolved fields.</li>
+        </ul>
+      </article>
+
+      <article class="page-card creator-standards-note-card" id="creatorStandardsIndependence">
+        <span class="creator-standard-kicker">Editorial independence</span>
+        <h2>What verification does not change</h2>
+        <ul>
+          <li>Archive Ratings remain editorial and are never bought, negotiated, or creator-approved.</li>
+          <li>Listener reviews stay moderated community content, separate from creator input.</li>
+          <li>Collection placement, archive notes, and spotlight decisions remain editorial choices.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="creator-solidarity-band" aria-labelledby="creatorStandardsBandHeading">
+      <span class="creator-cta-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" role="presentation">
+          <path d="M7.25 11.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          <path d="M16.75 10.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+          <path d="M3.75 19a4.75 4.75 0 0 1 9.5 0" />
+          <path d="M13.25 18.5a4 4 0 0 1 7 0" />
+        </svg>
+      </span>
+      <div class="creator-band-copy">
+        <h2 id="creatorStandardsBandHeading">Need the archive to review something factual?</h2>
+        <p class="creator-band-note">Use the submit flow for new shows, corrections, listener reviews, or creator verification requests.</p>
+      </div>
+      <div class="creator-band-actions">
+        <a class="about-cta about-cta-primary" href="/submit.html">
+          <span>Open submit</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+        <button class="creator-band-link" type="button" data-open-chat>
+          <span>Still unsure? Ask the Archivist</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" aria-controls="chat-container" title="Ask the Archivist">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+    </svg>
+  </button>
+
+  <button id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+    </svg>
+  </button>
+
+<footer id="site-footer">
+  <div class="footer-brand">
+    <a class="footer-brand-mark" href="/index.html" aria-label="The Echo Archives home">
+      <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+    <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
+    <div class="footer-meta-row">
+      <p class="footer-brand-subnote">A product of Continental Studios.</p>
+      <p class="footer-meta">© 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a></p>
+    </div>
+  </div>
+  <div class="footer-links" aria-label="Footer">
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Explore</p>
+      <a href="/index.html">Browse all shows</a>
+      <a href="/collections.html">Collections</a>
+      <a href="/about.html">About the archive</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Creators</p>
+      <a href="/for-creators.html">For creators</a>
+      <a href="/submit.html">Submit or correct</a>
+      <a href="/creator-standards.html">Creator standards</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Support</p>
+      <a href="/supporters.html">Supporters</a>
+      <a href="https://contact.continental-hub.com/">Contact</a>
+      <a href="/submit.html">Send a correction</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Policies</p>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/cookies.html">Cookies</a>
+    </div>
+  </div>
+  <div class="footer-support-panel">
+    <div class="footer-support-body">
+      <p class="footer-support-kicker">Help improve the archive</p>
+      <p class="footer-support-copy">Submit a show, send a correction, or support independent recommendations that stay listener-first.</p>
+    </div>
+    <div class="footer-support-actions">
+      <a class="footer-support-primary" href="/submit.html">Submit to the archive</a>
+      <a class="footer-support-secondary" href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">
+        <img src="/images/patreon.svg" alt="" aria-hidden="true" />
+        <span>Support on Patreon</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script src="shared/archive-record.js?v=1"></script>
+  <script src="shared/archive-search.js?v=1"></script>
+  <script type="module" src="script.js?v=21"></script>
+</body>
+</html>

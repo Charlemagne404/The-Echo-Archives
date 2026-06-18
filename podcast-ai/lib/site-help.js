@@ -13,6 +13,7 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       browse: { label: "Browse Archive", href: "/index.html#archive", external: false },
       collections: { label: "Browse Collections", href: "/collections.html", external: false },
       about: { label: "Read About", href: "/about.html", external: false },
+      creators: { label: "Open For Creators", href: "/for-creators.html", external: false },
       submit: { label: "Open Submit", href: "/submit.html", external: false },
       privacy: { label: "Read Privacy", href: "/privacy.html", external: false },
       terms: { label: "Read Terms", href: "/terms.html", external: false },
@@ -180,6 +181,20 @@ function buildTopicResponse({ topic, page, show, collection, siteHelpContext }) 
       };
     case "assistant-capabilities":
     default:
+      if (page.pageType === "creators") {
+        return {
+          answer:
+            "This creators page covers submission paths, correction and verification flows, archive standards, and what remains editorially independent. Ask if you want the right intake path or what creator verification does and does not change.",
+          actions: [siteHelpContext.routes.submit, siteHelpContext.routes.creators, siteHelpContext.routes.terms],
+          suggestedPrompts: [
+            "How do creator verification requests work?",
+            "What stays editorially independent?",
+            "How do I submit a correction?",
+            "Do I need verification to be listed?",
+          ],
+        };
+      }
+
       return {
         answer:
           "I can help you browse the archive, explain ratings and creator verification, point you to collections or submission paths, and recommend shows from the catalog. Ask about a title, how the site works, privacy, corrections, or what to listen to next.",

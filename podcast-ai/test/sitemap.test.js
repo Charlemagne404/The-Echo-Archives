@@ -19,6 +19,8 @@ test("buildSitemapEntries includes public pages, shows, and collections", async 
 
   assert.ok(urls.includes("https://echo.continental-hub.com/"));
   assert.ok(urls.includes("https://echo.continental-hub.com/collections.html"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/for-creators.html"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/creator-standards.html"));
   assert.ok(urls.includes("https://echo.continental-hub.com/show.html?id=impact-winter"));
   assert.ok(urls.includes("https://echo.continental-hub.com/collection.html?id=best-for-long-walks"));
 });

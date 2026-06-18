@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Creators - The Echo Archives</title>
+  <meta
+    name="description"
+    content="How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives."
+  />
+  <link rel="canonical" href="https://echo.continental-hub.com/for-creators.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="For Creators - The Echo Archives" />
+  <meta property="og:description" content="How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives." />
+  <meta property="og:url" content="https://echo.continental-hub.com/for-creators.html" />
+  <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="For Creators - The Echo Archives" />
+  <meta name="twitter:description" content="How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives." />
+  <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
+  <meta name="theme-color" content="#06080b" />
+  <link rel="stylesheet" href="style.css?v=12" />
+  <link rel="stylesheet" href="home.css?v=27" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body class="home-page for-creators-page info-page">
+  <header class="site-header">
+    <a class="site-brand" href="/index.html" aria-label="The Echo Archives home">
+      <img src="images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Browse</a>
+      <a href="/collections.html">Collections</a>
+      <a href="/about.html">About</a>
+      <a href="/submit.html">Submit</a>
+      <a class="is-active" href="/for-creators.html">For creators</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="profile-button" type="button" aria-label="Profile" title="Profile">
+        <span class="profile-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M4.75 20.25a7.25 7.25 0 0 1 14.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <aside id="chat-container" aria-hidden="true">
+    <div class="chat-panel-header">
+      <div class="chat-panel-heading">
+        <h2>Ask the Archivist</h2>
+        <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
+      </div>
+      <div class="chat-panel-actions">
+        <button id="chat-clear" class="chat-secondary-button chat-icon-button" type="button" aria-label="Start a new chat" title="New chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+          <span class="sr-only">New chat</span>
+        </button>
+        <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="chat-stage">
+      <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
+      <div id="chatSuggestionRegion" class="chat-suggestion-region">
+        <p class="chat-suggestion-label">Prompt ideas</p>
+        <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <label class="sr-only" for="userInput">Ask about creator verification or archive standards</label>
+      <input type="text" id="userInput" placeholder="Ask about creator verification, standards, or submissions" />
+      <button id="sendMessageButton" type="button">Ask</button>
+    </div>
+    <p class="chat-footnote">Ask how creator verification works, what stays editorially independent, or which submit path to use.</p>
+  </aside>
+
+  <main class="home-main page-main for-creators-main">
+    <section class="hero-shell">
+      <div class="hero-panel page-panel creators-hero-panel">
+        <div class="hero-copy creators-hero-copy">
+          <h1>Built with listeners. Better with creators.</h1>
+          <p>
+            Creators help keep the archive accurate, useful, and alive. Verify your shows, correct metadata, submit new work, and share listener insights. We handle the rest.
+          </p>
+          <div class="creator-hero-actions">
+            <a class="about-cta about-cta-primary" href="/submit.html?submissionType=show">
+              <span>Submit a show</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5.5v13M5.5 12h13" />
+              </svg>
+            </a>
+            <a class="about-cta about-cta-secondary" href="#creator-process">
+              <span>How it works</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-grid creators-stat-grid" aria-label="Creator archive stats">
+      <article class="page-card stat-card creator-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M7.25 11.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            <path d="M16.75 10.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+            <path d="M3.75 19a4.75 4.75 0 0 1 9.5 0" />
+            <path d="M13.25 18.5a4 4 0 0 1 7 0" />
+          </svg>
+        </span>
+        <span class="page-card-kicker">Creators represented</span>
+        <strong id="creatorsCreatorCount">-</strong>
+        <p>Distinct creators currently represented in published archive entries.</p>
+      </article>
+      <article class="page-card stat-card creator-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <circle cx="12" cy="12" r="7.5" />
+            <circle cx="12" cy="12" r="3.5" />
+            <circle cx="12" cy="12" r="0.8" />
+            <path d="M17.5 6.5 15 9" />
+          </svg>
+        </span>
+        <span class="page-card-kicker">Published shows</span>
+        <strong id="creatorsShowCount">-</strong>
+        <p>Live archive entries listeners can browse right now.</p>
+      </article>
+      <article class="page-card stat-card creator-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
+            <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
+          </svg>
+        </span>
+        <span class="page-card-kicker">Metadata-checked entries</span>
+        <strong id="creatorsMetadataCount">-</strong>
+        <p>Published shows with current factual verification work on record.</p>
+      </article>
+      <article class="page-card stat-card creator-stat-card">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" />
+            <path d="M13 8l3.5 3.5" />
+            <path d="M19.25 19.25h-6" />
+          </svg>
+        </span>
+        <span class="page-card-kicker">Full reviews</span>
+        <strong id="creatorsReviewCount">-</strong>
+        <p>Long-form editorial reviews currently published in the archive.</p>
+      </article>
+      <article class="page-card stat-card creator-stat-card creator-stat-card-date">
+        <span class="about-card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
+            <path d="M5 8.5h14" />
+            <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
+            <path d="M8.5 12h3.25" />
+          </svg>
+        </span>
+        <span class="page-card-kicker">Last updated</span>
+        <strong id="creatorsLastUpdated">-</strong>
+        <p>Most recent archive or collection metadata refresh.</p>
+      </article>
+    </section>
+
+    <section class="page-card creator-action-section" id="creator-tools" aria-labelledby="creatorToolsHeading">
+      <div class="creator-section-header">
+        <div>
+          <h2 id="creatorToolsHeading">What you can do</h2>
+        </div>
+      </div>
+      <div class="creator-action-grid">
+        <article class="creator-action-card">
+          <span class="creator-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 5.5v13M5.5 12h13" />
+            </svg>
+          </span>
+          <div>
+            <h3>Submit a show</h3>
+            <p>Add a new show to the archive. Our team will review and curate it.</p>
+          </div>
+          <a class="creator-action-link" href="/submit.html?submissionType=show">
+            <span>Submit a show</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </article>
+        <article class="creator-action-card">
+          <span class="creator-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="m6 18 3.6-.8 8.95-8.95-2.8-2.8L6.8 14.4 6 18Z" />
+              <path d="m13.9 6.3 2.8 2.8" />
+            </svg>
+          </span>
+          <div>
+            <h3>Suggest a correction</h3>
+            <p>Spotted an error? Help us fix facts and metadata so the archive stays accurate.</p>
+          </div>
+          <a class="creator-action-link" href="/submit.html?submissionType=correction">
+            <span>Suggest a correction</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </article>
+        <article class="creator-action-card">
+          <span class="creator-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
+              <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
+            </svg>
+          </span>
+          <div>
+            <h3>Request verification</h3>
+            <p>Verify your show or update official details to earn the archive’s factual trust signals.</p>
+          </div>
+          <a class="creator-action-link" href="/submit.html?submissionType=creator-verification">
+            <span>Request verification</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </article>
+        <article class="creator-action-card">
+          <span class="creator-action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
+              <path d="M12.35 7.15v11.4" />
+            </svg>
+          </span>
+          <div>
+            <h3>Creator standards</h3>
+            <p>Read the standards behind verification, corrections, and what stays editorially independent.</p>
+          </div>
+          <a class="creator-action-link" href="/creator-standards.html">
+            <span>Read standards</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-card creator-process-section" id="creator-process" aria-labelledby="creatorProcessHeading">
+      <div class="creator-section-header">
+        <div>
+          <h2 id="creatorProcessHeading">How it works</h2>
+        </div>
+      </div>
+      <div class="creator-process-flow">
+        <article class="creator-step-card">
+          <span class="creator-step-index" aria-hidden="true">1</span>
+          <h3>You submit</h3>
+          <p>Choose an intake path and send us the details.</p>
+        </article>
+        <article class="creator-step-card">
+          <span class="creator-step-index" aria-hidden="true">2</span>
+          <h3>We review</h3>
+          <p>Our team verifies facts and adds context as needed.</p>
+        </article>
+        <article class="creator-step-card">
+          <span class="creator-step-index" aria-hidden="true">3</span>
+          <h3>We verify or update</h3>
+          <p>Approved updates are applied and you will be notified when relevant.</p>
+        </article>
+        <article class="creator-step-card">
+          <span class="creator-step-index" aria-hidden="true">4</span>
+          <h3>It goes live</h3>
+          <p>Changes appear in the archive for listeners to discover.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="creator-two-column">
+      <article class="page-card creator-list-card" aria-labelledby="creatorUpdatesHeading">
+        <div class="creator-section-header">
+          <div>
+            <h2 id="creatorUpdatesHeading">What creators can update</h2>
+          </div>
+        </div>
+        <div class="creator-list-grid">
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.75 13.25 8.6 15.4a3.04 3.04 0 0 1-4.3-4.3l2.15-2.15a3.04 3.04 0 0 1 4.3 0" /><path d="m13.25 10.75 2.15-2.15a3.04 3.04 0 1 1 4.3 4.3l-2.15 2.15a3.04 3.04 0 0 1-4.3 0" /><path d="m9 15 6-6" /></svg>
+            <div><strong>Official links</strong><span>Website, RSS, socials</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 4.75v2.5M16.5 4.75v2.5" /><path d="M5 8.5h14" /><rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" /></svg>
+            <div><strong>Release status</strong><span>Ongoing, on hiatus, ended</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.75" y="5.75" width="14.5" height="12.5" rx="2.25" /><path d="M7.75 14.5 10.5 11.75l2.25 2.25 2.5-3 1.75 2.25" /></svg>
+            <div><strong>Cover art</strong><span>Artwork, logos, banners</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9.25 5-4.5 5 4.5" /><path d="M7.75 9.25v7.25h8.5V9.25" /></svg>
+            <div><strong>Tags &amp; categories</strong><span>Genres, themes, tones</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.25" r="3.25" /><path d="M5.25 18.75a6.75 6.75 0 0 1 13.5 0" /></svg>
+            <div><strong>Creator / network name</strong><span>Correct name and aliases</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5Z" /><path d="M3.75 12h16.5" /><path d="M12 3.75c2.4 2.05 3.85 5 3.85 8.25S14.4 18.2 12 20.25C9.6 18.2 8.15 15.25 8.15 12S9.6 5.8 12 3.75Z" /></svg>
+            <div><strong>Language</strong><span>Primary spoken language</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.25 5.25h7.5l3 3v10.5a1.75 1.75 0 0 1-1.75 1.75h-8.75A1.75 1.75 0 0 1 5.5 18.75V7a1.75 1.75 0 0 1 1.75-1.75Z" /><path d="M14.75 5.25V8.5h3" /><path d="M8.5 12h6.5M8.5 15h6.5" /></svg>
+            <div><strong>Show description</strong><span>Better details for listeners</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.75 17.5a3.75 3.75 0 0 1 3.75-3.75h7a3.75 3.75 0 0 1 3.75 3.75" /><path d="M8.75 10.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm8 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" /></svg>
+            <div><strong>Credits</strong><span>Hosts, producers, writers, guests</span></div>
+          </div>
+        </div>
+        <a class="creator-list-footer-link" href="/creator-standards.html">
+          <span>Read our creator standards</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
+      </article>
+
+      <article class="page-card creator-list-card" aria-labelledby="creatorIndependentHeading">
+        <div class="creator-section-header">
+          <div>
+            <h2 id="creatorIndependentHeading">What stays independent</h2>
+          </div>
+        </div>
+        <div class="creator-list-grid">
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4.5 2.2 4.45 4.9.71-3.55 3.45.84 4.89L12 15.65 7.61 18l.84-4.89L4.9 9.66l4.9-.71Z" /></svg>
+            <div><strong>Archive Ratings</strong><span>Our editorial stance and ratings stay ours.</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.25 18.5h11.5" /><path d="M8 18.5V8.75" /><path d="M16 18.5V8.75" /><path d="M5 8.75h14" /><path d="m8.75 8.75 3.25-4 3.25 4" /></svg>
+            <div><strong>Editorial takes</strong><span>Written summaries and critiques are ours.</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19.25 10.95 18.29C6.7 14.39 4.25 12.14 4.25 9.3A4.3 4.3 0 0 1 8.6 5a4.7 4.7 0 0 1 3.4 1.63A4.7 4.7 0 0 1 15.4 5a4.3 4.3 0 0 1 4.35 4.3c0 2.84-2.45 5.09-6.7 8.99Z" /></svg>
+            <div><strong>Listener reviews</strong><span>Community reviews remain independent.</span></div>
+          </div>
+          <div class="creator-list-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.75 8.5h12.5" /><path d="M8 5.75v5.5" /><path d="M16 5.75v5.5" /><path d="M6.5 18.25h11" /><path d="m8.75 14.25 3.25 3 3.25-3" /></svg>
+            <div><strong>Spotlights &amp; features</strong><span>Curated by our editorial team.</span></div>
+          </div>
+        </div>
+        <a class="creator-list-footer-link" href="/creator-standards.html#creatorStandardsIndependence">
+          <span>Why independence matters</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </a>
+      </article>
+    </section>
+
+    <section class="page-card creator-spotlight-card" id="creator-spotlight" aria-labelledby="creatorSpotlightHeading">
+      <div class="creator-section-header">
+        <div>
+          <h2 id="creatorSpotlightHeading">Creator spotlight</h2>
+        </div>
+      </div>
+      <div class="creator-spotlight-grid">
+        <div class="creator-spotlight-cover">
+          <img id="creatorSpotlightCover" src="/images/hero-archive-dish.png" alt="" />
+        </div>
+        <div class="creator-spotlight-copy">
+          <span class="creator-spotlight-kicker">Archive spotlight</span>
+          <div class="creator-spotlight-title-row">
+            <h3 id="creatorSpotlightTitle">Featured show</h3>
+            <span class="creator-spotlight-pill" id="creatorSpotlightVerification">
+              Metadata status loading
+            </span>
+          </div>
+          <p class="creator-spotlight-byline" id="creatorSpotlightCreator">Loading creator details…</p>
+          <p id="creatorSpotlightDescription">Loading archive spotlight copy…</p>
+          <div class="creator-tag-row" id="creatorSpotlightTags" aria-label="Featured show tags"></div>
+          <dl class="creator-spotlight-metrics">
+            <div>
+              <dt>Archive rating</dt>
+              <dd id="creatorSpotlightRating">-</dd>
+            </div>
+            <div>
+              <dt>Completion</dt>
+              <dd id="creatorSpotlightCompletion">-</dd>
+            </div>
+            <div>
+              <dt>First released</dt>
+              <dd id="creatorSpotlightYear">-</dd>
+            </div>
+          </dl>
+          <div class="creator-spotlight-actions">
+            <a class="about-cta about-cta-primary" id="creatorSpotlightOpenLink" href="/show.html">
+              <span>Open show page</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a class="about-cta about-cta-secondary" id="creatorSpotlightCorrectionLink" href="/submit.html?submissionType=correction">
+              <span>Send a correction</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <aside class="creator-placeholder-card" aria-label="Creator profile sourcing note">
+          <span class="creator-spotlight-placeholder-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <circle cx="12" cy="8.25" r="3.25" />
+              <path d="M5.25 18.75a6.75 6.75 0 0 1 13.5 0" />
+            </svg>
+          </span>
+          <div class="creator-placeholder-copy">
+            <strong id="creatorSpotlightPlaceholderName">Creator profile space</strong>
+            <p id="creatorSpotlightPlaceholderCopy">Archive portraits and quotes appear here only when they can be sourced cleanly.</p>
+          </div>
+          <a class="creator-inline-link" href="/submit.html?submissionType=creator-verification">
+            <span>Help verify this entry</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page-card creator-standard-section" id="creator-standards" aria-labelledby="creatorStandardsHeading">
+      <div class="creator-section-header">
+        <div>
+          <h2 id="creatorStandardsHeading">Editorial standards</h2>
+          <p>These are the rules behind verification, corrections, and archive trust.</p>
+        </div>
+        <a class="creator-text-link" href="/creator-standards.html">Read the full standards page</a>
+      </div>
+      <div class="creator-standard-grid">
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
+              <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
+            </svg>
+          </span>
+          <h3>Accuracy first</h3>
+          <p>Factual metadata, links, and release details must be reviewable against credible sources.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
+              <path d="M5 8.5h14" />
+              <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
+              <path d="M8.5 12h7" />
+            </svg>
+          </span>
+          <h3>Transparency</h3>
+          <p>Verification and correction work is about facts, not hidden influence over archive opinions.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 19.25 10.95 18.29C6.7 14.39 4.25 12.14 4.25 9.3A4.3 4.3 0 0 1 8.6 5a4.7 4.7 0 0 1 3.4 1.63A4.7 4.7 0 0 1 15.4 5a4.3 4.3 0 0 1 4.35 4.3c0 2.84-2.45 5.09-6.7 8.99Z" />
+            </svg>
+          </span>
+          <h3>Respect and inclusion</h3>
+          <p>Submissions should improve the archive without harassment, misinformation, or abusive behavior.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
+              <path d="M12.35 7.15v11.4" />
+            </svg>
+          </span>
+          <h3>Clear listener expectations</h3>
+          <p>Descriptions, tags, and format details should help listeners know what kind of experience they are choosing.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M7.25 5.25h7.5l3 3v10.5a1.75 1.75 0 0 1-1.75 1.75h-8.75A1.75 1.75 0 0 1 5.5 18.75V7a1.75 1.75 0 0 1 1.75-1.75Z" />
+              <path d="M14.75 5.25V8.5h3" />
+            </svg>
+          </span>
+          <h3>Rights and originality</h3>
+          <p>Archive records should respect copyright, creator attribution, and the factual boundary between official and editorial material.</p>
+        </article>
+        <article class="creator-standard-item">
+          <span class="creator-standard-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M6.5 12.25A5.5 5.5 0 1 1 12 17.75" />
+              <path d="M12 6.75v5.25l3 1.75" />
+            </svg>
+          </span>
+          <h3>Ongoing upkeep</h3>
+          <p>Metadata can be refreshed over time, but nothing skips review and no paid path overrides archive standards.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-card creator-faq-section" id="creator-faq" aria-labelledby="creatorFaqHeading">
+      <div class="creator-section-header">
+        <div>
+          <h2 id="creatorFaqHeading">FAQ for creators</h2>
+        </div>
+      </div>
+      <div class="creator-faq-list">
+        <article class="creator-faq-item">
+          <h3>
+            <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="creatorFaqAnswer1" id="creatorFaqQuestion1">
+              <span class="creator-faq-toggle-text">How long does review take?</span>
+              <span class="creator-faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="M12 5v14M5 12h14" /></svg>
+              </span>
+            </button>
+          </h3>
+          <div class="creator-faq-answer" id="creatorFaqAnswer1" role="region" aria-labelledby="creatorFaqQuestion1" hidden>
+            <p>There is no public SLA right now. Every submission is reviewed manually, and nothing auto-publishes. If you are correcting a time-sensitive factual error, use the correction path and include sources so the review is easier to process quickly.</p>
+          </div>
+        </article>
+        <article class="creator-faq-item">
+          <h3>
+            <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="creatorFaqAnswer2" id="creatorFaqQuestion2">
+              <span class="creator-faq-toggle-text">Do I have to be verified to be in the archive?</span>
+              <span class="creator-faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="M12 5v14M5 12h14" /></svg>
+              </span>
+            </button>
+          </h3>
+          <div class="creator-faq-answer" id="creatorFaqAnswer2" role="region" aria-labelledby="creatorFaqQuestion2" hidden>
+            <p>No. Verification is a factual trust signal, not a requirement for inclusion. Shows can appear in the archive without creator verification as long as the archive has enough reliable public information to list them responsibly.</p>
+          </div>
+        </article>
+        <article class="creator-faq-item">
+          <h3>
+            <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="creatorFaqAnswer3" id="creatorFaqQuestion3">
+              <span class="creator-faq-toggle-text">Can I update my show after it is listed?</span>
+              <span class="creator-faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="M12 5v14M5 12h14" /></svg>
+              </span>
+            </button>
+          </h3>
+          <div class="creator-faq-answer" id="creatorFaqAnswer3" role="region" aria-labelledby="creatorFaqQuestion3" hidden>
+            <p>Yes. Use the correction path for factual changes like links, credits, and metadata. Use creator verification when you want the archive to review official sourcing for a show record. Both paths still go through moderation.</p>
+          </div>
+        </article>
+        <article class="creator-faq-item">
+          <h3>
+            <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="creatorFaqAnswer4" id="creatorFaqQuestion4">
+              <span class="creator-faq-toggle-text">How do listener reviews work?</span>
+              <span class="creator-faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="M12 5v14M5 12h14" /></svg>
+              </span>
+            </button>
+          </h3>
+          <div class="creator-faq-answer" id="creatorFaqAnswer4" role="region" aria-labelledby="creatorFaqQuestion4" hidden>
+            <p>Listener reviews are submitted through the moderated submit flow. They can contribute to community context, but they do not replace Archive Ratings. Creator verification also does not change or approve listener reviews.</p>
+          </div>
+        </article>
+        <article class="creator-faq-item">
+          <h3>
+            <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="creatorFaqAnswer5" id="creatorFaqQuestion5">
+              <span class="creator-faq-toggle-text">What if I disagree with an editorial decision?</span>
+              <span class="creator-faq-toggle-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation"><path d="M12 5v14M5 12h14" /></svg>
+              </span>
+            </button>
+          </h3>
+          <div class="creator-faq-answer" id="creatorFaqAnswer5" role="region" aria-labelledby="creatorFaqQuestion5" hidden>
+            <p>Factual corrections are always welcome, but ratings, archive notes, and collection placement remain editorial decisions. Creator verification exists to improve factual metadata only and never implies approval of archive opinions.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="creator-solidarity-band" aria-labelledby="creatorBandHeading">
+      <div class="creator-band-mark" aria-hidden="true">
+        <span class="creator-cta-icon">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M7.25 11.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            <path d="M16.75 10.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+            <path d="M3.75 19a4.75 4.75 0 0 1 9.5 0" />
+            <path d="M13.25 18.5a4 4 0 0 1 7 0" />
+          </svg>
+        </span>
+      </div>
+      <div class="creator-band-copy">
+        <h2 id="creatorBandHeading">Your story. Our standards. Stronger together.</h2>
+      </div>
+      <div class="creator-band-rail">
+        <p class="creator-band-note">Join a community of creators committed to truth, craft, and great audio.</p>
+        <div class="creator-band-actions">
+          <a class="about-cta about-cta-primary" href="/submit.html?submissionType=show">
+            <span>Get started</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+          <button class="creator-band-link" type="button" data-open-chat>
+            <span>Have questions? Ask the Archivist</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" aria-controls="chat-container" title="Ask the Archivist">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+    </svg>
+  </button>
+
+  <button id="backToTop" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+    </svg>
+  </button>
+
+<footer id="site-footer">
+  <div class="footer-brand">
+    <a class="footer-brand-mark" href="/index.html" aria-label="The Echo Archives home">
+      <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+    <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
+    <div class="footer-meta-row">
+      <p class="footer-brand-subnote">A product of Continental Studios.</p>
+      <p class="footer-meta">© 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a></p>
+    </div>
+  </div>
+  <div class="footer-links" aria-label="Footer">
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Explore</p>
+      <a href="/index.html">Browse all shows</a>
+      <a href="/collections.html">Collections</a>
+      <a href="/about.html">About the archive</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Creators</p>
+      <a href="/for-creators.html">For creators</a>
+      <a href="/submit.html">Submit or correct</a>
+      <a href="/creator-standards.html">Creator standards</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Support</p>
+      <a href="/supporters.html">Supporters</a>
+      <a href="https://contact.continental-hub.com/">Contact</a>
+      <a href="/submit.html">Send a correction</a>
+    </div>
+    <div class="footer-link-group">
+      <p class="footer-link-heading">Policies</p>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/cookies.html">Cookies</a>
+    </div>
+  </div>
+  <div class="footer-support-panel">
+    <div class="footer-support-body">
+      <p class="footer-support-kicker">Help improve the archive</p>
+      <p class="footer-support-copy">Submit a show, send a correction, or support independent recommendations that stay listener-first.</p>
+    </div>
+    <div class="footer-support-actions">
+      <a class="footer-support-primary" href="/submit.html">Submit to the archive</a>
+      <a class="footer-support-secondary" href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">
+        <img src="/images/patreon.svg" alt="" aria-hidden="true" />
+        <span>Support on Patreon</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script src="shared/archive-record.js?v=1"></script>
+  <script src="shared/archive-search.js?v=1"></script>
+  <script type="module" src="script.js?v=21"></script>
+</body>
+</html>
