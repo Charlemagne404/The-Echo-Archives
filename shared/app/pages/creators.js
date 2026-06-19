@@ -15,7 +15,7 @@ export async function initializeForCreatorsPage() {
   });
 
   applyCreatorStats(buildCreatorStats(shows, collections));
-  applyCreatorSpotlight(selectFeaturedShow(shows));
+  applyCreatorSpotlight(selectCreatorSpotlight(shows));
   initializeCreatorFaq();
   initializeCreatorChatLaunchers();
 }
@@ -78,10 +78,15 @@ function hasMetadataVerification(show) {
   return Boolean(show.verification?.status || show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt);
 }
 
-function selectFeaturedShow(shows) {
+function selectCreatorSpotlight(shows) {
   const publishedShows = getPublishedShows(shows);
+  const pinnedShow = publishedShows.find((show) => show.id === "impact-winter");
+  if (pinnedShow) {
+    return pinnedShow;
+  }
+
   const candidates = publishedShows
-    .filter((show) => show.image && show.creators.length > 0)
+    .filter((show) => show.cover && show.creators.length > 0)
     .sort((left, right) => {
       const leftScore = getFeaturedScore(left);
       const rightScore = getFeaturedScore(right);
@@ -121,19 +126,24 @@ function applyCreatorSpotlight(show) {
   const firstReleaseYear = getReleaseYear(show);
   const tags = show.tags.slice(0, 3).map((tag) => toDisplayTag(tag));
   const verificationDate = show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt || "";
+  const creatorName = show.credits?.creatorName && show.credits.creatorName !== "Not verified"
+    ? show.credits.creatorName
+    : show.creators[0] || "Creator";
+  const spotlightDescription =
+    show.description ||
+    show.summary ||
+    show.subtitle ||
+    "Archive spotlight uses sourced metadata first and adds creator context only when it can be verified.";
 
   const cover = document.getElementById("creatorSpotlightCover");
   if (cover instanceof HTMLImageElement) {
-    cover.src = `/${String(show.image).replace(/^\/+/, "")}`;
-    cover.alt = show.imageAlt || `${show.title} cover art`;
+    cover.src = `/${String(show.cover).replace(/^\/+/, "")}`;
+    cover.alt = show.coverAlt || `${show.title} cover art`;
   }
 
   setText("creatorSpotlightTitle", show.title);
-  setText("creatorSpotlightCreator", show.creators.join(", "));
-  setText(
-    "creatorSpotlightDescription",
-    show.summary || show.subtitle || "Archive spotlight uses sourced metadata first and adds creator context only when it can be verified.",
-  );
+  setText("creatorSpotlightCreator", creatorName);
+  setText("creatorSpotlightDescription", spotlightDescription);
   setText("creatorSpotlightRating", Number.isFinite(show.finalRating) ? `${formatRating(show.finalRating)}/10` : "Unrated");
   setText("creatorSpotlightCompletion", toDisplayTag(show.completionStatus || "unknown"));
   setText("creatorSpotlightYear", firstReleaseYear || "Unknown");
@@ -143,21 +153,22 @@ function applyCreatorSpotlight(show) {
   );
   setText(
     "creatorSpotlightPlaceholderName",
-    `${show.creators[0]} profile space`,
+    creatorName,
   );
   setText(
     "creatorSpotlightPlaceholderCopy",
-    "Echo Archives only adds creator portraits, direct quotes, or interview excerpts when they come from an official or verified source.",
+    "This entry is metadata-checked only. Echo Archives adds creator portraits, direct quotes, or interview excerpts only when they come from an official or verified source.",
   );
+
+  const coverLink = document.getElementById("creatorSpotlightCoverLink");
+  if (coverLink instanceof HTMLAnchorElement) {
+    coverLink.href = show.href;
+    coverLink.setAttribute("aria-label", `Open ${show.title} show page`);
+  }
 
   const openLink = document.getElementById("creatorSpotlightOpenLink");
   if (openLink instanceof HTMLAnchorElement) {
     openLink.href = show.href;
-  }
-
-  const correctionLink = document.getElementById("creatorSpotlightCorrectionLink");
-  if (correctionLink instanceof HTMLAnchorElement) {
-    correctionLink.href = `/submit.html?submissionType=correction&showId=${encodeURIComponent(show.id)}`;
   }
 
   const tagRow = document.getElementById("creatorSpotlightTags");

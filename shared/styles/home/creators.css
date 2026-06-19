@@ -143,7 +143,7 @@
 
 .creator-action-icon,
 .creator-pill-icon,
-.creator-spotlight-placeholder-icon,
+.creator-spotlight-profile-avatar,
 .creator-step-index,
 .creator-standard-icon,
 .creator-cta-icon {
@@ -163,7 +163,7 @@
 
 .creator-action-icon svg,
 .creator-pill-icon svg,
-.creator-spotlight-placeholder-icon svg,
+.creator-spotlight-profile-avatar svg,
 .creator-standard-icon svg,
 .creator-cta-icon svg {
   width: 22px;
@@ -191,7 +191,7 @@
 .creator-spotlight-copy p,
 .creator-faq-answer p,
 .creator-band-note,
-.creator-placeholder-copy p {
+.creator-spotlight-profile-copy p {
   margin: 0;
   color: var(--text-secondary);
   font-size: 0.93rem;
@@ -266,56 +266,71 @@
 .creator-list-card {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 18px;
+  gap: 20px;
   min-height: 100%;
-  padding: 18px 16px 16px;
+  padding: 18px 18px 16px;
 }
 
 .creator-list-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 22px;
+  gap: 18px 28px;
   align-content: start;
 }
 
 .creator-list-item {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: 34px minmax(0, 1fr);
   gap: 12px;
   align-items: start;
-  padding: 15px 2px 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.025);
+  padding: 0;
 }
 
-.creator-list-item:nth-child(-n + 2) {
-  border-top: 0;
-  padding-top: 6px;
-}
-
-.creator-list-item svg {
-  width: 20px;
-  height: 20px;
+.creator-list-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   margin-top: 1px;
+}
+
+.creator-list-item-icon svg {
+  width: 24px;
+  height: 24px;
   color: rgba(239, 89, 67, 0.95);
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 1.7;
+  stroke-width: 1.8;
 }
 
 .creator-list-item strong {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   color: var(--text-primary);
-  font-size: 0.98rem;
+  font-size: 1rem;
 }
 
 .creator-list-item span {
   display: block;
   color: var(--text-secondary);
-  font-size: 0.91rem;
-  line-height: 1.42;
+  font-size: 0.92rem;
+  line-height: 1.46;
+}
+
+.creator-list-grid-updates {
+  gap: 18px 34px;
+}
+
+.creator-list-grid-independent {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.creator-list-card-independent .creator-list-item-icon svg {
+  color: rgba(194, 199, 207, 0.86);
 }
 
 .creator-list-footer-link {
@@ -324,15 +339,19 @@
   gap: 8px;
   margin-top: auto;
   padding: 6px 2px 0;
-  color: rgba(239, 89, 67, 0.98);
+  color: rgba(239, 89, 67, 0.98) !important;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 700;
 }
 
+.creator-list-footer-link:visited {
+  color: rgba(239, 89, 67, 0.98) !important;
+}
+
 .creator-list-footer-link:hover,
 .creator-list-footer-link:focus-visible {
-  color: #ff7d61;
+  color: #ff7d61 !important;
 }
 
 .creator-list-footer-link svg {
@@ -347,25 +366,38 @@
 
 .creator-spotlight-card {
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
 .creator-spotlight-grid {
   display: grid;
-  grid-template-columns: minmax(0, 228px) minmax(0, 1.2fr) minmax(0, 0.96fr);
-  gap: 18px;
-  align-items: stretch;
+  grid-template-columns: 188px minmax(0, 1.18fr) minmax(260px, 0.72fr);
+  gap: 22px;
+  align-items: center;
+  min-height: 0;
+  padding: 8px 2px 2px;
 }
 
 .creator-spotlight-cover {
   position: relative;
   overflow: hidden;
-  min-height: 278px;
+  display: block;
+  min-height: 204px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
     linear-gradient(180deg, rgba(4, 6, 9, 0.16), rgba(4, 6, 9, 0.66)),
     rgba(7, 10, 13, 0.88);
+  box-shadow: var(--shadow-md);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.creator-spotlight-cover:hover,
+.creator-spotlight-cover:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(239, 89, 67, 0.32);
 }
 
 .creator-spotlight-cover img {
@@ -376,11 +408,11 @@
 }
 
 .creator-spotlight-copy,
-.creator-placeholder-copy {
+.creator-spotlight-profile-copy {
   display: grid;
-  gap: 14px;
+  gap: 10px;
   align-content: start;
-  padding: 2px 0;
+  padding: 0;
 }
 
 .creator-spotlight-kicker,
@@ -395,27 +427,28 @@
 .creator-spotlight-title-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 10px;
+  gap: 8px 12px;
   align-items: center;
 }
 
 .creator-spotlight-title-row h3 {
   margin: 0;
-  font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+  font-size: clamp(1.82rem, 2.2vw, 2.5rem);
   letter-spacing: -0.04em;
+  line-height: 0.98;
 }
 
 .creator-spotlight-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 34px;
-  padding: 0 12px;
+  min-height: 32px;
+  padding: 0 11px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.11);
-  background: rgba(9, 12, 16, 0.82);
+  background: rgba(8, 11, 15, 0.82);
   color: rgba(247, 247, 243, 0.9);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -428,45 +461,55 @@
 .creator-spotlight-byline {
   margin: 0;
   color: rgba(247, 247, 243, 0.9);
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 600;
+}
+
+.creator-spotlight-description {
+  max-width: 52ch;
 }
 
 .creator-tag-row {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  padding-top: 2px;
 }
 
 .creator-tag-row span {
   display: inline-flex;
   align-items: center;
-  min-height: 30px;
-  padding: 0 10px;
+  min-height: 28px;
+  padding: 0 9px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(8, 11, 15, 0.84);
-  color: rgba(247, 247, 243, 0.78);
-  font-size: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(247, 247, 243, 0.72);
+  font-size: 0.78rem;
 }
 
-.creator-spotlight-metrics {
+.creator-spotlight-metadata-rail {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 0;
+  margin: 4px 0 2px;
+  padding: 12px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.creator-spotlight-metrics div {
-  padding: 14px 14px 12px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 100%),
-    rgba(7, 10, 13, 0.66);
+.creator-spotlight-metadata-rail div {
+  display: grid;
+  gap: 5px;
+  padding: 0 18px 0 0;
 }
 
-.creator-spotlight-metrics dt {
-  margin: 0 0 8px;
+.creator-spotlight-metadata-rail div + div {
+  padding-left: 18px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.creator-spotlight-metadata-rail dt {
+  margin: 0;
   color: rgba(247, 247, 243, 0.58);
   font-size: 0.72rem;
   font-weight: 700;
@@ -474,45 +517,65 @@
   text-transform: uppercase;
 }
 
-.creator-spotlight-metrics dd {
+.creator-spotlight-metadata-rail dd {
   margin: 0;
   color: var(--text-primary);
-  font-size: 1rem;
+  font-size: 0.98rem;
   font-weight: 700;
 }
 
-.creator-spotlight-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.creator-spotlight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding-top: 2px;
+  color: rgba(239, 89, 67, 0.98);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
-.creator-placeholder-card {
+.creator-spotlight-link:hover,
+.creator-spotlight-link:focus-visible {
+  color: #ff7d61;
+}
+
+.creator-spotlight-link svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.creator-spotlight-profile {
   display: grid;
   gap: 16px;
-  padding: 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  background:
-    radial-gradient(circle at 20% 18%, rgba(239, 89, 67, 0.1), transparent 22%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent 100%),
-    rgba(8, 11, 15, 0.82);
+  align-content: center;
+  min-height: 100%;
+  padding: 8px 0 8px 24px;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.creator-spotlight-placeholder-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
+.creator-spotlight-profile-avatar {
+  width: 94px;
+  height: 94px;
+  border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(7, 10, 13, 0.84);
+  background:
+    radial-gradient(circle at 35% 28%, rgba(239, 89, 67, 0.12), transparent 42%),
+    rgba(7, 10, 13, 0.84);
 }
 
-.creator-spotlight-placeholder-icon svg {
-  width: 28px;
-  height: 28px;
+.creator-spotlight-profile-avatar svg {
+  width: 32px;
+  height: 32px;
 }
 
-.creator-placeholder-copy strong {
+.creator-spotlight-profile-copy strong {
   display: block;
   color: var(--text-primary);
   font-size: 1.08rem;
@@ -789,7 +852,17 @@
   }
 
   .creator-spotlight-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 18px 20px;
+  }
+
+  .creator-spotlight-profile {
+    grid-column: 1 / -1;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .creator-solidarity-band {
@@ -823,15 +896,36 @@
   }
 
   .creator-spotlight-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 148px minmax(0, 1fr);
+    gap: 16px;
   }
 
   .creator-spotlight-cover {
-    min-height: 220px;
+    min-height: 192px;
   }
 
-  .creator-spotlight-metrics {
+  .creator-spotlight-title-row h3 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+
+  .creator-spotlight-metadata-rail {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .creator-spotlight-metadata-rail div,
+  .creator-spotlight-metadata-rail div + div {
+    padding: 0;
+    border-left: 0;
+  }
+
+  .creator-spotlight-profile {
+    grid-template-columns: auto 1fr;
+    gap: 14px 16px;
+  }
+
+  .creator-spotlight-profile .creator-inline-link {
+    grid-column: 1 / -1;
   }
 }
 
@@ -858,6 +952,24 @@
   .creator-band-actions .about-cta {
     width: 100%;
     justify-content: space-between;
+  }
+
+  .creator-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 4px 0 0;
+  }
+
+  .creator-spotlight-cover {
+    width: min(172px, 48vw);
+    min-height: 0;
+    aspect-ratio: 0.78;
+  }
+
+  .creator-spotlight-profile {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    padding-top: 14px;
   }
 
   .creator-section-header {

@@ -54,23 +54,35 @@ function initializeBackToTop() {
   const floatingChatToggle = toggleBtn;
 
   function syncBackToTopState() {
-    backToTopBtn.style.display = window.scrollY > 420 ? "flex" : "none";
+    const showBackToTop = window.scrollY > 420;
+    const baseClearance = window.innerWidth <= 780 ? 16 : 18;
+    const topSafeZone = window.innerWidth <= 780 ? 92 : 96;
+    const maxFloatingHeight = window.innerWidth <= 780 ? 54 : 56;
+    let clearance = baseClearance;
+    let hideFloatingControls = false;
 
-    if (!siteFooter) {
-      return;
+    if (siteFooter) {
+      const footerRect = siteFooter.getBoundingClientRect();
+
+      if (footerRect.top < window.innerHeight) {
+        const footerClearance = Math.max(baseClearance, Math.round(window.innerHeight - footerRect.top + baseClearance));
+        const maxVisibleClearance = Math.max(baseClearance, window.innerHeight - maxFloatingHeight - topSafeZone);
+        clearance = Math.min(footerClearance, maxVisibleClearance);
+        hideFloatingControls = window.innerWidth <= 780 && footerClearance > maxVisibleClearance;
+      }
     }
 
-    const footerRect = siteFooter.getBoundingClientRect();
-    const footerOverlap = Math.max(0, window.innerHeight - footerRect.top);
-    const clearance = Math.min(Math.max(footerOverlap + 18, 18), Math.round(window.innerHeight * 0.35));
-    const footerCrowdingMobile = window.innerWidth <= 780 && footerOverlap > 140;
+    backToTopBtn.style.display = showBackToTop ? "flex" : "none";
     backToTopBtn.style.bottom = `${clearance}px`;
-    backToTopBtn.style.opacity = footerCrowdingMobile ? "0" : "1";
-    backToTopBtn.style.pointerEvents = footerCrowdingMobile ? "none" : "auto";
+    backToTopBtn.style.opacity = showBackToTop && !hideFloatingControls ? "1" : "0";
+    backToTopBtn.style.pointerEvents = showBackToTop && !hideFloatingControls ? "auto" : "none";
+    backToTopBtn.style.visibility = showBackToTop && !hideFloatingControls ? "visible" : "hidden";
+
     if (floatingChatToggle) {
       floatingChatToggle.style.bottom = `${clearance}px`;
-      floatingChatToggle.style.opacity = footerCrowdingMobile ? "0" : "1";
-      floatingChatToggle.style.pointerEvents = footerCrowdingMobile ? "none" : "auto";
+      floatingChatToggle.style.opacity = hideFloatingControls ? "0" : "1";
+      floatingChatToggle.style.pointerEvents = hideFloatingControls ? "none" : "auto";
+      floatingChatToggle.style.visibility = hideFloatingControls ? "hidden" : "visible";
     }
   }
 

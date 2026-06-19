@@ -327,7 +327,10 @@ test("for creators page is reachable from nav and its primary interactions work"
       reviewCount: document.getElementById("creatorsReviewCount")?.textContent?.trim() || "",
       spotlightTitle: document.getElementById("creatorSpotlightTitle")?.textContent?.trim() || "",
       spotlightCreator: document.getElementById("creatorSpotlightCreator")?.textContent?.trim() || "",
+      spotlightVerification: document.getElementById("creatorSpotlightVerification")?.textContent?.trim() || "",
+      placeholderName: document.getElementById("creatorSpotlightPlaceholderName")?.textContent?.trim() || "",
       placeholderCopy: document.getElementById("creatorSpotlightPlaceholderCopy")?.textContent?.trim() || "",
+      spotlightHref: document.getElementById("creatorSpotlightOpenLink")?.getAttribute("href") || "",
       submitHref:
         document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=show"]')?.getAttribute("href") || "",
       correctionHref:
@@ -336,6 +339,19 @@ test("for creators page is reachable from nav and its primary interactions work"
         document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=creator-verification"]')?.getAttribute("href") || "",
       standardsHref:
         document.querySelector('.creator-action-card a[href="/creator-standards.html"]')?.getAttribute("href") || "",
+      updatesStandardsHref:
+        document.querySelector('.creator-list-card-updates .creator-list-footer-link')?.getAttribute("href") || "",
+      independentStandardsHref:
+        document.querySelector('.creator-list-card-independent .creator-list-footer-link')?.getAttribute("href") || "",
+      independentGridColumnCount: (() => {
+        const grid = document.querySelector(".creator-list-grid-independent");
+        if (!(grid instanceof HTMLElement)) {
+          return 0;
+        }
+
+        const template = window.getComputedStyle(grid).gridTemplateColumns.trim();
+        return template ? template.split(" ").length : 0;
+      })(),
       faqExpanded: document.getElementById("creatorFaqQuestion1")?.getAttribute("aria-expanded") || "",
       faqHidden: Boolean(document.getElementById("creatorFaqAnswer1")?.hidden),
     }));
@@ -345,13 +361,19 @@ test("for creators page is reachable from nav and its primary interactions work"
     assert.ok(Number.parseInt(initialState.showCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.metadataCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.reviewCount, 10) >= 0);
-    assert.match(initialState.spotlightTitle, /Impact Winter|Oz 9|Ars Paradoxica/i);
-    assert.match(initialState.spotlightCreator, /\S+/);
-    assert.match(initialState.placeholderCopy, /official|verified source/i);
+    assert.equal(initialState.spotlightTitle, "Impact Winter");
+    assert.equal(initialState.spotlightCreator, "Travis Beacham");
+    assert.equal(initialState.placeholderName, "Travis Beacham");
+    assert.match(initialState.spotlightVerification, /Metadata checked/i);
+    assert.match(initialState.placeholderCopy, /metadata-checked only|official|verified source/i);
+    assert.equal(initialState.spotlightHref, "/show.html?id=impact-winter");
     assert.equal(initialState.submitHref, "/submit.html?submissionType=show");
     assert.equal(initialState.correctionHref, "/submit.html?submissionType=correction");
     assert.equal(initialState.verificationHref, "/submit.html?submissionType=creator-verification");
     assert.equal(initialState.standardsHref, "/creator-standards.html");
+    assert.equal(initialState.updatesStandardsHref, "/creator-standards.html");
+    assert.equal(initialState.independentStandardsHref, "/creator-standards.html#creatorStandardsIndependence");
+    assert.equal(initialState.independentGridColumnCount, 1);
     assert.equal(initialState.faqExpanded, "false");
     assert.equal(initialState.faqHidden, true);
 
