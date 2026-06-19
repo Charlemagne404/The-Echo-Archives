@@ -1,0 +1,347 @@
+#season-select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.episode-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.episode-list li {
+  font-size: 1.2rem;
+  margin: 8px 0;
+  padding: 0px;
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.episode-list li {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s ease-in-out
+}
+
+.episode-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.episode-list a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.episode-list a:hover {
+  color: #979797;
+  
+}
+
+.episode-list li span {
+  font-size: 1em;
+}
+
+
+
+.episode-list li:hover {
+  transform: translateY(-5px);
+
+}
+
+.episode-list li[style="display: none;"] {
+  display: none;
+}
+
+
+/* Tags styling */
+.tag {
+  display: inline-block;
+  background-color: #313537;
+  color: #ccc;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #535353;
+  transform: scale(1.05);
+}
+
+.tag:active {
+  transform: scale(1);
+}
+
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #47474790;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Footer styling */
+footer {
+  background-color: #151515;
+  color: white;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .community-review-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .community-review-panel {
+    padding: 20px;
+  }
+
+  .community-review-summary {
+    max-width: none;
+  }
+
+  .community-review-clear {
+    width: 100%;
+    justify-self: stretch;
+  }
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.left-content img {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.center-content {
+  flex-grow: 1;
+  text-align: center;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('your-hero-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-text .logo {
+  width: 150px;
+  margin: 20px 0;
+}
+
+.hero-text .cta-button {
+  background-color: #888888;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.hero-text .cta-button:hover {
+  background-color: #ff0000;
+}
+/* Basic styles for the filter container */
+.filter-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px; /* Optional: To space it out from other elements */
+  margin-right: 15px;
+}
+
+/* Initially hide the dropdown */
+#filterDropdown.hidden {
+  display: none;
+}
+
+/* Dropdown container styles */
+#filterDropdown {
+  position: absolute;
+  top: 110%; /* Adjusted for spacing */
+  left: 0;
+  background-color: #181A1B;
+  border: 1px solid #3A3E41;
+  padding: 15px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 200px; /* Adjust the width to your preference */
+  max-height: 300px; /* Add a max height for better scrolling behavior */
+  overflow-y: auto; /* Enable scrolling if needed */
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Optionally, style for the toggle button */
+#filterToggle {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: #1F2122;
+  border: 1px solid #3E4446;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the filter button */
+#filterToggle:hover {
+  background-color: #2A2D2F;
+}
+
+/* Checkbox styling inside the dropdown */
+#filterDropdown input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #646464; /* Custom checkbox color */
+}
+
+/* Checkbox label style */
+#filterDropdown label {
+  display: block;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s ease;
+  color: #ccc;
+}
+
+/* Hover effect on the labels */
+#filterDropdown label:hover {
+  color: #909090; /* Highlight on hover */
+}
+
+/* Basic styling for tags */
+#filterDropdown .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#filterDropdown .tags .tag {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect on tags */
+#filterDropdown .tags .tag:hover {
+  background-color: #ddd;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Adjusting filter button */
+  #filterToggle {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  /* Adjust the dropdown width and padding for mobile */
+  #filterDropdown {
+    width: 100%; /* Take full width */
+    padding: 10px;
+  }
+
+  /* Stack the checkboxes on mobile */
+  #filterDropdown label {
+    padding: 8px 0;
+  }
+}
+
+footer .right-content img {
+  max-width: 50px;  /* Adjust this value based on what looks best */
+  height: auto;     /* Keeps the aspect ratio of the images intact */
+  margin-right: 10px; /* Adds some space between the images */
+}
+
+
+.similar-to img {
+  width: 100px;
+}
+.similar-to {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+

@@ -1,0 +1,343 @@
+.submit-main {
+  display: grid;
+  gap: 18px;
+  padding-bottom: 54px;
+}
+
+.submit-hero-shell,
+.submit-content-shell {
+  position: relative;
+}
+
+.submit-hero-panel {
+  min-height: 360px;
+  padding: 34px 28px 26px;
+  border-color: rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(4, 6, 9, 0.98) 0%, rgba(4, 6, 9, 0.95) 34%, rgba(4, 6, 9, 0.55) 62%, rgba(4, 6, 9, 0.16) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.08) 56%, rgba(3, 5, 8, 0.68) 100%),
+    url("/images/hero-archive-dish.png") right center / cover no-repeat,
+    #040507;
+  box-shadow: var(--shadow-lg);
+  isolation: isolate;
+}
+
+.submit-hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.08));
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.submit-hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 63% 51%, rgba(255, 91, 73, 0.94) 0, rgba(255, 91, 73, 0.88) 0.22%, transparent 0.74%),
+    repeating-radial-gradient(circle at 63% 51%, rgba(229, 72, 56, 0.13) 0 1px, transparent 2px 72px),
+    radial-gradient(circle at 51% 73%, rgba(171, 35, 25, 0.28), transparent 11%),
+    linear-gradient(180deg, transparent 62%, rgba(4, 6, 9, 0.1) 100%);
+  pointer-events: none;
+}
+
+.submit-hero-copy {
+  max-width: 36rem;
+  padding-top: 4px;
+}
+
+.submit-hero-copy h1 {
+  margin: 0 0 20px;
+  max-width: none;
+  font-size: clamp(3.18rem, 4.72vw, 4.82rem);
+  line-height: 0.96;
+  letter-spacing: -0.064em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+  white-space: nowrap;
+}
+
+.submit-hero-copy p {
+  max-width: 31ch;
+  margin: 0;
+  font-size: clamp(1.02rem, 1.12vw, 1.18rem);
+  line-height: 1.42;
+  color: rgba(231, 231, 226, 0.9);
+}
+
+.submit-hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.submit-trust-pill {
+  min-height: 58px;
+  padding: 0 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 11, 15, 0.84);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(247, 247, 243, 0.95);
+  font-size: 0.98rem;
+  font-weight: 600;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.submit-trust-pill-icon {
+  width: 17px;
+  height: 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(247, 247, 243, 0.84);
+}
+
+.submit-trust-pill-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-surface-card {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding: 18px 18px 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent 100%),
+    rgba(9, 12, 16, 0.87);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.submit-surface-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.03), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 28%);
+}
+
+.submit-surface-heading,
+.submit-form-intro {
+  position: relative;
+  z-index: 1;
+}
+
+.submit-form-intro h2,
+.submit-steps-shell h3 {
+  margin: 0;
+  font-size: clamp(1.7rem, 2vw, 2.15rem);
+  line-height: 1.08;
+}
+
+.submit-surface-heading p,
+.submit-form-intro p {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.submit-mode-heading h2 {
+  font-size: clamp(2.1rem, 2.8vw, 2.65rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.submit-form-intro {
+  gap: 8px;
+}
+
+.submit-form-intro-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.submit-form-icon,
+.submit-rail-card-icon,
+.submit-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-form-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(247, 247, 243, 0.94);
+}
+
+.submit-form-icon svg,
+.submit-rail-card-icon svg,
+.submit-rail-list-item-icon svg,
+.submit-rail-help-button svg,
+.submit-mode-card-icon svg,
+.submit-step-arrow svg,
+.submit-primary-button-icon svg,
+.submit-note-icon svg,
+.submit-search-result-check svg,
+.submit-link-remove svg,
+.submit-add-row-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-mode-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.submit-mode-card {
+  position: relative;
+  min-height: 0;
+  padding: 15px 20px 15px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(7, 9, 12, 0.86);
+  color: var(--text-primary);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.submit-mode-card:hover,
+.submit-mode-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.submit-mode-card[data-active="true"] {
+  border-color: rgba(229, 72, 56, 0.92);
+  box-shadow: 0 0 0 1px rgba(229, 72, 56, 0.42), 0 0 32px rgba(185, 36, 24, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent 100%), rgba(10, 13, 18, 0.92);
+}
+
+.submit-mode-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.018);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(247, 247, 243, 0.96);
+}
+
+.submit-mode-card-copy {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  align-content: center;
+}
+
+.submit-mode-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.submit-mode-card-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.42;
+}
+
+.submit-mode-card-check {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(5, 8, 11, 0.92);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-mode-card[data-active="true"] .submit-mode-card-check {
+  border-color: rgba(255, 108, 92, 0.98);
+  background: linear-gradient(180deg, #ff715e, #ea4331);
+  box-shadow: 0 0 0 2px rgba(7, 9, 12, 0.9);
+}
+
+.submit-mode-card-check::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.submit-mode-card[data-active="true"] .submit-mode-card-check::before {
+  width: 9px;
+  height: 5px;
+  border-radius: 0;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.submit-steps-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+  padding: 16px 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.016), transparent 100%),
+    rgba(8, 11, 15, 0.75);
+}
+
+.submit-steps-shell h3 {
+  font-size: clamp(1.3rem, 1.7vw, 1.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.submit-steps-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr) 24px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.submit-step-item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+}

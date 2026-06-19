@@ -7,3 +7,4 @@ podcast-ai/data/*.sqlite
 podcast-ai/data/*.sqlite-*
 podcast-ai/.DS_Store
 *.log
+tmp/

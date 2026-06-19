@@ -19,7 +19,7 @@ const runtimePages = [
   "terms.html",
   "cookies.html",
 ];
-const legacyRedirectManifestPath = path.join(siteRoot, "docs/archive/legacy-redirects.json");
+const legacyRedirectManifestPath = path.join(siteRoot, "shared/config/legacy-redirects.json");
 const legacyRedirects = JSON.parse(fs.readFileSync(legacyRedirectManifestPath, "utf8"));
 
 test("public runtime pages load archive-search before the module entry script", () => {

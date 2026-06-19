@@ -14,16 +14,40 @@ Use it as the source of truth for:
 
 ## Release Preflight
 
-Run from `podcast-ai/`:
+Install backend dependencies when needed:
 
 ```bash
-npm install
+npm --prefix podcast-ai install
+```
+
+Run release preflight from the repo root:
+
+```bash
 npm run verify
 ```
 
 If `npm run verify` fails, do not publish.
 
+`npm run verify` now:
+
+- regenerates committed root HTML from `site-src/`
+- runs repo structure checks
+- runs the existing backend verification suite in `podcast-ai/`
+
 `npm run validate:data`, `npm run check:links`, and normal server startup may now auto-download missing cover art into `images/covers/` and rewrite `data/shows.json` with the resolved local asset path. Review and commit those generated changes before publishing.
+
+The working tree should stay clean after verification. If `npm run verify` changes generated root HTML, review the diff and commit it instead of hand-editing the public page files.
+
+## Operational Boundaries
+
+Keep these ownership rules intact:
+
+- `site-src/` is authored page source
+- root HTML files are generated, committed public output
+- `shared/` contains active runtime code, shared styles, and active config
+- `data/` contains live editorial source only
+- `docs/`, `docs/research/`, and `docs/archive/` are never runtime inputs
+- temporary outputs belong in ignored temp locations, not tracked repo folders
 
 ## Manual Route QA
 
@@ -163,6 +187,7 @@ Documentation rules:
 - keep active docs current and concise
 - prefer updating an existing source-of-truth doc over creating a new planning file
 - move retired one-off plans and historical snapshots into `docs/archive/`
+- keep archival datasets under `docs/archive/data/` and concept art under `docs/research/concepts/` when they are no longer active inputs
 - keep dated QA as reports, not as evergreen guidance
 
 ## Current QA Record

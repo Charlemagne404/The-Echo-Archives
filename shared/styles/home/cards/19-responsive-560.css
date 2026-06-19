@@ -1,0 +1,170 @@
+@media (max-width: 560px) {
+  .hero-panel {
+    gap: 18px;
+  }
+
+  .search-actions {
+    gap: 12px;
+  }
+
+  .quick-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .browse-modes {
+    grid-template-columns: 1fr;
+  }
+
+  .active-browse-state {
+    gap: 10px;
+  }
+
+  .active-browse-chips {
+    flex-basis: 100%;
+  }
+
+  .active-browse-clear {
+    padding: 0;
+  }
+
+  .popular-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #podcast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-page .home-card-preview {
+    gap: 14px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .home-page .home-card-preview-copy {
+    gap: 12px;
+  }
+
+  .home-page .home-card-preview-title {
+    font-size: 1.4rem;
+  }
+
+  .home-page .home-card-preview-ratings {
+    width: auto;
+    gap: 10px;
+  }
+
+  .home-page .home-card-preview-ratings .rating-divider {
+    display: none;
+  }
+
+  .home-page .preview-open-link {
+    min-width: 0;
+    padding: 0;
+  }
+
+  .home-page .preview-close-button {
+    top: 9px;
+    right: 9px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .podcast-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .collection-card {
+    flex-basis: min(82vw, 300px);
+    min-height: 196px;
+  }
+
+  .collection-card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-page .popular-card-ratings {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .home-page .popular-card-ratings .rating-divider {
+    display: none;
+  }
+
+  .filter-container,
+  #filterToggle,
+  #filterDropdown,
+  .collection-action,
+  #sendMessageButton {
+    width: 100%;
+  }
+
+  #filterDropdown {
+    width: 100%;
+  }
+
+  .filter-dropdown-header {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-input-area {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-suggestions {
+    grid-auto-columns: minmax(168px, 82%);
+  }
+
+  .chat-panel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chat-panel-actions {
+    justify-content: space-between;
+  }
+
+  #chat-container {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    height: min(calc(100vh - 108px), 640px);
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  .community-card-controls {
+    grid-template-columns: 1fr;
+    top: calc(100% - 2px);
+  }
+
+  .community-card-widget {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .community-card-toggle {
+    grid-template-columns: 1fr;
+  }
+
+  .community-card-summary {
+    max-width: none;
+  }
+
+  .community-card-action {
+    justify-self: start;
+  }
+
+  .community-card-controls::before {
+    right: auto;
+    left: 24px;
+  }
+
+  #backToTop {
+    right: 82px;
+    bottom: 16px;
+  }
+}

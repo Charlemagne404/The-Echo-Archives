@@ -21,11 +21,29 @@ The Echo Archives is a structured, mostly static archive with a small Node and E
 
 It has three main layers:
 
-- static frontend routes and assets in the repo root
+- authored page source in `site-src/` and committed frontend output in the repo root
 - structured editorial catalog data in `data/`
+- shared runtime modules and config in `shared/`
 - backend services in `podcast-ai/` for chat, submissions, ratings, and sitemap support
 
 The main architecture problem is no longer migration away from handwritten pages. The main problem is how to scale trust, metadata quality, moderation, and discovery depth without overbuilding.
+
+## Repo Boundaries
+
+These boundaries are now intentional and should be preserved as the project grows:
+
+- `site-src/`: authored page sources, page manifest, and reusable HTML partials
+- repo root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js`: committed public output and stable browser entry assets
+- `shared/`: runtime JS, shared CSS partials, browser/backend/test config, and compatibility manifests such as `shared/config/legacy-redirects.json`
+- `data/`: live editorial source data only
+- `docs/`: product, architecture, operations, research, QA, and historical material only; never runtime inputs
+
+The repo root command surface is intentionally small:
+
+- `npm run dev`
+- `npm run build:pages`
+- `npm run check:structure`
+- `npm run verify`
 
 ## Public Routes
 
@@ -50,6 +68,7 @@ The frontend should:
 - expose trust signals and discovery features without requiring a frontend framework rewrite
 - hide future features until backing data actually exists
 - keep `script.js` as the single browser entry while `shared/app/` owns the runtime modules
+- keep root HTML generated from `site-src/` rather than hand-editing duplicate page shells
 - keep the public CSS URLs stable while `shared/styles/` owns imported partials behind them
 
 If the catalog grows significantly, prefer lightweight derived indexes before considering a heavier stack migration.
@@ -218,8 +237,10 @@ It also includes lightweight browser smoke coverage for:
 - Ask the Archivist open and close behavior
 - submit-form mode switching
 
-Key commands currently used in `podcast-ai/`:
+Key repo verification commands:
 
+- `npm run build:pages`
+- `npm run check:structure`
 - `npm run validate:data`
 - `npm run check:links`
 - `npm run test:smoke`
@@ -257,4 +278,6 @@ The current limitations are mostly editorial and scale-related:
 - Separate editorial truth from community and moderation workflow data.
 - Prefer additive optional datasets over duplicated route-specific data.
 - Keep the repo root as the intentional public web surface unless deployment requirements materially change.
+- Keep `site-src/` as the authored page shell source and treat root HTML as generated output.
+- Keep one root command surface instead of growing ad hoc scripts across directories.
 - Treat public routes, query params, API shapes, storage keys, and DOM hooks as compatibility boundaries during hygiene refactors.

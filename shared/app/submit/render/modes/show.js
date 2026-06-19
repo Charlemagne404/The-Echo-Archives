@@ -1,0 +1,111 @@
+import { COMPLETION_STATUS_OPTIONS, LISTEN_LINK_OPTIONS } from "../../config.js";
+import { renderChipGroupField, renderSegmentedField } from "../choice-fields.js";
+import { renderFormRow, renderSelectField, renderTextInputField, renderTextareaField } from "../base-fields.js";
+import { renderLinkListField } from "../link-fields.js";
+
+export function renderShowMode(draft, context) {
+  return [
+    renderFormRow([
+      renderTextInputField({
+        id: "submitShowTitle",
+        label: "Show title",
+        required: true,
+        value: draft.showTitle,
+        maxLength: 160,
+        placeholder: "e.g., The White Vault",
+      }),
+      renderTextInputField({
+        id: "submitCreatorName",
+        label: "Creator or network",
+        required: true,
+        value: draft.creatorName,
+        maxLength: 160,
+        placeholder: "e.g., Fool & Scholar",
+      }),
+    ]),
+    renderFormRow([
+      renderTextInputField({
+        id: "submitContactEmail",
+        label: "Contact email",
+        required: true,
+        type: "email",
+        value: draft.contactEmail,
+        maxLength: 160,
+        placeholder: "you@example.com",
+        autocomplete: "email",
+      }),
+      renderTextInputField({
+        id: "submitOfficialSite",
+        label: "Official website",
+        type: "url",
+        value: draft.officialSite,
+        maxLength: 500,
+        placeholder: "https://example.com",
+      }),
+    ]),
+    renderLinkListField({
+      fieldName: "listenLinks",
+      label: "Listen links (add at least one)",
+      helper: "Click a listener link type to add it, then paste the official destination URL.",
+      required: true,
+      rows: draft.listenLinks,
+      options: LISTEN_LINK_OPTIONS,
+      plain: false,
+      chooseBeforeAdd: true,
+      emptyMessage: "No listener links added yet.",
+    }),
+    renderFormRow([
+      renderChipGroupField({
+        fieldName: "selectedTags",
+        label: "Genres or tags",
+        helper: "Choose up to eight tags that help listeners find the show.",
+        required: true,
+        values: draft.selectedTags,
+        options: context.tagOptions,
+        menuOpen: context.tagPickerOpen,
+        query: context.tagQuery,
+        highlightIndex: context.tagHighlightIndex,
+      }),
+      renderSelectField({
+        id: "submitCompletionStatus",
+        label: "Completion status",
+        required: true,
+        value: draft.completionStatus,
+        options: COMPLETION_STATUS_OPTIONS,
+        helper: "Select the current state of the show.",
+      }),
+    ]),
+    renderTextareaField({
+      id: "submitShortDescription",
+      label: "Short spoiler-free description",
+      required: true,
+      value: draft.shortDescription,
+      maxLength: 1000,
+      rows: 5,
+      helper: "Who is it for and what can listeners expect?",
+      placeholder: "Give a concise, spoiler-safe description of the show.",
+      short: true,
+    }),
+    renderTextareaField({
+      id: "submitArchiveFitNote",
+      label: "Why it belongs in the archive",
+      required: true,
+      value: draft.archiveFitNote,
+      maxLength: 500,
+      rows: 4,
+      helper: "Tell us why this show should be preserved and discoverable.",
+      placeholder: "Explain why this show fits the archive.",
+      short: true,
+    }),
+    renderTextareaField({
+      id: "submitVerificationNotes",
+      label: "Optional notes or verification sources",
+      value: draft.verificationNotes,
+      maxLength: 1000,
+      rows: 4,
+      helper: "Share press kits, creator pages, IMDb links, or anything else that helps review.",
+      placeholder: "Anything else the archive should know.",
+      short: true,
+    }),
+  ].join("");
+}

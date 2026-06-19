@@ -1,0 +1,155 @@
+.podcast-card-shell {
+  --preview-left: 0px;
+  --preview-top: 0px;
+  --preview-width: 620px;
+  --preview-min-height: 0px;
+  --preview-max-height: calc(100vh - 32px);
+  --preview-start-scale-x: 0.42;
+  --preview-start-scale-y: 0.72;
+  --preview-shift-x: 0px;
+  --preview-shift-y: 0px;
+  display: grid;
+  gap: 0;
+  align-content: start;
+  position: relative;
+  min-width: 0;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.podcast-card-shell .podcast-card {
+  height: 100%;
+}
+
+.home-page #archive {
+  position: relative;
+  overflow: visible;
+}
+
+.home-page .podcast-card-shell[data-preview-card="true"] {
+  z-index: 1;
+}
+
+.home-page .podcast-card-shell.preview-source-active,
+.home-page .podcast-card-shell.is-preview-expanded,
+.home-page .podcast-card-shell.is-preview-closing,
+.home-page .podcast-card-shell.is-preview-measuring {
+  z-index: 30;
+}
+
+.home-page .podcast-card-shell.preview-source-active .podcast-card,
+.home-page .podcast-card-shell.preview-source-active .podcast-card:hover,
+.home-page .podcast-card-shell.preview-source-active .podcast-card:focus-visible {
+  transform: translateY(-4px) scale(1.012);
+  border-color: rgba(229, 72, 56, 0.28);
+  box-shadow: 0 28px 58px rgba(0, 0, 0, 0.36);
+}
+
+.home-page .podcast-card-shell.is-preview-expanded .podcast-card,
+.home-page .podcast-card-shell.is-preview-expanded .podcast-card:hover,
+.home-page .podcast-card-shell.is-preview-expanded .podcast-card:focus-visible {
+  opacity: 0;
+}
+
+.home-page .podcast-card-shell[data-preview-card="true"] .home-card-preview-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.home-page .podcast-card-shell.is-preview-expanded .home-card-preview-layer,
+.home-page .podcast-card-shell.is-preview-closing .home-card-preview-layer {
+  pointer-events: auto;
+}
+
+.home-page .podcast-card-shell[data-preview-card="true"] .home-card-preview {
+  position: absolute;
+  top: var(--preview-top);
+  left: var(--preview-left);
+  width: var(--preview-width);
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  grid-template-areas:
+    "media content"
+    "footer footer";
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 18px;
+  min-width: 0;
+  min-height: var(--preview-min-height);
+  padding: 18px 18px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at top right, rgba(229, 72, 56, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(6, 9, 13, 0.985)),
+    rgba(6, 9, 13, 0.985);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transform:
+    translate(var(--preview-shift-x), var(--preview-shift-y))
+    scale(var(--preview-start-scale-x), var(--preview-start-scale-y));
+  transform-origin: top left;
+  transition:
+    opacity 200ms ease,
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 260ms ease,
+    box-shadow 260ms ease;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.home-page .podcast-card-shell[data-preview-card="true"] .home-card-preview::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(229, 72, 56, 0.16);
+  pointer-events: none;
+}
+
+.home-page .preview-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 12, 16, 0.38);
+  color: rgba(247, 247, 243, 0.76);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.home-page .preview-close-button:hover,
+.home-page .preview-close-button:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(18, 21, 28, 0.62);
+  color: var(--text-primary);
+}
+
+.home-page .podcast-card-shell.is-preview-expanded .home-card-preview,
+.home-page .podcast-card-shell.is-preview-closing .home-card-preview {
+  visibility: visible;
+}

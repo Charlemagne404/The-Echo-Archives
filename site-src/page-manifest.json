@@ -1,0 +1,148 @@
+[
+  {
+    "source": "index.html",
+    "output": "index.html",
+    "title": "The Echo Archives",
+    "description": "Curated fiction podcasts, filtered by mood, genre, and listening intent.",
+    "canonicalUrl": "https://echo.continental-hub.com/",
+    "bodyClass": "home-page",
+    "activeNav": "browse",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "about.html",
+    "output": "about.html",
+    "title": "About - The Echo Archives",
+    "description": "Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support.",
+    "canonicalUrl": "https://echo.continental-hub.com/about.html",
+    "bodyClass": "home-page about-page info-page",
+    "activeNav": "about",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "for-creators.html",
+    "output": "for-creators.html",
+    "title": "For Creators - The Echo Archives",
+    "description": "How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/for-creators.html",
+    "bodyClass": "home-page for-creators-page info-page",
+    "activeNav": "for-creators",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "creator-standards.html",
+    "output": "creator-standards.html",
+    "title": "Creator Standards - The Echo Archives",
+    "description": "The standards and trust rules The Echo Archives uses when handling creator submissions, verification, and metadata updates.",
+    "canonicalUrl": "https://echo.continental-hub.com/creator-standards.html",
+    "bodyClass": "home-page creator-standards-page info-page",
+    "activeNav": "for-creators",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "supporters.html",
+    "output": "supporters.html",
+    "title": "Support the Archive - The Echo Archives",
+    "description": "Help keep The Echo Archives listener-supported, ad-free, and independent.",
+    "canonicalUrl": "https://echo.continental-hub.com/supporters.html",
+    "bodyClass": "home-page supporters-page info-page",
+    "activeNav": "supporters",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "collections.html",
+    "output": "collections.html",
+    "title": "Collections - The Echo Archives",
+    "description": "Browse every curated discovery collection in The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/collections.html",
+    "bodyClass": "home-page collections-page info-page",
+    "activeNav": "collections",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "collection.html",
+    "output": "collection.html",
+    "title": "Collection - The Echo Archives",
+    "description": "A curated collection of fiction podcasts and audio dramas from The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/collection.html",
+    "bodyClass": "home-page collection-page info-page",
+    "activeNav": "collections",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "show.html",
+    "output": "show.html",
+    "title": "Show - The Echo Archives",
+    "description": "A reusable archive page for fiction podcasts and audio dramas in The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/show.html",
+    "bodyClass": "home-page detail-page show-page",
+    "activeNav": "",
+    "extraStylesheets": [
+      "detail.css?v=12"
+    ],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "submit.html",
+    "output": "submit.html",
+    "title": "Submit a Show - The Echo Archives",
+    "description": "Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/submit.html",
+    "bodyClass": "home-page submit-page info-page",
+    "activeNav": "submit",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "privacy.html",
+    "output": "privacy.html",
+    "title": "Privacy - The Echo Archives",
+    "description": "How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data.",
+    "canonicalUrl": "https://echo.continental-hub.com/privacy.html",
+    "bodyClass": "home-page info-page",
+    "activeNav": "privacy",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "terms.html",
+    "output": "terms.html",
+    "title": "Terms - The Echo Archives",
+    "description": "Terms for using The Echo Archives website, submissions, ratings, and archive content.",
+    "canonicalUrl": "https://echo.continental-hub.com/terms.html",
+    "bodyClass": "home-page info-page",
+    "activeNav": "terms",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
+    "source": "cookies.html",
+    "output": "cookies.html",
+    "title": "Cookies - The Echo Archives",
+    "description": "Cookie and browser storage information for The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/cookies.html",
+    "bodyClass": "home-page info-page",
+    "activeNav": "cookies",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  }
+]

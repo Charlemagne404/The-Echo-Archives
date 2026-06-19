@@ -1,0 +1,142 @@
+@media (max-width: 1340px) {
+  .detail-meta-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  .detail-hero-grid,
+  .detail-overview-grid,
+  .detail-review-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-content-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-main-stack {
+    display: contents;
+  }
+
+  .detail-content-layout > .community-review-panel,
+  .detail-main-column,
+  .detail-side-rail {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .detail-official-summary-section {
+    order: 1;
+  }
+
+  .detail-content-layout > .community-review-panel {
+    order: 2;
+  }
+
+  .detail-main-column {
+    order: 3;
+  }
+
+  .detail-side-rail {
+    order: 4;
+  }
+
+  .detail-similar-section {
+    order: 5;
+  }
+
+  .detail-collections-section {
+    order: 6;
+  }
+
+  .detail-correction-section {
+    order: 7;
+  }
+
+  .detail-cover-column {
+    justify-self: start;
+    width: min(100%, 420px);
+  }
+
+  .detail-ratings-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
+  .detail-main {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .detail-meta-grid,
+  .detail-similar-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-best-for-strip {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .detail-title-group h1 {
+    max-width: none;
+    font-size: clamp(2.8rem, 10vw, 4.3rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .detail-hero-panel,
+  .detail-best-for-strip,
+  .detail-section,
+  .detail-side-card,
+  .detail-quote {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .detail-hero-panel {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-radius: 20px;
+  }
+
+  .detail-section,
+  .detail-side-card {
+    border-radius: 18px;
+  }
+
+  .detail-breadcrumbs {
+    margin-bottom: 20px;
+  }
+
+  .detail-fact-row,
+  .detail-similar-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-similar-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .detail-actions,
+  .detail-link-chip-row,
+  .detail-hero-tag-list,
+  .detail-best-for-list {
+    gap: 10px;
+  }
+
+  .detail-primary-action,
+  .detail-secondary-action,
+  .detail-link-primary,
+  .community-review-toggle,
+  .community-review-link {
+    width: 100%;
+  }
+
+  .community-review-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

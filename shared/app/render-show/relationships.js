@@ -1,0 +1,76 @@
+import { getShowCollectionMemberships } from "../render-collections.js";
+import { createCollectionHref } from "../urls.js";
+import { escapeHtml, getSimilarReason } from "./utils.js";
+
+export function renderCollectionsSection(show, collections = []) {
+  const memberships = getShowCollectionMemberships(show.id, collections);
+
+  return `
+    <section class="detail-section detail-collections-section">
+      <div class="detail-section-header">
+        <div>
+          <h2>Discovery routes</h2>
+          <p>Curated listening paths already connected to this show in the archive.</p>
+        </div>
+      </div>
+      ${
+        memberships.length > 0
+          ? `<div class="detail-collection-route-list">${memberships
+              .map(
+                (collection) => `
+                  <a class="detail-collection-route" href="${escapeHtml(createCollectionHref(collection.id))}">
+                    <span class="detail-collection-route-title">${escapeHtml(collection.title)}</span>
+                    ${
+                      collection.reason
+                        ? `<span class="detail-collection-route-reason">${escapeHtml(collection.reason)}</span>`
+                        : `<span class="detail-collection-route-reason">Curated route in the archive.</span>`
+                    }
+                  </a>
+                `,
+              )
+              .join("")}</div>`
+          : '<p class="detail-side-note">No collection routes have been published for this show yet.</p>'
+      }
+    </section>
+  `;
+}
+
+export function renderSimilarSection(show, showMap) {
+  const neighbors = show.similarTo.map((id) => showMap.get(id)).filter(Boolean);
+  if (neighbors.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="detail-section detail-similar-section">
+      <div class="detail-section-header">
+        <div>
+          <h2>Start next</h2>
+          <p>Closest neighboring picks in the archive once you finish this one.</p>
+        </div>
+      </div>
+
+      <div class="detail-similar-grid">
+        ${neighbors
+          .map(
+            (neighbor) => `
+              <article class="detail-similar-card">
+                <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" />
+                <div class="detail-card-copy">
+                  <h3>${escapeHtml(neighbor.title)}</h3>
+                  ${
+                    getSimilarReason(show, neighbor.id)
+                      ? `<p class="detail-similar-reason">${escapeHtml(getSimilarReason(show, neighbor.id))}</p>`
+                      : ""
+                  }
+                  <p>${escapeHtml(neighbor.archiveTake || neighbor.description)}</p>
+                  <a class="detail-archive-link" href="${escapeHtml(neighbor.href)}">Open show</a>
+                </div>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}

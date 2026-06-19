@@ -1,0 +1,96 @@
+<main class="home-main page-main submit-main">
+    <section class="hero-shell submit-hero-shell">
+      <div class="hero-panel page-panel submit-hero-panel">
+        <div class="submit-hero-copy">
+          <h1>Submit to the archive</h1>
+          <p id="submitHeroDescription">
+            Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.
+          </p>
+        </div>
+        <div class="submit-hero-trust" aria-label="Archive trust signals">
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5.25a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+                <path d="M12 9v3.5l2.25 1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+              </svg>
+            </span>
+            Manual review
+          </span>
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/>
+                <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/>
+              </svg>
+            </span>
+            Nothing auto-publishes
+          </span>
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 10.5h8M8 14h5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.65"/>
+                <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+              </svg>
+            </span>
+            No paid rankings
+          </span>
+          <span class="submit-trust-pill">
+            <span class="submit-trust-pill-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 14.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm11 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+                <path d="M9.5 11.25h5M7.75 18.25c.6-1.8 2.18-3 4.25-3 2.07 0 3.65 1.2 4.25 3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/>
+              </svg>
+            </span>
+            Listener and creator input
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="submit-mode-shell submit-surface-card">
+      <div class="submit-surface-heading submit-mode-heading">
+        <h2>Choose an intake path</h2>
+      </div>
+      <div id="submitModeCards" class="submit-mode-grid" role="radiogroup" aria-label="Submission type"></div>
+      <div class="submit-steps-shell">
+        <h3>What happens next</h3>
+        <div id="submitStepsPanel" class="submit-steps-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="submit-content-shell">
+      <div class="submit-content-grid">
+        <article class="submit-surface-card submit-form-surface">
+          <div id="submitFormIntro" class="submit-surface-heading submit-form-intro" aria-live="polite"></div>
+          <form id="showSubmitForm" class="submit-remake-form" novalidate>
+            <input type="hidden" id="submissionType" name="submissionType" value="show" />
+            <input type="hidden" id="existingShowId" name="existingShowId" value="" />
+
+            <label class="hp-field" aria-hidden="true">
+              <span>Website</span>
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <div id="submitDynamicFields" class="submit-dynamic-fields"></div>
+
+            <div class="submit-form-actions">
+              <button type="submit" id="submitPrimaryButton" class="submit-primary-button">
+                <span class="submit-primary-button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m4.75 11.75 13.5-6.25-5 13.5-2.5-4.75-6-2.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+                    <path d="M10.75 14.5 18.25 5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+                  </svg>
+                </span>
+                <span id="submitPrimaryButtonText">Send to archive review</span>
+              </button>
+              <p id="submitFooterNote" class="submit-footer-note" aria-live="polite"></p>
+            </div>
+            <p id="submitStatus" class="submit-status" aria-live="polite">Nothing submitted yet.</p>
+          </form>
+        </article>
+
+        <aside id="submitSideRail" class="submit-side-rail" aria-live="polite"></aside>
+      </div>
+    </section>
+  </main>

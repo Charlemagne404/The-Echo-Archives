@@ -1,0 +1,10 @@
+{
+  "name": "the-echo-archives",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix podcast-ai run dev",
+    "build:pages": "node tools/build-pages.js",
+    "check:structure": "node tools/check-structure.js",
+    "verify": "npm run build:pages && npm run check:structure && npm --prefix podcast-ai run verify"
+  }
+}

@@ -1,0 +1,289 @@
+.chat-suggestion-region {
+  display: grid;
+  gap: 8px;
+}
+
+.chat-suggestion-region[hidden] {
+  display: none;
+}
+
+.chat-suggestion-label {
+  margin: 0;
+  padding: 0 2px;
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.chat-suggestions {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(190px, 1fr);
+  gap: 8px;
+  padding: 2px 2px 2px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-gutter: stable both-edges;
+}
+
+.chat-suggestion {
+  min-height: 48px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 100%),
+    rgba(18, 22, 27, 0.82);
+  color: var(--text-primary);
+  font-size: 0.76rem;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.chat-suggestion:hover,
+.chat-suggestion:focus-visible,
+.chat-secondary-button:hover,
+.chat-secondary-button:focus-visible {
+  border-color: rgba(229, 72, 56, 0.45);
+  background: rgba(229, 72, 56, 0.12);
+  transform: translateY(-1px);
+}
+
+.chat-input-area {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(18, 22, 27, 0.86);
+}
+
+#userInput {
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 10, 14, 0.78);
+  color: var(--text-primary);
+}
+
+#userInput::placeholder {
+  color: rgba(238, 234, 229, 0.45);
+}
+
+#userInput:focus {
+  outline: none;
+  border-color: rgba(229, 72, 56, 0.38);
+  box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.14);
+}
+
+#userInput:disabled,
+#sendMessageButton:disabled,
+.chat-suggestion:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#sendMessageButton {
+  min-width: 90px;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 72, 56, 0.35);
+  background: linear-gradient(135deg, rgba(229, 72, 56, 0.88), rgba(178, 52, 40, 0.95));
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 14px 28px rgba(229, 72, 56, 0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+#sendMessageButton:hover,
+#sendMessageButton:focus-visible {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 18px 32px rgba(229, 72, 56, 0.22);
+}
+
+.chat-footnote {
+  padding: 0 4px 2px;
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+#chat-container.has-history {
+  gap: 8px;
+}
+
+#chat-container.has-history .chat-panel-header {
+  padding: 14px;
+}
+
+#chat-container.has-history .chat-stage {
+  gap: 8px;
+}
+
+#chat-container.has-history #chatLog {
+  padding: 10px;
+}
+
+#backToTop {
+  width: 52px;
+  height: 52px;
+  position: fixed;
+  right: 86px;
+  bottom: 18px;
+  z-index: 70;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  background: rgba(8, 11, 15, 0.84);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  animation: scale-up4 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+  height: 30px;
+  margin: 0 5px;
+  animation-delay: 0.25s;
+}
+
+.bar:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.page-main {
+  display: grid;
+  gap: 26px;
+}
+
+.page-panel {
+  min-height: 280px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.page-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.collection-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.collection-directory-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 6px 0 2px;
+  color: var(--text-muted);
+}
+
+.collection-directory-divider::before,
+.collection-directory-divider::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.collection-directory-divider-label {
+  flex: 0 0 auto;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.page-card {
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 100%),
+    rgba(9, 12, 16, 0.86);
+  box-shadow: var(--shadow-md);
+}
+
+.page-card h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+}
+
+.page-card p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.stat-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.page-card-kicker {
+  color: rgba(229, 72, 56, 0.92);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.stat-card strong {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.about-main,
+.supporters-main {
+  gap: 16px;
+}
+
+.about-hero-panel,
+.supporters-hero-panel {
+  min-height: 248px;
+  justify-content: center;
+  padding: 34px 28px 24px;
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 58% 66%, rgba(229, 72, 56, 0.15), transparent 9%),
+    radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.09), transparent 16%),
+    linear-gradient(90deg, rgba(3, 5, 8, 0.985) 0%, rgba(4, 6, 9, 0.965) 37%, rgba(5, 8, 11, 0.6) 63%, rgba(6, 8, 11, 0.18) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.04) 48%, rgba(3, 5, 8, 0.44) 76%, rgba(3, 5, 8, 0.78) 100%),
+    url("/images/hero-archive-dish.png") right center / cover no-repeat,
+    #05070a;
+}

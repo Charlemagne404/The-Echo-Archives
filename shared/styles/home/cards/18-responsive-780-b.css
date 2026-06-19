@@ -1,0 +1,106 @@
+@media (max-width: 780px) {
+  .footer-support-actions {
+    width: 100%;
+    grid-template-columns: 1fr;
+    justify-self: stretch;
+  }
+
+  .page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-main,
+  .supporters-main {
+    gap: 16px;
+  }
+
+  .about-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stat-card {
+    min-height: 0;
+    padding: 18px 20px;
+  }
+
+  .about-cta,
+  .about-support-actions,
+  .supporters-actions {
+    width: 100%;
+  }
+
+  .about-support-actions,
+  .supporters-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .about-cta {
+    justify-content: space-between;
+  }
+
+  .about-founder-card,
+  .about-continental-card,
+  .supporters-band {
+    grid-template-columns: 1fr;
+    padding-right: 24px;
+    padding-bottom: 104px;
+  }
+
+  .about-founder-portrait {
+    width: 96px;
+    height: 96px;
+  }
+
+  .about-continental-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .about-story-orbit img {
+    width: min(70vw, 220px);
+  }
+
+  .about-story-emblem {
+    right: 12px;
+    bottom: 14px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .collection-carousel::before,
+  .collection-carousel::after {
+    width: 52px;
+  }
+
+  .collection-carousel-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .collection-carousel-arrow-prev {
+    left: 10px;
+  }
+
+  .collection-carousel-arrow-next {
+    right: 10px;
+  }
+
+  .submit-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .empty-state-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #chat-container {
+    top: auto;
+    right: 12px;
+    bottom: 84px;
+    width: calc(100vw - 24px);
+    height: min(72vh, 640px);
+  }
+}

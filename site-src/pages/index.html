@@ -1,0 +1,117 @@
+<main class="home-main">
+    <section class="hero-shell" id="browse">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <h1>Find your next audio obsession</h1>
+          <p>
+            Curated fiction podcasts, filtered by mood, genre, and listening intent instead of generic app sprawl.
+          </p>
+        </div>
+
+        <div class="search-container" aria-label="Archive controls">
+          <label class="search-field" for="search">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <input type="text" id="search" placeholder='Search titles, moods, statuses, or "like Midnight Burger"' />
+          </label>
+
+          <div class="search-actions">
+            <div class="filter-container">
+              <button id="filterToggle" type="button" aria-label="Filter podcasts by tag" aria-expanded="false" aria-controls="filterDropdown">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
+                </svg>
+                <span class="filter-toggle-label">Filters</span>
+                <span id="filterCount" class="filter-count" hidden>0</span>
+              </button>
+
+              <div id="filterDropdown" class="dropdown hidden">
+                <div class="filter-dropdown-header">
+                  <div>
+                    <p class="filter-dropdown-kicker">Refine the archive</p>
+                    <p class="filter-dropdown-copy">Stack archive filters by review depth, completion status, listening context, or tags.</p>
+                  </div>
+                  <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
+                </div>
+                <div id="filterOptionGrid" class="filter-option-grid"></div>
+              </div>
+            </div>
+
+            <div class="browse-modes" id="browseModes" role="group" aria-label="Browse modes"></div>
+            <div class="quick-filters" id="quickFilters" role="group" aria-label="Quick filters"></div>
+          </div>
+        </div>
+        <section class="archive-trust-grid" aria-label="Archive trust signals">
+          <p class="archive-trust-item"><strong id="homeShowCount">-</strong> <span>shows indexed</span></p>
+          <p class="archive-trust-item"><strong id="homeReviewCount">-</strong> <span>reviews</span></p>
+          <p class="archive-trust-item"><strong id="homeCollectionCount">-</strong> <span>collections</span></p>
+          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">-</strong></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="archive-section" id="archive">
+      <div class="section-heading">
+        <div>
+          <h2>Browse the archive</h2>
+          <p>Full reviews stay selective. Indexed entries still get real archive pages so discovery does not stall.</p>
+        </div>
+        <p id="resultsSummary" class="results-summary">Loading archive...</p>
+      </div>
+
+      <div id="activeBrowseState" class="active-browse-state" hidden>
+        <p class="active-browse-state-label">Showing</p>
+        <div id="activeBrowseChips" class="active-browse-chips" aria-live="polite"></div>
+        <button id="activeBrowseClear" class="active-browse-clear" type="button">Clear all</button>
+      </div>
+
+      <section class="most-popular-band" id="mostPopular" aria-labelledby="mostPopularTitle" hidden>
+        <div class="section-heading">
+          <div>
+            <h3 id="mostPopularTitle">Most popular</h3>
+            <p>Four archive anchors when you want a stronger starting signal before dropping into the full grid.</p>
+          </div>
+        </div>
+
+        <div class="popular-grid" id="popularGrid"></div>
+      </section>
+
+      <div id="podcast-grid"></div>
+      <div id="noResultsMsg" class="empty-state-card" hidden>
+        <p>No matches yet. Try a mood, completion status, or a route like "Midnight Burger like".</p>
+        <div class="empty-state-actions">
+          <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
+          <a class="collection-action" href="/collections.html">Browse collections</a>
+          <button id="openArchivistAction" class="quick-filter" type="button">Ask the Archivist</button>
+          <a class="collection-action" href="/submit.html">Submit or correct a show</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection-band" id="collections" aria-labelledby="collections-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="collections-title">Featured collections</h2>
+          <p>Curated entry points into the archive when you want a stronger starting signal than endless scrolling.</p>
+        </div>
+        <a class="section-link" href="/collections.html">View all collections</a>
+      </div>
+
+      <div class="collection-carousel" id="collectionCarousel">
+        <button class="collection-carousel-arrow collection-carousel-arrow-prev" id="collectionPrev" type="button" aria-label="Scroll featured collections left" hidden>
+          <span aria-hidden="true">‹</span>
+        </button>
+
+        <div class="collection-carousel-viewport" id="collectionViewport">
+          <div class="collection-grid collection-carousel-track" id="collectionGrid"></div>
+        </div>
+
+        <button class="collection-carousel-arrow collection-carousel-arrow-next" id="collectionNext" type="button" aria-label="Scroll featured collections right" hidden>
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+    </section>
+  </main>

@@ -10,47 +10,71 @@ The repo now uses a JSON-first catalog:
 - `data/collections.json` is the canonical curated discovery layer
 - `data/reviews/*.json` stores long-form editorial review companions per show
 - missing show covers can now be auto-fetched into `images/covers/` during catalog load when a show has RSS, Apple, or website source links
+- `site-src/` is the authored source for shared page shells, partials, and page bodies
+- root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js` are committed public output and runtime entry assets
+- `shared/` owns runtime JS, shared CSS partials, and active shared config such as `shared/config/legacy-redirects.json`
 - `show.html` is the reusable show template for both full reviews and indexed-only entries
 - `podcast-ai/` serves the static site, archive chat API, anonymous community ratings, and the first-party show submission endpoint
 - `script.js` is the thin browser entry and `shared/app/` owns the runtime frontend modules
 - `style.css`, `home.css`, and `detail.css` stay public root assets while `shared/styles/` owns the imported partial tree
+- `data/` is reserved for live editorial source datasets, while `docs/` is documentation, research, and archive-only material that should never become a runtime input
 
 The visual language stays largely static, but the homepage, show pages, chat grounding, and community features now read from the same catalog records.
 Collections now have first-class browse routes, the homepage exposes archive trust stats plus structured filtering, the submit flow supports new shows, corrections, listener reviews, and creator verification requests, and the site exposes `robots.txt` plus a generated sitemap.
 The catalog schema is intentionally broader than the currently rendered UI so richer podcast metadata can live in JSON first and be surfaced later when it proves useful.
 
-## Local development
+## Repo commands
 
-Install and run the backend service:
+Use the repo root as the operator entrypoint:
 
 ```bash
-cd podcast-ai
-npm install
-npm start
+npm run dev
+npm run build:pages
+npm run check:structure
+npm run verify
 ```
 
-By default the service serves the static site and API together at [http://localhost:3010](http://localhost:3010).
+- `npm run dev` proxies to `podcast-ai` watch mode
+- `npm run build:pages` regenerates the committed root HTML from `site-src/`
+- `npm run check:structure` enforces source-file size and archive-boundary rules
+- `npm run verify` rebuilds pages, runs structure checks, and then runs the backend verification suite in `podcast-ai/`
+
+## Local development
+
+Install backend dependencies once:
+
+```bash
+npm --prefix podcast-ai install
+```
+
+Then use the repo-level scripts. `npm run dev` serves the static site and API together at [http://localhost:3010](http://localhost:3010).
 
 Useful scripts:
 
 ```bash
-cd podcast-ai
 npm run dev
-npm test
-npm run validate:data
-npm run check:links
-npm run test:smoke
-npm run review:new -- <show-id>
-npm run review:publish -- <show-id>
-npm run review:report
+npm run build:pages
+npm run check:structure
 npm run verify
+```
+
+App-specific maintenance commands still live under `podcast-ai/`:
+
+```bash
+npm --prefix podcast-ai test
+npm --prefix podcast-ai run validate:data
+npm --prefix podcast-ai run check:links
+npm --prefix podcast-ai run test:smoke
+npm --prefix podcast-ai run review:new -- <show-id>
+npm --prefix podcast-ai run review:publish -- <show-id>
+npm --prefix podcast-ai run review:report
 ```
 
 The maintainer review workflow keeps `data/shows.json` focused on show metadata while `data/reviews/<show-id>.json` holds longer editorial copy. Run `review:new` to scaffold a review file, `review:publish` to promote a drafted review to `full-review`, and `review:report` to audit catalog gaps.
 Catalog validation and server startup now also auto-fill missing cover art into `images/covers/` when the show record has a usable RSS, Apple, or website source link, and may rewrite `data/shows.json` to persist the resolved local cover path.
 
 Root-level delivery files are intentionally present for both the live Node deployment and simpler static hosting setups, including `404.html`, `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, and the basic policy pages.
-The root public surface is intentional: no build step is required, Express can still serve the repo root directly, and simple static-host fallbacks continue to work.
+The root public surface is intentional: the generated output stays committed, Express can still serve the repo root directly, and simple static-host fallbacks continue to work.
 
 This repo hygiene refactor does not change public routes, query params, API shapes, catalog schema, DOM hooks, or storage keys.
 

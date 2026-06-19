@@ -11,7 +11,7 @@ const { loadCatalog, loadCollections, scoreCatalog } = require("../lib/catalog")
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
 const legacyRedirectManifest = JSON.parse(
-  fs.readFileSync(path.resolve(siteRoot, "docs/archive/legacy-redirects.json"), "utf8"),
+  fs.readFileSync(path.resolve(siteRoot, "shared/config/legacy-redirects.json"), "utf8"),
 );
 const basePort = 3310;
 const baseUrl = `http://127.0.0.1:${basePort}`;

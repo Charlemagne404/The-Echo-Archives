@@ -1,0 +1,273 @@
+.detail-primary-action,
+.detail-link-primary,
+.community-review-toggle {
+  border: 1px solid rgba(var(--detail-accent-rgb), 0.6);
+  background: linear-gradient(180deg, rgba(var(--detail-accent-rgb), 0.3), rgba(var(--detail-accent-rgb), 0.16));
+  color: #fff;
+}
+
+.detail-secondary-action,
+.detail-archive-link,
+.community-review-clear,
+.community-review-link {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 11, 14, 0.72);
+  color: var(--text-primary);
+}
+
+.detail-primary-action:hover,
+.detail-primary-action:focus-visible,
+.detail-secondary-action:hover,
+.detail-secondary-action:focus-visible,
+.detail-archive-link:hover,
+.detail-archive-link:focus-visible,
+.detail-link-primary:hover,
+.detail-link-primary:focus-visible,
+.community-review-toggle:hover,
+.community-review-toggle:focus-visible,
+.community-review-link:hover,
+.community-review-link:focus-visible,
+.community-review-clear:hover,
+.community-review-clear:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.detail-primary-action-compact {
+  min-height: 44px;
+  justify-self: start;
+}
+
+.detail-cover-column {
+  justify-self: end;
+  width: min(100%, 360px);
+}
+
+.detail-cover-card {
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 100%),
+    rgba(7, 10, 13, 0.78);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.detail-cover-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.detail-best-for-strip,
+.detail-section,
+.detail-side-card {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--detail-border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 100%),
+    var(--detail-surface);
+  box-shadow: var(--detail-shadow-soft);
+}
+
+.detail-section::before,
+.detail-side-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--detail-accent-rgb), 0.9), transparent);
+  opacity: 0.58;
+}
+
+.detail-best-for-strip {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+}
+
+.detail-best-for-label {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.detail-best-for-list,
+.detail-discovery-chip-row,
+.detail-side-chip-row,
+.detail-fact-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detail-best-for-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding-right: 12px;
+  color: var(--text-primary);
+}
+
+.detail-best-for-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid rgba(var(--detail-accent-rgb), 0.32);
+  background:
+    linear-gradient(180deg, rgba(var(--detail-accent-rgb), 0.18), rgba(var(--detail-accent-rgb), 0.08)),
+    rgba(6, 8, 11, 0.68);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.detail-best-for-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.detail-best-for-text {
+  max-width: 18ch;
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.detail-content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 22px;
+  align-items: start;
+}
+
+.detail-main-stack {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  display: grid;
+  gap: 22px;
+  align-content: start;
+}
+
+.detail-content-layout > .detail-community-slot {
+  display: none;
+}
+
+.detail-content-layout > .community-review-panel {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.detail-content-layout > .detail-similar-section,
+.detail-content-layout > .detail-collections-section,
+.detail-content-layout > .detail-correction-section {
+  grid-column: 1 / -1;
+}
+
+.detail-main-column {
+  display: grid;
+  gap: 22px;
+}
+
+.detail-side-rail {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  gap: 16px;
+}
+
+.detail-side-card-header,
+.detail-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.detail-side-card-header h2,
+.detail-section-header h2 {
+  font-size: clamp(1.4rem, 1.8vw, 1.95rem);
+  color: var(--text-primary);
+}
+
+.detail-side-card p,
+.detail-section-header p,
+.detail-card-copy p,
+.detail-thoughts p,
+.detail-summary p,
+.detail-side-note,
+.detail-meta-note,
+.detail-score-card-header p,
+.community-review-summary,
+.detail-fact-row dd,
+.detail-link-status,
+.detail-empty-state p {
+  color: var(--text-secondary);
+}
+
+.detail-side-note {
+  margin-top: 14px;
+  line-height: 1.55;
+}
+
+.detail-summary-official {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+    rgba(7, 10, 13, 0.7);
+}
+
+.detail-fact-list {
+  display: grid;
+  gap: 14px;
+}
+
+.detail-fact-row {
+  display: grid;
+  grid-template-columns: minmax(0, 136px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.detail-fact-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.detail-fact-row dt {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detail-fact-row dd {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.detail-fact-value.is-empty,
+.detail-link-status.is-empty {
+  color: rgba(220, 225, 228, 0.58);
+}
+
+.detail-link-cluster {
+  display: grid;
+  gap: 12px;
+}
+
+.detail-link-primary {
+  justify-self: start;
+  min-height: 44px;
+}

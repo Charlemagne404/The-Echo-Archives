@@ -1,0 +1,132 @@
+
+.empty-state-card {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 100%),
+    rgba(9, 12, 16, 0.86);
+  box-shadow: var(--shadow-md);
+}
+
+.empty-state-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.empty-state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detail-similar-reason {
+  margin-bottom: 10px;
+  color: rgba(229, 72, 56, 0.92);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  #site-footer {
+    grid-template-columns: minmax(250px, 1fr) minmax(0, 1.6fr);
+  }
+
+  .footer-support-panel {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1.15fr) auto;
+    align-items: center;
+    gap: 18px 24px;
+  }
+
+  .footer-support-copy {
+    max-width: none;
+  }
+
+  .footer-support-actions {
+    width: min(100%, 470px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-self: end;
+  }
+}
+
+@media (max-width: 1180px) {
+  .site-header {
+    padding-right: 0;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .site-nav,
+  .header-actions {
+    justify-content: center;
+  }
+
+  .header-actions {
+    position: static;
+  }
+
+  .hero-panel {
+    min-height: 390px;
+    gap: 20px;
+    padding: 28px;
+  }
+
+  .podcast-card-grid,
+  #podcast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .popular-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-split-card,
+  .about-two-column,
+  .supporters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-split-media {
+    min-height: 210px;
+  }
+
+  .about-split-media img {
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, #000 18%, #000 82%, transparent 100%);
+  }
+
+  .about-founder-card,
+  .about-continental-card,
+  .supporters-band {
+    padding-right: 210px;
+  }
+
+  .archive-trust-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+  }
+
+  .collection-directory-grid {
+    grid-template-columns: 1fr;
+  }
+}

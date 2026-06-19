@@ -1,0 +1,247 @@
+@media (max-width: 780px) {
+  .site-header,
+  .home-main {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .site-header {
+    padding-top: 18px;
+    gap: 16px;
+  }
+
+  .site-brand img {
+    width: min(100%, 265px);
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 18px 24px;
+  }
+
+  .hero-panel {
+    min-height: 0;
+    padding: 22px;
+    background-position: center;
+  }
+
+  .hero-copy h1 {
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 11vw, 3.9rem);
+    white-space: normal;
+  }
+
+  .hero-copy p {
+    max-width: 24rem;
+    font-size: 1rem;
+  }
+
+  .home-page #chat-toggle.chat-toggle-button {
+    right: 16px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .home-page .search-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-actions {
+    gap: 12px;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .search-field,
+  #filterToggle {
+    min-height: 56px;
+  }
+
+  .home-page #search {
+    min-height: 54px;
+    padding: 14px 12px 14px 44px;
+    font-size: 0.92rem;
+  }
+
+  .search-icon {
+    left: 14px;
+  }
+
+  .section-heading,
+  .podcast-card-grid,
+  .chat-input-area,
+  footer {
+    grid-template-columns: 1fr;
+  }
+
+  #podcast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-link {
+    font-size: 0.88rem;
+  }
+
+  .results-summary {
+    white-space: normal;
+  }
+
+  .active-browse-state {
+    align-items: flex-start;
+  }
+
+  .home-page .podcast-card {
+    --editorial-corner-width: 34px;
+    --editorial-corner-top: -6px;
+    --editorial-corner-left: 6px;
+    --editorial-ribbon-width: 126px;
+    --editorial-ribbon-height: 24px;
+    --editorial-ribbon-top: 65px;
+    --editorial-ribbon-right: -30px;
+    --editorial-ribbon-tail-width: 36px;
+  }
+
+  .home-page .editorial-badge-corner {
+    left: var(--editorial-corner-left);
+  }
+
+  .home-page .popular-card-body {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .home-page .popular-card-title {
+    font-size: clamp(1.28rem, 4vw, 1.5rem);
+  }
+
+  .home-page .home-card-preview {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "media"
+      "content"
+      "footer";
+    grid-template-rows: auto auto auto;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .home-page .home-card-preview-content {
+    gap: 10px;
+  }
+
+  .home-page .home-card-preview-copy {
+    gap: 14px;
+  }
+
+  .home-page .home-card-preview-copy-body {
+    gap: 10px;
+  }
+
+  .home-page .home-card-preview-title {
+    font-size: clamp(1.48rem, 4.6vw, 1.88rem);
+  }
+
+  .home-page .home-card-preview-footer {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .home-page .home-card-preview-ratings {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .home-page .preview-open-link {
+    min-width: 0;
+    width: auto;
+  }
+
+  .home-page .preview-close-button {
+    top: 10px;
+    right: 10px;
+  }
+
+  .home-page .preview-good-for {
+    font-size: 0.86rem;
+  }
+
+  .home-page .preview-take {
+    max-width: none;
+    padding-top: 12px;
+    font-size: 0.8rem;
+  }
+
+  .archive-trust-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-top: 14px;
+  }
+
+  .quick-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    gap: 10px;
+    padding-bottom: 0;
+  }
+
+  .browse-modes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-filter {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .filter-group-options {
+    grid-template-columns: 1fr;
+  }
+
+  #site-footer {
+    padding: 20px 16px 22px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: left;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 18px;
+    padding-top: 0;
+  }
+
+  .footer-brand-mark {
+    max-width: min(100%, 240px);
+  }
+
+  .footer-brand-mark img {
+    width: min(100%, 240px);
+  }
+
+  .footer-brand-note {
+    max-width: none;
+  }
+
+  .footer-meta-row {
+    gap: 8px;
+  }
+
+  .footer-support-panel {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 16px;
+  }
+
+}

@@ -1,0 +1,161 @@
+@media (max-width: 1180px) {
+  .creators-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .creator-action-grid,
+  .creator-standard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .creator-spotlight-grid {
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 18px 20px;
+  }
+
+  .creator-spotlight-profile {
+    grid-column: 1 / -1;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 16px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .creator-solidarity-band {
+    grid-template-columns: 96px minmax(0, 1fr);
+    padding: 0 24px;
+  }
+
+  .creator-band-copy {
+    padding-right: 0;
+  }
+
+  .creator-band-rail {
+    grid-column: 1 / -1;
+    margin-left: 96px;
+    padding: 0 0 28px;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .creator-band-copy h2 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 920px) {
+  .creator-process-flow,
+  .creator-list-grid,
+  .creator-two-column,
+  .creator-standards-note-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .creator-spotlight-grid {
+    grid-template-columns: 148px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .creator-spotlight-cover {
+    min-height: 192px;
+  }
+
+  .creator-spotlight-title-row h3 {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+  }
+
+  .creator-spotlight-metadata-rail {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .creator-spotlight-metadata-rail div,
+  .creator-spotlight-metadata-rail div + div {
+    padding: 0;
+    border-left: 0;
+  }
+
+  .creator-spotlight-profile {
+    grid-template-columns: auto 1fr;
+    gap: 14px 16px;
+  }
+
+  .creator-spotlight-profile .creator-inline-link {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 780px) {
+  .creators-hero-panel,
+  .creator-standards-hero-panel {
+    min-height: 0;
+    padding: 24px 22px;
+    background-position: center;
+  }
+
+  .creators-stat-grid,
+  .creator-action-grid,
+  .creator-standard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .creator-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .creator-hero-actions .about-cta,
+  .creator-band-actions .about-cta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .creator-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 4px 0 0;
+  }
+
+  .creator-spotlight-cover {
+    width: min(172px, 48vw);
+    min-height: 0;
+    aspect-ratio: 0.78;
+  }
+
+  .creator-spotlight-profile {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    padding-top: 14px;
+  }
+
+  .creator-section-header {
+    align-items: start;
+  }
+
+  .creator-solidarity-band {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding: 22px 20px;
+    gap: 18px;
+  }
+
+  .creator-band-mark {
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .creator-band-copy {
+    padding: 0;
+  }
+
+  .creator-band-rail {
+    margin-left: 0;
+    padding: 18px 0 0;
+    gap: 16px;
+  }
+
+  .creator-band-link {
+    font-size: 0.96rem;
+  }
+}

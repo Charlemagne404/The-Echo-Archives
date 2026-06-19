@@ -1,0 +1,346 @@
+.submit-step-number {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(229, 72, 56, 0.88);
+  background: rgba(4, 6, 8, 0.4);
+  color: #fff;
+  font-size: 1.12rem;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.submit-step-copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.submit-step-copy strong {
+  color: var(--text-primary);
+  font-size: 1.02rem;
+  line-height: 1.2;
+}
+
+.submit-step-copy span {
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+  line-height: 1.44;
+}
+
+.submit-step-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: rgba(247, 247, 243, 0.3);
+  align-self: center;
+  justify-self: center;
+}
+
+.submit-mode-card-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.submit-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.68fr) minmax(310px, 0.92fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.submit-form-surface {
+  padding: 20px 18px 18px;
+}
+
+.submit-remake-form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.submit-dynamic-fields {
+  display: grid;
+  gap: 18px;
+}
+
+.submit-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.submit-form-row--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.submit-field {
+  display: grid;
+  gap: 8px;
+}
+
+.submit-field-label {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.submit-field-label-main {
+  min-width: 0;
+}
+
+.submit-required {
+  display: inline-block;
+  margin-left: 4px;
+  color: #ff5d4b;
+  font-size: 0.98em;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.submit-field-helper {
+  color: rgba(247, 247, 243, 0.48);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.submit-page .submit-remake-form input:not([type="checkbox"]):not([type="radio"]),
+.submit-page .submit-remake-form textarea,
+.submit-page .submit-remake-form select {
+  width: 100%;
+  margin: 0;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(5, 8, 11, 0.86);
+  color: var(--text-primary);
+  font: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.submit-page .submit-remake-form textarea {
+  min-height: 120px;
+  padding-bottom: 32px;
+  resize: vertical;
+}
+
+.submit-page .submit-remake-form textarea.submit-short-textarea {
+  min-height: 108px;
+}
+
+.submit-page .submit-remake-form input::placeholder,
+.submit-page .submit-remake-form textarea::placeholder {
+  color: rgba(247, 247, 243, 0.38);
+}
+
+.submit-page .submit-remake-form input:focus,
+.submit-page .submit-remake-form textarea:focus,
+.submit-page .submit-remake-form select:focus {
+  outline: none;
+  border-color: rgba(229, 72, 56, 0.52);
+  box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.14);
+}
+
+.submit-page .submit-remake-form select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(247, 247, 243, 0.7) 50%),
+    linear-gradient(135deg, rgba(247, 247, 243, 0.7) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 23px, calc(100% - 15px) 23px;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.submit-textarea-shell {
+  position: relative;
+}
+
+.submit-textarea-counter {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  color: rgba(247, 247, 243, 0.42);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.submit-tag-picker {
+  position: relative;
+  display: grid;
+}
+
+.submit-tag-picker-input {
+  min-height: 56px;
+  padding: 10px 10px 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  background: rgba(5, 8, 11, 0.86);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.submit-tag-picker-input:focus-within {
+  border-color: rgba(229, 72, 56, 0.52);
+  box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.14);
+}
+
+.submit-tag-picker-values {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.submit-tag-input {
+  min-width: 132px;
+  flex: 1 1 132px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0;
+  box-shadow: none;
+}
+
+.submit-page .submit-remake-form .submit-tag-input {
+  width: auto;
+  min-height: 32px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.submit-page .submit-remake-form .submit-tag-input:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.submit-tag-input::placeholder {
+  color: rgba(247, 247, 243, 0.38);
+}
+
+.submit-tag-input:disabled {
+  cursor: not-allowed;
+}
+
+.submit-tag-picker-toggle {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(247, 247, 243, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.submit-tag-picker-toggle:hover,
+.submit-tag-picker-toggle:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(247, 247, 243, 0.9);
+  transform: translateY(-1px);
+}
+
+.submit-tag-picker-toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
+.submit-tag-picker-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.submit-tag-picker-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 8;
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(8, 11, 15, 0.9);
+  box-shadow: var(--shadow-md);
+}
+
+.submit-tag-picker-menu[hidden] {
+  display: none;
+}
+
+.submit-tag-picker-meta,
+.submit-tag-picker-empty {
+  margin: 0;
+  color: rgba(247, 247, 243, 0.58);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.submit-tag-limit {
+  margin: 8px 0 0;
+  color: rgba(255, 132, 118, 0.92);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.submit-tag-action {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px dashed rgba(229, 72, 56, 0.44);
+  background: rgba(229, 72, 56, 0.08);
+  color: #fff1ee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.submit-tag-action:hover,
+.submit-tag-action:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(229, 72, 56, 0.7);
+  background: rgba(229, 72, 56, 0.14);
+}
+
+.submit-tag-action-label {
+  font-size: 0.84rem;
+  color: rgba(247, 247, 243, 0.68);
+}
+
+.submit-tag-action-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.submit-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.submit-chip-group--menu {
+  gap: 9px;
+}
