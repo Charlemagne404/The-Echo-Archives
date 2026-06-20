@@ -1,37 +1,39 @@
 ## Current task
 
-Add a protected maintainer submissions workspace so archive intake can be reviewed in the browser instead of by inspecting raw files or SQLite directly.
+Polish the `What you can do` and `How it works` sections on the `for-creators` page so they feel less flat while keeping the existing dark archive identity, section order, and creator flows intact.
 
 ## Files changed
 
-- Backend config and routes: `podcast-ai/lib/config.js`, `podcast-ai/lib/maintainer-auth.js`, `podcast-ai/lib/routes/maintainer-routes.js`, `podcast-ai/server.js`
-- Submission storage and service layer: `podcast-ai/lib/store/database.js`, `podcast-ai/lib/store/submission-store.js`, `podcast-ai/lib/services/submission-service.js`
-- Maintainer UI source: `site-src/page-manifest.json`, `site-src/pages/maintainer/submissions.html`, `site-src/pages/maintainer/report.html`
-- Maintainer runtime and styles: `shared/app/app.js`, `shared/app/pages/maintainer.js`, `shared/app/maintainer/*`, `shared/styles/home/maintainer.css`, `shared/styles/home/maintainer/*`, `home.css`, `script.js`, `site-src/partials/header.html`, `tools/build-pages.js`
-- Tests and docs: `podcast-ai/test/maintainer.test.js`, `podcast-ai/test/site-structure.test.js`, `docs/OPERATIONS.md`, `docs/ARCHITECTURE.md`, `podcast-ai/README.md`
-- Regenerated public output: root generated HTML plus `maintainer/submissions.html` and `maintainer/submissions/report.html`
+- Creator page source: `site-src/pages/for-creators.html`
+- Action/process section styles: `shared/styles/home/creators/01-hero-actions.css`
+- Step marker styling: `shared/styles/home/creators/02-process-spotlight.css`
+- Creator responsive rules: `shared/styles/home/creators/04-responsive.css`
+- Generated page output: `for-creators.html`
+- Task handoff: `HANDOFF.md`
 
 ## What was completed
 
-- Added passphrase-gated maintainer session handling with cookie-backed access for the internal queue and report routes.
-- Added typed submission listing, filtering, detail fetch, and review update APIs, including `priority`, `review_notes`, `reviewed_by`, and `reviewed_at` support.
-- Added a browser queue view with login, summary cards, filters, paginated list/detail layout, and review-state save actions.
-- Added a print-friendly HTML report view for the same queue data.
-- Fixed nested-route asset loading by switching generated shared asset URLs to absolute site-root paths.
-- Fixed hidden-state rendering so the auth and app shells swap correctly on both queue and report pages.
-- Added maintainer backend test coverage and kept the full repo verify green.
+- Added small structural wrappers inside the creator action cards so icon, copy, and CTA rows align consistently and hold equal-height behavior more cleanly.
+- Reworked the `What you can do` cards with subtler icon halos, stronger title/body/CTA hierarchy, a restrained footer divider, and calmer card depth.
+- Differentiated `How it works` from the action cards by adding a simplified desktop process rail, stronger numbered markers, and a cleaner step header layout.
+- Converted the process section into a true vertical sequence on narrow screens by hiding the horizontal rail and adding a left-side connector treatment.
+- Rebuilt the generated page output and validated the updated sections visually on desktop and responsive mobile using the local app.
+- Ran the full repo verification suite; it passes, including the existing creators-page smoke coverage.
 
 ## What still needs work
 
-- No functional follow-up is required for this pass unless you want publish-helper actions wired into the maintainer queue later.
+- No known follow-up from this pass for these two sections.
+- The mobile screenshots still show the existing fixed page controls near the lower-right edge when that part of the page is in view; this pass did not change those global controls.
 
 ## Commands run
 
 - `rtk npm run build:pages`
-- `rtk npm run check:structure`
-- `rtk npm --prefix podcast-ai test`
+- `PORT=3310 SERVE_STATIC=true STATIC_ROOT=/Users/charliearnerstal/Documents/GitHub/The-Echo-Archives DB_PATH=/tmp/echo-archives-ui.sqlite OLLAMA_URL=http://127.0.0.1:9/api/generate rtk npm --prefix podcast-ai run dev`
+- `rtk npx playwright --version`
+- `rtk node -e 'const { chromium } = require("playwright"); ...'`
 - `rtk npm run verify`
 
 ## Known issues
 
-- None found in the final pass. Manual browser QA covered login, queue rendering, review-state saving, report rendering, and mobile layout on `http://127.0.0.1:3415/maintainer/submissions.html`.
+- Full verification passes in the current workspace.
+- There are unrelated existing worktree changes outside this pass, including prior `for-creators` and creator stylesheet edits already present before these action/process section updates.

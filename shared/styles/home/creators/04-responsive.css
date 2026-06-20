@@ -4,7 +4,8 @@
   }
 
   .creator-action-grid,
-  .creator-standard-grid {
+  .creator-standard-grid,
+  .creator-standard-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -27,25 +28,21 @@
   }
 
   .creator-solidarity-band {
-    grid-template-columns: 96px minmax(0, 1fr);
-    padding: 0 24px;
-  }
-
-  .creator-band-copy {
-    padding-right: 0;
+    grid-template-columns: 106px minmax(0, 1fr) 500px;
   }
 
   .creator-band-rail {
-    grid-column: 1 / -1;
-    margin-left: 96px;
-    padding: 0 0 28px;
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 24px;
   }
 
-  .creator-band-copy h2 {
-    max-width: none;
+  .creator-band-note {
+    max-width: 32ch;
   }
+
+  .creator-band-actions .about-cta {
+    min-width: 176px;
+  }
+
 }
 
 @media (max-width: 920px) {
@@ -54,6 +51,60 @@
   .creator-two-column,
   .creator-standards-note-grid {
     grid-template-columns: 1fr;
+  }
+
+  .creator-process-track {
+    display: none;
+  }
+
+  .creator-step-card {
+    position: relative;
+    gap: 12px;
+  }
+
+  .creator-step-card::before {
+    content: "";
+    position: absolute;
+    top: 54px;
+    bottom: -12px;
+    left: 41px;
+    width: 1px;
+    background: rgba(239, 89, 67, 0.16);
+  }
+
+  .creator-step-card:last-child::before {
+    display: none;
+  }
+
+  .creator-step-head {
+    align-items: start;
+  }
+
+  .creator-step-index::after {
+    display: none;
+  }
+
+  .creator-standard-panel {
+    gap: 22px;
+    padding: 20px 20px 18px;
+  }
+
+  .creator-standard-columns {
+    gap: 18px;
+  }
+
+  .creator-standard-column,
+  .creator-standard-grid {
+    gap: 16px 18px;
+  }
+
+  .creator-standard-item {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .creator-standard-item p {
+    max-width: 30ch;
   }
 
   .creator-spotlight-feature {
@@ -82,6 +133,27 @@
   .creator-spotlight-profile .creator-inline-link {
     grid-column: 1 / -1;
   }
+
+  .creator-solidarity-band {
+    grid-template-columns: 112px minmax(0, 1fr);
+    padding: 0 24px 0 20px;
+  }
+
+  .creator-band-copy {
+    padding-right: 0;
+  }
+
+  .creator-band-rail {
+    grid-column: 1 / -1;
+    margin-left: 112px;
+    padding: 0 0 28px;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .creator-band-copy h2 {
+    max-width: 11.6ch;
+  }
 }
 
 @media (max-width: 780px) {
@@ -94,8 +166,45 @@
 
   .creators-stat-grid,
   .creator-action-grid,
-  .creator-standard-grid {
+  .creator-standard-grid,
+  .creator-standard-columns {
     grid-template-columns: 1fr;
+  }
+
+  .creator-action-card {
+    gap: 12px;
+    padding: 16px 16px 14px;
+  }
+
+  .creator-action-card-main {
+    gap: 12px;
+  }
+
+  .creator-action-card-footer {
+    padding-top: 11px;
+  }
+
+  .creator-standard-section {
+    padding: 8px;
+  }
+
+  .creator-standard-panel {
+    gap: 18px;
+    padding: 18px 16px 16px;
+  }
+
+  .creator-standard-columns,
+  .creator-standard-column {
+    gap: 16px;
+  }
+
+  .creator-standard-intro {
+    gap: 7px;
+  }
+
+  .creator-standard-intro p,
+  .creator-standard-item p {
+    max-width: none;
   }
 
   .creator-hero-actions {
@@ -145,11 +254,38 @@
     align-items: start;
   }
 
+  .creator-step-card::before {
+    left: 40px;
+    bottom: -10px;
+  }
+
+  .creator-step-index {
+    width: 44px;
+    height: 44px;
+    font-size: 1.24rem;
+  }
+
+  .creator-standard-link {
+    font-size: 0.94rem;
+  }
+
+  .creator-faq-toggle {
+    padding: 17px 18px;
+  }
+
+  .creator-faq-answer {
+    padding: 0 18px 18px;
+  }
+
+  .creator-faq-answer-inner {
+    padding: 14px 15px;
+  }
+
   .creator-solidarity-band {
     grid-template-columns: 1fr;
     min-height: 0;
-    padding: 22px 20px;
-    gap: 18px;
+    padding: 24px 20px 22px;
+    gap: 16px;
   }
 
   .creator-band-mark {
@@ -157,17 +293,50 @@
     padding: 0;
   }
 
+  .creator-cta-icon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .creator-cta-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
   .creator-band-copy {
     padding: 0;
+  }
+
+  .creator-band-copy h2 {
+    max-width: none;
+    font-size: clamp(1.92rem, 9vw, 2.36rem);
+    line-height: 1.05;
+  }
+
+  .creator-band-heading-line,
+  .creator-band-link-line {
+    white-space: normal;
   }
 
   .creator-band-rail {
     margin-left: 0;
     padding: 18px 0 0;
-    gap: 16px;
+    gap: 14px;
+  }
+
+  .creator-band-note {
+    max-width: 24ch;
+  }
+
+  .creator-band-actions {
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 14px;
   }
 
   .creator-band-link {
-    font-size: 0.96rem;
+    max-width: none;
+    font-size: 0.98rem;
+    grid-template-columns: auto 16px;
   }
 }

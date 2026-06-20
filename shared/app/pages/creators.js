@@ -196,25 +196,55 @@ function getReleaseYear(show) {
 }
 
 function initializeCreatorFaq() {
-  document.querySelectorAll(".creator-faq-toggle").forEach((button) => {
+  const items = Array.from(document.querySelectorAll(".creator-faq-item"));
+
+  function setFaqItemExpanded(item, expanded) {
+    if (!(item instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = item.querySelector(".creator-faq-toggle");
     if (!(button instanceof HTMLButtonElement)) {
       return;
     }
 
+    const panelId = button.getAttribute("aria-controls");
+    if (!panelId) {
+      return;
+    }
+
+    const panel = document.getElementById(panelId);
+    if (!panel) {
+      return;
+    }
+
+    button.setAttribute("aria-expanded", String(expanded));
+    panel.hidden = !expanded;
+    item.classList.toggle("is-open", expanded);
+  }
+
+  items.forEach((item) => {
+    if (!(item instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = item.querySelector(".creator-faq-toggle");
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    setFaqItemExpanded(item, button.getAttribute("aria-expanded") === "true");
+
     button.addEventListener("click", () => {
-      const panelId = button.getAttribute("aria-controls");
-      if (!panelId) {
-        return;
-      }
+      const shouldExpand = button.getAttribute("aria-expanded") !== "true";
 
-      const panel = document.getElementById(panelId);
-      if (!panel) {
-        return;
-      }
+      items.forEach((otherItem) => {
+        if (otherItem !== item) {
+          setFaqItemExpanded(otherItem, false);
+        }
+      });
 
-      const isExpanded = button.getAttribute("aria-expanded") === "true";
-      button.setAttribute("aria-expanded", String(!isExpanded));
-      panel.hidden = isExpanded;
+      setFaqItemExpanded(item, shouldExpand);
     });
   });
 }
