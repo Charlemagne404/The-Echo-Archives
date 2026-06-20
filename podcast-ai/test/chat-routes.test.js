@@ -153,3 +153,74 @@ test("chat route keeps recommendations available for mixed help prompts", async 
     await closeChatTestServer(context.server);
   }
 });
+
+test("chat route answers regular creator questions with grounded show metadata", async () => {
+  const context = await createChatTestServer();
+  const creatorShow = context.catalog.find((show) => Array.isArray(show.creators) && show.creators.length > 0);
+  assert.ok(creatorShow, "Expected at least one show with creator metadata.");
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: `Who made ${creatorShow.title}?`,
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.equal(result.body.recommendations.length, 0);
+    assert.match(result.body.answer, new RegExp(creatorShow.title, "i"));
+    assert.match(result.body.answer, new RegExp(creatorShow.creators[0], "i"));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route returns related cards for similarity questions", async () => {
+  const context = await createChatTestServer();
+  const similarShow = context.catalog.find((show) => Array.isArray(show.similarTo) && show.similarTo.length > 0);
+  assert.ok(similarShow, "Expected at least one show with similar links.");
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: `What is ${similarShow.title} similar to?`,
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.ok(result.body.recommendations.length > 0);
+    assert.ok(result.body.recommendations.every((entry) => entry.title !== similarShow.title));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route answers archive overview questions without falling back", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "How many shows are in the archive?",
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.match(result.body.answer, /published shows/i);
+    assert.match(result.body.answer, new RegExp(String(context.catalog.length), "i"));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});

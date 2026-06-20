@@ -1,45 +1,33 @@
 ## Current task
 
-Implement the future-proof structural plan: add a root command surface, generate committed root HTML from authored sources, split oversized runtime/style modules, move active-vs-archival assets into clearer locations, and add repo guardrails.
+Stabilize the shared header on secondary pages so `For creators` stays in the top nav, and add an easy return path on `Supporters`, `Privacy`, `Terms`, and `Cookies`.
 
 ## Files changed
 
-- Root tooling and docs: `package.json`, `tools/build-pages.js`, `tools/check-structure.js`, `README.md`, `docs/ARCHITECTURE.md`, `docs/OPERATIONS.md`, `.github/workflows/verify.yml`, `.gitignore`, `HANDOFF.md`
-- Generated-page source and output: `site-src/`, root `index.html`, `about.html`, `collections.html`, `collection.html`, `show.html`, `submit.html`, `for-creators.html`, `creator-standards.html`, `supporters.html`, `privacy.html`, `terms.html`, `cookies.html`
-- Runtime/module splits: `shared/app/chat/`, `shared/app/community/`, `shared/app/home-preview/`, `shared/app/pages/home/`, `shared/app/pages/submit/`, `shared/app/render-cards/`, `shared/app/render-show/`, `shared/app/submit/config/`, `shared/app/submit/render/`
-- Style splits: `shared/styles/base/global/`, `shared/styles/home/cards/`, `shared/styles/home/creators/`, `shared/styles/home/submit/`, `shared/styles/show/sections/`
-- Ownership moves: `shared/config/legacy-redirects.json`, `docs/archive/data/shows_old.json`, `docs/research/concepts/`
-- Tests touched: `podcast-ai/test/site-structure.test.js`, `podcast-ai/test/browser.smoke.js`
+- Shared generator/runtime: `tools/build-pages.js`, `script.js`, `shared/app/app.js`, `home.css`
+- Secondary-page source content: `site-src/pages/privacy.html`, `site-src/pages/terms.html`, `site-src/pages/cookies.html`, `site-src/pages/supporters.html`
+- Shared styling: `shared/styles/home/cards/14-about-features.css`, `shared/styles/home/cards/18-responsive-780-b.css`
+- Regenerated public output: root `about.html`, `collection.html`, `collections.html`, `cookies.html`, `creator-standards.html`, `for-creators.html`, `index.html`, `privacy.html`, `show.html`, `submit.html`, `supporters.html`, `terms.html`
 
 ## What was completed
 
-- Added a root command surface with `dev`, `build:pages`, `check:structure`, and `verify`.
-- Introduced `site-src/` plus a page manifest and shared partials, then regenerated committed root HTML with a generated-file banner.
-- Moved the active redirect manifest to `shared/config/legacy-redirects.json` and updated tests to read it there.
-- Moved archival-only data and concept assets out of active runtime paths.
-- Removed tracked `tmp/` ownership and ignored future temp output.
-- Split the large runtime JS files under `shared/app/` so the line-cap guard now passes across the whole runtime tree.
-- Split oversized CSS entry files into import-based partials while keeping the public CSS entry filenames stable.
-- Added repo-level structure checks and CI, including a stale-generated-output gate in GitHub Actions.
-- Updated docs so source/output/runtime/archive boundaries are explicit.
-- Verified the page generator is deterministic across consecutive runs.
+- Kept the primary nav fixed to `Browse`, `Collections`, `About`, `Submit`, `For creators` across generated pages.
+- Removed the old behavior that swapped `Supporters`, `Privacy`, `Terms`, or `Cookies` into the fifth nav slot.
+- Added a shared history-aware back CTA that returns to the previous in-site page when possible and falls back to `About` or `Browse` on direct visits.
+- Added a small shared hero-actions layout so the new CTA works on desktop and mobile without changing the site’s overall header feel.
 
 ## What still needs work
 
-- Review whether the legacy show-page cover path for `midnight-burger` should be normalized. Manual browser QA found a 404 request for `shared/styles/show/sections/shows/midnight burger/MidnightBurger.jpeg`, which appears to be pre-existing catalog or asset-path drift rather than a refactor regression.
+- Nothing specific for this nav fix. Broader app/test issues below remain outside this change set.
 
 ## Commands run
 
 - `rtk npm run build:pages`
-- `rtk npm run check:structure`
 - `rtk npm run verify`
-- `rtk npm --prefix podcast-ai run validate:data`
-- `rtk npm --prefix podcast-ai run check:links`
-- `rtk npm --prefix podcast-ai test`
-- `rtk npm --prefix podcast-ai run test:smoke`
-- `rtk proxy node - <<'NODE' ...` for deterministic page-build verification and targeted Playwright route/runtime checks
+- `rtk node /tmp/echo-nav-qa.mjs`
+- `rtk node --input-type=module -e "...secondary page console check..."`
 
 ## Known issues
 
-- `npm run test:smoke` is quiet until completion in this environment, so progress looks like a hang even though the suite passes after about 47 seconds.
-- The `midnight-burger` detail page still requests one missing image asset path during manual Playwright QA.
+- `rtk npm run verify` still fails in the existing smoke suite at `podcast-ai/test/browser.smoke.js:1202` (`homepage expanding archive card supports stable hover, keyboard, touch, and compact anchored geometry`), which appears unrelated to this header/back-link change.
+- The in-app Browser plugin hit a local crash/URL-policy state on this localhost target during QA, so final rendered validation used Playwright fallback instead.

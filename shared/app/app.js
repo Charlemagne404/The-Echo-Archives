@@ -11,6 +11,7 @@ import { initializeSubmitPage } from "./pages/submit.js?v=6";
 export async function initializeApp() {
   initializeSharedChat();
   initializeBackToTop();
+  initializeHistoryBackLinks();
 
   if (document.body.classList.contains("home-page") && document.getElementById("podcast-grid")) {
     await initializeHomePage();
@@ -43,6 +44,62 @@ export async function initializeApp() {
   if (document.body.classList.contains("creator-standards-page")) {
     initializeCreatorStandardsPage();
   }
+}
+
+function initializeHistoryBackLinks() {
+  const historyBackLinks = Array.from(document.querySelectorAll("[data-history-back]"));
+
+  if (historyBackLinks.length === 0) {
+    return;
+  }
+
+  const currentUrl = new URL(window.location.href);
+  const safeReferrer = getSafeHistoryReferrer(currentUrl);
+
+  historyBackLinks.forEach((link) => {
+    const labelNode = link.querySelector("[data-history-back-label]");
+    const fallbackLabel = link.dataset.fallbackLabel?.trim();
+
+    if (!safeReferrer) {
+      if (labelNode && fallbackLabel) {
+        labelNode.textContent = fallbackLabel;
+      }
+      return;
+    }
+
+    if (labelNode) {
+      labelNode.textContent = "Back to previous page";
+    }
+
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.history.back();
+    });
+  });
+}
+
+function getSafeHistoryReferrer(currentUrl) {
+  if (!document.referrer) {
+    return null;
+  }
+
+  let referrerUrl;
+
+  try {
+    referrerUrl = new URL(document.referrer);
+  } catch {
+    return null;
+  }
+
+  if (referrerUrl.origin !== currentUrl.origin) {
+    return null;
+  }
+
+  if (referrerUrl.href === currentUrl.href) {
+    return null;
+  }
+
+  return referrerUrl;
 }
 
 function initializeBackToTop() {

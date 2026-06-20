@@ -23,24 +23,9 @@ function renderTemplate(template, replacements) {
 function renderStylesheets(extraStylesheets = []) {
   return [
     '<link rel="stylesheet" href="style.css?v=12" />',
-    '<link rel="stylesheet" href="home.css?v=27" />',
+    '<link rel="stylesheet" href="home.css?v=28" />',
     ...extraStylesheets.map((href) => `<link rel="stylesheet" href="${href}" />`),
   ].join("\n");
-}
-
-function getFifthNavItem(activeNav) {
-  switch (activeNav) {
-    case "supporters":
-      return { id: "supporters", label: "Supporters", href: "/supporters.html" };
-    case "privacy":
-      return { id: "privacy", label: "Privacy", href: "/privacy.html" };
-    case "terms":
-      return { id: "terms", label: "Terms", href: "/terms.html" };
-    case "cookies":
-      return { id: "cookies", label: "Cookies", href: "/cookies.html" };
-    default:
-      return { id: "for-creators", label: "For creators", href: "/for-creators.html" };
-  }
 }
 
 function renderNavLinks(activeNav) {
@@ -49,7 +34,7 @@ function renderNavLinks(activeNav) {
     { id: "collections", label: "Collections", href: "/collections.html" },
     { id: "about", label: "About", href: "/about.html" },
     { id: "submit", label: "Submit", href: "/submit.html" },
-    getFifthNavItem(activeNav),
+    { id: "for-creators", label: "For creators", href: "/for-creators.html" },
   ];
 
   return navItems
@@ -79,7 +64,7 @@ function renderPage(entry, partials) {
     partials.footer,
     '  <script src="shared/archive-record.js?v=1"></script>',
     '  <script src="shared/archive-search.js?v=1"></script>',
-    '  <script type="module" src="script.js?v=21"></script>',
+    '  <script type="module" src="script.js?v=22"></script>',
   ]
     .filter(Boolean)
     .join("\n\n");

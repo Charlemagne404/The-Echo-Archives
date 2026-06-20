@@ -14,13 +14,13 @@ function applyChatCopy() {
   if (userInput) {
     userInput.placeholder = isCreatorsContext
       ? "Ask about creator verification, standards, or submissions"
-      : "Ask about the archive, a show, or how the site works";
+      : "Ask about the archive, a show, runtime, creators, or how the site works";
   }
 
   if (chatFootnote) {
     chatFootnote.textContent = isCreatorsContext
       ? "Ask how creator verification works, what stays editorially independent, or which submit path to use."
-      : "Ask for a recommendation, a correction path, rating help, privacy details, or what creator verified means.";
+      : "Ask for a recommendation, a correction path, creator or runtime details, privacy help, or what creator verified means.";
   }
 }
 

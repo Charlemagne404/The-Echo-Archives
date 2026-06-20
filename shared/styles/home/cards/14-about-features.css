@@ -256,10 +256,15 @@
 }
 
 .about-support-actions,
+.page-hero-actions,
 .supporters-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.page-hero-actions {
+  margin-top: 18px;
 }
 
 .about-cta {

@@ -56,6 +56,38 @@ test("promoteIntentWithMatches upgrades direct-title status questions into show 
   assert.equal(intent.helpTopic, "show-status");
 });
 
+test("classifyChatIntent recognizes regular show-fact questions on non-show pages", () => {
+  const intent = classifyChatIntent({
+    message: "Who made Midnight Burger?",
+    page: { pageType: "home" },
+  });
+
+  assert.equal(intent.primary, "site-help");
+  assert.equal(intent.helpTopic, "show-credits");
+  assert.equal(intent.includeRecommendations, false);
+});
+
+test("classifyChatIntent treats similarity questions as mixed so cards can stay visible", () => {
+  const intent = classifyChatIntent({
+    message: "What is Midnight Burger similar to?",
+    page: { pageType: "home" },
+  });
+
+  assert.equal(intent.primary, "mixed");
+  assert.equal(intent.helpTopic, "show-similar");
+  assert.equal(intent.includeRecommendations, true);
+});
+
+test("classifyChatIntent recognizes archive overview questions", () => {
+  const intent = classifyChatIntent({
+    message: "How many shows are in the archive?",
+    page: { pageType: "home" },
+  });
+
+  assert.equal(intent.primary, "site-help");
+  assert.equal(intent.helpTopic, "archive-stats");
+});
+
 test("classifyChatIntent keeps external playback problems inside site-help boundaries", () => {
   const intent = classifyChatIntent({
     message: "Spotify is not playing this episode. Can you fix it?",

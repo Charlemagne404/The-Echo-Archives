@@ -7,8 +7,12 @@ function isClarificationRequest(message = "") {
 }
 
 function buildRecommendationWhy(match) {
-  if (match.reasons.length > 0) {
-    return match.reasons.slice(0, 2).join(" and ");
+  const meaningfulReasons = Array.isArray(match.reasons)
+    ? match.reasons.filter((reason) => !/direct title match|title starts with|title lines up with/i.test(reason))
+    : [];
+
+  if (meaningfulReasons.length > 0) {
+    return meaningfulReasons.slice(0, 2).join(" and ");
   }
 
   if (match.bestFor.length > 0) {
@@ -17,6 +21,10 @@ function buildRecommendationWhy(match) {
 
   if (match.tags.length > 0) {
     return `fits ${match.tags.slice(0, 2).join(" and ")}`;
+  }
+
+  if (match.tones.length > 0) {
+    return `leans ${match.tones.slice(0, 2).join(" and ")}`;
   }
 
   return "fits the archive criteria you asked for";
@@ -39,12 +47,24 @@ function buildRecommendationCard(match) {
 function buildCandidateDigest(matches) {
   return matches.slice(0, 6).map((match) => ({
     title: match.title,
+    subtitle: match.subtitle,
     tags: match.tags,
+    genres: match.genres,
+    tones: match.tones,
+    formats: match.formats,
     rating: match.finalRating,
     summary: match.summary,
+    archiveTake: match.archiveTake,
     thoughts: match.thoughts,
     bestFor: match.bestFor,
     length: match.length,
+    creators: match.creators,
+    completionStatus: match.completionStatus,
+    reviewStatus: match.reviewStatus,
+    narrator: match.facts?.narrator || "",
+    transcripts: match.availability?.transcripts || "",
+    themes: match.themes,
+    contentNotes: match.contentNotes,
     similarTo: match.similarTo,
     why: buildRecommendationWhy(match),
   }));
@@ -56,6 +76,7 @@ function buildMessages({ message, history, matches }) {
     "Recommend only podcasts that appear in the candidate list.",
     "Do not invent titles, links, ratings, or details.",
     "Prefer 1 strong recommendation, with at most 2 alternates if the user asks broadly.",
+    "You may mention creator, completion status, format, runtime, transcript availability, or archive take only when present in the candidate data.",
     "Keep the answer concise: 2 to 4 short sentences.",
     "If the user is vague, ask for a genre, mood, or theme instead of guessing.",
     "Use a natural voice, not bullet points.",
@@ -95,12 +116,25 @@ function buildFallbackAnswer(message, matches) {
 
   const [first, second] = matches;
   const firstWhy = buildRecommendationWhy(first);
+  const firstSnapshot = buildShowSnapshot(first);
+  const firstTake = buildTakeSnippet(first);
+  const wantsRatedAnswer = /\btop rated\b|\bhighest rated\b|\bbest rated\b/i.test(message);
+  const wantsAlternates = shouldOfferAlternate(message, matches);
 
   if (!second) {
-    return `${first.title} is the strongest fit. It ${firstWhy}.`;
+    return compactSentences([
+      `${first.title} is the strongest fit.`,
+      `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
+      wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
+    ]);
   }
 
-  return `${first.title} is the strongest fit. If you want a nearby alternative, try ${second.title} too.`;
+  return compactSentences([
+    `${first.title} is the strongest fit.`,
+    `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
+    wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
+    wantsAlternates ? `If you want a nearby alternative, ${second.title} is the next clean fit.` : "",
+  ]);
 }
 
 function buildSuggestedPrompts(matches) {
@@ -115,11 +149,13 @@ function buildSuggestedPrompts(matches) {
     return defaultPrompts;
   }
 
+  const [topMatch] = matches;
+
   return [
-    `Tell me more about ${matches[0].title}`,
-    `Give me something like ${matches[0].title}`,
+    `Who made ${topMatch.title}?`,
+    `How long is ${topMatch.title}?`,
+    `What is ${topMatch.title} similar to?`,
     "Show me another finished pick",
-    "I want something easier to jump into",
   ];
 }
 
@@ -151,6 +187,65 @@ function sanitizeAnswerText(answer, fallback) {
   }
 
   return concise.length > 420 ? `${concise.slice(0, 417).trim()}...` : concise;
+}
+
+function buildShowSnapshot(match) {
+  const pieces = [];
+
+  if (match.completionStatus === "finished") {
+    pieces.push("it is finished");
+  } else if (match.completionStatus === "ongoing") {
+    pieces.push("it is ongoing");
+  }
+
+  const formatLabel = Array.isArray(match.formats) && match.formats.length > 0 ? match.formats[0].replace(/-/g, " ") : "";
+  const genreLabel =
+    Array.isArray(match.genres) && match.genres.length > 0 ? match.genres.slice(0, 2).join(" / ") : "";
+
+  if (formatLabel || genreLabel) {
+    pieces.push(`it is tagged ${[formatLabel, genreLabel].filter(Boolean).join(" ")}`);
+  }
+
+  if (Array.isArray(match.tones) && match.tones.length > 0) {
+    pieces.push(`the tone is ${match.tones.slice(0, 2).join(" and ")}`);
+  }
+
+  return pieces.slice(0, 2).join(", ");
+}
+
+function buildTakeSnippet(match) {
+  const archiveTake = String(match.archiveTake || "").trim();
+  if (archiveTake) {
+    return archiveTake.endsWith(".") ? archiveTake : `${archiveTake}.`;
+  }
+
+  const summary = String(match.summary || "").trim();
+  if (!summary) {
+    return "";
+  }
+
+  const sentence = (summary.match(/[^.!?]+[.!?]?/) || [summary])[0].trim();
+  return sentence;
+}
+
+function shouldOfferAlternate(message, matches) {
+  if (matches.length < 2) {
+    return false;
+  }
+
+  return /\banother\b|\balternative\b|\balternates\b|\boptions\b|\bfew\b|\bsome\b|\bshow me\b|\brecommend\b|\bsuggest\b/i.test(
+    message,
+  );
+}
+
+function compactSentences(sentences) {
+  return sentences
+    .filter(Boolean)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean)
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 module.exports = {

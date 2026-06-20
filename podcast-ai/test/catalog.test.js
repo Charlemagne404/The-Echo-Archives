@@ -159,6 +159,18 @@ test("scoreCatalog matches natural discovery phrases across status, intent, and 
   assert.equal(directTitle[0].title, "Derelict");
 });
 
+test("scoreCatalog now uses richer metadata like creators and source material", async () => {
+  const catalog = await loadCatalog(siteRoot);
+
+  const creatorMatch = scoreCatalog(catalog, "Jared Carter");
+  assert.ok(creatorMatch.length > 0);
+  assert.equal(creatorMatch[0].title, "Desert Skies");
+
+  const sourceMaterialMatch = scoreCatalog(catalog, "based on the novel");
+  assert.ok(sourceMaterialMatch.length > 0);
+  assert.equal(sourceMaterialMatch[0].title, "The Phenomenon");
+});
+
 test("loadCatalog merges companion review files into the returned show record", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
@@ -377,6 +389,41 @@ test("fallback answer asks for specificity when no clear match exists", () => {
   const answer = buildFallbackAnswer("hi", []);
 
   assert.match(answer, /finished or ongoing|mood|theme/i);
+});
+
+test("fallback answer now includes grounded recommendation detail", () => {
+  const answer = buildFallbackAnswer("Recommend a finished sci-fi show", [
+    {
+      title: "Impact Winter",
+      reasons: ["fits sci fi", "good for long walks"],
+      bestFor: ["long-walks"],
+      tags: ["Sci-fi", "Horror"],
+      tones: ["tense", "cinematic"],
+      formats: ["full-cast"],
+      genres: ["sci-fi", "horror"],
+      completionStatus: "finished",
+      finalRating: 10,
+      archiveTake: "A high-confidence recommendation when someone wants scope without losing warmth.",
+      summary: "A cold-world survival drama.",
+    },
+    {
+      title: "Derelict",
+      reasons: ["fits sci fi"],
+      bestFor: [],
+      tags: ["Sci-fi"],
+      tones: ["tense"],
+      formats: ["full-cast"],
+      genres: ["sci-fi"],
+      completionStatus: "ongoing",
+      finalRating: 9,
+      archiveTake: "",
+      summary: "A survival-forward sci-fi drama.",
+    },
+  ]);
+
+  assert.match(answer, /Impact Winter is the strongest fit/i);
+  assert.match(answer, /finished|tagged/i);
+  assert.match(answer, /Derelict/i);
 });
 
 test("sanitizeAnswerText removes generic model framing", () => {

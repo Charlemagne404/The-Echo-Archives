@@ -1610,7 +1610,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.waitForFunction(
       () =>
         Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
-          /Ask about a show, the archive, ratings, creator verification, submissions/i.test(node.textContent || ""),
+          /Ask about a show, the archive, ratings, creators, runtime, transcripts, collections/i.test(node.textContent || ""),
         ),
       undefined,
       { timeout: 5_000 },

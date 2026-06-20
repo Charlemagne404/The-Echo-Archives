@@ -1,13 +1,35 @@
 const { formatDate } = require("./site-help-format");
 
 function loadSiteHelpContext({ catalog, collections, archiveContext }) {
-  const fullReviewCount = catalog.filter((show) => show.reviewStatus === "full-review").length;
+  const publishedShows = catalog.filter((show) => show.status === "published");
+  const fullReviewShows = publishedShows.filter((show) => show.reviewStatus === "full-review");
+  const creatorVerifiedShows = publishedShows.filter((show) => Boolean(show.verification?.status));
+  const finishedShows = publishedShows.filter((show) => show.completionStatus === "finished");
+  const recentShows = [...publishedShows]
+    .filter((show) => show.createdAt)
+    .sort((left, right) => Date.parse(right.createdAt || 0) - Date.parse(left.createdAt || 0));
+  const topRatedShows = [...publishedShows].sort((left, right) => {
+    if ((right.finalRating || 0) !== (left.finalRating || 0)) {
+      return (right.finalRating || 0) - (left.finalRating || 0);
+    }
+
+    return left.title.localeCompare(right.title);
+  });
+  const featuredCollections = [...collections].sort((left, right) => {
+    if (Boolean(right.featured) !== Boolean(left.featured)) {
+      return Number(Boolean(right.featured)) - Number(Boolean(left.featured));
+    }
+
+    return left.title.localeCompare(right.title);
+  });
 
   return {
     counts: {
-      shows: catalog.length,
+      shows: publishedShows.length,
       collections: collections.length,
-      fullReviews: fullReviewCount,
+      fullReviews: fullReviewShows.length,
+      creatorVerifiedShows: creatorVerifiedShows.length,
+      finishedShows: finishedShows.length,
     },
     routes: {
       browse: { label: "Browse Archive", href: "/index.html#archive", external: false },
@@ -21,6 +43,14 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       contact: { label: "Contact Continental", href: "https://contact.continental-hub.com/", external: true },
     },
     featureAvailability: archiveContext?.featureAvailability || {},
+    showsById: new Map(publishedShows.map((show) => [show.id, show])),
+    archiveLists: {
+      topRatedShows,
+      recentShows,
+      creatorVerifiedShows,
+      fullReviewShows,
+      featuredCollections,
+    },
     submitModes: {
       show: "Submit a new show that belongs in the archive.",
       correction: "Report a factual metadata issue or broken link on an existing archive entry.",
@@ -43,10 +73,12 @@ function buildSiteHelpResponse({
   const show = resolveRelevantShow({ page, catalog, matches, message });
   const collection = resolveRelevantCollection({ page, collections });
   const topicResponse = buildTopicResponse({
+    message,
     topic: helpTopic,
     page,
     show,
     collection,
+    collections,
     siteHelpContext,
   });
 
@@ -54,11 +86,12 @@ function buildSiteHelpResponse({
     answer: topicResponse.answer,
     actions: topicResponse.actions,
     suggestedPrompts: topicResponse.suggestedPrompts,
+    recommendationIds: Array.isArray(topicResponse.recommendationIds) ? topicResponse.recommendationIds : [],
     source: "site-help",
   };
 }
 
-function buildTopicResponse({ topic, page, show, collection, siteHelpContext }) {
+function buildTopicResponse({ message, topic, page, show, collection, collections, siteHelpContext }) {
   switch (topic) {
     case "show-summary":
       return buildShowSummaryResponse(show, siteHelpContext);
@@ -66,10 +99,32 @@ function buildTopicResponse({ topic, page, show, collection, siteHelpContext }) 
       return buildShowStatusResponse(show, siteHelpContext);
     case "show-links":
       return buildShowLinksResponse(show, siteHelpContext);
+    case "show-runtime":
+      return buildShowRuntimeResponse(show, siteHelpContext);
+    case "show-credits":
+      return buildShowCreditsResponse(show, siteHelpContext);
+    case "show-format":
+      return buildShowFormatResponse(show, siteHelpContext);
+    case "show-transcripts":
+      return buildShowTranscriptsResponse(show, siteHelpContext);
+    case "show-content-notes":
+      return buildShowContentNotesResponse(show, siteHelpContext);
+    case "show-similar":
+      return buildShowSimilarResponse(show, siteHelpContext);
+    case "show-collections":
+      return buildShowCollectionsResponse(show, collections, siteHelpContext);
     case "ratings":
-      return buildRatingsResponse(show, siteHelpContext);
+      return buildRatingsResponse(show, siteHelpContext, message);
     case "creator-verification":
       return buildCreatorVerificationResponse(show, siteHelpContext);
+    case "archive-stats":
+      return buildArchiveStatsResponse(siteHelpContext);
+    case "recently-added":
+      return buildRecentlyAddedResponse(siteHelpContext);
+    case "creator-verified-list":
+      return buildCreatorVerifiedListResponse(siteHelpContext);
+    case "full-review-list":
+      return buildFullReviewListResponse(siteHelpContext);
     case "submission":
       return {
         answer:
@@ -197,12 +252,12 @@ function buildTopicResponse({ topic, page, show, collection, siteHelpContext }) 
 
       return {
         answer:
-          "I can help you browse the archive, explain ratings and creator verification, point you to collections or submission paths, and recommend shows from the catalog. Ask about a title, how the site works, privacy, corrections, or what to listen to next.",
+          "I can help with archive recommendations, show summaries, creators, runtime, transcripts, collection appearances, ratings, creator verification, and site flows like corrections or submissions. Ask about a title, what the archive contains, or what to listen to next.",
         actions: [siteHelpContext.routes.collections, siteHelpContext.routes.submit, siteHelpContext.routes.about],
         suggestedPrompts: [
-          "How do I submit a correction?",
-          "What does creator verified mean?",
-          "How are community ratings different?",
+          "Who made Midnight Burger?",
+          "How long is Impact Winter?",
+          "Which shows are creator verified?",
           "Recommend a finished show with strong worldbuilding",
         ],
       };
@@ -212,7 +267,7 @@ function buildTopicResponse({ topic, page, show, collection, siteHelpContext }) 
 function buildCollectionsResponse(collection, siteHelpContext) {
   if (collection) {
     return {
-      answer: `${collection.title} is a curated listening path, not a generic genre folder. Collections are meant to route you by mood, tone, or intent, and the main browse page adds search and stacked filters when you want to get more specific.`,
+      answer: `${collection.title} is a curated listening path, not a generic genre folder. This route currently carries ${collection.showIds.length} archive picks and is meant to move you by mood, tone, or intent rather than taxonomy alone.`,
       actions: [
         { label: "Open Collection", href: `/collection.html?id=${encodeURIComponent(collection.id)}`, external: false },
         siteHelpContext.routes.collections,
@@ -226,9 +281,10 @@ function buildCollectionsResponse(collection, siteHelpContext) {
     };
   }
 
+  const featuredTitles = siteHelpContext.archiveLists.featuredCollections.slice(0, 4).map((entry) => entry.title);
+
   return {
-    answer:
-      "Collections are curated listening paths built around mood, tone, or intent rather than generic taxonomy. Use collections when you want a strong route like long walks, completed shows, or a specific flavor of sci-fi or horror.",
+    answer: `Collections are curated listening paths built around mood, tone, or intent rather than generic taxonomy. Right now the archive highlights ${joinReadableList(featuredTitles)}${featuredTitles.length > 0 ? ", alongside a few quieter routes deeper in the collections page." : "."}`,
     actions: [siteHelpContext.routes.collections, siteHelpContext.routes.browse],
     suggestedPrompts: [
       "How do the archive filters work?",
@@ -239,7 +295,7 @@ function buildCollectionsResponse(collection, siteHelpContext) {
   };
 }
 
-function buildRatingsResponse(show, siteHelpContext) {
+function buildRatingsResponse(show, siteHelpContext, message = "") {
   if (show) {
     return {
       answer: `${show.title} currently has an Archive Rating of ${formatNumber(show.finalRating || show.ratings?.archive)}/10. Community rating is separate from that editorial score, and creator verification never means creator approval of the rating or review.`,
@@ -249,6 +305,21 @@ function buildRatingsResponse(show, siteHelpContext) {
         "Is this show finished?",
         "Why is this show indexed only?",
         "Recommend something like this",
+      ],
+    };
+  }
+
+  if (/\btop rated\b|\bhighest rated\b|\bbest rated\b/i.test(message)) {
+    const topRatedTitles = siteHelpContext.archiveLists.topRatedShows.slice(0, 4).map((entry) => entry.title);
+
+    return {
+      answer: `Some of the strongest Archive Rating picks right now are ${joinReadableList(topRatedTitles)}. Community rating remains separate from that editorial score, and creator verification does not change either one.`,
+      actions: [siteHelpContext.routes.browse, { label: "Read About Ratings", href: "/about.html", external: false }],
+      suggestedPrompts: [
+        "Which shows are creator verified?",
+        "What collections do you have?",
+        "Recommend a finished horror show",
+        "How are community ratings different?",
       ],
     };
   }
@@ -326,9 +397,9 @@ function buildShowSummaryResponse(show, siteHelpContext) {
     answer: `${show.title}: ${show.description} ${show.archiveTake ? show.archiveTake : ""}`.trim(),
     actions: [{ label: "Open Show", href: show.href, external: false }],
     suggestedPrompts: [
-      "Is this show finished?",
-      "What does creator verified mean here?",
-      "Where can I listen to this show?",
+      "How long is this show?",
+      "Who made this show?",
+      "Does this show have transcripts?",
       "Recommend something like this",
     ],
   };
@@ -353,9 +424,9 @@ function buildShowStatusResponse(show, siteHelpContext) {
     answer: `${show.title} is ${toReadableCompletionStatus(show.completionStatus)} and its archive entry is ${toReadableReviewStatus(show.reviewStatus)}. ${show.releaseStatus ? `The release status is ${show.releaseStatus}.` : ""}`.trim(),
     actions: [{ label: "Open Show", href: show.href, external: false }],
     suggestedPrompts: [
-      "What does creator verified mean here?",
+      "How long is this show?",
       "Where can I listen to this show?",
-      "Recommend something like this",
+      "What is this show similar to?",
       "How are community ratings different?",
     ],
   };
@@ -402,6 +473,436 @@ function buildShowLinksResponse(show, siteHelpContext) {
       "Recommend something like this",
     ],
   };
+}
+
+function buildShowRuntimeResponse(show, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer runtime and commitment questions when the title is already in the archive. Ask about a specific show and I can pull episode count, season count, or the current archive length note.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "How long is Impact Winter?",
+        "How many episodes does Wolf 359 have?",
+        "Recommend an easier entry point",
+        "What collections do you have?",
+      ],
+    };
+  }
+
+  const lengthSummary = buildLengthSummary(show.length);
+  const runtimeSentence = /[.!?]$/.test(lengthSummary) ? lengthSummary : `${lengthSummary}.`;
+
+  return {
+    answer: `${show.title} currently shows ${runtimeSentence}`,
+    actions: [{ label: "Open Show", href: show.href, external: false }],
+    suggestedPrompts: [
+      "Who made this show?",
+      "Does this show have transcripts?",
+      "What is this show similar to?",
+      "Recommend something like this",
+    ],
+  };
+}
+
+function buildShowCreditsResponse(show, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer creator and cast questions when the title is already in the archive. Ask about a specific show and I can pull the listed creators, network, production company, or cast when those fields are verified.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "Who made Midnight Burger?",
+        "Who is in Impact Winter?",
+        "How long is Derelict?",
+        "Which shows are creator verified?",
+      ],
+    };
+  }
+
+  const creators = show.creators.slice(0, 3);
+  const cast = show.cast.slice(0, 4);
+  const pieces = [];
+
+  if (creators.length > 0) {
+    pieces.push(`The listed creators are ${joinReadableList(creators)}.`);
+  }
+
+  const networkOrCompany = [show.credits?.productionCompany, show.credits?.network].filter(Boolean);
+  if (networkOrCompany.length > 0) {
+    pieces.push(`The credited production context here is ${joinReadableList(networkOrCompany)}.`);
+  }
+
+  if (cast.length > 0) {
+    pieces.push(`Listed cast includes ${joinReadableList(cast)}.`);
+  }
+
+  if (pieces.length === 0) {
+    pieces.push("The archive does not currently expose clean creator or cast credits for this entry.");
+  }
+
+  return {
+    answer: `${show.title}: ${pieces.join(" ")}`.trim(),
+    actions: [{ label: "Open Show", href: show.href, external: false }],
+    suggestedPrompts: [
+      "How long is this show?",
+      "Does this show have transcripts?",
+      "What collections is this in?",
+      "What is this show similar to?",
+    ],
+  };
+}
+
+function buildShowFormatResponse(show, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer format questions when the title is already in the archive. Ask about a specific show and I can pull tags like full-cast, narrator setup, POV, or source-material notes when they exist.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "Is Midnight Burger full cast?",
+        "Does this show have a narrator?",
+        "Recommend a full-cast sci-fi show",
+        "What collections do you have?",
+      ],
+    };
+  }
+
+  const pieces = [];
+
+  if (show.formats.length > 0) {
+    pieces.push(`It is tagged as ${joinReadableList(show.formats.map((entry) => entry.replace(/-/g, " ")).slice(0, 3))}.`);
+  }
+
+  if (show.facts?.narrator && !/^unknown\.?$/i.test(show.facts.narrator)) {
+    pieces.push(`Narrator setup: ${show.facts.narrator}`);
+  }
+
+  if (show.content?.pov) {
+    pieces.push(`POV: ${show.content.pov}.`);
+  }
+
+  if (show.content?.sourceMaterial) {
+    pieces.push(`Source material: ${show.content.sourceMaterial}.`);
+  }
+
+  if (show.tones.length > 0) {
+    pieces.push(`The tone leans ${joinReadableList(show.tones.slice(0, 2))}.`);
+  }
+
+  return {
+    answer: `${show.title}: ${pieces.join(" ") || "The archive has only limited format notes for this entry right now."}`.trim(),
+    actions: [{ label: "Open Show", href: show.href, external: false }],
+    suggestedPrompts: [
+      "How long is this show?",
+      "Does this show have transcripts?",
+      "What content notes does this show have?",
+      "Recommend something like this",
+    ],
+  };
+}
+
+function buildShowTranscriptsResponse(show, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer transcript and accessibility questions when the title is already in the archive. Ask about a specific show and I can pull the transcript note or caption status when that metadata exists.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "Does Derelict have transcripts?",
+        "Which shows are creator verified?",
+        "How long is Impact Winter?",
+        "Recommend a show with transcripts",
+      ],
+    };
+  }
+
+  const transcriptNote = show.availability?.transcripts || "Transcript availability is not currently verified for this entry.";
+  const languageNote =
+    show.transcriptLanguages.length > 0 ? ` Transcript language notes: ${joinReadableList(show.transcriptLanguages)}.` : "";
+  const transcriptSentence = /[.!?]$/.test(transcriptNote) ? transcriptNote : `${transcriptNote}.`;
+
+  return {
+    answer: `${show.title}: ${transcriptSentence}${languageNote}`.trim(),
+    actions: [{ label: "Open Show", href: show.href, external: false }],
+    suggestedPrompts: [
+      "Who made this show?",
+      "How long is this show?",
+      "What content notes does this show have?",
+      "Recommend something like this",
+    ],
+  };
+}
+
+function buildShowContentNotesResponse(show, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer content-note questions when the title is already in the archive. Ask about a specific show and I can pull the recorded content notes when they exist, or tell you when the archive has not filled them yet.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "What content notes does The White Vault have?",
+        "Does this show have transcripts?",
+        "Recommend a finished horror show",
+        "What collections do you have?",
+      ],
+    };
+  }
+
+  if (show.contentNotes.length === 0) {
+    return {
+      answer: `${show.title} does not currently have specific content notes recorded in the archive.`,
+      actions: [{ label: "Open Show", href: show.href, external: false }],
+      suggestedPrompts: [
+        "Does this show have transcripts?",
+        "What is this show similar to?",
+        "How long is this show?",
+        "Recommend something like this",
+      ],
+    };
+  }
+
+  return {
+    answer: `${show.title} currently carries content notes for ${joinReadableList(show.contentNotes)}.`,
+    actions: [{ label: "Open Show", href: show.href, external: false }],
+    suggestedPrompts: [
+      "Does this show have transcripts?",
+      "How long is this show?",
+      "What collections is this in?",
+      "Recommend something like this",
+    ],
+  };
+}
+
+function buildShowSimilarResponse(show, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer similarity questions when the title is already in the archive. Ask about a specific show and I can surface its nearest archive neighbors when those relationships are mapped.",
+      actions: [siteHelpContext.routes.browse, siteHelpContext.routes.collections],
+      suggestedPrompts: [
+        "What is Midnight Burger similar to?",
+        "Recommend something like Derelict",
+        "What collections is this in?",
+        "Which shows are creator verified?",
+      ],
+    };
+  }
+
+  if (!Array.isArray(show.similarTo) || show.similarTo.length === 0) {
+    return {
+      answer: `${show.title} does not currently have explicit similar-show links mapped in the archive yet.`,
+      actions: [{ label: "Open Show", href: show.href, external: false }],
+      suggestedPrompts: [
+        "Recommend something like this",
+        "What collections is this in?",
+        "How long is this show?",
+        "Who made this show?",
+      ],
+    };
+  }
+
+  const relatedShows = show.similarTo
+    .map((showId) => siteHelpContext.showsById.get(showId))
+    .filter(Boolean);
+  const relatedTitles = relatedShows.length > 0 ? relatedShows.map((entry) => entry.title) : show.similarTo.map(formatShowIdForDisplay);
+
+  return {
+    answer: `${show.title} is currently linked to ${joinReadableList(relatedTitles.slice(0, 4))} as its nearest archive neighbors.`,
+    actions: [{ label: "Open Show", href: show.href, external: false }],
+    recommendationIds: show.similarTo.slice(0, 3),
+    suggestedPrompts: [
+      "Recommend something like this",
+      "What collections is this in?",
+      "How long is this show?",
+      "Does this show have transcripts?",
+    ],
+  };
+}
+
+function buildShowCollectionsResponse(show, collections, siteHelpContext) {
+  if (!show) {
+    return {
+      answer:
+        "I can answer collection-membership questions when the title is already in the archive. Ask about a specific show and I can tell you whether it appears in any curated listening paths.",
+      actions: [siteHelpContext.routes.collections, siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "What collections is Midnight Burger in?",
+        "What collections do you have?",
+        "Recommend something like this",
+        "How long is this show?",
+      ],
+    };
+  }
+
+  const memberships = (Array.isArray(collections) ? collections : []).filter((entry) => entry.showIds.includes(show.id));
+
+  if (memberships.length === 0) {
+    return {
+      answer: `${show.title} is not currently placed in a named archive collection.`,
+      actions: [{ label: "Open Show", href: show.href, external: false }, siteHelpContext.routes.collections],
+      suggestedPrompts: [
+        "What is this show similar to?",
+        "Recommend something like this",
+        "What collections do you have?",
+        "How long is this show?",
+      ],
+    };
+  }
+
+  return {
+    answer: `${show.title} currently appears in ${joinReadableList(memberships.map((entry) => entry.title).slice(0, 4))}.`,
+    actions: [
+      { label: "Open Show", href: show.href, external: false },
+      { label: "Browse Collections", href: "/collections.html", external: false },
+    ],
+    suggestedPrompts: [
+      "What is this show similar to?",
+      "Recommend something like this",
+      "How long is this show?",
+      "Does this show have transcripts?",
+    ],
+  };
+}
+
+function buildArchiveStatsResponse(siteHelpContext) {
+  return {
+    answer: `The archive currently tracks ${siteHelpContext.counts.shows} published shows, ${siteHelpContext.counts.collections} curated collections, ${siteHelpContext.counts.fullReviews} full reviews, and ${siteHelpContext.counts.creatorVerifiedShows} creator-verified entries.`,
+    actions: [siteHelpContext.routes.browse, siteHelpContext.routes.collections, siteHelpContext.routes.about],
+    suggestedPrompts: [
+      "What collections do you have?",
+      "Which shows are creator verified?",
+      "What are the recently added shows?",
+      "Recommend a finished show",
+    ],
+  };
+}
+
+function buildRecentlyAddedResponse(siteHelpContext) {
+  const recentShows = siteHelpContext.archiveLists.recentShows.slice(0, 4);
+
+  if (recentShows.length === 0) {
+    return {
+      answer: "The archive does not currently have enough created-at metadata filled to summarize recent additions cleanly.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "What collections do you have?",
+        "Which shows are creator verified?",
+        "How many shows are in the archive?",
+        "Recommend a finished show",
+      ],
+    };
+  }
+
+  return {
+    answer: `The most recently added archive entries are ${joinReadableList(recentShows.map((entry) => entry.title))}.`,
+    actions: [siteHelpContext.routes.browse],
+    suggestedPrompts: [
+      "Which shows are creator verified?",
+      "What collections do you have?",
+      "Recommend a finished show",
+      "How are community ratings different?",
+    ],
+  };
+}
+
+function buildCreatorVerifiedListResponse(siteHelpContext) {
+  const verifiedShows = siteHelpContext.archiveLists.creatorVerifiedShows.slice(0, 4);
+
+  if (verifiedShows.length === 0) {
+    return {
+      answer: "No archive entries are currently marked creator verified.",
+      actions: [siteHelpContext.routes.submit, siteHelpContext.routes.terms],
+      suggestedPrompts: [
+        "What does creator verified mean?",
+        "How do creator verification requests work?",
+        "How many shows are in the archive?",
+        "What collections do you have?",
+      ],
+    };
+  }
+
+  return {
+    answer: `The archive currently marks ${joinReadableList(verifiedShows.map((entry) => entry.title))} as creator verified.`,
+    actions: [siteHelpContext.routes.submit, siteHelpContext.routes.terms],
+    suggestedPrompts: [
+      "What does creator verified mean?",
+      "How do creator verification requests work?",
+      "What are the recently added shows?",
+      "Recommend something like one of those shows",
+    ],
+  };
+}
+
+function buildFullReviewListResponse(siteHelpContext) {
+  const fullReviewShows = siteHelpContext.archiveLists.fullReviewShows.slice(0, 4);
+
+  if (fullReviewShows.length === 0) {
+    return {
+      answer: "The archive does not currently have any entries marked as full-review.",
+      actions: [siteHelpContext.routes.browse],
+      suggestedPrompts: [
+        "How many shows are in the archive?",
+        "Which shows are creator verified?",
+        "What collections do you have?",
+        "Recommend a finished show",
+      ],
+    };
+  }
+
+  return {
+    answer: `Current full-review entries include ${joinReadableList(fullReviewShows.map((entry) => entry.title))}.`,
+    actions: [siteHelpContext.routes.browse],
+    suggestedPrompts: [
+      "What are the top rated shows?",
+      "Which shows are creator verified?",
+      "What collections do you have?",
+      "Recommend something with a full review",
+    ],
+  };
+}
+
+function buildLengthSummary(length = {}) {
+  const parts = [];
+
+  if (Number.isFinite(Number(length.episodes)) && Number(length.episodes) > 0) {
+    parts.push(`${length.episodes} episode${Number(length.episodes) === 1 ? "" : "s"}`);
+  }
+
+  if (Number.isFinite(Number(length.seasons)) && Number(length.seasons) > 0) {
+    parts.push(`${length.seasons} season${Number(length.seasons) === 1 ? "" : "s"}`);
+  }
+
+  if (Number.isFinite(Number(length.avgEpisodeMinutes)) && Number(length.avgEpisodeMinutes) > 0) {
+    parts.push(`about ${length.avgEpisodeMinutes} minutes per episode`);
+  }
+
+  if (Number.isFinite(Number(length.totalHours)) && Number(length.totalHours) > 0) {
+    parts.push(`roughly ${length.totalHours} total hours`);
+  }
+
+  if (parts.length === 0 && typeof length.label === "string" && length.label.trim()) {
+    return length.label.trim();
+  }
+
+  if (parts.length === 0) {
+    return "limited runtime metadata in the archive right now";
+  }
+
+  const structured = joinReadableList(parts);
+  if (typeof length.label === "string" && length.label.trim()) {
+    return `${structured}. Archive note: ${length.label.trim()}`;
+  }
+
+  return structured;
+}
+
+function formatShowIdForDisplay(value = "") {
+  return String(value || "")
+    .split("-")
+    .filter(Boolean)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(" ");
 }
 
 function resolveRelevantShow({ page, catalog, matches, message }) {

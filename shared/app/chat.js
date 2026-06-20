@@ -96,7 +96,7 @@ function resetChatThread() {
   renderAndStoreEntry({
     role: "assistant",
     content:
-      "Ask about a show, the archive, ratings, creator verification, submissions, or what to listen to next.",
+      "Ask about a show, the archive, ratings, creators, runtime, transcripts, collections, or what to listen to next.",
     recommendations: [],
     actions: [],
   });

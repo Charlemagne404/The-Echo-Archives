@@ -28,6 +28,7 @@ function normalizePageContext(value) {
 
 function createChatRouter({ catalog, collections, config, siteHelpContext, rateLimiter = null }) {
   const router = express.Router();
+  const catalogById = new Map(catalog.map((show) => [show.id, show]));
 
   router.get("/health", (_req, res) => {
     res.json({
@@ -79,8 +80,7 @@ function createChatRouter({ catalog, collections, config, siteHelpContext, rateL
       });
     }
 
-    const shouldScoreCatalog =
-      initialIntent.primary !== "site-help" || initialIntent.includeRecommendations || page.pageType === "show";
+    const shouldScoreCatalog = initialIntent.primary !== "clarification";
     const matches = shouldScoreCatalog ? scoreCatalog(catalog, message) : [];
     const intent = promoteIntentWithMatches({
       intent: initialIntent,
@@ -101,11 +101,20 @@ function createChatRouter({ catalog, collections, config, siteHelpContext, rateL
         matches,
         includeRecommendations: intent.includeRecommendations || intent.primary === "mixed",
       });
+      const relatedRecommendations = helpResponse.recommendationIds
+        .map((showId) => catalogById.get(showId))
+        .filter(Boolean)
+        .map(buildRecommendationCard);
 
       return res.json({
         answer: helpResponse.answer,
         actions: helpResponse.actions,
-        recommendations: intent.includeRecommendations || intent.primary === "mixed" ? recommendations : [],
+        recommendations:
+          intent.includeRecommendations || intent.primary === "mixed"
+            ? relatedRecommendations.length > 0
+              ? relatedRecommendations
+              : recommendations
+            : [],
         suggestedPrompts: helpResponse.suggestedPrompts,
         source: helpResponse.source,
       });

@@ -10,6 +10,7 @@
   const ALIAS_GROUPS = [
     ["sci fi", ["sci fi", "sci-fi", "science fiction", "scifi"]],
     ["full cast", ["full cast", "full-cast", "fullcast"]],
+    ["single narrator", ["single narrator", "single-narrator", "solo narrator", "one narrator"]],
     ["completed", ["completed", "complete", "finished"]],
     ["ongoing", ["ongoing", "active", "unfinished"]],
     ["full review", ["full review", "reviewed", "review first"]],
@@ -18,6 +19,7 @@
     ["cold isolation horror", ["cold isolation horror", "cold-isolation-horror"]],
     ["headphones on", ["headphones on", "headphones-on"]],
     ["binge listening", ["binge listening", "binge-listening", "bingeable"]],
+    ["transcripts", ["transcript", "transcripts", "captioned", "captions"]],
   ];
 
   const ALIAS_LOOKUP = buildAliasLookup(ALIAS_GROUPS);
@@ -27,9 +29,15 @@
     "and",
     "for",
     "give",
+    "how",
     "i",
     "im",
     "into",
+    "is",
+    "it",
+    "long",
+    "made",
+    "many",
     "me",
     "of",
     "podcast",
@@ -38,10 +46,28 @@
     "shows",
     "something",
     "that",
+    "this",
     "the",
     "to",
-    "want",
+    "what",
+    "who",
     "with",
+    "where",
+    "when",
+    "why",
+    "does",
+    "do",
+    "did",
+    "are",
+    "can",
+    "tell",
+    "about",
+    "created",
+    "creator",
+    "written",
+    "write",
+    "to",
+    "want",
   ]);
 
   function buildAliasLookup(groups) {
@@ -151,6 +177,33 @@
     );
   }
 
+  function flattenStructuredValues(value) {
+    const values = [];
+
+    function visit(entry) {
+      if (entry === null || entry === undefined) {
+        return;
+      }
+
+      if (typeof entry === "string" || typeof entry === "number" || typeof entry === "boolean") {
+        values.push(String(entry));
+        return;
+      }
+
+      if (Array.isArray(entry)) {
+        entry.forEach(visit);
+        return;
+      }
+
+      if (typeof entry === "object") {
+        Object.values(entry).forEach(visit);
+      }
+    }
+
+    visit(value);
+    return values;
+  }
+
   function buildSearchIndex(record, catalogById) {
     const similarTitles = (Array.isArray(record.similarTo) ? record.similarTo : [])
       .map((showId) => catalogById.get(showId)?.title || "")
@@ -166,11 +219,28 @@
     const fields = {
       title: createFieldTerms(record.title),
       subtitle: createFieldTerms(record.subtitle),
+      aliases: createFieldTerms(record.aliases || []),
       tags: createFieldTerms(record.tags || []),
       genres: createFieldTerms(record.genres || []),
       tones: createFieldTerms(record.tones || []),
       formats: createFieldTerms(record.formats || []),
       bestFor: createFieldTerms(record.bestFor || []),
+      themes: createFieldTerms(record.themes || []),
+      contentNotes: createFieldTerms(record.contentNotes || []),
+      creators: createFieldTerms(record.creators || []),
+      cast: createFieldTerms(record.cast || []),
+      languages: createFieldTerms(record.languages || []),
+      transcriptLanguages: createFieldTerms(record.transcriptLanguages || []),
+      narrator: createFieldTerms(record.facts?.narrator || ""),
+      transcriptAvailability: createFieldTerms(
+        flattenStructuredValues({
+          transcripts: record.availability?.transcripts,
+          captions: record.availability?.captions,
+        }),
+      ),
+      content: createFieldTerms(flattenStructuredValues(record.content)),
+      facts: createFieldTerms(flattenStructuredValues(record.facts)),
+      credits: createFieldTerms(flattenStructuredValues(record.credits)),
       completionStatus: createFieldTerms(record.completionStatus || ""),
       reviewStatus: createFieldTerms(record.reviewStatus || ""),
       similarTitles: createFieldTerms(similarTitles),
@@ -189,9 +259,21 @@
       record.tones || [],
       record.formats || [],
       record.bestFor || [],
+      record.aliases || [],
+      record.themes || [],
+      record.contentNotes || [],
+      record.creators || [],
+      record.cast || [],
+      record.languages || [],
+      record.transcriptLanguages || [],
       similarTitles,
       record.completionStatus,
       record.reviewStatus,
+      flattenStructuredValues(record.facts),
+      flattenStructuredValues(record.credits),
+      flattenStructuredValues(record.availability),
+      flattenStructuredValues(record.content),
+      flattenStructuredValues(record.metadata?.objectiveNote),
     ]);
 
     const tokenSource = [
@@ -229,6 +311,7 @@
   function resolveSeedShow(catalog, normalizedQuery) {
     const patterns = [
       /(?:^|\s)(?:shows? like|like|similar to)\s+(.+)$/,
+      /^what(?:'s| is)\s+(.+?)\s+similar to$/,
       /^(.+?)\s+like$/,
     ];
 
@@ -410,6 +493,12 @@
           }
         }
 
+        const aliasMatch = scoreFieldTerms(searchIndex.fields.aliases, preparedQuery.phrases, 76, 36);
+        if (aliasMatch.score) {
+          score += aliasMatch.score;
+          pushReason(reasons, `alias match for ${aliasMatch.matchedTerm}`);
+        }
+
         const tagMatch = scoreFieldTerms(searchIndex.fields.tags, preparedQuery.phrases, 30, 16);
         if (tagMatch.score) {
           score += tagMatch.score;
@@ -420,6 +509,12 @@
         if (bestForMatch.score) {
           score += bestForMatch.score;
           pushReason(reasons, `good for ${bestForMatch.matchedTerm}`);
+        }
+
+        const themeMatch = scoreFieldTerms(searchIndex.fields.themes, preparedQuery.phrases, 24, 12);
+        if (themeMatch.score) {
+          score += themeMatch.score;
+          pushReason(reasons, `tracks ${themeMatch.matchedTerm}`);
         }
 
         const genreMatch = scoreFieldTerms(searchIndex.fields.genres, preparedQuery.phrases, 26, 14);
@@ -438,6 +533,36 @@
         if (formatMatch.score) {
           score += formatMatch.score;
           pushReason(reasons, `${formatMatch.matchedTerm} format`);
+        }
+
+        const creatorMatch = scoreFieldTerms(searchIndex.fields.creators, preparedQuery.phrases, 24, 12);
+        if (creatorMatch.score) {
+          score += creatorMatch.score;
+          pushReason(reasons, `created by ${creatorMatch.matchedTerm}`);
+        }
+
+        const castMatch = scoreFieldTerms(searchIndex.fields.cast, preparedQuery.phrases, 18, 10);
+        if (castMatch.score) {
+          score += castMatch.score;
+          pushReason(reasons, `cast includes ${castMatch.matchedTerm}`);
+        }
+
+        const narratorMatch = scoreFieldTerms(searchIndex.fields.narrator, preparedQuery.phrases, 18, 10);
+        if (narratorMatch.score) {
+          score += narratorMatch.score;
+          pushReason(reasons, `narration fits ${narratorMatch.matchedTerm}`);
+        }
+
+        const transcriptMatch = scoreFieldTerms(searchIndex.fields.transcriptAvailability, preparedQuery.phrases, 18, 10);
+        if (transcriptMatch.score) {
+          score += transcriptMatch.score;
+          pushReason(reasons, `transcript notes match ${transcriptMatch.matchedTerm}`);
+        }
+
+        const contentNoteMatch = scoreFieldTerms(searchIndex.fields.contentNotes, preparedQuery.phrases, 18, 10);
+        if (contentNoteMatch.score) {
+          score += contentNoteMatch.score;
+          pushReason(reasons, `content notes match ${contentNoteMatch.matchedTerm}`);
         }
 
         const completionMatch = scoreFieldTerms(searchIndex.fields.completionStatus, preparedQuery.phrases, 24, 12);

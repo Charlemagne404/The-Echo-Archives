@@ -24,11 +24,13 @@
   }
 
   .about-cta,
+  .page-hero-actions,
   .about-support-actions,
   .supporters-actions {
     width: 100%;
   }
 
+  .page-hero-actions,
   .about-support-actions,
   .supporters-actions {
     display: grid;

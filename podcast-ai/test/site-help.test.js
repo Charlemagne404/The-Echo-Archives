@@ -106,3 +106,60 @@ test("site help can answer direct-title status questions with a referenced show"
   assert.match(response.answer, new RegExp(finishedShow.title, "i"));
   assert.match(response.answer, /finished|ongoing|unclear|cancelled/i);
 });
+
+test("site help can answer direct-title runtime questions from catalog metadata", async () => {
+  const context = await createContext();
+  const runtimeShow = context.catalog.find((show) => Number.isFinite(Number(show.length?.episodes)));
+  assert.ok(runtimeShow, "Expected at least one show with runtime metadata.");
+
+  const response = buildSiteHelpResponse({
+    message: `How long is ${runtimeShow.title}?`,
+    helpTopic: "show-runtime",
+    page: { pageType: "home", path: "/" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+    matches: [
+      {
+        ...runtimeShow,
+        reasons: [`direct title match for ${runtimeShow.title}`],
+      },
+    ],
+  });
+
+  assert.match(response.answer, new RegExp(runtimeShow.title, "i"));
+  assert.match(response.answer, /episode|season|hour|runtime/i);
+});
+
+test("site help reports archive counts for overview questions", async () => {
+  const context = await createContext();
+  const response = buildSiteHelpResponse({
+    message: "How many shows are in the archive?",
+    helpTopic: "archive-stats",
+    page: { pageType: "home", path: "/" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+  });
+
+  assert.match(response.answer, /published shows/i);
+  assert.match(response.answer, new RegExp(String(context.catalog.length), "i"));
+});
+
+test("site help can list creator-verified shows", async () => {
+  const context = await createContext();
+  const verifiedShow = context.catalog.find((show) => Boolean(show.verification?.status));
+  assert.ok(verifiedShow, "Expected at least one creator-verified show fixture.");
+
+  const response = buildSiteHelpResponse({
+    message: "Which shows are creator verified?",
+    helpTopic: "creator-verified-list",
+    page: { pageType: "home", path: "/" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+  });
+
+  assert.match(response.answer, /creator verified/i);
+  assert.match(response.answer, new RegExp(verifiedShow.title, "i"));
+});
