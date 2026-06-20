@@ -123,22 +123,30 @@
 
 .creator-spotlight-grid {
   display: grid;
-  grid-template-columns: 188px minmax(0, 1.18fr) minmax(260px, 0.72fr);
+  grid-template-columns: minmax(0, 1.38fr) minmax(280px, 0.72fr);
+  gap: 28px;
+  align-items: stretch;
+  min-height: 0;
+  padding: 6px 0 2px;
+}
+
+.creator-spotlight-feature {
+  display: grid;
+  grid-template-columns: 182px minmax(0, 1fr);
   gap: 22px;
   align-items: center;
-  min-height: 0;
-  padding: 8px 2px 2px;
+  min-width: 0;
 }
 
 .creator-spotlight-cover {
   position: relative;
   overflow: hidden;
   display: block;
-  min-height: 204px;
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 214px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
   background:
-    linear-gradient(180deg, rgba(4, 6, 9, 0.16), rgba(4, 6, 9, 0.66)),
+    linear-gradient(180deg, rgba(4, 6, 9, 0.08), rgba(4, 6, 9, 0.34)),
     rgba(7, 10, 13, 0.88);
   box-shadow: var(--shadow-md);
   transition:
@@ -170,37 +178,37 @@
 .creator-spotlight-kicker,
 .creator-standard-kicker {
   color: rgba(239, 89, 67, 0.96);
-  font-size: 0.74rem;
+  font-size: 0.71rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.creator-spotlight-title-row {
+.creator-spotlight-topline {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
+  gap: 10px 12px;
   align-items: center;
 }
 
-.creator-spotlight-title-row h3 {
+.creator-spotlight-copy h3 {
   margin: 0;
-  font-size: clamp(1.82rem, 2.2vw, 2.5rem);
+  font-size: clamp(2rem, 2.5vw, 2.95rem);
   letter-spacing: -0.04em;
-  line-height: 0.98;
+  line-height: 0.94;
 }
 
 .creator-spotlight-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 32px;
-  padding: 0 11px;
+  min-height: 38px;
+  padding: 0 15px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  background: rgba(8, 11, 15, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(11, 14, 19, 0.88);
   color: rgba(247, 247, 243, 0.9);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
@@ -213,65 +221,83 @@
 .creator-spotlight-byline {
   margin: 0;
   color: rgba(247, 247, 243, 0.9);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.06rem;
+  font-weight: 700;
 }
 
 .creator-spotlight-description {
-  max-width: 52ch;
+  max-width: 36ch;
+  font-size: 1rem;
+  line-height: 1.58;
 }
 
 .creator-tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0;
+  min-height: 1.1rem;
   padding-top: 2px;
 }
 
 .creator-tag-row span {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 0 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.025);
-  color: rgba(247, 247, 243, 0.72);
-  font-size: 0.78rem;
+  color: rgba(239, 89, 67, 0.98);
+  font-size: 0.85rem;
+  line-height: 1.35;
 }
 
-.creator-spotlight-metadata-rail {
+.creator-tag-row span + span::before {
+  content: "\2022";
+  margin: 0 8px;
+  color: rgba(239, 89, 67, 0.7);
+}
+
+.creator-spotlight-stat-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  margin: 4px 0 2px;
+  gap: 12px;
+  margin: 6px 0 0;
   padding: 12px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.creator-spotlight-metadata-rail div {
+.creator-spotlight-stat {
   display: grid;
-  gap: 5px;
-  padding: 0 18px 0 0;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
 }
 
-.creator-spotlight-metadata-rail div + div {
-  padding-left: 18px;
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
+.creator-spotlight-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: rgba(239, 89, 67, 0.98);
 }
 
-.creator-spotlight-metadata-rail dt {
+.creator-spotlight-stat-icon svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.creator-spotlight-stat dt {
   margin: 0;
   color: rgba(247, 247, 243, 0.58);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 0.74rem;
+  line-height: 1.2;
 }
 
-.creator-spotlight-metadata-rail dd {
+.creator-spotlight-stat dd {
   margin: 0;
   color: var(--text-primary);
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   font-weight: 700;
 }

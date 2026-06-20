@@ -1,0 +1,111 @@
+<main class="home-main page-main maintainer-main">
+  <section class="hero-shell maintainer-hero-shell">
+    <div class="hero-panel page-panel maintainer-hero-panel">
+      <div class="maintainer-hero-copy">
+        <p class="maintainer-kicker">Maintainer workspace</p>
+        <h1>Submission queue</h1>
+        <p>Review new archive intake in a readable queue, update triage state, and open a clean report snapshot without touching raw storage.</p>
+      </div>
+      <div class="maintainer-hero-actions">
+        <a id="maintainerReportLink" class="maintainer-link-button" href="/maintainer/submissions/report.html">Open report</a>
+        <button id="maintainerRefreshButton" class="maintainer-ghost-button" type="button" hidden>Refresh queue</button>
+        <button id="maintainerLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
+    <div class="maintainer-auth-copy">
+      <p class="maintainer-kicker">Protected</p>
+      <h2>Maintainer passphrase</h2>
+      <p>This internal queue is hidden from the public site. Enter the maintainer passphrase to load submissions.</p>
+    </div>
+    <form id="maintainerAuthForm" class="maintainer-auth-form">
+      <label class="maintainer-field">
+        <span>Passphrase</span>
+        <input id="maintainerPassphrase" type="password" autocomplete="current-password" required />
+      </label>
+      <div class="maintainer-auth-actions">
+        <button class="maintainer-primary-button" type="submit">Unlock queue</button>
+        <p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p>
+      </div>
+    </form>
+  </section>
+
+  <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
+    <div id="maintainerSummaryCards" class="maintainer-summary-grid" aria-live="polite"></div>
+
+    <section class="page-card maintainer-toolbar-card">
+      <div class="maintainer-toolbar-heading">
+        <div>
+          <p class="maintainer-kicker">Filters</p>
+          <h2>Queue view</h2>
+        </div>
+        <p id="maintainerQueueMeta" class="maintainer-toolbar-meta">Open submissions are shown by default.</p>
+      </div>
+      <form id="maintainerFilterForm" class="maintainer-toolbar-grid">
+        <label class="maintainer-field maintainer-field--search">
+          <span>Search</span>
+          <input id="maintainerSearch" name="q" type="search" placeholder="Show title, correction notes, review text, creator, or source..." />
+        </label>
+        <label class="maintainer-field">
+          <span>Status</span>
+          <select id="maintainerStatusFilter" name="status"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Type</span>
+          <select id="maintainerTypeFilter" name="submissionType"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Priority</span>
+          <select id="maintainerPriorityFilter" name="priority"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Rows</span>
+          <select id="maintainerPageSize" name="pageSize">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </label>
+        <label class="maintainer-checkbox">
+          <input id="maintainerIncludeClosed" name="includeClosed" type="checkbox" />
+          <span>Include accepted and rejected</span>
+        </label>
+        <div class="maintainer-toolbar-actions">
+          <button class="maintainer-primary-button" type="submit">Apply filters</button>
+          <button id="maintainerResetFilters" class="maintainer-ghost-button" type="button">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="maintainer-workspace">
+      <article class="page-card maintainer-list-card">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Queue</p>
+            <h2>Submissions</h2>
+          </div>
+          <p id="maintainerListStatus" class="maintainer-panel-meta">Loading queue…</p>
+        </div>
+        <div id="maintainerList" class="maintainer-list" aria-live="polite"></div>
+        <div class="maintainer-pagination">
+          <button id="maintainerPreviousPage" class="maintainer-ghost-button" type="button">Previous</button>
+          <p id="maintainerPaginationSummary" class="maintainer-panel-meta">Page 1</p>
+          <button id="maintainerNextPage" class="maintainer-ghost-button" type="button">Next</button>
+        </div>
+      </article>
+
+      <article class="page-card maintainer-detail-card">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Detail</p>
+            <h2>Selected submission</h2>
+          </div>
+          <p id="maintainerDetailMeta" class="maintainer-panel-meta">Pick a submission to inspect the full intake record.</p>
+        </div>
+        <div id="maintainerDetail" class="maintainer-detail" aria-live="polite"></div>
+      </article>
+    </section>
+  </section>
+</main>

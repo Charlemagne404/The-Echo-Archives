@@ -25,8 +25,8 @@ const legacyRedirects = JSON.parse(fs.readFileSync(legacyRedirectManifestPath, "
 test("public runtime pages load archive-search before the module entry script", () => {
   runtimePages.forEach((pagePath) => {
     const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
-    const searchScript = '<script src="shared/archive-search.js?v=1"></script>';
-    const runtimeScriptPattern = /<script type="module" src="script\.js\?v=\d+"><\/script>/;
+    const searchScript = '<script src="/shared/archive-search.js?v=1"></script>';
+    const runtimeScriptPattern = /<script type="module" src="\/script\.js\?v=\d+"><\/script>/;
     const runtimeScriptMatch = html.match(runtimeScriptPattern);
 
     assert.ok(html.includes(searchScript), `${pagePath} should include the shared archive search helper.`);

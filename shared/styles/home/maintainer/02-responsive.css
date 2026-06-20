@@ -1,0 +1,67 @@
+.maintainer-report-group {
+  margin-top: 18px;
+}
+
+.maintainer-report-entry {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.maintainer-report-entry:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .maintainer-summary-grid,
+  .maintainer-workspace,
+  .maintainer-toolbar-grid,
+  .maintainer-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .maintainer-field--search {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .maintainer-hero-panel,
+  .maintainer-toolbar-heading,
+  .maintainer-panel-heading,
+  .maintainer-report-summary,
+  .maintainer-report-group-heading {
+    flex-direction: column;
+  }
+
+  .maintainer-hero-actions,
+  .maintainer-toolbar-actions,
+  .maintainer-pagination {
+    width: 100%;
+  }
+
+  .maintainer-link-button,
+  .maintainer-ghost-button,
+  .maintainer-primary-button {
+    width: 100%;
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .maintainer-hero-actions,
+  .maintainer-report-toolbar {
+    display: none !important;
+  }
+
+  .maintainer-main,
+  .maintainer-report-shell {
+    gap: 12px;
+  }
+
+  .maintainer-report-card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

@@ -1,0 +1,259 @@
+import { escapeHtml } from "../utils.js";
+import {
+  buildSubmissionPreview,
+  formatDateTime,
+  formatPriority,
+  formatStatus,
+  formatSubmissionType,
+  getDetailSections,
+  getPriorityTone,
+  getStatusTone,
+  renderBadge,
+  renderLabeledLink,
+} from "./format.js";
+
+function renderSummaryCard(card) {
+  return `
+    <article class="page-card maintainer-summary-card is-${escapeHtml(card.tone || "neutral")}">
+      <p class="maintainer-summary-label">${escapeHtml(card.label)}</p>
+      <p class="maintainer-summary-value">${escapeHtml(String(card.value))}</p>
+    </article>
+  `;
+}
+
+function renderListItem(submission, isSelected) {
+  const showLink = submission.existingShowId
+    ? `<a class="maintainer-inline-link" href="/show.html?id=${encodeURIComponent(submission.existingShowId)}" target="_blank" rel="noreferrer">Open show</a>`
+    : "";
+
+  return `
+    <button
+      type="button"
+      class="maintainer-list-item ${isSelected ? "is-selected" : ""}"
+      data-submission-id="${escapeHtml(submission.id)}"
+    >
+      <span class="maintainer-list-item-top">
+        <span class="maintainer-list-item-title">${escapeHtml(submission.showTitle)}</span>
+        <span class="maintainer-list-item-badges">
+          ${renderBadge(formatStatus(submission.status), getStatusTone(submission.status))}
+          ${renderBadge(formatPriority(submission.priority), getPriorityTone(submission.priority))}
+        </span>
+      </span>
+      <span class="maintainer-list-item-meta">
+        <span>${escapeHtml(formatSubmissionType(submission.submissionType))}</span>
+        <span>${escapeHtml(formatDateTime(submission.submittedAt))}</span>
+      </span>
+      <span class="maintainer-list-item-preview">${escapeHtml(buildSubmissionPreview(submission))}</span>
+      ${showLink ? `<span class="maintainer-list-item-link">${showLink}</span>` : ""}
+    </button>
+  `;
+}
+
+function renderDetailRows(rows = []) {
+  const filteredRows = rows.filter(([, value]) => Boolean(value));
+  if (filteredRows.length === 0) {
+    return "";
+  }
+
+  return `
+    <dl class="maintainer-detail-grid">
+      ${filteredRows.map(([label, value]) => `
+        <div class="maintainer-detail-row">
+          <dt>${escapeHtml(label)}</dt>
+          <dd>${escapeHtml(String(value))}</dd>
+        </div>
+      `).join("")}
+    </dl>
+  `;
+}
+
+function renderDetailLinks(links = []) {
+  const filteredLinks = links.filter((link) => link?.href);
+  if (filteredLinks.length === 0) {
+    return "";
+  }
+
+  return `
+    <div class="maintainer-link-list">
+      ${filteredLinks.map((link) => renderLabeledLink(link.label || "Link", link.href)).join("")}
+    </div>
+  `;
+}
+
+function renderSection(section) {
+  return `
+    <section class="maintainer-detail-section">
+      <h3>${escapeHtml(section.title)}</h3>
+      ${renderDetailRows(section.rows || [])}
+      ${renderDetailLinks(section.links || [])}
+    </section>
+  `;
+}
+
+function renderSubmissionBasics(submission) {
+  const basics = [
+    ["Submission type", formatSubmissionType(submission.submissionType)],
+    ["Submitted", formatDateTime(submission.submittedAt)],
+    ["Existing show ID", submission.existingShowId],
+    ["Creator or network", submission.creatorName],
+    ["Contact email", submission.contactEmail],
+    ["Official site", submission.officialSite],
+    ["Listen link", submission.rssOrListenLink],
+    ["Source IP", submission.sourceIp],
+    ["User agent", submission.userAgent],
+  ];
+
+  return renderDetailRows(basics);
+}
+
+export function renderSummaryCards(cards = []) {
+  return cards.map(renderSummaryCard).join("");
+}
+
+export function renderQueueList({ items = [], selectedId = "" }) {
+  if (items.length === 0) {
+    return `
+      <div class="maintainer-empty-state">
+        <h3>No submissions match this view.</h3>
+        <p>Try widening the filters or including closed moderation states.</p>
+      </div>
+    `;
+  }
+
+  return items.map((submission) => renderListItem(submission, submission.id === selectedId)).join("");
+}
+
+export function renderDetailPane({ submission = null, storedReviewer = "" }) {
+  if (!submission) {
+    return `
+      <div class="maintainer-empty-state">
+        <h3>No submission selected.</h3>
+        <p>Choose a row from the queue to inspect and update it.</p>
+      </div>
+    `;
+  }
+
+  const reviewedBy = submission.reviewedBy || storedReviewer || "";
+  const showLink = submission.existingShowId
+    ? renderLabeledLink("Open matching show page", `/show.html?id=${encodeURIComponent(submission.existingShowId)}`)
+    : "";
+
+  return `
+    <div class="maintainer-detail-stack">
+      <div class="maintainer-detail-header">
+        <div>
+          <h3>${escapeHtml(submission.showTitle)}</h3>
+          <p>${escapeHtml(buildSubmissionPreview(submission))}</p>
+        </div>
+        <div class="maintainer-detail-badges">
+          ${renderBadge(formatSubmissionType(submission.submissionType), "neutral")}
+          ${renderBadge(formatStatus(submission.status), getStatusTone(submission.status))}
+          ${renderBadge(formatPriority(submission.priority), getPriorityTone(submission.priority))}
+        </div>
+      </div>
+
+      ${showLink ? `<div class="maintainer-link-list">${showLink}</div>` : ""}
+      ${renderSubmissionBasics(submission)}
+
+      <form id="maintainerReviewForm" class="maintainer-review-form" data-submission-id="${escapeHtml(submission.id)}">
+        <div class="maintainer-review-grid">
+          <label class="maintainer-field">
+            <span>Status</span>
+            <select id="maintainerReviewStatus" name="status">
+              ${["new", "in-review", "needs-follow-up", "accepted", "rejected"].map((value) => `
+                <option value="${value}" ${submission.status === value ? "selected" : ""}>${escapeHtml(formatStatus(value))}</option>
+              `).join("")}
+            </select>
+          </label>
+          <label class="maintainer-field">
+            <span>Priority</span>
+            <select id="maintainerReviewPriority" name="priority">
+              ${["high", "normal", "low"].map((value) => `
+                <option value="${value}" ${submission.priority === value ? "selected" : ""}>${escapeHtml(formatPriority(value))}</option>
+              `).join("")}
+            </select>
+          </label>
+          <label class="maintainer-field">
+            <span>Reviewed by</span>
+            <input id="maintainerReviewedBy" name="reviewedBy" type="text" value="${escapeHtml(reviewedBy)}" placeholder="Initials or maintainer name" />
+          </label>
+        </div>
+        <label class="maintainer-field">
+          <span>Review notes</span>
+          <textarea id="maintainerReviewNotes" name="reviewNotes" rows="7" placeholder="Internal notes for what changed, what needs checking, or why this was rejected.">${escapeHtml(submission.reviewNotes || "")}</textarea>
+        </label>
+        <div class="maintainer-review-actions">
+          <button class="maintainer-primary-button" type="submit">Save review state</button>
+          <p class="maintainer-panel-meta">${escapeHtml(submission.reviewedAt ? `Last reviewed ${formatDateTime(submission.reviewedAt)}` : "No review timestamp yet.")}</p>
+        </div>
+      </form>
+
+      ${getDetailSections(submission).map(renderSection).join("")}
+
+      <details class="maintainer-raw-data">
+        <summary>Raw payload and provenance</summary>
+        <pre>${escapeHtml(JSON.stringify({ payload: submission.payload, provenance: submission.provenance }, null, 2))}</pre>
+      </details>
+    </div>
+  `;
+}
+
+export function renderReportContent({ counts = {}, items = [], total = 0, filterSummary = "" }) {
+  if (items.length === 0) {
+    return `
+      <article class="page-card maintainer-report-card">
+        <h2>No matching submissions</h2>
+        <p>${escapeHtml(filterSummary || "This report is empty for the current filters.")}</p>
+      </article>
+    `;
+  }
+
+  const groups = ["new", "in-review", "needs-follow-up", "accepted", "rejected"].map((status) => ({
+    status,
+    items: items.filter((submission) => submission.status === status),
+  })).filter((group) => group.items.length > 0);
+
+  return `
+    <article class="page-card maintainer-report-card">
+      <div class="maintainer-report-summary">
+        <div>
+          <p class="maintainer-kicker">Snapshot summary</p>
+          <h2>${escapeHtml(String(total))} matching submissions</h2>
+        </div>
+        <p>${escapeHtml(filterSummary)}</p>
+      </div>
+      <div class="maintainer-report-counts">
+        ${Object.entries(counts.status || {}).map(([status, count]) => `
+          <span>${escapeHtml(formatStatus(status))}: ${escapeHtml(String(count))}</span>
+        `).join("")}
+      </div>
+    </article>
+    ${groups.map((group) => `
+      <section class="page-card maintainer-report-card">
+        <div class="maintainer-report-group-heading">
+          <h2>${escapeHtml(formatStatus(group.status))}</h2>
+          <p>${escapeHtml(String(group.items.length))} submissions</p>
+        </div>
+        <div class="maintainer-report-group">
+          ${group.items.map((submission) => `
+            <article class="maintainer-report-entry">
+              <div class="maintainer-report-entry-top">
+                <div>
+                  <h3>${escapeHtml(submission.showTitle)}</h3>
+                  <p>${escapeHtml(formatSubmissionType(submission.submissionType))} · ${escapeHtml(formatDateTime(submission.submittedAt))}</p>
+                </div>
+                <div class="maintainer-detail-badges">
+                  ${renderBadge(formatPriority(submission.priority), getPriorityTone(submission.priority))}
+                </div>
+              </div>
+              <p class="maintainer-report-preview">${escapeHtml(buildSubmissionPreview(submission))}</p>
+              ${renderSubmissionBasics(submission)}
+              ${getDetailSections(submission).map(renderSection).join("")}
+              ${submission.reviewNotes ? `<div class="maintainer-report-notes"><strong>Review notes:</strong> ${escapeHtml(submission.reviewNotes)}</div>` : ""}
+            </article>
+          `).join("")}
+        </div>
+      </section>
+    `).join("")}
+  `;
+}

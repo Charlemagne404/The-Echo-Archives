@@ -33,11 +33,23 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request
 - `DB_PATH`: SQLite database path for community features
+- `MAINTAINER_REVIEW_PASSPHRASE`: enables the protected maintainer review queue when set
+- `MAINTAINER_REVIEW_COOKIE_SECRET`: signs the maintainer session cookie
+- `MAINTAINER_REVIEW_SESSION_TTL_HOURS`: maintainer session lifetime in hours
 
 ## Maintainer review workflow
 
 The service exposes the merged catalog at `/data/shows.json`, so the frontend keeps working while long-form review copy lives in `data/reviews/<show-id>.json`.
 If a show record is missing a usable local `cover`, catalog load will try `listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`, download the discovered image into `images/covers/`, and rewrite `data/shows.json` with the new local path. Failed cover fetches fall back to a local placeholder for that process and log a warning instead of aborting startup.
+
+Protected maintainer submission workflow routes:
+
+- `/maintainer/submissions.html`
+- `/maintainer/submissions/report.html`
+- `/api/maintainer/session`
+- `/api/maintainer/submissions`
+
+The maintainer queue is passphrase-gated, reads from the same SQLite submission store as public intake, and lets you update `status`, `priority`, `review_notes`, and `reviewed_by` without opening the database directly.
 
 Useful maintainer commands:
 

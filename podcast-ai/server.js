@@ -4,6 +4,7 @@ const express = require("express");
 const config = require("./lib/config");
 const { loadArchiveContext } = require("./lib/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
+const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
@@ -14,6 +15,7 @@ const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
 const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
+const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { loadSiteHelpContext } = require("./lib/site-help");
 
@@ -53,6 +55,7 @@ async function startServer() {
     knownShowIds: new Set(catalog.map((show) => show.id)),
     rateLimiter: rateLimitService,
   });
+  const maintainerAuth = createMaintainerAuth(config);
 
   app.disable("x-powered-by");
   app.set("trust proxy", config.TRUST_PROXY);
@@ -93,6 +96,13 @@ async function startServer() {
   );
   app.use("/api/community", createCommunityRouter({ communityService, config }));
   app.use("/api/submissions", createSubmissionRouter({ submissionService }));
+  app.use(
+    createMaintainerRouter({
+      auth: maintainerAuth,
+      staticRoot: config.STATIC_ROOT,
+      submissionService,
+    }),
+  );
 
   if (config.SERVE_STATIC) {
     app.use((req, res, next) => {

@@ -110,6 +110,30 @@
     "includeFloatingControls": true
   },
   {
+    "source": "maintainer/submissions.html",
+    "output": "maintainer/submissions.html",
+    "title": "Submission Queue - The Echo Archives",
+    "description": "Maintainer submission queue for The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/maintainer/submissions.html",
+    "bodyClass": "home-page maintainer-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
+    "source": "maintainer/report.html",
+    "output": "maintainer/submissions/report.html",
+    "title": "Submission Report - The Echo Archives",
+    "description": "Maintainer submission report for The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/maintainer/submissions/report.html",
+    "bodyClass": "home-page maintainer-page maintainer-report-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
     "source": "privacy.html",
     "output": "privacy.html",
     "title": "Privacy - The Echo Archives",

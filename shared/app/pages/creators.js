@@ -124,7 +124,7 @@ function applyCreatorSpotlight(show) {
   }
 
   const firstReleaseYear = getReleaseYear(show);
-  const tags = show.tags.slice(0, 3).map((tag) => toDisplayTag(tag));
+  const tags = show.tags.slice(0, 2).map((tag) => toDisplayTag(tag));
   const verificationDate = show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt || "";
   const creatorName = show.credits?.creatorName && show.credits.creatorName !== "Not verified"
     ? show.credits.creatorName
@@ -174,6 +174,7 @@ function applyCreatorSpotlight(show) {
   const tagRow = document.getElementById("creatorSpotlightTags");
   if (tagRow) {
     tagRow.textContent = "";
+    tagRow.hidden = tags.length === 0;
 
     tags.forEach((tag) => {
       const chip = document.createElement("span");

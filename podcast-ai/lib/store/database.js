@@ -62,6 +62,7 @@ function migrate(db) {
     CREATE TABLE IF NOT EXISTS show_submissions (
       id TEXT PRIMARY KEY,
       status TEXT NOT NULL DEFAULT 'new',
+      priority TEXT NOT NULL DEFAULT 'normal',
       submission_type TEXT NOT NULL DEFAULT 'show',
       existing_show_id TEXT NOT NULL DEFAULT '',
       submitted_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -105,6 +106,7 @@ function migrate(db) {
   `);
 
   ensureColumn(db, "show_submissions", "submission_type", "submission_type TEXT NOT NULL DEFAULT 'show'");
+  ensureColumn(db, "show_submissions", "priority", "priority TEXT NOT NULL DEFAULT 'normal'");
   ensureColumn(db, "show_submissions", "existing_show_id", "existing_show_id TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "payload_json", "payload_json TEXT NOT NULL DEFAULT '{}'");
   ensureColumn(db, "show_submissions", "provenance_json", "provenance_json TEXT NOT NULL DEFAULT '{}'");

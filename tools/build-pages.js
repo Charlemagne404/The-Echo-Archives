@@ -13,6 +13,7 @@ function readFile(filePath) {
 }
 
 function writeFile(filePath, contents) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, contents);
 }
 
@@ -22,9 +23,9 @@ function renderTemplate(template, replacements) {
 
 function renderStylesheets(extraStylesheets = []) {
   return [
-    '<link rel="stylesheet" href="style.css?v=12" />',
-    '<link rel="stylesheet" href="home.css?v=28" />',
-    ...extraStylesheets.map((href) => `<link rel="stylesheet" href="${href}" />`),
+    '<link rel="stylesheet" href="/style.css?v=12" />',
+    '<link rel="stylesheet" href="/home.css?v=29" />',
+    ...extraStylesheets.map((href) => `<link rel="stylesheet" href="${href.startsWith("/") ? href : `/${href}`}" />`),
   ].join("\n");
 }
 
@@ -62,9 +63,9 @@ function renderPage(entry, partials) {
     pageBody,
     entry.includeFloatingControls ? partials.floatingControls : "",
     partials.footer,
-    '  <script src="shared/archive-record.js?v=1"></script>',
-    '  <script src="shared/archive-search.js?v=1"></script>',
-    '  <script type="module" src="script.js?v=22"></script>',
+    '  <script src="/shared/archive-record.js?v=1"></script>',
+    '  <script src="/shared/archive-search.js?v=1"></script>',
+    '  <script type="module" src="/script.js?v=23"></script>',
   ]
     .filter(Boolean)
     .join("\n\n");

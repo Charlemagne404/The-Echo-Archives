@@ -192,6 +192,7 @@ Current participation features include:
 - corrections
 - listener-review intake
 - creator-verification intake
+- maintainer queue and report surfaces for moderation workflow
 
 All intake remains moderation-first. Nothing should auto-publish into the archive catalog.
 
@@ -202,7 +203,7 @@ Operational storage may use SQLite or another lightweight store for:
 - submission queue entries
 - typed payload JSON
 - provenance JSON
-- moderation notes and status
+- moderation notes, priority, and status
 - anonymous community state
 
 This storage layer should support workflow without replacing the structured editorial catalog.

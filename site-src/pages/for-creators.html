@@ -361,41 +361,67 @@
         </div>
       </div>
       <div class="creator-spotlight-grid">
-        <a class="creator-spotlight-cover" id="creatorSpotlightCoverLink" href="/show.html" aria-label="Open featured show page">
-          <img id="creatorSpotlightCover" src="/images/hero-archive-dish.png" alt="" />
-        </a>
-        <div class="creator-spotlight-copy">
-          <span class="creator-spotlight-kicker">Archive spotlight</span>
-          <div class="creator-spotlight-title-row">
-            <h3 id="creatorSpotlightTitle">Featured show</h3>
-            <span class="creator-spotlight-pill" id="creatorSpotlightVerification">
-              Metadata status loading
-            </span>
-          </div>
-          <p class="creator-spotlight-byline" id="creatorSpotlightCreator">Loading creator details…</p>
-          <p class="creator-spotlight-description" id="creatorSpotlightDescription">Loading archive spotlight copy…</p>
-          <div class="creator-tag-row" id="creatorSpotlightTags" aria-label="Featured show tags"></div>
-          <dl class="creator-spotlight-metadata-rail">
-            <div>
-              <dt>Archive rating</dt>
-              <dd id="creatorSpotlightRating">-</dd>
-            </div>
-            <div>
-              <dt>Completion</dt>
-              <dd id="creatorSpotlightCompletion">-</dd>
-            </div>
-            <div>
-              <dt>First released</dt>
-              <dd id="creatorSpotlightYear">-</dd>
-            </div>
-          </dl>
-          <a class="creator-spotlight-link" id="creatorSpotlightOpenLink" href="/show.html">
-            <span>Open show page</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg>
+        <article class="creator-spotlight-feature">
+          <a class="creator-spotlight-cover" id="creatorSpotlightCoverLink" href="/show.html" aria-label="Open featured show page">
+            <img id="creatorSpotlightCover" src="/images/hero-archive-dish.png" alt="" />
           </a>
-        </div>
+          <div class="creator-spotlight-copy">
+            <div class="creator-spotlight-topline">
+              <span class="creator-spotlight-kicker">Archive spotlight</span>
+              <span class="creator-spotlight-pill" id="creatorSpotlightVerification">
+                Metadata status loading
+              </span>
+            </div>
+            <h3 id="creatorSpotlightTitle">Featured show</h3>
+            <p class="creator-spotlight-byline" id="creatorSpotlightCreator">Loading creator details…</p>
+            <div class="creator-tag-row" id="creatorSpotlightTags" aria-label="Featured show tags"></div>
+            <p class="creator-spotlight-description" id="creatorSpotlightDescription">Loading archive spotlight copy…</p>
+            <dl class="creator-spotlight-stat-strip" aria-label="Featured show archive facts">
+              <div class="creator-spotlight-stat">
+                <span class="creator-spotlight-stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="m12 3.6 2.6 5.26 5.8.85-4.2 4.09.99 5.79L12 16.84 6.81 19.59l.99-5.79-4.2-4.09 5.8-.85Z" />
+                  </svg>
+                </span>
+                <div>
+                  <dd id="creatorSpotlightRating">-</dd>
+                  <dt>Archive rating</dt>
+                </div>
+              </div>
+              <div class="creator-spotlight-stat">
+                <span class="creator-spotlight-stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M12 6.5v5.5l3.75 2.25" />
+                    <circle cx="12" cy="12" r="8.25" />
+                  </svg>
+                </span>
+                <div>
+                  <dd id="creatorSpotlightCompletion">-</dd>
+                  <dt>Completion</dt>
+                </div>
+              </div>
+              <div class="creator-spotlight-stat">
+                <span class="creator-spotlight-stat-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
+                    <path d="M5 8.5h14" />
+                    <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
+                  </svg>
+                </span>
+                <div>
+                  <dd id="creatorSpotlightYear">-</dd>
+                  <dt>First released</dt>
+                </div>
+              </div>
+            </dl>
+            <a class="creator-spotlight-link" id="creatorSpotlightOpenLink" href="/show.html">
+              <span>Open show page</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </article>
         <aside class="creator-spotlight-profile" aria-label="Creator profile sourcing note">
           <span class="creator-spotlight-profile-avatar" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="presentation">
@@ -407,7 +433,7 @@
             <strong id="creatorSpotlightPlaceholderName">Creator profile space</strong>
             <p id="creatorSpotlightPlaceholderCopy">Archive portraits and quotes appear here only when they can be sourced cleanly.</p>
           </div>
-          <a class="creator-inline-link" href="/submit.html?submissionType=creator-verification">
+          <a class="creator-inline-link creator-spotlight-profile-link" id="creatorSpotlightVerificationLink" href="/submit.html?submissionType=creator-verification">
             <span>Help verify this entry</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h14M13 6l6 6-6 6" />

@@ -331,6 +331,10 @@ test("for creators page is reachable from nav and its primary interactions work"
       placeholderName: document.getElementById("creatorSpotlightPlaceholderName")?.textContent?.trim() || "",
       placeholderCopy: document.getElementById("creatorSpotlightPlaceholderCopy")?.textContent?.trim() || "",
       spotlightHref: document.getElementById("creatorSpotlightOpenLink")?.getAttribute("href") || "",
+      spotlightVerificationHref: document.getElementById("creatorSpotlightVerificationLink")?.getAttribute("href") || "",
+      spotlightUnsupportedLinks: Array.from(document.querySelectorAll("#creator-spotlight a"))
+        .map((link) => link.textContent?.trim() || "")
+        .filter((label) => /view all spotlights|interview/i.test(label)),
       submitHref:
         document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=show"]')?.getAttribute("href") || "",
       correctionHref:
@@ -367,6 +371,8 @@ test("for creators page is reachable from nav and its primary interactions work"
     assert.match(initialState.spotlightVerification, /Metadata checked/i);
     assert.match(initialState.placeholderCopy, /metadata-checked only|official|verified source/i);
     assert.equal(initialState.spotlightHref, "/show.html?id=impact-winter");
+    assert.equal(initialState.spotlightVerificationHref, "/submit.html?submissionType=creator-verification");
+    assert.deepEqual(initialState.spotlightUnsupportedLinks, []);
     assert.equal(initialState.submitHref, "/submit.html?submissionType=show");
     assert.equal(initialState.correctionHref, "/submit.html?submissionType=correction");
     assert.equal(initialState.verificationHref, "/submit.html?submissionType=creator-verification");

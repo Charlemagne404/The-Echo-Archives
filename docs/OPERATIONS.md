@@ -100,6 +100,21 @@ Supported `submissionType` values:
 
 Everything enters the same SQLite-backed review queue. Nothing auto-publishes.
 
+Maintainer review now also has protected internal surfaces:
+
+- `/maintainer/submissions.html`
+- `/maintainer/submissions/report.html`
+
+Protected queue APIs:
+
+- `POST /api/maintainer/session`
+- `DELETE /api/maintainer/session`
+- `GET /api/maintainer/submissions`
+- `GET /api/maintainer/submissions/:id`
+- `PATCH /api/maintainer/submissions/:id`
+
+Maintainer routes are disabled unless `MAINTAINER_REVIEW_PASSPHRASE` is configured. Use `MAINTAINER_REVIEW_COOKIE_SECRET` to sign the session cookie and `MAINTAINER_REVIEW_SESSION_TTL_HOURS` to control session length.
+
 ## Queue Data Expectations
 
 Each submission should store:
@@ -107,7 +122,7 @@ Each submission should store:
 - shared identifying fields such as `show_title`, `existing_show_id`, `contact_email`, and optional link fields
 - `payload_json` for type-specific structured data
 - `provenance_json` for source-link data when relevant
-- moderation metadata such as `status`, `review_notes`, `reviewed_by`, and `reviewed_at`
+- moderation metadata such as `status`, `priority`, `review_notes`, `reviewed_by`, and `reviewed_at`
 
 ## Recommended Moderation Statuses
 

@@ -1,6 +1,11 @@
 const SUBMISSION_TYPES = ["show", "correction", "listener-review", "creator-verification"];
 const SUBMISSION_TYPE_SET = new Set(SUBMISSION_TYPES);
 const SPOILER_LEVELS = new Set(["spoiler-free", "light-spoilers", "full-spoilers"]);
+const MODERATION_STATUSES = ["new", "in-review", "accepted", "rejected", "needs-follow-up"];
+const MODERATION_STATUS_SET = new Set(MODERATION_STATUSES);
+const OPEN_MODERATION_STATUSES = ["new", "in-review", "needs-follow-up"];
+const PRIORITIES = ["high", "normal", "low"];
+const PRIORITY_SET = new Set(PRIORITIES);
 
 function trimString(value, maxLength = 2000) {
   return String(value || "").trim().slice(0, maxLength);
@@ -116,6 +121,12 @@ function createAcceptedResult(submission) {
   };
 }
 
+function createMaintainerNotFoundError() {
+  const error = new Error("Submission not found.");
+  error.statusCode = 404;
+  return error;
+}
+
 function resolveSubmissionType(rawBody = {}) {
   return SUBMISSION_TYPE_SET.has(rawBody?.submissionType) ? rawBody.submissionType : "show";
 }
@@ -192,6 +203,111 @@ function validateCommonSubmissionFields(common) {
     error.statusCode = 400;
     throw error;
   }
+}
+
+function toMaintainerSubmission(submission) {
+  if (!submission) {
+    return null;
+  }
+
+  return {
+    id: submission.id,
+    status: submission.status,
+    priority: submission.priority || "normal",
+    submissionType: submission.submission_type,
+    existingShowId: submission.existing_show_id,
+    submittedAt: submission.submitted_at,
+    showTitle: submission.show_title,
+    creatorName: submission.creator_name,
+    contactEmail: submission.contact_email,
+    officialSite: submission.official_site,
+    rssOrListenLink: submission.rss_or_listen_link,
+    genres: submission.genres,
+    notes: submission.notes,
+    payload: submission.payload_json || {},
+    provenance: submission.provenance_json || {},
+    reviewNotes: submission.review_notes,
+    reviewedBy: submission.reviewed_by,
+    reviewedAt: submission.reviewed_at,
+    sourceIp: submission.source_ip,
+    userAgent: submission.user_agent,
+  };
+}
+
+function normalizeListFilters(filters = {}) {
+  const status = trimString(filters.status, 80);
+  const submissionType = trimString(filters.submissionType, 80);
+  const priority = trimString(filters.priority, 40);
+  const q = trimString(filters.q, 200);
+
+  if (status && !MODERATION_STATUS_SET.has(status)) {
+    const error = new Error("Unknown maintainer status filter.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  if (submissionType && !SUBMISSION_TYPE_SET.has(submissionType)) {
+    const error = new Error("Unknown submission type filter.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  if (priority && !PRIORITY_SET.has(priority)) {
+    const error = new Error("Unknown priority filter.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  return {
+    status,
+    submissionType,
+    priority,
+    q,
+    includeClosed: filters.includeClosed === true,
+    page: Math.max(1, Number.parseInt(String(filters.page || "1"), 10) || 1),
+    pageSize: Math.min(200, Math.max(1, Number.parseInt(String(filters.pageSize || "20"), 10) || 20)),
+    openStatuses: OPEN_MODERATION_STATUSES,
+  };
+}
+
+function normalizeReviewUpdates(rawUpdates = {}) {
+  const updates = {};
+
+  if (Object.hasOwn(rawUpdates, "status")) {
+    const status = trimString(rawUpdates.status, 80);
+    if (!MODERATION_STATUS_SET.has(status)) {
+      const error = new Error("Unknown moderation status.");
+      error.statusCode = 400;
+      throw error;
+    }
+    updates.status = status;
+  }
+
+  if (Object.hasOwn(rawUpdates, "priority")) {
+    const priority = trimString(rawUpdates.priority, 40);
+    if (!PRIORITY_SET.has(priority)) {
+      const error = new Error("Unknown submission priority.");
+      error.statusCode = 400;
+      throw error;
+    }
+    updates.priority = priority;
+  }
+
+  if (Object.hasOwn(rawUpdates, "reviewNotes")) {
+    updates.reviewNotes = trimString(rawUpdates.reviewNotes, 4000);
+  }
+
+  if (Object.hasOwn(rawUpdates, "reviewedBy")) {
+    updates.reviewedBy = trimString(rawUpdates.reviewedBy, 160);
+  }
+
+  if (Object.keys(updates).length === 0) {
+    const error = new Error("No maintainer review fields were provided.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  return updates;
 }
 
 function createShowSubmissionHandler({ store }) {
@@ -522,12 +638,58 @@ function createSubmissionService({
     });
   }
 
+  function listForMaintainer(filters = {}) {
+    const normalizedFilters = normalizeListFilters(filters);
+    const result = store.listShowSubmissions(normalizedFilters);
+
+    return {
+      ...result,
+      items: result.items.map(toMaintainerSubmission),
+    };
+  }
+
+  function getForMaintainer(id = "") {
+    const trimmedId = trimString(id, 80);
+    if (!trimmedId) {
+      throw createMaintainerNotFoundError();
+    }
+
+    const submission = store.getShowSubmission(trimmedId);
+    if (!submission) {
+      throw createMaintainerNotFoundError();
+    }
+
+    return toMaintainerSubmission(submission);
+  }
+
+  function reviewForMaintainer(id = "", rawUpdates = {}) {
+    const trimmedId = trimString(id, 80);
+    if (!trimmedId) {
+      throw createMaintainerNotFoundError();
+    }
+
+    const updates = normalizeReviewUpdates(rawUpdates);
+    const submission = store.updateShowSubmissionReview(trimmedId, updates);
+    if (!submission) {
+      throw createMaintainerNotFoundError();
+    }
+
+    return toMaintainerSubmission(submission);
+  }
+
   return {
     submit,
     submitShow,
+    listForMaintainer,
+    getForMaintainer,
+    reviewForMaintainer,
   };
 }
 
 module.exports = {
   createSubmissionService,
+  MODERATION_STATUSES,
+  OPEN_MODERATION_STATUSES,
+  PRIORITIES,
+  SUBMISSION_TYPES,
 };
