@@ -1,4 +1,33 @@
 const express = require("express");
+const crypto = require("node:crypto");
+
+const VOTER_SECRET_PATTERN = /^[A-Za-z0-9_-]{32,128}$/;
+
+function parseCookies(header = "") {
+  return String(header || "")
+    .split(";")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .reduce((cookies, part) => {
+      const separatorIndex = part.indexOf("=");
+      if (separatorIndex <= 0) {
+        return cookies;
+      }
+
+      const key = decodeURIComponent(part.slice(0, separatorIndex).trim());
+      const value = decodeURIComponent(part.slice(separatorIndex + 1).trim());
+      cookies[key] = value;
+      return cookies;
+    }, {});
+}
+
+function isSecureRequest(req) {
+  return req.secure || String(req.get("x-forwarded-proto") || "").split(",")[0].trim() === "https";
+}
+
+function createVoterSecret() {
+  return crypto.randomBytes(32).toString("base64url");
+}
 
 function createCommunityRouter({ communityService, config }) {
   const router = express.Router();
@@ -9,23 +38,69 @@ function createCommunityRouter({ communityService, config }) {
     return fromHeader || fromBody || null;
   }
 
+  function getExistingVoterSecret(req) {
+    const cookies = parseCookies(req.get("cookie") || "");
+    const secret = cookies[config.COMMUNITY_VOTER_COOKIE_NAME];
+    return VOTER_SECRET_PATTERN.test(secret || "") ? secret : null;
+  }
+
+  function ensureVoterSecret(req, res) {
+    const existing = getExistingVoterSecret(req);
+    if (existing) {
+      return existing;
+    }
+
+    const secret = createVoterSecret();
+    res.cookie(config.COMMUNITY_VOTER_COOKIE_NAME, secret, {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: isSecureRequest(req),
+      maxAge: 400 * 24 * 60 * 60 * 1000,
+      path: "/",
+    });
+    return secret;
+  }
+
+  function getSourceIp(req) {
+    return req.ip || "";
+  }
+
   router.post("/profiles/anonymous", (req, res, next) => {
     try {
-      const payload = communityService.createAnonymousProfile(
-        typeof req.body?.existingProfileId === "string" ? req.body.existingProfileId : null,
-        req.get("user-agent") || "",
-      );
+      const payload = communityService.createDeviceProfile({
+        voterSecret: ensureVoterSecret(req, res),
+        userAgent: req.get("user-agent") || "",
+        sourceIp: getSourceIp(req),
+      });
       res.status(201).json(payload);
     } catch (error) {
       next(error);
     }
   });
 
+  router.get("/config", (_req, res) => {
+    res.json({
+      minPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
+      turnstile: {
+        enabled: config.COMMUNITY_TURNSTILE_ENABLED,
+        siteKey: config.COMMUNITY_TURNSTILE_SITE_KEY,
+      },
+    });
+  });
+
   router.get("/ratings/summary", (req, res, next) => {
     try {
+      const voterSecret = getExistingVoterSecret(req);
+      const deviceProfile = voterSecret
+        ? communityService.createDeviceProfile({
+            voterSecret,
+            userAgent: req.get("user-agent") || "",
+            sourceIp: getSourceIp(req),
+          })
+        : null;
       const result = communityService.getRatingSummaries({
         podcastIds: typeof req.query.podcastIds === "string" ? req.query.podcastIds : "",
-        profileId: getProfileId(req),
+        profileId: deviceProfile?.profileId || getProfileId(req),
         userAgent: req.get("user-agent") || "",
       });
       res.json(result);
@@ -34,15 +109,16 @@ function createCommunityRouter({ communityService, config }) {
     }
   });
 
-  router.put("/podcasts/:podcastId/rating", (req, res, next) => {
+  router.put("/podcasts/:podcastId/rating", async (req, res, next) => {
     try {
-      const result = communityService.submitRating({
+      const result = await communityService.submitRating({
         podcastId: req.params.podcastId,
         rating: req.body?.rating,
-        profileId: getProfileId(req),
+        voterSecret: ensureVoterSecret(req, res),
+        turnstileToken: req.body?.turnstileToken,
         userAgent: req.get("user-agent") || "",
         source: "web",
-        sourceIp: req.ip || "",
+        sourceIp: getSourceIp(req),
       });
       res.json(result);
     } catch (error) {
@@ -50,14 +126,15 @@ function createCommunityRouter({ communityService, config }) {
     }
   });
 
-  router.delete("/podcasts/:podcastId/rating", (req, res, next) => {
+  router.delete("/podcasts/:podcastId/rating", async (req, res, next) => {
     try {
-      const result = communityService.removeRating({
+      const result = await communityService.removeRating({
         podcastId: req.params.podcastId,
-        profileId: getProfileId(req),
+        voterSecret: ensureVoterSecret(req, res),
+        turnstileToken: req.body?.turnstileToken,
         userAgent: req.get("user-agent") || "",
         source: "web",
-        sourceIp: req.ip || "",
+        sourceIp: getSourceIp(req),
       });
       res.json(result);
     } catch (error) {

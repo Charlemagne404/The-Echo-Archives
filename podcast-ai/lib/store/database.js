@@ -11,8 +11,27 @@ function ensureColumn(db, tableName, columnName, definition) {
   }
 }
 
+function applyMigrationOnce(db, id, callback) {
+  const existing = db.prepare("SELECT id FROM app_migrations WHERE id = ?").get(id);
+  if (existing) {
+    return;
+  }
+
+  const runMigration = db.transaction(() => {
+    callback();
+    db.prepare("INSERT INTO app_migrations (id) VALUES (?)").run(id);
+  });
+
+  runMigration();
+}
+
 function migrate(db) {
   db.exec(`
+    CREATE TABLE IF NOT EXISTS app_migrations (
+      id TEXT PRIMARY KEY,
+      applied_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
     CREATE TABLE IF NOT EXISTS podcasts (
       id TEXT PRIMARY KEY,
       title TEXT NOT NULL,
@@ -28,8 +47,10 @@ function migrate(db) {
     CREATE TABLE IF NOT EXISTS community_profiles (
       id TEXT PRIMARY KEY,
       kind TEXT NOT NULL DEFAULT 'anonymous',
+      voter_hash TEXT,
       display_name TEXT,
       last_user_agent TEXT,
+      last_abuse_hash TEXT,
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       last_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -41,6 +62,8 @@ function migrate(db) {
       profile_id TEXT NOT NULL REFERENCES community_profiles(id) ON DELETE CASCADE,
       rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 10),
       source TEXT NOT NULL DEFAULT 'web',
+      verified_at TEXT,
+      abuse_hash TEXT NOT NULL DEFAULT '',
       status TEXT NOT NULL DEFAULT 'active',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -56,7 +79,15 @@ function migrate(db) {
       next_rating INTEGER NOT NULL CHECK (next_rating BETWEEN 1 AND 10),
       event_type TEXT NOT NULL,
       source TEXT NOT NULL DEFAULT 'web',
+      abuse_hash TEXT NOT NULL DEFAULT '',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS community_abuse_events (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      scope TEXT NOT NULL,
+      abuse_hash TEXT NOT NULL,
+      created_at_ms INTEGER NOT NULL
     );
 
     CREATE TABLE IF NOT EXISTS show_submissions (
@@ -98,6 +129,9 @@ function migrate(db) {
     CREATE INDEX IF NOT EXISTS idx_rating_events_podcast
       ON rating_events (podcast_id, created_at DESC);
 
+    CREATE INDEX IF NOT EXISTS idx_community_abuse_hash_created
+      ON community_abuse_events (abuse_hash, created_at_ms);
+
     CREATE INDEX IF NOT EXISTS idx_show_submissions_status
       ON show_submissions (status, submitted_at DESC);
 
@@ -113,6 +147,22 @@ function migrate(db) {
   ensureColumn(db, "show_submissions", "review_notes", "review_notes TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "reviewed_by", "reviewed_by TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "reviewed_at", "reviewed_at TEXT");
+  ensureColumn(db, "community_profiles", "voter_hash", "voter_hash TEXT");
+  ensureColumn(db, "community_profiles", "last_abuse_hash", "last_abuse_hash TEXT");
+  ensureColumn(db, "rating_submissions", "verified_at", "verified_at TEXT");
+  ensureColumn(db, "rating_submissions", "abuse_hash", "abuse_hash TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "rating_events", "abuse_hash", "abuse_hash TEXT NOT NULL DEFAULT ''");
+
+  db.exec(`
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_community_profiles_voter_hash
+      ON community_profiles (voter_hash)
+      WHERE voter_hash IS NOT NULL;
+  `);
+
+  applyMigrationOnce(db, "community-device-voting-reset-2026-06-21", () => {
+    db.prepare("DELETE FROM rating_events").run();
+    db.prepare("DELETE FROM rating_submissions").run();
+  });
 }
 
 function openDatabase(dbPath) {

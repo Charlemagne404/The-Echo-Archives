@@ -1,11 +1,21 @@
 import { createSubmissionHref } from "../urls.js";
-import { clearCommunityRating, ensureCommunityProfile, fetchRatingSummaries, submitCommunityRating } from "./api.js";
+import {
+  clearCommunityRating,
+  ensureCommunityProfile,
+  fetchRatingSummaries,
+  submitCommunityRating,
+} from "./api.js";
 import {
   EMPTY_COMMUNITY_SCORE_TEXT,
   formatDetailCommunitySummary,
   getDetailCommunityMetricCount,
   getDetailCommunityMetricValue,
 } from "./formatters.js";
+import {
+  configureRatingVerification,
+  getRatingVerificationToken,
+  resetRatingVerification,
+} from "./turnstile.js";
 
 export async function initializeDetailRatingPage(show) {
   const detailRoot = document.querySelector(".podcast-detail");
@@ -19,6 +29,7 @@ export async function initializeDetailRatingPage(show) {
   });
 
   try {
+    widget.verificationPromise = configureRatingVerification(widget);
     const profileId = await ensureCommunityProfile();
     const summaries = await fetchRatingSummaries([show.id], profileId);
     syncDetailRatingWidget(widget, summaries[show.id]);
@@ -75,6 +86,19 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   const distribution = document.createElement("div");
   distribution.className = "community-review-distribution";
 
+  const verification = document.createElement("div");
+  verification.className = "community-turnstile-shell";
+  verification.hidden = true;
+
+  const verificationSlot = document.createElement("div");
+  verificationSlot.className = "community-turnstile-slot";
+
+  const verificationStatus = document.createElement("p");
+  verificationStatus.className = "community-turnstile-status";
+  verificationStatus.setAttribute("aria-live", "polite");
+
+  verification.append(verificationSlot, verificationStatus);
+
   const body = document.createElement("div");
   body.className = "community-review-body";
   body.hidden = true;
@@ -97,6 +121,13 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     toggleButton,
     reviewLink,
     body,
+    verification,
+    verificationSlot,
+    verificationStatus,
+    verificationPromise: Promise.resolve(),
+    turnstileEnabled: false,
+    turnstileToken: "",
+    turnstileWidgetId: null,
     heroValue: detailRoot.querySelector("[data-community-hero-rating]"),
     heroCount: detailRoot.querySelector("[data-community-hero-count]"),
   };
@@ -114,11 +145,13 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     button.addEventListener("click", async () => {
       setDetailWidgetBusy(widget, true);
       try {
-        const result = await submitCommunityRating(podcast.podcastId, rating);
+        const turnstileToken = await getRatingVerificationToken(widget);
+        const result = await submitCommunityRating(podcast.podcastId, rating, turnstileToken);
         syncDetailRatingWidget(widget, result.summary);
       } catch (_error) {
         widget.summary.textContent = "Saving your rating failed.";
       } finally {
+        resetRatingVerification(widget);
         setDetailWidgetBusy(widget, false);
       }
     });
@@ -129,11 +162,13 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   clearButton.addEventListener("click", async () => {
     setDetailWidgetBusy(widget, true);
     try {
-      const result = await clearCommunityRating(podcast.podcastId);
+      const turnstileToken = await getRatingVerificationToken(widget);
+      const result = await clearCommunityRating(podcast.podcastId, turnstileToken);
       syncDetailRatingWidget(widget, result.summary);
     } catch (_error) {
       widget.summary.textContent = "Removing your rating failed.";
     } finally {
+      resetRatingVerification(widget);
       setDetailWidgetBusy(widget, false);
     }
   });
@@ -163,7 +198,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   }
 
   actions.append(toggleButton, reviewLink);
-  body.append(buttons, clearButton, distribution);
+  body.append(verification, buttons, clearButton, distribution);
   section.append(kicker, title, metricRow, summary, actions, body);
 
   const communitySlot = detailRoot.querySelector(".detail-community-slot");

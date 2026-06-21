@@ -174,14 +174,15 @@
         <article class="page-card info-section-card" id="privacy-browser">
           <h2>What the site stores in your browser</h2>
           <p>The Ask the Archivist panel keeps recent conversation history in session storage so it survives page refreshes during the same browser session.</p>
-          <p>Anonymous community ratings use local storage to keep a generated profile identifier on your device. That lets the same browser update or remove its own rating later without requiring an account.</p>
+          <p>Community ratings use a server-issued anonymous voter cookie so the same device can update or remove its own rating later without requiring an account.</p>
         </article>
 
         <article class="page-card info-section-card" id="privacy-server">
           <h2>What the server receives</h2>
           <p>When you submit a rating, correction, listener review, creator verification request, or new-show submission, the server receives the request body you send.</p>
           <ul>
-            <li>Limited technical data such as IP address and user agent may be used for moderation, abuse prevention, and rate limiting.</li>
+            <li>Rating writes may use Cloudflare Turnstile verification to reduce automated abuse.</li>
+            <li>Limited technical data such as salted IP and user-agent hashes may be used for moderation, abuse prevention, and rate limiting.</li>
             <li>Submission content is reviewed before it affects the public archive.</li>
             <li>The site does not currently run public analytics or advertising trackers.</li>
           </ul>
@@ -195,13 +196,13 @@
 
         <article class="page-card info-section-card" id="privacy-cookies">
           <h2>Cookies and maintainer access</h2>
-          <p>Public browsing, chat, and anonymous community ratings do not currently require first-party cookies. The private maintainer review area may set an HTTP-only session cookie when maintainer authentication is enabled.</p>
+          <p>Public browsing and chat do not currently require first-party application cookies. Community ratings use an HTTP-only voter cookie for accountless one-device voting, and the private maintainer review area may set an HTTP-only session cookie when maintainer authentication is enabled.</p>
           <p>See the <a href="/cookies.html">cookies and browser storage page</a> for the practical storage list.</p>
         </article>
 
         <article class="page-card info-section-card" id="privacy-external">
           <h2>Third-party services and changes</h2>
-          <p>The site links out to external listening platforms, official show sites, Patreon, GitHub, and other destinations chosen by the user. Those services operate under their own privacy terms once you leave The Echo Archives.</p>
+          <p>The site links out to external listening platforms, official show sites, Patreon, GitHub, and other destinations chosen by the user. Community rating writes may also contact Cloudflare Turnstile for human-verification checks. Those services operate under their own privacy terms.</p>
           <p>If the archive adds accounts, analytics, newsletters, or other personal-data features later, this page should be revised to match the live behavior instead of relying on boilerplate policy text.</p>
         </article>
       </div>

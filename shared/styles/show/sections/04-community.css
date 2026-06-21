@@ -70,6 +70,28 @@
   gap: 10px;
 }
 
+.community-turnstile-shell {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  min-width: 0;
+}
+
+.community-turnstile-shell[hidden] {
+  display: none !important;
+}
+
+.community-turnstile-slot {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.community-turnstile-status {
+  color: #aebbb3;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
 .community-review-link {
   font-size: 0.92rem;
 }

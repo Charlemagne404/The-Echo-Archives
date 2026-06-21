@@ -124,7 +124,7 @@
         </span>
         <div>
           <h2>Public browsing</h2>
-          <p>No first-party cookies are currently needed for browsing, chat, or anonymous ratings.</p>
+          <p>Basic browsing and chat do not need first-party application cookies.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -149,8 +149,8 @@
           </svg>
         </span>
         <div>
-          <h2>Local storage</h2>
-          <p>Anonymous ratings use a browser profile identifier so your own rating can be updated later.</p>
+          <h2>Rating cookie</h2>
+          <p>Community ratings use an anonymous HTTP-only voter cookie so one device keeps one active vote per show.</p>
         </div>
       </article>
     </section>
@@ -162,6 +162,7 @@
           <a href="#cookies-public">First-party cookies</a>
           <a href="#cookies-session">Session storage</a>
           <a href="#cookies-local">Local storage</a>
+          <a href="#cookies-ratings">Rating cookie</a>
           <a href="#cookies-maintainer">Maintainer cookie</a>
           <a href="#cookies-future">Future changes</a>
         </nav>
@@ -171,7 +172,7 @@
       <div class="info-section-stack">
         <article class="page-card info-section-card" id="cookies-public">
           <h2>First-party cookies</h2>
-          <p>The Echo Archives does not currently set first-party application cookies for public chat, anonymous community ratings, or basic catalog browsing.</p>
+          <p>The Echo Archives does not currently set first-party application cookies for basic catalog browsing or public chat.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-session">
@@ -182,8 +183,14 @@
 
         <article class="page-card info-section-card" id="cookies-local">
           <h2>Local storage</h2>
-          <p>Anonymous community rating flows store a generated profile identifier in local storage so the same browser can update or remove its own rating later without a required account.</p>
-          <p>The maintainer review tools may also store a reviewer display name locally inside the private maintainer interface.</p>
+          <p>The Ask the Archivist and maintainer review interfaces may use local browser storage for interface continuity, such as recent chat state or a reviewer display name.</p>
+          <p>Community rating authority no longer depends on a local-storage profile identifier.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="cookies-ratings">
+          <h2>Community rating cookie</h2>
+          <p>Community ratings use an HTTP-only cookie named <code>echo-community-voter</code> by default. It stores a random device token in the browser, while the server stores only a salted hash of that token.</p>
+          <p>The cookie is used only to let one device update or remove one active vote per show without requiring an account. Rating writes may also require Cloudflare Turnstile verification.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-maintainer">

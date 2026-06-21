@@ -1,8 +1,15 @@
 const EMPTY_COMMUNITY_SCORE_TEXT = "--/10";
 
 function formatDetailCommunitySummary(summary) {
-  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+  if (!summary || summary.ratingCount === 0) {
     return "No community ratings yet. Listener scores stay separate from the archive rating and only appear once people actually rate the show.";
+  }
+
+  if (summary.averageRating === null) {
+    const noun = summary.ratingCount === 1 ? "rating" : "ratings";
+    const yourRating = summary.myRating ? ` Your rating: ${summary.myRating}/10.` : "";
+    const threshold = summary.minimumRatingCount || 3;
+    return `Community average appears after ${threshold} verified ratings. ${summary.ratingCount} ${noun} recorded so far.${yourRating}`;
   }
 
   const noun = summary.ratingCount === 1 ? "rating" : "ratings";
@@ -45,8 +52,14 @@ function formatCommunityBadgeText(summary) {
 }
 
 function formatCommunityBadgeAriaLabel(summary) {
-  if (!summary || summary.ratingCount === 0 || summary.averageRating === null) {
+  if (!summary || summary.ratingCount === 0) {
     return "Community score --/10. No ratings yet.";
+  }
+
+  if (summary.averageRating === null) {
+    const noun = summary.ratingCount === 1 ? "rating" : "ratings";
+    const threshold = summary.minimumRatingCount || 3;
+    return `Community score hidden until ${threshold} verified ratings. ${summary.ratingCount} ${noun} recorded.`;
   }
 
   const noun = summary.ratingCount === 1 ? "rating" : "ratings";

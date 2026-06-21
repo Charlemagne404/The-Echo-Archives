@@ -173,7 +173,11 @@ Use a small predictable vocabulary:
 
 - Keep community rating clearly separate from Archive Rating.
 - Do not imply creator endorsement through creator verification.
-- Keep anti-spam and visibility-threshold rules in place as public use grows.
+- Community rating writes use a server-issued HTTP-only voter cookie for one active vote per show per device.
+- Configure `COMMUNITY_TURNSTILE_SITE_KEY` and `COMMUNITY_TURNSTILE_SECRET_KEY` to require Cloudflare Turnstile on rating create, update, and delete requests.
+- Keep `COMMUNITY_VOTER_HASH_SECRET` stable between deploys so existing voter cookies keep resolving to the same hashed profile.
+- Public averages stay hidden until `COMMUNITY_MIN_PUBLIC_RATINGS` verified votes exist for a show. The default threshold is 3.
+- Rating abuse signals use salted IP/user-agent hashes and should be pruned with `COMMUNITY_ABUSE_RETENTION_DAYS`, defaulting to 30 days.
 
 ## Documentation Maintenance
 

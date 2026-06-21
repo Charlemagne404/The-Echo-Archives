@@ -35,6 +35,8 @@ export const chatState = {
 export const communityState = {
   profileId: null,
   profilePromise: null,
+  config: null,
+  configPromise: null,
 };
 
 export const backToTopBtn = document.getElementById("backToTop");

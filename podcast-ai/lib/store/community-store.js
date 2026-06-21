@@ -4,7 +4,7 @@ function createEmptyDistribution() {
   return Object.fromEntries(Array.from({ length: 10 }, (_, index) => [String(index + 1), 0]));
 }
 
-function createCommunityStore({ db, catalog }) {
+function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
   const catalogIds = new Set(catalog.map((entry) => entry.id));
 
   const statements = {
@@ -30,13 +30,30 @@ function createCommunityStore({ db, catalog }) {
       FROM community_profiles
       WHERE id = ?
     `),
+    getProfileByVoterHash: db.prepare(`
+      SELECT id
+      FROM community_profiles
+      WHERE voter_hash = ?
+    `),
     insertProfile: db.prepare(`
       INSERT INTO community_profiles (id, kind, last_user_agent)
       VALUES (@id, 'anonymous', @userAgent)
     `),
+    insertDeviceProfile: db.prepare(`
+      INSERT INTO community_profiles (id, kind, voter_hash, last_user_agent, last_abuse_hash)
+      VALUES (@id, 'device', @voterHash, @userAgent, @abuseHash)
+    `),
     touchProfile: db.prepare(`
       UPDATE community_profiles
       SET last_user_agent = @userAgent,
+          updated_at = CURRENT_TIMESTAMP,
+          last_seen_at = CURRENT_TIMESTAMP
+      WHERE id = @id
+    `),
+    touchDeviceProfile: db.prepare(`
+      UPDATE community_profiles
+      SET last_user_agent = @userAgent,
+          last_abuse_hash = @abuseHash,
           updated_at = CURRENT_TIMESTAMP,
           last_seen_at = CURRENT_TIMESTAMP
       WHERE id = @id
@@ -47,13 +64,15 @@ function createCommunityStore({ db, catalog }) {
       WHERE podcast_id = ? AND profile_id = ?
     `),
     insertSubmission: db.prepare(`
-      INSERT INTO rating_submissions (id, podcast_id, profile_id, rating, source)
-      VALUES (@id, @podcastId, @profileId, @rating, @source)
+      INSERT INTO rating_submissions (id, podcast_id, profile_id, rating, source, verified_at, abuse_hash)
+      VALUES (@id, @podcastId, @profileId, @rating, @source, CURRENT_TIMESTAMP, @abuseHash)
     `),
     updateSubmission: db.prepare(`
       UPDATE rating_submissions
       SET rating = @rating,
           source = @source,
+          verified_at = CURRENT_TIMESTAMP,
+          abuse_hash = @abuseHash,
           updated_at = CURRENT_TIMESTAMP
       WHERE id = @id
     `),
@@ -66,7 +85,8 @@ function createCommunityStore({ db, catalog }) {
         previous_rating,
         next_rating,
         event_type,
-        source
+        source,
+        abuse_hash
       ) VALUES (
         @id,
         @submissionId,
@@ -75,12 +95,27 @@ function createCommunityStore({ db, catalog }) {
         @previousRating,
         @nextRating,
         @eventType,
-        @source
+        @source,
+        @abuseHash
       )
     `),
     deleteSubmission: db.prepare(`
       DELETE FROM rating_submissions
       WHERE podcast_id = ? AND profile_id = ?
+    `),
+    pruneAbuseEvents: db.prepare(`
+      DELETE FROM community_abuse_events
+      WHERE created_at_ms <= @cutoffMs
+    `),
+    insertAbuseEvent: db.prepare(`
+      INSERT INTO community_abuse_events (scope, abuse_hash, created_at_ms)
+      VALUES (@scope, @abuseHash, @createdAtMs)
+    `),
+    listAbuseEvents: db.prepare(`
+      SELECT scope, abuse_hash, created_at_ms
+      FROM community_abuse_events
+      WHERE abuse_hash = ?
+      ORDER BY created_at_ms ASC
     `),
   };
 
@@ -105,7 +140,7 @@ function createCommunityStore({ db, catalog }) {
 
   syncCatalog(catalog);
 
-  const upsertRating = db.transaction(({ podcastId, profileId, rating, source }) => {
+  const upsertRating = db.transaction(({ podcastId, profileId, rating, source, abuseHash = "" }) => {
     const existing = statements.getSubmission.get(podcastId, profileId);
 
     if (!existing) {
@@ -116,6 +151,7 @@ function createCommunityStore({ db, catalog }) {
         profileId,
         rating,
         source,
+        abuseHash,
       });
       statements.insertEvent.run({
         id: randomUUID(),
@@ -126,6 +162,7 @@ function createCommunityStore({ db, catalog }) {
         nextRating: rating,
         eventType: "created",
         source,
+        abuseHash,
       });
       return submissionId;
     }
@@ -134,6 +171,7 @@ function createCommunityStore({ db, catalog }) {
       id: existing.id,
       rating,
       source,
+      abuseHash,
     });
     statements.insertEvent.run({
       id: randomUUID(),
@@ -144,11 +182,12 @@ function createCommunityStore({ db, catalog }) {
       nextRating: rating,
       eventType: "updated",
       source,
+      abuseHash,
     });
     return existing.id;
   });
 
-  const deleteRating = db.transaction(({ podcastId, profileId, source }) => {
+  const deleteRating = db.transaction(({ podcastId, profileId, source, abuseHash = "" }) => {
     const existing = statements.getSubmission.get(podcastId, profileId);
     if (!existing) {
       return false;
@@ -163,6 +202,7 @@ function createCommunityStore({ db, catalog }) {
       nextRating: existing.rating,
       eventType: "deleted",
       source,
+      abuseHash,
     });
     statements.deleteSubmission.run(podcastId, profileId);
     return true;
@@ -180,6 +220,39 @@ function createCommunityStore({ db, catalog }) {
     const id = randomUUID();
     statements.insertProfile.run({ id, userAgent });
     return id;
+  }
+
+  function ensureDeviceProfile({ voterHash, userAgent = "", abuseHash = "" }) {
+    const existing = statements.getProfileByVoterHash.get(voterHash);
+    if (existing) {
+      statements.touchDeviceProfile.run({ id: existing.id, userAgent, abuseHash });
+      return existing.id;
+    }
+
+    const id = randomUUID();
+    statements.insertDeviceProfile.run({ id, voterHash, userAgent, abuseHash });
+    return id;
+  }
+
+  function recordAbuseEvent({ scope = "community", abuseHash, createdAtMs = Date.now(), retentionMs }) {
+    if (!abuseHash) {
+      return;
+    }
+
+    const cutoffMs = Number.isFinite(retentionMs) ? createdAtMs - retentionMs : 0;
+    if (cutoffMs > 0) {
+      statements.pruneAbuseEvents.run({ cutoffMs });
+    }
+
+    statements.insertAbuseEvent.run({
+      scope,
+      abuseHash,
+      createdAtMs,
+    });
+  }
+
+  function listAbuseEvents(abuseHash) {
+    return statements.listAbuseEvents.all(abuseHash);
   }
 
   function getPodcast(podcastId) {
@@ -219,7 +292,11 @@ function createCommunityStore({ db, catalog }) {
       .prepare(`
         SELECT
           p.id,
-          ROUND(AVG(rs.rating), 2) AS average_rating,
+        CASE
+          WHEN COUNT(rs.id) >= ?
+          THEN ROUND(AVG(rs.rating), 2)
+          ELSE NULL
+        END AS average_rating,
           COUNT(rs.id) AS rating_count,
           my.rating AS my_rating,
           ${distributionSql.join(",\n          ")}
@@ -232,7 +309,7 @@ function createCommunityStore({ db, catalog }) {
         WHERE p.id IN (${placeholders})
         GROUP BY p.id, my.rating
       `)
-      .all(profileId || null, ...uniqueIds);
+      .all(Math.max(1, minPublicRatings), profileId || null, ...uniqueIds);
 
     const summaries = {};
 
@@ -246,6 +323,7 @@ function createCommunityStore({ db, catalog }) {
         podcastId: row.id,
         averageRating: row.average_rating === null ? null : Number(row.average_rating),
         ratingCount: row.rating_count || 0,
+        minimumRatingCount: Math.max(1, minPublicRatings),
         myRating: row.my_rating || null,
         distribution,
       };
@@ -257,6 +335,7 @@ function createCommunityStore({ db, catalog }) {
           podcastId,
           averageRating: null,
           ratingCount: 0,
+          minimumRatingCount: Math.max(1, minPublicRatings),
           myRating: null,
           distribution: createEmptyDistribution(),
         };
@@ -268,8 +347,11 @@ function createCommunityStore({ db, catalog }) {
 
   return {
     ensureProfile,
+    ensureDeviceProfile,
     getPodcast,
     listRatingSummaries,
+    listAbuseEvents,
+    recordAbuseEvent,
     syncCatalog,
     upsertRating,
     deleteRating,

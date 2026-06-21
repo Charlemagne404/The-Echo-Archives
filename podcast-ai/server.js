@@ -13,6 +13,7 @@ const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
+const { createTurnstileService } = require("./lib/services/turnstile-service");
 const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
 const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
@@ -44,11 +45,23 @@ async function startServer() {
       },
     },
   });
-  const communityStore = createCommunityStore({ db: database, catalog });
+  const communityStore = createCommunityStore({
+    db: database,
+    catalog,
+    minPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
+  });
   const submissionStore = createSubmissionStore({ db: database });
+  const turnstileService = createTurnstileService({
+    enabled: config.COMMUNITY_TURNSTILE_ENABLED,
+    secretKey: config.COMMUNITY_TURNSTILE_SECRET_KEY,
+    endpoint: config.COMMUNITY_TURNSTILE_VERIFY_URL,
+  });
   const communityService = createCommunityService({
     store: communityStore,
     rateLimiter: rateLimitService,
+    turnstile: turnstileService,
+    voterHashSecret: config.COMMUNITY_VOTER_HASH_SECRET,
+    abuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
   });
   const submissionService = createSubmissionService({
     store: submissionStore,

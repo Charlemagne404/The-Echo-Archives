@@ -510,7 +510,8 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         communityTop: communityCard?.getBoundingClientRect().top || 0,
         archiveTop: archiveTakeCard?.getBoundingClientRect().top || 0,
         heroCommunityCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
-        heroCommunityValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
+      heroCommunityValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
+      turnstileHidden: document.querySelector(".community-turnstile-shell")?.hidden ?? null,
       };
     });
 
@@ -541,6 +542,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.match(layout.reviewLinkHref, /submit\.html\?submissionType=listener-review&showId=impact-winter/);
     assert.match(layout.heroCommunityCount, /No ratings yet/i);
     assert.equal(layout.heroCommunityValue, "--/10");
+    assert.equal(layout.turnstileHidden, true);
     assert.equal(await page.locator(".community-review-body").isVisible(), false);
     assert.equal(await page.locator(".community-review-clear").isVisible(), false);
     assert.equal(await page.locator(".community-review-link").isVisible(), true);
@@ -569,8 +571,8 @@ test("full-review detail page promotes community, trims the rail, and preserves 
       clearVisible: !document.querySelector(".community-review-clear")?.hidden,
     }));
     assert.match(communityState.heroCount, /1 rating/i);
-    assert.equal(communityState.heroValue, "8.0/10");
-    assert.equal(communityState.railValue, "8.0/10");
+    assert.equal(communityState.heroValue, "--/10");
+    assert.equal(communityState.railValue, "--/10");
     assert.equal(communityState.clearVisible, true);
 
     await page.getByRole("button", { name: "Clear your rating" }).click();
@@ -614,6 +616,72 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.ok(mobileLayout.archiveTop > mobileLayout.overviewTop);
   } finally {
     await mobilePage.close();
+  }
+});
+
+test("detail community rating renders Turnstile and sends the verification token when enabled", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const ratingRequests = [];
+
+  try {
+    await page.addInitScript(() => {
+      window.turnstile = {
+        render(element, options) {
+          element.textContent = "listener check";
+          window.__echoTurnstileOptions = options;
+          window.setTimeout(() => options.callback("browser-turnstile-token"), 0);
+          return "test-widget-id";
+        },
+        reset(widgetId) {
+          window.__echoTurnstileReset = widgetId;
+        },
+      };
+    });
+
+    await page.route("**/api/community/config", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          minPublicRatings: 3,
+          turnstile: {
+            enabled: true,
+            siteKey: "test-site-key",
+          },
+        }),
+      });
+    });
+
+    await page.route("**/api/community/podcasts/impact-winter/rating", async (route) => {
+      const body = route.request().postDataJSON();
+      ratingRequests.push(body);
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          summary: createSummary({
+            averageRating: null,
+            ratingCount: 1,
+            myRating: body.rating,
+            distribution: { ...createEmptyDistribution(), [String(body.rating)]: 1 },
+          }),
+        }),
+      });
+    });
+
+    await page.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.getByRole("button", { name: "Rate this show" }).click();
+    await page.locator(".community-turnstile-shell").waitFor({ state: "visible" });
+    await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
+
+    await page.locator(".community-review-button").nth(6).click();
+    await page.waitForFunction(() => window.__echoTurnstileReset === "test-widget-id");
+
+    assert.equal(ratingRequests.length, 1);
+    assert.equal(ratingRequests[0].rating, 7);
+    assert.equal(ratingRequests[0].turnstileToken, "browser-turnstile-token");
+  } finally {
+    await page.close();
   }
 });
 

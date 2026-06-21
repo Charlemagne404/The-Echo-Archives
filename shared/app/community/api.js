@@ -35,6 +35,33 @@ async function ensureCommunityProfile() {
   return communityState.profilePromise;
 }
 
+async function fetchCommunityConfig() {
+  if (communityState.config) {
+    return communityState.config;
+  }
+
+  if (!communityState.configPromise) {
+    communityState.configPromise = (async () => {
+      const response = await fetch("/api/community/config");
+      if (!response.ok) {
+        throw new Error(`Community config request failed with ${response.status}`);
+      }
+
+      const result = await response.json();
+      communityState.config = {
+        minPublicRatings: Number.isInteger(result.minPublicRatings) ? result.minPublicRatings : 3,
+        turnstile: {
+          enabled: Boolean(result.turnstile?.enabled),
+          siteKey: typeof result.turnstile?.siteKey === "string" ? result.turnstile.siteKey : "",
+        },
+      };
+      return communityState.config;
+    })();
+  }
+
+  return communityState.configPromise;
+}
+
 async function fetchRatingSummaries(podcastIds, profileId) {
   const query = new URLSearchParams();
   query.set("podcastIds", podcastIds.join(","));
@@ -55,7 +82,7 @@ async function fetchRatingSummaries(podcastIds, profileId) {
   return result.summaries || {};
 }
 
-async function submitCommunityRating(podcastId, rating) {
+async function submitCommunityRating(podcastId, rating, turnstileToken = "") {
   const profileId = await ensureCommunityProfile();
   const response = await fetch(`/api/community/podcasts/${encodeURIComponent(podcastId)}/rating`, {
     method: "PUT",
@@ -63,7 +90,7 @@ async function submitCommunityRating(podcastId, rating) {
       "Content-Type": "application/json",
       [COMMUNITY_PROFILE_HEADER]: profileId,
     },
-    body: JSON.stringify({ rating }),
+    body: JSON.stringify({ rating, turnstileToken }),
   });
 
   if (!response.ok) {
@@ -73,13 +100,15 @@ async function submitCommunityRating(podcastId, rating) {
   return response.json();
 }
 
-async function clearCommunityRating(podcastId) {
+async function clearCommunityRating(podcastId, turnstileToken = "") {
   const profileId = await ensureCommunityProfile();
   const response = await fetch(`/api/community/podcasts/${encodeURIComponent(podcastId)}/rating`, {
     method: "DELETE",
     headers: {
+      "Content-Type": "application/json",
       [COMMUNITY_PROFILE_HEADER]: profileId,
     },
+    body: JSON.stringify({ turnstileToken }),
   });
 
   if (!response.ok) {
@@ -109,6 +138,7 @@ async function loadCommunitySummaries(podcastIds) {
 export {
   clearCommunityRating,
   ensureCommunityProfile,
+  fetchCommunityConfig,
   fetchRatingSummaries,
   loadCommunitySummaries,
   submitCommunityRating,
