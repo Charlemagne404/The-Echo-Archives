@@ -1,10 +1,10 @@
-<main class="home-main page-main">
-    <section class="hero-shell">
-      <div class="hero-panel page-panel">
-        <div class="hero-copy">
+<main class="home-main page-main info-document-main privacy-main">
+    <section class="hero-shell info-hero-shell">
+      <div class="hero-panel page-panel info-hero-panel">
+        <div class="hero-copy info-hero-copy">
           <h1>Privacy</h1>
           <p>
-            The Echo Archives keeps the data footprint small. This page describes what the site stores today and what it does not.
+            The Echo Archives keeps the data footprint small. This page explains the information used for browsing, chat, ratings, submissions, and maintainer review.
           </p>
           <div class="page-hero-actions">
             <a class="about-cta about-cta-secondary" href="/index.html" data-history-back data-fallback-label="Back to Browse">
@@ -13,35 +13,109 @@
                 <path d="M14.5 6.5 8.75 12l5.75 5.5" />
               </svg>
             </a>
+            <a class="about-cta about-cta-secondary" href="/cookies.html">
+              <span>Cookie details</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="page-stack">
-      <article class="page-card">
-        <h2>What the site stores in your browser</h2>
-        <p>The chat panel keeps recent conversation history in session storage so it survives page refreshes during the same browser session. Anonymous community ratings use local storage to keep a generated profile identifier on your device so the site can associate your own rating with the same browser later.</p>
+    <section class="info-summary-grid" aria-label="Privacy summary">
+      <article class="page-card info-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M12 3.75 18.5 6v5.1c0 4.15-2.63 7.94-6.5 9.15-3.87-1.21-6.5-5-6.5-9.15V6Z" />
+            <path d="m9.55 12 1.65 1.65 3.6-3.85" />
+          </svg>
+        </span>
+        <div>
+          <h2>Small footprint</h2>
+          <p>No ad-tech tracking or analytics scripts are used in the current public site.</p>
+        </div>
       </article>
-      <article class="page-card">
-        <h2>What the server receives</h2>
-        <p>When you submit a rating, correction, creator verification request, or new-show submission, the server receives the request body you send along with limited technical data such as IP address and user agent for moderation, abuse prevention, and rate limiting.</p>
+      <article class="page-card info-summary-card info-summary-card-community">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M4.5 13h1.75" />
+            <path d="M8 9.5v7" />
+            <path d="M11.5 6.25v13.5" />
+            <path d="M15 8.5v9" />
+            <path d="M18.5 11v4" />
+            <path d="M21 12h-1" />
+          </svg>
+        </span>
+        <div>
+          <h2>Local memory</h2>
+          <p>Chat history and anonymous rating identity stay browser-scoped unless you submit a form.</p>
+        </div>
       </article>
-      <article class="page-card">
-        <h2>Submissions and contact details</h2>
-        <p>If you send a submission form with a contact email, that email is stored with the submission so the maintainer can review the request or follow up when necessary. Do not send private information that is not relevant to the archive.</p>
+      <article class="page-card info-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M7.25 5.25h7.5l3 3v10.5a1.75 1.75 0 0 1-1.75 1.75h-8.75A1.75 1.75 0 0 1 5.5 18.75V7a1.75 1.75 0 0 1 1.75-1.75Z" />
+            <path d="M14.75 5.25V8.5h3" />
+            <path d="M8.65 12h6.7" />
+            <path d="M8.65 15.2h4.6" />
+          </svg>
+        </span>
+        <div>
+          <h2>Manual review</h2>
+          <p>Submissions are stored for archive review, moderation, and necessary follow-up.</p>
+        </div>
       </article>
-      <article class="page-card">
-        <h2>Cookies</h2>
-        <p>The site does not currently set first-party application cookies for chat, ratings, or basic browsing. If that changes, this page and <a href="/cookies.html">the cookies page</a> should be updated alongside the implementation.</p>
-      </article>
-      <article class="page-card">
-        <h2>Third-party services</h2>
-        <p>The site links out to external listening platforms, official show sites, Patreon, GitHub, and other destinations chosen by the user. Those services operate under their own privacy terms once you leave The Echo Archives.</p>
-      </article>
-      <article class="page-card">
-        <h2>Changes</h2>
-        <p>If the archive adds accounts, analytics, newsletters, or other personal-data features later, this page should be revised to match the live behavior instead of relying on boilerplate policy text.</p>
-      </article>
+    </section>
+
+    <section class="info-document-layout" aria-label="Privacy details">
+      <aside class="page-card info-page-rail" aria-label="Privacy sections">
+        <span class="page-card-kicker">Privacy map</span>
+        <nav class="info-rail-links" aria-label="Privacy page sections">
+          <a href="#privacy-browser">Browser storage</a>
+          <a href="#privacy-server">Server submissions</a>
+          <a href="#privacy-contact">Contact details</a>
+          <a href="#privacy-cookies">Cookies</a>
+          <a href="#privacy-external">External services</a>
+        </nav>
+        <p class="info-rail-note">This page reflects the current implementation, not a generic policy template.</p>
+      </aside>
+
+      <div class="info-section-stack">
+        <article class="page-card info-section-card" id="privacy-browser">
+          <h2>What the site stores in your browser</h2>
+          <p>The Ask the Archivist panel keeps recent conversation history in session storage so it survives page refreshes during the same browser session.</p>
+          <p>Anonymous community ratings use local storage to keep a generated profile identifier on your device. That lets the same browser update or remove its own rating later without requiring an account.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="privacy-server">
+          <h2>What the server receives</h2>
+          <p>When you submit a rating, correction, listener review, creator verification request, or new-show submission, the server receives the request body you send.</p>
+          <ul>
+            <li>Limited technical data such as IP address and user agent may be used for moderation, abuse prevention, and rate limiting.</li>
+            <li>Submission content is reviewed before it affects the public archive.</li>
+            <li>The site does not currently run public analytics or advertising trackers.</li>
+          </ul>
+        </article>
+
+        <article class="page-card info-section-card" id="privacy-contact">
+          <h2>Submissions and contact details</h2>
+          <p>If you send a submission form with a contact email, that email is stored with the submission so the maintainer can review the request or follow up when necessary.</p>
+          <p>Do not send private information that is not relevant to the archive entry, correction, review, or verification request.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="privacy-cookies">
+          <h2>Cookies and maintainer access</h2>
+          <p>Public browsing, chat, and anonymous community ratings do not currently require first-party cookies. The private maintainer review area may set an HTTP-only session cookie when maintainer authentication is enabled.</p>
+          <p>See the <a href="/cookies.html">cookies and browser storage page</a> for the practical storage list.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="privacy-external">
+          <h2>Third-party services and changes</h2>
+          <p>The site links out to external listening platforms, official show sites, Patreon, GitHub, and other destinations chosen by the user. Those services operate under their own privacy terms once you leave The Echo Archives.</p>
+          <p>If the archive adds accounts, analytics, newsletters, or other personal-data features later, this page should be revised to match the live behavior instead of relying on boilerplate policy text.</p>
+        </article>
+      </div>
     </section>
   </main>

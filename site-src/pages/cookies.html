@@ -1,10 +1,10 @@
-<main class="home-main page-main">
-    <section class="hero-shell">
-      <div class="hero-panel page-panel">
-        <div class="hero-copy">
+<main class="home-main page-main info-document-main cookies-main">
+    <section class="hero-shell info-hero-shell">
+      <div class="hero-panel page-panel info-hero-panel">
+        <div class="hero-copy info-hero-copy">
           <h1>Cookies and browser storage</h1>
           <p>
-            The site currently relies on browser storage more than cookies. This page reflects the current implementation and should stay specific.
+            The site currently relies on browser storage more than cookies. This page lists what is used today and what each item supports.
           </p>
           <div class="page-hero-actions">
             <a class="about-cta about-cta-secondary" href="/index.html" data-history-back data-fallback-label="Back to Browse">
@@ -13,27 +13,102 @@
                 <path d="M14.5 6.5 8.75 12l5.75 5.5" />
               </svg>
             </a>
+            <a class="about-cta about-cta-secondary" href="/privacy.html">
+              <span>Privacy summary</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="page-stack">
-      <article class="page-card">
-        <h2>First-party cookies</h2>
-        <p>The Echo Archives does not currently set first-party application cookies for chat, anonymous community ratings, or basic catalog browsing.</p>
+    <section class="info-summary-grid" aria-label="Cookie summary">
+      <article class="page-card info-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M12 4.75a7.25 7.25 0 1 0 7.25 7.25 2.35 2.35 0 0 1-3.2-2.2 2.6 2.6 0 0 1-3.25-3.25A2.35 2.35 0 0 1 12 4.75Z" />
+            <path d="M9 13.7h.01" />
+            <path d="M12.4 16.05h.01" />
+            <path d="M7.8 9.5h.01" />
+          </svg>
+        </span>
+        <div>
+          <h2>Public browsing</h2>
+          <p>No first-party cookies are currently needed for browsing, chat, or anonymous ratings.</p>
+        </div>
       </article>
-      <article class="page-card">
-        <h2>Session storage</h2>
-        <p>The Ask the Archivist panel stores recent chat history in session storage under a browser-scoped key so the conversation can survive reloads during the same session.</p>
+      <article class="page-card info-summary-card info-summary-card-community">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M5.25 7.25h13.5v9.5H8.75l-3.5 3v-12.5Z" />
+            <path d="M8.75 10.25h6.5" />
+            <path d="M8.75 13.25h4.5" />
+          </svg>
+        </span>
+        <div>
+          <h2>Session storage</h2>
+          <p>Ask the Archivist keeps recent chat history during the current browser session.</p>
+        </div>
       </article>
-      <article class="page-card">
-        <h2>Local storage</h2>
-        <p>Anonymous community rating flows store a generated profile identifier in local storage so the same browser can update or remove its own rating later without a required account.</p>
+      <article class="page-card info-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <rect x="4.75" y="5.75" width="14.5" height="12.5" rx="2.25" />
+            <path d="M8.5 9.5h7" />
+            <path d="M8.5 13h3.7" />
+          </svg>
+        </span>
+        <div>
+          <h2>Local storage</h2>
+          <p>Anonymous ratings use a browser profile identifier so your own rating can be updated later.</p>
+        </div>
       </article>
-      <article class="page-card">
-        <h2>Future changes</h2>
-        <p>If analytics, authentication, or preference cookies are introduced later, this page should be updated with the cookie purpose, duration, and whether the cookie is required or optional.</p>
-      </article>
+    </section>
+
+    <section class="info-document-layout" aria-label="Cookie and storage details">
+      <aside class="page-card info-page-rail" aria-label="Cookie sections">
+        <span class="page-card-kicker">Storage map</span>
+        <nav class="info-rail-links" aria-label="Cookie page sections">
+          <a href="#cookies-public">First-party cookies</a>
+          <a href="#cookies-session">Session storage</a>
+          <a href="#cookies-local">Local storage</a>
+          <a href="#cookies-maintainer">Maintainer cookie</a>
+          <a href="#cookies-future">Future changes</a>
+        </nav>
+        <p class="info-rail-note">Public archive features are designed to work without account cookies.</p>
+      </aside>
+
+      <div class="info-section-stack">
+        <article class="page-card info-section-card" id="cookies-public">
+          <h2>First-party cookies</h2>
+          <p>The Echo Archives does not currently set first-party application cookies for public chat, anonymous community ratings, or basic catalog browsing.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="cookies-session">
+          <h2>Session storage</h2>
+          <p>The Ask the Archivist panel stores recent chat history in session storage under a browser-scoped key so the conversation can survive reloads during the same session.</p>
+          <p>Session storage is cleared by the browser when the session ends or when the user clears site data.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="cookies-local">
+          <h2>Local storage</h2>
+          <p>Anonymous community rating flows store a generated profile identifier in local storage so the same browser can update or remove its own rating later without a required account.</p>
+          <p>The maintainer review tools may also store a reviewer display name locally inside the private maintainer interface.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="cookies-maintainer">
+          <h2>Maintainer session cookie</h2>
+          <p>The private maintainer review area may set an HTTP-only session cookie named by the server configuration. Its default name is <code>echo-maintainer-session</code>.</p>
+          <p>This cookie is used only for maintainer authentication, uses SameSite=Lax, and is not used for public browsing or advertising.</p>
+        </article>
+
+        <article class="page-card info-section-card" id="cookies-future">
+          <h2>Future changes</h2>
+          <p>If analytics, authentication, or preference cookies are introduced later, this page should be updated with the cookie purpose, duration, and whether the cookie is required or optional.</p>
+          <p>The <a href="/privacy.html">privacy page</a> should be updated at the same time so the two pages stay aligned.</p>
+        </article>
+      </div>
     </section>
   </main>

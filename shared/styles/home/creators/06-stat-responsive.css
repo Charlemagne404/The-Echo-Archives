@@ -1,0 +1,38 @@
+@media (max-width: 780px) {
+  .creators-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .creator-stat-card {
+    min-height: 112px;
+    padding: 16px 15px 14px;
+  }
+
+  .creator-stat-card-row {
+    gap: 12px;
+  }
+
+  .creator-stat-card-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .creator-stat-card strong {
+    font-size: clamp(1.6rem, 6vw, 1.92rem);
+  }
+
+  .creator-stat-card.creator-stat-card-date strong {
+    font-size: clamp(1.16rem, 4.9vw, 1.48rem);
+    white-space: normal;
+  }
+
+  .creator-stat-card .creator-stat-card-note {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .creators-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}

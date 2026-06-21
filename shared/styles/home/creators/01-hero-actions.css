@@ -53,35 +53,6 @@
   min-width: 188px;
 }
 
-.creators-stat-grid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.creator-stat-card {
-  min-height: 0;
-  gap: 6px;
-  padding: 20px 22px 18px;
-  border-radius: 20px;
-  border-color: rgba(255, 255, 255, 0.11);
-}
-
-.creator-stat-card strong {
-  font-size: clamp(1.92rem, 3vw, 2.5rem);
-}
-
-.creator-stat-card p {
-  max-width: 18ch;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.48;
-}
-
-.creator-stat-card.creator-stat-card-date strong {
-  font-size: clamp(1.48rem, 2vw, 1.9rem);
-  line-height: 1.12;
-}
-
 .creator-action-section,
 .creator-process-section,
 .creator-standard-section,

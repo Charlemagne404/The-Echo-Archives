@@ -114,22 +114,20 @@
 
 .creator-standard-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(320px, 29rem));
-  justify-content: space-between;
-  gap: 12px 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
 }
 
 .creator-standard-columns {
   display: grid;
-  grid-template-columns: repeat(2, minmax(320px, 29rem));
-  justify-content: space-between;
-  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .creator-standard-column {
   display: grid;
   align-content: start;
-  gap: 12px;
+  gap: 10px;
 }
 
 .creator-standard-item {
@@ -143,7 +141,7 @@
 
 .creator-standard-copy {
   display: grid;
-  gap: 3px;
+  gap: 2px;
   min-width: 0;
 }
 
@@ -163,7 +161,7 @@
 
 .creator-standard-item p {
   margin: 0;
-  max-width: 34ch;
+  max-width: 44ch;
   color: rgba(247, 247, 243, 0.74);
   font-size: 0.92rem;
   line-height: 1.42;

@@ -67,11 +67,15 @@ function buildCreatorStats(shows, collections) {
 }
 
 function applyCreatorStats(stats) {
-  setText("creatorsCreatorCount", String(stats.creatorCount));
-  setText("creatorsShowCount", String(stats.showCount));
-  setText("creatorsMetadataCount", String(stats.metadataCheckedCount));
-  setText("creatorsReviewCount", String(stats.fullReviewCount));
+  setText("creatorsCreatorCount", formatInteger(stats.creatorCount));
+  setText("creatorsShowCount", formatInteger(stats.showCount));
+  setText("creatorsMetadataCount", formatInteger(stats.metadataCheckedCount));
+  setText("creatorsReviewCount", formatInteger(stats.fullReviewCount));
   setText("creatorsLastUpdated", stats.lastUpdatedLabel);
+}
+
+function formatInteger(value) {
+  return new Intl.NumberFormat("en-US").format(value);
 }
 
 function hasMetadataVerification(show) {

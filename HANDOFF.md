@@ -1,39 +1,44 @@
 ## Current task
 
-Polish the `What you can do` and `How it works` sections on the `for-creators` page so they feel less flat while keeping the existing dark archive identity, section order, and creator flows intact.
+Revamp the Creator standards, Privacy, Terms, and Cookies pages so they are no longer placeholder-like while staying simple and aligned with the dark archive identity.
 
 ## Files changed
 
-- Creator page source: `site-src/pages/for-creators.html`
-- Action/process section styles: `shared/styles/home/creators/01-hero-actions.css`
-- Step marker styling: `shared/styles/home/creators/02-process-spotlight.css`
-- Creator responsive rules: `shared/styles/home/creators/04-responsive.css`
-- Generated page output: `for-creators.html`
+- Source page templates: `site-src/pages/creator-standards.html`, `site-src/pages/privacy.html`, `site-src/pages/terms.html`, `site-src/pages/cookies.html`
+- Shared info-page styles: `shared/styles/home/cards/15b-info-pages.css`, `shared/styles/home/cards/15c-info-pages-responsive.css`, `shared/styles/home/cards.css`
+- Runtime fix: `shared/app/chat.js`
+- Cache/version plumbing: `home.css`, `script.js`, `tools/build-pages.js`
+- Generated public HTML refreshed by `npm run build:pages`
 - Task handoff: `HANDOFF.md`
 
 ## What was completed
 
-- Added small structural wrappers inside the creator action cards so icon, copy, and CTA rows align consistently and hold equal-height behavior more cleanly.
-- Reworked the `What you can do` cards with subtler icon halos, stronger title/body/CTA hierarchy, a restrained footer divider, and calmer card depth.
-- Differentiated `How it works` from the action cards by adding a simplified desktop process rail, stronger numbered markers, and a cleaner step header layout.
-- Converted the process section into a true vertical sequence on narrow screens by hiding the horizontal rail and adding a left-side connector treatment.
-- Rebuilt the generated page output and validated the updated sections visually on desktop and responsive mobile using the local app.
-- Ran the full repo verification suite; it passes, including the existing creators-page smoke coverage.
+- Replaced the simple policy card stacks with restrained archive-styled hero sections, three-card summaries, section navigation rails, and readable document cards.
+- Reworked Creator standards into clearer verification, submission, metadata, editorial-boundary, and review-process sections.
+- Updated Privacy/Cookies copy to reflect current implementation details, including browser storage and the maintainer session cookie.
+- Fixed `[data-open-chat]` launchers so the Creator standards CTA opens Ask the Archivist instead of closing immediately.
+- Added mobile spacing so the fixed chat button does not cover info-page text.
 
 ## What still needs work
 
-- No known follow-up from this pass for these two sections.
-- The mobile screenshots still show the existing fixed page controls near the lower-right edge when that part of the page is in view; this pass did not change those global controls.
+- No known follow-up for these pages.
+- This was not a legal review; copy is implementation-grounded policy text.
 
 ## Commands run
 
 - `rtk npm run build:pages`
-- `PORT=3310 SERVE_STATIC=true STATIC_ROOT=/Users/charliearnerstal/Documents/GitHub/The-Echo-Archives DB_PATH=/tmp/echo-archives-ui.sqlite OLLAMA_URL=http://127.0.0.1:9/api/generate rtk npm --prefix podcast-ai run dev`
-- `rtk npx playwright --version`
-- `rtk node -e 'const { chromium } = require("playwright"); ...'`
+- `rtk npm run check:structure`
 - `rtk npm run verify`
+- `rtk npm run dev`
+
+## Browser QA
+
+- Checked `http://127.0.0.1:3010/creator-standards.html`, `/privacy.html`, `/terms.html`, and `/cookies.html`.
+- Verified desktop `1440x900` and mobile `390x844` layouts: no horizontal overflow, text fit checks passed, no console warnings/errors.
+- Verified the Privacy map `Cookies` link updates the URL hash.
+- Verified the Creator standards `Ask the Archivist` button opens the chat panel after the shared launcher fix.
 
 ## Known issues
 
 - Full verification passes in the current workspace.
-- There are unrelated existing worktree changes outside this pass, including prior `for-creators` and creator stylesheet edits already present before these action/process section updates.
+- There are unrelated pre-existing worktree changes outside this pass; they were not reverted.

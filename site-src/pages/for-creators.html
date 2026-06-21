@@ -26,66 +26,86 @@
 
     <section class="page-grid creators-stat-grid" aria-label="Creator archive stats">
       <article class="page-card stat-card creator-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M7.25 11.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            <path d="M16.75 10.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-            <path d="M3.75 19a4.75 4.75 0 0 1 9.5 0" />
-            <path d="M13.25 18.5a4 4 0 0 1 7 0" />
-          </svg>
-        </span>
-        <span class="page-card-kicker">Creators represented</span>
-        <strong id="creatorsCreatorCount">-</strong>
-        <p>Distinct creators currently represented in published archive entries.</p>
+        <div class="creator-stat-card-row">
+          <span class="about-card-icon creator-stat-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M7.25 11.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+              <path d="M16.75 10.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+              <path d="M3.75 19a4.75 4.75 0 0 1 9.5 0" />
+              <path d="M13.25 18.5a4 4 0 0 1 7 0" />
+            </svg>
+          </span>
+          <div class="creator-stat-card-copy">
+            <span class="page-card-kicker">Creators represented</span>
+            <strong id="creatorsCreatorCount">-</strong>
+            <p class="creator-stat-card-note">Distinct creators currently indexed.</p>
+          </div>
+        </div>
       </article>
       <article class="page-card stat-card creator-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <circle cx="12" cy="12" r="7.5" />
-            <circle cx="12" cy="12" r="3.5" />
-            <circle cx="12" cy="12" r="0.8" />
-            <path d="M17.5 6.5 15 9" />
-          </svg>
-        </span>
-        <span class="page-card-kicker">Published shows</span>
-        <strong id="creatorsShowCount">-</strong>
-        <p>Live archive entries listeners can browse right now.</p>
+        <div class="creator-stat-card-row">
+          <span class="about-card-icon creator-stat-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <circle cx="12" cy="12" r="7.5" />
+              <circle cx="12" cy="12" r="3.5" />
+              <circle cx="12" cy="12" r="0.8" />
+              <path d="M17.5 6.5 15 9" />
+            </svg>
+          </span>
+          <div class="creator-stat-card-copy">
+            <span class="page-card-kicker">Published shows</span>
+            <strong id="creatorsShowCount">-</strong>
+            <p class="creator-stat-card-note">Live archive entries listeners can browse.</p>
+          </div>
+        </div>
       </article>
       <article class="page-card stat-card creator-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
-            <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
-          </svg>
-        </span>
-        <span class="page-card-kicker">Metadata-checked entries</span>
-        <strong id="creatorsMetadataCount">-</strong>
-        <p>Published shows with current factual verification work on record.</p>
+        <div class="creator-stat-card-row">
+          <span class="about-card-icon creator-stat-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
+              <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
+            </svg>
+          </span>
+          <div class="creator-stat-card-copy">
+            <span class="page-card-kicker">Metadata-checked entries</span>
+            <strong id="creatorsMetadataCount">-</strong>
+            <p class="creator-stat-card-note">Published shows with factual verification.</p>
+          </div>
+        </div>
       </article>
       <article class="page-card stat-card creator-stat-card">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" />
-            <path d="M13 8l3.5 3.5" />
-            <path d="M19.25 19.25h-6" />
-          </svg>
-        </span>
-        <span class="page-card-kicker">Full reviews</span>
-        <strong id="creatorsReviewCount">-</strong>
-        <p>Long-form editorial reviews currently published in the archive.</p>
+        <div class="creator-stat-card-row">
+          <span class="about-card-icon creator-stat-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" />
+              <path d="M13 8l3.5 3.5" />
+              <path d="M19.25 19.25h-6" />
+            </svg>
+          </span>
+          <div class="creator-stat-card-copy">
+            <span class="page-card-kicker">Full reviews</span>
+            <strong id="creatorsReviewCount">-</strong>
+            <p class="creator-stat-card-note">Long-form editorial reviews currently live.</p>
+          </div>
+        </div>
       </article>
       <article class="page-card stat-card creator-stat-card creator-stat-card-date">
-        <span class="about-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
-            <path d="M5 8.5h14" />
-            <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
-            <path d="M8.5 12h3.25" />
-          </svg>
-        </span>
-        <span class="page-card-kicker">Last updated</span>
-        <strong id="creatorsLastUpdated">-</strong>
-        <p>Most recent archive or collection metadata refresh.</p>
+        <div class="creator-stat-card-row">
+          <span class="about-card-icon creator-stat-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="presentation">
+              <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
+              <path d="M5 8.5h14" />
+              <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
+              <path d="M8.5 12h3.25" />
+            </svg>
+          </span>
+          <div class="creator-stat-card-copy">
+            <span class="page-card-kicker">Last updated</span>
+            <strong id="creatorsLastUpdated">-</strong>
+            <p class="creator-stat-card-note">Latest archive or collection refresh.</p>
+          </div>
+        </div>
       </article>
     </section>
 

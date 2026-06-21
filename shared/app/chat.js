@@ -42,7 +42,14 @@ export function initializeSharedChat() {
       return;
     }
 
-    if (chatContainer.classList.contains("is-open") && !chatContainer.contains(target) && !toggleBtn.contains(target)) {
+    const chatLauncher = target instanceof Element ? target.closest("[data-open-chat]") : null;
+
+    if (
+      chatContainer.classList.contains("is-open") &&
+      !chatLauncher &&
+      !chatContainer.contains(target) &&
+      !toggleBtn.contains(target)
+    ) {
       setChatOpen(false);
     }
   });

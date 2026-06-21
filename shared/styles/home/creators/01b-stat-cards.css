@@ -1,0 +1,85 @@
+.creators-stat-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.creator-stat-card {
+  position: relative;
+  min-height: 98px;
+  gap: 0;
+  padding: 14px 16px 12px;
+  border-radius: 18px;
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 38%),
+    linear-gradient(180deg, rgba(4, 7, 10, 0.98), rgba(8, 11, 15, 0.92)),
+    rgba(8, 11, 15, 0.96);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 20px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.creator-stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  pointer-events: none;
+}
+
+.creator-stat-card-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 100%;
+}
+
+.creator-stat-card-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.creator-stat-card .page-card-kicker {
+  color: rgba(244, 244, 240, 0.52);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.creator-stat-card strong {
+  font-size: clamp(1.72rem, 2.1vw, 2.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.creator-stat-card-icon {
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  color: rgba(255, 92, 67, 0.98);
+  flex: 0 0 auto;
+}
+
+.creator-stat-card-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.6;
+}
+
+.creator-stat-card .creator-stat-card-note {
+  margin: 0;
+  color: rgba(244, 244, 240, 0.62);
+  font-size: 0.76rem;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.creator-stat-card.creator-stat-card-date strong {
+  font-size: clamp(1.38rem, 1.8vw, 1.86rem);
+  line-height: 1.02;
+  max-width: none;
+  white-space: nowrap;
+}

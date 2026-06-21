@@ -1,6 +1,8 @@
 @import "./creators/01-hero-actions.css";
+@import "./creators/01b-stat-cards.css";
 @import "./creators/02-process-spotlight.css";
 @import "./creators/03-standards.css";
 @import "./creators/04-solidarity-band.css";
 @import "./creators/05-faq.css";
 @import "./creators/04-responsive.css";
+@import "./creators/06-stat-responsive.css";

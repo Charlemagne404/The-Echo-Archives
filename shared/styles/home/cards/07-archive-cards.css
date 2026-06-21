@@ -19,8 +19,8 @@
   --editorial-corner-left: clamp(8px, 3.6%, 12px);
   --editorial-ribbon-width: clamp(132px, 60%, 146px);
   --editorial-ribbon-height: clamp(25px, 9%, 29px);
-  --editorial-ribbon-top: 69px;
-  --editorial-ribbon-right: -30px;
+  --editorial-ribbon-top: 61px;
+  --editorial-ribbon-right: -25px;
   --editorial-ribbon-angle: 39deg;
   --editorial-ribbon-tail-width: clamp(38px, 17%, 44px);
   position: relative;

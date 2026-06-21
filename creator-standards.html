@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
 <link rel="stylesheet" href="/style.css?v=12" />
-<link rel="stylesheet" href="/home.css?v=29" />
+<link rel="stylesheet" href="/home.css?v=30" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
@@ -86,13 +86,13 @@
     <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
 
-<main class="home-main page-main creator-standards-main">
-    <section class="hero-shell">
+<main class="home-main page-main info-document-main creator-standards-main">
+    <section class="hero-shell info-hero-shell">
       <div class="hero-panel page-panel creator-standards-hero-panel">
         <div class="hero-copy creator-standards-hero-copy">
           <h1>Creator standards</h1>
           <p>
-            Echo Archives is built to help listeners trust what they are seeing. These standards explain how we handle creator submissions, factual updates, verification, and editorial boundaries.
+            The Echo Archives accepts creator input where it improves facts, provenance, and listener clarity. These standards define what changes and what stays editorial.
           </p>
           <div class="creator-hero-actions">
             <a class="about-cta about-cta-primary" href="/submit.html?submissionType=creator-verification">
@@ -112,120 +112,109 @@
       </div>
     </section>
 
-    <section class="page-card creator-standards-grid-card" aria-labelledby="creatorStandardsGridHeading">
-      <div class="creator-section-header">
+    <section class="info-summary-grid creator-standards-summary" aria-label="Creator standards summary">
+      <article class="page-card info-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
+            <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
+          </svg>
+        </span>
         <div>
-          <h2 id="creatorStandardsGridHeading">What guides archive decisions</h2>
+          <h2>Verification checks facts</h2>
+          <p>Creator verified means objective metadata has supporting official or representative proof.</p>
         </div>
-      </div>
-      <div class="creator-standard-grid">
-        <article class="creator-standard-item">
-          <span class="creator-standard-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation">
-              <path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" />
-              <path d="m9.25 12.1 1.55 1.55 3.95-4.15" />
-            </svg>
-          </span>
-          <h3>Accuracy first</h3>
-          <p>Facts, links, credits, and release details need a trustworthy source trail.</p>
+      </article>
+      <article class="page-card info-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="m12 4.5 2.2 4.45 4.9.71-3.55 3.45.84 4.89L12 15.65 7.61 18l.84-4.89L4.9 9.66l4.9-.71Z" />
+          </svg>
+        </span>
+        <div>
+          <h2>Ratings stay editorial</h2>
+          <p>Archive ratings, notes, reviews, and collection placement are never bought or creator-approved.</p>
+        </div>
+      </article>
+      <article class="page-card info-summary-card info-summary-card-community">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M5.25 7.25h13.5v9.5H8.75l-3.5 3v-12.5Z" />
+            <path d="M8.75 10.25h6.5" />
+            <path d="M8.75 13.25h4.5" />
+          </svg>
+        </span>
+        <div>
+          <h2>Submissions are moderated</h2>
+          <p>Creator and listener input improves the archive only after review.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="info-document-layout creator-standards-document" aria-label="Creator standards details">
+      <aside class="page-card info-page-rail" aria-label="Creator standards sections">
+        <span class="page-card-kicker">Standards map</span>
+        <nav class="info-rail-links" aria-label="Creator standards page sections">
+          <a href="#standards-verification">Verification scope</a>
+          <a href="#standards-submissions">What creators can send</a>
+          <a href="#standards-metadata">Metadata changes</a>
+          <a href="#standards-editorial">Editorial boundaries</a>
+          <a href="#standards-review">Review process</a>
+        </nav>
+        <p class="info-rail-note">Creator verified means facts were checked. It is not an endorsement badge.</p>
+      </aside>
+
+      <div class="info-section-stack">
+        <article class="page-card info-section-card" id="standards-verification">
+          <h2>Verification scope</h2>
+          <p>Creator verification confirms factual metadata when the archive has official or representative proof. It can apply to credits, official links, release status, episode or season details, format, language, and similar objective fields.</p>
+          <p>Verification can be added, revised, or removed if the source trail changes or a record needs a fresh review.</p>
         </article>
-        <article class="creator-standard-item">
-          <span class="creator-standard-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation">
-              <path d="M7.5 4.75v2.5M16.5 4.75v2.5" />
-              <path d="M5 8.5h14" />
-              <rect x="4.75" y="6.5" width="14.5" height="12.75" rx="2.25" />
-              <path d="M8.5 12h7" />
-            </svg>
-          </span>
-          <h3>Transparency</h3>
-          <p>Verification confirms factual metadata only. It does not imply approval of ratings, reviews, or curation.</p>
+
+        <article class="page-card info-section-card" id="standards-submissions">
+          <h2>What creators can send</h2>
+          <p>Creators and official representatives can submit new shows, correction requests, official links, verification requests, tag suggestions, and context that helps listeners understand the show accurately.</p>
+          <ul>
+            <li>Send only information you have the right to share.</li>
+            <li>Keep corrections factual and specific.</li>
+            <li>Use creator verification for official identity or source confirmation, not for review approval.</li>
+          </ul>
         </article>
-        <article class="creator-standard-item">
-          <span class="creator-standard-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation">
-              <path d="M12 19.25 10.95 18.29C6.7 14.39 4.25 12.14 4.25 9.3A4.3 4.3 0 0 1 8.6 5a4.7 4.7 0 0 1 3.4 1.63A4.7 4.7 0 0 1 15.4 5a4.3 4.3 0 0 1 4.35 4.3c0 2.84-2.45 5.09-6.7 8.99Z" />
-            </svg>
-          </span>
-          <h3>Respectful participation</h3>
-          <p>Submission channels exist to improve the archive, not to harass, spam, or distort it.</p>
+
+        <article class="page-card info-section-card" id="standards-metadata">
+          <h2>Metadata changes</h2>
+          <p>The archive may update objective metadata when a submission is supported by a trustworthy source. That can include title styling, creator names, official websites, listening links, release status, credits, transcripts, runtime, and format labels.</p>
+          <p>When a field is unclear, the archive should use <code>unknown</code>, a blank value, or a TODO note instead of inventing a fact.</p>
         </article>
-        <article class="creator-standard-item">
-          <span class="creator-standard-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation">
-              <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
-              <path d="M12.35 7.15v11.4" />
-            </svg>
-          </span>
-          <h3>Clarity for listeners</h3>
-          <p>Metadata should set honest expectations for tone, format, status, and listening commitment.</p>
+
+        <article class="page-card info-section-card" id="standards-editorial">
+          <h2>Editorial boundaries</h2>
+          <p>Archive Ratings remain editorial and are never bought, negotiated, or creator-approved. Listener reviews stay moderated community content, separate from creator input.</p>
+          <p>Collection placement, archive notes, spotlight decisions, and recommendation language remain archive decisions. Creator verification must never imply approval of ratings or reviews.</p>
         </article>
-        <article class="creator-standard-item">
-          <span class="creator-standard-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation">
-              <path d="M7.25 5.25h7.5l3 3v10.5a1.75 1.75 0 0 1-1.75 1.75h-8.75A1.75 1.75 0 0 1 5.5 18.75V7a1.75 1.75 0 0 1 1.75-1.75Z" />
-              <path d="M14.75 5.25V8.5h3" />
-            </svg>
-          </span>
-          <h3>Rights and originality</h3>
-          <p>Archive records should respect ownership, attribution, and the distinction between official and editorial material.</p>
-        </article>
-        <article class="creator-standard-item">
-          <span class="creator-standard-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" role="presentation">
-              <path d="M6.5 12.25A5.5 5.5 0 1 1 12 17.75" />
-              <path d="M12 6.75v5.25l3 1.75" />
-            </svg>
-          </span>
-          <h3>Ongoing review</h3>
-          <p>Archive entries can be updated over time, but every public change still goes through review.</p>
+
+        <article class="page-card info-section-card" id="standards-review">
+          <h2>Review process</h2>
+          <p>Submissions do not auto-publish. The archive may accept, edit, decline, queue, or ask for follow-up depending on source quality, relevance, and current catalog priorities.</p>
+          <p>Participation should be respectful. Submission channels exist to improve discovery and data quality, not to harass, spam, impersonate, or distort the catalog.</p>
         </article>
       </div>
     </section>
 
-    <section class="creator-standards-note-grid">
-      <article class="page-card creator-standards-note-card">
-        <span class="creator-standard-kicker">Verification and trust</span>
-        <h2>What verification changes</h2>
-        <ul>
-          <li>It adds a factual trust signal to a show record when the archive has official or representative proof.</li>
-          <li>It can improve credits, links, release details, and other objective metadata.</li>
-          <li>It helps separate confirmed facts from placeholders or unresolved fields.</li>
-        </ul>
-      </article>
-
-      <article class="page-card creator-standards-note-card" id="creatorStandardsIndependence">
-        <span class="creator-standard-kicker">Editorial independence</span>
-        <h2>What verification does not change</h2>
-        <ul>
-          <li>Archive Ratings remain editorial and are never bought, negotiated, or creator-approved.</li>
-          <li>Listener reviews stay moderated community content, separate from creator input.</li>
-          <li>Collection placement, archive notes, and spotlight decisions remain editorial choices.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="creator-solidarity-band" aria-labelledby="creatorStandardsBandHeading">
-      <span class="creator-cta-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" role="presentation">
-          <path d="M7.25 11.25a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-          <path d="M16.75 10.25a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-          <path d="M3.75 19a4.75 4.75 0 0 1 9.5 0" />
-          <path d="M13.25 18.5a4 4 0 0 1 7 0" />
-        </svg>
-      </span>
-      <div class="creator-band-copy">
-        <h2 id="creatorStandardsBandHeading">Need the archive to review something factual?</h2>
-        <p class="creator-band-note">Use the submit flow for new shows, corrections, listener reviews, or creator verification requests.</p>
+    <section class="page-card info-cta-card" aria-labelledby="creatorStandardsBandHeading">
+      <div>
+        <span class="page-card-kicker">Factual review</span>
+        <h2 id="creatorStandardsBandHeading">Need the archive to review something specific?</h2>
+        <p>Use the submit flow for new shows, corrections, listener reviews, or creator verification requests.</p>
       </div>
-      <div class="creator-band-actions">
+      <div class="info-cta-actions">
         <a class="about-cta about-cta-primary" href="/submit.html">
           <span>Open submit</span>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
-        <button class="creator-band-link" type="button" data-open-chat>
+        <button class="info-text-button" type="button" data-open-chat>
           <span>Still unsure? Ask the Archivist</span>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h14M13 6l6 6-6 6" />
@@ -303,6 +292,6 @@
 
   <script src="/shared/archive-search.js?v=1"></script>
 
-  <script type="module" src="/script.js?v=23"></script>
+  <script type="module" src="/script.js?v=24"></script>
 </body>
 </html>
