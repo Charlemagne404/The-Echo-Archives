@@ -5,21 +5,10 @@
 
 .creators-hero-panel,
 .creator-standards-hero-panel {
-  min-height: 312px;
+  min-height: 280px;
   justify-content: center;
   padding: 34px 30px 28px;
   border-color: rgba(255, 255, 255, 0.14);
-  background:
-    radial-gradient(circle at 64% 62%, rgba(229, 72, 56, 0.18), transparent 11%),
-    radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.1), transparent 17%),
-    linear-gradient(90deg, rgba(3, 5, 8, 0.985) 0%, rgba(4, 6, 9, 0.965) 35%, rgba(5, 8, 11, 0.62) 63%, rgba(6, 8, 11, 0.18) 100%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.08) 48%, rgba(3, 5, 8, 0.46) 76%, rgba(3, 5, 8, 0.82) 100%),
-    url("/images/hero-archive-dish.png") right center / cover no-repeat,
-    #05070a;
-}
-
-.creator-standards-hero-panel {
-  min-height: 268px;
 }
 
 .creators-hero-copy,

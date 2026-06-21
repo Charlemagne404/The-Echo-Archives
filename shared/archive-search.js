@@ -346,13 +346,19 @@
     };
   }
 
-  function prepareQuery(catalog, message) {
+  function prepareQuery(catalog, message, options = {}) {
     const normalizedQuery = normalizeText(message);
     if (!normalizedQuery) {
       return null;
     }
 
-    const similaritySeed = resolveSeedShow(catalog, normalizedQuery);
+    const explicitSeed =
+      options.seedShowId && Array.isArray(catalog)
+        ? catalog.find((record) => record.id === options.seedShowId)
+        : null;
+    const similaritySeed = explicitSeed
+      ? { titleQuery: normalizeText(explicitSeed.title), record: explicitSeed }
+      : resolveSeedShow(catalog, normalizedQuery);
     const effectiveQuery = similaritySeed ? similaritySeed.titleQuery : normalizedQuery;
     const tokens = tokenizeQuery(effectiveQuery);
     const phrases = expandAliases(buildNgrams(tokens, 3).concat(effectiveQuery));
@@ -446,13 +452,85 @@
     return clause.some((optionTokens) => optionTokens.every((token) => recordTokens.has(token)));
   }
 
-  function scoreCatalog(catalog, message) {
-    const preparedQuery = prepareQuery(catalog, message);
+  function toOptionSet(values) {
+    if (!values) {
+      return new Set();
+    }
+
+    return new Set((Array.isArray(values) ? values : [values]).map((value) => String(value)).filter(Boolean));
+  }
+
+  function normalizeRequiredFields(requiredFields = {}) {
+    return Object.fromEntries(
+      Object.entries(requiredFields)
+        .map(([fieldName, values]) => [
+          fieldName,
+          new Set((Array.isArray(values) ? values : [values]).map(normalizeTag).filter(Boolean)),
+        ])
+        .filter(([, values]) => values.size > 0),
+    );
+  }
+
+  function getRecordFieldValues(record, fieldName) {
+    if (fieldName === "completionStatus") {
+      return [record.completionStatus || ""];
+    }
+
+    const value = record[fieldName];
+    return Array.isArray(value) ? value : [value || ""];
+  }
+
+  function satisfiesRequiredFields(record, requiredFields) {
+    return Object.entries(requiredFields).every(([fieldName, requiredValues]) => {
+      const recordValues = new Set(getRecordFieldValues(record, fieldName).map(normalizeTag).filter(Boolean));
+      return Array.from(requiredValues).every((value) => recordValues.has(value));
+    });
+  }
+
+  function countSharedTerms(leftValues, rightValues) {
+    const left = new Set((Array.isArray(leftValues) ? leftValues : []).map(normalizeTag).filter(Boolean));
+    const right = new Set((Array.isArray(rightValues) ? rightValues : []).map(normalizeTag).filter(Boolean));
+
+    return Array.from(left).filter((value) => right.has(value)).length;
+  }
+
+  function calculateAvoidancePenalty(record, avoidSeedRecords) {
+    let penalty = 0;
+
+    avoidSeedRecords.forEach((seed) => {
+      if (!seed || seed.id === record.id) {
+        return;
+      }
+
+      const overlapScore =
+        countSharedTerms(record.genres, seed.genres) * 12 +
+        countSharedTerms(record.tones, seed.tones) * 8 +
+        countSharedTerms(record.formats, seed.formats) * 5 +
+        countSharedTerms(record.themes, seed.themes) * 5 +
+        countSharedTerms(record.tags, seed.tags) * 4 +
+        countSharedTerms(record.bestFor, seed.bestFor) * 4;
+
+      if (overlapScore >= 32) {
+        penalty += Math.min(overlapScore, 60);
+      }
+    });
+
+    return penalty;
+  }
+
+  function scoreCatalog(catalog, message, options = {}) {
+    const preparedQuery = prepareQuery(catalog, message, options);
     if (!preparedQuery) {
       return [];
     }
 
     const requiredClauses = buildRequiredClauses(preparedQuery.normalizedQuery, preparedQuery.tokens);
+    const excludeIds = toOptionSet(options.excludeIds);
+    const requiredFields = normalizeRequiredFields(options.requiredFields);
+    const catalogById = new Map((Array.isArray(catalog) ? catalog : []).map((record) => [record.id, record]));
+    const avoidSeedRecords = Array.from(toOptionSet(options.avoidSimilaritySeedIds))
+      .map((showId) => catalogById.get(showId))
+      .filter(Boolean);
 
     return (Array.isArray(catalog) ? catalog : [])
       .map((record) => {
@@ -460,6 +538,15 @@
         const reasons = [];
         let score = 0;
         let relatedToSeed = false;
+
+        if (excludeIds.has(record.id)) {
+          return {
+            ...record,
+            score: Number.NEGATIVE_INFINITY,
+            reasons,
+            satisfiesQuery: false,
+          };
+        }
 
         if (preparedQuery.seedRecord) {
           const seedId = preparedQuery.seedRecord.id;
@@ -613,11 +700,17 @@
           score += Math.round((matchedTokenCount / Math.max(preparedQuery.tokens.length, 1)) * 20);
         }
 
+        const avoidancePenalty = calculateAvoidancePenalty(record, avoidSeedRecords);
+        if (avoidancePenalty > 0) {
+          score -= avoidancePenalty;
+        }
+
         const hasFullClauseCoverage =
           requiredClauses.length === 0 || requiredClauses.every((clause) => satisfiesClause(searchIndex.tokenSet, clause));
+        const hasRequiredFieldCoverage = satisfiesRequiredFields(record, requiredFields);
         const satisfiesQuery = preparedQuery.seedRecord
-          ? record.id !== preparedQuery.seedRecord.id && relatedToSeed
-          : hasFullClauseCoverage;
+          ? record.id !== preparedQuery.seedRecord.id && relatedToSeed && hasRequiredFieldCoverage
+          : hasFullClauseCoverage && hasRequiredFieldCoverage;
 
         return {
           ...record,

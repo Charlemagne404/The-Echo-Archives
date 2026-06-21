@@ -5,9 +5,9 @@
 
 .creator-stat-card {
   position: relative;
-  min-height: 98px;
+  min-height: 88px;
   gap: 0;
-  padding: 14px 16px 12px;
+  padding: 14px 16px;
   border-radius: 18px;
   border-color: rgba(255, 255, 255, 0.12);
   background:
@@ -39,7 +39,7 @@
 
 .creator-stat-card-copy {
   display: grid;
-  gap: 4px;
+  gap: 6px;
   min-width: 0;
 }
 
@@ -47,6 +47,7 @@
   color: rgba(244, 244, 240, 0.52);
   font-size: 0.7rem;
   letter-spacing: 0.08em;
+  line-height: 1;
 }
 
 .creator-stat-card strong {
@@ -69,12 +70,10 @@
   stroke-width: 1.6;
 }
 
-.creator-stat-card .creator-stat-card-note {
-  margin: 0;
-  color: rgba(244, 244, 240, 0.62);
-  font-size: 0.76rem;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+.creator-stat-card-metadata .page-card-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .creator-stat-card.creator-stat-card-date strong {

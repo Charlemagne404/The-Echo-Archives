@@ -8,7 +8,8 @@
   }
 
   .quick-filters {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
   }
 
   .browse-modes {

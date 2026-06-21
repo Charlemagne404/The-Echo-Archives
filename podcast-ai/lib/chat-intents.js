@@ -14,7 +14,7 @@ const RECOMMENDATION_PATTERNS = [
 ];
 
 const SHOW_DETAIL_PATTERN =
-  /\b(this show|this page|archive rating|community rating|creator verified|full review|indexed(?: |-)?only|planned|finished|ongoing|status|where can i listen|listen links|official links|what is this show about|what's this show about|what is it about|how long|runtime|episodes?|seasons?|who made|who created|who wrote|cast|starring|full cast|single narrator|narrator|transcripts?|captions?|content warnings?|content notes?|trigger warnings?|similar to|what else is like|collection appearances?|in any collections?)\b/i;
+  /\b(this show|this page|archive rating|community rating|creator verified|full review|indexed(?: |-)?only|planned|finished|ongoing|status|where can i listen|listen links|official links|what is this show about|what's this show about|what is it about|what(?:'s| is) .+ about|how long|runtime|episodes?|seasons?|who made|who created|who wrote|cast|starring|full cast|single narrator|narrator|transcripts?|captions?|content warnings?|content notes?|trigger warnings?|similar to|what else is like|collection appearances?|in any collections?)\b/i;
 
 const SHOW_DETAIL_TOPICS = new Set([
   "ratings",

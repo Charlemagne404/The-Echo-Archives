@@ -148,6 +148,7 @@ async function sendMessage(prefilledMessage) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         message,
+        seenRecommendationIds: collectSeenRecommendationIds(),
         history: chatState.history.map((entry) => ({
           role: entry.role,
           content: entry.content,
@@ -194,6 +195,17 @@ async function sendMessage(prefilledMessage) {
   } finally {
     setPendingState(false);
   }
+}
+
+function collectSeenRecommendationIds() {
+  return Array.from(
+    new Set(
+      chatState.history
+        .flatMap((entry) => (Array.isArray(entry.recommendations) ? entry.recommendations : []))
+        .map((recommendation) => recommendation?.id)
+        .filter((id) => typeof id === "string" && id),
+    ),
+  ).slice(-30);
 }
 
 function renderAndStoreEntry(entry) {

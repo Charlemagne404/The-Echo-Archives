@@ -203,6 +203,171 @@ test("chat route returns related cards for similarity questions", async () => {
   }
 });
 
+test("chat route asks for a positive target when the prompt only excludes a show lane", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "Don't give me something like How I Died",
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "fallback");
+    assert.match(result.body.answer, /Avoiding How I Died and nearby archive neighbors/i);
+    assert.match(result.body.answer, /What mood, genre, or listening context/i);
+    assert.equal(result.body.recommendations.length, 0);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route answers title-specific about questions from structured show metadata", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "What's Midnight Burger about?",
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.equal(result.body.recommendations.length, 0);
+    assert.match(result.body.answer, /Midnight Burger/i);
+    assert.match(result.body.answer, /dimension-spanning diner/i);
+    assert.match(result.body.answer, /warm/i);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route refuses to invent details for title questions outside the archive", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "What's MarsCorp about?",
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.equal(result.body.recommendations.length, 0);
+    assert.match(result.body.answer, /do not have that title/i);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route excludes explicitly avoided show lanes from recommendations", async () => {
+  const context = await createChatTestServer();
+  const excludedTitles = new Set(["How I Died", "Paralyzed", "The White Vault"]);
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "Recommend a mystery but not something like How I Died",
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.match(result.body.answer, /Avoiding How I Died and nearby archive neighbors/i);
+    assert.ok(result.body.recommendations.length > 0);
+    assert.ok(result.body.recommendations.every((entry) => !excludedTitles.has(entry.title)));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route carries avoidance constraints across the current thread", async () => {
+  const context = await createChatTestServer();
+  const excludedTitles = new Set(["How I Died", "Paralyzed", "The White Vault"]);
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "Recommend a mystery",
+      history: [
+        { role: "user", content: "Don't give me something like How I Died" },
+        {
+          role: "assistant",
+          content: "Avoiding How I Died and nearby archive neighbors. What mood should I aim for instead?",
+        },
+      ],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.match(result.body.answer, /Avoiding How I Died and nearby archive neighbors/i);
+    assert.ok(result.body.recommendations.length > 0);
+    assert.ok(result.body.recommendations.every((entry) => !excludedTitles.has(entry.title)));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route prefers fresh comparable recommendations over previous cards", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "Recommend a finished show",
+      seenRecommendationIds: ["wolf-359"],
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.ok(result.body.recommendations.length > 0);
+    assert.notEqual(result.body.recommendations[0].id, "wolf-359");
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route acknowledges repeated recommendations when the same show is clearly strongest", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "Recommend Derelict",
+      seenRecommendationIds: ["derelict"],
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.recommendations[0]?.id, "derelict");
+    assert.match(result.body.answer, /already suggested Derelict/i);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
 test("chat route answers archive overview questions without falling back", async () => {
   const context = await createChatTestServer();
 

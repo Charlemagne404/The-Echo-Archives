@@ -12,7 +12,7 @@ function buildRecommendationWhy(match) {
     : [];
 
   if (meaningfulReasons.length > 0) {
-    return meaningfulReasons.slice(0, 2).join(" and ");
+    return meaningfulReasons.slice(0, 2).map(formatRecommendationReason).join(" and ");
   }
 
   if (match.bestFor.length > 0) {
@@ -30,8 +30,43 @@ function buildRecommendationWhy(match) {
   return "fits the archive criteria you asked for";
 }
 
+function formatRecommendationReason(reason = "") {
+  const value = String(reason || "").trim();
+
+  if (/^similar to\b/i.test(value)) {
+    return `is ${value}`;
+  }
+
+  if (/^good for\b/i.test(value)) {
+    return `is ${value}`;
+  }
+
+  if (/^[a-z0-9 -]+ format$/i.test(value)) {
+    return `uses a ${value}`;
+  }
+
+  if (/^created by\b/i.test(value)) {
+    return `was ${value}`;
+  }
+
+  if (/^cast includes\b/i.test(value)) {
+    return value.replace(/^cast includes/i, "has cast including");
+  }
+
+  if (/^linked to\b/i.test(value)) {
+    return `is ${value}`;
+  }
+
+  if (/^(finished|ongoing|completed|cancelled|unclear) listen$/i.test(value)) {
+    return `is a ${value}`;
+  }
+
+  return value;
+}
+
 function buildRecommendationCard(match) {
   return {
+    id: match.id,
     title: match.title,
     href: match.href,
     hasPage: match.hasPage,
@@ -101,7 +136,11 @@ function buildMessages({ message, history, matches }) {
   return prompt;
 }
 
-function buildFallbackAnswer(message, matches) {
+function buildFallbackAnswer(message, matches, options = {}) {
+  const constraintIntro = typeof options.constraintIntro === "string" ? options.constraintIntro.trim() : "";
+  const repeatedRecommendationTitle =
+    typeof options.repeatedRecommendationTitle === "string" ? options.repeatedRecommendationTitle.trim() : "";
+
   if (HELP_PATTERN.test(message)) {
     return "Ask about the archive, ratings, submissions, or what to listen to next, and I'll keep the answer grounded in Echo Archives.";
   }
@@ -111,6 +150,10 @@ function buildFallbackAnswer(message, matches) {
   }
 
   if (matches.length === 0) {
+    if (constraintIntro) {
+      return `${constraintIntro}, I couldn't find a clean archive match. Try adding a mood, genre, completion status, or a title you already like.`;
+    }
+
     return "I need a little more to go on. Try a completion status, a listening mood, or a podcast title already in the archive.";
   }
 
@@ -123,14 +166,14 @@ function buildFallbackAnswer(message, matches) {
 
   if (!second) {
     return compactSentences([
-      `${first.title} is the strongest fit.`,
+      buildOpeningSentence(first.title, { constraintIntro, repeatedRecommendationTitle }),
       `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
       wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
     ]);
   }
 
   return compactSentences([
-    `${first.title} is the strongest fit.`,
+    buildOpeningSentence(first.title, { constraintIntro, repeatedRecommendationTitle }),
     `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
     wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
     wantsAlternates ? `If you want a nearby alternative, ${second.title} is the next clean fit.` : "",
@@ -226,6 +269,21 @@ function buildTakeSnippet(match) {
 
   const sentence = (summary.match(/[^.!?]+[.!?]?/) || [summary])[0].trim();
   return sentence;
+}
+
+function buildOpeningSentence(title, { constraintIntro = "", repeatedRecommendationTitle = "" } = {}) {
+  if (repeatedRecommendationTitle && repeatedRecommendationTitle === title) {
+    return compactSentences([
+      constraintIntro ? `${constraintIntro}.` : "",
+      `I know I already suggested ${title}, but it is still the strongest fit.`,
+    ]);
+  }
+
+  if (constraintIntro) {
+    return `${constraintIntro}, ${title} is the strongest fit.`;
+  }
+
+  return `${title} is the strongest fit.`;
 }
 
 function shouldOfferAlternate(message, matches) {

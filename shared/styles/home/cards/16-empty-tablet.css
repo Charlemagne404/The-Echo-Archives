@@ -84,6 +84,10 @@
     padding: 28px;
   }
 
+  .page-panel {
+    min-height: 280px;
+  }
+
   .podcast-card-grid,
   #podcast-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -275,15 +275,7 @@
 
 .about-hero-panel,
 .supporters-hero-panel {
-  min-height: 248px;
   justify-content: center;
   padding: 34px 28px 24px;
   border-color: rgba(255, 255, 255, 0.14);
-  background:
-    radial-gradient(circle at 58% 66%, rgba(229, 72, 56, 0.15), transparent 9%),
-    radial-gradient(circle at 80% 22%, rgba(255, 255, 255, 0.09), transparent 16%),
-    linear-gradient(90deg, rgba(3, 5, 8, 0.985) 0%, rgba(4, 6, 9, 0.965) 37%, rgba(5, 8, 11, 0.6) 63%, rgba(6, 8, 11, 0.18) 100%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.04) 48%, rgba(3, 5, 8, 0.44) 76%, rgba(3, 5, 8, 0.78) 100%),
-    url("/images/hero-archive-dish.png") right center / cover no-repeat,
-    #05070a;
 }

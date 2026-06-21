@@ -4,8 +4,8 @@
   }
 
   .creator-stat-card {
-    min-height: 112px;
-    padding: 16px 15px 14px;
+    min-height: 96px;
+    padding: 15px;
   }
 
   .creator-stat-card-row {
@@ -26,8 +26,8 @@
     white-space: normal;
   }
 
-  .creator-stat-card .creator-stat-card-note {
-    font-size: 0.78rem;
+  .creator-stat-card-metadata .page-card-kicker {
+    white-space: normal;
   }
 }
 

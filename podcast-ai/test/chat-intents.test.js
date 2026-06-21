@@ -56,6 +56,27 @@ test("promoteIntentWithMatches upgrades direct-title status questions into show 
   assert.equal(intent.helpTopic, "show-status");
 });
 
+test("promoteIntentWithMatches upgrades direct-title about questions into show summaries", () => {
+  const intent = promoteIntentWithMatches({
+    intent: {
+      primary: "recommendation",
+      helpTopic: null,
+      includeRecommendations: false,
+    },
+    message: "What's Midnight Burger about?",
+    page: { pageType: "home" },
+    matches: [
+      {
+        title: "Midnight Burger",
+        reasons: ["direct title match for Midnight Burger"],
+      },
+    ],
+  });
+
+  assert.equal(intent.primary, "show-detail");
+  assert.equal(intent.helpTopic, "show-summary");
+});
+
 test("classifyChatIntent recognizes regular show-fact questions on non-show pages", () => {
   const intent = classifyChatIntent({
     message: "Who made Midnight Burger?",

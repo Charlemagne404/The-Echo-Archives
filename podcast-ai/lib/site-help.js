@@ -382,7 +382,7 @@ function buildShowSummaryResponse(show, siteHelpContext) {
   if (!show) {
     return {
       answer:
-        "I can explain show details when the title is in the archive or when you're on a show page. Try asking about a specific title, a status, creator verification, or where the page routes you next.",
+        "I do not have that title cleanly matched in the archive. I can explain show details when the title is already indexed, or you can use Submit to suggest a missing show or correction.",
       actions: [siteHelpContext.routes.browse, siteHelpContext.routes.collections],
       suggestedPrompts: [
         "Recommend a finished sci-fi show",
@@ -393,8 +393,45 @@ function buildShowSummaryResponse(show, siteHelpContext) {
     };
   }
 
+  const pieces = [];
+  const subtitle = String(show.subtitle || "").trim();
+  const description = String(show.description || "").trim();
+  const setting = String(show.content?.setting || "").trim();
+  const formatLabel =
+    Array.isArray(show.formats) && show.formats.length > 0
+      ? show.formats
+          .slice(0, 2)
+          .map((entry) => entry.replace(/-/g, " "))
+      : [];
+  const genreLabel = Array.isArray(show.genres) && show.genres.length > 0 ? show.genres.slice(0, 2) : [];
+  const toneLabel = Array.isArray(show.tones) && show.tones.length > 0 ? show.tones.slice(0, 2) : [];
+
+  if (subtitle && subtitle !== description) {
+    pieces.push(subtitle.endsWith(".") ? subtitle : `${subtitle}.`);
+  }
+
+  if (description) {
+    pieces.push(description.endsWith(".") ? description : `${description}.`);
+  }
+
+  if (setting) {
+    pieces.push(`The archive setting note is ${setting}.`);
+  }
+
+  if (formatLabel.length > 0 || genreLabel.length > 0 || toneLabel.length > 0) {
+    pieces.push(
+      `It is tagged ${joinReadableList(formatLabel.concat(genreLabel))}${
+        toneLabel.length > 0 ? `, with a ${joinReadableList(toneLabel)} tone` : ""
+      }.`,
+    );
+  }
+
+  if (show.archiveTake) {
+    pieces.push(show.archiveTake.endsWith(".") ? show.archiveTake : `${show.archiveTake}.`);
+  }
+
   return {
-    answer: `${show.title}: ${show.description} ${show.archiveTake ? show.archiveTake : ""}`.trim(),
+    answer: `${show.title}: ${pieces.join(" ") || "The archive has only limited summary metadata for this entry right now."}`.trim(),
     actions: [{ label: "Open Show", href: show.href, external: false }],
     suggestedPrompts: [
       "How long is this show?",

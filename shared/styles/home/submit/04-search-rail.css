@@ -251,13 +251,6 @@
   border-color: rgba(255, 255, 255, 0.24);
 }
 
-@media (max-width: 1180px) {
-  .submit-hero-panel {
-    min-height: 330px;
-    background-position: 68% center;
-  }
-}
-
 @media (max-width: 900px) {
   .submit-mode-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -289,14 +282,6 @@
   .submit-hero-panel {
     min-height: 0;
     padding: 26px 22px 18px;
-    background-position: 72% center;
-  }
-
-  .submit-hero-panel::after {
-    background:
-      radial-gradient(circle at 62% 42%, rgba(255, 91, 73, 0.9) 0, rgba(255, 91, 73, 0.88) 0.3%, transparent 0.88%),
-      repeating-radial-gradient(circle at 62% 42%, rgba(229, 72, 56, 0.12) 0 1px, transparent 2px 50px),
-      radial-gradient(circle at 48% 76%, rgba(171, 35, 25, 0.3), transparent 11%);
   }
 
   .submit-hero-copy h1 {

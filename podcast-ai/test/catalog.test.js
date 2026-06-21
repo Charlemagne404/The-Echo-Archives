@@ -171,6 +171,31 @@ test("scoreCatalog now uses richer metadata like creators and source material", 
   assert.equal(sourceMaterialMatch[0].title, "The Phenomenon");
 });
 
+test("scoreCatalog supports structured recommendation constraints", async () => {
+  const catalog = await loadCatalog(siteRoot);
+
+  const finishedMidnightBurgerNeighbors = scoreCatalog(catalog, "Recommend something like Midnight Burger but finished", {
+    seedShowId: "midnight-burger",
+    requiredFields: {
+      completionStatus: ["finished"],
+    },
+  });
+  assert.ok(finishedMidnightBurgerNeighbors.length > 0);
+  assert.equal(finishedMidnightBurgerNeighbors[0].title, "Wolf 359");
+  assert.ok(finishedMidnightBurgerNeighbors.every((show) => show.completionStatus === "finished"));
+
+  const mysteryOutsideHowIDiedLane = scoreCatalog(catalog, "Recommend a mystery", {
+    excludeIds: ["how-i-died", "paralyzed", "the-white-vault"],
+    avoidSimilaritySeedIds: ["how-i-died"],
+    requiredFields: {
+      genres: ["mystery"],
+    },
+  });
+  assert.ok(mysteryOutsideHowIDiedLane.length > 0);
+  assert.ok(mysteryOutsideHowIDiedLane.every((show) => show.genres.includes("mystery")));
+  assert.ok(mysteryOutsideHowIDiedLane.every((show) => !["how-i-died", "paralyzed", "the-white-vault"].includes(show.id)));
+});
+
 test("loadCatalog merges companion review files into the returned show record", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

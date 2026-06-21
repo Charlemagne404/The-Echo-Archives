@@ -1,28 +1,84 @@
 ## Current task
 
-Revamp the Creator standards, Privacy, Terms, and Cookies pages so they are no longer placeholder-like while staying simple and aligned with the dark archive identity.
+Improve Ask the Archivist so it understands title questions, negative constraints, thread-level preferences, and repeated recommendations.
 
 ## Files changed
 
-- Source page templates: `site-src/pages/creator-standards.html`, `site-src/pages/privacy.html`, `site-src/pages/terms.html`, `site-src/pages/cookies.html`
-- Shared info-page styles: `shared/styles/home/cards/15b-info-pages.css`, `shared/styles/home/cards/15c-info-pages-responsive.css`, `shared/styles/home/cards.css`
-- Runtime fix: `shared/app/chat.js`
-- Cache/version plumbing: `home.css`, `script.js`, `tools/build-pages.js`
-- Generated public HTML refreshed by `npm run build:pages`
+- Backend chat and search:
+  - `podcast-ai/lib/chat-query.js`
+  - `podcast-ai/lib/routes/chat-routes.js`
+  - `podcast-ai/lib/chat.js`
+  - `podcast-ai/lib/chat-intents.js`
+  - `podcast-ai/lib/site-help.js`
+  - `shared/archive-search.js`
+- Frontend chat request:
+  - `shared/app/chat.js`
+- Regression coverage:
+  - `podcast-ai/test/chat-routes.test.js`
+  - `podcast-ai/test/catalog.test.js`
+  - `podcast-ai/test/chat-intents.test.js`
 - Task handoff: `HANDOFF.md`
 
 ## What was completed
 
-- Replaced the simple policy card stacks with restrained archive-styled hero sections, three-card summaries, section navigation rails, and readable document cards.
-- Reworked Creator standards into clearer verification, submission, metadata, editorial-boundary, and review-process sections.
-- Updated Privacy/Cookies copy to reflect current implementation details, including browser storage and the maintainer session cookie.
-- Fixed `[data-open-chat]` launchers so the Creator standards CTA opens Ask the Archivist instead of closing immediately.
-- Added mobile spacing so the fixed chat button does not cover info-page text.
+- Added structured chat query parsing for show title/alias references, negative constraints, current-thread preference carryover, positive filters, and seed-show recommendations.
+- Added hard exclusions for directly avoided shows and direct similar-show neighbors for prompts like "don't give me something like How I Died."
+- Added cleaned scoring input so negative phrases do not pollute required search tokens.
+- Added repeat-aware recommendations using `seenRecommendationIds` from the browser; comparable fresh picks win, but clearly strongest repeats are acknowledged.
+- Improved title-specific show summaries so prompts like "What's Midnight Burger about?" answer from structured archive metadata.
+- Added safeguards so constrained/repeat answers use deterministic fallback wording and model wording is not used if it mentions excluded titles.
 
 ## What still needs work
 
-- No known follow-up for these pages.
-- This was not a legal review; copy is implementation-grounded policy text.
+- No known follow-up for this AI task.
+- Full `npm run verify` was not run because it starts with `build:pages`, and the worktree already had unrelated dirty generated/source HTML and CSS files.
+
+## Commands run
+
+- `rtk node --check podcast-ai/lib/chat-query.js && rtk node --check podcast-ai/lib/chat.js && rtk node --check podcast-ai/lib/routes/chat-routes.js && rtk node --check shared/archive-search.js && rtk node --check shared/app/chat.js`
+- `rtk npm --prefix podcast-ai test`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run validate:data`
+- `rtk npm --prefix podcast-ai run check:links`
+- `rtk npm --prefix podcast-ai run test:smoke`
+
+## Known issues
+
+- Pre-existing uncommitted hero/creator-page edits remain outside this AI task.
+- `npm run verify` remains unrun for this task to avoid overwriting unrelated dirty generated pages through `build:pages`.
+
+---
+
+## Previous task
+
+Normalize the public hero image treatment so the shared dish/header image feels consistent across pages.
+
+## Files changed
+
+- Shared public hero/background styles:
+  - `shared/styles/home/cards/13-chat-about-base.css`
+  - `shared/styles/home/cards/15-about-supporters.css`
+  - `shared/styles/home/cards/15b-info-pages.css`
+  - `shared/styles/home/cards/16-empty-tablet.css`
+  - `shared/styles/home/cards/17-responsive-780-a.css`
+  - `shared/styles/home/cards/19-responsive-560.css`
+  - `shared/styles/home/creators/01-hero-actions.css`
+  - `shared/styles/home/submit/01-hero-surface.css`
+  - `shared/styles/home/submit/04-search-rail.css`
+- Task handoff: `HANDOFF.md`
+
+## What was completed
+
+- Removed duplicate page-specific dish-image background stacks so public secondary heroes inherit the shared `.hero-panel` image/overlay.
+- Removed the submit page's orange outgoing signal-ring pseudo-element.
+- Set public secondary hero baseline height to `280px` while keeping browse at `430px`.
+- Slimmed submit trust pills so they can remain inside the hero.
+- Fixed mobile browse hero controls so filters/browse modes stay within the viewport and quick filters scroll inside their own strip.
+
+## What still needs work
+
+- No known follow-up for this task.
+- Pre-existing uncommitted creator-page edits remain in `for-creators.html`, `site-src/pages/for-creators.html`, and creator standards/stat CSS files.
 
 ## Commands run
 
@@ -31,14 +87,11 @@ Revamp the Creator standards, Privacy, Terms, and Cookies pages so they are no l
 - `rtk npm run verify`
 - `rtk npm run dev`
 
-## Browser QA
-
-- Checked `http://127.0.0.1:3010/creator-standards.html`, `/privacy.html`, `/terms.html`, and `/cookies.html`.
-- Verified desktop `1440x900` and mobile `390x844` layouts: no horizontal overflow, text fit checks passed, no console warnings/errors.
-- Verified the Privacy map `Cookies` link updates the URL hash.
-- Verified the Creator standards `Ask the Archivist` button opens the chat panel after the shared launcher fix.
-
 ## Known issues
 
-- Full verification passes in the current workspace.
-- There are unrelated pre-existing worktree changes outside this pass; they were not reverted.
+- Browser plugin navigation, DOM checks, console checks, and filter interaction passed.
+- Browser plugin screenshot capture timed out, so visual screenshots were captured outside the repo with the existing Playwright dependency and installed system Brave browser.
+- Screenshot files:
+  - `/var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-hero-submit-desktop.png`
+  - `/var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-hero-about-desktop.png`
+  - `/var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-hero-submit-mobile.png`
