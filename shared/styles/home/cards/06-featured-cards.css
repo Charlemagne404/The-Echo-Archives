@@ -9,12 +9,12 @@
 }
 
 .most-popular-band {
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 18px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
-    rgba(7, 9, 13, 0.58);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0)),
+    rgba(7, 9, 13, 0.28);
   margin-bottom: 30px;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .most-popular-band .section-heading {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .most-popular-band .section-heading h3 {
@@ -35,7 +35,7 @@
 .popular-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
+  gap: 18px;
 }
 
 .home-page .popular-card {
@@ -109,38 +109,37 @@
 .home-page .popular-card-status {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0;
+  align-items: center;
+  min-height: 18px;
 }
 
 .home-page .popular-card-chip {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(10, 13, 17, 0.78);
-  color: rgba(247, 247, 243, 0.76);
-  font-size: 0.72rem;
+  color: rgba(247, 247, 243, 0.7);
+  font-size: 0.71rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
+.home-page .popular-card-chip + .popular-card-chip::before {
+  content: "•";
+  margin: 0 8px;
+  color: rgba(247, 247, 243, 0.3);
+}
+
 .home-page .popular-card-chip.is-accent {
-  border-color: rgba(229, 72, 56, 0.3);
-  background: rgba(45, 18, 15, 0.92);
-  color: #fff4ef;
+  color: #f28a55;
 }
 
 .home-page .popular-card-chip.is-review {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(16, 20, 25, 0.9);
-  color: rgba(247, 247, 243, 0.86);
+  color: rgba(247, 247, 243, 0.84);
 }
 
 .home-page .popular-card-chip.is-muted {
-  color: rgba(247, 247, 243, 0.68);
+  color: rgba(154, 214, 172, 0.9);
 }
 
 .home-page .popular-card-title {

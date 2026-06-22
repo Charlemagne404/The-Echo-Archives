@@ -81,13 +81,13 @@ function getMostPopularCardStatusLabels(show) {
     labels.push({ label: "Top rated", tone: "accent" });
   }
 
-  if (show.reviewStatus === "full-review") {
-    labels.push({ label: "Full review", tone: "review" });
-  }
-
   const lifecycleLabel = getMostPopularCardLifecycleLabel(show);
   if (lifecycleLabel) {
     labels.push({ label: lifecycleLabel, tone: "muted" });
+  }
+
+  if (show.reviewStatus === "full-review") {
+    labels.push({ label: "Full review", tone: "review" });
   }
 
   return labels;

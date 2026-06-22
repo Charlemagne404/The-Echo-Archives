@@ -117,8 +117,9 @@
 
 #chat-container {
   position: fixed;
-  top: 92px;
+  top: auto;
   right: 16px;
+  bottom: 90px;
   z-index: 80;
   width: min(420px, calc(100vw - 32px));
   height: min(74vh, 684px);

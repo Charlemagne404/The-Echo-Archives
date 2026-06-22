@@ -140,64 +140,57 @@
 
 .creator-spotlight-card {
   display: grid;
-  gap: 16px;
+  gap: 14px;
+  padding: 18px 24px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 48%, rgba(36, 91, 95, 0.08), transparent 29%),
+    radial-gradient(circle at 14% 35%, rgba(239, 89, 67, 0.055), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.038), transparent 100%),
+    rgba(8, 12, 16, 0.9);
 }
 
 .creator-spotlight-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.38fr) minmax(280px, 0.72fr);
-  gap: 28px;
+  grid-template-columns: minmax(0, 1.18fr) minmax(336px, 0.82fr);
+  gap: 30px;
   align-items: stretch;
   min-height: 0;
-  padding: 6px 0 2px;
+  padding: 2px 0 0;
 }
 
 .creator-spotlight-feature {
   display: grid;
-  grid-template-columns: 182px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(214px, 292px) minmax(0, 1fr);
+  gap: 34px;
   align-items: center;
   min-width: 0;
-}
-
-.creator-spotlight-cover {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  min-height: 214px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  background:
-    linear-gradient(180deg, rgba(4, 6, 9, 0.08), rgba(4, 6, 9, 0.34)),
-    rgba(7, 10, 13, 0.88);
-  box-shadow: var(--shadow-md);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease;
-}
-
-.creator-spotlight-cover:hover,
-.creator-spotlight-cover:focus-visible {
-  transform: translateY(-2px);
-  border-color: rgba(239, 89, 67, 0.32);
-}
-
-.creator-spotlight-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .creator-spotlight-copy,
 .creator-spotlight-profile-copy {
   display: grid;
-  gap: 10px;
+  gap: 7px;
   align-content: start;
   padding: 0;
 }
 
-.creator-spotlight-kicker,
+.creator-spotlight-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 23px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(247, 247, 243, 0.06);
+  color: rgba(247, 247, 243, 0.58);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .creator-standard-kicker {
   color: rgba(239, 89, 67, 0.96);
   font-size: 0.71rem;
@@ -215,9 +208,9 @@
 
 .creator-spotlight-copy h3 {
   margin: 0;
-  font-size: clamp(2rem, 2.5vw, 2.95rem);
-  letter-spacing: -0.04em;
-  line-height: 0.94;
+  font-size: clamp(1.32rem, 1.7vw, 1.62rem);
+  letter-spacing: -0.035em;
+  line-height: 1.04;
 }
 
 .creator-spotlight-pill {
@@ -242,15 +235,16 @@
 
 .creator-spotlight-byline {
   margin: 0;
-  color: rgba(247, 247, 243, 0.9);
-  font-size: 1.06rem;
+  color: rgba(239, 89, 67, 0.98);
+  font-size: 0.89rem;
   font-weight: 700;
+  line-height: 1.3;
 }
 
 .creator-spotlight-description {
-  max-width: 36ch;
-  font-size: 1rem;
-  line-height: 1.58;
+  max-width: 39ch;
+  font-size: 0.85rem;
+  line-height: 1.52;
 }
 
 .creator-tag-row {
@@ -278,16 +272,16 @@
 .creator-spotlight-stat-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin: 6px 0 0;
-  padding: 12px 0 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 15px;
+  margin: 10px 0 0;
+  padding: 0;
+  border-top: 0;
 }
 
 .creator-spotlight-stat {
   display: grid;
-  grid-template-columns: 18px minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 9px;
   align-items: center;
 }
 
@@ -295,14 +289,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
   color: rgba(239, 89, 67, 0.98);
 }
 
 .creator-spotlight-stat-icon svg {
-  width: 17px;
-  height: 17px;
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -313,13 +307,14 @@
 .creator-spotlight-stat dt {
   margin: 0;
   color: rgba(247, 247, 243, 0.58);
-  font-size: 0.74rem;
+  font-size: 0.66rem;
   line-height: 1.2;
 }
 
 .creator-spotlight-stat dd {
   margin: 0;
   color: var(--text-primary);
-  font-size: 1.08rem;
+  font-size: 0.94rem;
   font-weight: 700;
+  line-height: 1.15;
 }

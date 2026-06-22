@@ -1,7 +1,7 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { loadCollections, loadShows } from "../data.js";
 import { setChatOpen } from "../chat.js";
-import { formatDate, formatRating, toDisplayTag, updateDocumentMetadata } from "../utils.js";
+import { formatDate, updateDocumentMetadata } from "../utils.js";
 
 export async function initializeForCreatorsPage() {
   const [shows, collections] = await Promise.all([loadShows(), loadCollections()]);
@@ -15,7 +15,6 @@ export async function initializeForCreatorsPage() {
   });
 
   applyCreatorStats(buildCreatorStats(shows, collections));
-  applyCreatorSpotlight(selectCreatorSpotlight(shows));
   initializeCreatorFaq();
   initializeCreatorChatLaunchers();
 }
@@ -80,123 +79,6 @@ function formatInteger(value) {
 
 function hasMetadataVerification(show) {
   return Boolean(show.verification?.status || show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt);
-}
-
-function selectCreatorSpotlight(shows) {
-  const publishedShows = getPublishedShows(shows);
-  const pinnedShow = publishedShows.find((show) => show.id === "impact-winter");
-  if (pinnedShow) {
-    return pinnedShow;
-  }
-
-  const candidates = publishedShows
-    .filter((show) => show.cover && show.creators.length > 0)
-    .sort((left, right) => {
-      const leftScore = getFeaturedScore(left);
-      const rightScore = getFeaturedScore(right);
-      return rightScore - leftScore;
-    });
-
-  return candidates[0] || null;
-}
-
-function getFeaturedScore(show) {
-  let score = 0;
-
-  if (show.reviewStatus === "full-review") {
-    score += 40;
-  }
-
-  if (show.featured) {
-    score += 20;
-  }
-
-  if (hasMetadataVerification(show)) {
-    score += 12;
-  }
-
-  if (Number.isFinite(show.finalRating)) {
-    score += show.finalRating;
-  }
-
-  return score;
-}
-
-function applyCreatorSpotlight(show) {
-  if (!show) {
-    return;
-  }
-
-  const firstReleaseYear = getReleaseYear(show);
-  const tags = show.tags.slice(0, 2).map((tag) => toDisplayTag(tag));
-  const verificationDate = show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt || "";
-  const creatorName = show.credits?.creatorName && show.credits.creatorName !== "Not verified"
-    ? show.credits.creatorName
-    : show.creators[0] || "Creator";
-  const spotlightDescription =
-    show.description ||
-    show.summary ||
-    show.subtitle ||
-    "Archive spotlight uses sourced metadata first and adds creator context only when it can be verified.";
-
-  const cover = document.getElementById("creatorSpotlightCover");
-  if (cover instanceof HTMLImageElement) {
-    cover.src = `/${String(show.cover).replace(/^\/+/, "")}`;
-    cover.alt = show.coverAlt || `${show.title} cover art`;
-  }
-
-  setText("creatorSpotlightTitle", show.title);
-  setText("creatorSpotlightCreator", creatorName);
-  setText("creatorSpotlightDescription", spotlightDescription);
-  setText("creatorSpotlightRating", Number.isFinite(show.finalRating) ? `${formatRating(show.finalRating)}/10` : "Unrated");
-  setText("creatorSpotlightCompletion", toDisplayTag(show.completionStatus || "unknown"));
-  setText("creatorSpotlightYear", firstReleaseYear || "Unknown");
-  setText(
-    "creatorSpotlightVerification",
-    verificationDate ? `Metadata checked ${formatDate(verificationDate)}` : "Metadata status still being verified",
-  );
-  setText(
-    "creatorSpotlightPlaceholderName",
-    creatorName,
-  );
-  setText(
-    "creatorSpotlightPlaceholderCopy",
-    "This entry is metadata-checked only. Echo Archives adds creator portraits, direct quotes, or interview excerpts only when they come from an official or verified source.",
-  );
-
-  const coverLink = document.getElementById("creatorSpotlightCoverLink");
-  if (coverLink instanceof HTMLAnchorElement) {
-    coverLink.href = show.href;
-    coverLink.setAttribute("aria-label", `Open ${show.title} show page`);
-  }
-
-  const openLink = document.getElementById("creatorSpotlightOpenLink");
-  if (openLink instanceof HTMLAnchorElement) {
-    openLink.href = show.href;
-  }
-
-  const tagRow = document.getElementById("creatorSpotlightTags");
-  if (tagRow) {
-    tagRow.textContent = "";
-    tagRow.hidden = tags.length === 0;
-
-    tags.forEach((tag) => {
-      const chip = document.createElement("span");
-      chip.textContent = tag;
-      tagRow.appendChild(chip);
-    });
-  }
-}
-
-function getReleaseYear(show) {
-  const candidate = show.releaseDates?.first || show.firstReleasedAt || "";
-
-  if (!candidate) {
-    return "";
-  }
-
-  const date = new Date(candidate);
-  return Number.isNaN(date.getTime()) ? "" : String(date.getFullYear());
 }
 
 function initializeCreatorFaq() {

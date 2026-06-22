@@ -1,0 +1,99 @@
+.creator-spotlight-card .creator-section-header {
+  align-items: center;
+}
+
+.creator-spotlight-card h2 {
+  font-size: clamp(1.22rem, 1.45vw, 1.48rem);
+  line-height: 1.1;
+}
+
+.creator-spotlight-header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(247, 247, 243, 0.82);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.creator-spotlight-header-link svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.creator-spotlight-cover {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  min-height: 0;
+  aspect-ratio: 1.36;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background:
+    radial-gradient(circle at 50% 86%, rgba(245, 131, 78, 0.34), transparent 12%),
+    radial-gradient(circle at 50% 78%, rgba(239, 89, 67, 0.32), transparent 22%),
+    radial-gradient(circle at 54% 66%, rgba(85, 38, 44, 0.46), transparent 34%),
+    linear-gradient(180deg, rgba(51, 10, 24, 0.58), rgba(9, 8, 12, 0.78) 48%, rgba(4, 6, 9, 0.96)),
+    rgba(7, 10, 13, 0.88);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 16px 34px rgba(0, 0, 0, 0.34);
+}
+
+.creator-spotlight-cover::before,
+.creator-spotlight-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.creator-spotlight-cover::before {
+  background:
+    linear-gradient(14deg, transparent 0 36%, rgba(13, 10, 14, 0.72) 36.5% 44%, transparent 44.5%),
+    linear-gradient(-15deg, transparent 0 55%, rgba(20, 12, 16, 0.72) 55.5% 64%, transparent 64.5%),
+    linear-gradient(180deg, transparent 0 62%, rgba(1, 3, 6, 0.46) 62% 100%);
+}
+
+.creator-spotlight-cover::after {
+  background:
+    radial-gradient(circle at 26% 18%, rgba(239, 89, 67, 0.1), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 40%);
+  mix-blend-mode: screen;
+}
+
+.creator-spotlight-cover-mark,
+.creator-spotlight-cover-title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.creator-spotlight-cover-mark {
+  margin-bottom: 12px;
+  color: rgba(238, 200, 168, 0.66);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.creator-spotlight-cover-title {
+  max-width: 8ch;
+  color: rgba(242, 213, 172, 0.92);
+  font-size: clamp(1.6rem, 2.1vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.18;
+  text-shadow: 0 0 22px rgba(239, 89, 67, 0.28);
+}

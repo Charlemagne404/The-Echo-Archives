@@ -327,14 +327,13 @@ test("for creators page is reachable from nav and its primary interactions work"
       reviewCount: document.getElementById("creatorsReviewCount")?.textContent?.trim() || "",
       spotlightTitle: document.getElementById("creatorSpotlightTitle")?.textContent?.trim() || "",
       spotlightCreator: document.getElementById("creatorSpotlightCreator")?.textContent?.trim() || "",
-      spotlightVerification: document.getElementById("creatorSpotlightVerification")?.textContent?.trim() || "",
       placeholderName: document.getElementById("creatorSpotlightPlaceholderName")?.textContent?.trim() || "",
       placeholderCopy: document.getElementById("creatorSpotlightPlaceholderCopy")?.textContent?.trim() || "",
-      spotlightHref: document.getElementById("creatorSpotlightOpenLink")?.getAttribute("href") || "",
-      spotlightVerificationHref: document.getElementById("creatorSpotlightVerificationLink")?.getAttribute("href") || "",
-      spotlightUnsupportedLinks: Array.from(document.querySelectorAll("#creator-spotlight a"))
-        .map((link) => link.textContent?.trim() || "")
-        .filter((label) => /view all spotlights|interview/i.test(label)),
+      spotlightText: document.getElementById("creator-spotlight")?.textContent || "",
+      spotlightLinks: Array.from(document.querySelectorAll("#creator-spotlight a")).map((link) => ({
+        label: link.textContent?.trim() || "",
+        href: link.getAttribute("href") || "",
+      })),
       submitHref:
         document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=show"]')?.getAttribute("href") || "",
       correctionHref:
@@ -365,14 +364,14 @@ test("for creators page is reachable from nav and its primary interactions work"
     assert.ok(Number.parseInt(initialState.showCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.metadataCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.reviewCount, 10) >= 0);
-    assert.equal(initialState.spotlightTitle, "Impact Winter");
-    assert.equal(initialState.spotlightCreator, "Travis Beacham");
-    assert.equal(initialState.placeholderName, "Travis Beacham");
-    assert.match(initialState.spotlightVerification, /Metadata checked/i);
-    assert.match(initialState.placeholderCopy, /metadata-checked only|official|verified source/i);
-    assert.equal(initialState.spotlightHref, "/show.html?id=impact-winter");
-    assert.equal(initialState.spotlightVerificationHref, "/submit.html?submissionType=creator-verification");
-    assert.deepEqual(initialState.spotlightUnsupportedLinks, []);
+    assert.equal(initialState.spotlightTitle, "Example audio drama");
+    assert.equal(initialState.spotlightCreator, "Sample sci-fi mystery");
+    assert.equal(initialState.placeholderName, "Example Creator");
+    assert.match(initialState.placeholderCopy, /sample quote|real spotlight is sourced/i);
+    assert.match(initialState.spotlightText, /View example spotlights/i);
+    assert.match(initialState.spotlightText, /Read example interview/i);
+    assert.doesNotMatch(initialState.spotlightText, /Impact Winter|Travis Beacham/i);
+    assert.deepEqual(initialState.spotlightLinks, []);
     assert.equal(initialState.submitHref, "/submit.html?submissionType=show");
     assert.equal(initialState.correctionHref, "/submit.html?submissionType=correction");
     assert.equal(initialState.verificationHref, "/submit.html?submissionType=creator-verification");

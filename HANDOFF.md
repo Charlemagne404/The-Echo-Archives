@@ -1,5 +1,161 @@
 ## Current task
 
+Refine the creator spotlight placeholder avatar so it stays fully inside the frame, loses the outline, and uses a darker background disc.
+
+## Files changed
+
+- `site-src/pages/for-creators.html`
+- `for-creators.html`
+- `shared/styles/home/creators/03-standards.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Tightened the generic avatar shoulder silhouette so it sits better within the circular portrait.
+- Removed the visible outline/ring treatment from the avatar disc.
+- Clipped the avatar to the circular frame and darkened the background disc so the portrait reads more cleanly in the spotlight card.
+
+## What still needs work
+
+- No known follow-up for this avatar refinement.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+
+## Known issues
+
+- `for-creators.html` and related creator files already had broader in-progress changes before this avatar refinement; this update stayed limited to the placeholder portrait treatment.
+
+---
+
+## Current task
+
+Replace the creator spotlight portrait with a clean generic avatar.
+
+## Files changed
+
+- `site-src/pages/for-creators.html`
+- `for-creators.html`
+- `shared/styles/home/creators/03-standards.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Replaced the empty CSS-built creator face with an inline SVG avatar resembling a simple generic profile portrait.
+- Removed the pseudo-element facial-feature construction from the spotlight avatar CSS.
+- Restyled the avatar as a muted circular portrait token that fits the existing dark creator spotlight card.
+
+## What still needs work
+
+- No known follow-up for this task.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm run dev`
+- Browser QA against `http://127.0.0.1:3010/for-creators.html`
+
+## Known issues
+
+- Pre-existing unrelated dirty files remain in the creator-page, community-rating, and prior browse-section areas.
+- The dev server was started for browser QA on port `3010`.
+
+---
+
+## Current task
+
+Polish the main browse page popular-listener section.
+
+## Files changed
+
+- `site-src/pages/index.html`
+- `index.html`
+- `shared/app/render-cards/popular.js`
+- `shared/styles/home/cards/06-featured-cards.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Renamed the section title from "Most popular" to "Popular with listeners."
+- Reduced the outer band's visual weight with lighter border/background, smaller radius, tighter padding, and reduced card gap.
+- Replaced the popular-card status pills with compact inline colored status text separated visually by bullets.
+- Reordered popular-card statuses so lifecycle labels appear before "Full review."
+
+## What still needs work
+
+- No known follow-up for this task.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk curl -I --max-time 5 http://127.0.0.1:3010/index.html`
+- `rtk npm run dev`
+- Browser QA against `http://127.0.0.1:3010/index.html`
+- `rtk npm run check:structure`
+
+## Known issues
+
+- Pre-existing unrelated dirty files remain in the creator-page/test areas.
+- The dev server was started for browser QA on port `3010`.
+
+---
+
+## Current task
+
+Keep the expanded Ask the Archivist panel from overlapping the footer, matching the closed chat button's footer-aware behavior.
+
+## Files changed
+
+- `shared/app/app.js`
+- `shared/styles/home/cards/11-community-rating.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Extended the existing floating-control footer clearance logic so the open chat panel now inherits the same bottom clamp as the closed chat button.
+- Kept the desktop chat panel at a fixed size and only move it upward as a whole when the footer enters the viewport, so it now stops above the footer without shrinking.
+- `npm run verify` reached the browser smoke step, but that step failed because the local smoke-test server on `127.0.0.1:3310` was refusing connections.
+
+## What still needs work
+
+- No known follow-up for this fix.
+
+## Commands run
+
+- `rtk sed -n '1,240p' /Users/charliearnerstal/.codex/RTK.md`
+- `rtk rg --files | rg 'AGENTS\.md|RTK\.md|chat|archivist|footer'`
+- `rtk sed -n '1,240p' site-src/partials/chat-shell.html`
+- `rtk sed -n '1,260p' shared/styles/base/chat.css`
+- `rtk sed -n '1,260p' shared/styles/home/cards/12-chat-panel.css`
+- `rtk sed -n '1,260p' shared/app/chat/ui.js`
+- `rtk rg -n "chat-container|chat-toggle|footer|--chat|position: fixed|position: sticky|bottom:" shared/styles site-src shared/app -g '!podcast-ai/**'`
+- `rtk sed -n '1,260p' shared/app/chat.js`
+- `rtk sed -n '1,260p' shared/styles/base/header-footer.css`
+- `rtk sed -n '100,180p' shared/app/app.js`
+- `rtk sed -n '110,220p' shared/styles/home/cards/11-community-rating.css`
+- `rtk sed -n '120,220p' shared/styles/home/cards/13-chat-about-base.css`
+- `rtk sed -n '180,230p' shared/styles/home/cards/01-surface.css`
+- `rtk sed -n '1,120p' shared/styles/base/global/03-responsive.css`
+- `rtk sed -n '90,130p' shared/styles/home/cards/18-responsive-780-b.css`
+- `rtk sed -n '125,175p' shared/styles/home/cards/19-responsive-560.css`
+- `rtk sed -n '1,120p' shared/app/app.js`
+- `rtk cat package.json`
+- `rtk git status --short`
+- `rtk ls HANDOFF.md`
+- `rtk npm run verify`
+
+## Known issues
+
+- There are unrelated pre-existing uncommitted changes in other files; this task only touched the shared chat positioning logic and `HANDOFF.md`.
+- Browser smoke tests currently fail at startup because `127.0.0.1:3310` is refusing connections.
+
+---
+
+## Current task
+
 Implement device-scoped verified community voting without accounts.
 
 ## Files changed

@@ -28,44 +28,75 @@
 
 .creator-spotlight-profile {
   display: grid;
-  gap: 18px;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
   align-content: center;
   min-height: 100%;
-  padding: 8px 0 8px 28px;
+  padding: 8px 0 8px 30px;
   border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .creator-spotlight-profile-avatar {
-  width: 108px;
-  height: 108px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 118px;
+  height: 118px;
+  flex: 0 0 auto;
+  overflow: hidden;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    radial-gradient(circle at 38% 24%, rgba(122, 31, 28, 0.36), transparent 34%),
-    radial-gradient(circle at 50% 50%, rgba(5, 9, 11, 0.06), rgba(5, 9, 11, 0.98)),
-    rgba(7, 10, 13, 0.9);
+  background: rgba(25, 29, 34, 0.98);
+  color: rgba(121, 131, 139, 0.86);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .creator-spotlight-profile-avatar svg {
-  width: 34px;
-  height: 34px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.creator-avatar-disc {
+  fill: rgba(36, 41, 47, 0.98);
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.26));
+}
+
+.creator-avatar-head,
+.creator-avatar-shoulders {
+  fill: rgba(191, 196, 201, 0.9);
+}
+
+.creator-avatar-head {
+  transform: translateY(4px);
 }
 
 .creator-spotlight-profile-copy strong {
   display: block;
   color: var(--text-primary);
-  font-size: 1.18rem;
+  font-size: 1.24rem;
   line-height: 1.18;
 }
 
+.creator-spotlight-profile-role {
+  display: block;
+  color: rgba(247, 247, 243, 0.58);
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 .creator-spotlight-profile-link {
-  color: var(--text-primary);
+  width: fit-content;
+  margin-top: 5px;
+  color: rgba(239, 89, 67, 0.98);
+  font-size: 0.83rem;
+  pointer-events: none;
 }
 
 .creator-spotlight-profile-link:hover,
 .creator-spotlight-profile-link:focus-visible {
-  color: #ffffff;
+  color: rgba(239, 89, 67, 0.98);
 }
 
 .creator-standard-section {

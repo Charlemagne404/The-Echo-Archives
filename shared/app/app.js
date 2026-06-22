@@ -1,4 +1,4 @@
-import { backToTopBtn, toggleBtn } from "./constants.js";
+import { backToTopBtn, chatContainer, toggleBtn } from "./constants.js";
 import { initializeSharedChat } from "./chat.js";
 import { initializeAboutPage } from "./pages/about.js";
 import { initializeCollectionPage } from "./pages/collection.js";
@@ -120,6 +120,8 @@ function initializeBackToTop() {
     const baseClearance = window.innerWidth <= 780 ? 16 : 18;
     const topSafeZone = window.innerWidth <= 780 ? 92 : 96;
     const maxFloatingHeight = window.innerWidth <= 780 ? 54 : 56;
+    const panelGap = window.innerWidth <= 780 ? 14 : 16;
+    const panelOffset = maxFloatingHeight + panelGap;
     let clearance = baseClearance;
     let hideFloatingControls = false;
 
@@ -145,6 +147,11 @@ function initializeBackToTop() {
       floatingChatToggle.style.opacity = hideFloatingControls ? "0" : "1";
       floatingChatToggle.style.pointerEvents = hideFloatingControls ? "none" : "auto";
       floatingChatToggle.style.visibility = hideFloatingControls ? "hidden" : "visible";
+    }
+
+    if (chatContainer) {
+      chatContainer.style.top = "auto";
+      chatContainer.style.bottom = `${clearance + panelOffset}px`;
     }
   }
 

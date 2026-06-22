@@ -283,6 +283,15 @@ Include:
 
 Keep it short and useful.
 
+## Slow verification commands
+
+`npm verify` is expensive. Do not run it automatically after every minor change.
+
+Use focused checks during development. Save full verification for the end of the task, unless the change touches shared infrastructure, build tooling, routing, generated pages, or other areas where a small change can break the whole site.
+
+Before pushing or final handoff, run `npm verify` once and fix any issues it reports.
+
+
 ## Final response style
 
 When finishing a task, summarize:
