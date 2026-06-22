@@ -1,57 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archive Record Missing - The Echo Archives</title>
+  <meta
+    name="description"
+    content="The route you followed does not map to an indexed Echo Archives page. Jump back into the archive, browse collections, or submit a correction."
+  />
+  <meta name="theme-color" content="#06080b" />
+  <link rel="stylesheet" href="/style.css?v=12" />
+  <link rel="stylesheet" href="/home.css?v=30" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #191B1C;
-      color: #ccc;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .not-found-main {
+      gap: 18px;
+    }
+
+    .not-found-hero-panel {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 360px);
+      gap: 28px;
       align-items: center;
-      height: 100vh;
+      padding: 34px 32px 30px;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(229, 72, 56, 0.16), transparent 24%),
+        radial-gradient(circle at 79% 34%, rgba(111, 179, 126, 0.1), transparent 18%),
+        linear-gradient(125deg, rgba(5, 8, 11, 0.98), rgba(7, 10, 14, 0.96) 54%, rgba(11, 15, 20, 0.92));
+    }
+
+    .not-found-hero-panel::after {
+      background:
+        radial-gradient(circle at 72% 26%, rgba(247, 247, 243, 0.08), transparent 12%),
+        radial-gradient(circle at 82% 78%, rgba(229, 72, 56, 0.16), transparent 15%),
+        linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.16) 100%);
+    }
+
+    .not-found-hero-copy h1 {
+      max-width: 11ch;
+      white-space: normal;
+      margin-bottom: 16px;
+    }
+
+    .not-found-hero-copy p {
+      max-width: 36ch;
+    }
+
+    .not-found-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: rgba(255, 125, 97, 0.98);
+    }
+
+    .not-found-kicker::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(229, 72, 56, 0), rgba(229, 72, 56, 0.92));
+    }
+
+    .not-found-signal-panel {
+      position: relative;
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 100%),
+        rgba(8, 11, 15, 0.82);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 18px 38px rgba(0, 0, 0, 0.32);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .not-found-signal-panel::before,
+    .not-found-signal-panel::after {
+      content: "";
+      position: absolute;
+      inset: 50%;
+      width: 232px;
+      height: 232px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .not-found-signal-panel::before {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow:
+        0 0 0 28px rgba(255, 255, 255, 0.03),
+        0 0 0 56px rgba(255, 255, 255, 0.02);
+    }
+
+    .not-found-signal-panel::after {
+      background:
+        linear-gradient(90deg, transparent 49.5%, rgba(255, 255, 255, 0.16) 50%, transparent 50.5%),
+        linear-gradient(transparent 49.5%, rgba(255, 255, 255, 0.1) 50%, transparent 50.5%);
+      opacity: 0.6;
+    }
+
+    .not-found-signal-core {
+      position: relative;
+      z-index: 1;
+      width: 160px;
+      height: 160px;
+      display: grid;
+      place-items: center;
+      gap: 8px;
+      align-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(229, 72, 56, 0.34);
+      background:
+        radial-gradient(circle at 50% 34%, rgba(229, 72, 56, 0.2), rgba(8, 11, 15, 0.92) 68%),
+        rgba(8, 11, 15, 0.9);
+      box-shadow:
+        inset 0 0 28px rgba(229, 72, 56, 0.12),
+        0 0 34px rgba(229, 72, 56, 0.08);
       text-align: center;
-      padding: 20px;
     }
 
-    h1 {
-      font-size: 5rem;
-      color: #fff;
-      margin-bottom: 20px;
+    .not-found-code {
+      font-size: clamp(3rem, 5vw, 4.4rem);
+      line-height: 0.86;
+      letter-spacing: -0.08em;
+      font-weight: 700;
+      color: var(--text-primary);
     }
 
-    p {
-      font-size: 1.3rem;
-      max-width: 600px;
-      line-height: 1.6;
-      color: #ccc;
+    .not-found-signal-label {
+      font-size: 0.72rem;
+      line-height: 1.3;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(247, 247, 243, 0.66);
     }
 
-    a {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 25px;
-      background-color: #1d1d1d;
-      color: #ccc;
+    .not-found-signal-sweep {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      width: 1px;
+      height: 132px;
+      transform-origin: top center;
+      transform: translate(-50%, -4px) rotate(35deg);
+      background: linear-gradient(180deg, rgba(111, 179, 126, 0.95), rgba(111, 179, 126, 0));
+      box-shadow: 0 0 16px rgba(111, 179, 126, 0.34);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .not-found-signal-sweep::after {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      background: #88d69a;
+      box-shadow: 0 0 12px rgba(136, 214, 154, 0.8);
+    }
+
+    .not-found-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .not-found-summary-card {
+      min-height: 100%;
+    }
+
+    .not-found-summary-card h2 {
+      margin-bottom: 6px;
+      font-size: 1.08rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .not-found-summary-card p {
+      margin-bottom: 14px;
+    }
+
+    .not-found-summary-card-community {
+      background:
+        radial-gradient(circle at top left, rgba(118, 214, 90, 0.06), transparent 45%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(255, 255, 255, 0) 62%),
+        rgba(8, 11, 15, 0.82);
+    }
+
+    .not-found-summary-card-community .info-summary-icon {
+      border-color: rgba(118, 214, 90, 0.16);
+      background: radial-gradient(circle at 50% 36%, rgba(118, 214, 90, 0.09), rgba(8, 11, 15, 0.28));
+      color: #76d65a;
+    }
+
+    .not-found-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.2;
       text-decoration: none;
-      border-radius: 5px;
-      border: 1px solid #4d4d4d;
-      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    a:hover {
-      background-color: #262727;
-      color: #fff;
+    .not-found-card-link span:last-child {
+      color: rgba(255, 125, 97, 0.98);
+      transition: transform 180ms ease;
+    }
+
+    .not-found-card-link:hover span:last-child,
+    .not-found-card-link:focus-visible span:last-child {
+      transform: translateX(2px);
+    }
+
+    .not-found-note-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 26px;
+      border-color: rgba(229, 72, 56, 0.18);
+      background:
+        radial-gradient(circle at 0% 50%, rgba(229, 72, 56, 0.08), transparent 20%),
+        linear-gradient(90deg, rgba(10, 13, 18, 0.98), rgba(8, 11, 15, 0.9));
+    }
+
+    .not-found-note-card h2 {
+      margin-bottom: 8px;
+    }
+
+    .not-found-note-card p {
+      max-width: 72ch;
+      margin: 0;
+    }
+
+    .not-found-note-actions {
+      flex: 0 0 auto;
+      margin-top: 0;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 1180px) {
+      .not-found-hero-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .not-found-signal-panel {
+        min-height: 240px;
+      }
+
+      .not-found-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .not-found-note-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .not-found-note-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .not-found-hero-panel {
+        padding: 28px 22px 24px;
+      }
+
+      .not-found-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .not-found-signal-panel::before,
+      .not-found-signal-panel::after {
+        width: 196px;
+        height: 196px;
+      }
+
+      .not-found-signal-core {
+        width: 140px;
+        height: 140px;
+      }
+
+      .not-found-signal-sweep {
+        height: 112px;
+      }
+
+      .not-found-note-card {
+        padding: 22px 20px;
+      }
     }
   </style>
 </head>
-<body>
-  <h1>404</h1>
-  <p>If you are seeing this, it probably means I haven’t made the page for that specific audio drama yet. Don’t worry, I’m on it! In the meanwhile, you can check out some of the other audio dramas available.</p>
-  <a href="https://charlemagne404.github.io/The-Echo-Archives/">Check other audio dramas</a>
+<body class="home-page info-page not-found-page">
+  <header class="site-header">
+    <a class="site-brand" href="/index.html" aria-label="The Echo Archives home">
+      <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/index.html">Browse</a>
+      <a href="/collections.html">Collections</a>
+      <a href="/about.html">About</a>
+      <a href="/submit.html">Submit</a>
+      <a href="/for-creators.html">For creators</a>
+    </nav>
+
+    <div class="header-actions" aria-hidden="true"></div>
+  </header>
+
+  <main class="home-main page-main info-document-main not-found-main">
+    <section class="hero-shell info-hero-shell">
+      <div class="hero-panel page-panel info-hero-panel not-found-hero-panel">
+        <div class="hero-copy info-hero-copy not-found-hero-copy">
+          <p class="page-card-kicker not-found-kicker">Signal lost</p>
+          <h1>This record is not in the archive.</h1>
+          <p>
+            The route you followed does not map to a live Echo Archives page. The show may not be indexed yet, the record may have moved, or the link may simply be wrong.
+          </p>
+          <div class="page-hero-actions">
+            <a class="about-cta about-cta-primary" href="/index.html">
+              <span>Return to browse</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+              </svg>
+            </a>
+            <a class="about-cta about-cta-secondary" href="/collections.html">
+              <span>Open collections</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.75 9V7.4a2.15 2.15 0 0 1 2.15-2.15h3.4l1.9 1.95h4.9a1.9 1.9 0 0 1 1.9 1.9V9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
+                <path d="M4.75 9.25h14.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
+                <path d="M4.75 9.25v7.1a2.15 2.15 0 0 0 2.15 2.15h10.2a2.15 2.15 0 0 0 2.15-2.15v-5.1a2 2 0 0 0-2-2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="not-found-signal-panel" aria-hidden="true">
+          <div class="not-found-signal-sweep"></div>
+          <div class="not-found-signal-core">
+            <span class="not-found-code">404</span>
+            <span class="not-found-signal-label">Unmapped route</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-grid not-found-grid" aria-label="Recovery options">
+      <article class="page-card info-summary-card not-found-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" />
+          </svg>
+        </span>
+        <div>
+          <h2>Restart from the archive</h2>
+          <p>Drop straight back into the main browse grid and use tags, tone, status, or title search to get back on track quickly.</p>
+          <a class="not-found-card-link" href="/index.html#archive">
+            <span>Browse all shows</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="page-card info-summary-card not-found-summary-card not-found-summary-card-community">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M4.75 9V7.4a2.15 2.15 0 0 1 2.15-2.15h3.4l1.9 1.95h4.9a1.9 1.9 0 0 1 1.9 1.9V9" />
+            <path d="M4.75 9.25h14.5" />
+            <path d="M4.75 9.25v7.1a2.15 2.15 0 0 0 2.15 2.15h10.2a2.15 2.15 0 0 0 2.15-2.15v-5.1a2 2 0 0 0-2-2Z" />
+          </svg>
+        </span>
+        <div>
+          <h2>Follow a listening path</h2>
+          <p>Collections are the fastest recovery route when you remember a mood, a subgenre, or a show you want something similar to.</p>
+          <a class="not-found-card-link" href="/collections.html">
+            <span>Browse collections</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="page-card info-summary-card not-found-summary-card">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M12 3.75 18.5 6v5.1c0 4.15-2.63 7.94-6.5 9.15-3.87-1.21-6.5-5-6.5-9.15V6Z" />
+            <path d="m9.55 12 1.65 1.65 3.6-3.85" />
+          </svg>
+        </span>
+        <div>
+          <h2>Repair the missing record</h2>
+          <p>If you expected a specific page here, send the title or broken route through the archive form so the metadata can be checked and corrected.</p>
+          <a class="not-found-card-link" href="/submit.html">
+            <span>Submit a correction</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="page-card not-found-note-card" aria-labelledby="not-found-note-title">
+      <div>
+        <p class="page-card-kicker">Archive note</p>
+        <h2 id="not-found-note-title">Missing pages should stay useful.</h2>
+        <p>
+          Echo Archives is built around clean discovery, not dead ends. If a show page is missing, use the archive or collections to keep listening, and use the submission form if the route itself needs repair.
+        </p>
+      </div>
+      <div class="page-hero-actions not-found-note-actions">
+        <a class="about-cta about-cta-secondary" href="/about.html">
+          <span>About the archive</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 16.25v-4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75" />
+            <circle cx="12" cy="7.75" r="0.8" fill="currentColor" />
+            <circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" />
+          </svg>
+        </a>
+        <a class="about-cta about-cta-secondary" href="/submit.html">
+          <span>Submit or correct</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" />
+            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75" />
+            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <div class="footer-brand">
+      <a class="footer-brand-mark" href="/index.html" aria-label="The Echo Archives home">
+        <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+      </a>
+      <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
+      <div class="footer-meta-row">
+        <p class="footer-brand-subnote">A product of Continental Studios.</p>
+        <p class="footer-meta">© 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a></p>
+      </div>
+    </div>
+    <div class="footer-links" aria-label="Footer">
+      <div class="footer-link-group">
+        <p class="footer-link-heading">Explore</p>
+        <a href="/index.html">Browse all shows</a>
+        <a href="/collections.html">Collections</a>
+        <a href="/about.html">About the archive</a>
+      </div>
+      <div class="footer-link-group">
+        <p class="footer-link-heading">Creators</p>
+        <a href="/for-creators.html">For creators</a>
+        <a href="/submit.html">Submit or correct</a>
+        <a href="/creator-standards.html">Creator standards</a>
+      </div>
+      <div class="footer-link-group">
+        <p class="footer-link-heading">Support</p>
+        <a href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">Support the archive</a>
+        <a href="/supporters.html">Supporters</a>
+      </div>
+      <div class="footer-link-group">
+        <p class="footer-link-heading">Policies</p>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/cookies.html">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-support-panel">
+      <div class="footer-support-body">
+        <p class="footer-support-kicker">Help improve the archive</p>
+        <p class="footer-support-copy">Submit a show, send a correction, or support independent recommendations that stay listener-first.</p>
+      </div>
+      <div class="footer-support-actions">
+        <a class="footer-support-primary" href="/submit.html">Submit to the archive</a>
+        <a class="footer-support-secondary" href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">
+          <img src="/images/patreon.svg" alt="" />
+          <span>Support on Patreon</span>
+        </a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

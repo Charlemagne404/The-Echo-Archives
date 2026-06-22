@@ -1,5 +1,124 @@
 ## Current task
 
+Implement the home-page motion pass for the filter dropdown and filter-state chips, inline card preview expansion, and featured collections carousel focus.
+
+## Files changed
+
+- `site-src/pages/index.html`
+- `index.html`
+- `shared/app/constants.js`
+- `shared/app/collection-carousel.js`
+- `shared/app/pages/home.js`
+- `shared/app/pages/home/collections.js`
+- `shared/app/pages/home/filter-dropdown.js`
+- `shared/app/pages/home/filter-motion.js`
+- `shared/app/pages/home/filters.js`
+- `shared/app/render-cards/preview.js`
+- `shared/app/render-collections.js`
+- `shared/styles/home/cards/03-filter-controls.css`
+- `shared/styles/home/cards/04-browse-bands.css`
+- `shared/styles/home/cards/05-collection-cards.css`
+- `shared/styles/home/cards/09-preview-shell.css`
+- `shared/styles/home/cards/10-preview-content.css`
+- `shared/styles/home/cards/20-motion.css`
+- `podcast-ai/test/browser.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Replaced the filter dropdown’s instant show/hide toggle with an explicit open/close lifecycle using `hidden` plus `data-state="opening|open|closing"`.
+- Added staggered dropdown entrance motion, filter-option press microfeedback, and a pulse on the filter count badge when the numeric count changes.
+- Reworked active filter chips into keyed reconciliation with enter/exit motion and FLIP-style reflow, while keeping filter logic and URL behavior unchanged.
+- Retuned the inline card preview timing, added staged content reveal inside the expanded preview, and delayed shell collapse so close motion starts with content fade.
+- Replaced the collections rail interval loop with a `requestAnimationFrame` loop, added center-weighted ambient focus via `--collection-focus`, and layered direct hover/focus emphasis on top.
+- Added new home-page helper modules to keep the repo’s JS line-budget checks passing.
+- Extended browser smoke coverage for dropdown lifecycle, chip removal and clear-all recovery, preview content staging, reduced-motion behavior, and carousel focus weighting.
+
+## What still needs work
+
+- No known follow-up for this motion pass.
+
+## Commands run
+
+- `rtk node --check shared/app/pages/home.js`
+- `rtk node --check shared/app/pages/home/filters.js`
+- `rtk node --check shared/app/pages/home/filter-motion.js`
+- `rtk node --check shared/app/pages/home/filter-dropdown.js`
+- `rtk node --check shared/app/render-cards/preview.js`
+- `rtk node --check shared/app/render-collections.js`
+- `rtk node --check shared/app/collection-carousel.js`
+- `rtk node --check podcast-ai/test/browser.smoke.js`
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk node --test --test-name-pattern "homepage supports structured filtering" podcast-ai/test/browser.smoke.js`
+- `rtk npm --prefix podcast-ai run test:smoke`
+- Browser runtime QA against `http://127.0.0.1:3010/index.html` for page identity and interaction inspection
+- Playwright QA via `rtk node` for desktop/mobile screenshots and rendered-state checks
+- `rtk npm run verify`
+
+## Known issues
+
+- The in-app browser runtime loaded the page and allowed inspection, but timed out on later screenshot/click work; screenshot evidence used Playwright fallback instead.
+- `404.html` was already dirty before this motion pass and was left untouched.
+
+## Current task
+
+Remake the 404 page so it matches the current Echo Archives archive shell instead of the old standalone placeholder.
+
+## Files changed
+
+- `404.html`
+- `HANDOFF.md`
+
+## What was completed
+
+- Replaced the old inline-styled 404 stub with a full archive-native page using the site header, footer, dark surface system, and editorial copy tone.
+- Added a new lost-signal hero with compact recovery CTAs, a radar-style 404 panel, and three route cards back into browse, collections, and correction flows.
+- Added a lower archive-note band and fixed the Patreon footer asset reference so the rebuilt page loads without missing-resource errors.
+- Verified the rebuilt page at `http://127.0.0.1:3010/404.html` on desktop and mobile, plus confirmed the primary CTA navigates back to `/index.html`.
+
+## What still needs work
+
+- No known follow-up for the 404 page itself.
+
+## Commands run
+
+- `rtk sed -n '1,220p' 404.html`
+- `rtk sed -n '1,220p' site-src/pages/index.html`
+- `rtk sed -n '1,220p' package.json`
+- `rtk sed -n '1,220p' HANDOFF.md`
+- `rtk rg -n "hero-panel|archive-section|collection-band|background:|--.*accent|--.*surface|font-family" shared/styles site-src -g '!podcast-ai/**'`
+- `rtk rg --files shared/styles`
+- `rtk git status --short`
+- `rtk sed -n '1,240p' about.html`
+- `rtk sed -n '1,240p' shared/styles/base/global.css`
+- `rtk sed -n '1,240p' shared/styles/home/cards/15b-info-pages.css`
+- `rtk rg -n "<footer|site-footer|footer" about.html index.html collections.html submit.html -g '!podcast-ai/**'`
+- `rtk sed -n '1,240p' index.html`
+- `rtk sed -n '1,240p' shared/styles/home/cards/08-footer.css`
+- `rtk rg -n "page-main|page-grid|page-card|page-panel|page-stack|page-actions|page-label|page-meta" shared/styles -g '!podcast-ai/**'`
+- `rtk sed -n '180,320p' shared/styles/home/cards/13-chat-about-base.css`
+- `rtk sed -n '1,180p' shared/styles/home/cards/16-empty-tablet.css`
+- `rtk sed -n '1,120p' shared/styles/home/cards/18-responsive-780-b.css`
+- `rtk rg -n "page-hero-actions|about-cta|collection-action|quick-filter|section-link" shared/styles site-src -g '!podcast-ai/**'`
+- `rtk sed -n '240,340p' shared/styles/home/cards/14-about-features.css`
+- `rtk sed -n '1,80p' site-src/pages/privacy.html`
+- `rtk npm run check:structure`
+- `rtk npm run dev`
+- `rtk sed -n '1,220p' podcast-ai/package.json`
+- `rtk rg -n "PORT|listen\\(|3010|3310|127\\.0\\.0\\.1" podcast-ai/server.js podcast-ai/lib -g '!podcast-ai/node_modules/**'`
+- Browser runtime QA against `http://127.0.0.1:3010/404.html` for DOM snapshot and console checks
+- Playwright QA via `rtk node` from `podcast-ai/` for desktop/mobile screenshots and CTA navigation verification
+
+## Known issues
+
+- `rtk npm run check:structure` still fails because of a pre-existing unrelated budget violation in `shared/app/pages/home/filters.js` (`561` lines over a `350` line limit).
+- Browser runtime page load worked, but screenshot capture and CTA click timed out in the in-app browser automation path, so rendered evidence used Playwright fallback instead.
+
+---
+
+## Current task
+
 Make the Ask the Archivist launcher morph into the open chat panel and keep the back-to-top control visible.
 
 ## Files changed

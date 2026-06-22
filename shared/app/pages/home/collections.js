@@ -1,4 +1,5 @@
-import { createCollectionCard, initializeCollectionCarousel } from "../../render-collections.js";
+import { initializeCollectionCarousel } from "../../collection-carousel.js";
+import { createCollectionCard } from "../../render-collections.js";
 
 export function renderCollectionsRail({
   featuredCollections,

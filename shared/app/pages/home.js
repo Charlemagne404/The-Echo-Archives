@@ -31,6 +31,7 @@ import {
   renderQuickFilters,
   syncHomeControls,
 } from "./home/filters.js";
+import { initializeFilterDropdownController } from "./home/filter-dropdown.js";
 import { getHomeGridLayoutBucket, patchArchiveGrid, sortVisibleShows } from "./home/layout.js";
 import { createMostPopularController } from "./home/most-popular.js";
 import { createHomeState } from "./home/state.js";
@@ -82,6 +83,13 @@ export async function initializeHomePage() {
   });
   let collectionCarouselControls = null;
   let searchRenderTimer = 0;
+  if (elements.activeBrowseClear) {
+    elements.activeBrowseClear.hidden = true;
+  }
+  const filterDropdownController = initializeFilterDropdownController({
+    filterDropdown: elements.filterDropdown,
+    filterToggle: elements.filterToggle,
+  });
 
   const clearAllFilters = () => {
     if (searchRenderTimer) {
@@ -165,6 +173,7 @@ export async function initializeHomePage() {
     renderActiveBrowseState({
       activeBrowseState: elements.activeBrowseState,
       activeBrowseChips: elements.activeBrowseChips,
+      activeBrowseClear: elements.activeBrowseClear,
       descriptors: activeDescriptors,
       onAfterRemove: renderHomeResults,
     });
@@ -242,9 +251,12 @@ export async function initializeHomePage() {
   });
 
   elements.filterToggle?.addEventListener("click", () => {
-    const isOpen = !elements.filterDropdown.classList.contains("hidden");
-    elements.filterDropdown.classList.toggle("hidden", isOpen);
-    elements.filterToggle.setAttribute("aria-expanded", String(!isOpen));
+    if (filterDropdownController.isOpen()) {
+      filterDropdownController.close();
+      return;
+    }
+
+    filterDropdownController.open();
   });
 
   document.addEventListener("click", (event) => {
@@ -253,16 +265,15 @@ export async function initializeHomePage() {
       return;
     }
 
-    if (!elements.filterDropdown.contains(target) && !elements.filterToggle.contains(target)) {
-      elements.filterDropdown.classList.add("hidden");
-      elements.filterToggle.setAttribute("aria-expanded", "false");
+    if (filterDropdownController.isOpen() && !elements.filterDropdown.contains(target) && !elements.filterToggle.contains(target)) {
+      filterDropdownController.close();
     }
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && elements.filterDropdown) {
-      elements.filterDropdown.classList.add("hidden");
-      elements.filterToggle?.setAttribute("aria-expanded", "false");
+    if (event.key === "Escape" && filterDropdownController.isOpen()) {
+      event.preventDefault();
+      filterDropdownController.close({ returnFocus: true });
     }
   });
 

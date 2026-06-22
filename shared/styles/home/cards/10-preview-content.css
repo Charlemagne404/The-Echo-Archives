@@ -12,7 +12,8 @@
   transform:
     translate(var(--preview-shift-x), var(--preview-shift-y))
     scale(var(--preview-start-scale-x), var(--preview-start-scale-y));
-  transition-duration: 170ms, 170ms, 170ms, 170ms, 170ms;
+  transition-duration: 155ms, 155ms, 155ms, 155ms, 155ms;
+  transition-delay: 55ms, 55ms, 55ms, 55ms, 55ms;
 }
 
 .home-page .podcast-card-shell.is-preview-measuring .home-card-preview {

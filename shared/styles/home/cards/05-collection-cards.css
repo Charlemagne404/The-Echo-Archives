@@ -8,6 +8,9 @@
 
 .collection-card {
   --collection-cover-image: linear-gradient(180deg, rgba(14, 18, 23, 0.96), rgba(7, 10, 13, 0.98));
+  --collection-focus: 0;
+  --collection-ambient-scale: calc(1 + (var(--collection-focus) * var(--collection-focus-scale-max, 0.018)));
+  --collection-ambient-lift: calc(var(--collection-focus) * var(--collection-focus-lift-max, 2px) * -1);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,15 +20,23 @@
   min-height: 214px;
   padding: 18px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, calc(0.14 + (var(--collection-focus) * 0.12)));
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 100%),
     rgba(10, 13, 17, 0.86);
-  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.28);
+  box-shadow:
+    0 calc(22px + (var(--collection-focus) * 8px))
+    calc(42px + (var(--collection-focus) * 10px))
+    rgba(0, 0, 0, calc(0.28 + (var(--collection-focus) * 0.08)));
   overflow: hidden;
   isolation: isolate;
   text-decoration: none;
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  transform: translateY(var(--collection-ambient-lift)) scale(var(--collection-ambient-scale));
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    color 220ms ease;
 }
 
 .collection-card::before {
@@ -35,8 +46,11 @@
   background:
     linear-gradient(180deg, rgba(4, 7, 10, 0.18) 0%, rgba(4, 7, 10, 0.38) 34%, rgba(4, 7, 10, 0.92) 100%),
     var(--collection-cover-image) center / cover no-repeat;
-  transform: scale(1.01);
-  transition: transform 240ms ease;
+  transform: scale(calc(1.01 + (var(--collection-focus) * 0.02)));
+  filter: saturate(calc(0.94 + (var(--collection-focus) * 0.12))) brightness(calc(0.96 + (var(--collection-focus) * 0.08)));
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 220ms ease;
   z-index: -2;
 }
 
@@ -49,18 +63,23 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 42%);
   pointer-events: none;
   z-index: -1;
+  opacity: calc(0.78 + (var(--collection-focus) * 0.22));
+  transition: opacity 220ms ease;
 }
 
 .collection-card:hover,
-.collection-card:focus-visible {
-  transform: translateY(-2px);
+.collection-card:focus-visible,
+.collection-card.is-interaction-boosted {
+  transform: translateY(-4px) scale(1.032);
   border-color: rgba(229, 72, 56, 0.46);
-  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 30px 52px rgba(0, 0, 0, 0.36);
 }
 
 .collection-card:hover::before,
-.collection-card:focus-visible::before {
+.collection-card:focus-visible::before,
+.collection-card.is-interaction-boosted::before {
   transform: scale(1.04);
+  filter: saturate(1.08) brightness(1.06);
 }
 
 .collection-card:focus-visible {
@@ -82,6 +101,9 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   backdrop-filter: blur(10px);
+  border-color: rgba(255, 255, 255, calc(0.16 + (var(--collection-focus) * 0.14)));
+  background: rgba(7, 10, 13, calc(0.74 - (var(--collection-focus) * 0.08)));
+  transition: border-color 220ms ease, background 220ms ease, color 220ms ease;
 }
 
 .collection-card h3 {
@@ -90,6 +112,8 @@
   line-height: 1.02;
   max-width: 12ch;
   color: var(--text-primary);
+  text-shadow: 0 12px 24px rgba(0, 0, 0, calc(0.12 + (var(--collection-focus) * 0.16)));
+  transition: color 220ms ease, text-shadow 220ms ease;
 }
 
 .collection-card-footer {
@@ -105,8 +129,9 @@
 }
 
 .collection-card-count {
-  color: rgba(247, 247, 243, 0.72);
+  color: rgba(247, 247, 243, calc(0.72 + (var(--collection-focus) * 0.16)));
   font-size: 0.95rem;
+  transition: color 220ms ease;
 }
 
 .collection-card-cta {
@@ -120,8 +145,10 @@
   color: var(--text-primary);
   font-size: 0.82rem;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, calc(0.16 + (var(--collection-focus) * 0.18)));
   backdrop-filter: blur(10px);
+  background: rgba(7, 10, 13, calc(0.7 - (var(--collection-focus) * 0.08)));
+  transition: border-color 220ms ease, background 220ms ease, color 220ms ease;
 }
 
 .section-link {

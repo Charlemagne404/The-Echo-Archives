@@ -15,9 +15,9 @@ export const DEFAULT_CHAT_SUGGESTIONS = [
 ];
 export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
 export const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
-export const SHOW_CARD_PREVIEW_DELAY_MS = 650;
+export const SHOW_CARD_PREVIEW_DELAY_MS = 480;
 export const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
-export const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 170;
+export const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 210;
 export const SHOW_CARD_PREVIEW_SCROLL_IDLE_MS = 140;
 export const HOME_CARD_PREVIEW_ID_PREFIX = "archiveCardPreview";
 

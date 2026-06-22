@@ -72,6 +72,18 @@ export function getShellPreviewPanel(shell) {
   return shell.querySelector(".home-card-preview");
 }
 
+function markPreviewStage(element, { delay = 0, offset = 10, scale = 0.985 } = {}) {
+  if (!(element instanceof HTMLElement)) {
+    return element;
+  }
+
+  element.classList.add("home-card-preview-stage");
+  element.style.setProperty("--preview-stage-delay", `${delay}ms`);
+  element.style.setProperty("--preview-stage-offset", `${offset}px`);
+  element.style.setProperty("--preview-stage-scale", `${scale}`);
+  return element;
+}
+
 function createHomeCardPreviewPanel(show, previewId) {
   const layer = document.createElement("div");
   layer.className = "home-card-preview-layer";
@@ -100,6 +112,7 @@ function createHomeCardPreviewPanel(show, previewId) {
   const image = document.createElement("img");
   image.src = show.cover;
   image.alt = show.coverAlt;
+  image.className = "home-card-preview-media-art";
   media.appendChild(image);
 
   const content = document.createElement("div");
@@ -173,6 +186,13 @@ function createHomeCardPreviewPanel(show, previewId) {
   openArrow.textContent = "→";
   openLink.append(openText, openArrow);
   footer.appendChild(openLink);
+
+  markPreviewStage(media, { delay: 0, offset: 6, scale: 0.992 });
+  markPreviewStage(title, { delay: 45, offset: 8, scale: 0.985 });
+  markPreviewStage(accentRule, { delay: 45, offset: 10, scale: 0.96 });
+  markPreviewStage(copyBody, { delay: 75, offset: 10, scale: 0.985 });
+  markPreviewStage(previewTake, { delay: 105, offset: 12, scale: 0.982 });
+  markPreviewStage(footer, { delay: 105, offset: 10, scale: 0.985 });
 
   copyBody.append(lead, goodFor, previewTags);
   copy.append(copyBody, previewTake);

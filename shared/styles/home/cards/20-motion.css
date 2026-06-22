@@ -17,9 +17,14 @@
 @media (prefers-reduced-motion: reduce) {
   .home-page .podcast-card,
   .home-page .home-card-preview,
+  .home-page .home-card-preview-stage,
   .home-page .home-card-preview-layer,
+  .home-page .home-card-preview-media-art,
   .home-page .preview-close-button,
   .home-page .preview-open-link,
+  .home-page .collection-card,
+  .home-page .collection-card::before,
+  .home-page .collection-card::after,
   .home-page #chat-container,
   .home-page #chat-container > *,
   .home-page #chat-toggle.chat-toggle-button,
@@ -30,9 +35,16 @@
   .home-page .home-card-preview,
   .home-page .podcast-card-shell.is-preview-expanded .home-card-preview,
   .home-page .podcast-card-shell.is-preview-closing .home-card-preview,
+  .home-page .home-card-preview-stage,
+  .home-page .home-card-preview-media-art,
   .home-page .podcast-card:hover,
   .home-page .podcast-card:focus-visible,
   .home-page .podcast-card-shell.preview-source-active .podcast-card,
+  .home-page .collection-card,
+  .home-page .collection-card:hover,
+  .home-page .collection-card:focus-visible,
+  .home-page .collection-card.is-interaction-boosted,
+  .home-page .collection-card::before,
   .home-page.chat-panel-open #chat-toggle.chat-toggle-button {
     transform: none !important;
   }

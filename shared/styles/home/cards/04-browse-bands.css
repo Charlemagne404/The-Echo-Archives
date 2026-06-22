@@ -36,6 +36,7 @@
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  position: relative;
   margin: -8px 0 18px;
   padding: 0;
   border: 0;
@@ -61,6 +62,7 @@
   align-items: center;
   flex: 1 1 320px;
   min-width: 0;
+  position: relative;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -80,6 +82,7 @@
   white-space: nowrap;
   cursor: pointer;
   transition: border-color 180ms ease, background 180ms ease, transform 180ms ease, color 180ms ease;
+  will-change: transform, opacity;
 }
 
 .active-browse-chip:hover,
@@ -106,12 +109,18 @@
   font-size: 0.8rem;
   cursor: pointer;
   transition: color 180ms ease;
+  will-change: transform, opacity;
 }
 
 .active-browse-clear:hover,
 .active-browse-clear:focus-visible {
   color: var(--text-primary);
   outline: none;
+}
+
+.active-browse-chip.is-exiting,
+.active-browse-clear.is-exiting {
+  pointer-events: none;
 }
 
 .collection-band {
@@ -157,6 +166,8 @@
 }
 
 .collection-carousel {
+  --collection-focus-scale-max: 0.018;
+  --collection-focus-lift-max: 2px;
   position: relative;
   overflow: hidden;
 }
@@ -243,4 +254,18 @@
   font-size: 1.8rem;
   line-height: 1;
   transform: translateY(-1px);
+}
+
+@media (max-width: 780px) {
+  .collection-carousel {
+    --collection-focus-scale-max: 0.009;
+    --collection-focus-lift-max: 1px;
+  }
+}
+
+@media (max-width: 560px) {
+  .collection-carousel {
+    --collection-focus-scale-max: 0.01;
+    --collection-focus-lift-max: 0px;
+  }
 }

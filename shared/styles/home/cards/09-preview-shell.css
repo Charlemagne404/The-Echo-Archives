@@ -65,6 +65,7 @@
 }
 
 .home-page .podcast-card-shell[data-preview-card="true"] .home-card-preview {
+  --preview-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: absolute;
   top: var(--preview-top);
   left: var(--preview-left);
@@ -96,11 +97,11 @@
     scale(var(--preview-start-scale-x), var(--preview-start-scale-y));
   transform-origin: top left;
   transition:
-    opacity 200ms ease,
-    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-radius 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 260ms ease,
-    box-shadow 260ms ease;
+    opacity 210ms ease,
+    transform 280ms var(--preview-motion-ease),
+    border-radius 280ms var(--preview-motion-ease),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
   pointer-events: none;
   will-change: transform, opacity;
 }
@@ -152,4 +153,48 @@
 .home-page .podcast-card-shell.is-preview-expanded .home-card-preview,
 .home-page .podcast-card-shell.is-preview-closing .home-card-preview {
   visibility: visible;
+}
+
+.home-page .home-card-preview-stage {
+  opacity: 0;
+  transform:
+    translateY(var(--preview-stage-offset, 10px))
+    scale(var(--preview-stage-scale, 0.985));
+  transition:
+    opacity 220ms var(--preview-motion-ease),
+    transform 220ms var(--preview-motion-ease);
+  transition-delay: 0ms;
+  will-change: transform, opacity;
+}
+
+.home-page .podcast-card-shell.is-preview-expanded .home-card-preview-stage {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: var(--preview-stage-delay, 0ms);
+}
+
+.home-page .podcast-card-shell.is-preview-closing .home-card-preview-stage {
+  opacity: 0;
+  transform:
+    translateY(calc(var(--preview-stage-offset, 10px) * 0.6))
+    scale(var(--preview-stage-scale, 0.985));
+  transition-duration: 120ms;
+  transition-delay: 0ms !important;
+}
+
+.home-page .home-card-preview-media-art {
+  transform: scale(1.04);
+  transition: transform 260ms var(--preview-motion-ease);
+  will-change: transform;
+}
+
+.home-page .podcast-card-shell.is-preview-expanded .home-card-preview-media-art {
+  transform: scale(1);
+  transition-delay: 0ms;
+}
+
+.home-page .podcast-card-shell.is-preview-closing .home-card-preview-media-art {
+  transform: scale(1.02);
+  transition-duration: 120ms;
+  transition-delay: 0ms;
 }
