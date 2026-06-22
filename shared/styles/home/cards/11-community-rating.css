@@ -116,19 +116,24 @@
 }
 
 #chat-container {
+  --chat-floating-edge: 18px;
+  --chat-floating-gap: 14px;
+  --chat-launcher-size: 56px;
+  --chat-panel-radius: 22px;
+  --chat-morph-ease: cubic-bezier(0.16, 1, 0.3, 1);
   position: fixed;
   top: auto;
-  right: 16px;
-  bottom: 90px;
+  right: var(--chat-floating-edge);
+  bottom: 18px;
   z-index: 80;
-  width: min(420px, calc(100vw - 32px));
+  width: min(420px, calc(100vw - (var(--chat-floating-edge) * 2)));
   height: min(74vh, 684px);
   max-height: none;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-radius: 22px;
+  border-radius: var(--chat-panel-radius);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
     radial-gradient(circle at top right, rgba(229, 72, 56, 0.12), transparent 30%),
@@ -139,8 +144,21 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(18px) scale(0.985);
-  transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms;
+  clip-path: inset(
+    calc(100% - var(--chat-launcher-size))
+    0
+    0
+    calc(100% - var(--chat-launcher-size))
+    round 999px
+  );
+  transform: translateZ(0);
+  transform-origin: bottom right;
+  will-change: clip-path, opacity;
+  transition:
+    clip-path 420ms var(--chat-morph-ease),
+    opacity 120ms ease 220ms,
+    visibility 0s linear 420ms,
+    box-shadow 420ms var(--chat-morph-ease);
 }
 
 #chat-container::before {
@@ -154,12 +172,26 @@
 #chat-container > * {
   position: relative;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  transition:
+    opacity 150ms ease,
+    transform 260ms var(--chat-morph-ease);
 }
 
 #chat-container.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  clip-path: inset(0 round var(--chat-panel-radius));
+  transition:
+    clip-path 420ms var(--chat-morph-ease),
+    opacity 80ms ease,
+    box-shadow 420ms var(--chat-morph-ease);
+}
+
+#chat-container.is-open > * {
+  opacity: 1;
   transform: translateY(0) scale(1);
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition-delay: 120ms;
 }

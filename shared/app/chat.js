@@ -221,7 +221,9 @@ export function setChatOpen(isOpen) {
 
   chatContainer.classList.toggle("is-open", isOpen);
   chatContainer.setAttribute("aria-hidden", String(!isOpen));
+  document.body?.classList.toggle("chat-panel-open", isOpen);
   toggleBtn.setAttribute("aria-expanded", String(isOpen));
+  window.dispatchEvent(new CustomEvent("echo:chat-open-change", { detail: { isOpen } }));
 
   if (isOpen) {
     userInput?.focus();

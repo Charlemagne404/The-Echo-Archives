@@ -129,8 +129,11 @@
   }
 
   #chat-container {
+    --chat-floating-edge: 12px;
+    --chat-launcher-size: 54px;
     left: 12px;
     right: 12px;
+    bottom: 16px;
     width: auto;
     height: min(calc(100vh - 108px), 640px);
     padding: 12px;
@@ -167,5 +170,10 @@
   #backToTop {
     right: 82px;
     bottom: 16px;
+  }
+
+  .home-page.chat-panel-open .chat-footnote {
+    min-height: 52px;
+    padding-left: 64px;
   }
 }

@@ -1,5 +1,47 @@
 ## Current task
 
+Make the Ask the Archivist launcher morph into the open chat panel and keep the back-to-top control visible.
+
+## Files changed
+
+- `shared/app/app.js`
+- `shared/app/chat.js`
+- `shared/styles/home/cards/01-surface.css`
+- `shared/styles/home/cards/11-community-rating.css`
+- `shared/styles/home/cards/13-chat-about-base.css`
+- `shared/styles/home/cards/17-responsive-780-a.css`
+- `shared/styles/home/cards/18-responsive-780-b.css`
+- `shared/styles/home/cards/19-responsive-560.css`
+- `shared/styles/home/cards/20-motion.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reworked the chat panel open/close animation so the panel expands from the launcher footprint with a clipped shell morph and delayed content reveal.
+- Hid the launcher during the open state while preserving its closed appearance and accessibility state.
+- Moved the back-to-top button left of the open panel on desktop, with a mobile inset so it stays visible without covering the chat footnote.
+- Added reduced-motion coverage for the new chat and floating-control transitions.
+
+## What still needs work
+
+- No known follow-up for this transition polish.
+
+## Commands run
+
+- `rtk node --check shared/app/app.js`
+- `rtk node --check shared/app/chat.js`
+- `rtk npm run dev`
+- Browser QA against `http://127.0.0.1:3010/index.html` at desktop `1280x720` and mobile `472x720`
+- `rtk npm run verify`
+
+## Known issues
+
+- None found. `npm run verify` passed.
+
+---
+
+## Current task
+
 Refine the creator spotlight placeholder avatar so it stays fully inside the frame, loses the outline, and uses a darker background disc.
 
 ## Files changed

@@ -151,6 +151,19 @@
   color: var(--text-primary);
   cursor: pointer;
   box-shadow: var(--shadow-md);
+  transition:
+    right 420ms var(--chat-morph-ease, cubic-bezier(0.16, 1, 0.3, 1)),
+    bottom 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 0s linear 180ms;
+}
+
+.home-page.chat-panel-open #backToTop {
+  right: var(--back-to-top-chat-open-right, min(calc(100vw - 70px), 454px));
+  z-index: 90;
 }
 
 .loader {

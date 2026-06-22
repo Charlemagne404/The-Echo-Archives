@@ -120,8 +120,7 @@ function initializeBackToTop() {
     const baseClearance = window.innerWidth <= 780 ? 16 : 18;
     const topSafeZone = window.innerWidth <= 780 ? 92 : 96;
     const maxFloatingHeight = window.innerWidth <= 780 ? 54 : 56;
-    const panelGap = window.innerWidth <= 780 ? 14 : 16;
-    const panelOffset = maxFloatingHeight + panelGap;
+    const panelGap = window.innerWidth <= 780 ? 12 : 14;
     let clearance = baseClearance;
     let hideFloatingControls = false;
 
@@ -144,19 +143,28 @@ function initializeBackToTop() {
 
     if (floatingChatToggle) {
       floatingChatToggle.style.bottom = `${clearance}px`;
-      floatingChatToggle.style.opacity = hideFloatingControls ? "0" : "1";
-      floatingChatToggle.style.pointerEvents = hideFloatingControls ? "none" : "auto";
-      floatingChatToggle.style.visibility = hideFloatingControls ? "hidden" : "visible";
+      floatingChatToggle.style.opacity = hideFloatingControls ? "0" : "";
+      floatingChatToggle.style.pointerEvents = hideFloatingControls ? "none" : "";
+      floatingChatToggle.style.visibility = hideFloatingControls ? "hidden" : "";
     }
 
     if (chatContainer) {
       chatContainer.style.top = "auto";
-      chatContainer.style.bottom = `${clearance + panelOffset}px`;
+      chatContainer.style.bottom = `${clearance}px`;
+
+      const panelRect = chatContainer.getBoundingClientRect();
+      const maxVisibleRight = Math.max(baseClearance, window.innerWidth - maxFloatingHeight - baseClearance);
+      const openRight = Math.min(
+        maxVisibleRight,
+        Math.max(baseClearance, Math.round(window.innerWidth - panelRect.left + panelGap)),
+      );
+      backToTopBtn.style.setProperty("--back-to-top-chat-open-right", `${openRight}px`);
     }
   }
 
   window.addEventListener("scroll", syncBackToTopState, { passive: true });
   window.addEventListener("resize", syncBackToTopState);
+  window.addEventListener("echo:chat-open-change", syncBackToTopState);
   syncBackToTopState();
 
   backToTopBtn.addEventListener("click", () => {

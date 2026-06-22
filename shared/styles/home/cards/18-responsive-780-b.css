@@ -99,10 +99,12 @@
   }
 
   #chat-container {
+    --chat-floating-edge: 12px;
+    --chat-launcher-size: 54px;
     top: auto;
-    right: 12px;
-    bottom: 84px;
-    width: calc(100vw - 24px);
+    right: var(--chat-floating-edge);
+    bottom: 16px;
+    width: calc(100vw - (var(--chat-floating-edge) * 2));
     height: min(72vh, 640px);
   }
 }
