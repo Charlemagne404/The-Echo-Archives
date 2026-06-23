@@ -8,7 +8,7 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "test": "node --test test/*.test.js",
-    "test:smoke": "node --test test/browser.smoke.js",
+    "test:smoke": "node --test --test-concurrency=1 test/*.smoke.js",
     "validate:data": "node scripts/validate-data.js",
     "check:links": "node scripts/check-links.js",
     "review:new": "node scripts/review-new.js",

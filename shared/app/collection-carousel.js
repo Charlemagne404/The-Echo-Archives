@@ -244,13 +244,8 @@ export function initializeCollectionCarousel({
     lastFrameAt = 0;
   }
 
-  const handlePointerEnter = () => {
-    pauseCarousel();
-  };
-  const handlePointerLeave = () => {
-    setInteractionCard(null);
-    resumeCarousel();
-  };
+  const handlePointerEnter = () => pauseCarousel();
+  const handlePointerLeave = () => { setInteractionCard(null); resumeCarousel(); };
   const handleFocusIn = (event) => {
     pauseCarousel();
     const card = event.target instanceof Element ? event.target.closest(".collection-card") : null;

@@ -1,5 +1,146 @@
 ## Current task
 
+Fix the GitHub `verify` workflow failure triggered by push commit `6e0d61a`.
+
+## Files changed
+
+- `shared/app/collection-carousel.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Inspected the failed GitHub Actions run with `gh run view` and confirmed the failure was in `npm run check:structure`, not in git push itself.
+- Verified the exact error was the repo line-budget guard: `shared/app/collection-carousel.js` was 354 lines, above the enforced 350-line maximum.
+- Reduced the module to 349 lines with a behavior-preserving cleanup so `rtk npm run check:structure` now passes locally.
+
+## What still needs work
+
+- The current dirty local worktree still fails full `rtk npm run verify` in `podcast-ai/test/home-card-interactions.smoke.js`, which is separate from the original pushed-commit CI failure.
+
+## Commands run
+
+- `rtk gh run list --workflow verify.yml --limit 5`
+- `rtk gh run view 28049408630 --json name,conclusion,status,url,workflowName,event,headBranch,headSha,jobs`
+- `rtk gh run view 28049408630 --log`
+- `rtk wc -l shared/app/collection-carousel.js`
+- `rtk npm run check:structure`
+- `rtk npm run verify`
+
+## Known issues
+
+- Full local `rtk npm run verify` still fails on the current uncommitted smoke suite with `homepage expanding archive card supports stable hover, keyboard, touch, and compact anchored geometry` in `podcast-ai/test/home-card-interactions.smoke.js`.
+- The worktree contains unrelated pre-existing edits outside this CI fix.
+
+## Current task
+
+Refactor the browser smoke suite into smaller flow-focused files with shared setup/helpers.
+
+## Files changed
+
+- `podcast-ai/package.json`
+- `podcast-ai/test/browser.smoke.js`
+- `podcast-ai/test/helpers/browser-smoke.js`
+- `podcast-ai/test/creator-flow.smoke.js`
+- `podcast-ai/test/community-rating-flow.smoke.js`
+- `podcast-ai/test/show-detail-navigation.smoke.js`
+- `podcast-ai/test/home-browse.smoke.js`
+- `podcast-ai/test/home-card-interactions.smoke.js`
+- `podcast-ai/test/chat-submit-flow.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Moved shared Playwright/server setup, fixture loading, and reusable smoke helpers into `podcast-ai/test/helpers/browser-smoke.js`.
+- Reduced `browser.smoke.js` to critical route/static/legacy redirect coverage.
+- Split the remaining browser smoke coverage into user-facing flow files for creator pages, community ratings, show-detail navigation, home browse, home card interactions, and chat/submit.
+- Updated `test:smoke` to run all `test/*.smoke.js` files serially so the split suite preserves single-suite stability.
+- Replaced two timing-sensitive fixed sleeps with condition waits and moved the reduced-motion carousel click before the carousel is hidden by alternate browse modes.
+
+## What still needs work
+
+- No known follow-up for the smoke-test refactor.
+
+## Commands run
+
+- `rtk node --check podcast-ai/test/helpers/browser-smoke.js`
+- `rtk node --check podcast-ai/test/browser.smoke.js`
+- `rtk node --check podcast-ai/test/creator-flow.smoke.js`
+- `rtk node --check podcast-ai/test/community-rating-flow.smoke.js`
+- `rtk node --check podcast-ai/test/show-detail-navigation.smoke.js`
+- `rtk node --check podcast-ai/test/home-browse.smoke.js`
+- `rtk node --check podcast-ai/test/home-card-interactions.smoke.js`
+- `rtk node --check podcast-ai/test/chat-submit-flow.smoke.js`
+- `rtk node --test --test-concurrency=1 podcast-ai/test/home-browse.smoke.js`
+- `rtk node --test --test-concurrency=1 podcast-ai/test/home-card-interactions.smoke.js`
+- `rtk npm --prefix podcast-ai run test:smoke`
+- `rtk npm run check:structure`
+
+## Known issues
+
+- `rtk npm run check:structure` still fails on the pre-existing `shared/app/collection-carousel.js` line-budget issue: 354 lines vs the 350-line limit.
+- The worktree already contains unrelated edits outside this refactor.
+
+## Current task
+
+Align the Featured collections heading with the View all collections link.
+
+## Files changed
+
+- `shared/styles/home/cards/04-browse-bands.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Removed the extra bottom margin from the Featured collections heading only inside the home-page collection band.
+- Verified the heading and View all collections link now share the same bottom edge on desktop while the mobile stacked layout remains intact.
+
+## What still needs work
+
+- No known follow-up for this alignment fix.
+
+## Commands run
+
+- `rtk npm run check:structure`
+- Browser QA at `http://127.0.0.1:3010/`
+
+## Known issues
+
+- `rtk npm run check:structure` still fails because `shared/app/collection-carousel.js` is 354 lines and the checker limit is 350. That file was not changed for this task.
+- The worktree already contained unrelated changes before this task.
+
+## Current task
+
+Hide Featured collections whenever Popular with listeners is hidden on the home browse page.
+
+## Files changed
+
+- `shared/app/pages/home.js`
+- `shared/app/pages/home/most-popular.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added an optional visibility callback to the most-popular controller so related home-page sections can follow the same visibility decision.
+- Wired the featured collections rail to hide when the popular section is hidden by search, filters, selected collections, alternate sort modes, or lack of popular shows.
+- Kept the existing collection rail rendering and grid insertion behavior intact.
+
+## What still needs work
+
+- No known follow-up for this visibility rule.
+
+## Commands run
+
+- `rtk node --check shared/app/pages/home.js`
+- `rtk node --check shared/app/pages/home/most-popular.js`
+- `rtk npm verify`
+
+## Known issues
+
+- `rtk npm verify` currently fails in `npm run check:structure` because `shared/app/collection-carousel.js` is 354 lines and the structure checker limit is 350. That file was not changed for this task.
+- The worktree contains an unrelated pre-existing edit in `shared/styles/home/cards/13-chat-about-base.css`.
+
+## Current task
+
 Keep the featured collections arrows moving in the pressed direction across the loop seam instead of snapping back the other way after a full cycle.
 
 ## Files changed

@@ -74,12 +74,16 @@ export async function initializeHomePage() {
   const archiveCardShellsById = new Map(
     shows.map((show) => [show.id, createShowCard(show, { previewMode: "inline-expand" })]),
   );
+  const syncFeaturedCollectionsVisibility = (shouldShowMostPopular) => {
+    elements.collectionsSection.hidden = featuredCollections.length === 0 || !shouldShowMostPopular;
+  };
   const mostPopularController = createMostPopularController({
     showMap,
     publishedShows,
     popularSection: elements.popularSection,
     popularGrid: elements.popularGrid,
     state,
+    onVisibilityChange: syncFeaturedCollectionsVisibility,
   });
   let collectionCarouselControls = null;
   let searchRenderTimer = 0;

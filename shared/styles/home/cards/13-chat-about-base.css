@@ -153,7 +153,6 @@
   box-shadow: var(--shadow-md);
   transition:
     right 420ms var(--chat-morph-ease, cubic-bezier(0.16, 1, 0.3, 1)),
-    bottom 180ms ease,
     border-color 180ms ease,
     background 180ms ease,
     opacity 180ms ease,

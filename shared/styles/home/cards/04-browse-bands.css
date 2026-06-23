@@ -134,6 +134,10 @@
   padding: 22px 0;
 }
 
+#podcast-grid > .collection-band .section-heading h2 {
+  margin-bottom: 0;
+}
+
 #podcast-grid > .collection-band::before,
 #podcast-grid > .collection-band::after {
   content: "";

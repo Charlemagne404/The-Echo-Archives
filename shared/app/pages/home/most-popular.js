@@ -4,7 +4,14 @@ import { createMostPopularCard } from "../../render-cards.js";
 
 const HOME_MOST_POPULAR_LIMIT = 4;
 
-export function createMostPopularController({ showMap, publishedShows, popularSection, popularGrid, state }) {
+export function createMostPopularController({
+  showMap,
+  publishedShows,
+  popularSection,
+  popularGrid,
+  state,
+  onVisibilityChange = () => {},
+}) {
   const fallbackMostPopularShows = HOME_MOST_POPULAR_IDS
     .map((showId) => showMap.get(showId))
     .filter((show) => show && show.status === "published")
@@ -38,7 +45,9 @@ export function createMostPopularController({ showMap, publishedShows, popularSe
   }
 
   function syncMostPopularSectionVisibility() {
-    popularSection.hidden = !shouldShowMostPopularSection();
+    const shouldShow = shouldShowMostPopularSection();
+    popularSection.hidden = !shouldShow;
+    onVisibilityChange(shouldShow);
   }
 
   function compareMostPopularShows(left, right) {
@@ -130,6 +139,7 @@ export function createMostPopularController({ showMap, publishedShows, popularSe
   return {
     renderMostPopularSection,
     resolveMostPopularShows,
+    shouldShowMostPopularSection,
     syncMostPopularSectionVisibility,
   };
 }
