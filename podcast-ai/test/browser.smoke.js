@@ -205,6 +205,10 @@ function countDistinctRows(items, tolerance = 8) {
   return rows.length;
 }
 
+function getCenteredVisibleCollectionCard(state) {
+  return [...state.cards.filter((card) => card.isVisible)].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
+}
+
 function createEmptyDistribution() {
   return Object.fromEntries(Array.from({ length: 10 }, (_, index) => [String(index + 1), 0]));
 }
@@ -248,8 +252,32 @@ async function getMostPopularBandState(page) {
 async function getCollectionCarouselFocusState(page) {
   return page.evaluate(() => {
     const viewport = document.getElementById("collectionViewport");
+    const carousel = document.getElementById("collectionCarousel");
+    const prevArrow = document.getElementById("collectionPrev");
+    const nextArrow = document.getElementById("collectionNext");
     const viewportRect = viewport?.getBoundingClientRect();
     const viewportCenter = viewportRect ? viewportRect.left + viewportRect.width / 2 : 0;
+    const describeHitTarget = (element) => {
+      if (!element) {
+        return "";
+      }
+
+      const interactive = element.closest("button, a");
+      if (interactive) {
+        return interactive.getAttribute("aria-label") || interactive.textContent?.trim() || interactive.tagName;
+      }
+
+      return element.className || element.tagName || "";
+    };
+    const getArrowHitTarget = (arrow) => {
+      if (!arrow) {
+        return "";
+      }
+
+      const rect = arrow.getBoundingClientRect();
+      const target = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      return describeHitTarget(target);
+    };
 
     const parseTransform = (value) => {
       if (!value || value === "none") {
@@ -263,26 +291,76 @@ async function getCollectionCarouselFocusState(page) {
       };
     };
 
-    return Array.from(document.querySelectorAll("#collectionGrid .collection-card")).map((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const styles = window.getComputedStyle(card);
-      const transform = parseTransform(styles.transform);
-      const cardCenter = rect.left + rect.width / 2;
+    return {
+      prevArrowHitTarget: getArrowHitTarget(prevArrow),
+      nextArrowHitTarget: getArrowHitTarget(nextArrow),
+      cards: Array.from(document.querySelectorAll("#collectionGrid .collection-card")).map((card, index) => {
+        const rect = card.getBoundingClientRect();
+        const styles = window.getComputedStyle(card);
+        const transform = parseTransform(styles.transform);
+        const cardCenter = rect.left + rect.width / 2;
 
-      return {
-        index,
-        title: card.querySelector("h3")?.textContent?.trim() || "",
-        collectionId: card.dataset.collectionId || "",
-        focusValue: Number.parseFloat(card.style.getPropertyValue("--collection-focus")) || 0,
-        scale: transform.scale,
-        translateY: transform.translateY,
-        transform: styles.transform,
-        boosted: card.classList.contains("is-interaction-boosted"),
-        centerWeighted: card.classList.contains("is-center-weighted"),
-        isVisible: Boolean(viewportRect && rect.right > viewportRect.left && rect.left < viewportRect.right),
-        distanceFromCenter: Math.abs(cardCenter - viewportCenter),
-      };
-    });
+        return {
+          index,
+          title: card.querySelector("h3")?.textContent?.trim() || "",
+          collectionId: card.dataset.collectionId || "",
+          focusValue: Number.parseFloat(card.style.getPropertyValue("--collection-focus")) || 0,
+          focusWeight: Number.parseFloat(card.style.getPropertyValue("--collection-focus-weight")) || 0,
+          scale: transform.scale,
+          translateY: transform.translateY,
+          transform: styles.transform,
+          boosted: card.classList.contains("is-interaction-boosted"),
+          centerWeighted: card.classList.contains("is-center-weighted"),
+          isVisible: Boolean(viewportRect && rect.right > viewportRect.left && rect.left < viewportRect.right),
+          distanceFromCenter: Math.abs(cardCenter - viewportCenter),
+          carouselInteraction: carousel?.dataset.collectionInteraction || "",
+          carouselDirection: carousel?.dataset.collectionDirection || "",
+          prevArrowTransform: prevArrow ? window.getComputedStyle(prevArrow).transform : "",
+          nextArrowTransform: nextArrow ? window.getComputedStyle(nextArrow).transform : "",
+          prevArrowGlyphTransform: prevArrow?.querySelector("span")
+            ? window.getComputedStyle(prevArrow.querySelector("span")).transform
+            : "",
+          nextArrowGlyphTransform: nextArrow?.querySelector("span")
+            ? window.getComputedStyle(nextArrow.querySelector("span")).transform
+            : "",
+        };
+      }),
+    };
+  });
+}
+
+async function getArchiveGridMotionState(page) {
+  return page.evaluate(() => {
+    const grid = document.getElementById("podcast-grid");
+    const shells = Array.from(grid?.querySelectorAll(":scope > .podcast-card-shell") || []);
+    const readDurations = (shell) =>
+      typeof shell.getAnimations === "function"
+        ? shell
+            .getAnimations()
+            .map((animation) => Number(animation.effect?.getTiming?.()?.duration || 0))
+            .filter((duration) => duration > 0)
+        : [];
+
+    return {
+      reason: grid?.dataset.gridMotionReason || "",
+      flipDuration: Number(grid?.dataset.gridMotionFlipDuration || 0),
+      enterDuration: Number(grid?.dataset.gridMotionEnterDuration || 0),
+      exitDuration: Number(grid?.dataset.gridMotionExitDuration || 0),
+      visibleIds: shells
+        .filter((shell) => !shell.classList.contains("is-grid-exiting"))
+        .map((shell) => shell.dataset.podcastId || "")
+        .filter(Boolean),
+      shells: shells.map((shell) => ({
+        id: shell.dataset.podcastId || "",
+        isEntering: shell.classList.contains("is-grid-entering"),
+        isExiting: shell.classList.contains("is-grid-exiting"),
+        isFlipping: shell.classList.contains("is-grid-flipping"),
+        position: window.getComputedStyle(shell).position,
+        transform: window.getComputedStyle(shell).transform,
+        opacity: window.getComputedStyle(shell).opacity,
+        animationDurations: readDurations(shell),
+      })),
+    };
   });
 }
 
@@ -347,14 +425,25 @@ test("main routes render expected page titles", async () => {
       { url: `${baseUrl}/creator-standards.html`, title: "Creator Standards - The Echo Archives" },
       { url: `${baseUrl}/supporters.html`, title: "Support the Archive - The Echo Archives" },
       { url: `${baseUrl}/collections.html`, title: "Collections - The Echo Archives" },
-      { url: `${baseUrl}/collection.html?id=${firstCollectionId}`, title: `${collectionFixtures[0].title} - The Echo Archives` },
-      { url: `${baseUrl}/show.html?id=${firstShowId}`, title: `${showFixtures[0].title} - The Echo Archives` },
+      {
+        url: `${baseUrl}/collection.html?id=${firstCollectionId}`,
+        title: `${collectionFixtures[0].title} - The Echo Archives`,
+        waitForResolvedTitle: true,
+      },
+      {
+        url: `${baseUrl}/show.html?id=${firstShowId}`,
+        title: `${showFixtures[0].title} - The Echo Archives`,
+        waitForResolvedTitle: true,
+      },
       { url: `${baseUrl}/submit.html`, title: "Submit a Show - The Echo Archives" },
     ];
 
     for (const route of routes) {
-      await page.goto(route.url, { waitUntil: "networkidle" });
+      await page.goto(route.url, { waitUntil: "load" });
       await page.waitForLoadState("domcontentloaded");
+      if (route.waitForResolvedTitle) {
+        await page.waitForFunction((expectedTitle) => document.title === expectedTitle, route.title, { timeout: 5_000 });
+      }
       assert.equal(await page.title(), route.title);
     }
   } finally {
@@ -498,8 +587,10 @@ test("legacy detail redirects still land on the canonical show route", async () 
 
   try {
     for (const redirect of legacyRedirectManifest) {
-      await page.goto(encodeURI(`${baseUrl}/${redirect.path}`), { waitUntil: "load" });
-      await page.waitForURL(`${baseUrl}${redirect.target}`, { timeout: 5_000 });
+      await page.goto(encodeURI(`${baseUrl}/${redirect.path}`), { waitUntil: "domcontentloaded" });
+      await page.waitForFunction((expectedTarget) => location.pathname + location.search === expectedTarget, redirect.target, {
+        timeout: 5_000,
+      });
       assert.equal(new URL(await page.url()).pathname + new URL(await page.url()).search, redirect.target);
     }
   } finally {
@@ -522,6 +613,10 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     );
 
     const layout = await page.evaluate(() => {
+      const getRollingText = (selector) => {
+        const node = document.querySelector(selector);
+        return node?.dataset.displayText?.trim() || node?.textContent?.trim() || "";
+      };
       const main = document.querySelector(".detail-main");
       const rail = document.querySelector(".detail-side-rail");
       const mainColumn = document.querySelector(".detail-main-column");
@@ -567,9 +662,9 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         overviewTop: document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0,
         communityTop: communityCard?.getBoundingClientRect().top || 0,
         archiveTop: archiveTakeCard?.getBoundingClientRect().top || 0,
-        heroCommunityCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
-      heroCommunityValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
-      turnstileHidden: document.querySelector(".community-turnstile-shell")?.hidden ?? null,
+        heroCommunityCount: getRollingText("[data-community-hero-count]"),
+        heroCommunityValue: getRollingText("[data-community-hero-rating]"),
+        turnstileHidden: document.querySelector(".community-turnstile-shell")?.hidden ?? null,
       };
     });
 
@@ -617,17 +712,28 @@ test("full-review detail page promotes community, trims the rail, and preserves 
 
     await page.locator(".community-review-button").nth(7).click();
     await page.waitForFunction(
-      () => /1 rating/i.test(document.querySelector("[data-community-hero-count]")?.textContent || ""),
+      () => {
+        const heroCount = document.querySelector("[data-community-hero-count]");
+        const nextText = heroCount?.dataset.displayText || heroCount?.textContent || "";
+        return /1 rating/i.test(nextText);
+      },
       undefined,
       { timeout: 5_000 },
     );
 
-    let communityState = await page.evaluate(() => ({
-      heroCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
-      heroValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
-      railValue: document.querySelector(".community-review-metric-value")?.textContent?.trim() || "",
-      clearVisible: !document.querySelector(".community-review-clear")?.hidden,
-    }));
+    let communityState = await page.evaluate(() => {
+      const getRollingText = (selector) => {
+        const node = document.querySelector(selector);
+        return node?.dataset.displayText?.trim() || node?.textContent?.trim() || "";
+      };
+
+      return {
+        heroCount: getRollingText("[data-community-hero-count]"),
+        heroValue: getRollingText("[data-community-hero-rating]"),
+        railValue: getRollingText(".community-review-metric-value"),
+        clearVisible: !document.querySelector(".community-review-clear")?.hidden,
+      };
+    });
     assert.match(communityState.heroCount, /1 rating/i);
     assert.equal(communityState.heroValue, "--/10");
     assert.equal(communityState.railValue, "--/10");
@@ -635,16 +741,27 @@ test("full-review detail page promotes community, trims the rail, and preserves 
 
     await page.getByRole("button", { name: "Clear your rating" }).click();
     await page.waitForFunction(
-      () => /No ratings yet/i.test(document.querySelector("[data-community-hero-count]")?.textContent || ""),
+      () => {
+        const heroCount = document.querySelector("[data-community-hero-count]");
+        const nextText = heroCount?.dataset.displayText || heroCount?.textContent || "";
+        return /No ratings yet/i.test(nextText) && Boolean(document.querySelector(".community-review-clear")?.hidden);
+      },
       undefined,
       { timeout: 5_000 },
     );
 
-    communityState = await page.evaluate(() => ({
-      heroCount: document.querySelector("[data-community-hero-count]")?.textContent?.trim() || "",
-      heroValue: document.querySelector("[data-community-hero-rating]")?.textContent?.trim() || "",
-      clearVisible: !document.querySelector(".community-review-clear")?.hidden,
-    }));
+    communityState = await page.evaluate(() => {
+      const getRollingText = (selector) => {
+        const node = document.querySelector(selector);
+        return node?.dataset.displayText?.trim() || node?.textContent?.trim() || "";
+      };
+
+      return {
+        heroCount: getRollingText("[data-community-hero-count]"),
+        heroValue: getRollingText("[data-community-hero-rating]"),
+        clearVisible: !document.querySelector(".community-review-clear")?.hidden,
+      };
+    });
     assert.match(communityState.heroCount, /No ratings yet/i);
     assert.equal(communityState.heroValue, "--/10");
     assert.equal(communityState.clearVisible, false);
@@ -1020,6 +1137,8 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     assert.equal(await page.locator("#activeBrowseState").isVisible(), false);
+    const defaultGridState = await getArchiveGridMotionState(page);
+    const defaultVisibleIds = defaultGridState.visibleIds;
 
     await page.locator("#filterToggle").click();
     await page.waitForFunction(() => {
@@ -1063,6 +1182,15 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
         .querySelector('.filter-option[data-filter-group="reviewStatus"][data-filter-value="indexed-only"]')
         ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     });
+    await page.waitForTimeout(20);
+    const filterMotionState = await getArchiveGridMotionState(page);
+    assert.equal(filterMotionState.reason, "explicit");
+    assert.equal(filterMotionState.flipDuration, 230);
+    assert.equal(filterMotionState.enterDuration, 170);
+    assert.equal(filterMotionState.exitDuration, 150);
+    assert.equal(filterMotionState.shells.some((shell) => shell.isExiting && shell.position === "absolute"), true);
+    assert.equal(filterMotionState.shells.some((shell) => shell.isExiting && shell.animationDurations.includes(150)), true);
+    assert.equal(filterMotionState.shells.some((shell) => shell.isFlipping && shell.animationDurations.includes(230)), true);
     await page.getByText("results", { exact: false }).waitFor();
 
     const filterCount = page.locator("#filterCount");
@@ -1092,6 +1220,14 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.equal(new Set(afterChipRemoval).size, afterChipRemoval.length);
 
     await page.locator("#activeBrowseClear").click();
+    await page.waitForTimeout(40);
+    const clearMotionState = await getArchiveGridMotionState(page);
+    assert.equal(clearMotionState.reason, "explicit");
+    assert.equal(
+      clearMotionState.shells.some((shell) => shell.isEntering && shell.animationDurations.includes(170)) ||
+        clearMotionState.enterDuration === 0,
+      true,
+    );
     await page.waitForFunction(
       (expectedCount) =>
         document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
@@ -1121,8 +1257,62 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.equal(reappliedChipState.length, 2);
 
     await page.getByRole("button", { name: "Recently updated" }).click();
+    await page.waitForTimeout(20);
+    const sortMotionState = await getArchiveGridMotionState(page);
+    assert.equal(sortMotionState.reason, "explicit");
+    assert.notDeepEqual(sortMotionState.visibleIds.slice(0, 8), defaultVisibleIds.slice(0, 8));
+    assert.equal(
+      (sortMotionState.flipDuration === 230 &&
+        sortMotionState.shells.some(
+          (shell) => shell.isFlipping && shell.animationDurations.includes(230) && shell.transform !== "none",
+        )) ||
+        sortMotionState.flipDuration === 0,
+      true,
+    );
     await page.locator("#resultsSummary").waitFor();
     assert.match((await page.locator("#resultsSummary").textContent()) || "", /Recently updated/i);
+
+    await page.locator("#activeBrowseClear").click();
+    await page.waitForFunction(
+      (expectedCount) =>
+        document.querySelectorAll("#podcast-grid .podcast-card-shell").length === expectedCount &&
+        document.getElementById("activeBrowseState")?.hidden === true &&
+        document.getElementById("filterCount")?.hidden === true,
+      showFixtures.length,
+    );
+
+    await page.locator("#search").fill("midnight");
+    await page.waitForFunction(
+      () => (document.querySelector("#resultsSummary")?.textContent || "").includes('results for "midnight"'),
+    );
+    const liveSearchMotionState = await getArchiveGridMotionState(page);
+    assert.equal(liveSearchMotionState.reason, "live-search");
+    assert.equal(liveSearchMotionState.flipDuration, 150);
+    assert.equal(liveSearchMotionState.enterDuration, 120);
+    assert.equal(liveSearchMotionState.exitDuration, 110);
+    assert.equal(
+      liveSearchMotionState.shells.some(
+        (shell) =>
+          (shell.isExiting && shell.animationDurations.includes(110)) ||
+          (shell.isFlipping && shell.animationDurations.includes(150)),
+      ),
+      true,
+    );
+    const restoredCardId = defaultVisibleIds.find((id) => !liveSearchMotionState.visibleIds.includes(id));
+    assert.ok(restoredCardId);
+    await page.locator("#search").fill("");
+    await page.waitForFunction(
+      () => (document.querySelector("#search")?.value || "") === "" && !(document.querySelector("#resultsSummary")?.textContent || "").includes('results for "midnight"'),
+    );
+    await page.waitForTimeout(20);
+    const restoredGridState = await getArchiveGridMotionState(page);
+    assert.equal(restoredGridState.reason, "live-search");
+    assert.equal(restoredGridState.shells.some((shell) => shell.isEntering && shell.animationDurations.includes(120)), true);
+    assert.equal(restoredGridState.shells.filter((shell) => shell.id === restoredCardId).length, 1);
+    assert.equal(
+      restoredGridState.shells.some((shell) => shell.id === restoredCardId && shell.isExiting),
+      false,
+    );
 
     await page.locator("#search").fill("zzzzzz-not-in-archive");
     await page.getByText("No matches yet.", { exact: false }).waitFor();
@@ -1173,6 +1363,78 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
         document.getElementById("activeBrowseState")?.hidden === true,
       showFixtures.length,
     );
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage rapid filter toggles fall back to a stable grid when animations overlap", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+
+    const readStableGridState = () =>
+      page.evaluate(() =>
+        Array.from(document.querySelectorAll("#podcast-grid > .podcast-card-shell")).map((shell) => ({
+          id: shell.dataset.podcastId || "",
+          top: Math.round(shell.getBoundingClientRect().top),
+          left: Math.round(shell.getBoundingClientRect().left),
+          position: window.getComputedStyle(shell).position,
+          opacity: window.getComputedStyle(shell).opacity,
+          isEntering: shell.classList.contains("is-grid-entering"),
+          isExiting: shell.classList.contains("is-grid-exiting"),
+          isFlipping: shell.classList.contains("is-grid-flipping"),
+        })),
+      );
+
+    const baselineShells = await readStableGridState();
+
+    await page.locator("#filterToggle").click();
+    await page.waitForFunction(() => {
+      const dropdown = document.getElementById("filterDropdown");
+      return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
+    });
+    await page.evaluate(() => {
+      [
+        ["completionStatus", "finished"],
+        ["reviewStatus", "indexed-only"],
+        ["completionStatus", "finished"],
+        ["reviewStatus", "indexed-only"],
+        ["genres", "thriller"],
+        ["genres", "thriller"],
+        ["tags", "space"],
+        ["tags", "space"],
+      ].forEach(([group, value]) => {
+        document
+          .querySelector(`.filter-option[data-filter-group="${group}"][data-filter-value="${value}"]`)
+          ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+    });
+
+    await page.waitForTimeout(40);
+
+    const afterSpamState = await page.evaluate(() => ({
+      activeFilters: Array.from(document.querySelectorAll(".filter-option.is-active")).map(
+        (button) => `${button.dataset.filterGroup || ""}:${button.dataset.filterValue || ""}`,
+      ),
+    }));
+    const stableShells = await readStableGridState();
+
+    assert.deepEqual(afterSpamState.activeFilters, []);
+    assert.deepEqual(
+      stableShells.map((shell) => shell.id),
+      baselineShells.map((shell) => shell.id),
+    );
+    stableShells.forEach((shell, index) => {
+      assert.equal(shell.position, "relative");
+      assert.equal(shell.opacity, "1");
+      assert.equal(shell.isEntering, false);
+      assert.equal(shell.isExiting, false);
+      assert.equal(shell.isFlipping, false);
+      assert.equal(shell.top, baselineShells[index].top);
+      assert.equal(shell.left, baselineShells[index].left);
+    });
   } finally {
     await page.close();
   }
@@ -1418,35 +1680,89 @@ test("homepage featured collections carousel applies center-weighted focus and d
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#collectionGrid .collection-card").first().waitFor();
+    await page.locator("#collectionCarousel").hover();
     await page.waitForTimeout(180);
 
-    const initialVisibleCards = (await getCollectionCarouselFocusState(page)).filter((card) => card.isVisible);
+    const initialState = await getCollectionCarouselFocusState(page);
+    const initialVisibleCards = initialState.cards.filter((card) => card.isVisible);
     assert.ok(initialVisibleCards.length >= 3);
+    assert.equal(initialState.prevArrowHitTarget, "Scroll featured collections left");
+    assert.equal(initialState.nextArrowHitTarget, "Scroll featured collections right");
 
     const nearestToCenter = [...initialVisibleCards].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
     const strongestAmbientCard = [...initialVisibleCards].sort((left, right) => right.focusValue - left.focusValue)[0];
+    const weakestVisibleCard = [...initialVisibleCards].sort((left, right) => left.focusValue - right.focusValue)[0];
     assert.equal(strongestAmbientCard.index, nearestToCenter.index);
     assert.ok(strongestAmbientCard.centerWeighted);
     assert.ok(strongestAmbientCard.focusValue > 0.6);
+    assert.ok(strongestAmbientCard.focusWeight > weakestVisibleCard.focusWeight);
+    assert.ok(strongestAmbientCard.scale - weakestVisibleCard.scale > 0.04);
 
     const hoverTarget = initialVisibleCards.find((card) => card.index !== nearestToCenter.index) || nearestToCenter;
     await page.locator("#collectionGrid .collection-card").nth(hoverTarget.index).hover();
     await page.waitForTimeout(140);
 
-    const hoveredCards = await getCollectionCarouselFocusState(page);
-    const hoveredTargetState = hoveredCards.find((card) => card.index === hoverTarget.index);
+    const hoveredState = await getCollectionCarouselFocusState(page);
+    const hoveredTargetState = hoveredState.cards.find((card) => card.index === hoverTarget.index);
     assert.ok(hoveredTargetState?.boosted);
-    assert.ok((hoveredTargetState?.scale || 0) > 1.02);
-    assert.ok((hoveredTargetState?.translateY || 0) < -2.5);
+    assert.ok((hoveredTargetState?.scale || 0) > 1.03);
+    assert.ok((hoveredTargetState?.translateY || 0) < -5);
 
     await page.locator("#collectionNext").click();
+    await page.waitForTimeout(70);
+
+    const duringNextPulseState = await getCollectionCarouselFocusState(page);
+    const nextPulseCards = duringNextPulseState.cards;
+    const nextPulseState = nextPulseCards.find((card) => card.index === nearestToCenter.index) || nextPulseCards[0];
+    assert.equal(nextPulseState?.carouselInteraction, "active");
+    assert.equal(nextPulseState?.carouselDirection, "next");
+    assert.notEqual(nextPulseState?.nextArrowTransform, "none");
+    assert.notEqual(nextPulseState?.nextArrowGlyphTransform, "none");
     await page.waitForTimeout(520);
 
-    const afterNextVisibleCards = (await getCollectionCarouselFocusState(page)).filter((card) => card.isVisible);
+    const afterNextState = await getCollectionCarouselFocusState(page);
+    const afterNextVisibleCards = afterNextState.cards.filter((card) => card.isVisible);
     const nextNearestToCenter = [...afterNextVisibleCards].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
     const nextStrongestAmbientCard = [...afterNextVisibleCards].sort((left, right) => right.focusValue - left.focusValue)[0];
     assert.equal(nextStrongestAmbientCard.index, nextNearestToCenter.index);
     assert.notEqual(nextNearestToCenter.collectionId, nearestToCenter.collectionId);
+    assert.equal(nextStrongestAmbientCard.carouselInteraction, "");
+    assert.equal(nextStrongestAmbientCard.carouselDirection, "");
+    assert.ok(nextNearestToCenter.distanceFromCenter < 8);
+
+    await page.locator("#collectionPrev").click();
+    await page.waitForTimeout(70);
+
+    const duringPrevPulseState = await getCollectionCarouselFocusState(page);
+    const prevPulseCards = duringPrevPulseState.cards;
+    const prevPulseState = prevPulseCards.find((card) => card.index === nextNearestToCenter.index) || prevPulseCards[0];
+    assert.equal(prevPulseState?.carouselInteraction, "active");
+    assert.equal(prevPulseState?.carouselDirection, "prev");
+    assert.notEqual(prevPulseState?.prevArrowTransform, "none");
+    assert.notEqual(prevPulseState?.prevArrowGlyphTransform, "none");
+    await page.waitForTimeout(520);
+
+    const afterPrevState = await getCollectionCarouselFocusState(page);
+    const afterPrevVisibleCards = afterPrevState.cards.filter((card) => card.isVisible);
+    const prevNearestToCenter = [...afterPrevVisibleCards].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
+    assert.equal(prevNearestToCenter.collectionId, nearestToCenter.collectionId);
+    assert.ok(prevNearestToCenter.distanceFromCenter < 8);
+
+    const featuredCollectionIds = collectionFixtures.filter((collection) => collection.featured).map((collection) => collection.id);
+    let expectedCollectionIndex = featuredCollectionIds.indexOf(prevNearestToCenter.collectionId);
+    assert.notEqual(expectedCollectionIndex, -1);
+
+    for (let step = 0; step < featuredCollectionIds.length + 1; step += 1) {
+      await page.locator("#collectionNext").click();
+      await page.waitForTimeout(520);
+
+      const wrappedNextState = await getCollectionCarouselFocusState(page);
+      const wrappedNextCenteredCard = getCenteredVisibleCollectionCard(wrappedNextState);
+      expectedCollectionIndex = (expectedCollectionIndex + 1) % featuredCollectionIds.length;
+
+      assert.equal(wrappedNextCenteredCard?.collectionId, featuredCollectionIds[expectedCollectionIndex]);
+      assert.ok((wrappedNextCenteredCard?.distanceFromCenter || 0) < 8);
+    }
   } finally {
     await page.close();
   }
@@ -1786,10 +2102,35 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal(reducedMetrics.footerTransform, "none");
     assert.equal(reducedMetrics.mediaArtTransform, "none");
 
-    const reducedCollectionState = (await getCollectionCarouselFocusState(reducedMotionPage)).filter((card) => card.isVisible);
+    const reducedCollectionState = (await getCollectionCarouselFocusState(reducedMotionPage)).cards.filter((card) => card.isVisible);
     assert.ok(reducedCollectionState.length > 0);
     reducedCollectionState.forEach((card) => {
       assert.equal(card.transform, "none");
+      assert.equal(card.prevArrowTransform, "none");
+      assert.equal(card.nextArrowTransform, "none");
+    });
+
+    await reducedMotionPage.getByRole("button", { name: "Recently updated" }).click();
+    await reducedMotionPage.waitForFunction(() => /Recently updated/i.test(document.getElementById("resultsSummary")?.textContent || ""));
+    const reducedGridState = await getArchiveGridMotionState(reducedMotionPage);
+    assert.equal(reducedGridState.reason, "explicit");
+    assert.equal(reducedGridState.flipDuration, 0);
+    assert.equal(reducedGridState.enterDuration, 0);
+    assert.equal(reducedGridState.exitDuration, 0);
+    reducedGridState.shells.forEach((shell) => {
+      assert.equal(shell.transform, "none");
+      assert.equal(shell.animationDurations.length, 0);
+    });
+
+    await reducedMotionPage.locator("#collectionNext").click();
+    await reducedMotionPage.waitForTimeout(80);
+
+    const reducedAfterArrow = (await getCollectionCarouselFocusState(reducedMotionPage)).cards.filter((card) => card.isVisible);
+    reducedAfterArrow.forEach((card) => {
+      assert.equal(card.carouselInteraction, "");
+      assert.equal(card.carouselDirection, "");
+      assert.equal(card.prevArrowTransform, "none");
+      assert.equal(card.nextArrowTransform, "none");
     });
   } finally {
     await reducedMotionPage.close();

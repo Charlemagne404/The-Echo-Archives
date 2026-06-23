@@ -1,3 +1,14 @@
+import {
+  captureGridShellRects,
+  freezeGridShellPosition,
+  getGridMotionProfile,
+  playGridEnterAnimation,
+  playGridFlipAnimation,
+  resetGridShellMotion,
+  scheduleGridExit,
+  setGridMotionMetadata,
+} from "./grid-motion.js";
+
 export function getHomeGridLayoutBucket() {
   return window.matchMedia("(max-width: 1180px)").matches ? "compact" : "wide";
 }
@@ -29,26 +40,138 @@ export function sortVisibleShows({ visibleShows, selectedCollection, sortMode })
   return sortedShows.sort((left, right) => (collectionOrder.get(left.id) || 0) - (collectionOrder.get(right.id) || 0));
 }
 
-export function patchArchiveGrid({ archiveGrid, collectionsSection, visibleShows, archiveCardShellsById, gridLayoutBucket }) {
-  const fragment = document.createDocumentFragment();
+function getOrderedArchiveGridNodes({ collectionsSection, visibleShows, archiveCardShellsById, gridLayoutBucket }) {
+  const orderedNodes = [];
   const collectionInsertIndex = collectionsSection.hidden
     ? -1
     : Math.min(visibleShows.length, getHomeGridColumnCount(gridLayoutBucket) * 2);
 
   visibleShows.forEach((show, index) => {
     if (index === collectionInsertIndex) {
-      fragment.appendChild(collectionsSection);
+      orderedNodes.push(collectionsSection);
     }
 
     const shell = archiveCardShellsById.get(show.id);
     if (shell) {
-      fragment.appendChild(shell);
+      orderedNodes.push(shell);
     }
   });
 
   if (!collectionsSection.hidden && collectionInsertIndex >= visibleShows.length) {
-    fragment.appendChild(collectionsSection);
+    orderedNodes.push(collectionsSection);
   }
 
-  archiveGrid.replaceChildren(fragment);
+  return orderedNodes;
+}
+
+function getArchiveGridShells(archiveGrid) {
+  return Array.from(archiveGrid.children).filter((node) => node instanceof HTMLElement && node.classList.contains("podcast-card-shell"));
+}
+
+function hasGridShellMotionInFlight(shell) {
+  return (
+    shell instanceof HTMLElement &&
+    Boolean(
+      shell.__gridExitTimer ||
+        shell.__gridExitAnimation ||
+        shell.__gridEnterAnimation ||
+        shell.__gridFlipAnimation ||
+        shell.classList.contains("is-grid-exiting") ||
+        shell.classList.contains("is-grid-entering") ||
+        shell.classList.contains("is-grid-flipping"),
+    )
+  );
+}
+
+function syncArchiveGridInstantly({ archiveGrid, collectionsSection, orderedNodes, nextShells }) {
+  const nextShellSet = new Set(nextShells);
+  nextShells.forEach((shell) => {
+    resetGridShellMotion(shell);
+  });
+  orderedNodes.forEach((node) => {
+    archiveGrid.appendChild(node);
+  });
+  getArchiveGridShells(archiveGrid).forEach((shell) => {
+    if (!nextShellSet.has(shell)) {
+      resetGridShellMotion(shell);
+      shell.remove();
+    }
+  });
+
+  if (collectionsSection.hidden && collectionsSection.parentElement === archiveGrid) {
+    collectionsSection.remove();
+  }
+}
+
+export function patchArchiveGrid({
+  archiveGrid,
+  collectionsSection,
+  visibleShows,
+  archiveCardShellsById,
+  gridLayoutBucket,
+  changeReason,
+}) {
+  const orderedNodes = getOrderedArchiveGridNodes({
+    collectionsSection,
+    visibleShows,
+    archiveCardShellsById,
+    gridLayoutBucket,
+  });
+  const nextShells = orderedNodes.filter((node) => node instanceof HTMLElement && node.classList.contains("podcast-card-shell"));
+  const currentShells = getArchiveGridShells(archiveGrid);
+  const motionProfile = getGridMotionProfile(changeReason);
+  const shouldBypassMotion = !motionProfile || currentShells.some((shell) => hasGridShellMotionInFlight(shell));
+
+  setGridMotionMetadata(archiveGrid, changeReason, shouldBypassMotion ? null : motionProfile);
+  if (shouldBypassMotion) {
+    syncArchiveGridInstantly({
+      archiveGrid,
+      collectionsSection,
+      orderedNodes,
+      nextShells,
+    });
+    return;
+  }
+
+  const nextShellSet = new Set(nextShells);
+  const firstRects = captureGridShellRects(currentShells);
+  const exitingShells = currentShells.filter((shell) => !nextShellSet.has(shell));
+  const stagedExits = [];
+
+  nextShells.forEach((shell) => {
+    resetGridShellMotion(shell);
+  });
+
+  exitingShells.forEach((shell) => {
+    if (shell.classList.contains("is-grid-exiting")) {
+      return;
+    }
+
+    resetGridShellMotion(shell);
+    freezeGridShellPosition(shell, archiveGrid);
+    stagedExits.push(shell);
+  });
+
+  orderedNodes.forEach((node) => {
+    archiveGrid.appendChild(node);
+  });
+  if (collectionsSection.hidden && collectionsSection.parentElement === archiveGrid) {
+    collectionsSection.remove();
+  }
+  exitingShells.forEach((shell) => {
+    archiveGrid.appendChild(shell);
+  });
+
+  nextShells.forEach((shell) => {
+    const firstRect = firstRects.get(shell.dataset.podcastId || "");
+    if (firstRect) {
+      playGridFlipAnimation(shell, firstRect, motionProfile.flipDuration);
+      return;
+    }
+
+    playGridEnterAnimation(shell, motionProfile.enterDuration);
+  });
+  stagedExits.forEach((shell) => {
+    scheduleGridExit(shell, motionProfile.exitDuration);
+  });
 }

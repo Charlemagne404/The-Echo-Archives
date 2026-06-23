@@ -83,6 +83,8 @@ export async function initializeHomePage() {
   });
   let collectionCarouselControls = null;
   let searchRenderTimer = 0;
+  let pendingRenderReason = "";
+  let renderFrame = 0;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
@@ -101,7 +103,7 @@ export async function initializeHomePage() {
     state.sortMode = "default";
     state.query = "";
     elements.searchInput.value = "";
-    renderHomeResults();
+    scheduleHomeResults("explicit");
   };
 
   const toggleFilter = (groupId, filterId) => {
@@ -117,7 +119,7 @@ export async function initializeHomePage() {
     }
 
     state.selectedCollectionId = "";
-    renderHomeResults();
+    scheduleHomeResults("explicit");
   };
 
   const getSelectedCollection = () => (state.selectedCollectionId ? collectionsById.get(state.selectedCollectionId) : null);
@@ -155,7 +157,7 @@ export async function initializeHomePage() {
     return scoredResults.filter((show) => filteredIds.has(show.id));
   };
 
-  function renderHomeResults() {
+  function renderHomeResults(changeReason = "explicit") {
     previewController.closeActivePreview({ immediate: true });
 
     const selectedCollection = getSelectedCollection();
@@ -169,13 +171,14 @@ export async function initializeHomePage() {
       visibleShows,
       archiveCardShellsById,
       gridLayoutBucket: state.gridLayoutBucket,
+      changeReason,
     });
     renderActiveBrowseState({
       activeBrowseState: elements.activeBrowseState,
       activeBrowseChips: elements.activeBrowseChips,
       activeBrowseClear: elements.activeBrowseClear,
       descriptors: activeDescriptors,
-      onAfterRemove: renderHomeResults,
+      onAfterRemove: () => scheduleHomeResults("explicit"),
     });
     syncBrowseUrlState(state);
 
@@ -203,6 +206,20 @@ export async function initializeHomePage() {
     });
   }
 
+  function scheduleHomeResults(changeReason = "explicit") {
+    pendingRenderReason = pendingRenderReason === "explicit" || changeReason === "explicit" ? "explicit" : changeReason;
+    if (renderFrame) {
+      return;
+    }
+
+    renderFrame = window.requestAnimationFrame(() => {
+      renderFrame = 0;
+      const nextReason = pendingRenderReason || changeReason;
+      pendingRenderReason = "";
+      renderHomeResults(nextReason);
+    });
+  }
+
   renderFilterOptions({
     filterOptionGrid: elements.filterOptionGrid,
     structuredFilterGroups,
@@ -221,7 +238,7 @@ export async function initializeHomePage() {
     browseModesRoot: elements.browseModesRoot,
     onModeChange: (modeId) => {
       state.sortMode = modeId;
-      renderHomeResults();
+      scheduleHomeResults("explicit");
     },
   });
   mostPopularController.renderMostPopularSection();
@@ -237,7 +254,7 @@ export async function initializeHomePage() {
     collectionNext: elements.collectionNext,
     currentControls: collectionCarouselControls,
   });
-  renderHomeResults();
+  renderHomeResults("initial");
 
   elements.searchInput.addEventListener("input", () => {
     state.query = elements.searchInput.value.trim();
@@ -246,7 +263,7 @@ export async function initializeHomePage() {
     }
     searchRenderTimer = window.setTimeout(() => {
       searchRenderTimer = 0;
-      renderHomeResults();
+      scheduleHomeResults("live-search");
     }, 150);
   });
 
@@ -294,7 +311,7 @@ export async function initializeHomePage() {
     const nextGridLayoutBucket = getHomeGridLayoutBucket();
     if (state.gridLayoutBucket !== nextGridLayoutBucket) {
       state.gridLayoutBucket = nextGridLayoutBucket;
-      renderHomeResults();
+      renderHomeResults("layout-change");
     }
   });
 }

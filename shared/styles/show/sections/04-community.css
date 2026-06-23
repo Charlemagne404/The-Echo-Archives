@@ -57,11 +57,63 @@
   display: grid;
   gap: 14px;
   margin-top: 2px;
+  overflow: clip;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    height 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.community-review-body[data-state="opening"],
+.community-review-body[data-state="closing"] {
+  pointer-events: none;
 }
 
 .community-review-body[hidden],
 .community-review-clear[hidden] {
   display: none !important;
+}
+
+.community-roll-host {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.community-roll-host.is-rolling {
+  grid-template-areas: "stack";
+}
+
+.community-roll-host.is-rolling .community-roll-value {
+  grid-area: stack;
+  transition:
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms ease;
+}
+
+.community-roll-host.is-rolling .community-roll-value.is-current {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.community-roll-host.is-rolling .community-roll-value.is-next {
+  transform: translateY(112%);
+  opacity: 0;
+}
+
+.community-roll-host.is-rolling.is-rolling-active .community-roll-value.is-current {
+  transform: translateY(-112%);
+  opacity: 0;
+}
+
+.community-roll-host.is-rolling.is-rolling-active .community-roll-value.is-next {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .community-review-buttons {
@@ -123,6 +175,14 @@
   color: #fff;
 }
 
+.community-review-panel.is-confirming {
+  animation: community-review-panel-confirm 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.community-review-button.is-confirmed {
+  animation: community-review-button-confirm 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .community-review-button:disabled,
 .community-review-clear:disabled,
 .community-review-toggle:disabled {
@@ -166,7 +226,56 @@
   width: 0;
   border-radius: inherit;
   background: linear-gradient(90deg, rgba(var(--community-accent-rgb), 0.68), rgba(154, 214, 172, 0.96));
-  transition: width 180ms ease;
+  transition: width 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes community-review-panel-confirm {
+  0% {
+    box-shadow:
+      0 18px 38px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  38% {
+    box-shadow:
+      0 22px 44px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(var(--community-accent-rgb), 0.22),
+      0 0 28px rgba(var(--community-accent-rgb), 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  100% {
+    box-shadow:
+      0 18px 38px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+}
+
+@keyframes community-review-button-confirm {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  36% {
+    transform: translateY(-1px) scale(1.06);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .community-review-body,
+  .community-roll-host.is-rolling .community-roll-value,
+  .community-distribution-fill {
+    transition-duration: 1ms;
+  }
+
+  .community-review-panel.is-confirming,
+  .community-review-button.is-confirmed {
+    animation-duration: 1ms;
+  }
 }
 
 .detail-empty-state h1 {

@@ -9,8 +9,12 @@
 .collection-card {
   --collection-cover-image: linear-gradient(180deg, rgba(14, 18, 23, 0.96), rgba(7, 10, 13, 0.98));
   --collection-focus: 0;
-  --collection-ambient-scale: calc(1 + (var(--collection-focus) * var(--collection-focus-scale-max, 0.018)));
-  --collection-ambient-lift: calc(var(--collection-focus) * var(--collection-focus-lift-max, 2px) * -1);
+  --collection-focus-weight: 0;
+  --collection-hover-scale-boost: 0;
+  --collection-hover-lift-boost: 0px;
+  --collection-ambient-scale: calc(1 + (var(--collection-focus-weight) * var(--collection-focus-scale-max, 0.095)));
+  --collection-ambient-lift: calc(var(--collection-focus-weight) * var(--collection-focus-lift-max, 18px) * -1);
+  --collection-directional-shift: calc(var(--collection-directional-shift-base, 0px) * (0.28 + (var(--collection-focus-weight) * 0.72)));
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,11 +35,18 @@
   overflow: hidden;
   isolation: isolate;
   text-decoration: none;
-  transform: translateY(var(--collection-ambient-lift)) scale(var(--collection-ambient-scale));
+  z-index: 1;
+  transform:
+    translate3d(
+      var(--collection-directional-shift),
+      calc(var(--collection-ambient-lift) + var(--collection-hover-lift-boost)),
+      0
+    )
+    scale(calc(var(--collection-ambient-scale) + var(--collection-hover-scale-boost)));
   transition:
-    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
     border-color 220ms ease,
-    box-shadow 220ms ease,
+    box-shadow 260ms ease,
     color 220ms ease;
 }
 
@@ -46,11 +57,13 @@
   background:
     linear-gradient(180deg, rgba(4, 7, 10, 0.18) 0%, rgba(4, 7, 10, 0.38) 34%, rgba(4, 7, 10, 0.92) 100%),
     var(--collection-cover-image) center / cover no-repeat;
-  transform: scale(calc(1.01 + (var(--collection-focus) * 0.02)));
-  filter: saturate(calc(0.94 + (var(--collection-focus) * 0.12))) brightness(calc(0.96 + (var(--collection-focus) * 0.08)));
+  transform: scale(calc(1.015 + (var(--collection-focus-weight) * 0.065)));
+  filter:
+    saturate(calc(0.92 + (var(--collection-focus-weight) * 0.24)))
+    brightness(calc(0.94 + (var(--collection-focus-weight) * 0.15)));
   transition:
-    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-    filter 220ms ease;
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 240ms ease;
   z-index: -2;
 }
 
@@ -63,56 +76,52 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 42%);
   pointer-events: none;
   z-index: -1;
-  opacity: calc(0.78 + (var(--collection-focus) * 0.22));
-  transition: opacity 220ms ease;
+  opacity: calc(0.72 + (var(--collection-focus-weight) * 0.34));
+  transition: opacity 220ms ease, background 220ms ease;
+}
+
+.collection-card.is-center-weighted {
+  z-index: 2;
 }
 
 .collection-card:hover,
 .collection-card:focus-visible,
 .collection-card.is-interaction-boosted {
-  transform: translateY(-4px) scale(1.032);
+  --collection-hover-scale-boost: 0.026;
+  --collection-hover-lift-boost: -6px;
+  z-index: 3;
   border-color: rgba(229, 72, 56, 0.46);
-  box-shadow: 0 30px 52px rgba(0, 0, 0, 0.36);
+  box-shadow:
+    0 36px 64px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(229, 72, 56, 0.12);
 }
 
 .collection-card:hover::before,
 .collection-card:focus-visible::before,
 .collection-card.is-interaction-boosted::before {
-  transform: scale(1.04);
-  filter: saturate(1.08) brightness(1.06);
+  transform: scale(calc(1.03 + (var(--collection-focus-weight) * 0.07)));
+  filter:
+    saturate(calc(1 + (var(--collection-focus-weight) * 0.2)))
+    brightness(calc(1.03 + (var(--collection-focus-weight) * 0.12)));
+}
+
+.collection-carousel[data-collection-interaction="active"] .collection-card::after {
+  background:
+    radial-gradient(circle at top right, rgba(229, 72, 56, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 42%);
 }
 
 .collection-card:focus-visible {
   outline: none;
 }
 
-.collection-card-badge {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(7, 10, 13, 0.74);
-  color: rgba(247, 247, 243, 0.82);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  border-color: rgba(255, 255, 255, calc(0.16 + (var(--collection-focus) * 0.14)));
-  background: rgba(7, 10, 13, calc(0.74 - (var(--collection-focus) * 0.08)));
-  transition: border-color 220ms ease, background 220ms ease, color 220ms ease;
-}
-
 .collection-card h3 {
-  margin: auto 0 0;
+  margin: 0;
   font-size: clamp(1.35rem, 1.7vw, 1.65rem);
   line-height: 1.02;
   max-width: 12ch;
   color: var(--text-primary);
-  text-shadow: 0 12px 24px rgba(0, 0, 0, calc(0.12 + (var(--collection-focus) * 0.16)));
+  text-shadow: 0 14px 28px rgba(0, 0, 0, calc(0.14 + (var(--collection-focus-weight) * 0.2)));
   transition: color 220ms ease, text-shadow 220ms ease;
 }
 
@@ -129,7 +138,7 @@
 }
 
 .collection-card-count {
-  color: rgba(247, 247, 243, calc(0.72 + (var(--collection-focus) * 0.16)));
+  color: rgba(247, 247, 243, calc(0.7 + (var(--collection-focus-weight) * 0.22)));
   font-size: 0.95rem;
   transition: color 220ms ease;
 }
@@ -145,9 +154,9 @@
   color: var(--text-primary);
   font-size: 0.82rem;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, calc(0.16 + (var(--collection-focus) * 0.18)));
+  border: 1px solid rgba(255, 255, 255, calc(0.16 + (var(--collection-focus-weight) * 0.22)));
   backdrop-filter: blur(10px);
-  background: rgba(7, 10, 13, calc(0.7 - (var(--collection-focus) * 0.08)));
+  background: rgba(7, 10, 13, calc(0.7 - (var(--collection-focus-weight) * 0.12)));
   transition: border-color 220ms ease, background 220ms ease, color 220ms ease;
 }
 

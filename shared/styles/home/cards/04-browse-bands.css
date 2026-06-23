@@ -166,10 +166,13 @@
 }
 
 .collection-carousel {
-  --collection-focus-scale-max: 0.018;
-  --collection-focus-lift-max: 2px;
+  --collection-headroom: 28px;
+  --collection-focus-scale-max: 0.095;
+  --collection-focus-lift-max: 18px;
+  --collection-directional-shift-base: 0px;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .collection-carousel::before,
@@ -179,8 +182,10 @@
   top: -8px;
   bottom: -16px;
   width: 108px;
-  z-index: 1;
+  z-index: 4;
   pointer-events: none;
+  opacity: 0.88;
+  transition: opacity 180ms ease;
 }
 
 .collection-carousel::before {
@@ -193,9 +198,27 @@
   background: linear-gradient(270deg, rgba(7, 10, 13, 0.92), rgba(7, 10, 13, 0));
 }
 
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="prev"] {
+  --collection-directional-shift-base: 8px;
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="next"] {
+  --collection-directional-shift-base: -8px;
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="prev"]::before {
+  opacity: 1;
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="next"]::after {
+  opacity: 1;
+}
+
 .collection-carousel-viewport {
+  position: relative;
+  z-index: 1;
   overflow-x: auto;
-  padding: 6px 0 14px;
+  padding: calc(6px + var(--collection-headroom)) 0 14px;
   margin: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -215,8 +238,8 @@
 
 .collection-carousel-arrow {
   position: absolute;
-  top: 50%;
-  z-index: 2;
+  top: calc(50% + (var(--collection-headroom) / 2));
+  z-index: 6;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -228,10 +251,15 @@
   color: var(--text-primary);
   box-shadow: 0 18px 34px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(12px);
-  transform: translateY(-50%);
+  transform: translate3d(0, -50%, 0) scale(1);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 220ms ease;
 }
 
 .collection-carousel:hover .collection-carousel-arrow,
@@ -244,28 +272,62 @@
 .collection-carousel-arrow:focus-visible {
   border-color: rgba(229, 72, 56, 0.5);
   background: rgba(13, 17, 22, 0.94);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.36);
 }
 
 .collection-carousel-arrow:focus-visible {
   outline: none;
 }
 
+.collection-carousel-arrow-prev:hover,
+.collection-carousel-arrow-prev:focus-visible {
+  transform: translate3d(4px, -50%, 0) scale(1.02);
+}
+
+.collection-carousel-arrow-next:hover,
+.collection-carousel-arrow-next:focus-visible {
+  transform: translate3d(-4px, -50%, 0) scale(1.02);
+}
+
 .collection-carousel-arrow span {
   font-size: 1.8rem;
   line-height: 1;
-  transform: translateY(-1px);
+  transform: translate3d(0, -1px, 0);
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="prev"] .collection-carousel-arrow-prev {
+  transform: translate3d(2px, -50%, 0) scale(0.94);
+  border-color: rgba(229, 72, 56, 0.58);
+  background: rgba(18, 23, 28, 0.98);
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="next"] .collection-carousel-arrow-next {
+  transform: translate3d(-2px, -50%, 0) scale(0.94);
+  border-color: rgba(229, 72, 56, 0.58);
+  background: rgba(18, 23, 28, 0.98);
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="prev"] .collection-carousel-arrow-prev span {
+  transform: translate3d(-3px, -1px, 0);
+}
+
+.collection-carousel[data-collection-interaction="active"][data-collection-direction="next"] .collection-carousel-arrow-next span {
+  transform: translate3d(3px, -1px, 0);
 }
 
 @media (max-width: 780px) {
   .collection-carousel {
-    --collection-focus-scale-max: 0.009;
-    --collection-focus-lift-max: 1px;
+    --collection-headroom: 18px;
+    --collection-focus-scale-max: 0.06;
+    --collection-focus-lift-max: 10px;
   }
 }
 
 @media (max-width: 560px) {
   .collection-carousel {
-    --collection-focus-scale-max: 0.01;
-    --collection-focus-lift-max: 0px;
+    --collection-headroom: 12px;
+    --collection-focus-scale-max: 0.04;
+    --collection-focus-lift-max: 7px;
   }
 }

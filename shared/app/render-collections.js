@@ -19,10 +19,6 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
     card.style.setProperty("--collection-cover-image", `url("/${coverShow.cover}")`);
   }
 
-  const badge = document.createElement("span");
-  badge.className = "collection-card-badge";
-  badge.textContent = index % 2 === 0 ? "Featured route" : "Archive collection";
-
   const title = document.createElement("h3");
   title.textContent = collection.title;
 
@@ -38,7 +34,7 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   cta.textContent = "Browse";
 
   footer.append(count, cta);
-  card.append(badge, title, footer);
+  card.append(title, footer);
   return card;
 }
 

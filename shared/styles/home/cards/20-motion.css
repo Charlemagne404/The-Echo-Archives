@@ -1,4 +1,19 @@
 
+/* Grid motion stays on the shell so card hover/preview transforms can keep their own layer. */
+#podcast-grid {
+  position: relative;
+}
+
+.home-page .podcast-card-shell.is-grid-entering,
+.home-page .podcast-card-shell.is-grid-exiting,
+.home-page .podcast-card-shell.is-grid-flipping {
+  will-change: transform, opacity;
+}
+
+.home-page .podcast-card-shell.is-grid-exiting {
+  pointer-events: none;
+}
+
 @media (max-width: 359px) {
   #site-footer {
     padding: 18px;
@@ -16,12 +31,17 @@
 
 @media (prefers-reduced-motion: reduce) {
   .home-page .podcast-card,
+  .home-page .podcast-card-shell,
   .home-page .home-card-preview,
   .home-page .home-card-preview-stage,
   .home-page .home-card-preview-layer,
   .home-page .home-card-preview-media-art,
   .home-page .preview-close-button,
   .home-page .preview-open-link,
+  .home-page .collection-carousel::before,
+  .home-page .collection-carousel::after,
+  .home-page .collection-carousel-arrow,
+  .home-page .collection-carousel-arrow span,
   .home-page .collection-card,
   .home-page .collection-card::before,
   .home-page .collection-card::after,
@@ -33,6 +53,10 @@
   }
 
   .home-page .home-card-preview,
+  .home-page .podcast-card-shell,
+  .home-page .podcast-card-shell.is-grid-entering,
+  .home-page .podcast-card-shell.is-grid-exiting,
+  .home-page .podcast-card-shell.is-grid-flipping,
   .home-page .podcast-card-shell.is-preview-expanded .home-card-preview,
   .home-page .podcast-card-shell.is-preview-closing .home-card-preview,
   .home-page .home-card-preview-stage,
@@ -40,6 +64,10 @@
   .home-page .podcast-card:hover,
   .home-page .podcast-card:focus-visible,
   .home-page .podcast-card-shell.preview-source-active .podcast-card,
+  .home-page .collection-carousel::before,
+  .home-page .collection-carousel::after,
+  .home-page .collection-carousel-arrow,
+  .home-page .collection-carousel-arrow span,
   .home-page .collection-card,
   .home-page .collection-card:hover,
   .home-page .collection-card:focus-visible,

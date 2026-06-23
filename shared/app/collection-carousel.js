@@ -1,3 +1,5 @@
+import { alignCardToViewportCenter, getCenteredScrollLeft, getLoopProgress, getNearestCardIndex, getWrappedIndex } from "./collection-carousel-centering.js";
+
 export function initializeCollectionCarousel({
   featuredCollections,
   collectionCarousel,
@@ -10,16 +12,18 @@ export function initializeCollectionCarousel({
   const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const autoScrollSpeedPxPerSecond = 28;
   const manualScrollDurationMs = 420;
+  const directionalPulseDurationMs = 260;
   let prefersReducedMotion = reducedMotionQuery.matches;
   let autoScrollFrame = 0;
   let manualScrollFrame = 0;
   let normalizeFrame = 0;
   let lastFrameAt = 0;
-  let stepSize = 0;
   let middleStart = 0;
   let setWidth = 0;
+  let middleCards = [];
   let paused = false;
   let interactionCard = null;
+  let directionalPulseTimeout = 0;
 
   const cards = Array.from(collectionGrid.querySelectorAll(".collection-card"));
 
@@ -31,11 +35,7 @@ export function initializeCollectionCarousel({
   }
 
   function getRelativeProgress(left) {
-    if (!setWidth) {
-      return 0;
-    }
-
-    return ((left - middleStart) % setWidth + setWidth) % setWidth;
+    return getLoopProgress(left, middleStart, setWidth);
   }
 
   function syncCollectionFocus() {
@@ -50,7 +50,9 @@ export function initializeCollectionCarousel({
       const cardCenter = cardRect.left + cardRect.width / 2;
       const distance = Math.abs(cardCenter - viewportCenter);
       const focusValue = Math.max(0, 1 - distance / maxDistance);
+      const focusWeight = focusValue ** 1.65;
       card.style.setProperty("--collection-focus", focusValue.toFixed(4));
+      card.style.setProperty("--collection-focus-weight", focusWeight.toFixed(4));
       if (focusValue > strongestFocus) {
         strongestFocus = focusValue;
         strongestCard = card;
@@ -75,9 +77,8 @@ export function initializeCollectionCarousel({
 
   function measure({ preservePosition = true } = {}) {
     const relativeProgress = preservePosition ? getRelativeProgress(collectionViewport.scrollLeft) : 0;
-    const middleCards = cards.slice(originalsPerSet, originalsPerSet * 2);
+    middleCards = cards.slice(originalsPerSet, originalsPerSet * 2);
     const firstMiddleCard = middleCards[0];
-    const secondMiddleCard = middleCards[1];
     const nextSetFirstCard = cards[originalsPerSet * 2];
 
     if (!firstMiddleCard || !nextSetFirstCard) {
@@ -86,7 +87,6 @@ export function initializeCollectionCarousel({
 
     middleStart = firstMiddleCard.offsetLeft;
     setWidth = nextSetFirstCard.offsetLeft - middleStart;
-    stepSize = secondMiddleCard ? secondMiddleCard.offsetLeft - firstMiddleCard.offsetLeft : setWidth;
     setViewportScroll(middleStart + relativeProgress);
     syncCollectionFocus();
   }
@@ -123,12 +123,54 @@ export function initializeCollectionCarousel({
     }
   }
 
+  function clearDirectionalPulse() {
+    if (directionalPulseTimeout) {
+      window.clearTimeout(directionalPulseTimeout);
+      directionalPulseTimeout = 0;
+    }
+
+    delete collectionCarousel.dataset.collectionDirection;
+    delete collectionCarousel.dataset.collectionInteraction;
+  }
+
+  function triggerDirectionalPulse(direction) {
+    if (prefersReducedMotion) {
+      clearDirectionalPulse();
+      return;
+    }
+
+    collectionCarousel.dataset.collectionDirection = direction;
+    collectionCarousel.dataset.collectionInteraction = "active";
+
+    if (directionalPulseTimeout) {
+      window.clearTimeout(directionalPulseTimeout);
+    }
+
+    directionalPulseTimeout = window.setTimeout(() => {
+      directionalPulseTimeout = 0;
+      delete collectionCarousel.dataset.collectionInteraction;
+      delete collectionCarousel.dataset.collectionDirection;
+    }, directionalPulseDurationMs);
+  }
+
   function animateManualScroll(direction) {
     stopManualScroll();
     normalizeLoopPosition();
+    const currentLinearIndex = getNearestCardIndex(cards, collectionViewport);
+    const currentEquivalentIndex = originalsPerSet + getWrappedIndex(currentLinearIndex, originalsPerSet);
+    const currentEquivalentCard = cards[currentEquivalentIndex];
+    const targetCard = cards[currentEquivalentIndex + direction];
+    const targetEquivalentCard = cards[originalsPerSet + getWrappedIndex(currentLinearIndex + direction, originalsPerSet)];
+
+    if (!currentEquivalentCard || !targetCard || !targetEquivalentCard) {
+      return;
+    }
+
+    setViewportScroll(getCenteredScrollLeft(currentEquivalentCard, collectionViewport));
+    alignCardToViewportCenter(currentEquivalentCard, collectionViewport, setViewportScroll);
 
     const startLeft = collectionViewport.scrollLeft;
-    const targetLeft = startLeft + stepSize * direction;
+    const targetLeft = getCenteredScrollLeft(targetCard, collectionViewport);
     const startedAt = window.performance.now();
 
     const tick = (timestamp) => {
@@ -143,6 +185,12 @@ export function initializeCollectionCarousel({
         return;
       }
 
+      setViewportScroll(targetLeft);
+      alignCardToViewportCenter(targetCard, collectionViewport, setViewportScroll);
+      setViewportScroll(getCenteredScrollLeft(targetEquivalentCard, collectionViewport));
+      alignCardToViewportCenter(targetEquivalentCard, collectionViewport, setViewportScroll);
+      normalizeLoopPosition();
+      syncCollectionFocus();
       manualScrollFrame = 0;
     };
 
@@ -249,14 +297,19 @@ export function initializeCollectionCarousel({
   };
   const handlePrevClick = () => {
     pauseCarousel();
+    triggerDirectionalPulse("prev");
     animateManualScroll(-1);
   };
   const handleNextClick = () => {
     pauseCarousel();
+    triggerDirectionalPulse("next");
     animateManualScroll(1);
   };
   const handleReducedMotionChange = (event) => {
     prefersReducedMotion = event.matches;
+    if (prefersReducedMotion) {
+      clearDirectionalPulse();
+    }
     lastFrameAt = 0;
     syncCollectionFocus();
   };
@@ -281,6 +334,7 @@ export function initializeCollectionCarousel({
     destroy() {
       stopAutoScrollLoop();
       stopManualScroll();
+      clearDirectionalPulse();
       if (normalizeFrame) {
         window.cancelAnimationFrame(normalizeFrame);
         normalizeFrame = 0;

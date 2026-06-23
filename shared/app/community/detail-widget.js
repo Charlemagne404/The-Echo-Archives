@@ -1,21 +1,8 @@
 import { createSubmissionHref } from "../urls.js";
-import {
-  clearCommunityRating,
-  ensureCommunityProfile,
-  fetchRatingSummaries,
-  submitCommunityRating,
-} from "./api.js";
-import {
-  EMPTY_COMMUNITY_SCORE_TEXT,
-  formatDetailCommunitySummary,
-  getDetailCommunityMetricCount,
-  getDetailCommunityMetricValue,
-} from "./formatters.js";
-import {
-  configureRatingVerification,
-  getRatingVerificationToken,
-  resetRatingVerification,
-} from "./turnstile.js";
+import { clearCommunityRating, ensureCommunityProfile, fetchRatingSummaries, submitCommunityRating } from "./api.js";
+import { EMPTY_COMMUNITY_SCORE_TEXT, formatDetailCommunitySummary, getDetailCommunityMetricCount, getDetailCommunityMetricValue } from "./formatters.js";
+import { configureRatingVerification, getRatingVerificationToken, resetRatingVerification } from "./turnstile.js";
+import { clearDetailBodyMotion, closeDetailWidgetBody, openDetailWidgetBody, playRatingConfirmation, prefersReducedMotion, prepareRollingTextNode, setRollingTextNodeContent } from "./detail-motion.js";
 
 export async function initializeDetailRatingPage(show) {
   const detailRoot = document.querySelector(".podcast-detail");
@@ -23,18 +10,20 @@ export async function initializeDetailRatingPage(show) {
     return;
   }
 
-  const widget = mountDetailRatingWidget(detailRoot, {
-    podcastId: show.id,
-    title: show.title,
-  });
+  const widget = mountDetailRatingWidget(detailRoot, { podcastId: show.id });
+  const requestId = beginSummaryRequest(widget);
 
   try {
     widget.verificationPromise = configureRatingVerification(widget);
     const profileId = await ensureCommunityProfile();
     const summaries = await fetchRatingSummaries([show.id], profileId);
-    syncDetailRatingWidget(widget, summaries[show.id]);
+    if (isActiveSummaryRequest(widget, requestId)) {
+      syncDetailRatingWidget(widget, summaries[show.id]);
+    }
   } catch (_error) {
-    setCommunityWidgetUnavailable(widget);
+    if (isActiveSummaryRequest(widget, requestId)) {
+      setCommunityWidgetUnavailable(widget);
+    }
   }
 }
 
@@ -102,6 +91,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   const body = document.createElement("div");
   body.className = "community-review-body";
   body.hidden = true;
+  body.dataset.state = "closed";
 
   const clearButton = document.createElement("button");
   clearButton.type = "button";
@@ -128,12 +118,23 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     turnstileEnabled: false,
     turnstileToken: "",
     turnstileWidgetId: null,
+    lastSummary: null,
+    summaryRequestId: 0,
+    hasHydratedSummary: false,
+    bodyTimer: 0,
+    bodyFrame: 0,
     heroValue: detailRoot.querySelector("[data-community-hero-rating]"),
     heroCount: detailRoot.querySelector("[data-community-hero-count]"),
   };
 
+  prepareRollingTextNode(metricValue);
+  prepareRollingTextNode(metricCount);
+  prepareRollingTextNode(widget.heroValue);
+  prepareRollingTextNode(widget.heroCount);
+
   toggleButton.addEventListener("click", () => {
-    setDetailWidgetExpanded(widget, widget.body.hidden);
+    const isExpanded = widget.toggleButton.getAttribute("aria-expanded") === "true";
+    setDetailWidgetExpanded(widget, !isExpanded);
   });
 
   for (let rating = 1; rating <= 10; rating += 1) {
@@ -143,13 +144,19 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     button.textContent = String(rating);
     button.setAttribute("aria-pressed", "false");
     button.addEventListener("click", async () => {
+      const requestId = beginSummaryRequest(widget);
       setDetailWidgetBusy(widget, true);
       try {
         const turnstileToken = await getRatingVerificationToken(widget);
         const result = await submitCommunityRating(podcast.podcastId, rating, turnstileToken);
-        syncDetailRatingWidget(widget, result.summary);
+        if (isActiveSummaryRequest(widget, requestId)) {
+          syncDetailRatingWidget(widget, result.summary);
+          playRatingConfirmation(widget, rating);
+        }
       } catch (_error) {
-        widget.summary.textContent = "Saving your rating failed.";
+        if (isActiveSummaryRequest(widget, requestId)) {
+          widget.summary.textContent = "Saving your rating failed.";
+        }
       } finally {
         resetRatingVerification(widget);
         setDetailWidgetBusy(widget, false);
@@ -160,13 +167,18 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   }
 
   clearButton.addEventListener("click", async () => {
+    const requestId = beginSummaryRequest(widget);
     setDetailWidgetBusy(widget, true);
     try {
       const turnstileToken = await getRatingVerificationToken(widget);
       const result = await clearCommunityRating(podcast.podcastId, turnstileToken);
-      syncDetailRatingWidget(widget, result.summary);
+      if (isActiveSummaryRequest(widget, requestId)) {
+        syncDetailRatingWidget(widget, result.summary);
+      }
     } catch (_error) {
-      widget.summary.textContent = "Removing your rating failed.";
+      if (isActiveSummaryRequest(widget, requestId)) {
+        widget.summary.textContent = "Removing your rating failed.";
+      }
     } finally {
       resetRatingVerification(widget);
       setDetailWidgetBusy(widget, false);
@@ -192,6 +204,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     const count = document.createElement("span");
     count.className = "community-distribution-count";
     count.textContent = "0";
+    prepareRollingTextNode(count);
 
     row.append(label, bar, count);
     distribution.appendChild(row);
@@ -212,14 +225,20 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   return widget;
 }
 
+function beginSummaryRequest(widget) { widget.summaryRequestId += 1; return widget.summaryRequestId; }
+function isActiveSummaryRequest(widget, requestId) { return widget.summaryRequestId === requestId; }
+
 function syncDetailRatingWidget(widget, summary) {
   if (!widget) {
     return;
   }
 
+  widget.lastSummary = summary || null;
+  const shouldAnimateMetrics = widget.hasHydratedSummary;
+
   widget.summary.textContent = formatDetailCommunitySummary(summary);
-  widget.metricValue.textContent = getDetailCommunityMetricValue(summary);
-  widget.metricCount.textContent = getDetailCommunityMetricCount(summary);
+  setRollingTextNodeContent(widget.metricValue, getDetailCommunityMetricValue(summary), shouldAnimateMetrics);
+  setRollingTextNodeContent(widget.metricCount, getDetailCommunityMetricCount(summary), shouldAnimateMetrics);
   widget.clearButton.hidden = !summary?.myRating;
 
   widget.ratingButtons.forEach((button, index) => {
@@ -243,31 +262,46 @@ function syncDetailRatingWidget(widget, summary) {
     }
 
     if (countNode) {
-      countNode.textContent = String(count);
+      setRollingTextNodeContent(countNode, String(count), shouldAnimateMetrics);
     }
   });
 
-  syncHeroCommunityMetric(widget, summary);
+  syncHeroCommunityMetric(widget, summary, shouldAnimateMetrics);
   updateDetailWidgetToggleLabel(widget, summary);
+  widget.hasHydratedSummary = true;
 }
 
 function setDetailWidgetBusy(widget, isBusy) {
-  widget.ratingButtons.forEach((button) => {
-    button.disabled = isBusy;
-  });
+  widget.ratingButtons.forEach((button) => { button.disabled = isBusy; });
   widget.clearButton.disabled = isBusy;
   widget.toggleButton.disabled = isBusy;
 }
 
 function setDetailWidgetExpanded(widget, isExpanded) {
-  widget.body.hidden = !isExpanded;
-  widget.root.classList.toggle("is-expanded", isExpanded);
   widget.toggleButton.setAttribute("aria-expanded", String(isExpanded));
-  updateDetailWidgetToggleLabel(widget);
+  updateDetailWidgetToggleLabel(widget, widget.lastSummary);
+
+  if (prefersReducedMotion()) {
+    widget.body.hidden = !isExpanded;
+    widget.body.dataset.state = isExpanded ? "open" : "closed";
+    widget.root.classList.toggle("is-expanded", isExpanded);
+    widget.body.style.height = "";
+    widget.body.style.opacity = "";
+    widget.body.style.transform = "";
+    return;
+  }
+
+  clearDetailBodyMotion(widget);
+  if (isExpanded) {
+    openDetailWidgetBody(widget);
+    return;
+  }
+
+  closeDetailWidgetBody(widget);
 }
 
-function updateDetailWidgetToggleLabel(widget, summary = null) {
-  if (widget.body.hidden) {
+function updateDetailWidgetToggleLabel(widget, summary = widget.lastSummary) {
+  if (widget.toggleButton.getAttribute("aria-expanded") !== "true") {
     const hasRating = Boolean(summary?.myRating);
     widget.toggleButton.textContent = hasRating ? "Update your rating" : "Rate this show";
     return;
@@ -276,29 +310,30 @@ function updateDetailWidgetToggleLabel(widget, summary = null) {
   widget.toggleButton.textContent = "Hide rating controls";
 }
 
-
-function syncHeroCommunityMetric(widget, summary) {
-  if (widget.heroValue) {
-    widget.heroValue.textContent = getDetailCommunityMetricValue(summary);
-  }
-
-  if (widget.heroCount) {
-    widget.heroCount.textContent = getDetailCommunityMetricCount(summary);
-  }
-}
-
 function setCommunityWidgetUnavailable(widget) {
+  widget.lastSummary = null;
   widget.summary.textContent = "Community ratings are offline right now.";
-  widget.metricValue.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
-  widget.metricCount.textContent = "Offline";
+  setRollingTextNodeContent(widget.metricValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
+  setRollingTextNodeContent(widget.metricCount, "Offline", false);
   widget.toggleButton.disabled = true;
+  clearDetailBodyMotion(widget);
   widget.body.hidden = true;
+  widget.body.dataset.state = "closed";
+  widget.body.style.height = "";
+  widget.body.style.opacity = "";
+  widget.body.style.transform = "";
+  widget.root.classList.remove("is-expanded");
   widget.toggleButton.setAttribute("aria-expanded", "false");
   widget.toggleButton.textContent = "Ratings offline";
   if (widget.heroValue) {
-    widget.heroValue.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
+    setRollingTextNodeContent(widget.heroValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
   }
   if (widget.heroCount) {
-    widget.heroCount.textContent = "Offline";
+    setRollingTextNodeContent(widget.heroCount, "Offline", false);
   }
+}
+
+function syncHeroCommunityMetric(widget, summary, shouldAnimateMetrics) {
+  setRollingTextNodeContent(widget.heroValue, getDetailCommunityMetricValue(summary), shouldAnimateMetrics);
+  setRollingTextNodeContent(widget.heroCount, getDetailCommunityMetricCount(summary), shouldAnimateMetrics);
 }
