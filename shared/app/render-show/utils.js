@@ -64,6 +64,14 @@ export function getHeroRuntimeValue(show) {
 }
 
 export function getHeroRuntimeNote(show) {
+  if (typeof show.length?.avgEpisodeMinutes === "number") {
+    return `~${show.length.avgEpisodeMinutes} min episodes`;
+  }
+
+  if (typeof show.length?.episodes === "number") {
+    return `${show.length.episodes} episodes total`;
+  }
+
   if (show.length?.label) {
     return show.length.label;
   }

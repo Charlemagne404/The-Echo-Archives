@@ -75,10 +75,15 @@ test("full-review detail page promotes community, trims the rail, and preserves 
       const factLabels = Array.from(document.querySelectorAll(".detail-fact-row dt")).map((node) =>
         (node.textContent || "").trim().toLowerCase(),
       );
+      const factCheckText =
+        Array.from(document.querySelectorAll(".detail-fact-row"))
+          .find((row) => /fact check/i.test(row.querySelector("dt")?.textContent || ""))
+          ?.querySelector("dd")?.textContent?.trim() || "";
       const disabledChips = document.querySelectorAll(".detail-link-chip.is-disabled").length;
       const railHeadings = Array.from(rail?.querySelectorAll("h2") || []).map((node) => (node.textContent || "").trim());
       const routeInRail = Boolean(rail?.querySelector(".detail-collections-section, .detail-collections-card"));
       const correctionInRail = Boolean(rail?.querySelector(".detail-correction-section, .detail-correction-card"));
+      const listenAction = document.querySelector(".detail-listen-action");
       const routeSection = document.querySelector(".detail-collections-section");
       const correctionSection = document.querySelector(".detail-correction-section");
       const bestForLabel = document.querySelector(".detail-best-for-label")?.textContent?.trim() || "";
@@ -94,6 +99,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         mainLeft: mainColumn?.getBoundingClientRect().left || 0,
         communityCollapsed: communityBody?.hidden ?? null,
         factLabels,
+        factCheckText,
         disabledChips,
         railHeadings,
         routeInRail,
@@ -112,6 +118,8 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         archiveTop: archiveTakeCard?.getBoundingClientRect().top || 0,
         heroCommunityCount: getRollingText("[data-community-hero-count]"),
         heroCommunityValue: getRollingText("[data-community-hero-rating]"),
+        listenActionText: listenAction?.textContent?.trim() || "",
+        listenActionHref: listenAction?.getAttribute("href") || "",
         turnstileHidden: document.querySelector(".community-turnstile-shell")?.hidden ?? null,
       };
     });
@@ -127,12 +135,16 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.equal(layout.disabledChips, 2);
     assert.deepEqual(layout.factLabels, [
       "creator / network",
+      "fact check",
       "official / listen links",
       "status",
       "seasons / episodes",
       "first release",
       "latest release",
     ]);
+    assert.match(layout.factCheckText, /Factual metadata only/i);
+    assert.match(layout.listenActionText, /^Open /);
+    assert.match(layout.listenActionHref, /^https?:\/\//);
     assert.deepEqual(layout.railHeadings, ["Archive take", "Facts & links"]);
     assert.equal(layout.routeInRail, false);
     assert.equal(layout.correctionInRail, false);

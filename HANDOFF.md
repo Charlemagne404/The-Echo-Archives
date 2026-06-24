@@ -1,5 +1,94 @@
 ## Current task
 
+Improve the reusable podcast-specific show detail page using the approved Listening Console direction.
+
+## Files changed
+
+- `shared/app/render-show/hero.js`
+- `shared/app/render-show/sections.js`
+- `shared/app/render-show/facts.js`
+- `shared/app/render-show/utils.js`
+- `shared/styles/show/sections/01-hero.css`
+- `shared/styles/show/sections/02-actions-facts.css`
+- `shared/styles/show/sections/03-layout-links.css`
+- `shared/styles/show/sections/05-responsive.css`
+- `podcast-ai/test/community-rating-flow.smoke.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reworked the show hero into a listen-first console with archive/community score cards, compact runtime/status metadata, creator/network, factual verification, cover-art anchor, and primary listen CTA.
+- Kept community rating visible in the hero and preserved the existing community-rating hooks/interactions.
+- Removed the duplicated indexed-only `Archive summary` block so indexed pages use one intentional `Archive note`.
+- Added factual verification to the facts rail without implying creator approval of ratings or reviews.
+- Tuned desktop and mobile layouts; mobile now shows the cover art before the decision console and avoids horizontal overflow.
+
+## What still needs work
+
+- No known follow-up for the show-detail redesign itself.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run test:smoke`
+- `rtk npm run dev`
+- Browser QA at `http://127.0.0.1:3010/show.html?id=the-deca-tapes`
+
+## Known issues
+
+- Full `rtk npm --prefix podcast-ai run test:smoke` is 20/21 passing. The remaining failure is unrelated to this task: `homepage supports structured filtering, recently updated mode, and no-result recovery` times out at `podcast-ai/test/home-browse.smoke.js:220`.
+- The fixed chat/back-to-top controls can still overlap the right rail at some scroll offsets; this is pre-existing global floating-control behavior and was left out of this scoped show-page redesign.
+
+## Current task
+
+Revamp the main Collections page into a mood-first discovery surface and polish simple collection detail pages.
+
+## Files changed
+
+- `data/collections.json`
+- `data/schema.md`
+- `shared/archive-record.js`
+- `podcast-ai/lib/catalog.js`
+- `shared/app/render-collections.js`
+- `shared/app/pages/collections.js`
+- `shared/app/pages/collection.js`
+- `shared/styles/home/collections.css`
+- `shared/styles/home/collections/01-page.css`
+- `shared/styles/home/collections/02-cards.css`
+- `shared/styles/home/collections/03-responsive.css`
+- `site-src/pages/collections.html`
+- `site-src/pages/collection.html`
+- generated `collections.html`
+- generated `collection.html`
+
+## What was completed
+
+- Rebuilt Collections around a cinematic hero, mood selector, real stats, five featured routes, and searchable/sortable card-grid directory.
+- Expanded collections from 6 to 15 curated paths with additive metadata, real show-cover collage ordering, commitment labels, intent tags, and show reasons.
+- Added URL-backed `intent`, `q`, and `sort` state for the Collections page.
+- Updated collection detail pages with a matching hero/collage treatment, route tags, commitment stat, archive link, and visible show reasons.
+- Added scoped collection CSS split under the line-budget limit.
+
+## What still needs work
+
+- No known follow-up for this revamp.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run validate:data`
+- `rtk npm run dev`
+- Browser QA through Playwright using local Brave at `http://127.0.0.1:3010/`
+
+## Known issues
+
+- `npm verify` was not run, per the task plan and repo note that it is expensive.
+- The two supplied concept images remain untracked in `docs/research/concepts/`.
+
+## Current task
+
 Fix the GitHub `verify` workflow failure triggered by push commit `6e0d61a`.
 
 ## Files changed

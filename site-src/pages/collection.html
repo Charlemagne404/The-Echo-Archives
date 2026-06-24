@@ -1,37 +1,43 @@
-<main class="home-main page-main">
-    <section class="hero-shell">
-      <div class="hero-panel page-panel">
-        <div class="hero-copy">
+<main class="home-main page-main collection-detail-main">
+    <section class="hero-shell collection-detail-hero" aria-labelledby="collectionTitle">
+      <div class="hero-panel page-panel collection-detail-hero-panel" id="collectionHeroPanel">
+        <div class="hero-copy collection-detail-hero-copy">
           <h1 id="collectionTitle">Collection</h1>
           <p id="collectionDescription">Loading collection...</p>
+          <div id="collectionHeroTags" class="collection-detail-tag-row"></div>
+          <div class="collections-hero-actions">
+            <a id="collectionArchiveHeroLink" class="collection-action collections-primary-action" href="/index.html#archive">Browse in archive</a>
+            <a class="collection-secondary-link collections-secondary-action" href="/collections.html">All collections</a>
+          </div>
         </div>
+        <div id="collectionHeroArt" class="collection-detail-art" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section id="collectionRoot" class="page-grid">
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Shows</span>
+    <section id="collectionRoot" class="page-grid collection-detail-stats">
+      <article class="collections-stat-card">
+        <span>Shows</span>
         <strong id="collectionShowCount">-</strong>
       </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Kind</span>
+      <article class="collections-stat-card">
+        <span>Commitment</span>
+        <strong id="collectionCommitment">-</strong>
+      </article>
+      <article class="collections-stat-card">
+        <span>Route type</span>
         <strong id="collectionKind">-</strong>
       </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Featured</span>
-        <strong id="collectionFeatured">-</strong>
-      </article>
-      <article class="page-card stat-card">
-        <span class="page-card-kicker">Last updated</span>
+      <article class="collections-stat-card">
+        <span>Last updated</span>
         <strong id="collectionLastUpdated">-</strong>
       </article>
     </section>
 
-    <section id="collectionArchiveSection" class="archive-section" aria-labelledby="collection-shows-title">
-      <div class="section-heading">
+    <section id="collectionArchiveSection" class="archive-section collection-show-section" aria-labelledby="collection-shows-title">
+      <div class="section-heading collections-section-heading">
         <div>
           <h2 id="collection-shows-title">Shows in this collection</h2>
-          <p>Use the archive view if you want the full search and filter controls on top of this route.</p>
+          <p id="collectionShowsSummary">Curated entries in this listening path.</p>
         </div>
         <a id="collectionArchiveLink" class="collection-action" href="/index.html#archive">Browse in archive</a>
       </div>

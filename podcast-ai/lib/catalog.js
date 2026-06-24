@@ -243,6 +243,20 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     }
   });
 
+  if (record.coverShowIds !== undefined && !Array.isArray(record.coverShowIds)) {
+    throw new Error(`Collection "${record.id}" has invalid coverShowIds data.`);
+  }
+
+  (Array.isArray(record.coverShowIds) ? record.coverShowIds : []).forEach((showId) => {
+    if (!record.showIds.includes(showId)) {
+      throw new Error(`Collection "${record.id}" defines a coverShowId for a show outside showIds.`);
+    }
+  });
+
+  if (record.intentTags !== undefined && !Array.isArray(record.intentTags)) {
+    throw new Error(`Collection "${record.id}" has invalid intentTags data.`);
+  }
+
   if (record.showReasons && (typeof record.showReasons !== "object" || Array.isArray(record.showReasons))) {
     throw new Error(`Collection "${record.id}" has invalid showReasons data.`);
   }

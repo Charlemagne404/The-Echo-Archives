@@ -35,11 +35,13 @@
 
 .detail-collection-route {
   display: grid;
-  gap: 4px;
-  padding: 14px 16px;
+  gap: 5px;
+  padding: 15px 16px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(6, 8, 11, 0.58);
+  background:
+    linear-gradient(90deg, rgba(var(--detail-accent-rgb), 0.08), transparent 38%),
+    rgba(6, 8, 11, 0.58);
   color: inherit;
   text-decoration: none;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -76,15 +78,34 @@
 .detail-summary,
 .detail-thoughts,
 .detail-score-card {
-  padding: 22px;
+  padding: 22px 24px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(6, 8, 11, 0.58);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 100%),
+    rgba(6, 8, 11, 0.58);
 }
 
 .detail-summary p,
 .detail-thoughts p {
   line-height: 1.72;
+}
+
+.detail-archive-note-summary {
+  display: grid;
+  gap: 10px;
+  border-color: rgba(var(--detail-accent-rgb), 0.18);
+  background:
+    linear-gradient(105deg, rgba(var(--detail-accent-rgb), 0.12), transparent 42%),
+    rgba(6, 8, 11, 0.64);
+}
+
+.detail-summary-kicker {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .detail-summary p + p,
@@ -200,6 +221,16 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 100%),
     rgba(6, 8, 11, 0.72);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.detail-similar-card:hover,
+.detail-similar-card:focus-within {
+  transform: translateY(-1px);
+  border-color: rgba(var(--detail-accent-rgb), 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 100%),
+    rgba(8, 11, 14, 0.78);
 }
 
 .detail-similar-card img {

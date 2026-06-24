@@ -172,10 +172,17 @@
   }
 
   function normalizeCollectionRecord(record) {
+    const order = normalizeOptionalNumber(record.order);
+
     return {
       ...record,
       showIds: Array.isArray(record.showIds) ? record.showIds.filter(Boolean) : [],
+      coverShowIds: normalizeStringArray(record.coverShowIds),
+      intentTags: normalizeStringArray(record.intentTags).map(normalizeTagValue),
       showReasons: normalizeKeyedTextMap(record.showReasons),
+      label: typeof record.label === "string" ? record.label.trim() : "",
+      commitment: typeof record.commitment === "string" ? record.commitment.trim() : "",
+      order: order === undefined ? 0 : order,
     };
   }
 

@@ -301,23 +301,36 @@ When present, `data/reviews/<show-id>.json` should use this shape:
 
 ## Collection Shape
 
-Collections stay simple in v1:
+Collections stay hand-editable in v1. The core route is still `showIds`; extra fields support the collection discovery page without becoming required for every record.
 
 ```json
 {
   "id": "best-for-long-walks",
   "title": "Best for long walks",
   "description": "Shows that keep momentum over longer listening sessions.",
+  "label": "Long-burn route",
   "kind": "curated",
+  "intentTags": ["long-walks", "headphones-on"],
+  "commitment": "Long-form",
+  "coverShowIds": ["impact-winter", "derelict"],
   "showIds": ["impact-winter", "derelict"],
   "showReasons": {
     "impact-winter": "Sustains momentum during longer listening blocks."
   },
   "featured": true,
+  "order": 10,
   "createdAt": "2026-06-01",
   "updatedAt": "2026-06-02"
 }
 ```
+
+Optional collection fields:
+
+- `label`: compact editorial label for collection cards.
+- `intentTags`: route/filter tags used by the collections page.
+- `commitment`: editorial listening-commitment label; do not imply exact runtime when show runtime data is incomplete.
+- `coverShowIds`: preferred cover-art collage order; every id should also appear in `showIds`.
+- `order`: editorial display order.
 
 ## Optional companion datasets
 

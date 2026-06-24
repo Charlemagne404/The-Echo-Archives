@@ -1,0 +1,118 @@
+@media (max-width: 1120px) {
+  .collections-featured-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .collections-directory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .collections-mood-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .collections-hero-panel,
+  .collection-detail-hero-panel {
+    min-height: 420px;
+    padding: 30px 22px;
+    background:
+      linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(4, 6, 9, 0.84) 52%, rgba(5, 8, 11, 0.36) 100%),
+      linear-gradient(180deg, rgba(3, 5, 8, 0.1) 30%, rgba(3, 5, 8, 0.82) 100%),
+      url("/images/hero-archive-dish.png") 64% center / cover no-repeat,
+      #05070a;
+  }
+
+  .collections-hero-copy h1,
+  .collection-detail-hero-copy h1 {
+    max-width: 11ch;
+    font-size: clamp(2.5rem, 10vw, 4.3rem);
+  }
+
+  .collections-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .collections-stat-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .collections-stat-card:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .collections-directory-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .collections-sort-field {
+    justify-content: space-between;
+  }
+
+  .collection-detail-hero-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-detail-art {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .collections-main,
+  .collection-detail-main {
+    gap: 14px;
+  }
+
+  .collections-hero-panel,
+  .collection-detail-hero-panel {
+    min-height: 380px;
+    border-radius: 22px;
+  }
+
+  .collections-hero-actions {
+    align-items: stretch;
+  }
+
+  .collections-primary-action,
+  .collections-secondary-action {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .collections-mood-panel,
+  .collections-featured-section,
+  .collections-directory-section {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .collections-stat-grid,
+  .collections-featured-grid,
+  .collections-directory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .collections-stat-card {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .collections-stat-card:last-child {
+    border-bottom: 0;
+  }
+
+  .collections-section-heading {
+    align-items: start;
+  }
+
+  .collections-mood-chips {
+    margin: 0 -6px;
+    padding: 0 6px 4px;
+  }
+
+  .collection-cover-collage {
+    min-height: 180px;
+  }
+}

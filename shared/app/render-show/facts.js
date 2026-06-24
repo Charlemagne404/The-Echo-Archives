@@ -1,6 +1,7 @@
 import { createSubmissionHref } from "../urls.js";
 import {
   escapeHtml,
+  formatDate,
   getArchivePerspectiveText,
   getCreatorNetworkLabel,
   getKnownDateLabel,
@@ -51,6 +52,7 @@ export function renderFactsLinksCard(show) {
 
       <dl class="detail-fact-list">
         ${renderFactRow("Creator / network", creatorNetwork.text, { isEmpty: creatorNetwork.isEmpty })}
+        ${renderVerificationRow(show)}
         ${renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true })}
         ${renderFactRow("Status", renderStatusPills(show), { html: true })}
         ${renderFactRow("Seasons / episodes", seasonsEpisodes.text, { isEmpty: seasonsEpisodes.isEmpty })}
@@ -76,6 +78,29 @@ export function renderCorrectionSection(show) {
       )}">Suggest a correction</a>
     </section>
   `;
+}
+
+function renderVerificationRow(show) {
+  const verification = show.verification || {};
+  if (!verification.status) {
+    return "";
+  }
+
+  const status = toDisplayTag(verification.status);
+  const verifiedAt = verification.verifiedAt ? `Checked ${formatDate(verification.verifiedAt)}` : "";
+  const note = "Factual metadata only";
+
+  return renderFactRow(
+    "Fact check",
+    `
+      <div class="detail-verification-value">
+        <span>${escapeHtml(status)}</span>
+        ${verifiedAt ? `<small>${escapeHtml(verifiedAt)}</small>` : ""}
+        <small>${escapeHtml(note)}</small>
+      </div>
+    `,
+    { html: true },
+  );
 }
 
 function renderFactRow(label, value, { html = false, isEmpty = false } = {}) {

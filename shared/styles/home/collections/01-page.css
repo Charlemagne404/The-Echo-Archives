@@ -1,0 +1,294 @@
+.collections-main,
+.collection-detail-main {
+  gap: 18px;
+}
+
+.collections-hero {
+  margin-bottom: 0;
+}
+
+.collections-hero-panel,
+.collection-detail-hero-panel {
+  min-height: clamp(390px, 47vw, 560px);
+  overflow: hidden;
+  border-radius: 26px;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(4, 6, 9, 0.94) 39%, rgba(5, 8, 11, 0.5) 68%, rgba(6, 8, 11, 0.16) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.04) 46%, rgba(3, 5, 8, 0.52) 82%, rgba(3, 5, 8, 0.9) 100%),
+    url("/images/hero-archive-dish.png") right center / cover no-repeat,
+    #05070a;
+}
+
+.collections-hero-panel::after,
+.collection-detail-hero-panel::after {
+  background:
+    radial-gradient(circle at 58% 68%, color-mix(in srgb, var(--collection-accent, #e54838) 30%, transparent), transparent 13%),
+    radial-gradient(circle at 82% 26%, rgba(255, 255, 255, 0.13), transparent 20%),
+    linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.18) 100%);
+}
+
+.collections-hero-copy {
+  max-width: 650px;
+  align-self: flex-start;
+  padding: 12px 0;
+}
+
+.collection-detail-hero-copy {
+  max-width: 650px;
+  padding: 12px 0;
+}
+
+.collections-hero-copy h1 {
+  max-width: 18ch;
+  white-space: normal;
+  letter-spacing: 0;
+  font-size: clamp(3rem, 4.5vw, 4.9rem);
+  line-height: 0.96;
+}
+
+.collection-detail-hero-copy h1 {
+  max-width: 12ch;
+  white-space: normal;
+  letter-spacing: 0;
+  font-size: clamp(3rem, 5.2vw, 5.8rem);
+  line-height: 0.96;
+}
+
+.collections-hero-copy p,
+.collection-detail-hero-copy p {
+  max-width: 42ch;
+}
+
+.collections-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.collections-primary-action {
+  min-height: 48px;
+  padding: 0 20px;
+  border-color: rgba(229, 72, 56, 0.7);
+  background: linear-gradient(180deg, rgba(229, 72, 56, 0.95), rgba(159, 41, 31, 0.92));
+  color: #fff7f4;
+  font-weight: 700;
+  box-shadow: 0 18px 32px rgba(229, 72, 56, 0.2);
+}
+
+.collections-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(6, 8, 11, 0.62);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font: inherit;
+}
+
+.collections-mood-panel,
+.collections-stat-grid,
+.collections-featured-section,
+.collections-directory-section {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012)),
+    rgba(8, 11, 15, 0.82);
+  box-shadow: var(--shadow-md);
+}
+
+.collections-mood-panel {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.22fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+}
+
+.collections-mood-heading h2 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  letter-spacing: 0;
+}
+
+.collections-mood-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.collections-mood-chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.collections-mood-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 13px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 11, 15, 0.7);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.collections-mood-chip svg {
+  width: 18px;
+  height: 18px;
+  color: rgba(247, 247, 243, 0.76);
+}
+
+.collections-mood-chip strong {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(247, 247, 243, 0.72);
+  font-size: 0.72rem;
+}
+
+.collections-mood-chip:hover,
+.collections-mood-chip:focus-visible,
+.collections-mood-chip[aria-pressed="true"] {
+  border-color: rgba(229, 72, 56, 0.5);
+  background: rgba(44, 19, 15, 0.9);
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.collections-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.collections-stat-card {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 18px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.collections-stat-card:last-child {
+  border-right: 0;
+}
+
+.collections-stat-card span {
+  color: rgba(247, 247, 243, 0.52);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.collections-stat-card strong {
+  min-width: 0;
+  color: var(--text-primary);
+  font-size: clamp(1.55rem, 2.4vw, 2.4rem);
+  line-height: 1;
+}
+
+.collections-featured-section,
+.collections-directory-section {
+  padding: 22px;
+}
+
+.collections-section-heading {
+  margin-bottom: 18px;
+}
+
+.collections-section-heading p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.collections-directory-toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.collections-search-field,
+.collections-sort-field {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(4, 7, 10, 0.7);
+}
+
+.collections-search-field {
+  position: relative;
+}
+
+.collections-search-field span {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  color: var(--text-muted);
+}
+
+.collections-search-field svg {
+  width: 18px;
+  height: 18px;
+}
+
+.collections-search-field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  margin: 0;
+  padding: 0 14px 0 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.96rem;
+}
+
+.collections-search-field input:focus,
+.collections-sort-field select:focus {
+  outline: none;
+}
+
+.collections-sort-field {
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.collections-sort-field span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.collections-sort-field select {
+  min-height: 38px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+}

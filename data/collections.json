@@ -3,94 +3,343 @@
     "id": "best-for-long-walks",
     "title": "Best for long walks",
     "description": "Long-burn shows with enough momentum to carry a full walk without going slack.",
+    "label": "Long-burn route",
     "kind": "curated",
-    "showIds": [
-      "impact-winter",
-      "derelict",
-      "midnight-burger",
-      "the-white-vault",
-      "wolf-359",
-      "tower-4"
-    ],
+    "intentTags": ["long-walks", "headphones-on", "binge-listening"],
+    "commitment": "Long-form",
+    "coverShowIds": ["impact-winter", "derelict", "midnight-burger", "the-white-vault"],
+    "showIds": ["impact-winter", "derelict", "midnight-burger", "the-white-vault", "wolf-359", "tower-4"],
+    "showReasons": {
+      "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
+      "derelict": "Dense sound design and high-pressure mystery reward a longer listening block.",
+      "midnight-burger": "Warm serialized chaos keeps moving without becoming punishing.",
+      "the-white-vault": "Bleak expedition pressure works especially well when you have time to sink in.",
+      "wolf-359": "A long-running station story with enough turns to carry a full route.",
+      "tower-4": "Remote-watch tension gives the walk a steady sense of unease."
+    },
     "featured": true,
-    "updatedAt": "2026-06-02"
-  },
-  {
-    "id": "serious-sci-fi",
-    "title": "Serious sci-fi",
-    "description": "High-stakes science fiction with a stronger appetite for tension than banter.",
-    "kind": "curated",
-    "showIds": [
-      "impact-winter",
-      "ars-paradoxica",
-      "solar",
-      "vast-horizon",
-      "derelict",
-      "spectre"
-    ],
-    "featured": true,
-    "updatedAt": "2026-06-02"
-  },
-  {
-    "id": "funny-space-disasters",
-    "title": "Funny space disasters",
-    "description": "Shipboard chaos, station nonsense, and the kind of space comedy that keeps spiraling outward.",
-    "kind": "curated",
-    "showIds": [
-      "oz-9",
-      "eos-10",
-      "wolf-359",
-      "station-151",
-      "midnight-burger",
-      "crystal-blue"
-    ],
-    "featured": true,
-    "updatedAt": "2026-06-02"
-  },
-  {
-    "id": "cold-isolation-horror",
-    "title": "Cold isolation horror",
-    "description": "Bleak settings, locked-in pressure, and the feeling that the air itself is against you.",
-    "kind": "curated",
-    "showIds": [
-      "the-white-vault",
-      "tower-4",
-      "station-151",
-      "impact-winter",
-      "how-i-died",
-      "the-phenomenon"
-    ],
-    "featured": true,
-    "updatedAt": "2026-06-02"
-  },
-  {
-    "id": "time-bent-and-weird",
-    "title": "Time-bent and weird",
-    "description": "Loops, paradoxes, and shows that start by pulling the floor out from causality.",
-    "kind": "curated",
-    "showIds": [
-      "from-now",
-      "ars-paradoxica",
-      "red-valley",
-      "midnight-burger"
-    ],
-    "featured": false,
-    "updatedAt": "2026-06-02"
+    "order": 10,
+    "createdAt": "2026-06-01",
+    "updatedAt": "2026-06-23"
   },
   {
     "id": "easy-first-steps",
     "title": "Easy first steps",
     "description": "Accessible archive picks for someone who wants a clear entry point instead of a homework assignment.",
+    "label": "Low friction",
     "kind": "curated",
-    "showIds": [
-      "story",
-      "desert-skies",
-      "wolf-359",
-      "how-i-died",
-      "vast-horizon",
-      "midnight-burger"
-    ],
+    "intentTags": ["easy-first-step", "warm-weird", "quick-listens"],
+    "commitment": "Easy entry",
+    "coverShowIds": ["desert-skies", "story", "wolf-359", "midnight-burger"],
+    "showIds": ["story", "desert-skies", "wolf-359", "how-i-died", "vast-horizon", "midnight-burger"],
+    "showReasons": {
+      "story": "A warmer entry point with clear genre hooks and low barrier to sampling.",
+      "desert-skies": "Gentle, strange, and immediately legible for newer fiction-podcast listeners.",
+      "wolf-359": "A familiar station-comedy doorway into longer serialized audio drama.",
+      "how-i-died": "A direct supernatural mystery premise with a clean first-listen hook.",
+      "vast-horizon": "Large-scale sci-fi with an accessible survival spine.",
+      "midnight-burger": "A welcoming tonal blend for listeners who want weird without feeling lost."
+    },
+    "featured": true,
+    "order": 20,
+    "createdAt": "2026-06-01",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "serious-sci-fi",
+    "title": "Serious sci-fi",
+    "description": "High-stakes science fiction with a stronger appetite for tension than banter.",
+    "label": "Signal dense",
+    "kind": "curated",
+    "intentTags": ["serious-sci-fi", "headphones-on", "late-night"],
+    "commitment": "Medium to long",
+    "coverShowIds": ["derelict", "impact-winter", "ars-paradoxica", "solar"],
+    "showIds": ["impact-winter", "ars-paradoxica", "solar", "vast-horizon", "derelict", "spectre"],
+    "showReasons": {
+      "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
+      "ars-paradoxica": "Time-science plotting and consequences make it one of the archive's denser sci-fi routes.",
+      "solar": "Tense space survival keeps the scope tight and the stakes immediate.",
+      "vast-horizon": "Expansive setting and survival structure give it a serious long-haul spine.",
+      "derelict": "Dark industrial mystery and detailed audio design fit the high-stakes lane.",
+      "spectre": "A darker sci-fi mystery pick for listeners who want a sharper edge."
+    },
+    "featured": true,
+    "order": 30,
+    "createdAt": "2026-06-01",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "funny-space-disasters",
+    "title": "Funny space disasters",
+    "description": "Shipboard chaos, station nonsense, and the kind of space comedy that keeps spiraling outward.",
+    "label": "Comic chaos",
+    "kind": "curated",
+    "intentTags": ["funny-space", "easy-first-step", "warm-weird"],
+    "commitment": "Flexible",
+    "coverShowIds": ["oz-9", "midnight-burger", "wolf-359", "eos-10"],
+    "showIds": ["oz-9", "eos-10", "wolf-359", "station-151", "midnight-burger", "crystal-blue"],
+    "showReasons": {
+      "oz-9": "Maximum shipboard dysfunction for listeners who want comedy first.",
+      "eos-10": "Medical-station chaos keeps the sci-fi frame light and approachable.",
+      "wolf-359": "Classic space-station banter that can turn more serious when needed.",
+      "station-151": "A colder, stranger edge keeps the comedy from feeling too soft.",
+      "midnight-burger": "Cosmic warmth and absurdity make it an easy bridge from comedy into story.",
+      "crystal-blue": "A compact extra dose of weird sci-fi humor."
+    },
+    "featured": true,
+    "order": 40,
+    "createdAt": "2026-06-01",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "cold-isolation-horror",
+    "title": "Cold isolation horror",
+    "description": "Bleak settings, locked-in pressure, and the feeling that the air itself is against you.",
+    "label": "Late-night cold",
+    "kind": "curated",
+    "intentTags": ["cold-horror", "late-night", "headphones-on"],
+    "commitment": "Tense route",
+    "coverShowIds": ["the-white-vault", "tower-4", "the-phenomenon", "how-i-died"],
+    "showIds": ["the-white-vault", "tower-4", "station-151", "impact-winter", "how-i-died", "the-phenomenon"],
+    "showReasons": {
+      "the-white-vault": "Remote expedition horror is the clearest expression of this route.",
+      "tower-4": "Isolation and surveillance make the quiet stretches feel dangerous.",
+      "station-151": "A strange station premise adds cold absurdity to the pressure.",
+      "impact-winter": "Endless winter and survival stakes bring a bigger cinematic chill.",
+      "how-i-died": "Supernatural investigation keeps the horror direct and readable.",
+      "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile."
+    },
+    "featured": true,
+    "order": 50,
+    "createdAt": "2026-06-01",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "time-bent-and-weird",
+    "title": "Time-bent and weird",
+    "description": "Loops, paradoxes, and shows that start by pulling the floor out from causality.",
+    "label": "Mind-bending",
+    "kind": "curated",
+    "intentTags": ["time-bent", "late-night", "serious-sci-fi"],
+    "commitment": "Puzzle route",
+    "coverShowIds": ["ars-paradoxica", "from-now", "red-valley", "midnight-burger"],
+    "showIds": ["from-now", "ars-paradoxica", "red-valley", "midnight-burger"],
+    "showReasons": {
+      "from-now": "A compact sci-fi premise with enough dislocation to start the route quickly.",
+      "ars-paradoxica": "The archive's strongest time-science backbone.",
+      "red-valley": "Uneasy mystery and strange science keep the floor shifting.",
+      "midnight-burger": "Cosmic weirdness adds a warmer, funnier turn to the time-bent lane."
+    },
     "featured": false,
-    "updatedAt": "2026-06-02"
+    "order": 60,
+    "createdAt": "2026-06-01",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "late-night-tension",
+    "title": "Late-night tension",
+    "description": "Shows for when quiet rooms, suspicious signals, and bad choices sound better after dark.",
+    "label": "After-dark pressure",
+    "kind": "curated",
+    "intentTags": ["late-night", "cold-horror", "time-bent"],
+    "commitment": "Night listen",
+    "coverShowIds": ["solar", "the-deca-tapes", "windfall", "red-valley"],
+    "showIds": ["solar", "the-deca-tapes", "windfall", "red-valley", "spectre", "paralyzed", "tower-4"],
+    "showReasons": {
+      "solar": "Tight survival tension fits a focused night listen.",
+      "the-deca-tapes": "Closed-room mystery and weird structure make it hard to relax.",
+      "windfall": "Dark political pressure keeps the route grounded and tense.",
+      "red-valley": "Strange science and unanswered questions suit late listening.",
+      "spectre": "A darker sci-fi mystery option for a shorter route.",
+      "paralyzed": "Direct supernatural dread belongs in the after-dark lane.",
+      "tower-4": "Remote isolation keeps the atmosphere sparse and uneasy."
+    },
+    "featured": false,
+    "order": 70,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "headphones-on-immersion",
+    "title": "Headphones-on immersion",
+    "description": "Dense sound, strong atmosphere, and stories that reward close listening.",
+    "label": "Sound-forward",
+    "kind": "curated",
+    "intentTags": ["headphones-on", "serious-sci-fi", "long-walks"],
+    "commitment": "Immersive",
+    "coverShowIds": ["derelict", "impact-winter", "solar", "the-white-vault"],
+    "showIds": ["impact-winter", "derelict", "solar", "vast-horizon", "ars-paradoxica", "the-white-vault"],
+    "showReasons": {
+      "impact-winter": "Big scenes and layered production make headphones worthwhile.",
+      "derelict": "Industrial detail and tension benefit from close attention.",
+      "solar": "The isolated space setting lands best when the sound can breathe.",
+      "vast-horizon": "Expansive sci-fi atmosphere gives the route scale.",
+      "ars-paradoxica": "Dense plotting rewards listeners who are fully tuned in.",
+      "the-white-vault": "Environmental audio and cold pressure make the isolation sharper."
+    },
+    "featured": false,
+    "order": 80,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "finished-arcs",
+    "title": "Finished arcs",
+    "description": "Routes with a clearer runway for listeners who do not want to chase an open thread first.",
+    "label": "No cliffhanger hunt",
+    "kind": "curated",
+    "intentTags": ["finished", "easy-first-step", "time-bent"],
+    "commitment": "Defined arc",
+    "coverShowIds": ["wolf-359", "ars-paradoxica", "solar", "from-now"],
+    "showIds": ["solar", "from-now", "vast-horizon", "ars-paradoxica", "wolf-359", "the-phenomenon"],
+    "showReasons": {
+      "solar": "A contained first season gives the route a clear shape.",
+      "from-now": "Short, finished, and easy to sample without a long commitment.",
+      "vast-horizon": "A finished sci-fi survival arc for listeners wanting more scale.",
+      "ars-paradoxica": "A completed time-science route with enough depth for a real dive.",
+      "wolf-359": "A finished long-form station story with a known endpoint.",
+      "the-phenomenon": "Completed large-scale tension for listeners who want closure first."
+    },
+    "featured": false,
+    "order": 90,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "quick-first-listens",
+    "title": "Quick first listens",
+    "description": "Shorter or easier-to-sample paths when you want a taste before committing.",
+    "label": "Short runway",
+    "kind": "curated",
+    "intentTags": ["quick-listens", "easy-first-step", "late-night"],
+    "commitment": "Shorter start",
+    "coverShowIds": ["from-now", "solar", "desert-skies", "the-phenomenon"],
+    "showIds": ["from-now", "solar", "desert-skies", "the-phenomenon", "the-deca-tapes"],
+    "showReasons": {
+      "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
+      "solar": "A focused survival premise gets moving fast.",
+      "desert-skies": "Warm strangeness makes it easy to try without bracing.",
+      "the-phenomenon": "A finished pressure story with a direct hook.",
+      "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand."
+    },
+    "featured": false,
+    "order": 100,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "warm-weird-comfort",
+    "title": "Warm weird comfort",
+    "description": "Gentler strange stories for when you want odd worlds without being crushed by them.",
+    "label": "Strange but kind",
+    "kind": "curated",
+    "intentTags": ["warm-weird", "easy-first-step", "funny-space"],
+    "commitment": "Comfort route",
+    "coverShowIds": ["midnight-burger", "desert-skies", "story", "the-waystation"],
+    "showIds": ["midnight-burger", "desert-skies", "story", "the-waystation", "eos-10", "wolf-359"],
+    "showReasons": {
+      "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
+      "desert-skies": "Gentle surrealism keeps the route soft around the edges.",
+      "story": "Hopeful drama gives the collection a grounded entry point.",
+      "the-waystation": "Hopeful sci-fi atmosphere adds exploration without harshness.",
+      "eos-10": "Comedy and character friction keep the sci-fi light.",
+      "wolf-359": "A funny space-station opener that can deepen over time."
+    },
+    "featured": false,
+    "order": 110,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "survival-pressure",
+    "title": "Survival pressure",
+    "description": "Stories where the next decision matters and the world keeps closing in.",
+    "label": "Keep moving",
+    "kind": "curated",
+    "intentTags": ["long-walks", "late-night", "cold-horror"],
+    "commitment": "High pressure",
+    "coverShowIds": ["were-alive", "impact-winter", "end-of-all-hope", "derelict"],
+    "showIds": ["were-alive", "impact-winter", "end-of-all-hope", "the-phenomenon", "the-white-vault", "derelict"],
+    "showReasons": {
+      "were-alive": "Long-running ensemble survival gives the route its endurance.",
+      "impact-winter": "Survival stakes and cinematic pace make the danger immediate.",
+      "end-of-all-hope": "Ongoing apocalypse pressure fits the keep-moving premise.",
+      "the-phenomenon": "Large-scale threat gives the collection a bleak public edge.",
+      "the-white-vault": "Environmental survival turns isolation into the threat.",
+      "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant."
+    },
+    "featured": false,
+    "order": 120,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "worldbuilding-deep-dives",
+    "title": "Worldbuilding deep dives",
+    "description": "Bigger worlds and longer arcs for listeners who want systems, history, and scope.",
+    "label": "Big worlds",
+    "kind": "curated",
+    "intentTags": ["long-walks", "headphones-on", "worldbuilding"],
+    "commitment": "Deep dive",
+    "coverShowIds": ["midnight-burger", "vast-horizon", "ars-paradoxica", "impact-winter"],
+    "showIds": ["midnight-burger", "vast-horizon", "ars-paradoxica", "impact-winter", "the-waystation", "were-alive"],
+    "showReasons": {
+      "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
+      "vast-horizon": "A large sci-fi setting gives the route scale quickly.",
+      "ars-paradoxica": "Its time-science structure builds a dense alternate-history frame.",
+      "impact-winter": "A cinematic survival world with enough lore to keep expanding.",
+      "the-waystation": "Exploratory sci-fi gives the collection a hopeful angle.",
+      "were-alive": "A long survival saga with room for factions, geography, and consequence."
+    },
+    "featured": false,
+    "order": 130,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "shows-like-midnight-burger",
+    "title": "Shows like Midnight Burger",
+    "description": "Warm, funny, cosmic-adjacent shows for listeners chasing that strange found-family feeling.",
+    "label": "Warm cosmic weird",
+    "kind": "similarity",
+    "intentTags": ["funny-space", "easy-first-step", "warm-weird"],
+    "commitment": "Similarity route",
+    "coverShowIds": ["desert-skies", "wolf-359", "oz-9", "the-waystation"],
+    "showIds": ["desert-skies", "eos-10", "wolf-359", "oz-9", "the-waystation", "crystal-blue"],
+    "showReasons": {
+      "desert-skies": "A warm, strange doorway for listeners who liked the comfort side.",
+      "eos-10": "Space comedy and found-character friction keep it adjacent.",
+      "wolf-359": "Station comedy that grows into deeper character stakes.",
+      "oz-9": "Bigger comic chaos for the absurd-space end of the lane.",
+      "the-waystation": "Hopeful sci-fi exploration keeps the mood generous.",
+      "crystal-blue": "A smaller weird-comedy signal for another quick branch."
+    },
+    "featured": false,
+    "order": 140,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
+  },
+  {
+    "id": "shows-like-derelict",
+    "title": "Shows like Derelict",
+    "description": "Dark sci-fi mysteries with pressure, atmosphere, and a signal you probably should not follow.",
+    "label": "Signal-dark tension",
+    "kind": "similarity",
+    "intentTags": ["serious-sci-fi", "headphones-on", "cold-horror"],
+    "commitment": "Similarity route",
+    "coverShowIds": ["solar", "impact-winter", "earth-eclipsed", "spectre"],
+    "showIds": ["solar", "impact-winter", "ars-paradoxica", "vast-horizon", "spectre", "earth-eclipsed"],
+    "showReasons": {
+      "solar": "Contained space survival gives a similar pressure-first entry.",
+      "impact-winter": "Cinematic danger and genre stakes keep the route big.",
+      "ars-paradoxica": "Dense sci-fi mystery rewards listeners who liked following clues.",
+      "vast-horizon": "Survival and scale make it a wider sci-fi branch.",
+      "spectre": "A darker mystery signal for listeners who want less warmth.",
+      "earth-eclipsed": "High-stakes sci-fi tension broadens the route's scope."
+    },
+    "featured": false,
+    "order": 150,
+    "createdAt": "2026-06-23",
+    "updatedAt": "2026-06-23"
   }
 ]

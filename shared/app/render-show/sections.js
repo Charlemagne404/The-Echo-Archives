@@ -27,13 +27,13 @@ export function renderOfficialSummarySection(show) {
 
 export function renderOverviewSection(show) {
   const isFullReview = show.reviewStatus === "full-review";
+  if (!isFullReview) {
+    return "";
+  }
+
   const reviewTitle = isFullReview ? "Spoiler-free review summary" : "Archive summary";
-  const reviewIntro = isFullReview
-    ? "Quick context before you drop into the longer archive notes."
-    : "This entry is indexed and recommendation-ready even though the full review has not been published yet.";
-  const reviewCopy = isFullReview
-    ? renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview || show.description)
-    : `<p>${escapeHtml(getArchivePerspectiveText(show))}</p>`;
+  const reviewIntro = "Quick context before you drop into the longer archive notes.";
+  const reviewCopy = renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview || show.description);
   const scoreCard = renderScoreBreakdownCard(show);
 
   return `
@@ -85,13 +85,13 @@ export function renderReviewSection(show) {
       <div class="detail-section-header">
         <div>
           <h2>Archive note</h2>
-          <p>This show is indexed and recommendation-ready, but the long-form archive review has not been published yet.</p>
+          <p>Indexed and recommendation-ready, with the longer archive review still unpublished.</p>
         </div>
       </div>
 
       <div class="detail-review-grid detail-review-grid-single">
-        <article class="detail-summary">
-          <h3>Why it is here</h3>
+        <article class="detail-summary detail-archive-note-summary">
+          <span class="detail-summary-kicker">Why it is here</span>
           <p>${escapeHtml(getArchivePerspectiveText(show))}</p>
         </article>
       </div>

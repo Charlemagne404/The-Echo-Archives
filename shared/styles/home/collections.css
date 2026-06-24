@@ -1,1 +1,3 @@
-/* Collection-specific extraction is intentionally deferred to preserve the current cascade exactly. */
+@import "./collections/01-page.css";
+@import "./collections/02-cards.css";
+@import "./collections/03-responsive.css";

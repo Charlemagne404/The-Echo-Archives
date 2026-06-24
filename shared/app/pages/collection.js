@@ -9,7 +9,11 @@ import {
 } from "../data.js";
 import { syncCommunityCardBadges } from "../community.js";
 import { createCollectionShowCard } from "../render-cards.js";
-import { getCollectionShowReason } from "../render-collections.js";
+import {
+  createCollectionCoverCollage,
+  createCollectionIntentTagList,
+  getCollectionShowReason,
+} from "../render-collections.js";
 import { createArchiveCollectionHref } from "../urls.js";
 import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
 
@@ -25,6 +29,7 @@ export async function initializeCollectionPage() {
   const root = document.getElementById("collectionRoot");
   const grid = document.getElementById("collectionShowGrid");
   const archiveSection = document.getElementById("collectionArchiveSection");
+  const heroArt = document.getElementById("collectionHeroArt");
 
   if (!root || !grid || !archiveSection) {
     return;
@@ -37,6 +42,8 @@ export async function initializeCollectionPage() {
       path: "/collection.html",
       image: DEFAULT_SOCIAL_IMAGE,
     });
+    setTextContent("collectionTitle", "Collection not found");
+    setTextContent("collectionDescription", "The requested collection is missing or has not been published yet.");
     root.innerHTML = `
       <article class="page-card">
         <h2>Collection not found</h2>
@@ -63,13 +70,40 @@ export async function initializeCollectionPage() {
   setTextContent("collectionTitle", collection.title);
   setTextContent("collectionDescription", collection.description);
   setTextContent("collectionShowCount", String(collectionShows.length));
+  setTextContent("collectionCommitment", collection.commitment || "Curated");
   setTextContent("collectionKind", toDisplayTag(collection.kind || "curated"));
-  setTextContent("collectionFeatured", collection.featured ? "Yes" : "No");
   setTextContent("collectionLastUpdated", collection.updatedAt ? formatDate(collection.updatedAt) : "Unknown");
+  setTextContent(
+    "collectionShowsSummary",
+    `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"} selected for this route.`,
+  );
+
+  const heroTags = document.getElementById("collectionHeroTags");
+  if (heroTags) {
+    heroTags.textContent = "";
+    heroTags.appendChild(createCollectionIntentTagList(collection, 5));
+  }
+
+  if (heroArt) {
+    heroArt.textContent = "";
+    heroArt.appendChild(createCollectionCoverCollage(collection, collectionShows, {
+      className: "collection-cover-collage collection-detail-collage",
+    }));
+  }
+
+  const accent = collectionShows.find((show) => show?.accent?.hex)?.accent?.hex;
+  const heroPanel = document.getElementById("collectionHeroPanel");
+  if (accent && heroPanel) {
+    heroPanel.style.setProperty("--collection-accent", accent);
+  }
 
   const archiveLink = document.getElementById("collectionArchiveLink");
+  const archiveHeroLink = document.getElementById("collectionArchiveHeroLink");
   if (archiveLink) {
     archiveLink.href = createArchiveCollectionHref(collection.id);
+  }
+  if (archiveHeroLink) {
+    archiveHeroLink.href = createArchiveCollectionHref(collection.id);
   }
 
   grid.textContent = "";

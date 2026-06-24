@@ -2,6 +2,8 @@ import { createArchiveGenreHref } from "../urls.js";
 import {
   escapeHtml,
   formatRating,
+  formatCompactDate,
+  getCreatorNetworkLabel,
   getCompletionNote,
   getHeroFormatNote,
   getHeroFormatValue,
@@ -10,6 +12,15 @@ import {
   getReleaseNote,
   toDisplayTag,
 } from "./utils.js";
+
+const HERO_LINK_LABELS = {
+  website: "Website",
+  apple: "Apple",
+  spotify: "Spotify",
+  rss: "RSS",
+};
+
+const HERO_LINK_ORDER = ["website", "apple", "spotify", "rss"];
 
 export function renderDetailHero(show) {
   const statusChips = [];
@@ -24,6 +35,7 @@ export function renderDetailHero(show) {
   if (show.tags[0]) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
   }
+  const primaryLink = getHeroPrimaryListenLink(show);
 
   return `
     <section class="detail-hero-shell">
@@ -32,35 +44,46 @@ export function renderDetailHero(show) {
 
         <div class="detail-hero-grid">
           <div class="detail-hero-copy">
-            <div class="detail-status-row">
-              ${statusChips.join("")}
-            </div>
-
             <header class="detail-title-group">
+              <div class="detail-status-row">
+                ${statusChips.join("")}
+              </div>
               <h1>${escapeHtml(show.title)}</h1>
               ${show.subtitle ? `<p class="detail-subtitle">${escapeHtml(show.subtitle)}</p>` : ""}
               ${renderHeroKeyTags(show)}
             </header>
 
-            <div class="detail-meta-grid">
-              ${renderHeroMetaCard("Archive rating", `${formatRating(show.finalRating)}/10`, "Echo score")}
-              ${renderHeroCommunityMetaCard()}
-              ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)), escapeHtml(getHeroRuntimeNote(show)))}
-              ${renderHeroMetaCard("Format", escapeHtml(getHeroFormatValue(show)), escapeHtml(getHeroFormatNote(show)))}
-              ${renderHeroMetaCard(
-                "Completion",
-                escapeHtml(toDisplayTag(show.completionStatus || "unclear")),
-                escapeHtml(getCompletionNote(show)),
-              )}
-              ${renderHeroMetaCard(
-                "Release status",
-                escapeHtml(toDisplayTag(show.releaseStatus || "unknown")),
-                escapeHtml(getReleaseNote(show)),
-              )}
+            <div class="detail-decision-console" aria-label="Quick listening decision">
+              <div class="detail-score-cluster">
+                ${renderHeroScoreCard("Archive rating", `${formatRating(show.finalRating)}/10`, "Echo score", "archive")}
+                ${renderHeroCommunityMetaCard()}
+              </div>
+
+              <div class="detail-meta-grid">
+                ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)), escapeHtml(getHeroRuntimeNote(show)))}
+                ${renderHeroMetaCard("Format", escapeHtml(getHeroFormatValue(show)), escapeHtml(getHeroFormatNote(show)))}
+                ${renderHeroMetaCard(
+                  "Completion",
+                  escapeHtml(toDisplayTag(show.completionStatus || "unclear")),
+                  escapeHtml(getCompletionNote(show)),
+                )}
+                ${renderHeroMetaCard(
+                  "Release status",
+                  escapeHtml(toDisplayTag(show.releaseStatus || "unknown")),
+                  escapeHtml(getReleaseNote(show)),
+                )}
+              </div>
+
+              ${renderHeroTrustBar(show)}
             </div>
 
             <div class="detail-actions">
-              <a class="detail-primary-action" href="#review-notes">Review notes</a>
+              ${
+                primaryLink
+                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">Open ${escapeHtml(primaryLink.label)}</a>`
+                  : '<a class="detail-primary-action detail-listen-action" href="#facts-links">Find listen links</a>'
+              }
+              <a class="detail-secondary-action" href="#review-notes">Review notes</a>
               <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
             </div>
           </div>
@@ -69,6 +92,7 @@ export function renderDetailHero(show) {
             <div class="detail-cover-card">
               <img src="/${escapeHtml(show.cover)}" alt="${escapeHtml(show.coverAlt)}" />
             </div>
+            ${renderHeroCoverNote(show)}
           </div>
         </div>
       </div>
@@ -104,11 +128,23 @@ function renderHeroMetaCard(label, value, note = "") {
   `;
 }
 
+function renderHeroScoreCard(label, value, note = "", type = "") {
+  const modifier = type ? ` detail-score-card-${type}` : "";
+
+  return `
+    <article class="detail-hero-score-card${modifier}">
+      <span class="detail-meta-label">${label}</span>
+      <strong class="detail-hero-score-value">${value}</strong>
+      ${note ? `<span class="detail-meta-note">${note}</span>` : ""}
+    </article>
+  `;
+}
+
 function renderHeroCommunityMetaCard() {
   return `
-    <article class="detail-meta-card detail-meta-card-community">
+    <article class="detail-hero-score-card detail-meta-card-community">
       <span class="detail-meta-label">Community rating</span>
-      <span class="detail-meta-value" data-community-hero-rating>--/10</span>
+      <strong class="detail-hero-score-value" data-community-hero-rating>--/10</strong>
       <span class="detail-meta-note" data-community-hero-count>No ratings yet</span>
     </article>
   `;
@@ -128,6 +164,77 @@ function renderHeroKeyTags(show) {
       </div>
     </div>
   `;
+}
+
+function renderHeroTrustBar(show) {
+  const creatorNetwork = getCreatorNetworkLabel(show);
+  const verification = getHeroVerificationLabel(show);
+  const items = [
+    { label: "Creator / network", value: creatorNetwork.text, isEmpty: creatorNetwork.isEmpty },
+    verification,
+  ].filter(Boolean);
+
+  if (items.length === 0) {
+    return "";
+  }
+
+  return `
+    <div class="detail-hero-trust-bar" aria-label="Archive trust signals">
+      ${items
+        .map(
+          (item) => `
+            <article class="detail-hero-trust-item${item.isEmpty ? " is-empty" : ""}">
+              <span class="detail-meta-label">${escapeHtml(item.label)}</span>
+              <span>${escapeHtml(item.value)}</span>
+            </article>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderHeroCoverNote(show) {
+  const releaseStatus = toDisplayTag(show.releaseStatus || "unknown");
+  const reviewStatus = toDisplayTag(show.reviewStatus || "unknown");
+
+  return `
+    <div class="detail-cover-note" aria-label="Archive status">
+      <span>${escapeHtml(reviewStatus)}</span>
+      <span>${escapeHtml(releaseStatus)}</span>
+    </div>
+  `;
+}
+
+function getHeroVerificationLabel(show) {
+  if (!show.verification?.status) {
+    return null;
+  }
+
+  const status = toDisplayTag(show.verification.status);
+  const verifiedAt = show.verification.verifiedAt ? ` • ${formatCompactDate(show.verification.verifiedAt)}` : "";
+
+  return {
+    label: "Fact check",
+    value: `${status}${verifiedAt}`,
+    isEmpty: false,
+  };
+}
+
+function getHeroPrimaryListenLink(show) {
+  const links = show.listenLinks || {};
+
+  for (const key of HERO_LINK_ORDER) {
+    if (links[key]) {
+      return {
+        key,
+        href: links[key],
+        label: HERO_LINK_LABELS[key] || toDisplayTag(key),
+      };
+    }
+  }
+
+  return null;
 }
 
 function renderBestForStrip(show) {
