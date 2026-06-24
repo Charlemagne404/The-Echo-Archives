@@ -66,6 +66,17 @@
   .detail-ratings-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .detail-correction-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-correction-action {
+    padding-top: 22px;
+    padding-left: 0;
+    border-top: 1px solid rgba(var(--community-accent-rgb), 0.2);
+    border-left: 0;
+  }
 }
 
 @media (max-width: 920px) {
@@ -195,6 +206,31 @@
 
   .community-review-actions {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-correction-section {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .detail-correction-section::after {
+    width: 42%;
+  }
+
+  .detail-correction-copy h2 {
+    max-width: none;
+    font-size: clamp(2rem, 11vw, 2.65rem);
+  }
+
+  .detail-correction-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .detail-correction-list li {
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 38px;
   }
 }
 

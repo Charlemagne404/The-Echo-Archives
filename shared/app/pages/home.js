@@ -34,6 +34,7 @@ import {
 import { initializeFilterDropdownController } from "./home/filter-dropdown.js";
 import { getHomeGridLayoutBucket, patchArchiveGrid, sortVisibleShows } from "./home/layout.js";
 import { createMostPopularController } from "./home/most-popular.js";
+import { syncResultsSummary, syncResultsSurfaceVisibility } from "./home/results-motion.js";
 import { createHomeState } from "./home/state.js";
 import { seedHomeStateFromParams, syncBrowseUrlState } from "./home/url-state.js";
 
@@ -83,12 +84,21 @@ export async function initializeHomePage() {
     popularSection: elements.popularSection,
     popularGrid: elements.popularGrid,
     state,
-    onVisibilityChange: syncFeaturedCollectionsVisibility,
+    onVisibilityChange: (shouldShowMostPopular) => {
+      syncResultsSurfaceVisibility(elements.popularSection, shouldShowMostPopular, {
+        openDurationMs: 250,
+        closeDurationMs: 180,
+        enterOffsetY: 16,
+      });
+      syncFeaturedCollectionsVisibility(shouldShowMostPopular);
+      return true;
+    },
   });
   let collectionCarouselControls = null;
   let searchRenderTimer = 0;
   let pendingRenderReason = "";
   let renderFrame = 0;
+  let hasRenderedHomeResults = false;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
@@ -194,8 +204,16 @@ export async function initializeHomePage() {
     const browsePrefix = `${collectionPrefix}${formatResultsSummaryPrefix(activeDescriptors)}`;
     const searchPrefix = state.query ? `${visibleShows.length} results for "${state.query}"` : `${visibleShows.length} results`;
     const modePrefix = !state.query && state.sortMode === "recently-updated" ? "Recently updated • " : "";
-    elements.resultsSummary.textContent = `${browsePrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`;
-    elements.noResultsMsg.hidden = visibleShows.length !== 0;
+    syncResultsSummary(
+      elements.resultsSummary,
+      `${browsePrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`,
+      { skipAnimation: !hasRenderedHomeResults || changeReason === "initial" },
+    );
+    syncResultsSurfaceVisibility(elements.noResultsMsg, visibleShows.length === 0, {
+      openDurationMs: 220,
+      closeDurationMs: 160,
+      enterOffsetY: 12,
+    });
 
     syncHomeControls({
       quickFiltersRoot: elements.quickFiltersRoot,
@@ -208,6 +226,7 @@ export async function initializeHomePage() {
       selectedCollectionId: state.selectedCollectionId,
       sortMode: state.sortMode,
     });
+    hasRenderedHomeResults = true;
   }
 
   function scheduleHomeResults(changeReason = "explicit") {

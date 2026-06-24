@@ -23,7 +23,9 @@ export function createMostPopularController({
     popularGrid.textContent = "";
 
     if (mostPopularShows.length === 0) {
-      popularSection.hidden = true;
+      if (onVisibilityChange(false, popularSection) !== true) {
+        popularSection.hidden = true;
+      }
       return;
     }
 
@@ -46,8 +48,9 @@ export function createMostPopularController({
 
   function syncMostPopularSectionVisibility() {
     const shouldShow = shouldShowMostPopularSection();
-    popularSection.hidden = !shouldShow;
-    onVisibilityChange(shouldShow);
+    if (onVisibilityChange(shouldShow, popularSection) !== true) {
+      popularSection.hidden = !shouldShow;
+    }
   }
 
   function compareMostPopularShows(left, right) {

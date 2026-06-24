@@ -10,11 +10,17 @@
   --collection-cover-image: linear-gradient(180deg, rgba(14, 18, 23, 0.96), rgba(7, 10, 13, 0.98));
   --collection-focus: 0;
   --collection-focus-weight: 0;
+  --collection-offset-from-center: 0;
+  --collection-depth-pull: 0px;
+  --collection-cover-shift: 0px;
+  --collection-sheen-shift: 0px;
   --collection-hover-scale-boost: 0;
   --collection-hover-lift-boost: 0px;
+  --collection-hover-depth-boost: 0px;
   --collection-ambient-scale: calc(1 + (var(--collection-focus-weight) * var(--collection-focus-scale-max, 0.095)));
   --collection-ambient-lift: calc(var(--collection-focus-weight) * var(--collection-focus-lift-max, 18px) * -1);
   --collection-directional-shift: calc(var(--collection-directional-shift-base, 0px) * (0.28 + (var(--collection-focus-weight) * 0.72)));
+  --collection-tilt: calc(var(--collection-offset-from-center) * -9deg);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -36,12 +42,14 @@
   isolation: isolate;
   text-decoration: none;
   z-index: 1;
+  transform-style: preserve-3d;
   transform:
     translate3d(
       var(--collection-directional-shift),
       calc(var(--collection-ambient-lift) + var(--collection-hover-lift-boost)),
-      0
+      calc(var(--collection-depth-pull) + var(--collection-hover-depth-boost))
     )
+    rotateY(var(--collection-tilt))
     scale(calc(var(--collection-ambient-scale) + var(--collection-hover-scale-boost)));
   transition:
     transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -54,9 +62,18 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
+  background-image:
     linear-gradient(180deg, rgba(4, 7, 10, 0.18) 0%, rgba(4, 7, 10, 0.38) 34%, rgba(4, 7, 10, 0.92) 100%),
-    var(--collection-cover-image) center / cover no-repeat;
+    var(--collection-cover-image);
+  background-position:
+    center center,
+    calc(50% + var(--collection-cover-shift)) center;
+  background-size:
+    auto,
+    cover;
+  background-repeat:
+    repeat,
+    no-repeat;
   transform: scale(calc(1.015 + (var(--collection-focus-weight) * 0.065)));
   filter:
     saturate(calc(0.92 + (var(--collection-focus-weight) * 0.24)))
@@ -72,7 +89,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.16), transparent 28%),
+    radial-gradient(circle at calc(78% + var(--collection-sheen-shift)) 10%, rgba(255, 255, 255, 0.18), transparent 28%),
+    radial-gradient(circle at center, rgba(229, 72, 56, calc(var(--collection-focus-weight) * 0.22)), transparent 62%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 42%);
   pointer-events: none;
   z-index: -1;
@@ -89,6 +107,7 @@
 .collection-card.is-interaction-boosted {
   --collection-hover-scale-boost: 0.026;
   --collection-hover-lift-boost: -6px;
+  --collection-hover-depth-boost: 20px;
   z-index: 3;
   border-color: rgba(229, 72, 56, 0.46);
   box-shadow:

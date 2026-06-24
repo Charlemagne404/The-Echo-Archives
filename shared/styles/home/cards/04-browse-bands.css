@@ -29,6 +29,7 @@
 .results-summary {
   font-size: 0.96rem;
   white-space: nowrap;
+  will-change: transform, opacity;
 }
 
 .active-browse-state {
@@ -177,6 +178,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  perspective: 1600px;
 }
 
 .collection-carousel::before,
@@ -227,6 +229,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   overscroll-behavior-x: contain;
+  transform-style: preserve-3d;
 }
 
 .collection-carousel-viewport::-webkit-scrollbar {

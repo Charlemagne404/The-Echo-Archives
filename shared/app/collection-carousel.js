@@ -44,15 +44,17 @@ export function initializeCollectionCarousel({
     const maxDistance = Math.max(viewportRect.width / 2, 1);
     let strongestCard = null;
     let strongestFocus = -1;
-
     cards.forEach((card) => {
       const cardRect = card.getBoundingClientRect();
       const cardCenter = cardRect.left + cardRect.width / 2;
-      const distance = Math.abs(cardCenter - viewportCenter);
-      const focusValue = Math.max(0, 1 - distance / maxDistance);
+      const signedDistance = cardCenter - viewportCenter;
+      const focusValue = Math.max(0, 1 - Math.abs(signedDistance) / maxDistance);
       const focusWeight = focusValue ** 1.65;
+      const offsetRatio = Math.max(-1, Math.min(1, signedDistance / maxDistance));
       card.style.setProperty("--collection-focus", focusValue.toFixed(4));
       card.style.setProperty("--collection-focus-weight", focusWeight.toFixed(4));
+      [["--collection-offset-from-center", offsetRatio.toFixed(4)], ["--collection-depth-pull", `${(focusWeight * 42).toFixed(2)}px`], ["--collection-cover-shift", `${(offsetRatio * -14).toFixed(2)}px`], ["--collection-sheen-shift", `${(offsetRatio * 22).toFixed(2)}px`]]
+        .forEach(([name, value]) => card.style.setProperty(name, value));
       if (focusValue > strongestFocus) {
         strongestFocus = focusValue;
         strongestCard = card;
@@ -68,7 +70,6 @@ export function initializeCollectionCarousel({
     if (interactionCard === card) {
       return;
     }
-
     interactionCard?.classList.remove("is-interaction-boosted");
     interactionCard = card instanceof HTMLAnchorElement ? card : null;
     interactionCard?.classList.add("is-interaction-boosted");
@@ -95,7 +96,6 @@ export function initializeCollectionCarousel({
     if (!setWidth) {
       return;
     }
-
     const maxScrollLeft = Math.max(collectionGrid.scrollWidth - collectionViewport.clientWidth, 0);
     if (collectionViewport.scrollLeft <= 1) {
       setViewportScroll(collectionViewport.scrollLeft + setWidth);

@@ -65,17 +65,27 @@ export function renderFactsLinksCard(show) {
 
 export function renderCorrectionSection(show) {
   return `
-    <section class="detail-section detail-correction-section">
-      <div class="detail-section-header">
-        <div>
-          <h2>Help keep the archive accurate.</h2>
-          <p>Spot a metadata issue, missing link, or verification problem? Send it into the review queue.</p>
-        </div>
+    <section class="detail-section detail-correction-section" aria-labelledby="detail-correction-title">
+      <div class="detail-correction-copy">
+        <p class="detail-correction-kicker">Community archive care</p>
+        <h2 id="detail-correction-title">Help keep this entry accurate.</h2>
+        <p>
+          Spot a metadata issue, missing link, or verification problem?
+          Listener and creator notes go into the manual review queue before anything changes.
+        </p>
+        <ul class="detail-correction-list" aria-label="Correction review notes">
+          <li>Facts, credits, links, and status details</li>
+          <li>Official sources checked against the current entry</li>
+          <li>Corrections never affect editorial ratings</li>
+        </ul>
       </div>
-      <p>Use this when factual details need correction or an official source should be checked against the current entry.</p>
-      <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(
-        createSubmissionHref("correction", show.id),
-      )}">Suggest a correction</a>
+      <div class="detail-correction-action">
+        <p class="detail-correction-action-label">Found something off?</p>
+        <p>Send the archive team the exact issue and any source links that make it easier to verify.</p>
+        <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(
+          createSubmissionHref("correction", show.id),
+        )}">Suggest a correction</a>
+      </div>
     </section>
   `;
 }
