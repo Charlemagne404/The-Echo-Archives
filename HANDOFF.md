@@ -1,5 +1,33 @@
 ## Current task
 
+Restore the `Most Popular` section on the main browse page after it stopped appearing on initial load.
+
+## Files changed
+
+- `shared/app/pages/home/results-motion.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Fixed a browse-page motion regression that could cancel a section-opening animation and leave the `Most Popular` band stuck at zero height and zero opacity.
+- Restored the default-state `Most Popular` band without changing its intended hide-on-search/filter/sort behavior.
+- Rebuilt the generated pages and re-ran the focused browse smoke coverage for the `Most Popular` band.
+
+## What still needs work
+
+- Investigate the existing `podcast-ai/test/home-browse.smoke.js` failure in the broader structured-filter flow; it fails on an archive-grid card-count assertion unrelated to the `Most Popular` fix.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk node --test podcast-ai/test/home-browse.smoke.js`
+
+## Known issues
+
+- `podcast-ai/test/home-browse.smoke.js` still has one existing failure in `homepage supports structured filtering, recently updated mode, and no-result recovery` at the archive-grid `cardCount > 0` assertion.
+
+## Current task
+
 Relax the structure checker line-budget rule so `350` is advisory instead of a hard failure.
 
 ## Files changed

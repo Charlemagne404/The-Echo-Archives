@@ -176,4 +176,35 @@
     min-height: 52px;
     padding-left: 64px;
   }
+
+  .about-page .about-hero-panel {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .about-page .about-hero-panel .hero-copy h1 {
+    font-size: clamp(2.55rem, 12vw, 3.25rem);
+  }
+
+  .about-page .about-hero-signal {
+    align-items: flex-start;
+    font-size: 0.92rem;
+  }
+
+  .about-page .about-split-copy,
+  .about-page .about-feature-section,
+  .about-page .about-ratings-card,
+  .about-page .about-support-card,
+  .about-page .about-continental-card {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-problem-list li {
+    padding: 10px 11px 10px 13px;
+  }
+
+  .about-page .about-feature-tile {
+    min-height: 0;
+  }
 }

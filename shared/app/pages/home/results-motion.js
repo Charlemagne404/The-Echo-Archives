@@ -104,6 +104,7 @@ export function syncResultsSurfaceVisibility(
 
   if (shouldShow) {
     if (!node.hidden && node.dataset.resultsSurfaceState !== "closing") {
+      cleanupSurfaceStyles(node);
       node.dataset.resultsSurfaceState = "open";
       return;
     }

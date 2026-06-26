@@ -111,8 +111,17 @@
     grid-template-columns: 1fr;
   }
 
+  .about-page .about-split-card,
+  .about-page .about-two-column {
+    grid-template-columns: 1fr;
+  }
+
   .about-split-media {
     min-height: 210px;
+  }
+
+  .about-page .about-split-media {
+    min-height: 250px;
   }
 
   .about-split-media img {

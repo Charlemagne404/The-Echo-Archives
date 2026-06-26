@@ -1,0 +1,344 @@
+.about-page .about-main {
+  gap: 18px;
+  padding-bottom: clamp(72px, 7vw, 104px);
+}
+
+.about-page .hero-shell {
+  margin-bottom: 0;
+}
+
+.about-page .about-hero-panel {
+  min-height: clamp(330px, 31vw, 390px);
+  overflow: hidden;
+  padding: clamp(32px, 4vw, 48px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0.99) 0%, rgba(4, 6, 9, 0.96) 36%, rgba(5, 8, 11, 0.54) 67%, rgba(6, 8, 11, 0.16) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.02) 42%, rgba(3, 5, 8, 0.52) 78%, rgba(3, 5, 8, 0.88) 100%),
+    url("/images/hero-archive-dish.png") right center / cover no-repeat,
+    #05070a;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 30px 80px rgba(0, 0, 0, 0.42);
+}
+
+.about-page .about-hero-panel::before {
+  opacity: 0.22;
+}
+
+.about-page .about-hero-panel::after {
+  background:
+    radial-gradient(circle at 53% 64%, rgba(229, 72, 56, 0.17), transparent 10%),
+    radial-gradient(circle at 81% 25%, rgba(255, 255, 255, 0.13), transparent 18%),
+    linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.18) 100%);
+}
+
+.about-page .about-hero-copy {
+  max-width: 52rem;
+}
+
+.about-page .about-hero-panel .hero-copy h1 {
+  max-width: none;
+  margin-bottom: 16px;
+  font-size: clamp(3.15rem, 4.35vw, 4.75rem);
+  letter-spacing: -0.064em;
+}
+
+.about-page .about-hero-lede {
+  max-width: 43ch;
+  color: rgba(247, 247, 243, 0.76);
+  font-size: clamp(1.02rem, 1.1vw, 1.18rem);
+  line-height: 1.42;
+}
+
+.about-page .about-hero-signal {
+  max-width: min(100%, 52ch);
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(247, 247, 243, 0.92);
+  font-size: 0.98rem;
+  white-space: normal;
+}
+
+.about-page .about-hero-signal span:last-child {
+  text-wrap: balance;
+}
+
+.about-page .about-stat-grid {
+  gap: 12px;
+}
+
+.about-page .about-stat-card {
+  position: relative;
+  overflow: hidden;
+  gap: 8px;
+  padding: 22px 22px 20px;
+  border-radius: 18px;
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(229, 72, 56, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 72%),
+    rgba(9, 12, 16, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.about-page .about-stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 72, 56, 0.62), transparent 72%);
+  opacity: 0.68;
+}
+
+.about-page .about-stat-card .about-card-icon {
+  width: 27px;
+  height: 27px;
+  margin-bottom: 5px;
+}
+
+.about-page .about-stat-card p {
+  max-width: 21ch;
+  color: rgba(247, 247, 243, 0.68);
+}
+
+.about-page .about-stat-card strong {
+  margin-top: 1px;
+  font-size: clamp(2.15rem, 3.1vw, 2.85rem);
+}
+
+.about-page .about-stack {
+  gap: 16px;
+}
+
+.about-page .about-split-card {
+  grid-template-columns: minmax(0, 0.95fr) minmax(440px, 1.05fr);
+  min-height: 328px;
+  border-color: rgba(255, 255, 255, 0.13);
+  background:
+    radial-gradient(circle at 76% 18%, rgba(229, 72, 56, 0.06), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.042), transparent 100%),
+    rgba(9, 12, 16, 0.9);
+}
+
+.about-page .about-split-copy {
+  gap: 15px;
+  padding: clamp(28px, 3vw, 42px);
+}
+
+.about-page .about-split-copy h2 {
+  max-width: 18ch;
+  margin-bottom: 0;
+  font-size: clamp(1.5rem, 2.05vw, 2.05rem);
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.about-page .about-split-copy p {
+  max-width: 58ch;
+}
+
+.about-problem-list {
+  display: grid;
+  gap: 10px;
+  margin: 2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-problem-list li {
+  display: grid;
+  gap: 4px;
+  padding: 11px 13px 11px 15px;
+  border-left: 2px solid rgba(229, 72, 56, 0.78);
+  border-radius: 0 14px 14px 0;
+  background:
+    linear-gradient(90deg, rgba(229, 72, 56, 0.1), rgba(229, 72, 56, 0.025) 48%, transparent 100%);
+}
+
+.about-problem-list strong {
+  color: rgba(247, 247, 243, 0.94);
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.about-problem-list span {
+  color: rgba(247, 247, 243, 0.66);
+  font-size: 0.91rem;
+  line-height: 1.48;
+}
+
+.about-page .about-standout {
+  max-width: 44ch;
+  color: rgba(247, 247, 243, 0.95);
+}
+
+.about-page .about-split-media {
+  min-height: 328px;
+}
+
+.about-page .about-split-media::after {
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(3, 5, 8, 0.72) 18%, rgba(3, 5, 8, 0.08) 48%, rgba(3, 5, 8, 0.56) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.12) 0%, transparent 22%, transparent 72%, rgba(3, 5, 8, 0.62) 100%),
+    radial-gradient(circle at 78% 42%, transparent 0%, rgba(0, 0, 0, 0.12) 70%, rgba(0, 0, 0, 0.46) 100%);
+}
+
+.about-page .about-split-media img {
+  filter: saturate(0.82) brightness(0.78) contrast(1.12);
+}
+
+.about-page .about-feature-section,
+.about-page .about-ratings-card,
+.about-page .about-support-card {
+  padding: clamp(24px, 2.5vw, 34px);
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(229, 72, 56, 0.06), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.042), transparent 100%),
+    rgba(9, 12, 16, 0.88);
+}
+
+.about-section-heading {
+  display: grid;
+  gap: 7px;
+  max-width: 46rem;
+}
+
+.about-section-heading h2,
+.about-section-heading p {
+  margin: 0;
+}
+
+.about-section-heading p {
+  color: rgba(247, 247, 243, 0.67);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.about-page .about-feature-grid {
+  gap: 14px;
+}
+
+.about-page .about-feature-tile {
+  position: relative;
+  overflow: hidden;
+  min-height: 176px;
+  gap: 10px;
+  padding: 20px 18px 18px;
+  border-color: rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(229, 72, 56, 0.09), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.034), transparent 100%),
+    rgba(8, 11, 15, 0.72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.028);
+}
+
+.about-page .about-feature-tile::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 72, 56, 0.5), transparent);
+  opacity: 0.36;
+}
+
+.about-page .about-feature-tile .about-card-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 3px;
+}
+
+.about-page .about-feature-tile h3 {
+  font-size: 1.06rem;
+}
+
+.about-page .about-feature-tile p {
+  color: rgba(247, 247, 243, 0.68);
+  line-height: 1.54;
+}
+
+.about-page .about-two-column {
+  gap: 16px;
+  align-items: stretch;
+}
+
+.about-page .about-ratings-card,
+.about-page .about-support-card {
+  align-content: start;
+}
+
+.about-page .about-section-intro {
+  max-width: 58ch;
+  color: rgba(247, 247, 243, 0.7);
+}
+
+.about-page .about-rating-list {
+  gap: 0;
+}
+
+.about-page .about-rating-item {
+  padding: 13px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-page .about-rating-item:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.about-page .about-rating-item h3 {
+  margin-bottom: 3px;
+}
+
+.about-page .about-rating-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.about-page .about-rating-note {
+  margin-top: 4px;
+  padding: 15px 16px;
+  border: 1px solid rgba(229, 72, 56, 0.24);
+  border-radius: 16px;
+  background:
+    linear-gradient(90deg, rgba(229, 72, 56, 0.11), rgba(229, 72, 56, 0.03) 56%, transparent 100%),
+    rgba(5, 8, 11, 0.6);
+}
+
+.about-page .about-rating-note strong {
+  color: rgba(247, 247, 243, 0.96);
+}
+
+.about-page .about-support-card {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(229, 72, 56, 0.07), transparent 28%),
+    radial-gradient(circle at 96% 12%, rgba(118, 214, 90, 0.045), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.042), transparent 100%),
+    rgba(9, 12, 16, 0.88);
+}
+
+.about-page .about-support-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.about-page .about-support-card .about-cta {
+  min-height: 52px;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.about-page .about-support-card .about-cta-primary {
+  border-color: rgba(229, 72, 56, 0.48);
+  background: linear-gradient(135deg, #ff7054, #e54838);
+}
+
+.about-page .about-support-card .about-cta-secondary {
+  border-color: rgba(229, 72, 56, 0.56);
+  background: rgba(8, 11, 15, 0.82);
+}

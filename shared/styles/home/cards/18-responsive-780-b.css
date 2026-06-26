@@ -23,6 +23,10 @@
     padding: 18px 20px;
   }
 
+  .about-page .about-stat-card {
+    padding: 18px 20px;
+  }
+
   .about-cta,
   .page-hero-actions,
   .about-support-actions,
@@ -37,7 +41,15 @@
     grid-template-columns: 1fr;
   }
 
+  .about-page .about-support-actions {
+    grid-template-columns: 1fr;
+  }
+
   .about-cta {
+    justify-content: space-between;
+  }
+
+  .about-page .about-support-card .about-cta {
     justify-content: space-between;
   }
 
@@ -47,6 +59,12 @@
     grid-template-columns: 1fr;
     padding-right: 24px;
     padding-bottom: 104px;
+  }
+
+  .about-page .about-continental-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    padding-bottom: 108px;
   }
 
   .about-founder-portrait {
@@ -61,6 +79,10 @@
 
   .about-story-orbit img {
     width: min(70vw, 220px);
+  }
+
+  .about-page .about-continental-card .about-story-orbit-wide img {
+    width: min(70vw, 240px);
   }
 
   .about-story-emblem {

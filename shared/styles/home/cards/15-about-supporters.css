@@ -238,6 +238,61 @@
   line-height: 1.55;
 }
 
+.about-page .about-support-meta {
+  gap: 12px;
+}
+
+.about-page .about-support-honesty {
+  padding: 13px 15px;
+  border-color: rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent 100%),
+    rgba(6, 9, 12, 0.72);
+  color: rgba(247, 247, 243, 0.7);
+}
+
+.about-page .about-support-note {
+  max-width: 60ch;
+  color: rgba(247, 247, 243, 0.9);
+}
+
+.about-page .about-continental-card {
+  min-height: 154px;
+  margin-top: 4px;
+  padding: 26px min(270px, 24vw) 26px 28px;
+  border-color: rgba(255, 255, 255, 0.11);
+  background:
+    radial-gradient(circle at 93% 82%, rgba(255, 255, 255, 0.1), transparent 17%),
+    radial-gradient(circle at 16% 0%, rgba(229, 72, 56, 0.055), transparent 28%),
+    linear-gradient(90deg, rgba(10, 13, 17, 0.95), rgba(7, 10, 14, 0.88) 60%, rgba(8, 11, 15, 0.72)),
+    rgba(8, 11, 15, 0.9);
+}
+
+.about-page .about-continental-card .about-story-copy {
+  max-width: 72rem;
+  gap: 8px;
+}
+
+.about-page .about-continental-card .about-story-copy p {
+  max-width: 82ch;
+  color: rgba(247, 247, 243, 0.68);
+}
+
+.about-page .about-continental-icon {
+  width: 50px;
+  height: 50px;
+  color: rgba(247, 247, 243, 0.34);
+}
+
+.about-page .about-continental-card .about-story-orbit {
+  opacity: 0.64;
+}
+
+.about-page .about-continental-card .about-story-orbit-wide img {
+  width: min(34vw, 390px);
+  filter: brightness(0.84) contrast(1.08);
+}
+
 .collection-directory-meta {
   color: var(--text-muted);
   font-size: 0.86rem;
