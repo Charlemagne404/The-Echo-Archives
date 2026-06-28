@@ -1,11 +1,19 @@
 export function getHomeElements() {
   const elements = {
+    heroShell: document.getElementById("browse"),
     searchInput: document.getElementById("search"),
+    stickyBrowseBar: document.getElementById("stickyBrowseBar"),
+    stickySearchInput: document.getElementById("stickySearch"),
     filterToggle: document.getElementById("filterToggle"),
     filterDropdown: document.getElementById("filterDropdown"),
     filterCount: document.getElementById("filterCount"),
     filterClear: document.getElementById("filterClear"),
     filterOptionGrid: document.getElementById("filterOptionGrid"),
+    stickyFilterToggle: document.getElementById("stickyFilterToggle"),
+    stickyFilterDropdown: document.getElementById("stickyFilterDropdown"),
+    stickyFilterCount: document.getElementById("stickyFilterCount"),
+    stickyFilterClear: document.getElementById("stickyFilterClear"),
+    stickyFilterOptionGrid: document.getElementById("stickyFilterOptionGrid"),
     browseModesRoot: document.getElementById("browseModes"),
     archiveSection: document.getElementById("archive"),
     popularSection: document.getElementById("mostPopular"),
@@ -28,12 +36,16 @@ export function getHomeElements() {
   };
 
   if (
+    !elements.heroShell ||
     !(elements.searchInput instanceof HTMLInputElement) ||
+    !(elements.stickySearchInput instanceof HTMLInputElement) ||
+    !elements.stickyBrowseBar ||
     !elements.archiveGrid ||
     !elements.archiveSection ||
     !elements.popularSection ||
     !elements.popularGrid ||
     !elements.filterOptionGrid ||
+    !elements.stickyFilterOptionGrid ||
     !elements.quickFiltersRoot ||
     !elements.collectionsSection ||
     !elements.collectionCarousel ||
@@ -42,7 +54,9 @@ export function getHomeElements() {
     !elements.collectionPrev ||
     !elements.collectionNext ||
     !elements.browseModesRoot ||
-    !elements.resultsSummary
+    !elements.resultsSummary ||
+    !(elements.filterToggle instanceof HTMLButtonElement) ||
+    !(elements.stickyFilterToggle instanceof HTMLButtonElement)
   ) {
     return null;
   }

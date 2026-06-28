@@ -273,7 +273,7 @@ export function syncHomeControls({
 }) {
   const selectedCount = getActiveFilterCount(filters);
 
-  quickFiltersRoot.querySelectorAll(".quick-filter").forEach((button) => {
+  quickFiltersRoot?.querySelectorAll(".quick-filter").forEach((button) => {
     const filter = button.dataset.chipFilter || "";
     const isActive =
       (filter === "all" && selectedCount === 0 && !query && !selectedCollectionId && sortMode === "default") ||
@@ -283,14 +283,14 @@ export function syncHomeControls({
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  browseModesRoot.querySelectorAll(".browse-mode-button").forEach((button) => {
+  browseModesRoot?.querySelectorAll(".browse-mode-button").forEach((button) => {
     const mode = button.dataset.browseMode || "default";
     const isActive = sortMode === mode;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  filterOptionGrid.querySelectorAll(".filter-option").forEach((button) => {
+  filterOptionGrid?.querySelectorAll(".filter-option").forEach((button) => {
     const groupId = button.dataset.filterGroup || "";
     const value = button.dataset.filterValue || "";
     const isActive = Boolean(filters[groupId]?.has(value));

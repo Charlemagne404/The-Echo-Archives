@@ -147,6 +147,10 @@ export function initializeHomePreviewController({ archiveGrid, archiveSection })
       return;
     }
 
+    if (coarsePointerQuery.matches) {
+      return;
+    }
+
     if (!isTouchLikeActivation(event)) {
       return;
     }

@@ -98,7 +98,13 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
         .querySelector('.filter-option[data-filter-group="reviewStatus"][data-filter-value="indexed-only"]')
         ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
     });
-    await page.waitForTimeout(20);
+    await page.waitForFunction(
+      () =>
+        Boolean(
+          document.querySelector("#podcast-grid .podcast-card-shell.is-grid-exiting") ||
+            document.querySelector("#podcast-grid .podcast-card-shell.is-grid-flipping"),
+        ),
+    );
     const filterMotionState = await getArchiveGridMotionState(page);
     assert.equal(filterMotionState.reason, "explicit");
     assert.equal(filterMotionState.flipDuration, 230);
@@ -237,6 +243,11 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     await page.locator("#search").fill("zzzzzz-not-in-archive");
     await page.getByText("No matches yet.", { exact: false }).waitFor();
     await page.getByRole("button", { name: "Clear filters" }).click();
+    await page.waitForFunction(
+      () =>
+        document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0 &&
+        (document.querySelector("#search")?.value || "") === "",
+    );
 
     const cardCount = await page.locator("#podcast-grid .podcast-card-shell").count();
     assert.ok(cardCount > 0);

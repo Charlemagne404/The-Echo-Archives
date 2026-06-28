@@ -72,7 +72,7 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
 
-  assert.equal(collections.length, 6);
+  assert.equal(collections.length, 15);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
 });
 

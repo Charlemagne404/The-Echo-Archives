@@ -1,6 +1,7 @@
 @media (max-width: 780px) {
   .site-header,
-  .home-main {
+  .home-main,
+  .sticky-browse-bar {
     width: min(100%, calc(100% - 24px));
   }
 
@@ -48,6 +49,16 @@
     align-items: stretch;
   }
 
+  .sticky-browse-bar {
+    top: max(10px, env(safe-area-inset-top));
+  }
+
+  .sticky-browse-bar-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 10px;
+  }
+
   .search-actions {
     flex-direction: column;
     gap: 12px;
@@ -61,11 +72,13 @@
   }
 
   .search-field,
-  #filterToggle {
+  #filterToggle,
+  #stickyFilterToggle {
     min-height: 56px;
   }
 
-  .home-page #search {
+  .home-page #search,
+  .home-page #stickySearch {
     min-height: 54px;
     padding: 14px 12px 14px 44px;
     font-size: 0.92rem;

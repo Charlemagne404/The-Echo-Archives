@@ -1,5 +1,207 @@
 ## Current task
 
+Add a sticky compact browse bar after the hero scrolls away and make coarse-pointer browse-card taps go straight to show detail pages.
+
+## Files changed
+
+- `site-src/pages/index.html`
+- generated `index.html`
+- `shared/app/pages/home.js`
+- `shared/app/pages/home/elements.js`
+- `shared/app/pages/home/filters.js`
+- `shared/app/home-preview.js`
+- `shared/styles/home/cards/01-surface.css`
+- `shared/styles/home/cards/02-hero-search.css`
+- `shared/styles/home/cards/03-filter-controls.css`
+- `shared/styles/home/cards/17-responsive-780-a.css`
+- `shared/styles/home/cards/19-responsive-560.css`
+- `shared/styles/home/cards/20-motion.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added a dedicated fixed-position sticky browse bar with mirrored search and filter controls that appears after the browse hero fully leaves the viewport.
+- Kept the sticky and hero browse controls synchronized so search text, filter state, and filter counts stay in lockstep across both surfaces.
+- Added a second filter dropdown instance for the sticky bar while preserving the existing filter grouping, active-state syncing, and clear behavior.
+- Changed coarse-pointer browse-card taps so they now follow through to the show detail page instead of opening inline preview, while desktop hover/focus preview remains intact.
+- Rebuilt the generated home page and confirmed the repo structure checks still pass.
+
+## What still needs work
+
+- Run browser/mobile QA against the home page to visually confirm sticky-bar spacing, dropdown placement, and touch-card navigation on an actual rendered page.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+
+## Known issues
+
+- `shared/app/pages/home.js` and `shared/styles/home/cards/03-filter-controls.css` now exceed the soft `350`-line advisory limit, but `npm run check:structure` still passes because the hard fail threshold is higher.
+
+## Current task
+
+Remove the center-weighted orange glow from the featured collections carousel cards.
+
+## Files changed
+
+- `shared/styles/home/cards/05-collection-cards.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Removed the orange radial overlay that intensified as featured collection cards approached the center of the carousel.
+- Kept the existing carousel motion, depth, and highlight sheen intact so the cards still feel active without the warm center wash.
+
+## What still needs work
+
+- No known follow-up for this carousel polish tweak.
+
+## Commands run
+
+- `rtk npm run check:structure`
+
+## Known issues
+
+- Unrelated pre-existing dirty files remain in `for-creators.html`, `podcast-ai/test/catalog.test.js`, `podcast-ai/test/home-browse.smoke.js`, `shared/app/pages/home/layout.js`, `shared/styles/home/cards/14b-about-page-polish.css`, `shared/styles/home/collections/01-page.css`, `shared/styles/home/creators/03-standards.css`, and `site-src/pages/for-creators.html`.
+
+---
+
+## Current task
+
+Revert the creator spotlight portrait on the `For creators` page back to the generic gray avatar and keep only small polish fixes.
+
+## Files changed
+
+- `site-src/pages/for-creators.html`
+- `shared/styles/home/creators/03-standards.css`
+- generated `for-creators.html`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reverted the over-designed portrait illustration and restored the simple generic gray avatar.
+- Tightened the avatar edge treatment with a crisper circular outline.
+- Lowered and widened the shoulder shape so the empty gap at the bottom of the avatar is reduced without changing the overall placeholder look.
+- Rebuilt the page and rechecked the spotlight section in-browser on desktop.
+
+## What still needs work
+
+- No known follow-up for this avatar correction pass.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm run dev`
+- Browser QA at `http://127.0.0.1:3010/for-creators.html`
+
+## Known issues
+
+- Unrelated pre-existing dirty files remain in `podcast-ai/test/catalog.test.js`, `podcast-ai/test/home-browse.smoke.js`, `shared/app/pages/home/layout.js`, `shared/styles/home/cards/05-collection-cards.css`, `shared/styles/home/cards/14b-about-page-polish.css`, and `shared/styles/home/collections/01-page.css`.
+- Browser mobile spotlight screenshot capture was unreliable in this pass; desktop validation is the primary visual proof.
+
+---
+
+## Current task
+
+Realign the Collections and About page heroes to the main browse hero after an earlier pass over-compressed them.
+
+## Files changed
+
+- `shared/styles/home/collections/01-page.css`
+- `shared/styles/home/cards/14b-about-page-polish.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Restored the Collections hero to the browse hero’s top-left geometry instead of the shortened centered version.
+- Widened the Collections title measure so it breaks later and reads as a broad hero heading rather than a narrow stacked block.
+- Moved the About hero copy back to the same left and top anchor as the browse hero by restoring browse-like panel height and padding.
+- Tightened the About paragraph and signal widths to the same measure family as the main browse header.
+- Rebuilt the generated pages and visually checked the rendered `collections.html` and `about.html` headers with Playwright screenshots.
+
+## What still needs work
+
+- No known follow-up for this hero-alignment correction.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `python3 -m http.server 4010`
+- Playwright screenshot check against `http://127.0.0.1:4010/collections.html` and `http://127.0.0.1:4010/about.html`
+
+## Known issues
+
+- The worktree still contains unrelated pre-existing changes in `for-creators.html`, `site-src/pages/for-creators.html`, `shared/styles/home/creators/03-standards.css`, `podcast-ai/test/catalog.test.js`, `podcast-ai/test/home-browse.smoke.js`, `shared/app/pages/home/layout.js`, and `shared/styles/home/cards/05-collection-cards.css`.
+
+## Current task
+
+Align the collections and about page headers with the site’s other secondary-page hero headers.
+
+## Files changed
+
+- `shared/styles/home/collections/01-page.css`
+- `shared/styles/home/cards/14b-about-page-polish.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reduced the Collections page hero height and typography so it matches the same centered header rhythm used on the other secondary pages.
+- Tightened the Collections hero copy width, paragraph measure, and action spacing so the header no longer feels oversized relative to the rest of the site.
+- Centered the About page hero content vertically and normalized the copy width so its header text block sits like the other page headers.
+- Adjusted the About header signal line to align from the top instead of reading as an oddly placed inline strip.
+
+## What still needs work
+
+- No known follow-up for this header alignment pass.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+
+## Known issues
+
+- The worktree still contains unrelated pre-existing changes in `podcast-ai/test/catalog.test.js`, `shared/app/pages/home/layout.js`, and `shared/styles/home/cards/05-collection-cards.css`.
+
+## Current task
+
+Fix the checked-in release gate so `npm run verify` passes again.
+
+## Files changed
+
+- `podcast-ai/test/catalog.test.js`
+- `podcast-ai/test/home-browse.smoke.js`
+- `shared/app/pages/home/layout.js`
+- `shared/styles/home/cards/05-collection-cards.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Updated the catalog test to match the current 15-collection dataset instead of the pre-expansion count of 6.
+- Changed home-grid motion handling so a new browse/search transition cancels in-flight shell motion and replays the next transition instead of falling back to an instant patch.
+- Strengthened featured-collection hover emphasis slightly so the carousel focus behavior clears the smoke-test threshold again.
+- Tightened the browse smoke test waits around async grid rerenders so it waits for actual motion/restoration state instead of fixed timing assumptions.
+- Re-ran the full release gate and confirmed `rtk npm run verify` now passes end to end.
+
+## What still needs work
+
+- No known release-gate follow-up from this fix.
+
+## Commands run
+
+- `rtk node --test --test-concurrency=1 podcast-ai/test/home-browse.smoke.js`
+- `rtk node --test --test-concurrency=1 podcast-ai/test/home-card-interactions.smoke.js`
+- `rtk npm run verify`
+
+## Known issues
+
+- None discovered in the release gate after this pass.
+
+## Current task
+
 Restore the `Most Popular` section on the main browse page after it stopped appearing on initial load.
 
 ## Files changed

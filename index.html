@@ -87,6 +87,40 @@
   </aside>
 
 <main class="home-main">
+    <div class="sticky-browse-bar" id="stickyBrowseBar" data-visibility="hidden" aria-hidden="true">
+      <div class="sticky-browse-bar-inner">
+        <label class="search-field" for="stickySearch">
+          <span class="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
+            </svg>
+          </span>
+          <input type="text" id="stickySearch" placeholder='Search titles, moods, statuses, or "like Midnight Burger"' />
+        </label>
+
+        <div class="filter-container sticky-filter-container">
+          <button id="stickyFilterToggle" type="button" aria-label="Filter podcasts by tag" aria-expanded="false" aria-controls="stickyFilterDropdown">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
+            </svg>
+            <span class="filter-toggle-label">Filters</span>
+            <span id="stickyFilterCount" class="filter-count" hidden>0</span>
+          </button>
+
+          <div id="stickyFilterDropdown" class="dropdown" hidden>
+            <div class="filter-dropdown-header">
+              <div>
+                <p class="filter-dropdown-kicker">Refine the archive</p>
+                <p class="filter-dropdown-copy">Stack archive filters by review depth, completion status, listening context, or tags.</p>
+              </div>
+              <button id="stickyFilterClear" class="filter-clear-button" type="button">Clear</button>
+            </div>
+            <div id="stickyFilterOptionGrid" class="filter-option-grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="hero-shell" id="browse">
       <div class="hero-panel">
         <div class="hero-copy">

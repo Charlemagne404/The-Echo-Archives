@@ -1,4 +1,13 @@
 @media (max-width: 560px) {
+  .sticky-browse-bar {
+    top: max(8px, env(safe-area-inset-top));
+  }
+
+  .sticky-browse-bar-inner {
+    gap: 8px;
+    padding: 8px;
+  }
+
   .hero-panel {
     gap: 18px;
   }
@@ -105,6 +114,15 @@
 
   #filterDropdown {
     width: 100%;
+  }
+
+  .sticky-browse-bar .filter-container,
+  .sticky-browse-bar #stickyFilterToggle {
+    width: auto;
+  }
+
+  #stickyFilterDropdown {
+    width: min(360px, calc(100vw - 24px));
   }
 
   .filter-dropdown-header {

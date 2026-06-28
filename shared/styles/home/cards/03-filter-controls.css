@@ -27,7 +27,12 @@
   display: none;
 }
 
-#filterDropdown {
+#stickyFilterDropdown[hidden] {
+  display: none;
+}
+
+#filterDropdown,
+#stickyFilterDropdown {
   --filter-dropdown-duration: 150ms;
   --filter-dropdown-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: absolute;
@@ -57,8 +62,16 @@
     visibility 0s linear var(--filter-dropdown-duration);
 }
 
+#stickyFilterDropdown {
+  left: auto;
+  right: 0;
+  top: calc(100% + 8px);
+}
+
 #filterDropdown[data-state="opening"],
-#filterDropdown[data-state="open"] {
+#filterDropdown[data-state="open"],
+#stickyFilterDropdown[data-state="opening"],
+#stickyFilterDropdown[data-state="open"] {
   --filter-dropdown-duration: 190ms;
   opacity: 1;
   visibility: visible;
@@ -67,11 +80,13 @@
   transition-delay: 0s, 0s, 0s;
 }
 
-#filterDropdown[data-state="closing"] {
+#filterDropdown[data-state="closing"],
+#stickyFilterDropdown[data-state="closing"] {
   --filter-dropdown-duration: 150ms;
 }
 
-#filterDropdown::before {
+#filterDropdown::before,
+#stickyFilterDropdown::before {
   content: "";
   position: absolute;
   top: -9px;
@@ -82,6 +97,11 @@
   border-left: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(20, 24, 30, 0.98);
   transform: rotate(45deg);
+}
+
+#stickyFilterDropdown::before {
+  left: auto;
+  right: 34px;
 }
 
 .filter-dropdown-header {
@@ -107,18 +127,26 @@
 #filterDropdown[data-state="opening"] .filter-dropdown-header,
 #filterDropdown[data-state="open"] .filter-dropdown-header,
 #filterDropdown[data-state="opening"] .filter-group,
-#filterDropdown[data-state="open"] .filter-group {
+#filterDropdown[data-state="open"] .filter-group,
+#stickyFilterDropdown[data-state="opening"] .filter-dropdown-header,
+#stickyFilterDropdown[data-state="open"] .filter-dropdown-header,
+#stickyFilterDropdown[data-state="opening"] .filter-group,
+#stickyFilterDropdown[data-state="open"] .filter-group {
   opacity: 1;
   transform: translateY(0);
 }
 
 #filterDropdown[data-state="opening"] .filter-dropdown-header,
-#filterDropdown[data-state="open"] .filter-dropdown-header {
+#filterDropdown[data-state="open"] .filter-dropdown-header,
+#stickyFilterDropdown[data-state="opening"] .filter-dropdown-header,
+#stickyFilterDropdown[data-state="open"] .filter-dropdown-header {
   transition-delay: 0ms;
 }
 
 #filterDropdown[data-state="opening"] .filter-group,
-#filterDropdown[data-state="open"] .filter-group {
+#filterDropdown[data-state="open"] .filter-group,
+#stickyFilterDropdown[data-state="opening"] .filter-group,
+#stickyFilterDropdown[data-state="open"] .filter-group {
   transition-delay: calc(var(--filter-group-stagger-index, 1) * 25ms);
 }
 

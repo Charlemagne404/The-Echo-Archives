@@ -90,7 +90,6 @@
   inset: 0;
   background:
     radial-gradient(circle at calc(78% + var(--collection-sheen-shift)) 10%, rgba(255, 255, 255, 0.18), transparent 28%),
-    radial-gradient(circle at center, rgba(229, 72, 56, calc(var(--collection-focus-weight) * 0.22)), transparent 62%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 42%);
   pointer-events: none;
   z-index: -1;
@@ -105,8 +104,8 @@
 .collection-card:hover,
 .collection-card:focus-visible,
 .collection-card.is-interaction-boosted {
-  --collection-hover-scale-boost: 0.026;
-  --collection-hover-lift-boost: -6px;
+  --collection-hover-scale-boost: 0.042;
+  --collection-hover-lift-boost: -8px;
   --collection-hover-depth-boost: 20px;
   z-index: 3;
   border-color: rgba(229, 72, 56, 0.46);

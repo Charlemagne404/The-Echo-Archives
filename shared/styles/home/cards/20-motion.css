@@ -48,7 +48,8 @@
   .home-page #chat-container,
   .home-page #chat-container > *,
   .home-page #chat-toggle.chat-toggle-button,
-  .home-page #backToTop {
+  .home-page #backToTop,
+  .sticky-browse-bar {
     transition-duration: 1ms !important;
   }
 

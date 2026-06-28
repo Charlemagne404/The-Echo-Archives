@@ -120,7 +120,13 @@ export function patchArchiveGrid({
   const nextShells = orderedNodes.filter((node) => node instanceof HTMLElement && node.classList.contains("podcast-card-shell"));
   const currentShells = getArchiveGridShells(archiveGrid);
   const motionProfile = getGridMotionProfile(changeReason);
-  const shouldBypassMotion = !motionProfile || currentShells.some((shell) => hasGridShellMotionInFlight(shell));
+  const shouldBypassMotion = !motionProfile;
+
+  if (!shouldBypassMotion && currentShells.some((shell) => hasGridShellMotionInFlight(shell))) {
+    currentShells.forEach((shell) => {
+      resetGridShellMotion(shell);
+    });
+  }
 
   setGridMotionMetadata(archiveGrid, changeReason, shouldBypassMotion ? null : motionProfile);
   if (shouldBypassMotion) {

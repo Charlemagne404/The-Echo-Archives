@@ -67,6 +67,7 @@ export async function initializeHomePage() {
   );
   const state = createHomeState();
   seedHomeStateFromParams({ state, shows, collectionsById });
+  const searchInputs = [elements.searchInput, elements.stickySearchInput];
 
   const previewController = initializeHomePreviewController({
     archiveGrid: elements.archiveGrid,
@@ -99,13 +100,59 @@ export async function initializeHomePage() {
   let pendingRenderReason = "";
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
+  let stickyBrowseObserver = null;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
-  const filterDropdownController = initializeFilterDropdownController({
+  const heroFilterDropdownController = initializeFilterDropdownController({
     filterDropdown: elements.filterDropdown,
     filterToggle: elements.filterToggle,
   });
+  const stickyFilterDropdownController = initializeFilterDropdownController({
+    filterDropdown: elements.stickyFilterDropdown,
+    filterToggle: elements.stickyFilterToggle,
+  });
+  const filterControlSurfaces = [
+    {
+      controller: heroFilterDropdownController,
+      dropdown: elements.filterDropdown,
+      toggle: elements.filterToggle,
+    },
+    {
+      controller: stickyFilterDropdownController,
+      dropdown: elements.stickyFilterDropdown,
+      toggle: elements.stickyFilterToggle,
+    },
+  ];
+
+  const syncSearchInputs = (nextValue, sourceInput = null) => {
+    searchInputs.forEach((input) => {
+      if (input !== sourceInput && input.value !== nextValue) {
+        input.value = nextValue;
+      }
+    });
+  };
+
+  const closeOtherFilterDropdowns = (activeSurface) => {
+    filterControlSurfaces.forEach((surface) => {
+      if (surface !== activeSurface && surface.controller.isOpen()) {
+        surface.controller.close();
+      }
+    });
+  };
+
+  const setStickyBrowseVisibility = (isVisible) => {
+    const nextVisibility = isVisible ? "visible" : "hidden";
+    if (elements.stickyBrowseBar.dataset.visibility === nextVisibility) {
+      return;
+    }
+
+    elements.stickyBrowseBar.dataset.visibility = nextVisibility;
+    elements.stickyBrowseBar.setAttribute("aria-hidden", String(!isVisible));
+    if (!isVisible && stickyFilterDropdownController.isOpen()) {
+      stickyFilterDropdownController.close();
+    }
+  };
 
   const clearAllFilters = () => {
     if (searchRenderTimer) {
@@ -116,7 +163,7 @@ export async function initializeHomePage() {
     state.selectedCollectionId = "";
     state.sortMode = "default";
     state.query = "";
-    elements.searchInput.value = "";
+    syncSearchInputs("");
     scheduleHomeResults("explicit");
   };
 
@@ -226,6 +273,15 @@ export async function initializeHomePage() {
       selectedCollectionId: state.selectedCollectionId,
       sortMode: state.sortMode,
     });
+    syncHomeControls({
+      filterOptionGrid: elements.stickyFilterOptionGrid,
+      filterCount: elements.stickyFilterCount,
+      filterClear: elements.stickyFilterClear,
+      filters: state.filters,
+      query: state.query,
+      selectedCollectionId: state.selectedCollectionId,
+      sortMode: state.sortMode,
+    });
     hasRenderedHomeResults = true;
   }
 
@@ -245,6 +301,11 @@ export async function initializeHomePage() {
 
   renderFilterOptions({
     filterOptionGrid: elements.filterOptionGrid,
+    structuredFilterGroups,
+    onToggleFilter: toggleFilter,
+  });
+  renderFilterOptions({
+    filterOptionGrid: elements.stickyFilterOptionGrid,
     structuredFilterGroups,
     onToggleFilter: toggleFilter,
   });
@@ -277,10 +338,17 @@ export async function initializeHomePage() {
     collectionNext: elements.collectionNext,
     currentControls: collectionCarouselControls,
   });
+  syncSearchInputs(state.query);
   renderHomeResults("initial");
 
-  elements.searchInput.addEventListener("input", () => {
-    state.query = elements.searchInput.value.trim();
+  const handleSearchInput = (event) => {
+    const input = event.currentTarget;
+    if (!(input instanceof HTMLInputElement)) {
+      return;
+    }
+
+    syncSearchInputs(input.value, input);
+    state.query = input.value.trim();
     if (searchRenderTimer) {
       window.clearTimeout(searchRenderTimer);
     }
@@ -288,36 +356,51 @@ export async function initializeHomePage() {
       searchRenderTimer = 0;
       scheduleHomeResults("live-search");
     }, 150);
+  };
+
+  searchInputs.forEach((input) => {
+    input.addEventListener("input", handleSearchInput);
   });
 
-  elements.filterToggle?.addEventListener("click", () => {
-    if (filterDropdownController.isOpen()) {
-      filterDropdownController.close();
-      return;
-    }
+  filterControlSurfaces.forEach((surface) => {
+    surface.toggle.addEventListener("click", () => {
+      if (surface.controller.isOpen()) {
+        surface.controller.close();
+        return;
+      }
 
-    filterDropdownController.open();
+      closeOtherFilterDropdowns(surface);
+      surface.controller.open();
+    });
   });
 
   document.addEventListener("click", (event) => {
     const target = event.target;
-    if (!(target instanceof Node) || !elements.filterDropdown || !elements.filterToggle) {
+    if (!(target instanceof Node)) {
       return;
     }
 
-    if (filterDropdownController.isOpen() && !elements.filterDropdown.contains(target) && !elements.filterToggle.contains(target)) {
-      filterDropdownController.close();
-    }
+    filterControlSurfaces.forEach((surface) => {
+      if (
+        surface.controller.isOpen() &&
+        !surface.dropdown.contains(target) &&
+        !surface.toggle.contains(target)
+      ) {
+        surface.controller.close();
+      }
+    });
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && filterDropdownController.isOpen()) {
+    const openSurface = filterControlSurfaces.find((surface) => surface.controller.isOpen());
+    if (event.key === "Escape" && openSurface) {
       event.preventDefault();
-      filterDropdownController.close({ returnFocus: true });
+      openSurface.controller.close({ returnFocus: true });
     }
   });
 
   elements.filterClear?.addEventListener("click", clearAllFilters);
+  elements.stickyFilterClear?.addEventListener("click", clearAllFilters);
   elements.clearResultsState?.addEventListener("click", clearAllFilters);
   elements.activeBrowseClear?.addEventListener("click", clearAllFilters);
   elements.openArchivistAction?.addEventListener("click", () => {
@@ -328,6 +411,17 @@ export async function initializeHomePage() {
     }
   });
 
+  if ("IntersectionObserver" in window) {
+    stickyBrowseObserver = new IntersectionObserver(
+      ([entry]) => {
+        const shouldShowStickyBar = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
+        setStickyBrowseVisibility(shouldShowStickyBar);
+      },
+      { threshold: 0 },
+    );
+    stickyBrowseObserver.observe(elements.heroShell);
+  }
+
   window.addEventListener("resize", () => {
     previewController.closeActivePreview({ immediate: true });
     collectionCarouselControls?.refresh();
@@ -336,5 +430,9 @@ export async function initializeHomePage() {
       state.gridLayoutBucket = nextGridLayoutBucket;
       renderHomeResults("layout-change");
     }
+  });
+
+  window.addEventListener("beforeunload", () => {
+    stickyBrowseObserver?.disconnect();
   });
 }
