@@ -140,6 +140,7 @@
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 2px;
+  scroll-padding-inline: 18px;
   scrollbar-width: thin;
 }
 
@@ -154,8 +155,14 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(8, 11, 15, 0.7);
   color: var(--text-secondary);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0);
   cursor: pointer;
-  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 220ms ease;
 }
 
 .collections-mood-chip svg {
@@ -174,6 +181,7 @@
   background: rgba(255, 255, 255, 0.06);
   color: rgba(247, 247, 243, 0.72);
   font-size: 0.72rem;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .collections-mood-chip:hover,
@@ -183,6 +191,31 @@
   background: rgba(44, 19, 15, 0.9);
   color: var(--text-primary);
   transform: translateY(-1px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.28);
+}
+
+.collections-mood-chip[aria-pressed="true"] strong {
+  background: rgba(229, 72, 56, 0.16);
+  color: rgba(255, 245, 241, 0.94);
+  transform: scale(1.04);
+}
+
+.collections-mood-chip.is-activating {
+  animation: collections-mood-chip-activate 340ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes collections-mood-chip-activate {
+  0% {
+    transform: translateY(0) scale(0.98);
+  }
+
+  55% {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  100% {
+    transform: translateY(-1px) scale(1);
+  }
 }
 
 .collections-stat-grid {
@@ -304,4 +337,10 @@
   background: transparent;
   color: var(--text-primary);
   font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collections-mood-chip.is-activating {
+    animation: none;
+  }
 }

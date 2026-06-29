@@ -2,6 +2,8 @@ import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadShows } from "../data.js";
 import { createCollectionDirectoryCard, createCollectionFeatureCard } from "../render-collections.js";
 import { formatDate, normalizeTag, setTextContent, updateDocumentMetadata } from "../utils.js";
+import { getCollectionsGridMotionProfile, syncCollectionGrid } from "./collections-grid-motion.js";
+import { prefersReducedMotion, restartAnimationClass, syncCollectionsSummary, syncCollectionsSurfaceVisibility } from "./collections-motion.js";
 
 const MOOD_FILTERS = [
   { id: "long-walks", label: "Long walks", icon: "M12 4v16M8 8l4-4 4 4M8 16l4 4 4-4" },
@@ -128,18 +130,37 @@ function syncUrlState(state) {
   window.history.replaceState(window.history.state, "", nextUrl);
 }
 
-function renderMoodChips({ moodChips, collections, state, onSelect }) {
+function mountMoodChips({ moodChips, collections, onSelect }) {
+  const chipMap = new Map();
   moodChips.textContent = "";
   MOOD_FILTERS.forEach((filter) => {
     const count = collections.filter((collection) => collectionMatchesIntent(collection, filter.id)).length;
-    moodChips.appendChild(createMoodChip(filter, count, state, onSelect));
+    const chip = createMoodChip(filter, count, { intent: "" }, onSelect);
+    chipMap.set(filter.id, chip);
+    moodChips.appendChild(chip);
   });
+
+  return chipMap;
 }
 
-function renderCollectionGrid(root, collections, showsByCollection, renderCard) {
-  root.textContent = "";
-  collections.forEach((collection) => {
-    root.appendChild(renderCard(collection, showsByCollection.get(collection.id)));
+function syncMoodChipState(chipMap, activeIntent, { scrollActiveIntoView = false } = {}) {
+  chipMap.forEach((chip, intent) => {
+    const isActive = activeIntent === intent;
+    const wasActive = chip.getAttribute("aria-pressed") === "true";
+    chip.setAttribute("aria-pressed", String(isActive));
+
+    if (!isActive || wasActive) {
+      return;
+    }
+
+    restartAnimationClass(chip, "is-activating", 340);
+    if (scrollActiveIntoView) {
+      chip.scrollIntoView({
+        behavior: prefersReducedMotion() ? "auto" : "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
   });
 }
 
@@ -167,6 +188,14 @@ export async function initializeCollectionsPage() {
   );
   const validIntentIds = new Set(MOOD_FILTERS.map((filter) => filter.id));
   const state = getInitialState(validIntentIds);
+  const moodChipMap = mountMoodChips({
+    moodChips: elements.moodChips,
+    collections: orderedCollections,
+    onSelect: (intent) => {
+      state.intent = state.intent === intent ? "" : intent;
+      render("explicit");
+    },
+  });
 
   const featuredCount = orderedCollections.filter((collection) => collection.featured).length;
   const coveredShowIds = new Set(orderedCollections.flatMap((collection) => collection.showIds));
@@ -184,7 +213,7 @@ export async function initializeCollectionsPage() {
     elements.sortSelect.value = state.sortMode;
   }
 
-  const render = () => {
+  const render = (changeReason = "initial") => {
     const filtered = sortCollections(
       orderedCollections.filter((collection) => {
         const collectionShows = showsByCollection.get(collection.id);
@@ -196,42 +225,52 @@ export async function initializeCollectionsPage() {
     const featuredBase = state.intent ? filtered : orderedCollections.filter((collection) => collection.featured);
     const featured = sortCollections(featuredBase, showsByCollection, "editorial").slice(0, 5);
     const activeMood = MOOD_FILTERS.find((filter) => filter.id === state.intent)?.label || "";
+    const gridMotionProfile = getCollectionsGridMotionProfile(changeReason);
 
-    renderMoodChips({
-      moodChips: elements.moodChips,
-      collections: orderedCollections,
-      state,
-      onSelect: (intent) => {
-        state.intent = state.intent === intent ? "" : intent;
-        render();
-      },
+    syncMoodChipState(moodChipMap, state.intent, {
+      scrollActiveIntoView: changeReason === "explicit" && Boolean(state.intent),
     });
-    renderCollectionGrid(elements.featuredGrid, featured, showsByCollection, createCollectionFeatureCard);
-    renderCollectionGrid(elements.directoryRoot, filtered, showsByCollection, createCollectionDirectoryCard);
+
+    syncCollectionGrid(elements.featuredGrid, featured, {
+      motionProfile: gridMotionProfile,
+      renderItem: (collection) => createCollectionFeatureCard(collection, showsByCollection.get(collection.id)),
+    });
+    syncCollectionGrid(elements.directoryRoot, filtered, {
+      motionProfile: gridMotionProfile,
+      renderItem: (collection) => createCollectionDirectoryCard(collection, showsByCollection.get(collection.id)),
+    });
 
     if (elements.featuredSummary) {
-      elements.featuredSummary.textContent = activeMood
-        ? `Featured paths matching ${activeMood.toLowerCase()}.`
-        : "Featured listening paths from the archive.";
+      syncCollectionsSummary(
+        elements.featuredSummary,
+        activeMood ? `Featured paths matching ${activeMood.toLowerCase()}.` : "Featured listening paths from the archive.",
+        { skipAnimation: changeReason === "initial" },
+      );
     }
     if (elements.directorySummary) {
       const queryLabel = state.query ? ` for "${state.query}"` : "";
       const moodLabel = activeMood ? ` matching ${activeMood.toLowerCase()}` : "";
-      elements.directorySummary.textContent = `${filtered.length} listening ${filtered.length === 1 ? "path" : "paths"}${moodLabel}${queryLabel}.`;
+      syncCollectionsSummary(
+        elements.directorySummary,
+        `${filtered.length} listening ${filtered.length === 1 ? "path" : "paths"}${moodLabel}${queryLabel}.`,
+        { skipAnimation: changeReason === "initial" },
+      );
     }
     if (elements.emptyState) {
-      elements.emptyState.hidden = filtered.length > 0;
+      syncCollectionsSurfaceVisibility(elements.emptyState, filtered.length === 0, {
+        enterOffsetY: 10,
+      });
     }
     syncUrlState(state);
   };
 
   elements.searchInput?.addEventListener("input", () => {
     state.query = elements.searchInput.value.trim();
-    render();
+    render("live-search");
   });
   elements.sortSelect?.addEventListener("change", () => {
     state.sortMode = elements.sortSelect.value;
-    render();
+    render("explicit");
   });
   elements.clearSearch?.addEventListener("click", () => {
     state.query = "";
@@ -240,7 +279,7 @@ export async function initializeCollectionsPage() {
       elements.searchInput.value = "";
       elements.searchInput.focus();
     }
-    render();
+    render("explicit");
   });
   elements.startWithMood?.addEventListener("click", () => elements.moodPanel?.scrollIntoView({ behavior: "smooth" }));
   elements.browseAll?.addEventListener("click", () => elements.directorySection?.scrollIntoView({ behavior: "smooth" }));

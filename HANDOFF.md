@@ -1,5 +1,78 @@
 ## Current task
 
+Fix push-time CI breakages affecting mobile browse-card behavior and backend dependency audit results.
+
+## Files changed
+
+- `shared/app/home-preview.js`
+- `podcast-ai/package-lock.json`
+- `HANDOFF.md`
+
+## What was completed
+
+- Restored touch/coarse-pointer browse-card taps so they open the inline archive preview instead of falling through to navigation.
+- Refreshed the backend lockfile so `qs` resolves to `6.15.3`, clearing the `npm audit (server)` advisory.
+- Verified the touch-card fix with a direct Playwright probe against `http://127.0.0.1:3010/`, confirming the tapped card expands in place with `card` placement and `stack` layout.
+
+## What still needs work
+
+- The packaged smoke suite currently still hits an unrelated pointer-intercept timeout around the featured collections carousel / sticky browse bar overlap later in `podcast-ai/test/home-card-interactions.smoke.js`.
+- The `govulncheck` failure from GitHub could not be reproduced locally in this repo because there are no tracked Go sources or Go module files.
+
+## Commands run
+
+- `rtk npm --prefix podcast-ai audit fix --package-lock-only`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run test:smoke -- --test-name-pattern='homepage expanding archive card supports stable hover, keyboard, touch, and compact anchored geometry'`
+- `rtk npm run dev`
+- `rtk curl -I http://127.0.0.1:3010/`
+- `rtk node -e 'const { chromium } = require("./podcast-ai/node_modules/playwright"); ...'`
+
+## Known issues
+
+- `npm run check:structure` still reports existing soft-limit warnings for `shared/app/pages/home.js` and `shared/styles/home/cards/03-filter-controls.css`, but it exits successfully.
+- Unrelated in-progress worktree changes remain in the collections files already modified before this fix.
+
+## Current task
+
+Add smoother, higher-value motion to the collections page for filter/sort state changes, empty-state feedback, chip selection, and collage hover depth.
+
+## Files changed
+
+- `shared/app/pages/collections.js`
+- `shared/app/pages/collections-grid-motion.js`
+- `shared/app/pages/collections-motion.js`
+- `shared/styles/home/collections/01-page.css`
+- `shared/styles/home/collections/02-cards.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Reworked the collections page rendering so featured and directory cards now preserve identity by collection id and animate through filter, sort, and search changes instead of snapping.
+- Added animated summary-text updates and an empty-state reveal so the page gives clearer feedback when the active mood, search, or result count changes.
+- Changed mood chips to stay mounted, animate on activation, and auto-scroll the selected chip fully into view on narrow screens.
+- Added restrained collage motion and slightly stronger hover/focus depth on collection cards so the card media better communicates that each route contains multiple shows.
+- Re-ran rendered QA on `http://127.0.0.1:3010/collections.html` in headless Playwright on desktop and mobile after the in-app Browser plugin failed local navigation.
+
+## What still needs work
+
+- No known follow-up for the collections motion pass beyond broader subjective tuning if the motion language changes later.
+
+## Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm run dev`
+- `rtk curl -I http://127.0.0.1:3010/collections.html`
+- `rtk node /tmp/collections-motion-check.cjs`
+
+## Known issues
+
+- The in-app Browser plugin was available but failed local-page navigation in this workspace, so rendered QA used the repo’s Playwright dependency instead.
+- Unrelated pre-existing worktree changes remain in `shared/styles/base/global.css` and `shared/styles/base/global/04-view-transitions.css`.
+
+## Current task
+
 Add a sticky compact browse bar after the hero scrolls away and make coarse-pointer browse-card taps go straight to show detail pages.
 
 ## Files changed
@@ -38,6 +111,35 @@ Add a sticky compact browse bar after the hero scrolls away and make coarse-poin
 ## Known issues
 
 - `shared/app/pages/home.js` and `shared/styles/home/cards/03-filter-controls.css` now exceed the soft `350`-line advisory limit, but `npm run check:structure` still passes because the hard fail threshold is higher.
+
+## Current task
+
+Revert the cross-page View Transition pass after it increased perceived page-load latency without enough visible payoff.
+
+## Files changed
+
+- `shared/styles/base/global.css`
+- `HANDOFF.md`
+
+## What was completed
+
+- Removed the global `@view-transition` opt-in from the shared base CSS import chain.
+- Deleted the dedicated View Transition partial so top-level page navigations are back to normal browser navigation behavior.
+- Kept the rollback scoped to the transition pass only and left unrelated in-progress worktree changes untouched.
+
+## What still needs work
+
+- No follow-up is required unless page-transition polish is revisited later with a different strategy, such as prefetch-backed navigation or more static destination-page rendering.
+
+## Commands run
+
+- `rtk npm run check:structure`
+
+## Known issues
+
+- None discovered in the rollback itself.
+
+---
 
 ## Current task
 
