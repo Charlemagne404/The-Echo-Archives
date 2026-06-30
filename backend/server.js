@@ -2,7 +2,7 @@ const path = require("node:path");
 const express = require("express");
 
 const config = require("./lib/config");
-const { loadArchiveContext } = require("./lib/archive-context");
+const { loadArchiveContext } = require("./lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { buildSitemapXml } = require("./lib/sitemap");
@@ -20,7 +20,7 @@ const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
 const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
-const { loadSiteHelpContext } = require("./lib/site-help");
+const { loadSiteHelpContext } = require("./lib/ai/site-help");
 
 async function startServer() {
   const app = express();
@@ -152,7 +152,7 @@ async function startServer() {
 
   if (config.SERVE_STATIC) {
     app.use((req, res, next) => {
-      if (req.path.startsWith("/podcast-ai/")) {
+      if (req.path.startsWith("/backend/") || req.path.startsWith("/podcast-ai/")) {
         return res.status(404).end();
       }
 

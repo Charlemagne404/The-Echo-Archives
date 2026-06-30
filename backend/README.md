@@ -1,12 +1,13 @@
-# Podcast AI
+# Backend
 
-This service runs the archive assistant for The Echo Archives and lives inside the main repo.
+This service runs the backend for The Echo Archives and keeps the archive assistant as one part of that backend.
 
 ## What it does
 
 - Loads the structured archive catalog from `../data/shows.json` plus optional `../data/reviews/*.json` companion files
 - Auto-fetches missing show cover art from RSS, Apple, or website metadata and stores managed files under `../images/covers/`
 - Exposes a same-origin chat API at `/api/chat`
+- Keeps the archive assistant implementation isolated under `lib/ai/`
 - Persists device-scoped anonymous community ratings in SQLite
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
 - Exposes show submission intake at `/api/submissions/shows`
@@ -16,7 +17,7 @@ This service runs the archive assistant for The Echo Archives and lives inside t
 ## Run locally
 
 ```bash
-cd podcast-ai
+cd backend
 npm install
 npm start
 ```
@@ -30,7 +31,7 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `PORT`: API and site port. Defaults to `3010` to avoid common local conflicts.
 - `OLLAMA_URL`: Ollama generate endpoint
 - `OLLAMA_MODEL`: model name sent to Ollama
-- `STATIC_ROOT`: site root relative to `podcast-ai/`
+- `STATIC_ROOT`: site root relative to `backend/`
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request
 - `DB_PATH`: SQLite database path for community features
@@ -73,7 +74,7 @@ The import lane is a separate internal queue for machine-found shows. It stores 
 Useful maintainer commands:
 
 ```bash
-cd podcast-ai
+cd backend
 npm run review:new -- <show-id>
 npm run review:publish -- <show-id>
 npm run review:report

@@ -2,9 +2,9 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const path = require("node:path");
 
-const { loadArchiveContext } = require("../lib/archive-context");
+const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
-const { buildSiteHelpResponse, loadSiteHelpContext } = require("../lib/site-help");
+const { buildSiteHelpResponse, loadSiteHelpContext } = require("../lib/ai/site-help");
 
 const siteRoot = path.resolve(__dirname, "../..");
 

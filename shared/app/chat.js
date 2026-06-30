@@ -121,7 +121,7 @@ async function syncChatHealth() {
     const result = await response.json();
     setChatStatus(`Ask the Archivist is ready. ${result.catalogCount} shows are indexed.`);
   } catch (_error) {
-    setChatStatus("Chat server offline. Start `podcast-ai` to enable live replies.");
+    setChatStatus("Chat server offline. Start `backend` to enable live replies.");
   }
 }
 
@@ -187,7 +187,7 @@ async function sendMessage(prefilledMessage) {
     typingIndicator.remove();
     renderAndStoreEntry({
       role: "assistant",
-      content: "I couldn't reach the archive assistant. Start the local `podcast-ai` service and try again.",
+      content: "I couldn't reach the archive assistant. Start the local `backend` service and try again.",
       recommendations: [],
       actions: [],
     });

@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 
-const { loadArchiveContext } = require("../lib/archive-context");
+const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog } = require("../lib/catalog");
 
 const siteRoot = path.resolve(__dirname, "../..");

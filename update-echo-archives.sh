@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-APP_DIR="${REPO_ROOT}/podcast-ai"
+APP_DIR="${REPO_ROOT}/backend"
 SERVICE_NAME="${SERVICE_NAME:-echo-archives.service}"
 WEB_SERVICE_NAME="${WEB_SERVICE_NAME:-caddy}"
 

@@ -1,3 +1,57 @@
+## Backend rename pass (2026-07-01)
+
+### Current task
+
+Rename `podcast-ai/` to `backend/` and separate assistant-specific code so the AI lives as one part of the backend instead of naming the entire backend after it.
+
+### Files changed
+
+- `package.json`
+- `tools/check-structure.js`
+- `update-echo-archives.sh`
+- `deploy/install-echo-archives-system.sh`
+- `deploy/echo-archives.service`
+- `shared/app/chat.js`
+- `README.md`
+- `docs/ARCHITECTURE.md`
+- `docs/OPERATIONS.md`
+- `docs/CURRENT_STATE.md`
+- `data/schema.md`
+- `MEMORY.md`
+- `backend/` (renamed from `podcast-ai/`)
+- `backend/lib/ai/`
+- `backend/server.js`
+- `backend/lib/routes/chat-routes.js`
+- `backend/scripts/validate-data.js`
+- `backend/scripts/review-helpers.js`
+- `backend/test/archive-context.test.js`
+- `backend/test/chat-intents.test.js`
+- `backend/test/chat-routes.test.js`
+- `backend/test/catalog.test.js`
+- `backend/test/site-help.test.js`
+
+### What was completed
+
+- Renamed the backend service root from `podcast-ai/` to `backend/`.
+- Moved assistant-specific modules into `backend/lib/ai/` so chat/archive-help logic is structurally separate from the rest of the backend.
+- Updated repo scripts, deploy/install paths, package naming, active docs, and local UI copy to use `backend`.
+- Rewired backend imports and test references so the moved AI modules still load through the same route/API surface.
+
+### What still needs work
+
+- Historical references under older handoff/archive docs still mention `podcast-ai/`; they were left as historical records rather than rewritten.
+
+### Commands run
+
+- `rtk npm run verify`
+
+### Known issues
+
+- `rtk npm run verify` now passes build, structure, validation, link checks, and all `97` backend tests after the rename.
+- The same pre-existing smoke failure remains in `backend/test/home-card-interactions.smoke.js` on the `#collectionNext` pointer-intercept timeout, leaving smoke coverage at `24/25` passing.
+
+---
+
 ## UI fix pass (2026-06-30)
 
 ### Current task

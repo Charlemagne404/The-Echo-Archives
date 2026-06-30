@@ -86,7 +86,7 @@ function checkLineBudgets() {
 function checkArchiveReferences() {
   const activeRoots = [
     path.join(ROOT, ".github"),
-    path.join(ROOT, "podcast-ai"),
+    path.join(ROOT, "backend"),
     path.join(ROOT, "shared"),
     path.join(ROOT, "tools"),
     path.join(ROOT, "site-src"),

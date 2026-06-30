@@ -5,7 +5,7 @@ const os = require("node:os");
 const path = require("node:path");
 
 const { loadCatalog, loadCollections, resolveCollectionView, scoreCatalog } = require("../lib/catalog");
-const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/chat");
+const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/ai/chat");
 const { validateSiteData } = require("../scripts/review-helpers");
 
 const siteRoot = path.resolve(__dirname, "../..");

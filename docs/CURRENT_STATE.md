@@ -156,7 +156,7 @@ The current system is split into four main layers:
 - `site-src/` for authored page sources and partials
 - repo-root generated HTML and stable CSS/JS entry assets
 - `shared/` for active frontend modules and shared styles
-- `podcast-ai/` for the Node and Express backend, tests, validation, and SQLite-backed workflow storage
+- `backend/` for the Node and Express backend, tests, validation, and SQLite-backed workflow storage
 
 Editorial source of truth currently lives in:
 
@@ -177,13 +177,13 @@ Repo-root commands:
 
 Backend verification commands:
 
-- `npm --prefix podcast-ai test`
-- `npm --prefix podcast-ai run test:smoke`
-- `npm --prefix podcast-ai run validate:data`
-- `npm --prefix podcast-ai run check:links`
-- `npm --prefix podcast-ai run review:new -- <show-id>`
-- `npm --prefix podcast-ai run review:publish -- <show-id>`
-- `npm --prefix podcast-ai run review:report`
+- `npm --prefix backend test`
+- `npm --prefix backend run test:smoke`
+- `npm --prefix backend run validate:data`
+- `npm --prefix backend run check:links`
+- `npm --prefix backend run review:new -- <show-id>`
+- `npm --prefix backend run review:publish -- <show-id>`
+- `npm --prefix backend run review:report`
 
 This is enough process to support disciplined iteration without a large platform footprint.
 

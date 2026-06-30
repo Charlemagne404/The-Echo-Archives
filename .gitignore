@@ -1,11 +1,16 @@
 podcast-ai/node_modules/
+backend/node_modules/
 podcast-ai/.env
+backend/.env
 .env
 .DS_Store
 **/.DS_Store
 podcast-ai/data/*.sqlite
 podcast-ai/data/*.sqlite-*
+backend/data/*.sqlite
+backend/data/*.sqlite-*
 podcast-ai/.DS_Store
+backend/.DS_Store
 *.log
 tmp/
 /.codex-artifacts

@@ -29,9 +29,9 @@ if [[ ! -f "${CADDYFILE}" ]]; then
   exit 1
 fi
 
-if [[ ! -d "${REPO_ROOT}/podcast-ai/node_modules" ]]; then
-  echo "Dependencies are missing under ${REPO_ROOT}/podcast-ai/node_modules."
-  echo "Run 'cd ${REPO_ROOT}/podcast-ai && npm install' as charlie before installing the service."
+if [[ ! -d "${REPO_ROOT}/backend/node_modules" ]]; then
+  echo "Dependencies are missing under ${REPO_ROOT}/backend/node_modules."
+  echo "Run 'cd ${REPO_ROOT}/backend && npm install' as charlie before installing the service."
   exit 1
 fi
 

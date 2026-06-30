@@ -138,7 +138,7 @@ The schema is intentionally allowed to be richer than the current UI. If structu
 
 `data/shows.json` and `data/collections.json` remain the canonical public catalog.
 
-Internal machine-ingest workflow state now lives separately in SQLite under the import tables managed by `podcast-ai/`. Those candidate records are operational only. They support discovery, hydration, provenance, duplicate review, and draft writing, but they are not a public or editorial source of truth.
+Internal machine-ingest workflow state now lives separately in SQLite under the import tables managed by `backend/`. Those candidate records are operational only. They support discovery, hydration, provenance, duplicate review, and draft writing, but they are not a public or editorial source of truth.
 
 The import lane writes into `data/shows.json` only after a maintainer explicitly drafts or publishes a candidate.
 

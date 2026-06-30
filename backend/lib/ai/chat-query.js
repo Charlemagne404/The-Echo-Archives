@@ -1,4 +1,4 @@
-const { normalizeTag, normalizeText } = require("../../shared/archive-search");
+const { normalizeTag, normalizeText } = require("../../../shared/archive-search");
 
 const RECOMMENDATION_SIGNAL_PATTERN =
   /\b(recommend|suggest|find me|looking for|what should i listen to|what should i start|give me|show me|i want|i need|something|anything)\b/i;

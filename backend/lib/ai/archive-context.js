@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { loadCatalog, loadCollections } = require("./catalog");
+const { loadCatalog, loadCollections } = require("../catalog");
 
 function readOptionalJsonArray(filePath) {
   if (!fs.existsSync(filePath)) {

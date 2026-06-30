@@ -21,7 +21,7 @@ As of June 29, 2026, the repo contains a working static-first site plus a small 
 | Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Ask the Archivist with catalog-grounded chat and site-help responses |
 | Maintainer tools | Passphrase-gated submission queue and report pages |
-| Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `podcast-ai/` |
+| Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |
 
 The current public page set includes:
 
@@ -47,7 +47,7 @@ Legacy show detail pages still exist under `shows/` and are kept as compatibilit
 - `site-src/` holds authored page sources, partials, and the page manifest.
 - The repo root holds generated public output such as `index.html`, `show.html`, `collection.html`, and the stable CSS and JS entry files.
 - `shared/` holds browser modules, shared rendering helpers, search logic, and CSS partials.
-- `podcast-ai/` holds the Express backend for chat, ratings, submissions, maintainer review, sitemap generation, and validation tooling.
+- `backend/` holds the Express backend for chat, ratings, submissions, maintainer review, sitemap generation, and validation tooling.
 - `tools/` holds repo-level page build and structure-check scripts.
 
 ## Stack
@@ -66,7 +66,7 @@ There is no planned frontend framework rewrite by default. The repo favors simpl
 Install backend dependencies once:
 
 ```bash
-npm --prefix podcast-ai install
+npm --prefix backend install
 ```
 
 Start the local app:
@@ -83,7 +83,7 @@ Root commands:
 
 | Command | What it does |
 | --- | --- |
-| `npm run dev` | Starts the local backend and static site through `podcast-ai/` |
+| `npm run dev` | Starts the local backend and static site through `backend/` |
 | `npm run build:pages` | Regenerates committed root HTML from `site-src/` |
 | `npm run check:structure` | Enforces repo structure and generated-source boundaries |
 | `npm run verify` | Runs page build, structure checks, backend tests, smoke tests, and data/link validation |
@@ -92,13 +92,13 @@ Useful backend commands:
 
 | Command | What it does |
 | --- | --- |
-| `npm --prefix podcast-ai test` | Runs backend tests |
-| `npm --prefix podcast-ai run test:smoke` | Runs Playwright smoke coverage |
-| `npm --prefix podcast-ai run validate:data` | Validates catalog and collection data |
-| `npm --prefix podcast-ai run check:links` | Checks internal and external archive links |
-| `npm --prefix podcast-ai run review:new -- <show-id>` | Scaffolds a review companion and moves a show to `planned` |
-| `npm --prefix podcast-ai run review:publish -- <show-id>` | Publishes a completed review companion and promotes the show to `full-review` |
-| `npm --prefix podcast-ai run review:report` | Audits review coverage and metadata gaps |
+| `npm --prefix backend test` | Runs backend tests |
+| `npm --prefix backend run test:smoke` | Runs Playwright smoke coverage |
+| `npm --prefix backend run validate:data` | Validates catalog and collection data |
+| `npm --prefix backend run check:links` | Checks internal and external archive links |
+| `npm --prefix backend run review:new -- <show-id>` | Scaffolds a review companion and moves a show to `planned` |
+| `npm --prefix backend run review:publish -- <show-id>` | Publishes a completed review companion and promotes the show to `full-review` |
+| `npm --prefix backend run review:report` | Audits review coverage and metadata gaps |
 
 ## Documentation
 
@@ -109,7 +109,7 @@ Active docs:
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - [`docs/OPERATIONS.md`](docs/OPERATIONS.md)
 - [`data/schema.md`](data/schema.md)
-- [`podcast-ai/README.md`](podcast-ai/README.md)
+- [`backend/README.md`](backend/README.md)
 
 Working project notes:
 

@@ -1,6 +1,6 @@
 # Repo Memory
 
-- The active repo-wide doc set is `README.md`, `AGENTS.md`, `docs/PRODUCT.md`, `docs/ROADMAP.md`, `docs/ARCHITECTURE.md`, `docs/OPERATIONS.md`, `data/schema.md`, and `podcast-ai/README.md`.
+- The active repo-wide doc set is `README.md`, `AGENTS.md`, `docs/PRODUCT.md`, `docs/ROADMAP.md`, `docs/ARCHITECTURE.md`, `docs/OPERATIONS.md`, `data/schema.md`, and `backend/README.md`.
 - Historical planning and superseded guidance live in `docs/archive/`.
 - Dated QA reports live in `docs/qa/`.
 - Research and design feedback snapshots live in `docs/research/feedback/`.

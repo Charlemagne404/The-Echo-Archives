@@ -1,7 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { classifyChatIntent, promoteIntentWithMatches } = require("../lib/chat-intents");
+const { classifyChatIntent, promoteIntentWithMatches } = require("../lib/ai/chat-intents");
 
 test("classifyChatIntent routes correction questions to site help", () => {
   const intent = classifyChatIntent({

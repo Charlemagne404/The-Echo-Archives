@@ -7,17 +7,17 @@ Wants=network-online.target
 Type=simple
 User=charlie
 Group=charlie
-WorkingDirectory=/home/charlie/The-Echo-Archives/podcast-ai
+WorkingDirectory=/home/charlie/The-Echo-Archives/backend
 Environment=PORT=3010
 Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
 Environment=SERVE_STATIC=true
 Environment=SITE_URL=https://echo.continental-hub.com
-Environment=DB_PATH=/home/charlie/The-Echo-Archives/podcast-ai/data/community.sqlite
+Environment=DB_PATH=/home/charlie/The-Echo-Archives/backend/data/community.sqlite
 Environment=OLLAMA_URL=http://127.0.0.1:11434/api/generate
 Environment=OLLAMA_MODEL=mistral
 Environment=REQUEST_TIMEOUT_MS=30000
-EnvironmentFile=-/home/charlie/The-Echo-Archives/podcast-ai/.env
-ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/podcast-ai/server.js
+EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
+ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/backend/server.js
 Restart=always
 RestartSec=5
 NoNewPrivileges=true

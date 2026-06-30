@@ -3,10 +3,10 @@ const assert = require("node:assert/strict");
 const path = require("node:path");
 const express = require("express");
 
-const { loadArchiveContext } = require("../lib/archive-context");
+const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 const { createChatRouter } = require("../lib/routes/chat-routes");
-const { loadSiteHelpContext } = require("../lib/site-help");
+const { loadSiteHelpContext } = require("../lib/ai/site-help");
 
 const siteRoot = path.resolve(__dirname, "../..");
 

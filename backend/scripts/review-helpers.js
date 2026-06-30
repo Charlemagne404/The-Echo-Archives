@@ -1,7 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { loadArchiveContext } = require("../lib/archive-context");
+const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 const { getGateBCriticalValidationErrors } = require("../lib/discovery-gaps");
 const {

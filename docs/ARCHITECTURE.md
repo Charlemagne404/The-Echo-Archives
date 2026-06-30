@@ -17,14 +17,14 @@ Historical architecture and migration docs live in `docs/archive/`.
 
 ## Summary
 
-The Echo Archives is a structured, static-first archive with a small Node and Express backend in `podcast-ai/`.
+The Echo Archives is a structured, static-first archive with a small Node and Express backend in `backend/`.
 
 It has four main layers:
 
 - authored page source in `site-src/`
 - committed public page output in the repo root
 - structured editorial catalog data in `data/`
-- shared runtime modules and backend services in `shared/` and `podcast-ai/`
+- shared runtime modules and backend services in `shared/` and `backend/`
 
 The main architecture problem is no longer migration away from handwritten pages. The current problem is how to scale trust, metadata quality, review coverage, and discovery depth without overbuilding.
 
@@ -36,7 +36,7 @@ These boundaries are intentional and should be preserved:
 - repo root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js`: generated, committed public output and stable browser entry assets
 - `shared/`: browser modules, rendering helpers, search logic, shared CSS partials, and compatibility manifests
 - `data/`: live editorial source data only
-- `podcast-ai/`: backend services, tests, validation scripts, and SQLite-backed workflow storage
+- `backend/`: backend services, tests, validation scripts, and SQLite-backed workflow storage
 - `docs/`: product, architecture, operations, research, QA, and historical material only; never runtime inputs
 
 The repo-root command surface is intentionally small:
@@ -163,7 +163,7 @@ The archive supports both `indexed-only` and `full-review` as valid long-term sh
 
 ## Backend Role
 
-`podcast-ai/server.js` currently serves:
+`backend/server.js` currently serves:
 
 - `GET /api/health`
 - `GET /sitemap.xml`
@@ -190,9 +190,11 @@ The backend owns:
 - sitemap generation
 - startup validation for optional archive datasets
 
+Within `backend/`, assistant-specific logic now lives under `lib/ai/`, while the rest of the service remains organized by routes, services, stores, and general backend utilities.
+
 ## Catalog Loading And Validation
 
-`podcast-ai/lib/catalog.js` loads structured catalog data directly from `data/`, merges companion review JSON into the matching show record, normalizes search data, and validates both shows and collections.
+`backend/lib/catalog.js` loads structured catalog data directly from `data/`, merges companion review JSON into the matching show record, normalizes search data, and validates both shows and collections.
 
 Validation covers:
 
@@ -314,10 +316,10 @@ Key verification commands:
 
 - `npm run build:pages`
 - `npm run check:structure`
-- `npm --prefix podcast-ai run validate:data`
-- `npm --prefix podcast-ai run check:links`
-- `npm --prefix podcast-ai test`
-- `npm --prefix podcast-ai run test:smoke`
+- `npm --prefix backend run validate:data`
+- `npm --prefix backend run check:links`
+- `npm --prefix backend test`
+- `npm --prefix backend run test:smoke`
 - `npm run verify`
 
 ## Deployment Assumptions
@@ -329,7 +331,7 @@ Current assumptions:
 - Node 20+
 - Express serves API and static files
 - optional Ollama service at `127.0.0.1:11434`
-- SQLite database at `podcast-ai/data/community.sqlite` by default
+- SQLite database at `backend/data/community.sqlite` by default
 - reverse proxy and systemd definitions in `deploy/`
 
 ## Current Gaps

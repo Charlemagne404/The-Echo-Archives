@@ -7,15 +7,15 @@ const {
   buildRecommendationCard,
   buildSuggestedPrompts,
   sanitizeAnswerText,
-} = require("../chat");
+} = require("../ai/chat");
 const {
   classifyChatIntent,
   inferShowDetailTopic,
   isClarificationRequest,
   promoteIntentWithMatches,
-} = require("../chat-intents");
-const { analyzeChatQuery, answerMentionsExcludedTitle } = require("../chat-query");
-const { buildSiteHelpResponse } = require("../site-help");
+} = require("../ai/chat-intents");
+const { analyzeChatQuery, answerMentionsExcludedTitle } = require("../ai/chat-query");
+const { buildSiteHelpResponse } = require("../ai/site-help");
 
 const REPEAT_SCORE_MARGIN = 35;
 const SHOW_CONTEXT_TOPICS = new Set([

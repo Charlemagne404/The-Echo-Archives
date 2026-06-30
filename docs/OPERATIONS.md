@@ -17,7 +17,7 @@ Use it as the source of truth for:
 Install backend dependencies when needed:
 
 ```bash
-npm --prefix podcast-ai install
+npm --prefix backend install
 ```
 
 Run release preflight from the repo root:
@@ -167,7 +167,7 @@ Protected import APIs:
 Useful import CLI commands:
 
 ```bash
-cd podcast-ai
+cd backend
 npm run import:seed -- --file ./tmp/import-list.txt
 npm run import:hydrate -- --candidate <candidate-id>
 npm run import:report
@@ -277,7 +277,7 @@ Active repo-wide docs:
 - `docs/ARCHITECTURE.md`
 - `docs/OPERATIONS.md`
 - `data/schema.md`
-- `podcast-ai/README.md`
+- `backend/README.md`
 
 Supporting records:
 
