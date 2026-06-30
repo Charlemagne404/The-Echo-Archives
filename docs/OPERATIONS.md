@@ -97,6 +97,8 @@ If maintainer auth is enabled, also verify:
 
 - `/maintainer/submissions.html`
 - `/maintainer/submissions/report.html`
+- `/maintainer/imports.html`
+- `/maintainer/imports/report.html`
 
 ## Launch Checks
 
@@ -141,6 +143,61 @@ Use:
 
 - `MAINTAINER_REVIEW_COOKIE_SECRET` to sign the session cookie
 - `MAINTAINER_REVIEW_SESSION_TTL_HOURS` to control session length
+
+## Catalog Import Lane
+
+Machine-found show intake is separate from the public submission queue.
+
+Protected internal import surfaces:
+
+- `/maintainer/imports.html`
+- `/maintainer/imports/report.html`
+
+Protected import APIs:
+
+- `GET /api/maintainer/imports`
+- `POST /api/maintainer/imports`
+- `GET /api/maintainer/imports/search`
+- `GET /api/maintainer/imports/:id`
+- `POST /api/maintainer/imports/:id/hydrate`
+- `PATCH /api/maintainer/imports/:id/review`
+- `POST /api/maintainer/imports/:id/draft`
+- `POST /api/maintainer/imports/:id/publish`
+
+Useful import CLI commands:
+
+```bash
+cd podcast-ai
+npm run import:seed -- --file ./tmp/import-list.txt
+npm run import:hydrate -- --candidate <candidate-id>
+npm run import:report
+npm run import:draft -- --candidate <candidate-id>
+npm run import:publish -- --candidate <candidate-id>
+```
+
+Import workflow:
+
+1. Seed titles, Apple URLs, RSS URLs, or mixed newline lists into the internal queue.
+2. Hydrate candidates from RSS first where possible, using Apple as the default discovery and `feedUrl` recovery path.
+3. Review duplicate matches, scope status, and factual metadata before touching `data/shows.json`.
+4. Write approved candidates into `data/shows.json` as `status: "draft"`.
+5. Fill archive-owned discovery and editorial fields manually.
+6. Publish only after the record satisfies normal `published` validation and Gate B discovery rules.
+
+Operational rules:
+
+- nothing public auto-publishes
+- objective metadata may be auto-hydrated
+- AI suggestions remain suggestions only
+- Podcast Index enrichment is optional and must degrade cleanly when credentials are absent
+- external source calls should stay rate-limited and batch-oriented; prefer seeding first, then hydrating candidates in review waves instead of hammering providers one record at a time
+
+Duplicate review rules:
+
+- prefer feed URL matches over title-only matches
+- treat Apple collection id, Podcast Index feed id, and Podcast Index guid matches as strong duplicate signals
+- use normalized title plus creator matches as review prompts, not auto-merge rules
+- mark duplicates in the queue instead of deleting history
 
 ## Queue Data Expectations
 

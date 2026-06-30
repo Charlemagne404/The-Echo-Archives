@@ -105,11 +105,12 @@ function buildFallbackOptions(queryContext, repeatedRecommendation) {
   };
 }
 
-function createChatRouter({ catalog, collections, config, siteHelpContext, rateLimiter = null }) {
+function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, config, rateLimiter = null }) {
   const router = express.Router();
-  const catalogById = new Map(catalog.map((show) => [show.id, show]));
 
   router.get("/health", (_req, res) => {
+    const catalog = getCatalog();
+    const collections = getCollections();
     res.json({
       ok: true,
       catalogCount: catalog.length,
@@ -119,6 +120,10 @@ function createChatRouter({ catalog, collections, config, siteHelpContext, rateL
   });
 
   router.post("/", async (req, res) => {
+    const catalog = getCatalog();
+    const collections = getCollections();
+    const siteHelpContext = getSiteHelpContext();
+    const catalogById = new Map(catalog.map((show) => [show.id, show]));
     const message = typeof req.body.message === "string" ? req.body.message.trim() : "";
     const history = Array.isArray(req.body.history)
       ? req.body.history

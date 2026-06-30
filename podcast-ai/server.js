@@ -8,9 +8,11 @@ const { createMaintainerAuth } = require("./lib/maintainer-auth");
 const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
+const { createImportStore } = require("./lib/store/import-store");
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
+const { createImportService } = require("./lib/services/import-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
 const { createTurnstileService } = require("./lib/services/turnstile-service");
@@ -22,10 +24,29 @@ const { loadSiteHelpContext } = require("./lib/site-help");
 
 async function startServer() {
   const app = express();
-  const catalog = await loadCatalog(config.STATIC_ROOT);
-  const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
-  const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
-  const siteHelpContext = loadSiteHelpContext({ catalog, collections, archiveContext });
+  const state = {
+    catalog: [],
+    publicCatalog: [],
+    collections: [],
+    archiveContext: null,
+    siteHelpContext: null,
+  };
+
+  async function reloadState() {
+    const catalog = await loadCatalog(config.STATIC_ROOT);
+    const publicCatalog = catalog.filter((show) => show.status === "published");
+    const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
+    const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
+    const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
+
+    state.catalog = catalog;
+    state.publicCatalog = publicCatalog;
+    state.collections = collections;
+    state.archiveContext = archiveContext;
+    state.siteHelpContext = siteHelpContext;
+  }
+
+  await reloadState();
   const database = openDatabase(config.DB_PATH);
   const rateLimitStore = createRateLimitStore({ db: database });
   const rateLimitService = createRateLimitService({
@@ -47,10 +68,11 @@ async function startServer() {
   });
   const communityStore = createCommunityStore({
     db: database,
-    catalog,
+    catalog: state.publicCatalog,
     minPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
   });
   const submissionStore = createSubmissionStore({ db: database });
+  const importStore = createImportStore({ db: database });
   const turnstileService = createTurnstileService({
     enabled: config.COMMUNITY_TURNSTILE_ENABLED,
     secretKey: config.COMMUNITY_TURNSTILE_SECRET_KEY,
@@ -65,8 +87,18 @@ async function startServer() {
   });
   const submissionService = createSubmissionService({
     store: submissionStore,
-    knownShowIds: new Set(catalog.map((show) => show.id)),
+    knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
     rateLimiter: rateLimitService,
+  });
+  const importService = createImportService({
+    store: importStore,
+    staticRoot: config.STATIC_ROOT,
+    config,
+    onPublished: async () => {
+      await reloadState();
+      communityStore.syncCatalog(state.publicCatalog);
+      submissionService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
+    },
   });
   const maintainerAuth = createMaintainerAuth(config);
 
@@ -78,7 +110,7 @@ async function startServer() {
     res.json({
       ok: true,
       service: "echo-archives",
-      catalogCount: catalog.length,
+      catalogCount: state.publicCatalog.length,
       model: config.OLLAMA_MODEL,
     });
   });
@@ -87,23 +119,23 @@ async function startServer() {
     res.type("application/xml").send(
       buildSitemapXml({
         siteUrl: config.SITE_URL,
-        catalog,
-        collections,
+        catalog: state.publicCatalog,
+        collections: state.collections,
       }),
     );
   });
 
   app.get("/data/shows.json", (_req, res) => {
-    res.json(catalog);
+    res.json(state.publicCatalog);
   });
 
   app.use(
     "/api/chat",
     createChatRouter({
-      catalog,
-      collections,
+      getCatalog: () => state.publicCatalog,
+      getCollections: () => state.collections,
+      getSiteHelpContext: () => state.siteHelpContext,
       config,
-      siteHelpContext,
       rateLimiter: rateLimitService,
     }),
   );
@@ -114,6 +146,7 @@ async function startServer() {
       auth: maintainerAuth,
       staticRoot: config.STATIC_ROOT,
       submissionService,
+      importService,
     }),
   );
 

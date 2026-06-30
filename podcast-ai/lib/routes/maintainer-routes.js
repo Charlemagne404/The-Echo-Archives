@@ -16,7 +16,7 @@ function createAuthRequiredError() {
   return error;
 }
 
-function createMaintainerRouter({ auth, staticRoot, submissionService }) {
+function createMaintainerRouter({ auth, staticRoot, submissionService, importService }) {
   const router = express.Router();
 
   router.use(["/maintainer", "/api/maintainer"], (req, res, next) => {
@@ -45,6 +45,8 @@ function createMaintainerRouter({ auth, staticRoot, submissionService }) {
 
   router.get("/maintainer/submissions.html", sendMaintainerPage("maintainer/submissions.html"));
   router.get("/maintainer/submissions/report.html", sendMaintainerPage("maintainer/submissions/report.html"));
+  router.get("/maintainer/imports.html", sendMaintainerPage("maintainer/imports.html"));
+  router.get("/maintainer/imports/report.html", sendMaintainerPage("maintainer/imports/report.html"));
 
   router.post("/api/maintainer/session", (req, res, next) => {
     if (!auth.authenticate(req.body?.passphrase || "")) {
@@ -100,6 +102,106 @@ function createMaintainerRouter({ auth, staticRoot, submissionService }) {
           reviewedBy: req.body?.reviewedBy,
         }),
       });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/imports", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json(
+        importService.listForMaintainer({
+          status: req.query.status,
+          scopeStatus: req.query.scopeStatus,
+          sourceType: req.query.sourceType,
+          duplicateState: req.query.duplicateState,
+          q: req.query.q,
+          includeClosed: parseBoolean(req.query.includeClosed),
+          page: parsePositiveInteger(req.query.page, 1),
+          pageSize: parsePositiveInteger(req.query.pageSize, 20),
+        }),
+      );
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.status(201).json(
+        importService.seedCandidates({
+          entries: Array.isArray(req.body?.entries) ? req.body.entries : [],
+          searchResults: Array.isArray(req.body?.searchResults) ? req.body.searchResults : [],
+          actor: req.body?.reviewedBy || "",
+        }),
+      );
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/imports/search", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(
+        await importService.searchExternalSources({
+          q: req.query.q,
+          source: req.query.source,
+          limit: parsePositiveInteger(req.query.limit, 10),
+        }),
+      );
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/imports/:id", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({
+        candidate: importService.getForMaintainer(req.params.id),
+      });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/:id/hydrate", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json({
+        candidate: await importService.hydrateForMaintainer(req.params.id, req.body?.reviewedBy || ""),
+      });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.patch("/api/maintainer/imports/:id/review", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({
+        candidate: importService.reviewForMaintainer(req.params.id, {
+          status: req.body?.status,
+          scopeStatus: req.body?.scopeStatus,
+          reviewNotes: req.body?.reviewNotes,
+          reviewedBy: req.body?.reviewedBy,
+          duplicateOfShowId: req.body?.duplicateOfShowId,
+          duplicateOfCandidateId: req.body?.duplicateOfCandidateId,
+        }, req.body?.reviewedBy || ""),
+      });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/:id/draft", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await importService.draftForMaintainer(req.params.id, req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/:id/publish", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await importService.publishForMaintainer(req.params.id, req.body?.reviewedBy || ""));
     } catch (error) {
       return next(error);
     }

@@ -113,6 +113,63 @@ function migrate(db) {
       user_agent TEXT NOT NULL DEFAULT ''
     );
 
+    CREATE TABLE IF NOT EXISTS catalog_import_candidates (
+      id TEXT PRIMARY KEY,
+      status TEXT NOT NULL DEFAULT 'discovered',
+      scope_status TEXT NOT NULL DEFAULT 'in-scope',
+      has_duplicate_match INTEGER NOT NULL DEFAULT 0,
+      title TEXT NOT NULL DEFAULT '',
+      creator_name TEXT NOT NULL DEFAULT '',
+      canonical_id TEXT NOT NULL DEFAULT '',
+      primary_source_type TEXT NOT NULL DEFAULT '',
+      primary_source_key TEXT NOT NULL DEFAULT '',
+      primary_source_url TEXT NOT NULL DEFAULT '',
+      seed_query TEXT NOT NULL DEFAULT '',
+      objective_json TEXT NOT NULL DEFAULT '{}',
+      ai_suggestions_json TEXT NOT NULL DEFAULT '{}',
+      provenance_json TEXT NOT NULL DEFAULT '{}',
+      dedupe_json TEXT NOT NULL DEFAULT '{}',
+      review_notes TEXT NOT NULL DEFAULT '',
+      reviewed_by TEXT NOT NULL DEFAULT '',
+      reviewed_at TEXT,
+      drafted_show_id TEXT NOT NULL DEFAULT '',
+      published_show_id TEXT NOT NULL DEFAULT '',
+      duplicate_of_show_id TEXT NOT NULL DEFAULT '',
+      duplicate_of_candidate_id TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_sources (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      candidate_id TEXT NOT NULL REFERENCES catalog_import_candidates(id) ON DELETE CASCADE,
+      source_type TEXT NOT NULL,
+      source_key TEXT NOT NULL DEFAULT '',
+      source_url TEXT NOT NULL DEFAULT '',
+      fetch_status TEXT NOT NULL DEFAULT 'fetched',
+      payload_json TEXT NOT NULL DEFAULT '{}',
+      normalized_json TEXT NOT NULL DEFAULT '{}',
+      fetched_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_events (
+      id TEXT PRIMARY KEY,
+      candidate_id TEXT NOT NULL REFERENCES catalog_import_candidates(id) ON DELETE CASCADE,
+      event_type TEXT NOT NULL,
+      actor TEXT NOT NULL DEFAULT '',
+      payload_json TEXT NOT NULL DEFAULT '{}',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_runs (
+      id TEXT PRIMARY KEY,
+      run_type TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'completed',
+      input_json TEXT NOT NULL DEFAULT '{}',
+      summary_json TEXT NOT NULL DEFAULT '{}',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
     CREATE TABLE IF NOT EXISTS rate_limit_events (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       scope TEXT NOT NULL,
@@ -135,6 +192,21 @@ function migrate(db) {
     CREATE INDEX IF NOT EXISTS idx_show_submissions_status
       ON show_submissions (status, submitted_at DESC);
 
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_candidates_status
+      ON catalog_import_candidates (status, updated_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_candidates_scope
+      ON catalog_import_candidates (scope_status, updated_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_candidates_source
+      ON catalog_import_candidates (primary_source_type, updated_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_sources_candidate
+      ON catalog_import_sources (candidate_id, fetched_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_events_candidate
+      ON catalog_import_events (candidate_id, created_at DESC);
+
     CREATE INDEX IF NOT EXISTS idx_rate_limit_scope_ip_created
       ON rate_limit_events (scope, client_ip, created_at_ms);
   `);
@@ -147,6 +219,81 @@ function migrate(db) {
   ensureColumn(db, "show_submissions", "review_notes", "review_notes TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "reviewed_by", "reviewed_by TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "show_submissions", "reviewed_at", "reviewed_at TEXT");
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "scope_status",
+    "scope_status TEXT NOT NULL DEFAULT 'in-scope'",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "has_duplicate_match",
+    "has_duplicate_match INTEGER NOT NULL DEFAULT 0",
+  );
+  ensureColumn(db, "catalog_import_candidates", "title", "title TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "creator_name", "creator_name TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "canonical_id", "canonical_id TEXT NOT NULL DEFAULT ''");
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "primary_source_type",
+    "primary_source_type TEXT NOT NULL DEFAULT ''",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "primary_source_key",
+    "primary_source_key TEXT NOT NULL DEFAULT ''",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "primary_source_url",
+    "primary_source_url TEXT NOT NULL DEFAULT ''",
+  );
+  ensureColumn(db, "catalog_import_candidates", "seed_query", "seed_query TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "objective_json", "objective_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "ai_suggestions_json",
+    "ai_suggestions_json TEXT NOT NULL DEFAULT '{}'",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "provenance_json",
+    "provenance_json TEXT NOT NULL DEFAULT '{}'",
+  );
+  ensureColumn(db, "catalog_import_candidates", "dedupe_json", "dedupe_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "catalog_import_candidates", "review_notes", "review_notes TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "reviewed_by", "reviewed_by TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "reviewed_at", "reviewed_at TEXT");
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "drafted_show_id",
+    "drafted_show_id TEXT NOT NULL DEFAULT ''",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "published_show_id",
+    "published_show_id TEXT NOT NULL DEFAULT ''",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "duplicate_of_show_id",
+    "duplicate_of_show_id TEXT NOT NULL DEFAULT ''",
+  );
+  ensureColumn(
+    db,
+    "catalog_import_candidates",
+    "duplicate_of_candidate_id",
+    "duplicate_of_candidate_id TEXT NOT NULL DEFAULT ''",
+  );
   ensureColumn(db, "community_profiles", "voter_hash", "voter_hash TEXT");
   ensureColumn(db, "community_profiles", "last_abuse_hash", "last_abuse_hash TEXT");
   ensureColumn(db, "rating_submissions", "verified_at", "verified_at TEXT");

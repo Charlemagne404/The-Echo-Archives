@@ -1,0 +1,45 @@
+<main class="home-main page-main maintainer-main maintainer-report-main">
+  <section class="hero-shell maintainer-hero-shell">
+    <div class="hero-panel page-panel maintainer-hero-panel">
+      <div class="maintainer-hero-copy">
+        <p class="maintainer-kicker">Maintainer workspace</p>
+        <h1>Catalog import report</h1>
+        <p>Open a print-friendly snapshot of the machine-import queue with the same filters as the live review surface.</p>
+      </div>
+      <div class="maintainer-hero-actions">
+        <a id="maintainerQueueLink" class="maintainer-link-button" href="/maintainer/imports.html">Back to queue</a>
+        <button id="maintainerPrintButton" class="maintainer-ghost-button" type="button" hidden>Print report</button>
+        <button id="maintainerReportLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
+    <div class="maintainer-auth-copy">
+      <p class="maintainer-kicker">Protected</p>
+      <h2>Maintainer passphrase</h2>
+      <p>The report uses the same protected session as the import queue. Enter the maintainer passphrase to load the current snapshot.</p>
+    </div>
+    <form id="maintainerAuthForm" class="maintainer-auth-form">
+      <label class="maintainer-field">
+        <span>Passphrase</span>
+        <input id="maintainerPassphrase" type="password" autocomplete="current-password" required />
+      </label>
+      <div class="maintainer-auth-actions">
+        <button class="maintainer-primary-button" type="submit">Unlock report</button>
+        <p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p>
+      </div>
+    </form>
+  </section>
+
+  <section id="maintainerReportShell" class="maintainer-report-shell" hidden>
+    <div class="page-card maintainer-report-toolbar">
+      <div>
+        <p class="maintainer-kicker">Snapshot</p>
+        <h2>Current filters</h2>
+      </div>
+      <p id="maintainerReportMeta" class="maintainer-toolbar-meta">Loading report…</p>
+    </div>
+    <div id="maintainerReportContent" class="maintainer-report-content" aria-live="polite"></div>
+  </section>
+</main>

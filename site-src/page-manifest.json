@@ -134,6 +134,30 @@
     "includeFloatingControls": false
   },
   {
+    "source": "maintainer/imports.html",
+    "output": "maintainer/imports.html",
+    "title": "Catalog Imports - The Echo Archives",
+    "description": "Maintainer catalog import queue for The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/maintainer/imports.html",
+    "bodyClass": "home-page maintainer-import-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
+    "source": "maintainer/imports-report.html",
+    "output": "maintainer/imports/report.html",
+    "title": "Catalog Import Report - The Echo Archives",
+    "description": "Maintainer catalog import report for The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/maintainer/imports/report.html",
+    "bodyClass": "home-page maintainer-import-page maintainer-import-report-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
     "source": "privacy.html",
     "output": "privacy.html",
     "title": "Privacy - The Echo Archives",

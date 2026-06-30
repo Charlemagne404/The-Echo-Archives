@@ -604,6 +604,7 @@ function createSubmissionService({
   knownShowIds = null,
   rateLimiter = null,
 }) {
+  let effectiveKnownShowIds = knownShowIds;
   const modeHandlers = {
     show: createShowSubmissionHandler({ store }),
     correction: createCorrectionSubmissionHandler({ store }),
@@ -622,7 +623,7 @@ function createSubmissionService({
     validateCommonSubmissionFields(common);
 
     if (common.submissionType !== "show") {
-      ensureKnownShowId(knownShowIds, common.submissionType, common.existingShowId);
+      ensureKnownShowId(effectiveKnownShowIds, common.submissionType, common.existingShowId);
     }
 
     return modeHandlers[common.submissionType]({
@@ -683,6 +684,9 @@ function createSubmissionService({
     listForMaintainer,
     getForMaintainer,
     reviewForMaintainer,
+    setKnownShowIds(nextKnownShowIds) {
+      effectiveKnownShowIds = nextKnownShowIds;
+    },
   };
 }
 

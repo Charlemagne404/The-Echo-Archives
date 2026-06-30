@@ -181,8 +181,13 @@
 .maintainer-toolbar-grid,
 .maintainer-review-grid,
 .maintainer-workspace,
+.maintainer-import-grid,
 .maintainer-summary-grid,
-.maintainer-detail-grid {
+.maintainer-detail-grid,
+.import-source-grid,
+.import-search-results,
+.import-match-list,
+.import-suggestion-list {
   display: grid;
   gap: 14px;
 }
@@ -226,6 +231,10 @@
   grid-template-columns: minmax(340px, 0.9fr) minmax(0, 1.3fr);
 }
 
+.maintainer-import-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .maintainer-list-card,
 .maintainer-detail-card,
 .maintainer-report-toolbar,
@@ -238,7 +247,10 @@
 .maintainer-report-summary,
 .maintainer-detail-header,
 .maintainer-report-entry-top,
-.maintainer-report-group-heading {
+.maintainer-report-group-heading,
+.import-search-card-top,
+.import-source-card-top,
+.import-match-card-top {
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -305,6 +317,57 @@
 
 .maintainer-badge.is-muted {
   background: rgba(117, 124, 128, 0.2);
+}
+
+.import-search-card,
+.import-source-card,
+.import-match-card,
+.import-suggestion-chip {
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(8, 10, 12, 0.88)),
+    radial-gradient(circle at top right, rgba(229, 72, 56, 0.1), transparent 36%);
+}
+
+.import-search-card h3,
+.import-source-card h4,
+.import-match-card strong {
+  color: #f5f1ea;
+}
+
+.import-search-card p,
+.import-source-card p,
+.import-match-card p,
+.import-suggestion-chip span {
+  color: #d2d7d9;
+}
+
+.import-source-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.import-source-description {
+  white-space: pre-wrap;
+}
+
+.import-action-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.import-match-list,
+.import-suggestion-list {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.import-suggestion-chip {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
 }
 
 .maintainer-detail-grid {

@@ -15,8 +15,10 @@
 @media (max-width: 1100px) {
   .maintainer-summary-grid,
   .maintainer-workspace,
+  .maintainer-import-grid,
   .maintainer-toolbar-grid,
-  .maintainer-detail-grid {
+  .maintainer-detail-grid,
+  .import-source-grid {
     grid-template-columns: 1fr;
   }
 
@@ -36,13 +38,16 @@
 
   .maintainer-hero-actions,
   .maintainer-toolbar-actions,
-  .maintainer-pagination {
+  .maintainer-pagination,
+  .import-action-row {
     width: 100%;
   }
 
   .maintainer-link-button,
   .maintainer-ghost-button,
-  .maintainer-primary-button {
+  .maintainer-primary-button,
+  .import-action-row .maintainer-ghost-button,
+  .import-action-row .maintainer-primary-button {
     width: 100%;
   }
 }

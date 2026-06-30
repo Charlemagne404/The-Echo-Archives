@@ -20,14 +20,14 @@ async function createChatTestServer() {
   app.use(
     "/api/chat",
     createChatRouter({
-      catalog,
-      collections,
+      getCatalog: () => catalog,
+      getCollections: () => collections,
       config: {
         OLLAMA_MODEL: "test-model",
         OLLAMA_URL: "http://127.0.0.1:9/api/generate",
         REQUEST_TIMEOUT_MS: 50,
       },
-      siteHelpContext,
+      getSiteHelpContext: () => siteHelpContext,
     }),
   );
 

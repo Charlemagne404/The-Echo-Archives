@@ -10,6 +10,7 @@ This service runs the archive assistant for The Echo Archives and lives inside t
 - Persists device-scoped anonymous community ratings in SQLite
 - Exposes community endpoints at `/api/community/*` for ratings, profile bootstrap, and summaries
 - Exposes show submission intake at `/api/submissions/shows`
+- Exposes a protected internal import lane for machine-found catalog candidates
 - Uses Ollama when available and falls back to grounded heuristic recommendations when it is not
 
 ## Run locally
@@ -33,6 +34,11 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request
 - `DB_PATH`: SQLite database path for community features
+- `PODCAST_INDEX_API_KEY`: optional Podcast Index API key for import enrichment
+- `PODCAST_INDEX_API_SECRET`: optional Podcast Index API secret for import enrichment
+- `PODCAST_INDEX_USER_AGENT`: user-agent string sent to Podcast Index and import fetches
+- `IMPORT_SUGGESTION_PROVIDER`: optional subjective suggestion provider name. Current supported value is `ollama`
+- `IMPORT_SUGGESTION_MODEL`: optional model name used by the import suggestion provider
 - `COMMUNITY_TURNSTILE_SITE_KEY`: Cloudflare Turnstile site key shown by the rating widget
 - `COMMUNITY_TURNSTILE_SECRET_KEY`: Cloudflare Turnstile secret key used for server-side verification
 - `COMMUNITY_TURNSTILE_ENABLED`: enables Turnstile enforcement for rating writes. Defaults to enabled when a secret key is set
@@ -54,10 +60,15 @@ Protected maintainer submission workflow routes:
 
 - `/maintainer/submissions.html`
 - `/maintainer/submissions/report.html`
+- `/maintainer/imports.html`
+- `/maintainer/imports/report.html`
 - `/api/maintainer/session`
 - `/api/maintainer/submissions`
+- `/api/maintainer/imports`
 
 The maintainer queue is passphrase-gated, reads from the same SQLite submission store as public intake, and lets you update `status`, `priority`, `review_notes`, and `reviewed_by` without opening the database directly.
+
+The import lane is a separate internal queue for machine-found shows. It stores candidate records, source snapshots, duplicate matches, provenance, and optional AI suggestions in SQLite, then writes approved entries into `../data/shows.json` as `status: "draft"`. Nothing public auto-publishes.
 
 Useful maintainer commands:
 
@@ -66,8 +77,18 @@ cd podcast-ai
 npm run review:new -- <show-id>
 npm run review:publish -- <show-id>
 npm run review:report
+npm run import:seed -- --file ./tmp/import-list.txt
+npm run import:hydrate -- --candidate <candidate-id>
+npm run import:report
+npm run import:draft -- --candidate <candidate-id>
+npm run import:publish -- --candidate <candidate-id>
 ```
 
 - `review:new` creates a review companion file and moves `indexed-only` shows to `planned`
 - `review:publish` validates the companion review file and promotes the show to `full-review`
 - `review:report` prints a published-show audit for review coverage and metadata gaps
+- `import:seed` creates internal candidates from pasted titles, Apple URLs, RSS URLs, or mixed newline lists
+- `import:hydrate` fetches objective metadata snapshots from Apple, RSS, Podcast Index, and website sources when available
+- `import:report` prints current import queue and gap state
+- `import:draft` writes an approved candidate into `../data/shows.json` as a hidden `draft`
+- `import:publish` promotes a fully reviewed draft show to `published` after normal validation succeeds

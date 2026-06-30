@@ -261,6 +261,78 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
   }
 });
 
+test("maintainer import routes enforce auth and allow candidate seeding and review after login", async () => {
+  const context = await startMaintainerServer();
+
+  try {
+    const pageResponse = await fetch(`${context.baseUrl}/maintainer/imports.html`);
+    assert.equal(pageResponse.status, 200);
+    assert.match(await pageResponse.text(), /catalog imports/i);
+
+    const unauthorizedList = await fetch(`${context.baseUrl}/api/maintainer/imports`);
+    assert.equal(unauthorizedList.status, 401);
+
+    const loginResponse = await fetch(`${context.baseUrl}/api/maintainer/session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ passphrase: "archive-test-passphrase" }),
+    });
+    assert.equal(loginResponse.status, 204);
+    const cookie = loginResponse.headers.get("set-cookie") || "";
+
+    const seedResponse = await fetch(`${context.baseUrl}/api/maintainer/imports`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: cookie,
+      },
+      body: JSON.stringify({
+        entries: ["Signal Lost"],
+        reviewedBy: "CA",
+      }),
+    });
+    assert.equal(seedResponse.status, 201);
+    const seedPayload = await seedResponse.json();
+    assert.equal(seedPayload.candidates.length, 1);
+    const candidateId = seedPayload.candidates[0].id;
+
+    const authenticatedList = await fetch(`${context.baseUrl}/api/maintainer/imports`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(authenticatedList.status, 200);
+    const listPayload = await authenticatedList.json();
+    assert.equal(listPayload.total, 1);
+    assert.equal(listPayload.items[0].status, "discovered");
+
+    const detailResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(detailResponse.status, 200);
+    const detailPayload = await detailResponse.json();
+    assert.equal(detailPayload.candidate.seedQuery, "Signal Lost");
+
+    const reviewResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}/review`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: cookie,
+      },
+      body: JSON.stringify({
+        status: "needs-review",
+        scopeStatus: "in-scope",
+        reviewedBy: "CA",
+        reviewNotes: "Ready for metadata hydration.",
+      }),
+    });
+    assert.equal(reviewResponse.status, 200);
+    const reviewPayload = await reviewResponse.json();
+    assert.equal(reviewPayload.candidate.status, "needs-review");
+    assert.equal(reviewPayload.candidate.reviewedBy, "CA");
+  } finally {
+    await stopMaintainerServer(context);
+  }
+});
+
 test("maintainer routes return 404 when the maintainer passphrase is disabled", async () => {
   const context = await startMaintainerServer({ enabled: false });
 

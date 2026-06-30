@@ -15,6 +15,11 @@
     "review:new": "node scripts/review-new.js",
     "review:publish": "node scripts/review-publish.js",
     "review:report": "node scripts/review-report.js",
+    "import:seed": "node scripts/import-seed.js",
+    "import:hydrate": "node scripts/import-hydrate.js",
+    "import:report": "node scripts/import-report.js",
+    "import:draft": "node scripts/import-draft.js",
+    "import:publish": "node scripts/import-publish.js",
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },
   "engines": {

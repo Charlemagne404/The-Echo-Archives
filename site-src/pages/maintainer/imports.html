@@ -1,0 +1,168 @@
+<main class="home-main page-main maintainer-main">
+  <section class="hero-shell maintainer-hero-shell">
+    <div class="hero-panel page-panel maintainer-hero-panel">
+      <div class="maintainer-hero-copy">
+        <p class="maintainer-kicker">Maintainer workspace</p>
+        <h1>Catalog imports</h1>
+        <p>Seed machine-found shows, compare source snapshots, and move approved candidates into draft-only catalog entries without exposing unfinished metadata to the public archive.</p>
+      </div>
+      <div class="maintainer-hero-actions">
+        <a id="maintainerReportLink" class="maintainer-link-button" href="/maintainer/imports/report.html">Open report</a>
+        <button id="maintainerRefreshButton" class="maintainer-ghost-button" type="button" hidden>Refresh queue</button>
+        <button id="maintainerLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
+    <div class="maintainer-auth-copy">
+      <p class="maintainer-kicker">Protected</p>
+      <h2>Maintainer passphrase</h2>
+      <p>This import lane is internal-only. Enter the maintainer passphrase to load the candidate queue and external source tools.</p>
+    </div>
+    <form id="maintainerAuthForm" class="maintainer-auth-form">
+      <label class="maintainer-field">
+        <span>Passphrase</span>
+        <input id="maintainerPassphrase" type="password" autocomplete="current-password" required />
+      </label>
+      <div class="maintainer-auth-actions">
+        <button class="maintainer-primary-button" type="submit">Unlock import lane</button>
+        <p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p>
+      </div>
+    </form>
+  </section>
+
+  <section id="maintainerAppShell" class="maintainer-app-shell" hidden>
+    <div id="maintainerSummaryCards" class="maintainer-summary-grid" aria-live="polite"></div>
+
+    <section class="page-card maintainer-toolbar-card">
+      <div class="maintainer-toolbar-heading">
+        <div>
+          <p class="maintainer-kicker">Filters</p>
+          <h2>Import queue</h2>
+        </div>
+        <p id="maintainerQueueMeta" class="maintainer-toolbar-meta">Open import candidates are shown by default.</p>
+      </div>
+      <form id="maintainerFilterForm" class="maintainer-toolbar-grid">
+        <label class="maintainer-field maintainer-field--search">
+          <span>Search</span>
+          <input id="maintainerSearch" name="q" type="search" placeholder="Show title, creator, source URL, notes, or candidate id..." />
+        </label>
+        <label class="maintainer-field">
+          <span>Status</span>
+          <select id="maintainerStatusFilter" name="status"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Scope</span>
+          <select id="maintainerScopeFilter" name="scopeStatus"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Source</span>
+          <select id="maintainerSourceFilter" name="sourceType"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Duplicate state</span>
+          <select id="maintainerDuplicateFilter" name="duplicateState"></select>
+        </label>
+        <label class="maintainer-field">
+          <span>Rows</span>
+          <select id="maintainerPageSize" name="pageSize">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </label>
+        <label class="maintainer-checkbox">
+          <input id="maintainerIncludeClosed" name="includeClosed" type="checkbox" />
+          <span>Include duplicate, rejected, and published</span>
+        </label>
+        <div class="maintainer-toolbar-actions">
+          <button class="maintainer-primary-button" type="submit">Apply filters</button>
+          <button id="maintainerResetFilters" class="maintainer-ghost-button" type="button">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="maintainer-import-grid">
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div>
+            <p class="maintainer-kicker">Seed</p>
+            <h2>Batch intake</h2>
+          </div>
+          <p class="maintainer-toolbar-meta">Paste titles, Apple URLs, RSS URLs, or upload a newline list to create candidate records without touching the public submission queue.</p>
+        </div>
+        <form id="maintainerImportSeedForm" class="maintainer-review-form">
+          <label class="maintainer-field">
+            <span>Titles or URLs</span>
+            <textarea id="maintainerImportSeedInput" rows="9" placeholder="Midnight Burger&#10;https://podcasts.apple.com/us/podcast/example/id123456789&#10;https://example.com/feed.xml"></textarea>
+          </label>
+          <label class="maintainer-field">
+            <span>Upload list</span>
+            <input id="maintainerImportSeedFile" type="file" accept=".txt,.csv,.md" />
+          </label>
+          <div class="maintainer-review-actions">
+            <button class="maintainer-primary-button" type="submit">Seed candidates</button>
+            <p id="maintainerImportSeedStatus" class="maintainer-status-copy">Create candidates from mixed title and URL inputs.</p>
+          </div>
+        </form>
+      </article>
+
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div>
+            <p class="maintainer-kicker">Discovery</p>
+            <h2>External source search</h2>
+          </div>
+          <p class="maintainer-toolbar-meta">Search Apple by default and optionally Podcast Index when credentials are configured, then add promising results directly into the import lane.</p>
+        </div>
+        <form id="maintainerImportSearchForm" class="maintainer-review-form">
+          <div class="maintainer-review-grid">
+            <label class="maintainer-field">
+              <span>Show or creator</span>
+              <input id="maintainerImportSearchQuery" type="search" placeholder="Search for a show title or creator" />
+            </label>
+            <label class="maintainer-field">
+              <span>Source</span>
+              <select id="maintainerImportSearchSource"></select>
+            </label>
+          </div>
+          <div class="maintainer-review-actions">
+            <button class="maintainer-primary-button" type="submit">Search sources</button>
+            <p id="maintainerImportSearchStatus" class="maintainer-status-copy">Search results stay internal until you add them as candidates.</p>
+          </div>
+        </form>
+        <div id="maintainerImportSearchResults" class="import-search-results" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <section class="maintainer-workspace">
+      <article class="page-card maintainer-list-card">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Queue</p>
+            <h2>Import candidates</h2>
+          </div>
+          <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
+        </div>
+        <div id="maintainerList" class="maintainer-list" aria-live="polite"></div>
+        <div class="maintainer-pagination">
+          <button id="maintainerPreviousPage" class="maintainer-ghost-button" type="button">Previous</button>
+          <p id="maintainerPaginationSummary" class="maintainer-panel-meta">Page 1</p>
+          <button id="maintainerNextPage" class="maintainer-ghost-button" type="button">Next</button>
+        </div>
+      </article>
+
+      <article class="page-card maintainer-detail-card">
+        <div class="maintainer-panel-heading">
+          <div>
+            <p class="maintainer-kicker">Detail</p>
+            <h2>Selected candidate</h2>
+          </div>
+          <p id="maintainerDetailMeta" class="maintainer-panel-meta">Choose a candidate to compare source metadata, AI suggestions, and draft or publish readiness.</p>
+        </div>
+        <div id="maintainerDetail" class="maintainer-detail" aria-live="polite"></div>
+      </article>
+    </section>
+  </section>
+</main>

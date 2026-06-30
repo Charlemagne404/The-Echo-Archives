@@ -5,7 +5,7 @@ function createEmptyDistribution() {
 }
 
 function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
-  const catalogIds = new Set(catalog.map((entry) => entry.id));
+  let catalogIds = new Set(catalog.map((entry) => entry.id));
 
   const statements = {
     upsertPodcast: db.prepare(`
@@ -120,6 +120,7 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
   };
 
   const syncCatalog = db.transaction((entries) => {
+    catalogIds = new Set(entries.map((entry) => entry.id));
     entries.forEach((entry) => {
       statements.upsertPodcast.run({
         id: entry.id,

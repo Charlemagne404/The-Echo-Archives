@@ -134,6 +134,28 @@ Long-form review fields may live inline in `data/shows.json` or in `data/reviews
 
 The schema is intentionally allowed to be richer than the current UI. If structured metadata improves editorial accuracy or future discovery, keep it in `data/shows.json` even when it is not surfaced on the site yet.
 
+## Canonical Versus Operational Storage
+
+`data/shows.json` and `data/collections.json` remain the canonical public catalog.
+
+Internal machine-ingest workflow state now lives separately in SQLite under the import tables managed by `podcast-ai/`. Those candidate records are operational only. They support discovery, hydration, provenance, duplicate review, and draft writing, but they are not a public or editorial source of truth.
+
+The import lane writes into `data/shows.json` only after a maintainer explicitly drafts or publishes a candidate.
+
+## Internal Import Candidate Shape
+
+The import subsystem normalizes external source data into an internal candidate record with:
+
+- queue status: `discovered`, `hydrated`, `needs-review`, `drafted`, `published`, `duplicate`, or `rejected`
+- scope status: `in-scope`, `borderline`, or `out-of-scope`
+- normalized objective fields such as title, creator, feed URL, Apple URL, website URL, artwork, categories, language, and episode count
+- field-level provenance for each captured value
+- raw source payload snapshots for RSS, Apple, Podcast Index, or website fetches
+- dedupe matches against existing catalog entries and existing candidates
+- separate AI suggestion fields for subjective archive suggestions such as tags, tones, formats, completion hints, and similar-show candidates
+
+This internal candidate shape is intentionally non-canonical and may evolve without changing the public show schema.
+
 ## Automatic Cover Sync
 
 Authoring can now leave `cover` blank when the show has at least one usable source link:
@@ -158,8 +180,10 @@ If no cover can be resolved, catalog load keeps running, logs a warning, and use
 - `reviewStatus`
 - `genres`
 - `tags`
-- `ratings.archive`
+- `ratings.archive` for `published` shows
 - `updatedAt`
+
+`draft` show entries may omit `ratings.archive` while editorial review is still in progress.
 
 ## Controlled Values
 
@@ -167,6 +191,8 @@ If no cover can be resolved, catalog load keeps running, logs a warning, and use
 
 - `published`
 - `draft`
+
+`draft` entries stay hidden from public browse, search, counts, sitemap generation, and public JSON responses until they are explicitly promoted to `published`.
 
 ### `reviewStatus`
 
@@ -255,6 +281,11 @@ Common optional top-level fields:
 - `releaseDates.first` and `releaseDates.latest`: preferred nested release-date home
 - `cast` and `creators`: simple string arrays for notable people when full entity modeling is unnecessary
 - `popularity.score`: optional non-editorial popularity fallback for browse ordering when live community activity is unavailable
+
+Verification reminder:
+
+- creator verification covers factual metadata only
+- creator verification must not imply creator approval of archive ratings, reviews, or community responses
 
 Useful optional structured objects:
 

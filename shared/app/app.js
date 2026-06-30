@@ -6,6 +6,7 @@ import { initializeCollectionsPage } from "./pages/collections.js";
 import { initializeCreatorStandardsPage, initializeForCreatorsPage } from "./pages/creators.js";
 import { initializeHomePage } from "./pages/home.js";
 import { initializeMaintainerPage } from "./pages/maintainer.js";
+import { initializeMaintainerImportsPage } from "./pages/maintainer-imports.js";
 import { initializeShowPage } from "./pages/show.js";
 import { initializeSubmitPage } from "./pages/submit.js?v=6";
 
@@ -40,6 +41,10 @@ export async function initializeApp() {
 
   if (document.body.classList.contains("maintainer-page")) {
     await initializeMaintainerPage();
+  }
+
+  if (document.body.classList.contains("maintainer-import-page")) {
+    await initializeMaintainerImportsPage();
   }
 
   if (document.body.classList.contains("for-creators-page")) {

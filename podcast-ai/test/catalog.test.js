@@ -6,6 +6,7 @@ const path = require("node:path");
 
 const { loadCatalog, loadCollections, resolveCollectionView, scoreCatalog } = require("../lib/catalog");
 const { buildFallbackAnswer, sanitizeAnswerText } = require("../lib/chat");
+const { validateSiteData } = require("../scripts/review-helpers");
 
 const siteRoot = path.resolve(__dirname, "../..");
 
@@ -227,6 +228,74 @@ test("loadCatalog merges companion review files into the returned show record", 
   assert.equal(show.spoilerFreeReview, "First paragraph. Second paragraph.");
   assert.deepEqual(show.spoilerFreeReviewParagraphs, ["First paragraph.", "Second paragraph."]);
   assert.deepEqual(show.thoughtsParagraphs, ["Archive reaction paragraph."]);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("draft shows may omit ratings.archive during catalog load", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(
+    path.join(dataRoot, "shows.json"),
+    [
+      createShowRecord({
+        status: "draft",
+        ratings: {},
+        tones: [],
+        formats: [],
+        bestFor: [],
+      }),
+    ],
+  );
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  const [show] = await loadCatalog(tempRoot);
+  assert.equal(show.status, "draft");
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("published shows still require ratings.archive", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(
+    path.join(dataRoot, "shows.json"),
+    [
+      createShowRecord({
+        ratings: {},
+      }),
+    ],
+  );
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  await assert.rejects(loadCatalog(tempRoot), /missing a numeric ratings\.archive/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("published shows still fail Gate B validation when discovery fields are missing", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(
+    path.join(dataRoot, "shows.json"),
+    [
+      createShowRecord({
+        ratings: {
+          archive: 8,
+        },
+        tones: [],
+        formats: [],
+        similarTo: [],
+        bestFor: [],
+      }),
+    ],
+  );
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  await assert.rejects(validateSiteData(tempRoot), /Gate B validation failed/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });

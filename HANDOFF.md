@@ -1,5 +1,81 @@
 ## Current task
 
+Implement the catalog ingestion pipeline: internal import queue, source adapters, draft/publish workflow, maintainer import UI, CLI tools, docs, and validation changes.
+
+## Files changed
+
+- `podcast-ai/lib/import/`
+- `podcast-ai/lib/services/import-service.js`
+- `podcast-ai/lib/store/import-store.js`
+- `podcast-ai/lib/store/database.js`
+- `podcast-ai/lib/routes/maintainer-routes.js`
+- `podcast-ai/lib/routes/chat-routes.js`
+- `podcast-ai/lib/catalog.js`
+- `podcast-ai/server.js`
+- `podcast-ai/scripts/import-*.js`
+- `podcast-ai/package.json`
+- `podcast-ai/.env.example`
+- `podcast-ai/README.md`
+- `shared/app/maintainer-import/`
+- `shared/app/pages/maintainer-imports.js`
+- `shared/app/maintainer/api.js`
+- `shared/app/app.js`
+- `shared/styles/home/maintainer/01-layout.css`
+- `shared/styles/home/maintainer/02-responsive.css`
+- `site-src/page-manifest.json`
+- `site-src/pages/maintainer/imports.html`
+- `site-src/pages/maintainer/imports-report.html`
+- generated `maintainer/imports.html`
+- generated `maintainer/imports/report.html`
+- `data/schema.md`
+- `docs/ARCHITECTURE.md`
+- `docs/OPERATIONS.md`
+- `.env.example`
+- `podcast-ai/test/catalog.test.js`
+- `podcast-ai/test/chat-routes.test.js`
+- `podcast-ai/test/maintainer.test.js`
+- `podcast-ai/test/import-adapters.test.js`
+- `podcast-ai/test/import-service.test.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added a new internal import subsystem under `podcast-ai/` with Apple, RSS, Podcast Index, and website adapters; candidate normalization; dedupe; provenance; draft writing; publish promotion; and optional suggestion-provider abstraction.
+- Added SQLite tables for import candidates, source snapshots, events, and run records, plus maintainer APIs for listing, seeding, hydrating, reviewing, drafting, and publishing candidates.
+- Refactored server state so published catalog reads, sitemap generation, chat grounding, community catalog sync, and known show ids can refresh after publish actions.
+- Added maintainer import queue and report pages at `/maintainer/imports.html` and `/maintainer/imports/report.html`, including batch seed, external search, queue filters, detail review, draft/publish actions, and generated public page output.
+- Added CLI commands `import:seed`, `import:hydrate`, `import:report`, `import:draft`, and `import:publish`.
+- Relaxed catalog validation so `draft` shows may omit `ratings.archive`, while `published` shows still require it and still fail Gate B discovery checks when incomplete.
+- Documented the new import lane, env vars, operational flow, and the distinction between canonical catalog files and internal operational import storage.
+- Added focused adapter, service, catalog, chat-route, and maintainer-route test coverage for the import workflow.
+
+## What still needs work
+
+- No blocking implementation work remains for the v1 import lane itself.
+- The existing smoke failure in `podcast-ai/test/home-card-interactions.smoke.js` is still present and unrelated to the import pipeline. It times out clicking `#collectionNext` because the collections card, sticky filter toggle, or chat toggle intercepts pointer events on the homepage.
+
+## Commands run
+
+- `rtk sed -n '1,220p' /Users/charliearnerstal/.codex/RTK.md`
+- `rtk git status --short`
+- `rtk git diff --stat`
+- `rtk sed -n ...` across the new import service, store, routes, page manifest, maintainer page sources, styles, docs, and tests
+- `rtk node -e '...'` to confirm current catalog counts and metadata-gap counts
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run validate:data`
+- `rtk node --test podcast-ai/test/import-adapters.test.js podcast-ai/test/import-service.test.js podcast-ai/test/maintainer.test.js podcast-ai/test/chat-routes.test.js podcast-ai/test/catalog.test.js`
+- `rtk npm --prefix podcast-ai test`
+- `rtk npm --prefix podcast-ai run check:links`
+- `rtk node --test --test-concurrency=1 podcast-ai/test/*.smoke.js`
+
+## Known issues
+
+- `npm run check:structure` still reports soft-limit warnings for `shared/app/maintainer-import/render.js`, `shared/app/pages/maintainer-imports.js`, `shared/styles/home/maintainer/01-layout.css`, and the pre-existing `shared/app/pages/home.js` / `shared/styles/home/cards/03-filter-controls.css`, but it exits successfully.
+- Full smoke coverage mostly passed, but `podcast-ai/test/home-card-interactions.smoke.js` still fails on the pre-existing `#collectionNext` pointer-intercept timeout described above.
+
+## Current task
+
 Implement the focused "Shows Like X" recommendation pass across archive data, homepage routes, collections, and show-detail recommendations.
 
 ## Files changed

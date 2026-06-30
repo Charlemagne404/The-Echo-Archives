@@ -86,3 +86,56 @@ export async function patchMaintainerSubmission(id, updates) {
     body: JSON.stringify(updates),
   });
 }
+
+export function createMaintainerImportListHref(filters = {}) {
+  const search = createSearch(filters);
+  return `${MAINTAINER_API_ROOT}/imports${search ? `?${search}` : ""}`;
+}
+
+export async function fetchMaintainerImports(filters = {}) {
+  return requestJson(createMaintainerImportListHref(filters));
+}
+
+export async function fetchMaintainerImportCandidate(id) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}`);
+}
+
+export async function searchMaintainerImportSources(filters = {}) {
+  const search = createSearch(filters);
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/search${search ? `?${search}` : ""}`);
+}
+
+export async function seedMaintainerImportCandidates(payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function hydrateMaintainerImportCandidate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/hydrate`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function patchMaintainerImportCandidateReview(id, updates = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/review`, {
+    method: "PATCH",
+    body: JSON.stringify(updates),
+  });
+}
+
+export async function draftMaintainerImportCandidate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/draft`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function publishMaintainerImportCandidate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/publish`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}

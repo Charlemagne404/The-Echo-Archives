@@ -66,6 +66,8 @@ The current generated page set includes:
 - `cookies.html`
 - `maintainer/submissions.html`
 - `maintainer/submissions/report.html`
+- `maintainer/imports.html`
+- `maintainer/imports/report.html`
 
 Do not hand-edit generated root HTML when the corresponding source exists in `site-src/`.
 
@@ -96,6 +98,8 @@ Maintainer-only routes when configured:
 
 - `/maintainer/submissions.html`
 - `/maintainer/submissions/report.html`
+- `/maintainer/imports.html`
+- `/maintainer/imports/report.html`
 
 Legacy detail pages still exist under `shows/` and are kept as compatibility redirects to the reusable show route.
 
@@ -144,13 +148,16 @@ Key editorial principles:
 
 ## Current Catalog Baseline
 
-As of June 29, 2026:
+As of June 30, 2026:
 
-- 27 published show records
-- 15 collection records
-- 3 review companion JSON files
-- 24 `indexed-only` shows
-- 3 `full-review` shows
+- 41 published show records
+- 26 collection records
+- 6 review companion JSON files
+- 35 `indexed-only` shows
+- 6 `full-review` shows
+- 30 shows still lack RSS URLs
+- 14 shows still lack `metadata.objectiveSources`
+- 26 shows still carry `metadata.researchGaps`
 
 The archive supports both `indexed-only` and `full-review` as valid long-term show states.
 
@@ -170,6 +177,7 @@ The archive supports both `indexed-only` and `full-review` as valid long-term sh
 - `DELETE /api/community/podcasts/:podcastId/rating`
 - `POST /api/submissions/shows`
 - protected maintainer session and submission queue APIs
+- protected maintainer import queue, hydration, draft, and publish APIs
 - optional static file serving from the repo root
 
 The backend owns:
@@ -244,6 +252,7 @@ Current participation features include:
 - listener-review intake
 - creator-verification intake
 - maintainer queue and report surfaces
+- internal catalog import queue, report, and CLI automation
 
 All intake remains moderation-first. Nothing auto-publishes into the editorial catalog.
 
@@ -256,11 +265,30 @@ Current workflow storage supports:
 - community profile and rating state
 - abuse-signal and rate-limit support
 - submission queue entries
+- catalog import candidates, source snapshots, event history, and run records
 - typed payload JSON
 - provenance JSON
 - moderation metadata such as status, priority, review notes, reviewer, and review time
 
 This storage layer exists to support workflow without replacing the structured editorial catalog.
+
+## Catalog Import Lane
+
+The new catalog import lane is intentionally separate from both the public submission surface and the canonical catalog files.
+
+Boundaries:
+
+- public show intake still lives in the submission queue
+- machine-found show candidates live in SQLite import tables
+- approved candidates are written into `data/shows.json` as `status: "draft"`
+- only fully reviewed records are promoted to `published`
+
+Source strategy in v1:
+
+- RSS is the primary objective metadata source
+- Apple Search and lookup are the primary discovery helpers and `feedUrl` recovery path
+- Podcast Index is optional authenticated enrichment when credentials are configured
+- AI suggestions are provider-abstracted and optional; they may suggest subjective fields but never auto-publish anything
 
 ## Trust Boundaries
 
@@ -278,7 +306,7 @@ Community ratings are also distinct from editorial ratings and stay behind a min
 
 The current safety net includes:
 
-- unit and integration tests for catalog loading, archive context, chat routes, community flows, rate limits, review workflow, sitemap generation, site-help behavior, and maintainer auth
+- unit and integration tests for catalog loading, import adapters and service flow, archive context, chat routes, community flows, rate limits, review workflow, sitemap generation, site-help behavior, and maintainer auth
 - browser smoke coverage for main routes, homepage browse behavior, card interactions, show-detail navigation, submit flows, creator flows, and rating flows
 - repo-level structure checks and page generation verification
 
