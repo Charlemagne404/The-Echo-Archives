@@ -1,3 +1,53 @@
+## UI fix pass (2026-06-30)
+
+### Current task
+
+Tighten the first-view UI and related headers without changing the archive's overall visual direction.
+
+### Files changed
+
+- `site-src/pages/index.html`
+- `shared/styles/home/cards/02-hero-search.css`
+- `shared/styles/home/cards/07-archive-cards.css`
+- `shared/styles/home/cards/09-preview-shell.css`
+- `shared/styles/home/cards/14b-about-page-polish.css`
+- `shared/styles/home/collections/01-page.css`
+- `shared/styles/home/collections/02-cards.css`
+- `shared/styles/home/collections/03-responsive.css`
+- generated `index.html`
+- generated `collection.html`
+- generated `about.html`
+
+### What was completed
+
+- Reworked the homepage hero route links into more intentional CTA buttons and dropped them lower between the intro copy and the search controls.
+- Removed the extra `Archive momentum` helper sentence.
+- Normalized browse-card heights by constraining title/tag growth instead of making every card taller.
+- Raised the sticky browse bar above the carousel layer.
+- Reduced the collection-detail hero height, kept the title on one desktop line, and tightened the right-side collage scale.
+- Reduced the about-page hero height and moved the heading block back up to match the rest of the site.
+- Rebuilt generated pages and ran a desktop/mobile verification pass.
+
+### What still needs work
+
+- No known follow-up work from this pass.
+
+### Commands run
+
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot 'http://127.0.0.1:5500/collection.html?id=shows-like-welcome-to-night-vale' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-collection-hero-fallback.png`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot 'http://127.0.0.1:5500/about.html' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-about-hero-fallback.png`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot 'http://127.0.0.1:5500/index.html#podcast-grid' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-home-grid-fallback.png`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot 'http://127.0.0.1:5500/index.html#favoriteRoutes' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-home-sticky-fallback.png`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot --browser chromium --viewport-size '390,844' 'http://127.0.0.1:5500/index.html' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-home-mobile-fallback.png`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot --browser chromium --viewport-size '390,844' 'http://127.0.0.1:5500/collection.html?id=shows-like-welcome-to-night-vale' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-collection-mobile-fallback.png`
+- `rtk npm --prefix podcast-ai exec -- playwright screenshot --browser chromium --viewport-size '390,844' 'http://127.0.0.1:5500/about.html' /var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-about-mobile-fallback.png`
+
+### Known issues
+
+- The in-app browser worked for the initial home checks but stalled on repeated screenshot capture, so the later visual verification used the repo's installed Playwright CLI as fallback.
+
 ## Current task
 
 Implement the catalog ingestion pipeline: internal import queue, source adapters, draft/publish workflow, maintainer import UI, CLI tools, docs, and validation changes.

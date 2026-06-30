@@ -80,3 +80,13 @@
     height: 92px;
   }
 }
+
+@media (max-width: 560px) {
+  .creator-spotlight-stat-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .creator-spotlight-profile {
+    grid-template-columns: 1fr;
+  }
+}

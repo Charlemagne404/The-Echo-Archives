@@ -234,6 +234,29 @@
   }
 }
 
+@media (max-width: 560px) {
+  .detail-main {
+    width: min(100%, calc(100% - 20px));
+  }
+
+  .detail-actions,
+  .detail-link-chip-row,
+  .detail-hero-tag-list,
+  .detail-best-for-list,
+  .detail-collections-list {
+    gap: 8px;
+  }
+
+  .detail-primary-action,
+  .detail-secondary-action,
+  .detail-link-primary,
+  .detail-link-secondary,
+  .community-review-toggle,
+  .community-review-link {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 360px) {
   .detail-score-cluster,
   .detail-meta-grid {

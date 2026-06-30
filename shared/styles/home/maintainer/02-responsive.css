@@ -50,6 +50,50 @@
   .import-action-row .maintainer-primary-button {
     width: 100%;
   }
+
+  .maintainer-checkbox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .maintainer-main {
+    gap: 16px;
+  }
+
+  .maintainer-hero-panel,
+  .maintainer-auth-panel,
+  .maintainer-toolbar-card,
+  .maintainer-list-card,
+  .maintainer-detail-card,
+  .maintainer-report-toolbar,
+  .maintainer-report-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .maintainer-summary-card {
+    padding: 16px 18px;
+  }
+
+  .maintainer-pagination,
+  .maintainer-review-actions,
+  .maintainer-link-list,
+  .maintainer-list-item-meta,
+  .maintainer-list-item-top,
+  .maintainer-report-counts {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .maintainer-list-item,
+  .maintainer-report-entry {
+    gap: 12px;
+  }
+
+  .maintainer-report-entry-top {
+    flex-direction: column;
+  }
 }
 
 @media print {

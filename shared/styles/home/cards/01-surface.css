@@ -12,6 +12,11 @@
   --accent-soft: rgba(229, 72, 56, 0.14);
   --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.5);
   --shadow-md: 0 18px 38px rgba(0, 0, 0, 0.32);
+  --shell-max-width: 1480px;
+  --shell-inline-padding: 24px;
+  --shell-inline-padding-tablet: 12px;
+  --shell-inline-padding-phone: 10px;
+  --floating-edge: 18px;
   min-height: 100vh;
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 22%),
@@ -36,6 +41,10 @@
 
 .home-page img {
   display: block;
+}
+
+.home-page.site-nav-open {
+  overflow: hidden;
 }
 
 .home-page a {
@@ -74,7 +83,7 @@
 .site-header {
   position: relative;
   z-index: 20;
-  width: min(1480px, calc(100% - 48px));
+  width: min(var(--shell-max-width), calc(100% - (var(--shell-inline-padding) * 2)));
   margin: 0 auto;
   padding: 28px 0 26px;
   display: grid;
@@ -89,6 +98,21 @@
 
 .site-brand img {
   width: clamp(250px, 21vw, 356px);
+}
+
+.site-nav-toggle,
+.site-nav-close {
+  display: none;
+}
+
+.site-nav-shell,
+.site-nav-drawer {
+  display: contents;
+}
+
+.site-nav-backdrop,
+.site-nav-drawer-head {
+  display: none;
 }
 
 .site-nav {
@@ -151,6 +175,65 @@
   display: flex;
   align-items: center;
   justify-self: end;
+}
+
+.site-nav-kicker,
+.site-nav-drawer-copy {
+  margin: 0;
+}
+
+.site-nav-toggle {
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(7, 10, 13, 0.9);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.site-nav-toggle-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.site-nav-toggle-icon {
+  display: inline-grid;
+  gap: 4px;
+}
+
+.site-nav-toggle-icon span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: center;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.site-nav-close {
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(247, 247, 243, 0.92);
+  cursor: pointer;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.site-nav-close svg {
+  width: 18px;
+  height: 18px;
 }
 
 .profile-button {
@@ -265,7 +348,7 @@
 }
 
 .home-main {
-  width: min(1480px, calc(100% - 48px));
+  width: min(var(--shell-max-width), calc(100% - (var(--shell-inline-padding) * 2)));
   margin: 0 auto;
   padding-bottom: 64px;
 }

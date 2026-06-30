@@ -29,23 +29,56 @@
     <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
   </a>
 
-  <nav class="site-nav" aria-label="Primary">
-    <a href="/index.html">Browse</a>
+  <button
+    id="siteNavToggle"
+    class="site-nav-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="siteNavShell"
+    aria-label="Open site navigation"
+  >
+    <span class="site-nav-toggle-label">Menu</span>
+    <span class="site-nav-toggle-icon" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </button>
+
+  <div class="site-nav-shell" id="siteNavShell" data-state="closed">
+    <button class="site-nav-backdrop" type="button" data-site-nav-close tabindex="-1" aria-label="Close site navigation"></button>
+    <div class="site-nav-drawer">
+      <div class="site-nav-drawer-head">
+        <div>
+          <p class="site-nav-kicker">Archive routes</p>
+          <p class="site-nav-drawer-copy">Move through the archive without losing the current page.</p>
+        </div>
+        <button class="site-nav-close" type="button" data-site-nav-close aria-label="Close site navigation">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="site-nav" id="sitePrimaryNav" aria-label="Primary">
+        <a href="/index.html">Browse</a>
     <a href="/collections.html">Collections</a>
     <a href="/about.html">About</a>
     <a class="is-active" href="/submit.html">Submit</a>
     <a href="/for-creators.html">For creators</a>
-  </nav>
+      </nav>
 
-  <div class="header-actions">
-    <button class="profile-button" type="button" aria-label="Profile" title="Profile">
-      <span class="profile-avatar" aria-hidden="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 12a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-          <path d="M4.75 20.25a7.25 7.25 0 0 1 14.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-        </svg>
-      </span>
-    </button>
+      <div class="header-actions">
+        <button class="profile-button" type="button" aria-label="Profile" title="Profile">
+          <span class="profile-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+              <path d="M4.75 20.25a7.25 7.25 0 0 1 14.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </header>
 

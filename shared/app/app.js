@@ -1,5 +1,6 @@
 import { backToTopBtn, chatContainer, toggleBtn } from "./constants.js";
 import { initializeSharedChat } from "./chat.js";
+import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeAboutPage } from "./pages/about.js";
 import { initializeCollectionPage } from "./pages/collection.js";
 import { initializeCollectionsPage } from "./pages/collections.js";
@@ -12,6 +13,7 @@ import { initializeSubmitPage } from "./pages/submit.js?v=6";
 
 export async function initializeApp() {
   initializeSharedChat();
+  initializeMobileNav();
   initializeBackToTop();
   initializeHistoryBackLinks();
 

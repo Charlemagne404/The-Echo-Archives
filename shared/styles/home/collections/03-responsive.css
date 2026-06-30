@@ -15,7 +15,6 @@
 @media (max-width: 860px) {
   .collections-hero-panel,
   .collection-detail-hero-panel {
-    min-height: 420px;
     padding: 30px 22px;
     background:
       linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(4, 6, 9, 0.84) 52%, rgba(5, 8, 11, 0.36) 100%),
@@ -24,10 +23,25 @@
       #05070a;
   }
 
-  .collections-hero-copy h1,
-  .collection-detail-hero-copy h1 {
+  .collections-hero-panel {
+    min-height: 420px;
+  }
+
+  .collection-detail-hero-panel {
+    min-height: 360px;
+  }
+
+  .collections-hero-copy h1 {
     max-width: 11ch;
     font-size: clamp(2.5rem, 10vw, 4.3rem);
+  }
+
+  .collection-detail-hero-copy h1 {
+    max-width: 11ch;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    font-size: clamp(2.35rem, 8vw, 3.65rem);
   }
 
   .collections-stat-grid {
@@ -67,8 +81,15 @@
 
   .collections-hero-panel,
   .collection-detail-hero-panel {
-    min-height: 380px;
     border-radius: 22px;
+  }
+
+  .collections-hero-panel {
+    min-height: 380px;
+  }
+
+  .collection-detail-hero-panel {
+    min-height: 320px;
   }
 
   .collections-hero-actions {
@@ -114,5 +135,52 @@
 
   .collection-cover-collage {
     min-height: 180px;
+  }
+}
+
+@media (max-width: 560px) {
+  .collections-hero-panel,
+  .collection-detail-hero-panel {
+    border-radius: 20px;
+  }
+
+  .collections-hero-panel {
+    padding: 22px 18px 18px;
+  }
+
+  .collection-detail-hero-panel {
+    padding: 20px 18px 16px;
+  }
+
+  .collections-hero-actions,
+  .collections-directory-toolbar {
+    gap: 10px;
+  }
+
+  .collections-search-field,
+  .collections-sort-field,
+  .collections-primary-action,
+  .collections-secondary-action,
+  .collection-detail-hero .collection-action,
+  .collection-detail-hero .collections-secondary-action {
+    width: 100%;
+  }
+
+  .collections-sort-field {
+    display: grid;
+    gap: 8px;
+  }
+
+  .collections-stat-card,
+  .collections-featured-section,
+  .collections-directory-section,
+  .collections-mood-panel {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .collections-mood-chips {
+    margin: 0 -2px;
+    padding-inline: 2px;
   }
 }

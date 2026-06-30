@@ -1,4 +1,54 @@
 @media (max-width: 560px) {
+  .site-header,
+  .home-main,
+  .sticky-browse-bar {
+    width: min(100%, calc(100% - (var(--shell-inline-padding-phone) * 2)));
+  }
+
+  .site-header {
+    padding-top: max(14px, env(safe-area-inset-top));
+    gap: 12px;
+  }
+
+  .site-brand img {
+    width: min(100%, 214px);
+  }
+
+  .site-nav-toggle {
+    min-height: 44px;
+    padding: 0 13px;
+    gap: 10px;
+  }
+
+  .site-nav-toggle-label {
+    font-size: 0.76rem;
+  }
+
+  .site-nav-drawer {
+    top: max(10px, env(safe-area-inset-top));
+    right: var(--shell-inline-padding-phone);
+    left: var(--shell-inline-padding-phone);
+    gap: 16px;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .site-nav-drawer-copy {
+    max-width: none;
+    font-size: 0.88rem;
+  }
+
+  .site-nav a,
+  .site-nav button,
+  .site-nav-shell .profile-button {
+    min-height: 46px;
+  }
+
+  .site-nav-shell .profile-button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
   .sticky-browse-bar {
     top: max(8px, env(safe-area-inset-top));
   }
@@ -149,9 +199,9 @@
   #chat-container {
     --chat-floating-edge: 12px;
     --chat-launcher-size: 54px;
-    left: 12px;
-    right: 12px;
-    bottom: 16px;
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
     width: auto;
     height: min(calc(100vh - 108px), 640px);
     padding: 12px;
@@ -187,7 +237,7 @@
 
   #backToTop {
     right: 82px;
-    bottom: 16px;
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
 
   .home-page.chat-panel-open .chat-footnote {

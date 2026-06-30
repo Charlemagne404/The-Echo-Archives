@@ -13,6 +13,7 @@ export function initializeCollectionCarousel({
   const autoScrollSpeedPxPerSecond = 28;
   const manualScrollDurationMs = 420;
   const directionalPulseDurationMs = 260;
+  const sheenShiftPx = 10;
   let prefersReducedMotion = reducedMotionQuery.matches;
   let autoScrollFrame = 0;
   let manualScrollFrame = 0;
@@ -24,6 +25,11 @@ export function initializeCollectionCarousel({
   let paused = false;
   let interactionCard = null;
   let directionalPulseTimeout = 0;
+  const resizeObserver = "ResizeObserver" in window
+    ? new ResizeObserver(() => {
+      measure();
+    })
+    : null;
 
   const cards = Array.from(collectionGrid.querySelectorAll(".collection-card"));
 
@@ -53,7 +59,10 @@ export function initializeCollectionCarousel({
       const offsetRatio = Math.max(-1, Math.min(1, signedDistance / maxDistance));
       card.style.setProperty("--collection-focus", focusValue.toFixed(4));
       card.style.setProperty("--collection-focus-weight", focusWeight.toFixed(4));
-      [["--collection-offset-from-center", offsetRatio.toFixed(4)], ["--collection-depth-pull", `${(focusWeight * 42).toFixed(2)}px`], ["--collection-cover-shift", `${(offsetRatio * -14).toFixed(2)}px`], ["--collection-sheen-shift", `${(offsetRatio * 22).toFixed(2)}px`]]
+      [
+        ["--collection-offset-from-center", offsetRatio.toFixed(4)],
+        ["--collection-sheen-shift", `${(offsetRatio * sheenShiftPx).toFixed(2)}px`],
+      ]
         .forEach(([name, value]) => card.style.setProperty(name, value));
       if (focusValue > strongestFocus) {
         strongestFocus = focusValue;
@@ -96,11 +105,10 @@ export function initializeCollectionCarousel({
     if (!setWidth) {
       return;
     }
-    const maxScrollLeft = Math.max(collectionGrid.scrollWidth - collectionViewport.clientWidth, 0);
-    if (collectionViewport.scrollLeft <= 1) {
-      setViewportScroll(collectionViewport.scrollLeft + setWidth);
-    } else if (collectionViewport.scrollLeft >= maxScrollLeft - 1) {
-      setViewportScroll(collectionViewport.scrollLeft - setWidth);
+
+    const normalizedLeft = middleStart + getRelativeProgress(collectionViewport.scrollLeft);
+    if (Math.abs(collectionViewport.scrollLeft - normalizedLeft) > 0.5) {
+      setViewportScroll(normalizedLeft);
     }
   }
 
@@ -192,6 +200,7 @@ export function initializeCollectionCarousel({
       normalizeLoopPosition();
       syncCollectionFocus();
       manualScrollFrame = 0;
+      resumeCarousel();
     };
 
     manualScrollFrame = window.requestAnimationFrame(tick);
@@ -246,6 +255,8 @@ export function initializeCollectionCarousel({
 
   const handlePointerEnter = () => pauseCarousel();
   const handlePointerLeave = () => { setInteractionCard(null); resumeCarousel(); };
+  const handlePointerDown = () => pauseCarousel();
+  const handlePointerUp = () => resumeCarousel();
   const handleFocusIn = (event) => {
     pauseCarousel();
     const card = event.target instanceof Element ? event.target.closest(".collection-card") : null;
@@ -312,6 +323,9 @@ export function initializeCollectionCarousel({
   measure({ preservePosition: false });
   collectionCarousel.addEventListener("mouseenter", handlePointerEnter);
   collectionCarousel.addEventListener("mouseleave", handlePointerLeave);
+  collectionCarousel.addEventListener("pointerdown", handlePointerDown);
+  collectionCarousel.addEventListener("pointerup", handlePointerUp);
+  collectionCarousel.addEventListener("pointercancel", handlePointerUp);
   collectionGrid.addEventListener("pointerover", handleCardPointerOver);
   collectionGrid.addEventListener("pointerout", handleCardPointerOut);
   collectionCarousel.addEventListener("focusin", handleFocusIn);
@@ -320,6 +334,8 @@ export function initializeCollectionCarousel({
   collectionPrev.addEventListener("click", handlePrevClick);
   collectionNext.addEventListener("click", handleNextClick);
   reducedMotionQuery.addEventListener?.("change", handleReducedMotionChange);
+  resizeObserver?.observe(collectionCarousel);
+  resizeObserver?.observe(collectionViewport);
   startAutoScrollLoop();
 
   return {
@@ -336,6 +352,9 @@ export function initializeCollectionCarousel({
       }
       collectionCarousel.removeEventListener("mouseenter", handlePointerEnter);
       collectionCarousel.removeEventListener("mouseleave", handlePointerLeave);
+      collectionCarousel.removeEventListener("pointerdown", handlePointerDown);
+      collectionCarousel.removeEventListener("pointerup", handlePointerUp);
+      collectionCarousel.removeEventListener("pointercancel", handlePointerUp);
       collectionGrid.removeEventListener("pointerover", handleCardPointerOver);
       collectionGrid.removeEventListener("pointerout", handleCardPointerOut);
       collectionCarousel.removeEventListener("focusin", handleFocusIn);
@@ -344,6 +363,7 @@ export function initializeCollectionCarousel({
       collectionPrev.removeEventListener("click", handlePrevClick);
       collectionNext.removeEventListener("click", handleNextClick);
       reducedMotionQuery.removeEventListener?.("change", handleReducedMotionChange);
+      resizeObserver?.disconnect();
     },
   };
 }

@@ -2,10 +2,11 @@
   .site-header,
   .home-main,
   .sticky-browse-bar {
-    width: min(100%, calc(100% - 24px));
+    width: min(100%, calc(100% - (var(--shell-inline-padding-tablet) * 2)));
   }
 
   .site-header {
+    grid-template-columns: minmax(0, 1fr) auto;
     padding-top: 18px;
     gap: 16px;
   }
@@ -14,9 +15,146 @@
     width: min(100%, 265px);
   }
 
+  .site-nav-toggle,
+  .site-nav-close {
+    display: inline-flex;
+  }
+
+  .site-nav-toggle {
+    justify-self: end;
+  }
+
+  .site-nav-shell {
+    position: fixed;
+    inset: 0;
+    z-index: 95;
+    display: block;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .site-nav-shell[data-state="open"] {
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .site-nav-backdrop {
+    position: absolute;
+    inset: 0;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: rgba(3, 5, 8, 0.78);
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .site-nav-shell[data-state="open"] .site-nav-backdrop {
+    opacity: 1;
+  }
+
+  .site-nav-drawer {
+    position: absolute;
+    top: max(12px, env(safe-area-inset-top));
+    right: var(--shell-inline-padding-tablet);
+    left: var(--shell-inline-padding-tablet);
+    display: grid;
+    gap: 18px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at top right, rgba(229, 72, 56, 0.16), transparent 30%),
+      linear-gradient(180deg, rgba(17, 21, 27, 0.98), rgba(6, 9, 12, 0.98));
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.44);
+    max-height: calc(100vh - max(24px, env(safe-area-inset-top)) - max(24px, env(safe-area-inset-bottom)));
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-14px) scale(0.985);
+    transition: opacity 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .site-nav-shell[data-state="open"] .site-nav-drawer {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .site-nav-drawer-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .site-nav-kicker {
+    color: rgba(247, 247, 243, 0.48);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .site-nav-drawer-copy {
+    margin-top: 6px;
+    max-width: 30ch;
+    color: rgba(247, 247, 243, 0.72);
+    font-size: 0.92rem;
+    line-height: 1.48;
+  }
+
   .site-nav {
-    flex-wrap: wrap;
-    gap: 18px 24px;
+    display: grid;
+    gap: 9px;
+    justify-self: stretch;
+  }
+
+  .site-nav a,
+  .site-nav button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(247, 247, 243, 0.88);
+  }
+
+  .site-nav a::after,
+  .site-nav button::after {
+    display: none;
+  }
+
+  .site-nav a.is-active {
+    border-color: rgba(229, 72, 56, 0.46);
+    background: rgba(229, 72, 56, 0.12);
+    color: #fff7f3;
+  }
+
+  .site-nav .header-actions,
+  .site-nav-shell .header-actions {
+    justify-content: flex-end;
+  }
+
+  .site-nav-shell .header-actions {
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .site-nav-shell .profile-button {
+    width: auto;
+    min-height: 48px;
+    padding: 0 14px 0 8px;
+    border-radius: 999px;
+    gap: 10px;
+  }
+
+  .site-nav-shell .profile-button::after {
+    content: "Profile";
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1;
   }
 
   .hero-panel {
@@ -37,8 +175,8 @@
   }
 
   .home-page #chat-toggle.chat-toggle-button {
-    right: 12px;
-    bottom: 16px;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
     width: 54px;
     height: 54px;
   }
@@ -229,7 +367,7 @@
   }
 
   #site-footer {
-    padding: 20px 16px 22px;
+    padding: 20px 16px calc(22px + env(safe-area-inset-bottom));
     grid-template-columns: 1fr;
     gap: 22px;
     text-align: left;

@@ -54,6 +54,9 @@ test("homepage featured collections carousel applies center-weighted focus and d
     await page.locator("#collectionGrid .collection-card").first().waitFor();
     await page.locator("#collectionCarousel").hover();
     await page.waitForTimeout(180);
+    const prefersReducedMotion = await page.evaluate(() =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+    );
 
     const initialState = await getCollectionCarouselFocusState(page);
     const initialVisibleCards = initialState.cards.filter((card) => card.isVisible);
@@ -70,32 +73,44 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(strongestAmbientCard.focusWeight > weakestVisibleCard.focusWeight);
     assert.ok(strongestAmbientCard.scale - weakestVisibleCard.scale > 0.04);
 
-    const hoverTarget = initialVisibleCards.find((card) => card.index !== nearestToCenter.index) || nearestToCenter;
-    await page.locator("#collectionGrid .collection-card").nth(hoverTarget.index).hover();
+    const hoverTarget =
+      initialVisibleCards.find((card) => !card.clone && card.index !== nearestToCenter.index) ||
+      initialVisibleCards.find((card) => !card.clone) ||
+      nearestToCenter;
+    await page.locator(`#collectionGrid .collection-card[data-collection-id="${hoverTarget.collectionId}"]:not([data-collection-clone])`).hover();
     await page.waitForTimeout(140);
 
     const hoveredState = await getCollectionCarouselFocusState(page);
-    const hoveredTargetState = hoveredState.cards.find((card) => card.index === hoverTarget.index);
+    const hoveredTargetState = hoveredState.cards.find(
+      (card) => card.collectionId === hoverTarget.collectionId && card.boosted,
+    );
     assert.ok(hoveredTargetState?.boosted);
     assert.ok((hoveredTargetState?.scale || 0) > 1.03);
     assert.ok((hoveredTargetState?.translateY || 0) < -5);
 
     await page.locator("#collectionNext").click();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("collectionCarousel")?.dataset.collectionInteraction === "active" &&
-        document.getElementById("collectionCarousel")?.dataset.collectionDirection === "next",
-      undefined,
-      { timeout: 1_000 },
-    );
+    if (!prefersReducedMotion) {
+      await page.waitForFunction(
+        () =>
+          document.getElementById("collectionCarousel")?.dataset.collectionInteraction === "active" &&
+          document.getElementById("collectionCarousel")?.dataset.collectionDirection === "next",
+        undefined,
+        { timeout: 1_000 },
+      );
+    }
 
     const duringNextPulseState = await getCollectionCarouselFocusState(page);
     const nextPulseCards = duringNextPulseState.cards;
     const nextPulseState = nextPulseCards.find((card) => card.index === nearestToCenter.index) || nextPulseCards[0];
-    assert.equal(nextPulseState?.carouselInteraction, "active");
-    assert.equal(nextPulseState?.carouselDirection, "next");
-    assert.notEqual(nextPulseState?.nextArrowTransform, "none");
-    assert.notEqual(nextPulseState?.nextArrowGlyphTransform, "none");
+    if (prefersReducedMotion) {
+      assert.equal(nextPulseState?.carouselInteraction, "");
+      assert.equal(nextPulseState?.carouselDirection, "");
+    } else {
+      assert.equal(nextPulseState?.carouselInteraction, "active");
+      assert.equal(nextPulseState?.carouselDirection, "next");
+      assert.notEqual(nextPulseState?.nextArrowTransform, "none");
+      assert.notEqual(nextPulseState?.nextArrowGlyphTransform, "none");
+    }
     await page.waitForTimeout(520);
 
     const afterNextState = await getCollectionCarouselFocusState(page);
@@ -109,21 +124,28 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok(nextNearestToCenter.distanceFromCenter < 8);
 
     await page.locator("#collectionPrev").click();
-    await page.waitForFunction(
-      () =>
-        document.getElementById("collectionCarousel")?.dataset.collectionInteraction === "active" &&
-        document.getElementById("collectionCarousel")?.dataset.collectionDirection === "prev",
-      undefined,
-      { timeout: 1_000 },
-    );
+    if (!prefersReducedMotion) {
+      await page.waitForFunction(
+        () =>
+          document.getElementById("collectionCarousel")?.dataset.collectionInteraction === "active" &&
+          document.getElementById("collectionCarousel")?.dataset.collectionDirection === "prev",
+        undefined,
+        { timeout: 1_000 },
+      );
+    }
 
     const duringPrevPulseState = await getCollectionCarouselFocusState(page);
     const prevPulseCards = duringPrevPulseState.cards;
     const prevPulseState = prevPulseCards.find((card) => card.index === nextNearestToCenter.index) || prevPulseCards[0];
-    assert.equal(prevPulseState?.carouselInteraction, "active");
-    assert.equal(prevPulseState?.carouselDirection, "prev");
-    assert.notEqual(prevPulseState?.prevArrowTransform, "none");
-    assert.notEqual(prevPulseState?.prevArrowGlyphTransform, "none");
+    if (prefersReducedMotion) {
+      assert.equal(prevPulseState?.carouselInteraction, "");
+      assert.equal(prevPulseState?.carouselDirection, "");
+    } else {
+      assert.equal(prevPulseState?.carouselInteraction, "active");
+      assert.equal(prevPulseState?.carouselDirection, "prev");
+      assert.notEqual(prevPulseState?.prevArrowTransform, "none");
+      assert.notEqual(prevPulseState?.prevArrowGlyphTransform, "none");
+    }
     await page.waitForTimeout(520);
 
     const afterPrevState = await getCollectionCarouselFocusState(page);

@@ -281,8 +281,9 @@
 
 .collection-detail-hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(270px, 0.4fr);
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.34fr);
   align-items: center;
+  gap: 20px;
 }
 
 .collection-detail-art {
@@ -295,14 +296,14 @@
 }
 
 .collection-detail-collage {
-  min-height: min(360px, 38vw);
-  border-radius: 22px;
+  min-height: clamp(220px, 24vw, 300px);
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 26px 58px rgba(0, 0, 0, 0.42);
 }
 
 .collection-detail-tag-row {
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .collection-show-section {

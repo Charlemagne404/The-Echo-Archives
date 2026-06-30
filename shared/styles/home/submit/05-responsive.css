@@ -1,5 +1,14 @@
 
 @media (max-width: 560px) {
+  .submit-main {
+    gap: 14px;
+  }
+
+  .submit-hero-panel {
+    padding: 22px 18px 18px;
+    border-radius: 20px;
+  }
+
   .submit-hero-trust {
     grid-template-columns: 1fr;
   }
@@ -30,5 +39,13 @@
   .submit-steps-shell {
     padding: 14px;
     border-radius: 16px;
+  }
+
+  .submit-tag-picker-input,
+  .submit-page .submit-remake-form input:not([type="checkbox"]):not([type="radio"]),
+  .submit-page .submit-remake-form textarea,
+  .submit-page .submit-remake-form select {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }

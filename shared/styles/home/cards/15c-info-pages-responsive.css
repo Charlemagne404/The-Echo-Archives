@@ -7,10 +7,15 @@
   .info-page-rail {
     position: relative;
     top: auto;
+    order: -1;
   }
 
   .info-rail-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
   }
 
   .info-cta-card {
@@ -50,6 +55,7 @@
 
 @media (max-width: 560px) {
   .info-rail-links {
+    display: grid;
     grid-template-columns: 1fr;
   }
 

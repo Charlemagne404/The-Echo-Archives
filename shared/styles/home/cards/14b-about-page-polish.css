@@ -8,9 +8,10 @@
 }
 
 .about-page .about-hero-panel {
-  min-height: 430px;
+  min-height: 360px;
   overflow: hidden;
-  padding: 38px 30px 20px;
+  justify-content: flex-start;
+  padding: 30px 30px 18px;
   border-color: rgba(255, 255, 255, 0.15);
   background:
     linear-gradient(90deg, rgba(3, 5, 8, 0.99) 0%, rgba(4, 6, 9, 0.96) 36%, rgba(5, 8, 11, 0.54) 67%, rgba(6, 8, 11, 0.16) 100%),
@@ -35,6 +36,7 @@
 
 .about-page .about-hero-copy {
   max-width: 820px;
+  padding-top: 2px;
 }
 
 .about-page .about-hero-panel .hero-copy h1 {
@@ -55,8 +57,8 @@
   display: flex;
   align-items: flex-start;
   max-width: min(100%, 31ch);
-  margin-top: 16px;
-  padding-top: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(247, 247, 243, 0.92);
   font-size: 0.98rem;

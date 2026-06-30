@@ -24,7 +24,7 @@
 }
 
 .collection-detail-hero-panel {
-  min-height: clamp(390px, 47vw, 560px);
+  min-height: clamp(320px, 34vw, 420px);
 }
 
 .collections-hero-panel::after,
@@ -41,8 +41,8 @@
 }
 
 .collection-detail-hero-copy {
-  max-width: 650px;
-  padding: 12px 0;
+  max-width: none;
+  padding: 2px 0;
 }
 
 .collections-hero-copy h1 {
@@ -54,16 +54,22 @@
 }
 
 .collection-detail-hero-copy h1 {
-  max-width: 12ch;
-  white-space: normal;
+  max-width: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   letter-spacing: 0;
-  font-size: clamp(3rem, 5.2vw, 5.8rem);
-  line-height: 0.96;
+  font-size: clamp(2.2rem, 3.2vw, 3.8rem);
+  line-height: 0.94;
 }
 
 .collections-hero-copy p,
 .collection-detail-hero-copy p {
   max-width: 42ch;
+}
+
+.collection-detail-hero-copy p {
+  max-width: 40ch;
 }
 
 .collections-hero-copy p {

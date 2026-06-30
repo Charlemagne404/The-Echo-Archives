@@ -179,13 +179,15 @@
 
 .collection-carousel {
   --collection-headroom: 28px;
+  --collection-viewport-inline-pad: clamp(10px, 1.6vw, 18px);
+  --collection-edge-fade-width: clamp(28px, 4vw, 52px);
   --collection-focus-scale-max: 0.095;
   --collection-focus-lift-max: 18px;
   --collection-directional-shift-base: 0px;
   position: relative;
+  z-index: 81;
   overflow: hidden;
   isolation: isolate;
-  perspective: 1600px;
 }
 
 .collection-carousel::before,
@@ -194,21 +196,21 @@
   position: absolute;
   top: -8px;
   bottom: -16px;
-  width: 108px;
+  width: var(--collection-edge-fade-width);
   z-index: 4;
   pointer-events: none;
-  opacity: 0.88;
+  opacity: 0.62;
   transition: opacity 180ms ease;
 }
 
 .collection-carousel::before {
   left: 0;
-  background: linear-gradient(90deg, rgba(7, 10, 13, 0.92), rgba(7, 10, 13, 0));
+  background: linear-gradient(90deg, rgba(7, 10, 13, 0.9), rgba(7, 10, 13, 0));
 }
 
 .collection-carousel::after {
   right: 0;
-  background: linear-gradient(270deg, rgba(7, 10, 13, 0.92), rgba(7, 10, 13, 0));
+  background: linear-gradient(270deg, rgba(7, 10, 13, 0.9), rgba(7, 10, 13, 0));
 }
 
 .collection-carousel[data-collection-interaction="active"][data-collection-direction="prev"] {
@@ -231,12 +233,11 @@
   position: relative;
   z-index: 1;
   overflow-x: auto;
-  padding: calc(6px + var(--collection-headroom)) 0 14px;
+  padding: calc(6px + var(--collection-headroom)) var(--collection-viewport-inline-pad) 14px;
   margin: 0;
   scrollbar-width: none;
   -ms-overflow-style: none;
   overscroll-behavior-x: contain;
-  transform-style: preserve-3d;
 }
 
 .collection-carousel-viewport::-webkit-scrollbar {
@@ -253,7 +254,7 @@
 .collection-carousel-arrow {
   position: absolute;
   top: calc(50% + (var(--collection-headroom) / 2));
-  z-index: 6;
+  z-index: 90;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -343,5 +344,12 @@
     --collection-headroom: 12px;
     --collection-focus-scale-max: 0.04;
     --collection-focus-lift-max: 7px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .collection-carousel-arrow {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

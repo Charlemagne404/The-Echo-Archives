@@ -263,3 +263,30 @@
     grid-template-columns: auto 16px;
   }
 }
+
+@media (max-width: 560px) {
+  .creators-hero-panel,
+  .creator-standards-hero-panel,
+  .creator-solidarity-band,
+  .creator-standard-panel,
+  .creator-action-card,
+  .creator-faq-toggle,
+  .creator-faq-answer,
+  .creator-faq-answer-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .creator-step-card {
+    padding: 16px;
+  }
+
+  .creator-step-card::before {
+    left: 37px;
+  }
+
+  .creator-step-index {
+    width: 40px;
+    height: 40px;
+  }
+}
