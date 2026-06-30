@@ -15,6 +15,14 @@ export const DEFAULT_CHAT_SUGGESTIONS = [
 ];
 export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
 export const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
+export const HOME_FAVORITE_ROUTE_IDS = [
+  "shows-like-midnight-burger",
+  "shows-like-welcome-to-night-vale",
+  "shows-like-derelict",
+  "shows-like-the-white-vault",
+  "shows-like-midst",
+  "shows-like-malevolent",
+];
 export const SHOW_CARD_PREVIEW_DELAY_MS = 480;
 export const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
 export const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 210;

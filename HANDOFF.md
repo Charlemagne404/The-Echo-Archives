@@ -1,5 +1,70 @@
 ## Current task
 
+Implement the focused "Shows Like X" recommendation pass across archive data, homepage routes, collections, and show-detail recommendations.
+
+## Files changed
+
+- `data/shows.json`
+- `data/collections.json`
+- `site-src/pages/index.html`
+- `site-src/pages/collections.html`
+- generated `index.html`
+- generated `collections.html`
+- `shared/app/constants.js`
+- `shared/app/pages/home.js`
+- `shared/app/pages/home/elements.js`
+- `shared/app/pages/collections.js`
+- `shared/app/render-show/relationships.js`
+- `podcast-ai/lib/discovery-gaps.js`
+- `podcast-ai/scripts/discovery-gap-report.js`
+- `podcast-ai/test/catalog.test.js`
+- `podcast-ai/test/discovery-gaps.test.js`
+- `podcast-ai/test/review-workflow.test.js`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added the fixed homepage `Shows like your favorites` rail and pointed the hero CTA mix toward `Midnight Burger`, `Welcome to Night Vale`, and `Completed shows`.
+- Added the `Start from a favorite show` section on `collections.html` and surfaced all `kind: similarity` routes there without replacing the broader collections directory.
+- Made show-detail `Start next` cards reason-led and skipped blank-reason similarity cards entirely.
+- Raised the discovery-data contract so published shows now carry 3-5 similarity links, complete `similarReasons`, at least 2 collection memberships, and anchor shows at least 3 collection memberships.
+- Added the new `shows-like-welcome-to-night-vale`, `shows-like-midst`, and `shows-like-malevolent` collections with 6-show membership, `showReasons`, intent tags, and commitment metadata.
+- Brought existing route data up to the same standard and closed the zero-collection / single-collection dead-end cases for published shows.
+- Chose depth over thin breadth for this phase: no new shows were published because no candidate set was prepared in-repo to the required metadata/readiness bar.
+- Added validation coverage for missing `similarReasons`, weak collection membership, and incomplete similarity-route `showReasons`, then updated publish-workflow fixtures to satisfy the stricter rules.
+- Ran rendered QA on the homepage, collections page, a similarity collection route, the `Midnight Burger` show page, and `like X` search flows in desktop plus mobile.
+
+## What still needs work
+
+- No blocking follow-up from this pass. If you want another phase next, the clearest continuation is expanding curated anchor families with new shows that can meet the same complete-metadata bar on day one.
+
+## Commands run
+
+- `rtk sed -n '1,220p' /Users/charliearnerstal/.codex/RTK.md`
+- `rtk sed -n '1,260p' /Users/charliearnerstal/.codex/plugins/cache/openai-curated/build-web-apps/3fdeeb49/skills/frontend-testing-debugging/SKILL.md`
+- `rtk sed -n '1,260p' /Users/charliearnerstal/.codex/plugins/cache/openai-bundled/browser/26.616.81150/skills/control-in-app-browser/SKILL.md`
+- `rtk git status --short`
+- `rtk cat package.json`
+- `rtk sed -n '1,260p' shared/app/pages/home.js`
+- `rtk sed -n '1,260p' site-src/page-manifest.json`
+- `rtk rg -n ...` to inspect routes, search wiring, and similarity-query behavior
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run validate:data`
+- `rtk npm --prefix podcast-ai run check:links`
+- `rtk npm --prefix podcast-ai test`
+- Browser runtime checks against `http://127.0.0.1:3010/`, `collections.html`, `collection.html?id=shows-like-welcome-to-night-vale`, and `show.html?id=midnight-burger`
+- `rtk node - <<'NODE' ...` Playwright screenshot capture to `/tmp/echo-qa-20260630/`
+
+## Known issues
+
+- `shared/app/pages/home.js` still exceeds the soft 350-line advisory limit reported by `npm run check:structure`, but the check passes and no hard structure failures remain.
+- The in-app Browser plugin worked for navigation, DOM snapshots, console checks, and interactions, but its screenshot capture timed out in this workspace; screenshot artifacts were captured with the repo's Playwright dependency instead.
+
+---
+
+## Current task
+
 Add two new documentation files: one deeper final-product destination doc and one detailed current-state snapshot doc.
 
 ## Files changed

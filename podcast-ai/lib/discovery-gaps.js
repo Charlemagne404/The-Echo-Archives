@@ -9,6 +9,9 @@ const ANCHOR_SHOW_IDS = [
   "tower-4",
   "station-151",
   "oz-9",
+  "welcome-to-night-vale",
+  "midst",
+  "malevolent",
 ];
 
 function normalizeText(value) {
@@ -27,7 +30,24 @@ function getPublishedShows(catalog = []) {
   return (Array.isArray(catalog) ? catalog : []).filter(isPublishedShow);
 }
 
-function findPublishedShowsWithTooFewSimilarLinks(catalog = [], minimum = 2) {
+function getCollectionMembershipCounts(catalog = [], collections = []) {
+  const publishedShowIds = new Set(getPublishedShows(catalog).map((show) => show.id));
+  const counts = new Map([...publishedShowIds].map((showId) => [showId, 0]));
+
+  (Array.isArray(collections) ? collections : []).forEach((collection) => {
+    (Array.isArray(collection.showIds) ? collection.showIds : []).forEach((showId) => {
+      if (!counts.has(showId)) {
+        return;
+      }
+
+      counts.set(showId, (counts.get(showId) || 0) + 1);
+    });
+  });
+
+  return counts;
+}
+
+function findPublishedShowsWithOutOfRangeSimilarLinks(catalog = [], minimum = 3, maximum = 5) {
   return getPublishedShows(catalog)
     .map((show) => {
       const count = Array.isArray(show.similarTo) ? show.similarTo.length : 0;
@@ -37,23 +57,12 @@ function findPublishedShowsWithTooFewSimilarLinks(catalog = [], minimum = 2) {
         count,
       };
     })
-    .filter((show) => show.count < minimum);
+    .filter((show) => show.count < minimum || show.count > maximum);
 }
 
-function findAnchorShowsMissingSimilarReasons(catalog = [], anchorShowIds = ANCHOR_SHOW_IDS) {
-  const catalogById = new Map((Array.isArray(catalog) ? catalog : []).map((show) => [show.id, show]));
-
-  return anchorShowIds
-    .map((showId) => {
-      const show = catalogById.get(showId);
-      if (!show) {
-        return {
-          id: showId,
-          title: "",
-          missingFor: ["[missing anchor show]"],
-        };
-      }
-
+function findPublishedShowsMissingSimilarReasons(catalog = []) {
+  return getPublishedShows(catalog)
+    .map((show) => {
       const similarTo = Array.isArray(show.similarTo) ? show.similarTo : [];
       const similarReasons = show.similarReasons && typeof show.similarReasons === "object" ? show.similarReasons : {};
       const missingFor = similarTo.filter((neighborId) => !normalizeText(similarReasons[neighborId]));
@@ -122,6 +131,49 @@ function findRouteCollectionsMissingShowReasons(collections = []) {
     .filter(Boolean);
 }
 
+function findPublishedShowsWithTooFewCollectionMemberships(catalog = [], collections = [], minimum = 2) {
+  const collectionMemberships = getCollectionMembershipCounts(catalog, collections);
+
+  return getPublishedShows(catalog)
+    .map((show) => ({
+      id: show.id,
+      title: show.title,
+      count: collectionMemberships.get(show.id) || 0,
+    }))
+    .filter((show) => show.count < minimum);
+}
+
+function findAnchorShowsWithTooFewCollectionMemberships(
+  catalog = [],
+  collections = [],
+  minimum = 3,
+  anchorShowIds = ANCHOR_SHOW_IDS,
+) {
+  const catalogById = new Map((Array.isArray(catalog) ? catalog : []).map((show) => [show.id, show]));
+  const collectionMemberships = getCollectionMembershipCounts(catalog, collections);
+
+  return anchorShowIds
+    .map((showId) => {
+      const show = catalogById.get(showId);
+      if (!show || !isPublishedShow(show)) {
+        return null;
+      }
+
+      const count = collectionMemberships.get(showId) || 0;
+      if (count >= minimum) {
+        return null;
+      }
+
+      return {
+        id: show.id,
+        title: show.title,
+        count,
+        missing: false,
+      };
+    })
+    .filter(Boolean);
+}
+
 function buildDiscoveryGapReport(catalog = [], collections = []) {
   const publishedShows = getPublishedShows(catalog);
   const routeCollections = (Array.isArray(collections) ? collections : []).filter(isShowsLikeCollection);
@@ -132,8 +184,13 @@ function buildDiscoveryGapReport(catalog = [], collections = []) {
       fullReviewCount: publishedShows.filter((show) => show.reviewStatus === "full-review").length,
       routeCollectionCount: routeCollections.length,
     },
-    publishedShowsWithTooFewSimilarLinks: findPublishedShowsWithTooFewSimilarLinks(publishedShows),
-    anchorShowsMissingSimilarReasons: findAnchorShowsMissingSimilarReasons(catalog),
+    publishedShowsWithOutOfRangeSimilarLinks: findPublishedShowsWithOutOfRangeSimilarLinks(publishedShows),
+    publishedShowsMissingSimilarReasons: findPublishedShowsMissingSimilarReasons(publishedShows),
+    publishedShowsWithTooFewCollectionMemberships: findPublishedShowsWithTooFewCollectionMemberships(
+      publishedShows,
+      collections,
+    ),
+    anchorShowsWithTooFewCollectionMemberships: findAnchorShowsWithTooFewCollectionMemberships(publishedShows, collections),
     publishedShowsMissingDiscoveryFields: findPublishedShowsMissingDiscoveryFields(publishedShows),
     routeCollectionsMissingShowReasons: findRouteCollectionsMissingShowReasons(routeCollections),
   };
@@ -141,24 +198,37 @@ function buildDiscoveryGapReport(catalog = [], collections = []) {
 
 function getGateBCriticalValidationErrors(catalog = [], collections = []) {
   const errors = [];
+  const publishedShowsWithOutOfRangeSimilarLinks = findPublishedShowsWithOutOfRangeSimilarLinks(catalog);
+  const publishedShowsMissingSimilarReasons = findPublishedShowsMissingSimilarReasons(catalog);
+  const publishedShowsWithTooFewCollectionMemberships = findPublishedShowsWithTooFewCollectionMemberships(
+    catalog,
+    collections,
+  );
+  const anchorShowsWithTooFewCollectionMemberships = findAnchorShowsWithTooFewCollectionMemberships(catalog, collections);
   const publishedShowsMissingDiscoveryFields = findPublishedShowsMissingDiscoveryFields(catalog);
-  const anchorShowsMissingSimilarReasons = findAnchorShowsMissingSimilarReasons(catalog);
   const routeCollectionsMissingShowReasons = findRouteCollectionsMissingShowReasons(collections);
+
+  publishedShowsWithOutOfRangeSimilarLinks.forEach((show) => {
+    errors.push(`Published show "${show.id}" must have 3 to 5 similar links. Current count: ${show.count}.`);
+  });
+
+  publishedShowsMissingSimilarReasons.forEach((show) => {
+    errors.push(`Published show "${show.id}" is missing similarReasons for: ${show.missingFor.join(", ")}.`);
+  });
+
+  publishedShowsWithTooFewCollectionMemberships.forEach((show) => {
+    errors.push(`Published show "${show.id}" must belong to at least 2 collections. Current count: ${show.count}.`);
+  });
+
+  anchorShowsWithTooFewCollectionMemberships.forEach((show) => {
+    errors.push(`Anchor show "${show.id}" must belong to at least 3 collections. Current count: ${show.count}.`);
+  });
 
   publishedShowsMissingDiscoveryFields.forEach((show) => {
     const criticalFields = show.missing.filter((fieldName) => fieldName === "tones" || fieldName === "formats");
     if (criticalFields.length > 0) {
       errors.push(`Published show "${show.id}" is missing ${criticalFields.join(" and ")}.`);
     }
-  });
-
-  anchorShowsMissingSimilarReasons.forEach((show) => {
-    if (show.missingFor.includes("[missing anchor show]")) {
-      errors.push(`Anchor show "${show.id}" is missing from the catalog.`);
-      return;
-    }
-
-    errors.push(`Anchor show "${show.id}" is missing similarReasons for: ${show.missingFor.join(", ")}.`);
   });
 
   routeCollectionsMissingShowReasons.forEach((collection) => {
@@ -171,10 +241,14 @@ function getGateBCriticalValidationErrors(catalog = [], collections = []) {
 module.exports = {
   ANCHOR_SHOW_IDS,
   buildDiscoveryGapReport,
-  findAnchorShowsMissingSimilarReasons,
+  findAnchorShowsWithTooFewCollectionMemberships,
   findPublishedShowsMissingDiscoveryFields,
-  findPublishedShowsWithTooFewSimilarLinks,
+  findPublishedShowsMissingSimilarReasons,
+  findPublishedShowsWithOutOfRangeSimilarLinks,
+  findPublishedShowsWithTooFewCollectionMemberships,
   findRouteCollectionsMissingShowReasons,
   getGateBCriticalValidationErrors,
+  getPublishedShows,
+  getCollectionMembershipCounts,
   isShowsLikeCollection,
 };

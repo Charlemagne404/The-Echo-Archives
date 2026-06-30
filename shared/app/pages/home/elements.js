@@ -22,6 +22,12 @@ export function getHomeElements() {
     noResultsMsg: document.getElementById("noResultsMsg"),
     resultsSummary: document.getElementById("resultsSummary"),
     quickFiltersRoot: document.getElementById("quickFilters"),
+    favoriteRoutesSection: document.getElementById("favoriteRoutes"),
+    favoriteRoutesCarousel: document.getElementById("favoriteRoutesCarousel"),
+    favoriteRoutesViewport: document.getElementById("favoriteRoutesViewport"),
+    favoriteRoutesGrid: document.getElementById("favoriteRoutesGrid"),
+    favoriteRoutesPrev: document.getElementById("favoriteRoutesPrev"),
+    favoriteRoutesNext: document.getElementById("favoriteRoutesNext"),
     collectionsSection: document.getElementById("collections"),
     collectionCarousel: document.getElementById("collectionCarousel"),
     collectionViewport: document.getElementById("collectionViewport"),
@@ -47,6 +53,12 @@ export function getHomeElements() {
     !elements.filterOptionGrid ||
     !elements.stickyFilterOptionGrid ||
     !elements.quickFiltersRoot ||
+    !elements.favoriteRoutesSection ||
+    !elements.favoriteRoutesCarousel ||
+    !elements.favoriteRoutesViewport ||
+    !elements.favoriteRoutesGrid ||
+    !elements.favoriteRoutesPrev ||
+    !elements.favoriteRoutesNext ||
     !elements.collectionsSection ||
     !elements.collectionCarousel ||
     !elements.collectionViewport ||

@@ -57,7 +57,8 @@
     ],
     "similarTo": [
       "vast-horizon",
-      "spectre"
+      "spectre",
+      "derelict"
     ],
     "archiveTake": "One of the archive's steadier space-thriller picks.",
     "spoilerFreeReview": "",
@@ -71,7 +72,7 @@
       "hex": "#cc5b42",
       "rgb": "204, 91, 66"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2022-03-29",
       "latest": "2022-06-07",
@@ -184,7 +185,12 @@
     ],
     "createdAt": "2026-06-01",
     "creatorId": "chris-porter",
-    "networkId": "curtco-media-workhouse-media"
+    "networkId": "curtco-media-workhouse-media",
+    "similarReasons": {
+      "vast-horizon": "Another spacebound survival lane if you want the vacuum, danger, and forward motion with a slightly wider adventure feel.",
+      "spectre": "Keeps the dark sci-fi mystery tone intact while trading direct survival pressure for stranger atmosphere.",
+      "derelict": "A louder industrial escalation if the serious sci-fi pressure is the part you want more of."
+    }
   },
   {
     "id": "story",
@@ -240,7 +246,8 @@
     ],
     "similarTo": [
       "the-waystation",
-      "the-bright-sessions"
+      "the-bright-sessions",
+      "desert-skies"
     ],
     "archiveTake": "A cleaner starting point when you want mystery without a wall of lore.",
     "spoilerFreeReview": "",
@@ -345,7 +352,12 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "7-lamb-productions"
+    "networkId": "7-lamb-productions",
+    "similarReasons": {
+      "the-waystation": "Keeps the hopeful speculative curiosity alive without hardening the tone.",
+      "the-bright-sessions": "A character-first branch if the emotional legibility matters more than the adventure frame.",
+      "desert-skies": "Another soft-entry weird-fiction pick when you want warmth before lore."
+    }
   },
   {
     "id": "from-now",
@@ -404,7 +416,8 @@
     ],
     "similarTo": [
       "ars-paradoxica",
-      "red-valley"
+      "red-valley",
+      "case-63"
     ],
     "archiveTake": "Useful when you want time-travel flavor without a massive commitment.",
     "spoilerFreeReview": "",
@@ -418,7 +431,7 @@
       "hex": "#8d413e",
       "rgb": "141, 65, 62"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2020-12-21",
       "latest": "2021-01-25"
@@ -519,7 +532,12 @@
     ],
     "createdAt": "2026-06-01",
     "creatorId": "rhys-wakefield-and-william-day-frank",
-    "networkId": "qcode"
+    "networkId": "qcode",
+    "similarReasons": {
+      "ars-paradoxica": "The clearest next step if the time-dislocation premise makes you want denser science-fiction consequences.",
+      "red-valley": "Keeps the secret-project unease and controlled weirdness active.",
+      "case-63": "A compact paradox-thriller branch for listeners who want cleaner suspense around time travel."
+    }
   },
   {
     "id": "the-deca-tapes",
@@ -578,7 +596,8 @@
     ],
     "similarTo": [
       "spectre",
-      "red-valley"
+      "red-valley",
+      "homecoming"
     ],
     "archiveTake": "More puzzle-box than emotional sprawl.",
     "spoilerFreeReview": "",
@@ -592,7 +611,7 @@
       "hex": "#6f5664",
       "rgb": "111, 86, 100"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2019-08-08",
       "latest": "2025-09-08",
@@ -682,7 +701,12 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "lex-noteboom",
-    "networkId": "realm-baumhouse-productions"
+    "networkId": "realm-baumhouse-productions",
+    "similarReasons": {
+      "spectre": "Another closed-loop mystery lane if you want atmosphere and slow uncertainty.",
+      "red-valley": "Keeps the puzzle-box intrigue and controlled weirdness alive.",
+      "homecoming": "A tighter prestige-thriller branch for listeners who want another cleanly engineered mystery."
+    }
   },
   {
     "id": "earth-eclipsed",
@@ -738,7 +762,8 @@
     ],
     "similarTo": [
       "windfall",
-      "impact-winter"
+      "impact-winter",
+      "derelict"
     ],
     "archiveTake": "Useful when you want dystopia and pace before warmth.",
     "spoilerFreeReview": "",
@@ -752,7 +777,7 @@
       "hex": "#4e657c",
       "rgb": "78, 101, 124"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2021-09-01",
       "latest": "2021-10-20"
@@ -836,7 +861,12 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "the-lunar-company",
-    "networkId": "the-lunar-company-apollo-podcasts"
+    "networkId": "the-lunar-company-apollo-podcasts",
+    "similarReasons": {
+      "windfall": "A grounded dystopian cousin if the political pressure mattered as much as the sci-fi wrapper.",
+      "impact-winter": "Keeps the catastrophe scale high and the pacing aggressive.",
+      "derelict": "Another dark serious-sci-fi route with strong pressure and a harsher sonic environment."
+    }
   },
   {
     "id": "vast-horizon",
@@ -895,7 +925,8 @@
     ],
     "similarTo": [
       "solar",
-      "the-waystation"
+      "the-waystation",
+      "midst"
     ],
     "archiveTake": "A good bridge between harder survival sci-fi and lighter adventure runs.",
     "spoilerFreeReview": "",
@@ -909,7 +940,7 @@
       "hex": "#457693",
       "rgb": "69, 118, 147"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2019-05-28",
       "latest": "2022-11-29"
@@ -1010,7 +1041,12 @@
     ],
     "createdAt": "2026-06-01",
     "creatorId": "k-a-statz-and-travis-vengroff",
-    "networkId": "fool-and-scholar-productions"
+    "networkId": "fool-and-scholar-productions",
+    "similarReasons": {
+      "solar": "A tighter survival chamber if you want the space danger without the same wandering sprawl.",
+      "the-waystation": "Keeps the hopeful exploratory side alive once the survival edge softens.",
+      "midst": "A stranger worldbuilding escalation for listeners who want the setting to get weirder and bigger."
+    }
   },
   {
     "id": "how-i-died",
@@ -1068,7 +1104,8 @@
     ],
     "similarTo": [
       "paralyzed",
-      "the-white-vault"
+      "the-white-vault",
+      "malevolent"
     ],
     "archiveTake": "One of the archive's cleaner horror recommendations.",
     "spoilerFreeReview": "",
@@ -1082,7 +1119,7 @@
       "hex": "#88506a",
       "rgb": "136, 80, 106"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://audiohmmedia.com/howidied/",
       "patreon": "https://www.patreon.com/howidied",
@@ -1180,7 +1217,12 @@
     ],
     "createdAt": "2026-06-01",
     "creatorId": "vince-dajani",
-    "networkId": "audiohm-media"
+    "networkId": "audiohm-media",
+    "similarReasons": {
+      "paralyzed": "Keeps the supernatural investigation lane active with a more direct horror pulse.",
+      "the-white-vault": "A colder isolation-horror branch if you want the dread to spread beyond the investigation.",
+      "malevolent": "A darker occult escalation once the voice-driven mystery stops being enough."
+    }
   },
   {
     "id": "windfall",
@@ -1240,7 +1282,8 @@
     ],
     "similarTo": [
       "earth-eclipsed",
-      "the-deca-tapes"
+      "the-deca-tapes",
+      "homecoming"
     ],
     "archiveTake": "A higher-pressure mystery pick that stays moving.",
     "spoilerFreeReview": "",
@@ -1254,7 +1297,7 @@
       "hex": "#8f3b3e",
       "rgb": "143, 59, 62"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2019-02-13",
       "latest": "2025-12-17",
@@ -1354,7 +1397,12 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "rogue-dialogue-productions",
-    "networkId": "rogue-dialogue-productions"
+    "networkId": "rogue-dialogue-productions",
+    "similarReasons": {
+      "earth-eclipsed": "Another pressure-heavy dystopian route when you want systems failing around the characters.",
+      "the-deca-tapes": "A puzzle-box branch if you want more suspicion and less open momentum.",
+      "homecoming": "A prestige-thriller cousin for listeners who want another conspiracy-shaped binge."
+    }
   },
   {
     "id": "the-waystation",
@@ -1412,7 +1460,8 @@
     ],
     "similarTo": [
       "vast-horizon",
-      "story"
+      "story",
+      "midnight-burger"
     ],
     "archiveTake": "A cleaner browse recommendation when the archive starts feeling too bleak.",
     "spoilerFreeReview": "",
@@ -1426,7 +1475,7 @@
       "hex": "#497f8a",
       "rgb": "73, 127, 138"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "",
       "patreon": "",
@@ -1512,7 +1561,12 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "not-verified",
-    "networkId": "not-verified"
+    "networkId": "not-verified",
+    "similarReasons": {
+      "vast-horizon": "Keeps the spacefaring exploration lane active with a little more survival drag.",
+      "story": "A softer, more grounded companion if you want warmth and clarity first.",
+      "midnight-burger": "A warmer cosmic escalation once the appetite shifts from exploration to range and oddity."
+    }
   },
   {
     "id": "were-alive",
@@ -2300,7 +2354,8 @@
     ],
     "similarTo": [
       "ars-paradoxica",
-      "the-deca-tapes"
+      "the-deca-tapes",
+      "case-63"
     ],
     "archiveTake": "A good neighboring pick once Ars Paradoxica leaves you wanting more controlled weirdness.",
     "spoilerFreeReview": "",
@@ -2314,7 +2369,7 @@
       "hex": "#92605d",
       "rgb": "146, 96, 93"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2020-03-22",
       "latest": "2025-06-01",
@@ -2406,7 +2461,12 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "jonathan-williams-and-alan-mandel",
-    "networkId": "red-valley-fable-and-folly"
+    "networkId": "red-valley-fable-and-folly",
+    "similarReasons": {
+      "ars-paradoxica": "The cleanest neighbor if the controlled science-fiction weirdness is the real hook.",
+      "the-deca-tapes": "Keeps the enclosed puzzle energy alive while leaning harder into mystery structure.",
+      "case-63": "A tighter paradox-thriller branch for listeners who want the time bend to stay front and center."
+    }
   },
   {
     "id": "the-white-vault",
@@ -2654,7 +2714,8 @@
     ],
     "similarTo": [
       "oz-9",
-      "wolf-359"
+      "wolf-359",
+      "crystal-blue"
     ],
     "archiveTake": "A cleaner comedy pick when you want space banter without total tonal collapse.",
     "spoilerFreeReview": "",
@@ -2668,7 +2729,7 @@
       "hex": "#497b84",
       "rgb": "73, 123, 132"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2014-09-01",
       "latest": "2022-01-01"
@@ -2754,7 +2815,12 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "justin-mclachlan",
-    "networkId": "planetm-justin-mclachlan"
+    "networkId": "planetm-justin-mclachlan",
+    "similarReasons": {
+      "oz-9": "Turns the dysfunction and comic disaster energy even louder.",
+      "wolf-359": "A stronger character-payoff branch if you want the station comedy to deepen over time.",
+      "crystal-blue": "Another oddball sci-fi comedy route when you want something smaller and stranger."
+    }
   },
   {
     "id": "desert-skies",
@@ -2815,7 +2881,8 @@
     ],
     "similarTo": [
       "midnight-burger",
-      "story"
+      "story",
+      "welcome-to-night-vale"
     ],
     "archiveTake": "Useful when the listener wants something gentler without losing personality.",
     "spoilerFreeReview": "",
@@ -2829,7 +2896,7 @@
       "hex": "#ae7b4c",
       "rgb": "174, 123, 76"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2022-08-06",
       "latest": "2026-06-08",
@@ -2922,7 +2989,12 @@
     ],
     "createdAt": "2026-06-01",
     "creatorId": "jared-carter",
-    "networkId": "desert-skies-jared-carter"
+    "networkId": "desert-skies-jared-carter",
+    "similarReasons": {
+      "midnight-burger": "The clearest next stop if you want the warmth to scale up into bigger speculative range.",
+      "story": "Keeps the gentle entry-point quality intact while staying grounded and inviting.",
+      "welcome-to-night-vale": "A weirder, darker branch for listeners ready to lean harder into voice-driven weird fiction."
+    }
   },
   {
     "id": "wolf-359",
@@ -3498,7 +3570,8 @@
     ],
     "similarTo": [
       "solar",
-      "the-deca-tapes"
+      "the-deca-tapes",
+      "derelict"
     ],
     "archiveTake": "An archive browse pick when the listener wants atmosphere first.",
     "spoilerFreeReview": "",
@@ -3512,7 +3585,7 @@
       "hex": "#61718c",
       "rgb": "97, 113, 140"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "",
       "patreon": "",
@@ -3600,7 +3673,12 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "not-verified",
-    "networkId": "not-verified"
+    "networkId": "not-verified",
+    "similarReasons": {
+      "solar": "Keeps the spacebound threat active with more direct survival pressure.",
+      "the-deca-tapes": "A puzzle-box mystery branch if atmosphere matters more than forward drive.",
+      "derelict": "A louder industrial escalation for listeners who want the sci-fi pressure to get meaner."
+    }
   },
   {
     "id": "the-phenomenon",
@@ -3660,7 +3738,8 @@
     ],
     "similarTo": [
       "the-white-vault",
-      "impact-winter"
+      "impact-winter",
+      "were-alive"
     ],
     "archiveTake": "A survival-forward pick for listeners who want dread before warmth.",
     "spoilerFreeReview": "",
@@ -3674,7 +3753,7 @@
       "hex": "#5a5e79",
       "rgb": "90, 94, 121"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2017-10-02",
       "latest": "2022-11-16",
@@ -3767,7 +3846,12 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "jared-j-smith",
-    "networkId": "luciola-creative"
+    "networkId": "luciola-creative",
+    "similarReasons": {
+      "the-white-vault": "A colder isolation branch once the environmental dread is what matters most.",
+      "impact-winter": "Keeps the catastrophe pressure high while making the genre spectacle bigger.",
+      "were-alive": "The clearest neighboring pick if you want more relentless survival attrition and ensemble consequence."
+    }
   },
   {
     "id": "paralyzed",
@@ -3824,7 +3908,8 @@
     ],
     "similarTo": [
       "how-i-died",
-      "the-white-vault"
+      "the-white-vault",
+      "malevolent"
     ],
     "archiveTake": "Useful when the request is horror-first and less interested in hard genre labeling.",
     "spoilerFreeReview": "",
@@ -3838,7 +3923,7 @@
       "hex": "#7e5a77",
       "rgb": "126, 90, 119"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/paralyzed",
       "patreon": "",
@@ -3930,7 +4015,12 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "7-lamb-productions"
+    "networkId": "7-lamb-productions",
+    "similarReasons": {
+      "how-i-died": "Another supernatural-mystery route with a cleaner investigative spine.",
+      "the-white-vault": "Pushes the dread colder and more environmental once the threat needs more space around it.",
+      "malevolent": "A darker occult escalation for listeners who want the horror to feel more intimate and possessed."
+    }
   },
   {
     "id": "derelict",
@@ -4165,7 +4255,8 @@
     ],
     "similarTo": [
       "eos-10",
-      "oz-9"
+      "oz-9",
+      "station-151"
     ],
     "archiveTake": "More browse curiosity than flagship recommendation, but still useful in the lighter sci-fi lane.",
     "spoilerFreeReview": "",
@@ -4179,7 +4270,7 @@
       "hex": "#6c6ea0",
       "rgb": "108, 110, 160"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas",
       "patreon": "",
@@ -4267,7 +4358,12 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "bloody-fm-7-lamb-productions"
+    "networkId": "bloody-fm-7-lamb-productions",
+    "similarReasons": {
+      "eos-10": "Keeps the lighter sci-fi comedy lane active with more ensemble banter than chaos.",
+      "oz-9": "A messier comic escalation if you want the dysfunction pushed harder.",
+      "station-151": "A colder, stranger outpost branch for listeners who liked the off-kilter sci-fi tone."
+    }
   },
   {
     "id": "end-of-all-hope",
@@ -4325,7 +4421,8 @@
     ],
     "similarTo": [
       "impact-winter",
-      "were-alive"
+      "were-alive",
+      "the-phenomenon"
     ],
     "archiveTake": "A practical archive recommendation when the ask is simple: survival, creatures, and momentum.",
     "spoilerFreeReview": "",
@@ -4339,7 +4436,7 @@
       "hex": "#8d503f",
       "rgb": "141, 80, 63"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
       "patreon": "",
@@ -4431,7 +4528,12 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "7-lamb-productions"
+    "networkId": "7-lamb-productions",
+    "similarReasons": {
+      "impact-winter": "Another high-pressure catastrophe listen with stronger cinematic blast.",
+      "were-alive": "The foundational survival-saga branch if group attrition is the draw.",
+      "the-phenomenon": "Keeps the public-danger scale and relentless threat turnover active."
+    }
   },
   {
     "id": "tower-4",
@@ -4693,7 +4795,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "ars-paradoxica": "A denser science-fiction branch if the speculative mechanics matter as much as the characters.",
+      "story": "Keeps the softer emotional legibility intact while stepping away from the superpowered frame.",
+      "case-63": "A tighter, more suspense-forward route once you want the sci-fi idea compressed into a cleaner thriller."
+    }
   },
   {
     "id": "wooden-overcoats",
@@ -4781,7 +4888,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "wolf-359": "Keeps the ensemble friction and running bit energy alive in a bigger sci-fi frame.",
+      "oz-9": "Pushes the incompetence and comic disaster angle much harder.",
+      "eos-10": "Another banter-heavy ensemble comedy route with a lighter speculative wrapper."
+    }
   },
   {
     "id": "alice-isnt-dead",
@@ -4873,7 +4985,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "tower-4": "The cleanest next stop if the solitary voice and remote unease are the hook.",
+      "the-white-vault": "A colder environmental-horror branch once the sense of isolation becomes the main appetite.",
+      "archive-81": "A stranger signal-horror route for listeners who want the mystery to get more ritualistic and unstable."
+    }
   },
   {
     "id": "mirrors",
@@ -4963,7 +5080,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "the-white-vault": "Keeps the dread serious while shifting the haunting toward a broader speculative frame.",
+      "archive-81": "A more ritual-heavy horror branch if the sound-driven weirdness is what you want more of.",
+      "ars-paradoxica": "A cleaner science-fiction neighbor if the time-spanning structure mattered as much as the atmosphere."
+    }
   },
   {
     "id": "unwell",
@@ -5055,7 +5177,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "story": "Another approachable, character-first entry if you want warmth before the weirdness gets denser.",
+      "mabel": "A quieter ghost-story branch once the voice-led haunting becomes the main attraction.",
+      "desert-skies": "Keeps the inviting strange-world quality intact with a little more overt comfort."
+    }
   },
   {
     "id": "midst",
@@ -5123,7 +5250,8 @@
     "similarTo": [
       "midnight-burger",
       "ars-paradoxica",
-      "the-program-audio-series"
+      "the-program-audio-series",
+      "the-waystation"
     ],
     "archiveTake": "A good escalation route once the listener wants bigger conceptual play without losing strong character propulsion.",
     "spoilerFreeReview": "",
@@ -5146,7 +5274,13 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
+      "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
+      "the-program-audio-series": "A colder, more systems-minded branch for listeners who want the worldview to stay central.",
+      "the-waystation": "An exploratory route if the strange setting and sense of scale mattered more than the chaos."
+    }
   },
   {
     "id": "the-program-audio-series",
@@ -5234,7 +5368,12 @@
     "creators": [],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "derelict": "A louder pressure-cooker branch if you want the serious sci-fi tone to come with more immediate danger.",
+      "ars-paradoxica": "Keeps the idea-forward speculative appetite active with more explicit time-science consequences.",
+      "case-63": "A tighter thriller route for listeners who want the conceptual hook delivered with less sprawl."
+    }
   },
   {
     "id": "malevolent",
@@ -5301,7 +5440,8 @@
     "similarTo": [
       "the-white-vault",
       "tower-4",
-      "impact-winter"
+      "impact-winter",
+      "archive-81"
     ],
     "archiveTake": "A strong escalation pick when the listener wants more occult intensity without losing narrative drive.",
     "spoilerFreeReview": "",
@@ -5324,7 +5464,13 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
+      "tower-4": "A quieter paranoia branch if the voice-driven unease is the part you want to keep.",
+      "impact-winter": "A more overtly cinematic escalation if the intensity matters more than the occult frame.",
+      "archive-81": "A stranger signal-horror branch once you want the mystery to become more structurally weird."
+    }
   },
   {
     "id": "case-63",
@@ -5414,7 +5560,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "ars-paradoxica": "The clearest next step if you want the time-travel consequences to get denser and more systemic.",
+      "from-now": "A compact companion route when you want another short-form time-dislocation mystery.",
+      "the-program-audio-series": "A colder speculative branch once the ideas matter more than the emotional closeness."
+    }
   },
   {
     "id": "borrasca",
@@ -5503,7 +5654,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "the-phenomenon": "Keeps the public-danger dread active once you want the menace to feel bigger than one town.",
+      "tower-4": "A quieter remote-post branch if you want the unease to stay intimate and suspicious.",
+      "how-i-died": "Another investigation-shaped horror route once the mystery is the main driver."
+    }
   },
   {
     "id": "mabel",
@@ -5594,7 +5750,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "unwell": "A warmer small-town branch if you want the haunting to keep its affection.",
+      "mirrors": "Pushes the eeriness broader and stranger once the appetite turns more speculative.",
+      "alice-isnt-dead": "Keeps the voice-driven dread alive while swapping ghosts for a road-haunted conspiracy pulse."
+    }
   },
   {
     "id": "archive-81",
@@ -5685,7 +5846,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "the-white-vault": "A colder isolation-horror neighbor if you want the setting itself to feel more hostile.",
+      "tower-4": "Keeps the remote-post suspicion active in a more grounded mystery shape.",
+      "malevolent": "A darker occult escalation once the sound-led weirdness needs a more intimate supernatural bond."
+    }
   },
   {
     "id": "homecoming",
@@ -5774,7 +5940,12 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "case-63": "A compact prestige-thriller branch if you want another slickly delivered mystery with speculative edges.",
+      "the-deca-tapes": "Keeps the engineered puzzle-box feel alive while changing the emotional texture.",
+      "red-valley": "A stranger conspiracy-science route once the institutional unease becomes the main appetite."
+    }
   },
   {
     "id": "welcome-to-night-vale",
@@ -5844,7 +6015,8 @@
     "similarTo": [
       "alice-isnt-dead",
       "desert-skies",
-      "midnight-burger"
+      "midnight-burger",
+      "unwell"
     ],
     "archiveTake": "Still one of the clearest archive answers when someone wants foundational weird fiction with a strong voice and a lighter touch than outright horror.",
     "spoilerFreeReview": "",
@@ -5870,6 +6042,12 @@
       "Cecil Baldwin"
     ],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-06-30",
+    "similarReasons": {
+      "alice-isnt-dead": "A road-haunted branch if the intimate narration and creeping unreality are the real hook.",
+      "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
+      "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
+      "unwell": "A small-town gothic branch if the community feeling matters as much as the cosmic oddness."
+    }
   }
 ]

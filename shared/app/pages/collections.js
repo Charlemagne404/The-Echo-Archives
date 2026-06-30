@@ -19,12 +19,14 @@ const MOOD_FILTERS = [
 function getElements() {
   return {
     moodChips: document.getElementById("collectionsMoodChips"),
+    similarityGrid: document.getElementById("collectionsSimilarityGrid"),
     featuredGrid: document.getElementById("collectionsFeaturedGrid"),
     directoryRoot: document.getElementById("collectionsDirectory"),
     searchInput: document.getElementById("collectionsSearch"),
     sortSelect: document.getElementById("collectionsSort"),
     emptyState: document.getElementById("collectionsEmptyState"),
     clearSearch: document.getElementById("collectionsClearSearch"),
+    similaritySummary: document.getElementById("collectionsSimilaritySummary"),
     featuredSummary: document.getElementById("collectionsFeaturedSummary"),
     directorySummary: document.getElementById("collectionsDirectorySummary"),
     startWithMood: document.getElementById("startWithMood"),
@@ -171,7 +173,7 @@ export async function initializeCollectionsPage() {
   const showMap = buildShowMap(publishedShows);
   const elements = getElements();
 
-  if (!elements.directoryRoot || !elements.featuredGrid || !elements.moodChips) {
+  if (!elements.directoryRoot || !elements.featuredGrid || !elements.similarityGrid || !elements.moodChips) {
     return;
   }
 
@@ -183,6 +185,7 @@ export async function initializeCollectionsPage() {
   });
 
   const orderedCollections = sortCollections(collections, new Map(collections.map((entry) => [entry.id, []])), "editorial");
+  const similarityCollections = orderedCollections.filter((collection) => collection.kind === "similarity");
   const showsByCollection = new Map(
     orderedCollections.map((collection) => [collection.id, getCollectionShows(collection, showMap)]),
   );
@@ -205,6 +208,15 @@ export async function initializeCollectionsPage() {
   setTextContent("collectionsShowReach", String(coveredShowIds.size));
   setTextContent("collectionsFeaturedCount", String(featuredCount));
   setTextContent("collectionsLastUpdated", latestUpdatedAt ? formatDate(latestUpdatedAt) : "Unknown");
+  setTextContent(
+    "collectionsSimilaritySummary",
+    `${similarityCollections.length} anchored route${similarityCollections.length === 1 ? "" : "s"} for starting from a favorite show.`,
+  );
+
+  syncCollectionGrid(elements.similarityGrid, similarityCollections, {
+    motionProfile: getCollectionsGridMotionProfile("initial"),
+    renderItem: (collection) => createCollectionFeatureCard(collection, showsByCollection.get(collection.id)),
+  });
 
   if (elements.searchInput instanceof HTMLInputElement) {
     elements.searchInput.value = state.query;

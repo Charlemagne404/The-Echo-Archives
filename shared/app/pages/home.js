@@ -1,6 +1,7 @@
 import {
   DEFAULT_SOCIAL_IMAGE,
   archiveSearch,
+  HOME_FAVORITE_ROUTE_IDS,
   userInput,
 } from "../constants.js";
 import {
@@ -61,6 +62,7 @@ export async function initializeHomePage() {
   const featuredCollections = collections.filter((collection) => collection.featured);
   const publishedShows = shows.filter((show) => show.status === "published");
   const collectionsById = buildCollectionMap(collections);
+  const favoriteCollections = HOME_FAVORITE_ROUTE_IDS.map((collectionId) => collectionsById.get(collectionId)).filter(Boolean);
   const filterGroupsById = new Map(structuredFilterGroups.map((group) => [group.id, group]));
   const filterOptionsByGroup = new Map(
     structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
@@ -76,8 +78,8 @@ export async function initializeHomePage() {
   const archiveCardShellsById = new Map(
     shows.map((show) => [show.id, createShowCard(show, { previewMode: "inline-expand" })]),
   );
-  const syncFeaturedCollectionsVisibility = (shouldShowMostPopular) => {
-    elements.collectionsSection.hidden = featuredCollections.length === 0 || !shouldShowMostPopular;
+  const syncCollectionSectionVisibility = (section, sectionCollections, shouldShowMostPopular) => {
+    section.hidden = sectionCollections.length === 0 || !shouldShowMostPopular;
   };
   const mostPopularController = createMostPopularController({
     showMap,
@@ -91,11 +93,13 @@ export async function initializeHomePage() {
         closeDurationMs: 180,
         enterOffsetY: 16,
       });
-      syncFeaturedCollectionsVisibility(shouldShowMostPopular);
+      syncCollectionSectionVisibility(elements.favoriteRoutesSection, favoriteCollections, shouldShowMostPopular);
+      syncCollectionSectionVisibility(elements.collectionsSection, featuredCollections, shouldShowMostPopular);
       return true;
     },
   });
   let collectionCarouselControls = null;
+  let favoriteRoutesCarouselControls = null;
   let searchRenderTimer = 0;
   let pendingRenderReason = "";
   let renderFrame = 0;
@@ -327,6 +331,17 @@ export async function initializeHomePage() {
   });
   mostPopularController.renderMostPopularSection();
   void mostPopularController.resolveMostPopularShows();
+  favoriteRoutesCarouselControls = renderCollectionsRail({
+    featuredCollections: favoriteCollections,
+    showMap,
+    collectionsSection: elements.favoriteRoutesSection,
+    collectionCarousel: elements.favoriteRoutesCarousel,
+    collectionViewport: elements.favoriteRoutesViewport,
+    collectionGrid: elements.favoriteRoutesGrid,
+    collectionPrev: elements.favoriteRoutesPrev,
+    collectionNext: elements.favoriteRoutesNext,
+    currentControls: favoriteRoutesCarouselControls,
+  });
   collectionCarouselControls = renderCollectionsRail({
     featuredCollections,
     showMap,
@@ -424,6 +439,7 @@ export async function initializeHomePage() {
 
   window.addEventListener("resize", () => {
     previewController.closeActivePreview({ immediate: true });
+    favoriteRoutesCarouselControls?.refresh();
     collectionCarouselControls?.refresh();
     const nextGridLayoutBucket = getHomeGridLayoutBucket();
     if (state.gridLayoutBucket !== nextGridLayoutBucket) {

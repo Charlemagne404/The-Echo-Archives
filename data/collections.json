@@ -62,7 +62,8 @@
       "wolf-359",
       "the-bright-sessions",
       "wooden-overcoats",
-      "midnight-burger"
+      "midnight-burger",
+      "welcome-to-night-vale"
     ],
     "showReasons": {
       "story": "Warm, legible, and low-friction if you want a softer first stop.",
@@ -70,7 +71,8 @@
       "wolf-359": "Classic character-forward sci-fi comedy that can deepen if you keep going.",
       "the-bright-sessions": "A clean character-first sci-fi entry point with clear emotional stakes.",
       "wooden-overcoats": "An easy comedy route when the listener wants ensemble charm before anything darker.",
-      "midnight-burger": "The archive’s best all-purpose next-listen bridge when you want range, warmth, and forward motion."
+      "midnight-burger": "The archive’s best all-purpose next-listen bridge when you want range, warmth, and forward motion.",
+      "welcome-to-night-vale": "A foundational weird-fiction entry point when the listener wants a strong voice and immediate atmosphere."
     },
     "featured": true,
     "order": 20,
@@ -103,7 +105,8 @@
       "derelict",
       "spectre",
       "the-program-audio-series",
-      "midst"
+      "midst",
+      "earth-eclipsed"
     ],
     "showReasons": {
       "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -113,7 +116,8 @@
       "derelict": "Dark industrial mystery and detailed audio design fit the high-stakes lane.",
       "spectre": "A darker sci-fi mystery pick for listeners who want a sharper edge.",
       "the-program-audio-series": "A colder, idea-driven branch for listeners who want future systems more than banter.",
-      "midst": "Adds stranger, more formal sci-fantasy weight without losing the serious speculative core."
+      "midst": "Adds stranger, more formal sci-fantasy weight without losing the serious speculative core.",
+      "earth-eclipsed": "Dystopian pressure and a serious tone make it a clean fit for the darker sci-fi lane."
     },
     "featured": true,
     "order": 30,
@@ -264,7 +268,8 @@
       "paralyzed",
       "tower-4",
       "mabel",
-      "borrasca"
+      "borrasca",
+      "welcome-to-night-vale"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -275,7 +280,8 @@
       "paralyzed": "Direct supernatural dread belongs in the after-dark lane.",
       "tower-4": "Remote isolation keeps the atmosphere sparse and uneasy.",
       "mabel": "Quiet ghost-story dread makes the whole route feel more intimate and uncanny.",
-      "borrasca": "Small-town menace and steadily worsening revelations fit the no-comfort version of this lane."
+      "borrasca": "Small-town menace and steadily worsening revelations fit the no-comfort version of this lane.",
+      "welcome-to-night-vale": "Community-radio menace keeps the after-midnight energy eerie even when the delivery sounds calm."
     },
     "featured": false,
     "order": 70,
@@ -389,19 +395,21 @@
       "solar",
       "desert-skies",
       "the-phenomenon",
-      "the-deca-tapes"
+      "the-deca-tapes",
+      "homecoming"
     ],
     "showReasons": {
       "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
       "solar": "A focused survival premise gets moving fast.",
       "desert-skies": "Warm strangeness makes it easy to try without bracing.",
       "the-phenomenon": "A finished pressure story with a direct hook.",
-      "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand."
+      "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand.",
+      "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast."
     },
     "featured": false,
     "order": 100,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-23"
+    "updatedAt": "2026-06-30"
   },
   {
     "id": "warm-weird-comfort",
@@ -428,7 +436,8 @@
       "the-waystation",
       "eos-10",
       "wolf-359",
-      "unwell"
+      "unwell",
+      "welcome-to-night-vale"
     ],
     "showReasons": {
       "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
@@ -437,7 +446,8 @@
       "the-waystation": "Hopeful sci-fi exploration adds curiosity without harshness.",
       "eos-10": "Comedy and character friction keep the sci-fi light.",
       "wolf-359": "A funny space-station opener that can deepen over time.",
-      "unwell": "Midwestern gothic warmth makes the eerie side feel lived-in instead of punishing."
+      "unwell": "Midwestern gothic warmth makes the eerie side feel lived-in instead of punishing.",
+      "welcome-to-night-vale": "Darkly funny community-radio weirdness keeps the route strange without losing personality."
     },
     "featured": false,
     "order": 110,
@@ -468,7 +478,8 @@
       "end-of-all-hope",
       "the-phenomenon",
       "the-white-vault",
-      "derelict"
+      "derelict",
+      "windfall"
     ],
     "showReasons": {
       "were-alive": "Long-running ensemble survival gives the route its endurance.",
@@ -476,12 +487,13 @@
       "end-of-all-hope": "Ongoing apocalypse pressure fits the keep-moving premise.",
       "the-phenomenon": "Large-scale threat gives the collection a bleak public edge.",
       "the-white-vault": "Environmental survival turns isolation into the threat.",
-      "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant."
+      "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant.",
+      "windfall": "Conspiracy pressure and collapsing systems keep the route urgent even when the threat is more political than monstrous."
     },
     "featured": false,
     "order": 120,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-23"
+    "updatedAt": "2026-06-30"
   },
   {
     "id": "worldbuilding-deep-dives",
@@ -911,6 +923,123 @@
     },
     "featured": false,
     "order": 230,
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "shows-like-welcome-to-night-vale",
+    "title": "Shows like Welcome to Night Vale",
+    "description": "Voice-driven weird fiction with community-scale menace, dry humor, and the sense that the town itself knows more than it should.",
+    "label": "Broadcast weirdness",
+    "kind": "similarity",
+    "intentTags": [
+      "warm-weird",
+      "late-night",
+      "easy-first-step"
+    ],
+    "commitment": "Similarity route",
+    "coverShowIds": [
+      "alice-isnt-dead",
+      "desert-skies",
+      "unwell",
+      "mabel"
+    ],
+    "showIds": [
+      "alice-isnt-dead",
+      "desert-skies",
+      "unwell",
+      "mabel",
+      "midnight-burger",
+      "story"
+    ],
+    "showReasons": {
+      "alice-isnt-dead": "A road-haunted branch for listeners who liked the intimate narration and lurking unreality.",
+      "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
+      "unwell": "Small-town gothic affection makes it a strong stop if the community feeling mattered as much as the cosmic oddness.",
+      "mabel": "A quieter, more intimate ghost-story branch once the voice-first weirdness is the main draw.",
+      "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
+      "story": "A softer, more legible branch if the listener wants warmth and curiosity before the darkness thickens."
+    },
+    "featured": false,
+    "order": 240,
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "shows-like-midst",
+    "title": "Shows like Midst",
+    "description": "Big-concept fiction with a strong narrator voice, strange systems, and enough propulsion to make the weirdness feel deliberate.",
+    "label": "Worlds askew",
+    "kind": "similarity",
+    "intentTags": [
+      "worldbuilding",
+      "serious-sci-fi",
+      "headphones-on"
+    ],
+    "commitment": "Similarity route",
+    "coverShowIds": [
+      "midnight-burger",
+      "ars-paradoxica",
+      "the-program-audio-series",
+      "the-waystation"
+    ],
+    "showIds": [
+      "midnight-burger",
+      "ars-paradoxica",
+      "the-program-audio-series",
+      "the-waystation",
+      "case-63",
+      "red-valley"
+    ],
+    "showReasons": {
+      "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
+      "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
+      "the-program-audio-series": "A colder, more systems-minded branch for listeners who want the worldview to stay central.",
+      "the-waystation": "An exploratory route if the strange setting and sense of scale mattered more than the chaos.",
+      "case-63": "A tighter paradox-thriller branch when you want the brain-bending hook in a cleaner package.",
+      "red-valley": "Keeps the controlled weirdness and institutional mystery alive without chasing the same frontier sprawl."
+    },
+    "featured": false,
+    "order": 250,
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "shows-like-malevolent",
+    "title": "Shows like Malevolent",
+    "description": "Voice-led occult horror for listeners who want possession, mystery, and a relationship at the center of the dread.",
+    "label": "Occult escalation",
+    "kind": "similarity",
+    "intentTags": [
+      "cold-horror",
+      "late-night",
+      "headphones-on"
+    ],
+    "commitment": "Similarity route",
+    "coverShowIds": [
+      "archive-81",
+      "the-white-vault",
+      "mabel",
+      "paralyzed"
+    ],
+    "showIds": [
+      "archive-81",
+      "the-white-vault",
+      "mabel",
+      "mirrors",
+      "alice-isnt-dead",
+      "paralyzed"
+    ],
+    "showReasons": {
+      "archive-81": "A stranger signal-horror branch once the occult mystery needs more structure and sound design.",
+      "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
+      "mabel": "A quieter, more intimate ghost-haunting branch for listeners who want voice and possession-like unease.",
+      "mirrors": "Lets the horror spread across time and identity once the appetite turns more eerie than aggressive.",
+      "alice-isnt-dead": "A road-haunted branch if the voice-driven dread and persistent pursuit are the real hook.",
+      "paralyzed": "A direct supernatural-mystery route for listeners who want the horror first and the answers second."
+    },
+    "featured": false,
+    "order": 260,
     "createdAt": "2026-06-30",
     "updatedAt": "2026-06-30"
   }

@@ -105,8 +105,42 @@ test("review:publish promotes a show to full-review when the companion file is c
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
 
-  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ reviewStatus: "planned" })]);
-  writeJson(path.join(dataRoot, "collections.json"), []);
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({
+      reviewStatus: "planned",
+      similarTo: ["neighbor-a", "neighbor-b", "neighbor-c"],
+      similarReasons: {
+        "neighbor-a": "Reason A.",
+        "neighbor-b": "Reason B.",
+        "neighbor-c": "Reason C.",
+      },
+    }),
+    createShowRecord({ id: "neighbor-a", status: "draft", title: "Neighbor A" }),
+    createShowRecord({ id: "neighbor-b", status: "draft", title: "Neighbor B" }),
+    createShowRecord({ id: "neighbor-c", status: "draft", title: "Neighbor C" }),
+  ]);
+  writeJson(path.join(dataRoot, "collections.json"), [
+    {
+      id: "demo-route-one",
+      title: "Demo Route One",
+      description: "First route for review workflow testing.",
+      showIds: ["demo-show"],
+      showReasons: {
+        "demo-show": "Route reason one.",
+      },
+      updatedAt: "2026-06-02",
+    },
+    {
+      id: "demo-route-two",
+      title: "Demo Route Two",
+      description: "Second route for review workflow testing.",
+      showIds: ["demo-show"],
+      showReasons: {
+        "demo-show": "Route reason two.",
+      },
+      updatedAt: "2026-06-02",
+    },
+  ]);
   writeJson(path.join(dataRoot, "reviews", "demo-show.json"), {
     archiveTake: "Companion archive take.",
     spoilerFreeReview: ["Paragraph one.", "Paragraph two."],

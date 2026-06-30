@@ -58,8 +58,8 @@ test("loadCatalog reads the structured show catalog", async () => {
   const impactWinter = catalog.find((entry) => entry.title === "Impact Winter");
   const ids = new Set(catalog.map((entry) => entry.id));
 
-  assert.equal(catalog.length, 27);
-  assert.equal(ids.size, 27);
+  assert.equal(catalog.length, 41);
+  assert.equal(ids.size, 41);
   assert.ok(impactWinter);
   assert.equal(impactWinter.finalRating, 10);
   assert.equal(impactWinter.hasPage, true);
@@ -72,7 +72,7 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
 
-  assert.equal(collections.length, 15);
+  assert.equal(collections.length, 26);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
 });
 
@@ -151,7 +151,7 @@ test("scoreCatalog matches natural discovery phrases across status, intent, and 
   const similarToMidnightBurger = scoreCatalog(catalog, "like Midnight Burger");
   assert.ok(similarToMidnightBurger.length > 0);
   assert.notEqual(similarToMidnightBurger[0].title, "Midnight Burger");
-  assert.ok(["Desert Skies", "Wolf 359"].includes(similarToMidnightBurger[0].title));
+  assert.ok(["Welcome to Night Vale", "Midst", "Wolf 359", "The Waystation", "Desert Skies"].includes(similarToMidnightBurger[0].title));
   assert.ok(similarToMidnightBurger.every((show) => show.id !== "midnight-burger"));
 
   const directTitle = scoreCatalog(catalog, "derelict");
@@ -181,7 +181,7 @@ test("scoreCatalog supports structured recommendation constraints", async () => 
     },
   });
   assert.ok(finishedMidnightBurgerNeighbors.length > 0);
-  assert.equal(finishedMidnightBurgerNeighbors[0].title, "Wolf 359");
+  assert.equal(finishedMidnightBurgerNeighbors[0].title, "Midst");
   assert.ok(finishedMidnightBurgerNeighbors.every((show) => show.completionStatus === "finished"));
 
   const mysteryOutsideHowIDiedLane = scoreCatalog(catalog, "Recommend a mystery", {

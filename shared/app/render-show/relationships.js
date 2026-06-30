@@ -36,7 +36,20 @@ export function renderCollectionsSection(show, collections = []) {
 }
 
 export function renderSimilarSection(show, showMap) {
-  const neighbors = show.similarTo.map((id) => showMap.get(id)).filter(Boolean);
+  const neighbors = show.similarTo
+    .map((id) => {
+      const neighbor = showMap.get(id);
+      const reason = getSimilarReason(show, id);
+      if (!neighbor || !reason) {
+        return null;
+      }
+
+      return {
+        neighbor,
+        reason,
+      };
+    })
+    .filter(Boolean);
   if (neighbors.length === 0) {
     return "";
   }
@@ -53,16 +66,12 @@ export function renderSimilarSection(show, showMap) {
       <div class="detail-similar-grid">
         ${neighbors
           .map(
-            (neighbor) => `
+            ({ neighbor, reason }) => `
               <article class="detail-similar-card">
                 <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" />
                 <div class="detail-card-copy">
                   <h3>${escapeHtml(neighbor.title)}</h3>
-                  ${
-                    getSimilarReason(show, neighbor.id)
-                      ? `<p class="detail-similar-reason">${escapeHtml(getSimilarReason(show, neighbor.id))}</p>`
-                      : ""
-                  }
+                  <p class="detail-similar-reason">${escapeHtml(reason)}</p>
                   <p>${escapeHtml(neighbor.archiveTake || neighbor.description)}</p>
                   <a class="detail-archive-link" href="${escapeHtml(neighbor.href)}">Open show</a>
                 </div>

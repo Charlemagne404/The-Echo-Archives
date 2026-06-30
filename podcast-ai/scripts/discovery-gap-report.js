@@ -27,14 +27,24 @@ async function main() {
   console.log(`Shows like X routes: ${report.summary.routeCollectionCount}`);
 
   printSection(
-    "Published shows with fewer than 2 similar links",
-    report.publishedShowsWithTooFewSimilarLinks,
+    "Published shows outside the 3-to-5 similar-link range",
+    report.publishedShowsWithOutOfRangeSimilarLinks,
     (show) => `${show.id} (${show.title}) -> ${show.count}`,
   );
   printSection(
-    "Anchor shows missing similarReasons",
-    report.anchorShowsMissingSimilarReasons,
-    (show) => `${show.id} (${show.title || "missing"}) -> ${show.missingFor.join(", ")}`,
+    "Published shows missing similarReasons",
+    report.publishedShowsMissingSimilarReasons,
+    (show) => `${show.id} (${show.title}) -> ${show.missingFor.join(", ")}`,
+  );
+  printSection(
+    "Published shows with fewer than 2 collection memberships",
+    report.publishedShowsWithTooFewCollectionMemberships,
+    (show) => `${show.id} (${show.title}) -> ${show.count}`,
+  );
+  printSection(
+    "Anchor shows with fewer than 3 collection memberships",
+    report.anchorShowsWithTooFewCollectionMemberships,
+    (show) => `${show.id} (${show.title || "missing"}) -> ${show.missing ? "missing" : show.count}`,
   );
   printSection(
     "Published shows missing tone, format, or bestFor",
