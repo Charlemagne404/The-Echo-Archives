@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-the-white-vault",
+  "title": "Shows like The White Vault",
+  "description": "Cold, remote, hostile-storytelling routes for listeners who want isolation to do real work.",
+  "label": "Remote dread",
+  "kind": "similarity",
+  "intentTags": [
+    "cold-horror",
+    "late-night",
+    "headphones-on"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "tower-4",
+    "archive-81",
+    "malevolent",
+    "mirrors"
+  ],
+  "showIds": [
+    "tower-4",
+    "archive-81",
+    "malevolent",
+    "mirrors",
+    "alice-isnt-dead",
+    "station-151"
+  ],
+  "showReasons": {
+    "tower-4": "The clearest next stop for listeners who want remote-post unease without leaving the slow-burn lane.",
+    "archive-81": "A stranger archival-horror branch once the isolation appetite turns ritualistic.",
+    "malevolent": "More occult threat and more direct darkness for listeners who want the horror to close in harder.",
+    "mirrors": "Keeps the eerie atmosphere and speculative spine while widening the haunting across time.",
+    "alice-isnt-dead": "A road-haunted branch for listeners who liked solitude, voice, and menace over creature spectacle.",
+    "station-151": "For the outpost weirdness side of the recommendation once absurdity and isolation start blending."
+  },
+  "featured": false,
+  "order": 160,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

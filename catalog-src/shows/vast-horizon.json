@@ -1,0 +1,180 @@
+{
+  "id": "vast-horizon",
+  "title": "Vast Horizon",
+  "subtitle": "Adventure-forward space fiction with a stronger scale sense.",
+  "description": "A sci-fi archive entry that leans more toward exploration and forward motion than claustrophobic dread.",
+  "cover": "shows/vast horizon/vasthorizon.jpeg",
+  "coverAlt": "Vast Horizon cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "",
+    "website": "https://www.foolandscholar.com/about-vast-horizon",
+    "rss": "https://vasthorizon.libsyn.com/rss"
+  },
+  "genres": [
+    "sci-fi",
+    "adventure"
+  ],
+  "tones": [
+    "cinematic",
+    "hopeful"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space",
+    "Adventure"
+  ],
+  "length": {
+    "label": "Complete series; 3 seasons; platform feeds may include bonus/trailer entries beyond main episodes",
+    "seasons": 3,
+    "episodes": 36,
+    "avgEpisodeMinutes": 30,
+    "totalHours": 18
+  },
+  "ratings": {
+    "archive": 8
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "worldbuilding",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "solar",
+    "the-waystation",
+    "midst"
+  ],
+  "archiveTake": "A good bridge between harder survival sci-fi and lighter adventure runs.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#457693",
+    "rgb": "69, 118, 147"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2019-05-28",
+    "latest": "2022-11-29"
+  },
+  "officialLinks": {
+    "website": "https://www.foolandscholar.com/about-vast-horizon",
+    "patreon": "https://www.patreon.com/FoolandScholar",
+    "youtube": "https://www.youtube.com/@FoolandScholar",
+    "discord": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": [
+      "K.A. Statz",
+      "Travis Vengroff"
+    ],
+    "writer": "K.A. Statz",
+    "producer": "Travis Vengroff",
+    "soundDesign": "Travis Vengroff",
+    "cast": [
+      "Siobhan Lumsden",
+      "Tanja Milojevic",
+      "Daniel Dean Demerin",
+      "A.R. Olivieri",
+      "Christy Luse",
+      "Ewan Chung",
+      "Jordan Cobb",
+      "Sam Yeow"
+    ],
+    "productionCompany": "Fool & Scholar Productions",
+    "director": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "Official page says the award-winning sci-fi podcast is available in its entirety and links Spotify, Apple, YouTube, Patreon, and RSS."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "empty colony ship / deep space",
+    "pov": "serialized audio drama",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.foolandscholar.com/about-vast-horizon"
+    ],
+    "objectiveNote": "Official Fool & Scholar page confirms premise, complete availability, listening links, RSS, and cast list.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/vast-horizon.json",
+    "researchGaps": [],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.foolandscholar.com/about-vast-horizon",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Vast Horizon",
+    "Vast Horizon podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "space",
+    "adventure"
+  ],
+  "contentNotes": [
+    "content notes not verified beyond public premise"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "K.A. Statz and Travis Vengroff"
+  ],
+  "cast": [
+    "Siobhan Lumsden",
+    "Tanja Milojevic",
+    "Daniel Dean Demerin",
+    "A.R. Olivieri",
+    "Christy Luse",
+    "Ewan Chung",
+    "Jordan Cobb",
+    "Sam Yeow"
+  ],
+  "createdAt": "2026-06-01",
+  "creatorId": "k-a-statz-and-travis-vengroff",
+  "networkId": "fool-and-scholar-productions",
+  "similarReasons": {
+    "solar": "A tighter survival chamber if you want the space danger without the same wandering sprawl.",
+    "the-waystation": "Keeps the hopeful exploratory side alive once the survival edge softens.",
+    "midst": "A stranger worldbuilding escalation for listeners who want the setting to get weirder and bigger."
+  }
+}

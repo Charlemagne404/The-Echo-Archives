@@ -1,0 +1,170 @@
+{
+  "id": "end-of-all-hope",
+  "title": "End of All Hope",
+  "subtitle": "Creature pressure and survival pacing in a more pulpy register.",
+  "description": "A survival-oriented archive entry for listeners who want threat, creatures, and forward motion more than elegance.",
+  "cover": "shows/eoah/EOAH.jpeg",
+  "coverAlt": "End of all Hope cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560",
+    "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
+    "rss": ""
+  },
+  "genres": [
+    "thriller",
+    "survival",
+    "sci-fi"
+  ],
+  "tones": [
+    "tense",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Survival",
+    "Aliens",
+    "Comedy"
+  ],
+  "length": {
+    "label": "99 public feed episodes; Apple lists years active 2015-2025",
+    "seasons": 6,
+    "episodes": 99
+  },
+  "ratings": {
+    "archive": 8
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "binge-listening",
+    "late-night"
+  ],
+  "similarTo": [
+    "impact-winter",
+    "were-alive",
+    "the-phenomenon"
+  ],
+  "archiveTake": "A practical archive recommendation when the ask is simple: survival, creatures, and momentum.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#8d503f",
+    "rgb": "141, 80, 63"
+  },
+  "updatedAt": "2026-06-30",
+  "officialLinks": {
+    "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "7 Lamb Productions",
+    "creatorName": "7 Lamb Productions",
+    "writer": "Robert Lamb",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Bloody FM",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "alien invasion survival road story",
+    "pov": "serialized ensemble survival drama",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.7lamb.com/audiodramas",
+      "https://www.7lamb.com/audiodramas/end-of-all-hope",
+      "https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560",
+      "https://podcasts.bloody-disgusting.com/podcasts/end-hope/"
+    ],
+    "objectiveNote": "Official 7 Lamb listing verifies alien-invasion survival premise and three-survivor framing.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/end-of-all-hope.json",
+    "researchGaps": [
+      "exact first episode date",
+      "exact latest episode date",
+      "current season status"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/end-of-all-hope; https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560; https://podcasts.bloody-disgusting.com/podcasts/end-hope/",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "End of All Hope",
+    "7 Lamb End of All Hope"
+  ],
+  "themes": [
+    "survival",
+    "aliens",
+    "comedy",
+    "thriller",
+    "sci-fi"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "7 Lamb Productions"
+  ],
+  "cast": [],
+  "releaseDates": {
+    "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
+    "firstYear": 2015,
+    "latestYear": 2025,
+    "first": "",
+    "latest": ""
+  },
+  "createdAt": "2026-06-01",
+  "creatorId": "7-lamb-productions",
+  "networkId": "7-lamb-productions",
+  "similarReasons": {
+    "impact-winter": "Another high-pressure catastrophe listen with stronger cinematic blast.",
+    "were-alive": "The foundational survival-saga branch if group attrition is the draw.",
+    "the-phenomenon": "Keeps the public-danger scale and relentless threat turnover active."
+  }
+}

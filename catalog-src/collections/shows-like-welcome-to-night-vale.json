@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-welcome-to-night-vale",
+  "title": "Shows like Welcome to Night Vale",
+  "description": "Voice-driven weird fiction with community-scale menace, dry humor, and the sense that the town itself knows more than it should.",
+  "label": "Broadcast weirdness",
+  "kind": "similarity",
+  "intentTags": [
+    "warm-weird",
+    "late-night",
+    "easy-first-step"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "alice-isnt-dead",
+    "desert-skies",
+    "unwell",
+    "mabel"
+  ],
+  "showIds": [
+    "alice-isnt-dead",
+    "desert-skies",
+    "unwell",
+    "mabel",
+    "midnight-burger",
+    "story"
+  ],
+  "showReasons": {
+    "alice-isnt-dead": "A road-haunted branch for listeners who liked the intimate narration and lurking unreality.",
+    "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
+    "unwell": "Small-town gothic affection makes it a strong stop if the community feeling mattered as much as the cosmic oddness.",
+    "mabel": "A quieter, more intimate ghost-story branch once the voice-first weirdness is the main draw.",
+    "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
+    "story": "A softer, more legible branch if the listener wants warmth and curiosity before the darkness thickens."
+  },
+  "featured": false,
+  "order": 240,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

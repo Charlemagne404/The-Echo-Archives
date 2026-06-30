@@ -7,7 +7,8 @@ const path = require("node:path");
 const { openDatabase } = require("../lib/store/database");
 const { createImportService } = require("../lib/services/import-service");
 const { createImportStore } = require("../lib/store/import-store");
-const { readShowsFile, validateSiteData } = require("../scripts/review-helpers");
+const { readCatalogSource, writeCatalogSource } = require("../../tools/lib/catalog-source");
+const { readShowsFile, validateSiteData, writeShowsFile } = require("../scripts/review-helpers");
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -264,10 +265,18 @@ test("import service writes drafts, blocks invalid publish attempts, and promote
         },
       };
     });
-    writeJson(path.join(context.siteRoot, "data", "shows.json"), publishReadyShows);
+    writeShowsFile(context.siteRoot, publishReadyShows);
 
     const publishReadyCollections = createBaselineCollections([...showIds, draftShowId]);
-    writeJson(path.join(context.siteRoot, "data", "collections.json"), publishReadyCollections);
+    const sourceData = readCatalogSource(context.siteRoot);
+    writeCatalogSource(
+      context.siteRoot,
+      {
+        ...sourceData,
+        collections: publishReadyCollections,
+      },
+      { mode: sourceData.mode },
+    );
 
     await validateSiteData(context.siteRoot);
 

@@ -1,0 +1,166 @@
+{
+  "id": "crystal-blue",
+  "title": "Crystal Blue",
+  "subtitle": "Future-facing sci-fi comedy with a lighter archive profile.",
+  "description": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
+  "cover": "shows/crystal-blue/CrystalBlue.jpeg",
+  "coverAlt": "Crystal Blues cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
+    "website": "https://www.7lamb.com/audiodramas/crystal-blue",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [
+    "funny",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Future",
+    "Comedy"
+  ],
+  "length": {
+    "label": "Season 1 has 9 story episodes released plus trailer/message entries; Apple episode numbering reaches 10 because of feed extras",
+    "seasons": 1,
+    "episodes": 9,
+    "feedEntries": 11,
+    "avgEpisodeMinutes": 40
+  },
+  "ratings": {
+    "archive": 5
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "funny-space-disasters"
+  ],
+  "similarTo": [
+    "eos-10",
+    "oz-9",
+    "station-151"
+  ],
+  "archiveTake": "More browse curiosity than flagship recommendation, but still useful in the lighter sci-fi lane.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#6c6ea0",
+    "rgb": "108, 110, 160"
+  },
+  "updatedAt": "2026-06-30",
+  "officialLinks": {
+    "website": "https://www.7lamb.com/audiodramas",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "7 Lamb Productions",
+    "creatorName": "7 Lamb Productions",
+    "writer": "Not verified",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Bloody FM",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "distant planet / military outcasts",
+    "pov": "serialized sci-fi audio drama",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.7lamb.com/audiodramas",
+      "https://www.7lamb.com/audiodramas/crystal-blue",
+      "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190"
+    ],
+    "objectiveNote": "Official 7 Lamb listing uses the title Crystal Blue and verifies the distant-planet military-outpost premise. Existing archive ID/title Crystal Blues is preserved for compatibility.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/crystal-blue.json",
+    "researchGaps": [
+      "future Season 1 continuation status",
+      "complete cast/crew"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-title-normalization",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/crystal-blue; https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Crystal Blues",
+    "Crystal Blue",
+    "7 Lamb Crystal Blue",
+    "Crystal Blue podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "future",
+    "comedy"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "7 Lamb Productions"
+  ],
+  "cast": [],
+  "releaseDates": {
+    "first": "2021-12-06",
+    "latest": "2025-07-07",
+    "note": "Canonical public title is Crystal Blue. Latest verified story episode is S1E9 / Trouble in Paradise, published July 7, 2025 UTC on Apple."
+  },
+  "createdAt": "2026-06-01",
+  "creatorId": "7-lamb-productions",
+  "networkId": "bloody-fm-7-lamb-productions",
+  "similarReasons": {
+    "eos-10": "Keeps the lighter sci-fi comedy lane active with more ensemble banter than chaos.",
+    "oz-9": "A messier comic escalation if you want the dysfunction pushed harder.",
+    "station-151": "A colder, stranger outpost branch for listeners who liked the off-kilter sci-fi tone."
+  }
+}

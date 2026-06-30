@@ -1,0 +1,193 @@
+{
+  "id": "solar",
+  "title": "Solar",
+  "subtitle": "A spacebound thriller with a steady pressure-cooker pulse.",
+  "description": "A lean sci-fi survival pick for listeners who want tension, isolation, and an immediate sense of danger.",
+  "cover": "shows/solar/solar.jpeg",
+  "coverAlt": "Solar cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/solar/id1611848190",
+    "website": "https://www.solarthepodcast.com/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "thriller"
+  ],
+  "tones": [
+    "tense",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space",
+    "Thriller"
+  ],
+  "length": {
+    "label": "12 main story episodes; Apple feed lists 48 Season 1 entries including bonus/recovered-audio/subscriber entries",
+    "seasons": 1,
+    "episodes": 12,
+    "avgEpisodeMinutes": 35,
+    "totalHours": 7,
+    "feedEntries": 48
+  },
+  "ratings": {
+    "archive": 8
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "late-night",
+    "serious-sci-fi"
+  ],
+  "similarTo": [
+    "vast-horizon",
+    "spectre",
+    "derelict"
+  ],
+  "archiveTake": "One of the archive's steadier space-thriller picks.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#cc5b42",
+    "rgb": "204, 91, 66"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2022-03-29",
+    "latest": "2022-06-07",
+    "note": "first/latest are main-story public episodes; Apple feed includes extra bonus/recovered-audio entries.",
+    "latestFeedItem": "2022-06-23"
+  },
+  "officialLinks": {
+    "website": "https://www.solarthepodcast.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Chris Porter",
+    "director": [
+      "Jenny Curtis",
+      "Chris Porter"
+    ],
+    "producer": [
+      "Jenny Curtis",
+      "Chris Porter",
+      "Bill Curtis"
+    ],
+    "composer": "Chris Porter",
+    "cast": [
+      "Stephanie Beatriz",
+      "Alan Cumming",
+      "Helen Hunt",
+      "Jonathan Bangs"
+    ],
+    "productionCompany": "CurtCo Media",
+    "writer": [
+      "Chris Porter",
+      "Jenny Curtis"
+    ],
+    "soundDesign": "CJ Drumeller",
+    "network": "CurtCo Media",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "available for all 12 transcript entries on official site",
+    "captions": "not applicable",
+    "regionNotes": "Podcast availability depends on platform region; official website is public."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "space / solar system survival scenario",
+    "pov": "multi-character",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.solarthepodcast.com/",
+      "https://www.solarthepodcast.com/meet-the-crew",
+      "https://www.solarthepodcast.com/crew",
+      "https://www.solarthepodcast.com/transcripts",
+      "https://www.solarthepodcast.com/episodes",
+      "https://podcasts.apple.com/us/podcast/solar/id1611848190"
+    ],
+    "objectiveNote": "Official Solar pages verify premise, transcript count, principal cast, creator, directors, producers, composer, and production-company credits. Platform episode counts should still be checked before treating runtimes as canonical.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/solar.json",
+    "researchGaps": [
+      "exact RSS feed URL",
+      "award history",
+      "whether the archive should display main-story count (12) or full platform feed count (48)"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.solarthepodcast.com/; https://www.solarthepodcast.com/meet-the-crew; https://www.solarthepodcast.com/crew; https://www.solarthepodcast.com/transcripts; https://www.solarthepodcast.com/episodes; https://podcasts.apple.com/us/podcast/solar/id1611848190",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Solar",
+    "Solar podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "space",
+    "thriller"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "Chris Porter"
+  ],
+  "cast": [
+    "Stephanie Beatriz",
+    "Alan Cumming",
+    "Helen Hunt",
+    "Jonathan Bangs"
+  ],
+  "createdAt": "2026-06-01",
+  "creatorId": "chris-porter",
+  "networkId": "curtco-media-workhouse-media",
+  "similarReasons": {
+    "vast-horizon": "Another spacebound survival lane if you want the vacuum, danger, and forward motion with a slightly wider adventure feel.",
+    "spectre": "Keeps the dark sci-fi mystery tone intact while trading direct survival pressure for stranger atmosphere.",
+    "derelict": "A louder industrial escalation if the serious sci-fi pressure is the part you want more of."
+  }
+}

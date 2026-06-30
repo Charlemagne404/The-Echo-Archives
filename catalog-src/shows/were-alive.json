@@ -1,0 +1,170 @@
+{
+  "id": "were-alive",
+  "title": "We're Alive",
+  "subtitle": "A survival-first apocalypse staple with real archive gravity.",
+  "description": "One of the archive's foundational survival recommendations: pressure, group dynamics, and a bigger commitment that pays off.",
+  "cover": "shows/were alive/WereAlive.jpeg",
+  "coverAlt": "We're Alive cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/were-alive/id313300476",
+    "website": "https://www.werealive.com/",
+    "rss": ""
+  },
+  "genres": [
+    "thriller",
+    "survival"
+  ],
+  "tones": [
+    "dark",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "long-running"
+  ],
+  "tags": [
+    "Thriller",
+    "Apocalypse",
+    "Survival"
+  ],
+  "length": {
+    "label": "Franchise-level entry; official site states 70+ hours of content",
+    "seasons": 0,
+    "avgEpisodeMinutes": 30,
+    "totalHours": 70
+  },
+  "ratings": {
+    "archive": 8
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "long-walks",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "impact-winter",
+    "end-of-all-hope",
+    "the-phenomenon",
+    "the-white-vault"
+  ],
+  "archiveTake": "A reliable recommendation when someone wants survival and ensemble pressure first.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#7d4f3e",
+    "rgb": "125, 79, 62"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2009-05-04",
+    "latest": "2026-02-24"
+  },
+  "officialLinks": {
+    "website": "https://www.werealive.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": "",
+    "store": "https://www.werealive.com/shop/"
+  },
+  "credits": {
+    "creatorName": "Kc Wayland",
+    "producer": [
+      "Kc Wayland",
+      "Grayson Stone"
+    ],
+    "productionCompany": "Wayland Productions",
+    "writer": "Not verified",
+    "director": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official site lists podcast platforms, Audible, and physical-media availability."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "post-apocalyptic zombie / infected survival franchise",
+    "pov": "multi-character ensemble",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.werealive.com/",
+      "https://podcasts.apple.com/us/podcast/were-alive/id313300476"
+    ],
+    "objectiveNote": "This entry is filled as a franchise-level record. Official site verifies 70+ hours, broad platform availability, downloads, and current Descendants/finale schedule through February 24, 2026.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/were-alive.json",
+    "researchGaps": [
+      "whether archive page should scope to A Story of Survival only or the whole franchise",
+      "full franchise episode count"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.werealive.com/; https://podcasts.apple.com/us/podcast/were-alive/id313300476",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "We're Alive",
+    "We’re Alive",
+    "We're Alive: A Story of Survival",
+    "We're Alive franchise"
+  ],
+  "themes": [
+    "thriller",
+    "apocalypse",
+    "survival"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Kc Wayland"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "kc-wayland",
+  "networkId": "wayland-productions",
+  "similarReasons": {
+    "impact-winter": "High-pressure survival storytelling with comparable momentum and scale.",
+    "end-of-all-hope": "A more spacefaring branch that still puts survival decisions at the center.",
+    "the-phenomenon": "For listeners who want the large-scale threat level and relentless public danger.",
+    "the-white-vault": "A colder, more isolated survival-horror variant once the ensemble chaos cools down."
+  }
+}

@@ -1,10 +1,11 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { getReviewSourcePath } = require("../../tools/lib/catalog-source");
 
 const REVIEWS_DIRECTORY = path.join("data", "reviews");
 
 function getReviewFilePath(siteRoot, showId) {
-  return path.join(siteRoot, REVIEWS_DIRECTORY, `${showId}.json`);
+  return getReviewSourcePath(siteRoot, showId);
 }
 
 function normalizeParagraphs(value) {

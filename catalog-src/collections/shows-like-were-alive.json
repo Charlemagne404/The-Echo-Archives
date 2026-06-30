@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-were-alive",
+  "title": "Shows like We're Alive",
+  "description": "Survival-heavy routes where group decisions, attrition, and constant threat matter more than polish alone.",
+  "label": "Endurance pressure",
+  "kind": "similarity",
+  "intentTags": [
+    "long-walks",
+    "binge-listening",
+    "cold-horror"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "impact-winter",
+    "end-of-all-hope",
+    "the-phenomenon",
+    "the-white-vault"
+  ],
+  "showIds": [
+    "impact-winter",
+    "end-of-all-hope",
+    "the-phenomenon",
+    "the-white-vault",
+    "borrasca",
+    "malevolent"
+  ],
+  "showReasons": {
+    "impact-winter": "Keeps the survival pressure high while leaning harder into cinematic genre spectacle.",
+    "end-of-all-hope": "A more spacefaring branch that still treats survival like the main engine.",
+    "the-phenomenon": "For listeners who want the relentless public-danger scale and constant threat turnover.",
+    "the-white-vault": "A colder, more isolated route if the harsh-environment angle is the main draw.",
+    "borrasca": "A darker small-town menace branch for listeners who want dread and discovery over action.",
+    "malevolent": "A more occult escalation if the listener wants pressure, darkness, and momentum above all else."
+  },
+  "featured": false,
+  "order": 180,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

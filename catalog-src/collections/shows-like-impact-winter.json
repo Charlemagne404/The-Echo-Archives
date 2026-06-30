@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-impact-winter",
+  "title": "Shows like Impact Winter",
+  "description": "Aggressive genre pressure, high-stakes survival, and polished danger for listeners who want the cold to bite back.",
+  "label": "Cinematic survival",
+  "kind": "similarity",
+  "intentTags": [
+    "serious-sci-fi",
+    "headphones-on",
+    "cold-horror"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "were-alive",
+    "the-white-vault",
+    "end-of-all-hope",
+    "malevolent"
+  ],
+  "showIds": [
+    "were-alive",
+    "the-white-vault",
+    "end-of-all-hope",
+    "malevolent",
+    "archive-81",
+    "solar"
+  ],
+  "showReasons": {
+    "were-alive": "The foundational survival-saga branch if you want endurance and ensemble consequence.",
+    "the-white-vault": "A colder environmental-horror route once the setting itself becomes the threat.",
+    "end-of-all-hope": "Keeps the catastrophe scale high while moving toward space-opera survival.",
+    "malevolent": "A darker supernatural pivot if the intensity mattered more than the specific apocalypse.",
+    "archive-81": "For listeners who want the horror to get stranger and more sound-led instead of broader.",
+    "solar": "A tighter, more claustrophobic survival route that keeps the pressure constant."
+  },
+  "featured": false,
+  "order": 190,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

@@ -123,11 +123,9 @@ Assistant naming standard:
 
 ## Current Implemented Product Surface
 
-As of June 29, 2026, the live repo supports:
+The live repo supports:
 
-- 27 published show records
-- 15 collections
-- 3 full-review shows backed by companion review JSON
+- a generated catalog snapshot in `docs/generated/catalog-status.md` for current counts and metadata coverage
 - a compact homepage with search, structured filters, quick filters, a recently updated browse mode, featured collections, and a most-popular band
 - reusable show and collection detail routes
 - About, For Creators, Creator Standards, Supporters, Privacy, Terms, and Cookies pages

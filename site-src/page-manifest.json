@@ -92,7 +92,7 @@
     "bodyClass": "home-page detail-page show-page",
     "activeNav": "",
     "extraStylesheets": [
-      "detail.css?v=12"
+      "detail.css"
     ],
     "includeChatShell": true,
     "includeFloatingControls": true

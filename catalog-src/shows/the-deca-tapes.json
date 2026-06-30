@@ -1,0 +1,169 @@
+{
+  "id": "the-deca-tapes",
+  "title": "The Deca Tapes",
+  "subtitle": "Mystery-first sci-fi built around controlled reveals.",
+  "description": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
+  "cover": "shows/deca tapes/decatapes.jpeg",
+  "coverAlt": "The Deca Tapes cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/6S8iYyZ3eg9vP1Dcg9E0I3",
+    "apple": "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
+    "website": "https://www.thedecatapes.com/",
+    "rss": ""
+  },
+  "genres": [
+    "mystery",
+    "thriller",
+    "science"
+  ],
+  "tones": [
+    "tense",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "limited-series"
+  ],
+  "tags": [
+    "Mystery",
+    "Thriller",
+    "Science"
+  ],
+  "length": {
+    "label": "Season 1: 8 episodes; Season 2: 13 episodes; 21 main episodes total",
+    "seasons": 2,
+    "episodes": 21,
+    "avgEpisodeMinutes": 30,
+    "totalHours": 10.5
+  },
+  "ratings": {
+    "archive": 6
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "late-night"
+  ],
+  "similarTo": [
+    "spectre",
+    "red-valley",
+    "homecoming"
+  ],
+  "archiveTake": "More puzzle-box than emotional sprawl.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#6f5664",
+    "rgb": "111, 86, 100"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2019-08-08",
+    "latest": "2025-09-08",
+    "note": "Latest date is Season 2 Episode 13 / finale according to Apple Podcasts; future status not confirmed."
+  },
+  "officialLinks": {
+    "website": "https://www.thedecatapes.com/",
+    "patreon": "https://www.patreon.com/lexnbm",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Lex Noteboom",
+    "writer": "Lex Noteboom",
+    "director": "Lex Noteboom",
+    "composer": "Lex Noteboom",
+    "productionCompany": "Baumhouse Productions",
+    "network": "Realm",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official site links to Spotify, Apple, RSS, Patreon, and Bandcamp options."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "pov": "rotating tape / subject structure",
+    "intensity": "medium-high",
+    "setting": "controlled science-fiction mystery environment"
+  },
+  "metadata": {
+    "awards": [
+      "Dutch Podcast Awards 2019 nominee",
+      "Webby Awards 2020 nominee",
+      "The Lovie Awards 2020 finalist"
+    ],
+    "objectiveSources": [
+      "https://www.thedecatapes.com/",
+      "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
+      "https://www.lexnoteboom.com/en/the-deca-tapes/l70c11"
+    ],
+    "objectiveNote": "Official creator page verifies title, date, English (US), links, and Lex Noteboom writing/directing/composition. Apple page verifies current platform listing.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/the-deca-tapes.json",
+    "researchGaps": [
+      "full current RSS URL",
+      "future season status"
+    ],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.thedecatapes.com/; https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412; https://www.lexnoteboom.com/en/the-deca-tapes/l70c11",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "The Deca Tapes",
+    "DECA Tapes"
+  ],
+  "themes": [
+    "mystery",
+    "thriller",
+    "science"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Lex Noteboom"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "lex-noteboom",
+  "networkId": "realm-baumhouse-productions",
+  "similarReasons": {
+    "spectre": "Another closed-loop mystery lane if you want atmosphere and slow uncertainty.",
+    "red-valley": "Keeps the puzzle-box intrigue and controlled weirdness alive.",
+    "homecoming": "A tighter prestige-thriller branch for listeners who want another cleanly engineered mystery."
+  }
+}

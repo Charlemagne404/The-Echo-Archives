@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-oz-9",
+  "title": "Shows like Oz 9",
+  "description": "Loud, ensemble-led comedy fiction for listeners who like their competence levels low and their disaster density high.",
+  "label": "Maximum dysfunction",
+  "kind": "similarity",
+  "intentTags": [
+    "funny-space",
+    "easy-first-step",
+    "binge-listening"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "eos-10",
+    "wolf-359",
+    "station-151",
+    "wooden-overcoats"
+  ],
+  "showIds": [
+    "eos-10",
+    "wolf-359",
+    "station-151",
+    "wooden-overcoats",
+    "crystal-blue",
+    "midnight-burger"
+  ],
+  "showReasons": {
+    "eos-10": "Another strong route for listeners who want full-cast sci-fi comedy with recurring character friction.",
+    "wolf-359": "A more emotionally expansive station comedy once you want bigger payoff under the jokes.",
+    "station-151": "Keeps the damaged-outpost weirdness while making the atmosphere colder.",
+    "wooden-overcoats": "Transfers the vanity, bickering, and comic collapse into a village-funerals setting.",
+    "crystal-blue": "A smaller quick-branch for more oddball sci-fi comedy energy.",
+    "midnight-burger": "A warmer, more idea-rich follow-up if the cosmic absurdity is the real draw."
+  },
+  "featured": false,
+  "order": 230,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

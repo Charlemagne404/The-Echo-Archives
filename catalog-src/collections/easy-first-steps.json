@@ -1,0 +1,41 @@
+{
+  "id": "easy-first-steps",
+  "title": "Start here",
+  "description": "The clearest first routes into the archive when you want a real recommendation instead of homework.",
+  "label": "First listen guide",
+  "kind": "curated",
+  "intentTags": [
+    "easy-first-step",
+    "warm-weird",
+    "quick-listens"
+  ],
+  "commitment": "Easy entry",
+  "coverShowIds": [
+    "the-bright-sessions",
+    "story",
+    "midnight-burger",
+    "wolf-359"
+  ],
+  "showIds": [
+    "story",
+    "desert-skies",
+    "wolf-359",
+    "the-bright-sessions",
+    "wooden-overcoats",
+    "midnight-burger",
+    "welcome-to-night-vale"
+  ],
+  "showReasons": {
+    "story": "Warm, legible, and low-friction if you want a softer first stop.",
+    "desert-skies": "A gentle weird-fiction doorway that does not ask much of the listener up front.",
+    "wolf-359": "Classic character-forward sci-fi comedy that can deepen if you keep going.",
+    "the-bright-sessions": "A clean character-first sci-fi entry point with clear emotional stakes.",
+    "wooden-overcoats": "An easy comedy route when the listener wants ensemble charm before anything darker.",
+    "midnight-burger": "The archive’s best all-purpose next-listen bridge when you want range, warmth, and forward motion.",
+    "welcome-to-night-vale": "A foundational weird-fiction entry point when the listener wants a strong voice and immediate atmosphere."
+  },
+  "featured": true,
+  "order": 20,
+  "createdAt": "2026-06-01",
+  "updatedAt": "2026-06-30"
+}

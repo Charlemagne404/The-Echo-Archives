@@ -1,0 +1,173 @@
+{
+  "id": "wolf-359",
+  "title": "Wolf 359",
+  "subtitle": "The archive bridge between space comedy and bigger sci-fi stakes.",
+  "description": "A dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later.",
+  "cover": "shows/wolf359/Wolf359.jpeg",
+  "coverAlt": "Wolf 359 cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/wolf-359/id909552816",
+    "website": "https://www.wolf359.fm/",
+    "rss": "https://feeds.megaphone.fm/wolf359radio"
+  },
+  "genres": [
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [
+    "funny",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space",
+    "Comedy"
+  ],
+  "length": {
+    "label": "61 episodes",
+    "seasons": 4,
+    "episodes": 61,
+    "avgEpisodeMinutes": 30,
+    "totalHours": 30.5
+  },
+  "ratings": {
+    "archive": 8
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "funny-space-disasters",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "eos-10",
+    "oz-9",
+    "midnight-burger",
+    "wooden-overcoats"
+  ],
+  "archiveTake": "One of the easiest archive answers when someone wants space comedy that can scale up later.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#728187",
+    "rgb": "114, 129, 135"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2014-08-15",
+    "latest": "2017-12-25"
+  },
+  "officialLinks": {
+    "website": "https://www.wolf359.fm/",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Gabriel Urbina",
+    "writer": [
+      "Gabriel Urbina",
+      "Sarah Shachat"
+    ],
+    "producer": [
+      "Zach Valenti",
+      "Gabriel Urbina"
+    ],
+    "productionCompany": "Kinda Evil Genius Productions",
+    "director": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "available on official site",
+    "captions": "n/a",
+    "regionNotes": "Completed original feed."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "U.S.S. Hephaestus orbiting Wolf 359",
+    "pov": "communications/log recordings",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.wolf359.fm/",
+      "https://podcasts.apple.com/us/podcast/wolf-359/id909552816",
+      "https://wolf359radio.libsyn.com/episode-61-brave-new-world"
+    ],
+    "objectiveNote": "Official site verifies premise and site identity; platform/reference data verifies completed four-season / 61-episode run.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/wolf-359.json",
+    "researchGaps": [
+      "exact RSS URL confirmation if feed host changes"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.wolf359.fm/; https://podcasts.apple.com/us/podcast/wolf-359/id909552816; https://wolf359radio.libsyn.com/episode-61-brave-new-world",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Wolf 359",
+    "Wolf 359 podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "space",
+    "comedy"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "Gabriel Urbina"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "gabriel-urbina",
+  "networkId": "kinda-evil-genius-productions",
+  "similarReasons": {
+    "eos-10": "Another ensemble comedy route for listeners who want more station-life dysfunction.",
+    "oz-9": "Pushes the absurdity higher for listeners who liked the comic chaos more than the emotional turn.",
+    "midnight-burger": "A warmer, more idea-rich follow-up if the character attachment matters most.",
+    "wooden-overcoats": "Keeps the sharp comic timing and ensemble friction while leaving space entirely behind."
+  }
+}

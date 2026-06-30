@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-wolf-359",
+  "title": "Shows like Wolf 359",
+  "description": "Character-first sci-fi comedies and adjacent ensemble stories that can grow larger if you stick with them.",
+  "label": "Station-comedy afterglow",
+  "kind": "similarity",
+  "intentTags": [
+    "funny-space",
+    "easy-first-step",
+    "binge-listening"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "eos-10",
+    "midnight-burger",
+    "oz-9",
+    "wooden-overcoats"
+  ],
+  "showIds": [
+    "eos-10",
+    "midnight-burger",
+    "oz-9",
+    "wooden-overcoats",
+    "station-151",
+    "crystal-blue"
+  ],
+  "showReasons": {
+    "eos-10": "The closest station-comedy cousin if the ensemble friction is the thing you want more of.",
+    "midnight-burger": "A warmer, more idea-rich branch if you want heart and range after the station setup.",
+    "oz-9": "Pushes the comic chaos much harder for listeners who want more incompetence per square foot.",
+    "wooden-overcoats": "Transfers the ensemble timing and recurring petty disasters into a very different setting.",
+    "station-151": "A colder, weirder outpost variation for listeners who liked the location-based absurdity.",
+    "crystal-blue": "A smaller quick-hit branch for more offbeat sci-fi comedy energy."
+  },
+  "featured": false,
+  "order": 170,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

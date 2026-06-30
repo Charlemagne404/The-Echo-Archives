@@ -1,5 +1,6 @@
 export const SHOWS_DATA_URL = "/data/shows.json";
 export const COLLECTIONS_DATA_URL = "/data/collections.json";
+export const SEARCH_INDEX_URL = "/data/search-index.json";
 export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
@@ -32,6 +33,7 @@ export const HOME_CARD_PREVIEW_ID_PREFIX = "archiveCardPreview";
 export const dataCache = {
   shows: null,
   collections: null,
+  searchIndex: null,
   communitySummaries: new Map(),
 };
 

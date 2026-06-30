@@ -4,7 +4,7 @@ This service runs the backend for The Echo Archives and keeps the archive assist
 
 ## What it does
 
-- Loads the structured archive catalog from `../data/shows.json` plus optional `../data/reviews/*.json` companion files
+- Loads the authored archive catalog from `../catalog-src/` and serves generated runtime data at `/data/*`
 - Auto-fetches missing show cover art from RSS, Apple, or website metadata and stores managed files under `../images/covers/`
 - Exposes a same-origin chat API at `/api/chat`
 - Keeps the archive assistant implementation isolated under `lib/ai/`
@@ -54,8 +54,8 @@ Copy `.env.example` to `.env` if you want to override defaults.
 
 ## Maintainer review workflow
 
-The service exposes the merged catalog at `/data/shows.json`, so the frontend keeps working while long-form review copy lives in `data/reviews/<show-id>.json`.
-If a show record is missing a usable local `cover`, catalog load will try `listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`, download the discovered image into `images/covers/`, and rewrite `data/shows.json` with the new local path. Failed cover fetches fall back to a local placeholder for that process and log a warning instead of aborting startup.
+The service exposes the merged catalog at `/data/shows.json` and the generated browse/search payload at `/data/search-index.json`, so the frontend keeps working while long-form review copy lives in `catalog-src/reviews/<show-id>.json`.
+If a show record is missing a usable local `cover`, catalog load will try `listenLinks.rss`, `listenLinks.apple`, `officialLinks.website`, then `listenLinks.website`, download the discovered image into `images/covers/`, and rewrite the authored show source with the new local path. Failed cover fetches fall back to a local placeholder for that process and log a warning instead of aborting startup.
 
 Protected maintainer submission workflow routes:
 
@@ -69,7 +69,7 @@ Protected maintainer submission workflow routes:
 
 The maintainer queue is passphrase-gated, reads from the same SQLite submission store as public intake, and lets you update `status`, `priority`, `review_notes`, and `reviewed_by` without opening the database directly.
 
-The import lane is a separate internal queue for machine-found shows. It stores candidate records, source snapshots, duplicate matches, provenance, and optional AI suggestions in SQLite, then writes approved entries into `../data/shows.json` as `status: "draft"`. Nothing public auto-publishes.
+The import lane is a separate internal queue for machine-found shows. It stores candidate records, source snapshots, duplicate matches, provenance, and optional AI suggestions in SQLite, then writes approved entries into `../catalog-src/shows/` as `status: "draft"` before regenerating runtime output. Nothing public auto-publishes.
 
 Useful maintainer commands:
 
@@ -91,5 +91,5 @@ npm run import:publish -- --candidate <candidate-id>
 - `import:seed` creates internal candidates from pasted titles, Apple URLs, RSS URLs, or mixed newline lists
 - `import:hydrate` fetches objective metadata snapshots from Apple, RSS, Podcast Index, and website sources when available
 - `import:report` prints current import queue and gap state
-- `import:draft` writes an approved candidate into `../data/shows.json` as a hidden `draft`
+- `import:draft` writes an approved candidate into the authored show source as a hidden `draft`
 - `import:publish` promotes a fully reviewed draft show to `published` after normal validation succeeds

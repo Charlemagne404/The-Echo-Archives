@@ -1,0 +1,39 @@
+{
+  "id": "funny-space-disasters",
+  "title": "Funny space disasters",
+  "description": "Shipboard chaos, station nonsense, and the kind of space comedy that keeps spiraling outward.",
+  "label": "Comic chaos",
+  "kind": "curated",
+  "intentTags": [
+    "funny-space",
+    "easy-first-step",
+    "warm-weird"
+  ],
+  "commitment": "Flexible",
+  "coverShowIds": [
+    "oz-9",
+    "midnight-burger",
+    "wolf-359",
+    "eos-10"
+  ],
+  "showIds": [
+    "oz-9",
+    "eos-10",
+    "wolf-359",
+    "station-151",
+    "midnight-burger",
+    "crystal-blue"
+  ],
+  "showReasons": {
+    "oz-9": "Maximum shipboard dysfunction for listeners who want comedy first.",
+    "eos-10": "Medical-station chaos keeps the sci-fi frame light and approachable.",
+    "wolf-359": "Classic space-station banter that can turn more serious when needed.",
+    "station-151": "A colder, stranger edge keeps the comedy from feeling too soft.",
+    "midnight-burger": "Cosmic warmth and absurdity make it an easy bridge from comedy into story.",
+    "crystal-blue": "A compact extra dose of weird sci-fi humor."
+  },
+  "featured": true,
+  "order": 40,
+  "createdAt": "2026-06-01",
+  "updatedAt": "2026-06-23"
+}

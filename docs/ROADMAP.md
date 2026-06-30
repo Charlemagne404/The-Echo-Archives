@@ -17,12 +17,13 @@ Historical planning docs live in `docs/archive/`.
 
 ## Current Baseline
 
-As of June 29, 2026, the shipped repo state is:
+The live catalog baseline now lives in `docs/generated/catalog-status.md`.
 
-- 27 published show records in `data/shows.json`
-- 24 indexed-only entries and 3 full-review entries
-- 15 collections in `data/collections.json`
-- 3 review companion JSON files in `data/reviews/`
+The shipped repo state includes:
+
+- split catalog authoring under `catalog-src/`
+- generated runtime catalog data under `data/`
+- a generated `/data/search-index.json` browse artifact
 - reusable show and collection routes
 - a homepage with structured filters, search, quick filters, recently updated mode, featured collections, and a community-informed most-popular band
 - Ask the Archivist chat and site-help flows
@@ -95,7 +96,7 @@ If available editorial time increases, spend it on show coverage, review depth, 
 
 | Phase end | Published shows | Full reviews | Collections |
 | --- | --- | --- | --- |
-| June 29, 2026 baseline | 27 | 3 | 15 |
+| Current generated snapshot baseline | See `docs/generated/catalog-status.md` | See `docs/generated/catalog-status.md` | See `docs/generated/catalog-status.md` |
 | August 23, 2026 | 40 to 50 | 5 to 7 | 15+ |
 | October 18, 2026 | 55 to 70 | 8 to 10 | 16 to 18 |
 | December 13, 2026 | 70 to 85 | 10 to 14 | 16 to 20 |
@@ -159,7 +160,7 @@ Platform:
 
 - derive richer filter options from structured data rather than hand-maintained UI lists
 - keep search and browse logic grounded in the catalog
-- only add a derived search index if client-side search becomes clumsy
+- keep the generated search index lean enough for homepage browse/search without dragging full detail payloads into the browse path
 
 Exit criteria:
 

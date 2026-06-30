@@ -1,0 +1,41 @@
+{
+  "id": "worldbuilding-deep-dives",
+  "title": "Worldbuilding deep dives",
+  "description": "Bigger worlds and longer arcs for listeners who want systems, history, and scope.",
+  "label": "Big worlds",
+  "kind": "curated",
+  "intentTags": [
+    "long-walks",
+    "headphones-on",
+    "worldbuilding"
+  ],
+  "commitment": "Deep dive",
+  "coverShowIds": [
+    "midnight-burger",
+    "midst",
+    "vast-horizon",
+    "ars-paradoxica"
+  ],
+  "showIds": [
+    "midnight-burger",
+    "vast-horizon",
+    "ars-paradoxica",
+    "impact-winter",
+    "the-waystation",
+    "were-alive",
+    "midst"
+  ],
+  "showReasons": {
+    "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
+    "vast-horizon": "A large sci-fi setting gives the route scale quickly.",
+    "ars-paradoxica": "Its time-science structure builds a dense alternate-history frame.",
+    "impact-winter": "A cinematic survival world with enough lore to keep expanding.",
+    "the-waystation": "Exploratory sci-fi gives the collection a hopeful angle.",
+    "were-alive": "A long survival saga with room for factions, geography, and consequence.",
+    "midst": "A stranger, more formally ambitious worldbuilding route for listeners who want the cosmos to feel authored all the way down."
+  },
+  "featured": false,
+  "order": 130,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

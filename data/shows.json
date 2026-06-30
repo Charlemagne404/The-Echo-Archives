@@ -11,10 +11,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/solar/id1611848190",
-      "website": "https://www.solarthepodcast.com/",
-      "rss": ""
+      "website": "https://www.solarthepodcast.com/"
     },
     "genres": [
       "sci-fi",
@@ -47,9 +45,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night",
@@ -80,13 +76,7 @@
       "latestFeedItem": "2022-06-23"
     },
     "officialLinks": {
-      "website": "https://www.solarthepodcast.com/",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.solarthepodcast.com/"
     },
     "credits": {
       "creatorName": "Chris Porter",
@@ -143,7 +133,6 @@
         "award history",
         "whether the archive should display main-story count (12) or full platform feed count (48)"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -190,7 +179,26 @@
       "vast-horizon": "Another spacebound survival lane if you want the vacuum, danger, and forward motion with a slightly wider adventure feel.",
       "spectre": "Keeps the dark sci-fi mystery tone intact while trading direct survival pressure for stranger atmosphere.",
       "derelict": "A louder industrial escalation if the serious sci-fi pressure is the part you want more of."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=solar",
+    "hasPage": true,
+    "image": "shows/solar/solar.jpeg",
+    "imageAlt": "Solar cover art",
+    "summary": "A lean sci-fi survival pick for listeners who want tension, isolation, and an immediate sense of danger.",
+    "finalRating": 8,
+    "searchText": "solar a spacebound thriller with a steady pressure cooker pulse a lean sci fi survival pick for listeners who want tension isolation and an immediate sense of danger one of the archive s steadier space thriller picks sci fi space thriller sci fi thriller tense cinematic full cast serialized late night serious sci fi solar solar podcast sci fi space thriller genre violence threat chris porter stephanie beatriz alan cumming helen hunt jonathan bangs english english vast horizon spectre derelict finished indexed only indexed entry unknown unknown chris porter jenny curtis chris porter jenny curtis chris porter bill curtis chris porter stephanie beatriz alan cumming helen hunt jonathan bangs curtco media chris porter jenny curtis cj drumeller curtco media not verified available for all 12 transcript entries on official site not applicable podcast availability depends on platform region official website is public original fiction space solar system survival scenario multi character high official solar pages verify premise transcript count principal cast creator directors producers composer and production company credits platform episode counts should still be checked before treating runtimes as canonical",
+    "tagTokens": [
+      "sci-fi",
+      "space",
+      "thriller"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "story",
@@ -204,10 +212,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/story/id1312875502",
-      "website": "https://www.7lamb.com/audiodramas/story",
-      "rss": ""
+      "website": "https://www.7lamb.com/audiodramas/story"
     },
     "genres": [
       "drama",
@@ -237,9 +243,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "easy-entry"
@@ -263,13 +267,7 @@
     },
     "updatedAt": "2026-06-30",
     "officialLinks": {
-      "website": "https://www.7lamb.com/audiodramas/story",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.7lamb.com/audiodramas/story"
     },
     "credits": {
       "productionCompany": "7 Lamb Productions",
@@ -309,7 +307,6 @@
         "per-season story breakdown",
         "cast/crew beyond 7 Lamb/Bloody FM listing"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -357,7 +354,25 @@
       "the-waystation": "Keeps the hopeful speculative curiosity alive without hardening the tone.",
       "the-bright-sessions": "A character-first branch if the emotional legibility matters more than the adventure frame.",
       "desert-skies": "Another soft-entry weird-fiction pick when you want warmth before lore."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=story",
+    "hasPage": true,
+    "image": "shows/story/story.jpg",
+    "imageAlt": "Story cover art",
+    "summary": "A softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog.",
+    "finalRating": 7,
+    "searchText": "story a more grounded adventure leaning mystery entry a softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog a cleaner starting point when you want mystery without a wall of lore drama mystery adventure drama mystery adventure warm hopeful full cast serialized easy entry story 7 lamb story story podcast drama mystery adventure content notes not verified beyond public premise 7 lamb productions english the waystation the bright sessions desert skies unclear indexed only indexed entry unknown unknown 7 lamb productions 7 lamb productions not verified not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction seasonal anthology variable not verified official 7 lamb listing verifies anthology mini series premise detail page platform links are image heavy and did not expose clean episode metadata",
+    "tagTokens": [
+      "drama",
+      "mystery",
+      "adventure"
+    ],
+    "bestForTokens": [
+      "easy-entry"
+    ]
   },
   {
     "id": "from-now",
@@ -373,8 +388,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/1Jx1PpUmJrZgM68re3zMjJ",
       "apple": "https://podcasts.apple.com/us/podcast/from-now/id1544239486",
-      "website": "https://qcodemedia.com/from-now",
-      "rss": ""
+      "website": "https://qcodemedia.com/from-now"
     },
     "genres": [
       "sci-fi",
@@ -407,9 +421,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "easy-entry"
@@ -438,12 +450,7 @@
     },
     "officialLinks": {
       "website": "https://qcodemedia.com/from-now",
-      "youtube": "https://www.youtube.com/@QCODEMedia",
-      "patreon": "",
-      "discord": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "youtube": "https://www.youtube.com/@QCODEMedia"
     },
     "credits": {
       "creatorName": [
@@ -491,7 +498,6 @@
       "researchGaps": [
         "exact RSS feed URL"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -537,7 +543,25 @@
       "ars-paradoxica": "The clearest next step if the time-dislocation premise makes you want denser science-fiction consequences.",
       "red-valley": "Keeps the secret-project unease and controlled weirdness active.",
       "case-63": "A compact paradox-thriller branch for listeners who want cleaner suspense around time travel."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=from-now",
+    "hasPage": true,
+    "image": "shows/from now/fromnow.jpeg",
+    "imageAlt": "From Now cover art",
+    "summary": "A compact archive pick for listeners who want momentum, time-slip tension, and a cleaner sci-fi hook.",
+    "finalRating": 7,
+    "searchText": "from now time travel sci fi with a thriller spine a compact archive pick for listeners who want momentum time slip tension and a cleaner sci fi hook useful when you want time travel flavor without a massive commitment sci fi time travel thriller sci fi thriller tense cinematic full cast serialized easy entry from now from now podcast qcode from now sci fi time travel thriller genre violence threat rhys wakefield and william day frank richard madden brian cox english english ars paradoxica red valley case 63 finished indexed only indexed entry unknown unknown rhys wakefield william day frank rhys wakefield william day frank richard madden brian cox richard madden brian cox qcode not verified not verified not verified not verified not verified available for episodes 101 106 on official qcode page not applicable qcode page links to spotify and apple platform listening original fiction far future returned spacecraft mystery multi character medium high official qcode page verifies the six episode transcript entries creators writers principal stars and premise",
+    "tagTokens": [
+      "sci-fi",
+      "time-travel",
+      "thriller"
+    ],
+    "bestForTokens": [
+      "easy-entry"
+    ]
   },
   {
     "id": "the-deca-tapes",
@@ -553,8 +577,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/6S8iYyZ3eg9vP1Dcg9E0I3",
       "apple": "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
-      "website": "https://www.thedecatapes.com/",
-      "rss": ""
+      "website": "https://www.thedecatapes.com/"
     },
     "genres": [
       "mystery",
@@ -587,9 +610,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night"
@@ -619,12 +640,7 @@
     },
     "officialLinks": {
       "website": "https://www.thedecatapes.com/",
-      "patreon": "https://www.patreon.com/lexnbm",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "patreon": "https://www.patreon.com/lexnbm"
     },
     "credits": {
       "creatorName": "Lex Noteboom",
@@ -706,7 +722,25 @@
       "spectre": "Another closed-loop mystery lane if you want atmosphere and slow uncertainty.",
       "red-valley": "Keeps the puzzle-box intrigue and controlled weirdness alive.",
       "homecoming": "A tighter prestige-thriller branch for listeners who want another cleanly engineered mystery."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=the-deca-tapes",
+    "hasPage": true,
+    "image": "shows/deca tapes/decatapes.jpeg",
+    "imageAlt": "The Deca Tapes cover art",
+    "summary": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
+    "finalRating": 6,
+    "searchText": "the deca tapes mystery first sci fi built around controlled reveals a tighter mystery thriller entry for listeners who want something structural and puzzle driven more puzzle box than emotional sprawl mystery thriller science mystery thriller science tense weird full cast limited series late night the deca tapes deca tapes mystery thriller science genre violence threat lex noteboom english spectre red valley homecoming unclear indexed only indexed entry unknown unknown lex noteboom lex noteboom lex noteboom lex noteboom baumhouse productions realm not verified not verified not verified not verified not verified not applicable official site links to spotify apple rss patreon and bandcamp options original fiction rotating tape subject structure medium high controlled science fiction mystery environment official creator page verifies title date english us links and lex noteboom writing directing composition apple page verifies current platform listing",
+    "tagTokens": [
+      "mystery",
+      "thriller",
+      "science"
+    ],
+    "bestForTokens": [
+      "late-night"
+    ]
   },
   {
     "id": "earth-eclipsed",
@@ -720,10 +754,7 @@
     "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
-      "website": "https://eartheclipsed.com/",
-      "rss": ""
+      "website": "https://eartheclipsed.com/"
     },
     "genres": [
       "sci-fi",
@@ -753,9 +784,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "serious-sci-fi"
@@ -783,13 +812,7 @@
       "latest": "2021-10-20"
     },
     "officialLinks": {
-      "website": "https://eartheclipsed.com/",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://eartheclipsed.com/"
     },
     "credits": {
       "productionCompany": "The Lunar Company",
@@ -826,7 +849,6 @@
         "exact current platform count",
         "complete credits"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -866,7 +888,25 @@
       "windfall": "A grounded dystopian cousin if the political pressure mattered as much as the sci-fi wrapper.",
       "impact-winter": "Keeps the catastrophe scale high and the pacing aggressive.",
       "derelict": "Another dark serious-sci-fi route with strong pressure and a harsher sonic environment."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=earth-eclipsed",
+    "hasPage": true,
+    "image": "shows/earth eclipsed/eartheclipsed.jpeg",
+    "imageAlt": "Earth Eclipsed cover art",
+    "summary": "A darker catalog entry for listeners who want genre pressure more than comfort.",
+    "finalRating": 8,
+    "searchText": "earth eclipsed dystopian sci fi with a heavier thriller edge a darker catalog entry for listeners who want genre pressure more than comfort useful when you want dystopia and pace before warmth sci fi dystopia thriller sci fi thriller dark tense full cast serialized serious sci fi earth eclipsed earth eclipsed podcast sci fi dystopia thriller genre violence threat the lunar company english windfall impact winter derelict unclear indexed only indexed entry unknown unknown the lunar company not verified not verified not verified not verified not verified not verified not verified not verified not verified unknown n a platform availability not fully verified in this pass original fiction dystopian science fiction future serialized audio drama high official url is identified but current web capture was incomplete kept conservative metadata and included recheck notes rather than inventing missing facts",
+    "tagTokens": [
+      "sci-fi",
+      "dystopia",
+      "thriller"
+    ],
+    "bestForTokens": [
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "vast-horizon",
@@ -880,8 +920,6 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
-      "apple": "",
       "website": "https://www.foolandscholar.com/about-vast-horizon",
       "rss": "https://vasthorizon.libsyn.com/rss"
     },
@@ -915,9 +953,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "worldbuilding",
@@ -948,11 +984,7 @@
     "officialLinks": {
       "website": "https://www.foolandscholar.com/about-vast-horizon",
       "patreon": "https://www.patreon.com/FoolandScholar",
-      "youtube": "https://www.youtube.com/@FoolandScholar",
-      "discord": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "youtube": "https://www.youtube.com/@FoolandScholar"
     },
     "credits": {
       "creatorName": [
@@ -996,8 +1028,6 @@
       "objectiveNote": "Official Fool & Scholar page confirms premise, complete availability, listening links, RSS, and cast list.",
       "objectiveVerifiedAt": "2026-06-15",
       "reviewFile": "reviews/vast-horizon.json",
-      "researchGaps": [],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -1046,7 +1076,26 @@
       "solar": "A tighter survival chamber if you want the space danger without the same wandering sprawl.",
       "the-waystation": "Keeps the hopeful exploratory side alive once the survival edge softens.",
       "midst": "A stranger worldbuilding escalation for listeners who want the setting to get weirder and bigger."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=vast-horizon",
+    "hasPage": true,
+    "image": "shows/vast horizon/vasthorizon.jpeg",
+    "imageAlt": "Vast Horizon cover art",
+    "summary": "A sci-fi archive entry that leans more toward exploration and forward motion than claustrophobic dread.",
+    "finalRating": 8,
+    "searchText": "vast horizon adventure forward space fiction with a stronger scale sense a sci fi archive entry that leans more toward exploration and forward motion than claustrophobic dread a good bridge between harder survival sci fi and lighter adventure runs sci fi space adventure sci fi adventure cinematic hopeful full cast serialized worldbuilding easy entry vast horizon vast horizon podcast sci fi space adventure content notes not verified beyond public premise k a statz and travis vengroff siobhan lumsden tanja milojevic daniel dean demerin a r olivieri christy luse ewan chung jordan cobb sam yeow english solar the waystation midst finished indexed only indexed entry unknown unknown k a statz travis vengroff k a statz travis vengroff travis vengroff siobhan lumsden tanja milojevic daniel dean demerin a r olivieri christy luse ewan chung jordan cobb sam yeow fool and scholar productions not verified not verified not verified not verified unknown n a official page says the award winning sci fi podcast is available in its entirety and links spotify apple youtube patreon and rss original fiction empty colony ship deep space serialized audio drama high official fool and scholar page confirms premise complete availability listening links rss and cast list",
+    "tagTokens": [
+      "sci-fi",
+      "space",
+      "adventure"
+    ],
+    "bestForTokens": [
+      "worldbuilding",
+      "easy-entry"
+    ]
   },
   {
     "id": "how-i-died",
@@ -1060,10 +1109,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/how-i-died/id1450764373",
-      "website": "https://audiohmmedia.com/howidied/",
-      "rss": ""
+      "website": "https://audiohmmedia.com/howidied/"
     },
     "genres": [
       "horror",
@@ -1094,9 +1141,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night",
@@ -1122,12 +1167,7 @@
     "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://audiohmmedia.com/howidied/",
-      "patreon": "https://www.patreon.com/howidied",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "patreon": "https://www.patreon.com/howidied"
     },
     "credits": {
       "creatorName": "Vince Dajani",
@@ -1170,7 +1210,6 @@
         "exact Season 4 final episode date",
         "exact RSS feed URL"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -1222,7 +1261,26 @@
       "paralyzed": "Keeps the supernatural investigation lane active with a more direct horror pulse.",
       "the-white-vault": "A colder isolation-horror branch if you want the dread to spread beyond the investigation.",
       "malevolent": "A darker occult escalation once the voice-driven mystery stops being enough."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=how-i-died",
+    "hasPage": true,
+    "image": "shows/how i died/howidied.jpeg",
+    "imageAlt": "How I Died cover art",
+    "summary": "One of the easier horror entries to recommend when someone wants ghosts, procedure, and mystery in the same lane.",
+    "finalRating": 9,
+    "searchText": "how i died paranormal mystery with stronger horror hooks than melodrama one of the easier horror entries to recommend when someone wants ghosts procedure and mystery in the same lane one of the archive s cleaner horror recommendations horror supernatural mystery horror supernatural mystery dark tense full cast serialized late night cold isolation horror how i died how i died podcast horror supernatural mystery genre violence threat horror or supernatural themes vince dajani vince dajani shaina waring david dixon english english paralyzed the white vault malevolent ongoing indexed only indexed entry unknown unknown vince dajani audiohm media vince dajani shaina waring david dixon not verified not verified not verified not verified not verified realm not verified available on official audiohm pages not applicable official page lists broad podcast app availability original fiction springfield medical examiner paranormal mystery investigative forensic pathologist lead medium high official audiohm pages verify creator full cast serial format principal cast mature audience note transcript availability and season 4 status episode count remains deliberately unfilled because a clean current feed count was not captured",
+    "tagTokens": [
+      "horror",
+      "supernatural",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "cold-isolation-horror"
+    ]
   },
   {
     "id": "windfall",
@@ -1272,9 +1330,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "long-walks",
@@ -1305,13 +1361,7 @@
       "latestFeedItem": "2026-04-30"
     },
     "officialLinks": {
-      "website": "https://roguedialogue.com/windfall",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://roguedialogue.com/windfall"
     },
     "credits": {
       "productionCompany": "Rogue Dialogue Productions",
@@ -1361,7 +1411,6 @@
       "researchGaps": [
         "whether to mark series as ongoing after Season 2 finale or inactive until a future story season is announced"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -1402,7 +1451,26 @@
       "earth-eclipsed": "Another pressure-heavy dystopian route when you want systems failing around the characters.",
       "the-deca-tapes": "A puzzle-box branch if you want more suspicion and less open momentum.",
       "homecoming": "A prestige-thriller cousin for listeners who want another conspiracy-shaped binge."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=windfall",
+    "hasPage": true,
+    "image": "shows/windfall/windfall.jpeg",
+    "imageAlt": "Windfall cover art",
+    "summary": "A more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci-fi.",
+    "finalRating": 9,
+    "searchText": "windfall mystery thriller energy with a darker speculative edge a more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci fi a higher pressure mystery pick that stays moving thriller mystery dystopia thriller mystery dark tense full cast serialized long walks late night windfall windfall podcast rogue dialogue windfall thriller mystery dystopia genre violence threat rogue dialogue productions english earth eclipsed the deca tapes homecoming ongoing indexed only indexed entry unknown unknown rogue dialogue productions bob raymonda christie donato adam raymonda bob raymonda christie donato jess miller bob raymonda christie donato jess miller rogue dialogue productions adam raymonda adam raymonda rogue dialogue productions not fully verified sam twardy unknown n a official page fetch failed in this pass metadata should be rechecked against current feed original fiction dystopian speculative city serialized audio drama medium official rogue dialogue url is identified but current source capture was incomplete in this pass kept conservative metadata and recheck notes",
+    "tagTokens": [
+      "thriller",
+      "mystery",
+      "dystopia"
+    ],
+    "bestForTokens": [
+      "long-walks",
+      "late-night"
+    ]
   },
   {
     "id": "the-waystation",
@@ -1417,7 +1485,6 @@
     "completionStatus": "unclear",
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/2VNI54tTfmqn0hvbU8jKZn",
-      "apple": "",
       "website": "https://thewaystation.carrd.co/",
       "rss": "https://rss.com/podcasts/thewaystation/"
     },
@@ -1450,9 +1517,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "worldbuilding",
@@ -1476,15 +1541,7 @@
       "rgb": "73, 127, 138"
     },
     "updatedAt": "2026-06-30",
-    "officialLinks": {
-      "website": "",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
-    },
+    "officialLinks": {},
     "credits": {
       "creatorName": "Wired Cowslip",
       "writer": "Elliot Somerfield",
@@ -1521,7 +1578,6 @@
         "exact Apple Podcasts URL if still listed",
         "current Season 2 status"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -1566,7 +1622,26 @@
       "vast-horizon": "Keeps the spacefaring exploration lane active with a little more survival drag.",
       "story": "A softer, more grounded companion if you want warmth and clarity first.",
       "midnight-burger": "A warmer cosmic escalation once the appetite shifts from exploration to range and oddity."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=the-waystation",
+    "hasPage": true,
+    "image": "shows/the waystation/waystation.jpeg",
+    "imageAlt": "The Waystation cover art",
+    "summary": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
+    "finalRating": 7,
+    "searchText": "the waystation space adventure for listeners who want a little more open sky a lighter archive sci fi pick that leans toward exploration and movement over relentless dread a cleaner browse recommendation when the archive starts feeling too bleak sci fi adventure space sci fi adventure hopeful cinematic full cast serialized worldbuilding easy entry the waystation waystation podcast sci fi adventure space content notes not verified beyond public premise wired cowslip english vast horizon story midnight burger unclear indexed only indexed entry unknown unknown wired cowslip elliot somerfield elliot somerfield wired cowslip not verified tatenda shamiso wired cowslip wired cowslip not verified paul ignacio unknown n a no reliable official source captured in this pass original fiction space station serialized audio drama medium no reliable official match found in this pass without high risk of mixing it with unrelated waystation way station works left objective fields explicitly unverified",
+    "tagTokens": [
+      "sci-fi",
+      "adventure",
+      "space"
+    ],
+    "bestForTokens": [
+      "worldbuilding",
+      "easy-entry"
+    ]
   },
   {
     "id": "were-alive",
@@ -1580,10 +1655,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/were-alive/id313300476",
-      "website": "https://www.werealive.com/",
-      "rss": ""
+      "website": "https://www.werealive.com/"
     },
     "genres": [
       "thriller",
@@ -1614,9 +1687,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "long-walks",
@@ -1647,12 +1718,6 @@
     },
     "officialLinks": {
       "website": "https://www.werealive.com/",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": "",
       "store": "https://www.werealive.com/shop/"
     },
     "credits": {
@@ -1693,7 +1758,6 @@
         "whether archive page should scope to A Story of Survival only or the whole franchise",
         "full franchise episode count"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -1736,7 +1800,26 @@
       "end-of-all-hope": "A more spacefaring branch that still puts survival decisions at the center.",
       "the-phenomenon": "For listeners who want the large-scale threat level and relentless public danger.",
       "the-white-vault": "A colder, more isolated survival-horror variant once the ensemble chaos cools down."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=were-alive",
+    "hasPage": true,
+    "image": "shows/were alive/WereAlive.jpeg",
+    "imageAlt": "We're Alive cover art",
+    "summary": "One of the archive's foundational survival recommendations: pressure, group dynamics, and a bigger commitment that pays off.",
+    "finalRating": 8,
+    "searchText": "we re alive a survival first apocalypse staple with real archive gravity one of the archive s foundational survival recommendations pressure group dynamics and a bigger commitment that pays off a reliable recommendation when someone wants survival and ensemble pressure first thriller apocalypse survival thriller survival dark tense full cast long running long walks binge listening we re alive we re alive we re alive a story of survival we re alive franchise thriller apocalypse survival genre violence threat kc wayland english impact winter end of all hope the phenomenon the white vault ongoing indexed only indexed entry unknown unknown kc wayland kc wayland grayson stone wayland productions not verified not verified not verified not verified not verified not verified not verified not verified not applicable official site lists podcast platforms audible and physical media availability original fiction post apocalyptic zombie infected survival franchise multi character ensemble high this entry is filled as a franchise level record official site verifies 70 hours broad platform availability downloads and current descendants finale schedule through february 24 2026",
+    "tagTokens": [
+      "thriller",
+      "apocalypse",
+      "survival"
+    ],
+    "bestForTokens": [
+      "long-walks",
+      "binge-listening"
+    ]
   },
   {
     "id": "impact-winter",
@@ -1750,10 +1833,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
-      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
-      "rss": ""
+      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG"
     },
     "genres": [
       "sci-fi",
@@ -1809,11 +1890,11 @@
       "the-white-vault",
       "malevolent"
     ],
-    "archiveTake": "",
-    "spoilerFreeReview": "",
-    "thoughts": "",
+    "archiveTake": "Season one hits hardest, but even when it softens later the production still feels bigger than most of the field.",
+    "spoilerFreeReview": "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness. But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand.",
+    "thoughts": "I absolutely loved Impact Winter. It grabs you by the throat and pulls you in. Season 1 is the high point, and it eases off a bit by season 3, but overall it is still an easy recommendation if you want a polished, aggressive audio drama.",
     "quote": {
-      "text": "",
+      "text": "You make the choices you can live with.",
       "attribution": "Rook"
     },
     "featured": true,
@@ -1828,13 +1909,7 @@
       "note": "Latest verified released season is Season 3 on Audible. Previous 2025-07-17 value was not confirmed by the sources checked."
     },
     "officialLinks": {
-      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG"
     },
     "credits": {
       "creatorName": "Travis Beacham",
@@ -1872,7 +1947,6 @@
         "future season status beyond Season 3",
         "exact RSS URL"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -1916,7 +1990,35 @@
       "end-of-all-hope": "Keeps the catastrophe pressure high while shifting the setting into space opera territory.",
       "the-white-vault": "A colder, more locked-in branch for listeners who loved the environmental dread.",
       "malevolent": "A darker supernatural escalation for listeners who want the same intensity with more occult horror."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [
+      "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness.",
+      "But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand."
+    ],
+    "thoughtsParagraphs": [
+      "I absolutely loved Impact Winter. It grabs you by the throat and pulls you in.",
+      "Season 1 is the high point, and it eases off a bit by season 3, but overall it is still an easy recommendation if you want a polished, aggressive audio drama."
+    ],
+    "popularity": {},
+    "href": "/show.html?id=impact-winter",
+    "hasPage": true,
+    "image": "shows/Impact Winter/Impact-winter.jpeg",
+    "imageAlt": "Impact Winter cover art",
+    "summary": "Endless winter, bunker survival, and just enough vampire politics to keep the whole thing nasty in the right way.",
+    "finalRating": 10,
+    "searchText": "impact winter post apocalyptic vampire survival under endless winter endless winter bunker survival and just enough vampire politics to keep the whole thing nasty in the right way season one hits hardest but even when it softens later the production still feels bigger than most of the field impact winter is a post apocalyptic audio drama set seven years after a comet slammed into earth plunging the world into a devastating winter and endless darkness but that was not the only nightmare unleashed from the shadows came bloodthirsty monsters vampires the year is 2042 darci and her younger sister hope live in a bunker beneath a medieval castle surviving alongside a small group of others while they wait for the sun to return but in this brutal new world nothing is as it seems including the monsters everyone thinks they understand i absolutely loved impact winter it grabs you by the throat and pulls you in season 1 is the high point and it eases off a bit by season 3 but overall it is still an easy recommendation if you want a polished aggressive audio drama impact winter is a post apocalyptic audio drama set seven years after a comet slammed into earth plunging the world into a devastating winter and endless darkness but that was not the only nightmare unleashed from the shadows came bloodthirsty monsters vampires the year is 2042 darci and her younger sister hope live in a bunker beneath a medieval castle surviving alongside a small group of others while they wait for the sun to return but in this brutal new world nothing is as it seems including the monsters everyone thinks they understand i absolutely loved impact winter it grabs you by the throat and pulls you in season 1 is the high point and it eases off a bit by season 3 but overall it is still an easy recommendation if you want a polished aggressive audio drama survival post apocalyptic vampires sci fi fantasy sci fi fantasy dark cinematic tense full cast serialized long walks headphones on serious sci fi impact winter impact winter podcast impact winter audible survival post apocalyptic vampires sci fi fantasy genre violence threat travis beacham english we re alive end of all hope the white vault malevolent ongoing full review alternates between characters yes in universe journal mixed season 1 and 2 yes season 3 no season 1 episodes 4 through 8 true travis beacham audible originals not verified not verified not verified not verified not verified not verified not verified not verified unknown n a audible original also available on podcast platforms in some regions original fiction post apocalyptic earth under endless winter full cast serialized drama high audible apple listings identify official distribution and travis beacham audible context existing opinion review text is preserved",
+    "tagTokens": [
+      "survival",
+      "post-apocalyptic",
+      "vampires",
+      "sci-fi",
+      "fantasy"
+    ],
+    "bestForTokens": [
+      "long-walks",
+      "headphones-on",
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "oz-9",
@@ -1930,10 +2032,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/oz-9/id1446814974",
-      "website": "https://oz-9.com/",
-      "rss": ""
+      "website": "https://oz-9.com/"
     },
     "genres": [
       "sci-fi",
@@ -1988,11 +2088,11 @@
       "wolf-359",
       "wooden-overcoats"
     ],
-    "archiveTake": "",
-    "spoilerFreeReview": "",
-    "thoughts": "",
+    "archiveTake": "Chaotic, unserious, and easy to understand once you stop waiting for it to behave like a straight sci-fi drama.",
+    "spoilerFreeReview": "Oz 9 is a space comedy following the wildly incompetent crew of a spaceship called the Oz 9. Built by a shady corporation named Gated Galaxies, the ship was supposedly designed to transport rich people across the universe to colonize new planets, but it becomes clear quickly that that is not its only purpose. The crew are disasters, the AI is deeply unhelpful, and most of the fun comes from watching the whole thing keep getting worse in exactly the dumbest way possible.",
+    "thoughts": "I was not the biggest fan of Oz 9 at first. It takes a while to get going, and I usually prefer more serious audio dramas. This is the exact opposite of that. It gets more interesting after the first season, and I get why some people really love it. Not really for me, but not bad either.",
     "quote": {
-      "text": "",
+      "text": "A crew of stunningly stupid idiots and a somewhat horny AI.",
       "attribution": "Archive note"
     },
     "featured": true,
@@ -2007,12 +2107,7 @@
     },
     "officialLinks": {
       "website": "https://oz-9.com/",
-      "patreon": "https://www.patreon.com/Oz9podcast",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "patreon": "https://www.patreon.com/Oz9podcast"
     },
     "credits": {
       "creatorName": "Shannon Perry",
@@ -2050,7 +2145,6 @@
         "exact latest public episode date",
         "whether display creator should be Shannon Perry or Apple-listed Gated Galaxies"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -2095,7 +2189,34 @@
       "eos-10": "The cleanest adjacent pick for listeners who want more medical-space banter and ensemble friction.",
       "wolf-359": "A bigger character-payoff branch for listeners who liked the station setup but want more growth.",
       "wooden-overcoats": "Keeps the timing, vanity, and petty disasters intact without the sci-fi wrapper."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [
+      "Oz 9 is a space comedy following the wildly incompetent crew of a spaceship called the Oz 9. Built by a shady corporation named Gated Galaxies, the ship was supposedly designed to transport rich people across the universe to colonize new planets, but it becomes clear quickly that that is not its only purpose.",
+      "The crew are disasters, the AI is deeply unhelpful, and most of the fun comes from watching the whole thing keep getting worse in exactly the dumbest way possible."
+    ],
+    "thoughtsParagraphs": [
+      "I was not the biggest fan of Oz 9 at first. It takes a while to get going, and I usually prefer more serious audio dramas. This is the exact opposite of that.",
+      "It gets more interesting after the first season, and I get why some people really love it. Not really for me, but not bad either."
+    ],
+    "popularity": {},
+    "href": "/show.html?id=oz-9",
+    "hasPage": true,
+    "image": "shows/oz9/oz9.jpeg",
+    "imageAlt": "Oz 9 cover art",
+    "summary": "Corporate deep-space nonsense, incompetent crew energy, and a review that admits the audience is stronger than the personal fit.",
+    "finalRating": 10,
+    "searchText": "oz 9 shipboard comedy powered by total incompetence and escalating nonsense corporate deep space nonsense incompetent crew energy and a review that admits the audience is stronger than the personal fit chaotic unserious and easy to understand once you stop waiting for it to behave like a straight sci fi drama oz 9 is a space comedy following the wildly incompetent crew of a spaceship called the oz 9 built by a shady corporation named gated galaxies the ship was supposedly designed to transport rich people across the universe to colonize new planets but it becomes clear quickly that that is not its only purpose the crew are disasters the ai is deeply unhelpful and most of the fun comes from watching the whole thing keep getting worse in exactly the dumbest way possible i was not the biggest fan of oz 9 at first it takes a while to get going and i usually prefer more serious audio dramas this is the exact opposite of that it gets more interesting after the first season and i get why some people really love it not really for me but not bad either oz 9 is a space comedy following the wildly incompetent crew of a spaceship called the oz 9 built by a shady corporation named gated galaxies the ship was supposedly designed to transport rich people across the universe to colonize new planets but it becomes clear quickly that that is not its only purpose the crew are disasters the ai is deeply unhelpful and most of the fun comes from watching the whole thing keep getting worse in exactly the dumbest way possible i was not the biggest fan of oz 9 at first it takes a while to get going and i usually prefer more serious audio dramas this is the exact opposite of that it gets more interesting after the first season and i get why some people really love it not really for me but not bad either space unserious comedy sci fi future sci fi comedy funny chaotic weird full cast long running funny space disasters binge listening oz 9 oz 9 podcast space unserious comedy sci fi future comedic tone shannon perry english english station 151 eos 10 wolf 359 wooden overcoats ongoing full review bounces between different characters and places yes in universe character no season 4 episode 20 false shannon perry gated galaxies oz 9 fable and folly network shannon perry not verified not verified mark restuccia john faley fable and folly network not fully verified lucas elliott available per episode on official site n a official site says transcripts are linked under episode players original fiction spacecraft oz 9 full cast space comedy low official oz 9 pages verify active site crew cast page fable and folly association and a long running episode archive existing subjective review content is preserved",
+    "tagTokens": [
+      "space",
+      "unserious",
+      "comedy",
+      "sci-fi",
+      "future"
+    ],
+    "bestForTokens": [
+      "funny-space-disasters",
+      "binge-listening"
+    ]
   },
   {
     "id": "ars-paradoxica",
@@ -2168,11 +2289,11 @@
       "case-63",
       "the-program-audio-series"
     ],
-    "archiveTake": "",
-    "spoilerFreeReview": "",
-    "thoughts": "",
+    "archiveTake": "Best when you want a plot that respects the listener and keeps paying off its own weird science.",
+    "spoilerFreeReview": "Ars Paradoxica is a science fiction audio drama centered around time travel, secrecy, and the ethical dilemmas of science. It follows a brilliant physicist who accidentally discovers time travel and finds herself entangled in a web of Cold War-era espionage, military agendas, and the consequences of tampering with time itself. The show blends hard science fiction with noir-style storytelling, offering a mix of mystery, intrigue, and deep moral questions. It is known for its smart writing, complex characters, and tight plotting that asks the listener to keep up.",
+    "thoughts": "The longer personal write-up is still growing, but the main appeal is already clear: smart plotting, good conceptual discipline, and a real sense that the show knows what it is doing.",
     "quote": {
-      "text": "",
+      "text": "Time travel, secrecy, and the ethical dilemmas of science.",
       "attribution": "Archive note"
     },
     "featured": true,
@@ -2188,11 +2309,7 @@
     "officialLinks": {
       "website": "https://arsparadoxica.com/",
       "facebook": "https://www.facebook.com/arsparadoxica",
-      "instagram": "https://instagram.com/arsparadoxica",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": ""
+      "instagram": "https://instagram.com/arsparadoxica"
     },
     "credits": {
       "creatorName": [
@@ -2294,7 +2411,33 @@
       "from-now": "A shorter time-dislocation branch for listeners who want the conceptual hook quickly.",
       "case-63": "A cleaner time-paradox thriller route with stronger suspense than lore sprawl.",
       "the-program-audio-series": "Pushes toward colder, more idea-forward speculative fiction once the science hook is what matters most."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [
+      "Ars Paradoxica is a science fiction audio drama centered around time travel, secrecy, and the ethical dilemmas of science.",
+      "It follows a brilliant physicist who accidentally discovers time travel and finds herself entangled in a web of Cold War-era espionage, military agendas, and the consequences of tampering with time itself. The show blends hard science fiction with noir-style storytelling, offering a mix of mystery, intrigue, and deep moral questions. It is known for its smart writing, complex characters, and tight plotting that asks the listener to keep up."
+    ],
+    "thoughtsParagraphs": [
+      "The longer personal write-up is still growing, but the main appeal is already clear: smart plotting, good conceptual discipline, and a real sense that the show knows what it is doing."
+    ],
+    "popularity": {},
+    "href": "/show.html?id=ars-paradoxica",
+    "hasPage": true,
+    "image": "shows/ars paradoxica/ArsParadoxica.jpeg",
+    "imageAlt": "Ars Paradoxica cover art",
+    "summary": "Cold War intrigue, scientific paranoia, and one of the archive's smarter time-travel spirals.",
+    "finalRating": 7.5,
+    "searchText": "ars paradoxica cold war sci fi with real respect for paradox secrecy and consequence cold war intrigue scientific paranoia and one of the archive s smarter time travel spirals best when you want a plot that respects the listener and keeps paying off its own weird science ars paradoxica is a science fiction audio drama centered around time travel secrecy and the ethical dilemmas of science it follows a brilliant physicist who accidentally discovers time travel and finds herself entangled in a web of cold war era espionage military agendas and the consequences of tampering with time itself the show blends hard science fiction with noir style storytelling offering a mix of mystery intrigue and deep moral questions it is known for its smart writing complex characters and tight plotting that asks the listener to keep up the longer personal write up is still growing but the main appeal is already clear smart plotting good conceptual discipline and a real sense that the show knows what it is doing ars paradoxica is a science fiction audio drama centered around time travel secrecy and the ethical dilemmas of science it follows a brilliant physicist who accidentally discovers time travel and finds herself entangled in a web of cold war era espionage military agendas and the consequences of tampering with time itself the show blends hard science fiction with noir style storytelling offering a mix of mystery intrigue and deep moral questions it is known for its smart writing complex characters and tight plotting that asks the listener to keep up the longer personal write up is still growing but the main appeal is already clear smart plotting good conceptual discipline and a real sense that the show knows what it is doing sci fi science time travel paradoxes mystery sci fi science mystery tense cinematic weird full cast serialized worldbuilding serious sci fi ars paradoxica arsparadoxica sci fi science time travel paradoxes mystery content notes not verified beyond public premise mischa stanton and daniel manning english english red valley from now case 63 the program audio series finished full review serialized and tightly plotted yes in universe journal no season 3 episode 14 true mischa stanton daniel manning daniel manning mischa stanton eli barraza julian mundy danielle shemaiah tau zaman mischa stanton eno freedman brodmann the whisperforge mischa stanton mischa stanton mischa stanton not verified not verified not verified available on official episode pages not applicable official site links to apple spotify and rss original fiction cold war time travel alternate history serialized full cast in universe recordings medium high official site verifies story premise crew transcripts awards and platform links apple verifies 49 episodes and 3 seasons",
+    "tagTokens": [
+      "sci-fi",
+      "science",
+      "time-travel",
+      "paradoxes",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "worldbuilding",
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "red-valley",
@@ -2308,10 +2451,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
-      "website": "https://www.redvalleypod.com/",
-      "rss": ""
+      "website": "https://www.redvalleypod.com/"
     },
     "genres": [
       "sci-fi",
@@ -2344,9 +2485,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night",
@@ -2378,12 +2517,7 @@
     },
     "officialLinks": {
       "website": "https://www.redvalleypod.com/",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "https://www.redvalleypod.com/shop.html",
-      "instagram": "",
-      "facebook": ""
+      "merch": "https://www.redvalleypod.com/shop.html"
     },
     "credits": {
       "productionCompany": "Red Valley",
@@ -2426,7 +2560,6 @@
         "exact total runtime",
         "final Season 5 release date"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -2466,7 +2599,26 @@
       "ars-paradoxica": "The cleanest neighbor if the controlled science-fiction weirdness is the real hook.",
       "the-deca-tapes": "Keeps the enclosed puzzle energy alive while leaning harder into mystery structure.",
       "case-63": "A tighter paradox-thriller branch for listeners who want the time bend to stay front and center."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=red-valley",
+    "hasPage": true,
+    "image": "shows/red valley/RedValley.jpeg",
+    "imageAlt": "Red Valley cover art",
+    "summary": "A smart archive-adjacent mystery pick when you want science, secrecy, and a colder conceptual frame.",
+    "finalRating": 7,
+    "searchText": "red valley a science heavy mystery with enough conceptual weirdness to stick a smart archive adjacent mystery pick when you want science secrecy and a colder conceptual frame a good neighboring pick once ars paradoxica leaves you wanting more controlled weirdness sci fi future mystery sci fi mystery weird tense full cast serialized late night serious sci fi red valley red valley podcast sci fi future mystery content notes not verified beyond public premise jonathan williams and alan mandel english ars paradoxica the deca tapes case 63 ongoing indexed only indexed entry unknown unknown red valley jonathan williams alan mandel jonathan williams alan mandel alan mandel richard campbell richard campbell fable and folly not verified not verified not verified not applicable official site says available on all podcast platforms original fiction red valley research station cryonics mystery multi character medium official site verifies premise fable and folly association listed season mini series structure writer director producer post production music and recording studio context episode total is counted from visible official season mini series entries and should be rechecked if the site changes",
+    "tagTokens": [
+      "sci-fi",
+      "future",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "the-white-vault",
@@ -2518,9 +2670,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "cold-isolation-horror",
@@ -2532,12 +2682,12 @@
       "malevolent",
       "how-i-died"
     ],
-    "archiveTake": "One of the cleanest archive answers when someone asks for cold, remote dread.",
-    "spoilerFreeReview": "",
-    "thoughts": "",
+    "archiveTake": "Still one of the archive's best isolation-horror anchors when the environment itself needs to feel hostile.",
+    "spoilerFreeReview": "The White Vault remains a strong recommendation for listeners who want environmental dread instead of constant attack. It is patient, cold, and good at making logistics feel ominous long before the show needs to explain everything. Its biggest strength is that the setting never feels decorative. The weather, the remoteness, and the sense of being trapped with incomplete information all do real story work.",
+    "thoughts": "What I value most here is control. The show understands how much tension it can get from procedure, atmosphere, and steadily worsening conditions. That makes it a durable anchor for a lot of late-night and cold-isolation recommendations.",
     "quote": {
-      "text": "",
-      "attribution": ""
+      "text": "Isolation horror that lets the setting earn as much fear as the plot.",
+      "attribution": "Archive note"
     },
     "featured": true,
     "accent": {
@@ -2552,11 +2702,7 @@
     "officialLinks": {
       "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
       "patreon": "https://www.patreon.com/FoolandScholar",
-      "youtube": "https://www.youtube.com/@FoolandScholar",
-      "discord": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "youtube": "https://www.youtube.com/@FoolandScholar"
     },
     "credits": {
       "creatorName": [
@@ -2603,7 +2749,6 @@
         "exact main-series count separated from shared-feed related series",
         "whether archive should display 92 main/current entries or broader ~119 feed entries"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -2655,7 +2800,32 @@
       "archive-81": "For listeners who want stranger archival horror once the environmental dread has taken hold.",
       "malevolent": "A darker supernatural escalation for listeners who want more threat and more occult texture.",
       "how-i-died": "Keeps the mystery and supernatural investigation lane active while dialing down the arctic scale."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [
+      "The White Vault remains a strong recommendation for listeners who want environmental dread instead of constant attack. It is patient, cold, and good at making logistics feel ominous long before the show needs to explain everything.",
+      "Its biggest strength is that the setting never feels decorative. The weather, the remoteness, and the sense of being trapped with incomplete information all do real story work."
+    ],
+    "thoughtsParagraphs": [
+      "What I value most here is control. The show understands how much tension it can get from procedure, atmosphere, and steadily worsening conditions.",
+      "That makes it a durable anchor for a lot of late-night and cold-isolation recommendations."
+    ],
+    "popularity": {},
+    "href": "/show.html?id=the-white-vault",
+    "hasPage": true,
+    "image": "shows/white-vault/WhiteVault.jpeg",
+    "imageAlt": "The White Vault cover art",
+    "summary": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
+    "finalRating": 9,
+    "searchText": "the white vault cold weather dread with one of the archive s stronger isolation profiles an archive staple for listeners who want survival horror environmental dread and the feeling of being trapped somewhere unforgiving still one of the archive s best isolation horror anchors when the environment itself needs to feel hostile the white vault remains a strong recommendation for listeners who want environmental dread instead of constant attack it is patient cold and good at making logistics feel ominous long before the show needs to explain everything its biggest strength is that the setting never feels decorative the weather the remoteness and the sense of being trapped with incomplete information all do real story work what i value most here is control the show understands how much tension it can get from procedure atmosphere and steadily worsening conditions that makes it a durable anchor for a lot of late night and cold isolation recommendations the white vault remains a strong recommendation for listeners who want environmental dread instead of constant attack it is patient cold and good at making logistics feel ominous long before the show needs to explain everything its biggest strength is that the setting never feels decorative the weather the remoteness and the sense of being trapped with incomplete information all do real story work what i value most here is control the show understands how much tension it can get from procedure atmosphere and steadily worsening conditions that makes it a durable anchor for a lot of late night and cold isolation recommendations mystery survival thriller horror mystery thriller dark bleak tense full cast serialized cold isolation horror late night the white vault goshawk the white vault goshawk mystery survival thriller horror genre violence threat horror or supernatural themes k a statz and travis vengroff hem brewster peter joseph lewis lani minella david ault ey r vi arsson english english tower 4 archive 81 malevolent how i died ongoing full review indexed entry unknown unknown k a statz travis vengroff k a statz travis vengroff travis vengroff hem brewster peter joseph lewis lani minella david ault ey r vi arsson fool and scholar productions not verified not verified not verified not verified free transcripts linked from show notes patreon posts shop editions include transcript pdfs n a official page says the white vault and goshawk share one rss feed original fiction remote arctic outpost global horror sites found footage collected records high official fool and scholar page verifies shared white vault goshawk feed handling platform links rss cast crew context for goshawk and active award status notes white vault historical episode totals should be handled carefully because the feed now includes related series",
+    "tagTokens": [
+      "mystery",
+      "survival",
+      "thriller"
+    ],
+    "bestForTokens": [
+      "cold-isolation-horror",
+      "late-night"
+    ]
   },
   {
     "id": "eos-10",
@@ -2669,10 +2839,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/eos-10/id928069318",
-      "website": "https://www.planetm.io/eos10/",
-      "rss": ""
+      "website": "https://www.planetm.io/eos10/"
     },
     "genres": [
       "sci-fi",
@@ -2704,9 +2872,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "funny-space-disasters",
@@ -2735,13 +2901,7 @@
       "latest": "2022-01-01"
     },
     "officialLinks": {
-      "website": "https://www.planetm.io/eos10/",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.planetm.io/eos10/"
     },
     "credits": {
       "creatorName": "Justin McLachlan",
@@ -2779,7 +2939,6 @@
         "current production status",
         "why third-party indexes report higher counts than Apple"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -2820,7 +2979,26 @@
       "oz-9": "Turns the dysfunction and comic disaster energy even louder.",
       "wolf-359": "A stronger character-payoff branch if you want the station comedy to deepen over time.",
       "crystal-blue": "Another oddball sci-fi comedy route when you want something smaller and stranger."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=eos-10",
+    "hasPage": true,
+    "image": "shows/eos10/EOS10.jpeg",
+    "imageAlt": "EOS 10 cover art",
+    "summary": "A lighter archive pick for when you want jokes first and speculative stakes second.",
+    "finalRating": 7,
+    "searchText": "eos 10 space comedy with a stronger station sitcom pulse a lighter archive pick for when you want jokes first and speculative stakes second a cleaner comedy pick when you want space banter without total tonal collapse sci fi science comedy sci fi comedy funny chaotic full cast serialized funny space disasters easy entry eos 10 eos10 eos 10 podcast sci fi science comedy comedic tone justin mclachlan english oz 9 wolf 359 crystal blue unclear indexed only indexed entry unknown unknown justin mclachlan planetm not verified not verified not verified not verified not verified not verified not verified not verified unknown n a official page not captured in this pass original fiction space station eos 10 full cast medical space comedy low official planetm platform pages should be used for final verification metadata is filled from known public listings but should be rechecked because search results did not expose a clean current official text page in this pass",
+    "tagTokens": [
+      "sci-fi",
+      "science",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "funny-space-disasters",
+      "easy-entry"
+    ]
   },
   {
     "id": "desert-skies",
@@ -2834,10 +3012,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
-      "website": "https://desertskiespodcast.com/",
-      "rss": ""
+      "website": "https://desertskiespodcast.com/"
     },
     "genres": [
       "fantasy",
@@ -2872,9 +3048,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "easy-entry"
@@ -2906,11 +3080,7 @@
     "officialLinks": {
       "website": "https://desertskiespodcast.com/",
       "patreon": "https://www.patreon.com/DesertSkies",
-      "discord": "",
-      "youtube": "",
-      "merch": "https://desertskiespodcast.com/merch/",
-      "instagram": "",
-      "facebook": ""
+      "merch": "https://desertskiespodcast.com/merch/"
     },
     "credits": {
       "creatorName": "Jared Carter",
@@ -2949,7 +3119,6 @@
       "researchGaps": [
         "exact current total feed entry count from RSS"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -2994,7 +3163,25 @@
       "midnight-burger": "The clearest next stop if you want the warmth to scale up into bigger speculative range.",
       "story": "Keeps the gentle entry-point quality intact while staying grounded and inviting.",
       "welcome-to-night-vale": "A weirder, darker branch for listeners ready to lean harder into voice-driven weird fiction."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=desert-skies",
+    "hasPage": true,
+    "image": "shows/desert-skies/DesertSkies.jpeg",
+    "imageAlt": "Desert Skies cover art",
+    "summary": "A good archive reset when everything else starts feeling too grim, too metallic, or too self-serious.",
+    "finalRating": 6,
+    "searchText": "desert skies a warmer stranger fantasy comedy entry a good archive reset when everything else starts feeling too grim too metallic or too self serious useful when the listener wants something gentler without losing personality emotion fantasy comedy fantasy comedy drama warm weird hopeful full cast serialized easy entry desert skies desert skies podcast emotion fantasy comedy drama comedic tone jared carter jared carter voices every character english english midnight burger story welcome to night vale ongoing indexed only indexed entry unknown unknown jared carter jared carter jared carter jared carter voices every character not verified not verified not verified not verified not verified not verified available via official transcript index not applicable official site links to platform listening and support pages original fiction astral plane fuel and service station serialized fantasy comedy drama low official site verifies jared carter writes produces and voices every character transcript index confirms listed chapters and bonus transcript pages",
+    "tagTokens": [
+      "emotion",
+      "fantasy",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "easy-entry"
+    ]
   },
   {
     "id": "wolf-359",
@@ -3008,7 +3195,6 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/wolf-359/id909552816",
       "website": "https://www.wolf359.fm/",
       "rss": "https://feeds.megaphone.fm/wolf359radio"
@@ -3043,9 +3229,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "funny-space-disasters",
@@ -3075,13 +3259,7 @@
       "latest": "2017-12-25"
     },
     "officialLinks": {
-      "website": "https://www.wolf359.fm/",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.wolf359.fm/"
     },
     "credits": {
       "creatorName": "Gabriel Urbina",
@@ -3124,7 +3302,6 @@
       "researchGaps": [
         "exact RSS URL confirmation if feed host changes"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -3167,7 +3344,26 @@
       "oz-9": "Pushes the absurdity higher for listeners who liked the comic chaos more than the emotional turn.",
       "midnight-burger": "A warmer, more idea-rich follow-up if the character attachment matters most.",
       "wooden-overcoats": "Keeps the sharp comic timing and ensemble friction while leaving space entirely behind."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=wolf-359",
+    "hasPage": true,
+    "image": "shows/wolf359/Wolf359.jpeg",
+    "imageAlt": "Wolf 359 cover art",
+    "summary": "A dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later.",
+    "finalRating": 8,
+    "searchText": "wolf 359 the archive bridge between space comedy and bigger sci fi stakes a dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later one of the easiest archive answers when someone wants space comedy that can scale up later sci fi space comedy sci fi comedy funny cinematic full cast serialized funny space disasters binge listening wolf 359 wolf 359 podcast sci fi space comedy comedic tone gabriel urbina english english eos 10 oz 9 midnight burger wooden overcoats finished indexed only indexed entry unknown unknown gabriel urbina gabriel urbina sarah shachat zach valenti gabriel urbina kinda evil genius productions not verified not verified not verified not verified not verified not verified available on official site n a completed original feed original fiction u s s hephaestus orbiting wolf 359 communications log recordings medium official site verifies premise and site identity platform reference data verifies completed four season 61 episode run",
+    "tagTokens": [
+      "sci-fi",
+      "space",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "funny-space-disasters",
+      "binge-listening"
+    ]
   },
   {
     "id": "station-151",
@@ -3217,9 +3413,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "funny-space-disasters",
@@ -3252,11 +3446,7 @@
     "officialLinks": {
       "website": "https://www.station151.com/",
       "patreon": "https://patreon.com/station151",
-      "discord": "https://discord.gg/station151",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "discord": "https://discord.gg/station151"
     },
     "credits": {
       "writer": [
@@ -3301,7 +3491,6 @@
         "current feed count after Season 3 resumes",
         "exact average runtime by feed"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -3342,7 +3531,26 @@
       "wolf-359": "A more character-driven station follow-up with broader tonal range.",
       "tower-4": "A colder isolation variant once the comedy stops being the main attraction.",
       "archive-81": "Leans harder into strange signal horror for listeners chasing the unsettling side."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=station-151",
+    "hasPage": true,
+    "image": "shows/station151/Station151.jpeg",
+    "imageAlt": "Station 151 cover art",
+    "summary": "A strange little archive pick when you want comedy, confinement, and just enough pressure under the jokes.",
+    "finalRating": 6,
+    "searchText": "station 151 isolation comedy with a colder edge than the usual station banter a strange little archive pick when you want comedy confinement and just enough pressure under the jokes useful when you want comedy but not warmth sci fi isolation comedy sci fi comedy funny weird bleak full cast serialized funny space disasters cold isolation horror station 151 station 151 podcast sci fi isolation comedy comedic tone andy scearce and steven james scearce english oz 9 wolf 359 tower 4 archive 81 ongoing indexed only indexed entry unknown unknown andy scearce steven james scearce bear weiter pale matter productions andy scearce steven james scearce realm not verified not verified not verified not verified not verified not verified not applicable official site lists apple spotify pocket casts castbox podcast addict youtube and rss listening original fiction antarctic research station station communications first person lead medium official site verifies premise writers developers producer production company listening links and season 3 date apple verifies 36 episodes across 3 seasons and realm channel listing",
+    "tagTokens": [
+      "sci-fi",
+      "isolation",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "funny-space-disasters",
+      "cold-isolation-horror"
+    ]
   },
   {
     "id": "midnight-burger",
@@ -3393,9 +3601,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "easy-entry",
@@ -3408,12 +3614,12 @@
       "the-waystation",
       "midst"
     ],
-    "archiveTake": "A high-confidence recommendation when someone wants scope without losing warmth.",
-    "spoilerFreeReview": "",
-    "thoughts": "",
+    "archiveTake": "Still one of the archive's easiest recommendations when the listener wants range instead of a single-note genre loop.",
+    "spoilerFreeReview": "Midnight Burger starts with a diner that moves through time and dimensions, but the real reason it sticks is the mix of voice, warmth, and curiosity. It can be funny without becoming throwaway and expansive without losing the people at the center. The show keeps finding new ways to widen its premise while preserving the feeling that every stop still belongs to the same emotional engine. That makes it unusually useful as a recommendation bridge: weird enough for adventurous listeners, welcoming enough for people who do not usually want homework from their fiction.",
+    "thoughts": "What keeps working for me is the range. It can pivot from absurd cosmic comedy into real melancholy or tenderness without sounding like it is trying to prove a point. That versatility is exactly why it is now one of the archive's strongest full-review anchors.",
     "quote": {
-      "text": "",
-      "attribution": ""
+      "text": "A diner with enough range to be both comfort show and recommendation engine.",
+      "attribution": "Archive note"
     },
     "featured": true,
     "accent": {
@@ -3429,11 +3635,7 @@
     "officialLinks": {
       "website": "https://www.weopenatsix.com/",
       "youtube": "https://www.youtube.com/@weopenatsix",
-      "instagram": "https://www.instagram.com/weopenatsix/",
-      "patreon": "",
-      "discord": "",
-      "merch": "",
-      "facebook": ""
+      "instagram": "https://www.instagram.com/weopenatsix/"
     },
     "credits": {
       "creatorName": "Joe Fisher",
@@ -3471,7 +3673,6 @@
         "exact total runtime from RSS",
         "exact award list"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -3513,7 +3714,33 @@
       "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",
       "the-waystation": "Hopeful speculative storytelling with a similarly generous curiosity about people and place.",
       "midst": "A stranger, more reality-bending branch for listeners chasing the cosmic side of the appeal."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [
+      "Midnight Burger starts with a diner that moves through time and dimensions, but the real reason it sticks is the mix of voice, warmth, and curiosity. It can be funny without becoming throwaway and expansive without losing the people at the center.",
+      "The show keeps finding new ways to widen its premise while preserving the feeling that every stop still belongs to the same emotional engine. That makes it unusually useful as a recommendation bridge: weird enough for adventurous listeners, welcoming enough for people who do not usually want homework from their fiction."
+    ],
+    "thoughtsParagraphs": [
+      "What keeps working for me is the range. It can pivot from absurd cosmic comedy into real melancholy or tenderness without sounding like it is trying to prove a point.",
+      "That versatility is exactly why it is now one of the archive's strongest full-review anchors."
+    ],
+    "popularity": {},
+    "href": "/show.html?id=midnight-burger",
+    "hasPage": true,
+    "image": "shows/midnight burger/MidnightBurger.jpeg",
+    "imageAlt": "Midnight Burger cover art",
+    "summary": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
+    "finalRating": 10,
+    "searchText": "midnight burger a warm idea rich sci fi comedy with real range one of the archive s broadest recommendation engines in show form funny weird welcoming and built to keep expanding still one of the archive s easiest recommendations when the listener wants range instead of a single note genre loop midnight burger starts with a diner that moves through time and dimensions but the real reason it sticks is the mix of voice warmth and curiosity it can be funny without becoming throwaway and expansive without losing the people at the center the show keeps finding new ways to widen its premise while preserving the feeling that every stop still belongs to the same emotional engine that makes it unusually useful as a recommendation bridge weird enough for adventurous listeners welcoming enough for people who do not usually want homework from their fiction what keeps working for me is the range it can pivot from absurd cosmic comedy into real melancholy or tenderness without sounding like it is trying to prove a point that versatility is exactly why it is now one of the archive s strongest full review anchors midnight burger starts with a diner that moves through time and dimensions but the real reason it sticks is the mix of voice warmth and curiosity it can be funny without becoming throwaway and expansive without losing the people at the center the show keeps finding new ways to widen its premise while preserving the feeling that every stop still belongs to the same emotional engine that makes it unusually useful as a recommendation bridge weird enough for adventurous listeners welcoming enough for people who do not usually want homework from their fiction what keeps working for me is the range it can pivot from absurd cosmic comedy into real melancholy or tenderness without sounding like it is trying to prove a point that versatility is exactly why it is now one of the archive s strongest full review anchors sci fi science comedy sci fi comedy science warm funny weird full cast serialized easy entry worldbuilding binge listening midnight burger we open at six midnight burger podcast sci fi science comedy comedic tone joe fisher english desert skies wolf 359 the waystation midst ongoing full review indexed entry unknown unknown joe fisher business goose media ramsey hong not verified not verified not verified not verified not verified not verified not verified unknown n a official site links apple spotify youtube music rss pocket casts amazon music audible goodpods castbox podcast addict and iheartradio original fiction time traveling dimension spanning diner full cast serialized comedy drama medium official site verifies premise platform links rss business goose media art credit 105 total episode listings season counts and latest listed episode date",
+    "tagTokens": [
+      "sci-fi",
+      "science",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "easy-entry",
+      "worldbuilding",
+      "binge-listening"
+    ]
   },
   {
     "id": "spectre",
@@ -3527,10 +3754,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/spectre/id1593110598",
-      "website": "https://www.spectrepod.com/",
-      "rss": ""
+      "website": "https://www.spectrepod.com/"
     },
     "genres": [
       "sci-fi",
@@ -3561,9 +3786,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night"
@@ -3586,15 +3809,7 @@
       "rgb": "97, 113, 140"
     },
     "updatedAt": "2026-06-30",
-    "officialLinks": {
-      "website": "",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
-    },
+    "officialLinks": {},
     "credits": {
       "creatorName": "Stef Howerton",
       "writer": "Stef Howerton",
@@ -3633,7 +3848,6 @@
         "RSS feed URL",
         "complete cast/crew"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -3678,7 +3892,25 @@
       "solar": "Keeps the spacebound threat active with more direct survival pressure.",
       "the-deca-tapes": "A puzzle-box mystery branch if atmosphere matters more than forward drive.",
       "derelict": "A louder industrial escalation for listeners who want the sci-fi pressure to get meaner."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=spectre",
+    "hasPage": true,
+    "image": "shows/spectre/Spectre.jpeg",
+    "imageAlt": "Spectre cover art",
+    "summary": "A lower-key archive mystery entry for listeners who want sci-fi atmosphere and uncertainty more than loud bombast.",
+    "finalRating": 6,
+    "searchText": "spectre space mystery with a colder more watchful tone a lower key archive mystery entry for listeners who want sci fi atmosphere and uncertainty more than loud bombast an archive browse pick when the listener wants atmosphere first sci fi space mystery sci fi mystery dark tense full cast serialized late night spectre spectre podcast sci fi space mystery content notes not verified beyond public premise stef howerton english solar the deca tapes derelict unclear indexed only indexed entry unknown unknown stef howerton stef howerton not verified stef howerton not verified tim rosko spectre indie not fully verified not verified unknown n a no reliable official source captured in this pass original fiction space mystery serialized audio drama medium no reliable official match found in this pass without high risk of mixing it with unrelated spectre results left objective fields explicitly unverified",
+    "tagTokens": [
+      "sci-fi",
+      "space",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "late-night"
+    ]
   },
   {
     "id": "the-phenomenon",
@@ -3692,7 +3924,6 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225",
       "website": "https://www.phenomenonpod.com/",
       "rss": "https://phenomenonpod.libsyn.com/rss"
@@ -3728,9 +3959,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night",
@@ -3760,13 +3989,7 @@
       "note": "Latest platform listing found is a Survivors anthology entry on 2022-11-16; official site distinguishes Seasons 1-3 serialized story from Survivors anthology."
     },
     "officialLinks": {
-      "website": "https://www.phenomenonpod.com/",
-      "youtube": "",
-      "instagram": "",
-      "facebook": "",
-      "patreon": "",
-      "discord": "",
-      "merch": ""
+      "website": "https://www.phenomenonpod.com/"
     },
     "credits": {
       "director": "Jared J. Smith",
@@ -3808,7 +4031,6 @@
       "researchGaps": [
         "exact current platform episode count after extras"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -3851,7 +4073,26 @@
       "the-white-vault": "A colder isolation branch once the environmental dread is what matters most.",
       "impact-winter": "Keeps the catastrophe pressure high while making the genre spectacle bigger.",
       "were-alive": "The clearest neighboring pick if you want more relentless survival attrition and ensemble consequence."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=the-phenomenon",
+    "hasPage": true,
+    "image": "shows/the phenomenon/Phenomenon.jpeg",
+    "imageAlt": "The Phenomenon cover art",
+    "summary": "A more severe survival entry for listeners who want fear, uncertainty, and pressure over character comfort.",
+    "finalRating": 5,
+    "searchText": "the phenomenon survival mystery built around a threat you feel before you understand a more severe survival entry for listeners who want fear uncertainty and pressure over character comfort a survival forward pick for listeners who want dread before warmth survival science mystery mystery thriller science bleak tense full cast serialized late night cold isolation horror the phenomenon the phenomenon podcast survival science mystery thriller genre violence threat jared j smith english english the white vault impact winter we re alive finished indexed only indexed entry unknown unknown jared j smith jared j smith seasons 1 3 yk akar smith andrew pomeroy jared j smith andrew pomeroy andrew pomeroy amanda pecharsky luciola creative not verified not verified not verified available through official google drive link n a official episodes page links apple spotify pocket casts podchaser overcast castbox youtube rss and transcripts based on the novel the phenomenon by r k katic global catastrophic extraterrestrial invasion international ensemble high official site verifies production credits source material relationship season structure survivors anthology platform links rss and transcript availability",
+    "tagTokens": [
+      "survival",
+      "science",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "cold-isolation-horror"
+    ]
   },
   {
     "id": "paralyzed",
@@ -3865,10 +4106,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
-      "website": "https://www.7lamb.com/audiodramas/paralyzed",
-      "rss": ""
+      "website": "https://www.7lamb.com/audiodramas/paralyzed"
     },
     "genres": [
       "mystery",
@@ -3899,9 +4138,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "late-night"
@@ -3925,13 +4162,7 @@
     },
     "updatedAt": "2026-06-30",
     "officialLinks": {
-      "website": "https://www.7lamb.com/audiodramas/paralyzed",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.7lamb.com/audiodramas/paralyzed"
     },
     "credits": {
       "productionCompany": "7 Lamb Productions",
@@ -3971,7 +4202,6 @@
         "exact latest episode date",
         "cast/crew beyond creator/network"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -4020,7 +4250,25 @@
       "how-i-died": "Another supernatural-mystery route with a cleaner investigative spine.",
       "the-white-vault": "Pushes the dread colder and more environmental once the threat needs more space around it.",
       "malevolent": "A darker occult escalation for listeners who want the horror to feel more intimate and possessed."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=paralyzed",
+    "hasPage": true,
+    "image": "shows/paralyzed/Paralyzed.jpeg",
+    "imageAlt": "Paralyzed cover art",
+    "summary": "A browseable horror entry for listeners who want something paranormal, tense, and less sci-fi coded.",
+    "finalRating": 7,
+    "searchText": "paralyzed supernatural mystery with a stronger horror pulse a browseable horror entry for listeners who want something paranormal tense and less sci fi coded useful when the request is horror first and less interested in hard genre labeling mystery horror supernatural mystery horror supernatural dark tense full cast serialized late night paralyzed paralyzed podcast 7 lamb paralyzed mystery horror supernatural genre violence threat horror or supernatural themes 7 lamb productions english how i died the white vault malevolent ongoing indexed only indexed entry unknown unknown 7 lamb productions 7 lamb productions robert lamb not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction camping trip nightmares supernatural threat serialized horror drama high official 7 lamb listing verifies premise about david sleep paralysis camping trip and supernatural threat",
+    "tagTokens": [
+      "mystery",
+      "horror",
+      "supernatural"
+    ],
+    "bestForTokens": [
+      "late-night"
+    ]
   },
   {
     "id": "derelict",
@@ -4036,8 +4284,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/0RRSDPSo4fDJI5g7iHbJTy",
       "apple": "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
-      "website": "https://www.derelictpodcast.com/",
-      "rss": ""
+      "website": "https://www.derelictpodcast.com/"
     },
     "genres": [
       "sci-fi",
@@ -4071,9 +4318,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "long-walks",
@@ -4086,12 +4331,12 @@
       "earth-eclipsed",
       "the-program-audio-series"
     ],
-    "archiveTake": "A high-confidence recommendation when someone wants strong production and sustained sci-fi pressure.",
-    "spoilerFreeReview": "",
-    "thoughts": "",
+    "archiveTake": "One of the archive's cleaner high-pressure sci-fi recommendations when atmosphere and propulsion both need to show up.",
+    "spoilerFreeReview": "Derelict works because it understands how to scale tension. The sound design is detailed, the threat profile stays legible, and the show rarely forgets that forward motion matters as much as mystery. It lands best for listeners who want serious sci-fi pressure without losing narrative clarity. The world feels large, but the storytelling keeps the danger close enough to stay urgent.",
+    "thoughts": "This is the sort of show I reach for when someone wants a darker, more industrial next listen after a bigger genre hit. It does not try to charm the listener first. It tries to pull them forward, and that usually works.",
     "quote": {
-      "text": "",
-      "attribution": ""
+      "text": "Pressure first, mystery second, and enough sound detail to make both count.",
+      "attribution": "Archive note"
     },
     "featured": true,
     "accent": {
@@ -4107,12 +4352,7 @@
     },
     "officialLinks": {
       "website": "https://www.derelictpodcast.com/",
-      "discord": "",
-      "merch": "https://derelictpodcast.myshopify.com/",
-      "patreon": "",
-      "youtube": "",
-      "instagram": "",
-      "facebook": ""
+      "merch": "https://derelictpodcast.myshopify.com/"
     },
     "credits": {
       "creatorName": "J. Barton Mitchell",
@@ -4153,7 +4393,6 @@
         "Season 3 publication date",
         "whether archive latestRelease should track main-story episodes or feed updates"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -4197,7 +4436,33 @@
       "solar": "A tighter survival chamber for listeners who want the tension without the same scope.",
       "earth-eclipsed": "Another dark sci-fi route with a serious tone and looming catastrophe in the walls.",
       "the-program-audio-series": "A colder, idea-driven sci-fi branch for listeners who liked the controlled threat level."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [
+      "Derelict works because it understands how to scale tension. The sound design is detailed, the threat profile stays legible, and the show rarely forgets that forward motion matters as much as mystery.",
+      "It lands best for listeners who want serious sci-fi pressure without losing narrative clarity. The world feels large, but the storytelling keeps the danger close enough to stay urgent."
+    ],
+    "thoughtsParagraphs": [
+      "This is the sort of show I reach for when someone wants a darker, more industrial next listen after a bigger genre hit.",
+      "It does not try to charm the listener first. It tries to pull them forward, and that usually works."
+    ],
+    "popularity": {},
+    "href": "/show.html?id=derelict",
+    "hasPage": true,
+    "image": "shows/derelict/Derelict.jpeg",
+    "imageAlt": "Derelict cover art",
+    "summary": "One of the archive's strongest high-intensity sci-fi picks when the user wants something serious, propulsive, and built to hit hard.",
+    "finalRating": 10,
+    "searchText": "derelict big scale sci fi tension with a thriller engine underneath it one of the archive s strongest high intensity sci fi picks when the user wants something serious propulsive and built to hit hard one of the archive s cleaner high pressure sci fi recommendations when atmosphere and propulsion both need to show up derelict works because it understands how to scale tension the sound design is detailed the threat profile stays legible and the show rarely forgets that forward motion matters as much as mystery it lands best for listeners who want serious sci fi pressure without losing narrative clarity the world feels large but the storytelling keeps the danger close enough to stay urgent this is the sort of show i reach for when someone wants a darker more industrial next listen after a bigger genre hit it does not try to charm the listener first it tries to pull them forward and that usually works derelict works because it understands how to scale tension the sound design is detailed the threat profile stays legible and the show rarely forgets that forward motion matters as much as mystery it lands best for listeners who want serious sci fi pressure without losing narrative clarity the world feels large but the storytelling keeps the danger close enough to stay urgent this is the sort of show i reach for when someone wants a darker more industrial next listen after a bigger genre hit it does not try to charm the listener first it tries to pull them forward and that usually works sci fi thriller mystery sci fi thriller mystery dark cinematic tense full cast serialized long walks serious sci fi headphones on derelict fathom derelict fathom sci fi thriller mystery genre violence threat j barton mitchell english english impact winter solar earth eclipsed the program audio series ongoing full review indexed entry unknown unknown j barton mitchell night rocket productions not verified not verified not verified not verified not verified not verified not verified not verified available for season one fathom and season two derelict episode pages not applicable official site links to apple and pod link platform options original fiction deep sea later science fiction survival environment full cast ensemble high official site verifies night rocket productions and transcript lists for both seasons apple podcast pages verify public listing season 3 is in development crowdfunding context so release status remains active ongoing",
+    "tagTokens": [
+      "sci-fi",
+      "thriller",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "long-walks",
+      "serious-sci-fi",
+      "headphones-on"
+    ]
   },
   {
     "id": "crystal-blue",
@@ -4211,10 +4476,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
-      "website": "https://www.7lamb.com/audiodramas/crystal-blue",
-      "rss": ""
+      "website": "https://www.7lamb.com/audiodramas/crystal-blue"
     },
     "genres": [
       "sci-fi",
@@ -4246,9 +4509,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "funny-space-disasters"
@@ -4272,13 +4533,7 @@
     },
     "updatedAt": "2026-06-30",
     "officialLinks": {
-      "website": "https://www.7lamb.com/audiodramas",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.7lamb.com/audiodramas"
     },
     "credits": {
       "productionCompany": "7 Lamb Productions",
@@ -4316,7 +4571,6 @@
         "future Season 1 continuation status",
         "complete cast/crew"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -4363,7 +4617,25 @@
       "eos-10": "Keeps the lighter sci-fi comedy lane active with more ensemble banter than chaos.",
       "oz-9": "A messier comic escalation if you want the dysfunction pushed harder.",
       "station-151": "A colder, stranger outpost branch for listeners who liked the off-kilter sci-fi tone."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=crystal-blue",
+    "hasPage": true,
+    "image": "shows/crystal-blue/CrystalBlue.jpeg",
+    "imageAlt": "Crystal Blues cover art",
+    "summary": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
+    "finalRating": 5,
+    "searchText": "crystal blue future facing sci fi comedy with a lighter archive profile a lighter speculative browse entry when someone wants future tech flavor without a darker mood requirement more browse curiosity than flagship recommendation but still useful in the lighter sci fi lane sci fi future comedy sci fi comedy funny weird full cast serialized funny space disasters crystal blues crystal blue 7 lamb crystal blue crystal blue podcast sci fi future comedy comedic tone 7 lamb productions english eos 10 oz 9 station 151 ongoing indexed only indexed entry unknown unknown 7 lamb productions 7 lamb productions not verified not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction distant planet military outcasts serialized sci fi audio drama medium official 7 lamb listing uses the title crystal blue and verifies the distant planet military outpost premise existing archive id title crystal blues is preserved for compatibility",
+    "tagTokens": [
+      "sci-fi",
+      "future",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "funny-space-disasters"
+    ]
   },
   {
     "id": "end-of-all-hope",
@@ -4377,10 +4649,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/end-of-all-hope/id1040046560",
-      "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
-      "rss": ""
+      "website": "https://www.7lamb.com/audiodramas/end-of-all-hope"
     },
     "genres": [
       "thriller",
@@ -4411,9 +4681,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "binge-listening",
@@ -4438,13 +4706,7 @@
     },
     "updatedAt": "2026-06-30",
     "officialLinks": {
-      "website": "https://www.7lamb.com/audiodramas/end-of-all-hope",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.7lamb.com/audiodramas/end-of-all-hope"
     },
     "credits": {
       "productionCompany": "7 Lamb Productions",
@@ -4484,7 +4746,6 @@
         "exact latest episode date",
         "current season status"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -4533,7 +4794,26 @@
       "impact-winter": "Another high-pressure catastrophe listen with stronger cinematic blast.",
       "were-alive": "The foundational survival-saga branch if group attrition is the draw.",
       "the-phenomenon": "Keeps the public-danger scale and relentless threat turnover active."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=end-of-all-hope",
+    "hasPage": true,
+    "image": "shows/eoah/EOAH.jpeg",
+    "imageAlt": "End of all Hope cover art",
+    "summary": "A survival-oriented archive entry for listeners who want threat, creatures, and forward motion more than elegance.",
+    "finalRating": 8,
+    "searchText": "end of all hope creature pressure and survival pacing in a more pulpy register a survival oriented archive entry for listeners who want threat creatures and forward motion more than elegance a practical archive recommendation when the ask is simple survival creatures and momentum survival aliens comedy thriller survival sci fi tense cinematic full cast serialized binge listening late night end of all hope 7 lamb end of all hope survival aliens comedy thriller sci fi genre violence threat 7 lamb productions english impact winter we re alive the phenomenon ongoing indexed only indexed entry unknown unknown 7 lamb productions 7 lamb productions robert lamb not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction alien invasion survival road story serialized ensemble survival drama high official 7 lamb listing verifies alien invasion survival premise and three survivor framing",
+    "tagTokens": [
+      "survival",
+      "aliens",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "binge-listening",
+      "late-night"
+    ]
   },
   {
     "id": "tower-4",
@@ -4547,10 +4827,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
-      "website": "https://www.7lamb.com/audiodramas/tower-4",
-      "rss": ""
+      "website": "https://www.7lamb.com/audiodramas/tower-4"
     },
     "genres": [
       "mystery",
@@ -4582,9 +4860,7 @@
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
-      "ads": "Unknown.",
-      "favoriteRun": "",
-      "wouldRelisten": null
+      "ads": "Unknown."
     },
     "bestFor": [
       "cold-isolation-horror",
@@ -4610,13 +4886,7 @@
     },
     "updatedAt": "2026-06-30",
     "officialLinks": {
-      "website": "https://www.7lamb.com/audiodramas/tower-4",
-      "patreon": "",
-      "discord": "",
-      "youtube": "",
-      "merch": "",
-      "instagram": "",
-      "facebook": ""
+      "website": "https://www.7lamb.com/audiodramas/tower-4"
     },
     "credits": {
       "productionCompany": "7 Lamb Productions",
@@ -4654,7 +4924,6 @@
         "exact total feed entry count",
         "complete cast/crew"
       ],
-      "awards": [],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -4702,7 +4971,26 @@
       "station-151": "A stranger outpost variation that keeps the remote-post unease alive.",
       "alice-isnt-dead": "A road-haunted branch for listeners who liked the voice, solitude, and ambient menace.",
       "archive-81": "A more ritual-heavy horror route for listeners who want the mystery to get weirder."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "popularity": {},
+    "href": "/show.html?id=tower-4",
+    "hasPage": true,
+    "image": "shows/towe4/Tower4.jpeg",
+    "imageAlt": "Tower 4 cover art",
+    "summary": "A good archive browse pick when the listener wants something remote, watchful, and just a little unsettling.",
+    "finalRating": 10,
+    "searchText": "tower 4 isolation mystery with a slow burn dread profile a good archive browse pick when the listener wants something remote watchful and just a little unsettling one of the archive s cleaner picks for remote watchtower unease mystery isolation comedy mystery thriller bleak tense narrated serialized cold isolation horror late night tower 4 tower 4 podcast 7 lamb tower 4 mystery isolation comedy thriller genre violence threat 7 lamb productions english the white vault station 151 alice isn t dead archive 81 ongoing indexed only indexed entry unknown unknown 7 lamb productions 7 lamb productions robert lamb not verified not verified not verified not verified bloody fm not verified not verified not verified not applicable official 7 lamb page links to podcast platforms but current capture did not expose a full feed ledger original fiction wyoming woods fire lookout tower narrated serialized mystery medium official 7 lamb listing verifies mike archer wyoming fire watch premise",
+    "tagTokens": [
+      "mystery",
+      "isolation",
+      "comedy"
+    ],
+    "bestForTokens": [
+      "cold-isolation-horror",
+      "late-night"
+    ]
   },
   {
     "id": "the-bright-sessions",
@@ -4718,8 +5006,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
       "apple": "https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058",
-      "website": "https://www.atypicalartists.co/thebrightsessions",
-      "rss": ""
+      "website": "https://www.atypicalartists.co/thebrightsessions"
     },
     "genres": [
       "sci-fi",
@@ -4760,7 +5047,10 @@
       "label": "Official site states the show ran for seven seasons.",
       "seasons": 7
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 9.1
     },
@@ -4800,7 +5090,32 @@
       "ars-paradoxica": "A denser science-fiction branch if the speculative mechanics matter as much as the characters.",
       "story": "Keeps the softer emotional legibility intact while stepping away from the superpowered frame.",
       "case-63": "A tighter, more suspense-forward route once you want the sci-fi idea compressed into a cleaner thriller."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=the-bright-sessions",
+    "hasPage": true,
+    "image": "images/covers/the-bright-sessions.jpg",
+    "imageAlt": "The Bright Sessions cover art",
+    "summary": "A character-first science-fiction drama about therapy, power, secrecy, and the personal cost of being unusual in a world that wants to study you.",
+    "finalRating": 9.1,
+    "searchText": "the bright sessions therapy sessions for the strange and unusual with a larger sci fi story waiting underneath a character first science fiction drama about therapy power secrecy and the personal cost of being unusual in a world that wants to study you one of the cleaner entry points for listeners who want emotionally legible sci fi before they want maximal world mechanics sci fi therapy superpowers sci fi drama supernatural hopeful cinematic weird full cast serialized easy entry binge listening worldbuilding the bright sessions podcast identity secrecy trust strong language mental health themes lauren shippen english ars paradoxica story case 63 finished indexed only",
+    "tagTokens": [
+      "sci-fi",
+      "therapy",
+      "superpowers"
+    ],
+    "bestForTokens": [
+      "easy-entry",
+      "binge-listening",
+      "worldbuilding"
+    ]
   },
   {
     "id": "wooden-overcoats",
@@ -4814,10 +5129,8 @@
     "releaseStatus": "hiatus",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
-      "website": "https://www.woodenovercoats.com/",
-      "rss": ""
+      "website": "https://www.woodenovercoats.com/"
     },
     "genres": [
       "comedy",
@@ -4854,7 +5167,10 @@
       "label": "Apple lists 55 episodes and years active 2015-2024; the official site also promoted additional 2025 material.",
       "episodes": 55
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.8
     },
@@ -4893,7 +5209,31 @@
       "wolf-359": "Keeps the ensemble friction and running bit energy alive in a bigger sci-fi frame.",
       "oz-9": "Pushes the incompetence and comic disaster angle much harder.",
       "eos-10": "Another banter-heavy ensemble comedy route with a lighter speculative wrapper."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=wooden-overcoats",
+    "hasPage": true,
+    "image": "images/covers/wooden-overcoats.jpg",
+    "imageAlt": "Wooden Overcoats cover art",
+    "summary": "A British comedy fiction series about dueling funeral directors, escalating grudges, and a village small enough for every petty disaster to feel personal.",
+    "finalRating": 8.8,
+    "searchText": "wooden overcoats a funeral home sitcom full of vanity sabotage and immaculate comic timing a british comedy fiction series about dueling funeral directors escalating grudges and a village small enough for every petty disaster to feel personal a strong next stop when the listener wants ensemble comedy with sharper jokes than warmth first comfort comedy small town rivals comedy drama funny chaotic hopeful full cast serialized easy entry binge listening wooden overcoats podcast rivalry community vanity wooden overcoats ltd english wolf 359 oz 9 eos 10 unclear indexed only",
+    "tagTokens": [
+      "comedy",
+      "small-town",
+      "rivals"
+    ],
+    "bestForTokens": [
+      "easy-entry",
+      "binge-listening"
+    ]
   },
   {
     "id": "alice-isnt-dead",
@@ -4950,7 +5290,10 @@
     "length": {
       "label": "Long-form serialized run with a completed original story arc and later additional material around the feed."
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.9
     },
@@ -4990,7 +5333,32 @@
       "tower-4": "The cleanest next stop if the solitary voice and remote unease are the hook.",
       "the-white-vault": "A colder environmental-horror branch once the sense of isolation becomes the main appetite.",
       "archive-81": "A stranger signal-horror route for listeners who want the mystery to get more ritualistic and unstable."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=alice-isnt-dead",
+    "hasPage": true,
+    "image": "images/covers/alice-isnt-dead.jpg",
+    "imageAlt": "Alice Isn't Dead cover art",
+    "summary": "A serialized horror thriller about a truck driver crossing America in search of the wife she thought was dead, with conspiracies and not-quite-human dangers waiting along the road.",
+    "finalRating": 8.9,
+    "searchText": "alice isn t dead a road haunted search story told in a voice that keeps pulling you forward a serialized horror thriller about a truck driver crossing america in search of the wife she thought was dead with conspiracies and not quite human dangers waiting along the road useful when the listener wants narration forward dread with motion mystery and a stronger sense of haunted geography horror road trip conspiracy horror mystery thriller dark tense weird narrated serialized late night headphones on cold isolation horror alice isnt dead loss travel conspiracy violence body horror joseph fink english tower 4 the white vault archive 81 unclear indexed only",
+    "tagTokens": [
+      "horror",
+      "road-trip",
+      "conspiracy"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "cold-isolation-horror"
+    ]
   },
   {
     "id": "mirrors",
@@ -5004,10 +5372,8 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/mirrors/id1428871702",
-      "website": "https://www.mirrorspodcast.com/",
-      "rss": ""
+      "website": "https://www.mirrorspodcast.com/"
     },
     "genres": [
       "horror",
@@ -5045,7 +5411,10 @@
     "length": {
       "label": "Official site describes the complete series as available now."
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 9
     },
@@ -5085,7 +5454,32 @@
       "the-white-vault": "Keeps the dread serious while shifting the haunting toward a broader speculative frame.",
       "archive-81": "A more ritual-heavy horror branch if the sound-driven weirdness is what you want more of.",
       "ars-paradoxica": "A cleaner science-fiction neighbor if the time-spanning structure mattered as much as the atmosphere."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=mirrors",
+    "hasPage": true,
+    "image": "images/covers/mirrors.jpg",
+    "imageAlt": "Mirrors cover art",
+    "summary": "A three-thread horror drama moving across centuries, using one haunting to connect women, memory, and long-range consequence.",
+    "finalRating": 9,
+    "searchText": "mirrors a sci fi ghost story with a colder more deliberate sense of haunting a three thread horror drama moving across centuries using one haunting to connect women memory and long range consequence a good step up when the listener wants eerie atmosphere without sacrificing the speculative fiction spine horror ghost story sci fi horror sci fi mystery bleak cinematic weird full cast serialized late night headphones on serious sci fi haunting history inheritance death supernatural threat zoomdoom stories english the white vault archive 81 ars paradoxica finished indexed only",
+    "tagTokens": [
+      "horror",
+      "ghost-story",
+      "sci-fi"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "unwell",
@@ -5099,10 +5493,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502",
-      "website": "https://www.unwellpodcast.com/",
-      "rss": ""
+      "website": "https://www.unwellpodcast.com/"
     },
     "genres": [
       "horror",
@@ -5143,7 +5535,10 @@
       "episodes": 129,
       "avgEpisodeMinutes": 25
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.7
     },
@@ -5182,7 +5577,31 @@
       "story": "Another approachable, character-first entry if you want warmth before the weirdness gets denser.",
       "mabel": "A quieter ghost-story branch once the voice-led haunting becomes the main attraction.",
       "desert-skies": "Keeps the inviting strange-world quality intact with a little more overt comfort."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=unwell",
+    "hasPage": true,
+    "image": "images/covers/unwell.jpg",
+    "imageAlt": "Unwell cover art",
+    "summary": "A long-running small-town horror drama about a boarding house, buried history, ghosts, and the people who slowly become each other's family.",
+    "finalRating": 8.7,
+    "searchText": "unwell midwestern gothic fiction that balances haunted town dread with found family warmth a long running small town horror drama about a boarding house buried history ghosts and the people who slowly become each other s family stronger for listeners who want gothic atmosphere with affection still left in the tank gothic small town ghosts horror mystery drama weird hopeful dark full cast serialized late night easy entry home community secrets grief supernatural threat audacious machine creative english story mabel desert skies ongoing indexed only",
+    "tagTokens": [
+      "gothic",
+      "small-town",
+      "ghosts"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "easy-entry"
+    ]
   },
   {
     "id": "midst",
@@ -5196,10 +5615,8 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/midst/id1681168186",
-      "website": "https://www.midst.co",
-      "rss": ""
+      "website": "https://www.midst.co"
     },
     "genres": [
       "sci-fi",
@@ -5238,7 +5655,10 @@
       "label": "Critical Role announced season 3 as the final season of the main series.",
       "seasons": 3
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 9.2
     },
@@ -5280,7 +5700,32 @@
       "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
       "the-program-audio-series": "A colder, more systems-minded branch for listeners who want the worldview to stay central.",
       "the-waystation": "An exploratory route if the strange setting and sense of scale mattered more than the chaos."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=midst",
+    "hasPage": true,
+    "image": "images/covers/midst.jpg",
+    "imageAlt": "Midst cover art",
+    "summary": "A reality-bending sci-fantasy audio drama in which three narrators guide the listener through a dangerous cosmos full of bad decisions, power structures, and gorgeous nonsense.",
+    "finalRating": 9.2,
+    "searchText": "midst a surreal space western told with swagger precision and a refusal to stay conventional a reality bending sci fantasy audio drama in which three narrators guide the listener through a dangerous cosmos full of bad decisions power structures and gorgeous nonsense a good escalation route once the listener wants bigger conceptual play without losing strong character propulsion sci fi fantasy space western sci fi fantasy adventure cinematic weird chaotic narrated serialized worldbuilding headphones on serious sci fi power myth systems violence body horror third person english midnight burger ars paradoxica the program audio series the waystation finished indexed only",
+    "tagTokens": [
+      "sci-fi",
+      "fantasy",
+      "space-western"
+    ],
+    "bestForTokens": [
+      "worldbuilding",
+      "headphones-on",
+      "serious-sci-fi"
+    ]
   },
   {
     "id": "the-program-audio-series",
@@ -5296,8 +5741,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/1ZQcGQMhrwF7MnXtFxt77z",
       "apple": "https://podcasts.apple.com/us/podcast/the-program-audio-series/id1487406662",
-      "website": "https://www.programaudioseries.com/",
-      "rss": ""
+      "website": "https://www.programaudioseries.com/"
     },
     "genres": [
       "sci-fi",
@@ -5335,7 +5779,10 @@
     "length": {
       "label": "Official site promotes ongoing monthly updates and a continuing anthology feed."
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.8
     },
@@ -5373,7 +5820,32 @@
       "derelict": "A louder pressure-cooker branch if you want the serious sci-fi tone to come with more immediate danger.",
       "ars-paradoxica": "Keeps the idea-forward speculative appetite active with more explicit time-science consequences.",
       "case-63": "A tighter thriller route for listeners who want the conceptual hook delivered with less sprawl."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=the-program-audio-series",
+    "hasPage": true,
+    "image": "images/covers/the-program-audio-series.jpg",
+    "imageAlt": "The Program audio series cover art",
+    "summary": "A speculative anthology set inside a future social order where money, state, and god have fused into one governing force.",
+    "finalRating": 8.8,
+    "searchText": "the program audio series a colder sci fi anthology for listeners who want systems doctrine and unease a speculative anthology set inside a future social order where money state and god have fused into one governing force works best when the listener wants serious sci fi ideas delivered with more chill than spectacle sci fi anthology dystopian sci fi thriller drama dark cinematic weird anthology serialized serious sci fi headphones on late night systems belief control authoritarian themes violence english derelict ars paradoxica case 63 ongoing indexed only",
+    "tagTokens": [
+      "sci-fi",
+      "anthology",
+      "dystopian"
+    ],
+    "bestForTokens": [
+      "serious-sci-fi",
+      "headphones-on",
+      "late-night"
+    ]
   },
   {
     "id": "malevolent",
@@ -5387,10 +5859,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
-      "website": "https://www.malevolent.ca/",
-      "rss": ""
+      "website": "https://www.malevolent.ca/"
     },
     "genres": [
       "horror",
@@ -5428,7 +5898,10 @@
     "length": {
       "label": "Official site publishes a continuing numbered-part structure and active release history through 2026."
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 9
     },
@@ -5470,7 +5943,32 @@
       "tower-4": "A quieter paranoia branch if the voice-driven unease is the part you want to keep.",
       "impact-winter": "A more overtly cinematic escalation if the intensity matters more than the occult frame.",
       "archive-81": "A stranger signal-horror branch once you want the mystery to become more structurally weird."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=malevolent",
+    "hasPage": true,
+    "image": "images/covers/malevolent.jpg",
+    "imageAlt": "Malevolent cover art",
+    "summary": "A horror serial following Arthur Lester, an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head.",
+    "finalRating": 9,
+    "searchText": "malevolent cosmic horror mystery with enough momentum to make the darkness feel athletic a horror serial following arthur lester an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head a strong escalation pick when the listener wants more occult intensity without losing narrative drive horror lovecraftian mystery horror mystery thriller dark tense cinematic narrated serialized late night headphones on cold isolation horror memory possession occult investigation body horror violence harlan guthrie english the white vault tower 4 impact winter archive 81 ongoing indexed only",
+    "tagTokens": [
+      "horror",
+      "lovecraftian",
+      "mystery"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "cold-isolation-horror"
+    ]
   },
   {
     "id": "case-63",
@@ -5485,9 +5983,7 @@
     "completionStatus": "unclear",
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp",
-      "apple": "https://podcasts.apple.com/us/podcast/case-63/id1703294291",
-      "website": "",
-      "rss": ""
+      "apple": "https://podcasts.apple.com/us/podcast/case-63/id1703294291"
     },
     "genres": [
       "sci-fi",
@@ -5527,7 +6023,10 @@
       "episodes": 20,
       "avgEpisodeMinutes": 10
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.9
     },
@@ -5565,7 +6064,32 @@
       "ars-paradoxica": "The clearest next step if you want the time-travel consequences to get denser and more systemic.",
       "from-now": "A compact companion route when you want another short-form time-dislocation mystery.",
       "the-program-audio-series": "A colder speculative branch once the ideas matter more than the emotional closeness."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=case-63",
+    "hasPage": true,
+    "image": "images/covers/case-63.jpg",
+    "imageAlt": "Case 63 cover art",
+    "summary": "A scripted suspense series about a psychiatrist and a patient who claims to be from the future, turning therapeutic sessions into a time-loop crisis.",
+    "finalRating": 8.9,
+    "searchText": "case 63 a tight time travel thriller built around two voices and a steadily tightening paradox a scripted suspense series about a psychiatrist and a patient who claims to be from the future turning therapeutic sessions into a time loop crisis a clean recommendation when the listener wants time travel tension without a giant onboarding burden sci fi time travel thriller sci fi thriller mystery tense cinematic weird full cast serialized serious sci fi short under five hours late night time travel fate uncertainty pandemic themes julio rojas english ars paradoxica from now the program audio series unclear indexed only",
+    "tagTokens": [
+      "sci-fi",
+      "time-travel",
+      "thriller"
+    ],
+    "bestForTokens": [
+      "serious-sci-fi",
+      "short-under-five-hours",
+      "late-night"
+    ]
   },
   {
     "id": "borrasca",
@@ -5581,8 +6105,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz",
       "apple": "https://podcasts.apple.com/us/podcast/borrasca/id1513640702",
-      "website": "https://qcodemedia.com/borrasca",
-      "rss": ""
+      "website": "https://qcodemedia.com/borrasca"
     },
     "genres": [
       "horror",
@@ -5620,7 +6143,10 @@
     "length": {
       "label": "QCODE promoted a second season return; the feed currently contains two seasons plus recap material."
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.6
     },
@@ -5659,7 +6185,31 @@
       "the-phenomenon": "Keeps the public-danger dread active once you want the menace to feel bigger than one town.",
       "tower-4": "A quieter remote-post branch if you want the unease to stay intimate and suspicious.",
       "how-i-died": "Another investigation-shaped horror route once the mystery is the main driver."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=borrasca",
+    "hasPage": true,
+    "image": "images/covers/borrasca.jpg",
+    "imageAlt": "Borrasca cover art",
+    "summary": "A dark mystery series about a town full of rumors, disappearances, and the awful machinery hidden behind a local legend.",
+    "finalRating": 8.6,
+    "searchText": "borrasca a psychological thriller that keeps turning childhood dread into something worse a dark mystery series about a town full of rumors disappearances and the awful machinery hidden behind a local legend best used when the listener wants small town menace with very little interest in comfort horror thriller small town horror thriller mystery dark tense bleak full cast serialized late night headphones on disappearance conspiracy trauma sexual violence violence rebecca klingel english the phenomenon tower 4 how i died unclear indexed only",
+    "tagTokens": [
+      "horror",
+      "thriller",
+      "small-town"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on"
+    ]
   },
   {
     "id": "mabel",
@@ -5673,10 +6223,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/mabel/id1160860118",
-      "website": "https://mabelpodcast.com/",
-      "rss": ""
+      "website": "https://mabelpodcast.com/"
     },
     "genres": [
       "horror",
@@ -5715,7 +6263,10 @@
       "label": "Apple lists 50 episodes for the original fiction run.",
       "episodes": 50
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.5
     },
@@ -5755,7 +6306,31 @@
       "unwell": "A warmer small-town branch if you want the haunting to keep its affection.",
       "mirrors": "Pushes the eeriness broader and stranger once the appetite turns more speculative.",
       "alice-isnt-dead": "Keeps the voice-driven dread alive while swapping ghosts for a road-haunted conspiracy pulse."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=mabel",
+    "hasPage": true,
+    "image": "images/covers/mabel.jpg",
+    "imageAlt": "Mabel cover art",
+    "summary": "A fiction podcast about ghosts, hidden histories, and missed connections, told through intimate messages and a steadily deepening sense of the uncanny.",
+    "finalRating": 8.5,
+    "searchText": "mabel ghosts family secrets and intimate audio that makes the house itself feel like a voice a fiction podcast about ghosts hidden histories and missed connections told through intimate messages and a steadily deepening sense of the uncanny a good match when the listener wants quieter supernatural unease and strong voice driven atmosphere horror ghosts family secrets horror mystery drama weird bleak hopeful narrated serialized late night headphones on haunting memory care grief supernatural threat becca de la rosa mabel martin english unwell mirrors alice isn t dead unclear indexed only",
+    "tagTokens": [
+      "horror",
+      "ghosts",
+      "family-secrets"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on"
+    ]
   },
   {
     "id": "archive-81",
@@ -5771,8 +6346,7 @@
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
       "apple": "https://podcasts.apple.com/us/podcast/archive-81/id1098194172",
-      "website": "https://www.archive81.com/",
-      "rss": ""
+      "website": "https://www.archive81.com/"
     },
     "genres": [
       "horror",
@@ -5811,7 +6385,10 @@
       "label": "Official site says the show has released three seasons and two miniseries, with more to come.",
       "seasons": 3
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 9.1
     },
@@ -5851,7 +6428,32 @@
       "the-white-vault": "A colder isolation-horror neighbor if you want the setting itself to feel more hostile.",
       "tower-4": "Keeps the remote-post suspicion active in a more grounded mystery shape.",
       "malevolent": "A darker occult escalation once the sound-led weirdness needs a more intimate supernatural bond."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=archive-81",
+    "hasPage": true,
+    "image": "images/covers/archive-81.jpg",
+    "imageAlt": "Archive 81 cover art",
+    "summary": "An archival horror series that starts with restored tapes and keeps widening into stranger rituals, cities, broadcasts, and buried histories.",
+    "finalRating": 9.1,
+    "searchText": "archive 81 found footage horror about ritual sound and the feeling that a recording can bite back an archival horror series that starts with restored tapes and keeps widening into stranger rituals cities broadcasts and buried histories one of the better escalation picks when the listener wants horror to get weirder more structural and more sound driven horror found footage archive horror mystery thriller dark weird cinematic narrated serialized late night headphones on cold isolation horror archives ritual broadcast body horror occult violence dead signals english the white vault tower 4 malevolent ongoing indexed only",
+    "tagTokens": [
+      "horror",
+      "found-footage",
+      "archive"
+    ],
+    "bestForTokens": [
+      "late-night",
+      "headphones-on",
+      "cold-isolation-horror"
+    ]
   },
   {
     "id": "homecoming",
@@ -5866,9 +6468,7 @@
     "completionStatus": "finished",
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
-      "apple": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
-      "website": "",
-      "rss": ""
+      "apple": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381"
     },
     "genres": [
       "thriller",
@@ -5907,7 +6507,10 @@
       "label": "Apple presents the original fiction run as a two-season thriller with later TV-production extras in the feed.",
       "seasons": 2
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 8.8
     },
@@ -5945,7 +6548,32 @@
       "case-63": "A compact prestige-thriller branch if you want another slickly delivered mystery with speculative edges.",
       "the-deca-tapes": "Keeps the engineered puzzle-box feel alive while changing the emotional texture.",
       "red-valley": "A stranger conspiracy-science route once the institutional unease becomes the main appetite."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=homecoming",
+    "hasPage": true,
+    "image": "images/covers/homecoming.jpg",
+    "imageAlt": "Homecoming cover art",
+    "summary": "A suspense drama about an experimental facility, institutional manipulation, and the cost of trying to piece together a story that does not want to be told cleanly.",
+    "finalRating": 8.8,
+    "searchText": "homecoming a psychological thriller built from calls overheard fragments and deliberate unease a suspense drama about an experimental facility institutional manipulation and the cost of trying to piece together a story that does not want to be told cleanly a strong start here option for listeners who want prestige thriller pacing in a compact fiction podcast form thriller mystery conspiracy thriller mystery drama tense cinematic dark full cast serialized easy entry late night short under five hours institutional control memory recovery war trauma drugging gimlet media english case 63 the deca tapes red valley finished indexed only",
+    "tagTokens": [
+      "thriller",
+      "mystery",
+      "conspiracy"
+    ],
+    "bestForTokens": [
+      "easy-entry",
+      "late-night",
+      "short-under-five-hours"
+    ]
   },
   {
     "id": "welcome-to-night-vale",
@@ -5959,7 +6587,6 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "spotify": "",
       "apple": "https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179",
       "website": "https://www.welcometonightvale.com/",
       "rss": "http://feeds.nightvalepresents.com/welcometonightvalepodcast"
@@ -6003,7 +6630,10 @@
     "length": {
       "label": "An ongoing twice-monthly fiction podcast with a large back catalog and starter-guide entry point."
     },
-    "releaseDates": {},
+    "releaseDates": {
+      "first": "",
+      "latest": ""
+    },
     "ratings": {
       "archive": 9.3
     },
@@ -6048,6 +6678,31 @@
       "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
       "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
       "unwell": "A small-town gothic branch if the community feeling matters as much as the cosmic oddness."
-    }
+    },
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "facts": {},
+    "credits": {},
+    "availability": {},
+    "content": {},
+    "metadata": {},
+    "popularity": {},
+    "href": "/show.html?id=welcome-to-night-vale",
+    "hasPage": true,
+    "image": "images/covers/welcome-to-night-vale.jpg",
+    "imageAlt": "Welcome to Night Vale cover art",
+    "summary": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
+    "finalRating": 9.3,
+    "searchText": "welcome to night vale community radio weirdness that treats the impossible like a local bulletin a twice monthly fiction podcast delivered as community updates from the desert town of night vale where conspiracy theories cosmic horror and dry humor all sound like normal civic news still one of the clearest archive answers when someone wants foundational weird fiction with a strong voice and a lighter touch than outright horror weird fiction community radio cosmic horror horror comedy sci fi weird funny dark narrated episodic easy entry warm weird late night wtnv welcome to night vale podcast community surrealism conspiracy body horror existential threat joseph fink jeffrey cranor cecil baldwin english alice isn t dead desert skies midnight burger unwell ongoing indexed only",
+    "tagTokens": [
+      "weird-fiction",
+      "community-radio",
+      "cosmic-horror"
+    ],
+    "bestForTokens": [
+      "easy-entry",
+      "warm-weird",
+      "late-night"
+    ]
   }
 ]

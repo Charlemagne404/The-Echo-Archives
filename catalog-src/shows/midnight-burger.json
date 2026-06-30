@@ -1,0 +1,171 @@
+{
+  "id": "midnight-burger",
+  "title": "Midnight Burger",
+  "subtitle": "A warm, idea-rich sci-fi comedy with real range.",
+  "description": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
+  "cover": "shows/midnight burger/MidnightBurger.jpeg",
+  "coverAlt": "Midnight Burger cover art",
+  "status": "published",
+  "reviewStatus": "full-review",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/3flVB3CeXIfVHwXjcKkNk8",
+    "apple": "https://podcasts.apple.com/us/podcast/id1537653218?ls=1&mt=2",
+    "website": "https://www.weopenatsix.com/",
+    "rss": "https://feeds.megaphone.fm/midnightburger"
+  },
+  "genres": [
+    "sci-fi",
+    "comedy",
+    "science"
+  ],
+  "tones": [
+    "warm",
+    "funny",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Science",
+    "Comedy"
+  ],
+  "length": {
+    "label": "105 episodes listed on official site; Season 5 active in 2026",
+    "seasons": 5,
+    "episodes": 105,
+    "avgEpisodeMinutes": 45,
+    "totalHours": 78.8
+  },
+  "ratings": {
+    "archive": 10
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "easy-entry",
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "desert-skies",
+    "wolf-359",
+    "the-waystation",
+    "midst"
+  ],
+  "archiveTake": "A high-confidence recommendation when someone wants scope without losing warmth.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#b26745",
+    "rgb": "178, 103, 69"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2020-10-27",
+    "latest": "2026-05-26",
+    "note": "Official episode archive count preserved; latest public episode date updated from the official episode archive / 2026 listings."
+  },
+  "officialLinks": {
+    "website": "https://www.weopenatsix.com/",
+    "youtube": "https://www.youtube.com/@weopenatsix",
+    "instagram": "https://www.instagram.com/weopenatsix/",
+    "patreon": "",
+    "discord": "",
+    "merch": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Joe Fisher",
+    "productionCompany": "Business Goose Media",
+    "coverArt": "Ramsey Hong",
+    "writer": "Not verified",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "Official site links Apple, Spotify, YouTube Music, RSS, Pocket Casts, Amazon Music, Audible, Goodpods, Castbox, Podcast Addict, and iHeartRadio."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "time-traveling, dimension-spanning diner",
+    "pov": "full-cast serialized comedy-drama",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.weopenatsix.com/",
+      "https://www.weopenatsix.com/episodes/",
+      "https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218"
+    ],
+    "objectiveNote": "Official site verifies premise, platform links, RSS, Business Goose Media, art credit, 105 total episode listings, season counts, and latest listed episode date.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/midnight-burger.json",
+    "researchGaps": [
+      "exact total runtime from RSS",
+      "exact award list"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.weopenatsix.com/; https://www.weopenatsix.com/episodes/; https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Midnight Burger",
+    "We Open at Six",
+    "Midnight Burger podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "science",
+    "comedy"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Joe Fisher"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "joe-fisher",
+  "networkId": "business-goose-media",
+  "similarReasons": {
+    "desert-skies": "For listeners who want the gentle, off-kilter comfort side of the recommendation.",
+    "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",
+    "the-waystation": "Hopeful speculative storytelling with a similarly generous curiosity about people and place.",
+    "midst": "A stranger, more reality-bending branch for listeners chasing the cosmic side of the appeal."
+  }
+}

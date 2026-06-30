@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-malevolent",
+  "title": "Shows like Malevolent",
+  "description": "Voice-led occult horror for listeners who want possession, mystery, and a relationship at the center of the dread.",
+  "label": "Occult escalation",
+  "kind": "similarity",
+  "intentTags": [
+    "cold-horror",
+    "late-night",
+    "headphones-on"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "archive-81",
+    "the-white-vault",
+    "mabel",
+    "paralyzed"
+  ],
+  "showIds": [
+    "archive-81",
+    "the-white-vault",
+    "mabel",
+    "mirrors",
+    "alice-isnt-dead",
+    "paralyzed"
+  ],
+  "showReasons": {
+    "archive-81": "A stranger signal-horror branch once the occult mystery needs more structure and sound design.",
+    "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
+    "mabel": "A quieter, more intimate ghost-haunting branch for listeners who want voice and possession-like unease.",
+    "mirrors": "Lets the horror spread across time and identity once the appetite turns more eerie than aggressive.",
+    "alice-isnt-dead": "A road-haunted branch if the voice-driven dread and persistent pursuit are the real hook.",
+    "paralyzed": "A direct supernatural-mystery route for listeners who want the horror first and the answers second."
+  },
+  "featured": false,
+  "order": 260,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

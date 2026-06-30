@@ -1,0 +1,39 @@
+{
+  "id": "quick-first-listens",
+  "title": "Quick first listens",
+  "description": "Shorter or easier-to-sample paths when you want a taste before committing.",
+  "label": "Short runway",
+  "kind": "curated",
+  "intentTags": [
+    "quick-listens",
+    "easy-first-step",
+    "late-night"
+  ],
+  "commitment": "Shorter start",
+  "coverShowIds": [
+    "from-now",
+    "solar",
+    "desert-skies",
+    "the-phenomenon"
+  ],
+  "showIds": [
+    "from-now",
+    "solar",
+    "desert-skies",
+    "the-phenomenon",
+    "the-deca-tapes",
+    "homecoming"
+  ],
+  "showReasons": {
+    "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
+    "solar": "A focused survival premise gets moving fast.",
+    "desert-skies": "Warm strangeness makes it easy to try without bracing.",
+    "the-phenomenon": "A finished pressure story with a direct hook.",
+    "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand.",
+    "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast."
+  },
+  "featured": false,
+  "order": 100,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

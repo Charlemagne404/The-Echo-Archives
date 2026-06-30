@@ -19,13 +19,13 @@ jobs:
         with:
           node-version: "20"
           cache: npm
-          cache-dependency-path: podcast-ai/package-lock.json
+          cache-dependency-path: backend/package-lock.json
 
       - name: Install backend dependencies
-        run: npm --prefix podcast-ai ci
+        run: npm --prefix backend ci
 
       - name: Install Playwright Chromium
-        run: npx --prefix podcast-ai playwright install --with-deps chromium
+        run: npx --prefix backend playwright install --with-deps chromium
 
       - name: Run repo verification
         run: npm run verify

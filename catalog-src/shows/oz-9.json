@@ -1,0 +1,179 @@
+{
+  "id": "oz-9",
+  "title": "Oz 9",
+  "subtitle": "Shipboard comedy powered by total incompetence and escalating nonsense.",
+  "description": "Corporate deep-space nonsense, incompetent crew energy, and a review that admits the audience is stronger than the personal fit.",
+  "cover": "shows/oz9/oz9.jpeg",
+  "coverAlt": "Oz 9 cover art",
+  "status": "published",
+  "reviewStatus": "full-review",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/oz-9/id1446814974",
+    "website": "https://oz-9.com/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [
+    "funny",
+    "chaotic",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "long-running"
+  ],
+  "tags": [
+    "Space",
+    "Unserious",
+    "Comedy",
+    "Sci-fi",
+    "Future"
+  ],
+  "length": {
+    "label": "7 seasons; Apple lists 163 public feed episodes",
+    "seasons": 7,
+    "episodes": 163,
+    "avgEpisodeMinutes": 27,
+    "totalHours": 54
+  },
+  "ratings": {
+    "archive": 10,
+    "voiceActing": 6,
+    "soundDesign": 5,
+    "story": 6,
+    "characters": 7,
+    "ads": 8,
+    "length": 9.5
+  },
+  "facts": {
+    "structure": "Bounces between different characters and places.",
+    "narrator": "Yes (in-universe character).",
+    "ads": "No.",
+    "favoriteRun": "Season 4, episode 20.",
+    "wouldRelisten": false
+  },
+  "bestFor": [
+    "funny-space-disasters",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "station-151",
+    "eos-10",
+    "wolf-359",
+    "wooden-overcoats"
+  ],
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": "Archive note"
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#07ac3e",
+    "rgb": "7, 172, 62"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2018-10-31",
+    "latest": "2026-01-01"
+  },
+  "officialLinks": {
+    "website": "https://oz-9.com/",
+    "patreon": "https://www.patreon.com/Oz9podcast",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Shannon Perry",
+    "productionCompany": "Gated Galaxies / Oz 9 / Fable & Folly Network",
+    "writer": "Shannon Perry",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Mark Restuccia",
+    "composer": "John Faley",
+    "network": "Fable & Folly Network",
+    "cast": "Not fully verified",
+    "coverArt": "Lucas Elliott"
+  },
+  "availability": {
+    "transcripts": "available per-episode on official site",
+    "captions": "n/a",
+    "regionNotes": "Official site says transcripts are linked under episode players."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "spacecraft Oz 9",
+    "pov": "full-cast space comedy",
+    "intensity": "low"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://oz-9.com/",
+      "https://oz-9.com/meet-the-crew/",
+      "https://podcasts.apple.com/us/podcast/oz-9/id1446814974"
+    ],
+    "objectiveNote": "Official Oz 9 pages verify active site, crew/cast page, Fable & Folly association, and a long-running episode archive. Existing subjective review content is preserved.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/oz-9.json",
+    "researchGaps": [
+      "exact latest public episode date",
+      "whether display creator should be Shannon Perry or Apple-listed Gated Galaxies"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://oz-9.com/; https://oz-9.com/meet-the-crew/; https://podcasts.apple.com/us/podcast/oz-9/id1446814974",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Oz 9",
+    "Oz 9 podcast"
+  ],
+  "themes": [
+    "space",
+    "unserious",
+    "comedy",
+    "sci-fi",
+    "future"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "Shannon Perry"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "shannon-perry",
+  "networkId": "fable-and-folly-network",
+  "similarReasons": {
+    "station-151": "Another damaged-station comedy route, but stranger and more acidic.",
+    "eos-10": "The cleanest adjacent pick for listeners who want more medical-space banter and ensemble friction.",
+    "wolf-359": "A bigger character-payoff branch for listeners who liked the station setup but want more growth.",
+    "wooden-overcoats": "Keeps the timing, vanity, and petty disasters intact without the sci-fi wrapper."
+  }
+}

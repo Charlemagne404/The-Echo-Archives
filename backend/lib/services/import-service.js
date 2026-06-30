@@ -715,7 +715,7 @@ function createImportService({
     const shows = readCatalogRecords();
     const show = shows.find((record) => record.id === showId);
     if (!show) {
-      const error = new Error(`Draft show "${showId}" is missing from data/shows.json.`);
+      const error = new Error(`Draft show "${showId}" is missing from the authored catalog source.`);
       error.statusCode = 404;
       throw error;
     }

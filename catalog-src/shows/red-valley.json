@@ -1,0 +1,172 @@
+{
+  "id": "red-valley",
+  "title": "Red Valley",
+  "subtitle": "A science-heavy mystery with enough conceptual weirdness to stick.",
+  "description": "A smart archive-adjacent mystery pick when you want science, secrecy, and a colder conceptual frame.",
+  "cover": "shows/red valley/RedValley.jpeg",
+  "coverAlt": "Red Valley cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
+    "website": "https://www.redvalleypod.com/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "mystery"
+  ],
+  "tones": [
+    "weird",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Future",
+    "Mystery"
+  ],
+  "length": {
+    "label": "4 released seasons / 48 public feed episodes; final Season 5 announced for 2026",
+    "seasons": 4,
+    "episodes": 48,
+    "avgEpisodeMinutes": 30,
+    "totalHours": 18,
+    "upcomingSeasons": 1
+  },
+  "ratings": {
+    "archive": 7
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "late-night",
+    "serious-sci-fi"
+  ],
+  "similarTo": [
+    "ars-paradoxica",
+    "the-deca-tapes",
+    "case-63"
+  ],
+  "archiveTake": "A good neighboring pick once Ars Paradoxica leaves you wanting more controlled weirdness.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#92605d",
+    "rgb": "146, 96, 93"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2020-03-22",
+    "latest": "2025-06-01",
+    "note": "Current released feed includes Seasons 1-4. Final Season 5 is announced for 2026 but not counted as released yet.",
+    "upcoming": "Season 5 / final season announced for 2026"
+  },
+  "officialLinks": {
+    "website": "https://www.redvalleypod.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "https://www.redvalleypod.com/shop.html",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "Red Valley",
+    "creatorName": [
+      "Jonathan Williams",
+      "Alan Mandel"
+    ],
+    "writer": "Jonathan Williams",
+    "director": "Alan Mandel",
+    "producer": "Alan Mandel",
+    "composer": "Richard Campbell",
+    "soundDesign": "Richard Campbell",
+    "network": "Fable & Folly",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official site says available on all podcast platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Red Valley research-station / cryonics mystery",
+    "pov": "multi-character",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.redvalleypod.com/",
+      "https://www.redvalleypod.com/about.html",
+      "https://www.redvalleypod.com/cast--crew.html",
+      "https://podcasts.apple.com/us/podcast/red-valley/id1502771083"
+    ],
+    "objectiveNote": "Official site verifies premise, Fable & Folly association, listed season/mini-series structure, writer, director/producer, post-production/music, and recording studio context. Episode total is counted from visible official season/mini-series entries and should be rechecked if the site changes.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/red-valley.json",
+    "researchGaps": [
+      "exact RSS feed URL",
+      "exact total runtime",
+      "final Season 5 release date"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-upcoming-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.redvalleypod.com/; https://www.redvalleypod.com/about.html; https://www.redvalleypod.com/cast--crew.html; https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Red Valley",
+    "Red Valley Podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "future",
+    "mystery"
+  ],
+  "contentNotes": [
+    "content notes not verified beyond public premise"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Jonathan Williams and Alan Mandel"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "jonathan-williams-and-alan-mandel",
+  "networkId": "red-valley-fable-and-folly",
+  "similarReasons": {
+    "ars-paradoxica": "The cleanest neighbor if the controlled science-fiction weirdness is the real hook.",
+    "the-deca-tapes": "Keeps the enclosed puzzle energy alive while leaning harder into mystery structure.",
+    "case-63": "A tighter paradox-thriller branch for listeners who want the time bend to stay front and center."
+  }
+}

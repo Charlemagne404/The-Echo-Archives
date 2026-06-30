@@ -1,5 +1,6 @@
 const {
   assertShowExists,
+  validateSiteData,
   createReviewPayloadFromShow,
   getReviewFileStatus,
   readShowsFile,
@@ -9,7 +10,7 @@ const {
   writeShowsFile,
 } = require("./review-helpers");
 
-function main() {
+async function main() {
   const showId = String(process.argv[2] || "").trim();
   if (!showId) {
     throw new Error("Usage: npm run review:new -- <show-id>");
@@ -32,11 +33,15 @@ function main() {
   show.updatedAt = todayStamp();
 
   writeShowsFile(siteRoot, shows);
+  await validateSiteData(siteRoot);
   console.log(`Created ${reviewFile.path} and updated ${showId} for review drafting.`);
 }
 
 try {
-  main();
+  Promise.resolve(main()).catch((error) => {
+    console.error(error.message || error);
+    process.exitCode = 1;
+  });
 } catch (error) {
   console.error(error.message || error);
   process.exitCode = 1;

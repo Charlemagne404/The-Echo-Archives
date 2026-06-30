@@ -1,0 +1,47 @@
+{
+  "id": "late-night-tension",
+  "title": "Late-night tension",
+  "description": "Shows for when quiet rooms, suspicious signals, and bad choices sound better after dark.",
+  "label": "After-dark pressure",
+  "kind": "curated",
+  "intentTags": [
+    "late-night",
+    "cold-horror",
+    "time-bent"
+  ],
+  "commitment": "Night listen",
+  "coverShowIds": [
+    "solar",
+    "the-deca-tapes",
+    "mabel",
+    "red-valley"
+  ],
+  "showIds": [
+    "solar",
+    "the-deca-tapes",
+    "windfall",
+    "red-valley",
+    "spectre",
+    "paralyzed",
+    "tower-4",
+    "mabel",
+    "borrasca",
+    "welcome-to-night-vale"
+  ],
+  "showReasons": {
+    "solar": "Tight survival tension fits a focused night listen.",
+    "the-deca-tapes": "Closed-room mystery and weird structure make it hard to relax.",
+    "windfall": "Dark political pressure keeps the route grounded and tense.",
+    "red-valley": "Strange science and unanswered questions suit late listening.",
+    "spectre": "A darker sci-fi mystery option for a shorter route.",
+    "paralyzed": "Direct supernatural dread belongs in the after-dark lane.",
+    "tower-4": "Remote isolation keeps the atmosphere sparse and uneasy.",
+    "mabel": "Quiet ghost-story dread makes the whole route feel more intimate and uncanny.",
+    "borrasca": "Small-town menace and steadily worsening revelations fit the no-comfort version of this lane.",
+    "welcome-to-night-vale": "Community-radio menace keeps the after-midnight energy eerie even when the delivery sounds calm."
+  },
+  "featured": false,
+  "order": 70,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

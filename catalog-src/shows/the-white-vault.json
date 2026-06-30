@@ -1,0 +1,189 @@
+{
+  "id": "the-white-vault",
+  "title": "The White Vault",
+  "subtitle": "Cold-weather dread with one of the archive's stronger isolation profiles.",
+  "description": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
+  "cover": "shows/white-vault/WhiteVault.jpeg",
+  "coverAlt": "The White Vault cover art",
+  "status": "published",
+  "reviewStatus": "full-review",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/2zaOPON66InniTdoEoPai5",
+    "apple": "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
+    "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
+    "rss": "https://feeds.megaphone.fm/thewhitevault"
+  },
+  "genres": [
+    "horror",
+    "mystery",
+    "thriller"
+  ],
+  "tones": [
+    "dark",
+    "bleak",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Mystery",
+    "Survival",
+    "Thriller"
+  ],
+  "length": {
+    "label": "Shared Fool & Scholar feed; Apple shows Season 8 active, and public feed counts vary because related series/bonus entries are included",
+    "seasons": 8,
+    "episodes": 92,
+    "avgEpisodeMinutes": 30,
+    "totalHours": 46,
+    "feedEntriesApprox": 119
+  },
+  "ratings": {
+    "archive": 9
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "cold-isolation-horror",
+    "late-night"
+  ],
+  "similarTo": [
+    "tower-4",
+    "archive-81",
+    "malevolent",
+    "how-i-died"
+  ],
+  "archiveTake": "One of the cleanest archive answers when someone asks for cold, remote dread.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#6c7e89",
+    "rgb": "108, 126, 137"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2017-10-03",
+    "latest": "2026-06-01"
+  },
+  "officialLinks": {
+    "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
+    "patreon": "https://www.patreon.com/FoolandScholar",
+    "youtube": "https://www.youtube.com/@FoolandScholar",
+    "discord": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": [
+      "K.A. Statz",
+      "Travis Vengroff"
+    ],
+    "writer": "K.A. Statz",
+    "producer": "Travis Vengroff",
+    "soundDesign": "Travis Vengroff",
+    "cast": [
+      "Hem Brewster",
+      "Peter Joseph Lewis",
+      "Lani Minella",
+      "David Ault",
+      "Eyþór Viðarsson"
+    ],
+    "productionCompany": "Fool & Scholar Productions",
+    "director": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "free transcripts linked from show notes / Patreon posts; shop editions include transcript PDFs",
+    "captions": "n/a",
+    "regionNotes": "Official page says The White Vault and Goshawk share one RSS feed."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "remote arctic outpost / global horror sites",
+    "pov": "found footage / collected records",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.foolandscholar.com/the-white-vault-goshawk",
+      "https://www.foolandscholar.com/the-white-vault-1",
+      "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823"
+    ],
+    "objectiveNote": "Official Fool & Scholar page verifies shared White Vault/Goshawk feed handling, platform links, RSS, cast/crew context for Goshawk, and active award/status notes. White Vault historical episode totals should be handled carefully because the feed now includes related series.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/the-white-vault.json",
+    "researchGaps": [
+      "exact main-series count separated from shared-feed related series",
+      "whether archive should display 92 main/current entries or broader ~119 feed entries"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.foolandscholar.com/the-white-vault-goshawk; https://www.foolandscholar.com/the-white-vault-1; https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "The White Vault",
+    "Goshawk",
+    "The White Vault / Goshawk"
+  ],
+  "themes": [
+    "mystery",
+    "survival",
+    "thriller",
+    "horror"
+  ],
+  "contentNotes": [
+    "genre violence / threat",
+    "horror or supernatural themes"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "K.A. Statz and Travis Vengroff"
+  ],
+  "cast": [
+    "Hem Brewster",
+    "Peter Joseph Lewis",
+    "Lani Minella",
+    "David Ault",
+    "Eyþór Viðarsson"
+  ],
+  "createdAt": "2026-06-01",
+  "creatorId": "k-a-statz-and-travis-vengroff",
+  "networkId": "fool-and-scholar-productions",
+  "similarReasons": {
+    "tower-4": "Remote isolation and slow-burn unease make it the cleanest neighboring pick.",
+    "archive-81": "For listeners who want stranger archival horror once the environmental dread has taken hold.",
+    "malevolent": "A darker supernatural escalation for listeners who want more threat and more occult texture.",
+    "how-i-died": "Keeps the mystery and supernatural investigation lane active while dialing down the arctic scale."
+  }
+}

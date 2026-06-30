@@ -8,14 +8,13 @@ This repo is not a generic podcast directory or a playback app. It is a dark, ed
 
 ## Current State
 
-As of June 29, 2026, the repo contains a working static-first site plus a small Node backend.
+The repo contains a working static-first site plus a small Node backend.
+The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs/generated/catalog-status.md) so counts do not have to be hand-maintained across multiple docs.
 
 | Area | Current state |
 | --- | --- |
-| Catalog | 27 published show records in `data/shows.json` |
-| Coverage mix | 24 `indexed-only` shows and 3 `full-review` shows |
-| Collections | 15 curated collection records in `data/collections.json` |
-| Review companions | 3 JSON review companions in `data/reviews/` |
+| Catalog source | Split JSON authoring files under `catalog-src/` |
+| Runtime catalog | Generated public data under `data/` plus a generated `/data/search-index.json` browse index |
 | Main browse surface | Homepage with structured filters, quick filters, search, recently updated mode, featured collections, and a most-popular band |
 | Detail routes | Reusable show pages at `show.html?id=<show-id>` and collection pages at `collection.html?id=<collection-id>` |
 | Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
@@ -42,8 +41,8 @@ Legacy show detail pages still exist under `shows/` and are kept as compatibilit
 
 ## How The Repo Is Organized
 
-- `data/` holds the canonical editorial catalog and collection data.
-- `data/reviews/` holds optional long-form review companion JSON.
+- `catalog-src/` holds the authored source of truth for shows, collections, and review companions.
+- `data/` holds generated runtime/public catalog data, including `search-index.json`.
 - `site-src/` holds authored page sources, partials, and the page manifest.
 - The repo root holds generated public output such as `index.html`, `show.html`, `collection.html`, and the stable CSS and JS entry files.
 - `shared/` holds browser modules, shared rendering helpers, search logic, and CSS partials.
@@ -84,9 +83,13 @@ Root commands:
 | Command | What it does |
 | --- | --- |
 | `npm run dev` | Starts the local backend and static site through `backend/` |
+| `npm run build:catalog` | Regenerates runtime catalog data, the search index, and the generated catalog snapshot |
+| `npm run report:catalog` | Prints solo-dev catalog gaps and generated-output drift |
+| `npm run catalog:new:show -- --id <show-id> [--title "Title"]` | Scaffolds a new show source record |
+| `npm run catalog:new:collection -- --id <collection-id> --show-id <show-id> [--title "Title"]` | Scaffolds a new collection source record |
 | `npm run build:pages` | Regenerates committed root HTML from `site-src/` |
 | `npm run check:structure` | Enforces repo structure and generated-source boundaries |
-| `npm run verify` | Runs page build, structure checks, backend tests, smoke tests, and data/link validation |
+| `npm run verify` | Regenerates catalog + pages, checks repo structure, then runs backend tests, smoke tests, and data/link validation |
 
 Useful backend commands:
 

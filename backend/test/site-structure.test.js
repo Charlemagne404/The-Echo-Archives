@@ -25,14 +25,15 @@ const legacyRedirects = JSON.parse(fs.readFileSync(legacyRedirectManifestPath, "
 test("public runtime pages load archive-search before the module entry script", () => {
   runtimePages.forEach((pagePath) => {
     const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
-    const searchScript = '<script src="/shared/archive-search.js?v=1"></script>';
-    const runtimeScriptPattern = /<script type="module" src="\/script\.js\?v=\d+"><\/script>/;
+    const searchScriptPattern = /<script src="\/shared\/archive-search\.js\?v=[a-z0-9]+"><\/script>/;
+    const runtimeScriptPattern = /<script type="module" src="\/script\.js\?v=[a-z0-9]+"><\/script>/;
     const runtimeScriptMatch = html.match(runtimeScriptPattern);
+    const searchScriptMatch = html.match(searchScriptPattern);
 
-    assert.ok(html.includes(searchScript), `${pagePath} should include the shared archive search helper.`);
+    assert.ok(searchScriptMatch, `${pagePath} should include the shared archive search helper.`);
     assert.ok(runtimeScriptMatch, `${pagePath} should include the module runtime entry.`);
     assert.ok(
-      html.indexOf(searchScript) < html.indexOf(runtimeScriptMatch[0]),
+      html.indexOf(searchScriptMatch[0]) < html.indexOf(runtimeScriptMatch[0]),
       `${pagePath} should load archive-search before the runtime entry.`,
     );
   });

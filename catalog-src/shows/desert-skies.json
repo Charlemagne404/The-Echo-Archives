@@ -1,0 +1,174 @@
+{
+  "id": "desert-skies",
+  "title": "Desert Skies",
+  "subtitle": "A warmer, stranger fantasy-comedy entry.",
+  "description": "A good archive reset when everything else starts feeling too grim, too metallic, or too self-serious.",
+  "cover": "shows/desert-skies/DesertSkies.jpeg",
+  "coverAlt": "Desert Skies cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
+    "website": "https://desertskiespodcast.com/",
+    "rss": ""
+  },
+  "genres": [
+    "fantasy",
+    "comedy",
+    "drama"
+  ],
+  "tones": [
+    "warm",
+    "weird",
+    "hopeful"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Emotion",
+    "Fantasy",
+    "Comedy"
+  ],
+  "length": {
+    "label": "Season 3 active; 29 numbered story chapters verified through Chapter 29, plus bonus/FM/presenting feed entries",
+    "seasons": 3,
+    "episodes": 29,
+    "avgEpisodeMinutes": 37,
+    "totalHours": 8.2,
+    "feedEntriesApprox": 53
+  },
+  "ratings": {
+    "archive": 6
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "easy-entry"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "story",
+    "welcome-to-night-vale"
+  ],
+  "archiveTake": "Useful when the listener wants something gentler without losing personality.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#ae7b4c",
+    "rgb": "174, 123, 76"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2022-08-06",
+    "latest": "2026-06-08",
+    "note": "latest verified numbered story chapter is Chapter 29 on 2026-06-08; broader feed includes bonus/FM/presenting entries.",
+    "latestStory": "2026-06-08"
+  },
+  "officialLinks": {
+    "website": "https://desertskiespodcast.com/",
+    "patreon": "https://www.patreon.com/DesertSkies",
+    "discord": "",
+    "youtube": "",
+    "merch": "https://desertskiespodcast.com/merch/",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Jared Carter",
+    "writer": "Jared Carter",
+    "producer": "Jared Carter",
+    "cast": "Jared Carter voices every character",
+    "director": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "productionCompany": "Not verified",
+    "network": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "available via official transcript index",
+    "captions": "not applicable",
+    "regionNotes": "Official site links to platform listening and support pages."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Astral Plane fuel and service station",
+    "pov": "serialized fantasy-comedy drama",
+    "intensity": "low"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://desertskiespodcast.com/",
+      "https://desertskiespodcast.com/about-the-podcast/",
+      "https://desertskiespodcast.com/transcripts/",
+      "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
+      "https://cms.megaphone.fm/channel/desertskies"
+    ],
+    "objectiveNote": "Official site verifies Jared Carter writes, produces, and voices every character; transcript index confirms listed chapters and bonus transcript pages.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/desert-skies.json",
+    "researchGaps": [
+      "exact current total feed entry count from RSS"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://desertskiespodcast.com/; https://desertskiespodcast.com/about-the-podcast/; https://desertskiespodcast.com/transcripts/; https://podcasts.apple.com/us/podcast/desert-skies/id1634726836; https://cms.megaphone.fm/channel/desertskies",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Desert Skies",
+    "Desert Skies podcast"
+  ],
+  "themes": [
+    "emotion",
+    "fantasy",
+    "comedy",
+    "drama"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "Jared Carter"
+  ],
+  "cast": [
+    "Jared Carter voices every character"
+  ],
+  "createdAt": "2026-06-01",
+  "creatorId": "jared-carter",
+  "networkId": "desert-skies-jared-carter",
+  "similarReasons": {
+    "midnight-burger": "The clearest next stop if you want the warmth to scale up into bigger speculative range.",
+    "story": "Keeps the gentle entry-point quality intact while staying grounded and inviting.",
+    "welcome-to-night-vale": "A weirder, darker branch for listeners ready to lean harder into voice-driven weird fiction."
+  }
+}

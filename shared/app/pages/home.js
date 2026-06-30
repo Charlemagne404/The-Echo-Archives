@@ -13,7 +13,7 @@ import {
   getStructuredFilterGroups,
   getVisibleFilterTags,
   loadCollections,
-  loadShows,
+  loadSearchIndex,
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
 import { createShowCard } from "../render-cards.js";
@@ -40,7 +40,7 @@ import { createHomeState } from "./home/state.js";
 import { seedHomeStateFromParams, syncBrowseUrlState } from "./home/url-state.js";
 
 export async function initializeHomePage() {
-  const shows = await loadShows();
+  const shows = await loadSearchIndex();
   const collections = await loadCollections();
   const showMap = buildShowMap(shows);
   const elements = getHomeElements();

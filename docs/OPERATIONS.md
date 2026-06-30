@@ -43,16 +43,17 @@ The working tree should stay clean after verification. If `npm run build:pages` 
 
 Keep these ownership rules intact:
 
+- `catalog-src/` is authored catalog source
 - `site-src/` is authored page source
 - root HTML files are generated, committed public output
 - `shared/` contains active runtime code, shared styles, and active config
-- `data/` contains live editorial source only
+- `data/` contains generated runtime/public catalog output only
 - `docs/`, `docs/research/`, and `docs/archive/` are never runtime inputs
 - temporary outputs belong in ignored temp locations, not tracked repo folders
 
 ## Catalog And Asset Checks
 
-Validation and normal startup can auto-download missing show cover art into `images/covers/` and rewrite `data/shows.json` with the resolved local cover path.
+Validation and normal startup can auto-download missing show cover art into `images/covers/` and rewrite the authored show source with the resolved local cover path.
 
 Review and commit those changes when they are legitimate.
 
@@ -179,8 +180,8 @@ Import workflow:
 
 1. Seed titles, Apple URLs, RSS URLs, or mixed newline lists into the internal queue.
 2. Hydrate candidates from RSS first where possible, using Apple as the default discovery and `feedUrl` recovery path.
-3. Review duplicate matches, scope status, and factual metadata before touching `data/shows.json`.
-4. Write approved candidates into `data/shows.json` as `status: "draft"`.
+3. Review duplicate matches, scope status, and factual metadata before touching `catalog-src/shows/`.
+4. Write approved candidates into `catalog-src/shows/` as `status: "draft"` and regenerate `data/`.
 5. Fill archive-owned discovery and editorial fields manually.
 6. Publish only after the record satisfies normal `published` validation and Gate B discovery rules.
 

@@ -2,9 +2,16 @@
 
 ## Purpose
 
-`data/shows.json` is the canonical editorial catalog index.
-`data/collections.json` is the canonical curated discovery layer.
-`data/reviews/*.json` stores optional long-form editorial review companions for individual shows.
+`catalog-src/shows/` is the canonical editorial show source.
+`catalog-src/collections/` is the canonical curated discovery source.
+`catalog-src/reviews/` stores optional long-form editorial review companions for individual shows.
+
+Generated runtime/public output is written into:
+
+- `data/shows.json`
+- `data/collections.json`
+- `data/reviews/*.json`
+- `data/search-index.json`
 
 The frontend, chat assistant, and community features should all read from these files instead of scraping HTML.
 
@@ -130,17 +137,18 @@ Each show record uses this practical v1 shape:
 }
 ```
 
-Long-form review fields may live inline in `data/shows.json` or in `data/reviews/<show-id>.json`. The loader merges companion review files into the final show record before validation and rendering.
+Long-form review fields may live inline in a show source file or in `catalog-src/reviews/<show-id>.json`. The loader merges companion review files into the final show record before validation and rendering.
 
-The schema is intentionally allowed to be richer than the current UI. If structured metadata improves editorial accuracy or future discovery, keep it in `data/shows.json` even when it is not surfaced on the site yet.
+The schema is intentionally allowed to be richer than the current UI. If structured metadata improves editorial accuracy or future discovery, keep it in the authored show source even when it is not surfaced on the site yet.
 
 ## Canonical Versus Operational Storage
 
-`data/shows.json` and `data/collections.json` remain the canonical public catalog.
+`catalog-src/` remains the canonical editorial catalog source.
+`data/` remains generated runtime/public output.
 
 Internal machine-ingest workflow state now lives separately in SQLite under the import tables managed by `backend/`. Those candidate records are operational only. They support discovery, hydration, provenance, duplicate review, and draft writing, but they are not a public or editorial source of truth.
 
-The import lane writes into `data/shows.json` only after a maintainer explicitly drafts or publishes a candidate.
+The import lane writes into the authored show source only after a maintainer explicitly drafts or publishes a candidate, then regenerates `data/`.
 
 ## Internal Import Candidate Shape
 
@@ -165,7 +173,7 @@ Authoring can now leave `cover` blank when the show has at least one usable sour
 - `officialLinks.website`
 - `listenLinks.website`
 
-During catalog load, the Node service and validation scripts try those sources in that order, extract the best available show art, download it into `images/covers/`, and rewrite `data/shows.json` with the resolved local cover path.
+During catalog load, the Node service and validation scripts try those sources in that order, extract the best available show art, download it into `images/covers/`, and rewrite the authored show source with the resolved local cover path.
 
 If no cover can be resolved, catalog load keeps running, logs a warning, and uses a shared local placeholder for that process. The resolved catalog still guarantees a usable `cover` string even when the authoring file does not.
 

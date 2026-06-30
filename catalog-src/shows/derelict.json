@@ -1,0 +1,177 @@
+{
+  "id": "derelict",
+  "title": "Derelict",
+  "subtitle": "Big-scale sci-fi tension with a thriller engine underneath it.",
+  "description": "One of the archive's strongest high-intensity sci-fi picks when the user wants something serious, propulsive, and built to hit hard.",
+  "cover": "shows/derelict/Derelict.jpeg",
+  "coverAlt": "Derelict cover art",
+  "status": "published",
+  "reviewStatus": "full-review",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/0RRSDPSo4fDJI5g7iHbJTy",
+    "apple": "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
+    "website": "https://www.derelictpodcast.com/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "thriller",
+    "mystery"
+  ],
+  "tones": [
+    "dark",
+    "cinematic",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Thriller",
+    "Mystery"
+  ],
+  "length": {
+    "label": "Season 1: FATHOM, 10 episodes; Season 2: DERELICT, 10 episodes; Season 3 / DERELICT WAR in crowdfunding/trailer stage",
+    "seasons": 2,
+    "episodes": 20,
+    "avgEpisodeMinutes": 65,
+    "totalHours": 21.7
+  },
+  "ratings": {
+    "archive": 10
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "long-walks",
+    "serious-sci-fi",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "impact-winter",
+    "solar",
+    "earth-eclipsed",
+    "the-program-audio-series"
+  ],
+  "archiveTake": "A high-confidence recommendation when someone wants strong production and sustained sci-fi pressure.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#4a6580",
+    "rgb": "74, 101, 128"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2019-07-18",
+    "latest": "2025-07-01",
+    "note": "latest is the most recent verified main-story episode in the existing data; the feed has 2026 Season 3 crowdfunding/trailer entries for DERELICT WAR.",
+    "latestFeedItem": "2026-03-24"
+  },
+  "officialLinks": {
+    "website": "https://www.derelictpodcast.com/",
+    "discord": "",
+    "merch": "https://derelictpodcast.myshopify.com/",
+    "patreon": "",
+    "youtube": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "J. Barton Mitchell",
+    "productionCompany": "Night Rocket Productions",
+    "writer": "Not verified",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "available for Season One FATHOM and Season Two DERELICT episode pages",
+    "captions": "not applicable",
+    "regionNotes": "Official site links to Apple and pod.link/platform options."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "deep-sea / later science-fiction survival environment",
+    "pov": "full-cast ensemble",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.derelictpodcast.com/",
+      "https://www.derelictpodcast.com/season-one",
+      "https://www.derelictpodcast.com/season-two",
+      "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
+      "https://www.kickstarter.com/projects/nightrocket/derelict-war"
+    ],
+    "objectiveNote": "Official site verifies Night Rocket Productions and transcript lists for both seasons; Apple/podcast pages verify public listing. Season 3 is in development/crowdfunding context, so release status remains active/ongoing.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/derelict.json",
+    "researchGaps": [
+      "exact current RSS feed URL",
+      "Season 3 publication date",
+      "whether archive latestRelease should track main-story episodes or feed updates"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.derelictpodcast.com/; https://www.derelictpodcast.com/season-one; https://www.derelictpodcast.com/season-two; https://podcasts.apple.com/us/podcast/derelict/id1473460202; https://www.kickstarter.com/projects/nightrocket/derelict-war",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "DERELICT",
+    "Fathom",
+    "DERELICT/FATHOM"
+  ],
+  "themes": [
+    "sci-fi",
+    "thriller",
+    "mystery"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "J. Barton Mitchell"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "j-barton-mitchell",
+  "networkId": "night-rocket-productions",
+  "similarReasons": {
+    "impact-winter": "Big-scale danger and cinematic urgency make it the clearest adjacent high-pressure listen.",
+    "solar": "A tighter survival chamber for listeners who want the tension without the same scope.",
+    "earth-eclipsed": "Another dark sci-fi route with a serious tone and looming catastrophe in the walls.",
+    "the-program-audio-series": "A colder, idea-driven sci-fi branch for listeners who liked the controlled threat level."
+  }
+}

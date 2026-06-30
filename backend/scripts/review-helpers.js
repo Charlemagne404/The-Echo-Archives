@@ -1,11 +1,12 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
+const { buildCatalog } = require("../../tools/build-catalog");
+const { getReviewSourcePath, readCatalogSource, writeCatalogSource } = require("../../tools/lib/catalog-source");
 const { loadArchiveContext } = require("../lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
 const { getGateBCriticalValidationErrors } = require("../lib/discovery-gaps");
 const {
-  getReviewFilePath,
   hasRichReviewContent,
   normalizeParagraphs,
   normalizeQuote,
@@ -20,14 +21,7 @@ function getShowsFilePath(siteRoot) {
 }
 
 function readShowsFile(siteRoot) {
-  const filePath = getShowsFilePath(siteRoot);
-  const parsed = JSON.parse(fs.readFileSync(filePath, "utf8"));
-
-  if (!Array.isArray(parsed)) {
-    throw new Error("data/shows.json must contain an array.");
-  }
-
-  return parsed;
+  return readCatalogSource(siteRoot).shows;
 }
 
 function writeJson(filePath, value) {
@@ -36,7 +30,15 @@ function writeJson(filePath, value) {
 }
 
 function writeShowsFile(siteRoot, shows) {
-  writeJson(getShowsFilePath(siteRoot), shows);
+  const sourceData = readCatalogSource(siteRoot);
+  writeCatalogSource(
+    siteRoot,
+    {
+      ...sourceData,
+      shows,
+    },
+    { mode: sourceData.mode },
+  );
 }
 
 function findShowRecord(shows, showId) {
@@ -57,7 +59,7 @@ function createReviewPayloadFromShow(show) {
 }
 
 function getReviewFileStatus(siteRoot, showId) {
-  const reviewFilePath = getReviewFilePath(siteRoot, showId);
+  const reviewFilePath = getReviewSourcePath(siteRoot, showId);
   return {
     exists: fs.existsSync(reviewFilePath),
     path: reviewFilePath,
@@ -65,12 +67,14 @@ function getReviewFileStatus(siteRoot, showId) {
 }
 
 function writeReviewFile(siteRoot, showId, payload) {
-  writeJson(getReviewFilePath(siteRoot, showId), {
+  const sourceData = readCatalogSource(siteRoot);
+  sourceData.reviewsById[showId] = {
     archiveTake: String(payload.archiveTake || "").trim(),
     spoilerFreeReview: normalizeParagraphs(payload.spoilerFreeReview),
     thoughts: normalizeParagraphs(payload.thoughts),
     quote: normalizeQuote(payload.quote),
-  });
+  };
+  writeCatalogSource(siteRoot, sourceData, { mode: sourceData.mode });
 }
 
 function assertShowExists(shows, showId) {
@@ -84,6 +88,7 @@ function assertShowExists(shows, showId) {
 }
 
 async function validateSiteData(siteRoot) {
+  await buildCatalog(siteRoot);
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   await loadArchiveContext(siteRoot, catalog, collections);

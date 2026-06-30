@@ -1,0 +1,180 @@
+{
+  "id": "windfall",
+  "title": "Windfall",
+  "subtitle": "Mystery-thriller energy with a darker speculative edge.",
+  "description": "A more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci-fi.",
+  "cover": "shows/windfall/windfall.jpeg",
+  "coverAlt": "Windfall cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/4pxY61KvG5XgpL1ngmIucY",
+    "apple": "https://podcasts.apple.com/us/podcast/windfall/id1451671935",
+    "website": "https://roguedialogue.com/windfall",
+    "rss": "https://feeds.megaphone.fm/windfallpodcast"
+  },
+  "genres": [
+    "thriller",
+    "mystery"
+  ],
+  "tones": [
+    "dark",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Thriller",
+    "Mystery",
+    "Dystopia"
+  ],
+  "length": {
+    "label": "2 seasons, 22 main story episodes; feed also includes trailers, bonuses, crossovers, and feed swaps",
+    "seasons": 2,
+    "episodes": 22,
+    "avgEpisodeMinutes": 34,
+    "totalHours": 12.5,
+    "feedEntries": 37
+  },
+  "ratings": {
+    "archive": 9
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "long-walks",
+    "late-night"
+  ],
+  "similarTo": [
+    "earth-eclipsed",
+    "the-deca-tapes",
+    "homecoming"
+  ],
+  "archiveTake": "A higher-pressure mystery pick that stays moving.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#8f3b3e",
+    "rgb": "143, 59, 62"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2019-02-13",
+    "latest": "2025-12-17",
+    "note": "latest is Season 2 Episode 12 / main-story finale; feed swaps continued into 2026.",
+    "latestFeedItem": "2026-04-30"
+  },
+  "officialLinks": {
+    "website": "https://roguedialogue.com/windfall",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "Rogue Dialogue Productions",
+    "creatorName": [
+      "Bob Raymonda",
+      "Christie Donato",
+      "Adam Raymonda"
+    ],
+    "writer": [
+      "Bob Raymonda",
+      "Christie Donato",
+      "Jess Miller"
+    ],
+    "director": [
+      "Bob Raymonda",
+      "Christie Donato",
+      "Jess Miller"
+    ],
+    "producer": "Rogue Dialogue Productions",
+    "soundDesign": "Adam Raymonda",
+    "composer": "Adam Raymonda",
+    "network": "Rogue Dialogue Productions",
+    "cast": "Not fully verified",
+    "coverArt": "Sam Twardy"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "Official page fetch failed in this pass; metadata should be rechecked against current feed."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "dystopian / speculative city",
+    "pov": "serialized audio drama",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://roguedialogue.com/windfall",
+      "https://roguedialogue.com/press",
+      "https://podcasts.apple.com/us/podcast/windfall/id1451671935",
+      "https://feeds.megaphone.fm/windfallpodcast"
+    ],
+    "objectiveNote": "Official Rogue Dialogue URL is identified, but current source capture was incomplete in this pass. Kept conservative metadata and recheck notes.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/windfall.json",
+    "researchGaps": [
+      "whether to mark series as ongoing after Season 2 finale or inactive until a future story season is announced"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://roguedialogue.com/windfall; https://roguedialogue.com/press; https://podcasts.apple.com/us/podcast/windfall/id1451671935; https://feeds.megaphone.fm/windfallpodcast",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Windfall",
+    "Windfall podcast",
+    "Rogue Dialogue Windfall"
+  ],
+  "themes": [
+    "thriller",
+    "mystery",
+    "dystopia"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Rogue Dialogue Productions"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "rogue-dialogue-productions",
+  "networkId": "rogue-dialogue-productions",
+  "similarReasons": {
+    "earth-eclipsed": "Another pressure-heavy dystopian route when you want systems failing around the characters.",
+    "the-deca-tapes": "A puzzle-box branch if you want more suspicion and less open momentum.",
+    "homecoming": "A prestige-thriller cousin for listeners who want another conspiracy-shaped binge."
+  }
+}

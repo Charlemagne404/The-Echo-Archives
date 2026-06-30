@@ -1,6 +1,7 @@
 import {
   SHOWS_DATA_URL,
   COLLECTIONS_DATA_URL,
+  SEARCH_INDEX_URL,
   archiveSearch,
   archiveRecord,
   dataCache,
@@ -38,6 +39,16 @@ export async function loadShows() {
   const records = await fetchJson(SHOWS_DATA_URL);
   dataCache.shows = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
   return dataCache.shows;
+}
+
+export async function loadSearchIndex() {
+  if (dataCache.searchIndex) {
+    return dataCache.searchIndex;
+  }
+
+  const records = await fetchJson(SEARCH_INDEX_URL);
+  dataCache.searchIndex = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
+  return dataCache.searchIndex;
 }
 
 export async function loadCollections() {

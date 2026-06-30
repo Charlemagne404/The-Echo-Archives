@@ -1,0 +1,169 @@
+{
+  "id": "paralyzed",
+  "title": "Paralyzed",
+  "subtitle": "Supernatural mystery with a stronger horror pulse.",
+  "description": "A browseable horror entry for listeners who want something paranormal, tense, and less sci-fi coded.",
+  "cover": "shows/paralyzed/Paralyzed.jpeg",
+  "coverAlt": "Paralyzed cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
+    "website": "https://www.7lamb.com/audiodramas/paralyzed",
+    "rss": ""
+  },
+  "genres": [
+    "mystery",
+    "horror",
+    "supernatural"
+  ],
+  "tones": [
+    "dark",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Mystery",
+    "Horror",
+    "Supernatural"
+  ],
+  "length": {
+    "label": "117 public feed episodes; Apple lists years active 2015-2025",
+    "seasons": 5,
+    "episodes": 117
+  },
+  "ratings": {
+    "archive": 7
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "late-night"
+  ],
+  "similarTo": [
+    "how-i-died",
+    "the-white-vault",
+    "malevolent"
+  ],
+  "archiveTake": "Useful when the request is horror-first and less interested in hard genre labeling.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#7e5a77",
+    "rgb": "126, 90, 119"
+  },
+  "updatedAt": "2026-06-30",
+  "officialLinks": {
+    "website": "https://www.7lamb.com/audiodramas/paralyzed",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "7 Lamb Productions",
+    "creatorName": "7 Lamb Productions",
+    "writer": "Robert Lamb",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Bloody FM",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "camping trip / nightmares / supernatural threat",
+    "pov": "serialized horror drama",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.7lamb.com/audiodramas",
+      "https://www.7lamb.com/audiodramas/paralyzed",
+      "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
+      "https://podcasts.bloody-disgusting.com/podcasts/paralyzed/"
+    ],
+    "objectiveNote": "Official 7 Lamb listing verifies premise about David, sleep paralysis, camping trip, and supernatural threat.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/paralyzed.json",
+    "researchGaps": [
+      "exact first episode date",
+      "exact latest episode date",
+      "cast/crew beyond creator/network"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/paralyzed; https://podcasts.apple.com/us/podcast/paralyzed/id993000668; https://podcasts.bloody-disgusting.com/podcasts/paralyzed/",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Paralyzed",
+    "Paralyzed podcast",
+    "7 Lamb Paralyzed"
+  ],
+  "themes": [
+    "mystery",
+    "horror",
+    "supernatural"
+  ],
+  "contentNotes": [
+    "genre violence / threat",
+    "horror or supernatural themes"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "7 Lamb Productions"
+  ],
+  "cast": [],
+  "releaseDates": {
+    "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
+    "firstYear": 2015,
+    "latestYear": 2025,
+    "first": "",
+    "latest": ""
+  },
+  "createdAt": "2026-06-01",
+  "creatorId": "7-lamb-productions",
+  "networkId": "7-lamb-productions",
+  "similarReasons": {
+    "how-i-died": "Another supernatural-mystery route with a cleaner investigative spine.",
+    "the-white-vault": "Pushes the dread colder and more environmental once the threat needs more space around it.",
+    "malevolent": "A darker occult escalation for listeners who want the horror to feel more intimate and possessed."
+  }
+}

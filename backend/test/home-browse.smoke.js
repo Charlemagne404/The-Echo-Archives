@@ -497,7 +497,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
   const expectedIds = ["story", "station-151", "impact-winter", "ars-paradoxica"];
 
   try {
-    await page.route("**/data/shows.json", async (route) => {
+    await page.route("**/data/search-index.json", async (route) => {
       const records = showFixtures.map((show) => {
         if (show.id === "impact-winter") {
           return {

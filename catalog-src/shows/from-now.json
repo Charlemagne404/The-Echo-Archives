@@ -1,0 +1,180 @@
+{
+  "id": "from-now",
+  "title": "From Now",
+  "subtitle": "Time-travel sci-fi with a thriller spine.",
+  "description": "A compact archive pick for listeners who want momentum, time-slip tension, and a cleaner sci-fi hook.",
+  "cover": "shows/from now/fromnow.jpeg",
+  "coverAlt": "From Now cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/1Jx1PpUmJrZgM68re3zMjJ",
+    "apple": "https://podcasts.apple.com/us/podcast/from-now/id1544239486",
+    "website": "https://qcodemedia.com/from-now",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "thriller"
+  ],
+  "tones": [
+    "tense",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Time Travel",
+    "Thriller"
+  ],
+  "length": {
+    "label": "6 main story episodes; Apple/QCODE+ listings include trailer and bonus entries",
+    "seasons": 1,
+    "episodes": 6,
+    "avgEpisodeMinutes": 35,
+    "totalHours": 3.5,
+    "feedEntries": 10
+  },
+  "ratings": {
+    "archive": 7
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "easy-entry"
+  ],
+  "similarTo": [
+    "ars-paradoxica",
+    "red-valley",
+    "case-63"
+  ],
+  "archiveTake": "Useful when you want time-travel flavor without a massive commitment.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#8d413e",
+    "rgb": "141, 65, 62"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2020-12-21",
+    "latest": "2021-01-25"
+  },
+  "officialLinks": {
+    "website": "https://qcodemedia.com/from-now",
+    "youtube": "https://www.youtube.com/@QCODEMedia",
+    "patreon": "",
+    "discord": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": [
+      "Rhys Wakefield",
+      "William Day Frank"
+    ],
+    "writer": [
+      "Rhys Wakefield",
+      "William Day Frank"
+    ],
+    "producer": [
+      "Richard Madden",
+      "Brian Cox"
+    ],
+    "cast": [
+      "Richard Madden",
+      "Brian Cox"
+    ],
+    "productionCompany": "QCODE",
+    "director": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "available for episodes 101-106 on official QCODE page",
+    "captions": "not applicable",
+    "regionNotes": "QCODE page links to Spotify and Apple/platform listening."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "far-future / returned spacecraft mystery",
+    "pov": "multi-character",
+    "intensity": "medium-high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://qcodemedia.com/from-now",
+      "https://podcasts.apple.com/us/podcast/from-now/id1544239486"
+    ],
+    "objectiveNote": "Official QCODE page verifies the six episode transcript entries, creators/writers, principal stars, and premise.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/from-now.json",
+    "researchGaps": [
+      "exact RSS feed URL"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://qcodemedia.com/from-now; https://podcasts.apple.com/us/podcast/from-now/id1544239486",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "From Now",
+    "From Now podcast",
+    "QCODE From Now"
+  ],
+  "themes": [
+    "sci-fi",
+    "time travel",
+    "thriller"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "Rhys Wakefield and William Day Frank"
+  ],
+  "cast": [
+    "Richard Madden",
+    "Brian Cox"
+  ],
+  "createdAt": "2026-06-01",
+  "creatorId": "rhys-wakefield-and-william-day-frank",
+  "networkId": "qcode",
+  "similarReasons": {
+    "ars-paradoxica": "The clearest next step if the time-dislocation premise makes you want denser science-fiction consequences.",
+    "red-valley": "Keeps the secret-project unease and controlled weirdness active.",
+    "case-63": "A compact paradox-thriller branch for listeners who want cleaner suspense around time travel."
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-ars-paradoxica",
+  "title": "Shows like Ars Paradoxica",
+  "description": "Idea-forward sci-fi mysteries for listeners who like the thinking as much as the plot movement.",
+  "label": "Science-first intrigue",
+  "kind": "similarity",
+  "intentTags": [
+    "time-bent",
+    "serious-sci-fi",
+    "worldbuilding"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "from-now",
+    "red-valley",
+    "case-63",
+    "the-program-audio-series"
+  ],
+  "showIds": [
+    "from-now",
+    "red-valley",
+    "case-63",
+    "the-program-audio-series",
+    "the-bright-sessions",
+    "midst"
+  ],
+  "showReasons": {
+    "from-now": "A shorter time-dislocation route when you want the conceptual hook without the same scope.",
+    "red-valley": "Keeps the secret-science unease and institutional weirdness alive.",
+    "case-63": "A cleaner paradox-thriller branch if the time-travel tension is what you want more of.",
+    "the-program-audio-series": "Leans harder into system design and speculative consequences than character warmth.",
+    "the-bright-sessions": "A more emotional, character-first branch for listeners who liked the careful sci-fi construction.",
+    "midst": "A stranger, more formally daring branch once the appetite shifts from science to worldview."
+  },
+  "featured": false,
+  "order": 200,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

@@ -13,7 +13,8 @@ Use it as a dated reality check alongside:
 
 ## Snapshot Date
 
-This snapshot reflects the repo state on **June 29, 2026**.
+This narrative snapshot reflects the repo state after the split-catalog source migration.
+For live counts, use `docs/generated/catalog-status.md`.
 
 ## Summary
 
@@ -60,25 +61,20 @@ Legacy show pages under `shows/` still exist as compatibility entry points and r
 
 ## Catalog Baseline
 
-Current structured catalog counts:
+Current counts and metadata coverage now live in `docs/generated/catalog-status.md`.
 
-- 27 published show records in `data/shows.json`
-- 15 collection records in `data/collections.json`
-- 3 review companion files in `data/reviews/`
-- 24 shows in `indexed-only` state
-- 3 shows in `full-review` state
-- 27 shows with archive ratings present
-- 27 shows with runtime metadata present
-- 27 shows with at least one official-site or website link present
-- 27 shows with at least one similar-show relationship present
-- 11 shows currently marked `featured`
-- 0 shows currently marked `creator-verified`
+Canonical authoring now lives under:
 
-Completion-state split:
+- `catalog-src/shows/`
+- `catalog-src/collections/`
+- `catalog-src/reviews/`
 
-- 15 `ongoing`
-- 6 `finished`
-- 6 `unclear`
+Generated runtime/public catalog output now lives under:
+
+- `data/shows.json`
+- `data/collections.json`
+- `data/reviews/*.json`
+- `data/search-index.json`
 
 What that means in practice:
 
@@ -160,9 +156,9 @@ The current system is split into four main layers:
 
 Editorial source of truth currently lives in:
 
-- `data/shows.json`
-- `data/collections.json`
-- `data/reviews/*.json`
+- `catalog-src/shows/`
+- `catalog-src/collections/`
+- `catalog-src/reviews/`
 
 This is now a structured-catalog product, not a pile of individually authored show pages.
 
@@ -171,6 +167,10 @@ This is now a structured-catalog product, not a pile of individually authored sh
 Repo-root commands:
 
 - `npm run dev`
+- `npm run build:catalog`
+- `npm run report:catalog`
+- `npm run catalog:new:show -- --id <show-id>`
+- `npm run catalog:new:collection -- --id <collection-id>`
 - `npm run build:pages`
 - `npm run check:structure`
 - `npm run verify`
@@ -202,8 +202,8 @@ The main limitations are content depth and maturity, not architecture.
 
 Most important gaps today:
 
-- only 27 published shows, which limits recommendation breadth
-- only 3 full-review shows, which limits editorial depth
+- the archive still needs broader show coverage to make recommendation routes feel deeper
+- editorial depth still lags metadata breadth
 - creator verification exists as a workflow but has no live verified records yet
 - many of the strongest future recommendation routes depend on denser catalog coverage
 - filter confidence can only grow as metadata vocabulary gets broader and more consistent

@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-derelict",
+  "title": "Shows like Derelict",
+  "description": "Dark sci-fi mysteries with pressure, atmosphere, and a signal you probably should not follow.",
+  "label": "Signal-dark tension",
+  "kind": "similarity",
+  "intentTags": [
+    "serious-sci-fi",
+    "headphones-on",
+    "cold-horror"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "solar",
+    "impact-winter",
+    "the-program-audio-series",
+    "earth-eclipsed"
+  ],
+  "showIds": [
+    "solar",
+    "impact-winter",
+    "the-program-audio-series",
+    "spectre",
+    "earth-eclipsed",
+    "the-white-vault"
+  ],
+  "showReasons": {
+    "solar": "Contained space survival gives a similar pressure-first entry.",
+    "impact-winter": "Cinematic danger and genre stakes keep the route big and immediate.",
+    "the-program-audio-series": "A colder speculative branch for listeners who liked the controlled threat level and serious tone.",
+    "spectre": "A darker mystery signal for listeners who want less warmth and more menace.",
+    "earth-eclipsed": "High-stakes sci-fi tension broadens the route's scale without losing seriousness.",
+    "the-white-vault": "An isolation-horror crossover route for listeners who mostly want dread and atmosphere."
+  },
+  "featured": false,
+  "order": 150,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

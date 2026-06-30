@@ -319,7 +319,11 @@ function writeJsonFile(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
 
-async function syncShowCovers(siteRoot, records, { fetchImpl = globalThis.fetch, logger = console } = {}) {
+async function syncShowCovers(
+  siteRoot,
+  records,
+  { fetchImpl = globalThis.fetch, logger = console, persistRecords = null } = {},
+) {
   if (!Array.isArray(records) || records.length === 0) {
     return { didPersist: false, warnings: [] };
   }
@@ -366,7 +370,11 @@ async function syncShowCovers(siteRoot, records, { fetchImpl = globalThis.fetch,
   }
 
   if (didPersist) {
-    writeJsonFile(path.join(siteRoot, "data", "shows.json"), records);
+    if (typeof persistRecords === "function") {
+      await persistRecords(records);
+    } else {
+      writeJsonFile(path.join(siteRoot, "data", "shows.json"), records);
+    }
   }
 
   runtimePatches.forEach((patch) => {

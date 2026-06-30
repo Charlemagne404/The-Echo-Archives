@@ -9,7 +9,7 @@ import { initializeHomePage } from "./pages/home.js";
 import { initializeMaintainerPage } from "./pages/maintainer.js";
 import { initializeMaintainerImportsPage } from "./pages/maintainer-imports.js";
 import { initializeShowPage } from "./pages/show.js";
-import { initializeSubmitPage } from "./pages/submit.js?v=6";
+import { initializeSubmitPage } from "./pages/submit.js";
 
 export async function initializeApp() {
   initializeSharedChat();

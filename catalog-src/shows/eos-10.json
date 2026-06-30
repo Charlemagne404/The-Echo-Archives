@@ -1,0 +1,165 @@
+{
+  "id": "eos-10",
+  "title": "EOS 10",
+  "subtitle": "Space comedy with a stronger station-sitcom pulse.",
+  "description": "A lighter archive pick for when you want jokes first and speculative stakes second.",
+  "cover": "shows/eos10/EOS10.jpeg",
+  "coverAlt": "EOS 10 cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/eos-10/id928069318",
+    "website": "https://www.planetm.io/eos10/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [
+    "funny",
+    "chaotic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Science",
+    "Comedy"
+  ],
+  "length": {
+    "label": "5 seasons; Apple lists 40 public episodes",
+    "seasons": 5,
+    "episodes": 40,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 18.3
+  },
+  "ratings": {
+    "archive": 7
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "funny-space-disasters",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "oz-9",
+    "wolf-359",
+    "crystal-blue"
+  ],
+  "archiveTake": "A cleaner comedy pick when you want space banter without total tonal collapse.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#497b84",
+    "rgb": "73, 123, 132"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2014-09-01",
+    "latest": "2022-01-01"
+  },
+  "officialLinks": {
+    "website": "https://www.planetm.io/eos10/",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Justin McLachlan",
+    "productionCompany": "PlanetM",
+    "writer": "Not verified",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "Official page not captured in this pass."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "space station EOS 10",
+    "pov": "full-cast medical space comedy",
+    "intensity": "low"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.planetm.io/eos10/",
+      "https://podcasts.apple.com/us/podcast/eos-10/id928069318"
+    ],
+    "objectiveNote": "Official PlanetM / platform pages should be used for final verification. Metadata is filled from known public listings but should be rechecked because search results did not expose a clean current official text page in this pass.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/eos-10.json",
+    "researchGaps": [
+      "exact latest release date",
+      "current production status",
+      "why third-party indexes report higher counts than Apple"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.planetm.io/eos10/; https://podcasts.apple.com/us/podcast/eos-10/id928069318",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "EOS 10",
+    "EOS10",
+    "EOS 10 podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "science",
+    "comedy"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Justin McLachlan"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "justin-mclachlan",
+  "networkId": "planetm-justin-mclachlan",
+  "similarReasons": {
+    "oz-9": "Turns the dysfunction and comic disaster energy even louder.",
+    "wolf-359": "A stronger character-payoff branch if you want the station comedy to deepen over time.",
+    "crystal-blue": "Another oddball sci-fi comedy route when you want something smaller and stranger."
+  }
+}

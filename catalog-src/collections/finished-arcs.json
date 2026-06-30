@@ -1,0 +1,45 @@
+{
+  "id": "finished-arcs",
+  "title": "Completed shows",
+  "description": "Finished or clearly bounded fiction routes for listeners who want closure before commitment anxiety kicks in.",
+  "label": "Closure first",
+  "kind": "curated",
+  "intentTags": [
+    "finished",
+    "easy-first-step",
+    "time-bent"
+  ],
+  "commitment": "Defined arc",
+  "coverShowIds": [
+    "the-bright-sessions",
+    "midst",
+    "ars-paradoxica",
+    "mirrors"
+  ],
+  "showIds": [
+    "solar",
+    "from-now",
+    "ars-paradoxica",
+    "wolf-359",
+    "the-phenomenon",
+    "the-bright-sessions",
+    "mirrors",
+    "midst",
+    "homecoming"
+  ],
+  "showReasons": {
+    "solar": "A contained survival-thriller route with a known runway.",
+    "from-now": "Short, finished, and easy to sample when you want a clear yes-or-no quickly.",
+    "ars-paradoxica": "A completed science-fiction arc with enough density to reward a real dive.",
+    "wolf-359": "A long-form station story with a real endpoint once the emotional investment lands.",
+    "the-phenomenon": "A finished public-threat route for listeners who want relentless tension and closure together.",
+    "the-bright-sessions": "A completed character-first sci-fi run with plenty of emotional payoff.",
+    "mirrors": "A complete eerie sci-fi ghost story with deliberate structure and a strong ending shape.",
+    "midst": "A finished surreal sci-fantasy run for listeners who want bolder form without endless upkeep.",
+    "homecoming": "A tightly bounded psychological-thriller route with prestige pacing and a concise commitment."
+  },
+  "featured": true,
+  "order": 90,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

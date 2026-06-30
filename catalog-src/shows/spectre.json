@@ -1,0 +1,165 @@
+{
+  "id": "spectre",
+  "title": "Spectre",
+  "subtitle": "Space mystery with a colder, more watchful tone.",
+  "description": "A lower-key archive mystery entry for listeners who want sci-fi atmosphere and uncertainty more than loud bombast.",
+  "cover": "shows/spectre/Spectre.jpeg",
+  "coverAlt": "Spectre cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/spectre/id1593110598",
+    "website": "https://www.spectrepod.com/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "mystery"
+  ],
+  "tones": [
+    "dark",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space",
+    "Mystery"
+  ],
+  "length": {
+    "label": "1 season / 12 public episodes",
+    "seasons": 1,
+    "episodes": 12,
+    "avgEpisodeMinutes": 30
+  },
+  "ratings": {
+    "archive": 6
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "late-night"
+  ],
+  "similarTo": [
+    "solar",
+    "the-deca-tapes",
+    "derelict"
+  ],
+  "archiveTake": "An archive browse pick when the listener wants atmosphere first.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#61718c",
+    "rgb": "97, 113, 140"
+  },
+  "updatedAt": "2026-06-30",
+  "officialLinks": {
+    "website": "",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Stef Howerton",
+    "writer": "Stef Howerton",
+    "director": "Not verified",
+    "producer": "Stef Howerton",
+    "soundDesign": "Not verified",
+    "composer": "Tim Rosko",
+    "productionCompany": "SPECTRE",
+    "network": "indie",
+    "cast": "Not fully verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "No reliable official source captured in this pass."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "space / mystery",
+    "pov": "serialized audio drama",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.spectrepod.com/",
+      "https://www.spectrepod.com/episodes/season/1/",
+      "https://www.timrosko.com/spectre-podcast",
+      "https://podcasts.apple.com/us/podcast/spectre/id1593110598"
+    ],
+    "objectiveNote": "No reliable official match found in this pass without high risk of mixing it with unrelated Spectre results. Left objective fields explicitly unverified.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/spectre.json",
+    "researchGaps": [
+      "exact finale date",
+      "RSS feed URL",
+      "complete cast/crew"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.spectrepod.com/; https://www.spectrepod.com/episodes/season/1/; https://www.timrosko.com/spectre-podcast; https://podcasts.apple.com/us/podcast/spectre/id1593110598",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Spectre",
+    "Spectre podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "space",
+    "mystery"
+  ],
+  "contentNotes": [
+    "content notes not verified beyond public premise"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Stef Howerton"
+  ],
+  "cast": [],
+  "releaseDates": {
+    "first": "2022-05-22",
+    "latest": "2022-09-04",
+    "note": "First date from composer page / premiere note; official episode page exposes at least 1.07 on 2022-09-04. Exact final episode date should still be feed-checked."
+  },
+  "createdAt": "2026-06-01",
+  "creatorId": "not-verified",
+  "networkId": "not-verified",
+  "similarReasons": {
+    "solar": "Keeps the spacebound threat active with more direct survival pressure.",
+    "the-deca-tapes": "A puzzle-box mystery branch if atmosphere matters more than forward drive.",
+    "derelict": "A louder industrial escalation for listeners who want the sci-fi pressure to get meaner."
+  }
+}

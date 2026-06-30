@@ -1,0 +1,43 @@
+{
+  "id": "warm-weird-comfort",
+  "title": "Warm weird comfort",
+  "description": "Gentler strange stories for when you want odd worlds without being crushed by them.",
+  "label": "Strange but kind",
+  "kind": "curated",
+  "intentTags": [
+    "warm-weird",
+    "easy-first-step",
+    "funny-space"
+  ],
+  "commitment": "Comfort route",
+  "coverShowIds": [
+    "midnight-burger",
+    "desert-skies",
+    "unwell",
+    "story"
+  ],
+  "showIds": [
+    "midnight-burger",
+    "desert-skies",
+    "story",
+    "the-waystation",
+    "eos-10",
+    "wolf-359",
+    "unwell",
+    "welcome-to-night-vale"
+  ],
+  "showReasons": {
+    "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
+    "desert-skies": "Gentle surrealism keeps the route soft around the edges.",
+    "story": "Hopeful drama gives the collection a grounded entry point.",
+    "the-waystation": "Hopeful sci-fi exploration adds curiosity without harshness.",
+    "eos-10": "Comedy and character friction keep the sci-fi light.",
+    "wolf-359": "A funny space-station opener that can deepen over time.",
+    "unwell": "Midwestern gothic warmth makes the eerie side feel lived-in instead of punishing.",
+    "welcome-to-night-vale": "Darkly funny community-radio weirdness keeps the route strange without losing personality."
+  },
+  "featured": false,
+  "order": 110,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

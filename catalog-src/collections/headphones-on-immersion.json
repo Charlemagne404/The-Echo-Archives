@@ -1,0 +1,39 @@
+{
+  "id": "headphones-on-immersion",
+  "title": "Headphones-on immersion",
+  "description": "Dense sound, strong atmosphere, and stories that reward close listening.",
+  "label": "Sound-forward",
+  "kind": "curated",
+  "intentTags": [
+    "headphones-on",
+    "serious-sci-fi",
+    "long-walks"
+  ],
+  "commitment": "Immersive",
+  "coverShowIds": [
+    "derelict",
+    "impact-winter",
+    "solar",
+    "the-white-vault"
+  ],
+  "showIds": [
+    "impact-winter",
+    "derelict",
+    "solar",
+    "vast-horizon",
+    "ars-paradoxica",
+    "the-white-vault"
+  ],
+  "showReasons": {
+    "impact-winter": "Big scenes and layered production make headphones worthwhile.",
+    "derelict": "Industrial detail and tension benefit from close attention.",
+    "solar": "The isolated space setting lands best when the sound can breathe.",
+    "vast-horizon": "Expansive sci-fi atmosphere gives the route scale.",
+    "ars-paradoxica": "Dense plotting rewards listeners who are fully tuned in.",
+    "the-white-vault": "Environmental audio and cold pressure make the isolation sharper."
+  },
+  "featured": false,
+  "order": 80,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-23"
+}

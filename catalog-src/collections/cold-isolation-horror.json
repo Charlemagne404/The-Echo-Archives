@@ -1,0 +1,39 @@
+{
+  "id": "cold-isolation-horror",
+  "title": "Cold isolation horror",
+  "description": "Bleak settings, locked-in pressure, and the feeling that the air itself is against you.",
+  "label": "Late-night cold",
+  "kind": "curated",
+  "intentTags": [
+    "cold-horror",
+    "late-night",
+    "headphones-on"
+  ],
+  "commitment": "Tense route",
+  "coverShowIds": [
+    "the-white-vault",
+    "tower-4",
+    "the-phenomenon",
+    "how-i-died"
+  ],
+  "showIds": [
+    "the-white-vault",
+    "tower-4",
+    "station-151",
+    "impact-winter",
+    "how-i-died",
+    "the-phenomenon"
+  ],
+  "showReasons": {
+    "the-white-vault": "Remote expedition horror is the clearest expression of this route.",
+    "tower-4": "Isolation and surveillance make the quiet stretches feel dangerous.",
+    "station-151": "A strange station premise adds cold absurdity to the pressure.",
+    "impact-winter": "Endless winter and survival stakes bring a bigger cinematic chill.",
+    "how-i-died": "Supernatural investigation keeps the horror direct and readable.",
+    "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile."
+  },
+  "featured": true,
+  "order": 50,
+  "createdAt": "2026-06-01",
+  "updatedAt": "2026-06-23"
+}

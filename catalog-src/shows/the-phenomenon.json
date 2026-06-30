@@ -1,0 +1,173 @@
+{
+  "id": "the-phenomenon",
+  "title": "The Phenomenon",
+  "subtitle": "Survival mystery built around a threat you feel before you understand.",
+  "description": "A more severe survival entry for listeners who want fear, uncertainty, and pressure over character comfort.",
+  "cover": "shows/the phenomenon/Phenomenon.jpeg",
+  "coverAlt": "The Phenomenon cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225",
+    "website": "https://www.phenomenonpod.com/",
+    "rss": "https://phenomenonpod.libsyn.com/rss"
+  },
+  "genres": [
+    "mystery",
+    "thriller",
+    "science"
+  ],
+  "tones": [
+    "bleak",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Survival",
+    "Science",
+    "Mystery"
+  ],
+  "length": {
+    "label": "Seasons 1-3 serialized; Season 4 / Survivors anthology; platform feeds list anthology entries through 2022",
+    "seasons": 4,
+    "episodes": 34,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 14.2
+  },
+  "ratings": {
+    "archive": 5
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "late-night",
+    "cold-isolation-horror"
+  ],
+  "similarTo": [
+    "the-white-vault",
+    "impact-winter",
+    "were-alive"
+  ],
+  "archiveTake": "A survival-forward pick for listeners who want dread before warmth.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#5a5e79",
+    "rgb": "90, 94, 121"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2017-10-02",
+    "latest": "2022-11-16",
+    "note": "Latest platform listing found is a Survivors anthology entry on 2022-11-16; official site distinguishes Seasons 1-3 serialized story from Survivors anthology."
+  },
+  "officialLinks": {
+    "website": "https://www.phenomenonpod.com/",
+    "youtube": "",
+    "instagram": "",
+    "facebook": "",
+    "patreon": "",
+    "discord": "",
+    "merch": ""
+  },
+  "credits": {
+    "director": "Jared J. Smith",
+    "writer": "Jared J. Smith (Seasons 1-3)",
+    "producer": [
+      "Öykü Çakar-Smith",
+      "Andrew Pomeroy",
+      "Jared J. Smith"
+    ],
+    "soundDesign": "Andrew Pomeroy",
+    "composer": "Andrew Pomeroy",
+    "coverArt": "Amanda Pecharsky",
+    "productionCompany": "Luciola Creative",
+    "creatorName": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified"
+  },
+  "availability": {
+    "transcripts": "available through official Google Drive link",
+    "captions": "n/a",
+    "regionNotes": "Official episodes page links Apple, Spotify, Pocket Casts, Podchaser, Overcast, Castbox, YouTube, RSS and transcripts."
+  },
+  "content": {
+    "sourceMaterial": "based on the novel The Phenomenon by R.K. Katic",
+    "setting": "global catastrophic extraterrestrial invasion",
+    "pov": "international ensemble",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.phenomenonpod.com/about",
+      "https://www.phenomenonpod.com/episodes",
+      "https://www.phenomenonpod.com/",
+      "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225"
+    ],
+    "objectiveNote": "Official site verifies production credits, source-material relationship, season structure, Survivors anthology, platform links, RSS, and transcript availability.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/the-phenomenon.json",
+    "researchGaps": [
+      "exact current platform episode count after extras"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.phenomenonpod.com/about; https://www.phenomenonpod.com/episodes; https://www.phenomenonpod.com/; https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "The Phenomenon",
+    "The Phenomenon podcast"
+  ],
+  "themes": [
+    "survival",
+    "science",
+    "mystery",
+    "thriller"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "creators": [
+    "Jared J. Smith"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "jared-j-smith",
+  "networkId": "luciola-creative",
+  "similarReasons": {
+    "the-white-vault": "A colder isolation branch once the environmental dread is what matters most.",
+    "impact-winter": "Keeps the catastrophe pressure high while making the genre spectacle bigger.",
+    "were-alive": "The clearest neighboring pick if you want more relentless survival attrition and ensemble consequence."
+  }
+}

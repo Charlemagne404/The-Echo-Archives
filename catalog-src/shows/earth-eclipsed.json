@@ -1,0 +1,160 @@
+{
+  "id": "earth-eclipsed",
+  "title": "Earth Eclipsed",
+  "subtitle": "Dystopian sci-fi with a heavier thriller edge.",
+  "description": "A darker catalog entry for listeners who want genre pressure more than comfort.",
+  "cover": "shows/earth eclipsed/eartheclipsed.jpeg",
+  "coverAlt": "Earth Eclipsed cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "",
+    "website": "https://eartheclipsed.com/",
+    "rss": ""
+  },
+  "genres": [
+    "sci-fi",
+    "thriller"
+  ],
+  "tones": [
+    "dark",
+    "tense"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Dystopia",
+    "Thriller"
+  ],
+  "length": {
+    "label": "8 episodes",
+    "seasons": 1,
+    "episodes": 8
+  },
+  "ratings": {
+    "archive": 8
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "serious-sci-fi"
+  ],
+  "similarTo": [
+    "windfall",
+    "impact-winter",
+    "derelict"
+  ],
+  "archiveTake": "Useful when you want dystopia and pace before warmth.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#4e657c",
+    "rgb": "78, 101, 124"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2021-09-01",
+    "latest": "2021-10-20"
+  },
+  "officialLinks": {
+    "website": "https://eartheclipsed.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "The Lunar Company",
+    "creatorName": "Not verified",
+    "writer": "Not verified",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "Platform availability not fully verified in this pass."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "dystopian science-fiction future",
+    "pov": "serialized audio drama",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://eartheclipsed.com/"
+    ],
+    "objectiveNote": "Official URL is identified, but current web capture was incomplete. Kept conservative metadata and included recheck notes rather than inventing missing facts.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/earth-eclipsed.json",
+    "researchGaps": [
+      "working official source capture",
+      "exact current platform count",
+      "complete credits"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://eartheclipsed.com/",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Earth Eclipsed",
+    "Earth Eclipsed podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "dystopia",
+    "thriller"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "The Lunar Company"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "the-lunar-company",
+  "networkId": "the-lunar-company-apollo-podcasts",
+  "similarReasons": {
+    "windfall": "A grounded dystopian cousin if the political pressure mattered as much as the sci-fi wrapper.",
+    "impact-winter": "Keeps the catastrophe scale high and the pacing aggressive.",
+    "derelict": "Another dark serious-sci-fi route with strong pressure and a harsher sonic environment."
+  }
+}

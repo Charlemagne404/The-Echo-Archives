@@ -21,12 +21,14 @@ const { createCommunityRouter } = require("./lib/routes/community-routes");
 const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
+const { createSearchIndexRecord } = require("../tools/lib/catalog-artifacts");
 
 async function startServer() {
   const app = express();
   const state = {
     catalog: [],
     publicCatalog: [],
+    publicSearchIndex: [],
     collections: [],
     archiveContext: null,
     siteHelpContext: null,
@@ -35,12 +37,14 @@ async function startServer() {
   async function reloadState() {
     const catalog = await loadCatalog(config.STATIC_ROOT);
     const publicCatalog = catalog.filter((show) => show.status === "published");
+    const publicSearchIndex = publicCatalog.map(createSearchIndexRecord);
     const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
     const siteHelpContext = loadSiteHelpContext({ catalog: publicCatalog, collections, archiveContext });
 
     state.catalog = catalog;
     state.publicCatalog = publicCatalog;
+    state.publicSearchIndex = publicSearchIndex;
     state.collections = collections;
     state.archiveContext = archiveContext;
     state.siteHelpContext = siteHelpContext;
@@ -127,6 +131,10 @@ async function startServer() {
 
   app.get("/data/shows.json", (_req, res) => {
     res.json(state.publicCatalog);
+  });
+
+  app.get("/data/search-index.json", (_req, res) => {
+    res.json(state.publicSearchIndex);
   });
 
   app.use(

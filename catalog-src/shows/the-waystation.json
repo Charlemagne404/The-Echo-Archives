@@ -1,0 +1,164 @@
+{
+  "id": "the-waystation",
+  "title": "The Waystation",
+  "subtitle": "Space adventure for listeners who want a little more open sky.",
+  "description": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
+  "cover": "shows/the waystation/waystation.jpeg",
+  "coverAlt": "The Waystation cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/2VNI54tTfmqn0hvbU8jKZn",
+    "apple": "",
+    "website": "https://thewaystation.carrd.co/",
+    "rss": "https://rss.com/podcasts/thewaystation/"
+  },
+  "genres": [
+    "sci-fi",
+    "adventure"
+  ],
+  "tones": [
+    "hopeful",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Adventure",
+    "Space"
+  ],
+  "length": {
+    "label": "12 feed episodes; Season 1 has 9 numbered episodes plus trailer/extra entries depending on platform",
+    "seasons": 1,
+    "episodes": 12,
+    "avgEpisodeMinutes": 26
+  },
+  "ratings": {
+    "archive": 7
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "worldbuilding",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "vast-horizon",
+    "story",
+    "midnight-burger"
+  ],
+  "archiveTake": "A cleaner browse recommendation when the archive starts feeling too bleak.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#497f8a",
+    "rgb": "73, 127, 138"
+  },
+  "updatedAt": "2026-06-30",
+  "officialLinks": {
+    "website": "",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "creatorName": "Wired Cowslip",
+    "writer": "Elliot Somerfield",
+    "director": "Elliot Somerfield",
+    "producer": "Wired Cowslip",
+    "soundDesign": "Not verified",
+    "composer": "Tatenda Shamiso",
+    "productionCompany": "Wired Cowslip",
+    "network": "Wired Cowslip",
+    "cast": "Not verified",
+    "coverArt": "Paul Ignacio"
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a",
+    "regionNotes": "No reliable official source captured in this pass."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "space / station",
+    "pov": "serialized audio drama",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://thewaystation.carrd.co/",
+      "https://rss.com/podcasts/thewaystation/",
+      "https://www.podchaser.com/podcasts/the-waystation-1953344"
+    ],
+    "objectiveNote": "No reliable official match found in this pass without high risk of mixing it with unrelated Waystation/Way Station works. Left objective fields explicitly unverified.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/the-waystation.json",
+    "researchGaps": [
+      "exact Apple Podcasts URL if still listed",
+      "current Season 2 status"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "partially-source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://thewaystation.carrd.co/; https://rss.com/podcasts/thewaystation/; https://www.podchaser.com/podcasts/the-waystation-1953344",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "The Waystation",
+    "Waystation podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "adventure",
+    "space"
+  ],
+  "contentNotes": [
+    "content notes not verified beyond public premise"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Wired Cowslip"
+  ],
+  "cast": [],
+  "releaseDates": {
+    "first": "2021-05-20",
+    "latest": "2021-12-01",
+    "note": "Platform counts vary: RSS.com exposes S01E09 on 2021-10-20; Podchaser reports 12 feed episodes and latest 2021-12-01. Season 2 was described as in pre-production on social profile, but no public Season 2 release was verified."
+  },
+  "createdAt": "2026-06-01",
+  "creatorId": "not-verified",
+  "networkId": "not-verified",
+  "similarReasons": {
+    "vast-horizon": "Keeps the spacefaring exploration lane active with a little more survival drag.",
+    "story": "A softer, more grounded companion if you want warmth and clarity first.",
+    "midnight-burger": "A warmer cosmic escalation once the appetite shifts from exploration to range and oddity."
+  }
+}

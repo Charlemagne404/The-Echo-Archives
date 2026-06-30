@@ -15,11 +15,21 @@ const {
   normalizeKeyedTextMap,
   normalizeShowRecord,
 } = require("../../shared/archive-record");
+const {
+  COMPLETION_STATUSES,
+  RELEASE_STATUSES,
+  REVIEW_STATUSES,
+  SHOW_STATUSES,
+} = require("../../tools/lib/catalog-schema");
+const {
+  readCatalogSource,
+  writeCatalogSource,
+} = require("../../tools/lib/catalog-source");
 
-const VALID_REVIEW_STATUSES = new Set(["full-review", "spotlight", "indexed-only", "planned"]);
-const VALID_STATUS_VALUES = new Set(["published", "draft"]);
-const VALID_RELEASE_STATUSES = new Set(["active", "completed", "hiatus", "inactive", "unknown"]);
-const VALID_COMPLETION_STATUSES = new Set(["ongoing", "finished", "cancelled", "unclear"]);
+const VALID_REVIEW_STATUSES = new Set(REVIEW_STATUSES);
+const VALID_STATUS_VALUES = new Set(SHOW_STATUSES);
+const VALID_RELEASE_STATUSES = new Set(RELEASE_STATUSES);
+const VALID_COMPLETION_STATUSES = new Set(COMPLETION_STATUSES);
 
 function readJsonFile(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -269,17 +279,26 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
 }
 
 async function loadShows(siteRoot, options = {}) {
-  const showsPath = path.join(siteRoot, "data", "shows.json");
-  const records = readJsonFile(showsPath);
+  const sourceData = readCatalogSource(siteRoot);
+  const records = Array.isArray(options.sourceData?.shows) ? options.sourceData.shows : sourceData.shows;
+  const reviewsById = options.sourceData?.reviewsById || sourceData.reviewsById;
 
-  if (!Array.isArray(records)) {
-    throw new Error("data/shows.json must contain an array.");
-  }
-
-  await syncShowCovers(siteRoot, records, options.coverSync);
+  await syncShowCovers(siteRoot, records, {
+    ...(options.coverSync || {}),
+    persistRecords: async (nextRecords) => {
+      writeCatalogSource(
+        siteRoot,
+        {
+          ...sourceData,
+          shows: nextRecords,
+        },
+        { mode: sourceData.mode },
+      );
+    },
+  });
 
   const seenIds = new Set();
-  const mergedRecords = records.map((record) => mergeReviewContent(record, readReviewRecord(siteRoot, record.id)));
+  const mergedRecords = records.map((record) => mergeReviewContent(record, reviewsById[record.id] || readReviewRecord(siteRoot, record.id)));
 
   mergedRecords.forEach((record) => validateShowRecord(record, seenIds));
 
@@ -307,21 +326,13 @@ async function loadShows(siteRoot, options = {}) {
   return hydrateCatalogSearch(normalized);
 }
 
-function loadCollections(siteRoot, knownShowIds = null) {
-  const collectionsPath = path.join(siteRoot, "data", "collections.json");
-  const records = readJsonFile(collectionsPath);
+function loadCollections(siteRoot, knownShowIds = null, options = {}) {
+  const sourceData = readCatalogSource(siteRoot);
+  const records = Array.isArray(options.sourceData?.collections) ? options.sourceData.collections : sourceData.collections;
   const seenIds = new Set();
   const showIdSet =
     knownShowIds ||
-    new Set(
-      readJsonFile(path.join(siteRoot, "data", "shows.json"))
-        .filter((record) => record && typeof record === "object" && typeof record.id === "string")
-        .map((record) => record.id),
-    );
-
-  if (!Array.isArray(records)) {
-    throw new Error("data/collections.json must contain an array.");
-  }
+    new Set(sourceData.shows.filter((record) => record && typeof record === "object" && typeof record.id === "string").map((record) => record.id));
 
   records.forEach((record) => validateCollectionRecord(record, seenIds, showIdSet));
   return records.map((record) => normalizeCollectionRecord(record));

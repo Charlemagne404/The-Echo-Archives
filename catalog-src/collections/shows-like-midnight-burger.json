@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-midnight-burger",
+  "title": "Shows like Midnight Burger",
+  "description": "Warm, funny, cosmic-adjacent shows for listeners chasing that strange found-family feeling.",
+  "label": "Warm cosmic weird",
+  "kind": "similarity",
+  "intentTags": [
+    "funny-space",
+    "easy-first-step",
+    "warm-weird"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "desert-skies",
+    "wolf-359",
+    "midst",
+    "the-waystation"
+  ],
+  "showIds": [
+    "desert-skies",
+    "the-waystation",
+    "wolf-359",
+    "the-bright-sessions",
+    "midst",
+    "wooden-overcoats"
+  ],
+  "showReasons": {
+    "desert-skies": "A warm, strange doorway for listeners who liked the comfort side.",
+    "the-waystation": "Hopeful sci-fi exploration keeps the mood generous and curious.",
+    "wolf-359": "Station comedy that grows into deeper character stakes.",
+    "the-bright-sessions": "A character-first sci-fi branch if the emotional connection mattered as much as the weirdness.",
+    "midst": "For the cosmic, reality-sliding appetite once the diner hop feels too grounded.",
+    "wooden-overcoats": "Keeps the voice, timing, and affection high while swapping cosmic range for comic rivalry."
+  },
+  "featured": false,
+  "order": 140,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

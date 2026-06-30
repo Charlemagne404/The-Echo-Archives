@@ -1,0 +1,175 @@
+{
+  "id": "station-151",
+  "title": "Station 151",
+  "subtitle": "Isolation comedy with a colder edge than the usual station banter.",
+  "description": "A strange little archive pick when you want comedy, confinement, and just enough pressure under the jokes.",
+  "cover": "shows/station151/Station151.jpeg",
+  "coverAlt": "Station 151 cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/6ivVLrV6gUo1Xbi0BhMHnc",
+    "apple": "https://podcasts.apple.com/us/podcast/station-151/id1654016045",
+    "website": "https://www.station151.com/",
+    "rss": "https://feeds.buzzsprout.com/2046913.rss"
+  },
+  "genres": [
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [
+    "funny",
+    "weird",
+    "bleak"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Isolation",
+    "Comedy"
+  ],
+  "length": {
+    "label": "Season 3 began January 13, 2026; exact current feed count should be rechecked after the season resumes",
+    "seasons": 3,
+    "episodes": 36,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 15
+  },
+  "ratings": {
+    "archive": 6
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "funny-space-disasters",
+    "cold-isolation-horror"
+  ],
+  "similarTo": [
+    "oz-9",
+    "wolf-359",
+    "tower-4",
+    "archive-81"
+  ],
+  "archiveTake": "Useful when you want comedy but not warmth.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": false,
+  "accent": {
+    "hex": "#5e7571",
+    "rgb": "94, 117, 113"
+  },
+  "updatedAt": "2026-06-30",
+  "releaseDates": {
+    "first": "2022-10-31",
+    "latest": "2026-01-13",
+    "note": "Official site says Season 3 began January 13, 2026 but the rest of Season 3 would not immediately follow."
+  },
+  "officialLinks": {
+    "website": "https://www.station151.com/",
+    "patreon": "https://patreon.com/station151",
+    "discord": "https://discord.gg/station151",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "writer": [
+      "Andy Scearce",
+      "Steven James Scearce"
+    ],
+    "producer": "Bear Weiter",
+    "productionCompany": "Pale Matter Productions",
+    "creatorName": [
+      "Andy Scearce",
+      "Steven James Scearce"
+    ],
+    "network": "Realm",
+    "director": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official site lists Apple, Spotify, Pocket Casts, Castbox, Podcast Addict, YouTube, and RSS listening."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Antarctic research station",
+    "pov": "station communications / first-person lead",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.station151.com/",
+      "https://www.station151.com/about/",
+      "https://www.station151.com/episodes/",
+      "https://podcasts.apple.com/us/podcast/station-151/id1654016045"
+    ],
+    "objectiveNote": "Official site verifies premise, writers/developers, producer, production company, listening links, and Season 3 date; Apple verifies 36 episodes across 3 seasons and Realm channel listing.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/station-151.json",
+    "researchGaps": [
+      "current feed count after Season 3 resumes",
+      "exact average runtime by feed"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.station151.com/; https://www.station151.com/about/; https://www.station151.com/episodes/; https://podcasts.apple.com/us/podcast/station-151/id1654016045",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Station 151",
+    "Station 151 podcast"
+  ],
+  "themes": [
+    "sci-fi",
+    "isolation",
+    "comedy"
+  ],
+  "contentNotes": [
+    "comedic tone"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "Andy Scearce and Steven James Scearce"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-01",
+  "creatorId": "andy-scearce-and-steven-james-scearce",
+  "networkId": "pale-matter-realm",
+  "similarReasons": {
+    "oz-9": "Keeps the station absurdity alive for listeners who liked the comic edge most.",
+    "wolf-359": "A more character-driven station follow-up with broader tonal range.",
+    "tower-4": "A colder isolation variant once the comedy stops being the main attraction.",
+    "archive-81": "Leans harder into strange signal horror for listeners chasing the unsettling side."
+  }
+}

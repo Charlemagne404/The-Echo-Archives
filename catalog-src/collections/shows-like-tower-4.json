@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-tower-4",
+  "title": "Shows like Tower 4",
+  "description": "Remote-post paranoia, steady voice-driven unease, and the feeling that a quiet place is not actually safe.",
+  "label": "Watchtower dread",
+  "kind": "similarity",
+  "intentTags": [
+    "late-night",
+    "cold-horror",
+    "headphones-on"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "the-white-vault",
+    "station-151",
+    "alice-isnt-dead",
+    "archive-81"
+  ],
+  "showIds": [
+    "the-white-vault",
+    "station-151",
+    "alice-isnt-dead",
+    "archive-81",
+    "malevolent",
+    "how-i-died"
+  ],
+  "showReasons": {
+    "the-white-vault": "The closest next stop for listeners who want environmental hostility and a real sense of isolation.",
+    "station-151": "A weirder outpost cousin that keeps the remote-post strangeness active.",
+    "alice-isnt-dead": "A road-bound narration route if the solitary voice and ambient dread are the real hook.",
+    "archive-81": "Pushes the mystery toward stranger archival horror without losing the sound-led threat.",
+    "malevolent": "A darker supernatural escalation for listeners who want the unease to turn openly occult.",
+    "how-i-died": "A cleaner supernatural-mystery branch if you want direct investigation with the eeriness intact."
+  },
+  "featured": false,
+  "order": 210,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

@@ -1,0 +1,169 @@
+{
+  "id": "tower-4",
+  "title": "Tower 4",
+  "subtitle": "Isolation mystery with a slow-burn dread profile.",
+  "description": "A good archive browse pick when the listener wants something remote, watchful, and just a little unsettling.",
+  "cover": "shows/towe4/Tower4.jpeg",
+  "coverAlt": "Tower 4 cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+    "website": "https://www.7lamb.com/audiodramas/tower-4",
+    "rss": ""
+  },
+  "genres": [
+    "mystery",
+    "thriller"
+  ],
+  "tones": [
+    "bleak",
+    "tense"
+  ],
+  "formats": [
+    "narrated",
+    "serialized"
+  ],
+  "tags": [
+    "Mystery",
+    "Isolation",
+    "Comedy"
+  ],
+  "length": {
+    "label": "Season 4 active; Apple lists S4E8 on 2026-05-04; numbered public episodes reach at least 62",
+    "seasons": 4,
+    "episodes": 62,
+    "feedEntriesApprox": 66,
+    "avgEpisodeMinutes": 40
+  },
+  "ratings": {
+    "archive": 10
+  },
+  "facts": {
+    "structure": "Indexed entry.",
+    "narrator": "Unknown.",
+    "ads": "Unknown.",
+    "favoriteRun": "",
+    "wouldRelisten": null
+  },
+  "bestFor": [
+    "cold-isolation-horror",
+    "late-night"
+  ],
+  "similarTo": [
+    "the-white-vault",
+    "station-151",
+    "alice-isnt-dead",
+    "archive-81"
+  ],
+  "archiveTake": "One of the archive's cleaner picks for remote-watchtower unease.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "featured": true,
+  "accent": {
+    "hex": "#7e6448",
+    "rgb": "126, 100, 72"
+  },
+  "updatedAt": "2026-06-30",
+  "officialLinks": {
+    "website": "https://www.7lamb.com/audiodramas/tower-4",
+    "patreon": "",
+    "discord": "",
+    "youtube": "",
+    "merch": "",
+    "instagram": "",
+    "facebook": ""
+  },
+  "credits": {
+    "productionCompany": "7 Lamb Productions",
+    "creatorName": "7 Lamb Productions",
+    "writer": "Robert Lamb",
+    "director": "Not verified",
+    "producer": "Not verified",
+    "soundDesign": "Not verified",
+    "composer": "Not verified",
+    "network": "Bloody FM",
+    "cast": "Not verified",
+    "coverArt": "Not verified"
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Wyoming woods / fire lookout tower",
+    "pov": "narrated serialized mystery",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.7lamb.com/audiodramas",
+      "https://www.7lamb.com/audiodramas/tower-4",
+      "https://podcasts.apple.com/us/podcast/tower-4/id1533736348"
+    ],
+    "objectiveNote": "Official 7 Lamb listing verifies Mike Archer / Wyoming fire-watch premise.",
+    "objectiveVerifiedAt": "2026-06-15",
+    "reviewFile": "reviews/tower-4.json",
+    "researchGaps": [
+      "exact total feed entry count",
+      "complete cast/crew"
+    ],
+    "awards": [],
+    "schedule": {
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
+    },
+    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+  },
+  "verification": {
+    "status": "source-verified-with-feed-note",
+    "verifiedAt": "2026-06-15",
+    "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/tower-4; https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+    "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
+  },
+  "aliases": [
+    "Tower 4",
+    "Tower 4 podcast",
+    "7 Lamb Tower 4"
+  ],
+  "themes": [
+    "mystery",
+    "isolation",
+    "comedy",
+    "thriller"
+  ],
+  "contentNotes": [
+    "genre violence / threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "creators": [
+    "7 Lamb Productions"
+  ],
+  "cast": [],
+  "releaseDates": {
+    "first": "2020-09-14",
+    "latest": "2026-05-04",
+    "note": "Latest verified public episode in Apple/Amazon listings is S4E8: An Open Mind on 2026-05-04. Third-party feed counts differ, so episodes is a conservative numbered-episode count."
+  },
+  "createdAt": "2026-06-01",
+  "creatorId": "7-lamb-productions",
+  "networkId": "7-lamb-productions",
+  "similarReasons": {
+    "the-white-vault": "The closest match for isolation pressure and a setting that turns hostile around the listener.",
+    "station-151": "A stranger outpost variation that keeps the remote-post unease alive.",
+    "alice-isnt-dead": "A road-haunted branch for listeners who liked the voice, solitude, and ambient menace.",
+    "archive-81": "A more ritual-heavy horror route for listeners who want the mystery to get weirder."
+  }
+}

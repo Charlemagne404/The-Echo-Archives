@@ -2,9 +2,13 @@
   "name": "the-echo-archives",
   "private": true,
   "scripts": {
+    "build:catalog": "node tools/build-catalog.js",
     "dev": "npm --prefix backend run dev",
+    "report:catalog": "node tools/report-catalog.js",
+    "catalog:new:show": "node tools/scaffold-catalog.js show",
+    "catalog:new:collection": "node tools/scaffold-catalog.js collection",
     "build:pages": "node tools/build-pages.js",
     "check:structure": "node tools/check-structure.js",
-    "verify": "npm run build:pages && npm run check:structure && npm --prefix backend run verify"
+    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm --prefix backend run verify"
   }
 }

@@ -1,0 +1,39 @@
+{
+  "id": "shows-like-station-151",
+  "title": "Shows like Station 151",
+  "description": "Off-kilter outpost fiction for listeners who want the station setting, the weirdness, and the laugh that sounds a little wrong.",
+  "label": "Broken outpost weird",
+  "kind": "similarity",
+  "intentTags": [
+    "funny-space",
+    "cold-horror",
+    "late-night"
+  ],
+  "commitment": "Similarity route",
+  "coverShowIds": [
+    "oz-9",
+    "wolf-359",
+    "tower-4",
+    "archive-81"
+  ],
+  "showIds": [
+    "oz-9",
+    "wolf-359",
+    "tower-4",
+    "archive-81",
+    "midnight-burger",
+    "the-white-vault"
+  ],
+  "showReasons": {
+    "oz-9": "Leans harder into comedy if the broken-space-station absurdity is what you want more of.",
+    "wolf-359": "A broader ensemble follow-up once you want more character payoff and less frostbite.",
+    "tower-4": "Swaps the station for a lookout tower but keeps the isolated-post tension strong.",
+    "archive-81": "Pushes deeper into signal horror and stranger structures for listeners chasing the eerie side.",
+    "midnight-burger": "A warmer, weirder branch if you want more cosmic oddness than dread.",
+    "the-white-vault": "For listeners who want the isolation to get colder and more openly hostile."
+  },
+  "featured": false,
+  "order": 220,
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30"
+}

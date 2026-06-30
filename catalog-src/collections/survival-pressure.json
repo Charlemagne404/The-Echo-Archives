@@ -1,0 +1,41 @@
+{
+  "id": "survival-pressure",
+  "title": "Survival pressure",
+  "description": "Stories where the next decision matters and the world keeps closing in.",
+  "label": "Keep moving",
+  "kind": "curated",
+  "intentTags": [
+    "long-walks",
+    "late-night",
+    "cold-horror"
+  ],
+  "commitment": "High pressure",
+  "coverShowIds": [
+    "were-alive",
+    "impact-winter",
+    "end-of-all-hope",
+    "derelict"
+  ],
+  "showIds": [
+    "were-alive",
+    "impact-winter",
+    "end-of-all-hope",
+    "the-phenomenon",
+    "the-white-vault",
+    "derelict",
+    "windfall"
+  ],
+  "showReasons": {
+    "were-alive": "Long-running ensemble survival gives the route its endurance.",
+    "impact-winter": "Survival stakes and cinematic pace make the danger immediate.",
+    "end-of-all-hope": "Ongoing apocalypse pressure fits the keep-moving premise.",
+    "the-phenomenon": "Large-scale threat gives the collection a bleak public edge.",
+    "the-white-vault": "Environmental survival turns isolation into the threat.",
+    "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant.",
+    "windfall": "Conspiracy pressure and collapsing systems keep the route urgent even when the threat is more political than monstrous."
+  },
+  "featured": false,
+  "order": 120,
+  "createdAt": "2026-06-23",
+  "updatedAt": "2026-06-30"
+}

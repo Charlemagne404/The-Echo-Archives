@@ -1,0 +1,96 @@
+{
+  "id": "mabel",
+  "title": "Mabel",
+  "subtitle": "Ghosts, family secrets, and intimate audio that makes the house itself feel like a voice.",
+  "description": "A fiction podcast about ghosts, hidden histories, and missed connections, told through intimate messages and a steadily deepening sense of the uncanny.",
+  "cover": "images/covers/mabel.jpg",
+  "coverAlt": "Mabel cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/mabel/id1160860118",
+    "website": "https://mabelpodcast.com/",
+    "rss": ""
+  },
+  "genres": [
+    "horror",
+    "mystery",
+    "drama"
+  ],
+  "tones": [
+    "weird",
+    "bleak",
+    "hopeful"
+  ],
+  "formats": [
+    "narrated",
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Ghosts",
+    "Family secrets"
+  ],
+  "aliases": [],
+  "themes": [
+    "haunting",
+    "memory",
+    "care"
+  ],
+  "contentNotes": [
+    "grief",
+    "supernatural threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "Apple lists 50 episodes for the original fiction run.",
+    "episodes": 50
+  },
+  "releaseDates": {},
+  "ratings": {
+    "archive": 8.5
+  },
+  "bestFor": [
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "unwell",
+    "mirrors",
+    "alice-isnt-dead"
+  ],
+  "archiveTake": "A good match when the listener wants quieter supernatural unease and strong voice-driven atmosphere.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://mabelpodcast.com/"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-30",
+    "source": "https://mabelpodcast.com/; https://podcasts.apple.com/us/podcast/mabel/id1160860118",
+    "note": "Verification covers factual metadata only."
+  },
+  "creators": [
+    "Becca De La Rosa",
+    "Mabel Martin"
+  ],
+  "cast": [],
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30",
+  "similarReasons": {
+    "unwell": "A warmer small-town branch if you want the haunting to keep its affection.",
+    "mirrors": "Pushes the eeriness broader and stranger once the appetite turns more speculative.",
+    "alice-isnt-dead": "Keeps the voice-driven dread alive while swapping ghosts for a road-haunted conspiracy pulse."
+  }
+}

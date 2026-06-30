@@ -1,0 +1,103 @@
+{
+  "id": "welcome-to-night-vale",
+  "title": "Welcome to Night Vale",
+  "subtitle": "Community-radio weirdness that treats the impossible like a local bulletin.",
+  "description": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
+  "cover": "images/covers/welcome-to-night-vale.jpg",
+  "coverAlt": "Welcome to Night Vale cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179",
+    "website": "https://www.welcometonightvale.com/",
+    "rss": "http://feeds.nightvalepresents.com/welcometonightvalepodcast"
+  },
+  "genres": [
+    "horror",
+    "comedy",
+    "sci-fi"
+  ],
+  "tones": [
+    "weird",
+    "funny",
+    "dark"
+  ],
+  "formats": [
+    "narrated",
+    "episodic"
+  ],
+  "tags": [
+    "Weird fiction",
+    "Community radio",
+    "Cosmic horror"
+  ],
+  "aliases": [
+    "WTNV",
+    "Welcome to Night Vale podcast"
+  ],
+  "themes": [
+    "community",
+    "surrealism",
+    "conspiracy"
+  ],
+  "contentNotes": [
+    "body horror",
+    "existential threat"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "An ongoing twice-monthly fiction podcast with a large back catalog and starter-guide entry point."
+  },
+  "releaseDates": {},
+  "ratings": {
+    "archive": 9.3
+  },
+  "bestFor": [
+    "easy-entry",
+    "warm-weird",
+    "late-night"
+  ],
+  "similarTo": [
+    "alice-isnt-dead",
+    "desert-skies",
+    "midnight-burger",
+    "unwell"
+  ],
+  "archiveTake": "Still one of the clearest archive answers when someone wants foundational weird fiction with a strong voice and a lighter touch than outright horror.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.welcometonightvale.com/"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-06-30",
+    "source": "https://www.welcometonightvale.com/; https://www.welcometonightvale.com/listen; https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179; http://feeds.nightvalepresents.com/welcometonightvalepodcast",
+    "note": "Verification covers factual metadata only."
+  },
+  "creators": [
+    "Joseph Fink",
+    "Jeffrey Cranor"
+  ],
+  "cast": [
+    "Cecil Baldwin"
+  ],
+  "createdAt": "2026-06-30",
+  "updatedAt": "2026-06-30",
+  "similarReasons": {
+    "alice-isnt-dead": "A road-haunted branch if the intimate narration and creeping unreality are the real hook.",
+    "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
+    "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
+    "unwell": "A small-town gothic branch if the community feeling matters as much as the cosmic oddness."
+  }
+}

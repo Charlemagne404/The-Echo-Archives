@@ -1,0 +1,45 @@
+{
+  "id": "serious-sci-fi",
+  "title": "Serious sci-fi",
+  "description": "High-stakes science fiction with a stronger appetite for tension than banter.",
+  "label": "Signal dense",
+  "kind": "curated",
+  "intentTags": [
+    "serious-sci-fi",
+    "headphones-on",
+    "late-night"
+  ],
+  "commitment": "Medium to long",
+  "coverShowIds": [
+    "derelict",
+    "impact-winter",
+    "ars-paradoxica",
+    "solar"
+  ],
+  "showIds": [
+    "impact-winter",
+    "ars-paradoxica",
+    "solar",
+    "vast-horizon",
+    "derelict",
+    "spectre",
+    "the-program-audio-series",
+    "midst",
+    "earth-eclipsed"
+  ],
+  "showReasons": {
+    "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
+    "ars-paradoxica": "Time-science plotting and consequences make it one of the archive's denser sci-fi routes.",
+    "solar": "Tense space survival keeps the scope tight and the stakes immediate.",
+    "vast-horizon": "Expansive setting and survival structure give it a serious long-haul spine.",
+    "derelict": "Dark industrial mystery and detailed audio design fit the high-stakes lane.",
+    "spectre": "A darker sci-fi mystery pick for listeners who want a sharper edge.",
+    "the-program-audio-series": "A colder, idea-driven branch for listeners who want future systems more than banter.",
+    "midst": "Adds stranger, more formal sci-fantasy weight without losing the serious speculative core.",
+    "earth-eclipsed": "Dystopian pressure and a serious tone make it a clean fit for the darker sci-fi lane."
+  },
+  "featured": true,
+  "order": 30,
+  "createdAt": "2026-06-01",
+  "updatedAt": "2026-06-30"
+}

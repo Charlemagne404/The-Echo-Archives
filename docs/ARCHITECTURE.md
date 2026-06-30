@@ -21,9 +21,10 @@ The Echo Archives is a structured, static-first archive with a small Node and Ex
 
 It has four main layers:
 
+- authored catalog source in `catalog-src/`
 - authored page source in `site-src/`
 - committed public page output in the repo root
-- structured editorial catalog data in `data/`
+- generated runtime/public catalog data in `data/`
 - shared runtime modules and backend services in `shared/` and `backend/`
 
 The main architecture problem is no longer migration away from handwritten pages. The current problem is how to scale trust, metadata quality, review coverage, and discovery depth without overbuilding.
@@ -33,15 +34,18 @@ The main architecture problem is no longer migration away from handwritten pages
 These boundaries are intentional and should be preserved:
 
 - `site-src/`: authored page sources, page manifest, and reusable HTML partials
+- `catalog-src/`: authored catalog source files and order manifests
 - repo root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js`: generated, committed public output and stable browser entry assets
 - `shared/`: browser modules, rendering helpers, search logic, shared CSS partials, and compatibility manifests
-- `data/`: live editorial source data only
+- `data/`: generated runtime/public catalog data only
 - `backend/`: backend services, tests, validation scripts, and SQLite-backed workflow storage
 - `docs/`: product, architecture, operations, research, QA, and historical material only; never runtime inputs
 
 The repo-root command surface is intentionally small:
 
 - `npm run dev`
+- `npm run build:catalog`
+- `npm run report:catalog`
 - `npm run build:pages`
 - `npm run check:structure`
 - `npm run verify`
@@ -108,6 +112,7 @@ Legacy detail pages still exist under `shows/` and are kept as compatibility red
 The frontend should:
 
 - render browse and detail state from structured catalog data
+- use `/data/search-index.json` for homepage browse/search/filtering
 - keep `script.js` as the single browser entry while `shared/app/` owns the implementation
 - derive search, filters, cards, and detail views from shared metadata rather than duplicated markup
 - preserve the current visual identity
@@ -131,10 +136,17 @@ This is enough surface area that future UI work should start from the existing d
 
 The editorial source of truth lives in:
 
+- `catalog-src/shows/`
+- `catalog-src/collections/`
+- `catalog-src/reviews/`
+- `data/schema.md`
+
+Generated runtime/public output lives in:
+
 - `data/shows.json`
 - `data/collections.json`
 - `data/reviews/*.json`
-- `data/schema.md`
+- `data/search-index.json`
 
 The frontend, Ask the Archivist, sitemap generation, and related public surfaces should read from these structured datasets instead of scraping or inferring from HTML.
 
@@ -148,17 +160,7 @@ Key editorial principles:
 
 ## Current Catalog Baseline
 
-As of June 30, 2026:
-
-- 41 published show records
-- 26 collection records
-- 6 review companion JSON files
-- 35 `indexed-only` shows
-- 6 `full-review` shows
-- 30 shows still lack RSS URLs
-- 14 shows still lack `metadata.objectiveSources`
-- 26 shows still carry `metadata.researchGaps`
-
+The generated snapshot for current counts and metadata coverage lives in `docs/generated/catalog-status.md`.
 The archive supports both `indexed-only` and `full-review` as valid long-term show states.
 
 ## Backend Role
@@ -168,6 +170,7 @@ The archive supports both `indexed-only` and `full-review` as valid long-term sh
 - `GET /api/health`
 - `GET /sitemap.xml`
 - `GET /data/shows.json`
+- `GET /data/search-index.json`
 - `POST /api/chat`
 - `GET /api/chat/health`
 - `POST /api/community/profiles/anonymous`
@@ -194,7 +197,7 @@ Within `backend/`, assistant-specific logic now lives under `lib/ai/`, while the
 
 ## Catalog Loading And Validation
 
-`backend/lib/catalog.js` loads structured catalog data directly from `data/`, merges companion review JSON into the matching show record, normalizes search data, and validates both shows and collections.
+`backend/lib/catalog.js` loads authored catalog source from `catalog-src/` when present, falls back to `data/` in temporary/test contexts, merges companion review JSON into the matching show record, normalizes search data, and validates both shows and collections.
 
 Validation covers:
 
@@ -221,7 +224,7 @@ Source order:
 - `officialLinks.website`
 - `listenLinks.website`
 
-Successful fetches are stored as managed local files in `images/covers/` and written back into `data/shows.json`.
+Successful fetches are stored as managed local files in `images/covers/` and written back into the authored show source record, then exposed through the generated runtime catalog.
 
 If no cover can be resolved, the process logs a warning and falls back to a shared local placeholder for that run instead of aborting startup.
 
@@ -276,13 +279,13 @@ This storage layer exists to support workflow without replacing the structured e
 
 ## Catalog Import Lane
 
-The new catalog import lane is intentionally separate from both the public submission surface and the canonical catalog files.
+The new catalog import lane is intentionally separate from both the public submission surface and the authored catalog files.
 
 Boundaries:
 
 - public show intake still lives in the submission queue
 - machine-found show candidates live in SQLite import tables
-- approved candidates are written into `data/shows.json` as `status: "draft"`
+- approved candidates are written into the authored show source catalog as `status: "draft"` and then regenerated into `data/`
 - only fully reviewed records are promoted to `published`
 
 Source strategy in v1:
