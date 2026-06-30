@@ -124,7 +124,7 @@ function setCanonicalHref(value) {
 export function updateDocumentMetadata({ title, description, path, image }) {
   const resolvedTitle = title || "The Echo Archives";
   const resolvedDescription =
-    description || "Curated fiction podcasts, filtered by mood, genre, and listening intent.";
+    description || "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.";
   const resolvedUrl = buildAbsoluteUrl(path || window.location.pathname);
   const resolvedImage = buildAbsoluteUrl(image || DEFAULT_SOCIAL_IMAGE);
 

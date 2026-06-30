@@ -7,9 +7,9 @@ This is the active architecture reference for The Echo Archives.
 Use it as the source of truth for:
 
 - the current system shape
-- the intended next-stage architecture
 - the data and rendering model
-- submission and community system boundaries
+- route and API boundaries
+- moderation and community storage boundaries
 - maintainability rules
 
 Detailed field-level schema lives in `data/schema.md`.
@@ -17,61 +17,111 @@ Historical architecture and migration docs live in `docs/archive/`.
 
 ## Summary
 
-The Echo Archives is a structured, mostly static archive with a small Node and Express backend in `podcast-ai/`.
+The Echo Archives is a structured, static-first archive with a small Node and Express backend in `podcast-ai/`.
 
-It has three main layers:
+It has four main layers:
 
-- authored page source in `site-src/` and committed frontend output in the repo root
+- authored page source in `site-src/`
+- committed public page output in the repo root
 - structured editorial catalog data in `data/`
-- shared runtime modules and config in `shared/`
-- backend services in `podcast-ai/` for chat, submissions, ratings, and sitemap support
+- shared runtime modules and backend services in `shared/` and `podcast-ai/`
 
-The main architecture problem is no longer migration away from handwritten pages. The main problem is how to scale trust, metadata quality, moderation, and discovery depth without overbuilding.
+The main architecture problem is no longer migration away from handwritten pages. The current problem is how to scale trust, metadata quality, review coverage, and discovery depth without overbuilding.
 
 ## Repo Boundaries
 
-These boundaries are now intentional and should be preserved as the project grows:
+These boundaries are intentional and should be preserved:
 
 - `site-src/`: authored page sources, page manifest, and reusable HTML partials
-- repo root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js`: committed public output and stable browser entry assets
-- `shared/`: runtime JS, shared CSS partials, browser/backend/test config, and compatibility manifests such as `shared/config/legacy-redirects.json`
+- repo root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js`: generated, committed public output and stable browser entry assets
+- `shared/`: browser modules, rendering helpers, search logic, shared CSS partials, and compatibility manifests
 - `data/`: live editorial source data only
+- `podcast-ai/`: backend services, tests, validation scripts, and SQLite-backed workflow storage
 - `docs/`: product, architecture, operations, research, QA, and historical material only; never runtime inputs
 
-The repo root command surface is intentionally small:
+The repo-root command surface is intentionally small:
 
 - `npm run dev`
 - `npm run build:pages`
 - `npm run check:structure`
 - `npm run verify`
 
+## Generated Page Model
+
+Pages are authored in `site-src/pages/`, routed through `site-src/page-manifest.json`, and emitted into committed root HTML by `tools/build-pages.js`.
+
+The current generated page set includes:
+
+- `index.html`
+- `about.html`
+- `for-creators.html`
+- `creator-standards.html`
+- `supporters.html`
+- `collections.html`
+- `collection.html`
+- `show.html`
+- `submit.html`
+- `privacy.html`
+- `terms.html`
+- `cookies.html`
+- `maintainer/submissions.html`
+- `maintainer/submissions/report.html`
+
+Do not hand-edit generated root HTML when the corresponding source exists in `site-src/`.
+
 ## Public Routes
 
 Primary public routes:
 
 - `/`
+- `/about.html`
+- `/for-creators.html`
+- `/creator-standards.html`
+- `/supporters.html`
 - `/collections.html`
 - `/collection.html?id=<collection-id>`
 - `/show.html?id=<show-id>`
-- `/about.html`
 - `/submit.html`
+- `/privacy.html`
+- `/terms.html`
+- `/cookies.html`
 
-Legacy detail pages may still exist as compatibility entry points, but the reusable routes are the real product path.
+Operational routes:
+
+- `/sitemap.xml`
+- `/robots.txt`
+- `/404.html`
+
+Maintainer-only routes when configured:
+
+- `/maintainer/submissions.html`
+- `/maintainer/submissions/report.html`
+
+Legacy detail pages still exist under `shows/` and are kept as compatibility redirects to the reusable show route.
 
 ## Frontend Role
 
 The frontend should:
 
 - render browse and detail state from structured catalog data
-- derive browse views from shared metadata rather than duplicated markup
-- keep the current visual identity
-- expose trust signals and discovery features without requiring a frontend framework rewrite
-- hide future features until backing data actually exists
-- keep `script.js` as the single browser entry while `shared/app/` owns the runtime modules
-- keep root HTML generated from `site-src/` rather than hand-editing duplicate page shells
-- keep the public CSS URLs stable while `shared/styles/` owns imported partials behind them
+- keep `script.js` as the single browser entry while `shared/app/` owns the implementation
+- derive search, filters, cards, and detail views from shared metadata rather than duplicated markup
+- preserve the current visual identity
+- keep root HTML generated from `site-src/`
+- keep public CSS URLs stable while `shared/styles/` owns imported partials
 
-If the catalog grows significantly, prefer lightweight derived indexes before considering a heavier stack migration.
+The homepage currently supports:
+
+- structured filtering
+- quick filters
+- text search
+- recently updated sort mode
+- featured collections
+- a most-popular band informed by community summaries and fallback popularity metadata
+- inline-expanding show-card preview behavior
+- no-results recovery
+
+This is enough surface area that future UI work should start from the existing data and rendering model rather than from a rewrite impulse.
 
 ## Canonical Editorial Data
 
@@ -79,42 +129,54 @@ The editorial source of truth lives in:
 
 - `data/shows.json`
 - `data/collections.json`
+- `data/reviews/*.json`
 - `data/schema.md`
 
-The frontend, Ask the Archivist, and related public surfaces should read from these structured datasets instead of scraping or inferring from HTML.
+The frontend, Ask the Archivist, sitemap generation, and related public surfaces should read from these structured datasets instead of scraping or inferring from HTML.
 
 Key editorial principles:
 
 - one canonical show record per show
 - one canonical collection record per collection
+- optional long-form review data can live in companion review JSON
 - objective metadata stays separate from archive editorial opinion
 - operational and community storage must not become the editorial source of truth
 
 ## Current Catalog Baseline
 
-Current baseline:
+As of June 29, 2026:
 
-- 27 show records
-- 6 collection records
-- 3 full reviews
+- 27 published show records
+- 15 collection records
+- 3 review companion JSON files
+- 24 `indexed-only` shows
+- 3 `full-review` shows
 
-The archive supports both full-review and indexed-only show records as valid long-term states.
+The archive supports both `indexed-only` and `full-review` as valid long-term show states.
 
 ## Backend Role
 
 `podcast-ai/server.js` currently serves:
 
-- catalog-grounded archive chat
-- anonymous community ratings
-- show, correction, listener-review, and creator-verification intake
-- generated sitemap support
-- optional static file serving
+- `GET /api/health`
+- `GET /sitemap.xml`
+- `GET /data/shows.json`
+- `POST /api/chat`
+- `GET /api/chat/health`
+- `POST /api/community/profiles/anonymous`
+- `GET /api/community/config`
+- `GET /api/community/ratings/summary`
+- `PUT /api/community/podcasts/:podcastId/rating`
+- `DELETE /api/community/podcasts/:podcastId/rating`
+- `POST /api/submissions/shows`
+- protected maintainer session and submission queue APIs
+- optional static file serving from the repo root
 
-The backend should continue to own:
+The backend owns:
 
-- chat orchestration
-- submissions and corrections
-- listener-review and creator-verification intake
+- chat orchestration and site-help responses
+- catalog loading and validation
+- submission intake
 - community ratings
 - moderation-supporting workflow data
 - sitemap generation
@@ -122,62 +184,51 @@ The backend should continue to own:
 
 ## Catalog Loading And Validation
 
-`podcast-ai/lib/catalog.js` loads structured catalog data directly from `data/`.
+`podcast-ai/lib/catalog.js` loads structured catalog data directly from `data/`, merges companion review JSON into the matching show record, normalizes search data, and validates both shows and collections.
 
-Catalog load now also auto-syncs missing show cover art before validation:
-
-- source order is RSS, Apple, official website, then listen website
-- successful fetches are stored as managed local files in `images/covers/`
-- resolved local cover paths are written back into `data/shows.json`
-- unresolved covers fall back to a shared local placeholder for that process and log warnings instead of aborting startup
-
-Validation should continue to cover:
+Validation covers:
 
 - unique ids
 - known enum values
 - valid URLs
-- duplicate taxonomy terms
-- `similarTo` references
-- `similarReasons` references when present
-- optional release, verification, and richer metadata fields when present
-- optional `createdAt`, `creatorId`, and `networkId` fields
+- duplicate normalized taxonomy values
+- required rating and update fields
+- `similarTo` and `similarReasons` references
 - collection references
+- optional creator and network ids
+- date field validity
 
 The system should fail fast on malformed structured data rather than silently degrading.
 
-## Detailed Schema
+## Automatic Cover Sync
 
-`data/schema.md` is the practical v1 schema reference.
+Catalog load and validation can auto-sync missing show cover art.
 
-It defines:
+Source order:
 
-- the `show` object shape
-- the richer optional metadata the JSON catalog may store before the UI uses it
-- required fields
-- controlled values
-- validation rules
-- collection shape
-- optional companion datasets
+- `listenLinks.rss`
+- `listenLinks.apple`
+- `officialLinks.website`
+- `listenLinks.website`
 
-Use `data/schema.md` for concrete field-level decisions. Use this file for system-level decisions.
+Successful fetches are stored as managed local files in `images/covers/` and written back into `data/shows.json`.
 
-## Future Structured Datasets
+If no cover can be resolved, the process logs a warning and falls back to a shared local placeholder for that run instead of aborting startup.
 
-The most likely next additions are:
+## Archive Assistant And Site Help
 
-```txt
-data/
-  shows.json
-  collections.json
-  creators.json
-  networks.json
-  changelog.json
-  schema.md
-```
+Ask the Archivist is not just a raw LLM endpoint.
 
-These datasets should only be added when real content exists and improves browsing or trust.
+The chat layer combines:
 
-Related routes or UI should remain hidden until the data is present and validated.
+- structured show and collection data
+- archive-context loaders
+- site-help responses for privacy, terms, supporter, contact, and creator workflow questions
+- rate limiting
+- optional Ollama model calls
+- deterministic catalog-grounded fallbacks when model output is unavailable or unsuitable
+
+This grounding model is a core product boundary. The assistant should keep answering from archive data and route knowledge, not freeform invention.
 
 ## Community And Contribution Layer
 
@@ -189,26 +240,29 @@ Current participation features include:
 - rating submission and removal
 - rating summary fetches
 - show submissions
-- corrections
+- correction intake
 - listener-review intake
 - creator-verification intake
-- maintainer queue and report surfaces for moderation workflow
+- maintainer queue and report surfaces
 
-All intake remains moderation-first. Nothing should auto-publish into the archive catalog.
+All intake remains moderation-first. Nothing auto-publishes into the editorial catalog.
 
-## Moderation Storage Model
+## Storage Model
 
-Operational storage may use SQLite or another lightweight store for:
+Operational storage uses SQLite through `better-sqlite3`.
 
+Current workflow storage supports:
+
+- community profile and rating state
+- abuse-signal and rate-limit support
 - submission queue entries
 - typed payload JSON
 - provenance JSON
-- moderation notes, priority, and status
-- anonymous community state
+- moderation metadata such as status, priority, review notes, reviewer, and review time
 
-This storage layer should support workflow without replacing the structured editorial catalog.
+This storage layer exists to support workflow without replacing the structured editorial catalog.
 
-## Creator Verification Boundary
+## Trust Boundaries
 
 Creator verification exists to improve factual metadata quality.
 
@@ -218,33 +272,24 @@ It must not imply:
 - creator control over archive reviews
 - editorial endorsement tied to creator status
 
-The system should preserve provenance when creator-supplied factual corrections are accepted.
+Community ratings are also distinct from editorial ratings and stay behind a minimum-public-threshold rule before averages display publicly.
 
 ## Testing And Quality
 
-The existing safety net includes backend coverage for:
+The current safety net includes:
 
-- catalog loading
-- optional archive-context loading
-- sitemap generation
-- submission flows
-- community flows
+- unit and integration tests for catalog loading, archive context, chat routes, community flows, rate limits, review workflow, sitemap generation, site-help behavior, and maintainer auth
+- browser smoke coverage for main routes, homepage browse behavior, card interactions, show-detail navigation, submit flows, creator flows, and rating flows
+- repo-level structure checks and page generation verification
 
-It also includes lightweight browser smoke coverage for:
-
-- main public routes
-- homepage filters and empty-state recovery
-- homepage expanding archive-card behavior
-- Ask the Archivist open and close behavior
-- submit-form mode switching
-
-Key repo verification commands:
+Key verification commands:
 
 - `npm run build:pages`
 - `npm run check:structure`
-- `npm run validate:data`
-- `npm run check:links`
-- `npm run test:smoke`
+- `npm --prefix podcast-ai run validate:data`
+- `npm --prefix podcast-ai run check:links`
+- `npm --prefix podcast-ai test`
+- `npm --prefix podcast-ai run test:smoke`
 - `npm run verify`
 
 ## Deployment Assumptions
@@ -256,19 +301,19 @@ Current assumptions:
 - Node 20+
 - Express serves API and static files
 - optional Ollama service at `127.0.0.1:11434`
-- SQLite database at `podcast-ai/data/community.sqlite` in production
+- SQLite database at `podcast-ai/data/community.sqlite` by default
 - reverse proxy and systemd definitions in `deploy/`
 
 ## Current Gaps
 
 The current limitations are mostly editorial and scale-related:
 
-- catalog breadth is still limited relative to the product vision
+- show breadth is still modest
 - full-review coverage is still sparse
-- recommendation reasons are scaffolded but not yet fully populated
-- creator, network, and changelog datasets are supported but not yet populated
+- recommendation reasons are only partially populated
+- creator, network, and changelog datasets are not live
 - moderation remains intentionally manual
-- runtime and commitment metadata are still too incomplete for fully trustworthy public filtering
+- some richer filter ideas still depend on more complete metadata
 
 ## Maintainability Rules
 
@@ -278,7 +323,6 @@ The current limitations are mostly editorial and scale-related:
 - Do not add a heavy platform migration without a demonstrated bottleneck.
 - Separate editorial truth from community and moderation workflow data.
 - Prefer additive optional datasets over duplicated route-specific data.
-- Keep the repo root as the intentional public web surface unless deployment requirements materially change.
-- Keep `site-src/` as the authored page shell source and treat root HTML as generated output.
-- Keep one root command surface instead of growing ad hoc scripts across directories.
+- Keep the repo root as the intentional public web surface unless deployment needs materially change.
+- Keep `site-src/` as the authored page-shell source and treat root HTML as generated output.
 - Treat public routes, query params, API shapes, storage keys, and DOM hooks as compatibility boundaries during hygiene refactors.

@@ -10,6 +10,7 @@
     "test": "node --test test/*.test.js",
     "test:smoke": "node --test --test-concurrency=1 test/*.smoke.js",
     "validate:data": "node scripts/validate-data.js",
+    "report:discovery-gaps": "node scripts/discovery-gap-report.js",
     "check:links": "node scripts/check-links.js",
     "review:new": "node scripts/review-new.js",
     "review:publish": "node scripts/review-publish.js",

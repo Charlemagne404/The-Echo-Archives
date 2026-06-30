@@ -243,6 +243,10 @@ export function matchesSelectedFilters(show, filters) {
       switch (groupId) {
         case "genres":
           return show.genreTokens;
+        case "tones":
+          return Array.isArray(show.tones) ? show.tones : [];
+        case "formats":
+          return Array.isArray(show.formats) ? show.formats : [];
         case "tags":
           return show.tagTokens;
         case "bestFor":

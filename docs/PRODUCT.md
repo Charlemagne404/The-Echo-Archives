@@ -9,15 +9,15 @@ Use it as the source of truth for:
 - product identity
 - audience and positioning
 - UX principles
-- browse, show-page, and collection behavior
-- ratings, trust, and contribution boundaries
+- current public surfaces
+- trust and contribution boundaries
 - design and voice guidance
 
 Historical planning variants live in `docs/archive/`.
 
 ## One-Sentence Vision
 
-The Echo Archives is a human-curated discovery platform for audio dramas and fiction podcasts, built to help listeners find their next audio obsession by genre, mood, tone, format, length, similarity, and listening context.
+The Echo Archives is a human-curated discovery platform for audio dramas and fiction podcasts, built to help listeners find what to hear next through mood, tone, format, length, similarity, and editorial context.
 
 ## Core Identity
 
@@ -58,10 +58,9 @@ The archive should serve both deep fans and newcomers without turning into a gen
 ## Product Principles
 
 - Discovery comes first.
-- The archive should help users decide what to hear next within a page or two.
+- Compact browsing is a feature, not a bug.
 - Structured metadata should support editorial judgment, not replace it.
 - Indexed-only entries are permanent first-class records, not placeholders.
-- Compact browsing is a feature, not a bug.
 - Trust matters more than volume.
 - Community and creator input should improve the archive without overruling editorial ownership.
 
@@ -98,7 +97,7 @@ Preserve the existing visual language:
 - small but readable metadata
 - editorial archive language
 
-The browse page density is intentional. Improve polish, spacing, readability, and responsiveness without flattening the identity.
+The browse-page density is intentional. Improve polish, spacing, readability, and responsiveness without flattening the identity.
 
 ## Voice And Naming
 
@@ -122,15 +121,22 @@ Assistant naming standard:
 
 - **Ask the Archivist**
 
-## Positioning
+## Current Implemented Product Surface
 
-Useful lines:
+As of June 29, 2026, the live repo supports:
 
-- "Find your next audio obsession."
-- "Podcast apps are built for everything. The Echo Archives is built for fiction."
-- "A curated archive for audio dramas, fiction podcasts, and stories worth getting lost in."
+- 27 published show records
+- 15 collections
+- 3 full-review shows backed by companion review JSON
+- a compact homepage with search, structured filters, quick filters, a recently updated browse mode, featured collections, and a most-popular band
+- reusable show and collection detail routes
+- About, For Creators, Creator Standards, Supporters, Privacy, Terms, and Cookies pages
+- Ask the Archivist chat
+- anonymous community ratings
+- moderated submissions for new shows, corrections, listener reviews, and creator verification
+- a protected maintainer queue and report surface
 
-The archive should feel adjacent to IMDb, Goodreads, Letterboxd, and MyAnimeList in usefulness, but it should not mimic any of them directly.
+The product is past the early migration phase. The current priority is improving discovery quality, catalog depth, trust, and editorial usefulness.
 
 ## Browse Page Rules
 
@@ -174,13 +180,13 @@ Relevant discovery inputs include:
 - tone
 - tags
 - format
-- status
+- review status
+- release or completion status
 - runtime or commitment
 - production style
-- similar shows
-- archive notes
+- similar-show relationships
 
-Only expose filters backed by real data.
+The current homepage already supports structured filter groups plus search and a recently updated view. New filter UI should only be added when the supporting data is complete enough to stay trustworthy.
 
 Empty states should route users toward:
 
@@ -249,7 +255,7 @@ Creator verification must never imply creator approval of archive ratings, revie
 
 Listener reviews, creator notes, and archive editorial voice should stay visually and semantically separate.
 
-Community features should remain moderated. Nothing user-submitted should auto-publish without explicit rules.
+Community features remain moderated. Nothing user-submitted should auto-publish without explicit rules.
 
 ## Data Quality Rules
 
@@ -262,7 +268,7 @@ Community features should remain moderated. Nothing user-submitted should auto-p
 
 ## Submissions And Community
 
-Supported contribution types may include:
+Supported contribution types:
 
 - new shows
 - metadata corrections
@@ -274,7 +280,7 @@ Supported contribution types may include:
 
 Community contribution should stay quality-controlled and moderation-first.
 
-Continental ID can be an optional trust layer, not a mandatory wall.
+Continental ID can be an optional future trust layer, not a mandatory wall.
 
 ## Ask The Archivist
 

@@ -49,7 +49,7 @@ export async function initializeHomePage() {
 
   updateDocumentMetadata({
     title: "The Echo Archives",
-    description: "Curated fiction podcasts, filtered by mood, genre, and listening intent.",
+    description: "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.",
     path: "/",
     image: DEFAULT_SOCIAL_IMAGE,
   });

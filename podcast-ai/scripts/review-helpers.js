@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const { loadArchiveContext } = require("../lib/archive-context");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
+const { getGateBCriticalValidationErrors } = require("../lib/discovery-gaps");
 const {
   getReviewFilePath,
   hasRichReviewContent,
@@ -86,6 +87,11 @@ async function validateSiteData(siteRoot) {
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   await loadArchiveContext(siteRoot, catalog, collections);
+
+  const gateBErrors = getGateBCriticalValidationErrors(catalog, collections);
+  if (gateBErrors.length > 0) {
+    throw new Error(`Gate B validation failed:\n- ${gateBErrors.join("\n- ")}`);
+  }
 }
 
 function hasDetailedLength(show) {

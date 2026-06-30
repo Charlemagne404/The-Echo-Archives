@@ -5,16 +5,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Echo Archives</title>
-<meta name="description" content="Curated fiction podcasts, filtered by mood, genre, and listening intent." />
+<meta name="description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
 <link rel="canonical" href="https://echo.continental-hub.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="The Echo Archives" />
-<meta property="og:description" content="Curated fiction podcasts, filtered by mood, genre, and listening intent." />
+<meta property="og:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
 <meta property="og:url" content="https://echo.continental-hub.com/" />
 <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The Echo Archives" />
-<meta name="twitter:description" content="Curated fiction podcasts, filtered by mood, genre, and listening intent." />
+<meta name="twitter:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
 <link rel="stylesheet" href="/style.css?v=12" />
@@ -95,11 +95,11 @@
               <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
           </span>
-          <input type="text" id="stickySearch" placeholder='Search titles, moods, statuses, or "like Midnight Burger"' />
+          <input type="text" id="stickySearch" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' />
         </label>
 
         <div class="filter-container sticky-filter-container">
-          <button id="stickyFilterToggle" type="button" aria-label="Filter podcasts by tag" aria-expanded="false" aria-controls="stickyFilterDropdown">
+          <button id="stickyFilterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="stickyFilterDropdown">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
@@ -111,7 +111,7 @@
             <div class="filter-dropdown-header">
               <div>
                 <p class="filter-dropdown-kicker">Refine the archive</p>
-                <p class="filter-dropdown-copy">Stack archive filters by review depth, completion status, listening context, or tags.</p>
+                <p class="filter-dropdown-copy">Stack archive filters by tone, format, completion status, coverage, listening context, or tags.</p>
               </div>
               <button id="stickyFilterClear" class="filter-clear-button" type="button">Clear</button>
             </div>
@@ -124,10 +124,15 @@
     <section class="hero-shell" id="browse">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h1>Find your next audio obsession</h1>
+          <h1>Find your next fiction podcast.</h1>
           <p>
-            Curated fiction podcasts, filtered by mood, genre, and listening intent instead of generic app sprawl.
+            A human-curated archive for audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
           </p>
+          <div class="home-hero-actions" aria-label="Recommended discovery routes">
+            <a class="home-hero-route is-primary" href="/collection.html?id=shows-like-midnight-burger">Shows like Midnight Burger</a>
+            <a class="home-hero-route" href="/collection.html?id=finished-arcs">Completed shows</a>
+            <a class="home-hero-route" href="/collection.html?id=easy-first-steps">Start here</a>
+          </div>
         </div>
 
         <div class="search-container" aria-label="Archive controls">
@@ -137,12 +142,12 @@
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               </svg>
             </span>
-            <input type="text" id="search" placeholder='Search titles, moods, statuses, or "like Midnight Burger"' />
+            <input type="text" id="search" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' />
           </label>
 
           <div class="search-actions">
             <div class="filter-container">
-              <button id="filterToggle" type="button" aria-label="Filter podcasts by tag" aria-expanded="false" aria-controls="filterDropdown">
+              <button id="filterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="filterDropdown">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
                 </svg>
@@ -154,7 +159,7 @@
                 <div class="filter-dropdown-header">
                   <div>
                     <p class="filter-dropdown-kicker">Refine the archive</p>
-                    <p class="filter-dropdown-copy">Stack archive filters by review depth, completion status, listening context, or tags.</p>
+                    <p class="filter-dropdown-copy">Stack archive filters by tone, format, completion status, coverage, listening context, or tags.</p>
                   </div>
                   <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
                 </div>
@@ -192,7 +197,8 @@
       <section class="most-popular-band" id="mostPopular" aria-labelledby="mostPopularTitle" hidden>
         <div class="section-heading">
           <div>
-            <h3 id="mostPopularTitle">Popular with listeners</h3>
+            <h3 id="mostPopularTitle">Archive momentum</h3>
+            <p class="most-popular-summary">Community activity leads when it exists; archive popularity fills the gaps when the listener signal is still thin.</p>
           </div>
         </div>
 
@@ -201,7 +207,7 @@
 
       <div id="podcast-grid"></div>
       <div id="noResultsMsg" class="empty-state-card" hidden>
-        <p>No matches yet. Try a mood, completion status, or a route like "Midnight Burger like".</p>
+        <p>No matches yet. Try a tone, format, completion status, or a route like "Midnight Burger like".</p>
         <div class="empty-state-actions">
           <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
           <a class="collection-action" href="/collections.html">Browse collections</a>

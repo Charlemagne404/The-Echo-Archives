@@ -28,17 +28,18 @@ npm run verify
 
 If `npm run verify` fails, do not publish.
 
-`npm run verify` now:
+`npm run verify` currently:
 
 - regenerates committed root HTML from `site-src/`
 - runs repo structure checks
-- runs the existing backend verification suite in `podcast-ai/`
+- runs backend data validation
+- runs archive link checks
+- runs backend tests
+- runs Playwright smoke coverage
 
-`npm run validate:data`, `npm run check:links`, and normal server startup may now auto-download missing cover art into `images/covers/` and rewrite `data/shows.json` with the resolved local asset path. Review and commit those generated changes before publishing.
+The working tree should stay clean after verification. If `npm run build:pages` or `npm run verify` changes generated root HTML, review the diff and commit it instead of hand-editing the public page files.
 
-The working tree should stay clean after verification. If `npm run verify` changes generated root HTML, review the diff and commit it instead of hand-editing the public page files.
-
-## Operational Boundaries
+## Generated Output Rule
 
 Keep these ownership rules intact:
 
@@ -49,38 +50,59 @@ Keep these ownership rules intact:
 - `docs/`, `docs/research/`, and `docs/archive/` are never runtime inputs
 - temporary outputs belong in ignored temp locations, not tracked repo folders
 
+## Catalog And Asset Checks
+
+Validation and normal startup can auto-download missing show cover art into `images/covers/` and rewrite `data/shows.json` with the resolved local cover path.
+
+Review and commit those changes when they are legitimate.
+
+Before publishing catalog changes, confirm:
+
+- no broken local covers or route assets remain
+- no invalid absolute URLs exist in listen or official links
+- no invalid enum values or duplicate taxonomy terms exist
+- no review companion merge issues exist
+- no optional dataset errors exist if `creators.json`, `networks.json`, or `changelog.json` are introduced later
+
 ## Manual Route QA
 
-Verify these routes before publishing significant catalog, route, or operational changes:
+Verify these public routes before publishing significant catalog, route, style, or behavioral changes:
 
 - `/`
+- `/about.html`
+- `/for-creators.html`
+- `/creator-standards.html`
+- `/supporters.html`
 - `/collections.html`
 - `/collection.html?id=<known-collection-id>`
 - `/show.html?id=<known-show-id>`
-- `/about.html`
 - `/submit.html`
+- `/privacy.html`
+- `/terms.html`
+- `/cookies.html`
 
 Checks:
 
 - page title and canonical URL match the route
 - homepage trust stats render
-- homepage filters and recently-updated mode work
+- homepage search, structured filters, quick filters, and recently updated mode work
+- homepage most-popular band behaves sensibly with and without community summary data
 - no-results recovery actions work
+- inline preview and card interactions do not produce layout breakage
 - Ask the Archivist opens and closes cleanly
 - show and collection missing states stay coherent
 - submit modes switch correctly across show, correction, listener review, and creator verification
 
-## Catalog And Asset Checks
+If maintainer auth is enabled, also verify:
 
-- no broken local covers or route assets
-- no invalid absolute URLs in catalog links
-- no invalid enum values or duplicate taxonomy terms
-- no optional dataset errors if `creators.json`, `networks.json`, or `changelog.json` exist
+- `/maintainer/submissions.html`
+- `/maintainer/submissions/report.html`
 
 ## Launch Checks
 
 - `sitemap.xml` loads
 - `robots.txt` loads
+- legacy show-detail redirects still land on canonical `show.html?id=...` routes
 - submission and correction handling is ready before promotion
 - docs stay accurate when routes, schema, or operating assumptions change
 
@@ -100,7 +122,7 @@ Supported `submissionType` values:
 
 Everything enters the same SQLite-backed review queue. Nothing auto-publishes.
 
-Maintainer review now also has protected internal surfaces:
+Maintainer review has protected internal surfaces:
 
 - `/maintainer/submissions.html`
 - `/maintainer/submissions/report.html`
@@ -113,7 +135,12 @@ Protected queue APIs:
 - `GET /api/maintainer/submissions/:id`
 - `PATCH /api/maintainer/submissions/:id`
 
-Maintainer routes are disabled unless `MAINTAINER_REVIEW_PASSPHRASE` is configured. Use `MAINTAINER_REVIEW_COOKIE_SECRET` to sign the session cookie and `MAINTAINER_REVIEW_SESSION_TTL_HOURS` to control session length.
+Maintainer routes are disabled unless `MAINTAINER_REVIEW_PASSPHRASE` is configured.
+
+Use:
+
+- `MAINTAINER_REVIEW_COOKIE_SECRET` to sign the session cookie
+- `MAINTAINER_REVIEW_SESSION_TTL_HOURS` to control session length
 
 ## Queue Data Expectations
 
@@ -145,19 +172,22 @@ Use a small predictable vocabulary:
 `correction`:
 
 - requires a known `existing_show_id`
+- accepts optional contact email
 - requires factual correction details in `notes`
 - should not be used for editorial disagreement
 
 `listener-review`:
 
 - requires a known `existing_show_id`
-- requires a 1-10 rating
+- accepts optional contact email
+- requires a 1 to 10 rating
 - requires review text
 - stores rating, spoiler level, and review text in `payload_json`
 
 `creator-verification`:
 
 - requires a known `existing_show_id`
+- accepts optional contact email
 - requires at least one verification source link
 - requires factual notes describing what should be verified or corrected
 - stores source links in both `payload_json` and `provenance_json`
@@ -174,10 +204,10 @@ Use a small predictable vocabulary:
 - Keep community rating clearly separate from Archive Rating.
 - Do not imply creator endorsement through creator verification.
 - Community rating writes use a server-issued HTTP-only voter cookie for one active vote per show per device.
-- Configure `COMMUNITY_TURNSTILE_SITE_KEY` and `COMMUNITY_TURNSTILE_SECRET_KEY` to require Cloudflare Turnstile on rating create, update, and delete requests.
+- Configure `COMMUNITY_TURNSTILE_SITE_KEY` and `COMMUNITY_TURNSTILE_SECRET_KEY` to require Cloudflare Turnstile on rating writes.
 - Keep `COMMUNITY_VOTER_HASH_SECRET` stable between deploys so existing voter cookies keep resolving to the same hashed profile.
-- Public averages stay hidden until `COMMUNITY_MIN_PUBLIC_RATINGS` verified votes exist for a show. The default threshold is 3.
-- Rating abuse signals use salted IP/user-agent hashes and should be pruned with `COMMUNITY_ABUSE_RETENTION_DAYS`, defaulting to 30 days.
+- Public averages stay hidden until `COMMUNITY_MIN_PUBLIC_RATINGS` verified votes exist for a show. The default threshold is `3`.
+- Rating abuse signals use salted IP and user-agent hashes and should be pruned with `COMMUNITY_ABUSE_RETENTION_DAYS`, defaulting to `30`.
 
 ## Documentation Maintenance
 
@@ -199,18 +229,21 @@ Supporting records:
 - `TODO.md`: small discovered follow-ups that are not full roadmap items
 - `docs/qa/`: dated QA reports
 - `docs/research/feedback/`: design and research feedback snapshots
-- `docs/archive/`: retired planning and historical documents
+- `docs/archive/`: retired planning and historical material
 
 Documentation rules:
 
 - keep active docs current and concise
 - prefer updating an existing source-of-truth doc over creating a new planning file
+- use exact counts and exact dates when recording current project state
 - move retired one-off plans and historical snapshots into `docs/archive/`
 - keep archival datasets under `docs/archive/data/` and concept art under `docs/research/concepts/` when they are no longer active inputs
 - keep dated QA as reports, not as evergreen guidance
 
 ## Current QA Record
 
-The latest recorded mobile QA pass lives at:
+The latest recorded mobile QA pass still lives at:
 
 - `docs/qa/2026-06-07-mobile-qa.md`
+
+If a newer manual QA pass is done, add a new dated report instead of overwriting the old one.

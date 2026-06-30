@@ -1,5 +1,108 @@
 ## Current task
 
+Add two new documentation files: one deeper final-product destination doc and one detailed current-state snapshot doc.
+
+## Files changed
+
+- `docs/FINAL_PRODUCT.md`
+- `docs/CURRENT_STATE.md`
+- `HANDOFF.md`
+
+## What was completed
+
+- Added `docs/FINAL_PRODUCT.md` as a fuller destination document for what The Echo Archives should become, using the archived final-vision language as source material but aligning it with the current active docs.
+- Added `docs/CURRENT_STATE.md` as a dated June 29, 2026 snapshot of the implemented product surface, catalog baseline, architecture shape, trust layer, and the main gaps between the current repo and the intended final product.
+- Kept the new docs complementary to `docs/PRODUCT.md`, `docs/ROADMAP.md`, and `docs/ARCHITECTURE.md` rather than replacing them.
+
+## What still needs work
+
+- If these new docs become the preferred references, add links to them from whichever active doc or README index you want to use as the navigation hub.
+- The current-state snapshot will need date and count refreshes as the catalog and review coverage grow.
+
+## Commands run
+
+- `pwd`
+- `rg --files`
+- `sed -n '1,240p' /Users/charliearnerstal/.codex/RTK.md`
+- `rtk sed -n '1,260p' docs/archive/FINAL_VISION.md`
+- `rtk sed -n '1,260p' docs/PRODUCT.md`
+- `rtk sed -n '1,260p' docs/ARCHITECTURE.md`
+- `rtk sed -n '1,260p' HANDOFF.md`
+- `rtk sed -n '1,260p' docs/ROADMAP.md`
+- `rtk sed -n '1,260p' docs/OPERATIONS.md`
+- `rtk cat package.json`
+- `rtk node - <<'NODE' ...` to inspect catalog and collection counts
+- `rtk sed -n '1,260p' README.md`
+- `rtk sed -n '1,260p' podcast-ai/README.md`
+- `rtk sed -n '1,220p' data/schema.md`
+- `rtk node - <<'NODE' ...` to inspect backend scripts
+- `rtk git status --short`
+- `rtk sed -n '1,220p' TODO.md`
+
+## Known issues
+
+- The worktree already contained unrelated in-progress changes in `README.md`, `docs/PRODUCT.md`, `docs/ROADMAP.md`, `docs/ARCHITECTURE.md`, `docs/OPERATIONS.md`, and `HANDOFF.md` before this pass; they were left in place.
+
+## Current task
+
+Refresh the active documentation so it matches the implemented repo state as of June 29, 2026.
+
+## Files changed
+
+- `README.md`
+- `docs/PRODUCT.md`
+- `docs/ROADMAP.md`
+- `docs/ARCHITECTURE.md`
+- `docs/OPERATIONS.md`
+- `HANDOFF.md`
+
+## What was completed
+
+- Updated the root README to reflect the current catalog counts, route surface, generated-page workflow, backend role, and available commands.
+- Rewrote the active product doc so it describes the implemented public surfaces and current priorities instead of older pre-launch framing.
+- Reworked the roadmap to reflect the real June 29, 2026 baseline: 27 published shows, 15 collections, 3 review companions, and a current focus on show depth over collection count.
+- Updated architecture documentation to match the current page-generation pipeline, public and maintainer routes, API surface, data model boundaries, and current test coverage.
+- Updated operations documentation to match the actual verification flow, route QA surface, submission workflow, and documentation maintenance rules.
+
+## What still needs work
+
+- `podcast-ai/README.md` and `data/schema.md` were reviewed and appear broadly aligned with the current implementation, but they were not materially changed in this pass.
+- If a fresh manual QA pass is performed, add a new dated report under `docs/qa/`.
+
+## Commands run
+
+- `rtk cat /Users/charliearnerstal/.codex/RTK.md`
+- `rtk cat AGENTS.md`
+- `rtk cat package.json`
+- `rtk cat README.md`
+- `rtk cat docs/PRODUCT.md`
+- `rtk cat docs/ROADMAP.md`
+- `rtk cat docs/ARCHITECTURE.md`
+- `rtk cat docs/OPERATIONS.md`
+- `rtk cat podcast-ai/package.json`
+- `rtk cat podcast-ai/README.md`
+- `rtk cat site-src/page-manifest.json`
+- `rtk sed -n '1,260p' data/schema.md`
+- `rtk sed -n '1,260p' podcast-ai/server.js`
+- `rtk sed -n '1,260p' podcast-ai/lib/catalog.js`
+- `rtk sed -n '1,260p' shared/app/app.js`
+- `rtk sed -n '1,260p' shared/app/pages/home.js`
+- `rtk sed -n '1,260p' podcast-ai/lib/config.js`
+- `rtk sed -n '1,260p' podcast-ai/lib/routes/community-routes.js`
+- `rtk sed -n '1,260p' podcast-ai/lib/routes/submission-routes.js`
+- `rtk sed -n '1,260p' podcast-ai/test/browser.smoke.js`
+- `rtk sed -n '1,220p' podcast-ai/test/home-browse.smoke.js`
+- `rtk node -e '...'` to measure current show and collection counts
+- `rtk npm run check:structure`
+
+## Known issues
+
+- `npm run check:structure` passes, but it still reports pre-existing soft-limit warnings for `shared/app/pages/home.js` and `shared/styles/home/cards/03-filter-controls.css`.
+
+---
+
+## Current task
+
 Fix push-time CI breakages affecting mobile browse-card behavior and backend dependency audit results.
 
 ## Files changed
@@ -1457,3 +1560,113 @@ Normalize the public hero image treatment so the shared dish/header image feels 
   - `/var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-hero-submit-desktop.png`
   - `/var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-hero-about-desktop.png`
   - `/var/folders/fz/flyk6p9d4klgjcnhjg5w3t5r0000gn/T/echo-hero-submit-mobile.png`
+
+---
+
+## Previous task
+
+Implement the Gate B alignment plan across the homepage, browse filters, catalog coverage, recommendation routes, and maintainer validation/reporting.
+
+## Files changed
+
+- Homepage/browse source and generated output:
+  - `site-src/pages/index.html`
+  - `index.html`
+  - `site-src/page-manifest.json`
+  - `shared/app/data.js`
+  - `shared/app/pages/home.js`
+  - `shared/app/pages/home/filters.js`
+  - `shared/app/utils.js`
+  - `shared/styles/home/cards/02-hero-search.css`
+  - `shared/styles/home/cards/04-browse-bands.css`
+- Catalog, collections, reviews, and synced covers:
+  - `data/shows.json`
+  - `data/collections.json`
+  - `data/reviews/midnight-burger.json`
+  - `data/reviews/derelict.json`
+  - `data/reviews/the-white-vault.json`
+  - `images/covers/alice-isnt-dead.jpg`
+  - `images/covers/archive-81.jpg`
+  - `images/covers/borrasca.jpg`
+  - `images/covers/case-63.jpg`
+  - `images/covers/homecoming.jpg`
+  - `images/covers/mabel.jpg`
+  - `images/covers/malevolent.jpg`
+  - `images/covers/midst.jpg`
+  - `images/covers/mirrors.jpg`
+  - `images/covers/the-bright-sessions.jpg`
+  - `images/covers/the-program-audio-series.jpg`
+  - `images/covers/unwell.jpg`
+  - `images/covers/wooden-overcoats.jpg`
+- Maintainer tooling:
+  - `podcast-ai/lib/discovery-gaps.js`
+  - `podcast-ai/scripts/discovery-gap-report.js`
+  - `podcast-ai/scripts/validate-data.js`
+  - `podcast-ai/scripts/review-helpers.js`
+  - `podcast-ai/package.json`
+- Task handoff:
+  - `HANDOFF.md`
+
+## What was completed
+
+- Updated the homepage hero copy to `Find your next fiction podcast.`, added the three above-the-fold route actions, renamed the popularity band to `Archive momentum`, and broadened helper copy to mention tone and format discovery.
+- Extended structured browse filters to include `tones` and `formats` without changing the compact card layout.
+- Expanded the catalog to `40` published shows, added the three required full reviews for `midnight-burger`, `derelict`, and `the-white-vault`, and synced cover assets for the newly added shows.
+- Expanded `Shows like X` coverage to `10` route collections, rewired `finished-arcs` into the `Completed shows` hub, rewired `easy-first-steps` into the primary `Start here` hub, and filled collection `showReasons` plus anchor-show `similarReasons`.
+- Added a maintainer-facing `report:discovery-gaps` command and Gate B blocking validation for anchor `similarReasons`, route `showReasons`, and published-show tone/format coverage.
+
+## What still needs work
+
+- No known product follow-up from this Gate B pass.
+- The plan's manual QA checklist was not run as a separate visual pass; verification relied on build/link validation plus the smoke suite.
+
+## Commands run
+
+- `rtk npm --prefix podcast-ai run report:discovery-gaps`
+- `rtk npm --prefix podcast-ai run validate:data`
+- `rtk npm run build:pages`
+- `rtk npm run check:structure`
+- `rtk npm --prefix podcast-ai run check:links`
+- `rtk npm --prefix podcast-ai run test:smoke`
+
+## Known issues
+
+- `rtk npm run check:structure` still reports the existing soft-limit warnings for `shared/app/pages/home.js` and `shared/styles/home/cards/03-filter-controls.css`, but it exits successfully.
+- Unrelated pre-existing repo/docs edits remain in the worktree outside this Gate B task and were left untouched.
+
+---
+
+## Previous task
+
+Fix the Alice Isn't Dead cover asset, and add Welcome to Night Vale as a published show.
+
+## Files changed
+
+- Catalog data:
+  - `data/shows.json`
+- Cover assets:
+  - `images/covers/alice-isnt-dead.jpg`
+  - `images/covers/welcome-to-night-vale.jpg`
+- Task handoff:
+  - `HANDOFF.md`
+
+## What was completed
+
+- Replaced the incorrect `alice-isnt-dead` cover image, which had been using Welcome to Night Vale artwork, with the correct Alice Isn't Dead square cover.
+- Added `welcome-to-night-vale` as a published catalog record with source-verified website, Apple, and RSS links plus local cover art.
+- Kept the change scoped to JSON/catalog assets; no collection or homepage copy changes were made in this pass.
+
+## What still needs work
+
+- Welcome to Night Vale is now in the catalog, but it is not yet threaded into any collection routes or editorial review coverage.
+
+## Commands run
+
+- `rtk npm --prefix podcast-ai run validate:data`
+- `rtk npm --prefix podcast-ai run check:links`
+- `rtk npm --prefix podcast-ai run test:smoke`
+
+## Known issues
+
+- The first smoke run hit a transient homepage carousel pointer-intercept timeout in `test/home-card-interactions.smoke.js`; rerunning `rtk npm --prefix podcast-ai run test:smoke` passed cleanly with `21/21` tests.
+- Unrelated pre-existing repo/docs edits remain in the worktree outside this task and were left untouched.

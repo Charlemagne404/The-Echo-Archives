@@ -239,7 +239,8 @@
       "easy-entry"
     ],
     "similarTo": [
-      "the-waystation"
+      "the-waystation",
+      "the-bright-sessions"
     ],
     "archiveTake": "A cleaner starting point when you want mystery without a wall of lore.",
     "spoilerFreeReview": "",
@@ -253,7 +254,7 @@
       "hex": "#976f48",
       "rgb": "151, 111, 72"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/story",
       "patreon": "",
@@ -1569,7 +1570,9 @@
     ],
     "similarTo": [
       "impact-winter",
-      "end-of-all-hope"
+      "end-of-all-hope",
+      "the-phenomenon",
+      "the-white-vault"
     ],
     "archiveTake": "A reliable recommendation when someone wants survival and ensemble pressure first.",
     "spoilerFreeReview": "",
@@ -1583,7 +1586,7 @@
       "hex": "#7d4f3e",
       "rgb": "125, 79, 62"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2009-05-04",
       "latest": "2026-02-24"
@@ -1673,7 +1676,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "kc-wayland",
-    "networkId": "wayland-productions"
+    "networkId": "wayland-productions",
+    "similarReasons": {
+      "impact-winter": "High-pressure survival storytelling with comparable momentum and scale.",
+      "end-of-all-hope": "A more spacefaring branch that still puts survival decisions at the center.",
+      "the-phenomenon": "For listeners who want the large-scale threat level and relentless public danger.",
+      "the-white-vault": "A colder, more isolated survival-horror variant once the ensemble chaos cools down."
+    }
   },
   {
     "id": "impact-winter",
@@ -1742,7 +1751,9 @@
     ],
     "similarTo": [
       "were-alive",
-      "end-of-all-hope"
+      "end-of-all-hope",
+      "the-white-vault",
+      "malevolent"
     ],
     "archiveTake": "",
     "spoilerFreeReview": "",
@@ -1756,7 +1767,7 @@
       "hex": "#851a28",
       "rgb": "133, 26, 40"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2022-02-17",
       "latest": "2024-07-18",
@@ -1845,7 +1856,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "travis-beacham",
-    "networkId": "audible-originals"
+    "networkId": "audible-originals",
+    "similarReasons": {
+      "were-alive": "Another foundational survival saga with real momentum and a strong sense of attrition.",
+      "end-of-all-hope": "Keeps the catastrophe pressure high while shifting the setting into space opera territory.",
+      "the-white-vault": "A colder, more locked-in branch for listeners who loved the environmental dread.",
+      "malevolent": "A darker supernatural escalation for listeners who want the same intensity with more occult horror."
+    }
   },
   {
     "id": "oz-9",
@@ -1914,7 +1931,8 @@
     "similarTo": [
       "station-151",
       "eos-10",
-      "wolf-359"
+      "wolf-359",
+      "wooden-overcoats"
     ],
     "archiveTake": "",
     "spoilerFreeReview": "",
@@ -1928,7 +1946,7 @@
       "hex": "#07ac3e",
       "rgb": "7, 172, 62"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2018-10-31",
       "latest": "2026-01-01"
@@ -2017,7 +2035,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "shannon-perry",
-    "networkId": "fable-and-folly-network"
+    "networkId": "fable-and-folly-network",
+    "similarReasons": {
+      "station-151": "Another damaged-station comedy route, but stranger and more acidic.",
+      "eos-10": "The cleanest adjacent pick for listeners who want more medical-space banter and ensemble friction.",
+      "wolf-359": "A bigger character-payoff branch for listeners who liked the station setup but want more growth.",
+      "wooden-overcoats": "Keeps the timing, vanity, and petty disasters intact without the sci-fi wrapper."
+    }
   },
   {
     "id": "ars-paradoxica",
@@ -2085,7 +2109,10 @@
       "serious-sci-fi"
     ],
     "similarTo": [
-      "red-valley"
+      "red-valley",
+      "from-now",
+      "case-63",
+      "the-program-audio-series"
     ],
     "archiveTake": "",
     "spoilerFreeReview": "",
@@ -2099,7 +2126,7 @@
       "hex": "#217997",
       "rgb": "33, 121, 151"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2015-06-01",
       "latest": "2018-06-06"
@@ -2207,7 +2234,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "mischa-stanton-and-daniel-manning",
-    "networkId": "the-whisperforge"
+    "networkId": "the-whisperforge",
+    "similarReasons": {
+      "red-valley": "Keeps the secret-science intrigue and uneasy institutional energy intact.",
+      "from-now": "A shorter time-dislocation branch for listeners who want the conceptual hook quickly.",
+      "case-63": "A cleaner time-paradox thriller route with stronger suspense than lore sprawl.",
+      "the-program-audio-series": "Pushes toward colder, more idea-forward speculative fiction once the science hook is what matters most."
+    }
   },
   {
     "id": "red-valley",
@@ -2383,7 +2416,7 @@
     "cover": "shows/white-vault/WhiteVault.jpeg",
     "coverAlt": "The White Vault cover art",
     "status": "published",
-    "reviewStatus": "indexed-only",
+    "reviewStatus": "full-review",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
@@ -2435,6 +2468,8 @@
     ],
     "similarTo": [
       "tower-4",
+      "archive-81",
+      "malevolent",
       "how-i-died"
     ],
     "archiveTake": "One of the cleanest archive answers when someone asks for cold, remote dread.",
@@ -2449,7 +2484,7 @@
       "hex": "#6c7e89",
       "rgb": "108, 126, 137"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2017-10-03",
       "latest": "2026-06-01"
@@ -2554,7 +2589,13 @@
     ],
     "createdAt": "2026-06-01",
     "creatorId": "k-a-statz-and-travis-vengroff",
-    "networkId": "fool-and-scholar-productions"
+    "networkId": "fool-and-scholar-productions",
+    "similarReasons": {
+      "tower-4": "Remote isolation and slow-burn unease make it the cleanest neighboring pick.",
+      "archive-81": "For listeners who want stranger archival horror once the environmental dread has taken hold.",
+      "malevolent": "A darker supernatural escalation for listeners who want more threat and more occult texture.",
+      "how-i-died": "Keeps the mystery and supernatural investigation lane active while dialing down the arctic scale."
+    }
   },
   {
     "id": "eos-10",
@@ -2940,7 +2981,9 @@
     ],
     "similarTo": [
       "eos-10",
-      "oz-9"
+      "oz-9",
+      "midnight-burger",
+      "wooden-overcoats"
     ],
     "archiveTake": "One of the easiest archive answers when someone wants space comedy that can scale up later.",
     "spoilerFreeReview": "",
@@ -2954,7 +2997,7 @@
       "hex": "#728187",
       "rgb": "114, 129, 135"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2014-08-15",
       "latest": "2017-12-25"
@@ -3046,7 +3089,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "gabriel-urbina",
-    "networkId": "kinda-evil-genius-productions"
+    "networkId": "kinda-evil-genius-productions",
+    "similarReasons": {
+      "eos-10": "Another ensemble comedy route for listeners who want more station-life dysfunction.",
+      "oz-9": "Pushes the absurdity higher for listeners who liked the comic chaos more than the emotional turn.",
+      "midnight-burger": "A warmer, more idea-rich follow-up if the character attachment matters most.",
+      "wooden-overcoats": "Keeps the sharp comic timing and ensemble friction while leaving space entirely behind."
+    }
   },
   {
     "id": "station-151",
@@ -3106,7 +3155,9 @@
     ],
     "similarTo": [
       "oz-9",
-      "wolf-359"
+      "wolf-359",
+      "tower-4",
+      "archive-81"
     ],
     "archiveTake": "Useful when you want comedy but not warmth.",
     "spoilerFreeReview": "",
@@ -3120,7 +3171,7 @@
       "hex": "#5e7571",
       "rgb": "94, 117, 113"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2022-10-31",
       "latest": "2026-01-13",
@@ -3213,7 +3264,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "andy-scearce-and-steven-james-scearce",
-    "networkId": "pale-matter-realm"
+    "networkId": "pale-matter-realm",
+    "similarReasons": {
+      "oz-9": "Keeps the station absurdity alive for listeners who liked the comic edge most.",
+      "wolf-359": "A more character-driven station follow-up with broader tonal range.",
+      "tower-4": "A colder isolation variant once the comedy stops being the main attraction.",
+      "archive-81": "Leans harder into strange signal horror for listeners chasing the unsettling side."
+    }
   },
   {
     "id": "midnight-burger",
@@ -3223,7 +3280,7 @@
     "cover": "shows/midnight burger/MidnightBurger.jpeg",
     "coverAlt": "Midnight Burger cover art",
     "status": "published",
-    "reviewStatus": "indexed-only",
+    "reviewStatus": "full-review",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
@@ -3275,7 +3332,9 @@
     ],
     "similarTo": [
       "desert-skies",
-      "wolf-359"
+      "wolf-359",
+      "the-waystation",
+      "midst"
     ],
     "archiveTake": "A high-confidence recommendation when someone wants scope without losing warmth.",
     "spoilerFreeReview": "",
@@ -3289,7 +3348,7 @@
       "hex": "#b26745",
       "rgb": "178, 103, 69"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2020-10-27",
       "latest": "2026-05-26",
@@ -3376,7 +3435,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "joe-fisher",
-    "networkId": "business-goose-media"
+    "networkId": "business-goose-media",
+    "similarReasons": {
+      "desert-skies": "For listeners who want the gentle, off-kilter comfort side of the recommendation.",
+      "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",
+      "the-waystation": "Hopeful speculative storytelling with a similarly generous curiosity about people and place.",
+      "midst": "A stranger, more reality-bending branch for listeners chasing the cosmic side of the appeal."
+    }
   },
   {
     "id": "spectre",
@@ -3875,7 +3940,7 @@
     "cover": "shows/derelict/Derelict.jpeg",
     "coverAlt": "Derelict cover art",
     "status": "published",
-    "reviewStatus": "indexed-only",
+    "reviewStatus": "full-review",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
@@ -3927,7 +3992,9 @@
     ],
     "similarTo": [
       "impact-winter",
-      "solar"
+      "solar",
+      "earth-eclipsed",
+      "the-program-audio-series"
     ],
     "archiveTake": "A high-confidence recommendation when someone wants strong production and sustained sci-fi pressure.",
     "spoilerFreeReview": "",
@@ -3941,7 +4008,7 @@
       "hex": "#4a6580",
       "rgb": "74, 101, 128"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "releaseDates": {
       "first": "2019-07-18",
       "latest": "2025-07-01",
@@ -4034,7 +4101,13 @@
     "cast": [],
     "createdAt": "2026-06-01",
     "creatorId": "j-barton-mitchell",
-    "networkId": "night-rocket-productions"
+    "networkId": "night-rocket-productions",
+    "similarReasons": {
+      "impact-winter": "Big-scale danger and cinematic urgency make it the clearest adjacent high-pressure listen.",
+      "solar": "A tighter survival chamber for listeners who want the tension without the same scope.",
+      "earth-eclipsed": "Another dark sci-fi route with a serious tone and looming catastrophe in the walls.",
+      "the-program-audio-series": "A colder, idea-driven sci-fi branch for listeners who liked the controlled threat level."
+    }
   },
   {
     "id": "crystal-blue",
@@ -4417,7 +4490,9 @@
     ],
     "similarTo": [
       "the-white-vault",
-      "station-151"
+      "station-151",
+      "alice-isnt-dead",
+      "archive-81"
     ],
     "archiveTake": "One of the archive's cleaner picks for remote-watchtower unease.",
     "spoilerFreeReview": "",
@@ -4431,7 +4506,7 @@
       "hex": "#7e6448",
       "rgb": "126, 100, 72"
     },
-    "updatedAt": "2026-06-15",
+    "updatedAt": "2026-06-30",
     "officialLinks": {
       "website": "https://www.7lamb.com/audiodramas/tower-4",
       "patreon": "",
@@ -4519,6 +4594,1282 @@
     },
     "createdAt": "2026-06-01",
     "creatorId": "7-lamb-productions",
-    "networkId": "7-lamb-productions"
+    "networkId": "7-lamb-productions",
+    "similarReasons": {
+      "the-white-vault": "The closest match for isolation pressure and a setting that turns hostile around the listener.",
+      "station-151": "A stranger outpost variation that keeps the remote-post unease alive.",
+      "alice-isnt-dead": "A road-haunted branch for listeners who liked the voice, solitude, and ambient menace.",
+      "archive-81": "A more ritual-heavy horror route for listeners who want the mystery to get weirder."
+    }
+  },
+  {
+    "id": "the-bright-sessions",
+    "title": "The Bright Sessions",
+    "subtitle": "Therapy sessions for the strange and unusual, with a larger sci-fi story waiting underneath.",
+    "description": "A character-first science-fiction drama about therapy, power, secrecy, and the personal cost of being unusual in a world that wants to study you.",
+    "cover": "images/covers/the-bright-sessions.jpg",
+    "coverAlt": "The Bright Sessions cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
+      "apple": "https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058",
+      "website": "https://www.atypicalartists.co/thebrightsessions",
+      "rss": ""
+    },
+    "genres": [
+      "sci-fi",
+      "drama",
+      "supernatural"
+    ],
+    "tones": [
+      "hopeful",
+      "cinematic",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Therapy",
+      "Superpowers"
+    ],
+    "aliases": [
+      "The Bright Sessions podcast"
+    ],
+    "themes": [
+      "identity",
+      "secrecy",
+      "trust"
+    ],
+    "contentNotes": [
+      "strong language",
+      "mental health themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Official site states the show ran for seven seasons.",
+      "seasons": 7
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 9.1
+    },
+    "bestFor": [
+      "easy-entry",
+      "binge-listening",
+      "worldbuilding"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "story",
+      "case-63"
+    ],
+    "archiveTake": "One of the cleaner entry points for listeners who want emotionally legible sci-fi before they want maximal world mechanics.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.atypicalartists.co/thebrightsessions"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.atypicalartists.co/thebrightsessions; https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058; https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Lauren Shippen"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "wooden-overcoats",
+    "title": "Wooden Overcoats",
+    "subtitle": "A funeral-home sitcom full of vanity, sabotage, and immaculate comic timing.",
+    "description": "A British comedy fiction series about dueling funeral directors, escalating grudges, and a village small enough for every petty disaster to feel personal.",
+    "cover": "images/covers/wooden-overcoats.jpg",
+    "coverAlt": "Wooden Overcoats cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "hiatus",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
+      "website": "https://www.woodenovercoats.com/",
+      "rss": ""
+    },
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [
+      "funny",
+      "chaotic",
+      "hopeful"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Comedy",
+      "Small town",
+      "Rivals"
+    ],
+    "aliases": [
+      "Wooden Overcoats podcast"
+    ],
+    "themes": [
+      "rivalry",
+      "community",
+      "vanity"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Apple lists 55 episodes and years active 2015-2024; the official site also promoted additional 2025 material.",
+      "episodes": 55
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.8
+    },
+    "bestFor": [
+      "easy-entry",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "wolf-359",
+      "oz-9",
+      "eos-10"
+    ],
+    "archiveTake": "A strong next stop when the listener wants ensemble comedy with sharper jokes than warmth-first comfort.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.woodenovercoats.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.woodenovercoats.com/; https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Wooden Overcoats Ltd"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "alice-isnt-dead",
+    "title": "Alice Isn't Dead",
+    "subtitle": "A road-haunted search story told in a voice that keeps pulling you forward.",
+    "description": "A serialized horror thriller about a truck driver crossing America in search of the wife she thought was dead, with conspiracies and not-quite-human dangers waiting along the road.",
+    "cover": "images/covers/alice-isnt-dead.jpg",
+    "coverAlt": "Alice Isn't Dead cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/6X9NNwTMXte6udhYDjwHyM",
+      "apple": "https://podcasts.apple.com/us/podcast/alice-isnt-dead/id1088978354",
+      "website": "https://www.nightvalepresents.com/aliceisntdead",
+      "rss": "https://feeds.nightvalepresents.com/aliceisntdead"
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "tense",
+      "weird"
+    ],
+    "formats": [
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Road trip",
+      "Conspiracy"
+    ],
+    "aliases": [
+      "Alice Isnt Dead"
+    ],
+    "themes": [
+      "loss",
+      "travel",
+      "conspiracy"
+    ],
+    "contentNotes": [
+      "violence",
+      "body horror"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Long-form serialized run with a completed original story arc and later additional material around the feed."
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.9
+    },
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "tower-4",
+      "the-white-vault",
+      "archive-81"
+    ],
+    "archiveTake": "Useful when the listener wants narration-forward dread with motion, mystery, and a stronger sense of haunted geography.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.nightvalepresents.com/aliceisntdead"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.nightvalepresents.com/aliceisntdead; https://podcasts.apple.com/us/podcast/alice-isnt-dead/id1088978354; https://open.spotify.com/show/6X9NNwTMXte6udhYDjwHyM; https://feeds.nightvalepresents.com/aliceisntdead",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Joseph Fink"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "mirrors",
+    "title": "Mirrors",
+    "subtitle": "A sci-fi ghost story with a colder, more deliberate sense of haunting.",
+    "description": "A three-thread horror drama moving across centuries, using one haunting to connect women, memory, and long-range consequence.",
+    "cover": "images/covers/mirrors.jpg",
+    "coverAlt": "Mirrors cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/mirrors/id1428871702",
+      "website": "https://www.mirrorspodcast.com/",
+      "rss": ""
+    },
+    "genres": [
+      "horror",
+      "sci-fi",
+      "mystery"
+    ],
+    "tones": [
+      "bleak",
+      "cinematic",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Ghost story",
+      "Sci-fi"
+    ],
+    "aliases": [],
+    "themes": [
+      "haunting",
+      "history",
+      "inheritance"
+    ],
+    "contentNotes": [
+      "death",
+      "supernatural threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Official site describes the complete series as available now."
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 9
+    },
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "the-white-vault",
+      "archive-81",
+      "ars-paradoxica"
+    ],
+    "archiveTake": "A good step up when the listener wants eerie atmosphere without sacrificing the speculative-fiction spine.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.mirrorspodcast.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.mirrorspodcast.com/; https://podcasts.apple.com/us/podcast/mirrors/id1428871702",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "ZoomDoom Stories"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "unwell",
+    "title": "Unwell",
+    "subtitle": "Midwestern gothic fiction that balances haunted-town dread with found-family warmth.",
+    "description": "A long-running small-town horror drama about a boarding house, buried history, ghosts, and the people who slowly become each other's family.",
+    "cover": "images/covers/unwell.jpg",
+    "coverAlt": "Unwell cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502",
+      "website": "https://www.unwellpodcast.com/",
+      "rss": ""
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "drama"
+    ],
+    "tones": [
+      "weird",
+      "hopeful",
+      "dark"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Gothic",
+      "Small town",
+      "Ghosts"
+    ],
+    "aliases": [],
+    "themes": [
+      "home",
+      "community",
+      "secrets"
+    ],
+    "contentNotes": [
+      "grief",
+      "supernatural threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Apple lists five seasons and 129 episodes; the official about page notes 12-episode seasons with biweekly releases.",
+      "seasons": 5,
+      "episodes": 129,
+      "avgEpisodeMinutes": 25
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.7
+    },
+    "bestFor": [
+      "late-night",
+      "easy-entry"
+    ],
+    "similarTo": [
+      "story",
+      "mabel",
+      "desert-skies"
+    ],
+    "archiveTake": "Stronger for listeners who want gothic atmosphere with affection still left in the tank.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.unwellpodcast.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.unwellpodcast.com/; https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Audacious Machine Creative"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "midst",
+    "title": "Midst",
+    "subtitle": "A surreal space-western told with swagger, precision, and a refusal to stay conventional.",
+    "description": "A reality-bending sci-fantasy audio drama in which three narrators guide the listener through a dangerous cosmos full of bad decisions, power structures, and gorgeous nonsense.",
+    "cover": "images/covers/midst.jpg",
+    "coverAlt": "Midst cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/midst/id1681168186",
+      "website": "https://www.midst.co",
+      "rss": ""
+    },
+    "genres": [
+      "sci-fi",
+      "fantasy",
+      "adventure"
+    ],
+    "tones": [
+      "cinematic",
+      "weird",
+      "chaotic"
+    ],
+    "formats": [
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Fantasy",
+      "Space western"
+    ],
+    "aliases": [],
+    "themes": [
+      "power",
+      "myth",
+      "systems"
+    ],
+    "contentNotes": [
+      "violence",
+      "body horror"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Critical Role announced season 3 as the final season of the main series.",
+      "seasons": 3
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 9.2
+    },
+    "bestFor": [
+      "worldbuilding",
+      "headphones-on",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "midnight-burger",
+      "ars-paradoxica",
+      "the-program-audio-series"
+    ],
+    "archiveTake": "A good escalation route once the listener wants bigger conceptual play without losing strong character propulsion.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.midst.co"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.midst.co; https://podcasts.apple.com/us/podcast/midst/id1681168186",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Third Person"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "the-program-audio-series",
+    "title": "The Program audio series",
+    "subtitle": "A colder sci-fi anthology for listeners who want systems, doctrine, and unease.",
+    "description": "A speculative anthology set inside a future social order where money, state, and god have fused into one governing force.",
+    "cover": "images/covers/the-program-audio-series.jpg",
+    "coverAlt": "The Program audio series cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/1ZQcGQMhrwF7MnXtFxt77z",
+      "apple": "https://podcasts.apple.com/us/podcast/the-program-audio-series/id1487406662",
+      "website": "https://www.programaudioseries.com/",
+      "rss": ""
+    },
+    "genres": [
+      "sci-fi",
+      "thriller",
+      "drama"
+    ],
+    "tones": [
+      "dark",
+      "cinematic",
+      "weird"
+    ],
+    "formats": [
+      "anthology",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Anthology",
+      "Dystopian"
+    ],
+    "aliases": [],
+    "themes": [
+      "systems",
+      "belief",
+      "control"
+    ],
+    "contentNotes": [
+      "authoritarian themes",
+      "violence"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Official site promotes ongoing monthly updates and a continuing anthology feed."
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.8
+    },
+    "bestFor": [
+      "serious-sci-fi",
+      "headphones-on",
+      "late-night"
+    ],
+    "similarTo": [
+      "derelict",
+      "ars-paradoxica",
+      "case-63"
+    ],
+    "archiveTake": "Works best when the listener wants serious sci-fi ideas delivered with more chill than spectacle.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.programaudioseries.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.programaudioseries.com/; https://podcasts.apple.com/us/podcast/the-program-audio-series/id1487406662; https://open.spotify.com/show/1ZQcGQMhrwF7MnXtFxt77z",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "malevolent",
+    "title": "Malevolent",
+    "subtitle": "Cosmic-horror mystery with enough momentum to make the darkness feel athletic.",
+    "description": "A horror serial following Arthur Lester, an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head.",
+    "cover": "images/covers/malevolent.jpg",
+    "coverAlt": "Malevolent cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
+      "website": "https://www.malevolent.ca/",
+      "rss": ""
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Lovecraftian",
+      "Mystery"
+    ],
+    "aliases": [],
+    "themes": [
+      "memory",
+      "possession",
+      "occult investigation"
+    ],
+    "contentNotes": [
+      "body horror",
+      "violence"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Official site publishes a continuing numbered-part structure and active release history through 2026."
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 9
+    },
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "the-white-vault",
+      "tower-4",
+      "impact-winter"
+    ],
+    "archiveTake": "A strong escalation pick when the listener wants more occult intensity without losing narrative drive.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.malevolent.ca/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.malevolent.ca/; https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Harlan Guthrie"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "case-63",
+    "title": "Case 63",
+    "subtitle": "A tight time-travel thriller built around two voices and a steadily tightening paradox.",
+    "description": "A scripted suspense series about a psychiatrist and a patient who claims to be from the future, turning therapeutic sessions into a time-loop crisis.",
+    "cover": "images/covers/case-63.jpg",
+    "coverAlt": "Case 63 cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp",
+      "apple": "https://podcasts.apple.com/us/podcast/case-63/id1703294291",
+      "website": "",
+      "rss": ""
+    },
+    "genres": [
+      "sci-fi",
+      "thriller",
+      "mystery"
+    ],
+    "tones": [
+      "tense",
+      "cinematic",
+      "weird"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Time travel",
+      "Thriller"
+    ],
+    "aliases": [],
+    "themes": [
+      "time travel",
+      "fate",
+      "uncertainty"
+    ],
+    "contentNotes": [
+      "pandemic themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Apple lists two 10-episode seasons.",
+      "seasons": 2,
+      "episodes": 20,
+      "avgEpisodeMinutes": 10
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.9
+    },
+    "bestFor": [
+      "serious-sci-fi",
+      "short-under-five-hours",
+      "late-night"
+    ],
+    "similarTo": [
+      "ars-paradoxica",
+      "from-now",
+      "the-program-audio-series"
+    ],
+    "archiveTake": "A clean recommendation when the listener wants time-travel tension without a giant onboarding burden.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {},
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://podcasts.apple.com/us/podcast/case-63/id1703294291; https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Julio Rojas"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "borrasca",
+    "title": "Borrasca",
+    "subtitle": "A psychological thriller that keeps turning childhood dread into something worse.",
+    "description": "A dark mystery series about a town full of rumors, disappearances, and the awful machinery hidden behind a local legend.",
+    "cover": "images/covers/borrasca.jpg",
+    "coverAlt": "Borrasca cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz",
+      "apple": "https://podcasts.apple.com/us/podcast/borrasca/id1513640702",
+      "website": "https://qcodemedia.com/borrasca",
+      "rss": ""
+    },
+    "genres": [
+      "horror",
+      "thriller",
+      "mystery"
+    ],
+    "tones": [
+      "dark",
+      "tense",
+      "bleak"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Thriller",
+      "Small town"
+    ],
+    "aliases": [],
+    "themes": [
+      "disappearance",
+      "conspiracy",
+      "trauma"
+    ],
+    "contentNotes": [
+      "sexual violence",
+      "violence"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "QCODE promoted a second season return; the feed currently contains two seasons plus recap material."
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.6
+    },
+    "bestFor": [
+      "late-night",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "the-phenomenon",
+      "tower-4",
+      "how-i-died"
+    ],
+    "archiveTake": "Best used when the listener wants small-town menace with very little interest in comfort.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://qcodemedia.com/borrasca"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://qcodemedia.com/borrasca; https://podcasts.apple.com/us/podcast/borrasca/id1513640702; https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Rebecca Klingel"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "mabel",
+    "title": "Mabel",
+    "subtitle": "Ghosts, family secrets, and intimate audio that makes the house itself feel like a voice.",
+    "description": "A fiction podcast about ghosts, hidden histories, and missed connections, told through intimate messages and a steadily deepening sense of the uncanny.",
+    "cover": "images/covers/mabel.jpg",
+    "coverAlt": "Mabel cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "inactive",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/mabel/id1160860118",
+      "website": "https://mabelpodcast.com/",
+      "rss": ""
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "drama"
+    ],
+    "tones": [
+      "weird",
+      "bleak",
+      "hopeful"
+    ],
+    "formats": [
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Ghosts",
+      "Family secrets"
+    ],
+    "aliases": [],
+    "themes": [
+      "haunting",
+      "memory",
+      "care"
+    ],
+    "contentNotes": [
+      "grief",
+      "supernatural threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Apple lists 50 episodes for the original fiction run.",
+      "episodes": 50
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.5
+    },
+    "bestFor": [
+      "late-night",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "unwell",
+      "mirrors",
+      "alice-isnt-dead"
+    ],
+    "archiveTake": "A good match when the listener wants quieter supernatural unease and strong voice-driven atmosphere.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://mabelpodcast.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://mabelpodcast.com/; https://podcasts.apple.com/us/podcast/mabel/id1160860118",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Becca De La Rosa",
+      "Mabel Martin"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "archive-81",
+    "title": "Archive 81",
+    "subtitle": "Found-footage horror about ritual, sound, and the feeling that a recording can bite back.",
+    "description": "An archival horror series that starts with restored tapes and keeps widening into stranger rituals, cities, broadcasts, and buried histories.",
+    "cover": "images/covers/archive-81.jpg",
+    "coverAlt": "Archive 81 cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
+      "apple": "https://podcasts.apple.com/us/podcast/archive-81/id1098194172",
+      "website": "https://www.archive81.com/",
+      "rss": ""
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "weird",
+      "cinematic"
+    ],
+    "formats": [
+      "narrated",
+      "serialized"
+    ],
+    "tags": [
+      "Horror",
+      "Found footage",
+      "Archive"
+    ],
+    "aliases": [],
+    "themes": [
+      "archives",
+      "ritual",
+      "broadcast"
+    ],
+    "contentNotes": [
+      "body horror",
+      "occult violence"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Official site says the show has released three seasons and two miniseries, with more to come.",
+      "seasons": 3
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 9.1
+    },
+    "bestFor": [
+      "late-night",
+      "headphones-on",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "the-white-vault",
+      "tower-4",
+      "malevolent"
+    ],
+    "archiveTake": "One of the better escalation picks when the listener wants horror to get weirder, more structural, and more sound-driven.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.archive81.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.archive81.com/; https://podcasts.apple.com/us/podcast/archive-81/id1098194172; https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Dead Signals"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "homecoming",
+    "title": "Homecoming",
+    "subtitle": "A psychological thriller built from calls, overheard fragments, and deliberate unease.",
+    "description": "A suspense drama about an experimental facility, institutional manipulation, and the cost of trying to piece together a story that does not want to be told cleanly.",
+    "cover": "images/covers/homecoming.jpg",
+    "coverAlt": "Homecoming cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
+      "apple": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
+      "website": "",
+      "rss": ""
+    },
+    "genres": [
+      "thriller",
+      "mystery",
+      "drama"
+    ],
+    "tones": [
+      "tense",
+      "cinematic",
+      "dark"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Thriller",
+      "Mystery",
+      "Conspiracy"
+    ],
+    "aliases": [],
+    "themes": [
+      "institutional control",
+      "memory",
+      "recovery"
+    ],
+    "contentNotes": [
+      "war trauma",
+      "drugging"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "Apple presents the original fiction run as a two-season thriller with later TV-production extras in the feed.",
+      "seasons": 2
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 8.8
+    },
+    "bestFor": [
+      "easy-entry",
+      "late-night",
+      "short-under-five-hours"
+    ],
+    "similarTo": [
+      "case-63",
+      "the-deca-tapes",
+      "red-valley"
+    ],
+    "archiveTake": "A strong start-here option for listeners who want prestige-thriller pacing in a compact fiction-podcast form.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {},
+    "verification": {
+      "status": "partially-source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381; https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Gimlet Media"
+    ],
+    "cast": [],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
+  },
+  {
+    "id": "welcome-to-night-vale",
+    "title": "Welcome to Night Vale",
+    "subtitle": "Community-radio weirdness that treats the impossible like a local bulletin.",
+    "description": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
+    "cover": "images/covers/welcome-to-night-vale.jpg",
+    "coverAlt": "Welcome to Night Vale cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "",
+      "apple": "https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179",
+      "website": "https://www.welcometonightvale.com/",
+      "rss": "http://feeds.nightvalepresents.com/welcometonightvalepodcast"
+    },
+    "genres": [
+      "horror",
+      "comedy",
+      "sci-fi"
+    ],
+    "tones": [
+      "weird",
+      "funny",
+      "dark"
+    ],
+    "formats": [
+      "narrated",
+      "episodic"
+    ],
+    "tags": [
+      "Weird fiction",
+      "Community radio",
+      "Cosmic horror"
+    ],
+    "aliases": [
+      "WTNV",
+      "Welcome to Night Vale podcast"
+    ],
+    "themes": [
+      "community",
+      "surrealism",
+      "conspiracy"
+    ],
+    "contentNotes": [
+      "body horror",
+      "existential threat"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "An ongoing twice-monthly fiction podcast with a large back catalog and starter-guide entry point."
+    },
+    "releaseDates": {},
+    "ratings": {
+      "archive": 9.3
+    },
+    "bestFor": [
+      "easy-entry",
+      "warm-weird",
+      "late-night"
+    ],
+    "similarTo": [
+      "alice-isnt-dead",
+      "desert-skies",
+      "midnight-burger"
+    ],
+    "archiveTake": "Still one of the clearest archive answers when someone wants foundational weird fiction with a strong voice and a lighter touch than outright horror.",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.welcometonightvale.com/"
+    },
+    "verification": {
+      "status": "source-verified",
+      "verifiedAt": "2026-06-30",
+      "source": "https://www.welcometonightvale.com/; https://www.welcometonightvale.com/listen; https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179; http://feeds.nightvalepresents.com/welcometonightvalepodcast",
+      "note": "Verification covers factual metadata only."
+    },
+    "creators": [
+      "Joseph Fink",
+      "Jeffrey Cranor"
+    ],
+    "cast": [
+      "Cecil Baldwin"
+    ],
+    "createdAt": "2026-06-30",
+    "updatedAt": "2026-06-30"
   }
 ]

@@ -26,6 +26,13 @@
   color: var(--text-muted);
 }
 
+.most-popular-summary {
+  max-width: 44ch;
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.42;
+}
+
 .results-summary {
   font-size: 0.96rem;
   white-space: nowrap;

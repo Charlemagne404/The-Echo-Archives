@@ -183,6 +183,8 @@ function createCountedOptions(shows, selector, formatter = toDisplayTag) {
 export function getStructuredFilterGroups(shows) {
   return [
     { id: "genres", label: "Genre", options: createCountedOptions(shows, (show) => show.genres, toDisplayTag) },
+    { id: "tones", label: "Tone", options: createCountedOptions(shows, (show) => show.tones, toDisplayTag) },
+    { id: "formats", label: "Format", options: createCountedOptions(shows, (show) => show.formats, toDisplayTag) },
     { id: "reviewStatus", label: "Coverage", options: createCountedOptions(shows, (show) => [show.reviewStatus], toLabel) },
     {
       id: "completionStatus",
