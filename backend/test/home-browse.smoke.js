@@ -318,6 +318,15 @@ test("homepage rapid filter toggles fall back to a stable grid when animations o
           isFlipping: shell.classList.contains("is-grid-flipping"),
         })),
       );
+    const toRelativeLayout = (shells) => {
+      const topOffset = Math.min(...shells.map((shell) => shell.top));
+      const leftOffset = Math.min(...shells.map((shell) => shell.left));
+      return shells.map((shell) => ({
+        id: shell.id,
+        top: shell.top - topOffset,
+        left: shell.left - leftOffset,
+      }));
+    };
 
     const baselineShells = await readStableGridState();
 
@@ -365,6 +374,114 @@ test("homepage rapid filter toggles fall back to a stable grid when animations o
       assert.equal(shell.isFlipping, false);
       assert.equal(shell.top, baselineShells[index].top);
       assert.equal(shell.left, baselineShells[index].left);
+    });
+  } finally {
+    await page.close();
+  }
+});
+
+test("homepage filter reversals during in-flight grid motion recover to the baseline layout", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+
+    const readStableGridState = () =>
+      page.evaluate(() =>
+        Array.from(document.querySelectorAll("#podcast-grid > .podcast-card-shell")).map((shell) => ({
+          id: shell.dataset.podcastId || "",
+          top: Math.round(shell.getBoundingClientRect().top),
+          left: Math.round(shell.getBoundingClientRect().left),
+          position: window.getComputedStyle(shell).position,
+          opacity: window.getComputedStyle(shell).opacity,
+          isEntering: shell.classList.contains("is-grid-entering"),
+          isExiting: shell.classList.contains("is-grid-exiting"),
+          isFlipping: shell.classList.contains("is-grid-flipping"),
+        })),
+      );
+    const toRelativeLayout = (shells) => {
+      const topOffset = Math.min(...shells.map((shell) => shell.top));
+      const leftOffset = Math.min(...shells.map((shell) => shell.left));
+      return shells.map((shell) => ({
+        id: shell.id,
+        top: shell.top - topOffset,
+        left: shell.left - leftOffset,
+      }));
+    };
+
+    const baselineShells = await readStableGridState();
+
+    await page.locator("#filterToggle").click();
+    await page.waitForFunction(() => {
+      const dropdown = document.getElementById("filterDropdown");
+      return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
+    });
+
+    const finishedFilter = page.locator(
+      '#filterOptionGrid .filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]',
+    );
+    const formatFilter = page.locator(
+      '#filterOptionGrid .filter-option[data-filter-group="formats"][data-filter-value="full-cast"]',
+    );
+
+    await finishedFilter.click();
+    await page.waitForFunction(
+      () =>
+        Boolean(
+          document.querySelector("#podcast-grid .podcast-card-shell.is-grid-exiting") ||
+            document.querySelector("#podcast-grid .podcast-card-shell.is-grid-flipping"),
+        ),
+    );
+
+    await formatFilter.click();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterCount")?.textContent?.trim() === "2" &&
+        (document.getElementById("activeBrowseState")?.textContent || "").includes("Format: Full Cast"),
+    );
+
+    await finishedFilter.click();
+    await page.waitForTimeout(30);
+    await formatFilter.click();
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
+    await page.waitForFunction(
+      (expectedCount) => {
+        const shells = Array.from(document.querySelectorAll("#podcast-grid > .podcast-card-shell"));
+        return (
+          shells.length === expectedCount &&
+          shells.every((shell) => {
+            const styles = window.getComputedStyle(shell);
+            return (
+              styles.position === "relative" &&
+              styles.opacity === "1" &&
+              !shell.classList.contains("is-grid-entering") &&
+              !shell.classList.contains("is-grid-exiting") &&
+              !shell.classList.contains("is-grid-flipping")
+            );
+          }) &&
+          document.getElementById("filterCount")?.hidden === true &&
+          document.getElementById("activeBrowseState")?.hidden === true
+        );
+      },
+      baselineShells.length,
+    );
+
+    const stableShells = await readStableGridState();
+    const baselineLayout = toRelativeLayout(baselineShells);
+    const stableLayout = toRelativeLayout(stableShells);
+    assert.deepEqual(
+      stableShells.map((shell) => shell.id),
+      baselineShells.map((shell) => shell.id),
+    );
+    stableShells.forEach((shell, index) => {
+      assert.equal(shell.position, "relative");
+      assert.equal(shell.opacity, "1");
+      assert.equal(shell.isEntering, false);
+      assert.equal(shell.isExiting, false);
+      assert.equal(shell.isFlipping, false);
+      assert.equal(stableLayout[index].top, baselineLayout[index].top);
+      assert.equal(stableLayout[index].left, baselineLayout[index].left);
     });
   } finally {
     await page.close();

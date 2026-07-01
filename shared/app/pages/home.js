@@ -67,7 +67,7 @@ export async function initializeHomePage() {
   const filterOptionsByGroup = new Map(
     structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
   );
-  const state = createHomeState();
+  const state = createHomeState(structuredFilterGroups);
   seedHomeStateFromParams({ state, shows, collectionsById });
   const searchInputs = [elements.searchInput, elements.stickySearchInput];
 

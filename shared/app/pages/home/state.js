@@ -1,15 +1,31 @@
 import { getHomeGridLayoutBucket } from "./layout.js";
 
-export function createHomeState() {
+const DEFAULT_HOME_FILTER_GROUP_IDS = [
+  "genres",
+  "tones",
+  "formats",
+  "tags",
+  "bestFor",
+  "completionStatus",
+  "reviewStatus",
+];
+
+function createHomeFilterState(structuredFilterGroups = []) {
+  const groupIds = new Set(DEFAULT_HOME_FILTER_GROUP_IDS);
+  structuredFilterGroups.forEach((group) => {
+    const groupId = String(group?.id || "").trim();
+    if (groupId) {
+      groupIds.add(groupId);
+    }
+  });
+
+  return Object.fromEntries(Array.from(groupIds, (groupId) => [groupId, new Set()]));
+}
+
+export function createHomeState(structuredFilterGroups = []) {
   return {
     query: "",
-    filters: {
-      genres: new Set(),
-      tags: new Set(),
-      bestFor: new Set(),
-      completionStatus: new Set(),
-      reviewStatus: new Set(),
-    },
+    filters: createHomeFilterState(structuredFilterGroups),
     selectedCollectionId: "",
     sortMode: "default",
     gridLayoutBucket: getHomeGridLayoutBucket(),

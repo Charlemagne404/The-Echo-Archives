@@ -41,12 +41,12 @@ function readAnimationDuration(animation) {
 function cleanupAnimation(shell, key, className, animation) {
   animation?.finished
     ?.then(() => {
-      if (shell[key] !== animation) {
-        return;
+      const isCurrentAnimation = shell[key] === animation;
+      if (isCurrentAnimation) {
+        shell[key] = null;
+        shell.classList.remove(className);
       }
 
-      shell[key] = null;
-      shell.classList.remove(className);
       animation.cancel();
     })
     .catch(() => {});

@@ -258,7 +258,6 @@ Use the consolidated docs for detailed product, roadmap, architecture, and opera
 
 If these files exist, update them when useful:
 
-* `HANDOFF.md` for current task state
 * `MEMORY.md` for long-term project facts
 * `TODO.md` for discovered bugs or unfinished work
 * `DECISIONS.md` for meaningful technical/product decisions
@@ -267,21 +266,6 @@ If these files exist, update them when useful:
 * `docs/research/feedback/` for research or design feedback snapshots
 
 Do not dump every small change into documentation.
-
-## Handoff rule
-
-After meaningful work, update `HANDOFF.md` if it exists.
-
-Include:
-
-* Current task
-* Files changed
-* What was completed
-* What still needs work
-* Commands run
-* Known issues
-
-Keep it short and useful.
 
 ## Slow verification commands
 

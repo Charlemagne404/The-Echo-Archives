@@ -17,6 +17,18 @@ export function getHomeGridColumnCount(gridLayoutBucket) {
   return gridLayoutBucket === "compact" ? 2 : 6;
 }
 
+function dedupeArchiveGridNodes(nodes) {
+  const seenNodes = new Set();
+  return nodes.filter((node) => {
+    if (!(node instanceof HTMLElement) || seenNodes.has(node)) {
+      return false;
+    }
+
+    seenNodes.add(node);
+    return true;
+  });
+}
+
 export function sortVisibleShows({ visibleShows, selectedCollection, sortMode }) {
   const sortedShows = [...visibleShows];
 
@@ -61,7 +73,7 @@ function getOrderedArchiveGridNodes({ collectionsSection, visibleShows, archiveC
     orderedNodes.push(collectionsSection);
   }
 
-  return orderedNodes;
+  return dedupeArchiveGridNodes(orderedNodes);
 }
 
 function getArchiveGridShells(archiveGrid) {
@@ -80,6 +92,46 @@ function hasGridShellMotionInFlight(shell) {
         shell.classList.contains("is-grid-entering") ||
         shell.classList.contains("is-grid-flipping"),
     )
+  );
+}
+
+function hasDuplicateGridShellIds(shells) {
+  const ids = shells
+    .map((shell) => shell.dataset.podcastId || "")
+    .filter(Boolean);
+  return new Set(ids).size !== ids.length;
+}
+
+function hasUnexpectedArchiveGridChildren(archiveGrid, collectionsSection) {
+  return Array.from(archiveGrid.children).some((node) => {
+    if (!(node instanceof HTMLElement) || node === collectionsSection) {
+      return false;
+    }
+
+    return !node.classList.contains("podcast-card-shell");
+  });
+}
+
+function hasGridShellStateDrift(shell) {
+  if (!(shell instanceof HTMLElement)) {
+    return false;
+  }
+
+  const position = window.getComputedStyle(shell).position;
+  return !shell.dataset.podcastId || (position === "absolute" && !shell.classList.contains("is-grid-exiting"));
+}
+
+function shouldStabilizeArchiveGrid({
+  archiveGrid,
+  collectionsSection,
+  currentShells,
+  nextShells,
+}) {
+  return (
+    currentShells.some((shell) => hasGridShellMotionInFlight(shell) || hasGridShellStateDrift(shell)) ||
+    hasDuplicateGridShellIds(currentShells) ||
+    hasDuplicateGridShellIds(nextShells) ||
+    hasUnexpectedArchiveGridChildren(archiveGrid, collectionsSection)
   );
 }
 
@@ -120,13 +172,14 @@ export function patchArchiveGrid({
   const nextShells = orderedNodes.filter((node) => node instanceof HTMLElement && node.classList.contains("podcast-card-shell"));
   const currentShells = getArchiveGridShells(archiveGrid);
   const motionProfile = getGridMotionProfile(changeReason);
-  const shouldBypassMotion = !motionProfile;
-
-  if (!shouldBypassMotion && currentShells.some((shell) => hasGridShellMotionInFlight(shell))) {
-    currentShells.forEach((shell) => {
-      resetGridShellMotion(shell);
+  const shouldBypassMotion =
+    !motionProfile ||
+    shouldStabilizeArchiveGrid({
+      archiveGrid,
+      collectionsSection,
+      currentShells,
+      nextShells,
     });
-  }
 
   setGridMotionMetadata(archiveGrid, changeReason, shouldBypassMotion ? null : motionProfile);
   if (shouldBypassMotion) {
