@@ -50,6 +50,14 @@ export function normalizeTag(tag) {
 }
 
 export function formatRating(value) {
+  if (value === null || value === undefined) {
+    return "--";
+  }
+
+  if (typeof value === "string" && !value.trim()) {
+    return "--";
+  }
+
   const numeric = Number(value);
   if (!Number.isFinite(numeric)) {
     return "--";

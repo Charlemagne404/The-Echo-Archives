@@ -1,0 +1,144 @@
+/* Canonical public hero contract derived from the browse page hero. */
+
+.info-hero-panel,
+.about-page .about-hero-panel,
+.supporters-hero-panel,
+.creators-hero-panel,
+.creator-standards-hero-panel,
+.submit-hero-panel,
+.collections-hero-panel,
+.collection-detail-hero-panel {
+  overflow: hidden;
+  padding: 34px 28px 26px;
+  border-color: rgba(255, 255, 255, 0.16);
+  border-radius: 26px;
+  box-shadow: var(--shadow-lg);
+}
+
+.info-hero-copy h1,
+.about-page .about-hero-panel .hero-copy h1,
+.supporters-hero-panel .hero-copy h1,
+.creators-hero-panel .hero-copy h1,
+.creator-standards-hero-panel .hero-copy h1,
+.submit-hero-copy h1,
+.collections-hero-copy h1,
+.collection-detail-hero-copy h1,
+.help-center-page .help-center-hero-copy h1 {
+  margin-bottom: 14px;
+  font-size: clamp(2.95rem, 4vw, 4.15rem);
+  line-height: 0.98;
+  letter-spacing: -0.062em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+}
+
+.info-hero-copy p,
+.about-page .about-hero-lede,
+.supporters-hero-panel .hero-copy p,
+.creators-hero-copy p,
+.creator-standards-hero-copy p,
+.submit-hero-copy p,
+.collections-hero-copy p,
+.collection-detail-hero-copy p,
+.help-center-page .help-center-hero-copy p {
+  max-width: 42ch;
+  font-size: clamp(1.03rem, 1.12vw, 1.2rem);
+  line-height: 1.34;
+}
+
+.info-hero-copy h1,
+.about-page .about-hero-panel .hero-copy h1,
+.supporters-hero-panel .hero-copy h1,
+.creator-standards-hero-panel .hero-copy h1,
+.submit-hero-copy h1,
+.collections-hero-copy h1,
+.help-center-page .help-center-hero-copy h1 {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.creators-hero-panel .hero-copy h1 {
+  max-width: 12ch;
+  white-space: normal;
+}
+
+.collection-detail-hero-copy h1 {
+  max-width: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.creators-hero-copy p,
+.creator-standards-hero-copy p {
+  max-width: 32ch;
+}
+
+.collections-hero-copy p {
+  max-width: 31ch;
+}
+
+.collection-detail-hero-copy p {
+  max-width: 40ch;
+}
+
+.help-center-page .help-center-hero-copy p {
+  max-width: 33ch;
+}
+
+@media (max-width: 780px) {
+  .info-hero-panel,
+  .about-page .about-hero-panel,
+  .supporters-hero-panel,
+  .creators-hero-panel,
+  .creator-standards-hero-panel,
+  .submit-hero-panel,
+  .collections-hero-panel {
+    min-height: 0;
+    padding: 22px;
+    background-position: center;
+  }
+
+  .info-hero-copy h1,
+  .about-page .about-hero-panel .hero-copy h1,
+  .supporters-hero-panel .hero-copy h1,
+  .creators-hero-panel .hero-copy h1,
+  .creator-standards-hero-panel .hero-copy h1,
+  .submit-hero-copy h1,
+  .collections-hero-copy h1,
+  .help-center-page .help-center-hero-copy h1 {
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 11vw, 3.9rem);
+    white-space: normal;
+  }
+
+  .info-hero-copy p,
+  .about-page .about-hero-lede,
+  .supporters-hero-panel .hero-copy p,
+  .creators-hero-copy p,
+  .creator-standards-hero-copy p,
+  .submit-hero-copy p,
+  .collections-hero-copy p,
+  .help-center-page .help-center-hero-copy p {
+    max-width: 24rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .collection-detail-hero-panel {
+    padding: 30px 22px;
+  }
+
+  .collection-detail-hero-copy h1 {
+    max-width: 11ch;
+    font-size: clamp(2.35rem, 8vw, 3.65rem);
+    white-space: normal;
+    text-overflow: clip;
+  }
+}
+
+@media (max-width: 560px) {
+  .collection-detail-hero-panel {
+    padding: 20px 18px 16px;
+  }
+}

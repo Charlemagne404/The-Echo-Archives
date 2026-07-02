@@ -152,6 +152,66 @@
 
 .submit-search-shell {
   position: relative;
+  display: grid;
+  gap: 8px;
+}
+
+.submit-search-control {
+  position: relative;
+}
+
+.submit-search-control #submitExistingShowSearch {
+  padding-right: 92px;
+}
+
+.submit-search-shell.is-selected #submitExistingShowSearch {
+  border-color: rgba(255, 122, 102, 0.28);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 100%),
+    rgba(5, 8, 11, 0.9);
+}
+
+.submit-search-actions {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateY(-50%);
+}
+
+.submit-search-action {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(247, 247, 243, 0.72);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.submit-search-action:hover,
+.submit-search-action:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(247, 247, 243, 0.94);
+}
+
+.submit-search-action svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 180ms ease;
+}
+
+.submit-search-action.is-open svg {
+  transform: rotate(180deg);
 }
 
 .submit-search-results {
@@ -167,6 +227,10 @@
   box-shadow: var(--shadow-md);
   display: grid;
   gap: 6px;
+}
+
+.submit-search-results[hidden] {
+  display: none;
 }
 
 .submit-search-result,

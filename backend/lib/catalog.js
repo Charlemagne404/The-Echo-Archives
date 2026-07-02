@@ -151,14 +151,6 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" has invalid completionStatus "${record.completionStatus}".`);
   }
 
-  if (record.status === "published" && (
-    !record.ratings ||
-    typeof record.ratings !== "object" ||
-    !Number.isFinite(Number(record.ratings.archive))
-  )) {
-    throw new Error(`Published show "${record.id}" is missing a numeric ratings.archive value.`);
-  }
-
   assertUniqueNormalized(record.tags, "tags", record.id);
   assertUniqueNormalized(record.genres, "genres", record.id);
   assertUniqueNormalized(record.tones, "tones", record.id);

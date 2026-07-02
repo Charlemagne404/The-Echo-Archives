@@ -515,7 +515,7 @@ test("fallback answer now includes grounded recommendation detail", () => {
     },
   ]);
 
-  assert.match(answer, /Impact Winter is the strongest fit/i);
+  assert.match(answer, /Impact Winter is (?:the strongest fit|probably your best next stop)|Impact Winter looks like the cleanest archive match/i);
   assert.match(answer, /finished|tagged/i);
   assert.match(answer, /Derelict/i);
 });

@@ -39,6 +39,53 @@
   will-change: transform, opacity;
 }
 
+.results-heading-meta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.results-rating-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.2;
+  opacity: 0.82;
+}
+
+.results-rating-note-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.results-rating-note .archive-score-icon,
+.results-rating-note svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.results-rating-note .archive-score-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.results-rating-note svg {
+  width: 1rem;
+  height: 0.88rem;
+  flex: 0 0 auto;
+}
+
+.results-rating-note-separator {
+  opacity: 0.58;
+}
+
 .active-browse-state {
   display: flex;
   align-items: center;

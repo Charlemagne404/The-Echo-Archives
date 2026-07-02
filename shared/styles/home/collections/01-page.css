@@ -10,12 +10,6 @@
 .collections-hero-panel,
 .collection-detail-hero-panel {
   overflow: hidden;
-  border-radius: 26px;
-  background:
-    linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(4, 6, 9, 0.94) 39%, rgba(5, 8, 11, 0.5) 68%, rgba(6, 8, 11, 0.16) 100%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.04) 46%, rgba(3, 5, 8, 0.52) 82%, rgba(3, 5, 8, 0.9) 100%),
-    url("/images/hero-archive-dish.png") right center / cover no-repeat,
-    #05070a;
 }
 
 .collections-hero-panel {
@@ -46,11 +40,8 @@
 }
 
 .collections-hero-copy h1 {
-  max-width: 16ch;
-  white-space: normal;
-  letter-spacing: -0.062em;
-  font-size: clamp(2.95rem, 4vw, 4.15rem);
-  line-height: 0.98;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .collection-detail-hero-copy h1 {
@@ -58,9 +49,6 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  letter-spacing: 0;
-  font-size: clamp(2.2rem, 3.2vw, 3.8rem);
-  line-height: 0.94;
 }
 
 .collections-hero-copy p,
@@ -74,8 +62,6 @@
 
 .collections-hero-copy p {
   max-width: 31ch;
-  font-size: clamp(1.03rem, 1.12vw, 1.2rem);
-  line-height: 1.34;
 }
 
 .collections-hero-actions {

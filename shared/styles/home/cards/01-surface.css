@@ -321,6 +321,7 @@
 .chat-close-button svg,
 #backToTop svg,
 .search-icon svg,
+#stickySearchToggle svg,
 #filterToggle svg,
 #stickyFilterToggle svg {
   width: 20px;
@@ -331,6 +332,8 @@
 .chat-toggle-button:focus-visible,
 .chat-close-button:hover,
 .chat-close-button:focus-visible,
+#stickySearchToggle:hover,
+#stickySearchToggle:focus-visible,
 #filterToggle:hover,
 #filterToggle:focus-visible,
 #stickyFilterToggle:hover,

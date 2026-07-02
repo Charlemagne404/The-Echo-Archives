@@ -64,6 +64,7 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
 function buildSiteHelpResponse({
   message,
   helpTopic,
+  history = [],
   page,
   catalog,
   collections,
@@ -71,7 +72,8 @@ function buildSiteHelpResponse({
   matches = [],
   includeRecommendations = false,
 }) {
-  const show = resolveRelevantShow({ page, catalog, matches, message });
+  const supportContext = buildSupportContext({ message, history });
+  const show = resolveRelevantShow({ page, catalog, matches, message: supportContext.detectionMessage });
   const collection = resolveRelevantCollection({ page, collections });
   const topicResponse = buildTopicResponse({
     message,
@@ -81,6 +83,7 @@ function buildSiteHelpResponse({
     collection,
     collections,
     siteHelpContext,
+    supportContext,
   });
 
   return {
@@ -92,8 +95,48 @@ function buildSiteHelpResponse({
   };
 }
 
-function buildTopicResponse({ message, topic, page, show, collection, collections, siteHelpContext }) {
+function buildSupportContext({ message, history = [] }) {
+  const currentMessage = String(message || "").trim();
+  const userMessages = (Array.isArray(history) ? history : [])
+    .filter((entry) => entry && entry.role === "user" && typeof entry.content === "string")
+    .map((entry) => entry.content.trim())
+    .filter(Boolean);
+
+  if (userMessages.length > 0 && normalizeText(userMessages.at(-1)) === normalizeText(currentMessage)) {
+    userMessages.pop();
+  }
+
+  const previousUserMessage = userMessages.at(-1) || "";
+  const hasFollowUp =
+    currentMessage.length <= 160 &&
+    /\b(still|already|again|same|that|this|it|they|them|didn't|did not|won't|cannot|can't|not working|not loading|not helping)\b/i.test(
+      currentMessage,
+    );
+  const detectionMessage = previousUserMessage && hasFollowUp ? `${previousUserMessage} ${currentMessage}` : currentMessage;
+
+  return {
+    currentMessage,
+    previousUserMessage,
+    hasFollowUp,
+    detectionMessage,
+    normalizedMessage: normalizeText(detectionMessage),
+  };
+}
+
+function buildTopicResponse({ message, topic, page, show, collection, collections, siteHelpContext, supportContext }) {
   switch (topic) {
+    case "broken-link":
+      return buildBrokenLinkResponse(show, siteHelpContext, supportContext);
+    case "rating-help":
+      return buildRatingHelpResponse(show, siteHelpContext, supportContext);
+    case "search-help":
+      return buildSearchHelpResponse(page, siteHelpContext, supportContext);
+    case "submission-status":
+      return buildSubmissionStatusResponse(siteHelpContext, supportContext);
+    case "page-navigation":
+      return buildPageNavigationResponse(page, show, collection, siteHelpContext, supportContext);
+    case "chat-help":
+      return buildChatHelpResponse(siteHelpContext, supportContext);
     case "show-summary":
       return buildShowSummaryResponse(show, siteHelpContext);
     case "show-status":
@@ -139,17 +182,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
         ],
       };
     case "correction":
-      return {
-        answer:
-          "Use Submit, choose the correction path, pick the archive entry, describe the factual issue, and add verifiable sources when you can. Corrections are for metadata and links, not editorial disagreement, and nothing auto-publishes.",
-        actions: [siteHelpContext.routes.submit],
-        suggestedPrompts: [
-          "What counts as a correction?",
-          "How do creator verification requests work?",
-          "Where do I submit a listener review?",
-          "What does the archive store?",
-        ],
-      };
+      return buildCorrectionResponse(show, siteHelpContext, supportContext);
     case "listener-review":
       return {
         answer:
@@ -254,7 +287,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
       if (page.pageType === "help-center") {
         return {
           answer:
-            "This help center covers discovery problems, broken links, ratings, creator verification, browser storage, and which archive workflow fits a given issue. Ask about the symptom and I can point you to the right route.",
+            "This help center covers discovery problems, broken links, search and filter trouble, community-rating glitches, creator verification, browser storage, submission follow-up, and which archive workflow fits a given issue. Ask about the symptom and I can point you to the right route.",
           actions: [siteHelpContext.routes.helpCenter, siteHelpContext.routes.submit, siteHelpContext.routes.privacy],
           suggestedPrompts: [
             "What does creator verified mean?",
@@ -267,7 +300,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
 
       return {
         answer:
-          "I can help with archive recommendations, show summaries, creators, runtime, transcripts, collection appearances, ratings, creator verification, and site flows like corrections or submissions. Ask about a title, what the archive contains, or what to listen to next.",
+          "I can help with archive recommendations, show summaries, creators, runtime, transcripts, collection appearances, ratings, creator verification, search trouble, broken links, submission follow-up, and site flows like corrections or submissions. Ask about a title, a symptom, or what to listen to next.",
         actions: [siteHelpContext.routes.collections, siteHelpContext.routes.submit, siteHelpContext.routes.about],
         suggestedPrompts: [
           "Who made Midnight Burger?",
@@ -277,6 +310,338 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
         ],
       };
   }
+}
+
+function hashText(value = "") {
+  return Array.from(String(value || "")).reduce((hash, character) => ((hash * 31 + character.charCodeAt(0)) >>> 0), 7);
+}
+
+function pickVariant(seed, variants) {
+  if (!Array.isArray(variants) || variants.length === 0) {
+    return "";
+  }
+
+  return variants[hashText(seed) % variants.length];
+}
+
+function joinSentences(parts) {
+  return parts
+    .filter(Boolean)
+    .map((part) => String(part).trim())
+    .filter(Boolean)
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function buildActionList(actions) {
+  return actions.filter(Boolean);
+}
+
+function getShowLinkTargets(show) {
+  const listenTargets = Object.keys(show?.listenLinks || {}).filter((key) => show.listenLinks[key]);
+  const officialTargets = Object.keys(show?.officialLinks || {}).filter((key) => show.officialLinks[key]);
+
+  return {
+    listenTargets,
+    officialTargets,
+  };
+}
+
+function buildShowLinkScope(show) {
+  if (!show) {
+    return "Say whether the bad destination is an official site, a feed, or a listening-platform link so the correction lands in the right place.";
+  }
+
+  const { listenTargets, officialTargets } = getShowLinkTargets(show);
+  const pieces = [];
+
+  if (officialTargets.length > 0) {
+    pieces.push(`official links such as ${joinReadableList(officialTargets)}`);
+  }
+
+  if (listenTargets.length > 0) {
+    pieces.push(`listening links such as ${joinReadableList(listenTargets)}`);
+  }
+
+  if (pieces.length === 0) {
+    return `${show.title} does not currently expose many verified links on the page, so include the exact bad URL if you have it.`;
+  }
+
+  return `${show.title} separates ${joinReadableList(pieces)}, so mention which side is wrong when you report it.`;
+}
+
+function buildCorrectionResponse(show, siteHelpContext, supportContext) {
+  const intro = pickVariant(`${supportContext.normalizedMessage}|correction`, [
+    "Use Submit and choose the correction path.",
+    "The correction path is the right route here.",
+    "This is handled through Submit as a correction.",
+  ]);
+  const showSentence = show ? `Select ${show.title} so the review queue lands on the right entry.` : "Pick the archive entry if it already exists.";
+  const followUpSentence = supportContext.hasFollowUp
+    ? "If you already sent one and the public entry still looks wrong, follow up through contact with the title and the exact field or URL so it can be checked directly."
+    : "Include the exact field that is wrong and a source when you can so the review pass can move faster.";
+
+  return {
+    answer: joinSentences([
+      intro,
+      showSentence,
+      "Corrections are for factual metadata and links, not editorial disagreement with ratings or reviews.",
+      followUpSentence,
+      "Nothing auto-publishes; a human reviews it before the archive changes.",
+    ]),
+    actions: buildActionList([
+      show ? { label: "Open Show", href: show.href, external: false } : null,
+      siteHelpContext.routes.submit,
+      supportContext.hasFollowUp ? siteHelpContext.routes.contact : null,
+    ]),
+    suggestedPrompts: [
+      "What counts as a correction?",
+      "How do creator verification requests work?",
+      "Where do I submit a listener review?",
+      "What does the archive store?",
+    ],
+  };
+}
+
+function buildBrokenLinkResponse(show, siteHelpContext, supportContext) {
+  const intro = pickVariant(`${supportContext.normalizedMessage}|broken-link`, [
+    "That sounds like a correction-path issue rather than an editorial one.",
+    "A dead or wrong link should go through the correction route.",
+    "Broken archive links are handled through Submit, not through ratings or reviews.",
+  ]);
+  const escalationSentence = supportContext.hasFollowUp
+    ? "If you already reported it and it is still live, use the contact route as a follow-up and include the broken URL plus the corrected destination if you have it."
+    : "Report the exact bad URL and the corrected destination when you have it, because link fixes are reviewed manually rather than auto-applied.";
+
+  return {
+    answer: joinSentences([
+      intro,
+      "Use Submit, choose correction, and describe the broken or outdated destination.",
+      buildShowLinkScope(show),
+      escalationSentence,
+    ]),
+    actions: buildActionList([
+      show ? { label: "Open Show", href: show.href, external: false } : null,
+      siteHelpContext.routes.submit,
+      supportContext.hasFollowUp ? siteHelpContext.routes.contact : null,
+    ]),
+    suggestedPrompts: [
+      "What official links does this show have?",
+      "How do I submit a correction?",
+      "What does creator verified mean?",
+      "Why will a link not play in Spotify?",
+    ],
+  };
+}
+
+function buildRatingHelpResponse(show, siteHelpContext, supportContext) {
+  const message = supportContext.currentMessage || "";
+  const mentionsHiddenAverage =
+    /\b(hidden|missing|not showing|won't show|cannot show|can't show|where is|why is|why isn't|why is not)\b/i.test(message) &&
+    /\b(community score|community rating|community average|rating)\b/i.test(message);
+  const mentionsClear =
+    /\b(clear|remove|delete)\b/i.test(message) && /\b(rating|score)\b/i.test(message);
+  const intro = pickVariant(`${supportContext.normalizedMessage}|rating-help`, [
+    "Community ratings are tied to an anonymous browser profile rather than a public account.",
+    "The listener-rating flow is local-browser based, so persistence issues usually come from the browser side or the verification step.",
+    "The rating widget has a couple of guardrails that can make it look like a score did not save.",
+  ]);
+  const showSentence = show ? `${show.title} uses the same listener-rating flow as the rest of the archive.` : "";
+
+  if (mentionsClear) {
+    return {
+      answer: joinSentences([
+        showSentence,
+        "To remove a saved community rating, use the Clear your rating control in the listener-rating panel on the show page.",
+        "If the removal fails, the usual causes are the verification check not completing or the browser blocking the anonymous rating profile from persisting.",
+      ]),
+      actions: buildActionList([show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse]),
+      suggestedPrompts: [
+        "Why did my rating not stick?",
+        "How are community ratings different?",
+        "What does creator verified mean?",
+        "How do listener reviews work?",
+      ],
+    };
+  }
+
+  if (mentionsHiddenAverage) {
+    return {
+      answer: joinSentences([
+        showSentence,
+        "A saved rating can exist before the public community average appears.",
+        "The archive hides the public average until enough verified ratings accumulate, so an early rating may be recorded without producing a visible score badge yet.",
+      ]),
+      actions: buildActionList([show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse]),
+      suggestedPrompts: [
+        "Why did my rating not stick?",
+        "How are community ratings different?",
+        "How do listener reviews work?",
+        "What does creator verified mean?",
+      ],
+    };
+  }
+
+  return {
+    answer: joinSentences([
+      intro,
+      showSentence,
+      "The site keeps an anonymous profile id in local storage for ratings, uses a site cookie for abuse protection, and may require the listener verification check before saving.",
+      "If a rating does not stick, the usual causes are blocked browser storage, cleared cookies, an incomplete verification check, or the backend being unavailable for that request.",
+      "A saved rating can also exist before the public community average appears, because the average stays hidden until enough verified ratings accumulate.",
+    ]),
+    actions: buildActionList([
+      show ? { label: "Open Show", href: show.href, external: false } : siteHelpContext.routes.browse,
+      siteHelpContext.routes.privacy,
+      siteHelpContext.routes.helpCenter,
+    ]),
+    suggestedPrompts: [
+      "How are community ratings different?",
+      "Does the site store anything in my browser?",
+      "How do listener reviews work?",
+      "What does creator verified mean?",
+    ],
+  };
+}
+
+function buildSearchHelpResponse(page, siteHelpContext, supportContext) {
+  const isCollectionsPage = page.pageType === "collections" || page.pageType === "collection";
+  const intro = pickVariant(`${page.pageType}|${supportContext.normalizedMessage}|search`, [
+    "Archive search is broader than exact-title lookup.",
+    "The browse tools read more than just show titles.",
+    "Search here works best when you treat it like archive metadata search, not only a title box.",
+  ]);
+  const pageSentence = isCollectionsPage
+    ? "On the collections side, search still returns collections rather than standalone show cards, even though it also reads collection copy and included show metadata."
+    : "On the browse page, search and filters stack together, so a leftover filter can hide an otherwise valid title match.";
+  const nextStepSentence = isCollectionsPage
+    ? "If you are hunting for one specific show, switch back to Browse Archive and try a distinctive title fragment, creator name, tone, or tag."
+    : "Try one distinctive word first, then narrow with creator, genre, tone, format, or tag filters instead of typing a full sentence.";
+
+  return {
+    answer: joinSentences([
+      intro,
+      "The index can match title fragments, aliases, creators, genres, tones, formats, tags, transcript notes, and archive review text.",
+      pageSentence,
+      nextStepSentence,
+      "If a show still does not appear after broadening the query and clearing filters, it may not be indexed yet, and Submit is the right path.",
+    ]),
+    actions: buildActionList([
+      isCollectionsPage ? siteHelpContext.routes.collections : siteHelpContext.routes.browse,
+      siteHelpContext.routes.submit,
+    ]),
+    suggestedPrompts: [
+      "What collections do you have?",
+      "How do I submit a missing show?",
+      "Recommend a finished show with strong worldbuilding",
+      "How do the ratings work here?",
+    ],
+  };
+}
+
+function buildSubmissionStatusResponse(siteHelpContext, supportContext) {
+  const intro = pickVariant(`${supportContext.normalizedMessage}|submission-status`, [
+    "The public site does not expose a live submission queue or ETA.",
+    "There is no public status tracker for archive submissions right now.",
+    "Submission progress is handled off the public pages rather than through a visible queue.",
+  ]);
+  const followUpSentence = supportContext.hasFollowUp
+    ? "If you are following up on an existing request, use the contact route and include the show title plus whether it was a new-show submission, correction, listener review, or creator-verification request."
+    : "New shows, corrections, listener reviews, and creator verification requests are all manually reviewed before they affect public pages.";
+
+  return {
+    answer: joinSentences([
+      intro,
+      followUpSentence,
+      "Nothing auto-publishes after submission, so a show can remain unchanged or unlisted until that review pass happens.",
+    ]),
+    actions: buildActionList([siteHelpContext.routes.submit, siteHelpContext.routes.contact, siteHelpContext.routes.creators]),
+    suggestedPrompts: [
+      "How do I submit a correction?",
+      "How do creator verification requests work?",
+      "What counts as a listener review?",
+      "Where can I contact the archive?",
+    ],
+  };
+}
+
+function buildPageNavigationResponse(page, show, collection, siteHelpContext, supportContext) {
+  const intro = pickVariant(`${page.pageType}|${supportContext.normalizedMessage}|navigation`, [
+    "The clean routing split is browse for shows, collections for listening paths, submit for fixes or contributions, and help center for support questions.",
+    "The main public routes are intentionally separated by task.",
+    "The easiest way to think about the site is browse for shows, collections for curated routes, and submit for anything that changes data.",
+  ]);
+  const contextSentence = show
+    ? `You are already close to ${show.title}, so the show page is the best place for links, ratings, runtime, transcripts, and correction follow-up.`
+    : collection
+      ? `${collection.title} is a collection route, so use Browse Archive if you want to jump from curated paths back to individual show pages.`
+      : "If a public page itself is blank, missing, or 404ing, send the path or title through correction or contact so it can be checked directly.";
+
+  return {
+    answer: joinSentences([
+      intro,
+      contextSentence,
+      "Use Browse Archive for individual titles, Collections for mood or route-based discovery, Submit for corrections, reviews, and verification, and Help Center for support flows.",
+    ]),
+    actions: buildActionList([
+      show ? { label: "Open Show", href: show.href, external: false } : null,
+      collection ? { label: "Open Collection", href: `/collection.html?id=${encodeURIComponent(collection.id)}`, external: false } : null,
+      siteHelpContext.routes.browse,
+      siteHelpContext.routes.collections,
+      siteHelpContext.routes.submit,
+    ]),
+    suggestedPrompts: [
+      "How should I search when I do not know the exact title?",
+      "How do I report a broken link?",
+      "What collections do you have?",
+      "How do submissions work?",
+    ],
+  };
+}
+
+function buildChatHelpResponse(siteHelpContext, supportContext) {
+  const message = supportContext.currentMessage || "";
+
+  if (/\b(history|session|reset|cleared|forgot|lost)\b/i.test(message)) {
+    return {
+      answer:
+        "The chat panel keeps recent conversation history in session storage for the current browser session, so closing the tab or clearing session storage can wipe it. That storage is local to your browser rather than a saved account thread.",
+      actions: [siteHelpContext.routes.privacy, siteHelpContext.routes.helpCenter],
+      suggestedPrompts: [
+        "Does the site store anything else in my browser?",
+        "Why did my rating not stick?",
+        "How do I report a broken link?",
+        "How should I search when I do not know the exact title?",
+      ],
+    };
+  }
+
+  if (/\b(offline|not loading|not working|failed|cannot reach|can't reach)\b/i.test(message)) {
+    return {
+      answer:
+        "The chat panel depends on the site reaching the `/api/chat` backend. If that service is offline or blocked, the site can show the chat-failed message instead of a live reply.",
+      actions: [siteHelpContext.routes.helpCenter],
+      suggestedPrompts: [
+        "How do I report a broken link?",
+        "Why did my rating not stick?",
+        "How should I search when I do not know the exact title?",
+        "What can you help with here?",
+      ],
+    };
+  }
+
+  return {
+    answer:
+      "If the chat feels repetitive, give it the exact symptom, page, or title instead of a broad help prompt. It handles recommendations, broken links, search and filter trouble, rating persistence, submission routing, creator verification, and show metadata best when the problem is concrete.",
+    actions: [siteHelpContext.routes.helpCenter, siteHelpContext.routes.browse],
+    suggestedPrompts: [
+      "How do I report a broken link?",
+      "Why did my rating not stick?",
+      "How should I search when I do not know the exact title?",
+      "Recommend a finished show with strong worldbuilding",
+    ],
+  };
 }
 
 function buildCollectionsResponse(collection, siteHelpContext) {
@@ -962,18 +1327,28 @@ function resolveRelevantShow({ page, catalog, matches, message }) {
     return catalog.find((entry) => entry.id === page.showId) || null;
   }
 
+  const normalizedMessage = normalizeText(message);
+  const directTextMatch = (Array.isArray(catalog) ? catalog : [])
+    .flatMap((entry) => [entry.title, ...(Array.isArray(entry.aliases) ? entry.aliases : [])].map((value) => ({ entry, value })))
+    .map(({ entry, value }) => ({ entry, normalized: normalizeText(value) }))
+    .filter(({ normalized }) => normalized.length > 3 && normalizedMessage.includes(normalized))
+    .sort((left, right) => right.normalized.length - left.normalized.length)
+    .at(0);
   const [topMatch] = matches;
   if (!topMatch) {
-    return null;
+    return directTextMatch?.entry || null;
   }
 
   const hasStrongTitleReference =
     Array.isArray(topMatch.reasons) &&
     topMatch.reasons.some((reason) => /direct title match|title starts with|title lines up/i.test(reason));
-  const normalizedMessage = normalizeText(message);
   const normalizedTitle = normalizeText(topMatch.title);
 
-  return hasStrongTitleReference || (normalizedTitle && normalizedMessage.includes(normalizedTitle)) ? topMatch : null;
+  if (hasStrongTitleReference || (normalizedTitle && normalizedMessage.includes(normalizedTitle))) {
+    return topMatch;
+  }
+
+  return directTextMatch?.entry || null;
 }
 
 function resolveRelevantCollection({ page, collections }) {
@@ -1029,6 +1404,14 @@ function joinReadableList(values) {
 }
 
 function formatNumber(value) {
+  if (value === null || value === undefined) {
+    return "--";
+  }
+
+  if (typeof value === "string" && !value.trim()) {
+    return "--";
+  }
+
   const numeric = Number(value);
   if (!Number.isFinite(numeric)) {
     return "--";

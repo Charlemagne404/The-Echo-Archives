@@ -14,6 +14,7 @@ function resetModeUiState(state) {
   state.searchOpen = false;
   state.tagPickerOpen = false;
   state.tagPickerPinned = false;
+  state.activeTagField = "selectedTags";
   state.tagQuery = "";
   state.tagHighlightIndex = -1;
 }
@@ -60,10 +61,13 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       ui.updateSearchResults();
     }
 
-    const tagPicker = elements.form.querySelector("[data-tag-picker]");
-    if (tagPicker && target instanceof Node && !tagPicker.contains(target) && state.tagPickerOpen) {
+    const activeTagPicker = state.activeTagField
+      ? elements.form.querySelector(`[data-tag-picker="${state.activeTagField}"]`)
+      : null;
+    if (activeTagPicker && target instanceof Node && !activeTagPicker.contains(target) && state.tagPickerOpen) {
       state.tagPickerOpen = false;
       state.tagPickerPinned = false;
+      state.tagQuery = "";
       state.tagHighlightIndex = -1;
       ui.renderAll();
     }
@@ -95,14 +99,15 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     if (tagSuggestion) {
       event.preventDefault();
       event.stopPropagation();
+      const field = tagSuggestion.getAttribute("data-tag-field");
       const value = tagSuggestion.getAttribute("data-tag-suggestion");
-      if (value) {
-        addArrayValue(getActiveDraft(state), "selectedTags", value, 8);
+      if (field && value) {
+        addArrayValue(getActiveDraft(state), field, value, field === "selectedTags" ? 8 : Number.POSITIVE_INFINITY);
         state.tagPickerPinned = false;
         state.tagPickerOpen = false;
-        ui.updateTagSuggestionState("", { highlightIndex: -1 });
+        ui.updateTagSuggestionState(field, "", { highlightIndex: -1 });
         ui.renderAll();
-        ui.focusTagInput();
+        ui.focusTagInput(field);
       }
       return;
     }
@@ -111,14 +116,15 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     if (createTag) {
       event.preventDefault();
       event.stopPropagation();
+      const field = createTag.getAttribute("data-tag-field");
       const value = normalizeCustomTag(createTag.getAttribute("data-create-tag"));
-      if (value) {
-        addArrayValue(getActiveDraft(state), "selectedTags", value, 8);
+      if (field && value) {
+        addArrayValue(getActiveDraft(state), field, value, field === "selectedTags" ? 8 : Number.POSITIVE_INFINITY);
         state.tagPickerPinned = false;
         state.tagPickerOpen = false;
-        ui.updateTagSuggestionState("", { highlightIndex: -1 });
+        ui.updateTagSuggestionState(field, "", { highlightIndex: -1 });
         ui.renderAll();
-        ui.focusTagInput();
+        ui.focusTagInput(field);
       }
       return;
     }
@@ -127,12 +133,19 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     if (tagPickerToggle) {
       event.preventDefault();
       event.stopPropagation();
-      state.tagPickerPinned = !state.tagPickerPinned;
-      state.tagPickerOpen = state.tagPickerPinned || Boolean(state.tagQuery.trim());
-      state.tagHighlightIndex = -1;
+      const field = tagPickerToggle.getAttribute("data-toggle-tag-picker");
+      if (!field) {
+        return;
+      }
+
+      const isSameField = state.activeTagField === field;
+      state.activeTagField = field;
+      state.tagPickerPinned = isSameField ? !state.tagPickerPinned : true;
+      ui.updateTagSuggestionState(field, "", { highlightIndex: -1 });
+      state.tagPickerOpen = state.tagPickerPinned;
       ui.renderAll();
       if (state.tagPickerOpen) {
-        ui.focusTagInput(state.tagQuery.length);
+        ui.focusTagInput(field, state.tagQuery.length);
       }
       return;
     }
@@ -196,6 +209,31 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       if (field && Number.isInteger(index)) {
         removeLinkRow(getActiveDraft(state), field, index);
         ui.renderAll();
+      }
+      return;
+    }
+
+    const clearSelectedShow = target.closest("[data-clear-existing-show]");
+    if (clearSelectedShow) {
+      event.preventDefault();
+      const draft = getActiveDraft(state);
+      draft.existingShowId = "";
+      draft.showSearch = "";
+      state.searchOpen = true;
+      ui.syncHiddenInputs();
+      ui.syncQueryState();
+      ui.renderAll();
+      ui.focusExistingShowSearch();
+      return;
+    }
+
+    const toggleShowSearch = target.closest("[data-toggle-show-search]");
+    if (toggleShowSearch) {
+      event.preventDefault();
+      state.searchOpen = !state.searchOpen;
+      ui.renderAll();
+      if (state.searchOpen) {
+        ui.focusExistingShowSearch(getActiveDraft(state).showSearch.length);
       }
       return;
     }

@@ -463,8 +463,16 @@
           <span class="creator-spotlight-profile-avatar" aria-hidden="true">
             <svg viewBox="0 0 120 120" role="presentation" focusable="false">
               <circle class="creator-avatar-disc" cx="60" cy="60" r="58" />
-              <circle class="creator-avatar-head" cx="60" cy="45" r="24" />
-              <path class="creator-avatar-shoulders" d="M20 112c5.8-20 20.9-30.5 40-30.5s34.2 10.5 40 30.5v3H20z" />
+              <defs>
+                <clipPath id="creatorAvatarDiscClip">
+                  <circle cx="60" cy="60" r="57" />
+                </clipPath>
+              </defs>
+              <g clip-path="url(#creatorAvatarDiscClip)">
+                <circle class="creator-avatar-head" cx="60" cy="45" r="24" />
+                <rect class="creator-avatar-shoulders" x="20" y="114" width="80" height="10" />
+                <path class="creator-avatar-shoulders" d="M20 112c5.8-20 20.9-30.5 40-30.5s34.2 10.5 40 30.5v3H20z" />
+              </g>
             </svg>
           </span>
           <div class="creator-spotlight-profile-copy">

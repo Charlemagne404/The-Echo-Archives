@@ -145,7 +145,7 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
     rateLimiter?.check("chat", req.ip || "");
 
     const queryContext = analyzeChatQuery({ message, history, catalog });
-    let initialIntent = classifyChatIntent({ message, page });
+    let initialIntent = classifyChatIntent({ message, page, history });
 
     if (queryContext.isTitleDetailQuestion && initialIntent.primary === "recommendation") {
       initialIntent = {
@@ -159,6 +159,7 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
       const helpResponse = buildSiteHelpResponse({
         message,
         helpTopic: initialIntent.helpTopic,
+        history,
         page,
         catalog,
         collections,
@@ -208,6 +209,7 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
       const helpResponse = buildSiteHelpResponse({
         message,
         helpTopic: intent.helpTopic,
+        history,
         page: pageForHelp,
         catalog,
         collections,

@@ -280,6 +280,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       window.scrollTo({ top: window.innerHeight * 2 });
     });
     await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed");
     await ensureFilterMenuOpen(page, { dropdownId: "stickyFilterDropdown", toggleSelector: "#stickyFilterToggle" });
     await page.waitForFunction(() => {
       const summary = document.querySelector('#stickyFilterDropdown [data-filter-bucket-status="archiveStatus"]');
@@ -325,10 +326,23 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
         document.getElementById("filterCount")?.hidden === true,
       showFixtures.length,
     );
+    await page.evaluate(() => {
+      window.scrollTo({ top: window.innerHeight * 2 });
+    });
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed");
 
-    await page.locator("#search").fill("midnight");
+    await page.locator("#stickySearchToggle").click();
     await page.waitForFunction(
-      () => (document.querySelector("#resultsSummary")?.textContent || "").includes('results for "midnight"'),
+      () =>
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded" &&
+        document.activeElement?.id === "stickySearch",
+    );
+    await page.locator("#stickySearch").fill("midnight");
+    await page.waitForFunction(
+      () =>
+        (document.querySelector("#resultsSummary")?.textContent || "").includes('results for "midnight"') &&
+        (document.querySelector("#search")?.value || "") === "midnight",
     );
     const liveSearchMotionState = await getArchiveGridMotionState(page);
     assert.equal(liveSearchMotionState.reason, "live-search");
@@ -345,10 +359,17 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     );
     const restoredCardId = defaultVisibleIds.find((id) => !liveSearchMotionState.visibleIds.includes(id));
     assert.ok(restoredCardId);
-    await page.locator("#search").fill("");
+    await page.mouse.click(20, 220);
     await page.waitForFunction(
       () =>
-        (document.querySelector("#search")?.value || "") === "" &&
+        document.activeElement?.id !== "stickySearch" &&
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded",
+    );
+    await page.locator("#stickySearch").fill("");
+    await page.waitForFunction(
+      () =>
+        (document.querySelector("#stickySearch")?.value || "") === "" &&
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded" &&
         Boolean(document.querySelector("#podcast-grid .podcast-card-shell.is-grid-entering")),
     );
     const restoredGridState = await getArchiveGridMotionState(page);
@@ -362,6 +383,20 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       restoredGridState.shells.some((shell) => shell.id === restoredCardId && shell.isExiting),
       false,
     );
+    await page.mouse.click(20, 220);
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed");
+    await page.locator("#stickySearchToggle").click();
+    await page.waitForFunction(
+      () =>
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded" &&
+        document.activeElement?.id === "stickySearch",
+    );
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(
+      () =>
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed" &&
+        document.activeElement?.id === "stickySearchToggle",
+    );
 
     await page.locator("#search").fill("zzzzzz-not-in-archive");
     await page.getByText("No matches yet.", { exact: false }).waitFor();
@@ -369,7 +404,8 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     await page.waitForFunction(
       () =>
         document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0 &&
-        (document.querySelector("#search")?.value || "") === "",
+        (document.querySelector("#search")?.value || "") === "" &&
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "collapsed",
     );
 
     const cardCount = await page.locator("#podcast-grid .podcast-card-shell").count();

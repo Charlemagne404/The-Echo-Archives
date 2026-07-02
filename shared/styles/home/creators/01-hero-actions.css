@@ -16,21 +16,6 @@
   max-width: 37rem;
 }
 
-.creators-hero-panel .hero-copy h1,
-.creator-standards-hero-panel .hero-copy h1 {
-  max-width: 11ch;
-  margin-bottom: 14px;
-  font-size: clamp(3rem, 4.2vw, 4.25rem);
-  letter-spacing: -0.065em;
-}
-
-.creators-hero-copy p,
-.creator-standards-hero-copy p {
-  max-width: 32ch;
-  font-size: clamp(1rem, 1.04vw, 1.12rem);
-  line-height: 1.44;
-}
-
 .creator-hero-actions {
   display: flex;
   flex-wrap: wrap;

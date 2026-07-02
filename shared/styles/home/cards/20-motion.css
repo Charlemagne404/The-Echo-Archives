@@ -49,7 +49,12 @@
   .home-page #chat-container > *,
   .home-page #chat-toggle.chat-toggle-button,
   .home-page #backToTop,
-  .sticky-browse-bar {
+  .sticky-browse-bar,
+  .sticky-browse-bar-inner,
+  .sticky-search-toggle,
+  .sticky-search-toggle-arrow,
+  .sticky-search-field,
+  .home-page #stickySearch {
     transition-duration: 1ms !important;
   }
 

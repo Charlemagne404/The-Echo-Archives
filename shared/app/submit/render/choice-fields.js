@@ -12,15 +12,22 @@ export function renderChipGroupField({
   menuOpen = false,
   query = "",
   highlightIndex = -1,
+  activeField = "",
+  allowCustom = true,
+  inputLabel = "",
+  placeholder = "",
+  selectionLimit = fieldName === "selectedTags" ? 8 : Number.POSITIVE_INFINITY,
 }) {
-  const tagLimit = fieldName === "selectedTags" ? 8 : Number.POSITIVE_INFINITY;
+  const tagLimit = selectionLimit;
   const tagLimitReached = values.length >= tagLimit;
-  const effectiveQuery = tagLimitReached ? "" : query;
+  const isActiveField = activeField === fieldName;
+  const effectiveQuery = tagLimitReached || !isActiveField ? "" : query;
   const selectedValues = new Set(values);
   const suggestions = getTagSuggestions(effectiveQuery, options, values);
   const normalizedQuery = normalizeCustomTag(effectiveQuery);
   const canCreateCustom = Boolean(
-    !tagLimitReached &&
+    allowCustom &&
+      !tagLimitReached &&
       normalizedQuery &&
       !selectedValues.has(normalizedQuery) &&
       !options.some((option) => option.trim().toLowerCase() === normalizedQuery.toLowerCase()),
@@ -31,7 +38,7 @@ export function renderChipGroupField({
     required,
     helper,
     controlHtml: `
-      <div class="submit-tag-picker" data-tag-picker>
+      <div class="submit-tag-picker" data-tag-picker="${fieldName}">
         <div class="submit-tag-picker-input">
           <div class="submit-tag-picker-values">
             ${values.length > 0 ? values.map((option) => `
@@ -47,35 +54,37 @@ export function renderChipGroupField({
               </button>
             `).join("") : ""}
             <input
-              id="submitTagInput"
+              id="submitTagInput-${fieldName}"
               class="submit-tag-input"
               type="text"
               value="${escapeAttribute(effectiveQuery)}"
               maxlength="48"
-              placeholder="${tagLimitReached ? "8 tags selected" : values.length > 0 ? "Add another tag" : "Select up to 8 tags."}"
+              placeholder="${escapeAttribute(placeholder || (tagLimitReached ? `${values.length} selected` : values.length > 0 ? "Add another option" : "Select from the archive list."))}"
               autocomplete="off"
-              aria-label="Type a genre or tag"
+              aria-label="${escapeAttribute(inputLabel || `Type a ${String(label).replace(/\s+\(optional\)$/i, "").toLowerCase()} option`)}"
+              data-tag-input="${fieldName}"
               ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
             />
           </div>
           <button
             type="button"
             class="submit-tag-picker-toggle"
-            data-toggle-tag-picker
-            aria-expanded="${String(menuOpen && !tagLimitReached)}"
-            aria-label="Choose genres or tags"
+            data-toggle-tag-picker="${fieldName}"
+            aria-expanded="${String(menuOpen && !tagLimitReached && isActiveField)}"
+            aria-label="Choose ${escapeAttribute(String(label).replace(/\s+\(optional\)$/i, "").toLowerCase())}"
             ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
           >
             ${iconMarkup("chevron-down")}
           </button>
         </div>
-        <div class="submit-tag-picker-menu" ${menuOpen && !tagLimitReached ? "" : "hidden"}>
-          <div class="submit-tag-picker-meta">Choose an existing tag or type your own and press Enter.</div>
+        <div class="submit-tag-picker-menu" ${menuOpen && !tagLimitReached && isActiveField ? "" : "hidden"}>
+          <div class="submit-tag-picker-meta">${allowCustom ? "Choose an existing tag or type your own and press Enter." : "Choose one or more options from the archive list."}</div>
           ${canCreateCustom ? `
             <button
               type="button"
               class="submit-tag-action"
               data-create-tag="${escapeAttribute(query)}"
+              data-tag-field="${fieldName}"
             >
               <span class="submit-tag-action-label">Create tag</span>
               <span class="submit-tag-action-value">${escapeHtml(normalizedQuery)}</span>
@@ -87,14 +96,15 @@ export function renderChipGroupField({
                 type="button"
                 class="submit-chip ${index === highlightIndex ? "is-highlighted" : ""}"
                 data-tag-suggestion="${escapeAttribute(option)}"
+                data-tag-field="${fieldName}"
                 aria-pressed="false"
               >
                 <span>${escapeHtml(option)}</span>
               </button>
-            `).join("") : '<p class="submit-tag-picker-empty">No existing tags match yet. Press Enter to add your own.</p>'}
+            `).join("") : `<p class="submit-tag-picker-empty">${allowCustom ? "No existing tags match yet. Press Enter to add your own." : "No matching options yet."}</p>`}
           </div>
         </div>
-        ${tagLimitReached ? `<p class="submit-tag-limit" role="status">Tag limit reached (${values.length}/${tagLimit}). Remove one to add another.</p>` : ""}
+        ${Number.isFinite(tagLimit) && tagLimitReached ? `<p class="submit-tag-limit" role="status">Tag limit reached (${values.length}/${tagLimit}). Remove one to add another.</p>` : ""}
       </div>
     `,
   });
@@ -135,16 +145,40 @@ export function renderExistingShowField({ label, value, helper, searchResults, s
     required,
     helper,
     controlHtml: `
-      <div class="submit-search-shell">
-        <input
-          id="submitExistingShowSearch"
-          type="text"
-          value="${escapeAttribute(value)}"
-          maxlength="160"
-          placeholder="Start typing a show title"
-          autocomplete="off"
-          ${required ? "required" : ""}
-        />
+      <div class="submit-search-shell ${selectedShowId ? "is-selected" : ""}">
+        <div class="submit-search-control">
+          <input
+            id="submitExistingShowSearch"
+            type="text"
+            value="${escapeAttribute(value)}"
+            maxlength="160"
+            placeholder="Start typing a show title"
+            autocomplete="off"
+            aria-expanded="${String(searchOpen)}"
+            ${required ? "required" : ""}
+          />
+          <div class="submit-search-actions">
+            ${value ? `
+              <button
+                type="button"
+                class="submit-search-action"
+                data-clear-existing-show
+                aria-label="Clear selected show"
+              >
+                ${iconMarkup("close")}
+              </button>
+            ` : ""}
+            <button
+              type="button"
+              class="submit-search-action ${searchOpen ? "is-open" : ""}"
+              data-toggle-show-search
+              aria-label="${searchOpen ? "Collapse show suggestions" : "Expand show suggestions"}"
+              aria-expanded="${String(searchOpen)}"
+            >
+              ${iconMarkup("chevron-down")}
+            </button>
+          </div>
+        </div>
         <div id="submitExistingShowSearchResults" class="submit-search-results" ${searchOpen ? "" : "hidden"}>
           ${searchOpen ? renderSearchResultsMarkup(searchResults, selectedShowId, value) : ""}
         </div>

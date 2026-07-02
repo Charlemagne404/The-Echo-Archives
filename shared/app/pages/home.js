@@ -110,6 +110,7 @@ export async function initializeHomePage() {
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
   let stickyBrowseObserver = null;
+  let stickySearchManuallyExpanded = false;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
@@ -154,6 +155,59 @@ export async function initializeHomePage() {
     });
   };
 
+  const isStickySearchFocused = () => document.activeElement === elements.stickySearchInput;
+  const syncStickySearchAccessibility = (isExpanded) => {
+    elements.stickySearchToggle.setAttribute("aria-expanded", String(isExpanded));
+    elements.stickySearchToggle.setAttribute(
+      "aria-label",
+      isExpanded && !state.query ? "Collapse archive search" : "Expand archive search",
+    );
+    elements.stickySearchField.setAttribute("aria-hidden", String(!isExpanded));
+    if (isExpanded) {
+      elements.stickySearchInput.removeAttribute("tabindex");
+      return;
+    }
+
+    elements.stickySearchInput.setAttribute("tabindex", "-1");
+  };
+  const syncStickySearchMode = ({ focusInput = false, preserveManual = false, returnFocus = false } = {}) => {
+    if (!preserveManual && !state.query && !isStickySearchFocused()) {
+      stickySearchManuallyExpanded = false;
+    }
+
+    const shouldExpand = Boolean(state.query || stickySearchManuallyExpanded);
+    elements.stickyBrowseBar.dataset.mode = shouldExpand ? "expanded" : "collapsed";
+    syncStickySearchAccessibility(shouldExpand);
+
+    if (!shouldExpand && stickyFilterDropdownController.isOpen()) {
+      stickyFilterDropdownController.close();
+    }
+
+    if (focusInput && shouldExpand) {
+      window.requestAnimationFrame(() => {
+        elements.stickySearchInput.focus({ preventScroll: true });
+      });
+    }
+
+    if (returnFocus && !shouldExpand) {
+      window.requestAnimationFrame(() => {
+        elements.stickySearchToggle.focus({ preventScroll: true });
+      });
+    }
+  };
+  const expandStickySearch = ({ focusInput = true } = {}) => {
+    stickySearchManuallyExpanded = true;
+    syncStickySearchMode({ focusInput, preserveManual: true });
+  };
+  const collapseStickySearch = ({ returnFocus = false } = {}) => {
+    if (state.query) {
+      return;
+    }
+
+    stickySearchManuallyExpanded = false;
+    syncStickySearchMode({ returnFocus });
+  };
+
   const setStickyBrowseVisibility = (isVisible) => {
     const nextVisibility = isVisible ? "visible" : "hidden";
     if (elements.stickyBrowseBar.dataset.visibility === nextVisibility) {
@@ -165,6 +219,10 @@ export async function initializeHomePage() {
     if (!isVisible && stickyFilterDropdownController.isOpen()) {
       stickyFilterDropdownController.close();
     }
+    if (!isVisible && !state.query) {
+      stickySearchManuallyExpanded = false;
+    }
+    syncStickySearchMode();
   };
 
   const clearAllFilters = () => {
@@ -351,6 +409,7 @@ export async function initializeHomePage() {
       selectedCollectionId: state.selectedCollectionId,
       sortMode: state.sortMode,
     });
+    syncStickySearchMode();
     hasRenderedHomeResults = true;
   }
 
@@ -412,6 +471,7 @@ export async function initializeHomePage() {
     currentControls: collectionCarouselControls,
   });
   syncSearchInputs(state.query);
+  syncStickySearchMode();
   renderHomeResults("initial");
 
   const handleSearchInput = (event) => {
@@ -420,6 +480,9 @@ export async function initializeHomePage() {
       return;
     }
 
+    if (input === elements.stickySearchInput) {
+      stickySearchManuallyExpanded = true;
+    }
     syncSearchInputs(input.value, input);
     state.query = input.value.trim();
     if (searchRenderTimer) {
@@ -433,6 +496,31 @@ export async function initializeHomePage() {
 
   searchInputs.forEach((input) => {
     input.addEventListener("input", handleSearchInput);
+  });
+
+  elements.stickySearchToggle.addEventListener("click", () => {
+    if (state.query) {
+      expandStickySearch();
+      return;
+    }
+
+    if (elements.stickyBrowseBar.dataset.mode === "expanded") {
+      collapseStickySearch({ returnFocus: true });
+      return;
+    }
+
+    expandStickySearch();
+  });
+  elements.stickySearchInput.addEventListener("focus", () => {
+    stickySearchManuallyExpanded = true;
+    syncStickySearchMode();
+  });
+  elements.stickySearchInput.addEventListener("blur", () => {
+    window.requestAnimationFrame(() => {
+      if (!state.query && !isStickySearchFocused()) {
+        collapseStickySearch();
+      }
+    });
   });
 
   filterControlSurfaces.forEach((surface) => {
@@ -472,6 +560,17 @@ export async function initializeHomePage() {
     if (event.key === "Escape" && openSurface) {
       event.preventDefault();
       openSurface.controller.close({ returnFocus: true });
+      return;
+    }
+
+    if (
+      event.key === "Escape" &&
+      !state.query &&
+      isStickySearchFocused() &&
+      elements.stickyBrowseBar.dataset.mode === "expanded"
+    ) {
+      event.preventDefault();
+      collapseStickySearch({ returnFocus: true });
     }
   });
 

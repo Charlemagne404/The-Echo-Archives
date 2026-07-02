@@ -1,7 +1,12 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { getPublishedShows, loadShows } from "../data.js";
 import { updateDocumentMetadata } from "../utils.js";
-import { MODE_CONFIG, MODES_WITH_EXISTING_SHOW } from "../submit/config.js";
+import {
+  MODE_CONFIG,
+  MODES_WITH_EXISTING_SHOW,
+  REVIEW_CONTEXT_OPTIONS,
+  REVIEW_STRENGTH_OPTIONS,
+} from "../submit/config.js";
 import {
   addArrayValue,
   createDraft,
@@ -41,11 +46,16 @@ export async function initializeSubmitPage() {
     searchOpen: false,
     tagPickerOpen: false,
     tagPickerPinned: false,
+    activeTagField: "selectedTags",
     tagQuery: "",
     tagHighlightIndex: -1,
     shows,
     showMap: new Map(shows.map((show) => [show.id, show])),
-    tagOptions: buildTagOptions(shows),
+    tagFieldOptions: {
+      selectedTags: buildTagOptions(shows),
+      bestFor: REVIEW_CONTEXT_OPTIONS,
+      workedBest: REVIEW_STRENGTH_OPTIONS,
+    },
     drafts: createDrafts(),
   };
   const ui = createSubmitUiController({ state, elements });
@@ -66,8 +76,16 @@ export async function initializeSubmitPage() {
       return;
     }
 
-    if (target.id === "submitTagInput") {
-      ui.updateTagSuggestionState(target.value, { highlightIndex: -1 });
+    const tagField = target.dataset.tagInput;
+    if (tagField) {
+      const nextOpenState = state.tagPickerPinned || Boolean(target.value.trim());
+      const shouldRender = state.activeTagField !== tagField || state.tagPickerOpen !== nextOpenState;
+      state.tagPickerOpen = nextOpenState;
+      ui.updateTagSuggestionState(tagField, target.value, { highlightIndex: -1 });
+      if (shouldRender) {
+        ui.renderAll();
+        ui.focusTagInput(tagField, target.value.length);
+      }
     }
   });
 
@@ -94,11 +112,12 @@ export async function initializeSubmitPage() {
       return;
     }
 
-    if (target.id === "submitTagInput") {
+    const tagField = target.dataset.tagInput;
+    if (tagField) {
       state.tagPickerOpen = state.tagPickerPinned || Boolean(target.value.trim());
-      ui.updateTagSuggestionState(target.value, { highlightIndex: -1 });
+      ui.updateTagSuggestionState(tagField, target.value, { highlightIndex: -1 });
       ui.renderAll();
-      ui.focusTagInput(state.tagQuery.length);
+      ui.focusTagInput(tagField, state.tagQuery.length);
     }
   });
 
@@ -114,12 +133,19 @@ export async function initializeSubmitPage() {
 
   elements.form.addEventListener("keydown", (event) => {
     const target = event.target;
-    if (!(target instanceof HTMLInputElement) || target.id !== "submitTagInput") {
+    if (!(target instanceof HTMLInputElement)) {
+      return;
+    }
+
+    const tagField = target.dataset.tagInput;
+    if (!tagField) {
       return;
     }
 
     const draft = getActiveDraft(state);
-    const suggestions = getTagSuggestions(state.tagQuery, state.tagOptions, draft.selectedTags);
+    const options = state.tagFieldOptions[tagField] || [];
+    const currentValues = Array.isArray(draft[tagField]) ? draft[tagField] : [];
+    const suggestions = getTagSuggestions(state.tagQuery, options, currentValues);
 
     if (event.key === "ArrowDown") {
       event.preventDefault();
@@ -131,7 +157,7 @@ export async function initializeSubmitPage() {
           ? 0
           : Math.min(state.tagHighlightIndex + 1, suggestions.length - 1);
       ui.renderAll();
-      ui.focusTagInput(state.tagQuery.length);
+      ui.focusTagInput(tagField, state.tagQuery.length);
       return;
     }
 
@@ -145,24 +171,24 @@ export async function initializeSubmitPage() {
           ? suggestions.length - 1
           : state.tagHighlightIndex - 1;
       ui.renderAll();
-      ui.focusTagInput(state.tagQuery.length);
+      ui.focusTagInput(tagField, state.tagQuery.length);
       return;
     }
 
     if (event.key === "Enter") {
       event.preventDefault();
       const highlightedSuggestion = state.tagHighlightIndex >= 0 ? suggestions[state.tagHighlightIndex] : "";
-      const nextTag = resolveTagSubmission(state.tagQuery, highlightedSuggestion, state.tagOptions);
+      const nextTag = resolveTagSubmission(state.tagQuery, highlightedSuggestion, options);
       if (!nextTag) {
         return;
       }
 
-      addArrayValue(draft, "selectedTags", nextTag, 8);
+      addArrayValue(draft, tagField, nextTag, tagField === "selectedTags" ? 8 : Number.POSITIVE_INFINITY);
       state.tagPickerPinned = false;
       state.tagPickerOpen = false;
-      ui.updateTagSuggestionState("", { highlightIndex: -1 });
+      ui.updateTagSuggestionState(tagField, "", { highlightIndex: -1 });
       ui.renderAll();
-      ui.focusTagInput();
+      ui.focusTagInput(tagField);
       return;
     }
 
@@ -170,18 +196,19 @@ export async function initializeSubmitPage() {
       event.preventDefault();
       state.tagPickerOpen = false;
       state.tagPickerPinned = false;
+      state.tagQuery = "";
       state.tagHighlightIndex = -1;
       ui.renderAll();
       return;
     }
 
     if (event.key === "Backspace" && !state.tagQuery) {
-      const nextTags = Array.isArray(draft.selectedTags) ? [...draft.selectedTags] : [];
+      const nextTags = Array.isArray(draft[tagField]) ? [...draft[tagField]] : [];
       nextTags.pop();
-      draft.selectedTags = nextTags;
+      draft[tagField] = nextTags;
       state.tagPickerOpen = state.tagPickerPinned || Boolean(state.tagQuery.trim());
       ui.renderAll();
-      ui.focusTagInput();
+      ui.focusTagInput(tagField);
     }
   });
 

@@ -1,25 +1,4 @@
 
-.about-hero-copy {
-  max-width: 40rem;
-}
-
-.about-hero-copy p,
-.about-hero-lede {
-  max-width: 35.5ch;
-}
-
-.about-hero-panel .hero-copy h1 {
-  max-width: 9.5ch;
-  margin-bottom: 12px;
-  font-size: clamp(3.05rem, 4vw, 4.1rem);
-  letter-spacing: -0.065em;
-}
-
-.about-hero-lede {
-  font-size: clamp(1.01rem, 1.06vw, 1.14rem);
-  line-height: 1.4;
-}
-
 .about-hero-signal {
   display: inline-flex;
   align-items: center;

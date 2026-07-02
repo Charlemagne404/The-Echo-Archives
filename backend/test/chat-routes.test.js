@@ -101,7 +101,7 @@ test("chat route keeps recommendation cards for discovery prompts", async () => 
     assert.equal(result.status, 200);
     assert.equal(result.body.actions.length, 0);
     assert.ok(result.body.recommendations.length > 0);
-    assert.match(result.body.answer, /strongest fit|nearby alternative|archive/i);
+    assert.match(result.body.answer, /strongest fit|cleanest archive match|best next stop|archive/i);
   } finally {
     await closeChatTestServer(context.server);
   }
@@ -174,6 +174,76 @@ test("chat route answers regular creator questions with grounded show metadata",
     assert.equal(result.body.recommendations.length, 0);
     assert.match(result.body.answer, new RegExp(creatorShow.title, "i"));
     assert.match(result.body.answer, new RegExp(creatorShow.creators[0], "i"));
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route handles regular search-trouble questions with site help", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "I can't find a show even when I search by title",
+      history: [],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.equal(result.body.recommendations.length, 0);
+    assert.match(result.body.answer, /title fragments|aliases|creators|genres|tones|tags/i);
+    assert.equal(result.body.actions[0].href, "/index.html#archive");
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route explains rating persistence issues on show pages", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "Why didn't my rating stick?",
+      history: [],
+      page: {
+        path: "/show.html?id=impact-winter",
+        pageType: "show",
+        showId: "impact-winter",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.equal(result.body.recommendations.length, 0);
+    assert.match(result.body.answer, /local storage|cookie|verification|backend/i);
+    assert.equal(result.body.actions[0].href, "/show.html?id=impact-winter");
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});
+
+test("chat route keeps support context for short broken-link follow-ups", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const result = await postJson(context.baseUrl, {
+      message: "I already did that",
+      history: [{ role: "user", content: "How do I report a broken link for Midnight Burger?" }],
+      page: {
+        path: "/",
+        pageType: "home",
+      },
+    });
+
+    assert.equal(result.status, 200);
+    assert.equal(result.body.source, "site-help");
+    assert.equal(result.body.recommendations.length, 0);
+    assert.match(result.body.answer, /contact route as a follow-up|still live/i);
+    assert.match(result.body.answer, /Midnight Burger/i);
   } finally {
     await closeChatTestServer(context.server);
   }

@@ -83,6 +83,57 @@ test("site help recognizes the creators page context", async () => {
   assert.equal(response.actions[1].href, "/for-creators.html");
 });
 
+test("site help explains search behavior for regular discovery problems", async () => {
+  const context = await createContext();
+  const response = buildSiteHelpResponse({
+    message: "I can't find a show even when I search by title",
+    helpTopic: "search-help",
+    page: { pageType: "home", path: "/" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+  });
+
+  assert.match(response.answer, /title fragments|aliases|creators|genres|tones|tags/i);
+  assert.equal(response.actions[0].href, "/index.html#archive");
+  assert.equal(response.actions[1].href, "/submit.html");
+});
+
+test("site help explains why a rating might not stick", async () => {
+  const context = await createContext();
+  const response = buildSiteHelpResponse({
+    message: "Why didn't my rating stick?",
+    helpTopic: "rating-help",
+    page: { pageType: "show", path: "/show.html", showId: "impact-winter" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+  });
+
+  assert.match(response.answer, /local storage|cookie|verification|backend/i);
+  assert.equal(response.actions[0].href, "/show.html?id=impact-winter");
+});
+
+test("site help escalates repeated broken-link follow-up questions", async () => {
+  const context = await createContext();
+  const show = context.catalog.find((entry) => entry.id === "midnight-burger");
+  assert.ok(show, "Expected Midnight Burger fixture.");
+
+  const response = buildSiteHelpResponse({
+    message: "I already did that",
+    history: [{ role: "user", content: "How do I report a broken link for Midnight Burger?" }],
+    helpTopic: "broken-link",
+    page: { pageType: "home", path: "/" },
+    catalog: context.catalog,
+    collections: context.collections,
+    siteHelpContext: context.siteHelpContext,
+  });
+
+  assert.match(response.answer, /contact route as a follow-up|still live/i);
+  assert.match(response.answer, /Midnight Burger/i);
+  assert.equal(response.actions[0].href, show.href);
+});
+
 test("site help can answer direct-title status questions with a referenced show", async () => {
   const context = await createContext();
   const finishedShow = context.catalog.find((show) => show.completionStatus === "finished");

@@ -1,4 +1,6 @@
 const GREETING_PATTERN = /^(hi|hello|hey|yo|sup|howdy)$/i;
+const FOLLOW_UP_PATTERN =
+  /\b(still|already|again|same|that|this|it|they|them|didn't|did not|won't|cannot|can't|not working|not loading|not helping)\b/i;
 
 const RECOMMENDATION_PATTERNS = [
   /\brecommend\b/i,
@@ -37,6 +39,56 @@ const HELP_TOPIC_PATTERNS = [
     patterns: [
       /\b(?:spotify|apple podcasts?|pocket casts?|overcast|youtube music|podbean)\b.*\b(?:not working|not playing|won't play|cannot play|can't play|broken|issue|problem|error)\b/i,
       /\b(?:episode|feed|player|app)\b.*\b(?:not working|not playing|won't play|cannot play|can't play|broken|issue|problem|error)\b/i,
+    ],
+  },
+  {
+    topic: "broken-link",
+    patterns: [
+      /\bbroken link\b/i,
+      /\bwrong link\b/i,
+      /\bdead link\b/i,
+      /\boutdated link\b/i,
+      /\blinks?\b.*\b(?:broken|wrong|dead|outdated|missing|404)\b/i,
+    ],
+  },
+  {
+    topic: "rating-help",
+    patterns: [
+      /\bwhy did(?:n't| not)\s+my rating(?:\s+not)?\s+stick\b/i,
+      /\bwhy did my rating disappear\b/i,
+      /\b(?:rating|ratings|community score|community rating|community average)\b.*\b(?:not stick|didn't stick|did not stick|not save|won't save|cannot save|can't save|failed|error|hidden|missing|not showing|won't show|cannot show|can't show)\b/i,
+      /\b(?:can't|cannot|won't|didn't|did not)\b.*\b(?:rate|save my rating|submit my rating)\b/i,
+      /\bwhy (?:is|isn't|is not)\b.*\b(?:community score|community rating|community average)\b/i,
+    ],
+  },
+  {
+    topic: "search-help",
+    patterns: [
+      /\bhow should i search\b/i,
+      /\bsearch by\b/i,
+      /\bdo(?:n'?t| not) know (?:the )?exact title\b/i,
+      /\bno results\b/i,
+      /\btoo many results\b/i,
+      /\b(?:search|find|filter|filters|browse)\b.*\b(?:not working|broken|stuck|issue|problem|wrong|bad|help)\b/i,
+      /\bcan(?:not|'?t)\s+find\b/i,
+    ],
+  },
+  {
+    topic: "submission-status",
+    patterns: [
+      /\bwhere(?:'s| is)\s+my\s+(?:submission|correction|review|verification)\b/i,
+      /\bstatus of my\b.*\b(?:submission|correction|review|verification)\b/i,
+      /\bwhy (?:isn't|is not)\s+(?:my show|it)\s+(?:listed|live|published)\b/i,
+      /\bhow long does (?:a )?(?:submission|correction|review|verification)(?: request)?\b/i,
+      /\bwhen will (?:my show|it)\s+(?:appear|go live|be listed)\b/i,
+    ],
+  },
+  {
+    topic: "page-navigation",
+    patterns: [
+      /\b(?:page|site|screen)\b.*\b(?:blank|missing|404|not loading|won't load|cannot load|can't load|broken)\b/i,
+      /\bcan(?:not|'?t)\s+find\b.*\b(?:page|show page|collection page|submit page|help center)\b/i,
+      /\bwhere (?:is|do i find)\b.*\b(?:submit|help center|collections|browse archive|show page)\b/i,
     ],
   },
   {
@@ -144,8 +196,6 @@ const HELP_TOPIC_PATTERNS = [
       /\bsubmit .*correction\b/i,
       /\bhow do i correct\b/i,
       /\bcorrection\b/i,
-      /\bwrong link\b/i,
-      /\bbroken link\b/i,
       /\bmetadata error\b/i,
       /\bfix .*metadata\b/i,
     ],
@@ -210,10 +260,9 @@ const HELP_TOPIC_PATTERNS = [
     topic: "collections",
     patterns: [
       /\bcollections?\b/i,
-      /\bbrowse\b/i,
-      /\bfilters?\b/i,
-      /\bsearch\b/i,
-      /\bhow do i find\b/i,
+      /\bcurated routes?\b/i,
+      /\blistening paths?\b/i,
+      /\bbrowse archive\b/i,
     ],
   },
   {
@@ -298,6 +347,14 @@ const HELP_TOPIC_PATTERNS = [
     ],
   },
   {
+    topic: "chat-help",
+    patterns: [
+      /\bchat\b.*\b(?:history|reset|cleared|forgot|lost|offline|not loading|broken|repeating|same answer|not working)\b/i,
+      /\bwhy do you keep (?:repeating|saying the same thing)\b/i,
+      /\bwhy (?:did|does) the chat\b/i,
+    ],
+  },
+  {
     topic: "assistant-capabilities",
     patterns: [
       /\bwhat can you do\b/i,
@@ -371,7 +428,39 @@ function isClarificationRequest(message = "") {
   return trimmed.length < 3 || GREETING_PATTERN.test(trimmed);
 }
 
-function classifyChatIntent({ message = "", page = {} }) {
+function normalizeMessageText(value = "") {
+  return String(value).trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+function getPreviousUserMessage(history = [], currentMessage = "") {
+  const normalizedCurrent = normalizeMessageText(currentMessage);
+  const userMessages = (Array.isArray(history) ? history : [])
+    .filter((entry) => entry && entry.role === "user" && typeof entry.content === "string")
+    .map((entry) => entry.content.trim())
+    .filter(Boolean);
+
+  if (userMessages.length > 0 && normalizeMessageText(userMessages.at(-1)) === normalizedCurrent) {
+    userMessages.pop();
+  }
+
+  return userMessages.at(-1) || "";
+}
+
+function looksLikeFollowUp(message = "") {
+  const trimmed = message.trim();
+  return trimmed.length > 0 && trimmed.length <= 140 && FOLLOW_UP_PATTERN.test(trimmed);
+}
+
+function buildIntentDetectionMessage(message = "", history = []) {
+  if (!looksLikeFollowUp(message)) {
+    return message;
+  }
+
+  const previousUserMessage = getPreviousUserMessage(history, message);
+  return previousUserMessage ? `${previousUserMessage} ${message}` : message;
+}
+
+function classifyChatIntent({ message = "", page = {}, history = [] }) {
   if (isClarificationRequest(message)) {
     return {
       primary: "clarification",
@@ -380,10 +469,12 @@ function classifyChatIntent({ message = "", page = {} }) {
     };
   }
 
-  const helpTopic = detectHelpTopic(message);
+  const detectionMessage = buildIntentDetectionMessage(message, history);
+  const helpTopic = detectHelpTopic(detectionMessage);
   const includeRecommendations = hasRecommendationSignal(message) || helpTopic === "show-similar";
   const showDetailSignal =
-    page.pageType === "show" && (SHOW_DETAIL_TOPICS.has(helpTopic) || (!helpTopic && SHOW_DETAIL_PATTERN.test(message)));
+    page.pageType === "show" &&
+    (SHOW_DETAIL_TOPICS.has(helpTopic) || (!helpTopic && SHOW_DETAIL_PATTERN.test(detectionMessage)));
 
   if (showDetailSignal && includeRecommendations) {
     return {

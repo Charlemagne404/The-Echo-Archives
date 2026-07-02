@@ -14,6 +14,28 @@ test("classifyChatIntent routes correction questions to site help", () => {
   assert.equal(intent.includeRecommendations, false);
 });
 
+test("classifyChatIntent recognizes search-trouble questions as site help", () => {
+  const intent = classifyChatIntent({
+    message: "I can't find a show even when I search by title",
+    page: { pageType: "home" },
+  });
+
+  assert.equal(intent.primary, "site-help");
+  assert.equal(intent.helpTopic, "search-help");
+  assert.equal(intent.includeRecommendations, false);
+});
+
+test("classifyChatIntent recognizes rating persistence problems", () => {
+  const intent = classifyChatIntent({
+    message: "Why didn't my rating stick?",
+    page: { pageType: "show", showId: "impact-winter" },
+  });
+
+  assert.equal(intent.primary, "site-help");
+  assert.equal(intent.helpTopic, "rating-help");
+  assert.equal(intent.includeRecommendations, false);
+});
+
 test("classifyChatIntent recognizes mixed help and recommendation prompts", () => {
   const intent = classifyChatIntent({
     message: "What does creator verified mean and recommend something like Midnight Burger",
@@ -107,6 +129,17 @@ test("classifyChatIntent recognizes archive overview questions", () => {
 
   assert.equal(intent.primary, "site-help");
   assert.equal(intent.helpTopic, "archive-stats");
+});
+
+test("classifyChatIntent preserves support topic context for short follow-ups", () => {
+  const intent = classifyChatIntent({
+    message: "I already did that",
+    history: [{ role: "user", content: "How do I report a broken link for Midnight Burger?" }],
+    page: { pageType: "home" },
+  });
+
+  assert.equal(intent.primary, "site-help");
+  assert.equal(intent.helpTopic, "broken-link");
 });
 
 test("classifyChatIntent keeps external playback problems inside site-help boundaries", () => {

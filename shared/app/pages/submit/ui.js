@@ -10,6 +10,7 @@ export function createSubmitUiController({ state, elements }) {
     setStatus,
     updateTagSuggestionState,
     focusTagInput,
+    focusExistingShowSearch,
     updateCounterFor,
     updateSearchResults,
     syncHiddenInputs,
@@ -56,7 +57,8 @@ export function createSubmitUiController({ state, elements }) {
     `).join("");
 
     elements.dynamicFields.innerHTML = renderModeFields(mode, draft, {
-      tagOptions: state.tagOptions,
+      tagFieldOptions: state.tagFieldOptions,
+      activeTagField: state.activeTagField,
       tagPickerOpen: state.tagPickerOpen,
       tagQuery: state.tagQuery,
       tagHighlightIndex: state.tagHighlightIndex,
@@ -110,16 +112,30 @@ export function createSubmitUiController({ state, elements }) {
     delete elements.submitStatus.dataset.state;
   }
 
-  function updateTagSuggestionState(query, { highlightIndex = state.tagHighlightIndex } = {}) {
+  function updateTagSuggestionState(fieldName, query, { highlightIndex = state.tagHighlightIndex } = {}) {
+    state.activeTagField = fieldName;
     state.tagQuery = query;
-    const suggestions = getTagSuggestions(query, state.tagOptions, getActiveDraft(state).selectedTags);
+    const selectedValues = Array.isArray(getActiveDraft(state)[fieldName]) ? getActiveDraft(state)[fieldName] : [];
+    const options = state.tagFieldOptions[fieldName] || [];
+    const suggestions = getTagSuggestions(query, options, selectedValues);
     state.tagHighlightIndex = suggestions.length === 0
       ? -1
       : Math.max(-1, Math.min(highlightIndex, suggestions.length - 1));
   }
 
-  function focusTagInput(selectionStart = 0) {
-    const input = document.getElementById("submitTagInput");
+  function focusTagInput(fieldName, selectionStart = 0) {
+    const input = document.querySelector(`[data-tag-input="${fieldName}"]`);
+    if (!(input instanceof HTMLInputElement)) {
+      return;
+    }
+
+    input.focus();
+    const nextPosition = Math.max(0, Math.min(selectionStart, input.value.length));
+    input.setSelectionRange(nextPosition, nextPosition);
+  }
+
+  function focusExistingShowSearch(selectionStart = 0) {
+    const input = document.getElementById("submitExistingShowSearch");
     if (!(input instanceof HTMLInputElement)) {
       return;
     }

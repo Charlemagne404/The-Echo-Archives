@@ -16,11 +16,6 @@
   .collections-hero-panel,
   .collection-detail-hero-panel {
     padding: 30px 22px;
-    background:
-      linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(4, 6, 9, 0.84) 52%, rgba(5, 8, 11, 0.36) 100%),
-      linear-gradient(180deg, rgba(3, 5, 8, 0.1) 30%, rgba(3, 5, 8, 0.82) 100%),
-      url("/images/hero-archive-dish.png") 64% center / cover no-repeat,
-      #05070a;
   }
 
   .collections-hero-panel {
@@ -32,8 +27,7 @@
   }
 
   .collections-hero-copy h1 {
-    max-width: 11ch;
-    font-size: clamp(2.5rem, 10vw, 4.3rem);
+    max-width: 12ch;
   }
 
   .collection-detail-hero-copy h1 {

@@ -3,6 +3,8 @@ export function getHomeElements() {
     heroShell: document.getElementById("browse"),
     searchInput: document.getElementById("search"),
     stickyBrowseBar: document.getElementById("stickyBrowseBar"),
+    stickySearchToggle: document.getElementById("stickySearchToggle"),
+    stickySearchField: document.getElementById("stickySearchField"),
     stickySearchInput: document.getElementById("stickySearch"),
     filterToggle: document.getElementById("filterToggle"),
     filterDropdown: document.getElementById("filterDropdown"),
@@ -44,6 +46,8 @@ export function getHomeElements() {
   if (
     !elements.heroShell ||
     !(elements.searchInput instanceof HTMLInputElement) ||
+    !(elements.stickySearchToggle instanceof HTMLButtonElement) ||
+    !elements.stickySearchField ||
     !(elements.stickySearchInput instanceof HTMLInputElement) ||
     !elements.stickyBrowseBar ||
     !elements.archiveGrid ||

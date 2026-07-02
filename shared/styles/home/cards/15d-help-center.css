@@ -52,18 +52,13 @@
 }
 
 .help-center-page .help-center-hero-copy h1 {
-  max-width: none;
   margin-bottom: 12px;
-  font-size: clamp(3rem, 4.3vw, 4.2rem);
-  letter-spacing: -0.068em;
   text-wrap: balance;
 }
 
 .help-center-page .help-center-hero-copy p {
   max-width: 33ch;
   color: rgba(247, 247, 243, 0.76);
-  font-size: clamp(1.02rem, 1.08vw, 1.18rem);
-  line-height: 1.42;
 }
 
 .help-center-hero-actions {

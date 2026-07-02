@@ -1,6 +1,18 @@
 const GREETING_PATTERN = /^(hi|hello|hey|yo|sup|howdy)$/i;
 const HELP_PATTERN = /(what can you do|help|how does this work)/i;
 
+function hashText(value = "") {
+  return Array.from(String(value || "")).reduce((hash, character) => ((hash * 31 + character.charCodeAt(0)) >>> 0), 11);
+}
+
+function pickVariant(seed, variants) {
+  if (!Array.isArray(variants) || variants.length === 0) {
+    return "";
+  }
+
+  return variants[hashText(seed) % variants.length];
+}
+
 function isClarificationRequest(message = "") {
   const trimmed = message.trim();
   return trimmed.length < 3 || GREETING_PATTERN.test(trimmed);
@@ -114,6 +126,7 @@ function buildMessages({ message, history, matches }) {
     "You may mention creator, completion status, format, runtime, transcript availability, or archive take only when present in the candidate data.",
     "Keep the answer concise: 2 to 4 short sentences.",
     "If the user is vague, ask for a genre, mood, or theme instead of guessing.",
+    "Avoid reusing the same opening sentence across turns when a different phrasing would fit.",
     "Use a natural voice, not bullet points.",
   ].join(" ");
 
@@ -142,19 +155,35 @@ function buildFallbackAnswer(message, matches, options = {}) {
     typeof options.repeatedRecommendationTitle === "string" ? options.repeatedRecommendationTitle.trim() : "";
 
   if (HELP_PATTERN.test(message)) {
-    return "Ask about the archive, ratings, submissions, or what to listen to next, and I'll keep the answer grounded in Echo Archives.";
+    return pickVariant(message, [
+      "Ask about the archive, ratings, submissions, or what to listen to next, and I'll keep the answer grounded in Echo Archives.",
+      "I can help with recommendations, archive rules, ratings, and common site questions as long as the answer stays grounded in Echo Archives data.",
+      "Use me for archive recommendations, show facts, ratings context, or regular site-help questions, and I'll stay anchored to the archive.",
+    ]);
   }
 
   if (isClarificationRequest(message)) {
-    return "Tell me if you want something finished or ongoing, or give me a mood, theme, or title already in the archive.";
+    return pickVariant(message, [
+      "Tell me if you want something finished or ongoing, or give me a mood, theme, or title already in the archive.",
+      "Give me a mood, a genre lane, or a title already in the archive, and I can narrow it properly.",
+      "Point me at a completion status, theme, or seed title from the archive so I can aim the recommendation.",
+    ]);
   }
 
   if (matches.length === 0) {
     if (constraintIntro) {
-      return `${constraintIntro}, I couldn't find a clean archive match. Try adding a mood, genre, completion status, or a title you already like.`;
+      return `${constraintIntro}, ${pickVariant(message, [
+        "I couldn't find a clean archive match. Try adding a mood, genre, completion status, or a title you already like.",
+        "nothing lines up cleanly yet. Add a mood, genre, completion status, or a title you already like.",
+        "I still need a clearer lane. Try a mood, genre, completion status, or a title you already like.",
+      ])}`;
     }
 
-    return "I need a little more to go on. Try a completion status, a listening mood, or a podcast title already in the archive.";
+    return pickVariant(message, [
+      "I need a little more to go on. Try a completion status, a listening mood, or a podcast title already in the archive.",
+      "I need a clearer lane. Try a mood, a completion status, or a title already in the archive.",
+      "Give me one anchor point like mood, genre, completion status, or an archive title you already like.",
+    ]);
   }
 
   const [first, second] = matches;
@@ -176,7 +205,13 @@ function buildFallbackAnswer(message, matches, options = {}) {
     buildOpeningSentence(first.title, { constraintIntro, repeatedRecommendationTitle }),
     `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
     wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
-    wantsAlternates ? `If you want a nearby alternative, ${second.title} is the next clean fit.` : "",
+    wantsAlternates
+      ? pickVariant(`${message}|${first.title}|${second.title}`, [
+          `If you want a nearby alternative, ${second.title} is the next clean fit.`,
+          `${second.title} is the closest alternate if you want one step sideways.`,
+          `If you want a second lane, ${second.title} is the next archive match.`,
+        ])
+      : "",
   ]);
 }
 
@@ -273,17 +308,31 @@ function buildTakeSnippet(match) {
 
 function buildOpeningSentence(title, { constraintIntro = "", repeatedRecommendationTitle = "" } = {}) {
   if (repeatedRecommendationTitle && repeatedRecommendationTitle === title) {
-    return compactSentences([
-      constraintIntro ? `${constraintIntro}.` : "",
-      `I know I already suggested ${title}, but it is still the strongest fit.`,
-    ]);
+    return compactSentences(
+      [
+        constraintIntro ? `${constraintIntro}.` : "",
+        pickVariant(`${title}|${constraintIntro}|repeat`, [
+          `I know I already suggested ${title}, but it is still the strongest fit.`,
+          `I have mentioned ${title} already, but it is still the cleanest archive match.`,
+          `${title} has come up before, but it still looks like the best fit.`,
+        ]),
+      ].filter(Boolean),
+    );
   }
 
   if (constraintIntro) {
-    return `${constraintIntro}, ${title} is the strongest fit.`;
+    return pickVariant(`${title}|${constraintIntro}`, [
+      `${constraintIntro}, ${title} is the strongest fit.`,
+      `${constraintIntro}, ${title} looks like the cleanest archive match.`,
+      `${constraintIntro}, ${title} is probably your best next stop.`,
+    ]);
   }
 
-  return `${title} is the strongest fit.`;
+  return pickVariant(title, [
+    `${title} is the strongest fit.`,
+    `${title} looks like the cleanest archive match.`,
+    `${title} is probably your best next stop.`,
+  ]);
 }
 
 function shouldOfferAlternate(message, matches) {

@@ -58,6 +58,10 @@
     padding: 8px;
   }
 
+  .sticky-search-toggle {
+    padding: 0 14px;
+  }
+
   .hero-panel {
     gap: 18px;
   }
@@ -174,7 +178,8 @@
   }
 
   .sticky-browse-bar .filter-container,
-  .sticky-browse-bar #stickyFilterToggle {
+  .sticky-browse-bar #stickyFilterToggle,
+  .sticky-browse-bar .sticky-search-toggle {
     width: auto;
   }
 

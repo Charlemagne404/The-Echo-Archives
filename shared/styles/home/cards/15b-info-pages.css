@@ -16,20 +16,6 @@
   max-width: 42rem;
 }
 
-.info-hero-copy h1 {
-  max-width: 12ch;
-  margin-bottom: 14px;
-  font-size: clamp(3rem, 4.1vw, 4.15rem);
-  letter-spacing: -0.065em;
-  white-space: normal;
-}
-
-.info-hero-copy p {
-  max-width: 42ch;
-  font-size: clamp(1rem, 1.04vw, 1.13rem);
-  line-height: 1.44;
-}
-
 .cookies-main .info-hero-copy h1 {
   max-width: 13ch;
 }
