@@ -1,0 +1,139 @@
+{
+  "id": "the-amelia-project",
+  "title": "The Amelia Project",
+  "subtitle": "Deadpan black-comedy mystery built around disappearances, reinventions, and cocoa.",
+  "description": "A long-running black-comedy fiction podcast about a secret agency that stages fake deaths for clients who need to vanish and come back as someone else.",
+  "cover": "images/covers/the-amelia-project.jpg",
+  "coverAlt": "The Amelia Project cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-amelia-project/id1314667752?uo=4",
+    "website": "https://ameliapodcast.com/",
+    "rss": "https://feeds.megaphone.fm/amelia"
+  },
+  "genres": [
+    "comedy",
+    "drama",
+    "mystery"
+  ],
+  "tones": [
+    "funny",
+    "weird",
+    "warm"
+  ],
+  "formats": [
+    "full-cast",
+    "episodic"
+  ],
+  "tags": [
+    "Black comedy",
+    "Secret agency",
+    "Identity"
+  ],
+  "aliases": [],
+  "themes": [
+    "reinvention",
+    "secrecy",
+    "performance"
+  ],
+  "contentNotes": [
+    "death themes"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "144 current feed episodes in the active anthology-serial run.",
+    "episodes": 144,
+    "avgEpisodeMinutes": 26,
+    "totalHours": 62.4
+  },
+  "releaseDates": {
+    "first": "2017-11-14",
+    "latest": "2026-06-18"
+  },
+  "ratings": {
+    "archive": 9.2
+  },
+  "facts": {},
+  "bestFor": [
+    "warm-weird",
+    "easy-entry",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "wooden-overcoats",
+    "oz-9",
+    "welcome-to-night-vale"
+  ],
+  "similarReasons": {
+    "midnight-burger": "Shares the joke velocity and emotional elasticity while staying more interview-shaped and conspiratorial.",
+    "wooden-overcoats": "Another voice-led comedy route where eccentricity matters as much as plot.",
+    "oz-9": "A more openly chaotic comedy branch once you want the ensemble energy dialed up.",
+    "welcome-to-night-vale": "A stranger delivery lane if the deadpan tone and steady weirdness are the real hook."
+  },
+  "archiveTake": "One of the cleaner archive answers when the listener wants comedy first but still wants the premise to keep opening outward.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://ameliapodcast.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "Imploding Fictions"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/the-amelia-project/id1314667752?uo=4; https://ameliapodcast.com/; https://feeds.megaphone.fm/amelia",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "secret identity-reset agency",
+    "pov": "interview-driven black comedy",
+    "sourceMaterial": "original fiction",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/the-amelia-project/id1314667752?uo=4",
+      "https://ameliapodcast.com/",
+      "https://feeds.megaphone.fm/amelia"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "184a74ce-b059-40cb-881c-50f6ed09306f",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1314667752",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:07:05.677Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "imploding-fictions",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "Imploding Fictions"
+  ]
+}

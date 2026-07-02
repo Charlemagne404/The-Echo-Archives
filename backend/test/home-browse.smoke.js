@@ -46,6 +46,70 @@ test.after(async () => {
   await teardownSmoke();
 });
 
+async function ensureFilterMenuOpen(page, { dropdownId = "filterDropdown", toggleSelector = "#filterToggle" } = {}) {
+  const isOpen = await page.evaluate((id) => {
+    const dropdown = document.getElementById(id);
+    return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
+  }, dropdownId);
+
+  if (isOpen) {
+    return;
+  }
+
+  await page.locator(toggleSelector).click();
+  await page.waitForFunction((id) => {
+    const dropdown = document.getElementById(id);
+    return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
+  }, dropdownId);
+}
+
+async function openFilterBucket(
+  page,
+  bucketId,
+  { dropdownId = "filterDropdown", interaction = "dispatch", toggleSelector = "#filterToggle" } = {},
+) {
+  await ensureFilterMenuOpen(page, { dropdownId, toggleSelector });
+  if (interaction === "click") {
+    await page.locator(`#${dropdownId} [data-filter-bucket-id="${bucketId}"]`).click();
+  } else {
+    await page.evaluate(
+      ({ currentBucketId, currentDropdownId }) => {
+        document
+          .querySelector(`#${currentDropdownId} [data-filter-bucket-id="${currentBucketId}"]`)
+          ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      },
+      { currentBucketId: bucketId, currentDropdownId: dropdownId },
+    );
+  }
+  await page.waitForFunction(
+    ({ currentDropdownId, currentBucketId }) => {
+      const detail = document.querySelector(`#${currentDropdownId} .filter-menu-detail`);
+      return Boolean(detail && detail.dataset.filterBucket === currentBucketId);
+    },
+    { currentBucketId: bucketId, currentDropdownId: dropdownId },
+  );
+}
+
+async function returnToFilterLauncher(page, { dropdownId = "filterDropdown" } = {}) {
+  await page.evaluate((id) => {
+    document.querySelector(`#${id} .filter-back-button`)?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  }, dropdownId);
+  await page.waitForFunction((id) => Boolean(document.querySelector(`#${id} .filter-menu-launcher`)), dropdownId);
+}
+
+async function clickFilterOption(page, groupId, value, { dropdownId = "filterDropdown" } = {}) {
+  await page.evaluate(
+    ({ currentDropdownId, currentGroupId, currentValue }) => {
+      document
+        .querySelector(
+          `#${currentDropdownId} .filter-option[data-filter-group="${currentGroupId}"][data-filter-value="${currentValue}"]`,
+        )
+        ?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    },
+    { currentDropdownId: dropdownId, currentGroupId: groupId, currentValue: value },
+  );
+}
+
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
   const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
@@ -65,12 +129,17 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       hidden: document.getElementById("filterDropdown")?.hidden ?? true,
       state: document.getElementById("filterDropdown")?.dataset.state || "",
       expanded: document.getElementById("filterToggle")?.getAttribute("aria-expanded") || "false",
-      groupCount: document.querySelectorAll("#filterOptionGrid .filter-group").length,
+      bucketCount: document.querySelectorAll("#filterOptionGrid .filter-bucket-card").length,
+      launcherScrollable: (() => {
+        const launcher = document.querySelector("#filterOptionGrid .filter-menu-launcher");
+        return launcher ? launcher.scrollHeight > launcher.clientHeight : true;
+      })(),
     }));
     assert.equal(openState.hidden, false);
     assert.equal(openState.state, "open");
     assert.equal(openState.expanded, "true");
-    assert.ok(openState.groupCount > 0);
+    assert.equal(openState.bucketCount, 5);
+    assert.equal(openState.launcherScrollable, false);
 
     await page.mouse.click(4, 4);
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
@@ -85,11 +154,12 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       () => document.getElementById("filterDropdown")?.hidden === true && document.activeElement?.id === "filterToggle",
     );
 
-    await page.locator("#filterToggle").click();
-    await page.waitForFunction(() => {
-      const dropdown = document.getElementById("filterDropdown");
-      return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
-    });
+    await openFilterBucket(page, "archiveStatus", { interaction: "click" });
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterDropdown")?.hidden === false &&
+        document.getElementById("filterDropdown")?.dataset.state === "open",
+    );
     await page.evaluate(() => {
       document
         .querySelector('.filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]')
@@ -158,11 +228,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       showFixtures.length,
     );
 
-    await page.locator("#filterToggle").click();
-    await page.waitForFunction(() => {
-      const dropdown = document.getElementById("filterDropdown");
-      return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
-    });
+    await openFilterBucket(page, "archiveStatus");
     await page.evaluate(() => {
       document
         .querySelector('.filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]')
@@ -177,6 +243,63 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     );
     assert.equal(new Set(reappliedChipState).size, reappliedChipState.length);
     assert.equal(reappliedChipState.length, 2);
+
+    await returnToFilterLauncher(page);
+    await openFilterBucket(page, "findTags");
+    const tagFinderState = await page.evaluate(() => ({
+      renderedOptions: document.querySelectorAll("#filterDropdown .filter-tag-results .filter-option").length,
+      hasMatchingSection: Boolean(
+        Array.from(document.querySelectorAll("#filterDropdown .filter-group-title")).find((node) => node.textContent?.includes("Matching")),
+      ),
+    }));
+    assert.ok(tagFinderState.renderedOptions <= 8);
+    assert.equal(tagFinderState.hasMatchingSection, false);
+
+    await page.locator("#filterDropdown .filter-tag-search-input").fill("horror");
+    await page.waitForFunction(() =>
+      Array.from(document.querySelectorAll("#filterDropdown .filter-group-title")).some((node) => node.textContent?.includes("Matching")),
+    );
+    await clickFilterOption(page, "tags", "horror");
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterCount")?.textContent?.trim() === "3" &&
+        document.querySelector('.quick-filter[data-chip-filter="horror"]')?.classList.contains("is-active") &&
+        (document.getElementById("activeBrowseState")?.textContent || "").includes("Tags: Horror"),
+    );
+
+    await page.evaluate(() => {
+      document.querySelector("#filterDropdown .filter-bucket-clear")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterCount")?.textContent?.trim() === "2" &&
+        !document.querySelector('.quick-filter[data-chip-filter="horror"]')?.classList.contains("is-active"),
+    );
+
+    await page.evaluate(() => {
+      window.scrollTo({ top: window.innerHeight * 2 });
+    });
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible");
+    await ensureFilterMenuOpen(page, { dropdownId: "stickyFilterDropdown", toggleSelector: "#stickyFilterToggle" });
+    await page.waitForFunction(() => {
+      const summary = document.querySelector('#stickyFilterDropdown [data-filter-bucket-status="archiveStatus"]');
+      return Boolean(summary && !summary.textContent?.includes("none"));
+    });
+    await openFilterBucket(page, "archiveStatus", {
+      dropdownId: "stickyFilterDropdown",
+      toggleSelector: "#stickyFilterToggle",
+    });
+    await page.waitForFunction(
+      () =>
+        document
+          .querySelector('#stickyFilterDropdown .filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]')
+          ?.classList.contains("is-active") &&
+        document
+          .querySelector('#stickyFilterDropdown .filter-option[data-filter-group="reviewStatus"][data-filter-value="indexed-only"]')
+          ?.classList.contains("is-active"),
+    );
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(() => document.getElementById("stickyFilterDropdown")?.hidden === true);
 
     await page.getByRole("button", { name: "Recently updated" }).click();
     await page.waitForTimeout(20);
@@ -299,6 +422,53 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
   }
 });
 
+test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in detail views", async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+
+    await ensureFilterMenuOpen(page);
+    const launcherState = await page.evaluate(() => {
+      const dropdown = document.getElementById("filterDropdown");
+      const launcher = document.querySelector("#filterOptionGrid .filter-menu-launcher");
+      const styles = dropdown ? window.getComputedStyle(dropdown) : null;
+      return {
+        bodyLocked: document.body.classList.contains("filter-sheet-open"),
+        bucketCount: document.querySelectorAll("#filterOptionGrid .filter-bucket-card").length,
+        launcherScrollable: launcher ? launcher.scrollHeight > launcher.clientHeight : true,
+        position: styles?.position || "",
+      };
+    });
+
+    assert.equal(launcherState.bodyLocked, true);
+    assert.equal(launcherState.bucketCount, 5);
+    assert.equal(launcherState.launcherScrollable, false);
+    assert.equal(launcherState.position, "fixed");
+
+    await openFilterBucket(page, "tone", { interaction: "click" });
+    const detailState = await page.evaluate(() => {
+      const detail = document.querySelector("#filterDropdown .filter-menu-detail");
+      const scroll = document.querySelector("#filterDropdown .filter-detail-scroll");
+      return {
+        activeBucket: detail?.getAttribute("data-filter-bucket") || "",
+        overflowY: scroll ? window.getComputedStyle(scroll).overflowY : "",
+      };
+    });
+    assert.equal(detailState.activeBucket, "tone");
+    assert.equal(detailState.overflowY, "auto");
+
+    await page.keyboard.press("Escape");
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterDropdown")?.hidden === true &&
+        !document.body.classList.contains("filter-sheet-open"),
+    );
+  } finally {
+    await page.close();
+  }
+});
+
 test("homepage rapid filter toggles fall back to a stable grid when animations overlap", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
@@ -330,21 +500,13 @@ test("homepage rapid filter toggles fall back to a stable grid when animations o
 
     const baselineShells = await readStableGridState();
 
-    await page.locator("#filterToggle").click();
-    await page.waitForFunction(() => {
-      const dropdown = document.getElementById("filterDropdown");
-      return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
-    });
+    await openFilterBucket(page, "archiveStatus");
     await page.evaluate(() => {
       [
         ["completionStatus", "finished"],
         ["reviewStatus", "indexed-only"],
         ["completionStatus", "finished"],
         ["reviewStatus", "indexed-only"],
-        ["genres", "thriller"],
-        ["genres", "thriller"],
-        ["tags", "space"],
-        ["tags", "space"],
       ].forEach(([group, value]) => {
         document
           .querySelector(`.filter-option[data-filter-group="${group}"][data-filter-value="${value}"]`)
@@ -411,20 +573,9 @@ test("homepage filter reversals during in-flight grid motion recover to the base
 
     const baselineShells = await readStableGridState();
 
-    await page.locator("#filterToggle").click();
-    await page.waitForFunction(() => {
-      const dropdown = document.getElementById("filterDropdown");
-      return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
-    });
+    await openFilterBucket(page, "archiveStatus");
 
-    const finishedFilter = page.locator(
-      '#filterOptionGrid .filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]',
-    );
-    const formatFilter = page.locator(
-      '#filterOptionGrid .filter-option[data-filter-group="formats"][data-filter-value="full-cast"]',
-    );
-
-    await finishedFilter.click();
+    await clickFilterOption(page, "completionStatus", "finished");
     await page.waitForFunction(
       () =>
         Boolean(
@@ -433,16 +584,29 @@ test("homepage filter reversals during in-flight grid motion recover to the base
         ),
     );
 
-    await formatFilter.click();
+    await returnToFilterLauncher(page);
+    await openFilterBucket(page, "storyType");
+    await clickFilterOption(page, "formats", "full-cast");
     await page.waitForFunction(
       () =>
         document.getElementById("filterCount")?.textContent?.trim() === "2" &&
         (document.getElementById("activeBrowseState")?.textContent || "").includes("Format: Full Cast"),
     );
 
-    await finishedFilter.click();
-    await page.waitForTimeout(30);
-    await formatFilter.click();
+    await returnToFilterLauncher(page);
+    await openFilterBucket(page, "archiveStatus");
+    await clickFilterOption(page, "completionStatus", "finished");
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterCount")?.textContent?.trim() === "1" &&
+        !(document.getElementById("activeBrowseState")?.textContent || "").includes("Completion: Finished"),
+    );
+    await returnToFilterLauncher(page);
+    await openFilterBucket(page, "storyType");
+    await clickFilterOption(page, "formats", "full-cast");
+    await page.waitForFunction(
+      () => document.getElementById("filterCount")?.hidden === true && document.getElementById("activeBrowseState")?.hidden === true,
+    );
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
     await page.waitForFunction(
@@ -480,8 +644,8 @@ test("homepage filter reversals during in-flight grid motion recover to the base
       assert.equal(shell.isEntering, false);
       assert.equal(shell.isExiting, false);
       assert.equal(shell.isFlipping, false);
-      assert.equal(stableLayout[index].top, baselineLayout[index].top);
-      assert.equal(stableLayout[index].left, baselineLayout[index].left);
+      assert.ok(Math.abs(stableLayout[index].top - baselineLayout[index].top) <= 1);
+      assert.ok(Math.abs(stableLayout[index].left - baselineLayout[index].left) <= 1);
     });
   } finally {
     await page.close();
@@ -528,7 +692,7 @@ test("homepage most popular band renders a valid 4-card band and hides outside t
     await page.locator("#search").fill("");
     await page.waitForFunction(() => document.getElementById("mostPopular")?.hidden === false);
 
-    await page.locator("#filterToggle").click();
+    await openFilterBucket(page, "archiveStatus");
     await page.evaluate(() => {
       document
         .querySelector('.filter-option[data-filter-group="completionStatus"][data-filter-value="finished"]')

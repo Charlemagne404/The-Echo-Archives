@@ -23,7 +23,8 @@
       "midnight-burger",
       "the-white-vault",
       "wolf-359",
-      "tower-4"
+      "tower-4",
+      "startripper"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -31,12 +32,13 @@
       "midnight-burger": "Warm serialized chaos keeps moving without becoming punishing.",
       "the-white-vault": "Bleak expedition pressure works especially well when you have time to sink in.",
       "wolf-359": "A long-running station story with enough turns to carry a full route.",
-      "tower-4": "Remote-watch tension gives the walk a steady sense of unease."
+      "tower-4": "Remote-watch tension gives the walk a steady sense of unease.",
+      "startripper": "Road-trip momentum and relaxed wonder make it easy to stay with for a full walk."
     },
     "featured": true,
     "order": 10,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-23"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "easy-first-steps",
@@ -63,7 +65,9 @@
       "the-bright-sessions",
       "wooden-overcoats",
       "midnight-burger",
-      "welcome-to-night-vale"
+      "welcome-to-night-vale",
+      "the-strange-case-of-starship-iris",
+      "victoriocity"
     ],
     "showReasons": {
       "story": "Warm, legible, and low-friction if you want a softer first stop.",
@@ -72,12 +76,14 @@
       "the-bright-sessions": "A clean character-first sci-fi entry point with clear emotional stakes.",
       "wooden-overcoats": "An easy comedy route when the listener wants ensemble charm before anything darker.",
       "midnight-burger": "The archive’s best all-purpose next-listen bridge when you want range, warmth, and forward motion.",
-      "welcome-to-night-vale": "A foundational weird-fiction entry point when the listener wants a strong voice and immediate atmosphere."
+      "welcome-to-night-vale": "A foundational weird-fiction entry point when the listener wants a strong voice and immediate atmosphere.",
+      "the-strange-case-of-starship-iris": "A funny, character-forward space-opera route that still feels easy to board.",
+      "victoriocity": "A polished detective-comedy entry point when you want charm before dread."
     },
     "featured": true,
     "order": 20,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "serious-sci-fi",
@@ -106,7 +112,8 @@
       "spectre",
       "the-program-audio-series",
       "midst",
-      "earth-eclipsed"
+      "earth-eclipsed",
+      "marsfall"
     ],
     "showReasons": {
       "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -117,12 +124,13 @@
       "spectre": "A darker sci-fi mystery pick for listeners who want a sharper edge.",
       "the-program-audio-series": "A colder, idea-driven branch for listeners who want future systems more than banter.",
       "midst": "Adds stranger, more formal sci-fantasy weight without losing the serious speculative core.",
-      "earth-eclipsed": "Dystopian pressure and a serious tone make it a clean fit for the darker sci-fi lane."
+      "earth-eclipsed": "Dystopian pressure and a serious tone make it a clean fit for the darker sci-fi lane.",
+      "marsfall": "Mars-colony survival makes it an easy fit for the high-stakes sci-fi lane."
     },
     "featured": true,
     "order": 30,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "funny-space-disasters",
@@ -269,7 +277,9 @@
       "tower-4",
       "mabel",
       "borrasca",
-      "welcome-to-night-vale"
+      "welcome-to-night-vale",
+      "the-lovecraft-investigations",
+      "video-palace"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -281,12 +291,14 @@
       "tower-4": "Remote isolation keeps the atmosphere sparse and uneasy.",
       "mabel": "Quiet ghost-story dread makes the whole route feel more intimate and uncanny.",
       "borrasca": "Small-town menace and steadily worsening revelations fit the no-comfort version of this lane.",
-      "welcome-to-night-vale": "Community-radio menace keeps the after-midnight energy eerie even when the delivery sounds calm."
+      "welcome-to-night-vale": "Community-radio menace keeps the after-midnight energy eerie even when the delivery sounds calm.",
+      "the-lovecraft-investigations": "Conspiracy, recordings, and cosmic dread belong squarely in the after-dark lane.",
+      "video-palace": "Cursed-media investigation keeps the whole route uneasy and escalating."
     },
     "featured": false,
     "order": 70,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "headphones-on-immersion",
@@ -312,7 +324,9 @@
       "solar",
       "vast-horizon",
       "ars-paradoxica",
-      "the-white-vault"
+      "the-white-vault",
+      "the-lovecraft-investigations",
+      "video-palace"
     ],
     "showReasons": {
       "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -320,12 +334,14 @@
       "solar": "The isolated space setting lands best when the sound can breathe.",
       "vast-horizon": "Expansive sci-fi atmosphere gives the route scale.",
       "ars-paradoxica": "Dense plotting rewards listeners who are fully tuned in.",
-      "the-white-vault": "Environmental audio and cold pressure make the isolation sharper."
+      "the-white-vault": "Environmental audio and cold pressure make the isolation sharper.",
+      "the-lovecraft-investigations": "Investigative audio texture and BBC production detail reward close listening.",
+      "video-palace": "The sound-first horror setup lands best when the media dread can fully occupy the room."
     },
     "featured": false,
     "order": 80,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-23"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "finished-arcs",
@@ -396,7 +412,8 @@
       "desert-skies",
       "the-phenomenon",
       "the-deca-tapes",
-      "homecoming"
+      "homecoming",
+      "the-amelia-project"
     ],
     "showReasons": {
       "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
@@ -404,12 +421,13 @@
       "desert-skies": "Warm strangeness makes it easy to try without bracing.",
       "the-phenomenon": "A finished pressure story with a direct hook.",
       "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand.",
-      "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast."
+      "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast.",
+      "the-amelia-project": "Interview-shaped episodes make it easy to sample before committing deeper."
     },
     "featured": false,
     "order": 100,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "warm-weird-comfort",
@@ -437,7 +455,10 @@
       "eos-10",
       "wolf-359",
       "unwell",
-      "welcome-to-night-vale"
+      "welcome-to-night-vale",
+      "the-amelia-project",
+      "victoriocity",
+      "startripper"
     ],
     "showReasons": {
       "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
@@ -447,12 +468,15 @@
       "eos-10": "Comedy and character friction keep the sci-fi light.",
       "wolf-359": "A funny space-station opener that can deepen over time.",
       "unwell": "Midwestern gothic warmth makes the eerie side feel lived-in instead of punishing.",
-      "welcome-to-night-vale": "Darkly funny community-radio weirdness keeps the route strange without losing personality."
+      "welcome-to-night-vale": "Darkly funny community-radio weirdness keeps the route strange without losing personality.",
+      "the-amelia-project": "Keeps the route strange and funny while making the central conceit immediately legible.",
+      "victoriocity": "Alternate-Victorian absurdity adds comic texture without making the route harsher.",
+      "startripper": "A generous cosmic travelogue that pushes the collection toward overt comfort listening."
     },
     "featured": false,
     "order": 110,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "survival-pressure",
@@ -520,7 +544,9 @@
       "impact-winter",
       "the-waystation",
       "were-alive",
-      "midst"
+      "midst",
+      "marsfall",
+      "the-strange-case-of-starship-iris"
     ],
     "showReasons": {
       "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
@@ -529,12 +555,14 @@
       "impact-winter": "A cinematic survival world with enough lore to keep expanding.",
       "the-waystation": "Exploratory sci-fi gives the collection a hopeful angle.",
       "were-alive": "A long survival saga with room for factions, geography, and consequence.",
-      "midst": "A stranger, more formally ambitious worldbuilding route for listeners who want the cosmos to feel authored all the way down."
+      "midst": "A stranger, more formally ambitious worldbuilding route for listeners who want the cosmos to feel authored all the way down.",
+      "marsfall": "The colony politics and systems pressure give the collection another lived-in frontier world.",
+      "the-strange-case-of-starship-iris": "Resistance politics and ensemble space-opera sprawl deepen the route’s social worldbuilding."
     },
     "featured": false,
     "order": 130,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "shows-like-midnight-burger",

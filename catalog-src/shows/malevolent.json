@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
     "website": "https://www.malevolent.ca/",
-    "rss": ""
+    "rss": "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c"
   },
   "genres": [
     "horror",
@@ -49,9 +49,14 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Official site publishes a continuing numbered-part structure and active release history through 2026."
+    "label": "86 current feed entries in the active serialized run.",
+    "episodes": 86,
+    "avgEpisodeMinutes": 33
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2020-07-27",
+    "latest": "2026-07-01"
+  },
   "ratings": {
     "archive": 9
   },
@@ -78,20 +83,30 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.malevolent.ca/; https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.malevolent.ca/; https://podcasts.apple.com/us/podcast/malevolent/id1525652021; https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Harlan Guthrie"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
     "tower-4": "A quieter paranoia branch if the voice-driven unease is the part you want to keep.",
     "impact-winter": "A more overtly cinematic escalation if the intensity matters more than the occult frame.",
     "archive-81": "A stranger signal-horror branch once you want the mystery to become more structurally weird."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.malevolent.ca/",
+      "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
+      "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

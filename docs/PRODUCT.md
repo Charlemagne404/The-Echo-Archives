@@ -128,7 +128,7 @@ The live repo supports:
 - a generated catalog snapshot in `docs/generated/catalog-status.md` for current counts and metadata coverage
 - a compact homepage with search, structured filters, quick filters, a recently updated browse mode, featured collections, and a most-popular band
 - reusable show and collection detail routes
-- About, For Creators, Creator Standards, Supporters, Privacy, Terms, and Cookies pages
+- About, For Creators, Creator Standards, Supporters, Help Center, Privacy, Terms, and Cookies pages
 - Ask the Archivist chat
 - anonymous community ratings
 - moderated submissions for new shows, corrections, listener reviews, and creator verification

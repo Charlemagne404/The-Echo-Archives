@@ -156,14 +156,21 @@
 
   .filter-container,
   #filterToggle,
-  #filterDropdown,
   .collection-action,
   #sendMessageButton {
     width: 100%;
   }
 
-  #filterDropdown {
-    width: 100%;
+  #filterDropdown,
+  #stickyFilterDropdown {
+    top: max(10px, env(safe-area-inset-top));
+    right: var(--shell-inline-padding-phone);
+    left: var(--shell-inline-padding-phone);
+    width: auto;
+    height: calc(100vh - max(20px, env(safe-area-inset-top)) - max(20px, env(safe-area-inset-bottom)));
+    max-height: calc(100vh - max(20px, env(safe-area-inset-top)) - max(20px, env(safe-area-inset-bottom)));
+    padding: 16px;
+    border-radius: 20px;
   }
 
   .sticky-browse-bar .filter-container,
@@ -171,11 +178,24 @@
     width: auto;
   }
 
-  #stickyFilterDropdown {
-    width: min(360px, calc(100vw - 24px));
+  .filter-dropdown-header {
+    grid-template-columns: 1fr;
   }
 
-  .filter-dropdown-header {
+  .filter-detail-toolbar {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .filter-bucket-card {
+    padding: 14px;
+  }
+
+  .filter-bucket-meta {
+    justify-items: start;
+  }
+
+  .filter-group-options {
     grid-template-columns: 1fr;
   }
 

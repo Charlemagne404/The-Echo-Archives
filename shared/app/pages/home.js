@@ -9,6 +9,7 @@ import {
   buildCollectionMap,
   buildShowMap,
   getArchiveStats,
+  getFilterMenuBuckets,
   getQuickFilters,
   getStructuredFilterGroups,
   getVisibleFilterTags,
@@ -23,13 +24,16 @@ import { updateDocumentMetadata } from "../utils.js";
 import { renderCollectionsRail } from "./home/collections.js";
 import { getHomeElements } from "./home/elements.js";
 import {
+  createFilterMenuState,
   formatResultsSummaryPrefix,
   getActiveBrowseDescriptors,
   matchesSelectedFilters,
+  openFilterMenuBucket,
   renderActiveBrowseState,
   renderBrowseModes,
-  renderFilterOptions,
+  renderFilterMenu,
   renderQuickFilters,
+  resetFilterMenuState,
   syncHomeControls,
 } from "./home/filters.js";
 import { initializeFilterDropdownController } from "./home/filter-dropdown.js";
@@ -58,6 +62,7 @@ export async function initializeHomePage() {
 
   const filterTags = getVisibleFilterTags(shows);
   const structuredFilterGroups = getStructuredFilterGroups(shows);
+  const filterMenuBuckets = getFilterMenuBuckets(structuredFilterGroups);
   const quickFilters = getQuickFilters(filterTags);
   const featuredCollections = collections.filter((collection) => collection.featured);
   const publishedShows = shows.filter((show) => show.status === "published");
@@ -120,12 +125,16 @@ export async function initializeHomePage() {
     {
       controller: heroFilterDropdownController,
       dropdown: elements.filterDropdown,
+      optionGrid: elements.filterOptionGrid,
       toggle: elements.filterToggle,
+      menuState: createFilterMenuState(),
     },
     {
       controller: stickyFilterDropdownController,
       dropdown: elements.stickyFilterDropdown,
+      optionGrid: elements.stickyFilterOptionGrid,
       toggle: elements.stickyFilterToggle,
+      menuState: createFilterMenuState(),
     },
   ];
 
@@ -168,6 +177,22 @@ export async function initializeHomePage() {
     state.sortMode = "default";
     state.query = "";
     syncSearchInputs("");
+    filterControlSurfaces.forEach((surface) => {
+      renderFilterSurface(surface);
+    });
+    scheduleHomeResults("explicit");
+  };
+
+  const clearBucketFilters = (bucketId) => {
+    const bucket = filterMenuBuckets.find((entry) => entry.id === bucketId);
+    if (!bucket) {
+      return;
+    }
+
+    bucket.groups.forEach((group) => {
+      state.filters[group.id]?.clear();
+    });
+    state.selectedCollectionId = "";
     scheduleHomeResults("explicit");
   };
 
@@ -201,6 +226,42 @@ export async function initializeHomePage() {
       filterGroupsById,
       removeFilter,
     });
+
+  const focusFilterSurfaceTarget = (surface, selector) => {
+    const target = surface.optionGrid.querySelector(selector);
+    if (target instanceof HTMLElement) {
+      target.focus();
+    }
+  };
+
+  function renderFilterSurface(surface) {
+    renderFilterMenu({
+      filterDropdown: surface.dropdown,
+      filterOptionGrid: surface.optionGrid,
+      filterMenuBuckets,
+      filterOptionsByGroup,
+      filters: state.filters,
+      menuState: surface.menuState,
+      onOpenBucket: (bucketId) => {
+        openFilterMenuBucket(surface.menuState, bucketId);
+        renderFilterSurface(surface);
+        const bucket = filterMenuBuckets.find((entry) => entry.id === bucketId);
+        if (bucket?.searchable) {
+          focusFilterSurfaceTarget(surface, ".filter-tag-search-input");
+        } else {
+          focusFilterSurfaceTarget(surface, ".filter-option");
+        }
+      },
+      onBackToLauncher: () => {
+        const previousBucketId = surface.menuState.activeBucketId;
+        resetFilterMenuState(surface.menuState);
+        renderFilterSurface(surface);
+        focusFilterSurfaceTarget(surface, `[data-filter-bucket-id="${previousBucketId}"]`);
+      },
+      onToggleFilter: toggleFilter,
+      onClearBucketFilters: clearBucketFilters,
+    });
+  }
 
   const getVisibleShows = (selectedCollection) => {
     const filteredShows = shows.filter((show) => {
@@ -272,6 +333,8 @@ export async function initializeHomePage() {
       filterOptionGrid: elements.filterOptionGrid,
       filterCount: elements.filterCount,
       filterClear: elements.filterClear,
+      filterMenuBuckets,
+      filterOptionsByGroup,
       filters: state.filters,
       query: state.query,
       selectedCollectionId: state.selectedCollectionId,
@@ -281,6 +344,8 @@ export async function initializeHomePage() {
       filterOptionGrid: elements.stickyFilterOptionGrid,
       filterCount: elements.stickyFilterCount,
       filterClear: elements.stickyFilterClear,
+      filterMenuBuckets,
+      filterOptionsByGroup,
       filters: state.filters,
       query: state.query,
       selectedCollectionId: state.selectedCollectionId,
@@ -303,15 +368,8 @@ export async function initializeHomePage() {
     });
   }
 
-  renderFilterOptions({
-    filterOptionGrid: elements.filterOptionGrid,
-    structuredFilterGroups,
-    onToggleFilter: toggleFilter,
-  });
-  renderFilterOptions({
-    filterOptionGrid: elements.stickyFilterOptionGrid,
-    structuredFilterGroups,
-    onToggleFilter: toggleFilter,
+  filterControlSurfaces.forEach((surface) => {
+    renderFilterSurface(surface);
   });
   renderQuickFilters({
     quickFiltersRoot: elements.quickFiltersRoot,
@@ -385,11 +443,14 @@ export async function initializeHomePage() {
       }
 
       closeOtherFilterDropdowns(surface);
+      resetFilterMenuState(surface.menuState);
+      renderFilterSurface(surface);
       surface.controller.open();
     });
   });
 
-  document.addEventListener("click", (event) => {
+  // Close on pointerdown so inside clicks are classified before the menu rerenders.
+  document.addEventListener("pointerdown", (event) => {
     const target = event.target;
     if (!(target instanceof Node)) {
       return;

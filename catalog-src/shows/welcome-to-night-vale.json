@@ -6,14 +6,14 @@
   "cover": "images/covers/welcome-to-night-vale.jpg",
   "coverAlt": "Welcome to Night Vale cover art",
   "status": "published",
-  "reviewStatus": "indexed-only",
+  "reviewStatus": "full-review",
   "releaseStatus": "active",
   "completionStatus": "ongoing",
   "listenLinks": {
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179",
     "website": "https://www.welcometonightvale.com/",
-    "rss": "http://feeds.nightvalepresents.com/welcometonightvalepodcast"
+    "rss": "https://feeds.megaphone.fm/SBP4591212513"
   },
   "genres": [
     "horror",
@@ -52,9 +52,14 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "An ongoing twice-monthly fiction podcast with a large back catalog and starter-guide entry point."
+    "label": "374 current feed entries in the long-running twice-monthly archive.",
+    "episodes": 374,
+    "avgEpisodeMinutes": 25
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2012-06-01",
+    "latest": "2026-07-01"
+  },
   "ratings": {
     "archive": 9.3
   },
@@ -81,9 +86,9 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.welcometonightvale.com/; https://www.welcometonightvale.com/listen; https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179; http://feeds.nightvalepresents.com/welcometonightvalepodcast",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.welcometonightvale.com/; https://www.welcometonightvale.com/listen; https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179; http://feeds.nightvalepresents.com/welcometonightvalepodcast; https://feeds.megaphone.fm/SBP4591212513",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Joseph Fink",
@@ -93,11 +98,23 @@
     "Cecil Baldwin"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "alice-isnt-dead": "A road-haunted branch if the intimate narration and creeping unreality are the real hook.",
     "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
     "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
     "unwell": "A small-town gothic branch if the community feeling matters as much as the cosmic oddness."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.welcometonightvale.com/",
+      "https://www.welcometonightvale.com/listen",
+      "https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179",
+      "http://feeds.nightvalepresents.com/welcometonightvalepodcast",
+      "https://feeds.megaphone.fm/SBP4591212513"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

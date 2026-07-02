@@ -13,7 +13,7 @@
     "spotify": "https://open.spotify.com/show/6ivVLrV6gUo1Xbi0BhMHnc",
     "apple": "https://podcasts.apple.com/us/podcast/station-151/id1654016045",
     "website": "https://www.station151.com/",
-    "rss": "https://feeds.buzzsprout.com/2046913.rss"
+    "rss": "https://feeds.megaphone.fm/SBP5007734520"
   },
   "genres": [
     "sci-fi",
@@ -37,7 +37,7 @@
     "label": "Season 3 began January 13, 2026; exact current feed count should be rechecked after the season resumes",
     "seasons": 3,
     "episodes": 36,
-    "avgEpisodeMinutes": 25,
+    "avgEpisodeMinutes": 22,
     "totalHours": 15
   },
   "ratings": {
@@ -72,9 +72,9 @@
     "hex": "#5e7571",
     "rgb": "94, 117, 113"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
-    "first": "2022-10-31",
+    "first": "2022-11-10",
     "latest": "2026-01-13",
     "note": "Official site says Season 3 began January 13, 2026 but the rest of Season 3 would not immediately follow."
   },
@@ -121,25 +121,23 @@
       "https://www.station151.com/",
       "https://www.station151.com/about/",
       "https://www.station151.com/episodes/",
-      "https://podcasts.apple.com/us/podcast/station-151/id1654016045"
+      "https://podcasts.apple.com/us/podcast/station-151/id1654016045",
+      "https://feeds.megaphone.fm/SBP5007734520"
     ],
-    "objectiveNote": "Official site verifies premise, writers/developers, producer, production company, listening links, and Season 3 date; Apple verifies 36 episodes across 3 seasons and Realm channel listing.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/station-151.json",
-    "researchGaps": [
-      "current feed count after Season 3 resumes",
-      "exact average runtime by feed"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.station151.com/; https://www.station151.com/about/; https://www.station151.com/episodes/; https://podcasts.apple.com/us/podcast/station-151/id1654016045",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

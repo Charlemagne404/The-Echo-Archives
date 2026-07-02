@@ -49,10 +49,14 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Apple presents the original fiction run as a two-season thriller with later TV-production extras in the feed.",
-    "seasons": 2
+    "label": "3 seasons / 18 current feed entries.",
+    "seasons": 3,
+    "episodes": 18,
+    "avgEpisodeMinutes": 24
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "latest": "2018-11-02"
+  },
   "ratings": {
     "archive": 8.8
   },
@@ -73,22 +77,43 @@
     "text": "",
     "attribution": ""
   },
-  "officialLinks": {},
+  "officialLinks": {
+    "website": "https://gimletmedia.com/"
+  },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381; https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381; https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV; https://gimletmedia.com/",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Gimlet Media"
   ],
-  "cast": [],
+  "cast": [
+    "Catherine Keener",
+    "Oscar Isaac",
+    "David Schwimmer",
+    "Amy Sedaris"
+  ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "case-63": "A compact prestige-thriller branch if you want another slickly delivered mystery with speculative edges.",
     "the-deca-tapes": "Keeps the engineered puzzle-box feel alive while changing the emotional texture.",
     "red-valley": "A stranger conspiracy-science route once the institutional unease becomes the main appetite."
+  },
+  "credits": {
+    "creatorName": "Eli Horowitz and Micah Bloomberg",
+    "productionCompany": "Gimlet"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
+      "https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
+      "https://gimletmedia.com/"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

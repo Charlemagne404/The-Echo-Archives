@@ -124,9 +124,20 @@
   min-height: 328px;
   border-color: rgba(255, 255, 255, 0.13);
   background:
-    radial-gradient(circle at 76% 18%, rgba(229, 72, 56, 0.06), transparent 28%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.042), transparent 100%),
-    rgba(9, 12, 16, 0.9);
+    radial-gradient(circle at 71% 56%, rgba(229, 72, 56, 0.09), transparent 18%),
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.07), transparent 16%),
+    linear-gradient(90deg, rgba(6, 8, 11, 0.98) 0%, rgba(8, 11, 15, 0.96) 42%, rgba(7, 10, 14, 0.92) 100%);
+}
+
+.about-page .about-split-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0%, transparent 18%, transparent 72%, rgba(255, 255, 255, 0.012) 100%),
+    radial-gradient(circle at 62% 50%, rgba(229, 72, 56, 0.045), transparent 24%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about-page .about-split-copy {
@@ -183,17 +194,22 @@
 
 .about-page .about-split-media {
   min-height: 328px;
+  padding: clamp(14px, 1.8vw, 24px) 0;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.12) 36%, rgba(3, 5, 8, 0.28) 100%);
 }
 
 .about-page .about-split-media::after {
   background:
-    linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(3, 5, 8, 0.72) 18%, rgba(3, 5, 8, 0.08) 48%, rgba(3, 5, 8, 0.56) 100%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.12) 0%, transparent 22%, transparent 72%, rgba(3, 5, 8, 0.62) 100%),
-    radial-gradient(circle at 78% 42%, transparent 0%, rgba(0, 0, 0, 0.12) 70%, rgba(0, 0, 0, 0.46) 100%);
+    linear-gradient(90deg, rgba(3, 5, 8, 0.68) 0%, rgba(3, 5, 8, 0.18) 22%, rgba(3, 5, 8, 0.02) 52%, rgba(3, 5, 8, 0.22) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.1) 0%, transparent 20%, transparent 82%, rgba(3, 5, 8, 0.28) 100%),
+    radial-gradient(circle at 76% 42%, transparent 0%, rgba(0, 0, 0, 0.06) 66%, rgba(0, 0, 0, 0.18) 100%);
 }
 
 .about-page .about-split-media img {
-  filter: saturate(0.82) brightness(0.78) contrast(1.12);
+  height: min(100%, 620px);
+  transform: translate(9%, -2%);
+  filter: saturate(0.86) brightness(0.88) contrast(1.02);
 }
 
 .about-page .about-feature-section,

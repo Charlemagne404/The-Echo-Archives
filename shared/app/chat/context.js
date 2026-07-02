@@ -4,23 +4,30 @@ function applyChatCopy() {
   const inputLabel = document.querySelector('label[for="userInput"]');
   const isCreatorsContext =
     document.body.classList.contains("for-creators-page") || document.body.classList.contains("creator-standards-page");
+  const isHelpContext = document.body.classList.contains("help-center-page");
 
   if (inputLabel) {
     inputLabel.textContent = isCreatorsContext
       ? "Ask about creator verification or archive standards"
-      : "Ask about the archive or a show";
+      : isHelpContext
+        ? "Ask about archive help or site issues"
+        : "Ask about the archive or a show";
   }
 
   if (userInput) {
     userInput.placeholder = isCreatorsContext
       ? "Ask about creator verification, standards, or submissions"
-      : "Ask about the archive, a show, runtime, creators, or how the site works";
+      : isHelpContext
+        ? "Ask about broken links, ratings, search, creator verified, or how the site works"
+        : "Ask about the archive, a show, runtime, creators, or how the site works";
   }
 
   if (chatFootnote) {
     chatFootnote.textContent = isCreatorsContext
       ? "Ask how creator verification works, what stays editorially independent, or which submit path to use."
-      : "Ask for a recommendation, a correction path, creator or runtime details, privacy help, or what creator verified means.";
+      : isHelpContext
+        ? "Ask how to fix a broken link, what creator verified means, why a rating did not stick, or how to search better."
+        : "Ask for a recommendation, a correction path, creator or runtime details, privacy help, or what creator verified means.";
   }
 }
 
@@ -74,6 +81,10 @@ function getChatPageType() {
 
   if (path.endsWith("/supporters.html")) {
     return "supporters";
+  }
+
+  if (path.endsWith("/help-center.html")) {
+    return "help-center";
   }
 
   if (path.endsWith("/collections.html")) {

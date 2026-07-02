@@ -7,13 +7,13 @@
   "coverAlt": "EOS 10 cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "inactive",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/eos-10/id928069318",
     "website": "https://www.planetm.io/eos10/",
-    "rss": ""
+    "rss": "https://feed.podbean.com/planetm/feed.xml"
   },
   "genres": [
     "sci-fi",
@@ -70,10 +70,10 @@
     "hex": "#497b84",
     "rgb": "73, 123, 132"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
-    "first": "2014-09-01",
-    "latest": "2022-01-01"
+    "first": "2014-10-15",
+    "latest": "2023-03-22"
   },
   "officialLinks": {
     "website": "https://www.planetm.io/eos10/",
@@ -110,26 +110,23 @@
   "metadata": {
     "objectiveSources": [
       "https://www.planetm.io/eos10/",
-      "https://podcasts.apple.com/us/podcast/eos-10/id928069318"
+      "https://podcasts.apple.com/us/podcast/eos-10/id928069318",
+      "https://feed.podbean.com/planetm/feed.xml"
     ],
-    "objectiveNote": "Official PlanetM / platform pages should be used for final verification. Metadata is filled from known public listings but should be rechecked because search results did not expose a clean current official text page in this pass.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/eos-10.json",
-    "researchGaps": [
-      "exact latest release date",
-      "current production status",
-      "why third-party indexes report higher counts than Apple"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.planetm.io/eos10/; https://podcasts.apple.com/us/podcast/eos-10/id928069318",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

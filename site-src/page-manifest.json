@@ -60,6 +60,18 @@
     "includeFloatingControls": true
   },
   {
+    "source": "help-center.html",
+    "output": "help-center.html",
+    "title": "Help Center - The Echo Archives",
+    "description": "Common fixes, archive FAQs, and practical help for discovery, ratings, links, and browser behavior in The Echo Archives.",
+    "canonicalUrl": "https://echo.continental-hub.com/help-center.html",
+    "bodyClass": "home-page help-center-page info-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
+  },
+  {
     "source": "collections.html",
     "output": "collections.html",
     "title": "Collections - The Echo Archives",

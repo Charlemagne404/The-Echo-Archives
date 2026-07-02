@@ -7,13 +7,13 @@
   "coverAlt": "Unwell cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "active",
-  "completionStatus": "ongoing",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502",
     "website": "https://www.unwellpodcast.com/",
-    "rss": ""
+    "rss": "https://rss.art19.com/unwell-midwestern-gothic-mystery"
   },
   "genres": [
     "horror",
@@ -49,12 +49,15 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Apple lists five seasons and 129 episodes; the official about page notes 12-episode seasons with biweekly releases.",
+    "label": "5 main seasons / 60 story episodes; 88 current feed entries including trailers, recaps, and extras.",
     "seasons": 5,
-    "episodes": 129,
+    "episodes": 60,
     "avgEpisodeMinutes": 25
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2019-01-14",
+    "latest": "2023-09-13"
+  },
   "ratings": {
     "archive": 8.7
   },
@@ -79,19 +82,29 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.unwellpodcast.com/; https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.unwellpodcast.com/; https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502; https://rss.art19.com/unwell-midwestern-gothic-mystery",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Audacious Machine Creative"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "story": "Another approachable, character-first entry if you want warmth before the weirdness gets denser.",
     "mabel": "A quieter ghost-story branch once the voice-led haunting becomes the main attraction.",
     "desert-skies": "Keeps the inviting strange-world quality intact with a little more overt comfort."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.unwellpodcast.com/",
+      "https://podcasts.apple.com/us/podcast/unwell-a-midwestern-gothic-mystery/id1449441502",
+      "https://rss.art19.com/unwell-midwestern-gothic-mystery"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

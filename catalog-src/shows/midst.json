@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/midst/id1681168186",
     "website": "https://www.midst.co",
-    "rss": ""
+    "rss": "https://feeds.megaphone.fm/midst"
   },
   "genres": [
     "sci-fi",
@@ -49,10 +49,16 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Critical Role announced season 3 as the final season of the main series.",
-    "seasons": 3
+    "label": "3 main seasons with a continuing companion feed now totaling 132 entries.",
+    "seasons": 3,
+    "episodes": 132,
+    "avgEpisodeMinutes": 29
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2023-04-05",
+    "latest": "2026-07-01",
+    "note": "The core series is complete; the feed remains active with companion material."
+  },
   "ratings": {
     "archive": 9.2
   },
@@ -79,20 +85,30 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.midst.co; https://podcasts.apple.com/us/podcast/midst/id1681168186",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.midst.co; https://podcasts.apple.com/us/podcast/midst/id1681168186; https://feeds.megaphone.fm/midst",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Third Person"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
     "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
     "the-program-audio-series": "A colder, more systems-minded branch for listeners who want the worldview to stay central.",
     "the-waystation": "An exploratory route if the strange setting and sense of scale mattered more than the chaos."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.midst.co",
+      "https://podcasts.apple.com/us/podcast/midst/id1681168186",
+      "https://feeds.megaphone.fm/midst"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

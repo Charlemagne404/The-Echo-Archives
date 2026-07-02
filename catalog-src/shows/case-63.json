@@ -7,13 +7,13 @@
   "coverAlt": "Case 63 cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "spotify": "https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp",
     "apple": "https://podcasts.apple.com/us/podcast/case-63/id1703294291",
     "website": "",
-    "rss": ""
+    "rss": "https://feeds.megaphone.fm/GLT7513443834"
   },
   "genres": [
     "sci-fi",
@@ -48,12 +48,15 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Apple lists two 10-episode seasons.",
+    "label": "2 seasons / 22 current feed entries including bonus material.",
     "seasons": 2,
-    "episodes": 20,
+    "episodes": 22,
     "avgEpisodeMinutes": 10
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2022-10-14",
+    "latest": "2023-09-26"
+  },
   "ratings": {
     "archive": 8.9
   },
@@ -74,22 +77,44 @@
     "text": "",
     "attribution": ""
   },
-  "officialLinks": {},
+  "officialLinks": {
+    "website": "https://gimletmedia.com/"
+  },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://podcasts.apple.com/us/podcast/case-63/id1703294291; https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/case-63/id1703294291; https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp; https://feeds.megaphone.fm/GLT7513443834; https://gimletmedia.com/",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Julio Rojas"
   ],
-  "cast": [],
+  "cast": [
+    "Julianne Moore",
+    "Oscar Isaac"
+  ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "ars-paradoxica": "The clearest next step if you want the time-travel consequences to get denser and more systemic.",
     "from-now": "A compact companion route when you want another short-form time-dislocation mystery.",
     "the-program-audio-series": "A colder speculative branch once the ideas matter more than the emotional closeness."
+  },
+  "credits": {
+    "creatorName": "Julio Rojas",
+    "writer": "Julio Rojas",
+    "adaptation": "Mara Velez Melendez",
+    "director": "Mimi O'Donnell"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/case-63/id1703294291",
+      "https://open.spotify.com/show/4c9ZKaFtEKweSYOlYvxfvp",
+      "https://feeds.megaphone.fm/GLT7513443834",
+      "https://gimletmedia.com/"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

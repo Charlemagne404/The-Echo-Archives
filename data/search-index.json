@@ -177,7 +177,7 @@
       "ads": "Unknown."
     },
     "credits": {
-      "productionCompany": "7 Lamb Productions",
+      "productionCompany": "Bloody FM / 7 Lamb Productions",
       "creatorName": "7 Lamb Productions",
       "writer": "Not verified",
       "director": "Not verified",
@@ -205,7 +205,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "from-now",
@@ -314,7 +314,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "the-deca-tapes",
@@ -1018,7 +1018,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "impact-winter",
@@ -1209,7 +1209,7 @@
     },
     "credits": {
       "creatorName": "Shannon Perry",
-      "productionCompany": "Gated Galaxies / Oz 9 / Fable & Folly Network",
+      "productionCompany": "Gated Galaxies",
       "writer": "Shannon Perry",
       "director": "Not verified",
       "producer": "Not verified",
@@ -1242,7 +1242,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "ars-paradoxica",
@@ -1368,7 +1368,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "red-valley",
@@ -1579,7 +1579,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "eos-10",
@@ -1590,8 +1590,8 @@
     "coverAlt": "EOS 10 cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "inactive",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "sci-fi",
       "comedy"
@@ -1675,7 +1675,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "desert-skies",
@@ -1774,7 +1774,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "wolf-359",
@@ -1879,7 +1879,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "station-151",
@@ -1983,7 +1983,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "midnight-burger",
@@ -2095,8 +2095,8 @@
     "coverAlt": "Spectre cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "inactive",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "sci-fi",
       "mystery"
@@ -2150,13 +2150,13 @@
       "ads": "Unknown."
     },
     "credits": {
-      "creatorName": "Stef Howerton",
+      "creatorName": "Jordan Cobb",
       "writer": "Stef Howerton",
       "director": "Not verified",
       "producer": "Stef Howerton",
       "soundDesign": "Not verified",
       "composer": "Tim Rosko",
-      "productionCompany": "SPECTRE",
+      "productionCompany": "Station Blue",
       "network": "indie",
       "cast": "Not fully verified",
       "coverArt": "Not verified"
@@ -2178,7 +2178,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "the-phenomenon",
@@ -2350,7 +2350,7 @@
       "ads": "Unknown."
     },
     "credits": {
-      "productionCompany": "7 Lamb Productions",
+      "productionCompany": "Bloody FM / 7 Lamb Productions",
       "creatorName": "7 Lamb Productions",
       "writer": "Robert Lamb",
       "director": "Not verified",
@@ -2378,7 +2378,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "derelict",
@@ -2647,7 +2647,7 @@
       "ads": "Unknown."
     },
     "credits": {
-      "productionCompany": "7 Lamb Productions",
+      "productionCompany": "Bloody FM / 7 Lamb Productions",
       "creatorName": "7 Lamb Productions",
       "writer": "Robert Lamb",
       "director": "Not verified",
@@ -2675,7 +2675,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "tower-4",
@@ -2774,7 +2774,7 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "the-bright-sessions",
@@ -2839,7 +2839,10 @@
     },
     "archiveTake": "One of the cleaner entry points for listeners who want emotionally legible sci-fi before they want maximal world mechanics.",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "Lauren Shippen",
+      "productionCompany": "Atypical Artists"
+    },
     "availability": {},
     "content": {},
     "ratings": {
@@ -2847,7 +2850,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "wooden-overcoats",
@@ -2858,8 +2861,8 @@
     "coverAlt": "Wooden Overcoats cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "hiatus",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "genres": [
       "comedy",
       "drama"
@@ -2915,7 +2918,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "alice-isnt-dead",
@@ -2926,8 +2929,8 @@
     "coverAlt": "Alice Isn't Dead cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
     "genres": [
       "horror",
       "mystery",
@@ -2980,15 +2983,24 @@
     },
     "archiveTake": "Useful when the listener wants narration-forward dread with motion, mystery, and a stronger sense of haunted geography.",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "Joseph Fink",
+      "performer": "Jasika Nicole",
+      "soundDesign": "Disparition"
+    },
     "availability": {},
-    "content": {},
+    "content": {
+      "setting": "road-horror across the United States",
+      "pov": "first-person narrated search",
+      "sourceMaterial": "original fiction",
+      "intensity": "high"
+    },
     "ratings": {
       "archive": 8.9
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "mirrors",
@@ -3059,7 +3071,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "unwell",
@@ -3070,8 +3082,8 @@
     "coverAlt": "Unwell cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "active",
-    "completionStatus": "ongoing",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "horror",
       "mystery",
@@ -3129,7 +3141,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "midst",
@@ -3202,7 +3214,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "the-program-audio-series",
@@ -3265,7 +3277,9 @@
     },
     "archiveTake": "Works best when the listener wants serious sci-fi ideas delivered with more chill than spectacle.",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "IMS"
+    },
     "availability": {},
     "content": {},
     "ratings": {
@@ -3273,7 +3287,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "malevolent",
@@ -3346,7 +3360,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "case-63",
@@ -3357,8 +3371,8 @@
     "coverAlt": "Case 63 cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "sci-fi",
       "thriller",
@@ -3408,7 +3422,12 @@
     },
     "archiveTake": "A clean recommendation when the listener wants time-travel tension without a giant onboarding burden.",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "Julio Rojas",
+      "writer": "Julio Rojas",
+      "adaptation": "Mara Velez Melendez",
+      "director": "Mimi O'Donnell"
+    },
     "availability": {},
     "content": {},
     "ratings": {
@@ -3416,7 +3435,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "borrasca",
@@ -3427,8 +3446,8 @@
     "coverAlt": "Borrasca cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "horror",
       "thriller",
@@ -3478,7 +3497,10 @@
     },
     "archiveTake": "Best used when the listener wants small-town menace with very little interest in comfort.",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "Rebecca Klingel",
+      "productionCompany": "QCODE"
+    },
     "availability": {},
     "content": {},
     "ratings": {
@@ -3486,7 +3508,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "mabel",
@@ -3497,8 +3519,8 @@
     "coverAlt": "Mabel cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "inactive",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "horror",
       "mystery",
@@ -3556,7 +3578,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "archive-81",
@@ -3627,7 +3649,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "homecoming",
@@ -3690,7 +3712,10 @@
     },
     "archiveTake": "A strong start-here option for listeners who want prestige-thriller pacing in a compact fiction-podcast form.",
     "facts": {},
-    "credits": {},
+    "credits": {
+      "creatorName": "Eli Horowitz and Micah Bloomberg",
+      "productionCompany": "Gimlet"
+    },
     "availability": {},
     "content": {},
     "ratings": {
@@ -3698,7 +3723,7 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
   },
   {
     "id": "welcome-to-night-vale",
@@ -3708,7 +3733,7 @@
     "cover": "images/covers/welcome-to-night-vale.jpg",
     "coverAlt": "Welcome to Night Vale cover art",
     "status": "published",
-    "reviewStatus": "indexed-only",
+    "reviewStatus": "full-review",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
@@ -3774,6 +3799,594 @@
     },
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "marsfall",
+    "title": "Marsfall",
+    "subtitle": "Mars-colony survival sci-fi with enough pressure to keep the optimism uneasy.",
+    "description": "A full-cast Mars-colony drama about first-settlement optimism colliding with sabotage, AI pressure, and the feeling that every system can fail at once.",
+    "cover": "images/covers/marsfall.jpg",
+    "coverAlt": "Marsfall cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "hiatus",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "drama",
+      "adventure"
+    ],
+    "tones": [
+      "tense",
+      "cinematic",
+      "dark"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Mars colony",
+      "Survival",
+      "AI"
+    ],
+    "aliases": [],
+    "themes": [
+      "colonization",
+      "survival",
+      "artificial intelligence"
+    ],
+    "contentNotes": [
+      "violence",
+      "disaster scenarios"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "serious-sci-fi",
+      "worldbuilding",
+      "headphones-on"
+    ],
+    "similarTo": [
+      "vast-horizon",
+      "derelict",
+      "solar",
+      "the-program-audio-series"
+    ],
+    "similarReasons": {
+      "vast-horizon": "Another survival-first space route with enough room for the setting to keep unfolding.",
+      "derelict": "A darker high-pressure sci-fi branch when the industrial danger is the main appeal.",
+      "solar": "Tightens the survival premise around technical failure and closed-environment tension.",
+      "the-program-audio-series": "A colder speculative branch once the systems and ideas matter as much as the characters."
+    },
+    "archiveTake": "Useful when the listener wants Mars-colony scale without losing the panic of small-system survival.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Marsfall LLC",
+      "network": "Realm"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "first-generation Mars colony",
+      "pov": "ensemble survival drama",
+      "sourceMaterial": "original fiction",
+      "intensity": "high"
+    },
+    "ratings": {
+      "archive": 8.8
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "the-strange-case-of-starship-iris",
+    "title": "The Strange Case of Starship Iris",
+    "subtitle": "Found-family space opera with politics, jokes, and real forward pull.",
+    "description": "A postwar space-opera serial about a surviving smuggler crew, anti-imperial resistance, and the way a funny ensemble can still carry sharp political stakes.",
+    "cover": "images/covers/the-strange-case-of-starship-iris.jpg",
+    "coverAlt": "The Strange Case of Starship Iris cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "sci-fi",
+      "drama",
+      "adventure"
+    ],
+    "tones": [
+      "hopeful",
+      "funny",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Space opera",
+      "Found family",
+      "Resistance"
+    ],
+    "aliases": [],
+    "themes": [
+      "found family",
+      "resistance",
+      "identity"
+    ],
+    "contentNotes": [
+      "war aftermath"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "worldbuilding",
+      "easy-entry",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "midnight-burger",
+      "wolf-359",
+      "ars-paradoxica",
+      "vast-horizon"
+    ],
+    "similarReasons": {
+      "midnight-burger": "Keeps the ensemble warmth and joke density while pushing harder into political space-opera stakes.",
+      "wolf-359": "Another character-forward space route that gets more emotionally attached as the mission deepens.",
+      "ars-paradoxica": "A denser politics-and-consequences branch once the systems behind the story matter more.",
+      "vast-horizon": "A cleaner survival-space branch if you want less banter and more frontier pressure."
+    },
+    "archiveTake": "A strong bridge show when someone wants funny found-family sci-fi that still cares about politics and consequence.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Jessica Best",
+      "network": "Procyon Podcast Network"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "postwar interstellar frontier",
+      "pov": "ensemble space-opera serial",
+      "sourceMaterial": "original fiction",
+      "intensity": "medium"
+    },
+    "ratings": {
+      "archive": 9.1
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "the-amelia-project",
+    "title": "The Amelia Project",
+    "subtitle": "Deadpan black-comedy mystery built around disappearances, reinventions, and cocoa.",
+    "description": "A long-running black-comedy fiction podcast about a secret agency that stages fake deaths for clients who need to vanish and come back as someone else.",
+    "cover": "images/covers/the-amelia-project.jpg",
+    "coverAlt": "The Amelia Project cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "comedy",
+      "drama",
+      "mystery"
+    ],
+    "tones": [
+      "funny",
+      "weird",
+      "warm"
+    ],
+    "formats": [
+      "full-cast",
+      "episodic"
+    ],
+    "tags": [
+      "Black comedy",
+      "Secret agency",
+      "Identity"
+    ],
+    "aliases": [],
+    "themes": [
+      "reinvention",
+      "secrecy",
+      "performance"
+    ],
+    "contentNotes": [
+      "death themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "warm-weird",
+      "easy-entry",
+      "binge-listening"
+    ],
+    "similarTo": [
+      "midnight-burger",
+      "wooden-overcoats",
+      "oz-9",
+      "welcome-to-night-vale"
+    ],
+    "similarReasons": {
+      "midnight-burger": "Shares the joke velocity and emotional elasticity while staying more interview-shaped and conspiratorial.",
+      "wooden-overcoats": "Another voice-led comedy route where eccentricity matters as much as plot.",
+      "oz-9": "A more openly chaotic comedy branch once you want the ensemble energy dialed up.",
+      "welcome-to-night-vale": "A stranger delivery lane if the deadpan tone and steady weirdness are the real hook."
+    },
+    "archiveTake": "One of the cleaner archive answers when the listener wants comedy first but still wants the premise to keep opening outward.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Imploding Fictions"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "secret identity-reset agency",
+      "pov": "interview-driven black comedy",
+      "sourceMaterial": "original fiction",
+      "intensity": "medium"
+    },
+    "ratings": {
+      "archive": 9.2
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "victoriocity",
+    "title": "Victoriocity",
+    "subtitle": "Alternate-Victorian detective comedy with real momentum under the jokes.",
+    "description": "A full-cast detective comedy set in an impossibly large 1887 London, balancing murder mystery plotting with brisk ensemble charm and world-sized absurdity.",
+    "cover": "images/covers/victoriocity.jpg",
+    "coverAlt": "Victoriocity cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "comedy",
+      "mystery",
+      "drama"
+    ],
+    "tones": [
+      "funny",
+      "weird",
+      "warm"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Detective comedy",
+      "Alt-history",
+      "Victorian"
+    ],
+    "aliases": [],
+    "themes": [
+      "conspiracy",
+      "journalism",
+      "civic absurdity"
+    ],
+    "contentNotes": [
+      "violence"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "easy-entry",
+      "warm-weird",
+      "long-walks"
+    ],
+    "similarTo": [
+      "wooden-overcoats",
+      "welcome-to-night-vale",
+      "eos-10",
+      "midnight-burger"
+    ],
+    "similarReasons": {
+      "wooden-overcoats": "Another sharply written British comedy route where performance rhythm does most of the lifting.",
+      "welcome-to-night-vale": "A different kind of civic weirdness once you want absurd local systems instead of cosmic radio calm.",
+      "eos-10": "Keeps the banter and mystery movement active with a stronger detective spine.",
+      "midnight-burger": "A broader recommendation bridge if you want humor with a bigger speculative appetite."
+    },
+    "archiveTake": "Useful when someone wants a comedy route that still moves like a real mystery instead of sketching in place.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Victoriocity"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "alternate 1887 London",
+      "pov": "detective-and-journalist duo",
+      "sourceMaterial": "original fiction",
+      "intensity": "medium"
+    },
+    "ratings": {
+      "archive": 9
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "startripper",
+    "title": "StarTripper!!",
+    "subtitle": "Road-trip space comfort with enough curiosity to make the galaxy feel generous.",
+    "description": "A cheerful first-person travelogue through a strange galaxy, built around a protagonist who left home to chase wonder instead of status.",
+    "cover": "images/covers/startripper.png",
+    "coverAlt": "StarTripper!! cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "hiatus",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "comedy",
+      "adventure"
+    ],
+    "tones": [
+      "warm",
+      "funny",
+      "hopeful"
+    ],
+    "formats": [
+      "narrated",
+      "episodic"
+    ],
+    "tags": [
+      "Road trip",
+      "Space travel",
+      "Comfort listen"
+    ],
+    "aliases": [],
+    "themes": [
+      "reinvention",
+      "travel",
+      "wonder"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "warm-weird",
+      "long-walks",
+      "easy-entry"
+    ],
+    "similarTo": [
+      "midnight-burger",
+      "desert-skies",
+      "the-waystation",
+      "eos-10"
+    ],
+    "similarReasons": {
+      "midnight-burger": "Another generous cosmic route when the warmth matters more than the tension.",
+      "desert-skies": "Keeps the comfort-forward oddness intact with even lighter stakes.",
+      "the-waystation": "A hopeful speculative branch if what you want is curiosity about place and encounter.",
+      "eos-10": "A funnier ensemble route once you want more friction and less solitude."
+    },
+    "archiveTake": "A good archive answer for listeners who want the weirdness to feel restorative instead of threatening.",
+    "facts": {},
+    "credits": {
+      "creatorName": "StarTripper!!"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "civilian road-trip galaxy",
+      "pov": "first-person travelogue",
+      "sourceMaterial": "original fiction",
+      "intensity": "low"
+    },
+    "ratings": {
+      "archive": 8.9
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "the-lovecraft-investigations",
+    "title": "The Lovecraft Investigations",
+    "subtitle": "Faux-journalism cosmic horror that turns investigation into contagion.",
+    "description": "A BBC mystery-thriller series that reframes Lovecraft stories as contemporary investigative journalism, using podcast structure to make the paranoia feel immediate.",
+    "cover": "images/covers/the-lovecraft-investigations.jpg",
+    "coverAlt": "The Lovecraft Investigations cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "horror",
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Cosmic horror",
+      "Investigative podcast",
+      "Conspiracy"
+    ],
+    "aliases": [],
+    "themes": [
+      "paranoia",
+      "conspiracy",
+      "forbidden knowledge"
+    ],
+    "contentNotes": [
+      "body horror",
+      "violence"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "cold-isolation-horror"
+    ],
+    "similarTo": [
+      "archive-81",
+      "malevolent",
+      "the-white-vault",
+      "mabel"
+    ],
+    "similarReasons": {
+      "archive-81": "Another investigation-shaped route where recorded media becomes part of the threat.",
+      "malevolent": "A more voice-driven occult branch once the dread itself is the main draw.",
+      "the-white-vault": "Keeps the atmospheric pressure high while making the mystery colder and more procedural.",
+      "mabel": "A more intimate haunting branch if you want the voice and dread to feel closer and stranger."
+    },
+    "archiveTake": "One of the strongest archive routes for listeners who want horror to arrive through investigation rather than jump-scare mechanics.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Julian Simpson",
+      "productionCompany": "BBC Radio 4"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "contemporary investigative-horror world",
+      "pov": "podcast-journalism thriller",
+      "sourceMaterial": "Lovecraft adaptation",
+      "intensity": "high"
+    },
+    "ratings": {
+      "archive": 9.3
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "video-palace",
+    "title": "Video Palace",
+    "subtitle": "Found-audio horror about cursed media and the kind of mystery that keeps getting worse.",
+    "description": "A compact horror serial about a cursed VHS tape, a missing-store legend, and the way media obsession becomes the path into something older and meaner.",
+    "cover": "images/covers/video-palace.jpg",
+    "coverAlt": "Video Palace cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "horror",
+      "mystery",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Found audio",
+      "Occult",
+      "Media horror"
+    ],
+    "aliases": [],
+    "themes": [
+      "obsession",
+      "occult investigation",
+      "lost media"
+    ],
+    "contentNotes": [
+      "violence",
+      "body horror"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "headphones-on",
+      "late-night",
+      "short-under-five-hours"
+    ],
+    "similarTo": [
+      "archive-81",
+      "malevolent",
+      "the-white-vault",
+      "mirrors"
+    ],
+    "similarReasons": {
+      "archive-81": "Another media-shaped horror route where the format itself becomes part of the trap.",
+      "malevolent": "A more overt occult branch if you want the threat to stay intimate and personal.",
+      "the-white-vault": "Keeps the atmosphere oppressive while shifting from expedition horror to cursed-media investigation.",
+      "mirrors": "A cleaner supernatural-technology branch once you want another completed eerie route."
+    },
+    "archiveTake": "A strong short-run recommendation for listeners who want creepy recorded-media horror without committing to a huge catalog.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Nick Braccia and Mike Monello",
+      "writer": "Ben Rock & Bob DeRosa",
+      "director": "Ben Rock",
+      "productionCompany": "Shudder"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "n/a"
+    },
+    "content": {
+      "setting": "cursed VHS investigation",
+      "pov": "found-audio horror serial",
+      "sourceMaterial": "original fiction",
+      "intensity": "high"
+    },
+    "ratings": {
+      "archive": 8.9
+    },
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "updatedAt": "2026-07-01"
   }
 ]

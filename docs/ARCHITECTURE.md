@@ -61,6 +61,7 @@ The current generated page set includes:
 - `for-creators.html`
 - `creator-standards.html`
 - `supporters.html`
+- `help-center.html`
 - `collections.html`
 - `collection.html`
 - `show.html`
@@ -84,6 +85,7 @@ Primary public routes:
 - `/for-creators.html`
 - `/creator-standards.html`
 - `/supporters.html`
+- `/help-center.html`
 - `/collections.html`
 - `/collection.html?id=<collection-id>`
 - `/show.html?id=<show-id>`
@@ -236,7 +238,7 @@ The chat layer combines:
 
 - structured show and collection data
 - archive-context loaders
-- site-help responses for privacy, terms, supporter, contact, and creator workflow questions
+- site-help responses for privacy, terms, help-center, supporter, contact, and creator workflow questions
 - rate limiting
 - optional Ollama model calls
 - deterministic catalog-grounded fallbacks when model output is unavailable or unsuitable

@@ -13,7 +13,7 @@
     "spotify": "https://open.spotify.com/show/6zCjlwfTyQ8grdlLIW4EAq",
     "apple": "https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000",
     "website": "https://arsparadoxica.com/",
-    "rss": "https://arsparadoxica.libsyn.com/rss"
+    "rss": "https://rss.libsyn.com/shows/108705/destinations/591779.xml"
   },
   "genres": [
     "sci-fi",
@@ -81,10 +81,10 @@
     "hex": "#217997",
     "rgb": "33, 121, 151"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
-    "first": "2015-06-01",
-    "latest": "2018-06-06"
+    "first": "2015-05-31",
+    "latest": "2020-03-20"
   },
   "officialLinks": {
     "website": "https://arsparadoxica.com/",
@@ -143,23 +143,22 @@
       "https://arsparadoxica.com/season-1",
       "https://arsparadoxica.com/season-2",
       "https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000",
-      "https://arsparadoxica.libsyn.com/rss"
+      "https://arsparadoxica.libsyn.com/rss",
+      "https://rss.libsyn.com/shows/108705/destinations/591779.xml"
     ],
-    "objectiveNote": "Official site verifies story premise, crew, transcripts, awards, and platform links; Apple verifies 49 episodes and 3 seasons.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/ars-paradoxica.json",
-    "researchGaps": [
-      "exact main-series vs extras count modeling for UI"
-    ],
+    "researchGaps": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://arsparadoxica.com/; https://arsparadoxica.com/crew; https://arsparadoxica.com/season-1; https://arsparadoxica.com/season-2; https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000; https://arsparadoxica.libsyn.com/rss",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

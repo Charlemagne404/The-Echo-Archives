@@ -2,6 +2,7 @@ import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { loadCollections, loadShows } from "../data.js";
 import { setChatOpen } from "../chat.js";
 import { formatDate, updateDocumentMetadata } from "../utils.js";
+import { initializeAccordionList } from "./accordion.js";
 
 export async function initializeForCreatorsPage() {
   const [shows, collections] = await Promise.all([loadShows(), loadCollections()]);
@@ -82,56 +83,9 @@ function hasMetadataVerification(show) {
 }
 
 function initializeCreatorFaq() {
-  const items = Array.from(document.querySelectorAll(".creator-faq-item"));
-
-  function setFaqItemExpanded(item, expanded) {
-    if (!(item instanceof HTMLElement)) {
-      return;
-    }
-
-    const button = item.querySelector(".creator-faq-toggle");
-    if (!(button instanceof HTMLButtonElement)) {
-      return;
-    }
-
-    const panelId = button.getAttribute("aria-controls");
-    if (!panelId) {
-      return;
-    }
-
-    const panel = document.getElementById(panelId);
-    if (!panel) {
-      return;
-    }
-
-    button.setAttribute("aria-expanded", String(expanded));
-    panel.hidden = !expanded;
-    item.classList.toggle("is-open", expanded);
-  }
-
-  items.forEach((item) => {
-    if (!(item instanceof HTMLElement)) {
-      return;
-    }
-
-    const button = item.querySelector(".creator-faq-toggle");
-    if (!(button instanceof HTMLButtonElement)) {
-      return;
-    }
-
-    setFaqItemExpanded(item, button.getAttribute("aria-expanded") === "true");
-
-    button.addEventListener("click", () => {
-      const shouldExpand = button.getAttribute("aria-expanded") !== "true";
-
-      items.forEach((otherItem) => {
-        if (otherItem !== item) {
-          setFaqItemExpanded(otherItem, false);
-        }
-      });
-
-      setFaqItemExpanded(item, shouldExpand);
-    });
+  initializeAccordionList({
+    itemSelector: ".creator-faq-item",
+    buttonSelector: ".creator-faq-toggle",
   });
 }
 

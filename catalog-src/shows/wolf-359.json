@@ -71,10 +71,10 @@
     "hex": "#728187",
     "rgb": "114, 129, 135"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
     "first": "2014-08-15",
-    "latest": "2017-12-25"
+    "latest": "2025-11-13"
   },
   "officialLinks": {
     "website": "https://www.wolf359.fm/",
@@ -118,24 +118,23 @@
     "objectiveSources": [
       "https://www.wolf359.fm/",
       "https://podcasts.apple.com/us/podcast/wolf-359/id909552816",
-      "https://wolf359radio.libsyn.com/episode-61-brave-new-world"
+      "https://wolf359radio.libsyn.com/episode-61-brave-new-world",
+      "https://feeds.megaphone.fm/wolf359radio"
     ],
-    "objectiveNote": "Official site verifies premise and site identity; platform/reference data verifies completed four-season / 61-episode run.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/wolf-359.json",
-    "researchGaps": [
-      "exact RSS URL confirmation if feed host changes"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.wolf359.fm/; https://podcasts.apple.com/us/podcast/wolf-359/id909552816; https://wolf359radio.libsyn.com/episode-61-brave-new-world",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

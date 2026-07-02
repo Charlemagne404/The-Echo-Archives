@@ -58,6 +58,7 @@ test("main routes render expected page titles", async () => {
       { url: `${baseUrl}/for-creators.html`, title: "For Creators - The Echo Archives" },
       { url: `${baseUrl}/creator-standards.html`, title: "Creator Standards - The Echo Archives" },
       { url: `${baseUrl}/supporters.html`, title: "Support the Archive - The Echo Archives" },
+      { url: `${baseUrl}/help-center.html`, title: "Help Center - The Echo Archives" },
       { url: `${baseUrl}/collections.html`, title: "Collections - The Echo Archives" },
       {
         url: `${baseUrl}/collection.html?id=${firstCollectionId}`,
@@ -321,6 +322,39 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
           assert.equal(result.layoutColumns, 1);
           assert.ok(result.railTop < result.sectionTop);
           assert.equal(result.railLinkColumns, 1);
+        },
+      },
+      {
+        url: `${baseUrl}/help-center.html`,
+        ready: () => document.querySelector(".help-center-hero-visual") && document.querySelector("#help-common-issues .creator-action-card"),
+        evaluate: () => {
+          const railRect = document.querySelector(".help-center-page-rail")?.getBoundingClientRect();
+          const sectionRect = document.querySelector("#help-common-issues")?.getBoundingClientRect();
+          return {
+            scrollWidth: document.documentElement.scrollWidth,
+            viewport: window.innerWidth,
+            layoutColumns: (() => {
+              const template = window.getComputedStyle(document.querySelector(".help-center-document-layout")).gridTemplateColumns.trim();
+              return template && template !== "none" ? template.split(" ").length : 0;
+            })(),
+            summaryColumns: (() => {
+              const template = window.getComputedStyle(document.querySelector(".help-center-summary-grid")).gridTemplateColumns.trim();
+              return template && template !== "none" ? template.split(" ").length : 0;
+            })(),
+            issueColumns: (() => {
+              const template = window.getComputedStyle(document.querySelector(".help-center-issue-grid")).gridTemplateColumns.trim();
+              return template && template !== "none" ? template.split(" ").length : 0;
+            })(),
+            railTop: railRect?.top || 0,
+            sectionTop: sectionRect?.top || 0,
+          };
+        },
+        assert(result) {
+          assert.ok(result.scrollWidth <= result.viewport + 1);
+          assert.equal(result.layoutColumns, 1);
+          assert.equal(result.summaryColumns, 1);
+          assert.equal(result.issueColumns, 1);
+          assert.ok(result.railTop < result.sectionTop);
         },
       },
     ];

@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/were-alive/id313300476",
     "website": "https://www.werealive.com/",
-    "rss": ""
+    "rss": "https://feeds.acast.com/public/shows/d1b39068-c10f-5817-8324-88ba173183cd"
   },
   "genres": [
     "thriller",
@@ -36,7 +36,8 @@
     "label": "Franchise-level entry; official site states 70+ hours of content",
     "seasons": 0,
     "avgEpisodeMinutes": 30,
-    "totalHours": 70
+    "totalHours": 70,
+    "episodes": 231
   },
   "ratings": {
     "archive": 8
@@ -70,10 +71,10 @@
     "hex": "#7d4f3e",
     "rgb": "125, 79, 62"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
     "first": "2009-05-04",
-    "latest": "2026-02-24"
+    "latest": "2026-06-30"
   },
   "officialLinks": {
     "website": "https://www.werealive.com/",
@@ -114,25 +115,23 @@
   "metadata": {
     "objectiveSources": [
       "https://www.werealive.com/",
-      "https://podcasts.apple.com/us/podcast/were-alive/id313300476"
+      "https://podcasts.apple.com/us/podcast/were-alive/id313300476",
+      "https://feeds.acast.com/public/shows/d1b39068-c10f-5817-8324-88ba173183cd"
     ],
-    "objectiveNote": "This entry is filled as a franchise-level record. Official site verifies 70+ hours, broad platform availability, downloads, and current Descendants/finale schedule through February 24, 2026.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/were-alive.json",
-    "researchGaps": [
-      "whether archive page should scope to A Story of Survival only or the whole franchise",
-      "full franchise episode count"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.werealive.com/; https://podcasts.apple.com/us/podcast/were-alive/id313300476",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

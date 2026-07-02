@@ -161,6 +161,40 @@ export function getQuickFilters(filterTags) {
   return PREFERRED_QUICK_FILTERS.filter((id) => tagsById.has(id)).map((id) => tagsById.get(id));
 }
 
+const FILTER_MENU_BUCKETS = [
+  {
+    id: "storyType",
+    label: "Story type",
+    description: "Genre and format",
+    groupIds: ["genres", "formats"],
+  },
+  {
+    id: "tone",
+    label: "Tone",
+    description: "Mood and atmosphere",
+    groupIds: ["tones"],
+  },
+  {
+    id: "listeningContext",
+    label: "Listening context",
+    description: "Best for, commitment, and use case",
+    groupIds: ["bestFor"],
+  },
+  {
+    id: "archiveStatus",
+    label: "Archive status",
+    description: "Completion status and archive coverage",
+    groupIds: ["completionStatus", "reviewStatus"],
+  },
+  {
+    id: "findTags",
+    label: "Find tags",
+    description: "Search the long-tail archive tags",
+    groupIds: ["tags"],
+    searchable: true,
+  },
+];
+
 function createCountedOptions(shows, selector, formatter = toDisplayTag) {
   const counts = new Map();
 
@@ -205,4 +239,21 @@ export function getStructuredFilterGroups(shows) {
     { id: "bestFor", label: "Best for", options: createCountedOptions(shows, (show) => show.bestFor, toDisplayTag) },
     { id: "tags", label: "Tags", options: getVisibleFilterTags(shows) },
   ].filter((group) => group.options.length > 0);
+}
+
+export function getFilterMenuBuckets(structuredFilterGroups) {
+  const groupsById = new Map(structuredFilterGroups.map((group) => [group.id, group]));
+
+  return FILTER_MENU_BUCKETS.map((bucket) => {
+    const groups = bucket.groupIds.map((groupId) => groupsById.get(groupId)).filter(Boolean);
+    if (groups.length === 0) {
+      return null;
+    }
+
+    return {
+      ...bucket,
+      groups,
+      optionCount: groups.reduce((count, group) => count + group.options.length, 0),
+    };
+  }).filter(Boolean);
 }

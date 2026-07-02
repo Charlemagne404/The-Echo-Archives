@@ -46,6 +46,35 @@ test.after(async () => {
   await teardownSmoke();
 });
 
+async function ensureFilterMenuOpen(page) {
+  const isOpen = await page.evaluate(() => {
+    const dropdown = document.getElementById("filterDropdown");
+    return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
+  });
+
+  if (isOpen) {
+    return;
+  }
+
+  await page.locator("#filterToggle").click();
+  await page.waitForFunction(() => {
+    const dropdown = document.getElementById("filterDropdown");
+    return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");
+  });
+}
+
+async function openFilterBucket(page, bucketId) {
+  await ensureFilterMenuOpen(page);
+  await page.locator(`#filterDropdown [data-filter-bucket-id="${bucketId}"]`).click();
+  await page.waitForFunction(
+    (currentBucketId) => {
+      const detail = document.querySelector("#filterDropdown .filter-menu-detail");
+      return Boolean(detail && detail.dataset.filterBucket === currentBucketId);
+    },
+    bucketId,
+  );
+}
+
 test("indexed-only detail page shows truthful canonical metadata without narrow legacy layout constraints", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
@@ -106,6 +135,7 @@ test("show-page genre breadcrumb returns to the archive with that genre filter a
     await page.goto(`${baseUrl}/show.html?id=were-alive`, { waitUntil: "networkidle" });
     await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
     await page.waitForURL(`${baseUrl}/index.html?genre=thriller#archive`);
+    await openFilterBucket(page, "storyType");
     await page.waitForFunction(
       () =>
         document.querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')?.classList.contains("is-active") &&
@@ -159,6 +189,7 @@ test("clearing a breadcrumb-driven genre filter also clears it from the URL afte
     );
 
     await page.reload({ waitUntil: "networkidle" });
+    await openFilterBucket(page, "storyType");
 
     const state = await page.evaluate(() => ({
       search: window.location.search,

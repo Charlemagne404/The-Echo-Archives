@@ -37,6 +37,7 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       about: { label: "Read About", href: "/about.html", external: false },
       creators: { label: "Open For Creators", href: "/for-creators.html", external: false },
       submit: { label: "Open Submit", href: "/submit.html", external: false },
+      helpCenter: { label: "Open Help Center", href: "/help-center.html", external: false },
       privacy: { label: "Read Privacy", href: "/privacy.html", external: false },
       terms: { label: "Read Terms", href: "/terms.html", external: false },
       supporters: { label: "Support Archive", href: "/supporters.html", external: false },
@@ -246,6 +247,20 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
             "What stays editorially independent?",
             "How do I submit a correction?",
             "Do I need verification to be listed?",
+          ],
+        };
+      }
+
+      if (page.pageType === "help-center") {
+        return {
+          answer:
+            "This help center covers discovery problems, broken links, ratings, creator verification, browser storage, and which archive workflow fits a given issue. Ask about the symptom and I can point you to the right route.",
+          actions: [siteHelpContext.routes.helpCenter, siteHelpContext.routes.submit, siteHelpContext.routes.privacy],
+          suggestedPrompts: [
+            "What does creator verified mean?",
+            "How do I report a broken link?",
+            "Why did my rating not stick?",
+            "How should I search when I do not know the exact title?",
           ],
         };
       }

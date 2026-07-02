@@ -7,13 +7,13 @@
   "coverAlt": "Borrasca cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "spotify": "https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz",
     "apple": "https://podcasts.apple.com/us/podcast/borrasca/id1513640702",
     "website": "https://qcodemedia.com/borrasca",
-    "rss": ""
+    "rss": "https://rss.pdrl.fm/c6e8ba/feeds.megaphone.fm/QCD2333202365"
   },
   "genres": [
     "horror",
@@ -49,9 +49,16 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "QCODE promoted a second season return; the feed currently contains two seasons plus recap material."
+    "label": "2 seasons / 23 current feed entries including recap and companion material.",
+    "seasons": 2,
+    "episodes": 23,
+    "avgEpisodeMinutes": 27
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2020-05-25",
+    "latest": "2022-11-10",
+    "note": "QCODE launched Season 1 in May 2020 and returned for Season 2 in 2022."
+  },
   "ratings": {
     "archive": 8.6
   },
@@ -76,19 +83,36 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://qcodemedia.com/borrasca; https://podcasts.apple.com/us/podcast/borrasca/id1513640702; https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://qcodemedia.com/borrasca; https://podcasts.apple.com/us/podcast/borrasca/id1513640702; https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz; https://rss.pdrl.fm/c6e8ba/feeds.megaphone.fm/QCD2333202365",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Rebecca Klingel"
   ],
-  "cast": [],
+  "cast": [
+    "Cole Sprouse"
+  ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "the-phenomenon": "Keeps the public-danger dread active once you want the menace to feel bigger than one town.",
     "tower-4": "A quieter remote-post branch if you want the unease to stay intimate and suspicious.",
     "how-i-died": "Another investigation-shaped horror route once the mystery is the main driver."
+  },
+  "credits": {
+    "creatorName": "Rebecca Klingel",
+    "productionCompany": "QCODE"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://qcodemedia.com/borrasca",
+      "https://podcasts.apple.com/us/podcast/borrasca/id1513640702",
+      "https://open.spotify.com/show/7mj2cxXR0KPFxcAt9Eignz",
+      "https://rss.pdrl.fm/c6e8ba/feeds.megaphone.fm/QCD2333202365"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

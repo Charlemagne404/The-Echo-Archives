@@ -13,7 +13,7 @@
     "spotify": "https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
     "apple": "https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058",
     "website": "https://www.atypicalartists.co/thebrightsessions",
-    "rss": ""
+    "rss": "https://rss.art19.com/the-bright-sessions"
   },
   "genres": [
     "sci-fi",
@@ -51,10 +51,15 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Official site states the show ran for seven seasons.",
-    "seasons": 7
+    "label": "7 seasons / 124 feed entries including bonus and anniversary material.",
+    "seasons": 7,
+    "episodes": 124,
+    "avgEpisodeMinutes": 25
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2015-10-01",
+    "latest": "2025-11-01"
+  },
   "ratings": {
     "archive": 9.1
   },
@@ -80,19 +85,34 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.atypicalartists.co/thebrightsessions; https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058; https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.atypicalartists.co/thebrightsessions; https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058; https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb; https://rss.art19.com/the-bright-sessions",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Lauren Shippen"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "ars-paradoxica": "A denser science-fiction branch if the speculative mechanics matter as much as the characters.",
     "story": "Keeps the softer emotional legibility intact while stepping away from the superpowered frame.",
     "case-63": "A tighter, more suspense-forward route once you want the sci-fi idea compressed into a cleaner thriller."
+  },
+  "credits": {
+    "creatorName": "Lauren Shippen",
+    "productionCompany": "Atypical Artists"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.atypicalartists.co/thebrightsessions",
+      "https://podcasts.apple.com/us/podcast/the-bright-sessions/id1053268058",
+      "https://open.spotify.com/show/1sSQt6a48M6t1mupfqnCnb",
+      "https://rss.art19.com/the-bright-sessions"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

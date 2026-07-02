@@ -122,10 +122,16 @@
 
   .about-page .about-split-media {
     min-height: 250px;
+    padding: 18px 10px 10px;
+    justify-content: center;
   }
 
   .about-split-media img {
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72) 0%, #000 18%, #000 82%, transparent 100%);
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    transform: none;
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.84) 16%, #000 38%, #000 82%, transparent 100%);
   }
 
   .about-founder-card,

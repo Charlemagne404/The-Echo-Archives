@@ -1,0 +1,141 @@
+{
+  "id": "the-lovecraft-investigations",
+  "title": "The Lovecraft Investigations",
+  "subtitle": "Faux-journalism cosmic horror that turns investigation into contagion.",
+  "description": "A BBC mystery-thriller series that reframes Lovecraft stories as contemporary investigative journalism, using podcast structure to make the paranoia feel immediate.",
+  "cover": "images/covers/the-lovecraft-investigations.jpg",
+  "coverAlt": "The Lovecraft Investigations cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-lovecraft-investigations/id1444464816?uo=4",
+    "website": "https://www.bbc.co.uk/programmes/m002xnkw",
+    "rss": "https://podcasts.files.bbci.co.uk/m002xnkw.rss"
+  },
+  "genres": [
+    "horror",
+    "mystery",
+    "thriller"
+  ],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Cosmic horror",
+    "Investigative podcast",
+    "Conspiracy"
+  ],
+  "aliases": [],
+  "themes": [
+    "paranoia",
+    "conspiracy",
+    "forbidden knowledge"
+  ],
+  "contentNotes": [
+    "body horror",
+    "violence"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "44 current feed episodes in the active investigative-horror run.",
+    "episodes": 44,
+    "avgEpisodeMinutes": 28,
+    "totalHours": 20.5
+  },
+  "releaseDates": {
+    "first": "2019-11-25",
+    "latest": "2026-04-10"
+  },
+  "ratings": {
+    "archive": 9.3
+  },
+  "facts": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "cold-isolation-horror"
+  ],
+  "similarTo": [
+    "archive-81",
+    "malevolent",
+    "the-white-vault",
+    "mabel"
+  ],
+  "similarReasons": {
+    "archive-81": "Another investigation-shaped route where recorded media becomes part of the threat.",
+    "malevolent": "A more voice-driven occult branch once the dread itself is the main draw.",
+    "the-white-vault": "Keeps the atmospheric pressure high while making the mystery colder and more procedural.",
+    "mabel": "A more intimate haunting branch if you want the voice and dread to feel closer and stranger."
+  },
+  "archiveTake": "One of the strongest archive routes for listeners who want horror to arrive through investigation rather than jump-scare mechanics.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.bbc.co.uk/programmes/m002xnkw",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "Julian Simpson",
+    "productionCompany": "BBC Radio 4"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/the-lovecraft-investigations/id1444464816?uo=4; https://www.bbc.co.uk/programmes/m002xnkw; https://podcasts.files.bbci.co.uk/m002xnkw.rss",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "contemporary investigative-horror world",
+    "pov": "podcast-journalism thriller",
+    "sourceMaterial": "Lovecraft adaptation",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/the-lovecraft-investigations/id1444464816?uo=4",
+      "https://www.bbc.co.uk/programmes/m002xnkw",
+      "https://podcasts.files.bbci.co.uk/m002xnkw.rss"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "76b9cf1d-fa78-423d-9afb-3e7a1d61b882",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1444464816",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:07:17.646Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "bbc-radio-4",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "Julian Simpson"
+  ]
+}

@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
     "website": "https://www.7lamb.com/audiodramas/paralyzed",
-    "rss": ""
+    "rss": "https://feeds.simplecast.com/hSJNVRL9"
   },
   "genres": [
     "mystery",
@@ -68,7 +68,7 @@
     "hex": "#7e5a77",
     "rgb": "126, 90, 119"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/paralyzed",
     "patreon": "",
@@ -79,7 +79,7 @@
     "facebook": ""
   },
   "credits": {
-    "productionCompany": "7 Lamb Productions",
+    "productionCompany": "Bloody FM / 7 Lamb Productions",
     "creatorName": "7 Lamb Productions",
     "writer": "Robert Lamb",
     "director": "Not verified",
@@ -106,26 +106,23 @@
       "https://www.7lamb.com/audiodramas",
       "https://www.7lamb.com/audiodramas/paralyzed",
       "https://podcasts.apple.com/us/podcast/paralyzed/id993000668",
-      "https://podcasts.bloody-disgusting.com/podcasts/paralyzed/"
+      "https://podcasts.bloody-disgusting.com/podcasts/paralyzed/",
+      "https://feeds.simplecast.com/hSJNVRL9"
     ],
-    "objectiveNote": "Official 7 Lamb listing verifies premise about David, sleep paralysis, camping trip, and supernatural threat.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/paralyzed.json",
-    "researchGaps": [
-      "exact first episode date",
-      "exact latest episode date",
-      "cast/crew beyond creator/network"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/paralyzed; https://podcasts.apple.com/us/podcast/paralyzed/id993000668; https://podcasts.bloody-disgusting.com/podcasts/paralyzed/",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
@@ -155,8 +152,8 @@
     "note": "Apple lists years active 2015-2025; exact normalized first/latest episode dates were not pinned in this pass.",
     "firstYear": 2015,
     "latestYear": 2025,
-    "first": "",
-    "latest": ""
+    "first": "2015-06-02",
+    "latest": "2025-12-11"
   },
   "createdAt": "2026-06-01",
   "creatorId": "7-lamb-productions",

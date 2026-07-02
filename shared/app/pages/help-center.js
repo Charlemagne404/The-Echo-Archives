@@ -1,0 +1,17 @@
+import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
+import { updateDocumentMetadata } from "../utils.js";
+import { initializeAccordionList } from "./accordion.js";
+
+export function initializeHelpCenterPage() {
+  updateDocumentMetadata({
+    title: "Help Center - The Echo Archives",
+    description: "Common fixes, archive FAQs, and practical help for discovery, ratings, links, and browser behavior in The Echo Archives.",
+    path: "/help-center.html",
+    image: DEFAULT_SOCIAL_IMAGE,
+  });
+
+  initializeAccordionList({
+    itemSelector: ".creator-faq-item",
+    buttonSelector: ".creator-faq-toggle",
+  });
+}

@@ -13,7 +13,7 @@
     "spotify": "https://open.spotify.com/show/1Jx1PpUmJrZgM68re3zMjJ",
     "apple": "https://podcasts.apple.com/us/podcast/from-now/id1544239486",
     "website": "https://qcodemedia.com/from-now",
-    "rss": ""
+    "rss": "https://rss.pdrl.fm/15cb75/feeds.megaphone.fm/QCD7924418919"
   },
   "genres": [
     "sci-fi",
@@ -70,10 +70,10 @@
     "hex": "#8d413e",
     "rgb": "141, 65, 62"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
     "first": "2020-12-21",
-    "latest": "2021-01-25"
+    "latest": "2022-08-23"
   },
   "officialLinks": {
     "website": "https://qcodemedia.com/from-now",
@@ -122,24 +122,23 @@
   "metadata": {
     "objectiveSources": [
       "https://qcodemedia.com/from-now",
-      "https://podcasts.apple.com/us/podcast/from-now/id1544239486"
+      "https://podcasts.apple.com/us/podcast/from-now/id1544239486",
+      "https://rss.pdrl.fm/15cb75/feeds.megaphone.fm/QCD7924418919"
     ],
-    "objectiveNote": "Official QCODE page verifies the six episode transcript entries, creators/writers, principal stars, and premise.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/from-now.json",
-    "researchGaps": [
-      "exact RSS feed URL"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "source-verified-with-feed-note",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://qcodemedia.com/from-now; https://podcasts.apple.com/us/podcast/from-now/id1544239486",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

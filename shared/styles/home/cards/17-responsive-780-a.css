@@ -226,6 +226,27 @@
     left: 14px;
   }
 
+  #filterDropdown,
+  #stickyFilterDropdown {
+    position: fixed;
+    top: max(12px, env(safe-area-inset-top));
+    right: var(--shell-inline-padding-tablet);
+    left: var(--shell-inline-padding-tablet);
+    width: auto;
+    height: min(
+      600px,
+      calc(100vh - max(24px, env(safe-area-inset-top)) - max(24px, env(safe-area-inset-bottom)))
+    );
+    max-height: calc(100vh - max(24px, env(safe-area-inset-top)) - max(24px, env(safe-area-inset-bottom)));
+    border-radius: 24px;
+    transform: translateY(14px) scale(0.985);
+  }
+
+  #filterDropdown::before,
+  #stickyFilterDropdown::before {
+    display: none;
+  }
+
   .section-heading,
   .podcast-card-grid,
   .chat-input-area,

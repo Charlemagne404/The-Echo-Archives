@@ -11,6 +11,7 @@ const runtimePages = [
   "for-creators.html",
   "creator-standards.html",
   "supporters.html",
+  "help-center.html",
   "collections.html",
   "collection.html",
   "show.html",

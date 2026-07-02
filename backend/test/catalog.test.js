@@ -59,8 +59,8 @@ test("loadCatalog reads the structured show catalog", async () => {
   const impactWinter = catalog.find((entry) => entry.title === "Impact Winter");
   const ids = new Set(catalog.map((entry) => entry.id));
 
-  assert.equal(catalog.length, 41);
-  assert.equal(ids.size, 41);
+  assert.equal(catalog.length, 48);
+  assert.equal(ids.size, 48);
   assert.ok(impactWinter);
   assert.equal(impactWinter.finalRating, 10);
   assert.equal(impactWinter.hasPage, true);

@@ -101,14 +101,18 @@
 }
 
 .about-split-card {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
   gap: 0;
   padding: 0;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .about-split-copy {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 12px;
   align-content: center;
@@ -135,10 +139,16 @@
 
 .about-split-media {
   position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   min-height: 164px;
+  padding: 22px 0;
+  overflow: hidden;
   background:
-    radial-gradient(circle at 76% 28%, rgba(229, 72, 56, 0.11), transparent 14%),
-    linear-gradient(90deg, rgba(3, 5, 8, 0.99) 0%, rgba(4, 6, 9, 0.88) 26%, rgba(4, 6, 9, 0.26) 57%, rgba(3, 5, 8, 0.92) 100%);
+    radial-gradient(circle at 72% 48%, rgba(229, 72, 56, 0.09), transparent 18%),
+    linear-gradient(90deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.16) 42%, rgba(3, 5, 8, 0.34) 100%);
   isolation: isolate;
 }
 
@@ -147,21 +157,22 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(3, 5, 8, 1) 0%, rgba(3, 5, 8, 0.87) 14%, rgba(3, 5, 8, 0.2) 39%, rgba(3, 5, 8, 0.54) 100%),
-    linear-gradient(180deg, rgba(3, 5, 8, 0.2) 0%, transparent 20%, transparent 74%, rgba(3, 5, 8, 0.54) 100%),
-    radial-gradient(circle at 82% 40%, transparent 0%, rgba(0, 0, 0, 0.14) 72%, rgba(0, 0, 0, 0.44) 100%);
+    linear-gradient(90deg, rgba(3, 5, 8, 0.78) 0%, rgba(3, 5, 8, 0.26) 22%, rgba(3, 5, 8, 0.02) 48%, rgba(3, 5, 8, 0.24) 100%),
+    linear-gradient(180deg, rgba(3, 5, 8, 0.12) 0%, transparent 18%, transparent 82%, rgba(3, 5, 8, 0.28) 100%),
+    radial-gradient(circle at 84% 42%, transparent 0%, rgba(0, 0, 0, 0.08) 68%, rgba(0, 0, 0, 0.2) 100%);
   pointer-events: none;
 }
 
 .about-split-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 36%;
-  transform: scale(1.03);
-  filter: saturate(0.8) brightness(0.72) contrast(1.08);
-  opacity: 0.92;
-  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.74) 16%, #000 36%, #000 90%, transparent 100%);
+  width: auto;
+  height: min(100%, 430px);
+  max-width: none;
+  object-fit: contain;
+  object-position: right center;
+  transform: translateX(7%);
+  filter: saturate(0.88) brightness(0.9) contrast(1.02);
+  opacity: 0.94;
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.34) 12%, rgba(0, 0, 0, 0.92) 32%, #000 80%, transparent 100%);
 }
 
 .about-feature-section,

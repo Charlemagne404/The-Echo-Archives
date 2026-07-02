@@ -1,0 +1,141 @@
+{
+  "id": "marsfall",
+  "title": "Marsfall",
+  "subtitle": "Mars-colony survival sci-fi with enough pressure to keep the optimism uneasy.",
+  "description": "A full-cast Mars-colony drama about first-settlement optimism colliding with sabotage, AI pressure, and the feeling that every system can fail at once.",
+  "cover": "images/covers/marsfall.jpg",
+  "coverAlt": "Marsfall cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/marsfall/id1267375227?uo=4",
+    "website": "https://marsfallpod.com/",
+    "rss": "https://feeds.megaphone.fm/CORU9449488044"
+  },
+  "genres": [
+    "sci-fi",
+    "drama",
+    "adventure"
+  ],
+  "tones": [
+    "tense",
+    "cinematic",
+    "dark"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Mars colony",
+    "Survival",
+    "AI"
+  ],
+  "aliases": [],
+  "themes": [
+    "colonization",
+    "survival",
+    "artificial intelligence"
+  ],
+  "contentNotes": [
+    "violence",
+    "disaster scenarios"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "50 feed episodes across the released run.",
+    "episodes": 50,
+    "avgEpisodeMinutes": 29,
+    "totalHours": 24.2
+  },
+  "releaseDates": {
+    "first": "2017-08-03",
+    "latest": "2023-12-05"
+  },
+  "ratings": {
+    "archive": 8.8
+  },
+  "facts": {},
+  "bestFor": [
+    "serious-sci-fi",
+    "worldbuilding",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "vast-horizon",
+    "derelict",
+    "solar",
+    "the-program-audio-series"
+  ],
+  "similarReasons": {
+    "vast-horizon": "Another survival-first space route with enough room for the setting to keep unfolding.",
+    "derelict": "A darker high-pressure sci-fi branch when the industrial danger is the main appeal.",
+    "solar": "Tightens the survival premise around technical failure and closed-environment tension.",
+    "the-program-audio-series": "A colder speculative branch once the systems and ideas matter as much as the characters."
+  },
+  "archiveTake": "Useful when the listener wants Mars-colony scale without losing the panic of small-system survival.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://marsfallpod.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "Marsfall LLC",
+    "network": "Realm"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/marsfall/id1267375227?uo=4; https://marsfallpod.com/; https://feeds.megaphone.fm/CORU9449488044",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "first-generation Mars colony",
+    "pov": "ensemble survival drama",
+    "sourceMaterial": "original fiction",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/marsfall/id1267375227?uo=4",
+      "https://marsfallpod.com/",
+      "https://feeds.megaphone.fm/CORU9449488044"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "50cf3f76-bd9b-4a43-951d-eb18a81971f6",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1267375227",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:06:47.023Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "marsfall-llc-realm",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "Marsfall LLC"
+  ]
+}

@@ -2,6 +2,7 @@ import { backToTopBtn, chatContainer, toggleBtn } from "./constants.js";
 import { initializeSharedChat } from "./chat.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeAboutPage } from "./pages/about.js";
+import { initializeHelpCenterPage } from "./pages/help-center.js";
 import { initializeCollectionPage } from "./pages/collection.js";
 import { initializeCollectionsPage } from "./pages/collections.js";
 import { initializeCreatorStandardsPage, initializeForCreatorsPage } from "./pages/creators.js";
@@ -35,6 +36,10 @@ export async function initializeApp() {
 
   if (document.body.classList.contains("about-page")) {
     await initializeAboutPage();
+  }
+
+  if (document.body.classList.contains("help-center-page")) {
+    initializeHelpCenterPage();
   }
 
   if (document.body.classList.contains("submit-page")) {

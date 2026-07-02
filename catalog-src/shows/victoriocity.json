@@ -1,0 +1,139 @@
+{
+  "id": "victoriocity",
+  "title": "Victoriocity",
+  "subtitle": "Alternate-Victorian detective comedy with real momentum under the jokes.",
+  "description": "A full-cast detective comedy set in an impossibly large 1887 London, balancing murder mystery plotting with brisk ensemble charm and world-sized absurdity.",
+  "cover": "images/covers/victoriocity.jpg",
+  "coverAlt": "Victoriocity cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4",
+    "website": "https://www.victoriocity.com/",
+    "rss": "https://rss.libsyn.com/shows/107749/destinations/584552.xml"
+  },
+  "genres": [
+    "comedy",
+    "mystery",
+    "drama"
+  ],
+  "tones": [
+    "funny",
+    "weird",
+    "warm"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Detective comedy",
+    "Alt-history",
+    "Victorian"
+  ],
+  "aliases": [],
+  "themes": [
+    "conspiracy",
+    "journalism",
+    "civic absurdity"
+  ],
+  "contentNotes": [
+    "violence"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "35 current feed episodes in the active serialized run.",
+    "episodes": 35,
+    "avgEpisodeMinutes": 31,
+    "totalHours": 18.1
+  },
+  "releaseDates": {
+    "first": "2017-10-19",
+    "latest": "2025-05-20"
+  },
+  "ratings": {
+    "archive": 9
+  },
+  "facts": {},
+  "bestFor": [
+    "easy-entry",
+    "warm-weird",
+    "long-walks"
+  ],
+  "similarTo": [
+    "wooden-overcoats",
+    "welcome-to-night-vale",
+    "eos-10",
+    "midnight-burger"
+  ],
+  "similarReasons": {
+    "wooden-overcoats": "Another sharply written British comedy route where performance rhythm does most of the lifting.",
+    "welcome-to-night-vale": "A different kind of civic weirdness once you want absurd local systems instead of cosmic radio calm.",
+    "eos-10": "Keeps the banter and mystery movement active with a stronger detective spine.",
+    "midnight-burger": "A broader recommendation bridge if you want humor with a bigger speculative appetite."
+  },
+  "archiveTake": "Useful when someone wants a comedy route that still moves like a real mystery instead of sketching in place.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.victoriocity.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "Victoriocity"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4; https://www.victoriocity.com/; https://rss.libsyn.com/shows/107749/destinations/584552.xml",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "alternate 1887 London",
+    "pov": "detective-and-journalist duo",
+    "sourceMaterial": "original fiction",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4",
+      "https://www.victoriocity.com/",
+      "https://rss.libsyn.com/shows/107749/destinations/584552.xml"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "7f8e29db-93c6-4be7-ba61-c87f786aa76d",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1293184351",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:07:09.995Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "victoriocity",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "Victoriocity"
+  ]
+}

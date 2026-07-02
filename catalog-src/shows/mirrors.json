@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/mirrors/id1428871702",
     "website": "https://www.mirrorspodcast.com/",
-    "rss": ""
+    "rss": "https://rss.libsyn.com/shows/128446/destinations/774055.xml"
   },
   "genres": [
     "horror",
@@ -49,9 +49,14 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Official site describes the complete series as available now."
+    "label": "25 feed entries across the completed run.",
+    "episodes": 25,
+    "avgEpisodeMinutes": 28
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2018-08-15",
+    "latest": "2020-12-08"
+  },
   "ratings": {
     "archive": 9
   },
@@ -77,19 +82,29 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.mirrorspodcast.com/; https://podcasts.apple.com/us/podcast/mirrors/id1428871702",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.mirrorspodcast.com/; https://podcasts.apple.com/us/podcast/mirrors/id1428871702; https://rss.libsyn.com/shows/128446/destinations/774055.xml",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "ZoomDoom Stories"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "the-white-vault": "Keeps the dread serious while shifting the haunting toward a broader speculative frame.",
     "archive-81": "A more ritual-heavy horror branch if the sound-driven weirdness is what you want more of.",
     "ars-paradoxica": "A cleaner science-fiction neighbor if the time-spanning structure mattered as much as the atmosphere."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.mirrorspodcast.com/",
+      "https://podcasts.apple.com/us/podcast/mirrors/id1428871702",
+      "https://rss.libsyn.com/shows/128446/destinations/774055.xml"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

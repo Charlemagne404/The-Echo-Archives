@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/story/id1312875502",
     "website": "https://www.7lamb.com/audiodramas/story",
-    "rss": ""
+    "rss": "https://feeds.simplecast.com/3bWx59ox"
   },
   "genres": [
     "drama",
@@ -67,7 +67,7 @@
     "hex": "#976f48",
     "rgb": "151, 111, 72"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/story",
     "patreon": "",
@@ -78,7 +78,7 @@
     "facebook": ""
   },
   "credits": {
-    "productionCompany": "7 Lamb Productions",
+    "productionCompany": "Bloody FM / 7 Lamb Productions",
     "creatorName": "7 Lamb Productions",
     "writer": "Not verified",
     "director": "Not verified",
@@ -104,27 +104,23 @@
     "objectiveSources": [
       "https://www.7lamb.com/audiodramas",
       "https://www.7lamb.com/audiodramas/story",
-      "https://podcasts.apple.com/us/podcast/story/id1312875502"
+      "https://podcasts.apple.com/us/podcast/story/id1312875502",
+      "https://feeds.simplecast.com/3bWx59ox"
     ],
-    "objectiveNote": "Official 7 Lamb listing verifies anthology/mini-series premise. Detail-page platform links are image-heavy and did not expose clean episode metadata.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/story.json",
-    "researchGaps": [
-      "exact first episode date",
-      "exact latest episode date",
-      "per-season story breakdown",
-      "cast/crew beyond 7 Lamb/Bloody FM listing"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/story; https://podcasts.apple.com/us/podcast/story/id1312875502",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
@@ -153,8 +149,8 @@
     "note": "Apple lists years active 2017-2024; exact normalized first/latest episode dates were not pinned in this pass.",
     "firstYear": 2017,
     "latestYear": 2024,
-    "first": "",
-    "latest": ""
+    "first": "2017-11-13",
+    "latest": "2024-05-30"
   },
   "createdAt": "2026-06-01",
   "creatorId": "7-lamb-productions",

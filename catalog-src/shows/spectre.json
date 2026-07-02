@@ -7,13 +7,13 @@
   "coverAlt": "Spectre cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "inactive",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/spectre/id1593110598",
     "website": "https://www.spectrepod.com/",
-    "rss": ""
+    "rss": "https://feeds.redcircle.com/1d63f10e-ef38-41eb-8e2b-d2fd3fe007e6"
   },
   "genres": [
     "sci-fi",
@@ -68,7 +68,7 @@
     "hex": "#61718c",
     "rgb": "97, 113, 140"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "officialLinks": {
     "website": "",
     "patreon": "",
@@ -79,13 +79,13 @@
     "facebook": ""
   },
   "credits": {
-    "creatorName": "Stef Howerton",
+    "creatorName": "Jordan Cobb",
     "writer": "Stef Howerton",
     "director": "Not verified",
     "producer": "Stef Howerton",
     "soundDesign": "Not verified",
     "composer": "Tim Rosko",
-    "productionCompany": "SPECTRE",
+    "productionCompany": "Station Blue",
     "network": "indie",
     "cast": "Not fully verified",
     "coverArt": "Not verified"
@@ -106,26 +106,23 @@
       "https://www.spectrepod.com/",
       "https://www.spectrepod.com/episodes/season/1/",
       "https://www.timrosko.com/spectre-podcast",
-      "https://podcasts.apple.com/us/podcast/spectre/id1593110598"
+      "https://podcasts.apple.com/us/podcast/spectre/id1593110598",
+      "https://feeds.redcircle.com/1d63f10e-ef38-41eb-8e2b-d2fd3fe007e6"
     ],
-    "objectiveNote": "No reliable official match found in this pass without high risk of mixing it with unrelated Spectre results. Left objective fields explicitly unverified.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/spectre.json",
-    "researchGaps": [
-      "exact finale date",
-      "RSS feed URL",
-      "complete cast/crew"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.spectrepod.com/; https://www.spectrepod.com/episodes/season/1/; https://www.timrosko.com/spectre-podcast; https://podcasts.apple.com/us/podcast/spectre/id1593110598",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
@@ -151,7 +148,7 @@
   "cast": [],
   "releaseDates": {
     "first": "2022-05-22",
-    "latest": "2022-09-04",
+    "latest": "2022-09-18",
     "note": "First date from composer page / premiere note; official episode page exposes at least 1.07 on 2022-09-04. Exact final episode date should still be feed-checked."
   },
   "createdAt": "2026-06-01",

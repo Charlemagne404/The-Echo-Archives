@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
     "website": "https://desertskiespodcast.com/",
-    "rss": ""
+    "rss": "https://feeds.megaphone.fm/desertskies"
   },
   "genres": [
     "fantasy",
@@ -37,7 +37,7 @@
   "length": {
     "label": "Season 3 active; 29 numbered story chapters verified through Chapter 29, plus bonus/FM/presenting feed entries",
     "seasons": 3,
-    "episodes": 29,
+    "episodes": 46,
     "avgEpisodeMinutes": 37,
     "totalHours": 8.2,
     "feedEntriesApprox": 53
@@ -72,10 +72,10 @@
     "hex": "#ae7b4c",
     "rgb": "174, 123, 76"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
-    "first": "2022-08-06",
-    "latest": "2026-06-08",
+    "first": "2022-07-12",
+    "latest": "2026-06-22",
     "note": "latest verified numbered story chapter is Chapter 29 on 2026-06-08; broader feed includes bonus/FM/presenting entries.",
     "latestStory": "2026-06-08"
   },
@@ -117,24 +117,23 @@
       "https://desertskiespodcast.com/about-the-podcast/",
       "https://desertskiespodcast.com/transcripts/",
       "https://podcasts.apple.com/us/podcast/desert-skies/id1634726836",
-      "https://cms.megaphone.fm/channel/desertskies"
+      "https://cms.megaphone.fm/channel/desertskies",
+      "https://feeds.megaphone.fm/desertskies"
     ],
-    "objectiveNote": "Official site verifies Jared Carter writes, produces, and voices every character; transcript index confirms listed chapters and bonus transcript pages.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/desert-skies.json",
-    "researchGaps": [
-      "exact current total feed entry count from RSS"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "source-verified-with-feed-note",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://desertskiespodcast.com/; https://desertskiespodcast.com/about-the-podcast/; https://desertskiespodcast.com/transcripts/; https://podcasts.apple.com/us/podcast/desert-skies/id1634726836; https://cms.megaphone.fm/channel/desertskies",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

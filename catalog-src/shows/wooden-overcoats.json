@@ -7,13 +7,13 @@
   "coverAlt": "Wooden Overcoats cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "hiatus",
-  "completionStatus": "unclear",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
   "listenLinks": {
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
     "website": "https://www.woodenovercoats.com/",
-    "rss": ""
+    "rss": "https://feeds.megaphone.fm/woodenovercoats"
   },
   "genres": [
     "comedy",
@@ -47,10 +47,15 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Apple lists 55 episodes and years active 2015-2024; the official site also promoted additional 2025 material.",
-    "episodes": 55
+    "label": "4 main seasons with 55 current feed entries including specials and bonus material.",
+    "episodes": 55,
+    "seasons": 4,
+    "avgEpisodeMinutes": 24
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2015-09-24",
+    "latest": "2026-06-25"
+  },
   "ratings": {
     "archive": 8.8
   },
@@ -75,19 +80,29 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.woodenovercoats.com/; https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.woodenovercoats.com/; https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268; https://feeds.megaphone.fm/woodenovercoats",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Wooden Overcoats Ltd"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "wolf-359": "Keeps the ensemble friction and running bit energy alive in a bigger sci-fi frame.",
     "oz-9": "Pushes the incompetence and comic disaster angle much harder.",
     "eos-10": "Another banter-heavy ensemble comedy route with a lighter speculative wrapper."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.woodenovercoats.com/",
+      "https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
+      "https://feeds.megaphone.fm/woodenovercoats"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

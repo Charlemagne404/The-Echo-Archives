@@ -7,13 +7,13 @@
   "coverAlt": "Alice Isn't Dead cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "unknown",
-  "completionStatus": "unclear",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
   "listenLinks": {
     "spotify": "https://open.spotify.com/show/6X9NNwTMXte6udhYDjwHyM",
     "apple": "https://podcasts.apple.com/us/podcast/alice-isnt-dead/id1088978354",
     "website": "https://www.nightvalepresents.com/aliceisntdead",
-    "rss": "https://feeds.nightvalepresents.com/aliceisntdead"
+    "rss": "https://feeds.megaphone.fm/SBP8990444845"
   },
   "genres": [
     "horror",
@@ -51,9 +51,15 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Long-form serialized run with a completed original story arc and later additional material around the feed."
+    "label": "65 feed entries spanning the original run and the active sequel-series feed.",
+    "episodes": 65,
+    "avgEpisodeMinutes": 21
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2016-02-29",
+    "latest": "2026-06-22",
+    "note": "The current feed now carries the sequel-series continuation announced on the official site."
+  },
   "ratings": {
     "archive": 8.9
   },
@@ -79,19 +85,44 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.nightvalepresents.com/aliceisntdead; https://podcasts.apple.com/us/podcast/alice-isnt-dead/id1088978354; https://open.spotify.com/show/6X9NNwTMXte6udhYDjwHyM; https://feeds.nightvalepresents.com/aliceisntdead",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.nightvalepresents.com/aliceisntdead; https://podcasts.apple.com/us/podcast/alice-isnt-dead/id1088978354; https://open.spotify.com/show/6X9NNwTMXte6udhYDjwHyM; https://feeds.nightvalepresents.com/aliceisntdead; https://feeds.megaphone.fm/SBP8990444845",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Joseph Fink"
   ],
-  "cast": [],
+  "cast": [
+    "Jasika Nicole"
+  ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "tower-4": "The cleanest next stop if the solitary voice and remote unease are the hook.",
     "the-white-vault": "A colder environmental-horror branch once the sense of isolation becomes the main appetite.",
     "archive-81": "A stranger signal-horror route for listeners who want the mystery to get more ritualistic and unstable."
+  },
+  "credits": {
+    "creatorName": "Joseph Fink",
+    "performer": "Jasika Nicole",
+    "soundDesign": "Disparition"
+  },
+  "content": {
+    "setting": "road-horror across the United States",
+    "pov": "first-person narrated search",
+    "sourceMaterial": "original fiction",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.nightvalepresents.com/aliceisntdead",
+      "https://podcasts.apple.com/us/podcast/alice-isnt-dead/id1088978354",
+      "https://open.spotify.com/show/6X9NNwTMXte6udhYDjwHyM",
+      "https://feeds.nightvalepresents.com/aliceisntdead",
+      "https://feeds.megaphone.fm/SBP8990444845"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

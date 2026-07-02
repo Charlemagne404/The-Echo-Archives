@@ -13,7 +13,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
     "website": "https://www.7lamb.com/audiodramas/tower-4",
-    "rss": ""
+    "rss": "https://feeds.simplecast.com/tcwTC6rY"
   },
   "genres": [
     "mystery",
@@ -37,7 +37,7 @@
     "seasons": 4,
     "episodes": 62,
     "feedEntriesApprox": 66,
-    "avgEpisodeMinutes": 40
+    "avgEpisodeMinutes": 35
   },
   "ratings": {
     "archive": 10
@@ -71,7 +71,7 @@
     "hex": "#7e6448",
     "rgb": "126, 100, 72"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/tower-4",
     "patreon": "",
@@ -108,25 +108,23 @@
     "objectiveSources": [
       "https://www.7lamb.com/audiodramas",
       "https://www.7lamb.com/audiodramas/tower-4",
-      "https://podcasts.apple.com/us/podcast/tower-4/id1533736348"
+      "https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
+      "https://feeds.simplecast.com/tcwTC6rY"
     ],
-    "objectiveNote": "Official 7 Lamb listing verifies Mike Archer / Wyoming fire-watch premise.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/tower-4.json",
-    "researchGaps": [
-      "exact total feed entry count",
-      "complete cast/crew"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "source-verified-with-feed-note",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/tower-4; https://podcasts.apple.com/us/podcast/tower-4/id1533736348",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },

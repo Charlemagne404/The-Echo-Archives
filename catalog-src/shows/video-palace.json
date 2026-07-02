@@ -1,0 +1,149 @@
+{
+  "id": "video-palace",
+  "title": "Video Palace",
+  "subtitle": "Found-audio horror about cursed media and the kind of mystery that keeps getting worse.",
+  "description": "A compact horror serial about a cursed VHS tape, a missing-store legend, and the way media obsession becomes the path into something older and meaner.",
+  "cover": "images/covers/video-palace.jpg",
+  "coverAlt": "Video Palace cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/video-palace/id1439247558?uo=4",
+    "website": "http://shudder.com/",
+    "rss": "https://rss.art19.com/video-palace"
+  },
+  "genres": [
+    "horror",
+    "mystery",
+    "thriller"
+  ],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Found audio",
+    "Occult",
+    "Media horror"
+  ],
+  "aliases": [],
+  "themes": [
+    "obsession",
+    "occult investigation",
+    "lost media"
+  ],
+  "contentNotes": [
+    "violence",
+    "body horror"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "14 current feed episodes including bonus material.",
+    "episodes": 14,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 5.8
+  },
+  "releaseDates": {
+    "first": "2018-10-16",
+    "latest": "2022-09-28"
+  },
+  "ratings": {
+    "archive": 8.9
+  },
+  "facts": {},
+  "bestFor": [
+    "headphones-on",
+    "late-night",
+    "short-under-five-hours"
+  ],
+  "similarTo": [
+    "archive-81",
+    "malevolent",
+    "the-white-vault",
+    "mirrors"
+  ],
+  "similarReasons": {
+    "archive-81": "Another media-shaped horror route where the format itself becomes part of the trap.",
+    "malevolent": "A more overt occult branch if you want the threat to stay intimate and personal.",
+    "the-white-vault": "Keeps the atmosphere oppressive while shifting from expedition horror to cursed-media investigation.",
+    "mirrors": "A cleaner supernatural-technology branch once you want another completed eerie route."
+  },
+  "archiveTake": "A strong short-run recommendation for listeners who want creepy recorded-media horror without committing to a huge catalog.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.shudder.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "Nick Braccia and Mike Monello",
+    "writer": "Ben Rock & Bob DeRosa",
+    "director": "Ben Rock",
+    "productionCompany": "Shudder"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/video-palace/id1439247558?uo=4; https://rss.art19.com/video-palace; http://shudder.com/; https://www.shudder.com/",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "cursed VHS investigation",
+    "pov": "found-audio horror serial",
+    "sourceMaterial": "original fiction",
+    "intensity": "high"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/video-palace/id1439247558?uo=4",
+      "https://rss.art19.com/video-palace",
+      "http://shudder.com/",
+      "https://www.shudder.com/"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "742f1261-496e-483c-bd2e-5e24586ecc8f",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1439247558",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:07:21.527Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "shudder",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "Nick Braccia",
+    "Mike Monello"
+  ],
+  "cast": [
+    "Chase Williamson",
+    "Devin Sidell"
+  ]
+}

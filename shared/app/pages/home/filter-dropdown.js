@@ -18,6 +18,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
   filterDropdown.hidden = true;
   filterDropdown.dataset.state = "closed";
   filterDropdown.classList.remove("hidden");
+  const mobileSheetQuery = window.matchMedia("(max-width: 780px)");
 
   const clearTimers = () => {
     if (stateTimer) {
@@ -32,6 +33,10 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
 
   const isOpen = () => !filterDropdown.hidden && filterDropdown.dataset.state !== "closing";
 
+  const syncBodySheetState = (open) => {
+    document.body.classList.toggle("filter-sheet-open", open && mobileSheetQuery.matches);
+  };
+
   const open = () => {
     if (isOpen()) {
       return;
@@ -41,6 +46,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
     filterDropdown.hidden = false;
     filterDropdown.dataset.state = "closed";
     filterToggle.setAttribute("aria-expanded", "true");
+    syncBodySheetState(true);
     openFrame = window.requestAnimationFrame(() => {
       openFrame = 0;
       filterDropdown.dataset.state = "opening";
@@ -58,6 +64,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
     filterToggle.setAttribute("aria-expanded", "false");
     if (filterDropdown.hidden) {
       filterDropdown.dataset.state = "closed";
+      syncBodySheetState(false);
       if (returnFocus) {
         filterToggle.focus();
       }
@@ -69,11 +76,16 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
       stateTimer = 0;
       filterDropdown.hidden = true;
       filterDropdown.dataset.state = "closed";
+      syncBodySheetState(false);
       if (returnFocus) {
         filterToggle.focus();
       }
     }, FILTER_DROPDOWN_CLOSE_DURATION_MS);
   };
+
+  mobileSheetQuery.addEventListener("change", () => {
+    syncBodySheetState(isOpen());
+  });
 
   return {
     close,

@@ -41,6 +41,7 @@ Public routes currently include:
 - `/for-creators.html`
 - `/creator-standards.html`
 - `/supporters.html`
+- `/help-center.html`
 - `/collections.html`
 - `/collection.html?id=<collection-id>`
 - `/show.html?id=<show-id>`

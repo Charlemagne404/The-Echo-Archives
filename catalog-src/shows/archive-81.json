@@ -13,7 +13,7 @@
     "spotify": "https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
     "apple": "https://podcasts.apple.com/us/podcast/archive-81/id1098194172",
     "website": "https://www.archive81.com/",
-    "rss": ""
+    "rss": "https://rss.libsyn.com/shows/124004/destinations/733937.xml"
   },
   "genres": [
     "horror",
@@ -49,10 +49,15 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "Official site says the show has released three seasons and two miniseries, with more to come.",
-    "seasons": 3
+    "label": "51 current feed entries spanning the core seasons and later returns.",
+    "seasons": 3,
+    "episodes": 51,
+    "avgEpisodeMinutes": 28
   },
-  "releaseDates": {},
+  "releaseDates": {
+    "first": "2016-03-30",
+    "latest": "2025-12-18"
+  },
   "ratings": {
     "archive": 9.1
   },
@@ -78,19 +83,30 @@
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-30",
-    "source": "https://www.archive81.com/; https://podcasts.apple.com/us/podcast/archive-81/id1098194172; https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
-    "note": "Verification covers factual metadata only."
+    "verifiedAt": "2026-07-01",
+    "source": "https://www.archive81.com/; https://podcasts.apple.com/us/podcast/archive-81/id1098194172; https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B; https://rss.libsyn.com/shows/124004/destinations/733937.xml",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "creators": [
     "Dead Signals"
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "similarReasons": {
     "the-white-vault": "A colder isolation-horror neighbor if you want the setting itself to feel more hostile.",
     "tower-4": "Keeps the remote-post suspicion active in a more grounded mystery shape.",
     "malevolent": "A darker occult escalation once the sound-led weirdness needs a more intimate supernatural bond."
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://www.archive81.com/",
+      "https://podcasts.apple.com/us/podcast/archive-81/id1098194172",
+      "https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
+      "https://rss.libsyn.com/shows/124004/destinations/733937.xml"
+    ],
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
   }
 }

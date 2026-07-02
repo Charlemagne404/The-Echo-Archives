@@ -1,0 +1,141 @@
+{
+  "id": "the-strange-case-of-starship-iris",
+  "title": "The Strange Case of Starship Iris",
+  "subtitle": "Found-family space opera with politics, jokes, and real forward pull.",
+  "description": "A postwar space-opera serial about a surviving smuggler crew, anti-imperial resistance, and the way a funny ensemble can still carry sharp political stakes.",
+  "cover": "images/covers/the-strange-case-of-starship-iris.jpg",
+  "coverAlt": "The Strange Case of Starship Iris cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-strange-case-of-starship-iris/id1193720457?uo=4",
+    "website": "https://procyonpodcasts.com/starship-iris",
+    "rss": "https://feeds.megaphone.fm/FAFO3490609621"
+  },
+  "genres": [
+    "sci-fi",
+    "drama",
+    "adventure"
+  ],
+  "tones": [
+    "hopeful",
+    "funny",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Space opera",
+    "Found family",
+    "Resistance"
+  ],
+  "aliases": [],
+  "themes": [
+    "found family",
+    "resistance",
+    "identity"
+  ],
+  "contentNotes": [
+    "war aftermath"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "42 current feed episodes across the active run.",
+    "episodes": 42,
+    "avgEpisodeMinutes": 29,
+    "totalHours": 20.3
+  },
+  "releaseDates": {
+    "first": "2017-01-10",
+    "latest": "2025-10-23"
+  },
+  "ratings": {
+    "archive": 9.1
+  },
+  "facts": {},
+  "bestFor": [
+    "worldbuilding",
+    "easy-entry",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "wolf-359",
+    "ars-paradoxica",
+    "vast-horizon"
+  ],
+  "similarReasons": {
+    "midnight-burger": "Keeps the ensemble warmth and joke density while pushing harder into political space-opera stakes.",
+    "wolf-359": "Another character-forward space route that gets more emotionally attached as the mission deepens.",
+    "ars-paradoxica": "A denser politics-and-consequences branch once the systems behind the story matter more.",
+    "vast-horizon": "A cleaner survival-space branch if you want less banter and more frontier pressure."
+  },
+  "archiveTake": "A strong bridge show when someone wants funny found-family sci-fi that still cares about politics and consequence.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://procyonpodcasts.com/starship-iris",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "Jessica Best",
+    "network": "Procyon Podcast Network"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/the-strange-case-of-starship-iris/id1193720457?uo=4; https://www.spreaker.com/podcast/the-strange-case-of-starship-iris--2107626; https://feeds.megaphone.fm/FAFO3490609621; https://procyonpodcasts.com/starship-iris",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "postwar interstellar frontier",
+    "pov": "ensemble space-opera serial",
+    "sourceMaterial": "original fiction",
+    "intensity": "medium"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/the-strange-case-of-starship-iris/id1193720457?uo=4",
+      "https://www.spreaker.com/podcast/the-strange-case-of-starship-iris--2107626",
+      "https://feeds.megaphone.fm/FAFO3490609621",
+      "https://procyonpodcasts.com/starship-iris"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "efacd81d-4ca4-4bb2-8857-154ab4d492da",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1193720457",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:06:59.653Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "jessica-best-procyon-podcast-network",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "Jessica Best"
+  ]
+}

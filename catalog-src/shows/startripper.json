@@ -1,0 +1,137 @@
+{
+  "id": "startripper",
+  "title": "StarTripper!!",
+  "subtitle": "Road-trip space comfort with enough curiosity to make the galaxy feel generous.",
+  "description": "A cheerful first-person travelogue through a strange galaxy, built around a protagonist who left home to chase wonder instead of status.",
+  "cover": "images/covers/startripper.png",
+  "coverAlt": "StarTripper!! cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/startripper/id1389938599?uo=4",
+    "website": "https://startripperhq.com/",
+    "rss": "https://rss.libsyn.com/shows/122560/destinations/720929.xml"
+  },
+  "genres": [
+    "sci-fi",
+    "comedy",
+    "adventure"
+  ],
+  "tones": [
+    "warm",
+    "funny",
+    "hopeful"
+  ],
+  "formats": [
+    "narrated",
+    "episodic"
+  ],
+  "tags": [
+    "Road trip",
+    "Space travel",
+    "Comfort listen"
+  ],
+  "aliases": [],
+  "themes": [
+    "reinvention",
+    "travel",
+    "wonder"
+  ],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "38 current feed episodes in the released travelogue run.",
+    "episodes": 38,
+    "avgEpisodeMinutes": 24,
+    "totalHours": 15.2
+  },
+  "releaseDates": {
+    "first": "2018-05-24",
+    "latest": "2024-05-18"
+  },
+  "ratings": {
+    "archive": 8.9
+  },
+  "facts": {},
+  "bestFor": [
+    "warm-weird",
+    "long-walks",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "desert-skies",
+    "the-waystation",
+    "eos-10"
+  ],
+  "similarReasons": {
+    "midnight-burger": "Another generous cosmic route when the warmth matters more than the tension.",
+    "desert-skies": "Keeps the comfort-forward oddness intact with even lighter stakes.",
+    "the-waystation": "A hopeful speculative branch if what you want is curiosity about place and encounter.",
+    "eos-10": "A funnier ensemble route once you want more friction and less solitude."
+  },
+  "archiveTake": "A good archive answer for listeners who want the weirdness to feel restorative instead of threatening.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://startripperhq.com/",
+    "patreon": "",
+    "discord": "",
+    "youtube": ""
+  },
+  "credits": {
+    "creatorName": "StarTripper!!"
+  },
+  "verification": {
+    "status": "source-verified",
+    "verifiedAt": "2026-07-01",
+    "source": "https://podcasts.apple.com/us/podcast/startripper/id1389938599?uo=4; https://startripperhq.com/; https://rss.libsyn.com/shows/122560/destinations/720929.xml",
+    "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "n/a"
+  },
+  "content": {
+    "setting": "civilian road-trip galaxy",
+    "pov": "first-person travelogue",
+    "sourceMaterial": "original fiction",
+    "intensity": "low"
+  },
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/startripper/id1389938599?uo=4",
+      "https://startripperhq.com/",
+      "https://rss.libsyn.com/shows/122560/destinations/720929.xml"
+    ],
+    "researchGaps": [],
+    "importCandidateId": "e188ef18-9791-4790-a44e-6be693716181",
+    "importStatus": "published",
+    "importIdentifiers": {
+      "appleCollectionId": "1389938599",
+      "podcastIndexFeedId": "",
+      "podcastIndexGuid": ""
+    },
+    "objectiveImportedAt": "2026-07-01T14:07:13.853Z",
+    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
+    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+  },
+  "featured": false,
+  "createdAt": "2026-07-01",
+  "creatorId": "startripper",
+  "updatedAt": "2026-07-01",
+  "creators": [
+    "StarTripper!!"
+  ]
+}

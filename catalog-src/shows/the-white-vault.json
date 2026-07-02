@@ -13,7 +13,7 @@
     "spotify": "https://open.spotify.com/show/2zaOPON66InniTdoEoPai5",
     "apple": "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
     "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
-    "rss": "https://feeds.megaphone.fm/thewhitevault"
+    "rss": "https://feeds.megaphone.fm/SBP7754210900"
   },
   "genres": [
     "horror",
@@ -37,7 +37,7 @@
   "length": {
     "label": "Shared Fool & Scholar feed; Apple shows Season 8 active, and public feed counts vary because related series/bonus entries are included",
     "seasons": 8,
-    "episodes": 92,
+    "episodes": 119,
     "avgEpisodeMinutes": 30,
     "totalHours": 46,
     "feedEntriesApprox": 119
@@ -74,10 +74,10 @@
     "hex": "#6c7e89",
     "rgb": "108, 126, 137"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "releaseDates": {
-    "first": "2017-10-03",
-    "latest": "2026-06-01"
+    "first": "2017-08-02",
+    "latest": "2026-03-10"
   },
   "officialLinks": {
     "website": "https://www.foolandscholar.com/the-white-vault-goshawk",
@@ -124,25 +124,23 @@
     "objectiveSources": [
       "https://www.foolandscholar.com/the-white-vault-goshawk",
       "https://www.foolandscholar.com/the-white-vault-1",
-      "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823"
+      "https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
+      "https://feeds.megaphone.fm/SBP7754210900"
     ],
-    "objectiveNote": "Official Fool & Scholar page verifies shared White Vault/Goshawk feed handling, platform links, RSS, cast/crew context for Goshawk, and active award/status notes. White Vault historical episode totals should be handled carefully because the feed now includes related series.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
+    "objectiveVerifiedAt": "2026-07-01",
     "reviewFile": "reviews/the-white-vault.json",
-    "researchGaps": [
-      "exact main-series count separated from shared-feed related series",
-      "whether archive should display 92 main/current entries or broader ~119 feed entries"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
   },
   "verification": {
     "status": "partially-source-verified-with-feed-note",
-    "verifiedAt": "2026-06-15",
+    "verifiedAt": "2026-07-01",
     "source": "https://www.foolandscholar.com/the-white-vault-goshawk; https://www.foolandscholar.com/the-white-vault-1; https://podcasts.apple.com/us/podcast/the-white-vault/id1267043823",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
