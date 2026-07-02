@@ -47,6 +47,11 @@
   color: #ffffff;
 }
 
+#site-footer a:focus-visible {
+  outline: 2px solid rgba(229, 72, 56, 0.52);
+  outline-offset: 3px;
+}
+
 .footer-brand-mark {
   display: inline-flex;
   align-self: start;

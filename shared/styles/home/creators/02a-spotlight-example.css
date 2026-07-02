@@ -2,30 +2,33 @@
   align-items: center;
 }
 
+.creator-spotlight-header-note {
+  max-width: 52ch;
+  color: rgba(247, 247, 243, 0.68);
+  font-size: 0.9rem;
+  line-height: 1.48;
+}
+
 .creator-spotlight-card h2 {
   font-size: clamp(1.22rem, 1.45vw, 1.48rem);
   line-height: 1.1;
 }
 
-.creator-spotlight-header-link {
+.creator-spotlight-header-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: rgba(247, 247, 243, 0.82);
-  font-size: 0.84rem;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(247, 247, 243, 0.72);
+  font-size: 0.78rem;
   font-weight: 700;
   line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   white-space: nowrap;
-}
-
-.creator-spotlight-header-link svg {
-  width: 15px;
-  height: 15px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
 }
 
 .creator-spotlight-cover {

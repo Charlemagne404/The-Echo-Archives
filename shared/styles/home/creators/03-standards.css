@@ -84,17 +84,18 @@
   line-height: 1.25;
 }
 
-.creator-spotlight-profile-link {
+.creator-spotlight-profile-note {
   width: fit-content;
   margin-top: 5px;
-  color: rgba(239, 89, 67, 0.98);
-  font-size: 0.83rem;
-  pointer-events: none;
-}
-
-.creator-spotlight-profile-link:hover,
-.creator-spotlight-profile-link:focus-visible {
-  color: rgba(239, 89, 67, 0.98);
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(239, 89, 67, 0.16);
+  background: rgba(239, 89, 67, 0.06);
+  color: rgba(247, 247, 243, 0.68);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .creator-standard-section {

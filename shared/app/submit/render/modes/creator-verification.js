@@ -81,12 +81,15 @@ export function renderCreatorVerificationMode(draft, context) {
     }),
     renderLinkListField({
       fieldName: "officialLinks",
-      label: "Official links",
-      helper: "Add links that represent the show or network. Use + Add another link to include additional URLs.",
+      label: "Official links (add at least one)",
+      helper: "Click an official link type to add it, then paste the official destination URL.",
       required: true,
       rows: draft.officialLinks,
       options: OFFICIAL_LINK_OPTIONS,
       plain: false,
+      chooseBeforeAdd: true,
+      emptyMessage: "No official links added yet.",
+      addOptionsAriaLabel: "Add an official link",
     }),
     renderTextareaField({
       id: "submitVerificationNotes",

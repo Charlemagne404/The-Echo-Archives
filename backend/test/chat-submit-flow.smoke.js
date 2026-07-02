@@ -237,17 +237,38 @@ test("Ask the Archivist and the remade submit page interactions work across mode
 
     await page.locator('[data-submission-mode="creator-verification"]').click();
     await page.locator("#submitProofUrl").waitFor();
-    await page.getByRole("button", { name: "Add another link" }).click();
     formState = await page.evaluate(() => ({
       submissionType: document.getElementById("submissionType")?.value || "",
       reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
       proofFieldVisible: Boolean(document.getElementById("submitProofUrl")),
       officialLinkRows: document.querySelectorAll('[data-link-list="officialLinks"][data-link-part="url"]').length,
+      officialLinkButtons: document.querySelectorAll('[data-add-link-option="officialLinks"]').length,
+      emptyStateVisible: Boolean(document.querySelector(".submit-link-list-empty")),
     }));
     assert.equal(formState.submissionType, "creator-verification");
     assert.equal(formState.reviewFieldVisible, false);
     assert.equal(formState.proofFieldVisible, true);
-    assert.equal(formState.officialLinkRows, 2);
+    assert.equal(formState.officialLinkRows, 0);
+    assert.equal(formState.officialLinkButtons, 8);
+    assert.equal(formState.emptyStateVisible, true);
+
+    await page.locator('[data-add-link-option="officialLinks"][data-add-link-value="Website"]').click();
+    formState = await page.evaluate(() => ({
+      officialLinkRows: document.querySelectorAll('[data-link-list="officialLinks"][data-link-part="url"]').length,
+      firstOfficialLinkLabel: document.querySelector('[data-link-list="officialLinks"][data-link-part="label"]')?.value || "",
+      emptyStateVisible: Boolean(document.querySelector(".submit-link-list-empty")),
+    }));
+    assert.equal(formState.officialLinkRows, 1);
+    assert.equal(formState.firstOfficialLinkLabel, "Website");
+    assert.equal(formState.emptyStateVisible, false);
+
+    await page.locator('[data-remove-link="officialLinks"][data-link-index="0"]').click();
+    formState = await page.evaluate(() => ({
+      officialLinkRows: document.querySelectorAll('[data-link-list="officialLinks"][data-link-part="url"]').length,
+      emptyStateVisible: Boolean(document.querySelector(".submit-link-list-empty")),
+    }));
+    assert.equal(formState.officialLinkRows, 0);
+    assert.equal(formState.emptyStateVisible, true);
 
     await page.locator('[data-submission-mode="correction"]').click();
     await page.locator("#submitExistingShowSearch").fill("Impact");

@@ -88,7 +88,7 @@ export function createDraft(mode) {
         proofUrl: "",
         requestedUpdates: "",
         preferredDescription: "",
-        officialLinks: [{ label: "Website", url: "" }],
+        officialLinks: [],
         optionalNotes: "",
       };
     default:
@@ -135,11 +135,14 @@ export function removeLinkRow(draft, fieldName, index) {
     return;
   }
 
+  if (fieldName === "officialLinks") {
+    draft[fieldName] = [];
+    return;
+  }
+
   draft[fieldName] = fieldName === "sourceLinks"
     ? [{ url: "" }]
-    : fieldName === "officialLinks"
-      ? [{ label: OFFICIAL_LINK_OPTIONS[0] || "Website", url: "" }]
-      : [{ label: LISTEN_LINK_OPTIONS[0] || "Spotify", url: "" }];
+    : [{ label: LISTEN_LINK_OPTIONS[0] || "Spotify", url: "" }];
 }
 
 export function toggleArrayValue(draft, field, value) {

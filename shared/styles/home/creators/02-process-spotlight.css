@@ -247,6 +247,14 @@
   line-height: 1.52;
 }
 
+.creator-spotlight-meta-note {
+  color: rgba(247, 247, 243, 0.54);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 .creator-tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -307,8 +315,8 @@
 .creator-spotlight-stat dt {
   margin: 0;
   color: rgba(247, 247, 243, 0.58);
-  font-size: 0.66rem;
-  line-height: 1.2;
+  font-size: 0.64rem;
+  line-height: 1.28;
 }
 
 .creator-spotlight-stat dd {

@@ -90,7 +90,7 @@
 
 .about-page .about-split-card {
   grid-template-columns: minmax(0, 0.95fr) minmax(440px, 1.05fr);
-  min-height: 328px;
+  min-height: clamp(390px, 30vw, 460px);
   border-color: rgba(255, 255, 255, 0.13);
   background:
     radial-gradient(circle at 71% 56%, rgba(229, 72, 56, 0.09), transparent 18%),
@@ -110,8 +110,8 @@
 }
 
 .about-page .about-split-copy {
-  gap: 15px;
-  padding: clamp(28px, 3vw, 42px);
+  gap: 13px;
+  padding: clamp(24px, 2.5vw, 34px);
 }
 
 .about-page .about-split-copy h2 {
@@ -128,7 +128,7 @@
 
 .about-problem-list {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   margin: 2px 0 0;
   padding: 0;
   list-style: none;
@@ -137,7 +137,7 @@
 .about-problem-list li {
   display: grid;
   gap: 4px;
-  padding: 11px 13px 11px 15px;
+  padding: 10px 12px 10px 14px;
   border-left: 2px solid rgba(229, 72, 56, 0.78);
   border-radius: 0 14px 14px 0;
   background:
@@ -162,8 +162,10 @@
 }
 
 .about-page .about-split-media {
-  min-height: 328px;
-  padding: clamp(14px, 1.8vw, 24px) 0;
+  min-height: clamp(390px, 30vw, 460px);
+  height: auto;
+  padding: 0;
+  overflow: hidden;
   background:
     linear-gradient(90deg, rgba(3, 5, 8, 0) 0%, rgba(3, 5, 8, 0.12) 36%, rgba(3, 5, 8, 0.28) 100%);
 }
@@ -176,8 +178,13 @@
 }
 
 .about-page .about-split-media img {
-  height: min(100%, 620px);
-  transform: translate(9%, -2%);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 46%;
+  transform: none;
   filter: saturate(0.86) brightness(0.88) contrast(1.02);
 }
 

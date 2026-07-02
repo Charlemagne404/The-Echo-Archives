@@ -11,6 +11,7 @@ export function renderLinkListField({
   required = false,
   chooseBeforeAdd = false,
   emptyMessage = "",
+  addOptionsAriaLabel = "Add a link",
 }) {
   const normalizedRows = Array.isArray(rows) && rows.length > 0
     ? rows
@@ -75,7 +76,7 @@ export function renderLinkListField({
           : ""}
         ${rowMarkup}
         ${!plain && chooseBeforeAdd ? `
-          <div class="submit-add-link-options" role="group" aria-label="Add a listener link">
+          <div class="submit-add-link-options" role="group" aria-label="${escapeAttribute(addOptionsAriaLabel)}">
             ${options.map((option) => `
               <button
                 type="button"

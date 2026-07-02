@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
 <link rel="stylesheet" href="/style.css?v=3115b0b88e" />
-<link rel="stylesheet" href="/home.css?v=7c1588d5fe" />
+<link rel="stylesheet" href="/home.css?v=9e75f61744" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
@@ -125,7 +125,7 @@
         <div class="hero-copy creators-hero-copy">
           <h1>Built with listeners. Better with creators.</h1>
           <p>
-            Creators help keep the archive accurate, useful, and alive. Verify your shows, correct metadata, submit new work, and share listener insights. We handle the rest.
+            Creators help keep the archive accurate, useful, and alive. Verify your show, correct metadata, submit new work, and add official context so listeners get a cleaner archive record.
           </p>
           <div class="creator-hero-actions">
             <a class="about-cta about-cta-primary" href="/submit.html?submissionType=show">
@@ -157,7 +157,7 @@
             </svg>
           </span>
           <div class="creator-stat-card-copy">
-            <span class="page-card-kicker">Creators represented</span>
+            <span class="page-card-kicker">Credited creators</span>
             <strong id="creatorsCreatorCount">-</strong>
           </div>
         </div>
@@ -173,7 +173,7 @@
             </svg>
           </span>
           <div class="creator-stat-card-copy">
-            <span class="page-card-kicker">Published shows</span>
+            <span class="page-card-kicker">Published show records</span>
             <strong id="creatorsShowCount">-</strong>
           </div>
         </div>
@@ -187,8 +187,9 @@
             </svg>
           </span>
           <div class="creator-stat-card-copy">
-            <span class="page-card-kicker">Metadata-checked entries</span>
+            <span class="page-card-kicker">Records with sourced metadata</span>
             <strong id="creatorsMetadataCount">-</strong>
+            <span class="creator-stat-card-note" id="creatorsMetadataContext">-</span>
           </div>
         </div>
       </article>
@@ -202,7 +203,7 @@
             </svg>
           </span>
           <div class="creator-stat-card-copy">
-            <span class="page-card-kicker">Full reviews</span>
+            <span class="page-card-kicker">Full archive reviews</span>
             <strong id="creatorsReviewCount">-</strong>
           </div>
         </div>
@@ -241,7 +242,7 @@
             </span>
             <div class="creator-action-card-copy">
               <h3>Submit a show</h3>
-              <p>Add a new show to the archive. Our team will review and curate it.</p>
+              <p>Add a new show to the archive. We review for sourcing, fit, and listener usefulness.</p>
             </div>
           </div>
           <div class="creator-action-card-footer">
@@ -263,7 +264,7 @@
             </span>
             <div class="creator-action-card-copy">
               <h3>Suggest a correction</h3>
-              <p>Spotted an error? Help us fix facts and metadata so the archive stays accurate.</p>
+              <p>Spotted an error? Help us fix facts and metadata so listeners get the right record.</p>
             </div>
           </div>
           <div class="creator-action-card-footer">
@@ -285,7 +286,7 @@
             </span>
             <div class="creator-action-card-copy">
               <h3>Request verification</h3>
-              <p>Verify your show or update official details to earn the archive’s factual trust signals.</p>
+              <p>Confirm official links and core facts so your show record carries a clear factual trust signal.</p>
             </div>
           </div>
           <div class="creator-action-card-footer">
@@ -307,7 +308,7 @@
             </span>
             <div class="creator-action-card-copy">
               <h3>Creator standards</h3>
-              <p>Read the standards behind verification, corrections, and what stays editorially independent.</p>
+              <p>Read the standards behind verification, corrections, and the line we keep between sourced facts and editorial judgment.</p>
             </div>
           </div>
           <div class="creator-action-card-footer">
@@ -335,28 +336,28 @@
             <span class="creator-step-index" aria-hidden="true">1</span>
             <h3>You submit</h3>
           </div>
-          <p>Choose an intake path and send us the details.</p>
+          <p>Choose the right path and send the details that matter.</p>
         </article>
         <article class="creator-step-card">
           <div class="creator-step-head">
             <span class="creator-step-index" aria-hidden="true">2</span>
             <h3>We review</h3>
           </div>
-          <p>Our team verifies facts and adds context as needed.</p>
+          <p>We check sourcing, metadata, and archive fit by hand.</p>
         </article>
         <article class="creator-step-card">
           <div class="creator-step-head">
             <span class="creator-step-index" aria-hidden="true">3</span>
             <h3>We verify or update</h3>
           </div>
-          <p>Approved updates are applied and you will be notified when relevant.</p>
+          <p>Approved factual updates go in, and verification notes are added when relevant.</p>
         </article>
         <article class="creator-step-card">
           <div class="creator-step-head">
             <span class="creator-step-index" aria-hidden="true">4</span>
             <h3>It goes live</h3>
           </div>
-          <p>Changes appear in the archive for listeners to discover.</p>
+          <p>Changes appear in the archive with clearer context for listeners.</p>
         </article>
       </div>
     </section>
@@ -415,7 +416,7 @@
                 <path d="M20 21a8 8 0 0 0-16 0" />
               </svg>
             </span>
-            <div><strong>Creator / network name</strong><span>Correct name and aliases</span></div>
+            <div><strong>Creator or network name</strong><span>Correct name and aliases</span></div>
           </div>
           <div class="creator-list-item">
             <span class="creator-list-item-icon" aria-hidden="true">
@@ -470,7 +471,7 @@
                 <path d="M11.53 2.29a.53.53 0 0 1 .95 0l2.31 4.68a2.12 2.12 0 0 0 1.59 1.16l5.17.76a.53.53 0 0 1 .29.9l-3.74 3.64a2.12 2.12 0 0 0-.61 1.88l.88 5.14a.53.53 0 0 1-.77.56l-4.62-2.43a2.12 2.12 0 0 0-1.97 0l-4.62 2.43a.53.53 0 0 1-.77-.56l.88-5.14a2.12 2.12 0 0 0-.61-1.88L2.16 9.79a.53.53 0 0 1 .29-.91l5.17-.75a2.12 2.12 0 0 0 1.6-1.16z" />
               </svg>
             </span>
-            <div><strong>Archive Ratings</strong><span>Our editorial stance and ratings stay ours.</span></div>
+            <div><strong>Archive ratings</strong><span>Editorial ratings stay ours.</span></div>
           </div>
           <div class="creator-list-item">
             <span class="creator-list-item-icon" aria-hidden="true">
@@ -482,7 +483,7 @@
                 <path d="M7 21h10" />
               </svg>
             </span>
-            <div><strong>Editorial takes</strong><span>Written summaries and critiques are ours.</span></div>
+            <div><strong>Editorial takes</strong><span>Written summaries and critiques stay ours.</span></div>
           </div>
           <div class="creator-list-item">
             <span class="creator-list-item-icon" aria-hidden="true">
@@ -490,7 +491,7 @@
                 <path d="M2.99 16.34a2 2 0 0 1 .09 1.17L2.02 20.8a1 1 0 0 0 1.24 1.17l3.41-1a2 2 0 0 1 1.1.1 10 10 0 1 0-4.78-4.73" />
               </svg>
             </span>
-            <div><strong>Listener reviews</strong><span>Community reviews remain independent.</span></div>
+            <div><strong>Listener reviews</strong><span>Community reviews stay with listeners.</span></div>
           </div>
           <div class="creator-list-item">
             <span class="creator-list-item-icon" aria-hidden="true">
@@ -505,7 +506,7 @@
                 <path d="M11 3H9" />
               </svg>
             </span>
-            <div><strong>Spotlights &amp; features</strong><span>Curated by our editorial team.</span></div>
+            <div><strong>Spotlights &amp; features</strong><span>When they launch, they stay editorial.</span></div>
           </div>
         </div>
         <a class="creator-list-footer-link" href="/creator-standards.html#creatorStandardsIndependence">
@@ -519,27 +520,24 @@
       <div class="creator-section-header">
         <div>
           <h2 id="creatorSpotlightHeading">Creator spotlight</h2>
+          <p class="creator-spotlight-header-note">An intentional format preview. Real creator spotlights will appear here once the archive publishes its first sourced features.</p>
         </div>
-        <span class="creator-spotlight-header-link">
-          <span>View example spotlights</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </span>
+        <span class="creator-spotlight-header-badge">Example format</span>
       </div>
       <div class="creator-spotlight-grid">
         <article class="creator-spotlight-feature">
-          <div class="creator-spotlight-cover" id="creatorSpotlightCover" aria-label="Example audio drama cover art placeholder">
-            <span class="creator-spotlight-cover-mark">Example</span>
-            <span class="creator-spotlight-cover-title">Sample Signal</span>
+          <div class="creator-spotlight-cover" id="creatorSpotlightCover" aria-label="Example creator spotlight cover art preview">
+            <span class="creator-spotlight-cover-mark">Spotlight preview</span>
+            <span class="creator-spotlight-cover-title">Signal Window</span>
           </div>
           <div class="creator-spotlight-copy">
             <div class="creator-spotlight-topline">
-              <span class="creator-spotlight-kicker">Featured example</span>
+              <span class="creator-spotlight-kicker">Format preview</span>
             </div>
-            <h3 id="creatorSpotlightTitle">Example audio drama</h3>
-            <p class="creator-spotlight-byline" id="creatorSpotlightCreator">Sample sci-fi mystery</p>
-            <p class="creator-spotlight-description" id="creatorSpotlightDescription">A fictional sample card showing how a sourced creator spotlight could appear in the archive.</p>
+            <h3 id="creatorSpotlightTitle">How a creator spotlight will appear</h3>
+            <p class="creator-spotlight-byline" id="creatorSpotlightCreator">Intentional demo card</p>
+            <p class="creator-spotlight-description" id="creatorSpotlightDescription">This sample is here on purpose. It previews the tone, layout, and sourced context reserved for future creator spotlights.</p>
+            <p class="creator-spotlight-meta-note">Sample figures below are illustrative only.</p>
             <dl class="creator-spotlight-stat-strip" aria-label="Example spotlight facts">
               <div class="creator-spotlight-stat">
                 <span class="creator-spotlight-stat-icon" aria-hidden="true">
@@ -549,7 +547,7 @@
                 </span>
                 <div>
                   <dd id="creatorSpotlightRating">8.4/10</dd>
-                  <dt>Example rating</dt>
+                  <dt>Sample archive rating</dt>
                 </div>
               </div>
               <div class="creator-spotlight-stat">
@@ -561,7 +559,7 @@
                 </span>
                 <div>
                   <dd id="creatorSpotlightCompletion">4.8K</dd>
-                  <dt>Example reviews</dt>
+                  <dt>Sample response count</dt>
                 </div>
               </div>
               <div class="creator-spotlight-stat">
@@ -574,13 +572,13 @@
                 </span>
                 <div>
                   <dd id="creatorSpotlightYear">2026</dd>
-                  <dt>Sample launch</dt>
+                  <dt>Sample launch year</dt>
                 </div>
               </div>
             </dl>
           </div>
         </article>
-        <aside class="creator-spotlight-profile" aria-label="Example creator profile">
+        <aside class="creator-spotlight-profile" aria-label="Example creator spotlight profile">
           <span class="creator-spotlight-profile-avatar" aria-hidden="true">
             <svg viewBox="0 0 120 120" role="presentation" focusable="false">
               <circle class="creator-avatar-disc" cx="60" cy="60" r="58" />
@@ -597,15 +595,10 @@
             </svg>
           </span>
           <div class="creator-spotlight-profile-copy">
-            <strong id="creatorSpotlightPlaceholderName">Example Creator</strong>
-            <span class="creator-spotlight-profile-role">Creator &amp; Host</span>
-            <p id="creatorSpotlightPlaceholderCopy">“This sample quote shows where verified creator context would appear once a real spotlight is sourced.”</p>
-            <span class="creator-inline-link creator-spotlight-profile-link" id="creatorSpotlightVerificationLink">
-              <span>Read example interview</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </span>
+            <strong id="creatorSpotlightPlaceholderName">Example creator profile</strong>
+            <span class="creator-spotlight-profile-role">Illustrative quote placement</span>
+            <p id="creatorSpotlightPlaceholderCopy">“Real creator context, once sourced and verified, would appear here as a short spotlight excerpt.”</p>
+            <span class="creator-spotlight-profile-note" id="creatorSpotlightVerificationLink">Interview format preview</span>
           </div>
         </aside>
       </div>
@@ -727,7 +720,7 @@
           </h3>
           <div class="creator-faq-answer" id="creatorFaqAnswer1" role="region" aria-labelledby="creatorFaqQuestion1" hidden>
             <div class="creator-faq-answer-inner">
-              <p>There is no public SLA right now. Every submission is reviewed manually, and nothing auto-publishes. If you are correcting a time-sensitive factual error, use the correction path and include sources so the review is easier to process quickly.</p>
+              <p>There is no public turnaround promise yet. Every submission is reviewed by hand, and nothing auto-publishes. If you are fixing a time-sensitive factual error, use the correction path and include sources so it is easier to review quickly.</p>
             </div>
           </div>
         </article>
@@ -799,7 +792,7 @@
           </h3>
           <div class="creator-faq-answer" id="creatorFaqAnswer5" role="region" aria-labelledby="creatorFaqQuestion5" hidden>
             <div class="creator-faq-answer-inner">
-              <p>Factual corrections are always welcome, but ratings, archive notes, and collection placement remain editorial decisions. Creator verification exists to improve factual metadata only and never implies approval of archive opinions.</p>
+              <p>Factual corrections are always welcome, but ratings, archive notes, collections, and future spotlights remain editorial decisions. Creator verification improves factual metadata only and never implies approval of archive opinions.</p>
             </div>
           </div>
         </article>
@@ -824,7 +817,7 @@
         </h2>
       </div>
       <div class="creator-band-rail">
-        <p class="creator-band-note">Join a community of creators committed to truth, craft, and great audio.</p>
+        <p class="creator-band-note">Independent audio deserves clean records, honest context, and better discovery.</p>
         <div class="creator-band-actions">
           <a class="about-cta about-cta-primary" href="/submit.html?submissionType=show">
             <span>Get started</span>
@@ -914,6 +907,6 @@
 
   <script src="/shared/archive-search.js?v=3ac84effd0"></script>
 
-  <script type="module" src="/script.js?v=47b000665a"></script>
+  <script type="module" src="/script.js?v=470bd3dc75"></script>
 </body>
 </html>

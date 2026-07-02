@@ -53,6 +53,7 @@ export function renderShowMode(draft, context) {
       plain: false,
       chooseBeforeAdd: true,
       emptyMessage: "No listener links added yet.",
+      addOptionsAriaLabel: "Add a listener link",
     }),
     renderFormRow([
       renderChipGroupField({

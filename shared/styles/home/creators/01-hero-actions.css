@@ -68,6 +68,17 @@
   color: #ff7d61;
 }
 
+.creator-hero-actions .about-cta:focus-visible,
+.creator-action-link:focus-visible,
+.creator-inline-link:focus-visible,
+.creator-list-footer-link:focus-visible,
+.creator-standard-link:focus-visible,
+.creator-band-link:focus-visible,
+.creator-faq-toggle:focus-visible {
+  outline: 2px solid rgba(239, 89, 67, 0.58);
+  outline-offset: 3px;
+}
+
 .creator-action-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

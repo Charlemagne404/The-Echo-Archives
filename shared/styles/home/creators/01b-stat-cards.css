@@ -56,6 +56,12 @@
   letter-spacing: -0.05em;
 }
 
+.creator-stat-card-note {
+  color: rgba(247, 247, 243, 0.52);
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
 .creator-stat-card-icon {
   width: 36px;
   height: 36px;

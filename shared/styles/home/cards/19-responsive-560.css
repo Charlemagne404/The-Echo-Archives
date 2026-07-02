@@ -297,6 +297,16 @@
     padding: 10px 11px 10px 13px;
   }
 
+  .about-page .about-split-media {
+    height: clamp(200px, 52vw, 240px);
+    min-height: 200px;
+    max-height: 240px;
+  }
+
+  .about-page .about-split-media img {
+    object-position: 56% 44%;
+  }
+
   .about-page .about-feature-tile {
     min-height: 0;
   }

@@ -114,6 +114,8 @@
   .about-page .about-split-card,
   .about-page .about-two-column {
     grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
   }
 
   .about-split-media {
@@ -121,16 +123,20 @@
   }
 
   .about-page .about-split-media {
-    min-height: 250px;
-    padding: 18px 10px 10px;
+    height: clamp(230px, 34vw, 300px);
+    min-height: 230px;
+    max-height: 300px;
+    padding: 0;
     justify-content: center;
   }
 
-  .about-split-media img {
+  .about-page .about-split-media img {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-width: 100%;
     transform: none;
+    object-fit: cover;
+    object-position: 58% 44%;
     mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.84) 16%, #000 38%, #000 82%, transparent 100%);
   }
 

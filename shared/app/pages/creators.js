@@ -70,6 +70,7 @@ function applyCreatorStats(stats) {
   setText("creatorsCreatorCount", formatInteger(stats.creatorCount));
   setText("creatorsShowCount", formatInteger(stats.showCount));
   setText("creatorsMetadataCount", formatInteger(stats.metadataCheckedCount));
+  setText("creatorsMetadataContext", buildMetadataContext(stats));
   setText("creatorsReviewCount", formatInteger(stats.fullReviewCount));
   setText("creatorsLastUpdated", stats.lastUpdatedLabel);
 }
@@ -80,6 +81,18 @@ function formatInteger(value) {
 
 function hasMetadataVerification(show) {
   return Boolean(show.verification?.status || show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt);
+}
+
+function buildMetadataContext(stats) {
+  if (stats.showCount === 0) {
+    return "No published records yet.";
+  }
+
+  if (stats.metadataCheckedCount === stats.showCount) {
+    return "All published records currently have sourced metadata.";
+  }
+
+  return `${formatInteger(stats.metadataCheckedCount)} of ${formatInteger(stats.showCount)} published records currently have sourced metadata.`;
 }
 
 function initializeCreatorFaq() {

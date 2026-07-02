@@ -51,6 +51,8 @@
 .sticky-browse-bar[data-mode="collapsed"] .sticky-browse-bar-inner {
   width: max-content;
   gap: 10px;
+  margin-left: auto;
+  margin-right: 0;
   padding: 10px;
   border-radius: 16px;
 }
