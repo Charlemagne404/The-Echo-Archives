@@ -77,9 +77,14 @@ function renderSourceSnapshot(source) {
     ["Fetched", formatDateTime(source.fetchedAt)],
     ["Key", source.sourceKey],
     ["Title", normalized.title],
+    ["Subtitle", normalized.subtitle],
     ["Creator", normalized.creatorName],
+    ["Network", normalized.networkName],
     ["Language", normalized.language],
+    ["RSS", normalized.rssUrl],
     ["Episodes", normalized.episodeCount],
+    ["Avg episode", normalized.avgEpisodeMinutes ? `${normalized.avgEpisodeMinutes} min` : ""],
+    ["Seasons", normalized.seasonCount],
     ["Latest release", normalized.latestPublicationDate ? normalized.latestPublicationDate.slice(0, 10) : ""],
   ];
 
@@ -133,15 +138,25 @@ function renderObjectiveSection(candidate) {
   const objective = candidate.objective || {};
   const rows = [
     ["Title", objective.title || candidate.title],
+    ["Subtitle", objective.subtitle],
     ["Creator", objective.creatorName || candidate.creatorName],
+    ["Network", objective.networkName],
     ["Description", objective.description],
     ["Language", objective.languageDisplay || objective.language],
     ["Categories", (objective.categories || []).join(" • ")],
     ["RSS", objective.rssUrl],
     ["Apple", objective.appleUrl],
+    ["Spotify", objective.spotifyUrl],
     ["Website", objective.websiteUrl],
+    ["Patreon", objective.patreonUrl],
+    ["Discord", objective.discordUrl],
+    ["YouTube", objective.youtubeUrl],
     ["Artwork", objective.artworkUrl],
     ["Episode count", objective.episodeCount],
+    ["Season count", objective.seasonCount],
+    ["Average episode length", objective.avgEpisodeMinutes ? `${objective.avgEpisodeMinutes} min` : ""],
+    ["Feed type", objective.feedType],
+    ["First release", objective.firstPublicationDate ? objective.firstPublicationDate.slice(0, 10) : ""],
     ["Latest release", objective.latestPublicationDate ? objective.latestPublicationDate.slice(0, 10) : ""],
     ["Research gaps", (objective.researchGaps || []).join(" • ")],
   ];
@@ -153,7 +168,11 @@ function renderObjectiveSection(candidate) {
       <div class="maintainer-link-list">
         ${objective.rssUrl ? renderLabeledLink("Open RSS", objective.rssUrl) : ""}
         ${objective.appleUrl ? renderLabeledLink("Open Apple page", objective.appleUrl) : ""}
+        ${objective.spotifyUrl ? renderLabeledLink("Open Spotify", objective.spotifyUrl) : ""}
         ${objective.websiteUrl ? renderLabeledLink("Open website", objective.websiteUrl) : ""}
+        ${objective.patreonUrl ? renderLabeledLink("Open Patreon", objective.patreonUrl) : ""}
+        ${objective.discordUrl ? renderLabeledLink("Open Discord", objective.discordUrl) : ""}
+        ${objective.youtubeUrl ? renderLabeledLink("Open YouTube", objective.youtubeUrl) : ""}
       </div>
     </section>
   `;

@@ -5,6 +5,7 @@ const crypto = require("node:crypto");
 const { normalizeAppleResult } = require("../lib/import/adapters/apple");
 const { buildPodcastIndexAuthHeaders } = require("../lib/import/adapters/podcast-index");
 const { parseRssText } = require("../lib/import/adapters/rss");
+const { parseWebsiteHtml } = require("../lib/import/adapters/website");
 const { buildDedupeMatches } = require("../lib/import/dedupe");
 
 test("normalizeAppleResult extracts discovery and feed metadata from Apple payloads", () => {
@@ -59,7 +60,51 @@ test("parseRssText extracts canonical feed metadata from RSS XML", () => {
   assert.equal(normalized.artworkUrl, "https://example.com/covers/signal-lost.jpg");
   assert.deepEqual(normalized.categories, ["Fiction", "Mystery"]);
   assert.equal(normalized.episodeCount, 2);
+  assert.equal(normalized.firstPublicationDate, "2026-06-01T00:00:00.000Z");
   assert.equal(normalized.latestPublicationDate, "2026-06-08T00:00:00.000Z");
+});
+
+test("parseWebsiteHtml extracts official links and JSON-LD metadata from show sites", () => {
+  const normalized = parseWebsiteHtml(
+    `<!doctype html>
+      <html lang="en">
+        <head>
+          <title>Archive Site</title>
+          <meta property="og:title" content="Signal Lost" />
+          <meta property="og:description" content="An atmospheric fiction mystery." />
+          <meta property="og:image" content="/cover.jpg" />
+          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+          <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "PodcastSeries",
+              "name": "Signal Lost",
+              "author": { "@type": "Person", "name": "Archive Studio" },
+              "publisher": { "@type": "Organization", "name": "Night Signal Network" },
+              "sameAs": [
+                "https://open.spotify.com/show/abc123",
+                "https://www.patreon.com/signal-lost"
+              ]
+            }
+          </script>
+        </head>
+        <body>
+          <a href="https://discord.gg/signal-lost">Discord</a>
+          <a href="https://youtube.com/@signallost">YouTube</a>
+        </body>
+      </html>`,
+    "https://example.com/shows/signal-lost",
+  );
+
+  assert.equal(normalized.title, "Signal Lost");
+  assert.equal(normalized.creatorName, "Archive Studio");
+  assert.equal(normalized.networkName, "Night Signal Network");
+  assert.equal(normalized.rssUrl, "https://example.com/feed.xml");
+  assert.equal(normalized.artworkUrl, "https://example.com/cover.jpg");
+  assert.equal(normalized.spotifyUrl, "https://open.spotify.com/show/abc123");
+  assert.equal(normalized.patreonUrl, "https://www.patreon.com/signal-lost");
+  assert.equal(normalized.discordUrl, "https://discord.gg/signal-lost");
+  assert.equal(normalized.youtubeUrl, "https://youtube.com/@signallost");
 });
 
 test("buildPodcastIndexAuthHeaders matches the documented SHA-1 auth scheme", () => {

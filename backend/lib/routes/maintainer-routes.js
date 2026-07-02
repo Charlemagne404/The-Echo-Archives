@@ -126,13 +126,14 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, importSer
     }
   });
 
-  router.post("/api/maintainer/imports", requireMaintainerSession, (req, res, next) => {
+  router.post("/api/maintainer/imports", requireMaintainerSession, async (req, res, next) => {
     try {
       return res.status(201).json(
-        importService.seedCandidates({
+        await importService.seedCandidates({
           entries: Array.isArray(req.body?.entries) ? req.body.entries : [],
           searchResults: Array.isArray(req.body?.searchResults) ? req.body.searchResults : [],
           actor: req.body?.reviewedBy || "",
+          autoHydrate: parseBoolean(req.body?.autoHydrate),
         }),
       );
     } catch (error) {

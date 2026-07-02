@@ -50,6 +50,7 @@ function normalizePodcastIndexResult(feed = {}, fallbackSourceUrl = "") {
       : "",
     dead: Number(feed.dead) === 1,
     medium: trimText(feed.medium, 80),
+    networkName: trimText(feed.ownerName || "", 240),
   };
 }
 

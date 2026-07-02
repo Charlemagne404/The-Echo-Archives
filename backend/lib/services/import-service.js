@@ -116,6 +116,7 @@ function buildInitialCandidatePayload(seed = {}) {
   const objectiveSeed = seed.objective && typeof seed.objective === "object" ? seed.objective : {};
   const objective = {
     title: trimText(objectiveSeed.title || seed.title || "", 240),
+    subtitle: trimText(objectiveSeed.subtitle || seed.subtitle || "", 240),
     creatorName: trimText(objectiveSeed.creatorName || seed.creatorName || "", 240),
     rssUrl: trimText(objectiveSeed.rssUrl || seed.rssUrl || "", 500),
     appleUrl: trimText(objectiveSeed.appleUrl || seed.appleUrl || "", 500),
@@ -125,6 +126,11 @@ function buildInitialCandidatePayload(seed = {}) {
     artworkUrl: trimText(objectiveSeed.artworkUrl || seed.artworkUrl || "", 500),
     genreHints: mergeUniqueStrings(objectiveSeed.genreHints || seed.genreHints || []),
     categories: mergeUniqueStrings(objectiveSeed.categories || seed.categories || []),
+    spotifyUrl: trimText(objectiveSeed.spotifyUrl || seed.spotifyUrl || "", 500),
+    patreonUrl: trimText(objectiveSeed.patreonUrl || seed.patreonUrl || "", 500),
+    discordUrl: trimText(objectiveSeed.discordUrl || seed.discordUrl || "", 500),
+    youtubeUrl: trimText(objectiveSeed.youtubeUrl || seed.youtubeUrl || "", 500),
+    networkName: trimText(objectiveSeed.networkName || seed.networkName || "", 240),
     objectiveSources: mergeUniqueStrings(
       [
         objectiveSeed.rssUrl,
@@ -223,6 +229,9 @@ function mergeObjectiveData(baseObjective = {}, sources = []) {
     mergeObjectiveField(target, "title", source, trimText(normalized.title, 240), {
       replace: source.sourceType === "rss",
     });
+    mergeObjectiveField(target, "subtitle", source, trimText(normalized.subtitle, 240), {
+      replace: source.sourceType === "rss",
+    });
     mergeObjectiveField(target, "creatorName", source, trimText(normalized.creatorName, 240), {
       replace: source.sourceType === "rss",
     });
@@ -243,6 +252,7 @@ function mergeObjectiveData(baseObjective = {}, sources = []) {
     mergeObjectiveField(target, "language", source, trimText(normalized.language, 40), {
       replace: source.sourceType === "rss",
     });
+    mergeObjectiveField(target, "firstPublicationDate", source, parseDateValue(normalized.firstPublicationDate || ""));
     mergeObjectiveField(target, "categories", source, mergeUniqueStrings(normalized.categories || []));
     mergeObjectiveField(target, "genreHints", source, mergeUniqueStrings(normalized.genreHints || []));
     mergeObjectiveField(target, "primaryGenre", source, trimText(normalized.primaryGenre, 120));
@@ -250,11 +260,30 @@ function mergeObjectiveData(baseObjective = {}, sources = []) {
     mergeObjectiveField(target, "podcastIndexFeedId", source, trimText(normalized.podcastIndexFeedId, 80));
     mergeObjectiveField(target, "podcastIndexGuid", source, trimText(normalized.podcastIndexGuid, 240));
     mergeObjectiveField(target, "networkName", source, trimText(normalized.networkName, 240));
+    mergeObjectiveField(target, "spotifyUrl", source, normalizeUrl(normalized.spotifyUrl || ""));
+    mergeObjectiveField(target, "patreonUrl", source, normalizeUrl(normalized.patreonUrl || ""));
+    mergeObjectiveField(target, "discordUrl", source, normalizeUrl(normalized.discordUrl || ""));
+    mergeObjectiveField(target, "youtubeUrl", source, normalizeUrl(normalized.youtubeUrl || ""));
+    mergeObjectiveField(target, "feedType", source, trimText(normalized.feedType, 80).toLowerCase());
+    mergeObjectiveField(target, "country", source, trimText(normalized.country, 40));
 
     if (Number.isFinite(Number(normalized.episodeCount))) {
       const current = Number.isFinite(Number(target.episodeCount)) ? Number(target.episodeCount) : 0;
       target.episodeCount = Math.max(current, Number(normalized.episodeCount));
       addFieldProvenance(target.__provenance, "episodeCount", source, target.episodeCount);
+    }
+
+    if (Number.isFinite(Number(normalized.avgEpisodeMinutes))) {
+      const current = Number.isFinite(Number(target.avgEpisodeMinutes)) ? Number(target.avgEpisodeMinutes) : 0;
+      const nextValue = Number(normalized.avgEpisodeMinutes);
+      target.avgEpisodeMinutes = current > 0 ? Math.round((current + nextValue) / 2) : nextValue;
+      addFieldProvenance(target.__provenance, "avgEpisodeMinutes", source, target.avgEpisodeMinutes);
+    }
+
+    if (Number.isFinite(Number(normalized.seasonCount))) {
+      const current = Number.isFinite(Number(target.seasonCount)) ? Number(target.seasonCount) : 0;
+      target.seasonCount = Math.max(current, Number(normalized.seasonCount));
+      addFieldProvenance(target.__provenance, "seasonCount", source, target.seasonCount);
     }
 
     const normalizedDate = parseDateValue(normalized.latestPublicationDate || "");
@@ -269,6 +298,11 @@ function mergeObjectiveData(baseObjective = {}, sources = []) {
     if (normalized.dead === true) {
       target.dead = true;
       addFieldProvenance(target.__provenance, "dead", source, true);
+    }
+
+    if (normalized.complete === true) {
+      target.complete = true;
+      addFieldProvenance(target.__provenance, "complete", source, true);
     }
   });
 
@@ -426,7 +460,7 @@ function createImportService({
     });
   }
 
-  function seedCandidates({ entries = [], searchResults = [], actor = "" } = {}) {
+  async function seedCandidates({ entries = [], searchResults = [], actor = "", autoHydrate = false } = {}) {
     const created = [];
     const normalizedEntries = [
       ...(Array.isArray(entries) ? entries : []).map((entry) => detectSeedEntry(entry)).filter(Boolean),
@@ -464,9 +498,19 @@ function createImportService({
       created.push(updated);
     });
 
+    const finalCandidates = [];
+    if (autoHydrate) {
+      for (const candidate of created) {
+        finalCandidates.push(await hydrateForMaintainer(candidate.id, actor));
+      }
+    } else {
+      finalCandidates.push(...created);
+    }
+
     return {
       runId,
-      candidates: created,
+      candidates: finalCandidates,
+      hydratedCount: autoHydrate ? finalCandidates.length : 0,
     };
   }
 

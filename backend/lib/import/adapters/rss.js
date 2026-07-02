@@ -20,6 +20,28 @@ function extractAllMatches(text = "", pattern) {
   );
 }
 
+function parseDurationMinutes(value = "") {
+  const trimmed = trimText(value, 40);
+  if (!trimmed) {
+    return null;
+  }
+
+  if (/^\d+$/.test(trimmed)) {
+    const seconds = Number(trimmed);
+    return seconds > 0 ? Math.max(1, Math.round(seconds / 60)) : null;
+  }
+
+  const parts = trimmed.split(":").map((entry) => Number.parseInt(entry, 10));
+  if (parts.some((entry) => !Number.isInteger(entry) || entry < 0) || parts.length < 2 || parts.length > 3) {
+    return null;
+  }
+
+  const [hours, minutes, seconds] =
+    parts.length === 3 ? parts : [0, parts[0], parts[1]];
+  const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+  return totalSeconds > 0 ? Math.max(1, Math.round(totalSeconds / 60)) : null;
+}
+
 function parseRssText(text = "", sourceUrl = "") {
   const channelMatch = String(text || "").match(/<channel\b[\s\S]*?<\/channel>/i);
   const searchText = channelMatch ? channelMatch[0] : String(text || "");
@@ -28,6 +50,7 @@ function parseRssText(text = "", sourceUrl = "") {
     extractFirstMatch(searchText, /<title>(.*?)<\/title>/i);
   const creatorName =
     extractFirstMatch(searchText, /<itunes:author>(.*?)<\/itunes:author>/i) ||
+    extractFirstMatch(searchText, /<itunes:owner>\s*<itunes:name>(.*?)<\/itunes:name>/i) ||
     extractFirstMatch(searchText, /<managingEditor>(.*?)<\/managingEditor>/i);
   const description =
     cleanDescription(
@@ -50,10 +73,19 @@ function parseRssText(text = "", sourceUrl = "") {
     .map((value) => parseDateValue(value))
     .filter(Boolean)
     .sort();
+  const seasonNumbers = extractAllMatches(String(text || ""), /<itunes:season>(.*?)<\/itunes:season>/gi)
+    .map((value) => Number.parseInt(value, 10))
+    .filter((value) => Number.isInteger(value) && value > 0);
+  const durationMinutes = extractAllMatches(String(text || ""), /<itunes:duration>(.*?)<\/itunes:duration>/gi)
+    .map((value) => parseDurationMinutes(value))
+    .filter((value) => Number.isFinite(value) && value > 0);
+
+  const completeValue = extractFirstMatch(searchText, /<itunes:complete>(.*?)<\/itunes:complete>/i);
 
   return {
     title,
     creatorName,
+    subtitle: cleanDescription(extractFirstMatch(searchText, /<itunes:subtitle>([\s\S]*?)<\/itunes:subtitle>/i), 240),
     description,
     rssUrl: normalizeUrl(sourceUrl),
     websiteUrl,
@@ -62,7 +94,15 @@ function parseRssText(text = "", sourceUrl = "") {
     categories,
     explicit,
     episodeCount: (String(text || "").match(/<item\b/gi) || []).length || null,
+    firstPublicationDate: pubDates[0] || "",
     latestPublicationDate: pubDates.at(-1) || "",
+    avgEpisodeMinutes:
+      durationMinutes.length > 0
+        ? Math.round(durationMinutes.reduce((sum, value) => sum + value, 0) / durationMinutes.length)
+        : null,
+    seasonCount: seasonNumbers.length > 0 ? Math.max(...seasonNumbers) : null,
+    feedType: trimText(extractFirstMatch(searchText, /<itunes:type>(.*?)<\/itunes:type>/i), 80).toLowerCase(),
+    complete: completeValue ? /^(yes|true|1)$/i.test(completeValue) : null,
   };
 }
 

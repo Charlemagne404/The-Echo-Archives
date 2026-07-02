@@ -9,7 +9,7 @@ async function main() {
 
   const context = createImportContext();
   try {
-    const result = context.service.seedCandidates({ entries, actor: "cli" });
+    const result = await context.service.seedCandidates({ entries, actor: "cli" });
     console.log(`Seeded ${result.candidates.length} import candidates.`);
     result.candidates.forEach((candidate) => {
       console.log(`- ${candidate.id} :: ${candidate.title || candidate.seedQuery} [${candidate.primarySourceType || "title"}]`);

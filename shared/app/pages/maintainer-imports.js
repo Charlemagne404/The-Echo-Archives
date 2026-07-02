@@ -110,10 +110,12 @@ export async function initializeMaintainerImportsPage() {
     seedForm: document.getElementById("maintainerImportSeedForm"),
     seedInput: document.getElementById("maintainerImportSeedInput"),
     seedFile: document.getElementById("maintainerImportSeedFile"),
+    seedAutoHydrate: document.getElementById("maintainerImportAutoHydrate"),
     seedStatus: document.getElementById("maintainerImportSeedStatus"),
     searchForm: document.getElementById("maintainerImportSearchForm"),
     searchQuery: document.getElementById("maintainerImportSearchQuery"),
     searchSource: document.getElementById("maintainerImportSearchSource"),
+    searchAutoHydrate: document.getElementById("maintainerImportSearchAutoHydrate"),
     searchStatus: document.getElementById("maintainerImportSearchStatus"),
     searchResults: document.getElementById("maintainerImportSearchResults"),
   };
@@ -322,11 +324,15 @@ export async function initializeMaintainerImportsPage() {
 
     elements.seedStatus.textContent = "Seeding import candidates…";
     try {
+      const autoHydrate = Boolean(elements.seedAutoHydrate?.checked);
       const result = await seedMaintainerImportCandidates({
         entries,
         reviewedBy: state.storedReviewer,
+        autoHydrate,
       });
-      elements.seedStatus.textContent = `Seeded ${result.candidates.length} candidates.`;
+      elements.seedStatus.textContent = autoHydrate
+        ? `Seeded ${result.candidates.length} candidates and hydrated ${result.hydratedCount || 0}.`
+        : `Seeded ${result.candidates.length} candidates.`;
       if (elements.seedInput instanceof HTMLTextAreaElement) {
         elements.seedInput.value = "";
       }
@@ -376,11 +382,15 @@ export async function initializeMaintainerImportsPage() {
 
     elements.searchStatus.textContent = "Adding search result as an import candidate…";
     try {
+      const autoHydrate = Boolean(elements.searchAutoHydrate?.checked);
       const response = await seedMaintainerImportCandidates({
         searchResults: [searchResult],
         reviewedBy: state.storedReviewer,
+        autoHydrate,
       });
-      elements.searchStatus.textContent = `Added ${response.candidates.length} candidate from external search.`;
+      elements.searchStatus.textContent = autoHydrate
+        ? `Added ${response.candidates.length} candidate from external search and hydrated it.`
+        : `Added ${response.candidates.length} candidate from external search.`;
       await loadQueue();
     } catch (error) {
       elements.searchStatus.textContent = error instanceof Error ? error.message : "Failed to add search result.";

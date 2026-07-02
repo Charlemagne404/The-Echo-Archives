@@ -105,11 +105,11 @@ function createBaselineCollections(showIds) {
   ];
 }
 
-test("import service seeds candidates and persists duplicate or scope review state", () => {
+test("import service seeds candidates and persists duplicate or scope review state", async () => {
   const context = createTempImportContext();
 
   try {
-    const seeded = context.service.seedCandidates({
+    const seeded = await context.service.seedCandidates({
       entries: ["Signal Lost"],
       actor: "CA",
     });
@@ -197,7 +197,7 @@ test("import service hydrates candidates from Apple search and RSS metadata", as
   const context = createTempImportContext({ fetchImpl });
 
   try {
-    const seeded = context.service.seedCandidates({
+    const seeded = await context.service.seedCandidates({
       entries: ["Signal Lost"],
       actor: "CA",
     });
@@ -223,7 +223,7 @@ test("import service writes drafts, blocks invalid publish attempts, and promote
   const context = createTempImportContext({ shows, collections });
 
   try {
-    const seeded = context.service.seedCandidates({
+    const seeded = await context.service.seedCandidates({
       entries: ["Fresh Import"],
       actor: "CA",
     });
@@ -286,6 +286,181 @@ test("import service writes drafts, blocks invalid publish attempts, and promote
 
     const finalShows = readShowsFile(context.siteRoot);
     assert.equal(finalShows.find((show) => show.id === draftShowId)?.status, "published");
+  } finally {
+    cleanupTempImportContext(context);
+  }
+});
+
+test("import drafts carry forward richer hydrated metadata without auto-publishing", async () => {
+  const fetchImpl = async (url) => {
+    const value = String(url);
+
+    if (value.startsWith("https://itunes.apple.com/search")) {
+      return new Response(
+        JSON.stringify({
+          results: [
+            {
+              collectionId: 456789,
+              collectionName: "Signal Harbor",
+              artistName: "Archive Studio",
+              description: "An archive mystery by the coast.",
+              collectionViewUrl: "https://podcasts.apple.com/us/podcast/signal-harbor/id456789",
+              feedUrl: "https://example.com/signal-harbor.xml",
+              artworkUrl600: "https://example.com/signal-harbor.jpg",
+              genres: ["Fiction", "Mystery"],
+              primaryGenreName: "Fiction",
+            },
+          ],
+        }),
+        {
+          status: 200,
+          headers: {
+            "content-type": "application/json",
+          },
+        },
+      );
+    }
+
+    if (value === "https://example.com/signal-harbor.xml") {
+      return new Response(
+        `<?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+          <channel>
+            <title>Signal Harbor</title>
+            <itunes:author>Archive Studio</itunes:author>
+            <itunes:subtitle>Mystery calls from a locked harbor.</itunes:subtitle>
+            <itunes:summary>A serialized coastal fiction mystery.</itunes:summary>
+            <itunes:image href="https://example.com/signal-harbor.jpg" />
+            <language>en</language>
+            <itunes:category text="Fiction" />
+            <itunes:category text="Mystery" />
+            <itunes:type>serial</itunes:type>
+            <itunes:complete>yes</itunes:complete>
+            <item>
+              <title>Episode 1</title>
+              <itunes:duration>00:30:00</itunes:duration>
+              <itunes:season>1</itunes:season>
+              <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+            </item>
+            <item>
+              <title>Episode 2</title>
+              <itunes:duration>00:27:00</itunes:duration>
+              <itunes:season>1</itunes:season>
+              <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+            </item>
+          </channel>
+        </rss>`,
+        {
+          status: 200,
+          headers: {
+            "content-type": "application/rss+xml",
+          },
+        },
+      );
+    }
+
+    throw new Error(`Unexpected fetch URL: ${value}`);
+  };
+
+  const context = createTempImportContext({ fetchImpl });
+
+  try {
+    const seeded = await context.service.seedCandidates({
+      entries: ["Signal Harbor"],
+      actor: "CA",
+      autoHydrate: true,
+    });
+    const draftResult = await context.service.draftForMaintainer(seeded.candidates[0].id, "CA");
+    const draftedShow = readShowsFile(context.siteRoot).find((show) => show.id === draftResult.showId);
+
+    assert.ok(draftedShow);
+    assert.equal(draftedShow.subtitle, "Mystery calls from a locked harbor.");
+    assert.equal(draftedShow.completionStatus, "finished");
+    assert.deepEqual(draftedShow.formats, ["serialized", "limited-series"]);
+    assert.equal(draftedShow.length.episodes, 2);
+    assert.equal(draftedShow.length.avgEpisodeMinutes, 29);
+    assert.equal(draftedShow.releaseDates.first, "2026-06-01");
+    assert.equal(draftedShow.releaseDates.latest, "2026-06-08");
+  } finally {
+    cleanupTempImportContext(context);
+  }
+});
+
+test("import service can auto-hydrate new candidates during seed intake", async () => {
+  const fetchImpl = async (url) => {
+    const value = String(url);
+
+    if (value.startsWith("https://itunes.apple.com/search")) {
+      return new Response(
+        JSON.stringify({
+          results: [
+            {
+              collectionId: 789123,
+              collectionName: "The Signal House",
+              artistName: "Signal Collective",
+              description: "A tense fiction series.",
+              collectionViewUrl: "https://podcasts.apple.com/us/podcast/the-signal-house/id789123",
+              feedUrl: "https://example.com/the-signal-house.xml",
+              artworkUrl600: "https://example.com/signal-house.jpg",
+              genres: ["Fiction", "Drama"],
+              primaryGenreName: "Fiction",
+            },
+          ],
+        }),
+        {
+          status: 200,
+          headers: {
+            "content-type": "application/json",
+          },
+        },
+      );
+    }
+
+    if (value === "https://example.com/the-signal-house.xml") {
+      return new Response(
+        `<?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+          <channel>
+            <title>The Signal House</title>
+            <itunes:author>Signal Collective</itunes:author>
+            <itunes:summary>Tense fiction from a strange station.</itunes:summary>
+            <itunes:subtitle>Strange station transmissions.</itunes:subtitle>
+            <itunes:image href="https://example.com/signal-house.jpg" />
+            <language>en</language>
+            <itunes:category text="Fiction" />
+            <itunes:type>serial</itunes:type>
+            <item>
+              <title>Episode 1</title>
+              <itunes:duration>00:24:00</itunes:duration>
+              <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+            </item>
+          </channel>
+        </rss>`,
+        {
+          status: 200,
+          headers: {
+            "content-type": "application/rss+xml",
+          },
+        },
+      );
+    }
+
+    throw new Error(`Unexpected fetch URL: ${value}`);
+  };
+
+  const context = createTempImportContext({ fetchImpl });
+
+  try {
+    const seeded = await context.service.seedCandidates({
+      entries: ["The Signal House"],
+      actor: "CA",
+      autoHydrate: true,
+    });
+
+    assert.equal(seeded.hydratedCount, 1);
+    assert.equal(seeded.candidates[0].status, "hydrated");
+    assert.equal(seeded.candidates[0].objective.feedType, "serial");
+    assert.equal(seeded.candidates[0].objective.subtitle, "Strange station transmissions.");
   } finally {
     cleanupTempImportContext(context);
   }
