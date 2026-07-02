@@ -4,7 +4,13 @@
         <div class="hero-copy info-hero-copy">
           <h1>Cookies and browser storage</h1>
           <p>
-            The site currently relies on browser storage more than cookies. This page lists what is used today and what each item supports.
+            The site currently relies on browser storage more than marketing-style cookies. This page lists the current storage items and related server-side identifiers used by the live repo.
+          </p>
+          <p class="info-policy-meta">
+            <span>Last updated</span>
+            <time datetime="2026-07-03">July 3, 2026</time>
+            <span>Operator</span>
+            <strong>The Echo Archives, a Continental project</strong>
           </p>
           <div class="page-hero-actions">
             <a class="about-cta about-cta-secondary" href="/index.html" data-history-back data-fallback-label="Back to Browse">
@@ -35,8 +41,8 @@
           </svg>
         </span>
         <div>
-          <h2>Public browsing</h2>
-          <p>Basic browsing and chat do not need first-party application cookies.</p>
+          <h2>No ad-tech layer</h2>
+          <p>The current public site does not use analytics or advertising cookies and does not currently need a cookie banner for that reason.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -48,8 +54,8 @@
           </svg>
         </span>
         <div>
-          <h2>Session storage</h2>
-          <p>Ask the Archivist keeps recent chat history during the current browser session.</p>
+          <h2>Browser-scoped memory</h2>
+          <p>Ask the Archivist uses session storage, and the show-page rating widget uses anonymous browser identifiers.</p>
         </div>
       </article>
       <article class="page-card info-summary-card">
@@ -61,8 +67,8 @@
           </svg>
         </span>
         <div>
-          <h2>Rating cookie</h2>
-          <p>Community ratings use an anonymous HTTP-only voter cookie so one device keeps one active vote per show.</p>
+          <h2>Maintainer-only auth</h2>
+          <p>Protected moderation routes can set a short-lived session cookie, but public browsing does not require a login.</p>
         </div>
       </article>
     </section>
@@ -71,50 +77,117 @@
       <aside class="page-card info-page-rail" aria-label="Cookie sections">
         <span class="page-card-kicker">Storage map</span>
         <nav class="info-rail-links" aria-label="Cookie page sections">
-          <a href="#cookies-public">First-party cookies</a>
-          <a href="#cookies-session">Session storage</a>
-          <a href="#cookies-local">Local storage</a>
-          <a href="#cookies-ratings">Rating cookie</a>
-          <a href="#cookies-maintainer">Maintainer cookie</a>
+          <a href="#cookies-operator">Operator and scope</a>
+          <a href="#cookies-inventory">Storage inventory</a>
+          <a href="#cookies-essential">Essential and optional use</a>
+          <a href="#cookies-ratings">Community rating behavior</a>
+          <a href="#cookies-controls">Your controls</a>
           <a href="#cookies-future">Future changes</a>
         </nav>
-        <p class="info-rail-note">Public archive features are designed to work without account cookies.</p>
+        <p class="info-rail-note">This page covers browser storage first, plus the closely related server-side identifiers used by the current rating flow.</p>
       </aside>
 
       <div class="info-section-stack">
-        <article class="page-card info-section-card" id="cookies-public">
-          <h2>First-party cookies</h2>
-          <p>The Echo Archives does not currently set first-party application cookies for basic catalog browsing or public chat.</p>
+        <article class="page-card info-section-card" id="cookies-operator">
+          <span class="page-card-kicker">Operator and scope</span>
+          <h2>What this page covers</h2>
+          <p>The Echo Archives is operated as a Continental project.</p>
+          <p>This page covers first-party cookies, sessionStorage, localStorage, and the small number of related server-side identifiers that matter for the current community-rating flow. For broader personal-data handling, see <a href="/privacy.html">Privacy</a>.</p>
         </article>
 
-        <article class="page-card info-section-card" id="cookies-session">
-          <h2>Session storage</h2>
-          <p>The Ask the Archivist panel stores recent chat history in session storage under a browser-scoped key so the conversation can survive reloads during the same session.</p>
-          <p>Session storage is cleared by the browser when the session ends or when the user clears site data.</p>
+        <article class="page-card info-section-card" id="cookies-inventory">
+          <span class="page-card-kicker">Storage inventory</span>
+          <h2>Current storage list</h2>
+          <div class="info-storage-table-wrap">
+            <table class="info-storage-table">
+              <thead>
+                <tr>
+                  <th scope="col">Name or key</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">When it is set</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>echo-archives-chat-v3</code></td>
+                  <td><code>sessionStorage</code></td>
+                  <td>Keeps recent Ask the Archivist messages available after a refresh during the same browser session.</td>
+                  <td>Until the browser session ends or site data is cleared.</td>
+                  <td>After Ask the Archivist saves conversation history.</td>
+                </tr>
+                <tr>
+                  <td><code>echo-community-profile-id</code></td>
+                  <td><code>localStorage</code></td>
+                  <td>Stores the linked anonymous community profile id used by the frontend to fetch and update your rating state.</td>
+                  <td>Until you clear site data or remove it manually.</td>
+                  <td>When the community rating feature initializes on a show page or when a rating action refreshes that profile.</td>
+                </tr>
+                <tr>
+                  <td><code>echo-community-voter</code></td>
+                  <td>HTTP-only cookie</td>
+                  <td>Stores an anonymous device token used by the server to keep one device tied to one community-rating profile without a public account.</td>
+                  <td>Up to about 400 days after it is set, unless the browser clears it first.</td>
+                  <td>When the show-page community rating feature bootstraps an anonymous profile or when a rating request needs a voter token.</td>
+                </tr>
+                <tr>
+                  <td><code>echo-maintainer-reviewed-by</code></td>
+                  <td><code>localStorage</code></td>
+                  <td>Remembers the maintainer’s “Reviewed by” value inside the protected submission queue UI.</td>
+                  <td>Until it is cleared or overwritten.</td>
+                  <td>When a maintainer saves or reuses a reviewer name in the protected moderation tools.</td>
+                </tr>
+                <tr>
+                  <td><code>echo-maintainer-session</code></td>
+                  <td>HTTP-only cookie</td>
+                  <td>Keeps a maintainer signed in to the protected moderation routes.</td>
+                  <td>Up to about 12 hours after sign-in, or until logout/clear.</td>
+                  <td>After a successful maintainer sign-in.</td>
+                </tr>
+                <tr>
+                  <td><code>community-rating abuse hash</code></td>
+                  <td>Server-side log</td>
+                  <td>Stores a hashed abuse-prevention signal used for rate limiting and community-rating moderation.</td>
+                  <td>Rolling retention window, currently 30 days by default.</td>
+                  <td>When a community rating is submitted or removed.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </article>
 
-        <article class="page-card info-section-card" id="cookies-local">
-          <h2>Local storage</h2>
-          <p>The Ask the Archivist and maintainer review interfaces may use local browser storage for interface continuity, such as recent chat state or a reviewer display name.</p>
-          <p>Community rating authority no longer depends on a local-storage profile identifier.</p>
+        <article class="page-card info-section-card" id="cookies-essential">
+          <span class="page-card-kicker">Essential and optional use</span>
+          <h2>What kind of storage this is</h2>
+          <p>The current storage items are functional or security-related. They support chat continuity, anonymous ratings, and maintainer authentication.</p>
+          <p>The site does not currently use optional advertising, analytics, or cross-site marketing cookies. No separate preference-cookie layer is implemented today.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-ratings">
-          <h2>Community rating cookie</h2>
-          <p>Community ratings use an HTTP-only cookie named <code>echo-community-voter</code> by default. It stores a random device token in the browser, while the server stores only a salted hash of that token.</p>
-          <p>The cookie is used only to let one device update or remove one active vote per show without requiring an account. Rating writes may also require Cloudflare Turnstile verification.</p>
+          <span class="page-card-kicker">Community ratings</span>
+          <h2>What happens on show pages</h2>
+          <p>The current implementation can set the anonymous rating identifiers when the show-page community rating widget initializes, not only after you click a score. That means the rating cookie is tied to use of the rating feature itself, even before a vote is submitted.</p>
+          <p>In practical terms, the rating system currently uses both the HTTP-only voter cookie and the linked local profile id. The cookie is not readable from frontend JavaScript, while the local profile id is used by the browser-side rating UI.</p>
         </article>
 
-        <article class="page-card info-section-card" id="cookies-maintainer">
-          <h2>Maintainer session cookie</h2>
-          <p>The private maintainer review area may set an HTTP-only session cookie named by the server configuration. Its default name is <code>echo-maintainer-session</code>.</p>
-          <p>This cookie is used only for maintainer authentication, uses SameSite=Lax, and is not used for public browsing or advertising.</p>
+        <article class="page-card info-section-card" id="cookies-controls">
+          <span class="page-card-kicker">Your controls</span>
+          <h2>How to clear or limit storage</h2>
+          <ul>
+            <li>Clearing site data in your browser removes session storage, localStorage, and first-party cookies for the archive.</li>
+            <li>Blocking the archive’s cookies can interfere with anonymous community rating behavior.</li>
+            <li>Logging out of protected maintainer routes clears the maintainer session cookie.</li>
+          </ul>
         </article>
 
         <article class="page-card info-section-card" id="cookies-future">
-          <h2>Future changes</h2>
-          <p>If analytics, authentication, or preference cookies are introduced later, this page should be updated with the cookie purpose, duration, and whether the cookie is required or optional.</p>
-          <p>The <a href="/privacy.html">privacy page</a> should be updated at the same time so the two pages stay aligned.</p>
+          <span class="page-card-kicker">Future changes</span>
+          <h2>What happens if storage changes later</h2>
+          <p>If optional analytics, advertising, or preference cookies are introduced later, this page should be updated with the purpose, duration, and whether that storage is essential or optional. The <a href="/privacy.html">privacy page</a> should be updated at the same time.</p>
+          <div class="info-callout-note">
+            <p>The current implementation does not add a cookie banner because the public site does not currently use optional marketing or analytics cookies.</p>
+          </div>
         </article>
       </div>
     </section>

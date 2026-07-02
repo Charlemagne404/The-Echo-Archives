@@ -82,6 +82,7 @@ Verify these public routes before publishing significant catalog, route, style, 
 - `/privacy.html`
 - `/terms.html`
 - `/cookies.html`
+- `/copyright.html`
 
 Checks:
 

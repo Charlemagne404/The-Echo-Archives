@@ -49,6 +49,7 @@ Public routes currently include:
 - `/privacy.html`
 - `/terms.html`
 - `/cookies.html`
+- `/copyright.html`
 
 Operational and trust-related surfaces currently include:
 

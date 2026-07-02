@@ -36,6 +36,7 @@ The current public page set includes:
 - `/privacy.html`
 - `/terms.html`
 - `/cookies.html`
+- `/copyright.html`
 
 Legacy show detail pages still exist under `shows/` and are kept as compatibility entry points that redirect to the reusable show route.
 

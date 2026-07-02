@@ -71,6 +71,10 @@ test("main routes render expected page titles", async () => {
         waitForResolvedTitle: true,
       },
       { url: `${baseUrl}/submit.html`, title: "Submit a Show - The Echo Archives" },
+      { url: `${baseUrl}/privacy.html`, title: "Privacy - The Echo Archives" },
+      { url: `${baseUrl}/terms.html`, title: "Terms - The Echo Archives" },
+      { url: `${baseUrl}/cookies.html`, title: "Cookies - The Echo Archives" },
+      { url: `${baseUrl}/copyright.html`, title: "Copyright & Takedown - The Echo Archives" },
     ];
 
     for (const route of routes) {
@@ -322,6 +326,24 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
           assert.equal(result.layoutColumns, 1);
           assert.ok(result.railTop < result.sectionTop);
           assert.equal(result.railLinkColumns, 1);
+        },
+      },
+      {
+        url: `${baseUrl}/cookies.html`,
+        ready: () => document.querySelector(".info-storage-table-wrap") && document.querySelector(".info-storage-table"),
+        evaluate: () => ({
+          scrollWidth: document.documentElement.scrollWidth,
+          viewport: window.innerWidth,
+          layoutColumns: (() => {
+            const template = window.getComputedStyle(document.querySelector(".info-document-layout")).gridTemplateColumns.trim();
+            return template && template !== "none" ? template.split(" ").length : 0;
+          })(),
+          tableWrapWidth: Math.round(document.querySelector(".info-storage-table-wrap")?.getBoundingClientRect().width || 0),
+        }),
+        assert(result) {
+          assert.ok(result.scrollWidth <= result.viewport + 1);
+          assert.equal(result.layoutColumns, 1);
+          assert.ok(result.tableWrapWidth <= result.viewport);
         },
       },
       {

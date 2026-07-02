@@ -19,6 +19,7 @@ const runtimePages = [
   "privacy.html",
   "terms.html",
   "cookies.html",
+  "copyright.html",
 ];
 const legacyRedirectManifestPath = path.join(siteRoot, "shared/config/legacy-redirects.json");
 const legacyRedirects = JSON.parse(fs.readFileSync(legacyRedirectManifestPath, "utf8"));

@@ -23,6 +23,10 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
     { loc: `${baseUrl}/creator-standards.html` },
     { loc: `${baseUrl}/submit.html` },
     { loc: `${baseUrl}/collections.html` },
+    { loc: `${baseUrl}/privacy.html` },
+    { loc: `${baseUrl}/terms.html` },
+    { loc: `${baseUrl}/cookies.html` },
+    { loc: `${baseUrl}/copyright.html` },
     ...publishedShows.map((show) => ({
       loc: `${baseUrl}/show.html?id=${encodeURIComponent(show.id)}`,
       lastmod: show.updatedAt || "",

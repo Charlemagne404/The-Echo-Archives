@@ -71,11 +71,11 @@ function getChatPageType() {
     return "creators";
   }
 
-  if (path.endsWith("/privacy.html")) {
+  if (path.endsWith("/privacy.html") || path.endsWith("/cookies.html")) {
     return "privacy";
   }
 
-  if (path.endsWith("/terms.html")) {
+  if (path.endsWith("/terms.html") || path.endsWith("/copyright.html")) {
     return "terms";
   }
 

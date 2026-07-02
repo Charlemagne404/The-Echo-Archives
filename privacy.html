@@ -18,7 +18,7 @@
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
 <link rel="stylesheet" href="/style.css?v=3115b0b88e" />
-<link rel="stylesheet" href="/home.css?v=9e75f61744" />
+<link rel="stylesheet" href="/home.css?v=2912c9f99d" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
@@ -125,7 +125,13 @@
         <div class="hero-copy info-hero-copy">
           <h1>Privacy</h1>
           <p>
-            The Echo Archives keeps the data footprint small. This page explains the information used for browsing, chat, ratings, submissions, and maintainer review.
+            The Echo Archives keeps the data footprint small. This page explains what information the current site uses for browsing, Ask the Archivist, ratings, submissions, and moderation.
+          </p>
+          <p class="info-policy-meta">
+            <span>Last updated</span>
+            <time datetime="2026-07-03">July 3, 2026</time>
+            <span>Operator</span>
+            <strong>The Echo Archives, a Continental project</strong>
           </p>
           <div class="page-hero-actions">
             <a class="about-cta about-cta-secondary" href="/index.html" data-history-back data-fallback-label="Back to Browse">
@@ -155,7 +161,7 @@
         </span>
         <div>
           <h2>Small footprint</h2>
-          <p>No ad-tech tracking or analytics scripts are used in the current public site.</p>
+          <p>The current public site does not run public analytics scripts or advertising trackers.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -170,8 +176,8 @@
           </svg>
         </span>
         <div>
-          <h2>Local memory</h2>
-          <p>Chat history and anonymous rating identity stay browser-scoped unless you submit a form.</p>
+          <h2>Browser-scoped state</h2>
+          <p>Ask the Archivist uses session storage, and community ratings use a cookie plus a linked local profile id.</p>
         </div>
       </article>
       <article class="page-card info-summary-card">
@@ -184,8 +190,8 @@
           </svg>
         </span>
         <div>
-          <h2>Manual review</h2>
-          <p>Submissions are stored for archive review, moderation, and necessary follow-up.</p>
+          <h2>Moderation-first intake</h2>
+          <p>Submissions and follow-up contact details are stored for archive review, moderation, and quality control.</p>
         </div>
       </article>
     </section>
@@ -194,49 +200,115 @@
       <aside class="page-card info-page-rail" aria-label="Privacy sections">
         <span class="page-card-kicker">Privacy map</span>
         <nav class="info-rail-links" aria-label="Privacy page sections">
-          <a href="#privacy-browser">Browser storage</a>
-          <a href="#privacy-server">Server submissions</a>
-          <a href="#privacy-contact">Contact details</a>
-          <a href="#privacy-cookies">Cookies</a>
-          <a href="#privacy-external">External services</a>
+          <a href="#privacy-operator">Operator and contact</a>
+          <a href="#privacy-collected">What data is collected</a>
+          <a href="#privacy-legal-basis">Why it is collected</a>
+          <a href="#privacy-retention">Retention</a>
+          <a href="#privacy-rights">Your rights</a>
+          <a href="#privacy-third-parties">Third parties and links</a>
         </nav>
-        <p class="info-rail-note">This page reflects the current implementation, not a generic policy template.</p>
+        <p class="info-rail-note">This page describes the current implementation, not an inflated policy template.</p>
       </aside>
 
       <div class="info-section-stack">
-        <article class="page-card info-section-card" id="privacy-browser">
-          <h2>What the site stores in your browser</h2>
-          <p>The Ask the Archivist panel keeps recent conversation history in session storage so it survives page refreshes during the same browser session.</p>
-          <p>Community ratings use a server-issued anonymous voter cookie so the same device can update or remove its own rating later without requiring an account.</p>
+        <article class="page-card info-section-card" id="privacy-operator">
+          <span class="page-card-kicker">Operator and contact</span>
+          <h2>Who handles privacy questions</h2>
+          <p>The Echo Archives is operated as a Continental project.</p>
+          <p>For privacy, legal, or copyright requests, use the public contact route at <a href="https://contact.continental-hub.com/" target="_blank" rel="noreferrer">contact.continental-hub.com</a>. For factual archive corrections, the faster route is usually <a href="/submit.html">Submit or correct</a>.</p>
         </article>
 
-        <article class="page-card info-section-card" id="privacy-server">
-          <h2>What the server receives</h2>
-          <p>When you submit a rating, correction, listener review, creator verification request, or new-show submission, the server receives the request body you send.</p>
-          <ul>
-            <li>Rating writes may use Cloudflare Turnstile verification to reduce automated abuse.</li>
-            <li>Limited technical data such as salted IP and user-agent hashes may be used for moderation, abuse prevention, and rate limiting.</li>
-            <li>Submission content is reviewed before it affects the public archive.</li>
-            <li>The site does not currently run public analytics or advertising trackers.</li>
+        <article class="page-card info-section-card" id="privacy-collected">
+          <span class="page-card-kicker">What data is collected</span>
+          <h2>The current data categories</h2>
+          <ul class="info-detail-list">
+            <li>
+              <strong>Browsing and Ask the Archivist</strong>
+              <p>General page requests reach the site like any normal web request. Ask the Archivist sends the chat messages you submit to the same-origin chat API, and recent conversation history is also stored in browser session storage under <code>echo-archives-chat-v3</code>.</p>
+            </li>
+            <li>
+              <strong>Community ratings</strong>
+              <p>Show pages can create an anonymous rating profile using the HTTP-only voter cookie <code>echo-community-voter</code> plus the linked localStorage key <code>echo-community-profile-id</code>. Rating actions can also send the rating value and a Cloudflare Turnstile token when that protection is enabled.</p>
+            </li>
+            <li>
+              <strong>Submissions and contact details</strong>
+              <p>When you send a show submission, correction, listener review, or creator verification request, the server receives the request body you send. That can include titles, links, notes, review text, proof URLs, and any contact email you choose or are required to provide for that submission type.</p>
+            </li>
+            <li>
+              <strong>Technical and moderation data</strong>
+              <p>The site receives IP address and user-agent data with requests. Community rating flows use hashed abuse signals for rate limiting and bot defense, and submission records currently store source IP and user agent for moderation follow-up. The public site does not currently run public analytics or advertising trackers.</p>
+            </li>
           </ul>
         </article>
 
-        <article class="page-card info-section-card" id="privacy-contact">
-          <h2>Submissions and contact details</h2>
-          <p>If you send a submission form with a contact email, that email is stored with the submission so the maintainer can review the request or follow up when necessary.</p>
-          <p>Do not send private information that is not relevant to the archive entry, correction, review, or verification request.</p>
+        <article class="page-card info-section-card" id="privacy-legal-basis">
+          <span class="page-card-kicker">Why it is collected</span>
+          <h2>Plain-language legal basis</h2>
+          <ul class="info-detail-list">
+            <li>
+              <strong>To run the archive features you asked to use</strong>
+              <p>The site needs to process page requests, chat prompts, and rating actions to deliver the archive, Ask the Archivist, and community rating features you actively use.</p>
+            </li>
+            <li>
+              <strong>To review and respond to submissions</strong>
+              <p>Submission content and any contact details are used because you asked the archive to review a correction, review, verification request, or new-show suggestion and it needs enough context to handle that request.</p>
+            </li>
+            <li>
+              <strong>To keep ratings and submissions safe from abuse</strong>
+              <p>Rate limits, hashed abuse signals, technical request data, and Turnstile checks are used to reduce spam, automated voting, and moderation abuse. That is part of the archive’s legitimate interest in keeping the system trustworthy.</p>
+            </li>
+            <li>
+              <strong>To follow up when you ask for it</strong>
+              <p>If you provide a contact email, the archive uses it to respond to your submission or legal request. You can stop that follow-up by asking for deletion of the contact detail where the archive no longer needs it.</p>
+            </li>
+          </ul>
         </article>
 
-        <article class="page-card info-section-card" id="privacy-cookies">
-          <h2>Cookies and maintainer access</h2>
-          <p>Public browsing and chat do not currently require first-party application cookies. Community ratings use an HTTP-only voter cookie for accountless one-device voting, and the private maintainer review area may set an HTTP-only session cookie when maintainer authentication is enabled.</p>
-          <p>See the <a href="/cookies.html">cookies and browser storage page</a> for the practical storage list.</p>
+        <article class="page-card info-section-card" id="privacy-retention">
+          <span class="page-card-kicker">Retention</span>
+          <h2>How long data is kept</h2>
+          <ul class="info-detail-list">
+            <li>
+              <strong>Ask the Archivist session history</strong>
+              <p>Browser session storage lasts until the browser session ends or you clear site data. The repo does not describe a separate long-term public chat archive.</p>
+            </li>
+            <li>
+              <strong>Community rating identifiers</strong>
+              <p>The voter cookie currently has a maximum lifetime of about 400 days after it is set. The linked local profile id stays in localStorage until you clear it. Backend rating records may be kept as long as needed to preserve rating state, summaries, moderation context, and audit history.</p>
+            </li>
+            <li>
+              <strong>Abuse-prevention signals</strong>
+              <p>Community rating abuse hashes are retained on a rolling window that defaults to 30 days in the current backend configuration.</p>
+            </li>
+            <li>
+              <strong>Submission records and contact details</strong>
+              <p>Submission content, moderation notes, contact email, source IP, and user agent are kept in the moderation database until the request is handled and may be retained longer where needed for archive history, audit, dispute handling, or follow-up. The current repo does not publish a shorter automatic deletion schedule for those records.</p>
+            </li>
+            <li>
+              <strong>Maintainer session access</strong>
+              <p>The protected maintainer session cookie currently lasts up to 12 hours after sign-in unless it is cleared earlier by logout or browser controls.</p>
+            </li>
+          </ul>
+          <p>See the <a href="/cookies.html">cookies and browser storage page</a> for the storage-by-storage list.</p>
         </article>
 
-        <article class="page-card info-section-card" id="privacy-external">
-          <h2>Third-party services and changes</h2>
-          <p>The site links out to external listening platforms, official show sites, Patreon, GitHub, and other destinations chosen by the user. Community rating writes may also contact Cloudflare Turnstile for human-verification checks. Those services operate under their own privacy terms.</p>
-          <p>If the archive adds accounts, analytics, newsletters, or other personal-data features later, this page should be revised to match the live behavior instead of relying on boilerplate policy text.</p>
+        <article class="page-card info-section-card" id="privacy-rights">
+          <span class="page-card-kicker">Your rights</span>
+          <h2>What you can ask for</h2>
+          <p>Depending on the law that applies to you and the archive, you may be able to ask for access to the personal data held about you, correction of inaccurate data, deletion, restriction, objection to certain processing, or withdrawal of consent where processing depends on consent.</p>
+          <ul>
+            <li>You can clear browser session storage, localStorage, and cookies through your own browser controls at any time.</li>
+            <li>You can ask for a submission-related contact detail or moderation record to be corrected or deleted when it is no longer needed.</li>
+            <li>If Swedish or EU data-protection law applies, you may also complain to the Swedish Authority for Privacy Protection, Integritetsskyddsmyndigheten (IMY).</li>
+          </ul>
+        </article>
+
+        <article class="page-card info-section-card" id="privacy-third-parties">
+          <span class="page-card-kicker">Third parties and links</span>
+          <h2>Services outside the archive</h2>
+          <p>Community rating requests may use Cloudflare Turnstile when that protection is enabled, which means the browser can contact Cloudflare for human-verification checks during rating actions.</p>
+          <p>The site also links out to official show sites, listening platforms, Patreon, GitHub, and the external Continental contact route. If you open those destinations, your browser connects to them directly and their own terms and privacy rules apply.</p>
+          <p>The current public site does not run public analytics or advertising trackers. If direct processors such as analytics, newsletters, or named hosting/contact vendors are added later, this page should be updated to match the live behavior.</p>
         </article>
       </div>
     </section>
@@ -261,8 +333,8 @@
     </a>
     <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
     <div class="footer-meta-row">
-      <p class="footer-brand-subnote">Created by Continental</p>
-      <p class="footer-meta">© 2026 <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Charlemagne404</a></p>
+      <p class="footer-brand-subnote">A Continental project</p>
+      <p class="footer-meta">© 2026 The Echo Archives · <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Maintainer</a></p>
     </div>
   </div>
   <div class="footer-links" aria-label="Footer">
@@ -289,6 +361,7 @@
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
       <a href="/cookies.html">Cookies</a>
+      <a href="/copyright.html">Copyright &amp; Takedown</a>
     </div>
   </div>
   <div class="footer-support-panel">
@@ -310,6 +383,6 @@
 
   <script src="/shared/archive-search.js?v=3ac84effd0"></script>
 
-  <script type="module" src="/script.js?v=470bd3dc75"></script>
+  <script type="module" src="/script.js?v=fa058da68b"></script>
 </body>
 </html>

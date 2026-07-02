@@ -198,7 +198,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "privacy":
       return {
         answer:
-          "The chat panel stores recent conversation history in session storage for the current browser session, and anonymous community ratings keep a local profile id in your browser. Submission and rating requests can send the request body plus limited IP and user-agent data for moderation, abuse prevention, and rate limiting.",
+          "The chat panel stores recent conversation history in session storage for the current browser session, and anonymous community ratings use an HTTP-only voter cookie plus a linked local profile id. Submission and rating requests can also send the request body plus limited IP and user-agent data for moderation, abuse prevention, and rate limiting.",
         actions: [siteHelpContext.routes.privacy],
         suggestedPrompts: [
           "Does the site use cookies?",

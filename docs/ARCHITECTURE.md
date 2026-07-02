@@ -69,6 +69,7 @@ The current generated page set includes:
 - `privacy.html`
 - `terms.html`
 - `cookies.html`
+- `copyright.html`
 - `maintainer/submissions.html`
 - `maintainer/submissions/report.html`
 - `maintainer/imports.html`
@@ -93,6 +94,7 @@ Primary public routes:
 - `/privacy.html`
 - `/terms.html`
 - `/cookies.html`
+- `/copyright.html`
 
 Operational routes:
 

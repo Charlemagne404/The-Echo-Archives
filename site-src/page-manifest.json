@@ -204,5 +204,17 @@
     "extraStylesheets": [],
     "includeChatShell": true,
     "includeFloatingControls": true
+  },
+  {
+    "source": "copyright.html",
+    "output": "copyright.html",
+    "title": "Copyright & Takedown - The Echo Archives",
+    "description": "How The Echo Archives handles rights-holder corrections, attribution requests, and takedown notices.",
+    "canonicalUrl": "https://echo.continental-hub.com/copyright.html",
+    "bodyClass": "home-page info-page",
+    "activeNav": "terms",
+    "extraStylesheets": [],
+    "includeChatShell": true,
+    "includeFloatingControls": true
   }
 ]
