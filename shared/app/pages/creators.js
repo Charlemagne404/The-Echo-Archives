@@ -30,6 +30,7 @@ export function initializeCreatorStandardsPage() {
   });
 
   initializeCreatorChatLaunchers();
+  initializeCreatorStandardsRail();
 }
 
 function getPublishedShows(shows) {
@@ -113,6 +114,89 @@ function initializeCreatorChatLaunchers() {
       setChatOpen(true);
     });
   });
+}
+
+function initializeCreatorStandardsRail() {
+  const rail = document.querySelector(".creator-standards-page .info-page-rail");
+  if (!(rail instanceof HTMLElement)) {
+    return;
+  }
+
+  const links = Array.from(rail.querySelectorAll('.info-rail-links a[href^="#"]')).filter(
+    (link) => link instanceof HTMLAnchorElement,
+  );
+
+  if (links.length === 0) {
+    return;
+  }
+
+  const sections = links
+    .map((link) => {
+      const id = link.getAttribute("href")?.slice(1);
+      if (!id) {
+        return null;
+      }
+
+      const section = document.getElementById(id);
+      if (!(section instanceof HTMLElement)) {
+        return null;
+      }
+
+      return { link, section };
+    })
+    .filter(Boolean);
+
+  if (sections.length === 0) {
+    return;
+  }
+
+  const setActiveLink = (activeId) => {
+    sections.forEach(({ link, section }) => {
+      const isActive = section.id === activeId;
+      link.classList.toggle("is-active", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const syncFromHash = () => {
+    const hashId = window.location.hash.replace(/^#/, "");
+    const matchedSection = sections.find(({ section }) => section.id === hashId);
+    setActiveLink(matchedSection ? matchedSection.section.id : sections[0].section.id);
+  };
+
+  sections.forEach(({ link, section }) => {
+    link.addEventListener("click", () => {
+      setActiveLink(section.id);
+    });
+  });
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((left, right) => right.intersectionRatio - left.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveLink(visibleEntries[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-18% 0px -56% 0px",
+        threshold: [0.2, 0.35, 0.55],
+      },
+    );
+
+    sections.forEach(({ section }) => observer.observe(section));
+  }
+
+  window.addEventListener("hashchange", syncFromHash);
+  syncFromHash();
 }
 
 function setText(id, value) {

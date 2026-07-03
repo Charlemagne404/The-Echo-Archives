@@ -151,6 +151,104 @@
   font-weight: 600;
 }
 
+.supporters-page .supporters-grid {
+  gap: 16px;
+  align-items: stretch;
+}
+
+.supporters-page .supporters-card {
+  min-height: 100%;
+  align-content: start;
+  gap: 14px;
+  border-color: rgba(255, 255, 255, 0.11);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(229, 72, 56, 0.055), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 100%),
+    rgba(8, 11, 15, 0.88);
+}
+
+.supporters-page .supporters-card h2,
+.supporters-page .supporters-band h2 {
+  margin-bottom: 0;
+}
+
+.supporters-page .supporters-card p {
+  max-width: 60ch;
+}
+
+.supporters-page .supporters-note {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(247, 247, 243, 0.94);
+  letter-spacing: 0.01em;
+}
+
+.supporters-page .supporters-list {
+  gap: 8px;
+  padding-left: 1.15rem;
+}
+
+.supporters-page .supporters-list li::marker {
+  color: rgba(239, 89, 67, 0.92);
+}
+
+.supporters-page .supporters-band {
+  min-height: 164px;
+  margin-top: 4px;
+  padding: 26px min(260px, 24vw) 26px 28px;
+  border-color: rgba(255, 255, 255, 0.11);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(229, 72, 56, 0.065), transparent 30%),
+    radial-gradient(circle at 94% 20%, rgba(118, 214, 90, 0.05), transparent 23%),
+    linear-gradient(90deg, rgba(10, 13, 17, 0.96), rgba(7, 10, 14, 0.88) 62%, rgba(8, 11, 15, 0.72)),
+    rgba(8, 11, 15, 0.9);
+}
+
+.supporters-page .supporters-band .about-story-copy {
+  gap: 8px;
+  max-width: 43rem;
+}
+
+.supporters-page .supporters-band .about-story-copy p {
+  max-width: 56ch;
+  color: rgba(247, 247, 243, 0.76);
+}
+
+.supporters-page .supporters-band .about-story-orbit {
+  opacity: 0.62;
+}
+
+.supporters-page .supporters-inline-link {
+  width: fit-content;
+  margin-top: 2px;
+}
+
+.supporters-page .about-cta-primary {
+  border-color: rgba(229, 72, 56, 0.52);
+}
+
+.supporters-page .supporters-back-link {
+  border-color: rgba(255, 255, 255, 0.11);
+  background: rgba(8, 11, 15, 0.66);
+  color: rgba(247, 247, 243, 0.78);
+  box-shadow: none;
+  font-weight: 600;
+}
+
+.supporters-page .supporters-back-link:hover,
+.supporters-page .supporters-back-link:focus-visible {
+  background: rgba(11, 15, 20, 0.84);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+}
+
+.supporters-page .about-cta:focus-visible,
+.supporters-page .supporters-inline-link:focus-visible {
+  outline: 2px solid rgba(255, 125, 97, 0.94);
+  outline-offset: 3px;
+}
+
 .archive-trust-item {
   margin: 0;
   color: rgba(247, 247, 243, 0.88);
@@ -323,6 +421,33 @@
 .collection-secondary-link:hover,
 .collection-secondary-link:focus-visible {
   color: var(--text-primary);
+}
+
+@media (max-width: 780px) {
+  .supporters-page .supporters-card {
+    gap: 12px;
+  }
+
+  .supporters-page .supporters-band {
+    padding: 24px;
+    padding-bottom: 108px;
+  }
+
+  .supporters-page .supporters-inline-link {
+    width: fit-content;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .supporters-page .about-cta,
+  .supporters-page .supporters-inline-link {
+    transition-duration: 1ms !important;
+  }
+
+  .supporters-page .about-cta:hover,
+  .supporters-page .about-cta:focus-visible {
+    transform: none;
+  }
 }
 
 .submit-form-actions {

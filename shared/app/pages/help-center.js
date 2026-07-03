@@ -5,7 +5,7 @@ import { initializeAccordionList } from "./accordion.js";
 export function initializeHelpCenterPage() {
   updateDocumentMetadata({
     title: "Help Center - The Echo Archives",
-    description: "Common fixes, archive FAQs, and practical help for discovery, ratings, links, and browser behavior in The Echo Archives.",
+    description: "Practical help for broken links, missing shows, corrections, ratings, and browser behavior in The Echo Archives.",
     path: "/help-center.html",
     image: DEFAULT_SOCIAL_IMAGE,
   });

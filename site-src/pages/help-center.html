@@ -5,27 +5,26 @@
           <span class="page-card-kicker help-center-kicker">Archive help</span>
           <h1>Help center</h1>
           <p>
-            Answers for broken links, search misses, ratings, creator verification, browser storage, and the small archive quirks that can interrupt discovery.
+            Practical help for broken links, missing shows, metadata fixes, ratings, and the browser quirks that can interrupt discovery.
           </p>
           <div class="page-hero-actions help-center-hero-actions">
-            <a class="about-cta about-cta-primary" href="#help-common-issues">
-              <span>Jump to common fixes</span>
+            <a class="about-cta about-cta-primary" href="/submit.html?submissionType=correction">
+              <span>Report a broken link</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5.75v12.5" />
-                <path d="m6.75 13 5.25 5.25L17.25 13" />
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
-            <a class="about-cta about-cta-secondary" href="/index.html#archive">
-              <span>Browse all shows</span>
+            <a class="about-cta about-cta-secondary" href="/submit.html?submissionType=show">
+              <span>Submit a missing show</span>
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </div>
           <ul class="help-center-hero-tags" aria-label="Help topics">
-            <li>Search and collections</li>
-            <li>Ratings and trust signals</li>
-            <li>Broken links and metadata</li>
+            <li>Broken links and corrections</li>
+            <li>Missing shows and collections</li>
+            <li>Ratings, trust, and browser behavior</li>
           </ul>
         </div>
 
@@ -57,8 +56,22 @@
       </div>
     </section>
 
-    <section class="info-summary-grid help-center-summary-grid" aria-label="Help center summary">
-      <article class="page-card info-summary-card">
+    <section class="info-summary-grid help-center-summary-grid" aria-label="Main help routes">
+      <a class="page-card info-summary-card help-center-route-card" href="/submit.html?submissionType=correction">
+        <span class="info-summary-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" role="presentation">
+            <path d="M4.75 12h5.5" />
+            <path d="M13.75 12h5.5" />
+            <path d="M10.25 8.5 13.75 12l-3.5 3.5" />
+          </svg>
+        </span>
+        <div>
+          <h2>Report a broken link</h2>
+          <p>Use this when a listen link or official link on a show page points to the wrong place.</p>
+          <span class="help-center-route-card-link">Open form</span>
+        </div>
+      </a>
+      <a class="page-card info-summary-card help-center-route-card" href="/submit.html?submissionType=show">
         <span class="info-summary-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" role="presentation">
             <circle cx="11" cy="11" r="5.75" />
@@ -66,11 +79,12 @@
           </svg>
         </span>
         <div>
-          <h2>Discovery help</h2>
-          <p>Use title, creator, tags, collections, and similar-show routes instead of browsing only by chart logic.</p>
+          <h2>Submit a missing show</h2>
+          <p>If a show is not in the archive at all, send it in with the title, creator, and any official links you have.</p>
+          <span class="help-center-route-card-link">Submit show</span>
         </div>
-      </article>
-      <article class="page-card info-summary-card">
+      </a>
+      <a class="page-card info-summary-card help-center-route-card" href="/submit.html?submissionType=correction">
         <span class="info-summary-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" role="presentation">
             <path d="M4.75 6.25h14.5" />
@@ -80,37 +94,24 @@
           </svg>
         </span>
         <div>
-          <h2>Metadata fixes</h2>
-          <p>Broken links, wrong release status, credits, and other factual issues belong in the correction workflow.</p>
+          <h2>Send a correction</h2>
+          <p>Use corrections for factual updates like status, credits, episode counts, creator names, or official links.</p>
+          <span class="help-center-route-card-link">Fix metadata</span>
         </div>
-      </article>
-      <article class="page-card info-summary-card info-summary-card-community">
+      </a>
+      <a class="page-card info-summary-card help-center-route-card help-center-route-card-community" href="/collections.html">
         <span class="info-summary-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" role="presentation">
-            <path d="m12 4.5 2.2 4.45 4.9.71-3.55 3.45.84 4.89L12 15.65 7.61 18l.84-4.89L4.9 9.66l4.9-.71Z" />
-            <path d="M4.5 13h1.75" />
-            <path d="M8 9.5v7" />
-            <path d="M11.5 6.25v13.5" />
+            <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
+            <path d="M12.35 7.15v11.4" />
           </svg>
         </span>
         <div>
-          <h2>Trust signals</h2>
-          <p>Archive Rating, Community Rating, and Creator Verified each mean something different and stay separate.</p>
+          <h2>Browse collections</h2>
+          <p>Use curated routes when you remember the mood, format, or vibe more clearly than the exact title.</p>
+          <span class="help-center-route-card-link">Open collections</span>
         </div>
-      </article>
-      <article class="page-card info-summary-card">
-        <span class="info-summary-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation">
-            <rect x="4.75" y="5.75" width="14.5" height="12.5" rx="2.25" />
-            <path d="M8.25 10h7.5" />
-            <path d="M8.25 13.75h4.75" />
-          </svg>
-        </span>
-        <div>
-          <h2>Browser behavior</h2>
-          <p>Chat history is session-scoped, ratings use an anonymous browser token, and privacy details stay documented.</p>
-        </div>
-      </article>
+      </a>
     </section>
 
     <section class="info-document-layout help-center-document-layout" aria-label="Help center topics">
@@ -133,7 +134,7 @@
               <span class="page-card-kicker">Fix it fast</span>
               <h2 id="helpCommonIssuesHeading">Common issues and what to do next</h2>
             </div>
-            <p>Each path below points to a real archive workflow instead of a dead-end support loop.</p>
+            <p>The quick routes above handle the most common requests. These cards explain what to do when the problem needs a little more context.</p>
           </div>
 
           <div class="creator-action-grid help-center-issue-grid">
@@ -147,11 +148,11 @@
                   </svg>
                 </span>
                 <div class="creator-action-card-copy">
-                  <h3>A listen link failed</h3>
-                  <p>Start with the show page, then use the correction flow if the archive route is the problem.</p>
+                  <h3>A link on a show page is broken</h3>
+                  <p>Start with the show page first, then send the broken destination and the correct one if the archive route is wrong.</p>
                   <ul class="help-center-steps">
-                    <li>Open the show page and try another listen or official link first.</li>
-                    <li>If every archive link is wrong, send a correction with the broken destination and the correct URL.</li>
+                    <li>Try another listen link or the official site link on that show page first.</li>
+                    <li>If the archive link is wrong, send a correction with the bad URL and the right destination.</li>
                     <li>If Spotify, Apple Podcasts, or another platform itself is down, use that platform’s support.</li>
                   </ul>
                 </div>
@@ -175,12 +176,12 @@
                   </svg>
                 </span>
                 <div class="creator-action-card-copy">
-                  <h3>I cannot find a show</h3>
-                  <p>Search is broader than title-only matching, and some misses are better solved through collections or creator names.</p>
+                  <h3>A show is missing from the archive</h3>
+                  <p>Search is broader than title-only matching, but if the show is not here at all, the fastest fix is a new-show submission.</p>
                   <ul class="help-center-steps">
-                    <li>Try the exact title, then creator, then a key tag or tonal phrase.</li>
-                    <li>Browse related collections if you only remember the vibe, format, or runtime.</li>
-                    <li>If the show is missing entirely, use the new-show submission path.</li>
+                    <li>Try the exact title, then creator, then a broad tag or tonal phrase.</li>
+                    <li>Browse collections if you remember the vibe, format, or runtime better than the title.</li>
+                    <li>If it is still missing, submit it instead of waiting for it to appear on its own.</li>
                   </ul>
                 </div>
               </div>
@@ -205,18 +206,18 @@
                   </svg>
                 </span>
                 <div class="creator-action-card-copy">
-                  <h3>My filters returned nothing</h3>
-                  <p>Most empty states come from stacking too many narrow constraints at once.</p>
+                  <h3>Search or filters returned nothing</h3>
+                  <p>Most dead ends come from stacking narrow filters when a broader route or collection would work better.</p>
                   <ul class="help-center-steps">
                     <li>Remove filters one at a time until results reappear.</li>
                     <li>Switch from exact genre labels to broader tags, tones, or completion status.</li>
-                    <li>Use collections when you want a recommendation path rather than a strict filter set.</li>
+                    <li>Use collections when you want a listening path rather than a strict filter set.</li>
                   </ul>
                 </div>
               </div>
               <div class="creator-action-card-footer">
                 <a class="creator-action-link" href="/collections.html">
-                  <span>Open collections</span>
+                  <span>Browse collections</span>
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M4.75 6.25h5.35c1.45 0 2.55.42 3.15 1.1.6-.68 1.7-1.1 3.15-1.1h2.85v11.2H16.4c-1.45 0-2.55.42-3.15 1.1-.6-.68-1.7-1.1-3.15-1.1H4.75Z" />
                     <path d="M12.35 7.15v11.4" />
@@ -236,18 +237,18 @@
                   </svg>
                 </span>
                 <div class="creator-action-card-copy">
-                  <h3>A page has wrong metadata</h3>
-                  <p>Objective facts can be fixed even when editorial review or ratings remain unchanged.</p>
+                  <h3>A show page has factual info wrong</h3>
+                  <p>Corrections are for objective metadata, even when the archive review or ratings stay exactly the same.</p>
                   <ul class="help-center-steps">
-                    <li>Use the correction path for links, creators, status, credits, episode counts, and similar factual fields.</li>
+                    <li>Use the correction path for links, creators, status, credits, episode counts, and similar fields.</li>
                     <li>Add a source when you can so the archive can verify the change faster.</li>
-                    <li>Use creator verification when you are the official source or representative.</li>
+                    <li>Use creator verification only if you are the official source or representative.</li>
                   </ul>
                 </div>
               </div>
               <div class="creator-action-card-footer">
                 <a class="creator-action-link" href="/submit.html?submissionType=correction">
-                  <span>Start a correction</span>
+                  <span>Send a correction</span>
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -264,18 +265,18 @@
                   </svg>
                 </span>
                 <div class="creator-action-card-copy">
-                  <h3>My rating did not stick</h3>
-                  <p>Community ratings are anonymous, but they still rely on a browser-scoped token so one device keeps one active vote per show.</p>
+                  <h3>My rating did not appear</h3>
+                  <p>Community ratings are anonymous, but they still depend on browser storage so one device keeps one active vote per show.</p>
                   <ul class="help-center-steps">
                     <li>Make sure the browser is not blocking the archive’s rating cookie.</li>
-                    <li>Vote again from the same device if you meant to update your score.</li>
-                    <li>Read the cookies page if you want the exact storage behavior.</li>
+                    <li>Try the rating again from the same device if you meant to update or replace an earlier vote.</li>
+                    <li>Read the cookies page if you want the exact storage behavior behind Community Rating.</li>
                   </ul>
                 </div>
               </div>
               <div class="creator-action-card-footer">
                 <a class="creator-action-link" href="/cookies.html#cookies-ratings">
-                  <span>Read rating cookie details</span>
+                  <span>Read rating details</span>
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -293,18 +294,18 @@
                   </svg>
                 </span>
                 <div class="creator-action-card-copy">
-                  <h3>The archive chat forgot me</h3>
-                  <p>Ask the Archivist keeps recent conversation history only for the current browser session.</p>
+                  <h3>Ask the Archivist or chat history looks wrong</h3>
+                  <p>Recent chat memory only lasts for the current browser session, so it can disappear when the session ends or site data is cleared.</p>
                   <ul class="help-center-steps">
                     <li>Refreshing the page usually keeps the current session conversation.</li>
                     <li>Closing the session or clearing site data removes that local memory.</li>
-                    <li>Privacy and cookies pages explain what is stored and why.</li>
+                    <li>Check the privacy and cookies pages if you want the exact browser-storage behavior.</li>
                   </ul>
                 </div>
               </div>
               <div class="creator-action-card-footer">
                 <a class="creator-action-link" href="/privacy.html">
-                  <span>Read privacy summary</span>
+                  <span>Read privacy and storage</span>
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
@@ -330,7 +331,7 @@
                 </svg>
               </span>
               <h3>Search beyond title</h3>
-              <p>Try creator names, tonal phrases, status labels, and a few broad tags when the exact title is fuzzy.</p>
+              <p>Try creator names, tonal phrases, status labels, and a few broad tags when the title is fuzzy or partly remembered.</p>
             </article>
             <article class="about-feature-tile help-center-guide-tile">
               <span class="about-card-icon" aria-hidden="true">
@@ -352,7 +353,7 @@
                 </svg>
               </span>
               <h3>Show pages carry depth</h3>
-              <p>When a card gets you close, open the show page for full description, similar shows, runtime context, official links, and corrections.</p>
+              <p>When a card gets you close, open the show page for the full description, similar shows, runtime context, official links, and corrections.</p>
             </article>
             <article class="about-feature-tile help-center-guide-tile">
               <span class="about-card-icon" aria-hidden="true">
@@ -363,7 +364,7 @@
                 </svg>
               </span>
               <h3>Ask the Archivist for route help</h3>
-              <p>The chat is useful when you know what you want but not where it lives. Ask about a show, a rating meaning, or the right correction path.</p>
+              <p>The chat works best when you know what you want but not where it lives. Ask about a show, a rating meaning, or the right correction path.</p>
             </article>
           </div>
         </section>
@@ -384,7 +385,7 @@
               </span>
               <div>
                 <h2>Archive Rating</h2>
-                <p>An editorial score based on storytelling, sound, originality, production, and staying power.</p>
+                <p>The archive’s editorial view of storytelling, sound, originality, production, and staying power.</p>
               </div>
             </article>
             <article class="page-card info-summary-card info-summary-card-community">
@@ -400,7 +401,7 @@
               </span>
               <div>
                 <h2>Community Rating</h2>
-                <p>Anonymous listener response that reflects real enjoyment and recommendation fit without replacing editorial judgment.</p>
+                <p>Anonymous listener response that reflects enjoyment and recommendation fit without replacing editorial judgment.</p>
               </div>
             </article>
             <article class="page-card info-summary-card">
@@ -412,13 +413,13 @@
               </span>
               <div>
                 <h2>Creator Verified</h2>
-                <p>A factual trust flag for metadata confirmation. It does not mean creator approval of reviews, ratings, or archive placement.</p>
+                <p>Factual metadata confirmation from a creator or official representative. It is not endorsement, paid placement, or approval of ratings.</p>
               </div>
             </article>
           </div>
 
           <p class="help-center-rating-note">
-            Money, support, creator verification, and outside relationships do not change Archive Rating, Community Rating, or collection placement.
+            Archive Rating and Community Rating stay separate, and Creator Verified only confirms facts. Support, relationships, or creator verification do not change ratings or collection placement.
           </p>
         </section>
 
@@ -428,7 +429,7 @@
               <span class="page-card-kicker">Common questions</span>
               <h2 id="helpFaqHeading">FAQ</h2>
             </div>
-            <p>Short answers for the questions that come up most often while using the archive.</p>
+            <p>Short answers for the questions listeners ask most often while using the archive.</p>
           </div>
 
           <div class="creator-faq-list">
@@ -437,7 +438,7 @@
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer1" id="helpFaqQuestion1">
                   <span class="creator-faq-toggle-copy">
                     <span class="creator-faq-toggle-kicker">Verification</span>
-                    <span class="creator-faq-toggle-text">What does creator verified actually mean?</span>
+                    <span class="creator-faq-toggle-text">Does Creator Verified mean the creator approved the page?</span>
                   </span>
                   <span class="creator-faq-toggle-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="presentation">
@@ -449,8 +450,8 @@
               </h3>
               <div class="creator-faq-answer" id="helpFaqAnswer1" role="region" aria-labelledby="helpFaqQuestion1" hidden>
                 <div class="creator-faq-answer-inner">
-                  <p>It means the archive has official or representative proof for objective metadata such as links, credits, release status, or episode details.</p>
-                  <p>It does not mean the creator approved a review, a rating, or a collection decision.</p>
+                  <p>No. It only means the archive has official or representative confirmation for objective metadata such as links, credits, release status, or episode details.</p>
+                  <p>Reviews, ratings, and collection placement stay editorially independent.</p>
                 </div>
               </div>
             </article>
@@ -460,7 +461,7 @@
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer2" id="helpFaqQuestion2">
                   <span class="creator-faq-toggle-copy">
                     <span class="creator-faq-toggle-kicker">Catalog</span>
-                    <span class="creator-faq-toggle-text">Why is a show missing from the archive?</span>
+                    <span class="creator-faq-toggle-text">What should I do if a show I know exists is missing?</span>
                   </span>
                   <span class="creator-faq-toggle-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="presentation">
@@ -472,8 +473,8 @@
               </h3>
               <div class="creator-faq-answer" id="helpFaqAnswer2" role="region" aria-labelledby="helpFaqQuestion2" hidden>
                 <div class="creator-faq-answer-inner">
-                  <p>The archive is curated and still growing. A missing show may not have been submitted yet, may still be under review, or may not have enough verified metadata to publish confidently.</p>
-                  <p>If it belongs here, use the new-show submission path instead of waiting for it to appear on its own.</p>
+                  <p>Try the title, creator, and a broad tag first. The archive is curated, so a show may still be missing because it has not been submitted yet or is still under review.</p>
+                  <p>If it belongs here, use the missing-show submission path instead of waiting for it to appear on its own.</p>
                 </div>
               </div>
             </article>
@@ -483,7 +484,7 @@
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer3" id="helpFaqQuestion3">
                   <span class="creator-faq-toggle-copy">
                     <span class="creator-faq-toggle-kicker">Corrections</span>
-                    <span class="creator-faq-toggle-text">Can I fix a page without creating an account?</span>
+                    <span class="creator-faq-toggle-text">Can I send a correction without making an account?</span>
                   </span>
                   <span class="creator-faq-toggle-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="presentation">
@@ -505,8 +506,8 @@
               <h3>
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer4" id="helpFaqQuestion4">
                   <span class="creator-faq-toggle-copy">
-                    <span class="creator-faq-toggle-kicker">Coverage</span>
-                    <span class="creator-faq-toggle-text">Why do some shows have more reviews or context than others?</span>
+                    <span class="creator-faq-toggle-kicker">Ratings</span>
+                    <span class="creator-faq-toggle-text">Why did my Community Rating not show up?</span>
                   </span>
                   <span class="creator-faq-toggle-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="presentation">
@@ -518,8 +519,8 @@
               </h3>
               <div class="creator-faq-answer" id="helpFaqAnswer4" role="region" aria-labelledby="helpFaqQuestion4" hidden>
                 <div class="creator-faq-answer-inner">
-                  <p>The archive is real but still expanding. Some shows already have full reviews, collection appearances, or deeper notes, while others are still indexed more lightly.</p>
-                  <p>That difference reflects current editorial coverage, not sponsorship or paid placement.</p>
+                  <p>Community Rating is anonymous, but it still depends on the archive’s browser storage so one device can keep one active vote per show.</p>
+                  <p>If the vote does not appear, make sure the archive’s cookie is not blocked, then try again from the same device. The cookies page explains the exact storage behavior.</p>
                 </div>
               </div>
             </article>
@@ -529,7 +530,7 @@
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer5" id="helpFaqQuestion5">
                   <span class="creator-faq-toggle-copy">
                     <span class="creator-faq-toggle-kicker">Platforms</span>
-                    <span class="creator-faq-toggle-text">Can the archive solve Spotify or Apple Podcasts account problems?</span>
+                    <span class="creator-faq-toggle-text">Can you fix my Spotify or Apple Podcasts issue from here?</span>
                   </span>
                   <span class="creator-faq-toggle-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="presentation">
@@ -552,7 +553,7 @@
                 <button class="creator-faq-toggle" type="button" aria-expanded="false" aria-controls="helpFaqAnswer6" id="helpFaqQuestion6">
                   <span class="creator-faq-toggle-copy">
                     <span class="creator-faq-toggle-kicker">Storage</span>
-                    <span class="creator-faq-toggle-text">How do I clear Ask the Archivist history?</span>
+                    <span class="creator-faq-toggle-text">Why did Ask the Archivist lose our conversation?</span>
                   </span>
                   <span class="creator-faq-toggle-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" role="presentation">
@@ -564,8 +565,8 @@
               </h3>
               <div class="creator-faq-answer" id="helpFaqAnswer6" role="region" aria-labelledby="helpFaqQuestion6" hidden>
                 <div class="creator-faq-answer-inner">
-                  <p>The chat keeps recent history in browser session storage, so closing the session or clearing site data removes it.</p>
-                  <p>If you want the exact storage details, the cookies and privacy pages document the current implementation directly.</p>
+                  <p>Ask the Archivist keeps recent history in browser session storage, so the conversation can disappear when the browser session ends or site data is cleared.</p>
+                  <p>If you want the exact storage details, the privacy and cookies pages document the current live behavior directly.</p>
                 </div>
               </div>
             </article>
@@ -575,22 +576,22 @@
         <section class="page-card info-section-card help-center-browser-card" id="help-browser" aria-labelledby="helpBrowserHeading">
           <div class="help-center-section-heading">
             <span class="page-card-kicker">Browser behavior</span>
-            <h2 id="helpBrowserHeading">What the site stores, and what it does not</h2>
-            <p>The current public archive keeps the data footprint small and documents the live behavior rather than hiding it behind generic policy text.</p>
+            <h2 id="helpBrowserHeading">What the site remembers in your browser</h2>
+            <p>The archive keeps the browser footprint small and documents the live behavior directly instead of hiding it behind vague policy language.</p>
           </div>
           <ul class="help-center-browser-list">
-            <li>Ask the Archivist keeps recent conversation history in session storage for the current browser session.</li>
-            <li>Community ratings use an anonymous browser token so one device can update or remove its own rating later.</li>
-            <li>Public browsing does not currently depend on ad-tech or analytics scripts.</li>
-            <li>Privacy and cookie pages exist so you can check the exact current behavior when you need it.</li>
+            <li>Ask the Archivist keeps recent conversation history only for the current browser session.</li>
+            <li>Community Rating uses an anonymous browser token plus a linked local profile id so one device can manage one active vote per show.</li>
+            <li>If you clear site data or block the archive’s cookie, ratings or chat continuity may stop working as expected.</li>
+            <li>Spotify, Apple Podcasts, and other platform playback or account problems are outside the archive’s control.</li>
           </ul>
         </section>
 
         <section class="page-card info-cta-card help-center-cta-card" aria-labelledby="helpCenterCtaHeading">
           <div>
             <span class="page-card-kicker">Right route</span>
-            <h2 id="helpCenterCtaHeading">Use the archive workflow that matches the problem</h2>
-            <p>Discovery issue, factual correction, creator verification, or collection browsing each have their own clean path so you do not have to guess.</p>
+            <h2 id="helpCenterCtaHeading">Need the right next step?</h2>
+            <p>Use the archive route that matches the problem: corrections for factual issues, collections for discovery, and separate support pages for storage or platform limits.</p>
           </div>
           <div class="info-cta-actions">
             <a class="about-cta about-cta-primary" href="/submit.html?submissionType=correction">

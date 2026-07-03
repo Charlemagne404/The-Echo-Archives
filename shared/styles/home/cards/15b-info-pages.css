@@ -84,6 +84,7 @@
   font-size: 1rem;
   line-height: 1.18;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .info-summary-card p {
@@ -212,6 +213,8 @@
   top: 18px;
   display: grid;
   gap: 14px;
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
   padding: 18px;
   border-radius: 18px;
   background:
@@ -220,6 +223,7 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.02),
     0 14px 28px rgba(0, 0, 0, 0.18);
+  overscroll-behavior: contain;
 }
 
 .info-rail-links {
@@ -238,13 +242,26 @@
   text-decoration: none;
   font-size: 0.9rem;
   line-height: 1.2;
-  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .info-rail-links a:hover,
 .info-rail-links a:focus-visible {
   color: var(--text-primary);
   background: rgba(239, 89, 67, 0.1);
+}
+
+.info-rail-links a.is-active,
+.info-rail-links a[aria-current="true"] {
+  color: var(--text-primary);
+  background: rgba(239, 89, 67, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(239, 89, 67, 0.18);
+}
+
+.info-rail-links a:focus-visible,
+.info-text-button:focus-visible {
+  outline: 2px solid rgba(239, 89, 67, 0.5);
+  outline-offset: 3px;
 }
 
 .info-rail-note {
@@ -268,6 +285,10 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.025),
     0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.info-section-card[id] {
+  scroll-margin-top: 108px;
 }
 
 .info-section-card h2 {
@@ -344,6 +365,7 @@
   margin: 5px 0 6px;
   font-size: clamp(1.28rem, 1.7vw, 1.72rem);
   letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 
 .info-cta-card p {

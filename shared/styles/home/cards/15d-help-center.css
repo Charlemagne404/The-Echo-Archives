@@ -245,6 +245,74 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.help-center-route-card {
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.help-center-route-card:hover,
+.help-center-route-card:focus,
+.help-center-route-card:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(239, 89, 67, 0.22);
+  background:
+    radial-gradient(circle at top left, rgba(239, 89, 67, 0.075), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 62%),
+    rgba(8, 11, 15, 0.88);
+}
+
+.help-center-route-card > div {
+  display: grid;
+  gap: 6px;
+}
+
+.help-center-route-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+  color: rgba(255, 214, 206, 0.9);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.help-center-route-card-link::after {
+  content: "->";
+  font-size: 0.86rem;
+  letter-spacing: 0;
+}
+
+.help-center-route-card-community {
+  background:
+    radial-gradient(circle at top left, rgba(118, 214, 90, 0.055), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(255, 255, 255, 0) 62%),
+    rgba(8, 11, 15, 0.82);
+}
+
+.help-center-route-card-community:hover,
+.help-center-route-card-community:focus,
+.help-center-route-card-community:focus-visible {
+  border-color: rgba(118, 214, 90, 0.22);
+  background:
+    radial-gradient(circle at top left, rgba(118, 214, 90, 0.075), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 62%),
+    rgba(8, 11, 15, 0.88);
+}
+
+.help-center-route-card-community .info-summary-icon {
+  border-color: rgba(118, 214, 90, 0.16);
+  background: radial-gradient(circle at 50% 36%, rgba(118, 214, 90, 0.09), rgba(8, 11, 15, 0.28));
+  color: #76d65a;
+}
+
 .help-center-page-rail {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
@@ -291,6 +359,27 @@
   min-height: 100%;
 }
 
+.help-center-issue-card .creator-action-card-copy {
+  gap: 8px;
+}
+
+.help-center-issue-card .creator-action-card-footer {
+  padding-top: 14px;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.help-center-page .creator-action-link {
+  color: rgba(247, 247, 243, 0.9);
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.help-center-page .creator-action-link:hover,
+.help-center-page .creator-action-link:focus-visible {
+  transform: translateX(1px);
+}
+
 .help-center-steps,
 .help-center-browser-list {
   display: grid;
@@ -303,6 +392,19 @@
 .help-center-browser-list li {
   color: rgba(247, 247, 243, 0.74);
   line-height: 1.56;
+}
+
+.help-center-page .about-cta-secondary {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0) 100%),
+    rgba(8, 11, 15, 0.92);
+  border-color: rgba(239, 89, 67, 0.58);
+}
+
+.help-center-page .about-cta-secondary:hover,
+.help-center-page .about-cta-secondary:focus,
+.help-center-page .about-cta-secondary:focus-visible {
+  border-color: rgba(255, 172, 158, 0.62);
 }
 
 .help-center-guide-grid {
@@ -333,6 +435,40 @@
 
 .help-center-faq-section .creator-faq-list {
   margin-top: 2px;
+}
+
+.help-center-page .info-rail-links a,
+.help-center-page .creator-faq-toggle,
+.help-center-page .about-cta,
+.help-center-page .creator-action-link,
+.help-center-page .help-center-route-card {
+  outline: none;
+}
+
+.help-center-page .info-rail-links a:focus,
+.help-center-page .info-rail-links a:focus-visible,
+.help-center-page .creator-faq-toggle:focus,
+.help-center-page .creator-faq-toggle:focus-visible,
+.help-center-page .about-cta:focus,
+.help-center-page .about-cta:focus-visible,
+.help-center-page .creator-action-link:focus,
+.help-center-page .creator-action-link:focus-visible,
+.help-center-page .help-center-route-card:focus,
+.help-center-page .help-center-route-card:focus-visible {
+  box-shadow:
+    0 0 0 1px rgba(7, 10, 13, 0.92),
+    0 0 0 3px rgba(255, 109, 79, 0.34);
+}
+
+.help-center-page .info-rail-links a {
+  justify-content: space-between;
+  border: 1px solid transparent;
+}
+
+.help-center-page .info-rail-links a::after {
+  content: "->";
+  color: rgba(255, 214, 206, 0.6);
+  font-size: 0.8rem;
 }
 
 .help-center-page .creator-faq-answer-inner {
