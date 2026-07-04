@@ -8,6 +8,7 @@
 <meta name="description" content="Cookie and browser storage information for The Echo Archives." />
 <link rel="canonical" href="https://echo.continental-hub.com/cookies" />
 <meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Echo Archives" />
 <meta property="og:title" content="Cookies - The Echo Archives" />
 <meta property="og:description" content="Cookie and browser storage information for The Echo Archives." />
 <meta property="og:url" content="https://echo.continental-hub.com/cookies" />
@@ -17,8 +18,10 @@
 <meta name="twitter:description" content="Cookie and browser storage information for The Echo Archives." />
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
-<link rel="stylesheet" href="/style.css?v=8baaf796fd" />
-<link rel="stylesheet" href="/home.css?v=3a7a0aa0a4" />
+
+
+<link rel="stylesheet" href="/style.css?v=e3291f2c8e" />
+<link rel="stylesheet" href="/home.css?v=7fd098836e" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
@@ -45,7 +48,7 @@
     </span>
   </button>
 
-  <div class="site-nav-shell" id="siteNavShell" data-state="closed">
+  <div class="site-nav-shell" id="siteNavShell" data-state="closed" aria-hidden="true">
     <button class="site-nav-backdrop" type="button" data-site-nav-close tabindex="-1" aria-label="Close site navigation"></button>
     <div class="site-nav-drawer">
       <div class="site-nav-drawer-head">
@@ -69,14 +72,14 @@
       </nav>
 
       <div class="header-actions">
-        <button class="profile-button" type="button" aria-label="Profile" title="Profile">
+        <span class="profile-button" aria-hidden="true">
           <span class="profile-avatar" aria-hidden="true">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 12a4.25 4.25 0 1 0 0-8.5 4.25 4.25 0 0 0 0 8.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
               <path d="M4.75 20.25a7.25 7.25 0 0 1 14.5 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
             </svg>
           </span>
-        </button>
+        </span>
       </div>
     </div>
   </div>
@@ -129,7 +132,7 @@
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-07-03">July 3, 2026</time>
+            <time datetime="2026-07-04">July 4, 2026</time>
             <span>Operator</span>
             <strong>The Echo Archives, a Continental project</strong>
           </p>
@@ -163,7 +166,7 @@
         </span>
         <div>
           <h2>No ad-tech layer</h2>
-          <p>The current public site does not use analytics or advertising cookies and does not currently need a cookie banner for that reason.</p>
+          <p>The live public site can use cookieless Plausible pageview analytics, but it does not use advertising cookies or cross-site marketing trackers.</p>
         </div>
       </article>
       <article class="page-card info-summary-card info-summary-card-community">
@@ -282,7 +285,7 @@
           <span class="page-card-kicker">Essential and optional use</span>
           <h2>What kind of storage this is</h2>
           <p>The current storage items are functional or security-related. They support chat continuity, anonymous ratings, and maintainer authentication.</p>
-          <p>The site does not currently use optional advertising, analytics, or cross-site marketing cookies. No separate preference-cookie layer is implemented today.</p>
+          <p>The live public site can send cookieless Plausible pageview analytics, but it does not currently use optional advertising cookies, analytics cookies, or cross-site marketing cookies. No separate preference-cookie layer is implemented today.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-ratings">
@@ -305,9 +308,9 @@
         <article class="page-card info-section-card" id="cookies-future">
           <span class="page-card-kicker">Future changes</span>
           <h2>What happens if storage changes later</h2>
-          <p>If optional analytics, advertising, or preference cookies are introduced later, this page should be updated with the purpose, duration, and whether that storage is essential or optional. The <a href="/privacy">privacy page</a> should be updated at the same time.</p>
+          <p>If optional analytics cookies, advertising cookies, or preference cookies are introduced later, this page should be updated with the purpose, duration, and whether that storage is essential or optional. The <a href="/privacy">privacy page</a> should be updated at the same time.</p>
           <div class="info-callout-note">
-            <p>The current implementation does not add a cookie banner because the public site does not currently use optional marketing or analytics cookies.</p>
+            <p>The current implementation does not add a cookie banner because the live analytics setup is intended to stay cookieless and the public site does not use optional marketing cookies.</p>
           </div>
         </article>
       </div>
@@ -384,6 +387,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=871e9c0e27"></script>
+  <script type="module" src="/script.js?v=2e41363323"></script>
 </body>
 </html>

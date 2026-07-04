@@ -14,7 +14,7 @@ import {
   createCollectionIntentTagList,
   getCollectionShowReason,
 } from "../render-collections.js";
-import { bindCopyLinkButton } from "../share.js";
+import { bindShareButton } from "../share.js";
 import { createArchiveCollectionHref } from "../urls.js";
 import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
 
@@ -39,7 +39,7 @@ export async function initializeCollectionPage() {
   const grid = document.getElementById("collectionShowGrid");
   const archiveSection = document.getElementById("collectionArchiveSection");
   const heroArt = document.getElementById("collectionHeroArt");
-  const copyLinkButton = document.getElementById("collectionCopyLink");
+  const shareButton = document.getElementById("collectionCopyLink");
 
   if (!root || !grid || !archiveSection) {
     return;
@@ -127,9 +127,11 @@ export async function initializeCollectionPage() {
   if (archiveHeroLink) {
     archiveHeroLink.href = createArchiveCollectionHref(collection.id);
   }
-  if (copyLinkButton instanceof HTMLButtonElement) {
-    bindCopyLinkButton(copyLinkButton, {
-      getText: () => window.location.href,
+  if (shareButton instanceof HTMLButtonElement) {
+    bindShareButton(shareButton, {
+      title: `${collection.title} - The Echo Archives`,
+      text: collection.description,
+      url: window.location.href,
     });
   }
 

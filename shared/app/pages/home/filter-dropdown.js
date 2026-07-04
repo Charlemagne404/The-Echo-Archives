@@ -1,3 +1,5 @@
+import { addMediaQueryListener } from "../../utils.js";
+
 const FILTER_DROPDOWN_OPEN_DURATION_MS = 190;
 const FILTER_DROPDOWN_CLOSE_DURATION_MS = 150;
 
@@ -83,7 +85,7 @@ export function initializeFilterDropdownController({ filterDropdown, filterToggl
     }, FILTER_DROPDOWN_CLOSE_DURATION_MS);
   };
 
-  mobileSheetQuery.addEventListener("change", () => {
+  addMediaQueryListener(mobileSheetQuery, () => {
     syncBodySheetState(isOpen());
   });
 

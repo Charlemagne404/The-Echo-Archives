@@ -2,6 +2,7 @@ import { renderArchiveTakeCard, renderCorrectionSection, renderFactsLinksCard } 
 import { renderDetailHero } from "./render-show/hero.js";
 import { renderCollectionsSection, renderSimilarSection } from "./render-show/relationships.js";
 import {
+  renderCreatorLinksSection,
   renderOfficialSummarySection,
   renderOverviewSection,
   renderQuoteSection,
@@ -17,6 +18,7 @@ export function createShowPageMarkup(show, showMap, collections = []) {
       <div class="detail-content-layout">
         <div class="detail-main-stack">
           ${renderOfficialSummarySection(show)}
+          ${renderCreatorLinksSection(show)}
           <div class="detail-main-column">
             ${renderOverviewSection(show)}
             ${renderReviewSection(show)}

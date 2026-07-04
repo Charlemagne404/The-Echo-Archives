@@ -12,8 +12,10 @@ import { initializeMaintainerPage } from "./pages/maintainer.js";
 import { initializeMaintainerImportsPage } from "./pages/maintainer-imports.js";
 import { initializeShowPage } from "./pages/show.js";
 import { initializeSubmitPage } from "./pages/submit.js";
+import { initializeServiceWorker } from "./service-worker.js";
 
 export async function initializeApp() {
+  initializeServiceWorker();
   initializeSharedChat();
   initializeMobileNav();
   initializeBackToTop();
@@ -63,8 +65,6 @@ export async function initializeApp() {
   if (document.body.classList.contains("creator-standards-page")) {
     initializeCreatorStandardsPage();
   }
-
-  initializeManagedImages();
 }
 
 function initializeHistoryBackLinks() {

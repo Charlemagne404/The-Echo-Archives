@@ -3,9 +3,25 @@ import {
   escapeHtml,
   formatRating,
   getArchivePerspectiveText,
+  getCreatorNames,
+  getNetworkLabel,
   renderParagraphMarkup,
   toLabel,
 } from "./utils.js";
+
+const OFFICIAL_LINK_LABELS = {
+  website: "Official site",
+  patreon: "Patreon",
+  discord: "Discord",
+  youtube: "YouTube",
+  instagram: "Instagram",
+  twitter: "Twitter",
+  x: "X",
+  tiktok: "TikTok",
+  facebook: "Facebook",
+  merch: "Merch",
+  support: "Support",
+};
 
 export function renderOfficialSummarySection(show) {
   const summaryText = String(show.description || show.subtitle || "").trim() || "Official summary not cataloged yet.";
@@ -22,6 +38,79 @@ export function renderOfficialSummarySection(show) {
       <article class="detail-summary detail-summary-official">
         <p>${escapeHtml(summaryText)}</p>
       </article>
+    </section>
+  `;
+}
+
+export function renderCreatorLinksSection(show) {
+  const creators = getCreatorNames(show);
+  const network = getNetworkLabel(show);
+  const officialLinks = getOfficialLinks(show);
+  const hasIdentity = creators.length > 0 || Boolean(network);
+
+  if (!hasIdentity && officialLinks.length === 0) {
+    return "";
+  }
+
+  return `
+    <section class="detail-section detail-creator-links-section" id="creator-links">
+      <div class="detail-section-header">
+        <div>
+          <h2>Creator &amp; official links</h2>
+          <p>Official presence stays separate from listen links, archive ratings, and community feedback.</p>
+        </div>
+      </div>
+
+      <div class="detail-creator-links-grid${hasIdentity && officialLinks.length > 0 ? "" : " detail-creator-links-grid-single"}">
+        ${
+          hasIdentity
+            ? `
+              <article class="detail-summary detail-creator-links-card">
+                <h3>Who made it</h3>
+                <div class="detail-creator-identity-list">
+                  ${
+                    creators.length > 0
+                      ? `
+                        <div class="detail-creator-identity-row">
+                          <span class="detail-creator-identity-label">Creator</span>
+                          <span class="detail-creator-identity-value">${escapeHtml(creators.join(", "))}</span>
+                        </div>
+                      `
+                      : ""
+                  }
+                  ${
+                    network
+                      ? `
+                        <div class="detail-creator-identity-row">
+                          <span class="detail-creator-identity-label">Network</span>
+                          <span class="detail-creator-identity-value">${escapeHtml(network)}</span>
+                        </div>
+                      `
+                      : ""
+                  }
+                </div>
+              </article>
+            `
+            : ""
+        }
+        ${
+          officialLinks.length > 0
+            ? `
+              <article class="detail-summary detail-creator-links-card">
+                <h3>Official presence</h3>
+                <div class="detail-link-chip-row">
+                  ${officialLinks
+                    .map(
+                      ({ href, label }) =>
+                        `<a class="detail-link-chip" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`,
+                    )
+                    .join("")}
+                </div>
+              </article>
+            `
+            : ""
+        }
+      </div>
     </section>
   `;
 }
@@ -167,4 +256,55 @@ function renderScoreBreakdownCard(show) {
       </div>
     </article>
   `;
+}
+
+function getOfficialLinks(show) {
+  const officialLinks = show?.officialLinks && typeof show.officialLinks === "object" ? show.officialLinks : {};
+  const orderedKeys = [
+    "website",
+    "patreon",
+    "discord",
+    "youtube",
+    "instagram",
+    "twitter",
+    "x",
+    "tiktok",
+    "facebook",
+    "merch",
+    "support",
+  ];
+
+  const seen = new Set();
+  const entries = [];
+
+  orderedKeys.forEach((key) => {
+    const href = String(officialLinks[key] || "").trim();
+    if (!href) {
+      return;
+    }
+
+    seen.add(key);
+    entries.push({
+      href,
+      label: OFFICIAL_LINK_LABELS[key] || toLabel(key),
+    });
+  });
+
+  Object.entries(officialLinks).forEach(([key, rawHref]) => {
+    if (seen.has(key)) {
+      return;
+    }
+
+    const href = String(rawHref || "").trim();
+    if (!href) {
+      return;
+    }
+
+    entries.push({
+      href,
+      label: OFFICIAL_LINK_LABELS[key] || toLabel(key),
+    });
+  });
+
+  return entries;
 }

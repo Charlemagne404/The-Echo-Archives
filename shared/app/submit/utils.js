@@ -6,6 +6,30 @@ export function normalizeLinkTypeClass(value = "") {
     .replace(/^-+|-+$/g, "") || "other";
 }
 
+export function toSubmitFieldKey(value = "") {
+  const normalized = String(value || "").trim();
+  if (!normalized) {
+    return "Field";
+  }
+
+  const segments = normalized
+    .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+    .split(/[^A-Za-z0-9]+/)
+    .filter(Boolean);
+
+  if (segments.length === 0) {
+    return "Field";
+  }
+
+  return segments
+    .map((segment) => `${segment.charAt(0).toUpperCase()}${segment.slice(1)}`)
+    .join("");
+}
+
+export function buildSubmitControlId(value = "", suffix = "") {
+  return `submit${toSubmitFieldKey(value)}${suffix}`;
+}
+
 export function getLinkTypeIcon(value = "") {
   switch (String(value || "").trim().toLowerCase()) {
     case "spotify":

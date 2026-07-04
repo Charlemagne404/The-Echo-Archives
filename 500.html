@@ -4,21 +4,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Submission Report - The Echo Archives</title>
-<meta name="description" content="Maintainer submission report for The Echo Archives." />
-<link rel="canonical" href="https://echo.continental-hub.com/maintainer/submissions/report.html" />
+<title>Server Error - The Echo Archives</title>
+<meta name="description" content="The archive hit a temporary server problem. Try again in a moment or return to the public routes." />
+<link rel="canonical" href="https://echo.continental-hub.com/500.html" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Echo Archives" />
-<meta property="og:title" content="Submission Report - The Echo Archives" />
-<meta property="og:description" content="Maintainer submission report for The Echo Archives." />
-<meta property="og:url" content="https://echo.continental-hub.com/maintainer/submissions/report.html" />
+<meta property="og:title" content="Server Error - The Echo Archives" />
+<meta property="og:description" content="The archive hit a temporary server problem. Try again in a moment or return to the public routes." />
+<meta property="og:url" content="https://echo.continental-hub.com/500.html" />
 <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Submission Report - The Echo Archives" />
-<meta name="twitter:description" content="Maintainer submission report for The Echo Archives." />
+<meta name="twitter:title" content="Server Error - The Echo Archives" />
+<meta name="twitter:description" content="The archive hit a temporary server problem. Try again in a moment or return to the public routes." />
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
-
+<meta name="robots" content="noindex, nofollow" />
 
 <link rel="stylesheet" href="/style.css?v=e3291f2c8e" />
 <link rel="stylesheet" href="/home.css?v=7fd098836e" />
@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body class="home-page maintainer-page maintainer-report-page info-page">
+<body class="home-page info-page server-error-page">
 <header class="site-header">
   <a class="site-brand" href="/" aria-label="The Echo Archives home">
     <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
@@ -85,50 +85,34 @@
   </div>
 </header>
 
-<main class="home-main page-main maintainer-main maintainer-report-main">
-  <section class="hero-shell maintainer-hero-shell">
-    <div class="hero-panel page-panel maintainer-hero-panel">
-      <div class="maintainer-hero-copy">
-        <p class="maintainer-kicker">Maintainer workspace</p>
-        <h1>Submission report</h1>
-        <p>Open a print-friendly snapshot of the current queue with the same filters as the live review surface.</p>
+<main class="home-main page-main info-document-main archive-error-main" aria-labelledby="archive-error-title">
+    <section class="hero-shell info-hero-shell archive-error-hero-shell">
+      <div class="hero-panel page-panel info-hero-panel archive-error-hero-panel archive-error-hero-panel-server">
+        <div class="hero-copy info-hero-copy archive-error-copy">
+          <p class="page-card-kicker archive-error-kicker">500</p>
+          <h1 id="archive-error-title">Temporary archive fault.</h1>
+          <p>
+            The archive hit a server-side problem before this page finished loading. Try again in a moment, or head back to the main discovery routes.
+          </p>
+          <div class="page-hero-actions archive-error-actions">
+            <a class="about-cta about-cta-primary" href="/">
+              <span>Return to browse</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a class="about-cta about-cta-secondary" href="/help-center">
+              <span>Open Help Center</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 19.25a7.25 7.25 0 1 0 0-14.5 7.25 7.25 0 0 0 0 14.5Z" />
+                <path d="M9.6 9.45a2.45 2.45 0 1 1 3.55 2.2c-.8.42-1.15.86-1.15 1.6v.45" />
+                <path d="M12 16.35h.01" />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="maintainer-hero-actions">
-        <a id="maintainerQueueLink" class="maintainer-link-button" href="/maintainer/submissions.html">Back to queue</a>
-        <button id="maintainerPrintButton" class="maintainer-ghost-button" type="button" hidden>Print report</button>
-        <button id="maintainerReportLogoutButton" class="maintainer-ghost-button" type="button" hidden>Log out</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
-    <div class="maintainer-auth-copy">
-      <p class="maintainer-kicker">Protected</p>
-      <h2>Maintainer passphrase</h2>
-      <p>The report uses the same protected session as the queue. Enter the maintainer passphrase to load the snapshot.</p>
-    </div>
-    <form id="maintainerAuthForm" class="maintainer-auth-form">
-      <label class="maintainer-field">
-        <span>Passphrase</span>
-        <input id="maintainerPassphrase" type="password" autocomplete="current-password" required />
-      </label>
-      <div class="maintainer-auth-actions">
-        <button class="maintainer-primary-button" type="submit">Unlock report</button>
-        <p id="maintainerAuthStatus" class="maintainer-status-copy">Sign in to continue.</p>
-      </div>
-    </form>
-  </section>
-
-  <section id="maintainerReportShell" class="maintainer-report-shell" hidden>
-    <div class="page-card maintainer-report-toolbar">
-      <div>
-        <p class="maintainer-kicker">Snapshot</p>
-        <h2>Current filters</h2>
-      </div>
-      <p id="maintainerReportMeta" class="maintainer-toolbar-meta">Loading report…</p>
-    </div>
-    <div id="maintainerReportContent" class="maintainer-report-content" aria-live="polite"></div>
-  </section>
+    </section>
 </main>
 
 <footer id="site-footer">

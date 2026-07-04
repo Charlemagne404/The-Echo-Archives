@@ -124,10 +124,13 @@ function checkGeneratedPages() {
 }
 
 function checkGeneratedAssets() {
-  const jsAsset = readFile(path.join(ROOT, "script.js"));
+  const jsAssets = ["script.js", "sw.js"].map((fileName) => readFile(path.join(ROOT, fileName)));
   const cssAssets = ["style.css", "home.css", "detail.css"].map((fileName) => readFile(path.join(ROOT, fileName)));
 
-  assert(jsAsset.startsWith(GENERATED_JS_BANNER), "script.js is missing the generated-file banner.");
+  jsAssets.forEach((contents, index) => {
+    const fileName = ["script.js", "sw.js"][index];
+    assert(contents.startsWith(GENERATED_JS_BANNER), `${fileName} is missing the generated-file banner.`);
+  });
   cssAssets.forEach((contents, index) => {
     const fileName = ["style.css", "home.css", "detail.css"][index];
     assert(contents.startsWith(GENERATED_CSS_BANNER), `${fileName} is missing the generated-file banner.`);
@@ -141,12 +144,35 @@ function checkCatalogArtifacts() {
   assert(fs.existsSync(path.join(ROOT, "docs", "generated", "catalog-status.md")), "docs/generated/catalog-status.md is missing.");
 }
 
+function checkPublicPlaceholderMarkers() {
+  const publicPagesDir = path.join(ROOT, "site-src", "pages");
+  const disallowedPatterns = [
+    { pattern: /TODO before launch/gi, label: "TODO before launch" },
+    { pattern: /lorem ipsum/gi, label: "lorem ipsum" },
+    { pattern: /under construction/gi, label: "under construction" },
+    { pattern: /https?:\/\/example\.com/gi, label: "example.com URL" },
+  ];
+
+  listFiles(publicPagesDir, ".html").forEach((filePath) => {
+    if (filePath.includes(`${path.sep}maintainer${path.sep}`)) {
+      return;
+    }
+
+    const contents = readFile(filePath);
+    disallowedPatterns.forEach(({ pattern, label }) => {
+      pattern.lastIndex = 0;
+      assert(!pattern.test(contents), `${path.relative(ROOT, filePath)} still contains launch-facing placeholder content (${label}).`);
+    });
+  });
+}
+
 function main() {
   checkLineBudgets();
   checkArchiveReferences();
   checkGeneratedPages();
   checkGeneratedAssets();
   checkCatalogArtifacts();
+  checkPublicPlaceholderMarkers();
 }
 
 main();

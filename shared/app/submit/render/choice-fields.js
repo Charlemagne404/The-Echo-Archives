@@ -1,6 +1,6 @@
 import { getTagSuggestions, normalizeCustomTag, renderSearchResultsMarkup } from "../search.js";
-import { escapeAttribute, escapeHtml, iconMarkup, normalizeOption } from "../utils.js";
-import { renderFieldShell } from "./base-fields.js";
+import { buildSubmitControlId, escapeAttribute, escapeHtml, iconMarkup, normalizeOption } from "../utils.js";
+import { getFieldIds, renderFieldShell } from "./base-fields.js";
 
 export function renderChipGroupField({
   fieldName,
@@ -18,6 +18,11 @@ export function renderChipGroupField({
   placeholder = "",
   selectionLimit = fieldName === "selectedTags" ? 8 : Number.POSITIVE_INFINITY,
 }) {
+  const fieldId = buildSubmitControlId(fieldName);
+  const inputId = `${fieldId}Input`;
+  const menuId = `${fieldId}Menu`;
+  const toggleId = `${fieldId}Toggle`;
+  const { labelId, helperId, errorId } = getFieldIds(fieldId);
   const tagLimit = selectionLimit;
   const tagLimitReached = values.length >= tagLimit;
   const isActiveField = activeField === fieldName;
@@ -34,11 +39,21 @@ export function renderChipGroupField({
   );
 
   return renderFieldShell({
+    fieldId,
+    labelId,
+    helperId,
+    errorId,
+    useLabelTag: false,
     label,
     required,
     helper,
     controlHtml: `
-      <div class="submit-tag-picker" data-tag-picker="${fieldName}">
+      <div
+        id="${fieldId}"
+        class="submit-tag-picker"
+        data-tag-picker="${fieldName}"
+        aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+      >
         <div class="submit-tag-picker-input">
           <div class="submit-tag-picker-values">
             ${values.length > 0 ? values.map((option) => `
@@ -54,30 +69,38 @@ export function renderChipGroupField({
               </button>
             `).join("") : ""}
             <input
-              id="submitTagInput-${fieldName}"
+              id="${inputId}"
               class="submit-tag-input"
               type="text"
+              name="${inputId}"
               value="${escapeAttribute(effectiveQuery)}"
               maxlength="48"
               placeholder="${escapeAttribute(placeholder || (tagLimitReached ? `${values.length} selected` : values.length > 0 ? "Add another option" : "Select from the archive list."))}"
               autocomplete="off"
+              aria-labelledby="${labelId}"
+              aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
               aria-label="${escapeAttribute(inputLabel || `Type a ${String(label).replace(/\s+\(optional\)$/i, "").toLowerCase()} option`)}"
+              aria-controls="${menuId}"
+              aria-errormessage="${errorId}"
               data-tag-input="${fieldName}"
               ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
             />
           </div>
           <button
+            id="${toggleId}"
             type="button"
             class="submit-tag-picker-toggle"
             data-toggle-tag-picker="${fieldName}"
             aria-expanded="${String(menuOpen && !tagLimitReached && isActiveField)}"
+            aria-controls="${menuId}"
+            aria-haspopup="listbox"
             aria-label="Choose ${escapeAttribute(String(label).replace(/\s+\(optional\)$/i, "").toLowerCase())}"
             ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
           >
             ${iconMarkup("chevron-down")}
           </button>
         </div>
-        <div class="submit-tag-picker-menu" ${menuOpen && !tagLimitReached && isActiveField ? "" : "hidden"}>
+        <div id="${menuId}" class="submit-tag-picker-menu" role="listbox" aria-labelledby="${labelId}" ${menuOpen && !tagLimitReached && isActiveField ? "" : "hidden"}>
           <div class="submit-tag-picker-meta">${allowCustom ? "Choose an existing tag or type your own and press Enter." : "Choose one or more options from the archive list."}</div>
           ${canCreateCustom ? `
             <button
@@ -85,6 +108,8 @@ export function renderChipGroupField({
               class="submit-tag-action"
               data-create-tag="${escapeAttribute(query)}"
               data-tag-field="${fieldName}"
+              role="option"
+              aria-selected="false"
             >
               <span class="submit-tag-action-label">Create tag</span>
               <span class="submit-tag-action-value">${escapeHtml(normalizedQuery)}</span>
@@ -98,6 +123,8 @@ export function renderChipGroupField({
                 data-tag-suggestion="${escapeAttribute(option)}"
                 data-tag-field="${fieldName}"
                 aria-pressed="false"
+                role="option"
+                aria-selected="${String(index === highlightIndex)}"
               >
                 <span>${escapeHtml(option)}</span>
               </button>
@@ -111,12 +138,26 @@ export function renderChipGroupField({
 }
 
 export function renderSegmentedField({ fieldName, label, value, options, helper = "", required = false, wide = false }) {
+  const fieldId = buildSubmitControlId(fieldName);
+  const { labelId, helperId, errorId } = getFieldIds(fieldId);
   return renderFieldShell({
+    fieldId,
+    labelId,
+    helperId,
+    errorId,
+    useLabelTag: false,
     label,
     required,
     helper,
     controlHtml: `
-      <div class="submit-segmented ${wide ? "submit-segmented--wide" : ""}">
+      <div
+        id="${fieldId}"
+        class="submit-segmented ${wide ? "submit-segmented--wide" : ""}"
+        role="radiogroup"
+        aria-labelledby="${labelId}"
+        aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+        aria-errormessage="${errorId}"
+      >
         ${options.map((option) => {
           const normalized = normalizeOption(option);
           const description = typeof option === "string" ? "" : option.description || "";
@@ -127,7 +168,8 @@ export function renderSegmentedField({ fieldName, label, value, options, helper 
               class="submit-segmented-option ${isSelected ? "is-selected" : ""}"
               data-segment-field="${fieldName}"
               data-segment-value="${escapeAttribute(normalized.value)}"
-              aria-pressed="${String(isSelected)}"
+              role="radio"
+              aria-checked="${String(isSelected)}"
             >
               <span class="submit-segmented-option-title">${escapeHtml(normalized.label)}</span>
               ${description ? `<span class="submit-segmented-option-copy">${escapeHtml(description)}</span>` : ""}
@@ -140,7 +182,14 @@ export function renderSegmentedField({ fieldName, label, value, options, helper 
 }
 
 export function renderExistingShowField({ label, value, helper, searchResults, searchOpen, selectedShowId, required = false }) {
+  const fieldId = "submitExistingShowSearch";
+  const resultsId = `${fieldId}Results`;
+  const { labelId, helperId, errorId } = getFieldIds(fieldId);
   return renderFieldShell({
+    fieldId,
+    labelId,
+    helperId,
+    errorId,
     label,
     required,
     helper,
@@ -148,13 +197,20 @@ export function renderExistingShowField({ label, value, helper, searchResults, s
       <div class="submit-search-shell ${selectedShowId ? "is-selected" : ""}">
         <div class="submit-search-control">
           <input
-            id="submitExistingShowSearch"
+            id="${fieldId}"
+            name="${fieldId}"
             type="text"
             value="${escapeAttribute(value)}"
             maxlength="160"
             placeholder="Start typing a show title"
             autocomplete="off"
+            role="combobox"
+            aria-autocomplete="list"
             aria-expanded="${String(searchOpen)}"
+            aria-controls="${resultsId}"
+            aria-labelledby="${labelId}"
+            aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+            aria-errormessage="${errorId}"
             ${required ? "required" : ""}
           />
           <div class="submit-search-actions">
@@ -174,12 +230,13 @@ export function renderExistingShowField({ label, value, helper, searchResults, s
               data-toggle-show-search
               aria-label="${searchOpen ? "Collapse show suggestions" : "Expand show suggestions"}"
               aria-expanded="${String(searchOpen)}"
+              aria-controls="${resultsId}"
             >
               ${iconMarkup("chevron-down")}
             </button>
           </div>
         </div>
-        <div id="submitExistingShowSearchResults" class="submit-search-results" ${searchOpen ? "" : "hidden"}>
+        <div id="${resultsId}" class="submit-search-results" role="listbox" aria-labelledby="${labelId}" ${searchOpen ? "" : "hidden"}>
           ${searchOpen ? renderSearchResultsMarkup(searchResults, selectedShowId, value) : ""}
         </div>
       </div>
@@ -188,13 +245,27 @@ export function renderExistingShowField({ label, value, helper, searchResults, s
 }
 
 export function renderRatingField(ratingStars) {
+  const fieldId = "submitRatingStars";
+  const { labelId, helperId, errorId } = getFieldIds(fieldId);
   return renderFieldShell({
+    fieldId,
+    labelId,
+    helperId,
+    errorId,
+    useLabelTag: false,
     label: "Listener rating",
     required: true,
     helper: "How would you rate this show overall?",
     controlHtml: `
       <div class="submit-rating-control">
-        <div class="submit-star-row" role="group" aria-label="Listener rating">
+        <div
+          id="${fieldId}"
+          class="submit-star-row"
+          role="radiogroup"
+          aria-labelledby="${labelId}"
+          aria-describedby="${helperId} ${errorId}"
+          aria-errormessage="${errorId}"
+        >
           ${Array.from({ length: 5 }, (_unused, index) => {
             const starValue = index + 1;
             return `
@@ -202,6 +273,8 @@ export function renderRatingField(ratingStars) {
                 type="button"
                 class="submit-star-button ${starValue <= ratingStars ? "is-active" : ""}"
                 data-rating-stars="${starValue}"
+                role="radio"
+                aria-checked="${String(starValue === ratingStars)}"
                 aria-label="${starValue} out of 5 stars"
               >
                 ${iconMarkup("star")}

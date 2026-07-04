@@ -39,6 +39,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     captureCurrentDraft(state, elements);
     state.activeMode = nextMode;
     resetModeUiState(state);
+    ui.clearValidationErrors();
     ui.setStatus("Nothing submitted yet.");
     ui.renderAll();
   });
@@ -78,6 +79,8 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     if (!(target instanceof Element)) {
       return;
     }
+
+    ui.clearValidationErrors();
 
     const chip = target.closest("[data-chip-field]");
     if (chip) {

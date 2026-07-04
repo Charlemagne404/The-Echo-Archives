@@ -1,3 +1,4 @@
+const fs = require("node:fs");
 const path = require("node:path");
 const express = require("express");
 
@@ -21,6 +22,11 @@ const { createCommunityRouter } = require("./lib/routes/community-routes");
 const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
+const {
+  buildCollectionPageMetadata,
+  buildShowPageMetadata,
+  injectPageMetadata,
+} = require("./lib/public-page-render");
 const { createSearchIndexRecord } = require("../tools/lib/catalog-artifacts");
 
 const PUBLIC_ROUTE_REDIRECTS = new Map([
@@ -155,6 +161,16 @@ async function startServer() {
     });
   });
 
+  if (process.env.ENABLE_TEST_ERROR_ROUTES === "true") {
+    app.get("/__test/boom", () => {
+      throw new Error("Intentional test route failure.");
+    });
+
+    app.get("/api/__test/boom", () => {
+      throw new Error("Intentional API test route failure.");
+    });
+  }
+
   app.get("/sitemap.xml", (_req, res) => {
     res.type("application/xml").send(
       buildSitemapXml({
@@ -195,6 +211,10 @@ async function startServer() {
   );
 
   if (config.SERVE_STATIC) {
+    function readPublicPageTemplate(fileName) {
+      return fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
+    }
+
     app.use((req, res, next) => {
       if (req.path.startsWith("/backend/") || req.path.startsWith("/podcast-ai/")) {
         return res.status(404).end();
@@ -214,6 +234,51 @@ async function startServer() {
       return res.redirect(301, `${redirectPath}${search}`);
     });
 
+    app.get("/collection", (req, res) => {
+      const collectionId = typeof req.query.id === "string" ? req.query.id.trim() : "";
+      const collection = state.collections.find((entry) => entry.id === collectionId);
+
+      if (!collection) {
+        return res.status(404).sendFile(path.join(config.STATIC_ROOT, "404.html"));
+      }
+
+      const showMap = new Map(state.publicCatalog.map((show) => [show.id, show]));
+      const collectionShows = (Array.isArray(collection.showIds) ? collection.showIds : [])
+        .map((showId) => showMap.get(showId))
+        .filter(Boolean);
+      const template = readPublicPageTemplate("collection.html");
+      const rendered = injectPageMetadata(
+        template,
+        buildCollectionPageMetadata({
+          siteUrl: config.SITE_URL,
+          collection,
+          collectionShows,
+        }),
+      );
+
+      return res.type("html").send(rendered);
+    });
+
+    app.get("/show", (req, res) => {
+      const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
+      const show = state.publicCatalog.find((entry) => entry.id === showId);
+
+      if (!show) {
+        return res.status(404).sendFile(path.join(config.STATIC_ROOT, "404.html"));
+      }
+
+      const template = readPublicPageTemplate("show.html");
+      const rendered = injectPageMetadata(
+        template,
+        buildShowPageMetadata({
+          siteUrl: config.SITE_URL,
+          show,
+        }),
+      );
+
+      return res.type("html").send(rendered);
+    });
+
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
       app.get(routePath, (_req, res) => {
         res.sendFile(path.join(config.STATIC_ROOT, fileName));
@@ -223,11 +288,22 @@ async function startServer() {
     app.use(express.static(config.STATIC_ROOT, { extensions: ["html"] }));
   }
 
-  app.use((error, _req, res, _next) => {
+  app.use((error, req, res, _next) => {
     const statusCode = Number.isInteger(error.statusCode) ? error.statusCode : 500;
     if (statusCode === 429 && Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0) {
       res.set("Retry-After", String(error.retryAfterSeconds));
     }
+
+    const wantsHtml =
+      statusCode >= 500 &&
+      config.SERVE_STATIC &&
+      !req.path.startsWith("/api/") &&
+      req.accepts(["html", "json"]) === "html";
+
+    if (wantsHtml) {
+      return res.status(statusCode).sendFile(path.join(config.STATIC_ROOT, "500.html"));
+    }
+
     res.status(statusCode).json({
       error: error.message || "Unexpected server error.",
       ...(Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0

@@ -91,6 +91,24 @@ export function formatCompactDate(value) {
   }).format(date);
 }
 
+export function addMediaQueryListener(mediaQueryList, listener) {
+  if (!mediaQueryList || typeof listener !== "function") {
+    return () => {};
+  }
+
+  if (typeof mediaQueryList.addEventListener === "function") {
+    mediaQueryList.addEventListener("change", listener);
+    return () => mediaQueryList.removeEventListener("change", listener);
+  }
+
+  if (typeof mediaQueryList.addListener === "function") {
+    mediaQueryList.addListener(listener);
+    return () => mediaQueryList.removeListener(listener);
+  }
+
+  return () => {};
+}
+
 function getSiteOrigin() {
   const canonicalHref = document.querySelector('link[rel="canonical"]')?.getAttribute("href");
   const candidate = canonicalHref || window.location.origin;

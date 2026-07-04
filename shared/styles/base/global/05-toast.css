@@ -1,0 +1,114 @@
+.archive-toast-stack {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 1600;
+  width: min(calc(100vw - 32px), 360px);
+  display: grid;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.archive-toast-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.archive-toast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  padding: 14px 14px 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
+    rgba(8, 11, 15, 0.96);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  pointer-events: auto;
+}
+
+.archive-toast[data-tone="success"] {
+  border-color: rgba(118, 214, 90, 0.32);
+  background:
+    radial-gradient(circle at top left, rgba(118, 214, 90, 0.14), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
+    rgba(8, 11, 15, 0.96);
+}
+
+.archive-toast[data-tone="error"] {
+  border-color: rgba(239, 89, 67, 0.34);
+  background:
+    radial-gradient(circle at top left, rgba(239, 89, 67, 0.16), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent),
+    rgba(8, 11, 15, 0.96);
+}
+
+.archive-toast-content {
+  display: grid;
+  gap: 4px;
+}
+
+.archive-toast-label {
+  color: rgba(247, 247, 243, 0.62);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.archive-toast-message {
+  color: var(--text-primary);
+  font-size: 0.93rem;
+  line-height: 1.45;
+}
+
+.archive-toast-dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(247, 247, 243, 0.78);
+  cursor: pointer;
+}
+
+.archive-toast-dismiss:hover,
+.archive-toast-dismiss:focus-visible {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.archive-toast-dismiss svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 560px) {
+  .archive-toast-stack {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+  }
+}

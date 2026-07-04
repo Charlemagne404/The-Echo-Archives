@@ -41,6 +41,7 @@ async function startPublicRouteServer() {
       STATIC_ROOT: siteRoot,
       DB_PATH: dbPath,
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
+      ENABLE_TEST_ERROR_ROUTES: "true",
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -80,6 +81,70 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
     });
     assert.equal(redirectResponse.status, 301);
     assert.equal(redirectResponse.headers.get("location"), "/collections");
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("show and collection routes include crawler-visible metadata in the raw HTML response", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const showResponse = await fetch(`${context.baseUrl}/show?id=impact-winter`);
+    assert.equal(showResponse.status, 200);
+    const showHtml = await showResponse.text();
+    assert.match(showHtml, /<title>Impact Winter - The Echo Archives<\/title>/);
+    assert.match(
+      showHtml,
+      /<link rel="canonical" href="https:\/\/echo\.continental-hub\.com\/show\?id=impact-winter" \/>/,
+    );
+    assert.match(
+      showHtml,
+      /<meta property="og:image" content="https:\/\/echo\.continental-hub\.com\//,
+    );
+
+    const collectionResponse = await fetch(`${context.baseUrl}/collection?id=best-for-long-walks`);
+    assert.equal(collectionResponse.status, 200);
+    const collectionHtml = await collectionResponse.text();
+    assert.match(
+      collectionHtml,
+      new RegExp(`<title>${"Best for long walks".replace(/[.*+?^${}()|[\]\\]/g, "\\$&")} - The Echo Archives<\\/title>`),
+    );
+    assert.match(
+      collectionHtml,
+      /<link rel="canonical" href="https:\/\/echo\.continental-hub\.com\/collection\?id=best-for-long-walks" \/>/,
+    );
+
+    const missingShowResponse = await fetch(`${context.baseUrl}/show?id=missing-show`);
+    assert.equal(missingShowResponse.status, 404);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("public 500s return branded HTML while API 500s stay JSON", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const pageFailure = await fetch(`${context.baseUrl}/__test/boom`, {
+      headers: {
+        Accept: "text/html",
+      },
+    });
+    assert.equal(pageFailure.status, 500);
+    assert.match(pageFailure.headers.get("content-type") || "", /text\/html/);
+    assert.match(await pageFailure.text(), /Temporary archive fault\./);
+
+    const apiFailure = await fetch(`${context.baseUrl}/api/__test/boom`, {
+      headers: {
+        Accept: "application\/json",
+      },
+    });
+    assert.equal(apiFailure.status, 500);
+    assert.match(apiFailure.headers.get("content-type") || "", /application\/json/);
+    assert.deepEqual(await apiFailure.json(), {
+      error: "Intentional API test route failure.",
+    });
   } finally {
     await stopPublicRouteServer(context);
   }

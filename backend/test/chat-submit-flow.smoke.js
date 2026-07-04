@@ -108,6 +108,38 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.getByRole("button", { name: "Close chat" }).click();
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
+    await page.locator("#submitPrimaryButton").click();
+    await page.waitForFunction(
+      () => document.getElementById("submitShowTitle")?.getAttribute("aria-invalid") === "true",
+      undefined,
+      { timeout: 5_000 },
+    );
+    let accessibilityState = await page.evaluate(() => {
+      const titleInput = document.getElementById("submitShowTitle");
+      const tagInput = document.getElementById("submitSelectedTagsInput");
+      const tagLabelId = tagInput?.getAttribute("aria-labelledby") || "";
+      return {
+        titleLabel: document.querySelector('label[for="submitShowTitle"]')?.textContent?.trim() || "",
+        titleError: document.getElementById("submitShowTitleError")?.textContent?.trim() || "",
+        titleInvalid: titleInput?.getAttribute("aria-invalid") || "",
+        activeElementId: document.activeElement?.id || "",
+        tagLabelText: tagLabelId ? document.getElementById(tagLabelId)?.textContent?.trim() || "" : "",
+        tagErrorId: tagInput?.getAttribute("aria-errormessage") || "",
+        statusRole: document.getElementById("submitStatus")?.getAttribute("role") || "",
+        statusText: document.getElementById("submitStatus")?.textContent?.trim() || "",
+      };
+    });
+    assert.match(accessibilityState.titleLabel, /Show title/);
+    assert.equal(accessibilityState.titleInvalid, "true");
+    assert.equal(accessibilityState.activeElementId, "submitShowTitle");
+    assert.equal(accessibilityState.titleError, "Show title is required.");
+    assert.match(accessibilityState.tagLabelText, /Genres or tags/);
+    assert.equal(accessibilityState.tagErrorId, "submitSelectedTagsError");
+    assert.equal(accessibilityState.statusRole, "alert");
+    assert.equal(accessibilityState.statusText, "Show title is required.");
+
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+
     let tagAndLinkState = await page.evaluate(() => ({
       tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
       completionTop: (() => {
@@ -330,6 +362,73 @@ test("Ask the Archivist and the remade submit page interactions work across mode
       actionHrefs: Array.from(document.querySelectorAll(".chat-action-link")).map((node) => node.getAttribute("href") || ""),
     }));
     assert.ok(chatState.actionHrefs.includes("/submit"));
+  } finally {
+    await page.close();
+  }
+});
+
+test("submit success and failure flows surface inline status and toast feedback", async () => {
+  const page = await browser.newPage();
+
+  async function fillValidShowSubmission() {
+    await page.locator("#submitShowTitle").fill("Launch Test Show");
+    await page.locator("#submitCreatorName").fill("Launch Test Network");
+    await page.locator("#submitContactEmail").fill("listener@example.org");
+    await page.locator("#submitOfficialSite").fill("https://example.org/show");
+    await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="Apple Podcasts"]').click();
+    await page.locator('[data-link-list="listenLinks"][data-link-part="url"]').fill("https://podcasts.apple.com/us/podcast/launch-test-show/id123456789");
+    await page.locator('[data-tag-input="selectedTags"]').fill("Sci-fi");
+    await page.locator('[data-tag-input="selectedTags"]').press("Enter");
+    await page.selectOption("#submitCompletionStatus", { index: 1 });
+    await page.locator("#submitShortDescription").fill("A spoiler-free test description for launch verification.");
+    await page.locator("#submitArchiveFitNote").fill("This verifies the launch submission feedback flow.");
+  }
+
+  try {
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    await fillValidShowSubmission();
+    await page.locator('button[type="submit"]').click();
+    await page.waitForFunction(
+      () => document.getElementById("submitStatus")?.textContent?.includes("Submission received."),
+      undefined,
+      { timeout: 5_000 },
+    );
+    await page.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
+
+    const successState = await page.evaluate(() => ({
+      status: document.getElementById("submitStatus")?.textContent?.trim() || "",
+      toast: document.querySelector(".archive-toast-message")?.textContent?.trim() || "",
+      toastTone: document.querySelector(".archive-toast")?.getAttribute("data-tone") || "",
+    }));
+    assert.match(successState.status, /Submission received\./);
+    assert.equal(successState.toast, "Submission received. It is now in the manual archive review queue.");
+    assert.equal(successState.toastTone, "success");
+
+    await page.route("**/api/submissions/shows", async (route) => {
+      await route.fulfill({
+        status: 500,
+        contentType: "application/json",
+        body: JSON.stringify({ error: "Submission failed with 500" }),
+      });
+    });
+
+    await fillValidShowSubmission();
+    await page.locator('button[type="submit"]').click();
+    await page.waitForFunction(
+      () => document.getElementById("submitStatus")?.textContent?.includes("Submission failed with 500"),
+      undefined,
+      { timeout: 5_000 },
+    );
+    await page.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
+
+    const failureState = await page.evaluate(() => ({
+      status: document.getElementById("submitStatus")?.textContent?.trim() || "",
+      toast: document.querySelector(".archive-toast-message")?.textContent?.trim() || "",
+      toastTone: document.querySelector(".archive-toast")?.getAttribute("data-tone") || "",
+    }));
+    assert.equal(failureState.status, "Submission failed with 500");
+    assert.equal(failureState.toast, "Submission failed with 500");
+    assert.equal(failureState.toastTone, "error");
   } finally {
     await page.close();
   }

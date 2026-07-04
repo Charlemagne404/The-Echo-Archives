@@ -75,6 +75,9 @@ test("main routes render expected page titles", async () => {
       { url: `${baseUrl}/terms`, title: "Terms - The Echo Archives" },
       { url: `${baseUrl}/cookies`, title: "Cookies - The Echo Archives" },
       { url: `${baseUrl}/copyright`, title: "Copyright & Takedown - The Echo Archives" },
+      { url: `${baseUrl}/404.html`, title: "Page Not Found - The Echo Archives" },
+      { url: `${baseUrl}/500.html`, title: "Server Error - The Echo Archives" },
+      { url: `${baseUrl}/offline.html`, title: "Offline - The Echo Archives" },
     ];
 
     for (const route of routes) {
@@ -93,6 +96,9 @@ test("main routes render expected page titles", async () => {
 test("static delivery files remain directly servable", async () => {
   const staticPaths = [
     "/404.html",
+    "/500.html",
+    "/offline.html",
+    "/sw.js",
     "/robots.txt",
     "/site.webmanifest",
     "/favicon.ico",
@@ -103,6 +109,250 @@ test("static delivery files remain directly servable", async () => {
   for (const staticPath of staticPaths) {
     const response = await fetch(`${baseUrl}${staticPath}`);
     assert.equal(response.ok, true, `${staticPath} should be directly servable.`);
+  }
+});
+
+test("public and error routes expose the expected metadata", async () => {
+  const page = await browser.newPage();
+
+  try {
+    const checks = [
+      {
+        url: `${baseUrl}/`,
+        expectedTitle: "The Echo Archives",
+        expectedCanonical: `${baseUrl}/`,
+        noIndex: false,
+      },
+      {
+        url: `${baseUrl}/show?id=${firstShowId}`,
+        expectedTitle: `${showFixtures[0].title} - The Echo Archives`,
+        expectedCanonical: `${baseUrl}/show?id=${encodeURIComponent(firstShowId)}`,
+        noIndex: false,
+      },
+      {
+        url: `${baseUrl}/collection?id=${firstCollectionId}`,
+        expectedTitle: `${collectionFixtures[0].title} - The Echo Archives`,
+        expectedCanonical: `${baseUrl}/collection?id=${encodeURIComponent(firstCollectionId)}`,
+        noIndex: false,
+      },
+      {
+        url: `${baseUrl}/404.html`,
+        expectedTitle: "Page Not Found - The Echo Archives",
+        expectedCanonical: "https://echo.continental-hub.com/404.html",
+        noIndex: true,
+      },
+      {
+        url: `${baseUrl}/500.html`,
+        expectedTitle: "Server Error - The Echo Archives",
+        expectedCanonical: "https://echo.continental-hub.com/500.html",
+        noIndex: true,
+      },
+    ];
+
+    for (const check of checks) {
+      await page.goto(check.url, { waitUntil: "load" });
+      await page.waitForFunction((expectedTitle) => document.title === expectedTitle, check.expectedTitle, { timeout: 5_000 });
+
+      const metadata = await page.evaluate(() => ({
+        title: document.title,
+        description: document.querySelector('meta[name="description"]')?.getAttribute("content") || "",
+        canonical: document.querySelector('link[rel="canonical"]')?.getAttribute("href") || "",
+        ogTitle: document.querySelector('meta[property="og:title"]')?.getAttribute("content") || "",
+        ogDescription: document.querySelector('meta[property="og:description"]')?.getAttribute("content") || "",
+        ogUrl: document.querySelector('meta[property="og:url"]')?.getAttribute("content") || "",
+        ogImage: document.querySelector('meta[property="og:image"]')?.getAttribute("content") || "",
+        twitterTitle: document.querySelector('meta[name="twitter:title"]')?.getAttribute("content") || "",
+        twitterDescription: document.querySelector('meta[name="twitter:description"]')?.getAttribute("content") || "",
+        twitterImage: document.querySelector('meta[name="twitter:image"]')?.getAttribute("content") || "",
+        themeColor: document.querySelector('meta[name="theme-color"]')?.getAttribute("content") || "",
+        manifest: document.querySelector('link[rel="manifest"]')?.getAttribute("href") || "",
+        robots: document.querySelector('meta[name="robots"]')?.getAttribute("content") || "",
+      }));
+
+      assert.equal(metadata.title, check.expectedTitle);
+      assert.ok(metadata.description.length > 0);
+      assert.equal(metadata.canonical, check.expectedCanonical);
+      assert.equal(metadata.ogTitle, check.expectedTitle);
+      assert.equal(metadata.ogDescription, metadata.description);
+      assert.equal(metadata.ogUrl, check.expectedCanonical);
+      assert.ok(metadata.ogImage.length > 0);
+      assert.equal(metadata.twitterTitle, check.expectedTitle);
+      assert.equal(metadata.twitterDescription, metadata.description);
+      assert.ok(metadata.twitterImage.length > 0);
+      assert.equal(metadata.themeColor, "#06080b");
+      assert.equal(metadata.manifest, "/site.webmanifest");
+      assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow" : "");
+    }
+  } finally {
+    await page.close();
+  }
+});
+
+test("show and collection share actions trigger native share or copy feedback", async () => {
+  const nativeSharePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const fallbackCopyPage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+
+  try {
+    await nativeSharePage.addInitScript(() => {
+      const originalMatchMedia = window.matchMedia.bind(window);
+      window.matchMedia = (query) => {
+        if (query === "(pointer: coarse)") {
+          return {
+            matches: true,
+            media: query,
+            onchange: null,
+            addEventListener() {},
+            removeEventListener() {},
+            addListener() {},
+            removeListener() {},
+            dispatchEvent() {
+              return false;
+            },
+          };
+        }
+
+        return originalMatchMedia(query);
+      };
+
+      Object.defineProperty(navigator, "share", {
+        configurable: true,
+        value: async (data) => {
+          window.__lastShareData = data;
+        },
+      });
+    });
+
+    await nativeSharePage.goto(`${baseUrl}/show?id=${firstShowId}`, { waitUntil: "networkidle" });
+    await nativeSharePage.locator('[data-share-action]').click();
+    await nativeSharePage.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
+
+    const nativeShareState = await nativeSharePage.evaluate(() => ({
+      buttonLabel: document.querySelector('[data-share-action]')?.textContent?.trim() || "",
+      toastMessage: document.querySelector(".archive-toast-message")?.textContent?.trim() || "",
+      shareData: window.__lastShareData || null,
+    }));
+    assert.equal(nativeShareState.buttonLabel, "Share");
+    assert.equal(nativeShareState.toastMessage, "Shared from the archive.");
+    assert.equal(nativeShareState.shareData?.url, `${baseUrl}/show?id=${encodeURIComponent(firstShowId)}`);
+    assert.match(nativeShareState.shareData?.title || "", /The Echo Archives/);
+
+    await fallbackCopyPage.addInitScript(() => {
+      const originalMatchMedia = window.matchMedia.bind(window);
+      window.matchMedia = (query) => {
+        if (query === "(pointer: coarse)") {
+          return {
+            matches: false,
+            media: query,
+            onchange: null,
+            addEventListener() {},
+            removeEventListener() {},
+            addListener() {},
+            removeListener() {},
+            dispatchEvent() {
+              return false;
+            },
+          };
+        }
+
+        return originalMatchMedia(query);
+      };
+
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: {
+          writeText: async (text) => {
+            window.__copiedText = text;
+          },
+        },
+      });
+    });
+
+    await fallbackCopyPage.goto(`${baseUrl}/collection?id=${firstCollectionId}`, { waitUntil: "networkidle" });
+    await fallbackCopyPage.locator("#collectionCopyLink").click();
+    await fallbackCopyPage.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
+
+    const fallbackCopyState = await fallbackCopyPage.evaluate(() => ({
+      buttonLabel: document.getElementById("collectionCopyLink")?.textContent?.trim() || "",
+      toastMessage: document.querySelector(".archive-toast-message")?.textContent?.trim() || "",
+      copiedText: window.__copiedText || "",
+    }));
+    assert.equal(fallbackCopyState.buttonLabel, "Share");
+    assert.equal(fallbackCopyState.toastMessage, "Link copied to clipboard.");
+    assert.match(fallbackCopyState.copiedText, /\/collection\?id=/);
+  } finally {
+    await nativeSharePage.close();
+    await fallbackCopyPage.close();
+  }
+});
+
+test("service worker supports cached public pages offline and falls back for uncached routes", async () => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
+  const page = await context.newPage();
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.evaluate(async () => {
+      await navigator.serviceWorker.ready;
+    });
+    await page.reload({ waitUntil: "networkidle" });
+    await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
+
+    await context.route("**/*", async (route) => {
+      await route.abort();
+    });
+    await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
+    assert.equal(await page.title(), "The Echo Archives");
+
+    const iframeFallbackTitle = await page.evaluate(async () => {
+      const frame = document.createElement("iframe");
+      frame.src = "/this-route-should-fallback-offline";
+      frame.hidden = true;
+      document.body.appendChild(frame);
+
+      await new Promise((resolve, reject) => {
+        frame.addEventListener("load", resolve, { once: true });
+        frame.addEventListener("error", reject, { once: true });
+      });
+
+      return frame.contentDocument?.title || "";
+    });
+    assert.equal(iframeFallbackTitle, "Offline - The Echo Archives");
+  } finally {
+    await context.close();
+  }
+});
+
+test("fresh browser contexts load the core public routes without relying on prior storage", async () => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
+  const page = await context.newPage();
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    assert.equal(await page.title(), "The Echo Archives");
+
+    const homeStorageState = await page.evaluate(() => ({
+      chatHistory: window.sessionStorage.getItem("echo-archives-chat-v3"),
+      communityProfile: window.localStorage.getItem("echo-community-profile-id"),
+    }));
+    assert.match(homeStorageState.chatHistory || "", /Ask about a show, the archive, ratings, creators, runtime, transcripts, collections/);
+    assert.equal(homeStorageState.communityProfile, null);
+
+    await page.goto(`${baseUrl}/show?id=${firstShowId}`, { waitUntil: "networkidle" });
+    await page.locator('[data-share-action]').waitFor();
+    assert.equal(await page.title(), `${showFixtures[0].title} - The Echo Archives`);
+
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () => {
+        const submissionType = document.getElementById("submissionType");
+        return Boolean(submissionType instanceof HTMLInputElement && submissionType.value === "show");
+      },
+      undefined,
+      { timeout: 5_000 },
+    );
+    assert.equal(await page.title(), "Submit a Show - The Echo Archives");
+  } finally {
+    await context.close();
   }
 });
 

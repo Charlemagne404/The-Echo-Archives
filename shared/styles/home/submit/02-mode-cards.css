@@ -82,6 +82,18 @@
   gap: 8px;
 }
 
+.submit-page .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .submit-field-label {
   display: block;
   color: var(--text-primary);
@@ -107,6 +119,21 @@
   color: rgba(247, 247, 243, 0.48);
   font-size: 0.85rem;
   line-height: 1.45;
+}
+
+.submit-field-error {
+  margin: -2px 0 0;
+  color: #ffc5bf;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.submit-field-error[hidden] {
+  display: none;
+}
+
+.submit-field[data-invalid="true"] .submit-field-label {
+  color: #fff1ee;
 }
 
 .submit-page .submit-remake-form input:not([type="checkbox"]):not([type="radio"]),
@@ -144,6 +171,13 @@
   outline: none;
   border-color: rgba(229, 72, 56, 0.52);
   box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.14);
+}
+
+.submit-page .submit-remake-form input[aria-invalid="true"]:not([type="checkbox"]):not([type="radio"]),
+.submit-page .submit-remake-form textarea[aria-invalid="true"],
+.submit-page .submit-remake-form select[aria-invalid="true"] {
+  border-color: rgba(255, 96, 82, 0.72);
+  box-shadow: 0 0 0 3px rgba(255, 96, 82, 0.18);
 }
 
 .submit-page .submit-remake-form select {
@@ -192,6 +226,11 @@
 .submit-tag-picker-input:focus-within {
   border-color: rgba(229, 72, 56, 0.52);
   box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.14);
+}
+
+.submit-field[data-invalid="true"] .submit-tag-picker-input {
+  border-color: rgba(255, 96, 82, 0.72);
+  box-shadow: 0 0 0 3px rgba(255, 96, 82, 0.18);
 }
 
 .submit-tag-picker-values {

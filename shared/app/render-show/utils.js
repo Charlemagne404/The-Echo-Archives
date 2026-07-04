@@ -38,6 +38,24 @@ export function getArchivePerspectiveText(show) {
   return "Archive perspective is still being expanded. This entry stays live because the show is already useful in the discovery graph.";
 }
 
+function isSuppressedCatalogValue(value = "") {
+  return /^(not[-\s]?verified|unknown|n\/a|none)$/i.test(String(value || "").trim());
+}
+
+function normalizeEntityNames(value) {
+  const values = Array.isArray(value) ? value : typeof value === "string" ? [value] : [];
+  return values.map((entry) => String(entry || "").trim()).filter((entry) => entry && !isSuppressedCatalogValue(entry));
+}
+
+function toEntityLabelFromId(value = "") {
+  const normalized = String(value || "").trim();
+  if (!normalized || isSuppressedCatalogValue(normalized)) {
+    return "";
+  }
+
+  return toLabel(normalized);
+}
+
 export function getShowDateValue(show, kind) {
   if (kind === "first") {
     return show.releaseDates?.first || "";
@@ -61,6 +79,30 @@ export function getHeroRuntimeValue(show) {
   }
 
   return getRuntimeLabel(show);
+}
+
+export function getCreatorNames(show) {
+  const directCreators = normalizeEntityNames(show?.creators);
+  if (directCreators.length > 0) {
+    return directCreators;
+  }
+
+  const creditedCreators = normalizeEntityNames(show?.credits?.creatorName);
+  if (creditedCreators.length > 0) {
+    return creditedCreators;
+  }
+
+  const creatorLabel = toEntityLabelFromId(show?.creatorId);
+  return creatorLabel ? [creatorLabel] : [];
+}
+
+export function getNetworkLabel(show) {
+  const creditedNetwork = normalizeEntityNames(show?.credits?.network)[0] || "";
+  if (creditedNetwork) {
+    return creditedNetwork;
+  }
+
+  return toEntityLabelFromId(show?.networkId);
 }
 
 export function getHeroRuntimeNote(show) {
@@ -114,17 +156,7 @@ export function getReleaseNote(show) {
 }
 
 export function getCreatorNetworkLabel(show) {
-  const creator = Array.isArray(show.creators) && show.creators.length > 0
-    ? show.creators.join(", ")
-    : show.creatorId
-      ? toLabel(show.creatorId)
-      : "";
-  const network = typeof show.credits?.network === "string" && show.credits.network
-    ? show.credits.network
-    : show.networkId
-      ? toLabel(show.networkId)
-      : "";
-  const text = [creator, network].filter(Boolean).join(" • ");
+  const text = [...getCreatorNames(show), getNetworkLabel(show)].filter(Boolean).join(" • ");
 
   if (!text) {
     return { text: "Not cataloged yet", isEmpty: true };

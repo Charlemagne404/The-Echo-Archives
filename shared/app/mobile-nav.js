@@ -1,3 +1,5 @@
+import { addMediaQueryListener } from "./utils.js";
+
 const MOBILE_NAV_BREAKPOINT = "(max-width: 780px)";
 
 export function initializeMobileNav() {
@@ -35,6 +37,7 @@ export function initializeMobileNav() {
     toggle.setAttribute("aria-expanded", String(isOpen));
     toggle.setAttribute("aria-label", isOpen ? "Close site navigation" : "Open site navigation");
     document.body.classList.toggle("site-nav-open", isMobile() && isOpen);
+    shell.setAttribute("aria-hidden", String(isMobile() ? !isOpen : false));
 
     const managedNodes = Array.from(drawer.querySelectorAll("a[href], button"));
     managedNodes.forEach((node) => {
@@ -143,7 +146,7 @@ export function initializeMobileNav() {
     }
   });
 
-  mediaQuery.addEventListener("change", () => {
+  addMediaQueryListener(mediaQuery, () => {
     closeNav({ restoreFocus: false });
     syncInteractiveState();
   });

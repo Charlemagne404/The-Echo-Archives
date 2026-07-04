@@ -15,23 +15,45 @@ const mainPages = [
   "collection.html",
   "show.html",
   "submit.html",
+  "privacy.html",
+  "terms.html",
+  "cookies.html",
+  "copyright.html",
+  "404.html",
+  "500.html",
+  "offline.html",
 ];
 const failures = [];
+const htmlCache = new Map();
+
+function getHtmlContents(relativePath) {
+  if (!htmlCache.has(relativePath)) {
+    htmlCache.set(relativePath, fs.readFileSync(path.join(siteRoot, relativePath), "utf8"));
+  }
+
+  return htmlCache.get(relativePath);
+}
 
 function normalizeLocalTarget(reference = "") {
   const trimmed = String(reference || "").trim();
   if (!trimmed || trimmed.startsWith("#")) {
-    return null;
+    return {
+      file: null,
+      hash: trimmed.slice(1),
+    };
   }
 
   if (/^(?:https?:|mailto:|tel:)/i.test(trimmed)) {
     return null;
   }
 
-  const [withoutHash] = trimmed.split("#", 1);
+  const [withoutHash, hash = ""] = trimmed.split("#", 2);
   const [withoutQuery] = withoutHash.split("?", 1);
   if (!withoutQuery || withoutQuery === "/") {
-    return "index.html";
+    return {
+      file: "index.html",
+      hash,
+    };
   }
 
   const normalized = withoutQuery.startsWith("/") ? withoutQuery.slice(1) : withoutQuery;
@@ -41,10 +63,16 @@ function normalizeLocalTarget(reference = "") {
 
   const extensionlessRoute = !path.extname(normalized);
   if (extensionlessRoute) {
-    return `${normalized}.html`;
+    return {
+      file: `${normalized}.html`,
+      hash,
+    };
   }
 
-  return normalized;
+  return {
+    file: normalized,
+    hash,
+  };
 }
 
 function assertFileExists(filePath, label) {
@@ -53,9 +81,20 @@ function assertFileExists(filePath, label) {
   }
 }
 
+function assertAnchorExists(relativePath, hash, label) {
+  if (!hash) {
+    return;
+  }
+
+  const contents = getHtmlContents(relativePath);
+  const anchorPattern = new RegExp(`\\bid="${hash.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`);
+  if (!anchorPattern.test(contents)) {
+    failures.push(`${label} -> missing anchor #${hash} in ${relativePath}`);
+  }
+}
+
 function scanHtmlFile(relativePath) {
-  const absolutePath = path.join(siteRoot, relativePath);
-  const contents = fs.readFileSync(absolutePath, "utf8");
+  const contents = getHtmlContents(relativePath);
   const assetPattern = /\b(?:href|src)="([^"]+)"/g;
 
   for (const match of contents.matchAll(assetPattern)) {
@@ -64,12 +103,37 @@ function scanHtmlFile(relativePath) {
       continue;
     }
 
-    assertFileExists(path.join(siteRoot, target), `${relativePath} references ${match[1]}`);
+    if (target.file) {
+      assertFileExists(path.join(siteRoot, target.file), `${relativePath} references ${match[1]}`);
+      if (target.file.endsWith(".html")) {
+        assertAnchorExists(target.file, target.hash, `${relativePath} references ${match[1]}`);
+      }
+      continue;
+    }
+
+    assertAnchorExists(relativePath, target.hash, `${relativePath} references ${match[1]}`);
   }
+}
+
+function scanManifestIcons() {
+  const manifestPath = path.join(siteRoot, "site.webmanifest");
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  const icons = Array.isArray(manifest.icons) ? manifest.icons : [];
+
+  icons.forEach((icon) => {
+    const target = normalizeLocalTarget(icon?.src || "");
+    if (!target?.file) {
+      failures.push(`site.webmanifest icon is missing a valid src: ${JSON.stringify(icon)}`);
+      return;
+    }
+
+    assertFileExists(path.join(siteRoot, target.file), `site.webmanifest references ${icon.src}`);
+  });
 }
 
 async function main() {
   mainPages.forEach(scanHtmlFile);
+  scanManifestIcons();
 
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
@@ -93,7 +157,7 @@ async function main() {
     return;
   }
 
-  console.log(`Validated local links and assets for ${mainPages.length} primary pages, ${catalog.length} shows, and ${collections.length} collections.`);
+  console.log(`Validated local links, anchors, and assets for ${mainPages.length} public pages, ${catalog.length} shows, and ${collections.length} collections.`);
 }
 
 main().catch((error) => {

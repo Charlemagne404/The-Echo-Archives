@@ -44,6 +44,10 @@
     background-position: center;
   }
 
+  .archive-error-hero-panel {
+    padding: 30px 22px;
+  }
+
   .info-summary-card {
     padding: 16px;
   }
@@ -54,6 +58,10 @@
 
   .info-cta-actions,
   .info-cta-actions .about-cta {
+    width: 100%;
+  }
+
+  .archive-error-actions {
     width: 100%;
   }
 

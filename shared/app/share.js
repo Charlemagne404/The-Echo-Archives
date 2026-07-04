@@ -1,3 +1,5 @@
+import { showToast } from "./toast.js";
+
 async function fallbackCopyText(text) {
   const textarea = document.createElement("textarea");
   textarea.value = text;
@@ -29,6 +31,22 @@ async function writeText(text) {
   return fallbackCopyText(text);
 }
 
+function canUseNativeShare() {
+  return typeof navigator.share === "function" && window.matchMedia?.("(pointer: coarse)")?.matches === true;
+}
+
+function updateInlineStatus(button, message = "") {
+  const statusNode =
+    button.parentElement?.querySelector("[data-copy-link-status]") ||
+    button.closest(".hero-copy, .detail-hero-copy, .collection-detail-hero-copy, .detail-section, .page-card")?.querySelector(
+      "[data-copy-link-status]",
+    );
+
+  if (statusNode instanceof HTMLElement) {
+    statusNode.textContent = message;
+  }
+}
+
 export function bindCopyLinkButton(
   button,
   {
@@ -44,18 +62,11 @@ export function bindCopyLinkButton(
 
   button.dataset.copyLinkBound = "true";
   const defaultLabel = button.textContent || "Copy link";
-  const statusNode =
-    button.parentElement?.querySelector("[data-copy-link-status]") ||
-    button.closest(".hero-copy, .detail-hero-copy, .collection-detail-hero-copy, .detail-section, .page-card")?.querySelector(
-      "[data-copy-link-status]",
-    );
   let resetTimer = 0;
 
   const reset = () => {
     button.textContent = defaultLabel;
-    if (statusNode instanceof HTMLElement) {
-      statusNode.textContent = "";
-    }
+    updateInlineStatus(button, "");
   };
 
   button.addEventListener("click", async () => {
@@ -67,10 +78,70 @@ export function bindCopyLinkButton(
     window.clearTimeout(resetTimer);
     const copied = await writeText(text);
     button.textContent = copied ? successLabel : failureLabel;
-    if (statusNode instanceof HTMLElement) {
-      statusNode.textContent = copied ? "Link copied to clipboard." : "Copy the current page URL manually.";
-    }
+    const statusMessage = copied ? "Link copied to clipboard." : "Copy the current page URL manually.";
+    updateInlineStatus(button, statusMessage);
+    showToast({
+      message: statusMessage,
+      tone: copied ? "success" : "error",
+      label: copied ? "Link ready" : "Copy failed",
+    });
 
     resetTimer = window.setTimeout(reset, resetDelayMs);
+  });
+}
+
+export function bindShareButton(
+  button,
+  {
+    title = document.title,
+    text = "",
+    url = window.location.href,
+    shareSuccessMessage = "Shared from the archive.",
+    copySuccessMessage = "Link copied to clipboard.",
+    copyFailureMessage = "Copy the current page URL manually.",
+  } = {},
+) {
+  if (!(button instanceof HTMLButtonElement) || button.dataset.shareBound === "true") {
+    return;
+  }
+
+  button.dataset.shareBound = "true";
+
+  button.addEventListener("click", async () => {
+    const normalizedUrl = String(url || window.location.href).trim();
+    if (!normalizedUrl) {
+      return;
+    }
+
+    if (canUseNativeShare()) {
+      try {
+        await navigator.share({
+          title: String(title || document.title).trim(),
+          text: String(text || "").trim(),
+          url: normalizedUrl,
+        });
+        updateInlineStatus(button, shareSuccessMessage);
+        showToast({
+          message: shareSuccessMessage,
+          tone: "success",
+          label: "Share ready",
+        });
+        return;
+      } catch (error) {
+        if (error?.name === "AbortError") {
+          updateInlineStatus(button, "");
+          return;
+        }
+      }
+    }
+
+    const copied = await writeText(normalizedUrl);
+    const message = copied ? copySuccessMessage : copyFailureMessage;
+    updateInlineStatus(button, message);
+    showToast({
+      message,
+      tone: copied ? "success" : "error",
+      label: copied ? "Link ready" : "Copy failed",
+    });
   });
 }

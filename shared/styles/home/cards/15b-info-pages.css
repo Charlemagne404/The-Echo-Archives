@@ -135,6 +135,72 @@
   font-size: 0.93rem;
 }
 
+.archive-error-main {
+  gap: 0;
+}
+
+.archive-error-hero-shell {
+  width: 100%;
+}
+
+.archive-error-hero-panel {
+  min-height: 0;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 36px;
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at top left, rgba(229, 72, 56, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(9, 12, 16, 0.98), rgba(7, 10, 14, 0.94));
+}
+
+.archive-error-hero-panel::after {
+  display: none;
+}
+
+.archive-error-hero-panel-server {
+  background:
+    radial-gradient(circle at top left, rgba(239, 89, 67, 0.1), transparent 30%),
+    linear-gradient(180deg, rgba(9, 12, 16, 0.98), rgba(7, 10, 14, 0.94));
+}
+
+.archive-error-hero-panel-offline {
+  background:
+    radial-gradient(circle at top left, rgba(118, 214, 90, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(9, 12, 16, 0.98), rgba(7, 10, 14, 0.94));
+}
+
+.archive-error-copy {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  max-width: 40rem;
+  text-align: center;
+}
+
+.archive-error-copy h1 {
+  max-width: 12ch;
+  margin: 0;
+}
+
+.archive-error-copy p {
+  margin: 0;
+}
+
+.archive-error-kicker {
+  margin: 0;
+  color: rgba(255, 125, 97, 0.98);
+}
+
+.offline-page .archive-error-kicker {
+  color: rgba(118, 214, 90, 0.98);
+}
+
+.archive-error-actions {
+  justify-content: center;
+  margin-top: 4px;
+}
+
 .info-detail-list p {
   margin: 0;
 }

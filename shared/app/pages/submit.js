@@ -26,6 +26,7 @@ import { bindSubmitPageClickHandlers } from "./submit/click-handlers.js";
 import { captureCurrentDraft } from "./submit/draft.js";
 import { getSubmitElements } from "./submit/elements.js";
 import { createSubmitUiController } from "./submit/ui.js";
+import { showToast } from "../toast.js";
 
 export async function initializeSubmitPage() {
   updateDocumentMetadata({
@@ -95,6 +96,7 @@ export async function initializeSubmitPage() {
       return;
     }
 
+    ui.clearValidationErrors();
     captureCurrentDraft(state, elements);
     ui.updateCounterFor(target.id, target.value.length);
 
@@ -123,6 +125,7 @@ export async function initializeSubmitPage() {
 
   elements.form.addEventListener("change", (event) => {
     const target = event.target;
+    ui.clearValidationErrors();
     captureCurrentDraft(state, elements);
     ui.syncHiddenInputs();
 
@@ -221,10 +224,11 @@ export async function initializeSubmitPage() {
     const draft = getActiveDraft(state);
     const validationError = validateDraft(mode, draft, state.showMap);
     if (validationError) {
-      ui.setStatus(validationError, "error");
+      ui.showValidationError(validationError);
       return;
     }
 
+    ui.clearValidationErrors();
     const payload = buildPayload(mode, draft, state.showMap);
     elements.submitButton.disabled = true;
     elements.submitButtonText.textContent = "Submitting...";
@@ -235,9 +239,21 @@ export async function initializeSubmitPage() {
       state.drafts[mode] = createDraft(mode);
       state.searchOpen = false;
       ui.renderAll();
-      ui.setStatus(getSuccessCopy(mode), "success");
+      const successMessage = getSuccessCopy(mode);
+      ui.setStatus(successMessage, "success");
+      showToast({
+        message: successMessage,
+        tone: "success",
+        label: "Submission received",
+      });
     } catch (error) {
-      ui.setStatus(error instanceof Error ? error.message : "Submission failed. Try again.", "error");
+      const errorMessage = error instanceof Error ? error.message : "Submission failed. Try again.";
+      ui.setStatus(errorMessage, "error");
+      showToast({
+        message: errorMessage,
+        tone: "error",
+        label: "Submission failed",
+      });
     } finally {
       elements.submitButton.disabled = false;
       elements.submitButtonText.textContent = modeConfig.submitLabel;

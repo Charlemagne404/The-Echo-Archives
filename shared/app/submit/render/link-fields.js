@@ -1,5 +1,5 @@
-import { escapeAttribute, escapeHtml, getLinkTypeIcon, iconMarkup, normalizeLinkTypeClass } from "../utils.js";
-import { renderFieldShell } from "./base-fields.js";
+import { buildSubmitControlId, escapeAttribute, escapeHtml, getLinkTypeIcon, iconMarkup, normalizeLinkTypeClass } from "../utils.js";
+import { getFieldIds, renderFieldShell } from "./base-fields.js";
 
 export function renderLinkListField({
   fieldName,
@@ -13,6 +13,8 @@ export function renderLinkListField({
   emptyMessage = "",
   addOptionsAriaLabel = "Add a link",
 }) {
+  const fieldId = buildSubmitControlId(fieldName);
+  const { labelId, helperId, errorId } = getFieldIds(fieldId);
   const normalizedRows = Array.isArray(rows) && rows.length > 0
     ? rows
     : plain
@@ -21,16 +23,24 @@ export function renderLinkListField({
         ? []
         : [{ label: options[0] || "Website", url: "" }];
   const rowMarkup = normalizedRows.map((row, index) => {
+    const urlId = `${fieldId}Url${index}`;
+    const labelSelectId = `${fieldId}Label${index}`;
     if (plain) {
       return `
         <div class="submit-link-row submit-link-row--plain">
+          <label class="sr-only" for="${urlId}">${escapeHtml(label)} link ${index + 1}</label>
           <input
+            id="${urlId}"
             type="url"
+            name="${urlId}"
             value="${escapeAttribute(row.url || "")}"
             placeholder="https://example.com/source"
             data-link-list="${fieldName}"
             data-link-part="url"
             data-link-index="${index}"
+            aria-labelledby="${labelId}"
+            aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+            aria-errormessage="${errorId}"
           />
           <button type="button" class="submit-link-remove" data-remove-link="${fieldName}" data-link-index="${index}" aria-label="Remove link">
             ${iconMarkup("close")}
@@ -46,17 +56,33 @@ export function renderLinkListField({
             <span class="submit-link-source-icon submit-link-source-icon--${escapeAttribute(normalizeLinkTypeClass(row.label))}">${iconMarkup(getLinkTypeIcon(row.label))}</span>
             <span class="submit-link-source-text">${escapeHtml(row.label)}</span>
           </span>
-          <select data-link-list="${fieldName}" data-link-part="label" data-link-index="${index}" aria-label="Listen link type">
+          <span class="sr-only">Link type for ${escapeHtml(label)} row ${index + 1}</span>
+          <select
+            id="${labelSelectId}"
+            name="${labelSelectId}"
+            data-link-list="${fieldName}"
+            data-link-part="label"
+            data-link-index="${index}"
+            aria-labelledby="${labelId}"
+            aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+            aria-errormessage="${errorId}"
+          >
             ${options.map((option) => `<option value="${escapeAttribute(option)}" ${option === row.label ? "selected" : ""}>${escapeHtml(option)}</option>`).join("")}
           </select>
         </label>
+        <label class="sr-only" for="${urlId}">${escapeHtml(label)} URL ${index + 1}</label>
         <input
+          id="${urlId}"
           type="url"
+          name="${urlId}"
           value="${escapeAttribute(row.url || "")}"
           placeholder="https://example.com"
           data-link-list="${fieldName}"
           data-link-part="url"
           data-link-index="${index}"
+          aria-labelledby="${labelId}"
+          aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+          aria-errormessage="${errorId}"
         />
         <button type="button" class="submit-link-remove" data-remove-link="${fieldName}" data-link-index="${index}" aria-label="Remove link">
           ${iconMarkup("close")}
@@ -66,11 +92,20 @@ export function renderLinkListField({
   }).join("");
 
   return renderFieldShell({
+    fieldId,
+    labelId,
+    helperId,
+    errorId,
+    useLabelTag: false,
     label,
     required,
     helper,
     controlHtml: `
-      <div class="submit-link-list">
+      <div
+        id="${fieldId}"
+        class="submit-link-list"
+        aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
+      >
         ${!plain && chooseBeforeAdd && normalizedRows.length === 0 && emptyMessage
           ? `<p class="submit-link-list-empty">${escapeHtml(emptyMessage)}</p>`
           : ""}
@@ -83,6 +118,7 @@ export function renderLinkListField({
                 class="submit-add-link-option"
                 data-add-link-option="${fieldName}"
                 data-add-link-value="${escapeAttribute(option)}"
+                aria-describedby="${errorId}"
               >
                 <span class="submit-link-source-icon submit-link-source-icon--${escapeAttribute(normalizeLinkTypeClass(option))}" aria-hidden="true">${iconMarkup(getLinkTypeIcon(option))}</span>
                 <span>${escapeHtml(option)}</span>
@@ -90,7 +126,7 @@ export function renderLinkListField({
             `).join("")}
           </div>
         ` : `
-          <button type="button" class="submit-add-row" data-add-link="${fieldName}">
+          <button type="button" class="submit-add-row" data-add-link="${fieldName}" aria-describedby="${errorId}">
             <span class="submit-add-row-icon" aria-hidden="true">${iconMarkup("plus")}</span>
             <span>Add another link</span>
           </button>

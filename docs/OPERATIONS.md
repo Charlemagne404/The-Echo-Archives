@@ -83,10 +83,14 @@ Verify these public routes before publishing significant catalog, route, style, 
 - `/terms`
 - `/cookies`
 - `/copyright`
+- `/404.html`
+- `/500.html`
+- `/offline.html`
 
 Checks:
 
 - page title and canonical URL match the route
+- required social/meta tags exist on the public and error routes
 - homepage trust stats render
 - homepage search, structured filters, quick filters, and recently updated mode work
 - homepage most-popular band behaves sensibly with and without community summary data
@@ -94,6 +98,8 @@ Checks:
 - inline preview and card interactions do not produce layout breakage
 - Ask the Archivist opens and closes cleanly
 - show and collection missing states stay coherent
+- show and collection share actions work, including copy/share feedback
+- offline fallback appears after service-worker registration when the network is cut
 - submit modes switch correctly across show, correction, listener review, and creator verification
 
 If maintainer auth is enabled, also verify:
@@ -107,8 +113,12 @@ If maintainer auth is enabled, also verify:
 
 - `sitemap.xml` loads
 - `robots.txt` loads
+- `sw.js` loads
 - legacy show-detail redirects still land on canonical `show.html?id=...` routes
 - submission and correction handling is ready before promotion
+- submission queue behavior is the live intake path; no public email-delivery feature is assumed
+- run a private/incognito pass on `/`, `/show?id=<known-show-id>`, and `/submit`
+- verify Plausible pageview analytics only when `PLAUSIBLE_DOMAIN` is configured for the build
 - docs stay accurate when routes, schema, or operating assumptions change
 
 ## Submission Intake Surface

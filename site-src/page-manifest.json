@@ -8,6 +8,7 @@
     "bodyClass": "home-page",
     "activeNav": "browse",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -20,6 +21,7 @@
     "bodyClass": "home-page about-page info-page",
     "activeNav": "about",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -32,6 +34,7 @@
     "bodyClass": "home-page for-creators-page info-page",
     "activeNav": "for-creators",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -44,6 +47,7 @@
     "bodyClass": "home-page creator-standards-page info-page",
     "activeNav": "for-creators",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -56,6 +60,7 @@
     "bodyClass": "home-page supporters-page info-page",
     "activeNav": "supporters",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -68,6 +73,7 @@
     "bodyClass": "home-page help-center-page info-page",
     "activeNav": "",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -80,6 +86,7 @@
     "bodyClass": "home-page collections-page info-page",
     "activeNav": "collections",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -92,6 +99,7 @@
     "bodyClass": "home-page collection-page info-page",
     "activeNav": "collections",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -106,6 +114,7 @@
     "extraStylesheets": [
       "detail.css"
     ],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -118,8 +127,51 @@
     "bodyClass": "home-page submit-page info-page",
     "activeNav": "submit",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
+  },
+  {
+    "source": "404.html",
+    "output": "404.html",
+    "title": "Page Not Found - The Echo Archives",
+    "description": "The route you followed does not map to a live Echo Archives page. Return to the archive or browse collections.",
+    "canonicalUrl": "https://echo.continental-hub.com/404.html",
+    "bodyClass": "home-page info-page not-found-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeAnalytics": true,
+    "noIndex": true,
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
+    "source": "500.html",
+    "output": "500.html",
+    "title": "Server Error - The Echo Archives",
+    "description": "The archive hit a temporary server problem. Try again in a moment or return to the public routes.",
+    "canonicalUrl": "https://echo.continental-hub.com/500.html",
+    "bodyClass": "home-page info-page server-error-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeAnalytics": true,
+    "noIndex": true,
+    "includeChatShell": false,
+    "includeFloatingControls": false
+  },
+  {
+    "source": "offline.html",
+    "output": "offline.html",
+    "title": "Offline - The Echo Archives",
+    "description": "The archive cannot reach the network right now. Reconnect to keep browsing and fetching live data.",
+    "canonicalUrl": "https://echo.continental-hub.com/offline.html",
+    "bodyClass": "home-page info-page offline-page",
+    "activeNav": "",
+    "extraStylesheets": [],
+    "includeAnalytics": false,
+    "noIndex": true,
+    "includeChatShell": false,
+    "includeFloatingControls": false
   },
   {
     "source": "maintainer/submissions.html",
@@ -130,6 +182,7 @@
     "bodyClass": "home-page maintainer-page info-page",
     "activeNav": "",
     "extraStylesheets": [],
+    "includeAnalytics": false,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -142,6 +195,7 @@
     "bodyClass": "home-page maintainer-page maintainer-report-page info-page",
     "activeNav": "",
     "extraStylesheets": [],
+    "includeAnalytics": false,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -154,6 +208,7 @@
     "bodyClass": "home-page maintainer-import-page info-page",
     "activeNav": "",
     "extraStylesheets": [],
+    "includeAnalytics": false,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -166,6 +221,7 @@
     "bodyClass": "home-page maintainer-import-page maintainer-import-report-page info-page",
     "activeNav": "",
     "extraStylesheets": [],
+    "includeAnalytics": false,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -178,6 +234,7 @@
     "bodyClass": "home-page info-page",
     "activeNav": "privacy",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -190,6 +247,7 @@
     "bodyClass": "home-page info-page",
     "activeNav": "terms",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -202,6 +260,7 @@
     "bodyClass": "home-page info-page",
     "activeNav": "cookies",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   },
@@ -214,6 +273,7 @@
     "bodyClass": "home-page info-page",
     "activeNav": "terms",
     "extraStylesheets": [],
+    "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
   }

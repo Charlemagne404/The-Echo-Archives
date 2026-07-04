@@ -51,6 +51,8 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `MAINTAINER_REVIEW_PASSPHRASE`: enables the protected maintainer review queue when set
 - `MAINTAINER_REVIEW_COOKIE_SECRET`: signs the maintainer session cookie
 - `MAINTAINER_REVIEW_SESSION_TTL_HOURS`: maintainer session lifetime in hours
+- `PLAUSIBLE_DOMAIN`: optional public analytics domain injected into generated public pages during `npm run build:pages`
+- `PLAUSIBLE_SCRIPT_SRC`: optional Plausible script URL override used during page generation
 
 ## Maintainer review workflow
 

@@ -3,7 +3,7 @@ import { buildShowMap, loadCollections, loadShows } from "../data.js";
 import { initializeDetailRatingPage } from "../community.js";
 import { initializeManagedImages } from "../images.js";
 import { createShowPageMarkup } from "../render-show.js";
-import { bindCopyLinkButton } from "../share.js";
+import { bindShareButton } from "../share.js";
 import { updateDocumentMetadata } from "../utils.js";
 
 export async function initializeShowPage() {
@@ -38,10 +38,12 @@ export async function initializeShowPage() {
 
   showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
   initializeManagedImages(showRoot);
-  const copyLinkButton = showRoot.querySelector("[data-copy-link]");
-  if (copyLinkButton instanceof HTMLButtonElement) {
-    bindCopyLinkButton(copyLinkButton, {
-      getText: () => window.location.href,
+  const shareButton = showRoot.querySelector("[data-share-action]");
+  if (shareButton instanceof HTMLButtonElement) {
+    bindShareButton(shareButton, {
+      title: `${show.title} - The Echo Archives`,
+      text: show.description,
+      url: window.location.href,
     });
   }
   const detailRoot = showRoot.querySelector(".podcast-detail");

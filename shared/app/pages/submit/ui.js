@@ -6,6 +6,8 @@ import { escapeHtml, iconMarkup } from "../../submit/utils.js";
 
 export function createSubmitUiController({ state, elements }) {
   return {
+    clearValidationErrors,
+    showValidationError,
     renderAll,
     setStatus,
     updateTagSuggestionState,
@@ -72,6 +74,7 @@ export function createSubmitUiController({ state, elements }) {
     elements.submitFooterNote.textContent = config.footerNote;
     elements.submitFooterNote.dataset.noteKind = "locked";
 
+    clearValidationErrors();
     updateAllCounters();
     updateSearchResults();
   }
@@ -106,10 +109,87 @@ export function createSubmitUiController({ state, elements }) {
     elements.submitStatus.textContent = message;
     if (stateName) {
       elements.submitStatus.dataset.state = stateName;
+      elements.submitStatus.setAttribute("role", stateName === "error" ? "alert" : "status");
+      elements.submitStatus.setAttribute("aria-live", stateName === "error" ? "assertive" : "polite");
       return;
     }
 
     delete elements.submitStatus.dataset.state;
+    elements.submitStatus.setAttribute("role", "status");
+    elements.submitStatus.setAttribute("aria-live", "polite");
+  }
+
+  function clearValidationErrors() {
+    elements.dynamicFields.querySelectorAll("[data-field-shell]").forEach((shell) => {
+      if (shell instanceof HTMLElement) {
+        delete shell.dataset.invalid;
+      }
+    });
+
+    elements.dynamicFields.querySelectorAll("[aria-invalid=\"true\"]").forEach((field) => {
+      if (field instanceof HTMLElement) {
+        field.removeAttribute("aria-invalid");
+      }
+    });
+
+    elements.dynamicFields.querySelectorAll(".submit-field-error").forEach((errorNode) => {
+      if (errorNode instanceof HTMLElement) {
+        errorNode.hidden = true;
+        errorNode.textContent = "";
+      }
+    });
+  }
+
+  function showValidationError(validationError) {
+    if (!validationError?.fieldId || !validationError?.message) {
+      return;
+    }
+
+    clearValidationErrors();
+    const errorFieldId = validationError.errorFieldId || validationError.fieldId;
+    const errorId = `${errorFieldId}Error`;
+    const shell = elements.dynamicFields.querySelector(`[data-field-shell="${errorFieldId}"]`);
+    const errorNode = document.getElementById(errorId);
+    const field = document.getElementById(validationError.fieldId);
+
+    if (shell instanceof HTMLElement) {
+      shell.dataset.invalid = "true";
+    }
+
+    if (errorNode instanceof HTMLElement) {
+      errorNode.hidden = false;
+      errorNode.textContent = validationError.message;
+    }
+
+    if (field instanceof HTMLElement) {
+      field.setAttribute("aria-invalid", "true");
+    }
+
+    setStatus(validationError.message, "error");
+    focusValidationTarget(field, shell);
+  }
+
+  function focusValidationTarget(field, shell) {
+    if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement || field instanceof HTMLButtonElement) {
+      field.focus();
+      return;
+    }
+
+    const shellRoot = shell instanceof HTMLElement ? shell : field instanceof HTMLElement ? field : null;
+    if (!shellRoot) {
+      return;
+    }
+
+    const fallbackTarget = shellRoot.querySelector("input, textarea, select, button, [tabindex]:not([tabindex='-1'])");
+    if (fallbackTarget instanceof HTMLElement) {
+      fallbackTarget.focus();
+      return;
+    }
+
+    if (shellRoot instanceof HTMLElement) {
+      shellRoot.setAttribute("tabindex", "-1");
+      shellRoot.focus();
+    }
   }
 
   function updateTagSuggestionState(fieldName, query, { highlightIndex = state.tagHighlightIndex } = {}) {

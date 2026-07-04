@@ -129,7 +129,13 @@ export function renderSearchResultsMarkup(results, selectedShowId, query) {
   }
 
   return results.slice(0, 7).map((show) => `
-    <button type="button" class="submit-search-result" data-show-option-id="${escapeAttribute(show.id)}">
+    <button
+      type="button"
+      class="submit-search-result"
+      data-show-option-id="${escapeAttribute(show.id)}"
+      role="option"
+      aria-selected="${String(selectedShowId === show.id)}"
+    >
       <span class="submit-search-result-topline">
         <span class="submit-search-result-title">${escapeHtml(show.title)}</span>
         ${selectedShowId === show.id ? `<span class="submit-search-result-check" aria-hidden="true">${iconMarkup("check")}</span>` : ""}

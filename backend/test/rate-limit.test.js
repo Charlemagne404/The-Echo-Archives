@@ -42,11 +42,11 @@ async function startRateLimitServer() {
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       STATIC_ROOT: siteRoot,
       CHAT_RATE_LIMIT_MAX: "2",
-      CHAT_RATE_LIMIT_WINDOW_MS: "120",
+      CHAT_RATE_LIMIT_WINDOW_MS: "1000",
       COMMUNITY_WRITE_MAX: "2",
-      COMMUNITY_WRITE_WINDOW_MS: "120",
+      COMMUNITY_WRITE_WINDOW_MS: "1000",
       SUBMISSION_RATE_LIMIT_MAX: "1",
-      SUBMISSION_RATE_LIMIT_WINDOW_MS: "120",
+      SUBMISSION_RATE_LIMIT_WINDOW_MS: "1000",
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -71,8 +71,8 @@ async function stopRateLimitServer({ serverProcess, tempDir }) {
   }
 }
 
-async function waitForWindowReset() {
-  await new Promise((resolve) => setTimeout(resolve, 180));
+async function waitForWindowReset(delayMs = 1200) {
+  await new Promise((resolve) => setTimeout(resolve, delayMs));
 }
 
 async function postJson(url, body, init = {}) {

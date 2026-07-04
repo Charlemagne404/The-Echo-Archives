@@ -20,6 +20,9 @@ const runtimePages = [
   "terms.html",
   "cookies.html",
   "copyright.html",
+  "404.html",
+  "500.html",
+  "offline.html",
 ];
 const cleanRouteAliases = [
   "about/index.html",
@@ -81,5 +84,41 @@ test("clean-route static aliases exist for plain file servers", () => {
   cleanRouteAliases.forEach((aliasPath) => {
     const absolutePath = path.join(siteRoot, aliasPath);
     assert.equal(fs.existsSync(absolutePath), true, `${aliasPath} should exist.`);
+  });
+});
+
+test("public and error pages ship the expected metadata primitives", () => {
+  runtimePages.forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+
+    assert.match(html, /<meta name="description" content="[^"]+"/, `${pagePath} should include a description meta tag.`);
+    assert.match(html, /<link rel="canonical" href="[^"]+"/, `${pagePath} should include a canonical URL.`);
+    assert.match(html, /<meta property="og:title" content="[^"]+"/, `${pagePath} should include an OG title.`);
+    assert.match(html, /<meta property="og:description" content="[^"]+"/, `${pagePath} should include an OG description.`);
+    assert.match(html, /<meta property="og:url" content="[^"]+"/, `${pagePath} should include an OG URL.`);
+    assert.match(html, /<meta property="og:image" content="[^"]+"/, `${pagePath} should include an OG image.`);
+    assert.match(html, /<meta name="twitter:title" content="[^"]+"/, `${pagePath} should include a Twitter title.`);
+    assert.match(html, /<meta name="twitter:description" content="[^"]+"/, `${pagePath} should include a Twitter description.`);
+    assert.match(html, /<meta name="twitter:image" content="[^"]+"/, `${pagePath} should include a Twitter image.`);
+    assert.match(html, /<meta name="theme-color" content="#06080b"/, `${pagePath} should include a theme color.`);
+    assert.match(html, /<link rel="manifest" href="\/site\.webmanifest"/, `${pagePath} should link to the manifest.`);
+    assert.match(html, /<link rel="icon" href="\/favicon\.ico" sizes="any"/, `${pagePath} should link to the favicon.`);
+    assert.match(html, /<link rel="apple-touch-icon" href="\/apple-touch-icon\.png"/, `${pagePath} should link to the Apple touch icon.`);
+  });
+
+  for (const errorPagePath of ["404.html", "500.html", "offline.html"]) {
+    const html = fs.readFileSync(path.join(siteRoot, errorPagePath), "utf8");
+    assert.match(html, /<meta name="robots" content="noindex, nofollow"/, `${errorPagePath} should stay noindex.`);
+  }
+});
+
+test("web manifest icons exist on disk", () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(siteRoot, "site.webmanifest"), "utf8"));
+  const icons = Array.isArray(manifest.icons) ? manifest.icons : [];
+
+  assert.ok(icons.length > 0, "site.webmanifest should include at least one icon.");
+  icons.forEach((icon) => {
+    const relativePath = String(icon?.src || "").replace(/^\//, "");
+    assert.equal(fs.existsSync(path.join(siteRoot, relativePath)), true, `${icon.src} should exist.`);
   });
 });

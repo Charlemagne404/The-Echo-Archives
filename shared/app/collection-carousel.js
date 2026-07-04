@@ -1,4 +1,5 @@
 import { alignCardToViewportCenter, getCenteredScrollLeft, getLoopProgress, getNearestCardIndex, getWrappedIndex } from "./collection-carousel-centering.js";
+import { addMediaQueryListener } from "./utils.js";
 
 export function initializeCollectionCarousel({
   featuredCollections,
@@ -333,7 +334,7 @@ export function initializeCollectionCarousel({
   collectionViewport.addEventListener("scroll", handleViewportScroll, { passive: true });
   collectionPrev.addEventListener("click", handlePrevClick);
   collectionNext.addEventListener("click", handleNextClick);
-  reducedMotionQuery.addEventListener?.("change", handleReducedMotionChange);
+  const removeReducedMotionListener = addMediaQueryListener(reducedMotionQuery, handleReducedMotionChange);
   resizeObserver?.observe(collectionCarousel);
   resizeObserver?.observe(collectionViewport);
   startAutoScrollLoop();
@@ -362,7 +363,7 @@ export function initializeCollectionCarousel({
       collectionViewport.removeEventListener("scroll", handleViewportScroll);
       collectionPrev.removeEventListener("click", handlePrevClick);
       collectionNext.removeEventListener("click", handleNextClick);
-      reducedMotionQuery.removeEventListener?.("change", handleReducedMotionChange);
+      removeReducedMotionListener();
       resizeObserver?.disconnect();
     },
   };

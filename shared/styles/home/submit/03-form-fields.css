@@ -52,6 +52,11 @@
   gap: 8px;
 }
 
+.submit-field[data-invalid="true"] .submit-segmented {
+  border-radius: 16px;
+  box-shadow: 0 0 0 3px rgba(255, 96, 82, 0.18);
+}
+
 .submit-segmented--wide {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
@@ -115,6 +120,11 @@
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 14px;
   background: rgba(5, 8, 11, 0.72);
+}
+
+.submit-field[data-invalid="true"] .submit-star-row {
+  border-color: rgba(255, 96, 82, 0.72);
+  box-shadow: 0 0 0 3px rgba(255, 96, 82, 0.18);
 }
 
 .submit-star-button {
@@ -285,6 +295,11 @@
 .submit-link-list {
   display: grid;
   gap: 10px;
+}
+
+.submit-field[data-invalid="true"] .submit-link-list {
+  border-radius: 16px;
+  box-shadow: 0 0 0 3px rgba(255, 96, 82, 0.18);
 }
 
 .submit-link-list-empty {

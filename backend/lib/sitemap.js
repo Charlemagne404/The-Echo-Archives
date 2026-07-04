@@ -21,6 +21,8 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
     { loc: `${baseUrl}/about` },
     { loc: `${baseUrl}/for-creators` },
     { loc: `${baseUrl}/creator-standards` },
+    { loc: `${baseUrl}/supporters` },
+    { loc: `${baseUrl}/help-center` },
     { loc: `${baseUrl}/submit` },
     { loc: `${baseUrl}/collections` },
     { loc: `${baseUrl}/privacy` },
