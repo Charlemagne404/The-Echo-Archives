@@ -14,26 +14,47 @@ import {
   createCollectionIntentTagList,
   getCollectionShowReason,
 } from "../render-collections.js";
+import { bindCopyLinkButton } from "../share.js";
 import { createArchiveCollectionHref } from "../urls.js";
 import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
 
-export async function initializeCollectionPage() {
-  const shows = await loadShows();
-  const collections = await loadCollections();
-  const publishedShows = getPublishedShows(shows);
-  const showMap = buildShowMap(publishedShows);
-  const collectionMap = buildCollectionMap(collections);
+function createCollectionLoadingCard() {
+  const shell = document.createElement("article");
+  shell.className = "archive-skeleton-card";
+  shell.setAttribute("aria-hidden", "true");
+  shell.innerHTML = `
+    <div class="archive-skeleton-block archive-skeleton-cover"></div>
+    <div class="archive-skeleton-copy">
+      <span class="archive-skeleton-block archive-skeleton-title"></span>
+      <span class="archive-skeleton-block archive-skeleton-line"></span>
+      <span class="archive-skeleton-block archive-skeleton-rating"></span>
+    </div>
+  `;
+  return shell;
+}
 
+export async function initializeCollectionPage() {
   const collectionId = new URLSearchParams(window.location.search).get("id") || "";
-  const collection = collectionMap.get(collectionId);
   const root = document.getElementById("collectionRoot");
   const grid = document.getElementById("collectionShowGrid");
   const archiveSection = document.getElementById("collectionArchiveSection");
   const heroArt = document.getElementById("collectionHeroArt");
+  const copyLinkButton = document.getElementById("collectionCopyLink");
 
   if (!root || !grid || !archiveSection) {
     return;
   }
+
+  grid.textContent = "";
+  for (let index = 0; index < 6; index += 1) {
+    grid.appendChild(createCollectionLoadingCard());
+  }
+
+  const [shows, collections] = await Promise.all([loadShows(), loadCollections()]);
+  const publishedShows = getPublishedShows(shows);
+  const showMap = buildShowMap(publishedShows);
+  const collectionMap = buildCollectionMap(collections);
+  const collection = collectionMap.get(collectionId);
 
   if (!collection) {
     updateDocumentMetadata({
@@ -88,6 +109,7 @@ export async function initializeCollectionPage() {
     heroArt.textContent = "";
     heroArt.appendChild(createCollectionCoverCollage(collection, collectionShows, {
       className: "collection-cover-collage collection-detail-collage",
+      loading: "eager",
     }));
   }
 
@@ -104,6 +126,11 @@ export async function initializeCollectionPage() {
   }
   if (archiveHeroLink) {
     archiveHeroLink.href = createArchiveCollectionHref(collection.id);
+  }
+  if (copyLinkButton instanceof HTMLButtonElement) {
+    bindCopyLinkButton(copyLinkButton, {
+      getText: () => window.location.href,
+    });
   }
 
   grid.textContent = "";

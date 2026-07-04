@@ -1,5 +1,6 @@
 import { HOME_CARD_PREVIEW_ID_PREFIX } from "../constants.js";
-import { toDisplayTag } from "../utils.js";
+import { configureImageElement } from "../images.js";
+import { setHighlightedText, toDisplayTag } from "../utils.js";
 import { createEditorialBadges } from "./badges.js";
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { formatInlineTagList } from "./shared.js";
@@ -21,6 +22,7 @@ export function createShowCard(show, { previewMode = "" } = {}) {
   if (previewMode === "inline-expand") {
     shell.append(createHomeCardPreviewPanel(show, previewId));
   }
+  syncShowCardPresentation(shell, show);
   return shell;
 }
 
@@ -37,16 +39,20 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" 
   const image = document.createElement("img");
   image.src = show.cover;
   image.alt = show.coverAlt;
+  configureImageElement(image, {
+    loading: "lazy",
+    width: 320,
+    height: 320,
+  });
 
   const editorialBadges = createEditorialBadges(show);
 
   const title = document.createElement("h2");
-  title.textContent = show.title;
+  title.dataset.cardTitle = "true";
 
   const tags = document.createElement("p");
   tags.className = "tags";
-  tags.textContent = formatInlineTagList(show.tags, 2);
-  tags.hidden = !tags.textContent;
+  tags.dataset.cardMeta = "true";
 
   const rating = document.createElement("div");
   rating.className = "rating";
@@ -57,6 +63,7 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" 
     createCommunityScoreElement(show, { showLabel: false }),
   );
   card.append(editorialBadges, image, title, tags, rating);
+  card.__cardNodes = { title, tags };
   return card;
 }
 
@@ -113,6 +120,11 @@ function createHomeCardPreviewPanel(show, previewId) {
   image.src = show.cover;
   image.alt = show.coverAlt;
   image.className = "home-card-preview-media-art";
+  configureImageElement(image, {
+    loading: "lazy",
+    width: 320,
+    height: 320,
+  });
   media.appendChild(image);
 
   const content = document.createElement("div");
@@ -214,4 +226,26 @@ export function createCollectionShowCard(show, reason = "") {
   reasonNode.textContent = reason;
   shell.appendChild(reasonNode);
   return shell;
+}
+
+export function syncShowCardPresentation(shell, show) {
+  if (!(shell instanceof HTMLElement)) {
+    return;
+  }
+
+  const card = shell.querySelector(".podcast-card");
+  const nodes = card?.__cardNodes;
+  if (!nodes) {
+    return;
+  }
+
+  const presentation = show?.searchPresentation || null;
+  const titleTerms = Array.isArray(presentation?.titleTerms) ? presentation.titleTerms : [];
+  const metaText = presentation?.metaText || formatInlineTagList(show.tags, 2);
+  const metaTerms = Array.isArray(presentation?.metaTerms) ? presentation.metaTerms : [];
+
+  setHighlightedText(nodes.title, show.title, titleTerms);
+  setHighlightedText(nodes.tags, metaText, metaTerms);
+  nodes.tags.hidden = !String(metaText || "").trim();
+  nodes.tags.dataset.searchPresentation = presentation?.metaText ? "true" : "false";
 }

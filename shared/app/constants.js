@@ -2,6 +2,7 @@ export const SHOWS_DATA_URL = "/data/shows.json";
 export const COLLECTIONS_DATA_URL = "/data/collections.json";
 export const SEARCH_INDEX_URL = "/data/search-index.json";
 export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
+export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
 export const archiveRecord = globalThis.EchoArchiveRecord;

@@ -20,6 +20,9 @@ export function getHomeElements() {
     archiveSection: document.getElementById("archive"),
     popularSection: document.getElementById("mostPopular"),
     popularGrid: document.getElementById("popularGrid"),
+    recentlyAddedSection: document.getElementById("recentlyAdded"),
+    recentlyAddedGrid: document.getElementById("recentlyAddedGrid"),
+    recentlyAddedEmptyState: document.getElementById("recentlyAddedEmptyState"),
     archiveGrid: document.getElementById("podcast-grid"),
     noResultsMsg: document.getElementById("noResultsMsg"),
     resultsSummary: document.getElementById("resultsSummary"),
@@ -54,6 +57,9 @@ export function getHomeElements() {
     !elements.archiveSection ||
     !elements.popularSection ||
     !elements.popularGrid ||
+    !elements.recentlyAddedSection ||
+    !elements.recentlyAddedGrid ||
+    !elements.recentlyAddedEmptyState ||
     !elements.filterOptionGrid ||
     !elements.stickyFilterOptionGrid ||
     !elements.quickFiltersRoot ||

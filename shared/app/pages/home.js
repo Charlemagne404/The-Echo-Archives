@@ -4,6 +4,7 @@ import {
   HOME_FAVORITE_ROUTE_IDS,
   userInput,
 } from "../constants.js";
+import { createScrollRestoration } from "../scroll-restoration.js";
 import {
   applyArchiveStats,
   buildCollectionMap,
@@ -17,7 +18,7 @@ import {
   loadSearchIndex,
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
-import { createShowCard } from "../render-cards.js";
+import { createShowCard, syncShowCardPresentation } from "../render-cards.js";
 import { setChatOpen } from "../chat.js";
 import { syncCommunityCardBadges } from "../community.js";
 import { updateDocumentMetadata } from "../utils.js";
@@ -39,18 +40,53 @@ import {
 import { initializeFilterDropdownController } from "./home/filter-dropdown.js";
 import { getHomeGridLayoutBucket, patchArchiveGrid, sortVisibleShows } from "./home/layout.js";
 import { createMostPopularController } from "./home/most-popular.js";
+import { createRecentlyAddedController } from "./home/recently-added.js";
 import { syncResultsSummary, syncResultsSurfaceVisibility } from "./home/results-motion.js";
 import { createHomeState } from "./home/state.js";
 import { seedHomeStateFromParams, syncBrowseUrlState } from "./home/url-state.js";
 
+const SHOW_HOME_RECENTLY_ADDED_BAND = false;
+
+function createHomeSkeletonCard() {
+  const shell = document.createElement("article");
+  shell.className = "archive-skeleton-card";
+  shell.setAttribute("aria-hidden", "true");
+  shell.innerHTML = `
+    <div class="archive-skeleton-block archive-skeleton-cover"></div>
+    <div class="archive-skeleton-copy">
+      <span class="archive-skeleton-block archive-skeleton-title"></span>
+      <span class="archive-skeleton-block archive-skeleton-line"></span>
+      <span class="archive-skeleton-block archive-skeleton-rating"></span>
+    </div>
+  `;
+  return shell;
+}
+
+function renderHomeLoadingState(elements) {
+  elements.archiveGrid.textContent = "";
+  elements.archiveGrid.dataset.loading = "true";
+  for (let index = 0; index < 12; index += 1) {
+    elements.archiveGrid.appendChild(createHomeSkeletonCard());
+  }
+  elements.resultsSummary.textContent = "Loading archive...";
+  elements.noResultsMsg.hidden = true;
+  elements.popularSection.hidden = true;
+  elements.recentlyAddedSection.hidden = true;
+  elements.favoriteRoutesSection.hidden = true;
+  elements.collectionsSection.hidden = true;
+}
+
 export async function initializeHomePage() {
-  const shows = await loadSearchIndex();
-  const collections = await loadCollections();
-  const showMap = buildShowMap(shows);
   const elements = getHomeElements();
   if (!elements) {
     return;
   }
+  renderHomeLoadingState(elements);
+  const scrollRestoration = createScrollRestoration();
+  scrollRestoration.enable();
+
+  const [shows, collections] = await Promise.all([loadSearchIndex(), loadCollections()]);
+  const showMap = buildShowMap(shows);
 
   updateDocumentMetadata({
     title: "The Echo Archives",
@@ -73,7 +109,7 @@ export async function initializeHomePage() {
     structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
   );
   const state = createHomeState(structuredFilterGroups);
-  seedHomeStateFromParams({ state, shows, collectionsById });
+  seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups });
   const searchInputs = [elements.searchInput, elements.stickySearchInput];
 
   const previewController = initializeHomePreviewController({
@@ -86,6 +122,12 @@ export async function initializeHomePage() {
   const syncCollectionSectionVisibility = (section, sectionCollections, shouldShowMostPopular) => {
     section.hidden = sectionCollections.length === 0 || !shouldShowMostPopular;
   };
+  const recentlyAddedController = createRecentlyAddedController({
+    publishedShows,
+    recentlyAddedSection: elements.recentlyAddedSection,
+    recentlyAddedGrid: elements.recentlyAddedGrid,
+    recentlyAddedEmptyState: elements.recentlyAddedEmptyState,
+  });
   const mostPopularController = createMostPopularController({
     showMap,
     publishedShows,
@@ -100,6 +142,7 @@ export async function initializeHomePage() {
       });
       syncCollectionSectionVisibility(elements.favoriteRoutesSection, favoriteCollections, shouldShowMostPopular);
       syncCollectionSectionVisibility(elements.collectionsSection, featuredCollections, shouldShowMostPopular);
+      recentlyAddedController.setVisible(SHOW_HOME_RECENTLY_ADDED_BAND && shouldShowMostPopular);
       return true;
     },
   });
@@ -348,6 +391,13 @@ export async function initializeHomePage() {
     const visibleShows = getVisibleShows(selectedCollection);
     const activeDescriptors = getDescriptors();
 
+    visibleShows.forEach((show) => {
+      const shell = archiveCardShellsById.get(show.id);
+      if (shell) {
+        syncShowCardPresentation(shell, show);
+      }
+    });
+
     mostPopularController.syncMostPopularSectionVisibility();
     patchArchiveGrid({
       archiveGrid: elements.archiveGrid,
@@ -357,6 +407,7 @@ export async function initializeHomePage() {
       gridLayoutBucket: state.gridLayoutBucket,
       changeReason,
     });
+    delete elements.archiveGrid.dataset.loading;
     renderActiveBrowseState({
       activeBrowseState: elements.activeBrowseState,
       activeBrowseChips: elements.activeBrowseChips,
@@ -448,6 +499,8 @@ export async function initializeHomePage() {
   });
   mostPopularController.renderMostPopularSection();
   void mostPopularController.resolveMostPopularShows();
+  recentlyAddedController.render();
+  recentlyAddedController.setVisible(false);
   favoriteRoutesCarouselControls = renderCollectionsRail({
     featuredCollections: favoriteCollections,
     showMap,
@@ -473,6 +526,7 @@ export async function initializeHomePage() {
   syncSearchInputs(state.query);
   syncStickySearchMode();
   renderHomeResults("initial");
+  scrollRestoration.restore();
 
   const handleSearchInput = (event) => {
     const input = event.currentTarget;
@@ -609,6 +663,8 @@ export async function initializeHomePage() {
   });
 
   window.addEventListener("beforeunload", () => {
+    scrollRestoration.save();
+    scrollRestoration.destroy();
     stickyBrowseObserver?.disconnect();
   });
 }

@@ -109,6 +109,24 @@
       .trim();
   }
 
+  function toDisplayTag(value) {
+    return String(value || "")
+      .split(/[-\s]+/)
+      .filter(Boolean)
+      .map((part) => {
+        if (/^[A-Z0-9]+$/.test(part)) {
+          return part;
+        }
+
+        if (part.length <= 3 && part === part.toUpperCase()) {
+          return part;
+        }
+
+        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+      })
+      .join(" ");
+  }
+
   function tokenizeQuery(value) {
     return Array.from(
       new Set(
@@ -130,6 +148,16 @@
     }
 
     return phrases;
+  }
+
+  function createFieldTokens(values) {
+    return Array.from(
+      new Set(
+        (Array.isArray(values) ? values : [values])
+          .flatMap((value) => tokenizeQuery(value))
+          .filter(Boolean),
+      ),
+    );
   }
 
   function expandAliases(phrases) {
@@ -245,6 +273,16 @@
       reviewStatus: createFieldTerms(record.reviewStatus || ""),
       similarTitles: createFieldTerms(similarTitles),
     };
+    const fieldTokens = {
+      title: createFieldTokens(record.title),
+      aliases: createFieldTokens(record.aliases || []),
+      tags: createFieldTokens(record.tags || []),
+      genres: createFieldTokens(record.genres || []),
+      tones: createFieldTokens(record.tones || []),
+      formats: createFieldTokens(record.formats || []),
+      bestFor: createFieldTokens(record.bestFor || []),
+      creators: createFieldTokens(record.creators || []),
+    };
 
     const subtitleText = createTextBlob([record.subtitle]);
     const descriptionText = createTextBlob([record.description]);
@@ -292,6 +330,7 @@
       fullText,
       tokenSet: new Set(tokenizeQuery(tokenSource)),
       fields,
+      fieldTokens,
     };
   }
 
@@ -362,11 +401,13 @@
     const effectiveQuery = similaritySeed ? similaritySeed.titleQuery : normalizedQuery;
     const tokens = tokenizeQuery(effectiveQuery);
     const phrases = expandAliases(buildNgrams(tokens, 3).concat(effectiveQuery));
+    const significantTokens = tokens.filter((token) => !QUERY_STOP_WORDS.has(token));
 
     return {
       normalizedQuery: effectiveQuery,
       phrases,
       tokens,
+      significantTokens: significantTokens.length > 0 ? significantTokens : tokens,
       seedRecord: similaritySeed?.record || null,
     };
   }
@@ -405,6 +446,202 @@
     });
 
     return { score, matchedTerm };
+  }
+
+  function getFuzzyDistanceLimit(token) {
+    if (!token || token.length < 4) {
+      return 0;
+    }
+
+    if (token.length >= 8) {
+      return 2;
+    }
+
+    return 1;
+  }
+
+  function calculateEditDistance(left, right, maxDistance) {
+    if (left === right) {
+      return 0;
+    }
+
+    if (Math.abs(left.length - right.length) > maxDistance) {
+      return maxDistance + 1;
+    }
+
+    const previous = new Array(right.length + 1);
+    const current = new Array(right.length + 1);
+
+    for (let index = 0; index <= right.length; index += 1) {
+      previous[index] = index;
+    }
+
+    for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+      current[0] = leftIndex;
+      let rowMinimum = current[0];
+
+      for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+        const substitutionCost = left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1;
+        current[rightIndex] = Math.min(
+          previous[rightIndex] + 1,
+          current[rightIndex - 1] + 1,
+          previous[rightIndex - 1] + substitutionCost,
+        );
+        rowMinimum = Math.min(rowMinimum, current[rightIndex]);
+      }
+
+      if (rowMinimum > maxDistance) {
+        return maxDistance + 1;
+      }
+
+      for (let index = 0; index <= right.length; index += 1) {
+        previous[index] = current[index];
+      }
+    }
+
+    return previous[right.length];
+  }
+
+  function isFuzzyTokenMatch(queryToken, fieldToken) {
+    const maxDistance = getFuzzyDistanceLimit(queryToken);
+    if (!maxDistance || !queryToken || !fieldToken) {
+      return false;
+    }
+
+    if (queryToken === fieldToken || queryToken[0] !== fieldToken[0]) {
+      return queryToken === fieldToken;
+    }
+
+    return calculateEditDistance(queryToken, fieldToken, maxDistance) <= maxDistance;
+  }
+
+  function scoreFuzzyFieldTokens(fieldTokens, queryTokens, fuzzyWeight) {
+    if (!Array.isArray(fieldTokens) || fieldTokens.length === 0 || !Array.isArray(queryTokens) || queryTokens.length === 0) {
+      return { score: 0, matchedTokens: [] };
+    }
+
+    const matchedTokens = [];
+    queryTokens.forEach((queryToken) => {
+      const matchedToken = fieldTokens.find((fieldToken) => isFuzzyTokenMatch(queryToken, fieldToken));
+      if (matchedToken) {
+        matchedTokens.push(matchedToken);
+      }
+    });
+
+    if (matchedTokens.length === 0) {
+      return { score: 0, matchedTokens: [] };
+    }
+
+    const coverage = matchedTokens.length / Math.max(queryTokens.length, 1);
+    if (coverage < 0.5) {
+      return { score: 0, matchedTokens: [] };
+    }
+
+    return {
+      score: Math.round(fuzzyWeight * coverage),
+      matchedTokens: Array.from(new Set(matchedTokens)),
+    };
+  }
+
+  function getFieldSourceValues(record, fieldName) {
+    if (fieldName === "title") {
+      return [record.title || ""];
+    }
+
+    if (fieldName === "completionStatus" || fieldName === "reviewStatus") {
+      return [record[fieldName] || ""];
+    }
+
+    const value = record[fieldName];
+    return Array.isArray(value) ? value : [value || ""];
+  }
+
+  function resolveDisplayValue(record, fieldName, matchedTerm, matchedTokens = []) {
+    const values = getFieldSourceValues(record, fieldName)
+      .map((value) => String(value || "").trim())
+      .filter(Boolean);
+    if (values.length === 0) {
+      return String(matchedTerm || "").trim();
+    }
+
+    const normalizedMatchedTerm = normalizeText(matchedTerm);
+    const exactMatch = values.find((value) => {
+      const normalizedValue = normalizeText(value);
+      return (
+        normalizedValue === normalizedMatchedTerm ||
+        normalizedValue.includes(normalizedMatchedTerm) ||
+        normalizedMatchedTerm.includes(normalizedValue)
+      );
+    });
+    if (exactMatch) {
+      return exactMatch;
+    }
+
+    const fuzzyMatch = values.find((value) =>
+      tokenizeQuery(value).some((token) =>
+        matchedTokens.some((matchedToken) => token === matchedToken || isFuzzyTokenMatch(matchedToken, token)),
+      ),
+    );
+
+    return fuzzyMatch || values[0];
+  }
+
+  function createMetadataLine(fieldName, displayValue) {
+    const value = String(displayValue || "").trim();
+    if (!value) {
+      return "";
+    }
+    const prettyValue = toDisplayTag(value);
+
+    switch (fieldName) {
+      case "aliases":
+        return `Also listed as ${displayValue}`;
+      case "creators":
+        return `Creator: ${displayValue}`;
+      case "tags":
+        return `Tag: ${prettyValue}`;
+      case "bestFor":
+        return `Best for: ${prettyValue}`;
+      case "genres":
+        return `Genre: ${prettyValue}`;
+      case "tones":
+        return `Tone: ${prettyValue}`;
+      case "formats":
+        return `Format: ${prettyValue}`;
+      default:
+        return prettyValue;
+    }
+  }
+
+  function selectSearchPresentation({ record, titleTerms, metadataMatches }) {
+    const sortedMatches = [...metadataMatches].sort((left, right) => {
+      if (right.score !== left.score) {
+        return right.score - left.score;
+      }
+
+      return left.priority - right.priority;
+    });
+    const bestMetadataMatch = sortedMatches[0] || null;
+
+    return {
+      titleTerms: Array.from(new Set((Array.isArray(titleTerms) ? titleTerms : []).filter(Boolean))),
+      metaText: bestMetadataMatch?.text || "",
+      metaTerms: Array.from(new Set((bestMetadataMatch?.terms || []).filter(Boolean))),
+    };
+  }
+
+  function hasFuzzyTokenCoverage(searchIndex, queryTokens) {
+    const fuzzySources = [
+      ...(searchIndex.fieldTokens?.title || []),
+      ...(searchIndex.fieldTokens?.aliases || []),
+      ...(searchIndex.fieldTokens?.creators || []),
+      ...(searchIndex.fieldTokens?.tags || []),
+    ];
+    const sourceTokens = Array.from(new Set(fuzzySources.filter(Boolean)));
+
+    return queryTokens.filter((queryToken) =>
+      sourceTokens.some((sourceToken) => sourceToken === queryToken || isFuzzyTokenMatch(queryToken, sourceToken)),
+    ).length;
   }
 
   function pushReason(reasons, value) {
@@ -536,6 +773,8 @@
       .map((record) => {
         const searchIndex = record.searchIndex || buildSearchIndex(record, new Map());
         const reasons = [];
+        const metadataMatches = [];
+        const titleTerms = [];
         let score = 0;
         let relatedToSeed = false;
 
@@ -568,15 +807,25 @@
           if (searchIndex.title === preparedQuery.normalizedQuery) {
             score += 120;
             pushReason(reasons, `direct title match for ${record.title}`);
+            titleTerms.push(...searchIndex.titleTokens);
           } else if (searchIndex.title.startsWith(preparedQuery.normalizedQuery)) {
             score += 90;
             pushReason(reasons, `title starts with ${preparedQuery.normalizedQuery}`);
+            titleTerms.push(...tokenizeQuery(preparedQuery.normalizedQuery));
           } else if (
             preparedQuery.tokens.length > 0 &&
             preparedQuery.tokens.every((token) => searchIndex.titleTokens.includes(token))
           ) {
             score += 72;
             pushReason(reasons, `title lines up with ${preparedQuery.normalizedQuery}`);
+            titleTerms.push(...preparedQuery.tokens);
+          } else {
+            const titleFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.title || [], preparedQuery.significantTokens, 66);
+            if (titleFuzzyMatch.score) {
+              score += titleFuzzyMatch.score;
+              pushReason(reasons, `title survives a close spelling for ${preparedQuery.normalizedQuery}`);
+              titleTerms.push(...titleFuzzyMatch.matchedTokens);
+            }
           }
         }
 
@@ -584,18 +833,69 @@
         if (aliasMatch.score) {
           score += aliasMatch.score;
           pushReason(reasons, `alias match for ${aliasMatch.matchedTerm}`);
+          metadataMatches.push({
+            score: aliasMatch.score,
+            priority: 6,
+            text: createMetadataLine(
+              "aliases",
+              resolveDisplayValue(record, "aliases", aliasMatch.matchedTerm, tokenizeQuery(aliasMatch.matchedTerm)),
+            ),
+            terms: tokenizeQuery(aliasMatch.matchedTerm),
+          });
+        } else {
+          const aliasFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.aliases || [], preparedQuery.significantTokens, 34);
+          if (aliasFuzzyMatch.score) {
+            score += aliasFuzzyMatch.score;
+            pushReason(reasons, `alias survives a close spelling for ${preparedQuery.normalizedQuery}`);
+            metadataMatches.push({
+              score: aliasFuzzyMatch.score,
+              priority: 6,
+              text: createMetadataLine(
+                "aliases",
+                resolveDisplayValue(record, "aliases", aliasFuzzyMatch.matchedTokens.join(" "), aliasFuzzyMatch.matchedTokens),
+              ),
+              terms: aliasFuzzyMatch.matchedTokens,
+            });
+          }
         }
 
         const tagMatch = scoreFieldTerms(searchIndex.fields.tags, preparedQuery.phrases, 30, 16);
         if (tagMatch.score) {
           score += tagMatch.score;
           pushReason(reasons, `matches ${tagMatch.matchedTerm}`);
+          metadataMatches.push({
+            score: tagMatch.score,
+            priority: 1,
+            text: createMetadataLine("tags", resolveDisplayValue(record, "tags", tagMatch.matchedTerm, tokenizeQuery(tagMatch.matchedTerm))),
+            terms: tokenizeQuery(tagMatch.matchedTerm),
+          });
+        } else {
+          const tagFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.tags || [], preparedQuery.significantTokens, 18);
+          if (tagFuzzyMatch.score) {
+            score += tagFuzzyMatch.score;
+            pushReason(reasons, `tag survives a close spelling for ${preparedQuery.normalizedQuery}`);
+            metadataMatches.push({
+              score: tagFuzzyMatch.score,
+              priority: 1,
+              text: createMetadataLine("tags", resolveDisplayValue(record, "tags", tagFuzzyMatch.matchedTokens.join(" "), tagFuzzyMatch.matchedTokens)),
+              terms: tagFuzzyMatch.matchedTokens,
+            });
+          }
         }
 
         const bestForMatch = scoreFieldTerms(searchIndex.fields.bestFor, preparedQuery.phrases, 28, 15);
         if (bestForMatch.score) {
           score += bestForMatch.score;
           pushReason(reasons, `good for ${bestForMatch.matchedTerm}`);
+          metadataMatches.push({
+            score: bestForMatch.score,
+            priority: 2,
+            text: createMetadataLine(
+              "bestFor",
+              resolveDisplayValue(record, "bestFor", bestForMatch.matchedTerm, tokenizeQuery(bestForMatch.matchedTerm)),
+            ),
+            terms: tokenizeQuery(bestForMatch.matchedTerm),
+          });
         }
 
         const themeMatch = scoreFieldTerms(searchIndex.fields.themes, preparedQuery.phrases, 24, 12);
@@ -608,24 +908,69 @@
         if (genreMatch.score) {
           score += genreMatch.score;
           pushReason(reasons, `fits ${genreMatch.matchedTerm}`);
+          metadataMatches.push({
+            score: genreMatch.score,
+            priority: 3,
+            text: createMetadataLine("genres", resolveDisplayValue(record, "genres", genreMatch.matchedTerm, tokenizeQuery(genreMatch.matchedTerm))),
+            terms: tokenizeQuery(genreMatch.matchedTerm),
+          });
         }
 
         const toneMatch = scoreFieldTerms(searchIndex.fields.tones, preparedQuery.phrases, 24, 12);
         if (toneMatch.score) {
           score += toneMatch.score;
           pushReason(reasons, `leans ${toneMatch.matchedTerm}`);
+          metadataMatches.push({
+            score: toneMatch.score,
+            priority: 4,
+            text: createMetadataLine("tones", resolveDisplayValue(record, "tones", toneMatch.matchedTerm, tokenizeQuery(toneMatch.matchedTerm))),
+            terms: tokenizeQuery(toneMatch.matchedTerm),
+          });
         }
 
         const formatMatch = scoreFieldTerms(searchIndex.fields.formats, preparedQuery.phrases, 24, 12);
         if (formatMatch.score) {
           score += formatMatch.score;
           pushReason(reasons, `${formatMatch.matchedTerm} format`);
+          metadataMatches.push({
+            score: formatMatch.score,
+            priority: 5,
+            text: createMetadataLine(
+              "formats",
+              resolveDisplayValue(record, "formats", formatMatch.matchedTerm, tokenizeQuery(formatMatch.matchedTerm)),
+            ),
+            terms: tokenizeQuery(formatMatch.matchedTerm),
+          });
         }
 
         const creatorMatch = scoreFieldTerms(searchIndex.fields.creators, preparedQuery.phrases, 24, 12);
         if (creatorMatch.score) {
           score += creatorMatch.score;
           pushReason(reasons, `created by ${creatorMatch.matchedTerm}`);
+          metadataMatches.push({
+            score: creatorMatch.score,
+            priority: 0,
+            text: createMetadataLine(
+              "creators",
+              resolveDisplayValue(record, "creators", creatorMatch.matchedTerm, tokenizeQuery(creatorMatch.matchedTerm)),
+            ),
+            terms: tokenizeQuery(creatorMatch.matchedTerm),
+          });
+        } else {
+          const creatorFuzzyMatch = scoreFuzzyFieldTokens(searchIndex.fieldTokens?.creators || [], preparedQuery.significantTokens, 16);
+          if (creatorFuzzyMatch.score) {
+            score += creatorFuzzyMatch.score;
+            pushReason(reasons, `creator survives a close spelling for ${preparedQuery.normalizedQuery}`);
+            metadataMatches.push({
+              score: creatorFuzzyMatch.score,
+              priority: 0,
+              text: createMetadataLine(
+                "creators",
+                resolveDisplayValue(record, "creators", creatorFuzzyMatch.matchedTokens.join(" "), creatorFuzzyMatch.matchedTokens),
+              ),
+              terms: creatorFuzzyMatch.matchedTokens,
+            });
+          }
         }
 
         const castMatch = scoreFieldTerms(searchIndex.fields.cast, preparedQuery.phrases, 18, 10);
@@ -707,15 +1052,23 @@
 
         const hasFullClauseCoverage =
           requiredClauses.length === 0 || requiredClauses.every((clause) => satisfiesClause(searchIndex.tokenSet, clause));
+        const fuzzyMatchedTokenCount = hasFuzzyTokenCoverage(searchIndex, preparedQuery.significantTokens);
+        const hasFuzzyClauseCoverage =
+          preparedQuery.significantTokens.length > 0 && fuzzyMatchedTokenCount === preparedQuery.significantTokens.length;
         const hasRequiredFieldCoverage = satisfiesRequiredFields(record, requiredFields);
         const satisfiesQuery = preparedQuery.seedRecord
           ? record.id !== preparedQuery.seedRecord.id && relatedToSeed && hasRequiredFieldCoverage
-          : hasFullClauseCoverage && hasRequiredFieldCoverage;
+          : (hasFullClauseCoverage || hasFuzzyClauseCoverage) && hasRequiredFieldCoverage;
 
         return {
           ...record,
           score,
           reasons,
+          searchPresentation: selectSearchPresentation({
+            record,
+            titleTerms,
+            metadataMatches,
+          }),
           satisfiesQuery,
         };
       })

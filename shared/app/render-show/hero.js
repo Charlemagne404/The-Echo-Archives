@@ -85,12 +85,23 @@ export function renderDetailHero(show) {
               }
               <a class="detail-secondary-action" href="#review-notes">Review notes</a>
               <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
+              <button class="detail-secondary-action detail-copy-link-button" data-copy-link type="button">Copy link</button>
             </div>
+            <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
           </div>
 
           <div class="detail-cover-column">
             <div class="detail-cover-card">
-              <img src="/${escapeHtml(show.cover)}" alt="${escapeHtml(show.coverAlt)}" />
+              <img
+                src="/${escapeHtml(show.cover)}"
+                alt="${escapeHtml(show.coverAlt)}"
+                width="320"
+                height="320"
+                loading="eager"
+                decoding="async"
+                data-image-loading="eager"
+                data-image-fetch-priority="high"
+              />
             </div>
             ${renderHeroCoverNote(show)}
           </div>

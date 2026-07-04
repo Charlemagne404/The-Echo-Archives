@@ -1,4 +1,5 @@
 import { getCollectionShows } from "./data.js";
+import { configureImageElement } from "./images.js";
 import { createArchiveCollectionHref, createCollectionHref } from "./urls.js";
 import { toDisplayTag } from "./utils.js";
 
@@ -28,7 +29,7 @@ export function getCollectionCoverShows(collection, shows, limit = COLLAGE_LIMIT
   return [...preferred, ...remaining].slice(0, limit);
 }
 
-export function createCollectionCoverCollage(collection, shows, { className = "collection-cover-collage" } = {}) {
+export function createCollectionCoverCollage(collection, shows, { className = "collection-cover-collage", loading = "lazy" } = {}) {
   const coverShows = getCollectionCoverShows(collection, shows);
   const collage = document.createElement("div");
   collage.className = className;
@@ -42,8 +43,11 @@ export function createCollectionCoverCollage(collection, shows, { className = "c
     const image = document.createElement("img");
     image.src = `/${show.cover}`;
     image.alt = "";
-    image.loading = "lazy";
-    image.decoding = "async";
+    configureImageElement(image, {
+      loading,
+      width: 320,
+      height: 320,
+    });
 
     frame.appendChild(image);
     collage.appendChild(frame);

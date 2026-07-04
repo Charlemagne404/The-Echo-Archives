@@ -68,7 +68,7 @@ export function renderSimilarSection(show, showMap) {
           .map(
             ({ neighbor, reason }) => `
               <article class="detail-similar-card">
-                <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" />
+                <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" width="320" height="320" loading="lazy" decoding="async" />
                 <div class="detail-card-copy">
                   <h3>${escapeHtml(neighbor.title)}</h3>
                   <p class="detail-similar-reason">${escapeHtml(reason)}</p>

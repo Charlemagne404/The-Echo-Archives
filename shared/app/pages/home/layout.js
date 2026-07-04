@@ -136,6 +136,7 @@ function shouldStabilizeArchiveGrid({
 }
 
 function syncArchiveGridInstantly({ archiveGrid, collectionsSection, orderedNodes, nextShells }) {
+  const nextNodeSet = new Set(orderedNodes.filter((node) => node instanceof HTMLElement));
   const nextShellSet = new Set(nextShells);
   nextShells.forEach((shell) => {
     resetGridShellMotion(shell);
@@ -143,11 +144,21 @@ function syncArchiveGridInstantly({ archiveGrid, collectionsSection, orderedNode
   orderedNodes.forEach((node) => {
     archiveGrid.appendChild(node);
   });
-  getArchiveGridShells(archiveGrid).forEach((shell) => {
-    if (!nextShellSet.has(shell)) {
-      resetGridShellMotion(shell);
-      shell.remove();
+
+  Array.from(archiveGrid.children).forEach((node) => {
+    if (!(node instanceof HTMLElement) || nextNodeSet.has(node)) {
+      return;
     }
+
+    if (node.classList.contains("podcast-card-shell")) {
+      resetGridShellMotion(node);
+      if (!nextShellSet.has(node)) {
+        node.remove();
+      }
+      return;
+    }
+
+    node.remove();
   });
 
   if (collectionsSection.hidden && collectionsSection.parentElement === archiveGrid) {

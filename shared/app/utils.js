@@ -163,3 +163,45 @@ export function escapeHtml(value = "") {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 }
+
+function escapeRegExp(value = "") {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normalizeHighlightTerms(terms = []) {
+  return Array.from(
+    new Set(
+      (Array.isArray(terms) ? terms : [terms])
+        .map((term) => String(term || "").trim())
+        .filter(Boolean)
+        .sort((left, right) => right.length - left.length),
+    ),
+  );
+}
+
+export function buildHighlightedHtml(value = "", terms = []) {
+  const text = String(value || "");
+  const normalizedTerms = normalizeHighlightTerms(terms);
+  if (!text || normalizedTerms.length === 0) {
+    return escapeHtml(text);
+  }
+
+  const pattern = normalizedTerms.map((term) => escapeRegExp(term)).join("|");
+  if (!pattern) {
+    return escapeHtml(text);
+  }
+
+  const matcher = new RegExp(`(${pattern})`, "gi");
+  return escapeHtml(text).replace(
+    matcher,
+    (match) => `<mark class="search-highlight">${escapeHtml(match)}</mark>`,
+  );
+}
+
+export function setHighlightedText(node, value = "", terms = []) {
+  if (!(node instanceof HTMLElement)) {
+    return;
+  }
+
+  node.innerHTML = buildHighlightedHtml(value, terms);
+}

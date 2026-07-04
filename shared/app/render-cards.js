@@ -4,6 +4,7 @@ export {
   createCollectionShowCard,
   createShowCard,
   getShellPreviewPanel,
+  syncShowCardPresentation,
 } from "./render-cards/preview.js";
 export {
   createArchiveScoreElement,

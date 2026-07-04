@@ -1,0 +1,112 @@
+.archive-skeleton-card {
+  position: relative;
+  display: grid;
+  gap: 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(5, 8, 11, 0.96)),
+    rgba(5, 8, 11, 0.96);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
+.archive-skeleton-copy {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.archive-skeleton-block {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.archive-skeleton-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: archive-skeleton-shimmer 1.3s ease-in-out infinite;
+}
+
+.archive-skeleton-cover,
+.detail-skeleton-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
+}
+
+.archive-skeleton-title {
+  height: 1.15rem;
+  width: 68%;
+}
+
+.archive-skeleton-heading {
+  height: clamp(2rem, 4vw, 3.2rem);
+  width: min(100%, 24rem);
+  border-radius: 22px;
+}
+
+.archive-skeleton-line {
+  height: 0.88rem;
+  width: 100%;
+}
+
+.archive-skeleton-line-short {
+  width: 56%;
+}
+
+.archive-skeleton-rating {
+  height: 0.96rem;
+  width: 48%;
+}
+
+.archive-skeleton-chip {
+  height: 0.9rem;
+  width: 7rem;
+}
+
+.detail-loading-shell,
+.detail-loading-card {
+  min-width: 0;
+}
+
+.detail-loading-card {
+  display: grid;
+  gap: 14px;
+}
+
+.search-highlight {
+  display: inline-block;
+  padding: 0 0.12em;
+  border-radius: 0.32em;
+  background: rgba(229, 72, 56, 0.18);
+  color: #fff7f0;
+}
+
+.detail-copy-status,
+.collection-copy-status {
+  min-height: 1.2rem;
+  color: rgba(240, 238, 233, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+img.is-image-fallback {
+  object-fit: contain !important;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(229, 72, 56, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(10, 13, 17, 0.96), rgba(4, 6, 9, 1));
+}
+
+@keyframes archive-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

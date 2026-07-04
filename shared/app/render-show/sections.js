@@ -1,3 +1,4 @@
+import { createSubmissionHref } from "../urls.js";
 import {
   escapeHtml,
   formatRating,
@@ -94,6 +95,29 @@ export function renderReviewSection(show) {
           <span class="detail-summary-kicker">Why it is here</span>
           <p>${escapeHtml(getArchivePerspectiveText(show))}</p>
         </article>
+      </div>
+    </section>
+  `;
+}
+
+export function renderListenerReviewsSection(show) {
+  return `
+    <section class="detail-section detail-listener-reviews-section" id="listener-reviews">
+      <div class="detail-section-header">
+        <div>
+          <h2>Listener reviews</h2>
+          <p>Community reviews stay separate from archive ratings and creator verification.</p>
+        </div>
+      </div>
+
+      <div class="empty-state-card detail-reviews-empty-state">
+        <p>No listener reviews are published for this show yet. The archive rating above is editorial; this section stays reserved for moderated listener response.</p>
+        <div class="empty-state-actions">
+          <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(
+            createSubmissionHref("listener-review", show.id),
+          )}">Submit the first review</a>
+          <a class="detail-secondary-action" href="#review-notes">Read archive notes</a>
+        </div>
       </div>
     </section>
   `;

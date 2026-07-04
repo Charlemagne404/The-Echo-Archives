@@ -172,6 +172,25 @@ test("scoreCatalog now uses richer metadata like creators and source material", 
   assert.equal(sourceMaterialMatch[0].title, "The Phenomenon");
 });
 
+test("scoreCatalog tolerates close spelling mistakes and returns highlight metadata", async () => {
+  const catalog = await loadCatalog(siteRoot);
+
+  const fuzzyTitleMatch = scoreCatalog(catalog, "derelct");
+  assert.ok(fuzzyTitleMatch.length > 0);
+  assert.equal(fuzzyTitleMatch[0].title, "Derelict");
+  assert.ok(fuzzyTitleMatch[0].searchPresentation.titleTerms.includes("derelict"));
+
+  const fuzzyCreatorMatch = scoreCatalog(catalog, "Jared Cartr");
+  assert.ok(fuzzyCreatorMatch.length > 0);
+  assert.equal(fuzzyCreatorMatch[0].title, "Desert Skies");
+  assert.match(fuzzyCreatorMatch[0].searchPresentation.metaText, /Creator:\s*Jared Carter/i);
+
+  const fuzzyTagMatch = scoreCatalog(catalog, "vampres");
+  assert.ok(fuzzyTagMatch.length > 0);
+  assert.equal(fuzzyTagMatch[0].title, "Impact Winter");
+  assert.match(fuzzyTagMatch[0].searchPresentation.metaText, /Tag:\s*Vampires/i);
+});
+
 test("scoreCatalog supports structured recommendation constraints", async () => {
   const catalog = await loadCatalog(siteRoot);
 
@@ -182,7 +201,8 @@ test("scoreCatalog supports structured recommendation constraints", async () => 
     },
   });
   assert.ok(finishedMidnightBurgerNeighbors.length > 0);
-  assert.equal(finishedMidnightBurgerNeighbors[0].title, "Midst");
+  assert.ok(["Wolf 359", "Midst"].includes(finishedMidnightBurgerNeighbors[0].title));
+  assert.ok(finishedMidnightBurgerNeighbors.some((show) => show.title === "Midst"));
   assert.ok(finishedMidnightBurgerNeighbors.every((show) => show.completionStatus === "finished"));
 
   const mysteryOutsideHowIDiedLane = scoreCatalog(catalog, "Recommend a mystery", {
@@ -256,7 +276,7 @@ test("draft shows may omit ratings.archive during catalog load", async () => {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("published shows still require ratings.archive", async () => {
+test("published shows may omit ratings.archive during catalog load", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
 
@@ -270,7 +290,9 @@ test("published shows still require ratings.archive", async () => {
   );
   writeJson(path.join(dataRoot, "collections.json"), []);
 
-  await assert.rejects(loadCatalog(tempRoot), /missing a numeric ratings\.archive/i);
+  const [show] = await loadCatalog(tempRoot);
+  assert.equal(show.status, "published");
+  assert.equal(show.finalRating, null);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });

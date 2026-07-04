@@ -1,5 +1,6 @@
 import { backToTopBtn, chatContainer, toggleBtn } from "./constants.js";
 import { initializeSharedChat } from "./chat.js";
+import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeAboutPage } from "./pages/about.js";
 import { initializeHelpCenterPage } from "./pages/help-center.js";
@@ -17,6 +18,7 @@ export async function initializeApp() {
   initializeMobileNav();
   initializeBackToTop();
   initializeHistoryBackLinks();
+  initializeManagedImages();
 
   if (document.body.classList.contains("home-page") && document.getElementById("podcast-grid")) {
     await initializeHomePage();
@@ -61,6 +63,8 @@ export async function initializeApp() {
   if (document.body.classList.contains("creator-standards-page")) {
     initializeCreatorStandardsPage();
   }
+
+  initializeManagedImages();
 }
 
 function initializeHistoryBackLinks() {

@@ -17,6 +17,10 @@
   line-height: 1.6;
 }
 
+.home-creator-spotlight {
+  padding: 24px;
+}
+
 .empty-state-actions {
   display: flex;
   flex-wrap: wrap;

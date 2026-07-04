@@ -1,4 +1,5 @@
 import { TOP_RATED_BADGE_ASSET_URL } from "../constants.js";
+import { configureImageElement } from "../images.js";
 
 function createEditorialBadges(show) {
   const badges = document.createElement("div");
@@ -12,6 +13,12 @@ function createEditorialBadges(show) {
     topRatedArtwork.className = "editorial-badge-artwork";
     topRatedArtwork.src = TOP_RATED_BADGE_ASSET_URL;
     topRatedArtwork.alt = "";
+    configureImageElement(topRatedArtwork, {
+      loading: "lazy",
+      width: 128,
+      height: 128,
+      fallbackSrc: TOP_RATED_BADGE_ASSET_URL,
+    });
     topRatedBadge.appendChild(topRatedArtwork);
     badges.appendChild(topRatedBadge);
   }

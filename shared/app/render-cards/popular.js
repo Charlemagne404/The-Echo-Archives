@@ -1,4 +1,5 @@
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
+import { configureImageElement } from "../images.js";
 import { toDisplayTag } from "../utils.js";
 
 export function createMostPopularCard(show) {
@@ -18,6 +19,11 @@ export function createMostPopularCard(show) {
   const image = document.createElement("img");
   image.src = show.cover;
   image.alt = show.coverAlt;
+  configureImageElement(image, {
+    loading: "lazy",
+    width: 320,
+    height: 320,
+  });
   media.appendChild(image);
 
   const body = document.createElement("div");

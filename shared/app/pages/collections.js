@@ -1,6 +1,7 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadShows } from "../data.js";
 import { createCollectionDirectoryCard, createCollectionFeatureCard } from "../render-collections.js";
+import { createScrollRestoration } from "../scroll-restoration.js";
 import { formatDate, normalizeTag, setTextContent, updateDocumentMetadata } from "../utils.js";
 import { getCollectionsGridMotionProfile, syncCollectionGrid } from "./collections-grid-motion.js";
 import { prefersReducedMotion, restartAnimationClass, syncCollectionsSummary, syncCollectionsSurfaceVisibility } from "./collections-motion.js";
@@ -15,6 +16,7 @@ const MOOD_FILTERS = [
   { id: "cold-horror", label: "Cold horror", icon: "M12 3v18M5 7l14 10M19 7 5 17M4 12h16" },
   { id: "time-bent", label: "Time-bent", icon: "M12 7v5l3 2M4 12a8 8 0 1 0 3-6.25M4 5v5h5" },
 ];
+const COLLECTION_SORT_MODES = new Set(["editorial", "newest", "title", "shows", "rating", "popularity"]);
 
 function getElements() {
   return {
@@ -36,14 +38,42 @@ function getElements() {
   };
 }
 
+function createCollectionsSkeletonCard() {
+  const shell = document.createElement("article");
+  shell.className = "archive-skeleton-card collection-skeleton-card";
+  shell.setAttribute("aria-hidden", "true");
+  shell.innerHTML = `
+    <div class="archive-skeleton-block archive-skeleton-cover"></div>
+    <div class="archive-skeleton-copy">
+      <span class="archive-skeleton-block archive-skeleton-title"></span>
+      <span class="archive-skeleton-block archive-skeleton-line"></span>
+      <span class="archive-skeleton-block archive-skeleton-line archive-skeleton-line-short"></span>
+    </div>
+  `;
+  return shell;
+}
+
+function renderCollectionsLoadingState(elements) {
+  [elements.similarityGrid, elements.featuredGrid].forEach((grid) => {
+    grid.textContent = "";
+    for (let index = 0; index < 3; index += 1) {
+      grid.appendChild(createCollectionsSkeletonCard());
+    }
+  });
+  elements.directoryRoot.textContent = "";
+  for (let index = 0; index < 6; index += 1) {
+    elements.directoryRoot.appendChild(createCollectionsSkeletonCard());
+  }
+}
+
 function getInitialState(validIntentIds) {
   const params = new URLSearchParams(window.location.search);
   const intent = normalizeTag(params.get("intent") || "");
-  const sort = params.get("sort") || "editorial";
+  const sort = params.get("sort") === "updated" ? "newest" : params.get("sort") || "editorial";
   return {
     intent: validIntentIds.has(intent) ? intent : "",
     query: params.get("q") || "",
-    sortMode: ["editorial", "updated", "title", "shows"].includes(sort) ? sort : "editorial",
+    sortMode: COLLECTION_SORT_MODES.has(sort) ? sort : "editorial",
   };
 }
 
@@ -98,9 +128,21 @@ function collectionMatchesQuery(collection, shows, query) {
   return !query || getCollectionSearchText(collection, shows).includes(query.toLowerCase());
 }
 
+function getAggregateValue(shows, selector) {
+  const values = (Array.isArray(shows) ? shows : [])
+    .map((show) => selector(show))
+    .filter((value) => Number.isFinite(value));
+
+  if (values.length === 0) {
+    return Number.NEGATIVE_INFINITY;
+  }
+
+  return values.reduce((total, value) => total + value, 0) / values.length;
+}
+
 function sortCollections(collections, showsByCollection, sortMode) {
   return [...collections].sort((left, right) => {
-    if (sortMode === "updated") {
+    if (sortMode === "newest") {
       return String(right.updatedAt || "").localeCompare(String(left.updatedAt || "")) || left.order - right.order;
     }
     if (sortMode === "title") {
@@ -108,6 +150,22 @@ function sortCollections(collections, showsByCollection, sortMode) {
     }
     if (sortMode === "shows") {
       return showsByCollection.get(right.id).length - showsByCollection.get(left.id).length || left.order - right.order;
+    }
+    if (sortMode === "rating") {
+      return (
+        getAggregateValue(showsByCollection.get(right.id), (show) => show.finalRating) -
+          getAggregateValue(showsByCollection.get(left.id), (show) => show.finalRating) ||
+        left.order - right.order ||
+        left.title.localeCompare(right.title)
+      );
+    }
+    if (sortMode === "popularity") {
+      return (
+        getAggregateValue(showsByCollection.get(right.id), (show) => show.popularity?.score) -
+          getAggregateValue(showsByCollection.get(left.id), (show) => show.popularity?.score) ||
+        left.order - right.order ||
+        left.title.localeCompare(right.title)
+      );
     }
     return left.order - right.order || left.title.localeCompare(right.title);
   });
@@ -167,15 +225,18 @@ function syncMoodChipState(chipMap, activeIntent, { scrollActiveIntoView = false
 }
 
 export async function initializeCollectionsPage() {
-  const shows = await loadShows();
-  const collections = await loadCollections();
-  const publishedShows = getPublishedShows(shows);
-  const showMap = buildShowMap(publishedShows);
   const elements = getElements();
 
   if (!elements.directoryRoot || !elements.featuredGrid || !elements.similarityGrid || !elements.moodChips) {
     return;
   }
+  renderCollectionsLoadingState(elements);
+  const scrollRestoration = createScrollRestoration();
+  scrollRestoration.enable();
+
+  const [shows, collections] = await Promise.all([loadShows(), loadCollections()]);
+  const publishedShows = getPublishedShows(shows);
+  const showMap = buildShowMap(publishedShows);
 
   updateDocumentMetadata({
     title: "Collections - The Echo Archives",
@@ -297,4 +358,5 @@ export async function initializeCollectionsPage() {
   elements.browseAll?.addEventListener("click", () => elements.directorySection?.scrollIntoView({ behavior: "smooth" }));
 
   render();
+  scrollRestoration.restore();
 }

@@ -17,8 +17,8 @@
 <meta name="twitter:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="theme-color" content="#06080b" />
-<link rel="stylesheet" href="/style.css?v=3115b0b88e" />
-<link rel="stylesheet" href="/home.css?v=866d66db5e" />
+<link rel="stylesheet" href="/style.css?v=8baaf796fd" />
+<link rel="stylesheet" href="/home.css?v=3a7a0aa0a4" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
@@ -290,6 +290,24 @@
         <div class="popular-grid" id="popularGrid"></div>
       </section>
 
+      <section class="collection-band recently-added-band" id="recentlyAdded" aria-labelledby="recentlyAddedTitle" hidden>
+        <div class="section-heading">
+          <div>
+            <h2 id="recentlyAddedTitle">Recently added</h2>
+            <p>Freshly indexed archive entries, sorted by when they entered the catalog.</p>
+          </div>
+        </div>
+
+        <div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid"></div>
+        <div id="recentlyAddedEmptyState" class="empty-state-card" hidden>
+          <p>No newly indexed shows are published in this snapshot yet. The next archive additions will surface here once they are live.</p>
+          <div class="empty-state-actions">
+            <a class="collection-action" href="/collections">Browse collections</a>
+            <a class="collection-action" href="/submit">Submit or correct a show</a>
+          </div>
+        </div>
+      </section>
+
       <div id="podcast-grid"></div>
       <div id="noResultsMsg" class="empty-state-card" hidden>
         <p>No matches yet. Try a tone, format, completion status, or a route like "Midnight Burger like".</p>
@@ -348,6 +366,7 @@
         </button>
       </div>
     </section>
+
   </main>
 
 <button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" aria-controls="chat-container" title="Ask the Archivist">
@@ -418,8 +437,8 @@
 
   <script src="/shared/archive-record.js?v=7e3954038d"></script>
 
-  <script src="/shared/archive-search.js?v=3ac84effd0"></script>
+  <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=ac80bd4edc"></script>
+  <script type="module" src="/script.js?v=871e9c0e27"></script>
 </body>
 </html>
