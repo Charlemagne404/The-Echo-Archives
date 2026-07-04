@@ -28,7 +28,7 @@ export async function initializeShowPage() {
   updateDocumentMetadata({
     title: `${show.title} - The Echo Archives`,
     description: show.description,
-    path: `/show.html?id=${encodeURIComponent(show.id)}`,
+    path: `/show?id=${encodeURIComponent(show.id)}`,
     image: `/${show.cover}`,
   });
 
@@ -45,7 +45,7 @@ function renderMissingShowPage(showRoot) {
   updateDocumentMetadata({
     title: "Show not found - The Echo Archives",
     description: "The requested Echo Archives show page could not be found.",
-    path: "/show.html",
+    path: "/show",
     image: DEFAULT_SOCIAL_IMAGE,
   });
   showRoot.innerHTML = `
@@ -57,7 +57,7 @@ function renderMissingShowPage(showRoot) {
             <p>The requested archive entry is missing or has not been published yet.</p>
           </div>
         </div>
-        <a class="detail-primary-action" href="/index.html#browse">Back to the archive</a>
+        <a class="detail-primary-action" href="/#browse">Back to the archive</a>
       </section>
     </section>
   `;

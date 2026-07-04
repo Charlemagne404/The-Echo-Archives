@@ -16,7 +16,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Catalog source | Split JSON authoring files under `catalog-src/` |
 | Runtime catalog | Generated public data under `data/` plus a generated `/data/search-index.json` browse index |
 | Main browse surface | Homepage with structured filters, quick filters, search, recently updated mode, featured collections, and a most-popular band |
-| Detail routes | Reusable show pages at `show.html?id=<show-id>` and collection pages at `collection.html?id=<collection-id>` |
+| Detail routes | Reusable show pages at `/show?id=<show-id>` and collection pages at `/collection?id=<collection-id>` |
 | Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Ask the Archivist with catalog-grounded chat and site-help responses |
 | Maintainer tools | Passphrase-gated submission queue and report pages |
@@ -25,18 +25,18 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 The current public page set includes:
 
 - `/`
-- `/about.html`
-- `/for-creators.html`
-- `/creator-standards.html`
-- `/supporters.html`
-- `/collections.html`
-- `/collection.html?id=<collection-id>`
-- `/show.html?id=<show-id>`
-- `/submit.html`
-- `/privacy.html`
-- `/terms.html`
-- `/cookies.html`
-- `/copyright.html`
+- `/about`
+- `/for-creators`
+- `/creator-standards`
+- `/supporters`
+- `/collections`
+- `/collection?id=<collection-id>`
+- `/show?id=<show-id>`
+- `/submit`
+- `/privacy`
+- `/terms`
+- `/cookies`
+- `/copyright`
 
 Legacy show detail pages still exist under `shows/` and are kept as compatibility entry points that redirect to the reusable show route.
 

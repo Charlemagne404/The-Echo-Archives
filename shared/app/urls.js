@@ -1,13 +1,13 @@
 export function createCollectionHref(collectionId) {
-  return `/collection.html?id=${encodeURIComponent(collectionId)}`;
+  return `/collection?id=${encodeURIComponent(collectionId)}`;
 }
 
 export function createArchiveCollectionHref(collectionId) {
-  return `/index.html?collection=${encodeURIComponent(collectionId)}#archive`;
+  return `/?collection=${encodeURIComponent(collectionId)}#archive`;
 }
 
 export function createArchiveGenreHref(genreId) {
-  return `/index.html?genre=${encodeURIComponent(genreId)}#archive`;
+  return `/?genre=${encodeURIComponent(genreId)}#archive`;
 }
 
 export function createSubmissionHref(submissionType = "", showId = "") {
@@ -20,5 +20,5 @@ export function createSubmissionHref(submissionType = "", showId = "") {
   }
 
   const search = query.toString();
-  return `/submit.html${search ? `?${search}` : ""}`;
+  return `/submit${search ? `?${search}` : ""}`;
 }

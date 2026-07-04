@@ -68,12 +68,12 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.waitForFunction(
       () =>
         Array.from(document.querySelectorAll("#chatLog .message.bot")).some((node) =>
-          /Corrections are for metadata and links/i.test(node.textContent || ""),
+          /Corrections are for factual metadata and links/i.test(node.textContent || ""),
         ),
       undefined,
       { timeout: 5_000 },
     );
-    await page.locator('.chat-action-link[href="/submit.html"]').waitFor();
+    await page.locator('.chat-action-link[href="/submit"]').waitFor();
 
     await page.locator("#chat-clear").click();
     await page.waitForFunction(
@@ -91,7 +91,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.getByRole("button", { name: "Close chat" }).click();
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
-    await page.goto(`${baseUrl}/submit.html`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
     await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
     await page.locator("#userInput").fill("How do creator verification requests work?");
@@ -104,7 +104,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
       undefined,
       { timeout: 5_000 },
     );
-    await page.locator('.chat-action-link[href="/submit.html"]').waitFor();
+    await page.locator('.chat-action-link[href="/submit"]').waitFor();
     await page.getByRole("button", { name: "Close chat" }).click();
     await page.locator("#chat-container.is-open").waitFor({ state: "hidden" });
 
@@ -122,7 +122,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(tagAndLinkState.tagMenuOpen, false);
     const completionTopBeforeTagMenu = tagAndLinkState.completionTop;
 
-    await page.locator("[data-toggle-tag-picker]").click();
+    await page.locator('[data-toggle-tag-picker="selectedTags"]').click();
     await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
     tagAndLinkState = await page.evaluate(() => ({
       tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
@@ -157,15 +157,15 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(tagAndLinkState.tagMenuOpen, false);
     assert.equal(tagAndLinkState.completionTop > 0, true);
 
-    await page.locator("#submitTagInput").fill("ghost story");
+    await page.locator('[data-tag-input="selectedTags"]').fill("ghost story");
     await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
-    await page.locator("#submitTagInput").press("Enter");
+    await page.locator('[data-tag-input="selectedTags"]').press("Enter");
     tagAndLinkState = await page.evaluate(() => ({
       selectedTags: Array.from(document.querySelectorAll(".submit-tag-picker-values .submit-chip")).map((node) =>
         node.textContent?.replace("×", "").trim(),
       ),
       tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
-      tagInputValue: document.getElementById("submitTagInput")?.value || "",
+      tagInputValue: document.querySelector('[data-tag-input="selectedTags"]')?.value || "",
       completionTop: (() => {
         const field = document.getElementById("submitCompletionStatus");
         if (!field) {
@@ -180,7 +180,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(tagAndLinkState.tagInputValue, "");
 
     for (const tag of ["Sci-fi", "Full-cast", "Mystery", "Serialized", "Thriller", "Comedy"]) {
-      await page.locator("[data-toggle-tag-picker]").click();
+      await page.locator('[data-toggle-tag-picker="selectedTags"]').click();
       await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
       await page.locator(`.submit-tag-picker-menu:not([hidden]) [data-tag-suggestion="${tag}"]`).click();
     }
@@ -190,8 +190,8 @@ test("Ask the Archivist and the remade submit page interactions work across mode
         node.textContent?.replace("×", "").trim(),
       ),
       tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
-      tagInputDisabled: Boolean(document.getElementById("submitTagInput")?.hasAttribute("disabled")),
-      tagToggleDisabled: Boolean(document.querySelector("[data-toggle-tag-picker]")?.hasAttribute("disabled")),
+      tagInputDisabled: Boolean(document.querySelector('[data-tag-input="selectedTags"]')?.hasAttribute("disabled")),
+      tagToggleDisabled: Boolean(document.querySelector('[data-toggle-tag-picker="selectedTags"]')?.hasAttribute("disabled")),
       tagLimitMessage: document.querySelector(".submit-tag-limit")?.textContent?.trim() || "",
     }));
     assert.equal(tagAndLinkState.selectedTags.length, 8);
@@ -282,7 +282,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(formState.existingShowId, "impact-winter");
     assert.equal(formState.showSearch, "Impact Winter");
 
-    await page.goto(`${baseUrl}/submit.html?submissionType=listener-review&showId=impact-winter`, {
+    await page.goto(`${baseUrl}/submit?submissionType=listener-review&showId=impact-winter`, {
       waitUntil: "networkidle",
     });
     await page.waitForFunction(
@@ -313,7 +313,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(deepLinkState.reviewFieldVisible, true);
     assert.equal(deepLinkState.ratingButtons, 5);
 
-    await page.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/show?id=impact-winter`, { waitUntil: "networkidle" });
     await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
     await page.locator("#userInput").fill("What does creator verified mean?");
@@ -329,7 +329,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     chatState = await page.evaluate(() => ({
       actionHrefs: Array.from(document.querySelectorAll(".chat-action-link")).map((node) => node.getAttribute("href") || ""),
     }));
-    assert.ok(chatState.actionHrefs.includes("/submit.html"));
+    assert.ok(chatState.actionHrefs.includes("/submit"));
   } finally {
     await page.close();
   }

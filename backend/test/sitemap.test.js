@@ -18,15 +18,15 @@ test("buildSitemapEntries includes public pages, shows, and collections", async 
   const urls = entries.map((entry) => entry.loc);
 
   assert.ok(urls.includes("https://echo.continental-hub.com/"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/collections.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/for-creators.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/creator-standards.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/privacy.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/terms.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/cookies.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/copyright.html"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/show.html?id=impact-winter"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/collection.html?id=best-for-long-walks"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/collections"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/for-creators"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/creator-standards"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/privacy"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/terms"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/cookies"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/copyright"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/show?id=impact-winter"));
+  assert.ok(urls.includes("https://echo.continental-hub.com/collection?id=best-for-long-walks"));
 });
 
 test("buildSitemapXml serializes the sitemap document", () => {
@@ -37,7 +37,7 @@ test("buildSitemapXml serializes the sitemap document", () => {
   });
 
   assert.match(xml, /<urlset/);
-  assert.match(xml, /show\.html\?id=impact-winter/);
-  assert.match(xml, /collection\.html\?id=best-for-long-walks/);
+  assert.match(xml, /show\?id=impact-winter/);
+  assert.match(xml, /collection\?id=best-for-long-walks/);
   assert.match(xml, /<lastmod>2026-06-02<\/lastmod>/);
 });

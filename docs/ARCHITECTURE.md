@@ -82,19 +82,19 @@ Do not hand-edit generated root HTML when the corresponding source exists in `si
 Primary public routes:
 
 - `/`
-- `/about.html`
-- `/for-creators.html`
-- `/creator-standards.html`
-- `/supporters.html`
-- `/help-center.html`
-- `/collections.html`
-- `/collection.html?id=<collection-id>`
-- `/show.html?id=<show-id>`
-- `/submit.html`
-- `/privacy.html`
-- `/terms.html`
-- `/cookies.html`
-- `/copyright.html`
+- `/about`
+- `/for-creators`
+- `/creator-standards`
+- `/supporters`
+- `/help-center`
+- `/collections`
+- `/collection?id=<collection-id>`
+- `/show?id=<show-id>`
+- `/submit`
+- `/privacy`
+- `/terms`
+- `/cookies`
+- `/copyright`
 
 Operational routes:
 

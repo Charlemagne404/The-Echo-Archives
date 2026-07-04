@@ -30,11 +30,21 @@ function normalizeLocalTarget(reference = "") {
 
   const [withoutHash] = trimmed.split("#", 1);
   const [withoutQuery] = withoutHash.split("?", 1);
-  if (!withoutQuery) {
+  if (!withoutQuery || withoutQuery === "/") {
+    return "index.html";
+  }
+
+  const normalized = withoutQuery.startsWith("/") ? withoutQuery.slice(1) : withoutQuery;
+  if (!normalized) {
     return null;
   }
 
-  return withoutQuery.startsWith("/") ? withoutQuery.slice(1) : withoutQuery;
+  const extensionlessRoute = !path.extname(normalized);
+  if (extensionlessRoute) {
+    return `${normalized}.html`;
+  }
+
+  return normalized;
 }
 
 function assertFileExists(filePath, label) {

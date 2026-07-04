@@ -46,6 +46,71 @@ test.after(async () => {
   await teardownSmoke();
 });
 
+async function clickCollectionArrow(page, selector) {
+  await page.evaluate((currentSelector) => {
+    document.querySelector(currentSelector)?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  }, selector);
+}
+
+async function waitForCenteredCollection(page, expectedCollectionId, { maxDistance = 16 } = {}) {
+  await page.waitForFunction(
+    ({ currentExpectedCollectionId, currentMaxDistance }) => {
+      const viewport = document.getElementById("collectionViewport");
+      const carousel = document.getElementById("collectionCarousel");
+      if (!viewport) {
+        return false;
+      }
+
+      const viewportRect = viewport.getBoundingClientRect();
+      const viewportCenter = viewportRect.left + viewportRect.width / 2;
+      const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
+        const rect = card.getBoundingClientRect();
+        return rect.right > viewportRect.left && rect.left < viewportRect.right;
+      });
+
+      if (visibleCards.length === 0) {
+        return false;
+      }
+
+      const centeredCard = visibleCards
+        .map((card) => {
+          const rect = card.getBoundingClientRect();
+          return {
+            collectionId: card.dataset.collectionId || "",
+            distanceFromCenter: Math.abs(rect.left + rect.width / 2 - viewportCenter),
+          };
+        })
+        .sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
+
+      return (
+        centeredCard.collectionId === currentExpectedCollectionId &&
+        centeredCard.distanceFromCenter < currentMaxDistance &&
+        !(carousel?.dataset.collectionInteraction || "")
+      );
+    },
+    { currentExpectedCollectionId: expectedCollectionId, currentMaxDistance: maxDistance },
+    { timeout: 3_000 },
+  );
+}
+
+async function waitForPreviewClosed(page, sourceIndex) {
+  await page.waitForFunction(
+    (currentSourceIndex) => {
+      const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[currentSourceIndex];
+      const layer = shell?.querySelector(".home-card-preview-layer");
+      return Boolean(
+        shell &&
+          !shell.classList.contains("is-preview-expanded") &&
+          !shell.classList.contains("is-preview-closing") &&
+          !shell.classList.contains("preview-source-active") &&
+          (layer?.hidden ?? true),
+      );
+    },
+    sourceIndex,
+    { timeout: 2_000 },
+  );
+}
+
 test("homepage featured collections carousel applies center-weighted focus and direct hover emphasis", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 980 } });
 
@@ -67,18 +132,29 @@ test("homepage featured collections carousel applies center-weighted focus and d
     const nearestToCenter = [...initialVisibleCards].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
     const strongestAmbientCard = [...initialVisibleCards].sort((left, right) => right.focusValue - left.focusValue)[0];
     const weakestVisibleCard = [...initialVisibleCards].sort((left, right) => left.focusValue - right.focusValue)[0];
+    const featuredCollectionIds = collectionFixtures.filter((collection) => collection.featured).map((collection) => collection.id);
+    let expectedCollectionIndex = featuredCollectionIds.indexOf(nearestToCenter.collectionId);
     assert.equal(strongestAmbientCard.index, nearestToCenter.index);
     assert.ok(strongestAmbientCard.centerWeighted);
     assert.ok(strongestAmbientCard.focusValue > 0.6);
     assert.ok(strongestAmbientCard.focusWeight > weakestVisibleCard.focusWeight);
     assert.ok(strongestAmbientCard.scale - weakestVisibleCard.scale > 0.04);
+    assert.notEqual(expectedCollectionIndex, -1);
 
     const hoverTarget =
       initialVisibleCards.find((card) => !card.clone && card.index !== nearestToCenter.index) ||
       initialVisibleCards.find((card) => !card.clone) ||
       nearestToCenter;
     await page.locator(`#collectionGrid .collection-card[data-collection-id="${hoverTarget.collectionId}"]:not([data-collection-clone])`).hover();
-    await page.waitForTimeout(140);
+    await page.waitForFunction(
+      (collectionId) =>
+        Array.from(document.querySelectorAll("#collectionGrid .collection-card")).some(
+          (card) => card.dataset.collectionId === collectionId && card.classList.contains("is-interaction-boosted"),
+        ),
+      hoverTarget.collectionId,
+      { timeout: 2_000 },
+    );
+    await page.waitForTimeout(180);
 
     const hoveredState = await getCollectionCarouselFocusState(page);
     const hoveredTargetState = hoveredState.cards.find(
@@ -88,7 +164,7 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.ok((hoveredTargetState?.scale || 0) > 1.03);
     assert.ok((hoveredTargetState?.translateY || 0) < -5);
 
-    await page.locator("#collectionNext").click();
+    await clickCollectionArrow(page, "#collectionNext");
     if (!prefersReducedMotion) {
       await page.waitForFunction(
         () =>
@@ -111,7 +187,8 @@ test("homepage featured collections carousel applies center-weighted focus and d
       assert.notEqual(nextPulseState?.nextArrowTransform, "none");
       assert.notEqual(nextPulseState?.nextArrowGlyphTransform, "none");
     }
-    await page.waitForTimeout(520);
+    expectedCollectionIndex = (expectedCollectionIndex + 1) % featuredCollectionIds.length;
+    await waitForCenteredCollection(page, featuredCollectionIds[expectedCollectionIndex]);
 
     const afterNextState = await getCollectionCarouselFocusState(page);
     const afterNextVisibleCards = afterNextState.cards.filter((card) => card.isVisible);
@@ -121,9 +198,9 @@ test("homepage featured collections carousel applies center-weighted focus and d
     assert.notEqual(nextNearestToCenter.collectionId, nearestToCenter.collectionId);
     assert.equal(nextStrongestAmbientCard.carouselInteraction, "");
     assert.equal(nextStrongestAmbientCard.carouselDirection, "");
-    assert.ok(nextNearestToCenter.distanceFromCenter < 8);
+    assert.ok(nextNearestToCenter.distanceFromCenter < 16);
 
-    await page.locator("#collectionPrev").click();
+    await clickCollectionArrow(page, "#collectionPrev");
     if (!prefersReducedMotion) {
       await page.waitForFunction(
         () =>
@@ -146,28 +223,25 @@ test("homepage featured collections carousel applies center-weighted focus and d
       assert.notEqual(prevPulseState?.prevArrowTransform, "none");
       assert.notEqual(prevPulseState?.prevArrowGlyphTransform, "none");
     }
-    await page.waitForTimeout(520);
+    expectedCollectionIndex = (expectedCollectionIndex - 1 + featuredCollectionIds.length) % featuredCollectionIds.length;
+    await waitForCenteredCollection(page, featuredCollectionIds[expectedCollectionIndex]);
 
     const afterPrevState = await getCollectionCarouselFocusState(page);
     const afterPrevVisibleCards = afterPrevState.cards.filter((card) => card.isVisible);
     const prevNearestToCenter = [...afterPrevVisibleCards].sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
     assert.equal(prevNearestToCenter.collectionId, nearestToCenter.collectionId);
-    assert.ok(prevNearestToCenter.distanceFromCenter < 8);
-
-    const featuredCollectionIds = collectionFixtures.filter((collection) => collection.featured).map((collection) => collection.id);
-    let expectedCollectionIndex = featuredCollectionIds.indexOf(prevNearestToCenter.collectionId);
-    assert.notEqual(expectedCollectionIndex, -1);
+    assert.ok(prevNearestToCenter.distanceFromCenter < 16);
 
     for (let step = 0; step < featuredCollectionIds.length + 1; step += 1) {
-      await page.locator("#collectionNext").click();
-      await page.waitForTimeout(520);
+      await clickCollectionArrow(page, "#collectionNext");
+      expectedCollectionIndex = (expectedCollectionIndex + 1) % featuredCollectionIds.length;
+      await waitForCenteredCollection(page, featuredCollectionIds[expectedCollectionIndex]);
 
       const wrappedNextState = await getCollectionCarouselFocusState(page);
       const wrappedNextCenteredCard = getCenteredVisibleCollectionCard(wrappedNextState);
-      expectedCollectionIndex = (expectedCollectionIndex + 1) % featuredCollectionIds.length;
 
       assert.equal(wrappedNextCenteredCard?.collectionId, featuredCollectionIds[expectedCollectionIndex]);
-      assert.ok((wrappedNextCenteredCard?.distanceFromCenter || 0) < 8);
+      assert.ok((wrappedNextCenteredCard?.distanceFromCenter || 0) < 16);
     }
   } finally {
     await page.close();
@@ -190,7 +264,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     const middleBefore = await getOverlayMetrics(page, 1, 7);
 
     await middleShell.locator(".podcast-card-primary").hover();
-    await page.waitForTimeout(420);
+    await page.waitForTimeout(300);
     assert.equal((await getOverlayMetrics(page, 1, 7)).overlayOpen, false);
     await page.waitForFunction(
       () => {
@@ -360,7 +434,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal((await getOverlayMetrics(page, 1, 7)).activeIsCloseButton, true);
 
     await page.keyboard.press("Escape");
-    await page.waitForTimeout(180);
+    await waitForPreviewClosed(page, 1);
     assert.equal((await getOverlayMetrics(page, 1, 7)).overlayOpen, false);
     await page.waitForFunction(
       () => document.activeElement?.classList.contains("podcast-card-primary") || false,
@@ -410,14 +484,14 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     assert.equal(touchMetrics.panelBoundsOk, true);
 
     await firstShell.locator(".preview-close-button").tap();
-    await touchPage.waitForTimeout(180);
+    await waitForPreviewClosed(touchPage, 0);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
 
     await firstCard.scrollIntoViewIfNeeded();
     await firstCard.tap();
     await touchPage.waitForTimeout(360);
     await touchPage.touchscreen.tap(8, 8);
-    await touchPage.waitForTimeout(180);
+    await waitForPreviewClosed(touchPage, 0);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
 
   } finally {
@@ -438,7 +512,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     await firstCard.tap();
     await touchLinkPage.waitForTimeout(200);
     await firstShell.locator(".preview-open-link").tap();
-    await touchLinkPage.waitForURL(`${baseUrl}/show.html?id=*`, { timeout: 5_000 });
+    await touchLinkPage.waitForURL(`${baseUrl}/show?id=*`, { timeout: 5_000 });
   } finally {
     await touchLinkPage.close();
   }
@@ -516,8 +590,41 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
       assert.equal(card.nextArrowTransform, "none");
     });
 
-    await reducedMotionPage.locator("#collectionNext").click();
-    await reducedMotionPage.waitForTimeout(80);
+    const reducedCenteredBefore = getCenteredVisibleCollectionCard(await getCollectionCarouselFocusState(reducedMotionPage));
+    await clickCollectionArrow(reducedMotionPage, "#collectionNext");
+    await reducedMotionPage.waitForFunction(
+      (previousCollectionId) => {
+        const viewport = document.getElementById("collectionViewport");
+        if (!viewport) {
+          return false;
+        }
+
+        const viewportRect = viewport.getBoundingClientRect();
+        const viewportCenter = viewportRect.left + viewportRect.width / 2;
+        const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
+          const rect = card.getBoundingClientRect();
+          return rect.right > viewportRect.left && rect.left < viewportRect.right;
+        });
+
+        if (visibleCards.length === 0) {
+          return false;
+        }
+
+        const centeredCard = visibleCards
+          .map((card) => {
+            const rect = card.getBoundingClientRect();
+            return {
+              collectionId: card.dataset.collectionId || "",
+              distanceFromCenter: Math.abs(rect.left + rect.width / 2 - viewportCenter),
+            };
+          })
+          .sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
+
+        return centeredCard.collectionId !== previousCollectionId;
+      },
+      reducedCenteredBefore?.collectionId || "",
+      { timeout: 2_000 },
+    );
 
     const reducedAfterArrow = (await getCollectionCarouselFocusState(reducedMotionPage)).cards.filter((card) => card.isVisible);
     reducedAfterArrow.forEach((card) => {

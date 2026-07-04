@@ -11,7 +11,7 @@ export async function initializeForCreatorsPage() {
     title: "For Creators - The Echo Archives",
     description:
       "How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives.",
-    path: "/for-creators.html",
+    path: "/for-creators",
     image: DEFAULT_SOCIAL_IMAGE,
   });
 
@@ -25,7 +25,7 @@ export function initializeCreatorStandardsPage() {
     title: "Creator Standards - The Echo Archives",
     description:
       "The standards and trust rules The Echo Archives uses when handling creator submissions, verification, and metadata updates.",
-    path: "/creator-standards.html",
+    path: "/creator-standards",
     image: DEFAULT_SOCIAL_IMAGE,
   });
 

@@ -18,7 +18,7 @@
   ];
 
   function createShowHref(id) {
-    return `/show.html?id=${encodeURIComponent(id)}`;
+    return `/show?id=${encodeURIComponent(id)}`;
   }
 
   function normalizeTagValue(value) {

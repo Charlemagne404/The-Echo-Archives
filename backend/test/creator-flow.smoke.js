@@ -51,8 +51,8 @@ test("for creators page is reachable from nav and its primary interactions work"
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
-    await page.locator('.site-nav a[href="/for-creators.html"]').click();
-    await page.waitForURL(`${baseUrl}/for-creators.html`);
+    await page.locator('.site-nav a[href="/for-creators"]').click();
+    await page.waitForURL(`${baseUrl}/for-creators`);
     await page.waitForFunction(
       () => {
         const creatorCount = document.getElementById("creatorsCreatorCount");
@@ -78,13 +78,13 @@ test("for creators page is reachable from nav and its primary interactions work"
         href: link.getAttribute("href") || "",
       })),
       submitHref:
-        document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=show"]')?.getAttribute("href") || "",
+        document.querySelector('.creator-action-card a[href^="/submit?submissionType=show"]')?.getAttribute("href") || "",
       correctionHref:
-        document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=correction"]')?.getAttribute("href") || "",
+        document.querySelector('.creator-action-card a[href^="/submit?submissionType=correction"]')?.getAttribute("href") || "",
       verificationHref:
-        document.querySelector('.creator-action-card a[href^="/submit.html?submissionType=creator-verification"]')?.getAttribute("href") || "",
+        document.querySelector('.creator-action-card a[href^="/submit?submissionType=creator-verification"]')?.getAttribute("href") || "",
       standardsHref:
-        document.querySelector('.creator-action-card a[href="/creator-standards.html"]')?.getAttribute("href") || "",
+        document.querySelector('.creator-action-card a[href="/creator-standards"]')?.getAttribute("href") || "",
       updatesStandardsHref:
         document.querySelector('.creator-list-card-updates .creator-list-footer-link')?.getAttribute("href") || "",
       independentStandardsHref:
@@ -102,25 +102,24 @@ test("for creators page is reachable from nav and its primary interactions work"
       faqHidden: Boolean(document.getElementById("creatorFaqAnswer1")?.hidden),
     }));
 
-    assert.equal(initialState.activeNavHref, "/for-creators.html");
+    assert.equal(initialState.activeNavHref, "/for-creators");
     assert.ok(Number.parseInt(initialState.creatorCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.showCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.metadataCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.reviewCount, 10) >= 0);
-    assert.equal(initialState.spotlightTitle, "Example audio drama");
-    assert.equal(initialState.spotlightCreator, "Sample sci-fi mystery");
-    assert.equal(initialState.placeholderName, "Example Creator");
-    assert.match(initialState.placeholderCopy, /sample quote|real spotlight is sourced/i);
-    assert.match(initialState.spotlightText, /View example spotlights/i);
-    assert.match(initialState.spotlightText, /Read example interview/i);
+    assert.equal(initialState.spotlightTitle, "How a creator spotlight will appear");
+    assert.equal(initialState.spotlightCreator, "Intentional demo card");
+    assert.equal(initialState.placeholderName, "Example creator profile");
+    assert.match(initialState.placeholderCopy, /real creator context|sourced and verified/i);
+    assert.match(initialState.spotlightText, /interview format preview/i);
     assert.doesNotMatch(initialState.spotlightText, /Impact Winter|Travis Beacham/i);
     assert.deepEqual(initialState.spotlightLinks, []);
-    assert.equal(initialState.submitHref, "/submit.html?submissionType=show");
-    assert.equal(initialState.correctionHref, "/submit.html?submissionType=correction");
-    assert.equal(initialState.verificationHref, "/submit.html?submissionType=creator-verification");
-    assert.equal(initialState.standardsHref, "/creator-standards.html");
-    assert.equal(initialState.updatesStandardsHref, "/creator-standards.html");
-    assert.equal(initialState.independentStandardsHref, "/creator-standards.html#creatorStandardsIndependence");
+    assert.equal(initialState.submitHref, "/submit?submissionType=show");
+    assert.equal(initialState.correctionHref, "/submit?submissionType=correction");
+    assert.equal(initialState.verificationHref, "/submit?submissionType=creator-verification");
+    assert.equal(initialState.standardsHref, "/creator-standards");
+    assert.equal(initialState.updatesStandardsHref, "/creator-standards");
+    assert.equal(initialState.independentStandardsHref, "/creator-standards#creatorStandardsIndependence");
     assert.equal(initialState.independentGridColumnCount, 1);
     assert.equal(initialState.faqExpanded, "false");
     assert.equal(initialState.faqHidden, true);
@@ -153,8 +152,8 @@ test("for creators page is reachable from nav and its primary interactions work"
     assert.equal(faqState.expanded, "false");
     assert.equal(faqState.hidden, true);
 
-    await page.locator('.creator-action-card a[href="/creator-standards.html"]').click();
-    await page.waitForURL(`${baseUrl}/creator-standards.html`);
+    await page.locator('.creator-action-card a[href="/creator-standards"]').click();
+    await page.waitForURL(`${baseUrl}/creator-standards`);
     assert.equal(await page.title(), "Creator Standards - The Echo Archives");
   } finally {
     await page.close();

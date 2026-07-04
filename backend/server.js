@@ -23,6 +23,42 @@ const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
 const { createSearchIndexRecord } = require("../tools/lib/catalog-artifacts");
 
+const PUBLIC_ROUTE_REDIRECTS = new Map([
+  ["/index.html", "/"],
+  ["/about.html", "/about"],
+  ["/for-creators.html", "/for-creators"],
+  ["/creator-standards.html", "/creator-standards"],
+  ["/supporters.html", "/supporters"],
+  ["/help-center.html", "/help-center"],
+  ["/collections.html", "/collections"],
+  ["/collection.html", "/collection"],
+  ["/show.html", "/show"],
+  ["/submit.html", "/submit"],
+  ["/privacy.html", "/privacy"],
+  ["/terms.html", "/terms"],
+  ["/cookies.html", "/cookies"],
+  ["/copyright.html", "/copyright"],
+  ["/contact.html", "/contact"],
+]);
+
+const PUBLIC_PAGE_FILES = new Map([
+  ["/", "index.html"],
+  ["/about", "about.html"],
+  ["/for-creators", "for-creators.html"],
+  ["/creator-standards", "creator-standards.html"],
+  ["/supporters", "supporters.html"],
+  ["/help-center", "help-center.html"],
+  ["/collections", "collections.html"],
+  ["/collection", "collection.html"],
+  ["/show", "show.html"],
+  ["/submit", "submit.html"],
+  ["/privacy", "privacy.html"],
+  ["/terms", "terms.html"],
+  ["/cookies", "cookies.html"],
+  ["/copyright", "copyright.html"],
+  ["/contact", "contact.html"],
+]);
+
 async function startServer() {
   const app = express();
   const state = {
@@ -167,10 +203,24 @@ async function startServer() {
       return next();
     });
 
-    app.use(express.static(config.STATIC_ROOT, { extensions: ["html"] }));
-    app.get("/", (_req, res) => {
-      res.sendFile(path.join(config.STATIC_ROOT, "index.html"));
+    app.use((req, res, next) => {
+      const redirectPath = PUBLIC_ROUTE_REDIRECTS.get(req.path);
+      if (!redirectPath) {
+        return next();
+      }
+
+      const queryIndex = req.url.indexOf("?");
+      const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
+      return res.redirect(301, `${redirectPath}${search}`);
     });
+
+    PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
+      app.get(routePath, (_req, res) => {
+        res.sendFile(path.join(config.STATIC_ROOT, fileName));
+      });
+    });
+
+    app.use(express.static(config.STATIC_ROOT, { extensions: ["html"] }));
   }
 
   app.use((error, _req, res, _next) => {

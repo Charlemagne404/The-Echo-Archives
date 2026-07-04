@@ -8,7 +8,7 @@ export async function initializeAboutPage() {
   updateDocumentMetadata({
     title: "About - The Echo Archives",
     description: "Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support.",
-    path: "/about.html",
+    path: "/about",
     image: DEFAULT_SOCIAL_IMAGE,
   });
   applyArchiveStats("about", getArchiveStats(shows, collections));

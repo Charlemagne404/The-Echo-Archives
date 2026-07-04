@@ -18,21 +18,21 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
 
   return [
     { loc: `${baseUrl}/` },
-    { loc: `${baseUrl}/about.html` },
-    { loc: `${baseUrl}/for-creators.html` },
-    { loc: `${baseUrl}/creator-standards.html` },
-    { loc: `${baseUrl}/submit.html` },
-    { loc: `${baseUrl}/collections.html` },
-    { loc: `${baseUrl}/privacy.html` },
-    { loc: `${baseUrl}/terms.html` },
-    { loc: `${baseUrl}/cookies.html` },
-    { loc: `${baseUrl}/copyright.html` },
+    { loc: `${baseUrl}/about` },
+    { loc: `${baseUrl}/for-creators` },
+    { loc: `${baseUrl}/creator-standards` },
+    { loc: `${baseUrl}/submit` },
+    { loc: `${baseUrl}/collections` },
+    { loc: `${baseUrl}/privacy` },
+    { loc: `${baseUrl}/terms` },
+    { loc: `${baseUrl}/cookies` },
+    { loc: `${baseUrl}/copyright` },
     ...publishedShows.map((show) => ({
-      loc: `${baseUrl}/show.html?id=${encodeURIComponent(show.id)}`,
+      loc: `${baseUrl}/show?id=${encodeURIComponent(show.id)}`,
       lastmod: show.updatedAt || "",
     })),
     ...collectionRecords.map((collection) => ({
-      loc: `${baseUrl}/collection.html?id=${encodeURIComponent(collection.id)}`,
+      loc: `${baseUrl}/collection?id=${encodeURIComponent(collection.id)}`,
       lastmod: collection.updatedAt || "",
     })),
   ];

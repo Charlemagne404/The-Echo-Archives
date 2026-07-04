@@ -45,7 +45,11 @@ function getChatPageContext() {
 }
 
 function getChatPageType() {
-  const path = window.location.pathname;
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  function matchesRoute(cleanPath, legacyPath) {
+    return path === cleanPath || path.endsWith(legacyPath);
+  }
 
   if (document.body.classList.contains("show-page")) {
     return "show";
@@ -71,43 +75,46 @@ function getChatPageType() {
     return "creators";
   }
 
-  if (path.endsWith("/privacy.html") || path.endsWith("/cookies.html")) {
+  if (matchesRoute("/privacy", "/privacy.html") || matchesRoute("/cookies", "/cookies.html")) {
     return "privacy";
   }
 
-  if (path.endsWith("/terms.html") || path.endsWith("/copyright.html")) {
+  if (matchesRoute("/terms", "/terms.html") || matchesRoute("/copyright", "/copyright.html")) {
     return "terms";
   }
 
-  if (path.endsWith("/supporters.html")) {
+  if (matchesRoute("/supporters", "/supporters.html")) {
     return "supporters";
   }
 
-  if (path.endsWith("/help-center.html")) {
+  if (matchesRoute("/help-center", "/help-center.html")) {
     return "help-center";
   }
 
-  if (path.endsWith("/collections.html")) {
+  if (matchesRoute("/collections", "/collections.html")) {
     return "collections";
   }
 
-  if (path.endsWith("/collection.html")) {
+  if (matchesRoute("/collection", "/collection.html")) {
     return "collection";
   }
 
-  if (path.endsWith("/show.html")) {
+  if (matchesRoute("/show", "/show.html")) {
     return "show";
   }
 
-  if (path.endsWith("/about.html")) {
+  if (matchesRoute("/about", "/about.html")) {
     return "about";
   }
 
-  if (path.endsWith("/submit.html")) {
+  if (matchesRoute("/submit", "/submit.html")) {
     return "submit";
   }
 
-  if (path.endsWith("/for-creators.html") || path.endsWith("/creator-standards.html")) {
+  if (
+    matchesRoute("/for-creators", "/for-creators.html") ||
+    matchesRoute("/creator-standards", "/creator-standards.html")
+  ) {
     return "creators";
   }
 

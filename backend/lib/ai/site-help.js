@@ -32,15 +32,15 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       finishedShows: finishedShows.length,
     },
     routes: {
-      browse: { label: "Browse Archive", href: "/index.html#archive", external: false },
-      collections: { label: "Browse Collections", href: "/collections.html", external: false },
-      about: { label: "Read About", href: "/about.html", external: false },
-      creators: { label: "Open For Creators", href: "/for-creators.html", external: false },
-      submit: { label: "Open Submit", href: "/submit.html", external: false },
-      helpCenter: { label: "Open Help Center", href: "/help-center.html", external: false },
-      privacy: { label: "Read Privacy", href: "/privacy.html", external: false },
-      terms: { label: "Read Terms", href: "/terms.html", external: false },
-      supporters: { label: "Support Archive", href: "/supporters.html", external: false },
+      browse: { label: "Browse Archive", href: "/#archive", external: false },
+      collections: { label: "Browse Collections", href: "/collections", external: false },
+      about: { label: "Read About", href: "/about", external: false },
+      creators: { label: "Open For Creators", href: "/for-creators", external: false },
+      submit: { label: "Open Submit", href: "/submit", external: false },
+      helpCenter: { label: "Open Help Center", href: "/help-center", external: false },
+      privacy: { label: "Read Privacy", href: "/privacy", external: false },
+      terms: { label: "Read Terms", href: "/terms", external: false },
+      supporters: { label: "Support Archive", href: "/supporters", external: false },
       contact: { label: "Contact Continental", href: "https://contact.continental-hub.com/", external: true },
     },
     featureAvailability: archiveContext?.featureAvailability || {},
@@ -586,7 +586,7 @@ function buildPageNavigationResponse(page, show, collection, siteHelpContext, su
     ]),
     actions: buildActionList([
       show ? { label: "Open Show", href: show.href, external: false } : null,
-      collection ? { label: "Open Collection", href: `/collection.html?id=${encodeURIComponent(collection.id)}`, external: false } : null,
+      collection ? { label: "Open Collection", href: `/collection?id=${encodeURIComponent(collection.id)}`, external: false } : null,
       siteHelpContext.routes.browse,
       siteHelpContext.routes.collections,
       siteHelpContext.routes.submit,
@@ -649,7 +649,7 @@ function buildCollectionsResponse(collection, siteHelpContext) {
     return {
       answer: `${collection.title} is a curated listening path, not a generic genre folder. This route currently carries ${collection.showIds.length} archive picks and is meant to move you by mood, tone, or intent rather than taxonomy alone.`,
       actions: [
-        { label: "Open Collection", href: `/collection.html?id=${encodeURIComponent(collection.id)}`, external: false },
+        { label: "Open Collection", href: `/collection?id=${encodeURIComponent(collection.id)}`, external: false },
         siteHelpContext.routes.collections,
       ],
       suggestedPrompts: [
@@ -679,7 +679,7 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
   if (show) {
     return {
       answer: `${show.title} currently has an Archive Rating of ${formatNumber(show.finalRating || show.ratings?.archive)}/10. Community rating is separate from that editorial score, and creator verification never means creator approval of the rating or review.`,
-      actions: [{ label: "Read About Ratings", href: "/about.html", external: false }],
+      actions: [{ label: "Read About Ratings", href: "/about", external: false }],
       suggestedPrompts: [
         "What does creator verified mean?",
         "Is this show finished?",
@@ -694,7 +694,7 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
 
     return {
       answer: `Some of the strongest Archive Rating picks right now are ${joinReadableList(topRatedTitles)}. Community rating remains separate from that editorial score, and creator verification does not change either one.`,
-      actions: [siteHelpContext.routes.browse, { label: "Read About Ratings", href: "/about.html", external: false }],
+      actions: [siteHelpContext.routes.browse, { label: "Read About Ratings", href: "/about", external: false }],
       suggestedPrompts: [
         "Which shows are creator verified?",
         "What collections do you have?",
@@ -707,7 +707,7 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
   return {
     answer:
       "Archive Rating is the editorial score from Echo Archives. Community rating reflects listener response separately, and creator verification only means factual metadata was checked, not that the creator approved the rating or curation.",
-    actions: [{ label: "Read About Ratings", href: "/about.html", external: false }, siteHelpContext.routes.terms],
+    actions: [{ label: "Read About Ratings", href: "/about", external: false }, siteHelpContext.routes.terms],
     suggestedPrompts: [
       "What does creator verified mean?",
       "How do listener reviews work?",
@@ -1171,7 +1171,7 @@ function buildShowCollectionsResponse(show, collections, siteHelpContext) {
     answer: `${show.title} currently appears in ${joinReadableList(memberships.map((entry) => entry.title).slice(0, 4))}.`,
     actions: [
       { label: "Open Show", href: show.href, external: false },
-      { label: "Browse Collections", href: "/collections.html", external: false },
+      { label: "Browse Collections", href: "/collections", external: false },
     ],
     suggestedPrompts: [
       "What is this show similar to?",

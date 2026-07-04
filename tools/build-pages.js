@@ -130,11 +130,11 @@ function renderStylesheets(extraStylesheets = [], versions = {}) {
 
 function renderNavLinks(activeNav) {
   const navItems = [
-    { id: "browse", label: "Browse", href: "/index.html" },
-    { id: "collections", label: "Collections", href: "/collections.html" },
-    { id: "about", label: "About", href: "/about.html" },
-    { id: "submit", label: "Submit", href: "/submit.html" },
-    { id: "for-creators", label: "For creators", href: "/for-creators.html" },
+    { id: "browse", label: "Browse", href: "/" },
+    { id: "collections", label: "Collections", href: "/collections" },
+    { id: "about", label: "About", href: "/about" },
+    { id: "submit", label: "Submit", href: "/submit" },
+    { id: "for-creators", label: "For creators", href: "/for-creators" },
   ];
 
   return navItems
@@ -200,6 +200,25 @@ function renderPage(entry, partials, versions) {
   ].join("\n");
 }
 
+function resolveCleanRouteAlias(entry) {
+  if (!entry?.canonicalUrl) {
+    return null;
+  }
+
+  let pathname = "";
+  try {
+    pathname = new URL(entry.canonicalUrl).pathname || "";
+  } catch (_error) {
+    return null;
+  }
+
+  if (!pathname || pathname === "/" || pathname.endsWith(".html")) {
+    return null;
+  }
+
+  return pathname.replace(/^\/+/, "");
+}
+
 function main() {
   buildEntryAssets();
 
@@ -224,7 +243,13 @@ function main() {
 
   manifest.forEach((entry) => {
     const outputPath = path.join(ROOT, entry.output);
-    writeFile(outputPath, renderPage(entry, partials, versions));
+    const pageMarkup = renderPage(entry, partials, versions);
+    writeFile(outputPath, pageMarkup);
+
+    const cleanRouteAlias = resolveCleanRouteAlias(entry);
+    if (cleanRouteAlias) {
+      writeFile(path.join(ROOT, cleanRouteAlias, "index.html"), pageMarkup);
+    }
   });
 }
 

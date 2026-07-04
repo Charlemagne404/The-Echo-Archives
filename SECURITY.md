@@ -12,7 +12,7 @@ Do not post exploit details in a public issue or discussion.
 Report security issues privately to the maintainer through the contact route
 linked on the site or the maintainer profile linked in the footer:
 
-- `/contact.html`
+- `/contact`
 - [https://github.com/Charlemagne404](https://github.com/Charlemagne404)
 
 Include:

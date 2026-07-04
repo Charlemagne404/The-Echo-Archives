@@ -103,7 +103,7 @@ export function renderDetailHero(show) {
 }
 
 function renderDetailBreadcrumbs(show) {
-  const parts = ['<a href="/index.html">Archive</a>'];
+  const parts = ['<a href="/">Archive</a>'];
 
   if (show.genres[0]) {
     parts.push('<span class="detail-breadcrumb-divider">/</span>');

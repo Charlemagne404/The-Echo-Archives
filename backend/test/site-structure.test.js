@@ -21,6 +21,21 @@ const runtimePages = [
   "cookies.html",
   "copyright.html",
 ];
+const cleanRouteAliases = [
+  "about/index.html",
+  "for-creators/index.html",
+  "creator-standards/index.html",
+  "supporters/index.html",
+  "help-center/index.html",
+  "collections/index.html",
+  "collection/index.html",
+  "show/index.html",
+  "submit/index.html",
+  "privacy/index.html",
+  "terms/index.html",
+  "cookies/index.html",
+  "copyright/index.html",
+];
 const legacyRedirectManifestPath = path.join(siteRoot, "shared/config/legacy-redirects.json");
 const legacyRedirects = JSON.parse(fs.readFileSync(legacyRedirectManifestPath, "utf8"));
 
@@ -59,5 +74,12 @@ test("legacy redirect manifest matches redirect shim files", () => {
       new RegExp(`href="${target.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`),
       `${redirectPath} should link to ${target}.`,
     );
+  });
+});
+
+test("clean-route static aliases exist for plain file servers", () => {
+  cleanRouteAliases.forEach((aliasPath) => {
+    const absolutePath = path.join(siteRoot, aliasPath);
+    assert.equal(fs.existsSync(absolutePath), true, `${aliasPath} should exist.`);
   });
 });

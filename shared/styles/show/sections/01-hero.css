@@ -11,11 +11,11 @@
   --community-accent-rgb: 74, 158, 97;
 }
 
-.detail-page .site-nav a[href="/index.html"] {
+.detail-page .site-nav a[href="/"] {
   color: var(--text-primary);
 }
 
-.detail-page .site-nav a[href="/index.html"]::after {
+.detail-page .site-nav a[href="/"]::after {
   transform: scaleX(1);
 }
 

@@ -37,19 +37,19 @@ The project has moved past migration and foundation work. The main gap is not "d
 Public routes currently include:
 
 - `/`
-- `/about.html`
-- `/for-creators.html`
-- `/creator-standards.html`
-- `/supporters.html`
-- `/help-center.html`
-- `/collections.html`
-- `/collection.html?id=<collection-id>`
-- `/show.html?id=<show-id>`
-- `/submit.html`
-- `/privacy.html`
-- `/terms.html`
-- `/cookies.html`
-- `/copyright.html`
+- `/about`
+- `/for-creators`
+- `/creator-standards`
+- `/supporters`
+- `/help-center`
+- `/collections`
+- `/collection?id=<collection-id>`
+- `/show?id=<show-id>`
+- `/submit`
+- `/privacy`
+- `/terms`
+- `/cookies`
+- `/copyright`
 
 Operational and trust-related surfaces currently include:
 
@@ -108,7 +108,7 @@ The reusable detail pages are in place.
 
 Show pages currently support the core archive-detail model:
 
-- canonical `show.html?id=<show-id>` routing
+- canonical `/show?id=<show-id>` routing
 - structured metadata rendering
 - links and factual context
 - collection and relationship context
@@ -117,7 +117,7 @@ Show pages currently support the core archive-detail model:
 
 Collection pages currently support:
 
-- canonical `collection.html?id=<collection-id>` routing
+- canonical `/collection?id=<collection-id>` routing
 - featured and directory presentation
 - motion-enhanced browsing behavior
 - collection-as-discovery-route positioning rather than generic taxonomy folders

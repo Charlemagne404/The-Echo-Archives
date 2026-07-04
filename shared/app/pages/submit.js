@@ -31,7 +31,7 @@ export async function initializeSubmitPage() {
   updateDocumentMetadata({
     title: "Submit a Show - The Echo Archives",
     description: "Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives.",
-    path: "/submit.html",
+    path: "/submit",
     image: DEFAULT_SOCIAL_IMAGE,
   });
 

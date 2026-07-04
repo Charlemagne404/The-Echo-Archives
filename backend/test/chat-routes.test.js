@@ -71,7 +71,7 @@ test("chat route returns structured help actions for site questions", async () =
       message: "How do I submit a correction?",
       history: [],
       page: {
-        path: "/submit.html",
+        path: "/submit",
         pageType: "submit",
       },
     });
@@ -79,7 +79,7 @@ test("chat route returns structured help actions for site questions", async () =
     assert.equal(result.status, 200);
     assert.equal(result.body.source, "site-help");
     assert.equal(result.body.recommendations.length, 0);
-    assert.equal(result.body.actions[0].href, "/submit.html");
+    assert.equal(result.body.actions[0].href, "/submit");
   } finally {
     await closeChatTestServer(context.server);
   }
@@ -117,7 +117,7 @@ test("chat route uses page context for show-page trust questions", async () => {
       message: "What does creator verified mean?",
       history: [],
       page: {
-        path: `/show.html?id=${verifiedShow.id}`,
+        path: `/show?id=${verifiedShow.id}`,
         pageType: "show",
         showId: verifiedShow.id,
       },
@@ -126,7 +126,7 @@ test("chat route uses page context for show-page trust questions", async () => {
     assert.equal(result.status, 200);
     assert.equal(result.body.source, "site-help");
     assert.match(result.body.answer, new RegExp(verifiedShow.title, "i"));
-    assert.equal(result.body.actions[0].href, "/submit.html");
+    assert.equal(result.body.actions[0].href, "/submit");
   } finally {
     await closeChatTestServer(context.server);
   }
@@ -196,7 +196,7 @@ test("chat route handles regular search-trouble questions with site help", async
     assert.equal(result.body.source, "site-help");
     assert.equal(result.body.recommendations.length, 0);
     assert.match(result.body.answer, /title fragments|aliases|creators|genres|tones|tags/i);
-    assert.equal(result.body.actions[0].href, "/index.html#archive");
+    assert.equal(result.body.actions[0].href, "/#archive");
   } finally {
     await closeChatTestServer(context.server);
   }
@@ -210,7 +210,7 @@ test("chat route explains rating persistence issues on show pages", async () => 
       message: "Why didn't my rating stick?",
       history: [],
       page: {
-        path: "/show.html?id=impact-winter",
+        path: "/show?id=impact-winter",
         pageType: "show",
         showId: "impact-winter",
       },
@@ -220,7 +220,7 @@ test("chat route explains rating persistence issues on show pages", async () => 
     assert.equal(result.body.source, "site-help");
     assert.equal(result.body.recommendations.length, 0);
     assert.match(result.body.answer, /local storage|cookie|verification|backend/i);
-    assert.equal(result.body.actions[0].href, "/show.html?id=impact-winter");
+    assert.equal(result.body.actions[0].href, "/show?id=impact-winter");
   } finally {
     await closeChatTestServer(context.server);
   }

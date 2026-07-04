@@ -70,19 +70,19 @@ Before publishing catalog changes, confirm:
 Verify these public routes before publishing significant catalog, route, style, or behavioral changes:
 
 - `/`
-- `/about.html`
-- `/for-creators.html`
-- `/creator-standards.html`
-- `/supporters.html`
-- `/help-center.html`
-- `/collections.html`
-- `/collection.html?id=<known-collection-id>`
-- `/show.html?id=<known-show-id>`
-- `/submit.html`
-- `/privacy.html`
-- `/terms.html`
-- `/cookies.html`
-- `/copyright.html`
+- `/about`
+- `/for-creators`
+- `/creator-standards`
+- `/supporters`
+- `/help-center`
+- `/collections`
+- `/collection?id=<known-collection-id>`
+- `/show?id=<known-show-id>`
+- `/submit`
+- `/privacy`
+- `/terms`
+- `/cookies`
+- `/copyright`
 
 Checks:
 
@@ -115,7 +115,7 @@ If maintainer auth is enabled, also verify:
 
 Public intake currently lives on:
 
-- `/submit.html`
+- `/submit`
 - `POST /api/submissions/shows`
 
 Supported `submissionType` values:

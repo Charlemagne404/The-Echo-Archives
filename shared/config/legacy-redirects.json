@@ -1,14 +1,14 @@
 [
   {
     "path": "shows/Impact Winter/impact-winter.html",
-    "target": "/show.html?id=impact-winter"
+    "target": "/show?id=impact-winter"
   },
   {
     "path": "shows/ars paradoxica/ars-paradoxica.html",
-    "target": "/show.html?id=ars-paradoxica"
+    "target": "/show?id=ars-paradoxica"
   },
   {
     "path": "shows/oz9/oz9.html",
-    "target": "/show.html?id=oz-9"
+    "target": "/show?id=oz-9"
   }
 ]

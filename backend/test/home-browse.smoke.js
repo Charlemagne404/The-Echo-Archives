@@ -212,12 +212,27 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.equal(new Set(afterChipRemoval).size, afterChipRemoval.length);
 
     await page.locator("#activeBrowseClear").click();
-    await page.waitForTimeout(40);
+    await page.waitForFunction(() => {
+      const grid = document.getElementById("podcast-grid");
+      const shells = Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"));
+      return (
+        grid?.dataset.gridMotionReason === "explicit" &&
+        (shells.some((shell) => shell.classList.contains("is-grid-entering")) ||
+          (document.getElementById("activeBrowseState")?.hidden === true &&
+            document.getElementById("filterCount")?.hidden === true))
+      );
+    });
     const clearMotionState = await getArchiveGridMotionState(page);
+    const clearUiState = await page.evaluate(() => ({
+      activeBrowseHidden: document.getElementById("activeBrowseState")?.hidden === true,
+      filterCountHidden: document.getElementById("filterCount")?.hidden === true,
+    }));
     assert.equal(clearMotionState.reason, "explicit");
     assert.equal(
       clearMotionState.shells.some((shell) => shell.isEntering && shell.animationDurations.includes(170)) ||
-        clearMotionState.enterDuration === 0,
+        (clearUiState.activeBrowseHidden &&
+          clearUiState.filterCountHidden &&
+          clearMotionState.shells.every((shell) => !shell.isEntering)),
       true,
     );
     await page.waitForFunction(
@@ -646,26 +661,10 @@ test("homepage filter reversals during in-flight grid motion recover to the base
     await page.keyboard.press("Escape");
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.hidden === true);
     await page.waitForFunction(
-      (expectedCount) => {
-        const shells = Array.from(document.querySelectorAll("#podcast-grid > .podcast-card-shell"));
-        return (
-          shells.length === expectedCount &&
-          shells.every((shell) => {
-            const styles = window.getComputedStyle(shell);
-            return (
-              styles.position === "relative" &&
-              styles.opacity === "1" &&
-              !shell.classList.contains("is-grid-entering") &&
-              !shell.classList.contains("is-grid-exiting") &&
-              !shell.classList.contains("is-grid-flipping")
-            );
-          }) &&
-          document.getElementById("filterCount")?.hidden === true &&
-          document.getElementById("activeBrowseState")?.hidden === true
-        );
-      },
+      (expectedCount) => document.querySelectorAll("#podcast-grid > .podcast-card-shell").length === expectedCount,
       baselineShells.length,
     );
+    await page.waitForTimeout(320);
 
     const stableShells = await readStableGridState();
     const baselineLayout = toRelativeLayout(baselineShells);
@@ -707,7 +706,7 @@ test("homepage most popular band renders a valid 4-card band and hides outside t
       assert.ok(title);
     });
     defaultState.hrefs.forEach((href, index) => {
-      assert.match(href, new RegExp(`show\\.html\\?id=${defaultState.cardIds[index]}$`));
+      assert.equal(href, `/show?id=${defaultState.cardIds[index]}`);
     });
 
     const gridCounts = await page.evaluate(

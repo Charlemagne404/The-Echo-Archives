@@ -54,27 +54,27 @@ test("main routes render expected page titles", async () => {
   try {
     const routes = [
       { url: `${baseUrl}/`, title: "The Echo Archives" },
-      { url: `${baseUrl}/about.html`, title: "About - The Echo Archives" },
-      { url: `${baseUrl}/for-creators.html`, title: "For Creators - The Echo Archives" },
-      { url: `${baseUrl}/creator-standards.html`, title: "Creator Standards - The Echo Archives" },
-      { url: `${baseUrl}/supporters.html`, title: "Support the Archive - The Echo Archives" },
-      { url: `${baseUrl}/help-center.html`, title: "Help Center - The Echo Archives" },
-      { url: `${baseUrl}/collections.html`, title: "Collections - The Echo Archives" },
+      { url: `${baseUrl}/about`, title: "About - The Echo Archives" },
+      { url: `${baseUrl}/for-creators`, title: "For Creators - The Echo Archives" },
+      { url: `${baseUrl}/creator-standards`, title: "Creator Standards - The Echo Archives" },
+      { url: `${baseUrl}/supporters`, title: "Support the Archive - The Echo Archives" },
+      { url: `${baseUrl}/help-center`, title: "Help Center - The Echo Archives" },
+      { url: `${baseUrl}/collections`, title: "Collections - The Echo Archives" },
       {
-        url: `${baseUrl}/collection.html?id=${firstCollectionId}`,
+        url: `${baseUrl}/collection?id=${firstCollectionId}`,
         title: `${collectionFixtures[0].title} - The Echo Archives`,
         waitForResolvedTitle: true,
       },
       {
-        url: `${baseUrl}/show.html?id=${firstShowId}`,
+        url: `${baseUrl}/show?id=${firstShowId}`,
         title: `${showFixtures[0].title} - The Echo Archives`,
         waitForResolvedTitle: true,
       },
-      { url: `${baseUrl}/submit.html`, title: "Submit a Show - The Echo Archives" },
-      { url: `${baseUrl}/privacy.html`, title: "Privacy - The Echo Archives" },
-      { url: `${baseUrl}/terms.html`, title: "Terms - The Echo Archives" },
-      { url: `${baseUrl}/cookies.html`, title: "Cookies - The Echo Archives" },
-      { url: `${baseUrl}/copyright.html`, title: "Copyright & Takedown - The Echo Archives" },
+      { url: `${baseUrl}/submit`, title: "Submit a Show - The Echo Archives" },
+      { url: `${baseUrl}/privacy`, title: "Privacy - The Echo Archives" },
+      { url: `${baseUrl}/terms`, title: "Terms - The Echo Archives" },
+      { url: `${baseUrl}/cookies`, title: "Cookies - The Echo Archives" },
+      { url: `${baseUrl}/copyright`, title: "Copyright & Takedown - The Echo Archives" },
     ];
 
     for (const route of routes) {
@@ -164,12 +164,12 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
     );
 
     await page.locator("#siteNavToggle").click();
-    await page.locator('.site-nav a[href="/for-creators.html"]').click();
-    await page.waitForURL(`${baseUrl}/for-creators.html`);
+    await page.locator('.site-nav a[href="/for-creators"]').click();
+    await page.waitForURL(`${baseUrl}/for-creators`);
     await page.waitForFunction(
       () =>
         document.getElementById("siteNavShell")?.dataset.state === "closed" &&
-        document.querySelector('.site-nav a.is-active')?.getAttribute("href") === "/for-creators.html",
+        document.querySelector('.site-nav a.is-active')?.getAttribute("href") === "/for-creators",
     );
   } finally {
     await page.close();
@@ -203,7 +203,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/collections.html`,
+        url: `${baseUrl}/collections`,
         ready: () => document.querySelectorAll("#collectionsDirectory .collections-directory-card").length > 0,
         evaluate: () => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -224,7 +224,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/collection.html?id=${firstCollectionId}`,
+        url: `${baseUrl}/collection?id=${firstCollectionId}`,
         ready: () => document.getElementById("collectionTitle")?.textContent?.trim() !== "Collection",
         evaluate: () => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -242,7 +242,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/show.html?id=${fullReviewShowId}`,
+        url: `${baseUrl}/show?id=${fullReviewShowId}`,
         ready: () => document.querySelector(".detail-official-summary-section") && document.querySelector(".community-review-panel"),
         evaluate: () => {
           const officialTop = document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0;
@@ -268,7 +268,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/submit.html`,
+        url: `${baseUrl}/submit`,
         ready: () => document.querySelector(".submit-content-grid") && document.getElementById("submissionType"),
         evaluate: () => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -301,7 +301,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/privacy.html`,
+        url: `${baseUrl}/privacy`,
         ready: () => document.querySelector(".info-page-rail") && document.querySelector(".info-section-card"),
         evaluate: () => {
           const railRect = document.querySelector(".info-page-rail")?.getBoundingClientRect();
@@ -329,7 +329,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/cookies.html`,
+        url: `${baseUrl}/cookies`,
         ready: () => document.querySelector(".info-storage-table-wrap") && document.querySelector(".info-storage-table"),
         evaluate: () => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -347,7 +347,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/help-center.html`,
+        url: `${baseUrl}/help-center`,
         ready: () => document.querySelector(".help-center-hero-visual") && document.querySelector("#help-common-issues .creator-action-card"),
         evaluate: () => {
           const railRect = document.querySelector(".help-center-page-rail")?.getBoundingClientRect();

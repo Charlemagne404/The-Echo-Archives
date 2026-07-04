@@ -64,7 +64,7 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.ok(impactWinter);
   assert.equal(impactWinter.finalRating, 10);
   assert.equal(impactWinter.hasPage, true);
-  assert.equal(impactWinter.href, "/show.html?id=impact-winter");
+  assert.equal(impactWinter.href, "/show?id=impact-winter");
   assert.match(impactWinter.summary, /endless winter/i);
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });

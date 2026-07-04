@@ -22,7 +22,7 @@ test("site help answers privacy questions with grounded storage details and acti
   const response = buildSiteHelpResponse({
     message: "Does the site store chat history?",
     helpTopic: "privacy",
-    page: { pageType: "privacy", path: "/privacy.html" },
+    page: { pageType: "privacy", path: "/privacy" },
     catalog: context.catalog,
     collections: context.collections,
     siteHelpContext: context.siteHelpContext,
@@ -30,7 +30,7 @@ test("site help answers privacy questions with grounded storage details and acti
 
   assert.match(response.answer, /session storage/i);
   assert.match(response.answer, /local profile id|local profile/i);
-  assert.deepEqual(response.actions, [{ label: "Read Privacy", href: "/privacy.html", external: false }]);
+  assert.deepEqual(response.actions, [{ label: "Read Privacy", href: "/privacy", external: false }]);
 });
 
 test("site help answers creator verification questions for a specific show page", async () => {
@@ -41,7 +41,7 @@ test("site help answers creator verification questions for a specific show page"
   const response = buildSiteHelpResponse({
     message: "What does creator verified mean?",
     helpTopic: "creator-verification",
-    page: { pageType: "show", path: "/show.html", showId: verifiedShow.id },
+    page: { pageType: "show", path: "/show", showId: verifiedShow.id },
     catalog: context.catalog,
     collections: context.collections,
     siteHelpContext: context.siteHelpContext,
@@ -49,7 +49,7 @@ test("site help answers creator verification questions for a specific show page"
 
   assert.match(response.answer, new RegExp(verifiedShow.title, "i"));
   assert.match(response.answer, /creator verified in the archive|factual metadata/i);
-  assert.equal(response.actions[0].href, "/submit.html");
+  assert.equal(response.actions[0].href, "/submit");
 });
 
 test("site help keeps external platform problems bounded", async () => {
@@ -72,15 +72,15 @@ test("site help recognizes the creators page context", async () => {
   const response = buildSiteHelpResponse({
     message: "What can you do here?",
     helpTopic: "assistant-capabilities",
-    page: { pageType: "creators", path: "/for-creators.html" },
+    page: { pageType: "creators", path: "/for-creators" },
     catalog: context.catalog,
     collections: context.collections,
     siteHelpContext: context.siteHelpContext,
   });
 
   assert.match(response.answer, /creators page|verification|editorially independent/i);
-  assert.equal(response.actions[0].href, "/submit.html");
-  assert.equal(response.actions[1].href, "/for-creators.html");
+  assert.equal(response.actions[0].href, "/submit");
+  assert.equal(response.actions[1].href, "/for-creators");
 });
 
 test("site help explains search behavior for regular discovery problems", async () => {
@@ -95,8 +95,8 @@ test("site help explains search behavior for regular discovery problems", async 
   });
 
   assert.match(response.answer, /title fragments|aliases|creators|genres|tones|tags/i);
-  assert.equal(response.actions[0].href, "/index.html#archive");
-  assert.equal(response.actions[1].href, "/submit.html");
+  assert.equal(response.actions[0].href, "/#archive");
+  assert.equal(response.actions[1].href, "/submit");
 });
 
 test("site help explains why a rating might not stick", async () => {
@@ -104,14 +104,14 @@ test("site help explains why a rating might not stick", async () => {
   const response = buildSiteHelpResponse({
     message: "Why didn't my rating stick?",
     helpTopic: "rating-help",
-    page: { pageType: "show", path: "/show.html", showId: "impact-winter" },
+    page: { pageType: "show", path: "/show", showId: "impact-winter" },
     catalog: context.catalog,
     collections: context.collections,
     siteHelpContext: context.siteHelpContext,
   });
 
   assert.match(response.answer, /local storage|cookie|verification|backend/i);
-  assert.equal(response.actions[0].href, "/show.html?id=impact-winter");
+  assert.equal(response.actions[0].href, "/show?id=impact-winter");
 });
 
 test("site help escalates repeated broken-link follow-up questions", async () => {

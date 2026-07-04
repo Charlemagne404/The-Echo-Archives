@@ -39,7 +39,7 @@ export async function initializeCollectionPage() {
     updateDocumentMetadata({
       title: "Collection not found - The Echo Archives",
       description: "The requested Echo Archives collection could not be found.",
-      path: "/collection.html",
+      path: "/collection",
       image: DEFAULT_SOCIAL_IMAGE,
     });
     setTextContent("collectionTitle", "Collection not found");
@@ -49,8 +49,8 @@ export async function initializeCollectionPage() {
         <h2>Collection not found</h2>
         <p>The requested collection is missing or has not been published yet.</p>
         <div class="collection-directory-actions">
-          <a class="collection-action" href="/collections.html">Browse collections</a>
-          <a class="collection-secondary-link" href="/index.html#archive">Back to archive</a>
+          <a class="collection-action" href="/collections">Browse collections</a>
+          <a class="collection-secondary-link" href="/#archive">Back to archive</a>
         </div>
       </article>
     `;
@@ -63,7 +63,7 @@ export async function initializeCollectionPage() {
   updateDocumentMetadata({
     title: `${collection.title} - The Echo Archives`,
     description: collection.description,
-    path: `/collection.html?id=${encodeURIComponent(collection.id)}`,
+    path: `/collection?id=${encodeURIComponent(collection.id)}`,
     image: firstCover,
   });
 

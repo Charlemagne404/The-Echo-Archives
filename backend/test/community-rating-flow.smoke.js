@@ -50,7 +50,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/show?id=impact-winter`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () => {
         const heroCount = document.querySelector("[data-community-hero-count]");
@@ -152,7 +152,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.ok(layout.correctionSectionWidth > 900);
     assert.ok(layout.officialTop < layout.overviewTop);
     assert.ok(layout.communityTop <= layout.archiveTop);
-    assert.match(layout.reviewLinkHref, /submit\.html\?submissionType=listener-review&showId=impact-winter/);
+    assert.equal(layout.reviewLinkHref, "/submit?submissionType=listener-review&showId=impact-winter");
     assert.match(layout.heroCommunityCount, /No ratings yet/i);
     assert.equal(layout.heroCommunityValue, "--/10");
     assert.equal(layout.turnstileHidden, true);
@@ -232,7 +232,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
   const mobilePage = await browser.newPage({ viewport: { width: 900, height: 1600 } });
 
   try {
-    await mobilePage.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await mobilePage.goto(`${baseUrl}/show?id=impact-winter`, { waitUntil: "networkidle" });
     await mobilePage.waitForFunction(
       () => Boolean(document.querySelector(".detail-official-summary-section") && document.querySelector(".community-review-panel")),
       undefined,
@@ -304,7 +304,7 @@ test("detail community rating renders Turnstile and sends the verification token
       });
     });
 
-    await page.goto(`${baseUrl}/show.html?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/show?id=impact-winter`, { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Rate this show" }).click();
     await page.locator(".community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));

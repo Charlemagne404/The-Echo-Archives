@@ -180,7 +180,7 @@ export async function initializeCollectionsPage() {
   updateDocumentMetadata({
     title: "Collections - The Echo Archives",
     description: "Browse curated listening paths by mood, tone, and commitment in The Echo Archives.",
-    path: "/collections.html",
+    path: "/collections",
     image: DEFAULT_SOCIAL_IMAGE,
   });
 
