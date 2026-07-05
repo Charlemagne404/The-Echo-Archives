@@ -194,6 +194,8 @@ test("collections page supports newest, rating, and popularity sorting", async (
   try {
     await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.querySelectorAll("#collectionsDirectory .collections-directory-card").length > 0);
+    const initialSkeletonCount = await page.evaluate(() => document.querySelectorAll("#collectionsDirectory .archive-skeleton-card").length);
+    assert.equal(initialSkeletonCount, 0);
 
     await page.locator("#collectionsSort").selectOption("newest");
     await page.waitForFunction(() => new URL(window.location.href).searchParams.get("sort") === "newest");

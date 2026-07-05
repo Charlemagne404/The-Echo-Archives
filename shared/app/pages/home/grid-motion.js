@@ -105,6 +105,10 @@ export function resetGridShellMotion(shell) {
     return;
   }
 
+  shell.getAnimations?.().forEach((animation) => {
+    animation.cancel();
+  });
+
   if (shell.__gridExitTimer) {
     window.clearTimeout(shell.__gridExitTimer);
     shell.__gridExitTimer = 0;
@@ -114,6 +118,8 @@ export function resetGridShellMotion(shell) {
   clearAnimation(shell, "__gridEnterAnimation", "is-grid-entering");
   clearAnimation(shell, "__gridFlipAnimation", "is-grid-flipping");
   resetFrozenShellPosition(shell);
+  shell.style.opacity = "";
+  shell.style.transform = "";
   shell.removeAttribute("aria-hidden");
 }
 
@@ -207,6 +213,7 @@ export function scheduleGridExit(shell, durationMs) {
   );
   shell.__gridExitTimer = window.setTimeout(() => {
     shell.__gridExitTimer = 0;
+    shell.__gridExitAnimation?.cancel?.();
     shell.__gridExitAnimation = null;
     resetFrozenShellPosition(shell);
     shell.remove();

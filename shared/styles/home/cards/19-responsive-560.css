@@ -99,6 +99,23 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .home-page .podcast-card {
+    --editorial-ribbon-width: 124px;
+    --editorial-ribbon-right: -20px;
+    --editorial-ribbon-tail-width: 36px;
+  }
+
+  .home-page .podcast-card .rating {
+    gap: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .home-page .inline-score-topline {
+    gap: 6px;
+    font-size: 0.8rem;
+  }
+
   .home-page .home-card-preview {
     gap: 14px;
     padding: 14px;
@@ -233,6 +250,13 @@
     border-radius: 22px;
   }
 
+  #chat-toggle.chat-toggle-button {
+    right: max(8px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    width: clamp(46px, 14vw, 50px);
+    height: clamp(46px, 14vw, 50px);
+  }
+
   .community-card-controls {
     grid-template-columns: 1fr;
     top: calc(100% - 2px);
@@ -261,7 +285,7 @@
   }
 
   #backToTop {
-    right: 82px;
+    right: 72px;
     bottom: max(16px, env(safe-area-inset-bottom));
   }
 

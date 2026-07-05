@@ -3,6 +3,7 @@ import { buildShowMap, loadCollections, loadShows } from "../data.js";
 import { initializeDetailRatingPage } from "../community.js";
 import { initializeManagedImages } from "../images.js";
 import { createShowPageMarkup } from "../render-show.js";
+import { renderRouteErrorSurface } from "../route-error.js";
 import { bindShareButton } from "../share.js";
 import { updateDocumentMetadata } from "../utils.js";
 
@@ -13,9 +14,13 @@ export async function initializeShowPage() {
     return;
   }
 
-  showRoot.innerHTML = createShowLoadingMarkup();
+  const hasServerRenderedContent = showRoot.children.length > 0;
+  if (!hasServerRenderedContent) {
+    showRoot.innerHTML = createShowLoadingMarkup();
+  }
 
-  const [shows, collections] = await Promise.all([loadShows(), loadCollections()]);
+  const [shows, collections] = await loadShowPageData(showRoot);
+  if (!shows || !collections) return;
   const showMap = buildShowMap(shows);
 
   const params = new URLSearchParams(window.location.search);
@@ -36,7 +41,28 @@ export async function initializeShowPage() {
     image: `/${show.cover}`,
   });
 
-  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
+  if (!hasServerRenderedContent) {
+    showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
+  }
+  hydrateShowPage(showRoot, show);
+}
+
+async function loadShowPageData(showRoot) {
+  try {
+    return await Promise.all([loadShows(), loadCollections()]);
+  } catch (_error) {
+    renderRouteErrorSurface(showRoot, {
+      title: "Show data did not load",
+      explanation: "This show page needs the public catalog before ratings, links, and related routes can be shown.",
+      primaryAction: { href: "/", label: "Back to archive" },
+      secondaryAction: { href: "/collections", label: "Browse collections" },
+      onRetry: () => window.location.reload(),
+    });
+    return [null, null];
+  }
+}
+
+async function hydrateShowPage(showRoot, show) {
   initializeManagedImages(showRoot);
   const shareButton = showRoot.querySelector("[data-share-action]");
   if (shareButton instanceof HTMLButtonElement) {

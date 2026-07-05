@@ -276,7 +276,7 @@ function createPrecacheUrlSet(manifest, versions) {
 
     try {
       const canonicalPath = new URL(entry.canonicalUrl).pathname || "";
-      if (canonicalPath) {
+      if (canonicalPath && !["/collection", "/show"].includes(canonicalPath)) {
         precacheUrls.add(canonicalPath);
       }
     } catch (_error) {

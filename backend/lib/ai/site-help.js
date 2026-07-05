@@ -620,7 +620,7 @@ function buildChatHelpResponse(siteHelpContext, supportContext) {
   if (/\b(offline|not loading|not working|failed|cannot reach|can't reach)\b/i.test(message)) {
     return {
       answer:
-        "The chat panel depends on the site reaching the `/api/chat` backend. If that service is offline or blocked, the site can show the chat-failed message instead of a live reply.",
+        "The chat panel depends on the archive assistant service being available. If that service is offline or blocked, the site can show a temporary-unavailable message instead of a live reply.",
       actions: [siteHelpContext.routes.helpCenter],
       suggestedPrompts: [
         "How do I report a broken link?",

@@ -50,6 +50,9 @@ async function fetchCommunityConfig() {
       const result = await response.json();
       communityState.config = {
         minPublicRatings: Number.isInteger(result.minPublicRatings) ? result.minPublicRatings : 3,
+        ratings: {
+          writeEnabled: Boolean(result.ratings?.writeEnabled),
+        },
         turnstile: {
           enabled: Boolean(result.turnstile?.enabled),
           siteKey: typeof result.turnstile?.siteKey === "string" ? result.turnstile.siteKey : "",

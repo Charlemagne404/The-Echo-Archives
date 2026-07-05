@@ -12,6 +12,23 @@ function parseBoolean(value, fallback = false) {
 }
 
 const communityTurnstileSecretKey = process.env.COMMUNITY_TURNSTILE_SECRET_KEY || "";
+const communityVoterHashSecret =
+  process.env.COMMUNITY_VOTER_HASH_SECRET ||
+  process.env.COMMUNITY_TURNSTILE_SECRET_KEY ||
+  process.env.MAINTAINER_REVIEW_COOKIE_SECRET ||
+  process.env.MAINTAINER_REVIEW_PASSPHRASE ||
+  "echo-community-dev-voter-secret";
+const communityTurnstileEnabled = parseBoolean(
+  process.env.COMMUNITY_TURNSTILE_ENABLED,
+  Boolean(communityTurnstileSecretKey),
+);
+const communityRatingWritesEnabled = Boolean(
+  communityTurnstileEnabled &&
+    process.env.COMMUNITY_TURNSTILE_SITE_KEY &&
+    communityTurnstileSecretKey &&
+    process.env.COMMUNITY_VOTER_HASH_SECRET &&
+    communityVoterHashSecret !== "echo-community-dev-voter-secret",
+);
 
 module.exports = {
   PORT: Number.parseInt(process.env.PORT || "3010", 10),
@@ -33,17 +50,10 @@ module.exports = {
   COMMUNITY_TURNSTILE_SECRET_KEY: communityTurnstileSecretKey,
   COMMUNITY_TURNSTILE_VERIFY_URL:
     process.env.COMMUNITY_TURNSTILE_VERIFY_URL || "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-  COMMUNITY_TURNSTILE_ENABLED: parseBoolean(
-    process.env.COMMUNITY_TURNSTILE_ENABLED,
-    Boolean(communityTurnstileSecretKey),
-  ),
+  COMMUNITY_TURNSTILE_ENABLED: communityTurnstileEnabled,
+  COMMUNITY_RATING_WRITES_ENABLED: communityRatingWritesEnabled,
   COMMUNITY_VOTER_COOKIE_NAME: process.env.COMMUNITY_VOTER_COOKIE_NAME || "echo-community-voter",
-  COMMUNITY_VOTER_HASH_SECRET:
-    process.env.COMMUNITY_VOTER_HASH_SECRET ||
-    process.env.COMMUNITY_TURNSTILE_SECRET_KEY ||
-    process.env.MAINTAINER_REVIEW_COOKIE_SECRET ||
-    process.env.MAINTAINER_REVIEW_PASSPHRASE ||
-    "echo-community-dev-voter-secret",
+  COMMUNITY_VOTER_HASH_SECRET: communityVoterHashSecret,
   SUBMISSION_RATE_LIMIT_WINDOW_MS: Number.parseInt(process.env.SUBMISSION_RATE_LIMIT_WINDOW_MS || "3600000", 10),
   SUBMISSION_RATE_LIMIT_MAX: Number.parseInt(process.env.SUBMISSION_RATE_LIMIT_MAX || "3", 10),
   MAINTAINER_REVIEW_PASSPHRASE: process.env.MAINTAINER_REVIEW_PASSPHRASE || "",

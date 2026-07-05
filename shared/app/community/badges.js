@@ -58,7 +58,7 @@ export async function syncCommunityCardBadges(container, shows) {
         value.textContent = EMPTY_COMMUNITY_SCORE_TEXT;
       }
       badge.hidden = false;
-      badge.setAttribute("aria-label", "Community score --/10. No ratings yet.");
+      badge.setAttribute("aria-label", "Community score unavailable.");
     });
     container.querySelectorAll(".rating, .home-card-preview-ratings, .popular-card-ratings").forEach((group) => {
       syncInlineScoreGroup(group);

@@ -27,6 +27,11 @@ const {
   buildShowPageMetadata,
   injectPageMetadata,
 } = require("./lib/public-page-render");
+const {
+  createMissingShowPageMarkup,
+  createShowPageMarkup,
+  injectShowRootContent,
+} = require("./lib/show-page-render");
 const { createSearchIndexRecord } = require("../tools/lib/catalog-artifacts");
 
 const PUBLIC_ROUTE_REDIRECTS = new Map([
@@ -215,6 +220,11 @@ async function startServer() {
       return fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
     }
 
+    function getRequestSiteUrl(req) {
+      const protocol = req.secure ? "https" : String(req.get("x-forwarded-proto") || req.protocol || "http").split(",")[0].trim();
+      return `${protocol}://${req.get("host")}`;
+    }
+
     app.use((req, res, next) => {
       if (req.path.startsWith("/backend/") || req.path.startsWith("/podcast-ai/")) {
         return res.status(404).end();
@@ -250,7 +260,7 @@ async function startServer() {
       const rendered = injectPageMetadata(
         template,
         buildCollectionPageMetadata({
-          siteUrl: config.SITE_URL,
+          siteUrl: getRequestSiteUrl(req),
           collection,
           collectionShows,
         }),
@@ -262,16 +272,27 @@ async function startServer() {
     app.get("/show", (req, res) => {
       const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
       const show = state.publicCatalog.find((entry) => entry.id === showId);
+      const template = readPublicPageTemplate("show.html");
 
+      const requestSiteUrl = getRequestSiteUrl(req);
       if (!show) {
-        return res.status(404).sendFile(path.join(config.STATIC_ROOT, "404.html"));
+        const renderedMissing = injectPageMetadata(
+          injectShowRootContent(template, createMissingShowPageMarkup()),
+          {
+            title: "Show not found - The Echo Archives",
+            description: "The requested Echo Archives show page could not be found.",
+            canonicalUrl: `${requestSiteUrl.replace(/\/+$/, "")}/show`,
+            imageUrl: `${requestSiteUrl.replace(/\/+$/, "")}/og-image.png`,
+          },
+        );
+        return res.status(404).type("html").send(renderedMissing);
       }
 
-      const template = readPublicPageTemplate("show.html");
+      const showMap = new Map(state.publicCatalog.map((entry) => [entry.id, entry]));
       const rendered = injectPageMetadata(
-        template,
+        injectShowRootContent(template, createShowPageMarkup(show, showMap, state.collections)),
         buildShowPageMetadata({
-          siteUrl: config.SITE_URL,
+          siteUrl: requestSiteUrl,
           show,
         }),
       );

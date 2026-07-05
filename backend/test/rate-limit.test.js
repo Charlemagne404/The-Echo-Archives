@@ -8,6 +8,32 @@ const { spawn } = require("node:child_process");
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
 
+async function createTurnstileMock() {
+  const server = require("node:http").createServer((req, res) => {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+    req.on("end", () => {
+      const payload = body ? JSON.parse(body) : {};
+      res.setHeader("Content-Type", "application/json");
+      res.end(JSON.stringify({ success: payload.response === "valid-token" }));
+    });
+  });
+
+  await new Promise((resolve) => {
+    server.listen(0, "127.0.0.1", resolve);
+  });
+
+  const address = server.address();
+  return {
+    url: `http://127.0.0.1:${address.port}/siteverify`,
+    async close() {
+      await new Promise((resolve) => server.close(resolve));
+    },
+  };
+}
+
 async function waitForServer(url, timeoutMs = 20_000) {
   const startedAt = Date.now();
 
@@ -28,6 +54,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
 }
 
 async function startRateLimitServer() {
+  const turnstile = await createTurnstileMock();
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-rate-limit-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const port = 3420 + Math.floor(Math.random() * 200);
@@ -45,6 +72,11 @@ async function startRateLimitServer() {
       CHAT_RATE_LIMIT_WINDOW_MS: "1000",
       COMMUNITY_WRITE_MAX: "2",
       COMMUNITY_WRITE_WINDOW_MS: "1000",
+      COMMUNITY_TURNSTILE_ENABLED: "true",
+      COMMUNITY_TURNSTILE_SITE_KEY: "test-site-key",
+      COMMUNITY_TURNSTILE_SECRET_KEY: "test-secret-key",
+      COMMUNITY_TURNSTILE_VERIFY_URL: turnstile.url,
+      COMMUNITY_VOTER_HASH_SECRET: "test-community-voter-hash-secret-123456",
       SUBMISSION_RATE_LIMIT_MAX: "1",
       SUBMISSION_RATE_LIMIT_WINDOW_MS: "1000",
     },
@@ -57,10 +89,11 @@ async function startRateLimitServer() {
     baseUrl,
     serverProcess,
     tempDir,
+    turnstile,
   };
 }
 
-async function stopRateLimitServer({ serverProcess, tempDir }) {
+async function stopRateLimitServer({ serverProcess, tempDir, turnstile }) {
   if (serverProcess && !serverProcess.killed) {
     serverProcess.kill("SIGTERM");
     await new Promise((resolve) => serverProcess.once("exit", resolve));
@@ -69,6 +102,7 @@ async function stopRateLimitServer({ serverProcess, tempDir }) {
   if (tempDir) {
     fs.rmSync(tempDir, { recursive: true, force: true });
   }
+  await turnstile.close();
 }
 
 async function waitForWindowReset(delayMs = 1200) {
@@ -131,17 +165,21 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
       "x-echo-profile-id": profileId,
     };
     assert.equal(
-      (await putJson(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, { rating: 8 }, { headers: communityHeaders })).status,
+      (await putJson(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, { rating: 8, turnstileToken: "valid-token" }, { headers: communityHeaders })).status,
       200,
     );
     assert.equal(
-      (await putJson(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, { rating: 9 }, { headers: communityHeaders })).status,
+      (await putJson(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, { rating: 9, turnstileToken: "valid-token" }, { headers: communityHeaders })).status,
       200,
     );
 
     const throttledCommunity = await fetch(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, {
       method: "DELETE",
-      headers: communityHeaders,
+      headers: {
+        "Content-Type": "application/json",
+        ...communityHeaders,
+      },
+      body: JSON.stringify({ turnstileToken: "valid-token" }),
     });
     assert.equal(throttledCommunity.status, 429);
     assert.match(throttledCommunity.headers.get("retry-after") || "", /^[1-9]\d*$/);
@@ -153,7 +191,11 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     assert.equal(
       (await fetch(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, {
         method: "DELETE",
-        headers: communityHeaders,
+        headers: {
+          "Content-Type": "application/json",
+          ...communityHeaders,
+        },
+        body: JSON.stringify({ turnstileToken: "valid-token" }),
       })).status,
       200,
     );

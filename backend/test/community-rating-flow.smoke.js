@@ -160,28 +160,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     assert.equal(await page.locator(".community-review-clear").isVisible(), false);
     assert.equal(await page.locator(".community-review-link").isVisible(), true);
 
-    await page.getByRole("button", { name: "Rate this show" }).click();
-    await page.waitForFunction(
-      () => {
-        const body = document.querySelector(".community-review-body");
-        return Boolean(body && !body.hidden);
-      },
-      undefined,
-      { timeout: 2_000 },
-    );
-
-    await page.locator(".community-review-button").nth(7).click();
-    await page.waitForFunction(
-      () => {
-        const heroCount = document.querySelector("[data-community-hero-count]");
-        const nextText = heroCount?.dataset.displayText || heroCount?.textContent || "";
-        return /1 rating/i.test(nextText);
-      },
-      undefined,
-      { timeout: 5_000 },
-    );
-
-    let communityState = await page.evaluate(() => {
+    const communityState = await page.evaluate(() => {
       const getRollingText = (selector) => {
         const node = document.querySelector(selector);
         return node?.dataset.displayText?.trim() || node?.textContent?.trim() || "";
@@ -191,39 +170,16 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         heroCount: getRollingText("[data-community-hero-count]"),
         heroValue: getRollingText("[data-community-hero-rating]"),
         railValue: getRollingText(".community-review-metric-value"),
-        clearVisible: !document.querySelector(".community-review-clear")?.hidden,
-      };
-    });
-    assert.match(communityState.heroCount, /1 rating/i);
-    assert.equal(communityState.heroValue, "--/10");
-    assert.equal(communityState.railValue, "--/10");
-    assert.equal(communityState.clearVisible, true);
-
-    await page.getByRole("button", { name: "Clear your rating" }).click();
-    await page.waitForFunction(
-      () => {
-        const heroCount = document.querySelector("[data-community-hero-count]");
-        const nextText = heroCount?.dataset.displayText || heroCount?.textContent || "";
-        return /No ratings yet/i.test(nextText) && Boolean(document.querySelector(".community-review-clear")?.hidden);
-      },
-      undefined,
-      { timeout: 5_000 },
-    );
-
-    communityState = await page.evaluate(() => {
-      const getRollingText = (selector) => {
-        const node = document.querySelector(selector);
-        return node?.dataset.displayText?.trim() || node?.textContent?.trim() || "";
-      };
-
-      return {
-        heroCount: getRollingText("[data-community-hero-count]"),
-        heroValue: getRollingText("[data-community-hero-rating]"),
+        toggleText: document.querySelector(".community-review-toggle")?.textContent?.trim() || "",
+        toggleDisabled: Boolean(document.querySelector(".community-review-toggle")?.disabled),
         clearVisible: !document.querySelector(".community-review-clear")?.hidden,
       };
     });
     assert.match(communityState.heroCount, /No ratings yet/i);
     assert.equal(communityState.heroValue, "--/10");
+    assert.equal(communityState.railValue, "--/10");
+    assert.match(communityState.toggleText, /read-only/i);
+    assert.equal(communityState.toggleDisabled, true);
     assert.equal(communityState.clearVisible, false);
   } finally {
     await page.close();
@@ -279,6 +235,9 @@ test("detail community rating renders Turnstile and sends the verification token
         contentType: "application/json",
         body: JSON.stringify({
           minPublicRatings: 3,
+          ratings: {
+            writeEnabled: true,
+          },
           turnstile: {
             enabled: true,
             siteKey: "test-site-key",
@@ -366,7 +325,7 @@ test("homepage community badges stay truthful across empty, offline, and stale a
       };
     }, emptyShowId);
     assert.equal(badgeState.value, "--/10");
-    assert.match(badgeState.aria, /No ratings yet/i);
+    assert.match(badgeState.aria, /unavailable/i);
 
     await page.unroute("**/api/community/ratings/summary?*");
 

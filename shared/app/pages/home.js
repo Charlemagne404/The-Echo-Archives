@@ -14,8 +14,6 @@ import {
   getQuickFilters,
   getStructuredFilterGroups,
   getVisibleFilterTags,
-  loadCollections,
-  loadSearchIndex,
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
 import { createShowCard, syncShowCardPresentation } from "../render-cards.js";
@@ -23,6 +21,7 @@ import { setChatOpen } from "../chat.js";
 import { syncCommunityCardBadges } from "../community.js";
 import { updateDocumentMetadata } from "../utils.js";
 import { renderCollectionsRail } from "./home/collections.js";
+import { loadHomePageData } from "./home/data-load.js";
 import { getHomeElements } from "./home/elements.js";
 import {
   createFilterMenuState,
@@ -39,42 +38,15 @@ import {
 } from "./home/filters.js";
 import { initializeFilterDropdownController } from "./home/filter-dropdown.js";
 import { getHomeGridLayoutBucket, patchArchiveGrid, sortVisibleShows } from "./home/layout.js";
+import { renderHomeLoadingState } from "./home/loading.js";
 import { createMostPopularController } from "./home/most-popular.js";
 import { createRecentlyAddedController } from "./home/recently-added.js";
 import { syncResultsSummary, syncResultsSurfaceVisibility } from "./home/results-motion.js";
 import { createHomeState } from "./home/state.js";
+import { createStickyBrowseController } from "./home/sticky-search.js";
 import { seedHomeStateFromParams, syncBrowseUrlState } from "./home/url-state.js";
 
 const SHOW_HOME_RECENTLY_ADDED_BAND = false;
-
-function createHomeSkeletonCard() {
-  const shell = document.createElement("article");
-  shell.className = "archive-skeleton-card";
-  shell.setAttribute("aria-hidden", "true");
-  shell.innerHTML = `
-    <div class="archive-skeleton-block archive-skeleton-cover"></div>
-    <div class="archive-skeleton-copy">
-      <span class="archive-skeleton-block archive-skeleton-title"></span>
-      <span class="archive-skeleton-block archive-skeleton-line"></span>
-      <span class="archive-skeleton-block archive-skeleton-rating"></span>
-    </div>
-  `;
-  return shell;
-}
-
-function renderHomeLoadingState(elements) {
-  elements.archiveGrid.textContent = "";
-  elements.archiveGrid.dataset.loading = "true";
-  for (let index = 0; index < 12; index += 1) {
-    elements.archiveGrid.appendChild(createHomeSkeletonCard());
-  }
-  elements.resultsSummary.textContent = "Loading archive...";
-  elements.noResultsMsg.hidden = true;
-  elements.popularSection.hidden = true;
-  elements.recentlyAddedSection.hidden = true;
-  elements.favoriteRoutesSection.hidden = true;
-  elements.collectionsSection.hidden = true;
-}
 
 export async function initializeHomePage() {
   const elements = getHomeElements();
@@ -85,7 +57,8 @@ export async function initializeHomePage() {
   const scrollRestoration = createScrollRestoration();
   scrollRestoration.enable();
 
-  const [shows, collections] = await Promise.all([loadSearchIndex(), loadCollections()]);
+  const [shows, collections] = await loadHomePageData(elements);
+  if (!shows || !collections) return;
   const showMap = buildShowMap(shows);
 
   updateDocumentMetadata({
@@ -153,7 +126,6 @@ export async function initializeHomePage() {
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
   let stickyBrowseObserver = null;
-  let stickySearchManuallyExpanded = false;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
@@ -181,6 +153,11 @@ export async function initializeHomePage() {
       menuState: createFilterMenuState(),
     },
   ];
+  const stickyBrowseController = createStickyBrowseController({
+    elements,
+    state,
+    stickyFilterDropdownController,
+  });
 
   const syncSearchInputs = (nextValue, sourceInput = null) => {
     searchInputs.forEach((input) => {
@@ -196,76 +173,6 @@ export async function initializeHomePage() {
         surface.controller.close();
       }
     });
-  };
-
-  const isStickySearchFocused = () => document.activeElement === elements.stickySearchInput;
-  const syncStickySearchAccessibility = (isExpanded) => {
-    elements.stickySearchToggle.setAttribute("aria-expanded", String(isExpanded));
-    elements.stickySearchToggle.setAttribute(
-      "aria-label",
-      isExpanded && !state.query ? "Collapse archive search" : "Expand archive search",
-    );
-    elements.stickySearchField.setAttribute("aria-hidden", String(!isExpanded));
-    if (isExpanded) {
-      elements.stickySearchInput.removeAttribute("tabindex");
-      return;
-    }
-
-    elements.stickySearchInput.setAttribute("tabindex", "-1");
-  };
-  const syncStickySearchMode = ({ focusInput = false, preserveManual = false, returnFocus = false } = {}) => {
-    if (!preserveManual && !state.query && !isStickySearchFocused()) {
-      stickySearchManuallyExpanded = false;
-    }
-
-    const shouldExpand = Boolean(state.query || stickySearchManuallyExpanded);
-    elements.stickyBrowseBar.dataset.mode = shouldExpand ? "expanded" : "collapsed";
-    syncStickySearchAccessibility(shouldExpand);
-
-    if (!shouldExpand && stickyFilterDropdownController.isOpen()) {
-      stickyFilterDropdownController.close();
-    }
-
-    if (focusInput && shouldExpand) {
-      window.requestAnimationFrame(() => {
-        elements.stickySearchInput.focus({ preventScroll: true });
-      });
-    }
-
-    if (returnFocus && !shouldExpand) {
-      window.requestAnimationFrame(() => {
-        elements.stickySearchToggle.focus({ preventScroll: true });
-      });
-    }
-  };
-  const expandStickySearch = ({ focusInput = true } = {}) => {
-    stickySearchManuallyExpanded = true;
-    syncStickySearchMode({ focusInput, preserveManual: true });
-  };
-  const collapseStickySearch = ({ returnFocus = false } = {}) => {
-    if (state.query) {
-      return;
-    }
-
-    stickySearchManuallyExpanded = false;
-    syncStickySearchMode({ returnFocus });
-  };
-
-  const setStickyBrowseVisibility = (isVisible) => {
-    const nextVisibility = isVisible ? "visible" : "hidden";
-    if (elements.stickyBrowseBar.dataset.visibility === nextVisibility) {
-      return;
-    }
-
-    elements.stickyBrowseBar.dataset.visibility = nextVisibility;
-    elements.stickyBrowseBar.setAttribute("aria-hidden", String(!isVisible));
-    if (!isVisible && stickyFilterDropdownController.isOpen()) {
-      stickyFilterDropdownController.close();
-    }
-    if (!isVisible && !state.query) {
-      stickySearchManuallyExpanded = false;
-    }
-    syncStickySearchMode();
   };
 
   const clearAllFilters = () => {
@@ -314,11 +221,9 @@ export async function initializeHomePage() {
   };
 
   const getSelectedCollection = () => (state.selectedCollectionId ? collectionsById.get(state.selectedCollectionId) : null);
-
   const removeFilter = (groupId, value) => {
     state.filters[groupId]?.delete(value);
   };
-
   const getDescriptors = () =>
     getActiveBrowseDescriptors({
       filters: state.filters,
@@ -460,7 +365,7 @@ export async function initializeHomePage() {
       selectedCollectionId: state.selectedCollectionId,
       sortMode: state.sortMode,
     });
-    syncStickySearchMode();
+    stickyBrowseController.syncStickySearchMode();
     hasRenderedHomeResults = true;
   }
 
@@ -524,7 +429,7 @@ export async function initializeHomePage() {
     currentControls: collectionCarouselControls,
   });
   syncSearchInputs(state.query);
-  syncStickySearchMode();
+  stickyBrowseController.syncStickySearchMode();
   renderHomeResults("initial");
   scrollRestoration.restore();
 
@@ -535,7 +440,7 @@ export async function initializeHomePage() {
     }
 
     if (input === elements.stickySearchInput) {
-      stickySearchManuallyExpanded = true;
+      stickyBrowseController.markExpanded();
     }
     syncSearchInputs(input.value, input);
     state.query = input.value.trim();
@@ -552,30 +457,9 @@ export async function initializeHomePage() {
     input.addEventListener("input", handleSearchInput);
   });
 
-  elements.stickySearchToggle.addEventListener("click", () => {
-    if (state.query) {
-      expandStickySearch();
-      return;
-    }
-
-    if (elements.stickyBrowseBar.dataset.mode === "expanded") {
-      collapseStickySearch({ returnFocus: true });
-      return;
-    }
-
-    expandStickySearch();
-  });
-  elements.stickySearchInput.addEventListener("focus", () => {
-    stickySearchManuallyExpanded = true;
-    syncStickySearchMode();
-  });
-  elements.stickySearchInput.addEventListener("blur", () => {
-    window.requestAnimationFrame(() => {
-      if (!state.query && !isStickySearchFocused()) {
-        collapseStickySearch();
-      }
-    });
-  });
+  elements.stickySearchToggle.addEventListener("click", stickyBrowseController.handleStickySearchToggle);
+  elements.stickySearchInput.addEventListener("focus", stickyBrowseController.handleStickySearchFocus);
+  elements.stickySearchInput.addEventListener("blur", stickyBrowseController.handleStickySearchBlur);
 
   filterControlSurfaces.forEach((surface) => {
     surface.toggle.addEventListener("click", () => {
@@ -599,11 +483,7 @@ export async function initializeHomePage() {
     }
 
     filterControlSurfaces.forEach((surface) => {
-      if (
-        surface.controller.isOpen() &&
-        !surface.dropdown.contains(target) &&
-        !surface.toggle.contains(target)
-      ) {
+      if (surface.controller.isOpen() && !surface.dropdown.contains(target) && !surface.toggle.contains(target)) {
         surface.controller.close();
       }
     });
@@ -620,11 +500,11 @@ export async function initializeHomePage() {
     if (
       event.key === "Escape" &&
       !state.query &&
-      isStickySearchFocused() &&
+      stickyBrowseController.isStickySearchFocused() &&
       elements.stickyBrowseBar.dataset.mode === "expanded"
     ) {
       event.preventDefault();
-      collapseStickySearch({ returnFocus: true });
+      stickyBrowseController.collapseStickySearch({ returnFocus: true });
     }
   });
 
@@ -644,7 +524,7 @@ export async function initializeHomePage() {
     stickyBrowseObserver = new IntersectionObserver(
       ([entry]) => {
         const shouldShowStickyBar = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
-        setStickyBrowseVisibility(shouldShowStickyBar);
+        stickyBrowseController.setStickyBrowseVisibility(shouldShowStickyBar);
       },
       { threshold: 0 },
     );

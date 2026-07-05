@@ -19,6 +19,10 @@ import {
   syncChatSuggestionsVisibility,
   updateChatSuggestions,
 } from "./chat/ui.js";
+import { addMediaQueryListener } from "./utils.js";
+
+const MOBILE_CHAT_LAUNCHER_BREAKPOINT = "(max-width: 560px)";
+const MOBILE_CHAT_LAUNCHER_REVEAL_Y = 140;
 
 export function initializeSharedChat() {
   if (!toggleBtn || !chatContainer) {
@@ -28,6 +32,7 @@ export function initializeSharedChat() {
   applyChatCopy();
   hydrateChat();
   syncChatHealth();
+  initializeMobileChatLauncher();
 
   toggleBtn.addEventListener("click", () => {
     setChatOpen(!chatContainer.classList.contains("is-open"));
@@ -68,6 +73,29 @@ export function initializeSharedChat() {
       sendMessage();
     }
   });
+}
+
+function initializeMobileChatLauncher() {
+  if (!toggleBtn || !chatContainer) {
+    return;
+  }
+
+  const mobileLauncherQuery = window.matchMedia(MOBILE_CHAT_LAUNCHER_BREAKPOINT);
+
+  const syncLauncherVisibility = () => {
+    const shouldDelayLauncher =
+      mobileLauncherQuery.matches &&
+      !chatContainer.classList.contains("is-open") &&
+      window.scrollY < MOBILE_CHAT_LAUNCHER_REVEAL_Y;
+
+    toggleBtn.classList.toggle("is-delayed-mobile-toggle", shouldDelayLauncher);
+  };
+
+  addMediaQueryListener(mobileLauncherQuery, syncLauncherVisibility);
+  window.addEventListener("scroll", syncLauncherVisibility, { passive: true });
+  window.addEventListener("resize", syncLauncherVisibility);
+  window.addEventListener("echo:chat-open-change", syncLauncherVisibility);
+  syncLauncherVisibility();
 }
 
 function hydrateChat() {
@@ -121,7 +149,7 @@ async function syncChatHealth() {
     const result = await response.json();
     setChatStatus(`Ask the Archivist is ready. ${result.catalogCount} shows are indexed.`);
   } catch (_error) {
-    setChatStatus("Chat server offline. Start `backend` to enable live replies.");
+    setChatStatus("Ask the Archivist is temporarily unavailable.");
   }
 }
 
@@ -187,11 +215,11 @@ async function sendMessage(prefilledMessage) {
     typingIndicator.remove();
     renderAndStoreEntry({
       role: "assistant",
-      content: "I couldn't reach the archive assistant. Start the local `backend` service and try again.",
+      content: "I couldn't reach the archive assistant right now. Try again later, or browse the archive directly.",
       recommendations: [],
       actions: [],
     });
-    setChatStatus("Chat request failed. The site could not reach `/api/chat`.");
+    setChatStatus("Ask the Archivist is temporarily unavailable.");
   } finally {
     setPendingState(false);
   }

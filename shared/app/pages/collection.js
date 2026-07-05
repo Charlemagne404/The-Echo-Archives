@@ -9,6 +9,7 @@ import {
 } from "../data.js";
 import { syncCommunityCardBadges } from "../community.js";
 import { createCollectionShowCard } from "../render-cards.js";
+import { renderRouteErrorSurface } from "../route-error.js";
 import {
   createCollectionCoverCollage,
   createCollectionIntentTagList,
@@ -50,7 +51,8 @@ export async function initializeCollectionPage() {
     grid.appendChild(createCollectionLoadingCard());
   }
 
-  const [shows, collections] = await Promise.all([loadShows(), loadCollections()]);
+  const [shows, collections] = await loadCollectionPageData({ root, grid });
+  if (!shows || !collections) return;
   const publishedShows = getPublishedShows(shows);
   const showMap = buildShowMap(publishedShows);
   const collectionMap = buildCollectionMap(collections);
@@ -140,4 +142,20 @@ export async function initializeCollectionPage() {
     grid.appendChild(createCollectionShowCard(show, getCollectionShowReason(collection, show.id)));
   });
   void syncCommunityCardBadges(grid, collectionShows);
+}
+
+async function loadCollectionPageData({ root, grid }) {
+  try {
+    return await Promise.all([loadShows(), loadCollections()]);
+  } catch (_error) {
+    renderRouteErrorSurface(root, {
+      title: "Collection data did not load",
+      explanation: "This collection needs the public catalog before its show list and archive links can be shown.",
+      primaryAction: { href: "/collections", label: "Browse collections" },
+      secondaryAction: { href: "/", label: "Back to archive" },
+      onRetry: () => window.location.reload(),
+    });
+    if (grid) grid.textContent = "";
+    return [null, null];
+  }
 }

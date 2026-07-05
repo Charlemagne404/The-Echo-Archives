@@ -7,7 +7,6 @@ import {
   renderOverviewSection,
   renderQuoteSection,
   renderReviewSection,
-  renderListenerReviewsSection,
 } from "./render-show/sections.js";
 
 export function createShowPageMarkup(show, showMap, collections = []) {
@@ -23,7 +22,6 @@ export function createShowPageMarkup(show, showMap, collections = []) {
             ${renderOverviewSection(show)}
             ${renderReviewSection(show)}
             ${renderQuoteSection(show)}
-            ${renderListenerReviewsSection(show)}
           </div>
         </div>
         <div class="detail-community-slot"></div>

@@ -81,6 +81,9 @@ function createCommunityRouter({ communityService, config }) {
   router.get("/config", (_req, res) => {
     res.json({
       minPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
+      ratings: {
+        writeEnabled: Boolean(config.COMMUNITY_RATING_WRITES_ENABLED),
+      },
       turnstile: {
         enabled: config.COMMUNITY_TURNSTILE_ENABLED,
         siteKey: config.COMMUNITY_TURNSTILE_SITE_KEY,
@@ -111,6 +114,10 @@ function createCommunityRouter({ communityService, config }) {
 
   router.put("/podcasts/:podcastId/rating", async (req, res, next) => {
     try {
+      if (!config.COMMUNITY_RATING_WRITES_ENABLED) {
+        return res.status(503).json({ error: "Community rating writes are unavailable." });
+      }
+
       const result = await communityService.submitRating({
         podcastId: req.params.podcastId,
         rating: req.body?.rating,
@@ -128,6 +135,10 @@ function createCommunityRouter({ communityService, config }) {
 
   router.delete("/podcasts/:podcastId/rating", async (req, res, next) => {
     try {
+      if (!config.COMMUNITY_RATING_WRITES_ENABLED) {
+        return res.status(503).json({ error: "Community rating writes are unavailable." });
+      }
+
       const result = await communityService.removeRating({
         podcastId: req.params.podcastId,
         voterSecret: ensureVoterSecret(req, res),

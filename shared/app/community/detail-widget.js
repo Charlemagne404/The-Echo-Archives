@@ -1,5 +1,5 @@
 import { createSubmissionHref } from "../urls.js";
-import { clearCommunityRating, ensureCommunityProfile, fetchRatingSummaries, submitCommunityRating } from "./api.js";
+import { clearCommunityRating, ensureCommunityProfile, fetchCommunityConfig, fetchRatingSummaries, submitCommunityRating } from "./api.js";
 import { EMPTY_COMMUNITY_SCORE_TEXT, formatDetailCommunitySummary, getDetailCommunityMetricCount, getDetailCommunityMetricValue } from "./formatters.js";
 import { configureRatingVerification, getRatingVerificationToken, resetRatingVerification } from "./turnstile.js";
 import { clearDetailBodyMotion, closeDetailWidgetBody, openDetailWidgetBody, playRatingConfirmation, prefersReducedMotion, prepareRollingTextNode, setRollingTextNodeContent } from "./detail-motion.js";
@@ -14,11 +14,16 @@ export async function initializeDetailRatingPage(show) {
   const requestId = beginSummaryRequest(widget);
 
   try {
-    widget.verificationPromise = configureRatingVerification(widget);
-    const profileId = await ensureCommunityProfile();
+    const config = await fetchCommunityConfig();
+    widget.writesEnabled = Boolean(config.ratings?.writeEnabled);
+    widget.verificationPromise = widget.writesEnabled ? configureRatingVerification(widget) : Promise.resolve();
+    const profileId = widget.writesEnabled ? await ensureCommunityProfile() : null;
     const summaries = await fetchRatingSummaries([show.id], profileId);
     if (isActiveSummaryRequest(widget, requestId)) {
       syncDetailRatingWidget(widget, summaries[show.id]);
+      if (!widget.writesEnabled) {
+        setCommunityWidgetReadOnly(widget);
+      }
     }
   } catch (_error) {
     if (isActiveSummaryRequest(widget, requestId)) {
@@ -115,6 +120,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     verificationSlot,
     verificationStatus,
     verificationPromise: Promise.resolve(),
+    writesEnabled: false,
     turnstileEnabled: false,
     turnstileToken: "",
     turnstileWidgetId: null,
@@ -144,6 +150,10 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     button.textContent = String(rating);
     button.setAttribute("aria-pressed", "false");
     button.addEventListener("click", async () => {
+      if (!widget.writesEnabled) {
+        return;
+      }
+
       const requestId = beginSummaryRequest(widget);
       setDetailWidgetBusy(widget, true);
       try {
@@ -167,6 +177,10 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   }
 
   clearButton.addEventListener("click", async () => {
+    if (!widget.writesEnabled) {
+      return;
+    }
+
     const requestId = beginSummaryRequest(widget);
     setDetailWidgetBusy(widget, true);
     try {
@@ -301,6 +315,11 @@ function setDetailWidgetExpanded(widget, isExpanded) {
 }
 
 function updateDetailWidgetToggleLabel(widget, summary = widget.lastSummary) {
+  if (!widget.writesEnabled) {
+    widget.toggleButton.textContent = "Ratings read-only";
+    return;
+  }
+
   if (widget.toggleButton.getAttribute("aria-expanded") !== "true") {
     const hasRating = Boolean(summary?.myRating);
     widget.toggleButton.textContent = hasRating ? "Update your rating" : "Rate this show";
@@ -310,9 +329,24 @@ function updateDetailWidgetToggleLabel(widget, summary = widget.lastSummary) {
   widget.toggleButton.textContent = "Hide rating controls";
 }
 
+function setCommunityWidgetReadOnly(widget) {
+  widget.summary.textContent = "Community rating controls are paused while launch protection is finalized. Public rating summaries remain visible when available.";
+  widget.toggleButton.disabled = true;
+  widget.toggleButton.setAttribute("aria-expanded", "false");
+  widget.toggleButton.textContent = "Ratings read-only";
+  widget.ratingButtons.forEach((button) => {
+    button.disabled = true;
+  });
+  widget.clearButton.hidden = true;
+  clearDetailBodyMotion(widget);
+  widget.body.hidden = true;
+  widget.body.dataset.state = "closed";
+  widget.root.classList.remove("is-expanded");
+}
+
 function setCommunityWidgetUnavailable(widget) {
   widget.lastSummary = null;
-  widget.summary.textContent = "Community ratings are offline right now.";
+  widget.summary.textContent = "Community ratings are temporarily unavailable.";
   setRollingTextNodeContent(widget.metricValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
   setRollingTextNodeContent(widget.metricCount, "Offline", false);
   widget.toggleButton.disabled = true;
@@ -324,7 +358,7 @@ function setCommunityWidgetUnavailable(widget) {
   widget.body.style.transform = "";
   widget.root.classList.remove("is-expanded");
   widget.toggleButton.setAttribute("aria-expanded", "false");
-  widget.toggleButton.textContent = "Ratings offline";
+  widget.toggleButton.textContent = "Ratings unavailable";
   if (widget.heroValue) {
     setRollingTextNodeContent(widget.heroValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
   }

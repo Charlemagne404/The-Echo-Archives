@@ -313,6 +313,13 @@
     visibility 0s linear 320ms;
 }
 
+.chat-toggle-button.is-delayed-mobile-toggle {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.88);
+}
+
 .home-page #chat-toggle.chat-toggle-button span {
   display: none;
 }

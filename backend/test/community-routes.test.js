@@ -77,6 +77,7 @@ async function startCommunityServer() {
       COMMUNITY_TURNSTILE_SITE_KEY: "test-site-key",
       COMMUNITY_TURNSTILE_SECRET_KEY: "test-secret-key",
       COMMUNITY_TURNSTILE_VERIFY_URL: turnstile.url,
+      COMMUNITY_VOTER_HASH_SECRET: "test-community-voter-hash-secret-123456",
     },
     stdio: ["ignore", "pipe", "pipe"],
   });

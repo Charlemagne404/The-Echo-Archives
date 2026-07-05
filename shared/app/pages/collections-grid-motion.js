@@ -96,6 +96,17 @@ function getGridChildren(root) {
   return Array.from(root.children).filter((node) => node instanceof HTMLElement);
 }
 
+function pruneUnkeyedGridItems(root) {
+  getGridChildren(root).forEach((node) => {
+    if (node.dataset.collectionId) {
+      return;
+    }
+
+    resetGridItemMotion(node);
+    node.remove();
+  });
+}
+
 function pruneExitingGridItems(root) {
   getGridChildren(root).forEach((node) => {
     if (node.dataset.collectionsMotionState !== "exiting") {
@@ -214,6 +225,7 @@ export function syncCollectionGrid(root, items, { renderItem, motionProfile = nu
     return;
   }
 
+  pruneUnkeyedGridItems(root);
   pruneExitingGridItems(root);
   const firstRects = motionProfile ? captureGridItemRects(root) : new Map();
   const existingNodes = new Map(

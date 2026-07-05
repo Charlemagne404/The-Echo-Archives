@@ -1,6 +1,7 @@
 @import "./cards/01-surface.css";
 @import "./cards/02-hero-search.css";
 @import "./cards/03-filter-controls.css";
+@import "./cards/03b-filter-actions.css";
 @import "./cards/04-browse-bands.css";
 @import "./cards/05-collection-cards.css";
 @import "./cards/06-featured-cards.css";
@@ -17,6 +18,7 @@
 @import "./cards/15b-info-pages.css";
 @import "./cards/15c-info-pages-responsive.css";
 @import "./cards/15d-help-center.css";
+@import "./cards/15e-help-center-motion.css";
 @import "./cards/16-empty-tablet.css";
 @import "./cards/17-responsive-780-a.css";
 @import "./cards/18-responsive-780-b.css";

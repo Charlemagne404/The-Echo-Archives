@@ -135,7 +135,9 @@
   }
 
   .detail-breadcrumbs {
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 14px;
+    font-size: 0.8rem;
   }
 
   .detail-fact-row,
@@ -143,7 +145,12 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .detail-hero-grid {
+    gap: 14px;
+  }
+
   .detail-decision-console {
+    order: 2;
     padding: 12px;
     border-radius: 18px;
   }
@@ -156,14 +163,22 @@
     order: 1;
   }
 
-  .detail-cover-column {
-    order: 2;
-    justify-self: center;
-    width: min(72vw, 250px);
+  .detail-status-row {
+    gap: 8px;
+    margin-bottom: 12px;
   }
 
-  .detail-decision-console {
+  .detail-status-chip,
+  .detail-tag {
+    min-height: 32px;
+    padding: 0 12px;
+    font-size: 0.75rem;
+  }
+
+  .detail-cover-column {
     order: 3;
+    justify-self: center;
+    width: min(60vw, 220px);
   }
 
   .detail-actions {
@@ -176,8 +191,8 @@
   }
 
   .detail-hero-score-card {
-    min-height: 106px;
-    padding: 16px;
+    min-height: 96px;
+    padding: 14px;
   }
 
   .detail-hero-score-value {

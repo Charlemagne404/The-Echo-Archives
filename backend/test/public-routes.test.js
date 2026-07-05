@@ -94,14 +94,10 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.equal(showResponse.status, 200);
     const showHtml = await showResponse.text();
     assert.match(showHtml, /<title>Impact Winter - The Echo Archives<\/title>/);
-    assert.match(
-      showHtml,
-      /<link rel="canonical" href="https:\/\/echo\.continental-hub\.com\/show\?id=impact-winter" \/>/,
-    );
-    assert.match(
-      showHtml,
-      /<meta property="og:image" content="https:\/\/echo\.continental-hub\.com\//,
-    );
+    assert.match(showHtml, new RegExp(`<link rel="canonical" href="${context.baseUrl}/show\\?id=impact-winter" \\/>`));
+    assert.match(showHtml, new RegExp(`<meta property="og:image" content="${context.baseUrl}/`));
+    assert.match(showHtml, /<main id="showRoot">\s*<section class="detail-main podcast-detail">/);
+    assert.match(showHtml, /<h1>Impact Winter<\/h1>/);
 
     const collectionResponse = await fetch(`${context.baseUrl}/collection?id=best-for-long-walks`);
     assert.equal(collectionResponse.status, 200);
@@ -112,7 +108,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     );
     assert.match(
       collectionHtml,
-      /<link rel="canonical" href="https:\/\/echo\.continental-hub\.com\/collection\?id=best-for-long-walks" \/>/,
+      new RegExp(`<link rel="canonical" href="${context.baseUrl}/collection\\?id=best-for-long-walks" \\/>`),
     );
 
     const missingShowResponse = await fetch(`${context.baseUrl}/show?id=missing-show`);

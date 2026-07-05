@@ -426,6 +426,46 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
   }
 });
 
+test("mobile chat launcher stays out of the first viewport until the user starts scrolling", async () => {
+  const page = await browser.newPage({ viewport: { width: 320, height: 740 }, hasTouch: true });
+
+  try {
+    const routeChecks = [
+      { url: `${baseUrl}/`, ready: () => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0 },
+      { url: `${baseUrl}/privacy`, ready: () => Boolean(document.querySelector(".info-document-layout")) },
+      { url: `${baseUrl}/show?id=${fullReviewShowId}`, ready: () => Boolean(document.querySelector(".podcast-detail")) },
+    ];
+
+    for (const routeCheck of routeChecks) {
+      await page.goto(routeCheck.url, { waitUntil: "networkidle" });
+      await page.waitForFunction(routeCheck.ready, undefined, { timeout: 5_000 });
+
+      await page.waitForFunction(() => {
+        const button = document.getElementById("chat-toggle");
+        if (!(button instanceof HTMLElement)) {
+          return false;
+        }
+
+        const styles = window.getComputedStyle(button);
+        return styles.visibility === "hidden" && styles.pointerEvents === "none";
+      });
+
+      await page.evaluate(() => window.scrollTo({ top: 180, behavior: "auto" }));
+      await page.waitForFunction(() => {
+        const button = document.getElementById("chat-toggle");
+        if (!(button instanceof HTMLElement)) {
+          return false;
+        }
+
+        const styles = window.getComputedStyle(button);
+        return styles.visibility === "visible" && styles.pointerEvents !== "none";
+      });
+    }
+  } finally {
+    await page.close();
+  }
+});
+
 test("public mobile route families stay stacked and avoid horizontal overflow at 320px", async () => {
   const page = await browser.newPage({ viewport: { width: 320, height: 844 } });
 
@@ -498,6 +538,9 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
           const officialTop = document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0;
           const communityTop = document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0;
           const overviewTop = document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0;
+          const decisionConsoleTop = document.querySelector(".detail-decision-console")?.getBoundingClientRect().top || 0;
+          const coverTop = document.querySelector(".detail-cover-column")?.getBoundingClientRect().top || 0;
+          const coverWidth = document.querySelector(".detail-cover-column")?.getBoundingClientRect().width || 0;
           return {
             scrollWidth: document.documentElement.scrollWidth,
             viewport: window.innerWidth,
@@ -508,11 +551,16 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
             officialTop,
             communityTop,
             overviewTop,
+            decisionConsoleTop,
+            coverTop,
+            coverWidth,
           };
         },
         assert(result) {
           assert.ok(result.scrollWidth <= result.viewport + 1);
           assert.equal(result.metaColumns, 1);
+          assert.ok(result.decisionConsoleTop < result.coverTop);
+          assert.ok(result.coverWidth <= 220);
           assert.ok(result.officialTop < result.communityTop);
           assert.ok(result.communityTop < result.overviewTop);
         },

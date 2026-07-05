@@ -4,11 +4,11 @@ const { spawnSync } = require("node:child_process");
 const testRoot = path.resolve(__dirname, "..");
 // Keep mutating flows isolated while overlapping the slower read-only browser smoke files.
 const readOnlySmokeFiles = [
-  "test/browser.smoke.js",
-  "test/creator-flow.smoke.js",
   "test/home-browse.smoke.js",
   "test/home-card-interactions.smoke.js",
   "test/show-detail-navigation.smoke.js",
+  "test/creator-flow.smoke.js",
+  "test/browser.smoke.js",
 ];
 const statefulSmokeFiles = ["test/chat-submit-flow.smoke.js", "test/community-rating-flow.smoke.js"];
 
@@ -20,6 +20,25 @@ function resolveConcurrency(envVarName, fallback) {
 function runBatch(files, concurrency) {
   if (files.length === 0) {
     return 0;
+  }
+
+  if (concurrency === 1) {
+    return files.reduce((status, file) => {
+      if (status) {
+        return status;
+      }
+
+      const result = spawnSync(process.execPath, ["--test", "--test-concurrency=1", file], {
+        cwd: testRoot,
+        stdio: "inherit",
+      });
+
+      if (result.error) {
+        throw result.error;
+      }
+
+      return typeof result.status === "number" ? result.status : 1;
+    }, 0);
   }
 
   const result = spawnSync(process.execPath, ["--test", `--test-concurrency=${concurrency}`, ...files], {
@@ -34,7 +53,7 @@ function runBatch(files, concurrency) {
   return typeof result.status === "number" ? result.status : 1;
 }
 
-const readOnlyStatus = runBatch(readOnlySmokeFiles, resolveConcurrency("SMOKE_TEST_READ_ONLY_CONCURRENCY", 2));
+const readOnlyStatus = runBatch(readOnlySmokeFiles, resolveConcurrency("SMOKE_TEST_READ_ONLY_CONCURRENCY", 1));
 const statefulStatus = runBatch(statefulSmokeFiles, resolveConcurrency("SMOKE_TEST_STATEFUL_CONCURRENCY", 1));
 
 process.exit(readOnlyStatus || statefulStatus);
