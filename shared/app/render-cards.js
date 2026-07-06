@@ -3,6 +3,7 @@ export {
   buildHomeCardPreviewId,
   createCollectionShowCard,
   createShowCard,
+  ensureShellPreviewPanel,
   getShellPreviewPanel,
   syncShowCardPresentation,
 } from "./render-cards/preview.js";

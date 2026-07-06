@@ -376,12 +376,22 @@ async function getArchiveGridMotionState(page) {
 }
 
 async function waitForMostPopularBandIds(page, expectedIds) {
-  await page.waitForFunction(
-    (ids) =>
-      JSON.stringify(Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || "")) ===
-      JSON.stringify(ids),
-    expectedIds,
-  );
+  try {
+    await page.waitForFunction(
+      (ids) =>
+        JSON.stringify(Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || "")) ===
+        JSON.stringify(ids),
+      expectedIds,
+    );
+  } catch (error) {
+    const actualIds = await page.evaluate(() =>
+      Array.from(document.querySelectorAll("#popularGrid .popular-card")).map((card) => card.dataset.podcastId || ""),
+    );
+    throw new Error(
+      `${error.message}\nExpected popular ids: ${JSON.stringify(expectedIds)}\nActual popular ids: ${JSON.stringify(actualIds)}`,
+      { cause: error },
+    );
+  }
 }
 
 async function setupSmoke() {

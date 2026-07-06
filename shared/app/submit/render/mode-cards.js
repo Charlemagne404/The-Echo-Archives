@@ -13,6 +13,7 @@ export function renderModeCardsMarkup(activeMode) {
         data-active="${String(isActive)}"
         role="radio"
         aria-checked="${String(isActive)}"
+        tabindex="${isActive ? "0" : "-1"}"
       >
         <span class="submit-mode-card-icon" aria-hidden="true">${iconMarkup(config.cardIcon)}</span>
         <span class="submit-mode-card-copy">

@@ -173,18 +173,15 @@ Search and filters should help users discover shows by more than title when the 
 Relevant discovery inputs include:
 
 - title
-- creator
 - genre
 - tone
 - tags
 - format
 - review status
 - release or completion status
-- runtime or commitment
-- production style
 - similar-show relationships
 
-The current homepage already supports structured filter groups plus search and a recently updated view. New filter UI should only be added when the supporting data is complete enough to stay trustworthy.
+The current homepage supports structured filter groups for genre, tone, format, best-for, completion, review coverage, and tags, plus free-text search and a recently updated view. Search can already match richer fields such as creators and similarity context, but new visible filter UI should only be added when the supporting data is complete enough to stay trustworthy.
 
 Empty states should route users toward:
 

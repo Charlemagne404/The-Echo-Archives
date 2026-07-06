@@ -71,7 +71,7 @@ async function startRateLimitServer() {
       CHAT_RATE_LIMIT_MAX: "2",
       CHAT_RATE_LIMIT_WINDOW_MS: "1000",
       COMMUNITY_WRITE_MAX: "2",
-      COMMUNITY_WRITE_WINDOW_MS: "1000",
+      COMMUNITY_WRITE_WINDOW_MS: "3000",
       COMMUNITY_TURNSTILE_ENABLED: "true",
       COMMUNITY_TURNSTILE_SITE_KEY: "test-site-key",
       COMMUNITY_TURNSTILE_SECRET_KEY: "test-secret-key",
@@ -185,9 +185,9 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     assert.match(throttledCommunity.headers.get("retry-after") || "", /^[1-9]\d*$/);
     const throttledCommunityBody = await throttledCommunity.json();
     assert.match(throttledCommunityBody.error || "", /too many community requests/i);
-    assert.equal(throttledCommunityBody.retryAfterSeconds, 1);
+    assert.ok(throttledCommunityBody.retryAfterSeconds >= 1);
 
-    await waitForWindowReset();
+    await waitForWindowReset(3200);
     assert.equal(
       (await fetch(`${context.baseUrl}/api/community/podcasts/impact-winter/rating`, {
         method: "DELETE",

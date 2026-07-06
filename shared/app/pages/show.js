@@ -38,7 +38,7 @@ export async function initializeShowPage() {
     title: `${show.title} - The Echo Archives`,
     description: show.description,
     path: `/show?id=${encodeURIComponent(show.id)}`,
-    image: `/${show.cover}`,
+    image: show.imageSrc || `/${show.cover}`,
   });
 
   if (!hasServerRenderedContent) {

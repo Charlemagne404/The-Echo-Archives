@@ -3,6 +3,14 @@ const crypto = require("node:crypto");
 
 const VOTER_SECRET_PATTERN = /^[A-Za-z0-9_-]{32,128}$/;
 
+function decodeCookieComponent(value = "") {
+  try {
+    return decodeURIComponent(value);
+  } catch (_error) {
+    return "";
+  }
+}
+
 function parseCookies(header = "") {
   return String(header || "")
     .split(";")
@@ -14,8 +22,12 @@ function parseCookies(header = "") {
         return cookies;
       }
 
-      const key = decodeURIComponent(part.slice(0, separatorIndex).trim());
-      const value = decodeURIComponent(part.slice(separatorIndex + 1).trim());
+      const key = decodeCookieComponent(part.slice(0, separatorIndex).trim());
+      if (!key) {
+        return cookies;
+      }
+
+      const value = decodeCookieComponent(part.slice(separatorIndex + 1).trim());
       cookies[key] = value;
       return cookies;
     }, {});

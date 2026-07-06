@@ -799,7 +799,8 @@ test("homepage most popular band reorders by community rating volume and average
 });
 
 test("homepage most popular band fills remaining slots from popularity metadata before the hardcoded fallback", async () => {
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const context = await browser.newContext({ viewport: { width: 1440, height: 1400 } });
+  const page = await context.newPage();
   const summaryMap = {
     story: createSummary({ averageRating: 8.6, ratingCount: 7 }),
     "station-151": createSummary({ averageRating: 9.2, ratingCount: 3 }),
@@ -807,7 +808,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
   const expectedIds = ["story", "station-151", "impact-winter", "ars-paradoxica"];
 
   try {
-    await page.route("**/data/search-index.json", async (route) => {
+    await context.route("**/data/search-index.json*", async (route) => {
       const records = showFixtures.map((show) => {
         if (show.id === "impact-winter") {
           return {
@@ -833,7 +834,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
       });
     });
 
-    await page.route("**/api/community/ratings/summary?*", async (route) => {
+    await context.route("**/api/community/ratings/summary?*", async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -847,7 +848,7 @@ test("homepage most popular band fills remaining slots from popularity metadata 
     const rankedState = await getMostPopularBandState(page);
     assert.deepEqual(rankedState.cardIds, expectedIds);
   } finally {
-    await page.close();
+    await context.close();
   }
 });
 

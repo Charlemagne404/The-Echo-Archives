@@ -1,8 +1,18 @@
 import { createSubmissionHref } from "../urls.js";
 import { clearCommunityRating, ensureCommunityProfile, fetchCommunityConfig, fetchRatingSummaries, submitCommunityRating } from "./api.js";
-import { EMPTY_COMMUNITY_SCORE_TEXT, formatDetailCommunitySummary, getDetailCommunityMetricCount, getDetailCommunityMetricValue } from "./formatters.js";
+import {
+  EMPTY_COMMUNITY_SCORE_TEXT,
+  formatDetailCommunitySummary,
+  getDetailCommunityMetricCount,
+  getDetailCommunityMetricValue,
+  normalizeCommunitySummary,
+} from "./formatters.js";
 import { configureRatingVerification, getRatingVerificationToken, resetRatingVerification } from "./turnstile.js";
 import { clearDetailBodyMotion, closeDetailWidgetBody, openDetailWidgetBody, playRatingConfirmation, prefersReducedMotion, prepareRollingTextNode, setRollingTextNodeContent } from "./detail-motion.js";
+
+function buildCommunityWidgetId(podcastId, suffix) {
+  return `community-${String(podcastId || "show").replace(/[^a-zA-Z0-9_-]+/g, "-")}-${suffix}`;
+}
 
 export async function initializeDetailRatingPage(show) {
   const detailRoot = document.querySelector(".podcast-detail");
@@ -36,12 +46,14 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   const section = document.createElement("section");
   section.className = "detail-side-card community-review-panel";
   section.dataset.podcastId = podcast.podcastId;
+  section.setAttribute("aria-labelledby", buildCommunityWidgetId(podcast.podcastId, "title"));
 
   const kicker = document.createElement("p");
   kicker.className = "community-review-kicker";
   kicker.textContent = "Listener rating";
 
   const title = document.createElement("h2");
+  title.id = buildCommunityWidgetId(podcast.podcastId, "title");
   title.textContent = "Community voice";
 
   const metricRow = document.createElement("div");
@@ -76,9 +88,13 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   const buttons = document.createElement("div");
   buttons.className = "community-review-buttons";
+  buttons.setAttribute("role", "group");
+  buttons.setAttribute("aria-label", "Rate this show from 1 to 10");
 
   const distribution = document.createElement("div");
   distribution.className = "community-review-distribution";
+  distribution.setAttribute("role", "list");
+  distribution.setAttribute("aria-label", "Community rating distribution");
 
   const verification = document.createElement("div");
   verification.className = "community-turnstile-shell";
@@ -95,8 +111,10 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   const body = document.createElement("div");
   body.className = "community-review-body";
+  body.id = buildCommunityWidgetId(podcast.podcastId, "body");
   body.hidden = true;
   body.dataset.state = "closed";
+  toggleButton.setAttribute("aria-controls", body.id);
 
   const clearButton = document.createElement("button");
   clearButton.type = "button";
@@ -143,12 +161,23 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     setDetailWidgetExpanded(widget, !isExpanded);
   });
 
+  body.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    event.preventDefault();
+    setDetailWidgetExpanded(widget, false);
+    widget.toggleButton.focus();
+  });
+
   for (let rating = 1; rating <= 10; rating += 1) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "community-review-button";
     button.textContent = String(rating);
     button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", `Rate ${rating} out of 10`);
     button.addEventListener("click", async () => {
       if (!widget.writesEnabled) {
         return;
@@ -203,6 +232,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     const row = document.createElement("div");
     row.className = "community-distribution-row";
     row.dataset.ratingValue = String(rating);
+    row.setAttribute("role", "listitem");
 
     const label = document.createElement("span");
     label.className = "community-distribution-label";
@@ -210,6 +240,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
     const bar = document.createElement("div");
     bar.className = "community-distribution-bar";
+    bar.setAttribute("aria-hidden", "true");
 
     const fill = document.createElement("div");
     fill.className = "community-distribution-fill";
@@ -247,6 +278,7 @@ function syncDetailRatingWidget(widget, summary) {
     return;
   }
 
+  summary = normalizeCommunitySummary(summary);
   widget.lastSummary = summary || null;
   const shouldAnimateMetrics = widget.hasHydratedSummary;
 
@@ -270,6 +302,7 @@ function syncDetailRatingWidget(widget, summary) {
     const count = summary?.distribution?.[rating] || 0;
     const fill = row.querySelector(".community-distribution-fill");
     const countNode = row.querySelector(".community-distribution-count");
+    row.setAttribute("aria-label", `${rating} out of 10: ${count} ${count === 1 ? "rating" : "ratings"}`);
 
     if (fill) {
       fill.style.width = `${maxCount > 0 ? (count / maxCount) * 100 : 0}%`;
@@ -330,7 +363,7 @@ function updateDetailWidgetToggleLabel(widget, summary = widget.lastSummary) {
 }
 
 function setCommunityWidgetReadOnly(widget) {
-  widget.summary.textContent = "Community rating controls are paused while launch protection is finalized. Public rating summaries remain visible when available.";
+  widget.summary.textContent = "Public rating summaries remain visible when available. New rating submissions are not enabled on this deployment.";
   widget.toggleButton.disabled = true;
   widget.toggleButton.setAttribute("aria-expanded", "false");
   widget.toggleButton.textContent = "Ratings read-only";

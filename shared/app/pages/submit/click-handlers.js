@@ -1,12 +1,6 @@
-import { setChatOpen } from "../../chat.js";
+import { setChatOpen } from "../../chat-open.js";
 import { MODE_CONFIG } from "../../submit/config.js";
-import {
-  appendModeLinkRow,
-  addArrayValue,
-  getActiveDraft,
-  removeLinkRow,
-  toggleArrayValue,
-} from "../../submit/state.js";
+import { appendModeLinkRow, addArrayValue, getActiveDraft, removeLinkRow, toggleArrayValue } from "../../submit/state.js";
 import { normalizeCustomTag } from "../../submit/search.js";
 import { captureCurrentDraft } from "./draft.js";
 
@@ -19,7 +13,60 @@ function resetModeUiState(state) {
   state.tagHighlightIndex = -1;
 }
 
+function getRadioMoveIndex(currentIndex, key, count) {
+  if (count <= 0) {
+    return -1;
+  }
+  switch (key) {
+    case "ArrowRight":
+    case "ArrowDown":
+      return (currentIndex + 1 + count) % count;
+    case "ArrowLeft":
+    case "ArrowUp":
+      return (currentIndex - 1 + count) % count;
+    case "Home":
+      return 0;
+    case "End":
+      return count - 1;
+    default:
+      return -1;
+  }
+}
+
+function focusAfterRender(selector) {
+  window.requestAnimationFrame(() => {
+    const target = document.querySelector(selector);
+    if (target instanceof HTMLElement) {
+      target.focus();
+    }
+  });
+}
+function escapeCssIdentifier(value = "") {
+  if (globalThis.CSS?.escape) {
+    return globalThis.CSS.escape(value);
+  }
+
+  return String(value).replace(/["\\]/g, "\\$&");
+}
+
 export function bindSubmitPageClickHandlers({ state, elements, ui }) {
+  function activateMode(nextMode, { focus = false } = {}) {
+    if (!nextMode || nextMode === state.activeMode || !Object.prototype.hasOwnProperty.call(MODE_CONFIG, nextMode)) {
+      return;
+    }
+
+    captureCurrentDraft(state, elements);
+    state.activeMode = nextMode;
+    resetModeUiState(state);
+    ui.clearValidationErrors();
+    ui.setStatus("Nothing submitted yet.");
+    ui.renderAll();
+
+    if (focus) {
+      focusAfterRender(`[data-submission-mode="${escapeCssIdentifier(nextMode)}"]`);
+    }
+  }
+
   elements.modeCards.addEventListener("click", (event) => {
     const target = event.target;
     if (!(target instanceof Element)) {
@@ -32,16 +79,26 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     }
 
     const nextMode = card.getAttribute("data-submission-mode");
-    if (!nextMode || nextMode === state.activeMode || !Object.hasOwn(MODE_CONFIG, nextMode)) {
+    activateMode(nextMode, { focus: true });
+  });
+
+  elements.modeCards.addEventListener("keydown", (event) => {
+    const target = event.target;
+    const current = target instanceof Element ? target.closest("[data-submission-mode][role='radio']") : null;
+    if (!(current instanceof HTMLElement)) {
       return;
     }
 
-    captureCurrentDraft(state, elements);
-    state.activeMode = nextMode;
-    resetModeUiState(state);
-    ui.clearValidationErrors();
-    ui.setStatus("Nothing submitted yet.");
-    ui.renderAll();
+    const radios = Array.from(elements.modeCards.querySelectorAll("[data-submission-mode][role='radio']"));
+    const currentIndex = radios.indexOf(current);
+    const nextIndex = getRadioMoveIndex(currentIndex, event.key, radios.length);
+    if (nextIndex < 0) {
+      return;
+    }
+
+    event.preventDefault();
+    const nextMode = radios[nextIndex]?.getAttribute("data-submission-mode");
+    activateMode(nextMode, { focus: true });
   });
 
   document.addEventListener("click", (event) => {
@@ -162,6 +219,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       if (field && value) {
         getActiveDraft(state)[field] = value;
         ui.renderAll();
+        focusAfterRender(`[data-segment-field="${escapeCssIdentifier(field)}"][data-segment-value="${escapeCssIdentifier(value)}"]`);
       }
       return;
     }
@@ -174,6 +232,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       if (Number.isInteger(nextValue) && nextValue >= 1 && nextValue <= 5) {
         getActiveDraft(state).ratingStars = nextValue;
         ui.renderAll();
+        focusAfterRender(`[data-rating-stars="${nextValue}"]`);
       }
       return;
     }
@@ -262,5 +321,29 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       ui.syncQueryState();
       ui.renderAll();
     }
+  });
+
+  elements.form.addEventListener("keydown", (event) => {
+    const target = event.target;
+    const radio = target instanceof Element ? target.closest("[role='radio']") : null;
+    const group = radio?.closest("[role='radiogroup']");
+    if (!(radio instanceof HTMLElement) || !(group instanceof HTMLElement)) {
+      return;
+    }
+
+    const radios = Array.from(group.querySelectorAll("[role='radio']")).filter((node) => node instanceof HTMLElement);
+    const currentIndex = radios.indexOf(radio);
+    const nextIndex = getRadioMoveIndex(currentIndex, event.key, radios.length);
+    if (nextIndex < 0) {
+      return;
+    }
+
+    const nextRadio = radios[nextIndex];
+    if (!(nextRadio instanceof HTMLElement)) {
+      return;
+    }
+
+    event.preventDefault();
+    nextRadio.click();
   });
 }

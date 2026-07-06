@@ -108,6 +108,7 @@ function createMoodChip(filter, count, state, onSelect) {
 }
 
 function getCollectionSearchText(collection, shows) {
+  const collectionShows = Array.isArray(shows) ? shows : [];
   return [
     collection.title,
     collection.description,
@@ -115,7 +116,7 @@ function getCollectionSearchText(collection, shows) {
     collection.commitment,
     collection.kind,
     ...(collection.intentTags || []),
-    ...shows.flatMap((show) => [show.title, ...(show.genres || []), ...(show.tones || []), ...(show.tags || [])]),
+    ...collectionShows.flatMap((show) => [show.title, ...(show.genres || []), ...(show.tones || []), ...(show.tags || [])]),
   ]
     .join(" ")
     .toLowerCase();
@@ -141,34 +142,55 @@ function getAggregateValue(shows, selector) {
   return values.reduce((total, value) => total + value, 0) / values.length;
 }
 
+function getCollectionSortTitle(collection) {
+  return String(collection?.title || "Untitled collection");
+}
+
+function getCollectionSortOrder(collection) {
+  return Number.isFinite(collection?.order) ? collection.order : Number.MAX_SAFE_INTEGER;
+}
+
+function getCollectionSortDate(collection) {
+  const timestamp = Date.parse(String(collection?.updatedAt || "").trim());
+  return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
+}
+
+function getCollectionShowsForSort(showsByCollection, collection) {
+  return showsByCollection.get(collection.id) || [];
+}
+
 function sortCollections(collections, showsByCollection, sortMode) {
   return [...collections].sort((left, right) => {
     if (sortMode === "newest") {
-      return String(right.updatedAt || "").localeCompare(String(left.updatedAt || "")) || left.order - right.order;
+      return getCollectionSortDate(right) - getCollectionSortDate(left) || getCollectionSortOrder(left) - getCollectionSortOrder(right);
     }
     if (sortMode === "title") {
-      return left.title.localeCompare(right.title);
+      return getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right));
     }
     if (sortMode === "shows") {
-      return showsByCollection.get(right.id).length - showsByCollection.get(left.id).length || left.order - right.order;
+      return (
+        getCollectionShowsForSort(showsByCollection, right).length -
+          getCollectionShowsForSort(showsByCollection, left).length ||
+        getCollectionSortOrder(left) - getCollectionSortOrder(right)
+      );
     }
     if (sortMode === "rating") {
       return (
-        getAggregateValue(showsByCollection.get(right.id), (show) => show.finalRating) -
-          getAggregateValue(showsByCollection.get(left.id), (show) => show.finalRating) ||
-        left.order - right.order ||
-        left.title.localeCompare(right.title)
+        getAggregateValue(getCollectionShowsForSort(showsByCollection, right), (show) => show.finalRating) -
+          getAggregateValue(getCollectionShowsForSort(showsByCollection, left), (show) => show.finalRating) ||
+        getCollectionSortOrder(left) - getCollectionSortOrder(right) ||
+        getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right))
       );
     }
     if (sortMode === "popularity") {
       return (
-        getAggregateValue(showsByCollection.get(right.id), (show) => show.popularity?.score) -
-          getAggregateValue(showsByCollection.get(left.id), (show) => show.popularity?.score) ||
-        left.order - right.order ||
-        left.title.localeCompare(right.title)
+        getAggregateValue(getCollectionShowsForSort(showsByCollection, right), (show) => show.popularity?.score) -
+          getAggregateValue(getCollectionShowsForSort(showsByCollection, left), (show) => show.popularity?.score) ||
+        getCollectionSortOrder(left) - getCollectionSortOrder(right) ||
+        getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right))
       );
     }
-    return left.order - right.order || left.title.localeCompare(right.title);
+    return getCollectionSortOrder(left) - getCollectionSortOrder(right) || getCollectionSortTitle(left).localeCompare(getCollectionSortTitle(right));
   });
 }
 
@@ -356,8 +378,12 @@ export async function initializeCollectionsPage() {
     }
     render("explicit");
   });
-  elements.startWithMood?.addEventListener("click", () => elements.moodPanel?.scrollIntoView({ behavior: "smooth" }));
-  elements.browseAll?.addEventListener("click", () => elements.directorySection?.scrollIntoView({ behavior: "smooth" }));
+  elements.startWithMood?.addEventListener("click", () =>
+    elements.moodPanel?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }),
+  );
+  elements.browseAll?.addEventListener("click", () =>
+    elements.directorySection?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }),
+  );
 
   render();
   scrollRestoration.restore();

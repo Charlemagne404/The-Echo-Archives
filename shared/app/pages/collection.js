@@ -15,6 +15,7 @@ import {
   createCollectionIntentTagList,
   getCollectionShowReason,
 } from "../render-collections.js";
+import { resolveImageSrc } from "../images.js";
 import { bindShareButton } from "../share.js";
 import { createArchiveCollectionHref } from "../urls.js";
 import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
@@ -82,16 +83,18 @@ export async function initializeCollectionPage() {
   }
 
   const collectionShows = getCollectionShows(collection, showMap);
-  const firstCover = collectionShows[0]?.cover ? `/${collectionShows[0].cover}` : DEFAULT_SOCIAL_IMAGE;
+  const collectionTitle = collection.title || "Untitled collection";
+  const collectionDescription = collection.description || "Collection description not cataloged yet.";
+  const firstCover = collectionShows[0]?.imageSrc || (collectionShows[0]?.cover ? resolveImageSrc(collectionShows[0].cover) : DEFAULT_SOCIAL_IMAGE);
   updateDocumentMetadata({
-    title: `${collection.title} - The Echo Archives`,
-    description: collection.description,
+    title: `${collectionTitle} - The Echo Archives`,
+    description: collectionDescription,
     path: `/collection?id=${encodeURIComponent(collection.id)}`,
     image: firstCover,
   });
 
-  setTextContent("collectionTitle", collection.title);
-  setTextContent("collectionDescription", collection.description);
+  setTextContent("collectionTitle", collectionTitle);
+  setTextContent("collectionDescription", collectionDescription);
   setTextContent("collectionShowCount", String(collectionShows.length));
   setTextContent("collectionCommitment", collection.commitment || "Curated");
   setTextContent("collectionKind", toDisplayTag(collection.kind || "curated"));
@@ -131,8 +134,8 @@ export async function initializeCollectionPage() {
   }
   if (shareButton instanceof HTMLButtonElement) {
     bindShareButton(shareButton, {
-      title: `${collection.title} - The Echo Archives`,
-      text: collection.description,
+      title: `${collectionTitle} - The Echo Archives`,
+      text: collectionDescription,
       url: window.location.href,
     });
   }

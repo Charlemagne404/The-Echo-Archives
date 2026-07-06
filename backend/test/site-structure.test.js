@@ -122,3 +122,10 @@ test("web manifest icons exist on disk", () => {
     assert.equal(fs.existsSync(path.join(siteRoot, relativePath)), true, `${icon.src} should exist.`);
   });
 });
+
+test("committed sitemap includes generated show and collection routes", () => {
+  const sitemapXml = fs.readFileSync(path.join(siteRoot, "sitemap.xml"), "utf8");
+
+  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/show\?id=/);
+  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/collection\?id=/);
+});

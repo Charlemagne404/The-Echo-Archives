@@ -1,6 +1,8 @@
 export const SHOWS_DATA_URL = "/data/shows.json";
 export const COLLECTIONS_DATA_URL = "/data/collections.json";
-export const SEARCH_INDEX_URL = "/data/search-index.json";
+const SEARCH_INDEX_REQUEST_KEY = Date.now().toString(36);
+export const SEARCH_INDEX_URL = `/data/search-index.json?view=${SEARCH_INDEX_REQUEST_KEY}`;
+export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
 export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
@@ -32,6 +34,7 @@ export const SHOW_CARD_PREVIEW_SCROLL_IDLE_MS = 140;
 export const HOME_CARD_PREVIEW_ID_PREFIX = "archiveCardPreview";
 
 export const dataCache = {
+  archiveStats: null,
   shows: null,
   collections: null,
   searchIndex: null,

@@ -1,13 +1,13 @@
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
-import { configureImageElement } from "../images.js";
+import { configureImageElement, resolveImageSrc } from "../images.js";
 import { toDisplayTag } from "../utils.js";
 
 export function createMostPopularCard(show) {
   const card = document.createElement("a");
   card.className = "popular-card";
-  card.href = show.href;
-  card.dataset.podcastId = show.id;
-  card.setAttribute("aria-label", `Open ${show.title} in the archive`);
+  card.href = show.href || "/";
+  card.dataset.podcastId = show.id || "";
+  card.setAttribute("aria-label", `Open ${show.title || "Untitled show"} in the archive`);
 
   if (show.accent?.rgb) {
     card.style.setProperty("--popular-card-accent-rgb", show.accent.rgb);
@@ -17,8 +17,8 @@ export function createMostPopularCard(show) {
   media.className = "popular-card-media";
 
   const image = document.createElement("img");
-  image.src = show.cover;
-  image.alt = show.coverAlt;
+  image.src = show.imageSrc || resolveImageSrc(show.cover);
+  image.alt = show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`;
   configureImageElement(image, {
     loading: "lazy",
     width: 320,
@@ -38,7 +38,7 @@ export function createMostPopularCard(show) {
 
   const title = document.createElement("h3");
   title.className = "popular-card-title";
-  title.textContent = show.title;
+  title.textContent = show.title || "Untitled show";
 
   const subtitle = document.createElement("p");
   subtitle.className = "popular-card-subtitle";
@@ -112,6 +112,8 @@ function getMostPopularCardLifecycleLabel(show) {
 }
 
 function getMostPopularCardMetaText(show) {
-  const preferredValues = show.bestFor.length > 0 ? show.bestFor.slice(0, 2) : show.tags.slice(0, 2);
+  const bestFor = Array.isArray(show.bestFor) ? show.bestFor : [];
+  const tags = Array.isArray(show.tags) ? show.tags : [];
+  const preferredValues = bestFor.length > 0 ? bestFor.slice(0, 2) : tags.slice(0, 2);
   return preferredValues.map((value) => toDisplayTag(value)).join(" • ");
 }

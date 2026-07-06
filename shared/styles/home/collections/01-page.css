@@ -309,9 +309,10 @@
   font-size: 0.96rem;
 }
 
-.collections-search-field input:focus,
-.collections-sort-field select:focus {
-  outline: none;
+.collections-search-field input:focus-visible,
+.collections-sort-field select:focus-visible {
+  outline: 2px solid rgba(239, 89, 67, 0.58);
+  outline-offset: 3px;
 }
 
 .collections-sort-field {

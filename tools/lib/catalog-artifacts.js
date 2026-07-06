@@ -10,6 +10,7 @@ const {
 
 function serializeRuntimeShow(record) {
   const {
+    imageSrc: _imageSrc,
     searchIndex: _searchIndex,
     ...serializable
   } = record;
@@ -103,6 +104,38 @@ function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, arch
   };
 }
 
+function buildArchiveStats(catalog, collections) {
+  const publishedShows = catalog.filter((show) => show.status === "published");
+  const creatorNames = new Set();
+
+  publishedShows.forEach((show) => {
+    (Array.isArray(show.creators) ? show.creators : []).forEach((creator) => {
+      if (creator) {
+        creatorNames.add(creator);
+      }
+    });
+  });
+
+  const latestUpdatedAt = [
+    ...publishedShows.map((show) => show.updatedAt),
+    ...collections.map((collection) => collection.updatedAt),
+  ]
+    .filter(Boolean)
+    .sort()
+    .at(-1) || "";
+
+  return {
+    showCount: publishedShows.length,
+    fullReviewCount: publishedShows.filter((show) => show.reviewStatus === "full-review").length,
+    collectionCount: collections.length,
+    latestUpdatedAt,
+    creatorCount: creatorNames.size,
+    metadataCheckedCount: publishedShows.filter(
+      (show) => Boolean(show.verification?.status || show.verification?.verifiedAt || show.metadata?.objectiveVerifiedAt),
+    ).length,
+  };
+}
+
 function buildCatalogStatusMarkdown(snapshot) {
   const { metrics, latestUpdatedAt, gapReport, archiveContext } = snapshot;
 
@@ -152,6 +185,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
     .filter((show) => show.status === "published")
     .map(createSearchIndexRecord);
   const snapshot = buildCatalogSnapshot(catalog, collections, Object.keys(reviewsById).length, gapReport, archiveContext);
+  const archiveStats = buildArchiveStats(catalog, collections);
   const statusMarkdown = buildCatalogStatusMarkdown(snapshot);
 
   writeJsonFile(path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json"), runtimeCatalog);
@@ -167,6 +201,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
     writeJsonFile(path.join(runtimeReviewsDirectory, `${showId}.json`), reviewRecord);
   });
   writeJsonFile(path.join(siteRoot, SEARCH_INDEX_PATH), runtimeSearchIndex);
+  writeJsonFile(path.join(siteRoot, "data", "archive-stats.json"), archiveStats);
   writeJsonFile(path.join(siteRoot, "docs", "generated", "catalog-status.json"), snapshot.metrics);
   fs.mkdirSync(path.dirname(path.join(siteRoot, GENERATED_STATUS_PATH)), { recursive: true });
   fs.writeFileSync(path.join(siteRoot, GENERATED_STATUS_PATH), `${statusMarkdown}\n`);
@@ -180,6 +215,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
 }
 
 module.exports = {
+  buildArchiveStats,
   buildCatalogSnapshot,
   buildCatalogStatusMarkdown,
   createSearchIndexRecord,

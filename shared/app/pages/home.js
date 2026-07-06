@@ -1,10 +1,6 @@
-import {
-  DEFAULT_SOCIAL_IMAGE,
-  archiveSearch,
-  HOME_FAVORITE_ROUTE_IDS,
-  userInput,
-} from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, archiveSearch, HOME_FAVORITE_ROUTE_IDS, userInput } from "../constants.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
+import { setChatOpen } from "../chat-open.js";
 import {
   applyArchiveStats,
   buildCollectionMap,
@@ -17,7 +13,6 @@ import {
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
 import { createShowCard, syncShowCardPresentation } from "../render-cards.js";
-import { setChatOpen } from "../chat.js";
 import { syncCommunityCardBadges } from "../community.js";
 import { updateDocumentMetadata } from "../utils.js";
 import { renderCollectionsRail } from "./home/collections.js";
@@ -42,6 +37,7 @@ import { renderHomeLoadingState } from "./home/loading.js";
 import { createMostPopularController } from "./home/most-popular.js";
 import { createRecentlyAddedController } from "./home/recently-added.js";
 import { syncResultsSummary, syncResultsSurfaceVisibility } from "./home/results-motion.js";
+import { createHomeSearchPerformanceCache } from "./home/search-cache.js";
 import { createHomeState } from "./home/state.js";
 import { createStickyBrowseController } from "./home/sticky-search.js";
 import { seedHomeStateFromParams, syncBrowseUrlState } from "./home/url-state.js";
@@ -77,6 +73,7 @@ export async function initializeHomePage() {
   const publishedShows = shows.filter((show) => show.status === "published");
   const collectionsById = buildCollectionMap(collections);
   const favoriteCollections = HOME_FAVORITE_ROUTE_IDS.map((collectionId) => collectionsById.get(collectionId)).filter(Boolean);
+  const searchPerformanceCache = createHomeSearchPerformanceCache({ shows, archiveSearch });
   const filterGroupsById = new Map(structuredFilterGroups.map((group) => [group.id, group]));
   const filterOptionsByGroup = new Map(
     structuredFilterGroups.map((group) => [group.id, new Map(group.options.map((option) => [option.id, option.label]))]),
@@ -270,9 +267,10 @@ export async function initializeHomePage() {
   }
 
   const getVisibleShows = (selectedCollection) => {
+    const selectedCollectionShowIds = searchPerformanceCache.getCollectionShowIdSet(selectedCollection);
     const filteredShows = shows.filter((show) => {
       const matchesFilters = matchesSelectedFilters(show, state.filters);
-      const matchesCollection = !selectedCollection || selectedCollection.showIds.includes(show.id);
+      const matchesCollection = !selectedCollectionShowIds || selectedCollectionShowIds.has(show.id);
       return matchesFilters && matchesCollection;
     });
 
@@ -284,7 +282,7 @@ export async function initializeHomePage() {
       });
     }
 
-    const scoredResults = archiveSearch.scoreCatalog(shows, state.query);
+    const scoredResults = searchPerformanceCache.getScoredSearchResults(state.query);
     const filteredIds = new Set(filteredShows.map((show) => show.id));
     return scoredResults.filter((show) => filteredIds.has(show.id));
   };

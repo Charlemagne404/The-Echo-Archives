@@ -30,6 +30,9 @@ export function renderChipGroupField({
   const selectedValues = new Set(values);
   const suggestions = getTagSuggestions(effectiveQuery, options, values);
   const normalizedQuery = normalizeCustomTag(effectiveQuery);
+  const activeOptionId = menuOpen && !tagLimitReached && isActiveField && highlightIndex >= 0
+    ? `${menuId}Option${highlightIndex}`
+    : "";
   const canCreateCustom = Boolean(
     allowCustom &&
       !tagLimitReached &&
@@ -73,6 +76,7 @@ export function renderChipGroupField({
               class="submit-tag-input"
               type="text"
               name="${inputId}"
+              role="combobox"
               value="${escapeAttribute(effectiveQuery)}"
               maxlength="48"
               placeholder="${escapeAttribute(placeholder || (tagLimitReached ? `${values.length} selected` : values.length > 0 ? "Add another option" : "Select from the archive list."))}"
@@ -80,7 +84,11 @@ export function renderChipGroupField({
               aria-labelledby="${labelId}"
               aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
               aria-label="${escapeAttribute(inputLabel || `Type a ${String(label).replace(/\s+\(optional\)$/i, "").toLowerCase()} option`)}"
+              aria-autocomplete="list"
               aria-controls="${menuId}"
+              aria-expanded="${String(menuOpen && !tagLimitReached && isActiveField)}"
+              aria-haspopup="listbox"
+              ${activeOptionId ? `aria-activedescendant="${activeOptionId}"` : ""}
               aria-errormessage="${errorId}"
               data-tag-input="${fieldName}"
               ${tagLimitReached ? 'disabled aria-disabled="true"' : ""}
@@ -118,6 +126,7 @@ export function renderChipGroupField({
           <div class="submit-chip-group submit-chip-group--menu">
             ${suggestions.length > 0 ? suggestions.map((option, index) => `
               <button
+                id="${menuId}Option${index}"
                 type="button"
                 class="submit-chip ${index === highlightIndex ? "is-highlighted" : ""}"
                 data-tag-suggestion="${escapeAttribute(option)}"
@@ -170,6 +179,7 @@ export function renderSegmentedField({ fieldName, label, value, options, helper 
               data-segment-value="${escapeAttribute(normalized.value)}"
               role="radio"
               aria-checked="${String(isSelected)}"
+              tabindex="${isSelected ? "0" : "-1"}"
             >
               <span class="submit-segmented-option-title">${escapeHtml(normalized.label)}</span>
               ${description ? `<span class="submit-segmented-option-copy">${escapeHtml(description)}</span>` : ""}
@@ -268,14 +278,17 @@ export function renderRatingField(ratingStars) {
         >
           ${Array.from({ length: 5 }, (_unused, index) => {
             const starValue = index + 1;
+            const isSelected = starValue === ratingStars;
+            const isTabStop = isSelected || (!ratingStars && starValue === 1);
             return `
               <button
                 type="button"
                 class="submit-star-button ${starValue <= ratingStars ? "is-active" : ""}"
                 data-rating-stars="${starValue}"
                 role="radio"
-                aria-checked="${String(starValue === ratingStars)}"
+                aria-checked="${String(isSelected)}"
                 aria-label="${starValue} out of 5 stars"
+                tabindex="${isTabStop ? "0" : "-1"}"
               >
                 ${iconMarkup("star")}
               </button>

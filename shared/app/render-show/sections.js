@@ -226,7 +226,11 @@ export function renderQuoteSection(show) {
 }
 
 function renderScoreBreakdownCard(show) {
-  const ratingEntries = Object.entries(show.ratings || {}).filter(([key]) => key !== "archive");
+  const ratingEntries = Object.entries(show.ratings || {}).filter((entry) => {
+    const [key, value] = entry;
+    const numericValue = Number(value);
+    return key !== "archive" && Number.isFinite(numericValue) && numericValue >= 0 && numericValue <= 10;
+  });
   if (ratingEntries.length === 0) {
     return "";
   }

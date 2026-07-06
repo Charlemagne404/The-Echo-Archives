@@ -22,13 +22,7 @@ const communityTurnstileEnabled = parseBoolean(
   process.env.COMMUNITY_TURNSTILE_ENABLED,
   Boolean(communityTurnstileSecretKey),
 );
-const communityRatingWritesEnabled = Boolean(
-  communityTurnstileEnabled &&
-    process.env.COMMUNITY_TURNSTILE_SITE_KEY &&
-    communityTurnstileSecretKey &&
-    process.env.COMMUNITY_VOTER_HASH_SECRET &&
-    communityVoterHashSecret !== "echo-community-dev-voter-secret",
-);
+const communityRatingWritesEnabled = parseBoolean(process.env.COMMUNITY_RATING_WRITES_ENABLED, true);
 
 module.exports = {
   PORT: Number.parseInt(process.env.PORT || "3010", 10),

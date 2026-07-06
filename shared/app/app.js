@@ -1,70 +1,82 @@
 import { backToTopBtn, chatContainer, toggleBtn } from "./constants.js";
-import { initializeSharedChat } from "./chat.js";
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
-import { initializeAboutPage } from "./pages/about.js";
-import { initializeHelpCenterPage } from "./pages/help-center.js";
-import { initializeCollectionPage } from "./pages/collection.js";
-import { initializeCollectionsPage } from "./pages/collections.js";
-import { initializeCreatorStandardsPage, initializeForCreatorsPage } from "./pages/creators.js";
-import { initializeHomePage } from "./pages/home.js";
-import { initializeMaintainerPage } from "./pages/maintainer.js";
-import { initializeMaintainerImportsPage } from "./pages/maintainer-imports.js";
-import { initializeShowPage } from "./pages/show.js";
-import { initializeSubmitPage } from "./pages/submit.js";
 import { initializeServiceWorker } from "./service-worker.js";
 
 export async function initializeApp() {
   initializeServiceWorker();
-  initializeSharedChat();
   initializeMobileNav();
   initializeBackToTop();
   initializeHistoryBackLinks();
   initializeManagedImages();
 
+  const sharedChatPromise = initializeSharedChatWhenPresent();
+
   if (document.body.classList.contains("home-page") && document.getElementById("podcast-grid")) {
+    const { initializeHomePage } = await import("./pages/home.js");
     await initializeHomePage();
   }
 
   if (document.body.classList.contains("show-page")) {
+    const { initializeShowPage } = await import("./pages/show.js");
     await initializeShowPage();
   }
 
   if (document.body.classList.contains("collections-page")) {
+    const { initializeCollectionsPage } = await import("./pages/collections.js");
     await initializeCollectionsPage();
   }
 
   if (document.body.classList.contains("collection-page")) {
+    const { initializeCollectionPage } = await import("./pages/collection.js");
     await initializeCollectionPage();
   }
 
   if (document.body.classList.contains("about-page")) {
+    const { initializeAboutPage } = await import("./pages/about.js");
     await initializeAboutPage();
   }
 
   if (document.body.classList.contains("help-center-page")) {
+    const { initializeHelpCenterPage } = await import("./pages/help-center.js");
     initializeHelpCenterPage();
   }
 
   if (document.body.classList.contains("submit-page")) {
+    const { initializeSubmitPage } = await import("./pages/submit.js");
     await initializeSubmitPage();
   }
 
   if (document.body.classList.contains("maintainer-page")) {
+    const { initializeMaintainerPage } = await import("./pages/maintainer.js");
     await initializeMaintainerPage();
   }
 
   if (document.body.classList.contains("maintainer-import-page")) {
+    const { initializeMaintainerImportsPage } = await import("./pages/maintainer-imports.js");
     await initializeMaintainerImportsPage();
   }
 
   if (document.body.classList.contains("for-creators-page")) {
+    const { initializeForCreatorsPage } = await import("./pages/creators.js");
     await initializeForCreatorsPage();
   }
 
   if (document.body.classList.contains("creator-standards-page")) {
+    const { initializeCreatorStandardsPage } = await import("./pages/creators.js");
     initializeCreatorStandardsPage();
   }
+
+  await sharedChatPromise;
+}
+
+async function initializeSharedChatWhenPresent() {
+  if (!toggleBtn || !chatContainer) {
+    return;
+  }
+
+  const { initializeSharedChat } = await import("./chat.js");
+  initializeSharedChat();
 }
 
 function initializeHistoryBackLinks() {
@@ -184,6 +196,7 @@ function initializeBackToTop() {
   syncBackToTopState();
 
   backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
   });
 }

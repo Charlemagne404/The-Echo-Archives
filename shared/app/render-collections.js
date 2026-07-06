@@ -1,5 +1,5 @@
 import { getCollectionShows } from "./data.js";
-import { configureImageElement } from "./images.js";
+import { configureImageElement, resolveImageSrc } from "./images.js";
 import { createArchiveCollectionHref, createCollectionHref } from "./urls.js";
 import { toDisplayTag } from "./utils.js";
 
@@ -23,9 +23,11 @@ function applyCollectionAccent(node, shows) {
 }
 
 export function getCollectionCoverShows(collection, shows, limit = COLLAGE_LIMIT) {
-  const showMap = new Map(shows.map((show) => [show.id, show]));
-  const preferred = (collection.coverShowIds || []).map((showId) => showMap.get(showId)).filter(Boolean);
-  const remaining = shows.filter((show) => !preferred.some((preferredShow) => preferredShow.id === show.id));
+  const collectionRecord = collection || {};
+  const showRecords = Array.isArray(shows) ? shows : [];
+  const showMap = new Map(showRecords.map((show) => [show.id, show]));
+  const preferred = (collectionRecord.coverShowIds || []).map((showId) => showMap.get(showId)).filter(Boolean);
+  const remaining = showRecords.filter((show) => !preferred.some((preferredShow) => preferredShow.id === show.id));
   return [...preferred, ...remaining].slice(0, limit);
 }
 
@@ -41,7 +43,7 @@ export function createCollectionCoverCollage(collection, shows, { className = "c
     frame.dataset.coverIndex = String(index + 1);
 
     const image = document.createElement("img");
-    image.src = `/${show.cover}`;
+    image.src = show.imageSrc || resolveImageSrc(show.cover);
     image.alt = "";
     configureImageElement(image, {
       loading,
@@ -70,24 +72,26 @@ export function createCollectionIntentTagList(collection, maxItems = 3) {
 export function createCollectionCard(collection, index, showMap, { isClone = false } = {}) {
   const collectionShows = getCollectionShows(collection, showMap);
   const coverShow = getCollectionCoverShows(collection, collectionShows, 1)[0];
+  const collectionId = collection.id || "";
+  const title = collection.title || "Untitled collection";
   const card = document.createElement("a");
   card.className = "collection-card";
-  card.href = createCollectionHref(collection.id);
-  card.setAttribute("aria-label", `Browse the ${collection.title} collection`);
-  card.dataset.collectionId = collection.id;
+  card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
+  card.setAttribute("aria-label", `Browse the ${title} collection`);
+  card.dataset.collectionId = collectionId;
   if (isClone) {
     card.dataset.collectionClone = "true";
     card.tabIndex = -1;
     card.setAttribute("aria-hidden", "true");
   }
 
-  if (coverShow?.cover) {
-    card.style.setProperty("--collection-cover-image", `url("/${coverShow.cover}")`);
+  if (coverShow?.imageSrc || coverShow?.cover) {
+    card.style.setProperty("--collection-cover-image", `url("${coverShow.imageSrc || resolveImageSrc(coverShow.cover)}")`);
   }
   applyCollectionAccent(card, collectionShows);
 
-  const title = document.createElement("h3");
-  title.textContent = collection.title;
+  const titleNode = document.createElement("h3");
+  titleNode.textContent = title;
 
   const footer = document.createElement("div");
   footer.className = "collection-card-footer";
@@ -101,16 +105,18 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   cta.textContent = "Browse";
 
   footer.append(count, cta);
-  card.append(title, footer);
+  card.append(titleNode, footer);
   return card;
 }
 
 export function createCollectionFeatureCard(collection, shows) {
+  const collectionId = collection.id || "";
+  const titleText = collection.title || "Untitled collection";
   const card = document.createElement("a");
   card.className = "collections-feature-card";
-  card.href = createCollectionHref(collection.id);
-  card.dataset.collectionId = collection.id;
-  card.setAttribute("aria-label", `Open the ${collection.title} collection`);
+  card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
+  card.dataset.collectionId = collectionId;
+  card.setAttribute("aria-label", `Open the ${titleText} collection`);
   applyCollectionAccent(card, shows);
 
   const label = document.createElement("span");
@@ -118,10 +124,10 @@ export function createCollectionFeatureCard(collection, shows) {
   label.textContent = collection.label || "Curated route";
 
   const title = document.createElement("h3");
-  title.textContent = collection.title;
+  title.textContent = titleText;
 
   const description = document.createElement("p");
-  description.textContent = collection.description;
+  description.textContent = collection.description || "Collection description not cataloged yet.";
 
   const meta = document.createElement("p");
   meta.className = "collections-card-meta";
@@ -136,9 +142,10 @@ export function createCollectionFeatureCard(collection, shows) {
 }
 
 export function createCollectionDirectoryCard(collection, shows) {
+  const collectionId = collection.id || "";
   const article = document.createElement("article");
   article.className = "collections-directory-card";
-  article.dataset.collectionId = collection.id;
+  article.dataset.collectionId = collectionId;
   article.dataset.intentTags = (collection.intentTags || []).join(" ");
   applyCollectionAccent(article, shows);
 
@@ -151,11 +158,11 @@ export function createCollectionDirectoryCard(collection, shows) {
   label.textContent = collection.label || (collection.featured ? "Featured route" : "Curated route");
 
   const title = document.createElement("h3");
-  title.textContent = collection.title;
+  title.textContent = collection.title || "Untitled collection";
 
   const description = document.createElement("p");
   description.className = "collections-directory-description";
-  description.textContent = collection.description;
+  description.textContent = collection.description || "Collection description not cataloged yet.";
 
   const meta = document.createElement("p");
   meta.className = "collections-card-meta";
@@ -166,12 +173,12 @@ export function createCollectionDirectoryCard(collection, shows) {
 
   const collectionLink = document.createElement("a");
   collectionLink.className = "collection-action";
-  collectionLink.href = createCollectionHref(collection.id);
+  collectionLink.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   collectionLink.textContent = "Open collection";
 
   const archiveLink = document.createElement("a");
   archiveLink.className = "collection-secondary-link";
-  archiveLink.href = createArchiveCollectionHref(collection.id);
+  archiveLink.href = collectionId ? createArchiveCollectionHref(collectionId) : "/#archive";
   archiveLink.textContent = "Browse in archive";
 
   actions.append(collectionLink, archiveLink);

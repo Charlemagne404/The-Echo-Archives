@@ -1,4 +1,5 @@
 import {
+  ARCHIVE_STATS_URL,
   SHOWS_DATA_URL,
   COLLECTIONS_DATA_URL,
   SEARCH_INDEX_URL,
@@ -22,13 +23,32 @@ const {
   normalizeShowRecord: normalizeArchiveShowRecord,
 } = archiveRecord;
 
-export async function fetchJson(url) {
-  const response = await fetch(url, { headers: { Accept: "application/json" } });
+export async function fetchJson(url, options = {}) {
+  const { headers: headerOverrides = {}, ...requestOptions } = options || {};
+  const response = await fetch(url, {
+    ...requestOptions,
+    headers: {
+      Accept: "application/json",
+      ...headerOverrides,
+    },
+  });
   if (!response.ok) {
     throw new Error(`Request for ${url} failed with ${response.status}`);
   }
 
-  return response.json();
+  try {
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Request for ${url} did not return valid JSON.`, { cause: error });
+  }
+}
+
+function assertJsonArray(value, url, label) {
+  if (!Array.isArray(value)) {
+    throw new Error(`${label} from ${url} must be a JSON array.`);
+  }
+
+  return value;
 }
 
 export async function loadShows() {
@@ -36,9 +56,19 @@ export async function loadShows() {
     return dataCache.shows;
   }
 
-  const records = await fetchJson(SHOWS_DATA_URL);
+  const records = assertJsonArray(await fetchJson(SHOWS_DATA_URL), SHOWS_DATA_URL, "Show data");
   dataCache.shows = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
   return dataCache.shows;
+}
+
+export async function loadArchiveStats() {
+  if (dataCache.archiveStats) {
+    return dataCache.archiveStats;
+  }
+
+  const record = await fetchJson(ARCHIVE_STATS_URL);
+  dataCache.archiveStats = record;
+  return dataCache.archiveStats;
 }
 
 export async function loadSearchIndex() {
@@ -46,7 +76,7 @@ export async function loadSearchIndex() {
     return dataCache.searchIndex;
   }
 
-  const records = await fetchJson(SEARCH_INDEX_URL);
+  const records = assertJsonArray(await fetchJson(SEARCH_INDEX_URL, { cache: "no-store" }), SEARCH_INDEX_URL, "Search index data");
   dataCache.searchIndex = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
   return dataCache.searchIndex;
 }
@@ -56,27 +86,27 @@ export async function loadCollections() {
     return dataCache.collections;
   }
 
-  const records = await fetchJson(COLLECTIONS_DATA_URL);
+  const records = assertJsonArray(await fetchJson(COLLECTIONS_DATA_URL), COLLECTIONS_DATA_URL, "Collection data");
   dataCache.collections = records.map((record) => normalizeCollectionRecord(record));
   return dataCache.collections;
 }
 
 export function getPublishedShows(shows) {
-  return shows.filter((show) => show.status === "published");
+  return (Array.isArray(shows) ? shows : []).filter((show) => show.status === "published");
 }
 
 export { normalizeReviewParagraphs };
 
 export function buildCollectionMap(collections) {
-  return new Map(collections.map((collection) => [collection.id, collection]));
+  return new Map((Array.isArray(collections) ? collections : []).map((collection) => [collection.id, collection]));
 }
 
 export function getCollectionShows(collection, showMap) {
-  if (!collection) {
+  if (!collection || !showMap || typeof showMap.get !== "function") {
     return [];
   }
 
-  return collection.showIds
+  return (Array.isArray(collection.showIds) ? collection.showIds : [])
     .map((showId) => showMap.get(showId))
     .filter((show) => show && show.status === "published");
 }
@@ -93,7 +123,7 @@ function normalizeShowRecord(record) {
 }
 
 export function buildShowMap(shows) {
-  return new Map(shows.map((show) => [show.id, show]));
+  return new Map((Array.isArray(shows) ? shows : []).map((show) => [show.id, show]));
 }
 
 export function getArchiveStats(shows, collections) {
@@ -104,7 +134,14 @@ export function getArchiveStats(shows, collections) {
     ...(Array.isArray(collections) ? collections.map((collection) => collection.updatedAt) : []),
   ]
     .filter(Boolean)
-    .sort()
+    .sort((left, right) => {
+      const leftTimestamp = Date.parse(String(left || ""));
+      const rightTimestamp = Date.parse(String(right || ""));
+      return (
+        (Number.isFinite(leftTimestamp) ? leftTimestamp : Number.NEGATIVE_INFINITY) -
+        (Number.isFinite(rightTimestamp) ? rightTimestamp : Number.NEGATIVE_INFINITY)
+      );
+    })
     .at(-1);
 
   return {
@@ -130,8 +167,8 @@ export function applyArchiveStats(prefix, stats) {
 export function getVisibleFilterTags(shows) {
   const counts = new Map();
 
-  shows.forEach((show) => {
-    show.tags.forEach((tag) => {
+  (Array.isArray(shows) ? shows : []).forEach((show) => {
+    (Array.isArray(show.tags) ? show.tags : []).forEach((tag) => {
       const normalized = normalizeTag(tag);
       if (!normalized) {
         return;
@@ -198,7 +235,7 @@ const FILTER_MENU_BUCKETS = [
 function createCountedOptions(shows, selector, formatter = toDisplayTag) {
   const counts = new Map();
 
-  shows.forEach((show) => {
+  (Array.isArray(shows) ? shows : []).forEach((show) => {
     const values = Array.isArray(selector(show)) ? selector(show) : [];
     values.forEach((value) => {
       const normalized = String(value || "").trim();

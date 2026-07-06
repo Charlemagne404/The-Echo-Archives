@@ -17,8 +17,37 @@
     "reviewFile",
   ];
 
+  const FALLBACK_SHOW_TITLE = "Untitled show";
+  const FALLBACK_SHOW_DESCRIPTION = "Description not cataloged yet.";
+  const FALLBACK_SHOW_COVER = "images/TEA-Logo-S.png";
+  const FALLBACK_COLLECTION_TITLE = "Untitled collection";
+  const FALLBACK_COLLECTION_DESCRIPTION = "Collection description not cataloged yet.";
+
   function createShowHref(id) {
     return `/show?id=${encodeURIComponent(id)}`;
+  }
+
+  function normalizeDisplayText(value, fallback = "") {
+    const normalized = String(value || "").trim();
+    return normalized || fallback;
+  }
+
+  function normalizeCoverPath(value) {
+    const normalized = normalizeDisplayText(value, FALLBACK_SHOW_COVER);
+    if (/^(?:https?:)?\/\//i.test(normalized) || /^data:image\//i.test(normalized)) {
+      return normalized;
+    }
+
+    return normalized.replace(/^\/+/, "") || FALLBACK_SHOW_COVER;
+  }
+
+  function createImageSrc(value) {
+    const normalized = normalizeCoverPath(value);
+    if (/^(?:https?:)?\/\//i.test(normalized) || /^data:image\//i.test(normalized)) {
+      return normalized;
+    }
+
+    return `/${normalized}`;
   }
 
   function normalizeTagValue(value) {
@@ -156,76 +185,103 @@
       return {};
     }
 
+    function normalizeRatingValue(entryValue) {
+      if (typeof entryValue === "number" && Number.isFinite(entryValue)) {
+        return entryValue >= 0 && entryValue <= 10 ? entryValue : undefined;
+      }
+
+      const parsed =
+        typeof entryValue === "string" && entryValue.trim() ? Number.parseFloat(entryValue.trim()) : Number.NaN;
+      return Number.isFinite(parsed) && parsed >= 0 && parsed <= 10 ? parsed : undefined;
+    }
+
     return Object.fromEntries(
       Object.entries(value)
         .map(([key, entryValue]) => {
-          if (typeof entryValue === "number" && Number.isFinite(entryValue)) {
-            return [String(key || "").trim(), entryValue];
-          }
-
-          const parsed =
-            typeof entryValue === "string" && entryValue.trim() ? Number.parseFloat(entryValue.trim()) : Number.NaN;
-          return [String(key || "").trim(), Number.isFinite(parsed) ? parsed : undefined];
+          return [String(key || "").trim(), normalizeRatingValue(entryValue)];
         })
         .filter(([key, entryValue]) => key && entryValue !== undefined),
     );
   }
 
   function normalizeCollectionRecord(record) {
-    const order = normalizeOptionalNumber(record.order);
+    const source = record && typeof record === "object" ? record : {};
+    const order = normalizeOptionalNumber(source.order);
 
     return {
-      ...record,
-      showIds: Array.isArray(record.showIds) ? record.showIds.filter(Boolean) : [],
-      coverShowIds: normalizeStringArray(record.coverShowIds),
-      intentTags: normalizeStringArray(record.intentTags).map(normalizeTagValue),
-      showReasons: normalizeKeyedTextMap(record.showReasons),
-      label: typeof record.label === "string" ? record.label.trim() : "",
-      commitment: typeof record.commitment === "string" ? record.commitment.trim() : "",
-      order: order === undefined ? 0 : order,
+      ...source,
+      id: normalizeDisplayText(source.id),
+      title: normalizeDisplayText(source.title, FALLBACK_COLLECTION_TITLE),
+      description: normalizeDisplayText(source.description, FALLBACK_COLLECTION_DESCRIPTION),
+      showIds: normalizeStringArray(source.showIds),
+      coverShowIds: normalizeStringArray(source.coverShowIds),
+      intentTags: normalizeStringArray(source.intentTags).map(normalizeTagValue),
+      showReasons: normalizeKeyedTextMap(source.showReasons),
+      label: typeof source.label === "string" ? source.label.trim() : "",
+      commitment: typeof source.commitment === "string" ? source.commitment.trim() : "",
+      order: order === undefined ? Number.MAX_SAFE_INTEGER : order,
     };
   }
 
   function normalizeShowRecord(record) {
-    const tags = normalizeStringArray(record.tags);
-    const genres = normalizeStringArray(record.genres);
-    const tones = normalizeStringArray(record.tones);
-    const formats = normalizeStringArray(record.formats);
-    const bestFor = normalizeStringArray(record.bestFor);
-    const similarTo = normalizeStringArray(record.similarTo);
-    const aliases = normalizeStringArray(record.aliases);
-    const themes = normalizeStringArray(record.themes);
-    const contentNotes = normalizeStringArray(record.contentNotes);
-    const languages = normalizeStringArray(record.languages);
-    const transcriptLanguages = normalizeStringArray(record.transcriptLanguages);
-    const cast = normalizeStringArray(record.cast);
-    const creators = normalizeStringArray(record.creators);
-    const similarReasons = normalizeKeyedTextMap(record.similarReasons);
-    const listenLinks = normalizeUrlMap(record.listenLinks);
-    const officialLinks = normalizeUrlMap(record.officialLinks);
-    const facts = normalizeStructuredObject(record.facts);
-    const credits = normalizeStructuredObject(record.credits);
-    const availability = normalizeStructuredObject(record.availability);
-    const content = normalizeStructuredObject(record.content);
-    const verification = normalizeStructuredObject(record.verification);
-    const metadata = normalizeStructuredObject(record.metadata);
-    const popularity = normalizePopularity(record.popularity);
-    const releaseDates = normalizeStructuredObject(record.releaseDates);
-    const ratings = normalizeRatings(record.ratings);
+    const source = record && typeof record === "object" ? record : {};
+    const id = normalizeDisplayText(source.id);
+    const title = normalizeDisplayText(source.title, FALLBACK_SHOW_TITLE);
+    const description = normalizeDisplayText(source.description, FALLBACK_SHOW_DESCRIPTION);
+    const cover = normalizeCoverPath(source.cover);
+    const coverAlt = normalizeDisplayText(source.coverAlt, `${title} cover art`);
+    const status = normalizeDisplayText(source.status);
+    const reviewStatus = normalizeDisplayText(source.reviewStatus);
+    const releaseStatus = normalizeDisplayText(source.releaseStatus);
+    const completionStatus = normalizeDisplayText(source.completionStatus);
+    const tags = normalizeStringArray(source.tags);
+    const genres = normalizeStringArray(source.genres);
+    const tones = normalizeStringArray(source.tones);
+    const formats = normalizeStringArray(source.formats);
+    const bestFor = normalizeStringArray(source.bestFor);
+    const similarTo = normalizeStringArray(source.similarTo);
+    const aliases = normalizeStringArray(source.aliases);
+    const themes = normalizeStringArray(source.themes);
+    const contentNotes = normalizeStringArray(source.contentNotes);
+    const languages = normalizeStringArray(source.languages);
+    const transcriptLanguages = normalizeStringArray(source.transcriptLanguages);
+    const cast = normalizeStringArray(source.cast);
+    const creators = normalizeStringArray(source.creators);
+    const similarReasons = normalizeKeyedTextMap(source.similarReasons);
+    const listenLinks = normalizeUrlMap(source.listenLinks);
+    const officialLinks = normalizeUrlMap(source.officialLinks);
+    const facts = normalizeStructuredObject(source.facts);
+    const credits = normalizeStructuredObject(source.credits);
+    const availability = normalizeStructuredObject(source.availability);
+    const content = normalizeStructuredObject(source.content);
+    const verification = normalizeStructuredObject(source.verification);
+    const metadata = normalizeStructuredObject(source.metadata);
+    const popularity = normalizePopularity(source.popularity);
+    const releaseDates = normalizeStructuredObject(source.releaseDates);
+    const ratings = normalizeRatings(source.ratings);
     const spoilerFreeReviewParagraphs = normalizeReviewParagraphs(
-      record.spoilerFreeReviewParagraphs ?? record.spoilerFreeReview,
+      source.spoilerFreeReviewParagraphs ?? source.spoilerFreeReview,
     );
-    const thoughtsParagraphs = normalizeReviewParagraphs(record.thoughtsParagraphs ?? record.thoughts);
+    const thoughtsParagraphs = normalizeReviewParagraphs(source.thoughtsParagraphs ?? source.thoughts);
     const spoilerFreeReview =
-      typeof record.spoilerFreeReview === "string"
-        ? record.spoilerFreeReview.trim()
+      typeof source.spoilerFreeReview === "string"
+        ? source.spoilerFreeReview.trim()
         : joinReviewParagraphs(spoilerFreeReviewParagraphs);
     const thoughts =
-      typeof record.thoughts === "string" ? record.thoughts.trim() : joinReviewParagraphs(thoughtsParagraphs);
+      typeof source.thoughts === "string" ? source.thoughts.trim() : joinReviewParagraphs(thoughtsParagraphs);
     const archiveRating = ratings.archive;
 
     return {
-      ...record,
+      ...source,
+      id,
+      title,
+      description,
+      cover,
+      coverAlt,
+      status,
+      reviewStatus,
+      releaseStatus,
+      completionStatus,
       tags,
       genres,
       tones,
@@ -259,11 +315,12 @@
       spoilerFreeReviewParagraphs,
       thoughts,
       thoughtsParagraphs,
-      href: createShowHref(record.id),
-      hasPage: record.status === "published",
-      image: record.cover || "",
-      imageAlt: record.coverAlt || `${record.title} cover art`,
-      summary: record.description || "",
+      href: createShowHref(id),
+      hasPage: status === "published",
+      image: cover,
+      imageSrc: createImageSrc(cover),
+      imageAlt: coverAlt,
+      summary: description,
       finalRating: Number.isFinite(archiveRating) ? archiveRating : null,
       searchText: "",
       tagTokens: tags.map((tag) => normalizeTagValue(tag)),

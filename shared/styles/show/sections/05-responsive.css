@@ -178,7 +178,7 @@
   .detail-cover-column {
     order: 3;
     justify-self: center;
-    width: min(60vw, 220px);
+    width: min(72vw, 250px);
   }
 
   .detail-actions {
@@ -274,6 +274,10 @@
 }
 
 @media (max-width: 360px) {
+  .detail-meta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .detail-score-cluster,
   .detail-meta-grid {
     grid-template-columns: minmax(0, 1fr);

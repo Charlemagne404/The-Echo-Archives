@@ -1,4 +1,5 @@
 import { getShowCollectionMemberships } from "../render-collections.js";
+import { resolveImageSrc } from "../images.js";
 import { createCollectionHref } from "../urls.js";
 import { escapeHtml, getSimilarReason } from "./utils.js";
 
@@ -68,12 +69,14 @@ export function renderSimilarSection(show, showMap) {
           .map(
             ({ neighbor, reason }) => `
               <article class="detail-similar-card">
-                <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt)}" width="320" height="320" loading="lazy" decoding="async" />
+                <img src="${escapeHtml(
+                  neighbor.imageSrc || resolveImageSrc(neighbor.cover),
+                )}" alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
                 <div class="detail-card-copy">
-                  <h3>${escapeHtml(neighbor.title)}</h3>
+                  <h3>${escapeHtml(neighbor.title || "Untitled show")}</h3>
                   <p class="detail-similar-reason">${escapeHtml(reason)}</p>
-                  <p>${escapeHtml(neighbor.archiveTake || neighbor.description)}</p>
-                  <a class="detail-archive-link" href="${escapeHtml(neighbor.href)}">Open show</a>
+                  <p>${escapeHtml(neighbor.archiveTake || neighbor.description || "Description not cataloged yet.")}</p>
+                  <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}">Open show</a>
                 </div>
               </article>
             `,

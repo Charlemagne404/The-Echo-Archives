@@ -314,12 +314,14 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - Every `similarReasons` key must also appear in `similarTo`.
 - Every populated URL in `listenLinks` must be a valid absolute URL.
 - Every populated URL in `officialLinks` must be a valid absolute URL.
+- Every populated `ratings` value must be numeric and between 0 and 10.
 - `popularity.score`, when present, must be numeric.
 - `createdAt` and `updatedAt` must be valid dates when present.
 - `firstRelease`, `firstReleasedAt`, `latestRelease`, `lastReleasedAt`, `releaseDates.first`, `releaseDates.latest`, and `verification.verifiedAt` must be valid dates when present.
 - `creatorId` and `networkId` must use slug ids when present.
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
+- Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 
 ## Review Companion Shape

@@ -4,6 +4,19 @@ function stripQuery(value = "") {
   return String(value || "").split("?", 1)[0];
 }
 
+export function resolveImageSrc(value = "", fallbackSrc = DEFAULT_FALLBACK_COVER_IMAGE) {
+  const normalized = String(value || "").trim();
+  if (!normalized) {
+    return fallbackSrc;
+  }
+
+  if (/^(?:https?:)?\/\//i.test(normalized) || /^data:image\//i.test(normalized)) {
+    return normalized;
+  }
+
+  return `/${normalized.replace(/^\/+/, "")}`;
+}
+
 function shouldPreferEagerLoading(image) {
   return Boolean(
     image.closest(".detail-cover-card") ||
@@ -57,6 +70,12 @@ export function configureImageElement(
   }
   if ("fetchPriority" in image) {
     image.fetchPriority = fetchPriority || (resolvedLoading === "eager" ? "high" : "auto");
+  }
+
+  if (!String(image.getAttribute("src") || "").trim()) {
+    image.src = fallbackSrc;
+    image.classList.add("is-image-fallback");
+    image.dataset.imageFallbackApplied = "true";
   }
 
   bindFallback(image, fallbackSrc);

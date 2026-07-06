@@ -140,6 +140,7 @@ function checkGeneratedAssets() {
 function checkCatalogArtifacts() {
   assert(fs.existsSync(path.join(ROOT, "catalog-src", "shows", "_order.json")), "catalog-src/shows/_order.json is missing.");
   assert(fs.existsSync(path.join(ROOT, "catalog-src", "collections", "_order.json")), "catalog-src/collections/_order.json is missing.");
+  assert(fs.existsSync(path.join(ROOT, "data", "archive-stats.json")), "data/archive-stats.json is missing.");
   assert(fs.existsSync(path.join(ROOT, "data", "search-index.json")), "data/search-index.json is missing.");
   assert(fs.existsSync(path.join(ROOT, "docs", "generated", "catalog-status.md")), "docs/generated/catalog-status.md is missing.");
 }

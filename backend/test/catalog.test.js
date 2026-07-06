@@ -297,6 +297,69 @@ test("published shows may omit ratings.archive during catalog load", async () =>
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("catalog load rejects out-of-range ratings", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(
+    path.join(dataRoot, "shows.json"),
+    [
+      createShowRecord({
+        ratings: {
+          archive: 11,
+        },
+      }),
+    ],
+  );
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  await assert.rejects(loadCatalog(tempRoot), /out-of-range ratings\.archive/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("catalog load rejects impossible date-only values", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(
+    path.join(dataRoot, "shows.json"),
+    [
+      createShowRecord({
+        updatedAt: "2026-02-31",
+      }),
+    ],
+  );
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  await assert.rejects(loadCatalog(tempRoot), /invalid updatedAt/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("collections reject duplicate show references", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord()]);
+  writeJson(path.join(dataRoot, "collections.json"), [
+    {
+      id: "duplicate-route",
+      title: "Duplicate route",
+      description: "Contains duplicated show references.",
+      showIds: ["demo-show", "demo-show"],
+      updatedAt: "2026-06-30",
+    },
+  ]);
+
+  assert.throws(
+    () => loadCollections(tempRoot, new Set(["demo-show"])),
+    /duplicate showIds value/i,
+  );
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
 test("published shows still fail Gate B validation when discovery fields are missing", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

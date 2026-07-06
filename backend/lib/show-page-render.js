@@ -24,8 +24,37 @@ function formatRating(value) {
   return Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(1);
 }
 
+function getShowImageSrc(show) {
+  const imageSrc = String(show?.imageSrc || "").trim();
+  if (imageSrc) {
+    return imageSrc;
+  }
+
+  const cover = String(show?.cover || "").trim();
+  if (!cover) {
+    return "/images/TEA-Logo-S.png";
+  }
+
+  if (/^(?:https?:)?\/\//i.test(cover) || /^data:image\//i.test(cover)) {
+    return cover;
+  }
+
+  return `/${cover.replace(/^\/+/, "")}`;
+}
+
+function parseDisplayDate(value) {
+  const text = String(value || "").trim();
+  const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+  if (dateOnlyMatch) {
+    const [, year, month, day] = dateOnlyMatch;
+    return new Date(Number(year), Number(month) - 1, Number(day));
+  }
+
+  return new Date(value);
+}
+
 function formatDate(value) {
-  const date = new Date(value);
+  const date = parseDisplayDate(value);
   if (Number.isNaN(date.getTime())) {
     return value || "Not cataloged yet";
   }
@@ -321,8 +350,8 @@ function renderSimilarSection(show, showMap) {
           .map(
             (neighbor) => `
               <article class="detail-similar-card">
-                <img src="/${escapeHtml(neighbor.cover)}" alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
-                <div class="detail-card-copy"><h3>${escapeHtml(neighbor.title)}</h3><p>${escapeHtml(neighbor.archiveTake || neighbor.description)}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/show?id=${neighbor.id}`)}">Open show</a></div>
+                <img src="${escapeHtml(getShowImageSrc(neighbor))}" alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+                <div class="detail-card-copy"><h3>${escapeHtml(neighbor.title || "Untitled show")}</h3><p>${escapeHtml(neighbor.archiveTake || neighbor.description || "Description not cataloged yet.")}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/show?id=${neighbor.id || ""}`)}">Open show</a></div>
               </article>
             `,
           )
@@ -404,7 +433,7 @@ function createMissingShowPageMarkup() {
 }
 
 function injectShowRootContent(html, content) {
-  return html.replace(/<main id="showRoot"><\/main>/, `<main id="showRoot">${content}</main>`);
+  return html.replace(/<main\b([^>]*\bid="showRoot"[^>]*)>\s*<\/main>/i, `<main$1>${content}</main>`);
 }
 
 module.exports = {

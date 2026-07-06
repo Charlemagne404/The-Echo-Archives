@@ -20,13 +20,15 @@
 <meta name="theme-color" content="#06080b" />
 
 
-<link rel="stylesheet" href="/style.css?v=e3291f2c8e" />
-<link rel="stylesheet" href="/home.css?v=f0cdc39f44" />
+<link rel="stylesheet" href="/style.css?v=37191a0966" />
+<link rel="stylesheet" href="/home.css?v=f036412852" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 </head>
 <body class="home-page collections-page info-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <header class="site-header">
   <a class="site-brand" href="/" aria-label="The Echo Archives home">
     <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
@@ -76,10 +78,10 @@
   </div>
 </header>
 
-<aside id="chat-container" aria-hidden="true">
+<aside id="chat-container" role="dialog" aria-modal="true" aria-labelledby="chatDialogTitle" aria-hidden="true">
     <div class="chat-panel-header">
       <div class="chat-panel-heading">
-        <h2>Ask the Archivist</h2>
+        <h2 id="chatDialogTitle">Ask the Archivist</h2>
         <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
       </div>
       <div class="chat-panel-actions">
@@ -113,7 +115,7 @@
     <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
 
-<main class="home-main page-main collections-main">
+<main id="main-content" tabindex="-1" class="home-main page-main collections-main">
     <section class="hero-shell collections-hero" aria-labelledby="collectionsHeroTitle">
       <div class="hero-panel page-panel collections-hero-panel">
         <div class="hero-copy collections-hero-copy">
@@ -232,7 +234,7 @@
 <footer id="site-footer">
   <div class="footer-brand">
     <a class="footer-brand-mark" href="/" aria-label="The Echo Archives home">
-      <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+      <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" width="977" height="255" />
     </a>
     <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
     <div class="footer-meta-row">
@@ -275,18 +277,18 @@
     </div>
     <div class="footer-support-actions">
       <a class="footer-support-primary" href="/submit">Submit to the archive</a>
-      <a class="footer-support-secondary" href="https://patreon.com/ContinentalStudios?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" target="_blank" rel="noreferrer">
-        <img src="/images/patreon.svg" alt="" aria-hidden="true" />
+      <a class="footer-support-secondary" href="https://patreon.com/ContinentalStudios" target="_blank" rel="noreferrer">
+        <img src="/images/patreon.svg" alt="" aria-hidden="true" width="800" height="800" />
         <span>Support on Patreon</span>
       </a>
     </div>
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=7e3954038d"></script>
+  <script src="/shared/archive-record.js?v=d3d37891f4"></script>
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=ab34418b63"></script>
+  <script type="module" src="/script.js?v=bd679f9b66"></script>
 </body>
 </html>

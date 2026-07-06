@@ -111,12 +111,16 @@ If maintainer auth is enabled, also verify:
 
 ## Launch Checks
 
+- production must serve `/show`, `/collection`, and `/sitemap.xml` through the backend so crawlers and social scrapers receive entry-specific metadata instead of the generic static shells
+- the committed `sitemap.xml` should contain show and collection URLs generated from the live catalog, not just top-level pages
 - `sitemap.xml` loads
 - `robots.txt` loads
 - `sw.js` loads
 - legacy show-detail redirects still land on canonical `show.html?id=...` routes
+- maintainer auth is enabled and tested before public promotion of submissions or corrections
 - submission and correction handling is ready before promotion
 - submission queue behavior is the live intake path; no public email-delivery feature is assumed
+- community rating writes are either fully configured and tested with Turnstile plus voter-hash secrets, or clearly left read-only on purpose
 - run a private/incognito pass on `/`, `/show?id=<known-show-id>`, and `/submit`
 - verify Plausible pageview analytics only when `PLAUSIBLE_DOMAIN` is configured for the build
 - docs stay accurate when routes, schema, or operating assumptions change

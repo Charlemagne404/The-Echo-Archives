@@ -1,26 +1,28 @@
 import { HOME_CARD_PREVIEW_ID_PREFIX } from "../constants.js";
-import { configureImageElement } from "../images.js";
+import { configureImageElement, resolveImageSrc } from "../images.js";
 import { setHighlightedText, toDisplayTag } from "../utils.js";
 import { createEditorialBadges } from "./badges.js";
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { formatInlineTagList } from "./shared.js";
 
 export function createShowCard(show, { previewMode = "" } = {}) {
+  const showId = show.id || "unknown-show";
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
-  shell.dataset.podcastId = show.id;
+  shell.dataset.podcastId = showId;
   if (previewMode === "inline-expand") {
     shell.dataset.previewCard = "true";
   }
 
-  const previewId = previewMode === "inline-expand" ? buildHomeCardPreviewId(show.id) : "";
+  const previewId = previewMode === "inline-expand" ? buildHomeCardPreviewId(showId) : "";
   const card = createShowCardPrimary(show, {
     isPreviewTrigger: previewMode === "inline-expand",
     previewId,
   });
   shell.append(card);
   if (previewMode === "inline-expand") {
-    shell.append(createHomeCardPreviewPanel(show, previewId));
+    shell.__homeCardPreviewShow = show;
+    shell.__homeCardPreviewId = previewId;
   }
   syncShowCardPresentation(shell, show);
   return shell;
@@ -29,16 +31,16 @@ export function createShowCard(show, { previewMode = "" } = {}) {
 function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" } = {}) {
   const card = document.createElement("a");
   card.className = isPreviewTrigger ? "podcast-card podcast-card-primary" : "podcast-card";
-  card.href = show.href;
-  card.dataset.podcastId = show.id;
+  card.href = show.href || "/";
+  card.dataset.podcastId = show.id || "unknown-show";
   if (isPreviewTrigger) {
     card.setAttribute("aria-controls", previewId);
     card.setAttribute("aria-expanded", "false");
   }
 
   const image = document.createElement("img");
-  image.src = show.cover;
-  image.alt = show.coverAlt;
+  image.src = show.imageSrc || resolveImageSrc(show.cover);
+  image.alt = show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`;
   configureImageElement(image, {
     loading: "lazy",
     width: 320,
@@ -79,6 +81,27 @@ export function getShellPreviewPanel(shell) {
   return shell.querySelector(".home-card-preview");
 }
 
+export function ensureShellPreviewPanel(shell) {
+  if (!(shell instanceof HTMLElement) || shell.dataset.previewCard !== "true") {
+    return null;
+  }
+
+  const existingLayer = shell.querySelector(".home-card-preview-layer");
+  if (existingLayer) {
+    return existingLayer.querySelector(".home-card-preview");
+  }
+
+  const show = shell.__homeCardPreviewShow;
+  const previewId = shell.__homeCardPreviewId || shell.querySelector(".podcast-card-primary")?.getAttribute("aria-controls");
+  if (!show || !previewId) {
+    return null;
+  }
+
+  const layer = createHomeCardPreviewPanel(show, previewId);
+  shell.appendChild(layer);
+  return layer.querySelector(".home-card-preview");
+}
+
 function markPreviewStage(element, { delay = 0, offset = 10, scale = 0.985 } = {}) {
   if (!(element instanceof HTMLElement)) {
     return element;
@@ -106,19 +129,20 @@ function createHomeCardPreviewPanel(show, previewId) {
   const titleId = `${previewId}-title`;
   panel.setAttribute("aria-labelledby", titleId);
 
+  const titleText = show.title || "Untitled show";
   const closeButton = document.createElement("button");
   closeButton.className = "preview-close-button";
   closeButton.type = "button";
   closeButton.setAttribute("tabindex", "-1");
-  closeButton.setAttribute("aria-label", `Close the ${show.title} archive preview`);
+  closeButton.setAttribute("aria-label", `Close the ${titleText} archive preview`);
   closeButton.textContent = "x";
 
   const media = document.createElement("div");
   media.className = "home-card-preview-media";
 
   const image = document.createElement("img");
-  image.src = show.cover;
-  image.alt = show.coverAlt;
+  image.src = show.imageSrc || resolveImageSrc(show.cover);
+  image.alt = show.imageAlt || show.coverAlt || `${titleText} cover art`;
   image.className = "home-card-preview-media-art";
   configureImageElement(image, {
     loading: "lazy",
@@ -133,7 +157,7 @@ function createHomeCardPreviewPanel(show, previewId) {
   const title = document.createElement("h3");
   title.className = "home-card-preview-title";
   title.id = titleId;
-  title.textContent = show.title;
+  title.textContent = titleText;
 
   const accentRule = document.createElement("span");
   accentRule.className = "home-card-preview-rule";
@@ -157,7 +181,7 @@ function createHomeCardPreviewPanel(show, previewId) {
   goodForLabel.className = "preview-good-for-label";
   goodForLabel.textContent = "Good for:";
   const goodForText = document.createElement("span");
-  const bestForValues = show.bestFor.slice(0, 3).map((value) => toDisplayTag(value));
+  const bestForValues = (Array.isArray(show.bestFor) ? show.bestFor : []).slice(0, 3).map((value) => toDisplayTag(value));
   goodForText.textContent = bestForValues.length > 0 ? ` ${bestForValues.join(", ")}` : "";
   goodFor.append(goodForLabel, goodForText);
   goodFor.hidden = bestForValues.length === 0;
@@ -187,9 +211,9 @@ function createHomeCardPreviewPanel(show, previewId) {
 
   const openLink = document.createElement("a");
   openLink.className = "preview-open-link";
-  openLink.href = show.href;
+  openLink.href = show.href || "/";
   openLink.setAttribute("tabindex", "-1");
-  openLink.setAttribute("aria-label", `Open the ${show.title} archive page`);
+  openLink.setAttribute("aria-label", `Open the ${titleText} archive page`);
   const openText = document.createElement("span");
   openText.textContent = "Open archive";
   const openArrow = document.createElement("span");
@@ -244,7 +268,7 @@ export function syncShowCardPresentation(shell, show) {
   const metaText = presentation?.metaText || formatInlineTagList(show.tags, 2);
   const metaTerms = Array.isArray(presentation?.metaTerms) ? presentation.metaTerms : [];
 
-  setHighlightedText(nodes.title, show.title, titleTerms);
+  setHighlightedText(nodes.title, show.title || "Untitled show", titleTerms);
   setHighlightedText(nodes.tags, metaText, metaTerms);
   nodes.tags.hidden = !String(metaText || "").trim();
   nodes.tags.dataset.searchPresentation = presentation?.metaText ? "true" : "false";

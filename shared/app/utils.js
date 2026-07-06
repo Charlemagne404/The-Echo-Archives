@@ -66,10 +66,30 @@ export function formatRating(value) {
   return Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(1);
 }
 
+function parseDisplayDate(value) {
+  const text = String(value || "").trim();
+  const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+  if (dateOnlyMatch) {
+    const [, year, month, day] = dateOnlyMatch;
+    const date = new Date(Number(year), Number(month) - 1, Number(day));
+    const isSameDate =
+      date.getFullYear() === Number(year) &&
+      date.getMonth() === Number(month) - 1 &&
+      date.getDate() === Number(day);
+    return isSameDate ? date : null;
+  }
+
+  return text ? new Date(text) : null;
+}
+
 export function formatDate(value) {
-  const date = new Date(value);
+  const date = parseDisplayDate(value);
+  if (!date) {
+    return value ? "Date needs review" : "Not cataloged yet";
+  }
+
   if (Number.isNaN(date.getTime())) {
-    return value;
+    return "Date needs review";
   }
 
   return new Intl.DateTimeFormat("en-US", {
@@ -80,9 +100,13 @@ export function formatDate(value) {
 }
 
 export function formatCompactDate(value) {
-  const date = new Date(value);
+  const date = parseDisplayDate(value);
+  if (!date) {
+    return value ? "Needs review" : "Not cataloged";
+  }
+
   if (Number.isNaN(date.getTime())) {
-    return value;
+    return "Needs review";
   }
 
   return new Intl.DateTimeFormat("en-US", {

@@ -4,6 +4,7 @@ import {
   SHOW_CARD_PREVIEW_DELAY_MS,
   SHOW_CARD_PREVIEW_SCROLL_IDLE_MS,
 } from "../constants.js";
+import { ensureShellPreviewPanel } from "../render-cards.js";
 import {
   getPreviewShell,
   getTopPreviewShellAtPoint,
@@ -185,6 +186,7 @@ export function createHomePreviewHelpers({ state, archiveGrid, archiveSection, c
       return;
     }
 
+    ensureShellPreviewPanel(shell);
     const layer = getPreviewLayer(shell);
     const panel = getPreviewPanel(shell);
     const closeButton = getPreviewCloseButton(shell);

@@ -20,7 +20,7 @@ export const listenerReviewModeConfig = {
       },
       {
         title: "It enters the archive",
-        body: "If accepted, it becomes part of the curated collection.",
+        body: "If accepted, it can inform future community context on the relevant archive entry.",
       },
     ],
     railCards: [
@@ -66,7 +66,7 @@ export const listenerReviewModeConfig = {
           },
           {
             title: "Discovery support",
-            description: "Helpful reviews appear on show pages and in collections.",
+            description: "Accepted reviews can inform future show-page community context without replacing archive notes.",
             icon: "spark",
           },
           {

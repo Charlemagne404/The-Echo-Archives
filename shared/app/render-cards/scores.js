@@ -1,12 +1,14 @@
 import { formatRating } from "../utils.js";
 
 export function createArchiveScoreElement(show, { showLabel = true } = {}) {
+  const numericRating = Number(show?.finalRating);
+  const archiveScore = Number.isFinite(numericRating) && numericRating >= 0 && numericRating <= 10 ? numericRating : null;
   const archiveRating = document.createElement("div");
   archiveRating.className = "archive-inline-score";
   archiveRating.innerHTML = `
     <span class="inline-score-topline">
       <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-      <span class="inline-score-value">${formatRating(show.finalRating)}/10</span>
+      <span class="inline-score-value">${formatRating(archiveScore)}/10</span>
     </span>
     ${showLabel ? '<span class="inline-score-label">Archive Rating</span>' : ""}
   `;

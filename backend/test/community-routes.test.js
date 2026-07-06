@@ -220,3 +220,25 @@ test("community rating routes reject failed Turnstile tokens", async () => {
     await stopCommunityServer(context);
   }
 });
+
+test("community rating summaries ignore malformed cookie values", async () => {
+  const context = await startCommunityServer();
+
+  try {
+    const summaryResponse = await fetch(
+      `${context.baseUrl}/api/community/ratings/summary?podcastIds=impact-winter`,
+      {
+        headers: {
+          cookie: "echo-community-voter=%E0%A4%A; unrelated=ok",
+        },
+      },
+    );
+
+    assert.equal(summaryResponse.status, 200);
+    const summaryPayload = await summaryResponse.json();
+    assert.equal(summaryPayload.profileId, null);
+    assert.equal(summaryPayload.summaries["impact-winter"].ratingCount, 0);
+  } finally {
+    await stopCommunityServer(context);
+  }
+});

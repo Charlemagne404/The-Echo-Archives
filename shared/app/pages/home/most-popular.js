@@ -57,7 +57,7 @@ export function createMostPopularController({
     return (
       right.summary.ratingCount - left.summary.ratingCount ||
       (right.summary.averageRating || 0) - (left.summary.averageRating || 0) ||
-      left.show.title.localeCompare(right.show.title)
+      String(left.show.title || "Untitled show").localeCompare(String(right.show.title || "Untitled show"))
     );
   }
 
@@ -87,7 +87,7 @@ export function createMostPopularController({
       .sort((left, right) => {
         const leftScore = left.popularity?.score || 0;
         const rightScore = right.popularity?.score || 0;
-        return rightScore - leftScore || left.title.localeCompare(right.title);
+        return rightScore - leftScore || String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"));
       });
 
     const resolved = [];

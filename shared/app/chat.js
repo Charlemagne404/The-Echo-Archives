@@ -9,6 +9,7 @@ import {
   toggleBtn,
   userInput,
 } from "./constants.js";
+import { initializeChatOpenState, setChatOpen, trapChatFocus } from "./chat-open.js";
 import { applyChatCopy, getChatPageContext } from "./chat/context.js";
 import { appendTypingIndicator, renderHistoryEntry } from "./chat/messages.js";
 import { persistChatState, readChatState } from "./chat/persistence.js";
@@ -55,13 +56,23 @@ export function initializeSharedChat() {
       !chatContainer.contains(target) &&
       !toggleBtn.contains(target)
     ) {
-      setChatOpen(false);
+      setChatOpen(false, { restoreFocus: false });
     }
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && chatContainer.classList.contains("is-open")) {
+    if (!chatContainer.classList.contains("is-open")) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      event.preventDefault();
       setChatOpen(false);
+      return;
+    }
+
+    if (event.key === "Tab") {
+      trapChatFocus(event);
     }
   });
 
@@ -73,6 +84,8 @@ export function initializeSharedChat() {
       sendMessage();
     }
   });
+
+  initializeChatOpenState();
 }
 
 function initializeMobileChatLauncher() {
@@ -242,18 +255,4 @@ function renderAndStoreEntry(entry) {
   persistChatState();
 }
 
-export function setChatOpen(isOpen) {
-  if (!toggleBtn || !chatContainer) {
-    return;
-  }
-
-  chatContainer.classList.toggle("is-open", isOpen);
-  chatContainer.setAttribute("aria-hidden", String(!isOpen));
-  document.body?.classList.toggle("chat-panel-open", isOpen);
-  toggleBtn.setAttribute("aria-expanded", String(isOpen));
-  window.dispatchEvent(new CustomEvent("echo:chat-open-change", { detail: { isOpen } }));
-
-  if (isOpen) {
-    userInput?.focus();
-  }
-}
+export { setChatOpen };

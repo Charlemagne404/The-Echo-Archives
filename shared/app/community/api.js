@@ -1,4 +1,25 @@
 import { COMMUNITY_PROFILE_HEADER, COMMUNITY_PROFILE_KEY, communityState, dataCache } from "../constants.js";
+import { normalizeCommunitySummary } from "./formatters.js";
+
+function readStoredProfileId() {
+  try {
+    return window.localStorage.getItem(COMMUNITY_PROFILE_KEY) || "";
+  } catch (_error) {
+    return "";
+  }
+}
+
+function writeStoredProfileId(profileId) {
+  if (!profileId) {
+    return;
+  }
+
+  try {
+    window.localStorage.setItem(COMMUNITY_PROFILE_KEY, profileId);
+  } catch (_error) {
+    // The server cookie still keeps the device-scoped profile stable when localStorage is unavailable.
+  }
+}
 
 async function ensureCommunityProfile() {
   if (communityState.profileId) {
@@ -8,7 +29,7 @@ async function ensureCommunityProfile() {
   if (!communityState.profilePromise) {
     communityState.profilePromise = (async () => {
       try {
-        const existingProfileId = window.localStorage.getItem(COMMUNITY_PROFILE_KEY);
+        const existingProfileId = readStoredProfileId();
         const response = await fetch("/api/community/profiles/anonymous", {
           method: "POST",
           headers: {
@@ -22,8 +43,12 @@ async function ensureCommunityProfile() {
         }
 
         const result = await response.json();
+        if (!result || typeof result.profileId !== "string" || !result.profileId.trim()) {
+          throw new Error("Profile bootstrap response did not include a profile id.");
+        }
+
         communityState.profileId = result.profileId;
-        window.localStorage.setItem(COMMUNITY_PROFILE_KEY, result.profileId);
+        writeStoredProfileId(result.profileId);
         return result.profileId;
       } catch (error) {
         communityState.profilePromise = null;
@@ -42,23 +67,28 @@ async function fetchCommunityConfig() {
 
   if (!communityState.configPromise) {
     communityState.configPromise = (async () => {
-      const response = await fetch("/api/community/config");
-      if (!response.ok) {
-        throw new Error(`Community config request failed with ${response.status}`);
-      }
+      try {
+        const response = await fetch("/api/community/config");
+        if (!response.ok) {
+          throw new Error(`Community config request failed with ${response.status}`);
+        }
 
-      const result = await response.json();
-      communityState.config = {
-        minPublicRatings: Number.isInteger(result.minPublicRatings) ? result.minPublicRatings : 3,
-        ratings: {
-          writeEnabled: Boolean(result.ratings?.writeEnabled),
-        },
-        turnstile: {
-          enabled: Boolean(result.turnstile?.enabled),
-          siteKey: typeof result.turnstile?.siteKey === "string" ? result.turnstile.siteKey : "",
-        },
-      };
-      return communityState.config;
+        const result = await response.json();
+        communityState.config = {
+          minPublicRatings: Number.isInteger(result.minPublicRatings) ? result.minPublicRatings : 3,
+          ratings: {
+            writeEnabled: Boolean(result.ratings?.writeEnabled),
+          },
+          turnstile: {
+            enabled: Boolean(result.turnstile?.enabled),
+            siteKey: typeof result.turnstile?.siteKey === "string" ? result.turnstile.siteKey : "",
+          },
+        };
+        return communityState.config;
+      } catch (error) {
+        communityState.configPromise = null;
+        throw error;
+      }
     })();
   }
 
@@ -128,7 +158,7 @@ async function loadCommunitySummaries(podcastIds) {
   if (missingIds.length > 0) {
     const summaries = await fetchRatingSummaries(missingIds, null);
     Object.entries(summaries).forEach(([id, summary]) => {
-      dataCache.communitySummaries.set(id, summary);
+      dataCache.communitySummaries.set(id, normalizeCommunitySummary(summary));
     });
   }
 

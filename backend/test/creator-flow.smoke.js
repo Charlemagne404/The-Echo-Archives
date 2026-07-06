@@ -68,15 +68,11 @@ test("for creators page is reachable from nav and its primary interactions work"
       showCount: document.getElementById("creatorsShowCount")?.textContent?.trim() || "",
       metadataCount: document.getElementById("creatorsMetadataCount")?.textContent?.trim() || "",
       reviewCount: document.getElementById("creatorsReviewCount")?.textContent?.trim() || "",
-      spotlightTitle: document.getElementById("creatorSpotlightTitle")?.textContent?.trim() || "",
-      spotlightCreator: document.getElementById("creatorSpotlightCreator")?.textContent?.trim() || "",
-      placeholderName: document.getElementById("creatorSpotlightPlaceholderName")?.textContent?.trim() || "",
-      placeholderCopy: document.getElementById("creatorSpotlightPlaceholderCopy")?.textContent?.trim() || "",
-      spotlightText: document.getElementById("creator-spotlight")?.textContent || "",
-      spotlightLinks: Array.from(document.querySelectorAll("#creator-spotlight a")).map((link) => ({
-        label: link.textContent?.trim() || "",
-        href: link.getAttribute("href") || "",
-      })),
+      spotlightPresent: Boolean(document.getElementById("creator-spotlight")),
+      futureSpotlightText:
+        Array.from(document.querySelectorAll(".creator-list-item"))
+          .find((item) => (item.textContent || "").includes("Spotlights & features"))
+          ?.textContent?.trim() || "",
       submitHref:
         document.querySelector('.creator-action-card a[href^="/submit?submissionType=show"]')?.getAttribute("href") || "",
       correctionHref:
@@ -107,13 +103,9 @@ test("for creators page is reachable from nav and its primary interactions work"
     assert.ok(Number.parseInt(initialState.showCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.metadataCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.reviewCount, 10) >= 0);
-    assert.equal(initialState.spotlightTitle, "How a creator spotlight will appear");
-    assert.equal(initialState.spotlightCreator, "Intentional demo card");
-    assert.equal(initialState.placeholderName, "Example creator profile");
-    assert.match(initialState.placeholderCopy, /real creator context|sourced and verified/i);
-    assert.match(initialState.spotlightText, /interview format preview/i);
-    assert.doesNotMatch(initialState.spotlightText, /Impact Winter|Travis Beacham/i);
-    assert.deepEqual(initialState.spotlightLinks, []);
+    assert.equal(initialState.spotlightPresent, false);
+    assert.match(initialState.futureSpotlightText, /Spotlights & features/i);
+    assert.match(initialState.futureSpotlightText, /When they launch, they stay editorial/i);
     assert.equal(initialState.submitHref, "/submit?submissionType=show");
     assert.equal(initialState.correctionHref, "/submit?submissionType=correction");
     assert.equal(initialState.verificationHref, "/submit?submissionType=creator-verification");

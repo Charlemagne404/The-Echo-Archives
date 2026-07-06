@@ -66,6 +66,28 @@
     gap: 18px;
   }
 
+  .home-hero-actions {
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: 22px -4px 0;
+    padding: 0 4px 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-padding-inline: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-hero-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-hero-route {
+    flex: 0 0 auto;
+    min-height: 54px;
+    padding: 10px 14px 11px;
+  }
+
   .search-actions {
     gap: 12px;
   }
@@ -92,7 +114,15 @@
   }
 
   .popular-grid {
+    display: grid;
     grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .home-page .popular-card {
+    min-width: 0;
   }
 
   #podcast-grid {

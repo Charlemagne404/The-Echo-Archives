@@ -3,14 +3,22 @@ import { createShowCard } from "../../render-cards.js";
 
 const RECENTLY_ADDED_LIMIT = 4;
 
+function getSortableDateValue(value) {
+  const timestamp = Date.parse(String(value || "").trim());
+  return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
+}
+
 function compareRecentlyAdded(left, right) {
-  const leftDate = String(left.createdAt || "");
-  const rightDate = String(right.createdAt || "");
+  const leftDate = getSortableDateValue(left.createdAt);
+  const rightDate = getSortableDateValue(right.createdAt);
   if (rightDate !== leftDate) {
-    return rightDate.localeCompare(leftDate);
+    return rightDate - leftDate;
   }
 
-  return String(right.updatedAt || "").localeCompare(String(left.updatedAt || "")) || left.title.localeCompare(right.title);
+  return (
+    getSortableDateValue(right.updatedAt) - getSortableDateValue(left.updatedAt) ||
+    String(left.title || "Untitled show").localeCompare(String(right.title || "Untitled show"))
+  );
 }
 
 export function createRecentlyAddedController({
@@ -19,7 +27,10 @@ export function createRecentlyAddedController({
   recentlyAddedGrid,
   recentlyAddedEmptyState,
 }) {
-  const recentlyAddedShows = [...publishedShows].filter((show) => Boolean(show.createdAt)).sort(compareRecentlyAdded).slice(0, RECENTLY_ADDED_LIMIT);
+  const recentlyAddedShows = [...publishedShows]
+    .filter((show) => getSortableDateValue(show.createdAt) > Number.NEGATIVE_INFINITY)
+    .sort(compareRecentlyAdded)
+    .slice(0, RECENTLY_ADDED_LIMIT);
   const hasShows = recentlyAddedShows.length > 0;
 
   function render() {

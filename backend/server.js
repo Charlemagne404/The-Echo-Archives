@@ -70,6 +70,23 @@ const PUBLIC_PAGE_FILES = new Map([
   ["/contact", "contact.html"],
 ]);
 
+function normalizeSiteUrl(value = "") {
+  return String(value || "").replace(/\/+$/, "");
+}
+
+function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
+  const normalizedSiteUrl = normalizeSiteUrl(requestSiteUrl);
+  const normalizedRoutePath = routePath === "/" ? "/" : String(routePath || "").replace(/\/+$/, "");
+  const canonicalUrl = `${normalizedSiteUrl}${normalizedRoutePath}`;
+
+  return {
+    title: manifestEntry.title,
+    description: manifestEntry.description,
+    canonicalUrl,
+    imageUrl: `${normalizedSiteUrl}/og-image.png`,
+  };
+}
+
 async function startServer() {
   const app = express();
   const state = {
@@ -216,6 +233,15 @@ async function startServer() {
   );
 
   if (config.SERVE_STATIC) {
+    const publicPageManifest = JSON.parse(
+      fs.readFileSync(path.join(config.STATIC_ROOT, "site-src", "page-manifest.json"), "utf8"),
+    );
+    const publicPageManifestByFile = new Map(
+      publicPageManifest
+        .filter((entry) => entry && typeof entry.output === "string")
+        .map((entry) => [entry.output, entry]),
+    );
+
     function readPublicPageTemplate(fileName) {
       return fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
     }
@@ -301,8 +327,21 @@ async function startServer() {
     });
 
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
-      app.get(routePath, (_req, res) => {
-        res.sendFile(path.join(config.STATIC_ROOT, fileName));
+      app.get(routePath, (req, res) => {
+        const manifestEntry = publicPageManifestByFile.get(fileName);
+        if (!manifestEntry) {
+          return res.sendFile(path.join(config.STATIC_ROOT, fileName));
+        }
+
+        const rendered = injectPageMetadata(
+          readPublicPageTemplate(fileName),
+          buildStaticPageMetadata({
+            routePath,
+            requestSiteUrl: getRequestSiteUrl(req),
+            manifestEntry,
+          }),
+        );
+        return res.type("html").send(rendered);
       });
     });
 

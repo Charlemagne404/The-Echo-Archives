@@ -62,22 +62,42 @@ function fallbackImageUrl(siteUrl) {
   return buildAbsoluteUrl(siteUrl, "/og-image.png");
 }
 
+function getShowImagePath(show) {
+  const imageSrc = String(show?.imageSrc || "").trim();
+  if (imageSrc) {
+    return imageSrc;
+  }
+
+  const cover = String(show?.cover || "").trim();
+  if (!cover) {
+    return "";
+  }
+
+  if (/^(?:https?:)?\/\//i.test(cover) || /^data:image\//i.test(cover)) {
+    return cover;
+  }
+
+  return `/${cover.replace(/^\/+/, "")}`;
+}
+
 function buildShowPageMetadata({ siteUrl, show }) {
+  const imageSource = getShowImagePath(show);
   return {
     title: `${show.title} - The Echo Archives`,
     description: fallbackDescription(show.description),
     canonicalUrl: buildAbsoluteUrl(siteUrl, `/show?id=${encodeURIComponent(show.id)}`),
-    imageUrl: show.cover ? buildAbsoluteUrl(siteUrl, `/${show.cover}`) : fallbackImageUrl(siteUrl),
+    imageUrl: imageSource ? buildAbsoluteUrl(siteUrl, imageSource) : fallbackImageUrl(siteUrl),
   };
 }
 
 function buildCollectionPageMetadata({ siteUrl, collection, collectionShows = [] }) {
-  const firstCover = collectionShows.find((show) => show?.cover)?.cover || "";
+  const firstCoverShow = collectionShows.find((show) => show?.imageSrc || show?.cover);
+  const firstCover = getShowImagePath(firstCoverShow);
   return {
     title: `${collection.title} - The Echo Archives`,
     description: fallbackDescription(collection.description),
     canonicalUrl: buildAbsoluteUrl(siteUrl, `/collection?id=${encodeURIComponent(collection.id)}`),
-    imageUrl: firstCover ? buildAbsoluteUrl(siteUrl, `/${firstCover}`) : fallbackImageUrl(siteUrl),
+    imageUrl: firstCover ? buildAbsoluteUrl(siteUrl, firstCover) : fallbackImageUrl(siteUrl),
   };
 }
 

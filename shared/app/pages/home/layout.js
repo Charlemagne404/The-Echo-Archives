@@ -17,6 +17,15 @@ export function getHomeGridColumnCount(gridLayoutBucket) {
   return gridLayoutBucket === "compact" ? 2 : 6;
 }
 
+function getSortableDateValue(value) {
+  const timestamp = Date.parse(String(value || "").trim());
+  return Number.isFinite(timestamp) ? timestamp : Number.NEGATIVE_INFINITY;
+}
+
+function getSortableTitle(show) {
+  return String(show?.title || "Untitled show");
+}
+
 function dedupeArchiveGridNodes(nodes) {
   const seenNodes = new Set();
   return nodes.filter((node) => {
@@ -34,13 +43,13 @@ export function sortVisibleShows({ visibleShows, selectedCollection, sortMode })
 
   if (sortMode === "recently-updated") {
     return sortedShows.sort((left, right) => {
-      const leftValue = left.updatedAt || "";
-      const rightValue = right.updatedAt || "";
+      const leftValue = getSortableDateValue(left.updatedAt);
+      const rightValue = getSortableDateValue(right.updatedAt);
       if (rightValue !== leftValue) {
-        return rightValue.localeCompare(leftValue);
+        return rightValue - leftValue;
       }
 
-      return left.title.localeCompare(right.title);
+      return getSortableTitle(left).localeCompare(getSortableTitle(right));
     });
   }
 
@@ -49,7 +58,11 @@ export function sortVisibleShows({ visibleShows, selectedCollection, sortMode })
   }
 
   const collectionOrder = new Map(selectedCollection.showIds.map((id, index) => [id, index]));
-  return sortedShows.sort((left, right) => (collectionOrder.get(left.id) || 0) - (collectionOrder.get(right.id) || 0));
+  return sortedShows.sort((left, right) => {
+    const leftOrder = collectionOrder.get(left.id) ?? Number.MAX_SAFE_INTEGER;
+    const rightOrder = collectionOrder.get(right.id) ?? Number.MAX_SAFE_INTEGER;
+    return leftOrder - rightOrder || getSortableTitle(left).localeCompare(getSortableTitle(right));
+  });
 }
 
 function getOrderedArchiveGridNodes({ collectionsSection, visibleShows, archiveCardShellsById, gridLayoutBucket }) {

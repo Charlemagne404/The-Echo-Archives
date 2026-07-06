@@ -53,7 +53,19 @@ function isValidDateValue(value = "") {
     return true;
   }
 
-  const timestamp = Date.parse(value);
+  const text = String(value || "").trim();
+  const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
+  if (dateOnlyMatch) {
+    const [, year, month, day] = dateOnlyMatch;
+    const date = new Date(Number(year), Number(month) - 1, Number(day));
+    return (
+      date.getFullYear() === Number(year) &&
+      date.getMonth() === Number(month) - 1 &&
+      date.getDate() === Number(day)
+    );
+  }
+
+  const timestamp = Date.parse(text);
   return Number.isFinite(timestamp);
 }
 
@@ -71,6 +83,19 @@ function isValidOptionalNumber(value) {
   }
 
   return Number.isFinite(Number.parseFloat(value.trim()));
+}
+
+function parseOptionalNumber(value) {
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : null;
+  }
+
+  if (typeof value !== "string" || !value.trim()) {
+    return null;
+  }
+
+  const parsed = Number.parseFloat(value.trim());
+  return Number.isFinite(parsed) ? parsed : null;
 }
 
 function validateUrlMap(showId, fieldName, value) {
@@ -96,6 +121,44 @@ function assertUniqueNormalized(collection, fieldName, showId) {
     }
 
     seen.add(normalized);
+  });
+}
+
+function assertUniqueNormalizedCollection(collection, fieldName, collectionId) {
+  const seen = new Set();
+
+  (Array.isArray(collection) ? collection : []).forEach((value) => {
+    const normalized = normalizeTag(value);
+    if (!normalized) {
+      return;
+    }
+
+    if (seen.has(normalized)) {
+      throw new Error(`Collection "${collectionId}" contains duplicate ${fieldName} value "${value}".`);
+    }
+
+    seen.add(normalized);
+  });
+}
+
+function validateRatingMap(showId, value) {
+  if (value === undefined) {
+    return;
+  }
+
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    throw new Error(`Show "${showId}" has invalid ratings data.`);
+  }
+
+  Object.entries(value).forEach(([key, ratingValue]) => {
+    const numericValue = parseOptionalNumber(ratingValue);
+    if (numericValue === null) {
+      throw new Error(`Show "${showId}" has invalid ratings.${key} value.`);
+    }
+
+    if (numericValue < 0 || numericValue > 10) {
+      throw new Error(`Show "${showId}" has out-of-range ratings.${key} value.`);
+    }
   });
 }
 
@@ -194,6 +257,7 @@ function validateShowRecord(record, seenIds) {
     }
   }
 
+  validateRatingMap(record.id, record.ratings);
   validateUrlMap(record.id, "listenLinks", record.listenLinks);
   validateUrlMap(record.id, "officialLinks", record.officialLinks);
 
@@ -230,6 +294,10 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
   if (!Array.isArray(record.showIds) || record.showIds.length === 0) {
     throw new Error(`Collection "${record.id}" must include showIds.`);
   }
+
+  assertUniqueNormalizedCollection(record.showIds, "showIds", record.id);
+  assertUniqueNormalizedCollection(record.coverShowIds, "coverShowIds", record.id);
+  assertUniqueNormalizedCollection(record.intentTags, "intentTags", record.id);
 
   if (record.updatedAt && !isValidDateValue(record.updatedAt)) {
     throw new Error(`Collection "${record.id}" has invalid updatedAt "${record.updatedAt}".`);
