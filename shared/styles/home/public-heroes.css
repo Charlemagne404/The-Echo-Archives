@@ -57,8 +57,8 @@
 }
 
 .creators-hero-panel .hero-copy h1 {
-  max-width: 12ch;
-  white-space: normal;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .collection-detail-hero-copy h1 {
@@ -71,6 +71,10 @@
 .creators-hero-copy p,
 .creator-standards-hero-copy p {
   max-width: 32ch;
+}
+
+.creators-hero-copy {
+  max-width: 48rem;
 }
 
 .collections-hero-copy p {

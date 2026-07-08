@@ -9,25 +9,22 @@
 
   .collections-mood-panel {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .collections-hero-panel {
+    min-height: 390px;
+    gap: 20px;
+    padding: 28px;
   }
 }
 
 @media (max-width: 860px) {
-  .collections-hero-panel,
   .collection-detail-hero-panel {
     padding: 30px 22px;
-  }
-
-  .collections-hero-panel {
-    min-height: 420px;
-  }
-
-  .collection-detail-hero-panel {
     min-height: 360px;
-  }
-
-  .collections-hero-copy h1 {
-    max-width: 12ch;
   }
 
   .collection-detail-hero-copy h1 {
@@ -36,18 +33,6 @@
     white-space: normal;
     text-overflow: clip;
     font-size: clamp(2.35rem, 8vw, 3.65rem);
-  }
-
-  .collections-stat-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .collections-stat-card:nth-child(2) {
-    border-right: 0;
-  }
-
-  .collections-stat-card:nth-child(-n + 2) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .collections-directory-toolbar {
@@ -67,6 +52,14 @@
   }
 }
 
+@media (max-width: 780px) {
+  .collections-hero-panel {
+    min-height: 0;
+    padding: 22px;
+    background-position: center;
+  }
+}
+
 @media (max-width: 680px) {
   .collections-main,
   .collection-detail-main {
@@ -76,10 +69,6 @@
   .collections-hero-panel,
   .collection-detail-hero-panel {
     border-radius: 22px;
-  }
-
-  .collections-hero-panel {
-    min-height: 380px;
   }
 
   .collection-detail-hero-panel {
@@ -96,7 +85,6 @@
     width: 100%;
   }
 
-  .collections-mood-panel,
   .collections-featured-section,
   .collections-directory-section {
     padding: 16px;
@@ -109,17 +97,24 @@
     grid-template-columns: 1fr;
   }
 
-  .collections-stat-card {
-    border-right: 0;
+  .collection-detail-stats .collections-stat-card {
+    padding-left: 0;
+    padding-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 0;
   }
 
-  .collections-stat-card:last-child {
+  .collection-detail-stats .collections-stat-card:last-child {
     border-bottom: 0;
   }
 
   .collections-section-heading {
     align-items: start;
+  }
+
+  .collections-mood-panel {
+    gap: 12px;
+    padding-top: 14px;
   }
 
   .collections-mood-chips {
@@ -132,14 +127,16 @@
   }
 }
 
+@media (max-width: 780px) {
+  .collections-hero-trust-grid {
+    padding-top: 14px;
+  }
+}
+
 @media (max-width: 560px) {
   .collections-hero-panel,
   .collection-detail-hero-panel {
     border-radius: 20px;
-  }
-
-  .collections-hero-panel {
-    padding: 22px 18px 18px;
   }
 
   .collection-detail-hero-panel {
@@ -165,10 +162,9 @@
     gap: 8px;
   }
 
-  .collections-stat-card,
+  .collection-detail-stats .collections-stat-card,
   .collections-featured-section,
-  .collections-directory-section,
-  .collections-mood-panel {
+  .collections-directory-section {
     padding-left: 16px;
     padding-right: 16px;
   }

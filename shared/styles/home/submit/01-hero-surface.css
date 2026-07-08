@@ -20,6 +20,10 @@
   padding-top: 4px;
 }
 
+.submit-hero-copy p {
+  color: var(--text-secondary);
+}
+
 .submit-hero-trust {
   display: flex;
   flex-wrap: wrap;

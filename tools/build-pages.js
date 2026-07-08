@@ -239,6 +239,7 @@ function buildEntryAssets() {
 }
 
 function renderPage(entry, partials, versions) {
+  const homeCardHoverExpandEnabled = parseBoolean(process.env.HOME_CARD_HOVER_EXPAND_ENABLED, false);
   const headMarkup = renderTemplate(partials.head, {
     title: entry.title,
     description: entry.description,
@@ -273,7 +274,7 @@ function renderPage(entry, partials, versions) {
     "<head>",
     headMarkup,
     "</head>",
-    `<body class="${entry.bodyClass}">`,
+    `<body class="${entry.bodyClass}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}">`,
     bodySections,
     "</body>",
     "</html>",

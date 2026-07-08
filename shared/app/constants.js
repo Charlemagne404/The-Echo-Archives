@@ -27,6 +27,7 @@ export const HOME_FAVORITE_ROUTE_IDS = [
   "shows-like-midst",
   "shows-like-malevolent",
 ];
+export const HOME_CARD_HOVER_EXPAND_ENABLED = document.body?.dataset.homeCardHoverExpandEnabled === "true";
 export const SHOW_CARD_PREVIEW_DELAY_MS = 480;
 export const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;
 export const SHOW_CARD_PREVIEW_CLOSE_TRANSITION_MS = 210;

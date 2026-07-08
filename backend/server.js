@@ -25,6 +25,7 @@ const { loadSiteHelpContext } = require("./lib/ai/site-help");
 const {
   buildCollectionPageMetadata,
   buildShowPageMetadata,
+  injectRuntimeSiteConfig,
   injectPageMetadata,
 } = require("./lib/public-page-render");
 const {
@@ -170,6 +171,11 @@ async function startServer() {
   });
   const maintainerAuth = createMaintainerAuth(config);
 
+  const applyRuntimeSiteConfig = (html) =>
+    injectRuntimeSiteConfig(html, {
+      homeCardHoverExpandEnabled: config.HOME_CARD_HOVER_EXPAND_ENABLED,
+    });
+
   app.disable("x-powered-by");
   app.set("trust proxy", config.TRUST_PROXY);
   app.use(express.json({ limit: "24kb" }));
@@ -292,7 +298,7 @@ async function startServer() {
         }),
       );
 
-      return res.type("html").send(rendered);
+      return res.type("html").send(applyRuntimeSiteConfig(rendered));
     });
 
     app.get("/show", (req, res) => {
@@ -311,7 +317,7 @@ async function startServer() {
             imageUrl: `${requestSiteUrl.replace(/\/+$/, "")}/og-image.png`,
           },
         );
-        return res.status(404).type("html").send(renderedMissing);
+        return res.status(404).type("html").send(applyRuntimeSiteConfig(renderedMissing));
       }
 
       const showMap = new Map(state.publicCatalog.map((entry) => [entry.id, entry]));
@@ -323,7 +329,7 @@ async function startServer() {
         }),
       );
 
-      return res.type("html").send(rendered);
+      return res.type("html").send(applyRuntimeSiteConfig(rendered));
     });
 
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
@@ -341,7 +347,7 @@ async function startServer() {
             manifestEntry,
           }),
         );
-        return res.type("html").send(rendered);
+        return res.type("html").send(applyRuntimeSiteConfig(rendered));
       });
     });
 

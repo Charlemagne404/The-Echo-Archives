@@ -70,26 +70,34 @@
 
 .skip-link {
   position: fixed;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   z-index: 1000;
   display: inline-flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 1px solid rgba(239, 89, 67, 0.58);
-  border-radius: 999px;
-  background: rgba(7, 10, 13, 0.96);
-  color: var(--text-primary);
-  font-weight: 700;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(239, 89, 67, 0.32);
+  border-radius: 8px;
+  background: rgba(7, 10, 13, 0.9);
+  color: rgba(247, 247, 243, 0.88);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
-  box-shadow: var(--shadow-md);
-  transform: translateY(-140%);
-  transition: transform 160ms ease;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(10px);
+  transform: translateY(-145%);
+  opacity: 0;
+  transition: transform 160ms ease, opacity 160ms ease, border-color 160ms ease, color 160ms ease;
 }
 
 .skip-link:focus-visible {
   transform: translateY(0);
+  opacity: 1;
+  border-color: rgba(239, 89, 67, 0.54);
+  color: var(--text-primary);
 }
 
 .home-main,

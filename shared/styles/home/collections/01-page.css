@@ -14,6 +14,8 @@
 
 .collections-hero-panel {
   min-height: 430px;
+  justify-content: space-between;
+  gap: 18px;
   padding: 38px 30px 20px;
 }
 
@@ -30,8 +32,8 @@
 }
 
 .collections-hero-copy {
-  max-width: 44rem;
-  padding: 8px 0;
+  max-width: 47rem;
+  padding: 8px 0 0;
 }
 
 .collection-detail-hero-copy {
@@ -100,7 +102,6 @@
 }
 
 .collections-mood-panel,
-.collections-stat-grid,
 .collections-featured-section,
 .collections-directory-section {
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -113,10 +114,20 @@
 
 .collections-mood-panel {
   display: grid;
-  grid-template-columns: minmax(180px, 0.22fr) minmax(0, 1fr);
+  grid-template-columns: minmax(180px, 0.24fr) minmax(0, 1fr);
   gap: 18px;
   align-items: center;
-  padding: 18px;
+  width: 100%;
+  padding-top: 18px;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.collections-mood-heading {
+  max-width: 13rem;
 }
 
 .collections-mood-heading h2 {
@@ -135,7 +146,7 @@
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding-bottom: 2px;
+  padding: 2px 0 4px;
   scroll-padding-inline: 18px;
   scrollbar-width: thin;
 }
@@ -214,15 +225,12 @@
   }
 }
 
-.collections-stat-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  padding: 0;
-  overflow: hidden;
+.collections-hero-trust-grid {
+  margin-top: auto;
+  padding-top: 10px;
 }
 
-.collections-stat-card {
+.collection-detail-stats .collections-stat-card {
   display: grid;
   gap: 8px;
   min-width: 0;
@@ -230,11 +238,11 @@
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.collections-stat-card:last-child {
+.collection-detail-stats .collections-stat-card:last-child {
   border-right: 0;
 }
 
-.collections-stat-card span {
+.collection-detail-stats .collections-stat-card span {
   color: rgba(247, 247, 243, 0.52);
   font-size: 0.72rem;
   font-weight: 700;
@@ -242,7 +250,7 @@
   text-transform: uppercase;
 }
 
-.collections-stat-card strong {
+.collection-detail-stats .collections-stat-card strong {
   min-width: 0;
   color: var(--text-primary);
   font-size: clamp(1.55rem, 2.4vw, 2.4rem);

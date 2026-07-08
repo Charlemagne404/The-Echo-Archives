@@ -51,6 +51,22 @@ function replaceCanonicalLink(html, href) {
   );
 }
 
+function replaceBodyDataAttribute(html, attributeName, value) {
+  const escapedAttributeName = escapeRegExp(attributeName);
+  const renderedValue = escapeAttribute(value);
+
+  return html.replace(/<body\b([^>]*)>/i, (match, attributes) => {
+    if (new RegExp(`\\s${escapedAttributeName}="[^"]*"`).test(attributes)) {
+      return `<body${attributes.replace(
+        new RegExp(`\\s${escapedAttributeName}="[^"]*"`, "i"),
+        ` ${attributeName}="${renderedValue}"`,
+      )}>`;
+    }
+
+    return `<body${attributes} ${attributeName}="${renderedValue}">`;
+  });
+}
+
 function fallbackDescription(description = "") {
   return (
     String(description || "").trim() ||
@@ -118,8 +134,23 @@ function injectPageMetadata(html, metadata) {
   return rendered;
 }
 
+function injectRuntimeSiteConfig(html, config = {}) {
+  let rendered = html;
+
+  if (Object.hasOwn(config, "homeCardHoverExpandEnabled")) {
+    rendered = replaceBodyDataAttribute(
+      rendered,
+      "data-home-card-hover-expand-enabled",
+      String(Boolean(config.homeCardHoverExpandEnabled)),
+    );
+  }
+
+  return rendered;
+}
+
 module.exports = {
   buildCollectionPageMetadata,
   buildShowPageMetadata,
+  injectRuntimeSiteConfig,
   injectPageMetadata,
 };

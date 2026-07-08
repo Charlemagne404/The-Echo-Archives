@@ -247,6 +247,23 @@ function syncMoodChipState(chipMap, activeIntent, { scrollActiveIntoView = false
   });
 }
 
+function focusMoodChip(moodChips) {
+  const activeChip =
+    moodChips?.querySelector('.collections-mood-chip[aria-pressed="true"]') ||
+    moodChips?.querySelector(".collections-mood-chip");
+
+  if (!(activeChip instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  activeChip.scrollIntoView({
+    behavior: prefersReducedMotion() ? "auto" : "smooth",
+    block: "nearest",
+    inline: "center",
+  });
+  activeChip.focus({ preventScroll: true });
+}
+
 export async function initializeCollectionsPage() {
   const elements = getElements();
 
@@ -378,9 +395,7 @@ export async function initializeCollectionsPage() {
     }
     render("explicit");
   });
-  elements.startWithMood?.addEventListener("click", () =>
-    elements.moodPanel?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }),
-  );
+  elements.startWithMood?.addEventListener("click", () => focusMoodChip(elements.moodChips));
   elements.browseAll?.addEventListener("click", () =>
     elements.directorySection?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }),
   );

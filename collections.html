@@ -21,12 +21,12 @@
 
 
 <link rel="stylesheet" href="/style.css?v=37191a0966" />
-<link rel="stylesheet" href="/home.css?v=f036412852" />
+<link rel="stylesheet" href="/home.css?v=86d7f51418" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body class="home-page collections-page info-page">
+<body class="home-page collections-page info-page" data-home-card-hover-expand-enabled="false">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -119,7 +119,7 @@
     <section class="hero-shell collections-hero" aria-labelledby="collectionsHeroTitle">
       <div class="hero-panel page-panel collections-hero-panel">
         <div class="hero-copy collections-hero-copy">
-          <h1 id="collectionsHeroTitle">The archive, organized by listening intent.</h1>
+          <h1 id="collectionsHeroTitle">The archive, organized by listening intent</h1>
           <p>
             Hand-curated routes for the moment, mood, and commitment you actually have.
           </p>
@@ -128,34 +128,20 @@
             <button id="browseAllCollections" class="collection-secondary-link collections-secondary-action" type="button">Browse all collections</button>
           </div>
         </div>
+        <section class="collections-mood-panel" id="collectionsMoodPanel" aria-labelledby="collectionsMoodTitle">
+          <div class="collections-mood-heading">
+            <h2 id="collectionsMoodTitle">I’m in the mood for...</h2>
+            <p>Pick one route signal.</p>
+          </div>
+          <div id="collectionsMoodChips" class="collections-mood-chips" role="group" aria-label="Filter collections by listening intent"></div>
+        </section>
+        <section class="archive-trust-grid collections-hero-trust-grid" aria-label="Collections snapshot">
+          <p class="archive-trust-item"><strong id="collectionsCount">-</strong> <span>collections</span></p>
+          <p class="archive-trust-item"><strong id="collectionsShowReach">-</strong> <span>shows covered</span></p>
+          <p class="archive-trust-item"><strong id="collectionsFeaturedCount">-</strong> <span>featured routes</span></p>
+          <p class="archive-trust-item"><span>Updated</span> <strong id="collectionsLastUpdated">-</strong></p>
+        </section>
       </div>
-    </section>
-
-    <section class="collections-mood-panel" id="collectionsMoodPanel" aria-labelledby="collectionsMoodTitle">
-      <div class="collections-mood-heading">
-        <h2 id="collectionsMoodTitle">I’m in the mood for...</h2>
-        <p>Pick one route signal.</p>
-      </div>
-      <div id="collectionsMoodChips" class="collections-mood-chips" role="group" aria-label="Filter collections by listening intent"></div>
-    </section>
-
-    <section class="collections-stat-grid" aria-label="Collections snapshot">
-      <article class="collections-stat-card">
-        <span>Collections</span>
-        <strong id="collectionsCount">-</strong>
-      </article>
-      <article class="collections-stat-card">
-        <span>Shows covered</span>
-        <strong id="collectionsShowReach">-</strong>
-      </article>
-      <article class="collections-stat-card">
-        <span>Featured routes</span>
-        <strong id="collectionsFeaturedCount">-</strong>
-      </article>
-      <article class="collections-stat-card">
-        <span>Last updated</span>
-        <strong id="collectionsLastUpdated">-</strong>
-      </article>
     </section>
 
     <section class="collections-featured-section" id="collectionsSimilaritySection" aria-labelledby="collectionsSimilarityTitle">
@@ -289,6 +275,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=bd679f9b66"></script>
+  <script type="module" src="/script.js?v=37f51f2e4a"></script>
 </body>
 </html>

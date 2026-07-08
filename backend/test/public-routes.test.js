@@ -27,7 +27,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
   throw new Error(`Timed out waiting for ${url}`);
 }
 
-async function startPublicRouteServer() {
+async function startPublicRouteServer(envOverrides = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-public-routes-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const port = 3660 + Math.floor(Math.random() * 200);
@@ -42,6 +42,7 @@ async function startPublicRouteServer() {
       DB_PATH: dbPath,
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       ENABLE_TEST_ERROR_ROUTES: "true",
+      ...envOverrides,
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -113,6 +114,21 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
 
     const missingShowResponse = await fetch(`${context.baseUrl}/show?id=missing-show`);
     assert.equal(missingShowResponse.status, 404);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("public routes expose the home card hover expansion flag from env", async () => {
+  const context = await startPublicRouteServer({
+    HOME_CARD_HOVER_EXPAND_ENABLED: "false",
+  });
+
+  try {
+    const response = await fetch(`${context.baseUrl}/`);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, /<body[^>]*data-home-card-hover-expand-enabled="false"/);
   } finally {
     await stopPublicRouteServer(context);
   }

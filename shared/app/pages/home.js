@@ -1,4 +1,4 @@
-import { DEFAULT_SOCIAL_IMAGE, archiveSearch, HOME_FAVORITE_ROUTE_IDS, userInput } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch, userInput } from "../constants.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
 import { setChatOpen } from "../chat-open.js";
 import {
@@ -82,13 +82,11 @@ export async function initializeHomePage() {
   seedHomeStateFromParams({ state, shows, collectionsById, structuredFilterGroups });
   const searchInputs = [elements.searchInput, elements.stickySearchInput];
 
-  const previewController = initializeHomePreviewController({
-    archiveGrid: elements.archiveGrid,
-    archiveSection: elements.archiveSection,
-  });
-  const archiveCardShellsById = new Map(
-    shows.map((show) => [show.id, createShowCard(show, { previewMode: "inline-expand" })]),
-  );
+  const previewMode = HOME_CARD_HOVER_EXPAND_ENABLED ? "inline-expand" : "";
+  const previewController = HOME_CARD_HOVER_EXPAND_ENABLED
+    ? initializeHomePreviewController({ archiveGrid: elements.archiveGrid, archiveSection: elements.archiveSection })
+    : { closeActivePreview() {} };
+  const archiveCardShellsById = new Map(shows.map((show) => [show.id, createShowCard(show, { previewMode })]));
   const syncCollectionSectionVisibility = (section, sectionCollections, shouldShowMostPopular) => {
     section.hidden = sectionCollections.length === 0 || !shouldShowMostPopular;
   };
