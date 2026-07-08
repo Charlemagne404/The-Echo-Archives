@@ -85,7 +85,7 @@ export function renderDetailHero(show) {
               }
               <a class="detail-secondary-action" href="#review-notes">Review notes</a>
               <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
-              <button class="detail-secondary-action detail-copy-link-button" data-share-action type="button">Share</button>
+              <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
           </div>

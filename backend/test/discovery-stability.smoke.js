@@ -7,6 +7,7 @@ let baseUrl;
 let showFixtures;
 let collectionFixtures;
 let firstCollectionId;
+let firstSimilarityCollectionId;
 
 function getCollectionAggregateValue(collection, catalogById, selector) {
   const values = (collection.showIds || [])
@@ -83,6 +84,7 @@ async function openFilterBucket(page, bucketId) {
 test.before(async () => {
   await setupSmoke();
   ({ browser, baseUrl, showFixtures, collectionFixtures, firstCollectionId } = getSmokeContext());
+  firstSimilarityCollectionId = collectionFixtures.find((collection) => collection.kind === "similarity")?.id || "";
 });
 
 test.after(async () => {
@@ -222,6 +224,78 @@ test("collections page supports newest, rating, and popularity sorting", async (
   }
 });
 
+test("collections page reveals similarity routes five at a time and keeps the anchor show attached", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const similarityCollections = collectionFixtures.filter((collection) => collection.kind === "similarity");
+  const expectedOrder = getExpectedCollectionOrder("editorial", similarityCollections, showFixtures);
+  const initialVisibleCount = Math.min(5, expectedOrder.length);
+  const expandedVisibleCount = Math.min(10, expectedOrder.length);
+  const fullyExpandedVisibleCount = expectedOrder.length;
+
+  try {
+    await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length > 0);
+
+    const initialState = await page.evaluate(() => ({
+      ids: Array.from(document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+      anchors: Array.from(document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card")).map(
+        (node) => node.dataset.anchorShowId || "",
+      ),
+      hasMoreButton: !document.getElementById("collectionsSimilarityMore")?.hidden,
+    }));
+
+    assert.deepEqual(initialState.ids, expectedOrder.slice(0, initialVisibleCount));
+    assert.deepEqual(
+      initialState.anchors,
+      expectedOrder.slice(0, initialVisibleCount).map(
+        (collectionId) => similarityCollections.find((collection) => collection.id === collectionId)?.anchorShowId || "",
+      ),
+    );
+    assert.equal(initialState.hasMoreButton, expectedOrder.length > initialVisibleCount);
+
+    if (expectedOrder.length > initialVisibleCount) {
+      await page.locator("#collectionsSimilarityMore").click();
+      await page.waitForFunction(
+        (count) => document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length === count,
+        expandedVisibleCount,
+      );
+    }
+
+    const expandedState = await page.evaluate(() => ({
+      ids: Array.from(document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+      buttonLabel: document.getElementById("collectionsSimilarityMore")?.textContent?.trim() || "",
+      hasMoreButton: !document.getElementById("collectionsSimilarityMore")?.hidden,
+    }));
+
+    assert.deepEqual(expandedState.ids, expectedOrder.slice(0, expandedVisibleCount));
+    assert.equal(expandedState.hasMoreButton, expectedOrder.length > expandedVisibleCount);
+    if (expectedOrder.length > expandedVisibleCount) {
+      assert.equal(expandedState.buttonLabel, `Show ${fullyExpandedVisibleCount - expandedVisibleCount} more`);
+      await page.locator("#collectionsSimilarityMore").click();
+      await page.waitForFunction(
+        (count) => document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length === count,
+        fullyExpandedVisibleCount,
+      );
+    }
+
+    const finalState = await page.evaluate(() => ({
+      ids: Array.from(document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+      hasMoreButton: !document.getElementById("collectionsSimilarityMore")?.hidden,
+    }));
+
+    assert.deepEqual(finalState.ids, expectedOrder.slice(0, fullyExpandedVisibleCount));
+    assert.equal(finalState.hasMoreButton, false);
+  } finally {
+    await page.close();
+  }
+});
+
 test("show and collection pages expose honest empty states and working copy-link actions", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
@@ -268,10 +342,54 @@ test("show and collection pages expose honest empty states and working copy-link
     const collectionState = await page.evaluate(() => ({
       legacyCommand: window.__legacyCommand || "",
       status: document.querySelector("[data-copy-link-status]")?.textContent?.trim() || "",
+      overviewSummary: document.getElementById("collectionOverviewSummary")?.textContent?.trim() || "",
+      detachedReasons: document.querySelectorAll(".collection-card-reason").length,
+      inlineNoteCount: document.querySelectorAll(".collection-show-card-note").length,
+      relatedCollectionIds: Array.from(document.querySelectorAll("#collectionRelatedGrid .collections-directory-card")).map(
+        (node) => node.getAttribute("data-collection-id") || "",
+      ),
+      currentCollectionId: new URLSearchParams(window.location.search).get("id") || "",
     }));
 
     assert.equal(collectionState.legacyCommand, "copy");
     assert.match(collectionState.status, /Link copied/i);
+    assert.match(collectionState.overviewSummary, /\broute\b|\bshows?\b|\bpath\b/i);
+    assert.equal(collectionState.detachedReasons, 0);
+    assert.ok(collectionState.inlineNoteCount > 0);
+    assert.ok(collectionState.relatedCollectionIds.length > 0);
+    assert.ok(collectionState.relatedCollectionIds.every((id) => id && id !== collectionState.currentCollectionId));
+  } finally {
+    await page.close();
+  }
+});
+
+test("similarity collection pages render anchor context in the overview panel", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () =>
+        document.getElementById("collectionTitle")?.textContent?.trim() !== "Collection" &&
+        document.getElementById("collectionAnchorRoute") &&
+        document.getElementById("collectionAnchorRoute")?.hidden === false,
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const state = await page.evaluate(() => ({
+      anchorLabel: document.getElementById("collectionAnchorLink")?.textContent?.trim() || "",
+      anchorHref: document.getElementById("collectionAnchorLink")?.getAttribute("href") || "",
+      routeFocus: document.getElementById("collectionRouteFocus")?.textContent?.trim() || "",
+      toneSignals: Array.from(document.querySelectorAll("#collectionToneSignals .collection-detail-signal-chip")).map(
+        (node) => node.textContent?.trim() || "",
+      ),
+    }));
+
+    assert.ok(state.anchorLabel.length > 0);
+    assert.match(state.anchorHref, /^\/show\?id=/);
+    assert.ok(state.routeFocus.length > 0);
+    assert.ok(state.toneSignals.length >= 0);
   } finally {
     await page.close();
   }

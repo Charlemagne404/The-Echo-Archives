@@ -3,6 +3,7 @@ import { renderDetailHero } from "./render-show/hero.js";
 import { renderCollectionsSection, renderSimilarSection } from "./render-show/relationships.js";
 import {
   renderCreatorLinksSection,
+  renderListenerReviewsSection,
   renderOfficialSummarySection,
   renderOverviewSection,
   renderQuoteSection,
@@ -22,6 +23,7 @@ export function createShowPageMarkup(show, showMap, collections = []) {
             ${renderOverviewSection(show)}
             ${renderReviewSection(show)}
             ${renderQuoteSection(show)}
+            ${renderListenerReviewsSection(show)}
           </div>
         </div>
         <div class="detail-community-slot"></div>

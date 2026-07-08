@@ -241,14 +241,26 @@ function createHomeCardPreviewPanel(show, previewId) {
 
 export function createCollectionShowCard(show, reason = "") {
   const shell = createShowCard(show);
-  if (!reason) {
+  shell.classList.add("collection-show-card-shell");
+
+  const card = shell.querySelector(".podcast-card");
+  card?.classList.add("collection-show-card");
+
+  if (!reason || !card) {
     return shell;
   }
 
+  const rating = card.querySelector(".rating");
   const reasonNode = document.createElement("p");
-  reasonNode.className = "collection-card-reason";
+  reasonNode.className = "collection-show-card-note";
   reasonNode.textContent = reason;
-  shell.appendChild(reasonNode);
+
+  if (rating) {
+    card.insertBefore(reasonNode, rating);
+  } else {
+    card.appendChild(reasonNode);
+  }
+
   return shell;
 }
 

@@ -18,11 +18,13 @@ const MOOD_FILTERS = [
   { id: "time-bent", label: "Time-bent", icon: "M12 7v5l3 2M4 12a8 8 0 1 0 3-6.25M4 5v5h5" },
 ];
 const COLLECTION_SORT_MODES = new Set(["editorial", "newest", "title", "shows", "rating", "popularity"]);
+const SIMILARITY_COLLECTIONS_PAGE_SIZE = 5;
 
 function getElements() {
   return {
     moodChips: document.getElementById("collectionsMoodChips"),
     similarityGrid: document.getElementById("collectionsSimilarityGrid"),
+    similarityMore: document.getElementById("collectionsSimilarityMore"),
     featuredGrid: document.getElementById("collectionsFeaturedGrid"),
     directoryRoot: document.getElementById("collectionsDirectory"),
     searchInput: document.getElementById("collectionsSearch"),
@@ -293,6 +295,9 @@ export async function initializeCollectionsPage() {
   );
   const validIntentIds = new Set(MOOD_FILTERS.map((filter) => filter.id));
   const state = getInitialState(validIntentIds);
+  const similarityState = {
+    visibleCount: SIMILARITY_COLLECTIONS_PAGE_SIZE,
+  };
   const moodChipMap = mountMoodChips({
     moodChips: elements.moodChips,
     collections: orderedCollections,
@@ -315,10 +320,27 @@ export async function initializeCollectionsPage() {
     `${similarityCollections.length} anchored route${similarityCollections.length === 1 ? "" : "s"} for starting from a favorite show.`,
   );
 
-  syncCollectionGrid(elements.similarityGrid, similarityCollections, {
-    motionProfile: getCollectionsGridMotionProfile("initial"),
-    renderItem: (collection) => createCollectionFeatureCard(collection, showsByCollection.get(collection.id)),
-  });
+  const renderSimilarityCollections = (changeReason = "initial") => {
+    syncCollectionGrid(elements.similarityGrid, similarityCollections.slice(0, similarityState.visibleCount), {
+      motionProfile: getCollectionsGridMotionProfile(changeReason),
+      renderItem: (collection) =>
+        createCollectionFeatureCard(collection, showsByCollection.get(collection.id), {
+          anchorShow: showMap.get(collection.anchorShowId),
+        }),
+    });
+
+    if (elements.similarityMore instanceof HTMLButtonElement) {
+      const remainingCount = Math.max(similarityCollections.length - similarityState.visibleCount, 0);
+      const nextRevealCount = Math.min(SIMILARITY_COLLECTIONS_PAGE_SIZE, remainingCount);
+      const hasMore = remainingCount > 0;
+      elements.similarityMore.hidden = !hasMore;
+      elements.similarityMore.disabled = !hasMore;
+
+      if (hasMore) {
+        elements.similarityMore.textContent = `Show ${nextRevealCount} more`;
+      }
+    }
+  };
 
   if (elements.searchInput instanceof HTMLInputElement) {
     elements.searchInput.value = state.query;
@@ -395,11 +417,16 @@ export async function initializeCollectionsPage() {
     }
     render("explicit");
   });
+  elements.similarityMore?.addEventListener("click", () => {
+    similarityState.visibleCount += SIMILARITY_COLLECTIONS_PAGE_SIZE;
+    renderSimilarityCollections("explicit");
+  });
   elements.startWithMood?.addEventListener("click", () => focusMoodChip(elements.moodChips));
   elements.browseAll?.addEventListener("click", () =>
     elements.directorySection?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }),
   );
 
+  renderSimilarityCollections();
   render();
   scrollRestoration.restore();
 }

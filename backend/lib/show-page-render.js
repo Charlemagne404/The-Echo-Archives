@@ -183,7 +183,7 @@ function renderDetailHero(show) {
               }
               <a class="detail-secondary-action" href="#review-notes">Review notes</a>
               <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
-              <button class="detail-secondary-action detail-copy-link-button" data-share-action type="button">Share</button>
+              <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
           </div>
@@ -295,6 +295,21 @@ function renderOverviewSection(show) {
   `;
 }
 
+function renderListenerReviewsSection(show) {
+  return `
+    <section class="detail-section detail-listener-reviews-section" id="listener-reviews">
+      <div class="detail-section-header"><div><h2>Listener reviews</h2><p>Community reviews stay separate from archive ratings and creator verification.</p></div></div>
+      <div class="empty-state-card detail-reviews-empty-state">
+        <p>No listener reviews are published for this show yet. The archive rating above is editorial; this section stays reserved for moderated listener response.</p>
+        <div class="empty-state-actions">
+          <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a>
+          <a class="detail-secondary-action" href="#review-notes">Read archive notes</a>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderFactsLinksCard(show) {
   const primaryLink = getPrimaryListenLink(show);
   const links = show.listenLinks || {};
@@ -401,7 +416,7 @@ function createShowPageMarkup(show, showMap, collections = []) {
       <div class="detail-content-layout">
         <div class="detail-main-stack">
           ${renderOfficialSummarySection(show)}
-          <div class="detail-main-column">${renderOverviewSection(show)}${renderReviewSection(show)}</div>
+          <div class="detail-main-column">${renderOverviewSection(show)}${renderReviewSection(show)}${renderListenerReviewsSection(show)}</div>
         </div>
         <div class="detail-community-slot"></div>
         <aside class="detail-side-rail">

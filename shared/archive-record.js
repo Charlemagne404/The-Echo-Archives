@@ -207,12 +207,14 @@
   function normalizeCollectionRecord(record) {
     const source = record && typeof record === "object" ? record : {};
     const order = normalizeOptionalNumber(source.order);
+    const anchorShowId = normalizeDisplayText(source.anchorShowId);
 
     return {
       ...source,
       id: normalizeDisplayText(source.id),
       title: normalizeDisplayText(source.title, FALLBACK_COLLECTION_TITLE),
       description: normalizeDisplayText(source.description, FALLBACK_COLLECTION_DESCRIPTION),
+      ...(anchorShowId ? { anchorShowId } : {}),
       showIds: normalizeStringArray(source.showIds),
       coverShowIds: normalizeStringArray(source.coverShowIds),
       intentTags: normalizeStringArray(source.intentTags).map(normalizeTagValue),

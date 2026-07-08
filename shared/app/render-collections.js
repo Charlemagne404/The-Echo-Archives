@@ -31,8 +31,21 @@ export function getCollectionCoverShows(collection, shows, limit = COLLAGE_LIMIT
   return [...preferred, ...remaining].slice(0, limit);
 }
 
-export function createCollectionCoverCollage(collection, shows, { className = "collection-cover-collage", loading = "lazy" } = {}) {
-  const coverShows = getCollectionCoverShows(collection, shows);
+function getCollectionCollageShows(collection, shows, { anchorShow = null, limit = COLLAGE_LIMIT } = {}) {
+  const coverShows = getCollectionCoverShows(collection, shows, limit);
+  if (!anchorShow) {
+    return coverShows;
+  }
+
+  return [anchorShow, ...coverShows.filter((show) => show.id !== anchorShow.id)].slice(0, limit);
+}
+
+export function createCollectionCoverCollage(
+  collection,
+  shows,
+  { className = "collection-cover-collage", loading = "lazy", anchorShow = null } = {},
+) {
+  const coverShows = getCollectionCollageShows(collection, shows, { anchorShow });
   const collage = document.createElement("div");
   collage.className = className;
   collage.setAttribute("aria-hidden", "true");
@@ -66,6 +79,26 @@ export function createCollectionIntentTagList(collection, maxItems = 3) {
     item.textContent = toDisplayTag(tag);
     list.appendChild(item);
   });
+  return list;
+}
+
+export function createCollectionHeroTagList(collection, maxItems = 3) {
+  const list = document.createElement("div");
+  list.className = "collection-intent-tags collection-hero-tags";
+
+  if (collection.label) {
+    const label = document.createElement("span");
+    label.className = "collection-intent-tag-featured";
+    label.textContent = collection.label;
+    list.appendChild(label);
+  }
+
+  (collection.intentTags || []).slice(0, maxItems).forEach((tag) => {
+    const item = document.createElement("span");
+    item.textContent = toDisplayTag(tag);
+    list.appendChild(item);
+  });
+
   return list;
 }
 
@@ -109,15 +142,18 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   return card;
 }
 
-export function createCollectionFeatureCard(collection, shows) {
+export function createCollectionFeatureCard(collection, shows, { anchorShow = null } = {}) {
   const collectionId = collection.id || "";
   const titleText = collection.title || "Untitled collection";
   const card = document.createElement("a");
   card.className = "collections-feature-card";
   card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   card.dataset.collectionId = collectionId;
+  if (anchorShow?.id) {
+    card.dataset.anchorShowId = anchorShow.id;
+  }
   card.setAttribute("aria-label", `Open the ${titleText} collection`);
-  applyCollectionAccent(card, shows);
+  applyCollectionAccent(card, anchorShow ? [anchorShow, ...(shows || [])] : shows);
 
   const label = document.createElement("span");
   label.className = "collections-card-label";
@@ -137,7 +173,7 @@ export function createCollectionFeatureCard(collection, shows) {
   body.className = "collections-feature-card-body";
   body.append(label, title, description, meta, createCollectionIntentTagList(collection));
 
-  card.append(createCollectionCoverCollage(collection, shows), body);
+  card.append(createCollectionCoverCollage(collection, shows, { anchorShow }), body);
   return card;
 }
 

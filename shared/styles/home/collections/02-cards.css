@@ -192,6 +192,12 @@
   white-space: nowrap;
 }
 
+.collection-hero-tags .collection-intent-tag-featured {
+  border-color: rgba(229, 72, 56, 0.3);
+  background: rgba(229, 72, 56, 0.12);
+  color: rgba(255, 241, 236, 0.96);
+}
+
 .collections-directory-card {
   padding: 14px;
 }
@@ -309,15 +315,22 @@
   margin-top: 4px;
 }
 
-.collection-card-reason {
-  margin: 10px 14px 14px;
-  padding: 10px 12px;
-  border-left: 2px solid rgba(229, 72, 56, 0.58);
-  background: rgba(229, 72, 56, 0.07);
-  color: rgba(247, 247, 243, 0.72);
+.collection-show-card-note {
+  display: -webkit-box;
+  margin: 10px 16px 0;
+  padding: 12px 12px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(247, 247, 243, 0.7);
   font-size: 0.82rem;
-  line-height: 1.45;
-  text-align: left;
+  line-height: 1.48;
+  text-wrap: pretty;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.collection-show-card .rating {
+  padding-top: 16px;
 }
 
 @media (prefers-reduced-motion: reduce) {

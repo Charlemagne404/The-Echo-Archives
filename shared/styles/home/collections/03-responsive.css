@@ -50,6 +50,10 @@
   .collection-detail-art {
     display: none;
   }
+
+  .collection-detail-overview-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 780px) {
@@ -97,15 +101,13 @@
     grid-template-columns: 1fr;
   }
 
-  .collection-detail-stats .collections-stat-card {
-    padding-left: 0;
-    padding-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    border-right: 0;
+  .collection-detail-overview,
+  .collection-detail-related-section {
+    padding: 18px;
   }
 
-  .collection-detail-stats .collections-stat-card:last-child {
-    border-bottom: 0;
+  .collection-detail-fact-list {
+    grid-template-columns: 1fr;
   }
 
   .collections-section-heading {
@@ -162,7 +164,8 @@
     gap: 8px;
   }
 
-  .collection-detail-stats .collections-stat-card,
+  .collection-detail-overview,
+  .collection-detail-related-section,
   .collections-featured-section,
   .collections-directory-section {
     padding-left: 16px;
@@ -172,5 +175,9 @@
   .collections-mood-chips {
     margin: 0 -2px;
     padding-inline: 2px;
+  }
+
+  .collection-detail-overview-secondary {
+    padding: 16px;
   }
 }

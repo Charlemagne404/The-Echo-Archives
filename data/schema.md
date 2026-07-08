@@ -322,6 +322,7 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
+- `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
 
 ## Review Companion Shape
@@ -368,6 +369,7 @@ Collections stay hand-editable in v1. The core route is still `showIds`; extra f
 Optional collection fields:
 
 - `label`: compact editorial label for collection cards.
+- `anchorShowId`: required for `kind: "similarity"` routes; points at the favorite/origin show whose cover art anchors the card.
 - `intentTags`: route/filter tags used by the collections page.
 - `commitment`: editorial listening-commitment label; do not imply exact runtime when show runtime data is incomplete.
 - `coverShowIds`: preferred cover-art collage order; every id should also appear in `showIds`.

@@ -72,9 +72,12 @@ test("loadCatalog reads the structured show catalog", async () => {
 test("loadCollections reads curated collections against the catalog ids", async () => {
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
+  const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
 
   assert.equal(collections.length, 26);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
+  assert.ok(similarityCollections.length > 0);
+  assert.ok(similarityCollections.every((collection) => typeof collection.anchorShowId === "string" && collection.anchorShowId));
 });
 
 test("resolveCollectionView returns published shows for a known collection", () => {
@@ -355,6 +358,55 @@ test("collections reject duplicate show references", () => {
   assert.throws(
     () => loadCollections(tempRoot, new Set(["demo-show"])),
     /duplicate showIds value/i,
+  );
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("similarity collections require anchorShowId", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord()]);
+  writeJson(path.join(dataRoot, "collections.json"), [
+    {
+      id: "shows-like-demo-show",
+      title: "Shows like Demo Show",
+      description: "Similarity route without anchor.",
+      kind: "similarity",
+      showIds: ["demo-show"],
+      updatedAt: "2026-06-30",
+    },
+  ]);
+
+  assert.throws(
+    () => loadCollections(tempRoot, new Set(["demo-show"])),
+    /must include anchorShowId/i,
+  );
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("similarity collections reject unknown anchorShowId", () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord()]);
+  writeJson(path.join(dataRoot, "collections.json"), [
+    {
+      id: "shows-like-demo-show",
+      title: "Shows like Demo Show",
+      description: "Similarity route with missing anchor.",
+      kind: "similarity",
+      anchorShowId: "missing-show",
+      showIds: ["demo-show"],
+      updatedAt: "2026-06-30",
+    },
+  ]);
+
+  assert.throws(
+    () => loadCollections(tempRoot, new Set(["demo-show"])),
+    /unknown anchorShowId/i,
   );
 
   fs.rmSync(tempRoot, { recursive: true, force: true });

@@ -16,23 +16,53 @@
       </div>
     </section>
 
-    <section id="collectionRoot" class="page-grid collection-detail-stats">
-      <article class="collections-stat-card">
-        <span>Shows</span>
-        <strong id="collectionShowCount">-</strong>
-      </article>
-      <article class="collections-stat-card">
-        <span>Commitment</span>
-        <strong id="collectionCommitment">-</strong>
-      </article>
-      <article class="collections-stat-card">
-        <span>Route type</span>
-        <strong id="collectionKind">-</strong>
-      </article>
-      <article class="collections-stat-card">
-        <span>Last updated</span>
-        <strong id="collectionLastUpdated">-</strong>
-      </article>
+    <section id="collectionRoot" class="page-card collection-detail-overview" aria-labelledby="collectionOverviewTitle">
+      <div class="collection-detail-overview-grid">
+        <article class="collection-detail-overview-primary">
+          <span class="page-card-kicker">Route snapshot</span>
+          <h2 id="collectionOverviewTitle">How this route works</h2>
+          <p id="collectionOverviewSummary">Loading route...</p>
+
+          <dl class="collection-detail-fact-list">
+            <div class="collection-detail-fact">
+              <dt>Included</dt>
+              <dd id="collectionShowCount">-</dd>
+            </div>
+            <div class="collection-detail-fact">
+              <dt>Route type</dt>
+              <dd id="collectionKind">-</dd>
+            </div>
+            <div id="collectionCommitmentFact" class="collection-detail-fact" hidden>
+              <dt>Listening shape</dt>
+              <dd id="collectionCommitment">-</dd>
+            </div>
+            <div class="collection-detail-fact">
+              <dt>Updated</dt>
+              <dd id="collectionLastUpdated">-</dd>
+            </div>
+          </dl>
+        </article>
+
+        <aside class="collection-detail-overview-secondary" aria-label="Route signals">
+          <span class="page-card-kicker">Route signals</span>
+          <p id="collectionRouteFocus" class="collection-detail-route-focus">-</p>
+
+          <div id="collectionAnchorRoute" class="collection-detail-anchor" hidden>
+            <span class="collection-detail-anchor-label">Starts with</span>
+            <a id="collectionAnchorLink" class="collection-detail-anchor-link" href="/">-</a>
+          </div>
+
+          <div id="collectionIntentSignalsGroup" class="collection-detail-signal-group">
+            <span class="collection-detail-signal-label">Best for</span>
+            <div id="collectionIntentSignals" class="collection-detail-signal-chips"></div>
+          </div>
+
+          <div id="collectionToneSignalsGroup" class="collection-detail-signal-group" hidden>
+            <span class="collection-detail-signal-label">Dominant tone</span>
+            <div id="collectionToneSignals" class="collection-detail-signal-chips"></div>
+          </div>
+        </aside>
+      </div>
     </section>
 
     <section id="collectionArchiveSection" class="archive-section collection-show-section" aria-labelledby="collection-shows-title">
@@ -45,5 +75,23 @@
       </div>
 
       <div id="collectionShowGrid" class="podcast-card-grid"></div>
+    </section>
+
+    <section id="collectionRelatedSection" class="page-card collection-detail-related-section" aria-labelledby="collection-related-title">
+      <div class="section-heading collections-section-heading collection-detail-related-heading">
+        <div>
+          <span class="page-card-kicker">Keep browsing</span>
+          <h2 id="collection-related-title">Related collections</h2>
+          <p id="collectionRelatedSummary">More archive routes that overlap this signal.</p>
+        </div>
+      </div>
+
+      <div id="collectionRelatedGrid" class="collections-directory-grid collection-related-grid"></div>
+      <p id="collectionRelatedEmpty" class="collection-detail-related-empty" hidden>No adjacent collection routes are published yet.</p>
+
+      <div class="collection-directory-actions collection-detail-related-actions">
+        <a class="collection-action" href="/collections">Browse all collections</a>
+        <a id="collectionRelatedArchiveLink" class="collection-secondary-link" href="/#archive">Browse in archive</a>
+      </div>
     </section>
   </main>

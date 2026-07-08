@@ -25,6 +25,7 @@ let baseUrl;
 let showFixtures;
 let collectionFixtures;
 let firstCollectionId;
+let firstSimilarityCollectionId;
 let firstShowId;
 let homeMostPopularTitles;
 let fullReviewShowId;
@@ -41,6 +42,7 @@ test.before(async () => {
     firstShowId,
     homeMostPopularTitles,
   } = getSmokeContext());
+  firstSimilarityCollectionId = collectionFixtures.find((collection) => collection.kind === "similarity")?.id || firstCollectionId;
   fullReviewShowId = showFixtures.find((show) => show.reviewStatus === "full-review")?.id || firstShowId;
 });
 
@@ -183,6 +185,54 @@ test("public and error routes expose the expected metadata", async () => {
       assert.equal(metadata.manifest, "/site.webmanifest");
       assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow" : "");
     }
+  } finally {
+    await page.close();
+  }
+});
+
+test("collection detail pages expose listener-facing overview and related route context", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+
+  try {
+    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () =>
+        document.getElementById("collectionOverviewSummary")?.textContent?.trim().length > 0 &&
+        document.querySelectorAll(".collection-show-card-note").length > 0,
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const collectionState = await page.evaluate(() => ({
+      overviewSummary: document.getElementById("collectionOverviewSummary")?.textContent?.trim() || "",
+      routeFocus: document.getElementById("collectionRouteFocus")?.textContent?.trim() || "",
+      detachedReasonCount: document.querySelectorAll(".collection-card-reason").length,
+      inlineNoteCount: document.querySelectorAll(".collection-show-card-note").length,
+      relatedCount: document.querySelectorAll("#collectionRelatedGrid .collections-directory-card").length,
+      intentSignalCount: document.querySelectorAll("#collectionIntentSignals .collection-detail-signal-chip").length,
+    }));
+
+    assert.ok(collectionState.overviewSummary.length > 0);
+    assert.ok(collectionState.routeFocus.length > 0);
+    assert.equal(collectionState.detachedReasonCount, 0);
+    assert.ok(collectionState.inlineNoteCount > 0);
+    assert.ok(collectionState.relatedCount > 0);
+    assert.ok(collectionState.intentSignalCount > 0);
+
+    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () => document.getElementById("collectionAnchorRoute")?.hidden === false,
+      undefined,
+      { timeout: 5_000 },
+    );
+
+    const similarityState = await page.evaluate(() => ({
+      anchorText: document.getElementById("collectionAnchorLink")?.textContent?.trim() || "",
+      anchorHref: document.getElementById("collectionAnchorLink")?.getAttribute("href") || "",
+    }));
+
+    assert.ok(similarityState.anchorText.length > 0);
+    assert.match(similarityState.anchorHref, /^\/show\?id=/);
   } finally {
     await page.close();
   }

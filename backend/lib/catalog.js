@@ -313,6 +313,20 @@ function validateCollectionRecord(record, seenIds, knownShowIds) {
     }
   });
 
+  if (record.kind === "similarity" && !record.anchorShowId) {
+    throw new Error(`Collection "${record.id}" must include anchorShowId.`);
+  }
+
+  if (record.anchorShowId !== undefined) {
+    if (!isValidSlug(record.anchorShowId)) {
+      throw new Error(`Collection "${record.id}" has invalid anchorShowId "${record.anchorShowId}".`);
+    }
+
+    if (!knownShowIds.has(record.anchorShowId)) {
+      throw new Error(`Collection "${record.id}" references unknown anchorShowId "${record.anchorShowId}".`);
+    }
+  }
+
   if (record.coverShowIds !== undefined && !Array.isArray(record.coverShowIds)) {
     throw new Error(`Collection "${record.id}" has invalid coverShowIds data.`);
   }
