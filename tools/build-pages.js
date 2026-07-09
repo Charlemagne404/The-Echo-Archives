@@ -170,17 +170,17 @@ function renderAnalyticsScript(entry) {
 
 function renderNavLinks(activeNav) {
   const navItems = [
-    { id: "browse", label: "Browse", href: "/" },
-    { id: "collections", label: "Collections", href: "/collections" },
-    { id: "about", label: "About", href: "/about" },
-    { id: "submit", label: "Submit", href: "/submit" },
-    { id: "for-creators", label: "For creators", href: "/for-creators" },
+    { id: "browse", label: "Browse", detail: "All shows and archive filters", href: "/" },
+    { id: "collections", label: "Collections", detail: "Curated listening paths", href: "/collections" },
+    { id: "about", label: "About", detail: "What the archive is building", href: "/about" },
+    { id: "submit", label: "Submit", detail: "Add shows or send corrections", href: "/submit" },
+    { id: "for-creators", label: "For creators", detail: "Verification and standards", href: "/for-creators" },
   ];
 
   return navItems
     .map((item) => {
       const activeClass = item.id === activeNav ? ' class="is-active"' : "";
-      return `<a${activeClass} href="${item.href}">${item.label}</a>`;
+      return `<a${activeClass} href="${item.href}"><span class="site-nav-link-body"><span class="site-nav-link-label">${item.label}</span><span class="site-nav-link-detail">${item.detail}</span></span><span class="site-nav-link-arrow" aria-hidden="true"></span></a>`;
     })
     .join("\n    ");
 }
@@ -213,13 +213,7 @@ function ensureMainContentTarget(pageBody, targetId) {
 }
 
 function renderPageBody(entry) {
-  const creatorSpotlightEnabled = parseBoolean(process.env.CREATOR_SPOTLIGHT_PREVIEW_ENABLED, true);
-  const pageBody = ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry));
-
-  return renderTemplate(pageBody, {
-    creatorSpotlightVisibilityAttribute:
-      entry.source === "for-creators.html" && !creatorSpotlightEnabled ? " hidden" : "",
-  });
+  return ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry));
 }
 
 function buildEntryAssets() {

@@ -28,8 +28,8 @@
     top: max(10px, env(safe-area-inset-top));
     right: var(--shell-inline-padding-phone);
     left: var(--shell-inline-padding-phone);
-    gap: 16px;
-    padding: 16px;
+    gap: 14px;
+    padding: 14px;
     border-radius: 20px;
   }
 
@@ -41,7 +41,31 @@
   .site-nav a,
   .site-nav button,
   .site-nav-shell .profile-button {
-    min-height: 46px;
+    min-height: 68px;
+  }
+
+  .site-nav a,
+  .site-nav button {
+    padding: 13px 14px 13px 16px;
+    border-radius: 16px;
+  }
+
+  .site-nav-link-body {
+    gap: 5px;
+  }
+
+  .site-nav-link-label {
+    font-size: 1rem;
+  }
+
+  .site-nav-link-detail {
+    font-size: 0.75rem;
+  }
+
+  .site-nav-link-arrow {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
   }
 
   .site-nav-shell .profile-button {

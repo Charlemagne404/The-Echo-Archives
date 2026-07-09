@@ -414,6 +414,8 @@ async function setupSmoke() {
       PORT: String(basePort),
       SERVE_STATIC: "true",
       DB_PATH: dbPath,
+      COMMUNITY_RATING_WRITES_ENABLED: "false",
+      HOME_CARD_HOVER_EXPAND_ENABLED: "true",
       MAINTAINER_REVIEW_PASSPHRASE: "smoke-maintainer",
       MAINTAINER_REVIEW_COOKIE_SECRET: "smoke-maintainer-secret",
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",

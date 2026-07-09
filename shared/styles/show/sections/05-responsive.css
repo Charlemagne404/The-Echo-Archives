@@ -274,6 +274,10 @@
 }
 
 @media (max-width: 360px) {
+  .detail-cover-column {
+    width: min(68vw, 220px);
+  }
+
   .detail-meta-grid {
     grid-template-columns: minmax(0, 1fr);
   }

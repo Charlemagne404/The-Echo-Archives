@@ -158,6 +158,8 @@
 .site-nav a,
 .site-nav button {
   position: relative;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: var(--text-secondary);
   font-size: 1rem;
@@ -212,6 +214,19 @@
 .site-nav-kicker,
 .site-nav-drawer-copy {
   margin: 0;
+}
+
+.site-nav-link-body {
+  display: block;
+}
+
+.site-nav-link-label {
+  display: block;
+}
+
+.site-nav-link-detail,
+.site-nav-link-arrow {
+  display: none;
 }
 
 .site-nav-toggle {
