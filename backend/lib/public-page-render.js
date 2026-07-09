@@ -96,6 +96,14 @@ function getShowImagePath(show) {
   return `/${cover.replace(/^\/+/, "")}`;
 }
 
+function getCollectionLeadShow(collection, { collectionShows = [], anchorShow = null } = {}) {
+  if (anchorShow?.imageSrc || anchorShow?.cover) {
+    return anchorShow;
+  }
+
+  return collectionShows.find((show) => show?.imageSrc || show?.cover) || null;
+}
+
 function buildShowPageMetadata({ siteUrl, show }) {
   const imageSource = getShowImagePath(show);
   return {
@@ -106,8 +114,8 @@ function buildShowPageMetadata({ siteUrl, show }) {
   };
 }
 
-function buildCollectionPageMetadata({ siteUrl, collection, collectionShows = [] }) {
-  const firstCoverShow = collectionShows.find((show) => show?.imageSrc || show?.cover);
+function buildCollectionPageMetadata({ siteUrl, collection, collectionShows = [], anchorShow = null }) {
+  const firstCoverShow = getCollectionLeadShow(collection, { collectionShows, anchorShow });
   const firstCover = getShowImagePath(firstCoverShow);
   return {
     title: `${collection.title} - The Echo Archives`,

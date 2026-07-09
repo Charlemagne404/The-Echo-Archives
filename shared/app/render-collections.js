@@ -22,6 +22,23 @@ function applyCollectionAccent(node, shows) {
   }
 }
 
+export function getCollectionAnchorShow(collection, showsOrMap) {
+  const anchorShowId = String(collection?.anchorShowId || "").trim();
+  if (!anchorShowId) {
+    return null;
+  }
+
+  if (showsOrMap instanceof Map) {
+    return showsOrMap.get(anchorShowId) || null;
+  }
+
+  if (Array.isArray(showsOrMap)) {
+    return showsOrMap.find((show) => show?.id === anchorShowId) || null;
+  }
+
+  return null;
+}
+
 export function getCollectionCoverShows(collection, shows, limit = COLLAGE_LIMIT) {
   const collectionRecord = collection || {};
   const showRecords = Array.isArray(shows) ? shows : [];
@@ -104,7 +121,8 @@ export function createCollectionHeroTagList(collection, maxItems = 3) {
 
 export function createCollectionCard(collection, index, showMap, { isClone = false } = {}) {
   const collectionShows = getCollectionShows(collection, showMap);
-  const coverShow = getCollectionCoverShows(collection, collectionShows, 1)[0];
+  const anchorShow = getCollectionAnchorShow(collection, showMap);
+  const coverShow = anchorShow || getCollectionCoverShows(collection, collectionShows, 1)[0];
   const collectionId = collection.id || "";
   const title = collection.title || "Untitled collection";
   const card = document.createElement("a");
@@ -112,6 +130,9 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   card.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   card.setAttribute("aria-label", `Browse the ${title} collection`);
   card.dataset.collectionId = collectionId;
+  if (anchorShow?.id) {
+    card.dataset.anchorShowId = anchorShow.id;
+  }
   if (isClone) {
     card.dataset.collectionClone = "true";
     card.tabIndex = -1;
@@ -121,7 +142,7 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   if (coverShow?.imageSrc || coverShow?.cover) {
     card.style.setProperty("--collection-cover-image", `url("${coverShow.imageSrc || resolveImageSrc(coverShow.cover)}")`);
   }
-  applyCollectionAccent(card, collectionShows);
+  applyCollectionAccent(card, anchorShow ? [anchorShow, ...collectionShows] : collectionShows);
 
   const titleNode = document.createElement("h3");
   titleNode.textContent = title;
@@ -177,16 +198,25 @@ export function createCollectionFeatureCard(collection, shows, { anchorShow = nu
   return card;
 }
 
-export function createCollectionDirectoryCard(collection, shows) {
+export function createCollectionDirectoryCard(collection, shows, { compact = false, anchorShow = null } = {}) {
   const collectionId = collection.id || "";
-  const article = document.createElement("article");
-  article.className = "collections-directory-card";
+  const titleText = collection.title || "Untitled collection";
+  const article = document.createElement("a");
+  article.className = compact ? "collections-directory-card collections-directory-card-compact" : "collections-directory-card";
+  article.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   article.dataset.collectionId = collectionId;
+  if (anchorShow?.id) {
+    article.dataset.anchorShowId = anchorShow.id;
+  }
   article.dataset.intentTags = (collection.intentTags || []).join(" ");
-  applyCollectionAccent(article, shows);
+  article.setAttribute("aria-label", `Open the ${titleText} collection`);
+  applyCollectionAccent(article, anchorShow ? [anchorShow, ...(shows || [])] : shows);
 
   const cover = createCollectionCoverCollage(collection, shows, {
-    className: "collection-cover-collage collection-cover-collage-compact",
+    className: compact
+      ? "collection-cover-collage collection-cover-collage-compact collection-cover-collage-rail"
+      : "collection-cover-collage collection-cover-collage-compact",
+    anchorShow,
   });
 
   const label = document.createElement("span");
@@ -194,7 +224,7 @@ export function createCollectionDirectoryCard(collection, shows) {
   label.textContent = collection.label || (collection.featured ? "Featured route" : "Curated route");
 
   const title = document.createElement("h3");
-  title.textContent = collection.title || "Untitled collection";
+  title.textContent = titleText;
 
   const description = document.createElement("p");
   description.className = "collections-directory-description";
@@ -207,18 +237,12 @@ export function createCollectionDirectoryCard(collection, shows) {
   const actions = document.createElement("div");
   actions.className = "collection-directory-actions";
 
-  const collectionLink = document.createElement("a");
+  const collectionLink = document.createElement("span");
   collectionLink.className = "collection-action";
-  collectionLink.href = collectionId ? createCollectionHref(collectionId) : "/collections";
   collectionLink.textContent = "Open collection";
 
-  const archiveLink = document.createElement("a");
-  archiveLink.className = "collection-secondary-link";
-  archiveLink.href = collectionId ? createArchiveCollectionHref(collectionId) : "/#archive";
-  archiveLink.textContent = "Browse in archive";
-
-  actions.append(collectionLink, archiveLink);
-  article.append(cover, label, title, description, meta, createCollectionIntentTagList(collection), actions);
+  actions.append(collectionLink);
+  article.append(cover, label, title, description, meta, createCollectionIntentTagList(collection, compact ? 3 : 999), actions);
   return article;
 }
 

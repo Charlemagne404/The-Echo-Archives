@@ -5,7 +5,7 @@ import { createEditorialBadges } from "./badges.js";
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { formatInlineTagList } from "./shared.js";
 
-export function createShowCard(show, { previewMode = "" } = {}) {
+export function createShowCard(show, { previewMode = "", archiveScoreOptions = {} } = {}) {
   const showId = show.id || "unknown-show";
   const shell = document.createElement("div");
   shell.className = "podcast-card-shell";
@@ -18,6 +18,7 @@ export function createShowCard(show, { previewMode = "" } = {}) {
   const card = createShowCardPrimary(show, {
     isPreviewTrigger: previewMode === "inline-expand",
     previewId,
+    archiveScoreOptions,
   });
   shell.append(card);
   if (previewMode === "inline-expand") {
@@ -28,7 +29,7 @@ export function createShowCard(show, { previewMode = "" } = {}) {
   return shell;
 }
 
-function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" } = {}) {
+function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "", archiveScoreOptions = {} } = {}) {
   const card = document.createElement("a");
   card.className = isPreviewTrigger ? "podcast-card podcast-card-primary" : "podcast-card";
   card.href = show.href || "/";
@@ -60,7 +61,7 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "" 
   rating.className = "rating";
 
   rating.append(
-    createArchiveScoreElement(show, { showLabel: false }),
+    createArchiveScoreElement(show, { showLabel: false, ...archiveScoreOptions }),
     createRatingDividerElement(),
     createCommunityScoreElement(show, { showLabel: false }),
   );
@@ -240,7 +241,9 @@ function createHomeCardPreviewPanel(show, previewId) {
 }
 
 export function createCollectionShowCard(show, reason = "") {
-  const shell = createShowCard(show);
+  const shell = createShowCard(show, {
+    archiveScoreOptions: { treatZeroAsUnrated: true },
+  });
   shell.classList.add("collection-show-card-shell");
 
   const card = shell.querySelector(".podcast-card");

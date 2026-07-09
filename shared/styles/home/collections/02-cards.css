@@ -35,6 +35,11 @@
   text-decoration: none;
 }
 
+.collections-directory-card {
+  color: inherit;
+  text-decoration: none;
+}
+
 .collections-feature-card:hover,
 .collections-feature-card:focus-visible {
   border-color: color-mix(in srgb, var(--collection-accent) 62%, rgba(255, 255, 255, 0.18));
@@ -43,7 +48,8 @@
 }
 
 .collections-directory-card:hover,
-.collections-directory-card:focus-within {
+.collections-directory-card:focus-within,
+.collections-directory-card:focus-visible {
   border-color: color-mix(in srgb, var(--collection-accent) 52%, rgba(255, 255, 255, 0.16));
   box-shadow: 0 22px 42px rgba(0, 0, 0, 0.34);
   transform: translateY(-2px);
@@ -206,24 +212,81 @@
   margin-top: 4px;
 }
 
+.collections-directory-card-compact {
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--collection-accent) 10%, transparent), transparent 42%),
+    rgba(7, 10, 13, 0.8);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.collections-directory-card-compact .collection-cover-collage-rail {
+  min-height: 78px;
+  border-radius: 12px;
+}
+
+.collections-directory-card-compact h3 {
+  font-size: 1rem;
+}
+
+.collections-directory-card-compact .collections-card-label {
+  font-size: 0.64rem;
+}
+
+.collections-directory-card-compact .collections-directory-description {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.78rem;
+  line-height: 1.38;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.collections-directory-card-compact .collections-card-meta {
+  font-size: 0.74rem;
+}
+
+.collections-directory-card-compact .collection-intent-tags {
+  gap: 6px;
+}
+
+.collections-directory-card-compact .collection-intent-tags span {
+  min-height: 22px;
+  padding: 0 7px;
+  font-size: 0.66rem;
+}
+
+.collections-directory-card-compact .collection-directory-actions {
+  gap: 10px;
+}
+
+.collections-directory-card-compact .collection-action {
+  font-size: 0.86rem;
+}
+
 .collections-feature-card:hover .collection-cover-frame[data-cover-index="1"],
 .collections-feature-card:focus-visible .collection-cover-frame[data-cover-index="1"],
 .collections-directory-card:hover .collection-cover-frame[data-cover-index="1"],
-.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="1"] {
+.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="1"],
+.collections-directory-card:focus-visible .collection-cover-frame[data-cover-index="1"] {
   filter: saturate(0.96) brightness(0.88);
 }
 
 .collections-feature-card:hover .collection-cover-frame img,
 .collections-feature-card:focus-visible .collection-cover-frame img,
 .collections-directory-card:hover .collection-cover-frame img,
-.collections-directory-card:focus-within .collection-cover-frame img {
+.collections-directory-card:focus-within .collection-cover-frame img,
+.collections-directory-card:focus-visible .collection-cover-frame img {
   transform: scale(1.04);
 }
 
 .collections-feature-card:hover .collection-cover-frame[data-cover-index="2"],
 .collections-feature-card:focus-visible .collection-cover-frame[data-cover-index="2"],
 .collections-directory-card:hover .collection-cover-frame[data-cover-index="2"],
-.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="2"] {
+.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="2"],
+.collections-directory-card:focus-visible .collection-cover-frame[data-cover-index="2"] {
   transform: translateY(-10px) rotate(-4.5deg);
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 18px 28px rgba(0, 0, 0, 0.4);
@@ -232,7 +295,8 @@
 .collections-feature-card:hover .collection-cover-frame[data-cover-index="3"],
 .collections-feature-card:focus-visible .collection-cover-frame[data-cover-index="3"],
 .collections-directory-card:hover .collection-cover-frame[data-cover-index="3"],
-.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="3"] {
+.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="3"],
+.collections-directory-card:focus-visible .collection-cover-frame[data-cover-index="3"] {
   transform: translateY(-7px) rotate(-1deg);
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 18px 28px rgba(0, 0, 0, 0.4);
@@ -241,7 +305,8 @@
 .collections-feature-card:hover .collection-cover-frame[data-cover-index="4"],
 .collections-feature-card:focus-visible .collection-cover-frame[data-cover-index="4"],
 .collections-directory-card:hover .collection-cover-frame[data-cover-index="4"],
-.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="4"] {
+.collections-directory-card:focus-within .collection-cover-frame[data-cover-index="4"],
+.collections-directory-card:focus-visible .collection-cover-frame[data-cover-index="4"] {
   transform: translateY(-4px) rotate(4deg);
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 18px 28px rgba(0, 0, 0, 0.4);
@@ -250,7 +315,8 @@
 .collections-feature-card:hover .collection-cover-collage::after,
 .collections-feature-card:focus-visible .collection-cover-collage::after,
 .collections-directory-card:hover .collection-cover-collage::after,
-.collections-directory-card:focus-within .collection-cover-collage::after {
+.collections-directory-card:focus-within .collection-cover-collage::after,
+.collections-directory-card:focus-visible .collection-cover-collage::after {
   background:
     linear-gradient(180deg, rgba(4, 7, 10, 0), rgba(4, 7, 10, 0.82)),
     radial-gradient(circle at 74% 12%, rgba(255, 255, 255, 0.14), transparent 24%);

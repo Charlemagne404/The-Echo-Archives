@@ -13,6 +13,7 @@ import { renderRouteErrorSurface } from "../route-error.js";
 import {
   createCollectionCoverCollage,
   createCollectionDirectoryCard,
+  getCollectionAnchorShow,
   createCollectionHeroTagList,
   getCollectionShowReason,
 } from "../render-collections.js";
@@ -67,57 +68,20 @@ function shouldShowCommitment(collection, routeTypeLabel) {
   return true;
 }
 
-function getCollectionOverviewSummary(collection, collectionShows, anchorShow) {
-  const showCount = collectionShows.length;
-  if (collection?.kind === "similarity" && anchorShow?.title) {
-    return `Start with ${anchorShow.title}, then follow this route into ${showCount} nearby archive ${showCount === 1 ? "pick" : "picks"}.`;
-  }
-
-  const commitment = String(collection?.commitment || "").trim();
-  if (commitment) {
-    return `${showCount} ${showCount === 1 ? "show" : "shows"} selected for a ${commitment.toLowerCase()} listening path.`;
-  }
-
-  return `${showCount} ${showCount === 1 ? "show" : "shows"} selected for this curated listening route.`;
-}
-
 function getCollectionShowsSummary(collection, collectionShows, anchorShow) {
   const showCount = collectionShows.length;
   if (collection?.kind === "similarity" && anchorShow?.title) {
-    return `${showCount} nearby ${showCount === 1 ? "pick" : "picks"} for listeners starting from ${anchorShow.title}.`;
+    return `${showCount} nearby ${showCount === 1 ? "pick" : "picks"} starting from ${anchorShow.title}.`;
   }
 
-  return `${showCount} ${showCount === 1 ? "show" : "shows"} selected for this listening route.`;
+  return `${showCount} ${showCount === 1 ? "show" : "shows"} selected for this route.`;
 }
 
-function getCollectionRouteFocus(collection, anchorShow) {
-  if (collection?.label) {
-    return collection.label;
-  }
-
-  if (collection?.kind === "similarity" && anchorShow?.title) {
-    return `Built outward from ${anchorShow.title}.`;
-  }
-
-  return getCollectionRouteTypeLabel(collection);
-}
-
-function createSignalChip(label) {
+function createSignalChip(label, className = "") {
   const chip = document.createElement("span");
-  chip.className = "collection-detail-signal-chip";
+  chip.className = `collection-detail-signal-chip${className ? ` ${className}` : ""}`;
   chip.textContent = label;
   return chip;
-}
-
-function populateSignalChips(container, values = []) {
-  if (!(container instanceof HTMLElement)) {
-    return;
-  }
-
-  container.textContent = "";
-  values.forEach((value) => {
-    container.appendChild(createSignalChip(toDisplayTag(value)));
-  });
 }
 
 function getDominantToneSignals(collectionShows) {
@@ -142,6 +106,87 @@ function getDominantToneSignals(collectionShows) {
     .sort((left, right) => right.count - left.count || toDisplayTag(left.label).localeCompare(toDisplayTag(right.label)))
     .slice(0, 3)
     .map((entry) => entry.label);
+}
+
+function getCollectionOverviewChipValues(collection, collectionShows, routeTypeLabel) {
+  const values = [];
+  const seen = new Set();
+  const addValue = (value, className = "") => {
+    const text = String(value || "").trim();
+    const key = normalizeTextValue(text);
+    if (!text || seen.has(key)) {
+      return;
+    }
+
+    seen.add(key);
+    values.push({ text, className });
+  };
+
+  if (collection?.label) {
+    addValue(collection.label, "collection-detail-signal-chip-featured");
+  }
+
+  (collection?.intentTags || []).slice(0, 2).forEach((tag) => {
+    addValue(toDisplayTag(tag));
+  });
+
+  if (shouldShowCommitment(collection, routeTypeLabel)) {
+    addValue(collection.commitment);
+  }
+
+  getDominantToneSignals(collectionShows)
+    .slice(0, 1)
+    .forEach((tone) => {
+      addValue(toDisplayTag(tone));
+    });
+
+  return values;
+}
+
+function appendOverviewMetaText(container, text, className = "") {
+  const item = document.createElement("span");
+  item.className = `collection-detail-meta-text${className ? ` ${className}` : ""}`;
+  item.textContent = text;
+  container.appendChild(item);
+}
+
+function appendOverviewMetaSeparator(container) {
+  const separator = document.createElement("span");
+  separator.className = "collection-detail-meta-separator";
+  separator.setAttribute("aria-hidden", "true");
+  separator.textContent = " · ";
+  container.appendChild(separator);
+}
+
+function populateOverviewMetaLine(container, { showCount, routeTypeLabel, updatedAt, anchorShow }) {
+  if (!(container instanceof HTMLElement)) {
+    return;
+  }
+
+  container.textContent = "";
+  appendOverviewMetaText(container, `${showCount} ${showCount === 1 ? "show" : "shows"}`);
+  appendOverviewMetaSeparator(container);
+  appendOverviewMetaText(container, routeTypeLabel);
+
+  if (anchorShow?.title && anchorShow?.href) {
+    appendOverviewMetaSeparator(container);
+    const anchor = document.createElement("span");
+    anchor.className = "collection-detail-meta-text collection-detail-meta-text-anchor";
+    const prefix = document.createElement("span");
+    prefix.className = "collection-detail-anchor-prefix";
+    prefix.textContent = "Starts with ";
+    const link = document.createElement("a");
+    link.className = "collection-detail-anchor-link";
+    link.href = anchorShow.href;
+    link.textContent = anchorShow.title;
+    anchor.append(prefix, link);
+    container.appendChild(anchor);
+  }
+
+  if (updatedAt) {
+    appendOverviewMetaSeparator(container);
+    appendOverviewMetaText(container, `Updated ${formatDate(updatedAt)}`);
+  }
 }
 
 function countOverlap(leftValues = [], rightValues = []) {
@@ -243,10 +288,12 @@ export async function initializeCollectionPage() {
   }
 
   const collectionShows = getCollectionShows(collection, showMap);
-  const anchorShow = collection.anchorShowId ? showMap.get(collection.anchorShowId) : null;
+  const anchorShow = getCollectionAnchorShow(collection, showMap);
   const collectionTitle = collection.title || "Untitled collection";
   const collectionDescription = collection.description || "Collection description not cataloged yet.";
-  const firstCover = collectionShows[0]?.imageSrc || (collectionShows[0]?.cover ? resolveImageSrc(collectionShows[0].cover) : DEFAULT_SOCIAL_IMAGE);
+  const showCount = collectionShows.length;
+  const leadCoverShow = anchorShow || collectionShows[0] || null;
+  const firstCover = leadCoverShow?.imageSrc || (leadCoverShow?.cover ? resolveImageSrc(leadCoverShow.cover) : DEFAULT_SOCIAL_IMAGE);
   updateDocumentMetadata({
     title: `${collectionTitle} - The Echo Archives`,
     description: collectionDescription,
@@ -256,13 +303,8 @@ export async function initializeCollectionPage() {
 
   setTextContent("collectionTitle", collectionTitle);
   setTextContent("collectionDescription", collectionDescription);
-  setTextContent("collectionOverviewSummary", getCollectionOverviewSummary(collection, collectionShows, anchorShow));
-  setTextContent("collectionShowCount", `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"}`);
   const routeTypeLabel = getCollectionRouteTypeLabel(collection);
-  setTextContent("collectionKind", routeTypeLabel);
-  setTextContent("collectionLastUpdated", collection.updatedAt ? formatDate(collection.updatedAt) : "Unknown");
   setTextContent("collectionShowsSummary", getCollectionShowsSummary(collection, collectionShows, anchorShow));
-  setTextContent("collectionRouteFocus", getCollectionRouteFocus(collection, anchorShow));
 
   const heroTags = document.getElementById("collectionHeroTags");
   if (heroTags) {
@@ -275,26 +317,19 @@ export async function initializeCollectionPage() {
     heroArt.appendChild(createCollectionCoverCollage(collection, collectionShows, {
       className: "collection-cover-collage collection-detail-collage",
       loading: "eager",
+      anchorShow,
     }));
   }
 
-  const accent = collectionShows.find((show) => show?.accent?.hex)?.accent?.hex;
+  const accent = (anchorShow || collectionShows.find((show) => show?.accent?.hex))?.accent?.hex;
   const heroPanel = document.getElementById("collectionHeroPanel");
   if (accent && heroPanel) {
     heroPanel.style.setProperty("--collection-accent", accent);
   }
 
-  const archiveLink = document.getElementById("collectionArchiveLink");
   const archiveHeroLink = document.getElementById("collectionArchiveHeroLink");
-  if (archiveLink) {
-    archiveLink.href = createArchiveCollectionHref(collection.id);
-  }
   if (archiveHeroLink) {
     archiveHeroLink.href = createArchiveCollectionHref(collection.id);
-  }
-  const relatedArchiveLink = document.getElementById("collectionRelatedArchiveLink");
-  if (relatedArchiveLink) {
-    relatedArchiveLink.href = createArchiveCollectionHref(collection.id);
   }
   if (shareButton instanceof HTMLButtonElement) {
     bindShareButton(shareButton, {
@@ -304,41 +339,20 @@ export async function initializeCollectionPage() {
     });
   }
 
-  const commitmentFact = document.getElementById("collectionCommitmentFact");
-  const commitmentValue = String(collection.commitment || "").trim();
-  const showCommitment = shouldShowCommitment(collection, routeTypeLabel);
-  if (commitmentFact) {
-    commitmentFact.hidden = !showCommitment;
-  }
-  if (showCommitment) {
-    setTextContent("collectionCommitment", commitmentValue);
-  }
+  const overviewMetaLine = document.getElementById("collectionOverviewMetaLine");
+  populateOverviewMetaLine(overviewMetaLine, {
+    showCount,
+    routeTypeLabel,
+    updatedAt: collection.updatedAt || "",
+    anchorShow: collection.kind === "similarity" ? anchorShow : null,
+  });
 
-  const intentSignalsGroup = document.getElementById("collectionIntentSignalsGroup");
-  const intentSignals = document.getElementById("collectionIntentSignals");
-  const visibleIntentTags = (collection.intentTags || []).slice(0, 4);
-  if (intentSignalsGroup) {
-    intentSignalsGroup.hidden = visibleIntentTags.length === 0;
-  }
-  populateSignalChips(intentSignals, visibleIntentTags);
-
-  const toneSignalsGroup = document.getElementById("collectionToneSignalsGroup");
-  const toneSignals = document.getElementById("collectionToneSignals");
-  const dominantTones = getDominantToneSignals(collectionShows);
-  if (toneSignalsGroup) {
-    toneSignalsGroup.hidden = dominantTones.length === 0;
-  }
-  populateSignalChips(toneSignals, dominantTones);
-
-  const anchorRoute = document.getElementById("collectionAnchorRoute");
-  const anchorLink = document.getElementById("collectionAnchorLink");
-  if (anchorRoute && anchorLink) {
-    const shouldShowAnchor = collection.kind === "similarity" && Boolean(anchorShow?.title && anchorShow?.href);
-    anchorRoute.hidden = !shouldShowAnchor;
-    if (shouldShowAnchor) {
-      anchorLink.textContent = anchorShow.title;
-      anchorLink.href = anchorShow.href || "/";
-    }
+  const overviewChips = document.getElementById("collectionOverviewChips");
+  if (overviewChips instanceof HTMLElement) {
+    overviewChips.textContent = "";
+    getCollectionOverviewChipValues(collection, collectionShows, routeTypeLabel).forEach(({ text, className }) => {
+      overviewChips.appendChild(createSignalChip(text, className));
+    });
   }
 
   grid.textContent = "";
@@ -354,7 +368,12 @@ export async function initializeCollectionPage() {
   if (relatedGrid) {
     relatedGrid.textContent = "";
     relatedCollections.forEach((relatedCollection) => {
-      relatedGrid.appendChild(createCollectionDirectoryCard(relatedCollection, getCollectionShows(relatedCollection, showMap)));
+      relatedGrid.appendChild(
+        createCollectionDirectoryCard(relatedCollection, getCollectionShows(relatedCollection, showMap), {
+          compact: true,
+          anchorShow: getCollectionAnchorShow(relatedCollection, showMap),
+        }),
+      );
     });
   }
   if (relatedEmpty) {
@@ -363,8 +382,8 @@ export async function initializeCollectionPage() {
   if (relatedSummary) {
     relatedSummary.textContent =
       relatedCollections.length > 0
-        ? "More archive routes that overlap this one in signal, included shows, or listening shape."
-        : "No adjacent routes are strong enough to suggest yet, but the wider archive is still open.";
+        ? "Neighboring routes in the archive."
+        : "No nearby routes are strong enough to surface here yet.";
   }
 }
 

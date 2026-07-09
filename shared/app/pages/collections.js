@@ -1,29 +1,25 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
 import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadShows } from "../data.js";
-import { createCollectionDirectoryCard, createCollectionFeatureCard } from "../render-collections.js";
+import { createCollectionDirectoryCard, createCollectionFeatureCard, getCollectionAnchorShow } from "../render-collections.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
 import { formatDate, normalizeTag, setTextContent, updateDocumentMetadata } from "../utils.js";
+import { buildIntentCounts, buildIntentFilters, createStickyMoodBarController, mountMoodChips, syncMoodChipState } from "./collections-intents.js";
 import { getCollectionsGridMotionProfile, syncCollectionGrid } from "./collections-grid-motion.js";
-import { prefersReducedMotion, restartAnimationClass, syncCollectionsSummary, syncCollectionsSurfaceVisibility } from "./collections-motion.js";
+import { prefersReducedMotion, syncCollectionsSummary, syncCollectionsSurfaceVisibility } from "./collections-motion.js";
 
-const MOOD_FILTERS = [
-  { id: "long-walks", label: "Long walks", icon: "M12 4v16M8 8l4-4 4 4M8 16l4 4 4-4" },
-  { id: "easy-first-step", label: "Easy first step", icon: "M5 12h14M13 6l6 6-6 6" },
-  { id: "late-night", label: "Late night", icon: "M18 15.5A6.5 6.5 0 1 1 8.5 6 7 7 0 0 0 18 15.5Z" },
-  { id: "headphones-on", label: "Headphones on", icon: "M4 13a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-2v-7h4M4 13h4v7H6a2 2 0 0 1-2-2v-5Z" },
-  { id: "serious-sci-fi", label: "Serious sci-fi", icon: "M12 3v18M4 12h16M7 7l10 10M17 7 7 17" },
-  { id: "funny-space", label: "Funny space", icon: "M7 15c2 3 8 3 10 0M8 9h.01M16 9h.01M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z" },
-  { id: "cold-horror", label: "Cold horror", icon: "M12 3v18M5 7l14 10M19 7 5 17M4 12h16" },
-  { id: "time-bent", label: "Time-bent", icon: "M12 7v5l3 2M4 12a8 8 0 1 0 3-6.25M4 5v5h5" },
-];
 const COLLECTION_SORT_MODES = new Set(["editorial", "newest", "title", "shows", "rating", "popularity"]);
 const SIMILARITY_COLLECTIONS_PAGE_SIZE = 5;
+const SIMILARITY_COLLECTIONS_QUERY = "shows like";
 
 function getElements() {
   return {
+    heroSection: document.getElementById("collectionsHero"),
     moodChips: document.getElementById("collectionsMoodChips"),
+    stickyMoodBar: document.getElementById("collectionsStickyMoodBar"),
+    stickyMoodChips: document.getElementById("collectionsStickyMoodChips"),
     similarityGrid: document.getElementById("collectionsSimilarityGrid"),
+    similarityActions: document.getElementById("collectionsSimilarityActions"),
     similarityMore: document.getElementById("collectionsSimilarityMore"),
     featuredGrid: document.getElementById("collectionsFeaturedGrid"),
     directoryRoot: document.getElementById("collectionsDirectory"),
@@ -36,6 +32,7 @@ function getElements() {
     directorySummary: document.getElementById("collectionsDirectorySummary"),
     startWithMood: document.getElementById("startWithMood"),
     browseAll: document.getElementById("browseAllCollections"),
+    similarityBrowseAll: document.getElementById("collectionsSimilarityBrowseAll"),
     moodPanel: document.getElementById("collectionsMoodPanel"),
     directorySection: document.getElementById("collectionsDirectorySection"),
   };
@@ -78,35 +75,6 @@ function getInitialState(validIntentIds) {
     query: params.get("q") || "",
     sortMode: COLLECTION_SORT_MODES.has(sort) ? sort : "editorial",
   };
-}
-
-function createMoodChip(filter, count, state, onSelect) {
-  const button = document.createElement("button");
-  button.className = "collections-mood-chip";
-  button.type = "button";
-  button.dataset.intent = filter.id;
-  button.setAttribute("aria-pressed", String(state.intent === filter.id));
-
-  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  icon.setAttribute("viewBox", "0 0 24 24");
-  icon.setAttribute("aria-hidden", "true");
-  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("d", filter.icon);
-  path.setAttribute("fill", "none");
-  path.setAttribute("stroke", "currentColor");
-  path.setAttribute("stroke-linecap", "round");
-  path.setAttribute("stroke-linejoin", "round");
-  path.setAttribute("stroke-width", "1.8");
-  icon.appendChild(path);
-
-  const label = document.createElement("span");
-  label.textContent = filter.label;
-  const countNode = document.createElement("strong");
-  countNode.textContent = String(count);
-
-  button.append(icon, label, countNode);
-  button.addEventListener("click", () => onSelect(filter.id));
-  return button;
 }
 
 function getCollectionSearchText(collection, shows) {
@@ -215,39 +183,6 @@ function syncUrlState(state) {
   window.history.replaceState(window.history.state, "", nextUrl);
 }
 
-function mountMoodChips({ moodChips, collections, onSelect }) {
-  const chipMap = new Map();
-  moodChips.textContent = "";
-  MOOD_FILTERS.forEach((filter) => {
-    const count = collections.filter((collection) => collectionMatchesIntent(collection, filter.id)).length;
-    const chip = createMoodChip(filter, count, { intent: "" }, onSelect);
-    chipMap.set(filter.id, chip);
-    moodChips.appendChild(chip);
-  });
-
-  return chipMap;
-}
-
-function syncMoodChipState(chipMap, activeIntent, { scrollActiveIntoView = false } = {}) {
-  chipMap.forEach((chip, intent) => {
-    const isActive = activeIntent === intent;
-    const wasActive = chip.getAttribute("aria-pressed") === "true";
-    chip.setAttribute("aria-pressed", String(isActive));
-
-    if (!isActive || wasActive) {
-      return;
-    }
-
-    restartAnimationClass(chip, "is-activating", 340);
-    if (scrollActiveIntoView) {
-      chip.scrollIntoView({
-        behavior: prefersReducedMotion() ? "auto" : "smooth",
-        block: "nearest",
-        inline: "center",
-      });
-    }
-  });
-}
 
 function focusMoodChip(moodChips) {
   const activeChip =
@@ -266,10 +201,30 @@ function focusMoodChip(moodChips) {
   activeChip.focus({ preventScroll: true });
 }
 
+function scrollToDirectorySection(elements, { updateHash = false } = {}) {
+  if (updateHash) {
+    const params = new URLSearchParams(window.location.search);
+    const nextSearch = params.toString();
+    const nextUrl = `${window.location.pathname}${nextSearch ? `?${nextSearch}` : ""}#collectionsDirectorySection`;
+    window.history.replaceState(window.history.state, "", nextUrl);
+  }
+
+  elements.directorySection?.scrollIntoView({
+    behavior: prefersReducedMotion() ? "auto" : "smooth",
+  });
+}
+
 export async function initializeCollectionsPage() {
   const elements = getElements();
 
-  if (!elements.directoryRoot || !elements.featuredGrid || !elements.similarityGrid || !elements.moodChips) {
+  if (
+    !elements.directoryRoot ||
+    !elements.featuredGrid ||
+    !elements.similarityGrid ||
+    !elements.moodChips ||
+    !elements.stickyMoodBar ||
+    !elements.stickyMoodChips
+  ) {
     return;
   }
   renderCollectionsLoadingState(elements);
@@ -290,21 +245,36 @@ export async function initializeCollectionsPage() {
 
   const orderedCollections = sortCollections(collections, new Map(collections.map((entry) => [entry.id, []])), "editorial");
   const similarityCollections = orderedCollections.filter((collection) => collection.kind === "similarity");
+  const intentFilters = buildIntentFilters(orderedCollections);
+  const intentCounts = buildIntentCounts(orderedCollections);
   const showsByCollection = new Map(
     orderedCollections.map((collection) => [collection.id, getCollectionShows(collection, showMap)]),
   );
-  const validIntentIds = new Set(MOOD_FILTERS.map((filter) => filter.id));
+  const validIntentIds = new Set(intentFilters.map((filter) => filter.id));
   const state = getInitialState(validIntentIds);
   const similarityState = {
     visibleCount: SIMILARITY_COLLECTIONS_PAGE_SIZE,
   };
-  const moodChipMap = mountMoodChips({
+  const handleMoodSelection = (intent, sourceSurface = "hero") => {
+    state.intent = state.intent === intent ? "" : intent;
+    render("explicit", sourceSurface);
+  };
+  const heroMoodChipMap = mountMoodChips({
     moodChips: elements.moodChips,
-    collections: orderedCollections,
-    onSelect: (intent) => {
-      state.intent = state.intent === intent ? "" : intent;
-      render("explicit");
-    },
+    intentFilters,
+    intentCounts,
+    onSelect: handleMoodSelection,
+  });
+  const stickyMoodChipMap = mountMoodChips({
+    moodChips: elements.stickyMoodChips,
+    intentFilters,
+    intentCounts,
+    onSelect: handleMoodSelection,
+    compact: true,
+  });
+  const stickyMoodBarController = createStickyMoodBarController({
+    observedSurface: elements.moodPanel || elements.heroSection,
+    stickyBar: elements.stickyMoodBar,
   });
 
   const featuredCount = orderedCollections.filter((collection) => collection.featured).length;
@@ -321,18 +291,23 @@ export async function initializeCollectionsPage() {
   );
 
   const renderSimilarityCollections = (changeReason = "initial") => {
-    syncCollectionGrid(elements.similarityGrid, similarityCollections.slice(0, similarityState.visibleCount), {
+    const visibleCount = Math.min(similarityState.visibleCount, similarityCollections.length);
+
+    syncCollectionGrid(elements.similarityGrid, similarityCollections.slice(0, visibleCount), {
       motionProfile: getCollectionsGridMotionProfile(changeReason),
       renderItem: (collection) =>
         createCollectionFeatureCard(collection, showsByCollection.get(collection.id), {
-          anchorShow: showMap.get(collection.anchorShowId),
+          anchorShow: getCollectionAnchorShow(collection, showMap),
         }),
     });
 
     if (elements.similarityMore instanceof HTMLButtonElement) {
-      const remainingCount = Math.max(similarityCollections.length - similarityState.visibleCount, 0);
+      const remainingCount = Math.max(similarityCollections.length - visibleCount, 0);
       const nextRevealCount = Math.min(SIMILARITY_COLLECTIONS_PAGE_SIZE, remainingCount);
       const hasMore = remainingCount > 0;
+      if (elements.similarityActions instanceof HTMLElement) {
+        elements.similarityActions.hidden = !hasMore;
+      }
       elements.similarityMore.hidden = !hasMore;
       elements.similarityMore.disabled = !hasMore;
 
@@ -349,7 +324,7 @@ export async function initializeCollectionsPage() {
     elements.sortSelect.value = state.sortMode;
   }
 
-  const render = (changeReason = "initial") => {
+  const render = (changeReason = "initial", sourceSurface = "") => {
     const filtered = sortCollections(
       orderedCollections.filter((collection) => {
         const collectionShows = showsByCollection.get(collection.id);
@@ -360,20 +335,29 @@ export async function initializeCollectionsPage() {
     );
     const featuredBase = state.intent ? filtered : orderedCollections.filter((collection) => collection.featured);
     const featured = sortCollections(featuredBase, showsByCollection, "editorial").slice(0, 5);
-    const activeMood = MOOD_FILTERS.find((filter) => filter.id === state.intent)?.label || "";
+    const activeMood = intentFilters.find((filter) => filter.id === state.intent)?.label || "";
     const gridMotionProfile = getCollectionsGridMotionProfile(changeReason);
 
-    syncMoodChipState(moodChipMap, state.intent, {
-      scrollActiveIntoView: changeReason === "explicit" && Boolean(state.intent),
+    syncMoodChipState(heroMoodChipMap, state.intent, {
+      scrollActiveIntoView: changeReason === "explicit" && Boolean(state.intent) && sourceSurface === "hero",
+    });
+    syncMoodChipState(stickyMoodChipMap, state.intent, {
+      scrollActiveIntoView: changeReason === "explicit" && Boolean(state.intent) && sourceSurface === "sticky",
     });
 
     syncCollectionGrid(elements.featuredGrid, featured, {
       motionProfile: gridMotionProfile,
-      renderItem: (collection) => createCollectionFeatureCard(collection, showsByCollection.get(collection.id)),
+      renderItem: (collection) =>
+        createCollectionFeatureCard(collection, showsByCollection.get(collection.id), {
+          anchorShow: getCollectionAnchorShow(collection, showMap),
+        }),
     });
     syncCollectionGrid(elements.directoryRoot, filtered, {
       motionProfile: gridMotionProfile,
-      renderItem: (collection) => createCollectionDirectoryCard(collection, showsByCollection.get(collection.id)),
+      renderItem: (collection) =>
+        createCollectionDirectoryCard(collection, showsByCollection.get(collection.id), {
+          anchorShow: getCollectionAnchorShow(collection, showMap),
+        }),
     });
 
     if (elements.featuredSummary) {
@@ -418,16 +402,28 @@ export async function initializeCollectionsPage() {
     render("explicit");
   });
   elements.similarityMore?.addEventListener("click", () => {
-    similarityState.visibleCount += SIMILARITY_COLLECTIONS_PAGE_SIZE;
+    similarityState.visibleCount = Math.min(
+      similarityState.visibleCount + SIMILARITY_COLLECTIONS_PAGE_SIZE,
+      similarityCollections.length,
+    );
     renderSimilarityCollections("explicit");
   });
   elements.startWithMood?.addEventListener("click", () => focusMoodChip(elements.moodChips));
-  elements.browseAll?.addEventListener("click", () =>
-    elements.directorySection?.scrollIntoView({ behavior: prefersReducedMotion() ? "auto" : "smooth" }),
-  );
+  elements.browseAll?.addEventListener("click", () => scrollToDirectorySection(elements));
+  elements.similarityBrowseAll?.addEventListener("click", (event) => {
+    event.preventDefault();
+    state.intent = "";
+    state.query = SIMILARITY_COLLECTIONS_QUERY;
+    if (elements.searchInput instanceof HTMLInputElement) {
+      elements.searchInput.value = SIMILARITY_COLLECTIONS_QUERY;
+    }
+    render("explicit");
+    scrollToDirectorySection(elements, { updateHash: true });
+  });
 
   renderSimilarityCollections();
   render();
+  stickyMoodBarController.start();
   scrollRestoration.restore();
 }
 

@@ -1,5 +1,16 @@
-<main class="home-main page-main collections-main">
-    <section class="hero-shell collections-hero" aria-labelledby="collectionsHeroTitle">
+  <main class="home-main page-main collections-main">
+    <div class="collections-sticky-mood-bar" id="collectionsStickyMoodBar" data-visibility="hidden" aria-hidden="true">
+      <div class="collections-sticky-mood-bar-inner">
+        <div
+          id="collectionsStickyMoodChips"
+          class="collections-mood-chips collections-mood-chips-compact"
+          role="group"
+          aria-label="Filter collections by listening intent"
+        ></div>
+      </div>
+    </div>
+
+    <section class="hero-shell collections-hero" id="collectionsHero" aria-labelledby="collectionsHeroTitle">
       <div class="hero-panel page-panel collections-hero-panel">
         <div class="hero-copy collections-hero-copy">
           <h1 id="collectionsHeroTitle">The archive, organized by listening intent</h1>
@@ -33,10 +44,16 @@
           <h2 id="collectionsSimilarityTitle">Start from a favorite show</h2>
           <p id="collectionsSimilaritySummary">Shows like X routes from the archive.</p>
         </div>
-        <a class="section-link" href="#collectionsDirectorySection">Browse all collections</a>
+        <a
+          id="collectionsSimilarityBrowseAll"
+          class="section-link"
+          href="/collections?q=shows%20like#collectionsDirectorySection"
+        >
+          Browse all "shows like" collections
+        </a>
       </div>
       <div id="collectionsSimilarityGrid" class="collections-featured-grid"></div>
-      <div class="collections-similarity-actions">
+      <div id="collectionsSimilarityActions" class="collections-similarity-actions" hidden>
         <button
           id="collectionsSimilarityMore"
           class="collection-action collections-similarity-more"

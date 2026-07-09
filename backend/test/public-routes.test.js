@@ -4,6 +4,7 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
+const { loadCatalog, loadCollections } = require("../lib/catalog");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -91,6 +92,11 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
   const context = await startPublicRouteServer();
 
   try {
+    const catalog = await loadCatalog(siteRoot);
+    const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+    const similarityCollection = collections.find((collection) => collection.kind === "similarity");
+    const similarityAnchor = catalog.find((show) => show.id === similarityCollection?.anchorShowId);
+
     const showResponse = await fetch(`${context.baseUrl}/show?id=impact-winter`);
     assert.equal(showResponse.status, 200);
     const showHtml = await showResponse.text();
@@ -110,6 +116,20 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.match(
       collectionHtml,
       new RegExp(`<link rel="canonical" href="${context.baseUrl}/collection\\?id=best-for-long-walks" \\/>`),
+    );
+
+    assert.ok(similarityCollection?.id);
+    assert.ok(similarityAnchor?.cover);
+    const similarityCollectionResponse = await fetch(
+      `${context.baseUrl}/collection?id=${encodeURIComponent(similarityCollection.id)}`,
+    );
+    assert.equal(similarityCollectionResponse.status, 200);
+    const similarityCollectionHtml = await similarityCollectionResponse.text();
+    assert.match(
+      similarityCollectionHtml,
+      new RegExp(
+        `<meta property="og:image" content="${new URL(`/${similarityAnchor.cover}`, context.baseUrl).toString().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`,
+      ),
     );
 
     const missingShowResponse = await fetch(`${context.baseUrl}/show?id=missing-show`);

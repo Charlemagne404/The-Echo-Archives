@@ -288,6 +288,8 @@ async function startServer() {
       const collectionShows = (Array.isArray(collection.showIds) ? collection.showIds : [])
         .map((showId) => showMap.get(showId))
         .filter(Boolean);
+      const anchorShow =
+        collection.anchorShowId && showMap.has(collection.anchorShowId) ? showMap.get(collection.anchorShowId) : null;
       const template = readPublicPageTemplate("collection.html");
       const rendered = injectPageMetadata(
         template,
@@ -295,6 +297,7 @@ async function startServer() {
           siteUrl: getRequestSiteUrl(req),
           collection,
           collectionShows,
+          anchorShow,
         }),
       );
 

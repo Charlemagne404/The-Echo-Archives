@@ -50,13 +50,13 @@
   .collection-detail-art {
     display: none;
   }
-
-  .collection-detail-overview-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 780px) {
+  .collections-sticky-mood-bar {
+    width: min(100%, calc(100% - (var(--shell-inline-padding-tablet) * 2)));
+  }
+
   .collections-hero-panel {
     min-height: 0;
     padding: 22px;
@@ -103,11 +103,7 @@
 
   .collection-detail-overview,
   .collection-detail-related-section {
-    padding: 18px;
-  }
-
-  .collection-detail-fact-list {
-    grid-template-columns: 1fr;
+    padding: 14px 16px;
   }
 
   .collections-section-heading {
@@ -119,9 +115,18 @@
     padding-top: 14px;
   }
 
+  .collections-sticky-mood-bar-inner {
+    padding: 8px;
+  }
+
   .collections-mood-chips {
     margin: 0 -6px;
     padding: 0 6px 4px;
+  }
+
+  .collections-mood-chips-compact {
+    margin: 0;
+    padding: 0;
   }
 
   .collection-cover-collage {
@@ -136,6 +141,11 @@
 }
 
 @media (max-width: 560px) {
+  .collections-sticky-mood-bar {
+    top: max(10px, env(safe-area-inset-top));
+    width: min(100%, calc(100% - (var(--shell-inline-padding-phone) * 2)));
+  }
+
   .collections-hero-panel,
   .collection-detail-hero-panel {
     border-radius: 20px;
@@ -168,8 +178,8 @@
   .collection-detail-related-section,
   .collections-featured-section,
   .collections-directory-section {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .collections-mood-chips {
@@ -177,7 +187,24 @@
     padding-inline: 2px;
   }
 
-  .collection-detail-overview-secondary {
-    padding: 16px;
+  .collections-sticky-mood-bar-inner {
+    padding: 7px;
+    border-radius: 14px;
+  }
+
+  .collections-mood-chip-compact {
+    min-height: 32px;
+    padding: 0 9px;
+    gap: 6px;
+  }
+
+  .collections-mood-chip-label-compact {
+    font-size: 0.74rem;
+  }
+
+  .collection-detail-overview-row,
+  .collection-detail-overview-meta-line,
+  .collection-detail-overview-chips {
+    gap: 6px;
   }
 }

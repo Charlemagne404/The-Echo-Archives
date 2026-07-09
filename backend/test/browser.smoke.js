@@ -197,38 +197,45 @@ test("collection detail pages expose listener-facing overview and related route 
     await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () =>
-        document.getElementById("collectionOverviewSummary")?.textContent?.trim().length > 0 &&
+        document.querySelectorAll("#collectionOverviewChips .collection-detail-signal-chip").length > 0 &&
         document.querySelectorAll(".collection-show-card-note").length > 0,
       undefined,
       { timeout: 5_000 },
     );
 
     const collectionState = await page.evaluate(() => ({
-      overviewSummary: document.getElementById("collectionOverviewSummary")?.textContent?.trim() || "",
-      routeFocus: document.getElementById("collectionRouteFocus")?.textContent?.trim() || "",
+      overviewKicker: document.querySelector(".collection-detail-overview-kicker")?.textContent?.trim() || "",
+      metaLine: document.getElementById("collectionOverviewMetaLine")?.textContent?.trim() || "",
+      oldHeadingPresent: Array.from(document.querySelectorAll("h2, p, span"))
+        .some((node) => ["How this route works", "Route signals"].includes(node.textContent?.trim() || "")),
       detachedReasonCount: document.querySelectorAll(".collection-card-reason").length,
       inlineNoteCount: document.querySelectorAll(".collection-show-card-note").length,
       relatedCount: document.querySelectorAll("#collectionRelatedGrid .collections-directory-card").length,
-      intentSignalCount: document.querySelectorAll("#collectionIntentSignals .collection-detail-signal-chip").length,
+      overviewChipCount: document.querySelectorAll("#collectionOverviewChips .collection-detail-signal-chip").length,
+      compactRelatedCount: document.querySelectorAll("#collectionRelatedGrid .collections-directory-card-compact").length,
     }));
 
-    assert.ok(collectionState.overviewSummary.length > 0);
-    assert.ok(collectionState.routeFocus.length > 0);
+    assert.equal(collectionState.overviewKicker, "At a glance");
+    assert.match(collectionState.metaLine, /\d+\s+shows?/i);
+    assert.match(collectionState.metaLine, /route/i);
+    assert.match(collectionState.metaLine, /Updated /);
+    assert.equal(collectionState.oldHeadingPresent, false);
     assert.equal(collectionState.detachedReasonCount, 0);
     assert.ok(collectionState.inlineNoteCount > 0);
     assert.ok(collectionState.relatedCount > 0);
-    assert.ok(collectionState.intentSignalCount > 0);
+    assert.ok(collectionState.overviewChipCount > 0);
+    assert.ok(collectionState.compactRelatedCount > 0);
 
     await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
-      () => document.getElementById("collectionAnchorRoute")?.hidden === false,
+      () => document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link"),
       undefined,
       { timeout: 5_000 },
     );
 
     const similarityState = await page.evaluate(() => ({
-      anchorText: document.getElementById("collectionAnchorLink")?.textContent?.trim() || "",
-      anchorHref: document.getElementById("collectionAnchorLink")?.getAttribute("href") || "",
+      anchorText: document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link")?.textContent?.trim() || "",
+      anchorHref: document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link")?.getAttribute("href") || "",
     }));
 
     assert.ok(similarityState.anchorText.length > 0);
@@ -549,7 +556,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
           scrollWidth: document.documentElement.scrollWidth,
           viewport: window.innerWidth,
           statsColumns: (() => {
-            const template = window.getComputedStyle(document.querySelector(".collections-stat-grid")).gridTemplateColumns.trim();
+            const template = window.getComputedStyle(document.querySelector(".collections-hero-trust-grid")).gridTemplateColumns.trim();
             return template && template !== "none" ? template.split(" ").length : 0;
           })(),
           directoryColumns: (() => {
@@ -740,6 +747,105 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
     }
   } finally {
     await page.close();
+  }
+});
+
+test("collections sticky mood bar stays compact, appears after scroll, and mirrors the active mood", async () => {
+  const desktopPage = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+  const mobilePage = await browser.newPage({ viewport: { width: 390, height: 844 } });
+
+  try {
+    await desktopPage.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await desktopPage.waitForFunction(
+      () =>
+        document.querySelectorAll("#collectionsMoodChips .collections-mood-chip").length > 0 &&
+        document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip").length > 0,
+    );
+
+    const initialDesktopState = await desktopPage.evaluate(() => ({
+      stickyVisibility: document.getElementById("collectionsStickyMoodBar")?.dataset.visibility || "",
+      stickyAriaHidden: document.getElementById("collectionsStickyMoodBar")?.getAttribute("aria-hidden") || "",
+      heroChipCount: document.querySelectorAll("#collectionsMoodChips .collections-mood-chip").length,
+      stickyChipCount: document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip").length,
+    }));
+
+    assert.equal(initialDesktopState.stickyVisibility, "hidden");
+    assert.equal(initialDesktopState.stickyAriaHidden, "true");
+    assert.equal(initialDesktopState.heroChipCount, initialDesktopState.stickyChipCount);
+
+    await desktopPage.locator('#collectionsMoodChips .collections-mood-chip[data-intent="finished"]').click();
+    await desktopPage.waitForFunction(() => new URL(window.location.href).searchParams.get("intent") === "finished");
+    await desktopPage.evaluate(() => {
+      const section = document.getElementById("collectionsSimilaritySection");
+      if (section instanceof HTMLElement) {
+        window.scrollTo({ top: section.offsetTop, behavior: "auto" });
+      }
+    });
+    await desktopPage.waitForFunction(() => document.getElementById("collectionsStickyMoodBar")?.dataset.visibility === "visible");
+
+    const scrolledDesktopState = await desktopPage.evaluate(() => ({
+      stickyVisibility: document.getElementById("collectionsStickyMoodBar")?.dataset.visibility || "",
+      stickyWidth: Math.round(document.getElementById("collectionsStickyMoodBar")?.getBoundingClientRect().width || 0),
+      viewport: window.innerWidth,
+      scrollY: window.scrollY,
+      activeHeroIntent:
+        document.querySelector('#collectionsMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") || "",
+      activeStickyIntent:
+        document.querySelector('#collectionsStickyMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") || "",
+    }));
+
+    assert.equal(scrolledDesktopState.stickyVisibility, "visible");
+    assert.ok(scrolledDesktopState.stickyWidth <= scrolledDesktopState.viewport);
+    assert.equal(scrolledDesktopState.activeHeroIntent, "finished");
+    assert.equal(scrolledDesktopState.activeStickyIntent, "finished");
+
+    await desktopPage.locator('#collectionsStickyMoodChips .collections-mood-chip[data-intent="warm-weird"]').click();
+    await desktopPage.waitForFunction(
+      () =>
+        new URL(window.location.href).searchParams.get("intent") === "warm-weird" &&
+        document.querySelector('#collectionsStickyMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") ===
+          "warm-weird",
+    );
+
+    const stickyClickState = await desktopPage.evaluate(() => ({
+      scrollY: window.scrollY,
+      activeHeroIntent:
+        document.querySelector('#collectionsMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") || "",
+      activeStickyIntent:
+        document.querySelector('#collectionsStickyMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") || "",
+    }));
+
+    assert.ok(stickyClickState.scrollY >= scrolledDesktopState.scrollY - 24);
+    assert.equal(stickyClickState.activeHeroIntent, "warm-weird");
+    assert.equal(stickyClickState.activeStickyIntent, "warm-weird");
+
+    await mobilePage.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await mobilePage.waitForFunction(() => document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip").length > 0);
+    await mobilePage.evaluate(() => {
+      const section = document.getElementById("collectionsSimilaritySection");
+      if (section instanceof HTMLElement) {
+        window.scrollTo({ top: section.offsetTop, behavior: "auto" });
+      }
+    });
+    await mobilePage.waitForFunction(() => document.getElementById("collectionsStickyMoodBar")?.dataset.visibility === "visible");
+
+    const mobileState = await mobilePage.evaluate(() => ({
+      scrollWidth: document.documentElement.scrollWidth,
+      viewport: window.innerWidth,
+      stickyWidth: Math.round(document.getElementById("collectionsStickyMoodBar")?.getBoundingClientRect().width || 0),
+      stickyInnerWidth: Math.round(document.querySelector(".collections-sticky-mood-bar-inner")?.getBoundingClientRect().width || 0),
+      stickyWrap: window.getComputedStyle(document.getElementById("collectionsStickyMoodChips")).flexWrap,
+      stickyCountBadges: document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip strong").length,
+    }));
+
+    assert.ok(mobileState.scrollWidth <= mobileState.viewport + 1);
+    assert.ok(mobileState.stickyWidth <= mobileState.viewport);
+    assert.ok(mobileState.stickyInnerWidth <= mobileState.viewport);
+    assert.equal(mobileState.stickyWrap, "nowrap");
+    assert.equal(mobileState.stickyCountBadges, 0);
+  } finally {
+    await desktopPage.close();
+    await mobilePage.close();
   }
 });
 

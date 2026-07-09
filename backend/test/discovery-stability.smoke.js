@@ -296,6 +296,74 @@ test("collections page reveals similarity routes five at a time and keeps the an
   }
 });
 
+test("collections page exposes every live intent tag and limits mood filtering to featured and directory sections", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const expectedIntentTags = [...new Set(collectionFixtures.flatMap((collection) => collection.intentTags || []))].sort();
+  const expectedFinishedOrder = getExpectedCollectionOrder(
+    "editorial",
+    collectionFixtures.filter((collection) => (collection.intentTags || []).includes("finished")),
+    showFixtures,
+  );
+
+  try {
+    await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    await page.waitForFunction(
+      () =>
+        document.querySelectorAll("#collectionsMoodChips .collections-mood-chip").length > 0 &&
+        document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip").length > 0 &&
+        document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length > 0,
+    );
+
+    const initialState = await page.evaluate(() => ({
+      heroIntentIds: Array.from(document.querySelectorAll("#collectionsMoodChips .collections-mood-chip"))
+        .map((node) => node.getAttribute("data-intent") || "")
+        .sort(),
+      stickyIntentIds: Array.from(document.querySelectorAll("#collectionsStickyMoodChips .collections-mood-chip"))
+        .map((node) => node.getAttribute("data-intent") || "")
+        .sort(),
+      similarityIds: Array.from(document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+    }));
+
+    assert.deepEqual(initialState.heroIntentIds, expectedIntentTags);
+    assert.deepEqual(initialState.stickyIntentIds, expectedIntentTags);
+
+    await page.locator('#collectionsMoodChips .collections-mood-chip[data-intent="finished"]').click();
+    await page.waitForFunction(
+      (expectedCount) =>
+        new URL(window.location.href).searchParams.get("intent") === "finished" &&
+        document.querySelector('#collectionsMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") === "finished" &&
+        document.querySelectorAll("#collectionsDirectory .collections-directory-card").length === expectedCount,
+      expectedFinishedOrder.length,
+    );
+
+    const filteredState = await page.evaluate(() => ({
+      heroActiveIntent:
+        document.querySelector('#collectionsMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") || "",
+      stickyActiveIntent:
+        document.querySelector('#collectionsStickyMoodChips .collections-mood-chip[aria-pressed="true"]')?.getAttribute("data-intent") || "",
+      featuredIds: Array.from(document.querySelectorAll("#collectionsFeaturedGrid .collections-feature-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+      directoryIds: Array.from(document.querySelectorAll("#collectionsDirectory .collections-directory-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+      similarityIds: Array.from(document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card")).map(
+        (node) => node.dataset.collectionId || "",
+      ),
+    }));
+
+    assert.equal(filteredState.heroActiveIntent, "finished");
+    assert.equal(filteredState.stickyActiveIntent, "finished");
+    assert.deepEqual(filteredState.featuredIds, expectedFinishedOrder.slice(0, 5));
+    assert.deepEqual(filteredState.directoryIds, expectedFinishedOrder);
+    assert.deepEqual(filteredState.similarityIds, initialState.similarityIds);
+  } finally {
+    await page.close();
+  }
+});
+
 test("show and collection pages expose honest empty states and working copy-link actions", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
@@ -342,7 +410,7 @@ test("show and collection pages expose honest empty states and working copy-link
     const collectionState = await page.evaluate(() => ({
       legacyCommand: window.__legacyCommand || "",
       status: document.querySelector("[data-copy-link-status]")?.textContent?.trim() || "",
-      overviewSummary: document.getElementById("collectionOverviewSummary")?.textContent?.trim() || "",
+      metaLine: document.getElementById("collectionOverviewMetaLine")?.textContent?.trim() || "",
       detachedReasons: document.querySelectorAll(".collection-card-reason").length,
       inlineNoteCount: document.querySelectorAll(".collection-show-card-note").length,
       relatedCollectionIds: Array.from(document.querySelectorAll("#collectionRelatedGrid .collections-directory-card")).map(
@@ -353,7 +421,8 @@ test("show and collection pages expose honest empty states and working copy-link
 
     assert.equal(collectionState.legacyCommand, "copy");
     assert.match(collectionState.status, /Link copied/i);
-    assert.match(collectionState.overviewSummary, /\broute\b|\bshows?\b|\bpath\b/i);
+    assert.match(collectionState.metaLine, /\d+\s+shows?/i);
+    assert.match(collectionState.metaLine, /route/i);
     assert.equal(collectionState.detachedReasons, 0);
     assert.ok(collectionState.inlineNoteCount > 0);
     assert.ok(collectionState.relatedCollectionIds.length > 0);
@@ -365,31 +434,51 @@ test("show and collection pages expose honest empty states and working copy-link
 
 test("similarity collection pages render anchor context in the overview panel", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const similarityCollection = collectionFixtures.find((collection) => collection.id === firstSimilarityCollectionId);
+  const anchorShow = showFixtures.find((show) => show.id === similarityCollection?.anchorShowId);
 
   try {
     await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () =>
         document.getElementById("collectionTitle")?.textContent?.trim() !== "Collection" &&
-        document.getElementById("collectionAnchorRoute") &&
-        document.getElementById("collectionAnchorRoute")?.hidden === false,
+        document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link") &&
+        document.querySelector("#collectionHeroArt .collection-cover-frame[data-cover-index=\"1\"] img"),
       undefined,
       { timeout: 5_000 },
     );
 
     const state = await page.evaluate(() => ({
-      anchorLabel: document.getElementById("collectionAnchorLink")?.textContent?.trim() || "",
-      anchorHref: document.getElementById("collectionAnchorLink")?.getAttribute("href") || "",
-      routeFocus: document.getElementById("collectionRouteFocus")?.textContent?.trim() || "",
-      toneSignals: Array.from(document.querySelectorAll("#collectionToneSignals .collection-detail-signal-chip")).map(
+      anchorLabel: document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link")?.textContent?.trim() || "",
+      anchorHref: document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link")?.getAttribute("href") || "",
+      metaLine: document.getElementById("collectionOverviewMetaLine")?.textContent?.trim() || "",
+      overviewSignals: Array.from(document.querySelectorAll("#collectionOverviewChips .collection-detail-signal-chip")).map(
         (node) => node.textContent?.trim() || "",
       ),
+      heroLeadSrc: document
+        .querySelector("#collectionHeroArt .collection-cover-frame[data-cover-index=\"1\"] img")
+        ?.getAttribute("src") || "",
+      relatedAnchors: Array.from(document.querySelectorAll("#collectionRelatedGrid .collections-directory-card")).map((node) => ({
+        collectionId: node.getAttribute("data-collection-id") || "",
+        anchorShowId: node.getAttribute("data-anchor-show-id") || "",
+      })),
     }));
 
     assert.ok(state.anchorLabel.length > 0);
     assert.match(state.anchorHref, /^\/show\?id=/);
-    assert.ok(state.routeFocus.length > 0);
-    assert.ok(state.toneSignals.length >= 0);
+    assert.match(state.metaLine, /route/i);
+    assert.ok(state.overviewSignals.length > 0);
+    assert.ok(anchorShow?.cover);
+    assert.ok(state.heroLeadSrc.endsWith(anchorShow.cover));
+    assert.ok(state.relatedAnchors.length > 0);
+    state.relatedAnchors.forEach(({ collectionId, anchorShowId }) => {
+      const relatedCollection = collectionFixtures.find((collection) => collection.id === collectionId);
+      if (relatedCollection?.kind === "similarity") {
+        assert.equal(anchorShowId, relatedCollection.anchorShowId);
+      } else {
+        assert.equal(anchorShowId, "");
+      }
+    });
   } finally {
     await page.close();
   }
