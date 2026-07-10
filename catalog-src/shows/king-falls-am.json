@@ -1,0 +1,120 @@
+{
+  "id": "king-falls-am",
+  "title": "King Falls AM",
+  "subtitle": "",
+  "description": "A paranormal small-town comedy-drama framed through a late-night radio show, where local banter keeps mutating into something stranger and more emotional than the setup first suggests.",
+  "cover": "images/covers/king-falls-am.png",
+  "coverAlt": "King Falls AM cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "cancelled",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/king-falls-am/id1016760065?uo=4",
+    "website": "https://audioboom.com/channel/kingfallsam",
+    "rss": "https://rss.libsyn.com/shows/474897/destinations/4028520.xml"
+  },
+  "genres": [
+    "mystery",
+    "comedy",
+    "drama"
+  ],
+  "tones": [
+    "funny",
+    "weird",
+    "warm"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized",
+    "episodic"
+  ],
+  "tags": [
+    "Small Town",
+    "Paranormal",
+    "Late-night Radio",
+    "Comedy"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "en-us"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "121 episodes • ~33 min episodes",
+    "episodes": 121,
+    "avgEpisodeMinutes": 33,
+    "totalHours": 66.5
+  },
+  "releaseDates": {
+    "first": "2019-04-15",
+    "latest": "2025-12-15"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "welcome-to-night-vale",
+    "desert-skies",
+    "video-palace"
+  ],
+  "similarReasons": {
+    "welcome-to-night-vale": "The clearest comparison if you want another small-town audio world built through recurring voices and odd local logic.",
+    "desert-skies": "Useful if you want weirdness that also leaves space for affection and routine.",
+    "video-palace": "A sharper follow-up if you want to tilt the same setup more toward threat."
+  },
+  "archiveTake": "A useful recommendation when you want weird small-town audio with more affection and banter than outright dread.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://audioboom.com/channel/kingfallsam"
+  },
+  "credits": {
+    "creatorName": "King Falls AM"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://rss.libsyn.com/shows/474897/destinations/4028520.xml; https://podcasts.apple.com/us/podcast/king-falls-am/id1016760065?uo=4; https://audioboom.com/channel/kingfallsam",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/474897/destinations/4028520.xml",
+      "https://podcasts.apple.com/us/podcast/king-falls-am/id1016760065?uo=4",
+      "https://audioboom.com/channel/kingfallsam"
+    ],
+    "importCandidateId": "3f3d42ec-e50c-46a8-85a7-d6e41c3792ef",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1016760065"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "episodic"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:22.574Z",
+    "importOfficialSummary": "King Falls AM centers on a lonely little mountain town's late-night AM talk radio show and its paranormal, peculiar happenings and inhabitants. New shows available the 1st and 15th of every month! Be sure to start from Sammy's first show (May 1st, 2015) to stay up to date with all your King Falls favorites."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "king-falls-am",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

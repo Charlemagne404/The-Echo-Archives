@@ -1,0 +1,125 @@
+{
+  "id": "girl-in-space",
+  "title": "Girl in Space",
+  "subtitle": "",
+  "description": "A character-first sci-fi mystery about isolation, memory, and survival, anchored by a lone voice on a station where every answer raises a new problem.",
+  "cover": "images/covers/girl-in-space.jpg",
+  "coverAlt": "Girl in Space cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/7aw56mHbTweAWl3KbrxauP",
+    "apple": "https://podcasts.apple.com/us/podcast/girl-in-space/id1281287693?uo=4",
+    "website": "https://www.girlinspacepodcast.com/",
+    "rss": "https://feeds.megaphone.fm/girlinspace"
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [
+    "hopeful",
+    "warm",
+    "cinematic"
+  ],
+  "formats": [
+    "narrated",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Space",
+    "Isolation",
+    "Character Drama"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season • 15 episodes • ~36 min episodes",
+    "seasons": 1,
+    "episodes": 15,
+    "avgEpisodeMinutes": 36,
+    "totalHours": 9
+  },
+  "releaseDates": {
+    "first": "2017-09-09",
+    "latest": "2020-04-17"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "headphones-on",
+    "serious-sci-fi"
+  ],
+  "similarTo": [
+    "vast-horizon",
+    "solar",
+    "marsfall"
+  ],
+  "similarReasons": {
+    "vast-horizon": "Another strong pick if you want space survival with more heart than hardness.",
+    "solar": "Both lean on isolation pressure, though this one is softer and more voice-driven.",
+    "marsfall": "Useful if you want another sci-fi listen that balances danger with human attachment."
+  },
+  "archiveTake": "A good archive bridge when you want space isolation and mystery without losing warmth.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.girlinspacepodcast.com/",
+    "patreon": "https://www.patreon.com/girlinspace",
+    "discord": "https://discord.gg/vWM7rQuVDr",
+    "youtube": "https://www.youtube.com/playlist?list=PL_gULX-2PQU4dq5JMg-aN6qWlngC8N8he"
+  },
+  "credits": {
+    "creatorName": "Sarah Rhea Werner",
+    "network": "Girl In Space"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://feeds.megaphone.fm/girlinspace; https://podcasts.apple.com/us/podcast/girl-in-space/id1281287693?uo=4; https://www.girlinspacepodcast.com/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/girlinspace",
+      "https://podcasts.apple.com/us/podcast/girl-in-space/id1281287693?uo=4",
+      "https://www.girlinspacepodcast.com/"
+    ],
+    "importCandidateId": "ec1ed4b3-7613-42db-80a0-b134f6756bc8",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1281287693"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:15.396Z",
+    "importOfficialSummary": "Nothing fancy here — just the simple audio diary of a girl in space. Also, there’s this weird and potentially ominous light in the distance that seems to be growing steadily closer. Listen for science, guns, trust, anti-matter, truth, beauty, inner turmoil, and delicious cheeses. It’s all here. In space."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "sarah-rhea-werner",
+  "networkId": "girl-in-space",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

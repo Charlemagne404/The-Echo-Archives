@@ -59,8 +59,8 @@ test("loadCatalog reads the structured show catalog", async () => {
   const impactWinter = catalog.find((entry) => entry.title === "Impact Winter");
   const ids = new Set(catalog.map((entry) => entry.id));
 
-  assert.equal(catalog.length, 48);
-  assert.equal(ids.size, 48);
+  assert.equal(catalog.length, 68);
+  assert.equal(ids.size, 68);
   assert.ok(impactWinter);
   assert.equal(impactWinter.finalRating, 10);
   assert.equal(impactWinter.hasPage, true);
@@ -74,7 +74,7 @@ test("loadCollections reads curated collections against the catalog ids", async 
   const collections = loadCollections(siteRoot, new Set(catalog.map((entry) => entry.id)));
   const similarityCollections = collections.filter((collection) => collection.kind === "similarity");
 
-  assert.equal(collections.length, 26);
+  assert.equal(collections.length, 29);
   assert.ok(collections.every((collection) => collection.showIds.length > 0));
   assert.ok(similarityCollections.length > 0);
   assert.ok(similarityCollections.every((collection) => typeof collection.anchorShowId === "string" && collection.anchorShowId));

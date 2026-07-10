@@ -1,0 +1,122 @@
+{
+  "id": "tumanbay",
+  "title": "Tumanbay",
+  "subtitle": "A fiction podcast on an epic scale set in the most powerful city on earth... Tumanbay.",
+  "description": "A sprawling palace-intrigue drama built around power struggles, espionage, shifting loyalties, and the feeling that every victory is buying a larger disaster.",
+  "cover": "images/covers/tumanbay.jpg",
+  "coverAlt": "Tumanbay cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/tumanbay/id1278345733?uo=4",
+    "website": "https://www.piercingsbytim.co.uk/blog/lumps-and-bumps",
+    "rss": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rss"
+  },
+  "genres": [
+    "drama",
+    "thriller",
+    "adventure"
+  ],
+  "tones": [
+    "dark",
+    "tense",
+    "cinematic"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Historical",
+    "Political Intrigue",
+    "War",
+    "Epic"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "en-us"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons • 68 episodes • ~32 min episodes",
+    "seasons": 4,
+    "episodes": 68,
+    "avgEpisodeMinutes": 32,
+    "totalHours": 36.3
+  },
+  "releaseDates": {
+    "first": "2020-03-13",
+    "latest": "2025-07-23"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "worldbuilding",
+    "long-walks"
+  ],
+  "similarTo": [
+    "ars-paradoxica",
+    "the-waystation",
+    "midst"
+  ],
+  "similarReasons": {
+    "ars-paradoxica": "Both trust listeners to keep up with larger systems and power struggles without flattening the human stakes.",
+    "the-waystation": "A good next route if the listener wants worldbuilding depth and people trapped inside inherited structures.",
+    "midst": "Useful when the appeal is less plot shape and more the feeling of a fully inhabited, pressure-rich world."
+  },
+  "archiveTake": "A strong recommendation when you want scale, political pressure, and a world that feels bigger than any single character.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.piercingsbytim.co.uk/blog/lumps-and-bumps"
+  },
+  "credits": {
+    "creatorName": "iHeartPodcasts",
+    "network": "LIATOGEL"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rs; https://podcasts.apple.com/us/podcast/tumanbay/id1278345733?uo=4; https://www.piercingsbytim.co.uk/blog/lumps-and-bumps",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rs",
+      "https://podcasts.apple.com/us/podcast/tumanbay/id1278345733?uo=4",
+      "https://www.piercingsbytim.co.uk/blog/lumps-and-bumps"
+    ],
+    "importCandidateId": "d56dc152-554b-4ad2-b204-7a16396a366f",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1278345733"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:16.208Z",
+    "importOfficialSummary": "A vast empire threatened by rebellion. A fiction podcast on an epic scale set in the most powerful city on earth... Visit www.tumanbay.com to see full credits and download scripts. Can't get enough of the Tumanbay universe? The first Tumanbay novel, \"The City of a Thousand Faces\" by Walker Dryden, is now available."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "iheartpodcasts",
+  "networkId": "liatogel",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

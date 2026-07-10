@@ -1,0 +1,120 @@
+{
+  "id": "spines-podcast",
+  "title": "Spines",
+  "subtitle": "",
+  "description": "A cult-haunted horror serial about memory loss, dangerous power, and the violent institutions circling a woman who woke up at the center of something awful.",
+  "cover": "images/covers/spines-podcast.jpg",
+  "coverAlt": "Spines cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/spines-podcast/id1158565649?uo=4",
+    "website": "https://spinespodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/104293/destinations/557869.xml"
+  },
+  "genres": [
+    "horror",
+    "thriller",
+    "drama"
+  ],
+  "tones": [
+    "dark",
+    "weird",
+    "tense"
+  ],
+  "formats": [
+    "narrated",
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Supernatural",
+    "Amnesia",
+    "Cults"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons • 28 episodes • ~22 min episodes",
+    "seasons": 3,
+    "episodes": 28,
+    "avgEpisodeMinutes": 22,
+    "totalHours": 10.3
+  },
+  "releaseDates": {
+    "first": "2018-02-05",
+    "latest": "2025-12-14"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "malevolent",
+    "archive-81",
+    "mirrors"
+  ],
+  "similarReasons": {
+    "malevolent": "Another strong horror pick if you want pressure, occult threat, and a damaged lead perspective.",
+    "archive-81": "Useful if you want stranger horror that keeps widening its implied world.",
+    "mirrors": "A good follow-up for listeners who want speculative unease with a more emotional undertow."
+  },
+  "archiveTake": "A good archive pull when you want horror that feels intimate, unstable, and willing to get ugly fast.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://spinespodcast.com/"
+  },
+  "credits": {
+    "creatorName": "ZoomDoom Stories"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://rss.libsyn.com/shows/104293/destinations/557869.xml; https://podcasts.apple.com/us/podcast/spines-podcast/id1158565649?uo=4; https://spinespodcast.com/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/104293/destinations/557869.xml",
+      "https://podcasts.apple.com/us/podcast/spines-podcast/id1158565649?uo=4",
+      "https://spinespodcast.com/"
+    ],
+    "importCandidateId": "8e24aad9-0578-4e89-a5d1-770457d8938f",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1158565649"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:17.061Z",
+    "importOfficialSummary": "One day, Wren wakes up covered in blood, suffering from memory loss, and surrounded by the remnants of some strange cult ritual. SPINES is the story of her search for answers, and the deadly, powerful people she encounters along the way. Listen to the complete series now."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "zoomdoom-stories",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

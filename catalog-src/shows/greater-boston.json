@@ -1,0 +1,123 @@
+{
+  "id": "greater-boston",
+  "title": "Greater Boston",
+  "subtitle": "",
+  "description": "An expansive ensemble drama that turns alternate-history Boston into a place for civic absurdity, interpersonal fallout, and long-game character work.",
+  "cover": "images/covers/greater-boston.jpg",
+  "coverAlt": "Greater Boston cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/1P1C38bdHUcUg3JVIsUkIo",
+    "apple": "https://podcasts.apple.com/us/podcast/greater-boston/id1074410525?uo=4",
+    "website": "https://www.greaterbostonshow.com/",
+    "rss": "https://feeds.megaphone.fm/greaterboston"
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [
+    "warm",
+    "funny",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Ensemble",
+    "Political",
+    "Offbeat",
+    "Urban"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons • 135 episodes • ~32 min episodes",
+    "seasons": 4,
+    "episodes": 135,
+    "avgEpisodeMinutes": 32,
+    "totalHours": 72
+  },
+  "releaseDates": {
+    "first": "2023-04-04",
+    "latest": "2026-07-07"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "worldbuilding",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "wooden-overcoats",
+    "midnight-burger",
+    "victoriocity"
+  ],
+  "similarReasons": {
+    "wooden-overcoats": "Another ensemble-forward comedy-drama that gets stronger as the cast chemistry compounds.",
+    "midnight-burger": "Useful if you want another big-hearted show that lets weirdness coexist with real emotional weight.",
+    "victoriocity": "A good fit for listeners who like witty worldbuilding with a strong sense of place."
+  },
+  "archiveTake": "One of the archive's better picks for listeners who want a big ensemble and humor that still makes room for depth.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.greaterbostonshow.com/",
+    "patreon": "https://www.patreon.com/join/GreaterBoston"
+  },
+  "credits": {
+    "creatorName": "Alexander Danner & Jeff Van Dreason",
+    "network": "Greater Boston"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://feeds.megaphone.fm/greaterboston; https://podcasts.apple.com/us/podcast/greater-boston/id1074410525?uo=4; https://www.greaterbostonshow.com/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/greaterboston",
+      "https://podcasts.apple.com/us/podcast/greater-boston/id1074410525?uo=4",
+      "https://www.greaterbostonshow.com/"
+    ],
+    "importCandidateId": "41e55baf-a517-41a8-be0f-a2e3d3f21551",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1074410525"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:16.046Z",
+    "importOfficialSummary": "Greater Boston is a bi-monthly&nbsp;full-cast audio drama that blends the real and the unreal,&nbsp;the historical and the fantastical. It all begins with the death of Leon Stamatis, a man for whom&nbsp;the least hint of uncertainty makes life unbearable. But by leaving the world, he has irrevocably changed it. Greater Boston&nbsp;is written and produced by Alexander Danner and Jeff Van Dreason. A production of ThirdSight Media LLC."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "alexander-danner-jeff-van-dreason",
+  "networkId": "greater-boston",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

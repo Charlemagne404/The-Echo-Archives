@@ -1,0 +1,121 @@
+{
+  "id": "oblivity",
+  "title": "Oblivity",
+  "subtitle": "",
+  "description": "A workplace sci-fi comedy about an abandoned-feeling space posting where boredom, incompetence, and actual danger keep arriving in the same package.",
+  "cover": "images/covers/oblivity.png",
+  "coverAlt": "Oblivity cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/0dcQmx5Gfqiv6xpHeBBFlZ",
+    "apple": "https://podcasts.apple.com/us/podcast/oblivity/id1453760605?uo=4",
+    "website": "https://oblivity.libsyn.com/",
+    "rss": "https://rss.libsyn.com/shows/165578/destinations/1099073.xml"
+  },
+  "genres": [
+    "comedy",
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [
+    "funny",
+    "chaotic",
+    "hopeful"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Workplace",
+    "Space",
+    "Satire"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons • 30 episodes • ~23 min episodes",
+    "seasons": 2,
+    "episodes": 30,
+    "avgEpisodeMinutes": 23,
+    "totalHours": 11.5
+  },
+  "releaseDates": {
+    "first": "2019-05-08",
+    "latest": "2025-12-15"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "funny-space-disasters",
+    "easy-entry"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "eos-10",
+    "oz-9"
+  ],
+  "similarReasons": {
+    "midnight-burger": "Another good fit if you want funny people handling absurd stakes without turning weightless.",
+    "eos-10": "Shares the same appeal if you want character-chaos comedy in a sci-fi setting.",
+    "oz-9": "Useful if you want a messier, more openly ridiculous cousin in the same general lane."
+  },
+  "archiveTake": "A useful lighter-space recommendation when you want comedy that still benefits from being stuck with the crew.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://oblivity.libsyn.com/"
+  },
+  "credits": {
+    "creatorName": "Oblivity"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://rss.libsyn.com/shows/165578/destinations/1099073.xml; https://podcasts.apple.com/us/podcast/oblivity/id1453760605?uo=4; https://oblivity.libsyn.com/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/165578/destinations/1099073.xml",
+      "https://podcasts.apple.com/us/podcast/oblivity/id1453760605?uo=4",
+      "https://oblivity.libsyn.com/"
+    ],
+    "importCandidateId": "9b2e90c5-6094-4be8-9161-633d0510fc61",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1453760605"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:18.459Z",
+    "importOfficialSummary": "A comedy sci-fi series || Commander Falconer is missing the war... Following years in front line combat, a decorated hero is posted to the remote ice plains of Pluto on her toughest mission yet: to oversee a small, dysfunctional research team. Oblivity is a comedy science fiction audiodrama about family, isolation and meteorites www.oblivitypodcast.com @oblivitypodcast"
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "oblivity",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

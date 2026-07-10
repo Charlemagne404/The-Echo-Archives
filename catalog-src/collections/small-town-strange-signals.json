@@ -1,0 +1,34 @@
+{
+  "id": "small-town-strange-signals",
+  "title": "Small-town strange signals",
+  "description": "Broadcast booths, local static, and communities where the weirdness feels built into the streets.",
+  "label": "Town static",
+  "kind": "curated",
+  "intentTags": [
+    "late-night",
+    "warm-weird"
+  ],
+  "commitment": "Flexible",
+  "coverShowIds": [
+    "king-falls-am",
+    "harbor",
+    "midnight-radio",
+    "limetown"
+  ],
+  "showIds": [
+    "king-falls-am",
+    "harbor",
+    "midnight-radio",
+    "limetown"
+  ],
+  "showReasons": {
+    "king-falls-am": "Late-night radio framing turns the town into part of the cast.",
+    "harbor": "Cryptids and family friction make the local weirdness feel personal.",
+    "midnight-radio": "Music, memory, and small-town mystery keep the mood intimate.",
+    "limetown": "A vanished community gives this route a colder investigative branch."
+  },
+  "featured": false,
+  "order": 135,
+  "createdAt": "2026-07-10",
+  "updatedAt": "2026-07-10"
+}

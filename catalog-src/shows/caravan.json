@@ -1,0 +1,120 @@
+{
+  "id": "caravan",
+  "title": "Caravan",
+  "subtitle": "A Weird-West Audio Drama Adventure",
+  "description": "A queer fantasy road-trip drama about monsters, found family, and the kind of hidden world that keeps getting bigger the farther you travel into it.",
+  "cover": "images/covers/caravan.jpg",
+  "coverAlt": "Caravan cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/caravan/id1449947569?uo=4",
+    "website": "https://art19.com/shows/caravan",
+    "rss": "https://feeds.megaphone.fm/caravan"
+  },
+  "genres": [
+    "fantasy",
+    "comedy",
+    "adventure"
+  ],
+  "tones": [
+    "funny",
+    "warm",
+    "hopeful"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Fantasy",
+    "Road Trip",
+    "Queer",
+    "Supernatural"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season • 13 episodes • ~26 min episodes",
+    "seasons": 1,
+    "episodes": 13,
+    "avgEpisodeMinutes": 26,
+    "totalHours": 5.6
+  },
+  "releaseDates": {
+    "first": "2019-01-18",
+    "latest": "2021-05-14"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "binge-listening",
+    "worldbuilding"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "desert-skies",
+    "the-amelia-project"
+  ],
+  "similarReasons": {
+    "midnight-burger": "Another warm, oddball journey where movement between places changes the emotional texture.",
+    "desert-skies": "A good choice if you want a softer supernatural road-side atmosphere.",
+    "the-amelia-project": "Useful if you want another playful world that still has an emotional center."
+  },
+  "archiveTake": "A strong pick when you want fantasy adventure with heart instead of grimness as the default setting.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/caravan"
+  },
+  "credits": {
+    "creatorName": "The Whisperforge"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://feeds.megaphone.fm/caravan; https://podcasts.apple.com/us/podcast/caravan/id1449947569?uo=4; https://art19.com/shows/caravan",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/caravan",
+      "https://podcasts.apple.com/us/podcast/caravan/id1449947569?uo=4",
+      "https://art19.com/shows/caravan"
+    ],
+    "importCandidateId": "ebd0b226-d3e9-411e-85bc-e71804369a06",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1449947569"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:18.315Z",
+    "importOfficialSummary": "CARAVAN is a story about getting through Hell with the people you love. When Samir and his best friend Carlyle take a camping trip to the Canyon, they don't plan on getting caught in a thunderstorm. Even worse, they don't plan on Samir falling into the Canyon. When he wakes up, Samir finds himself in a new world, where ghosts, demons, vampires, and other monsters terrorize the locals like any villains in a western. Samir joins up with a caravan—a vigilante train of supernatural bounty hunters—to delve deep into the Canyon depths, and find a way out of Hell once and for all."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "the-whisperforge",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

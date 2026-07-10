@@ -40,25 +40,25 @@ function cleanupFrontendGlobals() {
   delete global.EchoArchiveRecord;
 }
 
-test("archive score element renders missing archive ratings as --/10", async () => {
+test("archive score element renders missing archive ratings as Unrated", async () => {
   installFrontendGlobals();
 
   const { createArchiveScoreElement } = await import("../../shared/app/render-cards/scores.js");
   const score = createArchiveScoreElement({ finalRating: null });
 
-  assert.match(score.innerHTML, /--\/10/);
+  assert.match(score.innerHTML, /Unrated/);
   assert.doesNotMatch(score.innerHTML, />0\/10</);
 
   cleanupFrontendGlobals();
 });
 
-test("archive score element can still treat explicit zero as unrated when requested", async () => {
+test("archive score element treats explicit zero as Unrated when requested", async () => {
   installFrontendGlobals();
 
   const { createArchiveScoreElement } = await import("../../shared/app/render-cards/scores.js");
   const score = createArchiveScoreElement({ finalRating: 0 }, { treatZeroAsUnrated: true });
 
-  assert.match(score.innerHTML, /--\/10/);
+  assert.match(score.innerHTML, /Unrated/);
 
   cleanupFrontendGlobals();
 });

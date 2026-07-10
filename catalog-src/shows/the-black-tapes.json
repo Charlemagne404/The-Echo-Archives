@@ -1,0 +1,124 @@
+{
+  "id": "the-black-tapes",
+  "title": "The Black Tapes",
+  "subtitle": "",
+  "description": "A paranormal-investigation thriller built around skeptical inquiry, old recordings, and the slow realization that each case is tied to something much larger.",
+  "cover": "images/covers/the-black-tapes.jpg",
+  "coverAlt": "The Black Tapes cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "cancelled",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/the-black-tapes/id997522893?uo=4",
+    "website": "http://theblacktapespodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/67700/destinations/276638.xml"
+  },
+  "genres": [
+    "horror",
+    "mystery",
+    "thriller"
+  ],
+  "tones": [
+    "dark",
+    "tense",
+    "weird"
+  ],
+  "formats": [
+    "narrated",
+    "episodic",
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Paranormal",
+    "Investigative",
+    "Conspiracy"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons • 51 episodes • ~27 min episodes",
+    "seasons": 3,
+    "episodes": 51,
+    "avgEpisodeMinutes": 27,
+    "totalHours": 22.9
+  },
+  "releaseDates": {
+    "first": "2016-03-01",
+    "latest": "2026-05-29"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "video-palace",
+    "archive-81",
+    "the-lovecraft-investigations"
+  ],
+  "similarReasons": {
+    "video-palace": "Both are investigation-led horror listens that build atmosphere through recorded evidence.",
+    "archive-81": "Another archive-shaped horror series that rewards listeners who like occult sprawl.",
+    "the-lovecraft-investigations": "Useful if you want skeptical reporting and old-case structure before the supernatural pressure ramps up."
+  },
+  "archiveTake": "Still one of the cleaner picks for listeners who want faux-journalism horror before things get messy and occult.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://theblacktapespodcast.com/"
+  },
+  "credits": {
+    "creatorName": "Pacific Northwest Stories",
+    "network": "THE BLACK TAPES"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://theblacktapes.libsyn.com/rss; https://podcasts.apple.com/us/podcast/the-black-tapes/id997522893?uo=4; http://theblacktapespodcast.com/; https://rss.libsyn.com/shows/67700/destinations/276638.xml",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://theblacktapes.libsyn.com/rss",
+      "https://podcasts.apple.com/us/podcast/the-black-tapes/id997522893?uo=4",
+      "http://theblacktapespodcast.com/",
+      "https://rss.libsyn.com/shows/67700/destinations/276638.xml"
+    ],
+    "importCandidateId": "0fb4ff05-b801-4377-bf7b-f912b444186b",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "997522893"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "episodic"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:11.898Z",
+    "importOfficialSummary": "The Black Tapes is a weekly podcast from the creators of Pacific Northwest Stories, and is hosted by Alex Reagan. The Black Tapes Podcast is a serialized docudrama about one journalist's search for truth, her subject's mysterious past, and the literal and figurative ghosts that haunt them both. Do you believe?"
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "pacific-northwest-stories",
+  "networkId": "the-black-tapes",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

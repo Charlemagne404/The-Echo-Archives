@@ -1,0 +1,122 @@
+{
+  "id": "brimstone-valley-mall",
+  "title": "Brimstone Valley Mall",
+  "subtitle": "Five demons, one suburban mall, and a missing bandmate before the biggest gig of 1999.",
+  "description": "A neon-chaotic comedy about five demons killing time in a suburban mall until their singer vanishes and the countdown to disaster starts moving faster.",
+  "cover": "images/covers/brimstone-valley-mall.jpg",
+  "coverAlt": "Brimstone Valley Mall cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "hiatus",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925?uo=4",
+    "website": "https://art19.com/shows/brimstone-valley-mall",
+    "rss": "https://rss.art19.com/brimstone-valley-mall"
+  },
+  "genres": [
+    "comedy",
+    "fantasy",
+    "drama"
+  ],
+  "tones": [
+    "funny",
+    "chaotic",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Demons",
+    "Mall",
+    "1990s",
+    "Punk"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons • 24 episodes • ~25 min episodes",
+    "seasons": 2,
+    "episodes": 24,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 10
+  },
+  "releaseDates": {
+    "first": "2019-01-17",
+    "latest": "2024-12-26"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "easy-entry",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "midnight-burger",
+    "oz-9",
+    "wooden-overcoats"
+  ],
+  "similarReasons": {
+    "midnight-burger": "Another strong fit if you want high-energy weirdness and a cast that makes the tone work.",
+    "oz-9": "Useful if you want a louder, more openly chaotic comic ensemble.",
+    "wooden-overcoats": "A good next stop if you want comedy driven by a tightly defined cast of disasters."
+  },
+  "archiveTake": "A lively archive pick when you want comedy that feels sticky, loud, and very sure of its own world.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/brimstone-valley-mall"
+  },
+  "credits": {
+    "creatorName": "Brimstone Valley Mall",
+    "network": "ART19"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://rss.art19.com/brimstone-valley-mall; https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925?uo=4; https://art19.com/shows/brimstone-valley-mall",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.art19.com/brimstone-valley-mall",
+      "https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925?uo=4",
+      "https://art19.com/shows/brimstone-valley-mall"
+    ],
+    "importCandidateId": "320bc0a7-bb1a-4539-885b-3cf91c81e14b",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1489428925"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:24.404Z",
+    "importOfficialSummary": "The year is 1999. Lurking somewhere between Hot Topic and the food court, five misfit demons from Hell kill time inciting sin in a suburban shopping mall. When the lead singer of their band goes mysteriously missing, the demons only have two weeks to find him before they play the biggest gig of the millenium - or face the wrath of Satan herself."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "brimstone-valley-mall",
+  "networkId": "art19",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

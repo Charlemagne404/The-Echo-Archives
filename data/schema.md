@@ -188,10 +188,10 @@ If no cover can be resolved, catalog load keeps running, logs a warning, and use
 - `reviewStatus`
 - `genres`
 - `tags`
-- `ratings.archive` for `published` shows
+- `ratings.archive` is optional; published shows may remain unrated
 - `updatedAt`
 
-`draft` show entries may omit `ratings.archive` while editorial review is still in progress.
+`draft` and `published` show entries may omit `ratings.archive` when the archive has not scored the show yet. Unrated published shows should be presented as unrated rather than as invalid or zero-scored.
 
 ## Controlled Values
 

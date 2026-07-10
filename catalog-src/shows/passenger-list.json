@@ -1,0 +1,123 @@
+{
+  "id": "passenger-list",
+  "title": "Passenger List",
+  "subtitle": "A missing plane, a cabin full of suspects, a search for truth. A mystery thriller from PRX’s Radiotopia.",
+  "description": "A conspiracy mystery built around a vanished plane, a reporter in over her head, and the growing sense that every answer has already been managed by someone else.",
+  "cover": "images/covers/passenger-list.png",
+  "coverAlt": "Passenger List cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/2TevVBfS0JReKn1MMeNkv2",
+    "apple": "https://podcasts.apple.com/us/podcast/passenger-list/id1472392291?uo=4",
+    "website": "https://www.passengerlist.org/",
+    "rss": "https://feed.passengerlist.org/"
+  },
+  "genres": [
+    "thriller",
+    "mystery",
+    "drama"
+  ],
+  "tones": [
+    "tense",
+    "cinematic",
+    "dark"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Mystery",
+    "Conspiracy",
+    "Aviation",
+    "Investigation"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons • 27 episodes • ~25 min episodes",
+    "seasons": 2,
+    "episodes": 27,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 11.3
+  },
+  "releaseDates": {
+    "first": "2019-09-23",
+    "latest": "2025-03-06"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "video-palace",
+    "the-lovecraft-investigations",
+    "borrasca"
+  ],
+  "similarReasons": {
+    "video-palace": "Another investigation-led mystery that keeps widening its threat map.",
+    "the-lovecraft-investigations": "A good fit if you want reporting structure, layered secrets, and strong propulsion.",
+    "borrasca": "Useful if you want another story where investigation keeps exposing uglier systems beneath the surface."
+  },
+  "archiveTake": "A solid recommendation when you want a slick mystery-thriller that treats conspiracy as a pressure system, not just a twist generator.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.passengerlist.org/"
+  },
+  "credits": {
+    "creatorName": "Passenger List and Radiotopia",
+    "network": "Passenger List"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://feed.passengerlist.org/; https://podcasts.apple.com/us/podcast/passenger-list/id1472392291?uo=4; https://www.passengerlist.org/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feed.passengerlist.org/",
+      "https://podcasts.apple.com/us/podcast/passenger-list/id1472392291?uo=4",
+      "https://www.passengerlist.org/"
+    ],
+    "importCandidateId": "f5ff4c44-6fcd-4769-8459-d8af81a6d02c",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1472392291"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:26.025Z",
+    "importOfficialSummary": "A missing plane, a cabin full of suspects. A new 8-episode podcast series from PRX’s Radiotopia starring Kelly Marie Tran. Listen for free online."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "passenger-list-and-radiotopia",
+  "networkId": "passenger-list",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

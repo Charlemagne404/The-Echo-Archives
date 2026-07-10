@@ -38,6 +38,25 @@ export function getArchivePerspectiveText(show) {
   return "Archive perspective is still being expanded. This entry stays live because the show is already useful in the discovery graph.";
 }
 
+export function getOfficialSummaryText(show) {
+  const importedSummary = String(show?.metadata?.importOfficialSummary || "").trim();
+  if (importedSummary) {
+    return importedSummary;
+  }
+
+  const description = String(show?.description || "").trim();
+  if (description) {
+    return description;
+  }
+
+  const subtitle = String(show?.subtitle || "").trim();
+  if (subtitle) {
+    return subtitle;
+  }
+
+  return "Official summary not cataloged yet.";
+}
+
 function isSuppressedCatalogValue(value = "") {
   return /^(not[-\s]?verified|unknown|n\/a|none)$/i.test(String(value || "").trim());
 }

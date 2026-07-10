@@ -23,6 +23,9 @@ const HERO_LINK_LABELS = {
 const HERO_LINK_ORDER = ["website", "apple", "spotify", "rss"];
 
 export function renderDetailHero(show) {
+  const hasArchiveRating = Number.isFinite(Number(show.finalRating));
+  const archiveRatingValue = hasArchiveRating ? `${formatRating(show.finalRating)}/10` : "Unrated";
+  const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
   const statusChips = [];
   if ((show.finalRating || 0) >= 9) {
     statusChips.push('<span class="detail-status-chip is-accent">Top rated</span>');
@@ -55,7 +58,7 @@ export function renderDetailHero(show) {
 
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
-                ${renderHeroScoreCard("Archive rating", `${formatRating(show.finalRating)}/10`, "Echo score", "archive")}
+                ${renderHeroScoreCard("Archive rating", archiveRatingValue, archiveRatingNote, "archive")}
                 ${renderHeroCommunityMetaCard()}
               </div>
 

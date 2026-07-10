@@ -24,7 +24,8 @@
       "the-white-vault",
       "wolf-359",
       "tower-4",
-      "startripper"
+      "startripper",
+      "tumanbay"
     ],
     "showReasons": {
       "impact-winter": "Cinematic urgency and seasonal momentum make it easy to stay locked in.",
@@ -33,7 +34,8 @@
       "the-white-vault": "Bleak expedition pressure works especially well when you have time to sink in.",
       "wolf-359": "A long-running station story with enough turns to carry a full route.",
       "tower-4": "Remote-watch tension gives the walk a steady sense of unease.",
-      "startripper": "Road-trip momentum and relaxed wonder make it easy to stay with for a full walk."
+      "startripper": "Road-trip momentum and relaxed wonder make it easy to stay with for a full walk.",
+      "tumanbay": "A long-form palace-intrigue run that benefits from real uninterrupted time."
     },
     "featured": true,
     "order": 10,
@@ -67,7 +69,10 @@
       "midnight-burger",
       "welcome-to-night-vale",
       "the-strange-case-of-starship-iris",
-      "victoriocity"
+      "victoriocity",
+      "limetown",
+      "mockery-manor",
+      "mission-rejected"
     ],
     "showReasons": {
       "story": "Warm, legible, and low-friction if you want a softer first stop.",
@@ -78,7 +83,10 @@
       "midnight-burger": "The archive’s best all-purpose next-listen bridge when you want range, warmth, and forward motion.",
       "welcome-to-night-vale": "A foundational weird-fiction entry point when the listener wants a strong voice and immediate atmosphere.",
       "the-strange-case-of-starship-iris": "A funny, character-forward space-opera route that still feels easy to board.",
-      "victoriocity": "A polished detective-comedy entry point when you want charm before dread."
+      "victoriocity": "A polished detective-comedy entry point when you want charm before dread.",
+      "limetown": "An approachable entry point if the listener wants mystery first and weirdness second.",
+      "mockery-manor": "Fast comic momentum and a clear hook make it easier to recommend early.",
+      "mission-rejected": "An easy on-ramp for listeners who want comedy and motion without homework."
     },
     "featured": true,
     "order": 20,
@@ -113,7 +121,11 @@
       "the-program-audio-series",
       "midst",
       "earth-eclipsed",
-      "marsfall"
+      "marsfall",
+      "girl-in-space",
+      "forest-404",
+      "janus-descending",
+      "moonbase-theta-out"
     ],
     "showReasons": {
       "impact-winter": "A big, cinematic survival story with genre pressure at the front.",
@@ -125,7 +137,11 @@
       "the-program-audio-series": "A colder, idea-driven branch for listeners who want future systems more than banter.",
       "midst": "Adds stranger, more formal sci-fantasy weight without losing the serious speculative core.",
       "earth-eclipsed": "Dystopian pressure and a serious tone make it a clean fit for the darker sci-fi lane.",
-      "marsfall": "Mars-colony survival makes it an easy fit for the high-stakes sci-fi lane."
+      "marsfall": "Mars-colony survival makes it an easy fit for the high-stakes sci-fi lane.",
+      "girl-in-space": "A softer but still grounded sci-fi mystery with real isolation pressure.",
+      "forest-404": "A compact dystopian branch for listeners who want conceptual sci-fi with atmosphere.",
+      "janus-descending": "A horror-forward science-fiction route with strong formal control.",
+      "moonbase-theta-out": "Keeps the emotional weight high while staying rooted in a clear sci-fi premise."
     },
     "featured": true,
     "order": 30,
@@ -156,7 +172,9 @@
       "wolf-359",
       "station-151",
       "midnight-burger",
-      "crystal-blue"
+      "crystal-blue",
+      "oblivity",
+      "we-fix-space-junk"
     ],
     "showReasons": {
       "oz-9": "Maximum shipboard dysfunction for listeners who want comedy first.",
@@ -164,7 +182,9 @@
       "wolf-359": "Classic space-station banter that can turn more serious when needed.",
       "station-151": "A colder, stranger edge keeps the comedy from feeling too soft.",
       "midnight-burger": "Cosmic warmth and absurdity make it an easy bridge from comedy into story.",
-      "crystal-blue": "A compact extra dose of weird sci-fi humor."
+      "crystal-blue": "A compact extra dose of weird sci-fi humor.",
+      "oblivity": "Abandoned-posting incompetence makes this a clean comic-space fit.",
+      "we-fix-space-junk": "Corporate disaster energy and constant motion make the comedy route obvious."
     },
     "featured": true,
     "order": 40,
@@ -279,7 +299,12 @@
       "borrasca",
       "welcome-to-night-vale",
       "the-lovecraft-investigations",
-      "video-palace"
+      "video-palace",
+      "the-black-tapes",
+      "spines-podcast",
+      "passenger-list",
+      "midnight-radio",
+      "janus-descending"
     ],
     "showReasons": {
       "solar": "Tight survival tension fits a focused night listen.",
@@ -293,7 +318,12 @@
       "borrasca": "Small-town menace and steadily worsening revelations fit the no-comfort version of this lane.",
       "welcome-to-night-vale": "Community-radio menace keeps the after-midnight energy eerie even when the delivery sounds calm.",
       "the-lovecraft-investigations": "Conspiracy, recordings, and cosmic dread belong squarely in the after-dark lane.",
-      "video-palace": "Cursed-media investigation keeps the whole route uneasy and escalating."
+      "video-palace": "Cursed-media investigation keeps the whole route uneasy and escalating.",
+      "the-black-tapes": "Recorded evidence and slow-burn dread fit the after-hours pressure lane.",
+      "spines-podcast": "Dark, unstable horror pressure keeps the tension route from getting too procedural.",
+      "passenger-list": "A vanished plane and widening conspiracy make this an easy thriller fit.",
+      "midnight-radio": "Its melancholy small-town mystery atmosphere belongs here.",
+      "janus-descending": "Isolation horror and reverse-log structure make this a strong headphones-at-night pick."
     },
     "featured": false,
     "order": 70,
@@ -326,7 +356,11 @@
       "ars-paradoxica",
       "the-white-vault",
       "the-lovecraft-investigations",
-      "video-palace"
+      "video-palace",
+      "limetown",
+      "girl-in-space",
+      "passenger-list",
+      "moonbase-theta-out"
     ],
     "showReasons": {
       "impact-winter": "Big scenes and layered production make headphones worthwhile.",
@@ -336,7 +370,11 @@
       "ars-paradoxica": "Dense plotting rewards listeners who are fully tuned in.",
       "the-white-vault": "Environmental audio and cold pressure make the isolation sharper.",
       "the-lovecraft-investigations": "Investigative audio texture and BBC production detail reward close listening.",
-      "video-palace": "The sound-first horror setup lands best when the media dread can fully occupy the room."
+      "video-palace": "The sound-first horror setup lands best when the media dread can fully occupy the room.",
+      "limetown": "The faux-public-radio frame works best when listeners can stay locked into the reporting texture.",
+      "girl-in-space": "A lone-voice space mystery that rewards close listening.",
+      "passenger-list": "Conspiracy thriller layering makes more sense when the listener can stay fully inside it.",
+      "moonbase-theta-out": "Emotional sci-fi with transmission framing lands best in an uninterrupted listen."
     },
     "featured": false,
     "order": 80,
@@ -370,7 +408,13 @@
       "the-bright-sessions",
       "mirrors",
       "midst",
-      "homecoming"
+      "homecoming",
+      "limetown",
+      "forest-404",
+      "tumanbay",
+      "janus-descending",
+      "spines-podcast",
+      "moonbase-theta-out"
     ],
     "showReasons": {
       "solar": "A contained survival-thriller route with a known runway.",
@@ -381,7 +425,13 @@
       "the-bright-sessions": "A completed character-first sci-fi run with plenty of emotional payoff.",
       "mirrors": "A complete eerie sci-fi ghost story with deliberate structure and a strong ending shape.",
       "midst": "A finished surreal sci-fantasy run for listeners who want bolder form without endless upkeep.",
-      "homecoming": "A tightly bounded psychological-thriller route with prestige pacing and a concise commitment."
+      "homecoming": "A tightly bounded psychological-thriller route with prestige pacing and a concise commitment.",
+      "limetown": "A closed mystery route for listeners who want a real endpoint.",
+      "forest-404": "A finished short-form dystopian run.",
+      "tumanbay": "A full epic run with an actual end state.",
+      "janus-descending": "A complete horror-sci-fi listen with a deliberate structure.",
+      "spines-podcast": "A finished horror serial that can be recommended without caveats about continuation.",
+      "moonbase-theta-out": "A complete emotional space drama for listeners who want closure."
     },
     "featured": true,
     "order": 90,
@@ -413,7 +463,8 @@
       "the-phenomenon",
       "the-deca-tapes",
       "homecoming",
-      "the-amelia-project"
+      "the-amelia-project",
+      "forest-404"
     ],
     "showReasons": {
       "from-now": "Six main story episodes make it the cleanest quick sci-fi start.",
@@ -422,7 +473,8 @@
       "the-phenomenon": "A finished pressure story with a direct hook.",
       "the-deca-tapes": "A self-contained mystery shape makes the commitment easier to understand.",
       "homecoming": "A compact prestige-thriller binge when you want something polished and easy to sample fast.",
-      "the-amelia-project": "Interview-shaped episodes make it easy to sample before committing deeper."
+      "the-amelia-project": "Interview-shaped episodes make it easy to sample before committing deeper.",
+      "forest-404": "A shorter conceptual sci-fi entry when the listener wants something compact."
     },
     "featured": false,
     "order": 100,
@@ -458,7 +510,9 @@
       "welcome-to-night-vale",
       "the-amelia-project",
       "victoriocity",
-      "startripper"
+      "startripper",
+      "greater-boston",
+      "caravan"
     ],
     "showReasons": {
       "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
@@ -471,7 +525,9 @@
       "welcome-to-night-vale": "Darkly funny community-radio weirdness keeps the route strange without losing personality.",
       "the-amelia-project": "Keeps the route strange and funny while making the central conceit immediately legible.",
       "victoriocity": "Alternate-Victorian absurdity adds comic texture without making the route harsher.",
-      "startripper": "A generous cosmic travelogue that pushes the collection toward overt comfort listening."
+      "startripper": "A generous cosmic travelogue that pushes the collection toward overt comfort listening.",
+      "greater-boston": "Large-cast weirdness with enough heart to keep the absurdity hospitable.",
+      "caravan": "Fantasy adventure with warmth as a core mode, not an afterthought."
     },
     "featured": false,
     "order": 110,
@@ -546,7 +602,9 @@
       "were-alive",
       "midst",
       "marsfall",
-      "the-strange-case-of-starship-iris"
+      "the-strange-case-of-starship-iris",
+      "tumanbay",
+      "the-once-and-future-nerd"
     ],
     "showReasons": {
       "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
@@ -557,12 +615,121 @@
       "were-alive": "A long survival saga with room for factions, geography, and consequence.",
       "midst": "A stranger, more formally ambitious worldbuilding route for listeners who want the cosmos to feel authored all the way down.",
       "marsfall": "The colony politics and systems pressure give the collection another lived-in frontier world.",
-      "the-strange-case-of-starship-iris": "Resistance politics and ensemble space-opera sprawl deepen the route’s social worldbuilding."
+      "the-strange-case-of-starship-iris": "Resistance politics and ensemble space-opera sprawl deepen the route’s social worldbuilding.",
+      "tumanbay": "A city-scale political world that keeps expanding through pressure and perspective.",
+      "the-once-and-future-nerd": "Portal fantasy that earns its scale through social and political detail."
     },
     "featured": false,
     "order": 130,
     "createdAt": "2026-06-23",
     "updatedAt": "2026-07-01"
+  },
+  {
+    "id": "small-town-strange-signals",
+    "title": "Small-town strange signals",
+    "description": "Broadcast booths, local static, and communities where the weirdness feels built into the streets.",
+    "label": "Town static",
+    "kind": "curated",
+    "intentTags": [
+      "late-night",
+      "warm-weird"
+    ],
+    "commitment": "Flexible",
+    "coverShowIds": [
+      "king-falls-am",
+      "harbor",
+      "midnight-radio",
+      "limetown"
+    ],
+    "showIds": [
+      "king-falls-am",
+      "harbor",
+      "midnight-radio",
+      "limetown"
+    ],
+    "showReasons": {
+      "king-falls-am": "Late-night radio framing turns the town into part of the cast.",
+      "harbor": "Cryptids and family friction make the local weirdness feel personal.",
+      "midnight-radio": "Music, memory, and small-town mystery keep the mood intimate.",
+      "limetown": "A vanished community gives this route a colder investigative branch."
+    },
+    "featured": false,
+    "order": 135,
+    "createdAt": "2026-07-10",
+    "updatedAt": "2026-07-10"
+  },
+  {
+    "id": "ensemble-chaos-with-heart",
+    "title": "Ensemble chaos with heart",
+    "description": "Big casts, comic collisions, and enough emotional follow-through to keep the mess from feeling disposable.",
+    "label": "Big cast energy",
+    "kind": "curated",
+    "intentTags": [
+      "warm-weird",
+      "easy-first-step",
+      "funny-space"
+    ],
+    "commitment": "Flexible",
+    "coverShowIds": [
+      "greater-boston",
+      "mission-rejected",
+      "we-fix-space-junk",
+      "mockery-manor"
+    ],
+    "showIds": [
+      "mockery-manor",
+      "greater-boston",
+      "oblivity",
+      "brimstone-valley-mall",
+      "mission-rejected",
+      "we-fix-space-junk"
+    ],
+    "showReasons": {
+      "mockery-manor": "Theme-park staff chaos gives the ensemble a tight comic engine.",
+      "greater-boston": "A larger cast with enough civic absurdity to keep every collision productive.",
+      "oblivity": "Crew incompetence and isolation keep the ensemble pressure funny instead of shapeless.",
+      "brimstone-valley-mall": "A mall full of demons is exactly the kind of contained disaster this route wants.",
+      "mission-rejected": "Backup spies bickering under pressure makes the ensemble chemistry do the heavy lifting.",
+      "we-fix-space-junk": "Two-person survival comedy still feels ensemble-minded because every stop widens the damage."
+    },
+    "featured": false,
+    "order": 136,
+    "createdAt": "2026-07-10",
+    "updatedAt": "2026-07-10"
+  },
+  {
+    "id": "fantasy-detours-and-hidden-worlds",
+    "title": "Fantasy detours and hidden worlds",
+    "description": "Portal routes, supernatural backroads, and larger worlds that open up by degrees instead of exposition dumps.",
+    "label": "Portal routes",
+    "kind": "curated",
+    "intentTags": [
+      "worldbuilding",
+      "warm-weird"
+    ],
+    "commitment": "Longer arcs",
+    "coverShowIds": [
+      "caravan",
+      "the-once-and-future-nerd",
+      "tumanbay",
+      "brimstone-valley-mall"
+    ],
+    "showIds": [
+      "caravan",
+      "the-once-and-future-nerd",
+      "tumanbay",
+      "brimstone-valley-mall"
+    ],
+    "showReasons": {
+      "caravan": "A hidden-road fantasy that keeps rewarding curiosity and movement.",
+      "the-once-and-future-nerd": "Portal fantasy that grows into something politically and emotionally larger.",
+      "tumanbay": "The epic branch for listeners who want court pressure and a fully inhabited world.",
+      "brimstone-valley-mall": "A comedic infernal detour that still feels like its own complete subworld."
+    },
+    "featured": false,
+    "order": 137,
+    "createdAt": "2026-07-10",
+    "updatedAt": "2026-07-10"
   },
   {
     "id": "shows-like-midnight-burger",
@@ -589,7 +756,10 @@
       "wolf-359",
       "the-bright-sessions",
       "midst",
-      "wooden-overcoats"
+      "wooden-overcoats",
+      "caravan",
+      "we-fix-space-junk",
+      "greater-boston"
     ],
     "showReasons": {
       "desert-skies": "A warm, strange doorway for listeners who liked the comfort side.",
@@ -597,7 +767,10 @@
       "wolf-359": "Station comedy that grows into deeper character stakes.",
       "the-bright-sessions": "A character-first sci-fi branch if the emotional connection mattered as much as the weirdness.",
       "midst": "For the cosmic, reality-sliding appetite once the diner hop feels too grounded.",
-      "wooden-overcoats": "Keeps the voice, timing, and affection high while swapping cosmic range for comic rivalry."
+      "wooden-overcoats": "Keeps the voice, timing, and affection high while swapping cosmic range for comic rivalry.",
+      "caravan": "A warm, strange journey where movement between places keeps reshaping the emotional tone.",
+      "we-fix-space-junk": "Keeps the humor, motion, and character fatigue while swapping diner metaphysics for corporate sci-fi misery.",
+      "greater-boston": "A wider-cast branch for listeners who want more weird systems and human mess working together."
     },
     "featured": false,
     "order": 140,
@@ -709,7 +882,9 @@
       "oz-9",
       "wooden-overcoats",
       "station-151",
-      "crystal-blue"
+      "crystal-blue",
+      "oblivity",
+      "we-fix-space-junk"
     ],
     "showReasons": {
       "eos-10": "The closest station-comedy cousin if the ensemble friction is the thing you want more of.",
@@ -717,7 +892,9 @@
       "oz-9": "Pushes the comic chaos much harder for listeners who want more incompetence per square foot.",
       "wooden-overcoats": "Transfers the ensemble timing and recurring petty disasters into a very different setting.",
       "station-151": "A colder, weirder outpost variation for listeners who liked the location-based absurdity.",
-      "crystal-blue": "A smaller quick-hit branch for more offbeat sci-fi comedy energy."
+      "crystal-blue": "A smaller quick-hit branch for more offbeat sci-fi comedy energy.",
+      "oblivity": "Another station-adjacent comedy where crew chemistry and institutional absurdity matter as much as the premise.",
+      "we-fix-space-junk": "A stronger road-trip branch if the listener wants comic space stress and damaged people stuck together."
     },
     "featured": false,
     "order": 170,
@@ -989,7 +1166,10 @@
       "unwell",
       "mabel",
       "midnight-burger",
-      "story"
+      "story",
+      "king-falls-am",
+      "harbor",
+      "midnight-radio"
     ],
     "showReasons": {
       "alice-isnt-dead": "A road-haunted branch for listeners who liked the intimate narration and lurking unreality.",
@@ -997,7 +1177,10 @@
       "unwell": "Small-town gothic affection makes it a strong stop if the community feeling mattered as much as the cosmic oddness.",
       "mabel": "A quieter, more intimate ghost-story branch once the voice-first weirdness is the main draw.",
       "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
-      "story": "A softer, more legible branch if the listener wants warmth and curiosity before the darkness thickens."
+      "story": "A softer, more legible branch if the listener wants warmth and curiosity before the darkness thickens.",
+      "king-falls-am": "A natural route for listeners who want more late-night-broadcast weirdness and community-scale oddity.",
+      "harbor": "A straighter small-town supernatural branch when the listener wants local weirdness with stronger family pressure.",
+      "midnight-radio": "A moodier branch built on voice, small-town mystery, and the sense that the place itself is withholding something."
     },
     "featured": false,
     "order": 240,
@@ -1069,7 +1252,9 @@
       "mabel",
       "mirrors",
       "alice-isnt-dead",
-      "paralyzed"
+      "paralyzed",
+      "spines-podcast",
+      "the-black-tapes"
     ],
     "showReasons": {
       "archive-81": "A stranger signal-horror branch once the occult mystery needs more structure and sound design.",
@@ -1077,7 +1262,9 @@
       "mabel": "A quieter, more intimate ghost-haunting branch for listeners who want voice and possession-like unease.",
       "mirrors": "Lets the horror spread across time and identity once the appetite turns more eerie than aggressive.",
       "alice-isnt-dead": "A road-haunted branch if the voice-driven dread and persistent pursuit are the real hook.",
-      "paralyzed": "A direct supernatural-mystery route for listeners who want the horror first and the answers second."
+      "paralyzed": "A direct supernatural-mystery route for listeners who want the horror first and the answers second.",
+      "spines-podcast": "A good fit if the listener wants another horror serial driven by unstable perspective and occult pressure.",
+      "the-black-tapes": "Another strong branch for listeners who want inquiry-driven horror and a larger supernatural structure behind the cases."
     },
     "featured": false,
     "order": 260,

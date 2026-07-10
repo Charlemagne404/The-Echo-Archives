@@ -98,6 +98,15 @@ function getArchivePerspectiveText(show) {
   );
 }
 
+function getOfficialSummaryText(show) {
+  return (
+    String(show?.metadata?.importOfficialSummary || "").trim() ||
+    String(show.description || "").trim() ||
+    String(show.subtitle || "").trim() ||
+    "Official summary not cataloged yet."
+  );
+}
+
 function getCreatorNames(show) {
   const creators = Array.isArray(show.creators) ? show.creators : [];
   const creditedCreator = show.credits?.creatorName ? [show.credits.creatorName] : [];
@@ -126,6 +135,9 @@ function getPrimaryListenLink(show) {
 }
 
 function renderDetailHero(show) {
+  const hasArchiveRating = Number.isFinite(Number(show.finalRating));
+  const archiveRatingValue = hasArchiveRating ? `${formatRating(show.finalRating)}/10` : "Unrated";
+  const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
   const primaryLink = getPrimaryListenLink(show);
   const firstTag = Array.isArray(show.tags) ? show.tags[0] : "";
   const firstGenre = Array.isArray(show.genres) ? show.genres[0] : "";
@@ -159,8 +171,8 @@ function renderDetailHero(show) {
               <div class="detail-score-cluster">
                 <article class="detail-hero-score-card detail-score-card-archive">
                   <span class="detail-meta-label">Archive rating</span>
-                  <strong class="detail-hero-score-value">${formatRating(show.finalRating)}/10</strong>
-                  <span class="detail-meta-note">Echo score</span>
+                  <strong class="detail-hero-score-value">${archiveRatingValue}</strong>
+                  <span class="detail-meta-note">${archiveRatingNote}</span>
                 </article>
                 <article class="detail-hero-score-card detail-meta-card-community">
                   <span class="detail-meta-label">Community rating</span>
@@ -241,7 +253,7 @@ function renderBestForStrip(show) {
 }
 
 function renderOfficialSummarySection(show) {
-  const summaryText = String(show.description || show.subtitle || "").trim() || "Official summary not cataloged yet.";
+  const summaryText = getOfficialSummaryText(show);
   return `
     <section class="detail-section detail-official-summary-section">
       <div class="detail-section-header"><div><h2>Official summary</h2><p>The listener-facing setup and premise for the show, kept separate from the archive take.</p></div></div>

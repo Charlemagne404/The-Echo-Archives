@@ -1,0 +1,119 @@
+{
+  "id": "midnight-radio",
+  "title": "Midnight Radio",
+  "subtitle": "",
+  "description": "A melancholy mystery drama about a drifting musician, a strange town, and the emotional static that keeps surfacing through music, memory, and local secrets.",
+  "cover": "images/covers/midnight-radio.png",
+  "coverAlt": "Midnight Radio cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "apple": "https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066?uo=4",
+    "website": "https://www.martletradio.com/",
+    "rss": "https://rss.libsyn.com/shows/123514/destinations/729596.xml"
+  },
+  "genres": [
+    "mystery",
+    "drama",
+    "supernatural"
+  ],
+  "tones": [
+    "melancholic",
+    "warm",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Mystery",
+    "Small Town",
+    "Supernatural",
+    "Music"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "12 episodes • ~16 min episodes",
+    "episodes": 12,
+    "avgEpisodeMinutes": 16,
+    "totalHours": 3.2
+  },
+  "releaseDates": {
+    "first": "2018-06-02",
+    "latest": "2025-12-13"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "late-night",
+    "headphones-on"
+  ],
+  "similarTo": [
+    "the-bright-sessions",
+    "mirrors",
+    "desert-skies"
+  ],
+  "similarReasons": {
+    "the-bright-sessions": "Both benefit from listeners who want emotional texture as much as plot advancement.",
+    "mirrors": "A good next step if you want stranger supernatural undertones with a heavier afterimage.",
+    "desert-skies": "Useful if you want a softer, more reflective weirdness."
+  },
+  "archiveTake": "A quieter recommendation for listeners who want mood, mystery, and a little ache instead of constant plot violence.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.martletradio.com/"
+  },
+  "credits": {
+    "creatorName": "Martlet Radio"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://rss.libsyn.com/shows/123514/destinations/729596.xml; https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066?uo=4; https://www.martletradio.com/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/123514/destinations/729596.xml",
+      "https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066?uo=4",
+      "https://www.martletradio.com/"
+    ],
+    "importCandidateId": "6392ce9c-362c-44dd-af1b-35bbbdd17489",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1393315066"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:24.610Z",
+    "importOfficialSummary": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories."
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "martlet-radio",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}

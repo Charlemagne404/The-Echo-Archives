@@ -1,0 +1,122 @@
+{
+  "id": "harbor",
+  "title": "Harbor",
+  "subtitle": "",
+  "description": "A supernatural small-town drama where cryptids, family pressure, and local secrets all feel personal before they feel mythic.",
+  "cover": "images/covers/harbor.png",
+  "coverAlt": "Harbor cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "spotify": "https://open.spotify.com/show/48OMjBdei7oBB4Ovwq2JX4",
+    "apple": "https://podcasts.apple.com/us/podcast/harbor/id1479639548?uo=4",
+    "website": "https://harborpodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/212942/destinations/1539887.xml"
+  },
+  "genres": [
+    "supernatural",
+    "drama",
+    "mystery"
+  ],
+  "tones": [
+    "warm",
+    "dark",
+    "weird"
+  ],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Small Town",
+    "Cryptids",
+    "Family",
+    "Supernatural"
+  ],
+  "aliases": [],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "en-us"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons • 24 episodes • ~40 min episodes",
+    "seasons": 2,
+    "episodes": 24,
+    "avgEpisodeMinutes": 40,
+    "totalHours": 16
+  },
+  "releaseDates": {
+    "first": "2019-09-11",
+    "latest": "2025-12-15"
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [
+    "late-night",
+    "binge-listening"
+  ],
+  "similarTo": [
+    "unwell",
+    "welcome-to-night-vale",
+    "desert-skies"
+  ],
+  "similarReasons": {
+    "unwell": "Another good small-town listen where relationships matter as much as the uncanny material.",
+    "welcome-to-night-vale": "Useful if you want local weirdness and community texture, though this one plays straighter.",
+    "desert-skies": "A softer pairing if you want the supernatural without constant escalation."
+  },
+  "archiveTake": "A worthwhile choice when you want small-town supernatural fiction that treats character stress as part of the monster texture.",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://harborpodcast.com/"
+  },
+  "credits": {
+    "creatorName": "Tartarus Jenny Studios",
+    "network": "Harbor - An Audio Drama Podcast"
+  },
+  "verification": {
+    "status": "source-import-draft",
+    "verifiedAt": "2026-07-09",
+    "source": "https://rss.libsyn.com/shows/212942/destinations/1539887.xml; https://podcasts.apple.com/us/podcast/harbor/id1479639548?uo=4; https://harborpodcast.com/",
+    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+  },
+  "availability": {},
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.libsyn.com/shows/212942/destinations/1539887.xml",
+      "https://podcasts.apple.com/us/podcast/harbor/id1479639548?uo=4",
+      "https://harborpodcast.com/"
+    ],
+    "importCandidateId": "c492cf9b-4c27-4de2-b121-5af8a1b0b8fe",
+    "importStatus": "draft",
+    "importIdentifiers": {
+      "appleCollectionId": "1479639548"
+    },
+    "importAutomation": {
+      "autoAppliedSuggestions": {
+        "formats": [
+          "serialized"
+        ]
+      }
+    },
+    "objectiveImportedAt": "2026-07-09T22:44:25.543Z"
+  },
+  "featured": false,
+  "createdAt": "2026-07-09",
+  "creatorId": "tartarus-jenny-studios",
+  "networkId": "harbor-an-audio-drama-podcast",
+  "updatedAt": "2026-07-10",
+  "cast": [],
+  "creators": [],
+  "popularity": {}
+}
