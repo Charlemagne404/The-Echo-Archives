@@ -1,6 +1,8 @@
 @import "./cards/01-surface.css";
+@import "./cards/02a-sticky-browse.css";
 @import "./cards/02-hero-search.css";
 @import "./cards/03-filter-controls.css";
+@import "./cards/03a-filter-detail-controls.css";
 @import "./cards/03b-filter-actions.css";
 @import "./cards/04-browse-bands.css";
 @import "./cards/05-collection-cards.css";

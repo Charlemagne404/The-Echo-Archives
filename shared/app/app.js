@@ -1,4 +1,3 @@
-import { backToTopBtn, chatContainer, toggleBtn } from "./constants.js";
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeServiceWorker } from "./service-worker.js";
@@ -9,8 +8,7 @@ export async function initializeApp() {
   initializeBackToTop();
   initializeHistoryBackLinks();
   initializeManagedImages();
-
-  const sharedChatPromise = initializeSharedChatWhenPresent();
+  initializeLazySharedChatLauncher();
 
   if (document.body.classList.contains("home-page") && document.getElementById("podcast-grid")) {
     const { initializeHomePage } = await import("./pages/home.js");
@@ -67,16 +65,72 @@ export async function initializeApp() {
     initializeCreatorStandardsPage();
   }
 
-  await sharedChatPromise;
 }
 
-async function initializeSharedChatWhenPresent() {
-  if (!toggleBtn || !chatContainer) {
+function initializeLazySharedChatLauncher() {
+  const toggleBtn = document.getElementById("chat-toggle");
+  if (!toggleBtn) {
     return;
   }
 
-  const { initializeSharedChat } = await import("./chat.js");
-  initializeSharedChat();
+  const mobileLauncherQuery = window.matchMedia("(max-width: 560px)");
+  let sharedChatPromise;
+
+  const syncLauncherVisibility = () => {
+    const chatContainer = document.getElementById("chat-container");
+    const shouldDelayLauncher =
+      mobileLauncherQuery.matches &&
+      !chatContainer?.classList.contains("is-open") &&
+      window.scrollY < 140;
+
+    toggleBtn.classList.toggle("is-delayed-mobile-toggle", shouldDelayLauncher);
+  };
+
+  const openChat = (initialPrompt = "") => {
+    if (!sharedChatPromise) {
+      sharedChatPromise = import("./chat-loader.js").then(({ mountAndInitializeSharedChat }) => mountAndInitializeSharedChat());
+    }
+
+    toggleBtn.setAttribute("aria-busy", "true");
+    sharedChatPromise
+      .then(({ setChatOpen }) => {
+        setChatOpen(true);
+
+        if (initialPrompt) {
+          const userInput = document.getElementById("userInput");
+          if (userInput instanceof HTMLInputElement) {
+            userInput.value = initialPrompt;
+            userInput.focus();
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Failed to load Ask the Archivist.", error);
+        sharedChatPromise = undefined;
+      })
+      .finally(() => toggleBtn.removeAttribute("aria-busy"));
+  };
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) {
+      return;
+    }
+
+    const launcher = target.closest("#chat-toggle, [data-open-chat]");
+    if (!launcher) {
+      return;
+    }
+
+    event.preventDefault();
+    openChat(launcher.getAttribute("data-chat-initial-prompt")?.trim() || "");
+  });
+
+  mobileLauncherQuery.addEventListener("change", syncLauncherVisibility);
+  window.addEventListener("scroll", syncLauncherVisibility, { passive: true });
+  window.addEventListener("resize", syncLauncherVisibility);
+  window.addEventListener("echo:chat-open-change", syncLauncherVisibility);
+  syncLauncherVisibility();
 }
 
 function initializeHistoryBackLinks() {
@@ -136,12 +190,13 @@ function getSafeHistoryReferrer(currentUrl) {
 }
 
 function initializeBackToTop() {
+  const backToTopBtn = document.getElementById("backToTop");
   if (!backToTopBtn) {
     return;
   }
 
   const siteFooter = document.getElementById("site-footer");
-  const floatingChatToggle = toggleBtn;
+  const floatingChatToggle = document.getElementById("chat-toggle");
 
   function syncBackToTopState() {
     const showBackToTop = window.scrollY > 420;
@@ -176,11 +231,12 @@ function initializeBackToTop() {
       floatingChatToggle.style.visibility = hideFloatingControls ? "hidden" : "";
     }
 
-    if (chatContainer) {
-      chatContainer.style.top = "auto";
-      chatContainer.style.bottom = `${clearance}px`;
+    const activeChatContainer = document.getElementById("chat-container");
+    if (activeChatContainer) {
+      activeChatContainer.style.top = "auto";
+      activeChatContainer.style.bottom = `${clearance}px`;
 
-      const panelRect = chatContainer.getBoundingClientRect();
+      const panelRect = activeChatContainer.getBoundingClientRect();
       const maxVisibleRight = Math.max(baseClearance, window.innerWidth - maxFloatingHeight - baseClearance);
       const openRight = Math.min(
         maxVisibleRight,

@@ -1,7 +1,11 @@
+import { HOME_FAVORITE_ROUTE_IDS as HOME_FAVORITE_ROUTE_IDS_CONFIG, HOME_MOST_POPULAR_IDS as HOME_MOST_POPULAR_IDS_CONFIG } from "./home-config.js";
+
 export const SHOWS_DATA_URL = "/data/shows.json";
 export const COLLECTIONS_DATA_URL = "/data/collections.json";
-const SEARCH_INDEX_REQUEST_KEY = Date.now().toString(36);
-export const SEARCH_INDEX_URL = `/data/search-index.json?view=${SEARCH_INDEX_REQUEST_KEY}`;
+const SEARCH_INDEX_VERSION = document.body?.dataset.searchIndexVersion?.trim() || "";
+export const SEARCH_INDEX_URL = SEARCH_INDEX_VERSION
+  ? `/data/search-index.json?v=${SEARCH_INDEX_VERSION}`
+  : "/data/search-index.json";
 export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
 export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
 export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
@@ -18,15 +22,8 @@ export const DEFAULT_CHAT_SUGGESTIONS = [
   "Recommend a finished show with strong worldbuilding",
 ];
 export const PREFERRED_QUICK_FILTERS = ["sci-fi", "mystery", "horror", "comedy", "survival", "time-travel"];
-export const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
-export const HOME_FAVORITE_ROUTE_IDS = [
-  "shows-like-midnight-burger",
-  "shows-like-welcome-to-night-vale",
-  "shows-like-derelict",
-  "shows-like-the-white-vault",
-  "shows-like-midst",
-  "shows-like-malevolent",
-];
+export const HOME_MOST_POPULAR_IDS = HOME_MOST_POPULAR_IDS_CONFIG;
+export const HOME_FAVORITE_ROUTE_IDS = HOME_FAVORITE_ROUTE_IDS_CONFIG;
 export const HOME_CARD_HOVER_EXPAND_ENABLED = document.body?.dataset.homeCardHoverExpandEnabled === "true";
 export const SHOW_CARD_PREVIEW_DELAY_MS = 480;
 export const SHOW_CARD_PREVIEW_CLOSE_DELAY_MS = 32;

@@ -1,4 +1,5 @@
 import { alignCardToViewportCenter, getCenteredScrollLeft, getLoopProgress, getNearestCardIndex, getWrappedIndex } from "./collection-carousel-centering.js";
+import { createCollectionFocusController } from "./collection-carousel-focus.js";
 import { addMediaQueryListener } from "./utils.js";
 
 export function initializeCollectionCarousel({
@@ -24,7 +25,6 @@ export function initializeCollectionCarousel({
   let setWidth = 0;
   let middleCards = [];
   let paused = false;
-  let interactionCard = null;
   let directionalPulseTimeout = 0;
   const resizeObserver = "ResizeObserver" in window
     ? new ResizeObserver(() => {
@@ -33,6 +33,7 @@ export function initializeCollectionCarousel({
     : null;
 
   const cards = Array.from(collectionGrid.querySelectorAll(".collection-card"));
+  const collectionFocusController = createCollectionFocusController({ collectionViewport, cards, sheenShiftPx });
 
   function setViewportScroll(left) {
     const previousBehavior = collectionViewport.style.scrollBehavior;
@@ -45,46 +46,7 @@ export function initializeCollectionCarousel({
     return getLoopProgress(left, middleStart, setWidth);
   }
 
-  function syncCollectionFocus() {
-    const viewportRect = collectionViewport.getBoundingClientRect();
-    const viewportCenter = viewportRect.left + viewportRect.width / 2;
-    const maxDistance = Math.max(viewportRect.width / 2, 1);
-    let strongestCard = null;
-    let strongestFocus = -1;
-    cards.forEach((card) => {
-      const cardRect = card.getBoundingClientRect();
-      const cardCenter = cardRect.left + cardRect.width / 2;
-      const signedDistance = cardCenter - viewportCenter;
-      const focusValue = Math.max(0, 1 - Math.abs(signedDistance) / maxDistance);
-      const focusWeight = focusValue ** 1.65;
-      const offsetRatio = Math.max(-1, Math.min(1, signedDistance / maxDistance));
-      card.style.setProperty("--collection-focus", focusValue.toFixed(4));
-      card.style.setProperty("--collection-focus-weight", focusWeight.toFixed(4));
-      [
-        ["--collection-offset-from-center", offsetRatio.toFixed(4)],
-        ["--collection-sheen-shift", `${(offsetRatio * sheenShiftPx).toFixed(2)}px`],
-      ]
-        .forEach(([name, value]) => card.style.setProperty(name, value));
-      if (focusValue > strongestFocus) {
-        strongestFocus = focusValue;
-        strongestCard = card;
-      }
-    });
-
-    cards.forEach((card) => {
-      card.classList.toggle("is-center-weighted", card === strongestCard && strongestFocus > 0);
-    });
-  }
-
-  function setInteractionCard(card) {
-    if (interactionCard === card) {
-      return;
-    }
-    interactionCard?.classList.remove("is-interaction-boosted");
-    interactionCard = card instanceof HTMLAnchorElement ? card : null;
-    interactionCard?.classList.add("is-interaction-boosted");
-    syncCollectionFocus();
-  }
+  const { getInteractionCard, setInteractionCard, syncCollectionFocus } = collectionFocusController;
 
   function measure({ preservePosition = true } = {}) {
     const relativeProgress = preservePosition ? getRelativeProgress(collectionViewport.scrollLeft) : 0;
@@ -266,7 +228,7 @@ export function initializeCollectionCarousel({
   const handleFocusOut = (event) => {
     const currentCard = event.target instanceof Element ? event.target.closest(".collection-card") : null;
     const nextCard = event.relatedTarget instanceof Element ? event.relatedTarget.closest(".collection-card") : null;
-    if (currentCard && currentCard !== nextCard && interactionCard === currentCard) {
+    if (currentCard && currentCard !== nextCard && getInteractionCard() === currentCard) {
       setInteractionCard(nextCard instanceof HTMLAnchorElement ? nextCard : null);
     }
 
@@ -291,7 +253,7 @@ export function initializeCollectionCarousel({
   };
   const handleCardPointerOut = (event) => {
     const card = event.target instanceof Element ? event.target.closest(".collection-card") : null;
-    if (!(card instanceof HTMLAnchorElement) || interactionCard !== card) {
+    if (!(card instanceof HTMLAnchorElement) || getInteractionCard() !== card) {
       return;
     }
 

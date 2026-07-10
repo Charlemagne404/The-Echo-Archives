@@ -59,6 +59,31 @@ test("public runtime pages load archive-search before the module entry script", 
   });
 });
 
+test("public runtime pages defer chat markup and code until the launcher is used", () => {
+  runtimePages.forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+    assert.doesNotMatch(html, /id="chat-container"/, `${pagePath} should not include the chat panel markup.`);
+  });
+
+  const appSource = fs.readFileSync(path.join(siteRoot, "shared/app/app.js"), "utf8");
+  assert.match(appSource, /import\("\.\/chat-loader\.js"\)/, "The launcher should load the chat only on demand.");
+  assert.doesNotMatch(appSource, /import\("\.\/chat\.js"\)/, "The app shell must not import the chat module eagerly.");
+});
+
+test("public runtime pages expose a build-stable search index version", () => {
+  runtimePages.forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+    assert.match(
+      html,
+      /<body[^>]*data-search-index-version="[a-z0-9]+"/,
+      `${pagePath} should expose the current search index version on the body.`,
+    );
+  });
+
+  const sw = fs.readFileSync(path.join(siteRoot, "sw.js"), "utf8");
+  assert.match(sw, /"\/data\/search-index\.json\?v=[a-z0-9]+"/, "sw.js should precache the versioned search index URL.");
+});
+
 test("legacy redirect manifest matches redirect shim files", () => {
   assert.ok(Array.isArray(legacyRedirects));
   assert.ok(legacyRedirects.length > 0);

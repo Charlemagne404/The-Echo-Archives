@@ -1,7 +1,11 @@
 import { formatRating } from "../utils.js";
 
 export function createArchiveScoreElement(show, { showLabel = true, treatZeroAsUnrated = false } = {}) {
-  const numericRating = Number(show?.finalRating);
+  const rawRating = show?.finalRating;
+  const numericRating =
+    rawRating === null || rawRating === undefined || (typeof rawRating === "string" && !rawRating.trim())
+      ? null
+      : Number(rawRating);
   const archiveScore =
     Number.isFinite(numericRating) &&
     numericRating >= 0 &&

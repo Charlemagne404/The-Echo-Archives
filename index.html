@@ -21,12 +21,12 @@
 
 
 <link rel="stylesheet" href="/style.css?v=37191a0966" />
-<link rel="stylesheet" href="/home.css?v=e01fe0a0a2" />
+<link rel="stylesheet" href="/home.css?v=5d21e985fe" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 </head>
-<body class="home-page" data-home-card-hover-expand-enabled="false">
+<body class="home-page" data-home-card-hover-expand-enabled="false" data-search-index-version="f592047c29">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -77,43 +77,6 @@
     </div>
   </div>
 </header>
-
-<aside id="chat-container" role="dialog" aria-modal="true" aria-labelledby="chatDialogTitle" aria-hidden="true">
-    <div class="chat-panel-header">
-      <div class="chat-panel-heading">
-        <h2 id="chatDialogTitle">Ask the Archivist</h2>
-        <p id="chatStatus" class="chat-status" aria-live="polite">Checking Ask the Archivist...</p>
-      </div>
-      <div class="chat-panel-actions">
-        <button id="chat-clear" class="chat-secondary-button chat-icon-button" type="button" aria-label="Start a new chat" title="New chat">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
-            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
-          </svg>
-          <span class="sr-only">New chat</span>
-        </button>
-        <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div class="chat-stage">
-      <div id="chatLog" aria-live="polite" aria-label="Archive chat conversation"></div>
-      <div id="chatSuggestionRegion" class="chat-suggestion-region">
-        <p class="chat-suggestion-label">Prompt ideas</p>
-        <div id="chatSuggestions" class="chat-suggestions" aria-label="Suggested prompts"></div>
-      </div>
-    </div>
-    <div class="chat-input-area">
-      <label class="sr-only" for="userInput">Ask about a podcast</label>
-      <input type="text" id="userInput" placeholder="Ask about a podcast, mood, or theme" />
-      <button id="sendMessageButton" type="button">Ask</button>
-    </div>
-    <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
-  </aside>
 
 <main id="main-content" tabindex="-1" class="home-main">
     <div class="sticky-browse-bar" id="stickyBrowseBar" data-visibility="hidden" data-mode="collapsed" aria-hidden="true">
@@ -234,10 +197,10 @@
           </div>
         </div>
         <section class="archive-trust-grid" aria-label="Archive trust signals">
-          <p class="archive-trust-item"><strong id="homeShowCount">-</strong> <span>shows indexed</span></p>
-          <p class="archive-trust-item"><strong id="homeReviewCount">-</strong> <span>reviews</span></p>
-          <p class="archive-trust-item"><strong id="homeCollectionCount">-</strong> <span>collections</span></p>
-          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">-</strong></p>
+          <p class="archive-trust-item"><strong id="homeShowCount">48</strong> <span>shows indexed</span></p>
+          <p class="archive-trust-item"><strong id="homeReviewCount">7</strong> <span>reviews</span></p>
+          <p class="archive-trust-item"><strong id="homeCollectionCount">26</strong> <span>collections</span></p>
+          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">Jul 1</strong></p>
         </section>
       </div>
     </section>
@@ -266,7 +229,7 @@
               <span>= community rating</span>
             </span>
           </p>
-          <p id="resultsSummary" class="results-summary">Loading archive...</p>
+          <p id="resultsSummary" class="results-summary">48 results • 7 full reviews</p>
         </div>
       </div>
 
@@ -276,14 +239,162 @@
         <button id="activeBrowseClear" class="active-browse-clear" type="button" hidden>Clear all</button>
       </div>
 
-      <section class="most-popular-band" id="mostPopular" aria-labelledby="mostPopularTitle" hidden>
+      <section class="most-popular-band" id="mostPopular" aria-labelledby="mostPopularTitle" data-home-prerendered="true">
         <div class="section-heading">
           <div>
             <h3 id="mostPopularTitle">Archive staples</h3>
           </div>
         </div>
 
-        <div class="popular-grid" id="popularGrid"></div>
+        <div class="popular-grid" id="popularGrid" data-home-prerendered="true"><a class="popular-card" href="/show?id=midnight-burger" data-podcast-id="midnight-burger" aria-label="Open Midnight Burger in the archive">
+      <div class="popular-card-media">
+        <img src="/shows/midnight burger/MidnightBurger.jpeg" alt="Midnight Burger cover art" loading="lazy" decoding="async" width="320" height="320" />
+      </div>
+      <div class="popular-card-body">
+        <div class="popular-card-status"><span class="popular-card-chip is-accent">Top rated</span><span class="popular-card-chip is-muted">Ongoing</span><span class="popular-card-chip is-review">Full review</span></div>
+        <h3 class="popular-card-title">Midnight Burger</h3>
+        <p class="popular-card-subtitle">A warm, idea-rich sci-fi comedy with real range.</p>
+        <p class="popular-card-meta">Easy Entry • Worldbuilding</p>
+        <p class="popular-card-copy">Still one of the archive&#39;s easiest recommendations when the listener wants range instead of a single-note genre loop.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-ratings">
+            <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      <span class="inline-score-label">Archive Rating</span>
+    </div>
+            <span class="rating-divider" aria-hidden="true"></span>
+            <div class="community-inline-score" data-podcast-id="midnight-burger" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      <span class="inline-score-label">Community Rating</span>
+    </div>
+          </div>
+        </div>
+      </div>
+    </a><a class="popular-card" href="/show?id=were-alive" data-podcast-id="were-alive" aria-label="Open We're Alive in the archive">
+      <div class="popular-card-media">
+        <img src="/shows/were alive/WereAlive.jpeg" alt="We're Alive cover art" loading="lazy" decoding="async" width="320" height="320" />
+      </div>
+      <div class="popular-card-body">
+        <div class="popular-card-status"><span class="popular-card-chip is-muted">Ongoing</span></div>
+        <h3 class="popular-card-title">We&#39;re Alive</h3>
+        <p class="popular-card-subtitle">A survival-first apocalypse staple with real archive gravity.</p>
+        <p class="popular-card-meta">Long Walks • Binge Listening</p>
+        <p class="popular-card-copy">A reliable recommendation when someone wants survival and ensemble pressure first.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-ratings">
+            <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      <span class="inline-score-label">Archive Rating</span>
+    </div>
+            <span class="rating-divider" aria-hidden="true"></span>
+            <div class="community-inline-score" data-podcast-id="were-alive" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      <span class="inline-score-label">Community Rating</span>
+    </div>
+          </div>
+        </div>
+      </div>
+    </a><a class="popular-card" href="/show?id=red-valley" data-podcast-id="red-valley" aria-label="Open Red Valley in the archive">
+      <div class="popular-card-media">
+        <img src="/shows/red valley/RedValley.jpeg" alt="Red Valley cover art" loading="lazy" decoding="async" width="320" height="320" />
+      </div>
+      <div class="popular-card-body">
+        <div class="popular-card-status"><span class="popular-card-chip is-muted">Ongoing</span></div>
+        <h3 class="popular-card-title">Red Valley</h3>
+        <p class="popular-card-subtitle">A science-heavy mystery with enough conceptual weirdness to stick.</p>
+        <p class="popular-card-meta">Late Night • Serious Sci Fi</p>
+        <p class="popular-card-copy">A good neighboring pick once Ars Paradoxica leaves you wanting more controlled weirdness.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-ratings">
+            <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      <span class="inline-score-label">Archive Rating</span>
+    </div>
+            <span class="rating-divider" aria-hidden="true"></span>
+            <div class="community-inline-score" data-podcast-id="red-valley" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      <span class="inline-score-label">Community Rating</span>
+    </div>
+          </div>
+        </div>
+      </div>
+    </a><a class="popular-card" href="/show?id=derelict" data-podcast-id="derelict" aria-label="Open Derelict in the archive">
+      <div class="popular-card-media">
+        <img src="/shows/derelict/Derelict.jpeg" alt="Derelict cover art" loading="lazy" decoding="async" width="320" height="320" />
+      </div>
+      <div class="popular-card-body">
+        <div class="popular-card-status"><span class="popular-card-chip is-accent">Top rated</span><span class="popular-card-chip is-muted">Ongoing</span><span class="popular-card-chip is-review">Full review</span></div>
+        <h3 class="popular-card-title">Derelict</h3>
+        <p class="popular-card-subtitle">Big-scale sci-fi tension with a thriller engine underneath it.</p>
+        <p class="popular-card-meta">Long Walks • Serious Sci Fi</p>
+        <p class="popular-card-copy">One of the archive&#39;s cleaner high-pressure sci-fi recommendations when atmosphere and propulsion both need to show up.</p>
+        <div class="popular-card-footer">
+          <div class="popular-card-ratings">
+            <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      <span class="inline-score-label">Archive Rating</span>
+    </div>
+            <span class="rating-divider" aria-hidden="true"></span>
+            <div class="community-inline-score" data-podcast-id="derelict" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      <span class="inline-score-label">Community Rating</span>
+    </div>
+          </div>
+        </div>
+      </div>
+    </a></div>
       </section>
 
       <section class="collection-band recently-added-band" id="recentlyAdded" aria-labelledby="recentlyAddedTitle" hidden>
@@ -304,19 +415,1507 @@
         </div>
       </section>
 
-      <div id="podcast-grid"></div>
+      <div id="podcast-grid" data-home-prerendered="true"><div class="podcast-card-shell" data-podcast-id="solar">
+      <a class="podcast-card" href="/show?id=solar" data-podcast-id="solar">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/solar/solar.jpeg" alt="Solar cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Solar</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Space</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="solar" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="story">
+      <a class="podcast-card" href="/show?id=story" data-podcast-id="story">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/story/story.jpg" alt="Story cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Story</h2>
+        <p class="tags" data-card-meta="true">Drama • Mystery</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="story" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="from-now">
+      <a class="podcast-card" href="/show?id=from-now" data-podcast-id="from-now">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/from now/fromnow.jpeg" alt="From Now cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">From Now</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Time Travel</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="from-now" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-deca-tapes">
+      <a class="podcast-card" href="/show?id=the-deca-tapes" data-podcast-id="the-deca-tapes">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/deca tapes/decatapes.jpeg" alt="The Deca Tapes cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Deca Tapes</h2>
+        <p class="tags" data-card-meta="true">Mystery • Thriller</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">6/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-deca-tapes" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="earth-eclipsed">
+      <a class="podcast-card" href="/show?id=earth-eclipsed" data-podcast-id="earth-eclipsed">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/earth eclipsed/eartheclipsed.jpeg" alt="Earth Eclipsed cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Earth Eclipsed</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Dystopia</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="earth-eclipsed" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="vast-horizon">
+      <a class="podcast-card" href="/show?id=vast-horizon" data-podcast-id="vast-horizon">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/vast horizon/vasthorizon.jpeg" alt="Vast Horizon cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Vast Horizon</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Space</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="vast-horizon" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="how-i-died">
+      <a class="podcast-card" href="/show?id=how-i-died" data-podcast-id="how-i-died">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span></div>
+        <img src="/shows/how i died/howidied.jpeg" alt="How I Died cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">How I Died</h2>
+        <p class="tags" data-card-meta="true">Horror • Supernatural</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">9/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="how-i-died" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="windfall">
+      <a class="podcast-card" href="/show?id=windfall" data-podcast-id="windfall">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span></div>
+        <img src="/shows/windfall/windfall.jpeg" alt="Windfall cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Windfall</h2>
+        <p class="tags" data-card-meta="true">Thriller • Mystery</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">9/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="windfall" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-waystation">
+      <a class="podcast-card" href="/show?id=the-waystation" data-podcast-id="the-waystation">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/the waystation/waystation.jpeg" alt="The Waystation cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Waystation</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Adventure</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-waystation" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="were-alive">
+      <a class="podcast-card" href="/show?id=were-alive" data-podcast-id="were-alive">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/were alive/WereAlive.jpeg" alt="We're Alive cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">We&#39;re Alive</h2>
+        <p class="tags" data-card-meta="true">Thriller • Apocalypse</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="were-alive" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="impact-winter">
+      <a class="podcast-card" href="/show?id=impact-winter" data-podcast-id="impact-winter">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/shows/Impact Winter/Impact-winter.jpeg" alt="Impact Winter cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Impact Winter</h2>
+        <p class="tags" data-card-meta="true">Survival • Post Apocalyptic</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="impact-winter" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="oz-9">
+      <a class="podcast-card" href="/show?id=oz-9" data-podcast-id="oz-9">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/shows/oz9/oz9.jpeg" alt="Oz 9 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Oz 9</h2>
+        <p class="tags" data-card-meta="true">Space • Unserious</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="oz-9" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="ars-paradoxica">
+      <a class="podcast-card" href="/show?id=ars-paradoxica" data-podcast-id="ars-paradoxica">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/shows/ars paradoxica/ArsParadoxica.jpeg" alt="Ars Paradoxica cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Ars Paradoxica</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Science</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7.5/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="ars-paradoxica" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="red-valley">
+      <a class="podcast-card" href="/show?id=red-valley" data-podcast-id="red-valley">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/red valley/RedValley.jpeg" alt="Red Valley cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Red Valley</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Future</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="red-valley" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-white-vault">
+      <a class="podcast-card" href="/show?id=the-white-vault" data-podcast-id="the-white-vault">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/shows/white-vault/WhiteVault.jpeg" alt="The White Vault cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The White Vault</h2>
+        <p class="tags" data-card-meta="true">Mystery • Survival</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">9/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-white-vault" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="eos-10">
+      <a class="podcast-card" href="/show?id=eos-10" data-podcast-id="eos-10">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/eos10/EOS10.jpeg" alt="EOS 10 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">EOS 10</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Science</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="eos-10" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="desert-skies">
+      <a class="podcast-card" href="/show?id=desert-skies" data-podcast-id="desert-skies">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/desert-skies/DesertSkies.jpeg" alt="Desert Skies cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Desert Skies</h2>
+        <p class="tags" data-card-meta="true">Emotion • Fantasy</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">6/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="desert-skies" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="wolf-359">
+      <a class="podcast-card" href="/show?id=wolf-359" data-podcast-id="wolf-359">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/wolf359/Wolf359.jpeg" alt="Wolf 359 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Wolf 359</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Space</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="wolf-359" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="station-151">
+      <a class="podcast-card" href="/show?id=station-151" data-podcast-id="station-151">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/station151/Station151.jpeg" alt="Station 151 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Station 151</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Isolation</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">6/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="station-151" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="midnight-burger">
+      <a class="podcast-card" href="/show?id=midnight-burger" data-podcast-id="midnight-burger">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/shows/midnight burger/MidnightBurger.jpeg" alt="Midnight Burger cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Midnight Burger</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Science</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="midnight-burger" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="spectre">
+      <a class="podcast-card" href="/show?id=spectre" data-podcast-id="spectre">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/spectre/Spectre.jpeg" alt="Spectre cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Spectre</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Space</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">6/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="spectre" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-phenomenon">
+      <a class="podcast-card" href="/show?id=the-phenomenon" data-podcast-id="the-phenomenon">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/the phenomenon/Phenomenon.jpeg" alt="The Phenomenon cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Phenomenon</h2>
+        <p class="tags" data-card-meta="true">Survival • Science</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">5/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-phenomenon" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="paralyzed">
+      <a class="podcast-card" href="/show?id=paralyzed" data-podcast-id="paralyzed">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/paralyzed/Paralyzed.jpeg" alt="Paralyzed cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Paralyzed</h2>
+        <p class="tags" data-card-meta="true">Mystery • Horror</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">7/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="paralyzed" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="derelict">
+      <a class="podcast-card" href="/show?id=derelict" data-podcast-id="derelict">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/shows/derelict/Derelict.jpeg" alt="Derelict cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Derelict</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Thriller</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="derelict" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="crystal-blue">
+      <a class="podcast-card" href="/show?id=crystal-blue" data-podcast-id="crystal-blue">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/crystal-blue/CrystalBlue.jpeg" alt="Crystal Blues cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Crystal Blue</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Future</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">5/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="crystal-blue" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="end-of-all-hope">
+      <a class="podcast-card" href="/show?id=end-of-all-hope" data-podcast-id="end-of-all-hope">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/shows/eoah/EOAH.jpeg" alt="End of all Hope cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">End of All Hope</h2>
+        <p class="tags" data-card-meta="true">Survival • Aliens</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">8/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="end-of-all-hope" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="tower-4">
+      <a class="podcast-card" href="/show?id=tower-4" data-podcast-id="tower-4">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span></div>
+        <img src="/shows/towe4/Tower4.jpeg" alt="Tower 4 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Tower 4</h2>
+        <p class="tags" data-card-meta="true">Mystery • Isolation</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">10/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="tower-4" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-bright-sessions">
+      <a class="podcast-card" href="/show?id=the-bright-sessions" data-podcast-id="the-bright-sessions">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/the-bright-sessions.jpg" alt="The Bright Sessions cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Bright Sessions</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Therapy</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-bright-sessions" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="wooden-overcoats">
+      <a class="podcast-card" href="/show?id=wooden-overcoats" data-podcast-id="wooden-overcoats">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/wooden-overcoats.jpg" alt="Wooden Overcoats cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Wooden Overcoats</h2>
+        <p class="tags" data-card-meta="true">Comedy • Small Town</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="wooden-overcoats" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="alice-isnt-dead">
+      <a class="podcast-card" href="/show?id=alice-isnt-dead" data-podcast-id="alice-isnt-dead">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/alice-isnt-dead.jpg" alt="Alice Isn't Dead cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Alice Isn&#39;t Dead</h2>
+        <p class="tags" data-card-meta="true">Horror • Road Trip</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="alice-isnt-dead" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="mirrors">
+      <a class="podcast-card" href="/show?id=mirrors" data-podcast-id="mirrors">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/mirrors.jpg" alt="Mirrors cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Mirrors</h2>
+        <p class="tags" data-card-meta="true">Horror • Ghost Story</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="mirrors" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="unwell">
+      <a class="podcast-card" href="/show?id=unwell" data-podcast-id="unwell">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/unwell.jpg" alt="Unwell cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Unwell</h2>
+        <p class="tags" data-card-meta="true">Gothic • Small Town</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="unwell" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="midst">
+      <a class="podcast-card" href="/show?id=midst" data-podcast-id="midst">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/midst.jpg" alt="Midst cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Midst</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Fantasy</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="midst" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-program-audio-series">
+      <a class="podcast-card" href="/show?id=the-program-audio-series" data-podcast-id="the-program-audio-series">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/the-program-audio-series.jpg" alt="The Program audio series cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Program audio series</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Anthology</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-program-audio-series" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="malevolent">
+      <a class="podcast-card" href="/show?id=malevolent" data-podcast-id="malevolent">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/malevolent.jpg" alt="Malevolent cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Malevolent</h2>
+        <p class="tags" data-card-meta="true">Horror • Lovecraftian</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="malevolent" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="case-63">
+      <a class="podcast-card" href="/show?id=case-63" data-podcast-id="case-63">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/case-63.jpg" alt="Case 63 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Case 63</h2>
+        <p class="tags" data-card-meta="true">Sci Fi • Time Travel</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="case-63" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="borrasca">
+      <a class="podcast-card" href="/show?id=borrasca" data-podcast-id="borrasca">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/borrasca.jpg" alt="Borrasca cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Borrasca</h2>
+        <p class="tags" data-card-meta="true">Horror • Thriller</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="borrasca" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="mabel">
+      <a class="podcast-card" href="/show?id=mabel" data-podcast-id="mabel">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/mabel.jpg" alt="Mabel cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Mabel</h2>
+        <p class="tags" data-card-meta="true">Horror • Ghosts</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="mabel" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="archive-81">
+      <a class="podcast-card" href="/show?id=archive-81" data-podcast-id="archive-81">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/archive-81.jpg" alt="Archive 81 cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Archive 81</h2>
+        <p class="tags" data-card-meta="true">Horror • Found Footage</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="archive-81" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="homecoming">
+      <a class="podcast-card" href="/show?id=homecoming" data-podcast-id="homecoming">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/homecoming.jpg" alt="Homecoming cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Homecoming</h2>
+        <p class="tags" data-card-meta="true">Thriller • Mystery</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="homecoming" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="welcome-to-night-vale">
+      <a class="podcast-card" href="/show?id=welcome-to-night-vale" data-podcast-id="welcome-to-night-vale">
+        <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
+        <img src="/images/covers/welcome-to-night-vale.jpg" alt="Welcome to Night Vale cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Welcome to Night Vale</h2>
+        <p class="tags" data-card-meta="true">Weird Fiction • Community Radio</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="welcome-to-night-vale" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="marsfall">
+      <a class="podcast-card" href="/show?id=marsfall" data-podcast-id="marsfall">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/marsfall.jpg" alt="Marsfall cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Marsfall</h2>
+        <p class="tags" data-card-meta="true">Mars Colony • Survival</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="marsfall" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-strange-case-of-starship-iris">
+      <a class="podcast-card" href="/show?id=the-strange-case-of-starship-iris" data-podcast-id="the-strange-case-of-starship-iris">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/the-strange-case-of-starship-iris.jpg" alt="The Strange Case of Starship Iris cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Strange Case of Starship Iris</h2>
+        <p class="tags" data-card-meta="true">Space Opera • Found Family</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-strange-case-of-starship-iris" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-amelia-project">
+      <a class="podcast-card" href="/show?id=the-amelia-project" data-podcast-id="the-amelia-project">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/the-amelia-project.jpg" alt="The Amelia Project cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Amelia Project</h2>
+        <p class="tags" data-card-meta="true">Black Comedy • Secret Agency</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-amelia-project" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="victoriocity">
+      <a class="podcast-card" href="/show?id=victoriocity" data-podcast-id="victoriocity">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/victoriocity.jpg" alt="Victoriocity cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Victoriocity</h2>
+        <p class="tags" data-card-meta="true">Detective Comedy • Alt History</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="victoriocity" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="startripper">
+      <a class="podcast-card" href="/show?id=startripper" data-podcast-id="startripper">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/startripper.png" alt="StarTripper!! cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">StarTripper!!</h2>
+        <p class="tags" data-card-meta="true">Road Trip • Space Travel</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="startripper" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="the-lovecraft-investigations">
+      <a class="podcast-card" href="/show?id=the-lovecraft-investigations" data-podcast-id="the-lovecraft-investigations">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/the-lovecraft-investigations.jpg" alt="The Lovecraft Investigations cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">The Lovecraft Investigations</h2>
+        <p class="tags" data-card-meta="true">Cosmic Horror • Investigative Podcast</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="the-lovecraft-investigations" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div><div class="podcast-card-shell" data-podcast-id="video-palace">
+      <a class="podcast-card" href="/show?id=video-palace" data-podcast-id="video-palace">
+        <div class="editorial-badges" aria-hidden="true"></div>
+        <img src="/images/covers/video-palace.jpg" alt="Video Palace cover art" loading="lazy" decoding="async" width="320" height="320" />
+        <h2 data-card-title="true">Video Palace</h2>
+        <p class="tags" data-card-meta="true">Found Audio • Occult</p>
+        <div class="rating">
+          <div class="archive-inline-score">
+      <span class="inline-score-topline">
+        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
+        <span class="inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+          <span class="rating-divider" aria-hidden="true"></span>
+          <div class="community-inline-score" data-podcast-id="video-palace" aria-label="Community score --/10. No ratings yet.">
+      <span class="inline-score-topline">
+        <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
+          <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
+          <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
+          <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
+          <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
+          <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
+          <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
+        </svg>
+        <span class="community-inline-score-value">--/10</span>
+      </span>
+      
+    </div>
+        </div>
+      </a>
+    </div></div>
       <div id="noResultsMsg" class="empty-state-card" hidden>
         <p>No matches yet. Try a tone, format, completion status, or a route like "Midnight Burger like".</p>
         <div class="empty-state-actions">
           <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
           <a class="collection-action" href="/collections">Browse collections</a>
-          <button id="openArchivistAction" class="quick-filter" type="button">Ask the Archivist</button>
+          <button id="openArchivistAction" class="quick-filter" type="button" data-open-chat data-chat-initial-prompt="Help me find something finished or easy to jump into.">Ask the Archivist</button>
           <a class="collection-action" href="/submit">Submit or correct a show</a>
         </div>
       </div>
     </section>
 
-    <section class="collection-band" id="favoriteRoutes" aria-labelledby="favoriteRoutesTitle">
+    <section class="collection-band" id="favoriteRoutes" aria-labelledby="favoriteRoutesTitle" data-home-prerendered="true">
       <div class="section-heading">
         <div>
           <h2 id="favoriteRoutesTitle">Shows like your favorites</h2>
@@ -331,7 +1930,43 @@
         </button>
 
         <div class="collection-carousel-viewport" id="favoriteRoutesViewport">
-          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid"></div>
+          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=shows-like-midnight-burger" aria-label="Browse the Shows like Midnight Burger collection" data-collection-id="shows-like-midnight-burger" data-anchor-show-id="midnight-burger" style="--collection-cover-image: url(&quot;/shows/midnight burger/MidnightBurger.jpeg&quot;)">
+      <h3>Shows like Midnight Burger</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=shows-like-welcome-to-night-vale" aria-label="Browse the Shows like Welcome to Night Vale collection" data-collection-id="shows-like-welcome-to-night-vale" data-anchor-show-id="welcome-to-night-vale" style="--collection-cover-image: url(&quot;/images/covers/welcome-to-night-vale.jpg&quot;)">
+      <h3>Shows like Welcome to Night Vale</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=shows-like-derelict" aria-label="Browse the Shows like Derelict collection" data-collection-id="shows-like-derelict" data-anchor-show-id="derelict" style="--collection-cover-image: url(&quot;/shows/derelict/Derelict.jpeg&quot;)">
+      <h3>Shows like Derelict</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=shows-like-the-white-vault" aria-label="Browse the Shows like The White Vault collection" data-collection-id="shows-like-the-white-vault" data-anchor-show-id="the-white-vault" style="--collection-cover-image: url(&quot;/shows/white-vault/WhiteVault.jpeg&quot;)">
+      <h3>Shows like The White Vault</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=shows-like-midst" aria-label="Browse the Shows like Midst collection" data-collection-id="shows-like-midst" data-anchor-show-id="midst" style="--collection-cover-image: url(&quot;/images/covers/midst.jpg&quot;)">
+      <h3>Shows like Midst</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=shows-like-malevolent" aria-label="Browse the Shows like Malevolent collection" data-collection-id="shows-like-malevolent" data-anchor-show-id="malevolent" style="--collection-cover-image: url(&quot;/images/covers/malevolent.jpg&quot;)">
+      <h3>Shows like Malevolent</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a></div>
         </div>
 
         <button class="collection-carousel-arrow collection-carousel-arrow-next" id="favoriteRoutesNext" type="button" aria-label="Scroll shows-like routes right" hidden>
@@ -340,7 +1975,7 @@
       </div>
     </section>
 
-    <section class="collection-band" id="collections" aria-labelledby="collections-title">
+    <section class="collection-band" id="collections" aria-labelledby="collections-title" data-home-prerendered="true">
       <div class="section-heading">
         <div>
           <h2 id="collections-title">Featured collections</h2>
@@ -354,7 +1989,43 @@
         </button>
 
         <div class="collection-carousel-viewport" id="collectionViewport">
-          <div class="collection-grid collection-carousel-track" id="collectionGrid"></div>
+          <div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=best-for-long-walks" aria-label="Browse the Best for long walks collection" data-collection-id="best-for-long-walks" style="--collection-cover-image: url(&quot;/shows/Impact Winter/Impact-winter.jpeg&quot;)">
+      <h3>Best for long walks</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">7 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=easy-first-steps" aria-label="Browse the Start here collection" data-collection-id="easy-first-steps" style="--collection-cover-image: url(&quot;/images/covers/the-bright-sessions.jpg&quot;)">
+      <h3>Start here</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">9 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=serious-sci-fi" aria-label="Browse the Serious sci-fi collection" data-collection-id="serious-sci-fi" style="--collection-cover-image: url(&quot;/shows/derelict/Derelict.jpeg&quot;)">
+      <h3>Serious sci-fi</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">10 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=funny-space-disasters" aria-label="Browse the Funny space disasters collection" data-collection-id="funny-space-disasters" style="--collection-cover-image: url(&quot;/shows/oz9/oz9.jpeg&quot;)">
+      <h3>Funny space disasters</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=cold-isolation-horror" aria-label="Browse the Cold isolation horror collection" data-collection-id="cold-isolation-horror" style="--collection-cover-image: url(&quot;/shows/white-vault/WhiteVault.jpeg&quot;)">
+      <h3>Cold isolation horror</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">6 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a><a class="collection-card" href="/collection?id=finished-arcs" aria-label="Browse the Completed shows collection" data-collection-id="finished-arcs" style="--collection-cover-image: url(&quot;/images/covers/the-bright-sessions.jpg&quot;)">
+      <h3>Completed shows</h3>
+      <div class="collection-card-footer">
+        <p class="collection-card-count">9 shows</p>
+        <span class="collection-card-cta">Browse</span>
+      </div>
+    </a></div>
         </div>
 
         <button class="collection-carousel-arrow collection-carousel-arrow-next" id="collectionNext" type="button" aria-label="Scroll featured collections right" hidden>
@@ -435,6 +2106,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=f2374b9170"></script>
+  <script type="module" src="/script.js?v=a187d90f5c"></script>
 </body>
 </html>

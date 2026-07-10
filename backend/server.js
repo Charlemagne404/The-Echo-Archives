@@ -213,7 +213,12 @@ async function startServer() {
     res.json(state.publicCatalog);
   });
 
-  app.get("/data/search-index.json", (_req, res) => {
+  app.get("/data/search-index.json", (req, res) => {
+    if (typeof req.query.v === "string" && req.query.v.trim()) {
+      res.set("Cache-Control", "public, max-age=31536000, immutable");
+    } else {
+      res.set("Cache-Control", "public, max-age=0, stale-while-revalidate=60");
+    }
     res.json(state.publicSearchIndex);
   });
 

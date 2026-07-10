@@ -20,10 +20,6 @@ import {
   syncChatSuggestionsVisibility,
   updateChatSuggestions,
 } from "./chat/ui.js";
-import { addMediaQueryListener } from "./utils.js";
-
-const MOBILE_CHAT_LAUNCHER_BREAKPOINT = "(max-width: 560px)";
-const MOBILE_CHAT_LAUNCHER_REVEAL_Y = 140;
 
 export function initializeSharedChat() {
   if (!toggleBtn || !chatContainer) {
@@ -33,11 +29,6 @@ export function initializeSharedChat() {
   applyChatCopy();
   hydrateChat();
   syncChatHealth();
-  initializeMobileChatLauncher();
-
-  toggleBtn.addEventListener("click", () => {
-    setChatOpen(!chatContainer.classList.contains("is-open"));
-  });
 
   closeChatBtn?.addEventListener("click", () => setChatOpen(false));
   clearChatButton?.addEventListener("click", resetChatThread);
@@ -86,29 +77,6 @@ export function initializeSharedChat() {
   });
 
   initializeChatOpenState();
-}
-
-function initializeMobileChatLauncher() {
-  if (!toggleBtn || !chatContainer) {
-    return;
-  }
-
-  const mobileLauncherQuery = window.matchMedia(MOBILE_CHAT_LAUNCHER_BREAKPOINT);
-
-  const syncLauncherVisibility = () => {
-    const shouldDelayLauncher =
-      mobileLauncherQuery.matches &&
-      !chatContainer.classList.contains("is-open") &&
-      window.scrollY < MOBILE_CHAT_LAUNCHER_REVEAL_Y;
-
-    toggleBtn.classList.toggle("is-delayed-mobile-toggle", shouldDelayLauncher);
-  };
-
-  addMediaQueryListener(mobileLauncherQuery, syncLauncherVisibility);
-  window.addEventListener("scroll", syncLauncherVisibility, { passive: true });
-  window.addEventListener("resize", syncLauncherVisibility);
-  window.addEventListener("echo:chat-open-change", syncLauncherVisibility);
-  syncLauncherVisibility();
 }
 
 function hydrateChat() {

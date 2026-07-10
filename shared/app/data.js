@@ -76,7 +76,7 @@ export async function loadSearchIndex() {
     return dataCache.searchIndex;
   }
 
-  const records = assertJsonArray(await fetchJson(SEARCH_INDEX_URL, { cache: "no-store" }), SEARCH_INDEX_URL, "Search index data");
+  const records = assertJsonArray(await fetchJson(SEARCH_INDEX_URL), SEARCH_INDEX_URL, "Search index data");
   dataCache.searchIndex = archiveSearch.hydrateCatalogSearch(records.map((record) => normalizeShowRecord(record)));
   return dataCache.searchIndex;
 }

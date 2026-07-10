@@ -1,4 +1,3 @@
-import { setChatOpen } from "../../chat-open.js";
 import { MODE_CONFIG } from "../../submit/config.js";
 import { appendModeLinkRow, addArrayValue, getActiveDraft, removeLinkRow, toggleArrayValue } from "../../submit/state.js";
 import { normalizeCustomTag } from "../../submit/search.js";
@@ -104,12 +103,6 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
   document.addEventListener("click", (event) => {
     const target = event.target;
     if (!(target instanceof Element)) {
-      return;
-    }
-
-    const openChatButton = target.closest("[data-open-chat]");
-    if (openChatButton) {
-      setChatOpen(true);
       return;
     }
 

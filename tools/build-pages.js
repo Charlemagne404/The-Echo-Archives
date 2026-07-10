@@ -1,8 +1,10 @@
 const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
+const { pathToFileURL } = require("node:url");
 
 const { buildSitemapXml } = require("../backend/lib/sitemap");
+const { renderHomePagePrerender } = require("./lib/home-page-prerender");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_SRC = path.join(ROOT, "site-src");
@@ -116,6 +118,10 @@ function withVersion(relativePath, version) {
   return `${relativePath}?v=${version}`;
 }
 
+function getVersionedSearchIndexUrl(version) {
+  return `/${withVersion("data/search-index.json", version)}`;
+}
+
 function renderTemplate(template, replacements) {
   return template.replace(/\{\{([a-zA-Z0-9]+)\}\}/g, (_match, key) => replacements[key] ?? "");
 }
@@ -212,8 +218,18 @@ function ensureMainContentTarget(pageBody, targetId) {
   return pageBody.replace(/<main\b(?![^>]*\bid=)/i, `<main id="${escapeAttribute(targetId)}" tabindex="-1"`);
 }
 
-function renderPageBody(entry) {
-  return ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry));
+function renderPageBody(entry, homeConfig) {
+  let pageBody = ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry));
+
+  if (entry.output === "index.html") {
+    pageBody = renderHomePagePrerender(pageBody, {
+      rootDir: ROOT,
+      homeMostPopularIds: homeConfig.homeMostPopularIds,
+      homeFavoriteRouteIds: homeConfig.homeFavoriteRouteIds,
+    });
+  }
+
+  return pageBody;
 }
 
 function buildEntryAssets() {
@@ -232,7 +248,7 @@ function buildEntryAssets() {
   });
 }
 
-function renderPage(entry, partials, versions) {
+function renderPage(entry, partials, versions, homeConfig) {
   const homeCardHoverExpandEnabled = parseBoolean(process.env.HOME_CARD_HOVER_EXPAND_ENABLED, false);
   const headMarkup = renderTemplate(partials.head, {
     title: entry.title,
@@ -246,11 +262,10 @@ function renderPage(entry, partials, versions) {
     navLinks: renderNavLinks(entry.activeNav),
   });
   const mainContentTarget = resolveMainContentTarget(entry);
-  const pageBody = renderPageBody(entry);
+  const pageBody = renderPageBody(entry, homeConfig);
   const bodySections = [
     renderSkipLink(mainContentTarget),
     headerMarkup,
-    entry.includeChatShell ? partials.chatShell : "",
     pageBody,
     entry.includeFloatingControls ? partials.floatingControls : "",
     partials.footer,
@@ -268,7 +283,7 @@ function renderPage(entry, partials, versions) {
     "<head>",
     headMarkup,
     "</head>",
-    `<body class="${entry.bodyClass}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}">`,
+    `<body class="${entry.bodyClass}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-search-index-version="${versions.searchIndex}">`,
     bodySections,
     "</body>",
     "</html>",
@@ -345,7 +360,7 @@ function createPrecacheUrlSet(manifest, versions) {
     `/shared/archive-search.js?v=${versions.archiveSearch}`,
     "/data/shows.json",
     "/data/collections.json",
-    "/data/search-index.json",
+    getVersionedSearchIndexUrl(versions.searchIndex),
   ]);
 
   manifest.forEach((entry) => {
@@ -377,6 +392,7 @@ function renderServiceWorker({ versions, manifest }) {
         detail: versions.extra.get("detail.css"),
         archiveRecord: versions.archiveRecord,
         archiveSearch: versions.archiveSearch,
+        searchIndex: versions.searchIndex,
         precacheUrls,
       }),
     ),
@@ -518,12 +534,22 @@ function writeStaticSitemap({ manifest }) {
   writeFile(path.join(ROOT, "sitemap.xml"), `${sitemapXml}\n`);
 }
 
-function main() {
+async function loadHomeConfig() {
+  const homeConfigModuleUrl = pathToFileURL(path.join(ROOT, "shared", "app", "home-config.js")).href;
+  const homeConfigModule = await import(homeConfigModuleUrl);
+  return {
+    homeMostPopularIds: Array.isArray(homeConfigModule.HOME_MOST_POPULAR_IDS) ? homeConfigModule.HOME_MOST_POPULAR_IDS : [],
+    homeFavoriteRouteIds: Array.isArray(homeConfigModule.HOME_FAVORITE_ROUTE_IDS) ? homeConfigModule.HOME_FAVORITE_ROUTE_IDS : [],
+  };
+}
+
+async function main() {
   buildEntryAssets();
 
   const versions = {
     archiveRecord: hashFile("shared/archive-record.js"),
     archiveSearch: hashFile("shared/archive-search.js"),
+    searchIndex: hashFile("data/search-index.json"),
     script: hashFile("script.js"),
     style: hashFile("style.css"),
     home: hashFile("home.css"),
@@ -532,10 +558,10 @@ function main() {
     ]),
   };
   const manifest = JSON.parse(readFile(MANIFEST_PATH));
+  const homeConfig = await loadHomeConfig();
   const partials = {
     head: readFile(path.join(PARTIALS_DIR, "head.html")).trim(),
     header: readFile(path.join(PARTIALS_DIR, "header.html")).trim(),
-    chatShell: readFile(path.join(PARTIALS_DIR, "chat-shell.html")).trim(),
     floatingControls: readFile(path.join(PARTIALS_DIR, "floating-controls.html")).trim(),
     footer: readFile(path.join(PARTIALS_DIR, "footer.html")).trim(),
   };
@@ -545,17 +571,20 @@ function main() {
 
   manifest.forEach((entry) => {
     const outputPath = path.join(ROOT, entry.output);
-    const pageMarkup = renderPage(entry, partials, versions);
+    const pageMarkup = renderPage(entry, partials, versions, homeConfig);
     writeFile(outputPath, pageMarkup);
 
     const cleanRouteAlias = resolveCleanRouteAlias(entry);
     if (cleanRouteAlias) {
       const aliasMarkup = shouldNoIndexAlias(cleanRouteAlias)
-        ? renderPage({ ...entry, noIndex: true }, partials, versions)
+        ? renderPage({ ...entry, noIndex: true }, partials, versions, homeConfig)
         : pageMarkup;
       writeFile(path.join(ROOT, cleanRouteAlias, "index.html"), aliasMarkup);
     }
   });
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

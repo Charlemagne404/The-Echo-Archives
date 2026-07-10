@@ -1,4 +1,5 @@
-<aside id="chat-container" role="dialog" aria-modal="true" aria-labelledby="chatDialogTitle" aria-hidden="true">
+const CHAT_SHELL_MARKUP = `
+  <aside id="chat-container" role="dialog" aria-modal="true" aria-labelledby="chatDialogTitle" aria-hidden="true">
     <div class="chat-panel-header">
       <div class="chat-panel-heading">
         <h2 id="chatDialogTitle">Ask the Archivist</h2>
@@ -8,14 +9,14 @@
         <button id="chat-clear" class="chat-secondary-button chat-icon-button" type="button" aria-label="Start a new chat" title="New chat">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4.75 19.25h3.5l9.25-9.25-3.5-3.5-9.25 9.25v3.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
-            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
-            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+            <path d="M13 8l3.5 3.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
+            <path d="M19.25 19.25h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
           </svg>
           <span class="sr-only">New chat</span>
         </button>
         <button id="chat-close" class="chat-close-button" type="button" aria-label="Close chat">
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.75"/>
+            <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
           </svg>
         </button>
       </div>
@@ -34,3 +35,15 @@
     </div>
     <p class="chat-footnote">Ask for a finished show, a mood, a listening context, or a title already in the archive.</p>
   </aside>
+`;
+
+export async function mountAndInitializeSharedChat() {
+  if (!document.getElementById("chat-container")) {
+    document.body.insertAdjacentHTML("beforeend", CHAT_SHELL_MARKUP);
+  }
+
+  const { initializeSharedChat, setChatOpen } = await import("./chat.js");
+  initializeSharedChat();
+
+  return { setChatOpen };
+}

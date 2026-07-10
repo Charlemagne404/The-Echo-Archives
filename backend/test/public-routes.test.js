@@ -154,6 +154,22 @@ test("public routes expose the home card hover expansion flag from env", async (
   }
 });
 
+test("search index responses use cache-friendly headers for versioned and unversioned requests", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const versionedResponse = await fetch(`${context.baseUrl}/data/search-index.json?v=test-build`);
+    assert.equal(versionedResponse.status, 200);
+    assert.equal(versionedResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+
+    const unversionedResponse = await fetch(`${context.baseUrl}/data/search-index.json`);
+    assert.equal(unversionedResponse.status, 200);
+    assert.equal(unversionedResponse.headers.get("cache-control"), "public, max-age=0, stale-while-revalidate=60");
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
 test("public 500s return branded HTML while API 500s stay JSON", async () => {
   const context = await startPublicRouteServer();
 

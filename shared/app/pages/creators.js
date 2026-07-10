@@ -1,5 +1,4 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
-import { setChatOpen } from "../chat-open.js";
 import { loadArchiveStats } from "../data.js";
 import { formatDate, updateDocumentMetadata } from "../utils.js";
 import { initializeAccordionList } from "./accordion.js";
@@ -17,7 +16,6 @@ export async function initializeForCreatorsPage() {
 
   applyCreatorStats(stats);
   initializeCreatorFaq();
-  initializeCreatorChatLaunchers();
 }
 
 export function initializeCreatorStandardsPage() {
@@ -29,7 +27,6 @@ export function initializeCreatorStandardsPage() {
     image: DEFAULT_SOCIAL_IMAGE,
   });
 
-  initializeCreatorChatLaunchers();
   initializeCreatorStandardsRail();
 }
 
@@ -62,19 +59,6 @@ function initializeCreatorFaq() {
   initializeAccordionList({
     itemSelector: ".creator-faq-item",
     buttonSelector: ".creator-faq-toggle",
-  });
-}
-
-function initializeCreatorChatLaunchers() {
-  document.querySelectorAll("[data-open-chat]").forEach((button) => {
-    if (!(button instanceof HTMLButtonElement || button instanceof HTMLAnchorElement)) {
-      return;
-    }
-
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      setChatOpen(true);
-    });
   });
 }
 

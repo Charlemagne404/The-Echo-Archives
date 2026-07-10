@@ -12,35 +12,23 @@ import {
   getVisibleFilterTags,
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
-import { createShowCard, syncShowCardPresentation } from "../render-cards.js";
-import { syncCommunityCardBadges } from "../community.js";
 import { updateDocumentMetadata } from "../utils.js";
 import { renderCollectionsRail } from "./home/collections.js";
 import { loadHomePageData } from "./home/data-load.js";
 import { getHomeElements } from "./home/elements.js";
-import {
-  createFilterMenuState,
-  formatResultsSummaryPrefix,
-  getActiveBrowseDescriptors,
-  matchesSelectedFilters,
-  openFilterMenuBucket,
-  renderActiveBrowseState,
-  renderBrowseModes,
-  renderFilterMenu,
-  renderQuickFilters,
-  resetFilterMenuState,
-  syncHomeControls,
-} from "./home/filters.js";
-import { initializeFilterDropdownController } from "./home/filter-dropdown.js";
-import { getHomeGridLayoutBucket, patchArchiveGrid, sortVisibleShows } from "./home/layout.js";
+import { getActiveBrowseDescriptors, renderBrowseModes, renderQuickFilters } from "./home/filters.js";
+import { createHomeFilterSurfaceController } from "./home/filter-surfaces.js";
+import { getHomeGridLayoutBucket } from "./home/layout.js";
 import { renderHomeLoadingState } from "./home/loading.js";
 import { createMostPopularController } from "./home/most-popular.js";
+import { buildArchiveCardShellsById, hasPrerenderedHomeContent } from "./home/prerender.js";
 import { createRecentlyAddedController } from "./home/recently-added.js";
-import { syncResultsSummary, syncResultsSurfaceVisibility } from "./home/results-motion.js";
+import { createHomeResultsController } from "./home/results.js";
+import { syncResultsSurfaceVisibility } from "./home/results-motion.js";
 import { createHomeSearchPerformanceCache } from "./home/search-cache.js";
 import { createHomeState } from "./home/state.js";
 import { createStickyBrowseController } from "./home/sticky-search.js";
-import { seedHomeStateFromParams, syncBrowseUrlState } from "./home/url-state.js";
+import { seedHomeStateFromParams } from "./home/url-state.js";
 
 const SHOW_HOME_RECENTLY_ADDED_BAND = false;
 
@@ -49,7 +37,10 @@ export async function initializeHomePage() {
   if (!elements) {
     return;
   }
-  renderHomeLoadingState(elements);
+  const hasPrerenderedHome = hasPrerenderedHomeContent(elements);
+  if (!hasPrerenderedHome) {
+    renderHomeLoadingState(elements);
+  }
   const scrollRestoration = createScrollRestoration();
   scrollRestoration.enable();
 
@@ -86,7 +77,11 @@ export async function initializeHomePage() {
   const previewController = HOME_CARD_HOVER_EXPAND_ENABLED
     ? initializeHomePreviewController({ archiveGrid: elements.archiveGrid, archiveSection: elements.archiveSection })
     : { closeActivePreview() {} };
-  const archiveCardShellsById = new Map(shows.map((show) => [show.id, createShowCard(show, { previewMode })]));
+  const archiveCardShellsById = buildArchiveCardShellsById({
+    shows,
+    archiveGrid: elements.archiveGrid,
+    previewMode,
+  });
   const syncCollectionSectionVisibility = (section, sectionCollections, shouldShowMostPopular) => {
     section.hidden = sectionCollections.length === 0 || !shouldShowMostPopular;
   };
@@ -117,55 +112,16 @@ export async function initializeHomePage() {
   let collectionCarouselControls = null;
   let favoriteRoutesCarouselControls = null;
   let searchRenderTimer = 0;
-  let pendingRenderReason = "";
-  let renderFrame = 0;
-  let hasRenderedHomeResults = false;
   let stickyBrowseObserver = null;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
-  const heroFilterDropdownController = initializeFilterDropdownController({
-    filterDropdown: elements.filterDropdown,
-    filterToggle: elements.filterToggle,
-  });
-  const stickyFilterDropdownController = initializeFilterDropdownController({
-    filterDropdown: elements.stickyFilterDropdown,
-    filterToggle: elements.stickyFilterToggle,
-  });
-  const filterControlSurfaces = [
-    {
-      controller: heroFilterDropdownController,
-      dropdown: elements.filterDropdown,
-      optionGrid: elements.filterOptionGrid,
-      toggle: elements.filterToggle,
-      menuState: createFilterMenuState(),
-    },
-    {
-      controller: stickyFilterDropdownController,
-      dropdown: elements.stickyFilterDropdown,
-      optionGrid: elements.stickyFilterOptionGrid,
-      toggle: elements.stickyFilterToggle,
-      menuState: createFilterMenuState(),
-    },
-  ];
-  const stickyBrowseController = createStickyBrowseController({
-    elements,
-    state,
-    stickyFilterDropdownController,
-  });
+  let filterSurfaceController;
 
   const syncSearchInputs = (nextValue, sourceInput = null) => {
     searchInputs.forEach((input) => {
       if (input !== sourceInput && input.value !== nextValue) {
         input.value = nextValue;
-      }
-    });
-  };
-
-  const closeOtherFilterDropdowns = (activeSurface) => {
-    filterControlSurfaces.forEach((surface) => {
-      if (surface !== activeSurface && surface.controller.isOpen()) {
-        surface.controller.close();
       }
     });
   };
@@ -180,9 +136,7 @@ export async function initializeHomePage() {
     state.sortMode = "default";
     state.query = "";
     syncSearchInputs("");
-    filterControlSurfaces.forEach((surface) => {
-      renderFilterSurface(surface);
-    });
+    filterSurfaceController?.renderAll();
     scheduleHomeResults("explicit");
   };
 
@@ -228,160 +182,35 @@ export async function initializeHomePage() {
       removeFilter,
     });
 
-  const focusFilterSurfaceTarget = (surface, selector) => {
-    const target = surface.optionGrid.querySelector(selector);
-    if (target instanceof HTMLElement) {
-      target.focus();
-    }
-  };
-
-  function renderFilterSurface(surface) {
-    renderFilterMenu({
-      filterDropdown: surface.dropdown,
-      filterOptionGrid: surface.optionGrid,
-      filterMenuBuckets,
-      filterOptionsByGroup,
-      filters: state.filters,
-      menuState: surface.menuState,
-      onOpenBucket: (bucketId) => {
-        openFilterMenuBucket(surface.menuState, bucketId);
-        renderFilterSurface(surface);
-        const bucket = filterMenuBuckets.find((entry) => entry.id === bucketId);
-        if (bucket?.searchable) {
-          focusFilterSurfaceTarget(surface, ".filter-tag-search-input");
-        } else {
-          focusFilterSurfaceTarget(surface, ".filter-option");
-        }
-      },
-      onBackToLauncher: () => {
-        const previousBucketId = surface.menuState.activeBucketId;
-        resetFilterMenuState(surface.menuState);
-        renderFilterSurface(surface);
-        focusFilterSurfaceTarget(surface, `[data-filter-bucket-id="${previousBucketId}"]`);
-      },
-      onToggleFilter: toggleFilter,
-      onClearBucketFilters: clearBucketFilters,
-    });
-  }
-
-  const getVisibleShows = (selectedCollection) => {
-    const selectedCollectionShowIds = searchPerformanceCache.getCollectionShowIdSet(selectedCollection);
-    const filteredShows = shows.filter((show) => {
-      const matchesFilters = matchesSelectedFilters(show, state.filters);
-      const matchesCollection = !selectedCollectionShowIds || selectedCollectionShowIds.has(show.id);
-      return matchesFilters && matchesCollection;
-    });
-
-    if (!state.query) {
-      return sortVisibleShows({
-        visibleShows: filteredShows,
-        selectedCollection,
-        sortMode: state.sortMode,
-      });
-    }
-
-    const scoredResults = searchPerformanceCache.getScoredSearchResults(state.query);
-    const filteredIds = new Set(filteredShows.map((show) => show.id));
-    return scoredResults.filter((show) => filteredIds.has(show.id));
-  };
-
-  function renderHomeResults(changeReason = "explicit") {
-    previewController.closeActivePreview({ immediate: true });
-
-    const selectedCollection = getSelectedCollection();
-    const visibleShows = getVisibleShows(selectedCollection);
-    const activeDescriptors = getDescriptors();
-
-    visibleShows.forEach((show) => {
-      const shell = archiveCardShellsById.get(show.id);
-      if (shell) {
-        syncShowCardPresentation(shell, show);
-      }
-    });
-
-    mostPopularController.syncMostPopularSectionVisibility();
-    patchArchiveGrid({
-      archiveGrid: elements.archiveGrid,
-      collectionsSection: elements.collectionsSection,
-      visibleShows,
-      archiveCardShellsById,
-      gridLayoutBucket: state.gridLayoutBucket,
-      changeReason,
-    });
-    delete elements.archiveGrid.dataset.loading;
-    renderActiveBrowseState({
-      activeBrowseState: elements.activeBrowseState,
-      activeBrowseChips: elements.activeBrowseChips,
-      activeBrowseClear: elements.activeBrowseClear,
-      descriptors: activeDescriptors,
-      onAfterRemove: () => scheduleHomeResults("explicit"),
-    });
-    syncBrowseUrlState(state);
-
-    void syncCommunityCardBadges(elements.archiveGrid, visibleShows);
-
-    const fullReviewCount = visibleShows.filter((show) => show.reviewStatus === "full-review").length;
-    const suffix = fullReviewCount === 1 ? "full review" : "full reviews";
-    const collectionPrefix = selectedCollection ? `Collection: ${selectedCollection.title} • ` : "";
-    const browsePrefix = `${collectionPrefix}${formatResultsSummaryPrefix(activeDescriptors)}`;
-    const searchPrefix = state.query ? `${visibleShows.length} results for "${state.query}"` : `${visibleShows.length} results`;
-    const modePrefix = !state.query && state.sortMode === "recently-updated" ? "Recently updated • " : "";
-    syncResultsSummary(
-      elements.resultsSummary,
-      `${browsePrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`,
-      { skipAnimation: !hasRenderedHomeResults || changeReason === "initial" },
-    );
-    syncResultsSurfaceVisibility(elements.noResultsMsg, visibleShows.length === 0, {
-      openDurationMs: 220,
-      closeDurationMs: 160,
-      enterOffsetY: 12,
-    });
-
-    syncHomeControls({
-      quickFiltersRoot: elements.quickFiltersRoot,
-      browseModesRoot: elements.browseModesRoot,
-      filterOptionGrid: elements.filterOptionGrid,
-      filterCount: elements.filterCount,
-      filterClear: elements.filterClear,
-      filterMenuBuckets,
-      filterOptionsByGroup,
-      filters: state.filters,
-      query: state.query,
-      selectedCollectionId: state.selectedCollectionId,
-      sortMode: state.sortMode,
-    });
-    syncHomeControls({
-      filterOptionGrid: elements.stickyFilterOptionGrid,
-      filterCount: elements.stickyFilterCount,
-      filterClear: elements.stickyFilterClear,
-      filterMenuBuckets,
-      filterOptionsByGroup,
-      filters: state.filters,
-      query: state.query,
-      selectedCollectionId: state.selectedCollectionId,
-      sortMode: state.sortMode,
-    });
-    stickyBrowseController.syncStickySearchMode();
-    hasRenderedHomeResults = true;
-  }
-
-  function scheduleHomeResults(changeReason = "explicit") {
-    pendingRenderReason = pendingRenderReason === "explicit" || changeReason === "explicit" ? "explicit" : changeReason;
-    if (renderFrame) {
-      return;
-    }
-
-    renderFrame = window.requestAnimationFrame(() => {
-      renderFrame = 0;
-      const nextReason = pendingRenderReason || changeReason;
-      pendingRenderReason = "";
-      renderHomeResults(nextReason);
-    });
-  }
-
-  filterControlSurfaces.forEach((surface) => {
-    renderFilterSurface(surface);
+  filterSurfaceController = createHomeFilterSurfaceController({
+    elements,
+    filters: state.filters,
+    filterMenuBuckets,
+    filterOptionsByGroup,
+    onToggleFilter: toggleFilter,
+    onClearBucketFilters: clearBucketFilters,
   });
+  const stickyBrowseController = createStickyBrowseController({
+    elements,
+    state,
+    stickyFilterDropdownController: filterSurfaceController.stickyFilterDropdownController,
+  });
+  const { renderHomeResults, scheduleHomeResults } = createHomeResultsController({
+    archiveCardShellsById,
+    elements,
+    filterMenuBuckets,
+    filterOptionsByGroup,
+    getDescriptors,
+    getSelectedCollection,
+    mostPopularController,
+    previewController,
+    searchPerformanceCache,
+    shows,
+    state,
+    stickyBrowseController,
+  });
+
+  filterSurfaceController.renderAll();
   renderQuickFilters({
     quickFiltersRoot: elements.quickFiltersRoot,
     quickFilters,
@@ -457,39 +286,15 @@ export async function initializeHomePage() {
   elements.stickySearchInput.addEventListener("focus", stickyBrowseController.handleStickySearchFocus);
   elements.stickySearchInput.addEventListener("blur", stickyBrowseController.handleStickySearchBlur);
 
-  filterControlSurfaces.forEach((surface) => {
-    surface.toggle.addEventListener("click", () => {
-      if (surface.controller.isOpen()) {
-        surface.controller.close();
-        return;
-      }
-
-      closeOtherFilterDropdowns(surface);
-      resetFilterMenuState(surface.menuState);
-      renderFilterSurface(surface);
-      surface.controller.open();
-    });
-  });
+  filterSurfaceController.bindToggles();
 
   // Close on pointerdown so inside clicks are classified before the menu rerenders.
   document.addEventListener("pointerdown", (event) => {
-    const target = event.target;
-    if (!(target instanceof Node)) {
-      return;
-    }
-
-    filterControlSurfaces.forEach((surface) => {
-      if (surface.controller.isOpen() && !surface.dropdown.contains(target) && !surface.toggle.contains(target)) {
-        surface.controller.close();
-      }
-    });
+    filterSurfaceController.closeOnOutsidePointerDown(event);
   });
 
   document.addEventListener("keydown", (event) => {
-    const openSurface = filterControlSurfaces.find((surface) => surface.controller.isOpen());
-    if (event.key === "Escape" && openSurface) {
-      event.preventDefault();
-      openSurface.controller.close({ returnFocus: true });
+    if (filterSurfaceController.closeOnEscape(event)) {
       return;
     }
 
@@ -515,7 +320,6 @@ export async function initializeHomePage() {
       userInput.focus();
     }
   });
-
   if ("IntersectionObserver" in window) {
     stickyBrowseObserver = new IntersectionObserver(
       ([entry]) => {
