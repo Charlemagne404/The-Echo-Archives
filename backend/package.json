@@ -32,5 +32,8 @@
   },
   "devDependencies": {
     "playwright": "^1.60.0"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.10.0": true
   }
 }

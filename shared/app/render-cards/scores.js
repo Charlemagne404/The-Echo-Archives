@@ -9,12 +9,13 @@ export function createArchiveScoreElement(show, { showLabel = true, treatZeroAsU
     (!treatZeroAsUnrated || numericRating > 0)
       ? numericRating
       : null;
+  const archiveValue = archiveScore === null ? "Unrated" : `${formatRating(archiveScore)}/10`;
   const archiveRating = document.createElement("div");
   archiveRating.className = "archive-inline-score";
   archiveRating.innerHTML = `
     <span class="inline-score-topline">
       <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-      <span class="inline-score-value">${formatRating(archiveScore)}/10</span>
+      <span class="inline-score-value">${archiveValue}</span>
     </span>
     ${showLabel ? '<span class="inline-score-label">Archive Rating</span>' : ""}
   `;

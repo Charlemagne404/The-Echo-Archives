@@ -69,6 +69,11 @@ test("for creators page is reachable from nav and its primary interactions work"
       metadataCount: document.getElementById("creatorsMetadataCount")?.textContent?.trim() || "",
       reviewCount: document.getElementById("creatorsReviewCount")?.textContent?.trim() || "",
       spotlightPresent: Boolean(document.getElementById("creator-spotlight")),
+      spotlightHeaderNote:
+        document.querySelector(".creator-spotlight-header-note")?.textContent?.trim() || "",
+      spotlightByline: document.getElementById("creatorSpotlightCreator")?.textContent?.trim() || "",
+      spotlightMetaNote:
+        document.querySelector(".creator-spotlight-meta-note")?.textContent?.trim() || "",
       futureSpotlightText:
         Array.from(document.querySelectorAll(".creator-list-item"))
           .find((item) => (item.textContent || "").includes("Spotlights & features"))
@@ -103,7 +108,10 @@ test("for creators page is reachable from nav and its primary interactions work"
     assert.ok(Number.parseInt(initialState.showCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.metadataCount, 10) > 0);
     assert.ok(Number.parseInt(initialState.reviewCount, 10) >= 0);
-    assert.equal(initialState.spotlightPresent, false);
+    assert.equal(initialState.spotlightPresent, true);
+    assert.match(initialState.spotlightHeaderNote, /intentional format preview/i);
+    assert.match(initialState.spotlightByline, /intentional demo card/i);
+    assert.match(initialState.spotlightMetaNote, /illustrative only/i);
     assert.match(initialState.futureSpotlightText, /Spotlights & features/i);
     assert.match(initialState.futureSpotlightText, /When they launch, they stay editorial/i);
     assert.equal(initialState.submitHref, "/submit?submissionType=show");

@@ -186,6 +186,44 @@ function resolveSimilarShowIds(candidate = {}, shows = []) {
   return similarShowIds.slice(0, 3);
 }
 
+function normalizeImportedSummaryCandidate(value = "", title = "") {
+  const text = trimText(value, 1500);
+  const normalizedTitle = trimText(title, 240).toLowerCase();
+  if (!text) {
+    return "";
+  }
+
+  const normalizedText = text.toLowerCase();
+  if (normalizedTitle && (normalizedText === normalizedTitle || normalizedText === `${normalizedTitle}.`)) {
+    return "";
+  }
+
+  return text;
+}
+
+function resolveImportedOfficialSummary(candidate = {}, objective = {}) {
+  const title = objective.title || candidate.title || "";
+  const directObjectiveSummary = normalizeImportedSummaryCandidate(objective.description, title);
+  if (directObjectiveSummary) {
+    return directObjectiveSummary;
+  }
+
+  const sourcePriority = ["website", "rss", "podcast-index", "apple"];
+  const sources = Array.isArray(candidate.sources) ? candidate.sources : [];
+  const orderedSources = [...sources].sort(
+    (left, right) => sourcePriority.indexOf(left.sourceType) - sourcePriority.indexOf(right.sourceType),
+  );
+
+  for (const source of orderedSources) {
+    const summary = normalizeImportedSummaryCandidate(source?.normalized?.description || "", title);
+    if (summary) {
+      return summary;
+    }
+  }
+
+  return "";
+}
+
 function buildDraftShowRecord({ candidate, shows, today }) {
   const objective = candidate.objective || {};
   const title = trimText(objective.title || candidate.title, 240) || "Untitled import";
@@ -222,6 +260,7 @@ function buildDraftShowRecord({ candidate, shows, today }) {
   );
   const similarTo = resolveSimilarShowIds(candidate, shows);
   const completionStatus = resolveCompletionStatus(candidate, objective);
+  const importedOfficialSummary = resolveImportedOfficialSummary(candidate, objective);
   const aliases = collectAliasTitles(candidate, title);
   const autoAppliedSuggestions = {
     ...(tones.length > 0 ? { tones } : {}),
@@ -298,6 +337,7 @@ function buildDraftShowRecord({ candidate, shows, today }) {
     metadata: {
       objectiveSources: sources,
       researchGaps,
+      importOfficialSummary: importedOfficialSummary,
       importCandidateId: candidate.id,
       importStatus: "draft",
       importIdentifiers: {

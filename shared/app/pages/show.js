@@ -41,9 +41,7 @@ export async function initializeShowPage() {
     image: show.imageSrc || `/${show.cover}`,
   });
 
-  if (!hasServerRenderedContent) {
-    showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
-  }
+  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
   hydrateShowPage(showRoot, show);
 }
 

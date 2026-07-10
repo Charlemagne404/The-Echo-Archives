@@ -5,6 +5,7 @@ import {
   getArchivePerspectiveText,
   getCreatorNames,
   getNetworkLabel,
+  getOfficialSummaryText,
   renderParagraphMarkup,
   toLabel,
 } from "./utils.js";
@@ -24,7 +25,7 @@ const OFFICIAL_LINK_LABELS = {
 };
 
 export function renderOfficialSummarySection(show) {
-  const summaryText = String(show.description || show.subtitle || "").trim() || "Official summary not cataloged yet.";
+  const summaryText = getOfficialSummaryText(show);
 
   return `
     <section class="detail-section detail-official-summary-section">
