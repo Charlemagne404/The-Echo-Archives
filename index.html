@@ -13,25 +13,29 @@
 <meta property="og:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
 <meta property="og:url" content="https://echo.continental-hub.com/" />
 <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
+<meta property="og:image:alt" content="The Echo Archives social preview" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="The Echo Archives" />
 <meta name="twitter:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
+<meta name="twitter:image:alt" content="The Echo Archives social preview" />
 <meta name="theme-color" content="#06080b" />
 
 
-<link rel="stylesheet" href="/style.css?v=37191a0966" />
-<link rel="stylesheet" href="/home.css?v=5d21e985fe" />
+<link rel="stylesheet" href="/style.css?v=d2a12bfb7d" />
+<link rel="stylesheet" href="/home.css?v=c6acbddcc2" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
+<link rel="preload" as="image" href="/images/hero-archive-dish.webp" type="image/webp" fetchpriority="high" />
+<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"The Echo Archives","url":"https://echo.continental-hub.com/","description":"A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echo.continental-hub.com/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}}</script>
 </head>
-<body class="home-page" data-home-card-hover-expand-enabled="false" data-search-index-version="6a37ac31dd">
+<body class="home-page" data-site-url="https://echo.continental-hub.com" data-home-card-hover-expand-enabled="false" data-shows-version="070f2cb66e" data-collections-version="9afac6e32d" data-search-index-version="882e8181c9">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
   <a class="site-brand" href="/" aria-label="The Echo Archives home">
-    <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" />
+    <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" width="977" height="255" />
   </a>
 
   <button
@@ -89,6 +93,8 @@
             aria-expanded="false"
             aria-controls="stickySearchField"
             aria-label="Expand archive search"
+            aria-disabled="true"
+            disabled
           >
             <span class="sticky-search-toggle-icons" aria-hidden="true">
               <span class="sticky-search-toggle-arrow">
@@ -110,12 +116,12 @@
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               </svg>
             </span>
-            <input type="text" id="stickySearch" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' tabindex="-1" />
+            <input type="text" id="stickySearch" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' tabindex="-1" aria-disabled="true" disabled />
           </label>
         </div>
 
         <div class="filter-container sticky-filter-container">
-          <button id="stickyFilterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="stickyFilterDropdown">
+          <button id="stickyFilterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="stickyFilterDropdown" aria-disabled="true" disabled>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
@@ -167,12 +173,12 @@
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               </svg>
             </span>
-            <input type="text" id="search" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' />
+            <input type="text" id="search" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' aria-disabled="true" disabled />
           </label>
 
           <div class="search-actions">
             <div class="filter-container">
-              <button id="filterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="filterDropdown">
+              <button id="filterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="filterDropdown" aria-disabled="true" disabled>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
                 </svg>
@@ -246,7 +252,7 @@
           </div>
         </div>
 
-        <div class="popular-grid" id="popularGrid" data-home-prerendered="true"><a class="popular-card" href="/show?id=midnight-burger" data-podcast-id="midnight-burger" aria-label="Open Midnight Burger in the archive">
+        <div class="popular-grid" id="popularGrid" data-home-prerendered="true"><a class="popular-card" href="/show?id=midnight-burger" data-podcast-id="midnight-burger" aria-label="Open Midnight Burger in the archive" style="--popular-card-accent-rgb: 178, 103, 69;">
       <div class="popular-card-media">
         <img src="/shows/midnight burger/MidnightBurger.jpeg" alt="Midnight Burger cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -283,7 +289,7 @@
           </div>
         </div>
       </div>
-    </a><a class="popular-card" href="/show?id=were-alive" data-podcast-id="were-alive" aria-label="Open We're Alive in the archive">
+    </a><a class="popular-card" href="/show?id=were-alive" data-podcast-id="were-alive" aria-label="Open We're Alive in the archive" style="--popular-card-accent-rgb: 125, 79, 62;">
       <div class="popular-card-media">
         <img src="/shows/were alive/WereAlive.jpeg" alt="We're Alive cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -320,7 +326,7 @@
           </div>
         </div>
       </div>
-    </a><a class="popular-card" href="/show?id=red-valley" data-podcast-id="red-valley" aria-label="Open Red Valley in the archive">
+    </a><a class="popular-card" href="/show?id=red-valley" data-podcast-id="red-valley" aria-label="Open Red Valley in the archive" style="--popular-card-accent-rgb: 146, 96, 93;">
       <div class="popular-card-media">
         <img src="/shows/red valley/RedValley.jpeg" alt="Red Valley cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -357,7 +363,7 @@
           </div>
         </div>
       </div>
-    </a><a class="popular-card" href="/show?id=derelict" data-podcast-id="derelict" aria-label="Open Derelict in the archive">
+    </a><a class="popular-card" href="/show?id=derelict" data-podcast-id="derelict" aria-label="Open Derelict in the archive" style="--popular-card-accent-rgb: 74, 101, 128;">
       <div class="popular-card-media">
         <img src="/shows/derelict/Derelict.jpeg" alt="Derelict cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -2550,7 +2556,7 @@
         </button>
 
         <div class="collection-carousel-viewport" id="favoriteRoutesViewport">
-          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=shows-like-midnight-burger" aria-label="Browse the Shows like Midnight Burger collection" data-collection-id="shows-like-midnight-burger" data-anchor-show-id="midnight-burger" style="--collection-cover-image: url(&quot;/shows/midnight burger/MidnightBurger.jpeg&quot;)">
+          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=shows-like-midnight-burger" aria-label="Browse the Shows like Midnight Burger collection" data-collection-id="shows-like-midnight-burger" data-anchor-show-id="midnight-burger" style="--collection-cover-image: url(&quot;/shows/midnight burger/MidnightBurger.jpeg&quot;); --collection-accent: #b26745">
       <h3>Shows like Midnight Burger</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">9 shows</p>
@@ -2562,13 +2568,13 @@
         <p class="collection-card-count">9 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-derelict" aria-label="Browse the Shows like Derelict collection" data-collection-id="shows-like-derelict" data-anchor-show-id="derelict" style="--collection-cover-image: url(&quot;/shows/derelict/Derelict.jpeg&quot;)">
+    </a><a class="collection-card" href="/collection?id=shows-like-derelict" aria-label="Browse the Shows like Derelict collection" data-collection-id="shows-like-derelict" data-anchor-show-id="derelict" style="--collection-cover-image: url(&quot;/shows/derelict/Derelict.jpeg&quot;); --collection-accent: #4a6580">
       <h3>Shows like Derelict</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-the-white-vault" aria-label="Browse the Shows like The White Vault collection" data-collection-id="shows-like-the-white-vault" data-anchor-show-id="the-white-vault" style="--collection-cover-image: url(&quot;/shows/white-vault/WhiteVault.jpeg&quot;)">
+    </a><a class="collection-card" href="/collection?id=shows-like-the-white-vault" aria-label="Browse the Shows like The White Vault collection" data-collection-id="shows-like-the-white-vault" data-anchor-show-id="the-white-vault" style="--collection-cover-image: url(&quot;/shows/white-vault/WhiteVault.jpeg&quot;); --collection-accent: #6c7e89">
       <h3>Shows like The White Vault</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
@@ -2609,37 +2615,37 @@
         </button>
 
         <div class="collection-carousel-viewport" id="collectionViewport">
-          <div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=best-for-long-walks" aria-label="Browse the Best for long walks collection" data-collection-id="best-for-long-walks" style="--collection-cover-image: url(&quot;/shows/Impact Winter/Impact-winter.jpeg&quot;)">
+          <div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=best-for-long-walks" aria-label="Browse the Best for long walks collection" data-collection-id="best-for-long-walks" style="--collection-cover-image: url(&quot;/shows/Impact Winter/Impact-winter.jpeg&quot;); --collection-accent: #851a28">
       <h3>Best for long walks</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">8 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=easy-first-steps" aria-label="Browse the Start here collection" data-collection-id="easy-first-steps" style="--collection-cover-image: url(&quot;/images/covers/the-bright-sessions.jpg&quot;)">
+    </a><a class="collection-card" href="/collection?id=easy-first-steps" aria-label="Browse the Start here collection" data-collection-id="easy-first-steps" style="--collection-cover-image: url(&quot;/images/covers/the-bright-sessions.jpg&quot;); --collection-accent: #976f48">
       <h3>Start here</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">12 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=serious-sci-fi" aria-label="Browse the Serious sci-fi collection" data-collection-id="serious-sci-fi" style="--collection-cover-image: url(&quot;/shows/derelict/Derelict.jpeg&quot;)">
+    </a><a class="collection-card" href="/collection?id=serious-sci-fi" aria-label="Browse the Serious sci-fi collection" data-collection-id="serious-sci-fi" style="--collection-cover-image: url(&quot;/shows/derelict/Derelict.jpeg&quot;); --collection-accent: #851a28">
       <h3>Serious sci-fi</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">14 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=funny-space-disasters" aria-label="Browse the Funny space disasters collection" data-collection-id="funny-space-disasters" style="--collection-cover-image: url(&quot;/shows/oz9/oz9.jpeg&quot;)">
+    </a><a class="collection-card" href="/collection?id=funny-space-disasters" aria-label="Browse the Funny space disasters collection" data-collection-id="funny-space-disasters" style="--collection-cover-image: url(&quot;/shows/oz9/oz9.jpeg&quot;); --collection-accent: #07ac3e">
       <h3>Funny space disasters</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">8 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=cold-isolation-horror" aria-label="Browse the Cold isolation horror collection" data-collection-id="cold-isolation-horror" style="--collection-cover-image: url(&quot;/shows/white-vault/WhiteVault.jpeg&quot;)">
+    </a><a class="collection-card" href="/collection?id=cold-isolation-horror" aria-label="Browse the Cold isolation horror collection" data-collection-id="cold-isolation-horror" style="--collection-cover-image: url(&quot;/shows/white-vault/WhiteVault.jpeg&quot;); --collection-accent: #6c7e89">
       <h3>Cold isolation horror</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=finished-arcs" aria-label="Browse the Completed shows collection" data-collection-id="finished-arcs" style="--collection-cover-image: url(&quot;/images/covers/the-bright-sessions.jpg&quot;)">
+    </a><a class="collection-card" href="/collection?id=finished-arcs" aria-label="Browse the Completed shows collection" data-collection-id="finished-arcs" style="--collection-cover-image: url(&quot;/images/covers/the-bright-sessions.jpg&quot;); --collection-accent: #cc5b42">
       <h3>Completed shows</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">15 shows</p>
@@ -2656,7 +2662,7 @@
 
   </main>
 
-<button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" aria-controls="chat-container" title="Ask the Archivist">
+<button id="chat-toggle" class="chat-toggle-button" type="button" aria-label="Ask the Archivist" aria-expanded="false" title="Ask the Archivist">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20 11.5C20 7.91015 16.6421 5 12.5 5H11.5C7.35786 5 4 7.91015 4 11.5C4 15.0899 7.35786 18 11.5 18H12.1L15.4 20.4C16.0615 20.8811 17 20.4086 17 19.5917V17.1593C18.7938 16.0442 20 13.9141 20 11.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"/>
     </svg>
@@ -2726,6 +2732,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=935dbae593"></script>
+  <script type="module" src="/script.js?v=b5053def5d"></script>
 </body>
 </html>

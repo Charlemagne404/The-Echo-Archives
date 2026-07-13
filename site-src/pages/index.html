@@ -9,6 +9,8 @@
             aria-expanded="false"
             aria-controls="stickySearchField"
             aria-label="Expand archive search"
+            aria-disabled="true"
+            disabled
           >
             <span class="sticky-search-toggle-icons" aria-hidden="true">
               <span class="sticky-search-toggle-arrow">
@@ -30,12 +32,12 @@
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               </svg>
             </span>
-            <input type="text" id="stickySearch" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' tabindex="-1" />
+            <input type="text" id="stickySearch" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' tabindex="-1" aria-disabled="true" disabled />
           </label>
         </div>
 
         <div class="filter-container sticky-filter-container">
-          <button id="stickyFilterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="stickyFilterDropdown">
+          <button id="stickyFilterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="stickyFilterDropdown" aria-disabled="true" disabled>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
             </svg>
@@ -87,12 +89,12 @@
                 <path d="m21 21-4.35-4.35M10.8 18a7.2 7.2 0 1 0 0-14.4 7.2 7.2 0 0 0 0 14.4Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/>
               </svg>
             </span>
-            <input type="text" id="search" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' />
+            <input type="text" id="search" placeholder='Search titles, moods, tones, formats, or "like Midnight Burger"' aria-disabled="true" disabled />
           </label>
 
           <div class="search-actions">
             <div class="filter-container">
-              <button id="filterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="filterDropdown">
+              <button id="filterToggle" type="button" aria-label="Filter the archive" aria-expanded="false" aria-controls="filterDropdown" aria-disabled="true" disabled>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M4 6h16l-6 7v5l-4 2v-7L4 6Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.8"/>
                 </svg>

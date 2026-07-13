@@ -95,22 +95,22 @@ test("main routes render expected page titles", async () => {
   }
 });
 
-test("static delivery files remain directly servable", async () => {
+test("static delivery files expose intentional HTTP statuses", async () => {
   const staticPaths = [
-    "/404.html",
-    "/500.html",
-    "/offline.html",
-    "/sw.js",
-    "/robots.txt",
-    "/site.webmanifest",
-    "/favicon.ico",
-    "/apple-touch-icon.png",
-    "/og-image.png",
+    { path: "/404.html", status: 404 },
+    { path: "/500.html", status: 500 },
+    { path: "/offline.html", status: 200 },
+    { path: "/sw.js", status: 200 },
+    { path: "/robots.txt", status: 200 },
+    { path: "/site.webmanifest", status: 200 },
+    { path: "/favicon.ico", status: 200 },
+    { path: "/apple-touch-icon.png", status: 200 },
+    { path: "/og-image.png", status: 200 },
   ];
 
   for (const staticPath of staticPaths) {
-    const response = await fetch(`${baseUrl}${staticPath}`);
-    assert.equal(response.ok, true, `${staticPath} should be directly servable.`);
+    const response = await fetch(`${baseUrl}${staticPath.path}`);
+    assert.equal(response.status, staticPath.status, `${staticPath.path} should return ${staticPath.status}.`);
   }
 });
 
@@ -140,13 +140,13 @@ test("public and error routes expose the expected metadata", async () => {
       {
         url: `${baseUrl}/404.html`,
         expectedTitle: "Page Not Found - The Echo Archives",
-        expectedCanonical: "https://echo.continental-hub.com/404.html",
+        expectedCanonical: `${baseUrl}/404.html`,
         noIndex: true,
       },
       {
         url: `${baseUrl}/500.html`,
         expectedTitle: "Server Error - The Echo Archives",
-        expectedCanonical: "https://echo.continental-hub.com/500.html",
+        expectedCanonical: `${baseUrl}/500.html`,
         noIndex: true,
       },
     ];
@@ -183,7 +183,7 @@ test("public and error routes expose the expected metadata", async () => {
       assert.ok(metadata.twitterImage.length > 0);
       assert.equal(metadata.themeColor, "#06080b");
       assert.equal(metadata.manifest, "/site.webmanifest");
-      assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow" : "");
+      assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow, noarchive" : "");
     }
   } finally {
     await page.close();
@@ -351,7 +351,6 @@ test("service worker supports cached public pages offline and falls back for unc
     await page.evaluate(async () => {
       await navigator.serviceWorker.ready;
     });
-    await page.reload({ waitUntil: "networkidle" });
     await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
 
     await context.route("**/*", async (route) => {
@@ -359,21 +358,12 @@ test("service worker supports cached public pages offline and falls back for unc
     });
     await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "The Echo Archives");
+    await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 10_000 });
+    await page.locator("#filterToggle").click();
+    await page.waitForFunction(() => document.getElementById("filterDropdown")?.dataset.state === "open");
 
-    const iframeFallbackTitle = await page.evaluate(async () => {
-      const frame = document.createElement("iframe");
-      frame.src = "/this-route-should-fallback-offline";
-      frame.hidden = true;
-      document.body.appendChild(frame);
-
-      await new Promise((resolve, reject) => {
-        frame.addEventListener("load", resolve, { once: true });
-        frame.addEventListener("error", reject, { once: true });
-      });
-
-      return frame.contentDocument?.title || "";
-    });
-    assert.equal(iframeFallbackTitle, "Offline - The Echo Archives");
+    await page.goto(`${baseUrl}/this-route-should-fallback-offline`, { waitUntil: "domcontentloaded" });
+    assert.equal(await page.title(), "Offline - The Echo Archives");
   } finally {
     await context.close();
   }
@@ -390,9 +380,21 @@ test("fresh browser contexts load the core public routes without relying on prio
     const homeStorageState = await page.evaluate(() => ({
       chatHistory: window.sessionStorage.getItem("echo-archives-chat-v3"),
       communityProfile: window.localStorage.getItem("echo-community-profile-id"),
+      chatControls: document.getElementById("chat-toggle")?.getAttribute("aria-controls") || "",
     }));
-    assert.match(homeStorageState.chatHistory || "", /Ask about a show, the archive, ratings, creators, runtime, transcripts, collections/);
+    assert.equal(homeStorageState.chatHistory, null);
     assert.equal(homeStorageState.communityProfile, null);
+    assert.equal(homeStorageState.chatControls, "");
+
+    await page.locator("#chat-toggle").click();
+    await page.locator("#chat-container.is-open").waitFor();
+    const mountedChatState = await page.evaluate(() => ({
+      chatHistory: window.sessionStorage.getItem("echo-archives-chat-v3"),
+      chatControls: document.getElementById("chat-toggle")?.getAttribute("aria-controls") || "",
+    }));
+    assert.match(mountedChatState.chatHistory || "", /Ask about a show, the archive, ratings, creators, runtime, transcripts, collections/);
+    assert.equal(mountedChatState.chatControls, "chat-container");
+    await page.getByRole("button", { name: "Close chat" }).click();
 
     await page.goto(`${baseUrl}/show?id=${firstShowId}`, { waitUntil: "networkidle" });
     await page.locator('[data-share-action]').waitFor();
@@ -778,7 +780,7 @@ test("collections sticky mood bar stays compact, appears after scroll, and mirro
     await desktopPage.evaluate(() => {
       const section = document.getElementById("collectionsSimilaritySection");
       if (section instanceof HTMLElement) {
-        window.scrollTo({ top: section.offsetTop, behavior: "auto" });
+        window.scrollTo({ top: section.getBoundingClientRect().top + window.scrollY, behavior: "auto" });
       }
     });
     await desktopPage.waitForFunction(() => document.getElementById("collectionsStickyMoodBar")?.dataset.visibility === "visible");
@@ -824,7 +826,7 @@ test("collections sticky mood bar stays compact, appears after scroll, and mirro
     await mobilePage.evaluate(() => {
       const section = document.getElementById("collectionsSimilaritySection");
       if (section instanceof HTMLElement) {
-        window.scrollTo({ top: section.offsetTop, behavior: "auto" });
+        window.scrollTo({ top: section.getBoundingClientRect().top + window.scrollY, behavior: "auto" });
       }
     });
     await mobilePage.waitForFunction(() => document.getElementById("collectionsStickyMoodBar")?.dataset.visibility === "visible");

@@ -6,6 +6,7 @@ const {
   resolveUrl,
   trimText,
 } = require("../utils");
+const { fetchTextWithLimits } = require("../fetch");
 
 function getAttributeMap(tag = "") {
   const attributes = {};
@@ -269,20 +270,18 @@ function parseWebsiteHtml(html = "", sourceUrl = "") {
   };
 }
 
-function createWebsiteAdapter({ fetchImpl = globalThis.fetch, userAgent } = {}) {
+function createWebsiteAdapter({ fetchImpl = globalThis.fetch, userAgent, timeoutMs = 15_000, maxBytes = 5 * 1024 * 1024 } = {}) {
   async function fetchByUrl(url) {
-    const response = await fetchImpl(url, {
+    const { response, text: html } = await fetchTextWithLimits(fetchImpl, url, {
       headers: {
         Accept: "text/html,application/xhtml+xml",
         "User-Agent": userAgent,
       },
-    });
+    }, { timeoutMs, maxBytes, label: "Website request" });
 
     if (!response.ok) {
       throw new Error(`Website request failed with ${response.status}`);
     }
-
-    const html = await response.text();
 
     return {
       sourceType: "website",

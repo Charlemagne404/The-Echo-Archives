@@ -24,14 +24,27 @@ const {
 } = archiveRecord;
 
 export async function fetchJson(url, options = {}) {
-  const { headers: headerOverrides = {}, ...requestOptions } = options || {};
-  const response = await fetch(url, {
-    ...requestOptions,
-    headers: {
-      Accept: "application/json",
-      ...headerOverrides,
-    },
-  });
+  const { headers: headerOverrides = {}, timeoutMs = 12_000, ...requestOptions } = options || {};
+  const timeoutController = new AbortController();
+  const timeoutId = window.setTimeout(() => timeoutController.abort(), timeoutMs);
+  let response;
+  try {
+    response = await fetch(url, {
+      ...requestOptions,
+      signal: timeoutController.signal,
+      headers: {
+        Accept: "application/json",
+        ...headerOverrides,
+      },
+    });
+  } catch (error) {
+    if (error?.name === "AbortError") {
+      throw new Error(`Request for ${url} timed out.`);
+    }
+    throw error;
+  } finally {
+    window.clearTimeout(timeoutId);
+  }
   if (!response.ok) {
     throw new Error(`Request for ${url} failed with ${response.status}`);
   }
@@ -111,7 +124,7 @@ export function getCollectionShows(collection, showMap) {
     .filter((show) => show && show.status === "published");
 }
 
-function normalizeShowRecord(record) {
+export function normalizeShowRecord(record) {
   const normalized = normalizeArchiveShowRecord(record);
 
   return {

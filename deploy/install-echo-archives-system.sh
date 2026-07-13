@@ -12,7 +12,12 @@ SERVICE_DEST="/etc/systemd/system/echo-archives.service"
 CADDY_SNIPPET="${REPO_ROOT}/deploy/Caddyfile.echo"
 CADDYFILE="/etc/caddy/Caddyfile"
 TIMESTAMP="$(date +%Y%m%d%H%M%S)"
-TMP_CADDYFILE="$(mktemp)"
+TMP_CADDYFILE="$(mktemp "${CADDYFILE}.echo.XXXXXX")"
+
+cleanup() {
+  rm -f "${TMP_CADDYFILE}"
+}
+trap cleanup EXIT
 
 if [[ ! -f "${SERVICE_SOURCE}" ]]; then
   echo "Missing service template: ${SERVICE_SOURCE}"
@@ -29,24 +34,44 @@ if [[ ! -f "${CADDYFILE}" ]]; then
   exit 1
 fi
 
-if [[ ! -d "${REPO_ROOT}/backend/node_modules" ]]; then
-  echo "Dependencies are missing under ${REPO_ROOT}/backend/node_modules."
-  echo "Run 'cd ${REPO_ROOT}/backend && npm install' as charlie before installing the service."
+if [[ ! -x /usr/bin/node ]] || ! /usr/bin/node -e '
+  const [major, minor] = process.versions.node.split(".").map(Number);
+  process.exit(major > 20 || (major === 20 && minor >= 12) ? 0 : 1);
+'; then
+  echo "The systemd runtime at /usr/bin/node must be Node.js 20.12 or newer."
   exit 1
 fi
 
-cp "${CADDYFILE}" "${CADDYFILE}.bak.${TIMESTAMP}"
+if [[ ! -d "${REPO_ROOT}/backend/node_modules" ]]; then
+  echo "Dependencies are missing under ${REPO_ROOT}/backend/node_modules."
+  echo "Run 'npm --prefix ${REPO_ROOT}/backend ci --omit=dev' as charlie before installing the service."
+  exit 1
+fi
 
 awk '
   BEGIN {
     skipping = 0
+    depth = 0
   }
   /^echo\.continental-hub\.com[[:space:]]*\{/ {
     skipping = 1
+    line = $0
+    opens = gsub(/\{/, "{", line)
+    line = $0
+    closes = gsub(/\}/, "}", line)
+    depth = opens - closes
+    if (depth <= 0) {
+      skipping = 0
+    }
     next
   }
   skipping == 1 {
-    if ($0 ~ /^[[:space:]]*}[[:space:]]*$/) {
+    line = $0
+    opens = gsub(/\{/, "{", line)
+    line = $0
+    closes = gsub(/\}/, "}", line)
+    depth += opens - closes
+    if (depth <= 0) {
       skipping = 0
     }
     next
@@ -56,24 +81,41 @@ awk '
   }
 ' "${CADDYFILE}" > "${TMP_CADDYFILE}"
 
-{
-  cat "${TMP_CADDYFILE}"
-  printf "\n"
-  cat "${CADDY_SNIPPET}"
-  printf "\n"
-} > "${CADDYFILE}"
+printf "\n" >> "${TMP_CADDYFILE}"
+cat "${CADDY_SNIPPET}" >> "${TMP_CADDYFILE}"
+printf "\n" >> "${TMP_CADDYFILE}"
 
-rm -f "${TMP_CADDYFILE}"
+caddy validate --config "${TMP_CADDYFILE}" --adapter caddyfile
+
+cp "${CADDYFILE}" "${CADDYFILE}.bak.${TIMESTAMP}"
+if [[ -f "${SERVICE_DEST}" ]]; then
+  cp "${SERVICE_DEST}" "${SERVICE_DEST}.bak.${TIMESTAMP}"
+fi
+
+install -m 0644 "${TMP_CADDYFILE}" "${CADDYFILE}"
 
 install -m 0644 "${SERVICE_SOURCE}" "${SERVICE_DEST}"
 
-caddy validate --config "${CADDYFILE}"
 systemctl daemon-reload
-systemctl enable --now echo-archives.service
+systemctl enable echo-archives.service
 systemctl restart echo-archives.service
-systemctl reload caddy
 
-sleep 2
+for attempt in {1..20}; do
+  if curl -fsS --max-time 5 http://127.0.0.1:3010/api/health >/dev/null; then
+    break
+  fi
+
+  if [[ "${attempt}" -eq 20 ]]; then
+    echo "The service did not become healthy." >&2
+    systemctl --no-pager --full status echo-archives.service || true
+    journalctl --unit echo-archives.service --lines 80 --no-pager || true
+    exit 1
+  fi
+
+  sleep 2
+done
+
+systemctl reload caddy
 
 echo
 echo "echo-archives.service:"
@@ -81,7 +123,7 @@ systemctl --no-pager --full status echo-archives.service | sed -n '1,40p'
 
 echo
 echo "Local health check:"
-curl -fsS http://127.0.0.1:3010/api/health
+curl -fsS --max-time 5 http://127.0.0.1:3010/api/health
 
 echo
 echo

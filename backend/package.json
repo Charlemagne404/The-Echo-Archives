@@ -5,11 +5,12 @@
   "description": "Same-origin chat API for The Echo Archives.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
+    "start": "node ../tools/run-backend.js",
+    "dev": "node ../tools/run-backend.js --watch",
     "test": "node --test test/*.test.js",
     "test:smoke": "node scripts/run-smoke-tests.js",
     "test:smoke:serial": "node --test --test-concurrency=1 test/*.smoke.js",
+    "check:config": "node ../tools/run-backend.js --check-config",
     "validate:data": "node scripts/validate-data.js",
     "report:discovery-gaps": "node scripts/discovery-gap-report.js",
     "check:links": "node scripts/check-links.js",
@@ -24,7 +25,7 @@
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=20.12"
   },
   "dependencies": {
     "better-sqlite3": "^12.10.0",

@@ -459,3 +459,27 @@ test("chat route answers archive overview questions without falling back", async
     await closeChatTestServer(context.server);
   }
 });
+
+test("chat route rejects oversized messages and never exposes model failures", async () => {
+  const context = await createChatTestServer();
+
+  try {
+    const oversized = await postJson(context.baseUrl, {
+      message: "x".repeat(2001),
+      history: [],
+    });
+    assert.equal(oversized.status, 400);
+    assert.match(oversized.body.error, /2000 characters or fewer/i);
+
+    const fallback = await postJson(context.baseUrl, {
+      message: "Recommend a finished sci-fi show",
+      history: [],
+      page: { path: "/", pageType: "home" },
+    });
+    assert.equal(fallback.status, 200);
+    assert.equal(fallback.body.source, "fallback");
+    assert.equal(Object.hasOwn(fallback.body, "modelError"), false);
+  } finally {
+    await closeChatTestServer(context.server);
+  }
+});

@@ -47,6 +47,7 @@ test.after(async () => {
 });
 
 async function ensureFilterMenuOpen(page) {
+  await page.waitForFunction(() => document.body.dataset.homeReady === "true");
   const isOpen = await page.evaluate(() => {
     const dropdown = document.getElementById("filterDropdown");
     return Boolean(dropdown && !dropdown.hidden && dropdown.dataset.state === "open");

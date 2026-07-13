@@ -81,7 +81,7 @@
     "source": "collections.html",
     "output": "collections.html",
     "title": "Collections - The Echo Archives",
-    "description": "Browse every curated discovery collection in The Echo Archives.",
+    "description": "Browse curated listening paths by mood, tone, and commitment in The Echo Archives.",
     "canonicalUrl": "https://echo.continental-hub.com/collections",
     "bodyClass": "home-page collections-page info-page",
     "activeNav": "collections",
@@ -183,6 +183,7 @@
     "activeNav": "",
     "extraStylesheets": [],
     "includeAnalytics": false,
+    "noIndex": true,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -196,6 +197,7 @@
     "activeNav": "",
     "extraStylesheets": [],
     "includeAnalytics": false,
+    "noIndex": true,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -209,6 +211,7 @@
     "activeNav": "",
     "extraStylesheets": [],
     "includeAnalytics": false,
+    "noIndex": true,
     "includeChatShell": false,
     "includeFloatingControls": false
   },
@@ -222,6 +225,7 @@
     "activeNav": "",
     "extraStylesheets": [],
     "includeAnalytics": false,
+    "noIndex": true,
     "includeChatShell": false,
     "includeFloatingControls": false
   },

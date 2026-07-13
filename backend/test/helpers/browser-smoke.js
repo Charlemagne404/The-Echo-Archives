@@ -412,6 +412,7 @@ async function setupSmoke() {
     env: {
       ...process.env,
       PORT: String(basePort),
+      SITE_URL: baseUrl,
       SERVE_STATIC: "true",
       DB_PATH: dbPath,
       COMMUNITY_RATING_WRITES_ENABLED: "false",

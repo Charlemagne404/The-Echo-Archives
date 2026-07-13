@@ -4,6 +4,7 @@ export function getSubmitElements() {
     submissionType: document.getElementById("submissionType"),
     existingShowId: document.getElementById("existingShowId"),
     heroDescription: document.getElementById("submitHeroDescription"),
+    loadStatus: document.getElementById("submitLoadStatus"),
     modeCards: document.getElementById("submitModeCards"),
     stepsPanel: document.getElementById("submitStepsPanel"),
     formIntro: document.getElementById("submitFormIntro"),
@@ -20,6 +21,7 @@ export function getSubmitElements() {
     !(elements.submissionType instanceof HTMLInputElement) ||
     !(elements.existingShowId instanceof HTMLInputElement) ||
     !(elements.heroDescription instanceof HTMLElement) ||
+    !(elements.loadStatus instanceof HTMLElement) ||
     !elements.modeCards ||
     !elements.stepsPanel ||
     !elements.formIntro ||

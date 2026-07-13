@@ -18,7 +18,7 @@ function createSubmissionRouter({ submissionService }) {
 
       return res.status(201).json({
         accepted: true,
-        submission: result.submission,
+        submissionId: result.submission.id,
       });
     } catch (error) {
       return next(error);

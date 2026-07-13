@@ -32,6 +32,7 @@ const {
   trimText,
 } = require("../import/utils");
 const { readShowsFile, validateSiteData, writeShowsFile } = require("../../scripts/review-helpers");
+const { buildCatalog } = require("../../../tools/build-catalog");
 
 function ensureValidStatus(value = "") {
   const status = trimText(value, 80);
@@ -397,15 +398,20 @@ function createImportService({
   onPublished = null,
 }) {
   const userAgent = trimText(config.PODCAST_INDEX_USER_AGENT || DEFAULT_IMPORT_USER_AGENT, 240) || DEFAULT_IMPORT_USER_AGENT;
-  const apple = createAppleAdapter({ fetchImpl, userAgent });
-  const rss = createRssAdapter({ fetchImpl, userAgent });
+  const fetchLimits = {
+    timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS,
+    maxBytes: config.IMPORT_DOCUMENT_MAX_BYTES,
+  };
+  const apple = createAppleAdapter({ fetchImpl, userAgent, ...fetchLimits });
+  const rss = createRssAdapter({ fetchImpl, userAgent, ...fetchLimits });
   const podcastIndex = createPodcastIndexAdapter({
     fetchImpl,
     apiKey: config.PODCAST_INDEX_API_KEY,
     apiSecret: config.PODCAST_INDEX_API_SECRET,
     userAgent,
+    ...fetchLimits,
   });
-  const website = createWebsiteAdapter({ fetchImpl, userAgent });
+  const website = createWebsiteAdapter({ fetchImpl, userAgent, ...fetchLimits });
   const suggestionService = createSuggestionService({ config, fetchImpl });
 
   function readCatalogRecords() {
@@ -727,6 +733,7 @@ function createImportService({
         staticRoot,
         shows.filter((show) => show.id !== nextShow.id),
       );
+      await buildCatalog(staticRoot);
       throw error;
     }
 
@@ -778,6 +785,7 @@ function createImportService({
       show.status = previousStatus;
       show.updatedAt = previousUpdatedAt;
       writeShowsFile(staticRoot, shows);
+      await buildCatalog(staticRoot);
       throw error;
     }
 

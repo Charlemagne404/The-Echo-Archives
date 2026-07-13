@@ -1,4 +1,5 @@
 const { cleanDescription, trimText } = require("./utils");
+const { fetchJsonWithLimits } = require("./fetch");
 
 function extractJsonObject(value = "") {
   const text = String(value || "").trim();
@@ -70,7 +71,7 @@ function createOllamaSuggestionService({ config, fetchImpl = globalThis.fetch })
         JSON.stringify(existingCatalog.map((show) => ({ id: show.id, title: show.title, genres: show.genres, tags: show.tags }))),
       ].join("\n");
 
-      const response = await fetchImpl(config.OLLAMA_URL, {
+      const { response, json: payload } = await fetchJsonWithLimits(fetchImpl, config.OLLAMA_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,13 +81,16 @@ function createOllamaSuggestionService({ config, fetchImpl = globalThis.fetch })
           prompt,
           stream: false,
         }),
+      }, {
+        timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS || config.REQUEST_TIMEOUT_MS || 15_000,
+        maxBytes: config.IMPORT_DOCUMENT_MAX_BYTES || 5 * 1024 * 1024,
+        label: "Ollama suggestion request",
       });
 
       if (!response.ok) {
         throw new Error(`Ollama suggestion request failed with ${response.status}`);
       }
 
-      const payload = await response.json();
       const parsed = extractJsonObject(payload.response);
       if (!parsed) {
         return {};

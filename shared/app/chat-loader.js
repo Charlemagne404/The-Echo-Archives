@@ -42,6 +42,10 @@ export async function mountAndInitializeSharedChat() {
     document.body.insertAdjacentHTML("beforeend", CHAT_SHELL_MARKUP);
   }
 
+  const { refreshSharedElements } = await import("./constants.js");
+  refreshSharedElements();
+  document.getElementById("chat-toggle")?.setAttribute("aria-controls", "chat-container");
+
   const { initializeSharedChat, setChatOpen } = await import("./chat.js");
   initializeSharedChat();
 

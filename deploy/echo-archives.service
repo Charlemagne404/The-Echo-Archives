@@ -2,12 +2,16 @@
 Description=The Echo Archives website and API
 After=network-online.target ollama.service
 Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
 
 [Service]
 Type=simple
 User=charlie
 Group=charlie
 WorkingDirectory=/home/charlie/The-Echo-Archives/backend
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
 Environment=PORT=3010
 Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
 Environment=SERVE_STATIC=true
@@ -16,11 +20,18 @@ Environment=DB_PATH=/home/charlie/The-Echo-Archives/backend/data/community.sqlit
 Environment=OLLAMA_URL=http://127.0.0.1:11434/api/generate
 Environment=OLLAMA_MODEL=mistral
 Environment=REQUEST_TIMEOUT_MS=30000
+Environment=COMMUNITY_RATING_WRITES_ENABLED=false
 EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
+ExecStartPre=/usr/bin/node /home/charlie/The-Echo-Archives/backend/scripts/check-config.js
 ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/backend/server.js
-Restart=always
+Restart=on-failure
 RestartSec=5
+TimeoutStartSec=30
+TimeoutStopSec=15
+KillSignal=SIGTERM
+UMask=0027
 NoNewPrivileges=true
+PrivateTmp=true
 StandardOutput=journal
 StandardError=journal
 

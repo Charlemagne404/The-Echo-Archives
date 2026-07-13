@@ -133,25 +133,35 @@ export function addMediaQueryListener(mediaQueryList, listener) {
   return () => {};
 }
 
-function getSiteOrigin() {
-  const canonicalHref = document.querySelector('link[rel="canonical"]')?.getAttribute("href");
-  const candidate = canonicalHref || window.location.origin;
+const DEFAULT_SOCIAL_IMAGE_ALT = "The Echo Archives social preview";
 
-  try {
-    return new URL(candidate, window.location.origin).origin;
-  } catch (_error) {
-    return window.location.origin;
+export function getSiteOrigin() {
+  const configuredSiteUrl = document.body?.dataset.siteUrl?.trim();
+  const canonicalHref = document.querySelector('link[rel="canonical"]')?.getAttribute("href");
+  const candidates = [configuredSiteUrl, canonicalHref, window.location.origin];
+
+  for (const candidate of candidates) {
+    if (!candidate) {
+      continue;
+    }
+    try {
+      return new URL(candidate, window.location.origin).origin;
+    } catch (_error) {
+      // Try the next source of public site configuration.
+    }
   }
+
+  return window.location.origin;
 }
 
-function buildAbsoluteUrl(value = "") {
+export function buildSiteAbsoluteUrl(value = "") {
   const fallback = new URL(DEFAULT_SOCIAL_IMAGE, getSiteOrigin()).toString();
   if (!value) {
     return fallback;
   }
 
   try {
-    return new URL(value, window.location.origin).toString();
+    return new URL(value, `${getSiteOrigin()}/`).toString();
   } catch (_error) {
     return fallback;
   }
@@ -171,12 +181,37 @@ function setCanonicalHref(value) {
   }
 }
 
-export function updateDocumentMetadata({ title, description, path, image }) {
+function serializeStructuredData(value) {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
+
+function syncStructuredData(value) {
+  let node = document.getElementById("pageStructuredData");
+  if (!value) {
+    node?.remove();
+    return;
+  }
+
+  if (!(node instanceof HTMLScriptElement)) {
+    node?.remove();
+    node = document.createElement("script");
+    node.id = "pageStructuredData";
+    node.type = "application/ld+json";
+    document.head.appendChild(node);
+  }
+  node.textContent = serializeStructuredData(value);
+}
+
+export function updateDocumentMetadata({ title, description, path, image, imageAlt, structuredData }) {
   const resolvedTitle = title || "The Echo Archives";
   const resolvedDescription =
     description || "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.";
-  const resolvedUrl = buildAbsoluteUrl(path || window.location.pathname);
-  const resolvedImage = buildAbsoluteUrl(image || DEFAULT_SOCIAL_IMAGE);
+  const resolvedUrl = buildSiteAbsoluteUrl(path || window.location.pathname);
+  const resolvedImage = buildSiteAbsoluteUrl(image || DEFAULT_SOCIAL_IMAGE);
+  const resolvedImageAlt = imageAlt || DEFAULT_SOCIAL_IMAGE_ALT;
 
   document.title = resolvedTitle;
   setMetaContent('meta[name="description"]', resolvedDescription);
@@ -184,10 +219,13 @@ export function updateDocumentMetadata({ title, description, path, image }) {
   setMetaContent('meta[property="og:description"]', resolvedDescription);
   setMetaContent('meta[property="og:url"]', resolvedUrl);
   setMetaContent('meta[property="og:image"]', resolvedImage);
+  setMetaContent('meta[property="og:image:alt"]', resolvedImageAlt);
   setMetaContent('meta[name="twitter:title"]', resolvedTitle);
   setMetaContent('meta[name="twitter:description"]', resolvedDescription);
   setMetaContent('meta[name="twitter:image"]', resolvedImage);
+  setMetaContent('meta[name="twitter:image:alt"]', resolvedImageAlt);
   setCanonicalHref(resolvedUrl);
+  syncStructuredData(structuredData);
 }
 
 export function setTextContent(id, value) {

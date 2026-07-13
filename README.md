@@ -54,7 +54,7 @@ Legacy show detail pages still exist under `shows/` and are kept as compatibilit
 
 - Static HTML, CSS, and vanilla JavaScript
 - Shared frontend modules in `shared/app/`
-- Node 20+
+- Node 20.12+
 - Express
 - SQLite for ratings and submission workflow storage
 - Optional Ollama integration for Ask the Archivist responses
@@ -66,8 +66,10 @@ There is no planned frontend framework rewrite by default. The repo favors simpl
 Install backend dependencies once:
 
 ```bash
-npm --prefix backend install
+npm --prefix backend ci
 ```
+
+Optionally copy `backend/.env.example` to `backend/.env` for local overrides. The root start/dev/config/backup commands load that file without replacing variables already exported by the shell.
 
 Start the local app:
 
@@ -83,13 +85,17 @@ Root commands:
 
 | Command | What it does |
 | --- | --- |
+| `npm start` | Starts the backend and static site without watch mode |
 | `npm run dev` | Starts the local backend and static site through `backend/` |
+| `npm run check:config` | Loads `backend/.env` when present and validates the effective configuration |
+| `npm run backup:database` | Creates and integrity-checks a timestamped SQLite backup |
 | `npm run build:catalog` | Regenerates runtime catalog data, the search index, and the generated catalog snapshot |
 | `npm run report:catalog` | Prints solo-dev catalog gaps and generated-output drift |
 | `npm run catalog:new:show -- --id <show-id> [--title "Title"]` | Scaffolds a new show source record |
 | `npm run catalog:new:collection -- --id <collection-id> --show-id <show-id> [--title "Title"]` | Scaffolds a new collection source record |
 | `npm run build:pages` | Regenerates committed root HTML from `site-src/` |
 | `npm run check:structure` | Enforces repo structure and generated-source boundaries |
+| `npm run test:tools` | Runs repository build/SEO/operations tool tests |
 | `npm run verify` | Regenerates catalog + pages, checks repo structure, then runs backend tests, smoke tests, and data/link validation |
 
 Useful backend commands:

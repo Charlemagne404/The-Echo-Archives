@@ -28,6 +28,8 @@ function createSearchIndexRecord(record) {
     description: runtimeRecord.description,
     cover: runtimeRecord.cover,
     coverAlt: runtimeRecord.coverAlt,
+    creators: runtimeRecord.creators,
+    accent: runtimeRecord.accent,
     status: runtimeRecord.status,
     reviewStatus: runtimeRecord.reviewStatus,
     releaseStatus: runtimeRecord.releaseStatus,

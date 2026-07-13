@@ -82,6 +82,8 @@ test("public runtime pages expose a build-stable search index version", () => {
 
   const sw = fs.readFileSync(path.join(siteRoot, "sw.js"), "utf8");
   assert.match(sw, /"\/data\/search-index\.json\?v=[a-z0-9]+"/, "sw.js should precache the versioned search index URL.");
+  assert.match(sw, /"\/shared\/app\/app\.js\?v=[a-z0-9]+"/, "sw.js should precache the versioned app entry module.");
+  assert.match(sw, /"\/shared\/app\/pages\/home\.js"/, "sw.js should precache the lazy home module graph.");
 });
 
 test("legacy redirect manifest matches redirect shim files", () => {

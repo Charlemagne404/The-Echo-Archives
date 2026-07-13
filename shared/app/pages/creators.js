@@ -4,8 +4,6 @@ import { formatDate, updateDocumentMetadata } from "../utils.js";
 import { initializeAccordionList } from "./accordion.js";
 
 export async function initializeForCreatorsPage() {
-  const stats = await loadArchiveStats();
-
   updateDocumentMetadata({
     title: "For Creators - The Echo Archives",
     description:
@@ -14,8 +12,10 @@ export async function initializeForCreatorsPage() {
     image: DEFAULT_SOCIAL_IMAGE,
   });
 
-  applyCreatorStats(stats);
   initializeCreatorFaq();
+  void loadArchiveStats()
+    .then(applyCreatorStats)
+    .catch(() => {});
 }
 
 export function initializeCreatorStandardsPage() {

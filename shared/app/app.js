@@ -1,6 +1,7 @@
 import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeServiceWorker } from "./service-worker.js";
+import { showToast } from "./toast.js";
 
 export async function initializeApp() {
   initializeServiceWorker();
@@ -106,6 +107,11 @@ function initializeLazySharedChatLauncher() {
       })
       .catch((error) => {
         console.error("Failed to load Ask the Archivist.", error);
+        showToast({
+          message: "Ask the Archivist is unavailable right now. Try again when your connection recovers.",
+          tone: "error",
+          label: "Archivist unavailable",
+        });
         sharedChatPromise = undefined;
       })
       .finally(() => toggleBtn.removeAttribute("aria-busy"));

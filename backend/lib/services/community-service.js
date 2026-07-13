@@ -36,6 +36,7 @@ function createCommunityService({
   turnstile = null,
   voterHashSecret = "",
   abuseRetentionDays = 30,
+  maxSummaryIds = 100,
 }) {
   const abuseRetentionMs = Math.max(1, abuseRetentionDays) * 24 * 60 * 60 * 1000;
 
@@ -59,11 +60,15 @@ function createCommunityService({
     };
   }
 
-  function getRatingSummaries({ podcastIds, profileId, userAgent }) {
-    const ids = Array.isArray(podcastIds) ? podcastIds : sanitizePodcastIds(podcastIds);
-    const resolvedProfileId = isValidProfileId(profileId)
-      ? store.ensureProfile(profileId, userAgent)
-      : null;
+  function getRatingSummaries({ podcastIds, profileId, voterSecret }) {
+    const ids = Array.from(
+      new Set(Array.isArray(podcastIds) ? podcastIds : sanitizePodcastIds(podcastIds)),
+    ).slice(0, Math.max(1, maxSummaryIds));
+    const resolvedProfileId = voterSecret
+      ? store.findDeviceProfileId(hashValue(voterHashSecret, voterSecret))
+      : isValidProfileId(profileId)
+        ? store.findProfileId(profileId)
+        : null;
 
     return {
       profileId: resolvedProfileId,

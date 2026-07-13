@@ -13,24 +13,21 @@ function createHomeSkeletonCard() {
   return shell;
 }
 
-function disableBrowseControls(elements) {
-  [elements.searchInput, elements.stickySearchInput].forEach((input) => {
-    if (!(input instanceof HTMLInputElement)) {
+export function setBrowseControlsDisabled(elements, disabled) {
+  [elements.searchInput, elements.stickySearchInput, elements.stickySearchToggle, elements.filterToggle, elements.stickyFilterToggle].forEach((control) => {
+    if (!(control instanceof HTMLInputElement) && !(control instanceof HTMLButtonElement)) {
       return;
     }
 
-    input.disabled = true;
-    input.setAttribute("aria-disabled", "true");
-  });
-
-  [elements.filterToggle, elements.stickyFilterToggle].forEach((button) => {
-    if (!(button instanceof HTMLButtonElement)) {
-      return;
+    control.disabled = disabled;
+    if (disabled) {
+      control.setAttribute("aria-disabled", "true");
+    } else {
+      control.removeAttribute("aria-disabled");
     }
-
-    button.disabled = true;
-    button.setAttribute("aria-disabled", "true");
   });
+
+  document.body.dataset.homeReady = disabled ? "false" : "true";
 }
 
 export function renderHomeLoadingState(elements) {
@@ -53,7 +50,7 @@ export function renderHomeErrorState(elements, createErrorSurface, { preserveExi
     elements.resultsSummary.textContent = "Showing the build snapshot. Search and filters could not load right now.";
     elements.noResultsMsg.hidden = true;
     elements.activeBrowseState.hidden = true;
-    disableBrowseControls(elements);
+    setBrowseControlsDisabled(elements, true);
     return;
   }
 

@@ -130,6 +130,10 @@
 
 .site-brand img {
   width: clamp(250px, 21vw, 356px);
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 977 / 255;
+  object-fit: contain;
 }
 
 .site-nav-toggle,

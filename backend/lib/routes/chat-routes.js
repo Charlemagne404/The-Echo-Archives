@@ -111,11 +111,11 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
   router.get("/health", (_req, res) => {
     const catalog = getCatalog();
     const collections = getCollections();
+    res.set("Cache-Control", "no-store");
     res.json({
       ok: true,
       catalogCount: catalog.length,
       collectionCount: collections.length,
-      model: config.OLLAMA_MODEL,
     });
   });
 
@@ -125,6 +125,8 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
     const siteHelpContext = getSiteHelpContext();
     const catalogById = new Map(catalog.map((show) => [show.id, show]));
     const message = typeof req.body.message === "string" ? req.body.message.trim() : "";
+    const messageMaxLength = Math.max(1, config.CHAT_MESSAGE_MAX_LENGTH || 2000);
+    const historyEntryMaxLength = Math.max(1, config.CHAT_HISTORY_ENTRY_MAX_LENGTH || 2000);
     const history = Array.isArray(req.body.history)
       ? req.body.history
           .filter(
@@ -134,12 +136,22 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
               typeof entry.content === "string",
           )
           .slice(-8)
+          .map((entry) => ({
+            role: entry.role,
+            content: entry.content.slice(0, historyEntryMaxLength),
+          }))
       : [];
     const page = normalizePageContext(req.body.page);
     const seenRecommendationIds = normalizeSeenRecommendationIds(req.body.seenRecommendationIds);
 
     if (!message) {
       return res.status(400).json({ error: "A message is required." });
+    }
+
+    if (message.length > messageMaxLength) {
+      return res.status(400).json({
+        error: `Messages must be ${messageMaxLength} characters or fewer.`,
+      });
     }
 
     rateLimiter?.check("chat", req.ip || "");
@@ -250,11 +262,11 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), config.REQUEST_TIMEOUT_MS);
-      let response;
+      let result;
 
       try {
         const prompt = buildMessages({ message, history, matches });
-        response = await fetch(config.OLLAMA_URL, {
+        const response = await fetch(config.OLLAMA_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -266,15 +278,13 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
           }),
           signal: controller.signal,
         });
+        if (!response.ok) {
+          throw new Error(`Ollama request failed with ${response.status}`);
+        }
+        result = await response.json();
       } finally {
         clearTimeout(timeout);
       }
-
-      if (!response.ok) {
-        throw new Error(`Ollama request failed with ${response.status}`);
-      }
-
-      const result = await response.json();
       const fallbackAnswer = buildFallbackAnswer(
         message,
         matches,
@@ -306,7 +316,6 @@ function createChatRouter({ getCatalog, getCollections, getSiteHelpContext, conf
         recommendations,
         suggestedPrompts: buildSuggestedPrompts(matches),
         source: "fallback",
-        modelError: error.message,
       });
     }
   });

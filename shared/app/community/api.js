@@ -153,14 +153,33 @@ async function clearCommunityRating(podcastId, turnstileToken = "") {
 
 async function loadCommunitySummaries(podcastIds) {
   const ids = Array.from(new Set((Array.isArray(podcastIds) ? podcastIds : []).filter(Boolean)));
-  const missingIds = ids.filter((id) => !dataCache.communitySummaries.has(id));
+  const missingIds = ids.filter(
+    (id) => !dataCache.communitySummaries.has(id) && !dataCache.communitySummaryRequests.has(id),
+  );
 
   if (missingIds.length > 0) {
-    const summaries = await fetchRatingSummaries(missingIds, null);
-    Object.entries(summaries).forEach(([id, summary]) => {
-      dataCache.communitySummaries.set(id, normalizeCommunitySummary(summary));
-    });
+    const request = fetchRatingSummaries(missingIds, null)
+      .then((summaries) => {
+        missingIds.forEach((id) => {
+          const summary = summaries[id];
+          dataCache.communitySummaries.set(id, summary ? normalizeCommunitySummary(summary) : null);
+        });
+      })
+      .finally(() => {
+        missingIds.forEach((id) => {
+          if (dataCache.communitySummaryRequests.get(id) === request) {
+            dataCache.communitySummaryRequests.delete(id);
+          }
+        });
+      });
+
+    missingIds.forEach((id) => dataCache.communitySummaryRequests.set(id, request));
   }
+
+  const pendingRequests = Array.from(
+    new Set(ids.map((id) => dataCache.communitySummaryRequests.get(id)).filter(Boolean)),
+  );
+  await Promise.all(pendingRequests);
 
   return ids.reduce((result, id) => {
     result[id] = dataCache.communitySummaries.get(id) || null;

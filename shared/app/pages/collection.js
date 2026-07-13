@@ -5,7 +5,7 @@ import {
   getCollectionShows,
   getPublishedShows,
   loadCollections,
-  loadShows,
+  loadSearchIndex,
 } from "../data.js";
 import { syncCommunityCardBadges } from "../community.js";
 import { createCollectionShowCard } from "../render-cards.js";
@@ -19,6 +19,7 @@ import {
 } from "../render-collections.js";
 import { resolveImageSrc } from "../images.js";
 import { bindShareButton } from "../share.js";
+import { buildCollectionStructuredData } from "../structured-data.js";
 import { createArchiveCollectionHref } from "../urls.js";
 import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
 
@@ -299,6 +300,10 @@ export async function initializeCollectionPage() {
     description: collectionDescription,
     path: `/collection?id=${encodeURIComponent(collection.id)}`,
     image: firstCover,
+    imageAlt: leadCoverShow
+      ? leadCoverShow.imageAlt || leadCoverShow.coverAlt || `${collectionTitle} collection cover art`
+      : "The Echo Archives social preview",
+    structuredData: buildCollectionStructuredData(collection, collectionShows),
   });
 
   setTextContent("collectionTitle", collectionTitle);
@@ -389,7 +394,7 @@ export async function initializeCollectionPage() {
 
 async function loadCollectionPageData({ root, grid }) {
   try {
-    return await Promise.all([loadShows(), loadCollections()]);
+    return await Promise.all([loadSearchIndex(), loadCollections()]);
   } catch (_error) {
     renderRouteErrorSurface(root, {
       title: "Collection data did not load",

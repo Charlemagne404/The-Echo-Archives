@@ -18,11 +18,12 @@ This service runs the backend for The Echo Archives and keeps the archive assist
 
 ```bash
 cd backend
-npm install
+npm ci
 npm start
 ```
 
 By default the service serves the static site from the repo root as well, so you can open `http://localhost:3010`.
+Node.js 20.12 or newer is required. The start/dev/config wrappers load `backend/.env` when it exists without overriding variables already exported by the shell.
 
 ## Environment
 
@@ -35,11 +36,15 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `SERVE_STATIC`: serve the site and assets from the same process
 - `REQUEST_TIMEOUT_MS`: timeout for the model request
 - `DB_PATH`: SQLite database path for community features
+- `SITE_URL`: authoritative public origin for canonical and discovery metadata
+- `TRUST_PROXY`: Express trusted-proxy setting. Defaults to `loopback`
 - `PODCAST_INDEX_API_KEY`: optional Podcast Index API key for import enrichment
 - `PODCAST_INDEX_API_SECRET`: optional Podcast Index API secret for import enrichment
 - `PODCAST_INDEX_USER_AGENT`: user-agent string sent to Podcast Index and import fetches
 - `IMPORT_SUGGESTION_PROVIDER`: optional subjective suggestion provider name. Current supported value is `ollama`
 - `IMPORT_SUGGESTION_MODEL`: optional model name used by the import suggestion provider
+- `IMPORT_FETCH_TIMEOUT_MS`, `IMPORT_DOCUMENT_MAX_BYTES`, `IMPORT_COVER_MAX_BYTES`: bounded maintainer import fetch limits
+- `COMMUNITY_RATING_WRITES_ENABLED`: controls rating mutations and defaults to disabled in production
 - `COMMUNITY_TURNSTILE_SITE_KEY`: Cloudflare Turnstile site key shown by the rating widget
 - `COMMUNITY_TURNSTILE_SECRET_KEY`: Cloudflare Turnstile secret key used for server-side verification
 - `COMMUNITY_TURNSTILE_ENABLED`: enables Turnstile enforcement for rating writes. Defaults to enabled when a secret key is set
@@ -51,8 +56,11 @@ Copy `.env.example` to `.env` if you want to override defaults.
 - `MAINTAINER_REVIEW_PASSPHRASE`: enables the protected maintainer review queue when set
 - `MAINTAINER_REVIEW_COOKIE_SECRET`: signs the maintainer session cookie
 - `MAINTAINER_REVIEW_SESSION_TTL_HOURS`: maintainer session lifetime in hours
+- `MAINTAINER_LOGIN_WINDOW_MS`, `MAINTAINER_LOGIN_MAX`: maintainer login throttling policy
 - `PLAUSIBLE_DOMAIN`: optional public analytics domain injected into generated public pages during `npm run build:pages`
 - `PLAUSIBLE_SCRIPT_SRC`: optional Plausible script URL override used during page generation
+
+Run `npm run check:config` before local startup. Run `NODE_ENV=production npm run check:config` before deployment. Production requirements, backup/restore, and deployment procedures live in [`docs/OPERATIONS.md`](../docs/OPERATIONS.md).
 
 ## Maintainer review workflow
 

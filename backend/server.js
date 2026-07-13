@@ -1,5 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const crypto = require("node:crypto");
 const express = require("express");
 
 const config = require("./lib/config");
@@ -24,16 +25,39 @@ const { createSubmissionRouter } = require("./lib/routes/submission-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
 const {
   buildCollectionPageMetadata,
+  buildCollectionStructuredData,
   buildShowPageMetadata,
+  buildShowStructuredData,
+  injectCollectionSummary,
+  injectJsonBootstrap,
+  injectNoIndex,
   injectRuntimeSiteConfig,
   injectPageMetadata,
+  injectStructuredData,
 } = require("./lib/public-page-render");
 const {
   createMissingShowPageMarkup,
   createShowPageMarkup,
   injectShowRootContent,
 } = require("./lib/show-page-render");
-const { createSearchIndexRecord } = require("../tools/lib/catalog-artifacts");
+const { createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/catalog-artifacts");
+
+const CONTACT_URL = "https://contact.continental-hub.com/";
+const PUBLIC_ROOT_ASSETS = new Set([
+  "style.css",
+  "home.css",
+  "detail.css",
+  "script.js",
+  "sw.js",
+  "site.webmanifest",
+  "favicon.ico",
+  "apple-touch-icon.png",
+  "icon-192.png",
+  "icon-512.png",
+  "og-image.png",
+]);
+const PUBLIC_SHARED_EXTENSIONS = new Set([".css", ".js"]);
+const PUBLIC_IMAGE_EXTENSIONS = new Set([".avif", ".gif", ".jpeg", ".jpg", ".png", ".svg", ".webp"]);
 
 const PUBLIC_ROUTE_REDIRECTS = new Map([
   ["/index.html", "/"],
@@ -50,7 +74,6 @@ const PUBLIC_ROUTE_REDIRECTS = new Map([
   ["/terms.html", "/terms"],
   ["/cookies.html", "/cookies"],
   ["/copyright.html", "/copyright"],
-  ["/contact.html", "/contact"],
 ]);
 
 const PUBLIC_PAGE_FILES = new Map([
@@ -68,11 +91,66 @@ const PUBLIC_PAGE_FILES = new Map([
   ["/terms", "terms.html"],
   ["/cookies", "cookies.html"],
   ["/copyright", "copyright.html"],
-  ["/contact", "contact.html"],
 ]);
 
 function normalizeSiteUrl(value = "") {
   return String(value || "").replace(/\/+$/, "");
+}
+
+function hashPublicFile(staticRoot, relativePath) {
+  try {
+    return crypto
+      .createHash("sha1")
+      .update(fs.readFileSync(path.join(staticRoot, relativePath)))
+      .digest("hex")
+      .slice(0, 10);
+  } catch (_error) {
+    return "";
+  }
+}
+
+function setPublicCacheHeaders(req, res, { image = false } = {}) {
+  if (typeof req.query.v === "string" && req.query.v.trim()) {
+    res.set("Cache-Control", "public, max-age=31536000, immutable");
+  } else if (image) {
+    res.set("Cache-Control", "public, max-age=86400, stale-while-revalidate=604800");
+  } else {
+    res.set("Cache-Control", "public, max-age=0, must-revalidate, stale-while-revalidate=60");
+  }
+}
+
+function applySecurityHeaders(req, res, next) {
+  req.cspNonce = crypto.randomBytes(18).toString("base64");
+  res.set({
+    "Content-Security-Policy": [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      "img-src 'self' data: https:",
+      "style-src 'self' 'unsafe-inline'",
+      `script-src 'self' 'nonce-${req.cspNonce}' https://plausible.io https://challenges.cloudflare.com`,
+      "connect-src 'self' https://plausible.io https://challenges.cloudflare.com",
+      "frame-src https://challenges.cloudflare.com",
+      "worker-src 'self'",
+      "manifest-src 'self'",
+    ].join("; "),
+    "Permissions-Policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+  });
+  next();
+}
+
+function allowStaticExtensions(allowedExtensions) {
+  return (req, res, next) => {
+    if (!allowedExtensions.has(path.extname(req.path).toLowerCase())) {
+      return res.status(404).end();
+    }
+    return next();
+  };
 }
 
 function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
@@ -89,19 +167,31 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
 }
 
 async function startServer() {
+  config.validateConfig(config);
   const app = express();
   const state = {
     catalog: [],
     publicCatalog: [],
+    publicRuntimeCatalog: [],
     publicSearchIndex: [],
     collections: [],
     archiveContext: null,
     siteHelpContext: null,
+    showsVersion: "",
+    collectionsVersion: "",
+    searchIndexVersion: "",
   };
 
   async function reloadState() {
-    const catalog = await loadCatalog(config.STATIC_ROOT);
+    const catalog = await loadCatalog(config.STATIC_ROOT, {
+      coverSync: {
+        timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS,
+        documentMaxBytes: config.IMPORT_DOCUMENT_MAX_BYTES,
+        coverMaxBytes: config.IMPORT_COVER_MAX_BYTES,
+      },
+    });
     const publicCatalog = catalog.filter((show) => show.status === "published");
+    const publicRuntimeCatalog = publicCatalog.map(serializeRuntimeShow);
     const publicSearchIndex = publicCatalog.map(createSearchIndexRecord);
     const collections = loadCollections(config.STATIC_ROOT, new Set(catalog.map((show) => show.id)));
     const archiveContext = await loadArchiveContext(config.STATIC_ROOT, catalog, collections);
@@ -109,10 +199,14 @@ async function startServer() {
 
     state.catalog = catalog;
     state.publicCatalog = publicCatalog;
+    state.publicRuntimeCatalog = publicRuntimeCatalog;
     state.publicSearchIndex = publicSearchIndex;
     state.collections = collections;
     state.archiveContext = archiveContext;
     state.siteHelpContext = siteHelpContext;
+    state.showsVersion = hashPublicFile(config.STATIC_ROOT, "data/shows.json");
+    state.collectionsVersion = hashPublicFile(config.STATIC_ROOT, "data/collections.json");
+    state.searchIndexVersion = hashPublicFile(config.STATIC_ROOT, "data/search-index.json");
   }
 
   await reloadState();
@@ -133,6 +227,10 @@ async function startServer() {
         windowMs: config.SUBMISSION_RATE_LIMIT_WINDOW_MS,
         max: config.SUBMISSION_RATE_LIMIT_MAX,
       },
+      "maintainer-login": {
+        windowMs: config.MAINTAINER_LOGIN_WINDOW_MS,
+        max: config.MAINTAINER_LOGIN_MAX,
+      },
     },
   });
   const communityStore = createCommunityStore({
@@ -146,6 +244,7 @@ async function startServer() {
     enabled: config.COMMUNITY_TURNSTILE_ENABLED,
     secretKey: config.COMMUNITY_TURNSTILE_SECRET_KEY,
     endpoint: config.COMMUNITY_TURNSTILE_VERIFY_URL,
+    timeoutMs: config.COMMUNITY_TURNSTILE_TIMEOUT_MS,
   });
   const communityService = createCommunityService({
     store: communityStore,
@@ -153,6 +252,7 @@ async function startServer() {
     turnstile: turnstileService,
     voterHashSecret: config.COMMUNITY_VOTER_HASH_SECRET,
     abuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
+    maxSummaryIds: config.COMMUNITY_SUMMARY_MAX_IDS,
   });
   const submissionService = createSubmissionService({
     store: submissionStore,
@@ -171,22 +271,68 @@ async function startServer() {
   });
   const maintainerAuth = createMaintainerAuth(config);
 
-  const applyRuntimeSiteConfig = (html) =>
+  config.getConfigWarnings(config).forEach((warning) => console.warn(warning));
+
+  const applyRuntimeSiteConfig = (html, nonce = "") =>
     injectRuntimeSiteConfig(html, {
       homeCardHoverExpandEnabled: config.HOME_CARD_HOVER_EXPAND_ENABLED,
+      siteUrl: config.SITE_URL,
+      showsVersion: state.showsVersion,
+      collectionsVersion: state.collectionsVersion,
+      searchIndexVersion: state.searchIndexVersion,
+      nonce,
     });
+
+  const renderErrorPage = (req, fileName) => {
+    const isServerError = fileName === "500.html";
+    const metadata = {
+      title: `${isServerError ? "Server Error" : "Page Not Found"} - The Echo Archives`,
+      description: isServerError
+        ? "The Echo Archives encountered an unexpected server error."
+        : "The requested Echo Archives page could not be found.",
+      canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/${fileName}`,
+      imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/og-image.png`,
+      imageAlt: "The Echo Archives social preview",
+    };
+    const template = fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
+    return applyRuntimeSiteConfig(injectNoIndex(injectPageMetadata(template, metadata)), req.cspNonce);
+  };
 
   app.disable("x-powered-by");
   app.set("trust proxy", config.TRUST_PROXY);
+  app.use((req, res, next) => {
+    req.requestId = crypto.randomUUID();
+    res.set("X-Request-ID", req.requestId);
+    next();
+  });
+  app.use(applySecurityHeaders);
+  app.use((_req, res, next) => {
+    res.set("Cache-Control", "no-cache");
+    next();
+  });
   app.use(express.json({ limit: "24kb" }));
 
   app.get("/api/health", (_req, res) => {
-    res.json({
-      ok: true,
-      service: "echo-archives",
-      catalogCount: state.publicCatalog.length,
-      model: config.OLLAMA_MODEL,
-    });
+    res.set("Cache-Control", "no-store");
+    try {
+      database.prepare("SELECT 1 AS ready").get();
+      return res.json({
+        ok: true,
+        service: "echo-archives",
+        catalogCount: state.publicCatalog.length,
+        collectionCount: state.collections.length,
+        features: {
+          communityRatingWrites: Boolean(config.COMMUNITY_RATING_WRITES_ENABLED),
+          maintainerReview: maintainerAuth.enabled,
+        },
+      });
+    } catch (_error) {
+      return res.status(503).json({
+        ok: false,
+        service: "echo-archives",
+        error: "Database readiness check failed.",
+      });
+    }
   });
 
   if (process.env.ENABLE_TEST_ERROR_ROUTES === "true") {
@@ -200,6 +346,7 @@ async function startServer() {
   }
 
   app.get("/sitemap.xml", (_req, res) => {
+    res.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=3600");
     res.type("application/xml").send(
       buildSitemapXml({
         siteUrl: config.SITE_URL,
@@ -209,16 +356,31 @@ async function startServer() {
     );
   });
 
+  app.get("/robots.txt", (_req, res) => {
+    res.set("Cache-Control", "public, max-age=3600, stale-while-revalidate=3600");
+    res.type("text/plain").send(
+      [
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /maintainer/",
+        `Sitemap: ${normalizeSiteUrl(config.SITE_URL)}/sitemap.xml`,
+        "",
+      ].join("\n"),
+    );
+  });
+
   app.get("/data/shows.json", (_req, res) => {
-    res.json(state.publicCatalog);
+    setPublicCacheHeaders(_req, res);
+    res.json(state.publicRuntimeCatalog);
+  });
+
+  app.get("/data/collections.json", (req, res) => {
+    setPublicCacheHeaders(req, res);
+    res.json(state.collections);
   });
 
   app.get("/data/search-index.json", (req, res) => {
-    if (typeof req.query.v === "string" && req.query.v.trim()) {
-      res.set("Cache-Control", "public, max-age=31536000, immutable");
-    } else {
-      res.set("Cache-Control", "public, max-age=0, stale-while-revalidate=60");
-    }
+    setPublicCacheHeaders(req, res);
     res.json(state.publicSearchIndex);
   });
 
@@ -232,7 +394,7 @@ async function startServer() {
       rateLimiter: rateLimitService,
     }),
   );
-  app.use("/api/community", createCommunityRouter({ communityService, config }));
+  app.use("/api/community", createCommunityRouter({ communityService, config, rateLimiter: rateLimitService }));
   app.use("/api/submissions", createSubmissionRouter({ submissionService }));
   app.use(
     createMaintainerRouter({
@@ -240,6 +402,7 @@ async function startServer() {
       staticRoot: config.STATIC_ROOT,
       submissionService,
       importService,
+      rateLimiter: rateLimitService,
     }),
   );
 
@@ -257,18 +420,9 @@ async function startServer() {
       return fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
     }
 
-    function getRequestSiteUrl(req) {
-      const protocol = req.secure ? "https" : String(req.get("x-forwarded-proto") || req.protocol || "http").split(",")[0].trim();
-      return `${protocol}://${req.get("host")}`;
-    }
-
-    app.use((req, res, next) => {
-      if (req.path.startsWith("/backend/") || req.path.startsWith("/podcast-ai/")) {
-        return res.status(404).end();
-      }
-
-      return next();
-    });
+    const legacyRedirects = JSON.parse(
+      fs.readFileSync(path.join(config.STATIC_ROOT, "shared", "config", "legacy-redirects.json"), "utf8"),
+    );
 
     app.use((req, res, next) => {
       const redirectPath = PUBLIC_ROUTE_REDIRECTS.get(req.path);
@@ -281,12 +435,46 @@ async function startServer() {
       return res.redirect(301, `${redirectPath}${search}`);
     });
 
+    app.get(["/contact", "/contact.html"], (_req, res) => res.redirect(301, CONTACT_URL));
+
+    for (const routePath of PUBLIC_PAGE_FILES.keys()) {
+      if (routePath === "/") continue;
+      app.get(`${routePath}/index.html`, (req, res) => {
+        const queryIndex = req.url.indexOf("?");
+        const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
+        return res.redirect(301, `${routePath}${search}`);
+      });
+    }
+
+    const legacyRedirectMap = new Map(
+      (Array.isArray(legacyRedirects) ? legacyRedirects : [])
+        .filter((entry) => entry?.path && entry?.target)
+        .map((entry) => [String(entry.path).replace(/^\/+/, ""), entry.target]),
+    );
+    app.use((req, res, next) => {
+      if (req.method !== "GET" && req.method !== "HEAD") {
+        return next();
+      }
+
+      let decodedPath;
+      try {
+        decodedPath = decodeURIComponent(req.path).replace(/^\/+/, "");
+      } catch (_error) {
+        return next();
+      }
+
+      const target = legacyRedirectMap.get(decodedPath);
+      return target ? res.redirect(301, target) : next();
+    });
+
     app.get("/collection", (req, res) => {
       const collectionId = typeof req.query.id === "string" ? req.query.id.trim() : "";
       const collection = state.collections.find((entry) => entry.id === collectionId);
 
       if (!collection) {
-        return res.status(404).sendFile(path.join(config.STATIC_ROOT, "404.html"));
+        res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+        res.set("Cache-Control", "no-cache");
+        return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
       }
 
       const showMap = new Map(state.publicCatalog.map((show) => [show.id, show]));
@@ -296,17 +484,26 @@ async function startServer() {
       const anchorShow =
         collection.anchorShowId && showMap.has(collection.anchorShowId) ? showMap.get(collection.anchorShowId) : null;
       const template = readPublicPageTemplate("collection.html");
-      const rendered = injectPageMetadata(
-        template,
+      let rendered = injectPageMetadata(
+        injectCollectionSummary(template, { collection, collectionShows }),
         buildCollectionPageMetadata({
-          siteUrl: getRequestSiteUrl(req),
+          siteUrl: config.SITE_URL,
           collection,
           collectionShows,
           anchorShow,
         }),
       );
+      rendered = injectStructuredData(
+        rendered,
+        buildCollectionStructuredData({
+          siteUrl: config.SITE_URL,
+          collection,
+          collectionShows,
+        }),
+      );
 
-      return res.type("html").send(applyRuntimeSiteConfig(rendered));
+      res.set("Cache-Control", "no-cache");
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
     });
 
     app.get("/show", (req, res) => {
@@ -314,34 +511,40 @@ async function startServer() {
       const show = state.publicCatalog.find((entry) => entry.id === showId);
       const template = readPublicPageTemplate("show.html");
 
-      const requestSiteUrl = getRequestSiteUrl(req);
       if (!show) {
         const renderedMissing = injectPageMetadata(
-          injectShowRootContent(template, createMissingShowPageMarkup()),
+          injectNoIndex(injectShowRootContent(template, createMissingShowPageMarkup())),
           {
             title: "Show not found - The Echo Archives",
             description: "The requested Echo Archives show page could not be found.",
-            canonicalUrl: `${requestSiteUrl.replace(/\/+$/, "")}/show`,
-            imageUrl: `${requestSiteUrl.replace(/\/+$/, "")}/og-image.png`,
+            canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/show`,
+            imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/og-image.png`,
+            imageAlt: "The Echo Archives social preview",
           },
         );
-        return res.status(404).type("html").send(applyRuntimeSiteConfig(renderedMissing));
+        res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+        res.set("Cache-Control", "no-cache");
+        return res.status(404).type("html").send(applyRuntimeSiteConfig(renderedMissing, req.cspNonce));
       }
 
       const showMap = new Map(state.publicCatalog.map((entry) => [entry.id, entry]));
-      const rendered = injectPageMetadata(
+      let rendered = injectPageMetadata(
         injectShowRootContent(template, createShowPageMarkup(show, showMap, state.collections)),
         buildShowPageMetadata({
-          siteUrl: requestSiteUrl,
+          siteUrl: config.SITE_URL,
           show,
         }),
       );
+      rendered = injectStructuredData(rendered, buildShowStructuredData({ siteUrl: config.SITE_URL, show }));
+      rendered = injectJsonBootstrap(rendered, "showBootstrap", serializeRuntimeShow(show));
 
-      return res.type("html").send(applyRuntimeSiteConfig(rendered));
+      res.set("Cache-Control", "no-cache");
+      return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
     });
 
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
       app.get(routePath, (req, res) => {
+        res.set("Cache-Control", "no-cache");
         const manifestEntry = publicPageManifestByFile.get(fileName);
         if (!manifestEntry) {
           return res.sendFile(path.join(config.STATIC_ROOT, fileName));
@@ -351,21 +554,117 @@ async function startServer() {
           readPublicPageTemplate(fileName),
           buildStaticPageMetadata({
             routePath,
-            requestSiteUrl: getRequestSiteUrl(req),
+            requestSiteUrl: config.SITE_URL,
             manifestEntry,
           }),
         );
-        return res.type("html").send(applyRuntimeSiteConfig(rendered));
+        return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
       });
     });
 
-    app.use(express.static(config.STATIC_ROOT, { extensions: ["html"] }));
+    app.get("/offline.html", (_req, res) => {
+      res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      res.set("Cache-Control", "no-cache");
+      return res.sendFile(path.join(config.STATIC_ROOT, "offline.html"));
+    });
+    app.get("/404.html", (req, res) => {
+      res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      res.set("Cache-Control", "no-cache");
+      return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
+    });
+    app.get("/500.html", (req, res) => {
+      res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      res.set("Cache-Control", "no-cache");
+      return res.status(500).type("html").send(renderErrorPage(req, "500.html"));
+    });
+
+    for (const fileName of PUBLIC_ROOT_ASSETS) {
+      app.get(`/${fileName}`, (req, res) => {
+        const extension = path.extname(fileName).toLowerCase();
+        setPublicCacheHeaders(req, res, { image: PUBLIC_IMAGE_EXTENSIONS.has(extension) });
+        if (fileName === "sw.js") {
+          res.set("Cache-Control", "no-cache");
+        }
+        return res.sendFile(path.join(config.STATIC_ROOT, fileName));
+      });
+    }
+
+    app.use(
+      "/shared",
+      allowStaticExtensions(PUBLIC_SHARED_EXTENSIONS),
+      (req, res, next) => {
+        setPublicCacheHeaders(req, res);
+        next();
+      },
+      express.static(path.join(config.STATIC_ROOT, "shared"), { index: false, fallthrough: true }),
+    );
+    app.use(
+      "/images",
+      allowStaticExtensions(PUBLIC_IMAGE_EXTENSIONS),
+      (req, res, next) => {
+        setPublicCacheHeaders(req, res, { image: true });
+        next();
+      },
+      express.static(path.join(config.STATIC_ROOT, "images"), { index: false, fallthrough: true }),
+    );
+    app.use(
+      "/shows",
+      allowStaticExtensions(PUBLIC_IMAGE_EXTENSIONS),
+      (req, res, next) => {
+        setPublicCacheHeaders(req, res, { image: true });
+        next();
+      },
+      express.static(path.join(config.STATIC_ROOT, "shows"), { index: false, fallthrough: true }),
+    );
+    app.use(
+      "/data",
+      allowStaticExtensions(new Set([".json"])),
+      (req, res, next) => {
+        setPublicCacheHeaders(req, res);
+        next();
+      },
+      express.static(path.join(config.STATIC_ROOT, "data"), { index: false, fallthrough: true }),
+    );
   }
 
+  app.use((req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    res.set("Cache-Control", "no-cache");
+    if (req.path.startsWith("/api/") || req.accepts(["html", "json"]) === "json") {
+      return res.status(404).json({ error: "Not found." });
+    }
+    if (config.SERVE_STATIC) {
+      res.set("Cache-Control", "no-cache");
+      return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
+    }
+    return res.status(404).json({ error: "Not found." });
+  });
+
   app.use((error, req, res, _next) => {
-    const statusCode = Number.isInteger(error.statusCode) ? error.statusCode : 500;
+    if (res.headersSent) {
+      return _next(error);
+    }
+
+    const candidateStatus = Number.isInteger(error.statusCode)
+      ? error.statusCode
+      : Number.isInteger(error.status)
+        ? error.status
+        : 500;
+    const statusCode = candidateStatus >= 400 && candidateStatus <= 599 ? candidateStatus : 500;
     if (statusCode === 429 && Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0) {
       res.set("Retry-After", String(error.retryAfterSeconds));
+    }
+
+    if (statusCode >= 500) {
+      console.error(
+        JSON.stringify({
+          level: "error",
+          requestId: req.requestId,
+          method: req.method,
+          path: req.path,
+          error: error.message || "Unexpected server error.",
+        }),
+      );
     }
 
     const wantsHtml =
@@ -375,20 +674,53 @@ async function startServer() {
       req.accepts(["html", "json"]) === "html";
 
     if (wantsHtml) {
-      return res.status(statusCode).sendFile(path.join(config.STATIC_ROOT, "500.html"));
+      res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      res.set("Cache-Control", "no-cache");
+      return res.status(statusCode).type("html").send(renderErrorPage(req, "500.html"));
     }
 
     res.status(statusCode).json({
-      error: error.message || "Unexpected server error.",
+      error: statusCode >= 500 ? "Unexpected server error." : error.message || "Request failed.",
+      ...(statusCode >= 500 ? { requestId: req.requestId } : {}),
       ...(Number.isInteger(error.retryAfterSeconds) && error.retryAfterSeconds > 0
         ? { retryAfterSeconds: error.retryAfterSeconds }
         : {}),
     });
   });
 
-  app.listen(config.PORT, "0.0.0.0", () => {
-    console.log(`Echo Archives listening on http://0.0.0.0:${config.PORT}`);
+  const server = app.listen(config.PORT, config.HOST, () => {
+    console.log(`Echo Archives listening on http://${config.HOST}:${config.PORT}`);
   });
+
+  let shuttingDown = false;
+  function shutdown(signal) {
+    if (shuttingDown) return;
+    shuttingDown = true;
+    console.log(`Received ${signal}; closing Echo Archives cleanly.`);
+
+    const forceTimer = setTimeout(() => {
+      console.error("Graceful shutdown timed out; forcing remaining connections closed.");
+      server.closeAllConnections?.();
+      process.exit(1);
+    }, 10_000);
+    forceTimer.unref();
+
+    server.close(() => {
+      clearTimeout(forceTimer);
+      try {
+        database.close();
+      } catch (_error) {
+        // The database may already be closed during a startup or process failure.
+      }
+      process.exit(0);
+    });
+    server.closeIdleConnections?.();
+  }
+
+  process.once("SIGTERM", () => shutdown("SIGTERM"));
+  process.once("SIGINT", () => shutdown("SIGINT"));
+
+  return { app, server, database };
 }
 
 startServer().catch((error) => {

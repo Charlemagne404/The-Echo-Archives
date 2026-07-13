@@ -2,13 +2,20 @@
   "name": "the-echo-archives",
   "private": true,
   "scripts": {
+    "start": "node tools/run-backend.js",
     "build:catalog": "node tools/build-catalog.js",
-    "dev": "npm --prefix backend run dev",
+    "dev": "node tools/run-backend.js --watch",
+    "check:config": "node tools/run-backend.js --check-config",
+    "backup:database": "node tools/backup-database.js",
     "report:catalog": "node tools/report-catalog.js",
     "catalog:new:show": "node tools/scaffold-catalog.js show",
     "catalog:new:collection": "node tools/scaffold-catalog.js collection",
     "build:pages": "node tools/build-pages.js",
     "check:structure": "node tools/check-structure.js",
-    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm --prefix backend run verify"
+    "test:tools": "node --test tools/test/*.test.js",
+    "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run test:tools && npm --prefix backend run verify"
+  },
+  "engines": {
+    "node": ">=20.12"
   }
 }

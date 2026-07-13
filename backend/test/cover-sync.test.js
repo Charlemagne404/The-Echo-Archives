@@ -366,6 +366,52 @@ test("fetch failures keep catalog load alive and inject the placeholder cover in
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
+test("active SVG cover content is rejected instead of being written into the public asset tree", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  seedAssets(tempRoot);
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({
+      officialLinks: {
+        website: "https://example.com/show",
+      },
+    }),
+  ]);
+
+  const fetchStub = createFetchStub(
+    new Map([
+      [
+        "https://example.com/show",
+        createResponse({
+          url: "https://example.com/show",
+          headers: { "content-type": "text/html; charset=utf-8" },
+          body: `<html><head><meta property="og:image" content="https://cdn.example.com/cover.svg"></head></html>`,
+        }),
+      ],
+      [
+        "https://cdn.example.com/cover.svg",
+        createResponse({
+          url: "https://cdn.example.com/cover.svg",
+          headers: { "content-type": "image/svg+xml" },
+          body: `<svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>`,
+        }),
+      ],
+    ]),
+  );
+  const logger = createLogger();
+
+  const [show] = await loadCatalog(tempRoot, { coverSync: { fetchImpl: fetchStub, logger } });
+  const persistedShows = readJson(path.join(dataRoot, "shows.json"));
+
+  assert.equal(show.cover, PLACEHOLDER_COVER);
+  assert.equal(persistedShows[0].cover, "");
+  assert.equal(fs.existsSync(path.join(tempRoot, "images", "covers", "demo-show.svg")), false);
+  assert.equal(logger.warnings.length, 1);
+  assert.match(logger.warnings[0], /unsupported content type/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
 test("missing source links warn once and use the placeholder cover in memory", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

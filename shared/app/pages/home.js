@@ -1,6 +1,5 @@
-import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch, userInput } from "../constants.js";
+import { DEFAULT_SOCIAL_IMAGE, HOME_CARD_HOVER_EXPAND_ENABLED, HOME_FAVORITE_ROUTE_IDS, archiveSearch } from "../constants.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
-import { setChatOpen } from "../chat-open.js";
 import {
   applyArchiveStats,
   buildCollectionMap,
@@ -12,6 +11,7 @@ import {
   getVisibleFilterTags,
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
+import { buildWebsiteStructuredData } from "../structured-data.js";
 import { updateDocumentMetadata } from "../utils.js";
 import { renderCollectionsRail } from "./home/collections.js";
 import { loadHomePageData } from "./home/data-load.js";
@@ -19,7 +19,7 @@ import { getHomeElements } from "./home/elements.js";
 import { getActiveBrowseDescriptors, renderBrowseModes, renderQuickFilters } from "./home/filters.js";
 import { createHomeFilterSurfaceController } from "./home/filter-surfaces.js";
 import { getHomeGridLayoutBucket } from "./home/layout.js";
-import { renderHomeLoadingState } from "./home/loading.js";
+import { renderHomeLoadingState, setBrowseControlsDisabled } from "./home/loading.js";
 import { createMostPopularController } from "./home/most-popular.js";
 import { buildArchiveCardShellsById, hasPrerenderedHomeContent } from "./home/prerender.js";
 import { createRecentlyAddedController } from "./home/recently-added.js";
@@ -37,6 +37,7 @@ export async function initializeHomePage() {
   if (!elements) {
     return;
   }
+  setBrowseControlsDisabled(elements, true);
   const hasPrerenderedHome = hasPrerenderedHomeContent(elements);
   if (!hasPrerenderedHome) {
     renderHomeLoadingState(elements);
@@ -53,6 +54,9 @@ export async function initializeHomePage() {
     description: "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.",
     path: "/",
     image: DEFAULT_SOCIAL_IMAGE,
+    structuredData: buildWebsiteStructuredData(
+      "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.",
+    ),
   });
   applyArchiveStats("home", getArchiveStats(shows, collections));
 
@@ -313,13 +317,6 @@ export async function initializeHomePage() {
   elements.stickyFilterClear?.addEventListener("click", clearAllFilters);
   elements.clearResultsState?.addEventListener("click", clearAllFilters);
   elements.activeBrowseClear?.addEventListener("click", clearAllFilters);
-  elements.openArchivistAction?.addEventListener("click", () => {
-    setChatOpen(true);
-    if (userInput) {
-      userInput.value = "Help me find something finished or easy to jump into.";
-      userInput.focus();
-    }
-  });
   if ("IntersectionObserver" in window) {
     stickyBrowseObserver = new IntersectionObserver(
       ([entry]) => {
@@ -347,4 +344,6 @@ export async function initializeHomePage() {
     scrollRestoration.destroy();
     stickyBrowseObserver?.disconnect();
   });
+
+  setBrowseControlsDisabled(elements, false);
 }

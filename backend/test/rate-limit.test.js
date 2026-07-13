@@ -4,6 +4,9 @@ const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
+const { openDatabase } = require("../lib/store/database");
+const { createRateLimitStore } = require("../lib/store/rate-limit-store");
+const { findFreePort } = require("./helpers/free-port");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -57,7 +60,7 @@ async function startRateLimitServer() {
   const turnstile = await createTurnstileMock();
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-rate-limit-"));
   const dbPath = path.join(tempDir, "community.sqlite");
-  const port = 3420 + Math.floor(Math.random() * 200);
+  const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
   const serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: projectRoot,
@@ -138,7 +141,10 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     const healthResponse = await fetch(`${context.baseUrl}/api/health`);
     const health = await healthResponse.json();
     assert.equal(health.ok, true);
+    assert.equal(healthResponse.headers.get("cache-control"), "no-store");
     assert.equal(Object.hasOwn(health, "databasePath"), false);
+    assert.equal(Object.hasOwn(health, "model"), false);
+    assert.equal(typeof health.features.communityRatingWrites, "boolean");
 
     const chatBody = { message: "Find me a completed sci-fi show.", history: [] };
     assert.equal((await postJson(`${context.baseUrl}/api/chat`, chatBody)).status, 200);
@@ -213,7 +219,12 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
       archiveFitNote: "Worth archiving.",
       website: "",
     };
-    assert.equal((await postJson(`${context.baseUrl}/api/submissions/shows`, submissionBody)).status, 201);
+    const acceptedSubmission = await postJson(`${context.baseUrl}/api/submissions/shows`, submissionBody);
+    assert.equal(acceptedSubmission.status, 201);
+    const acceptedPayload = await acceptedSubmission.json();
+    assert.equal(acceptedPayload.accepted, true);
+    assert.match(acceptedPayload.submissionId, /^[0-9a-f-]{36}$/i);
+    assert.deepEqual(Object.keys(acceptedPayload).sort(), ["accepted", "submissionId"]);
 
     const throttledSubmission = await postJson(`${context.baseUrl}/api/submissions/shows`, submissionBody);
     assert.equal(throttledSubmission.status, 429);
@@ -229,5 +240,39 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     })).status, 201);
   } finally {
     await stopRateLimitServer(context);
+  }
+});
+
+test("rate limiting prunes expired rows for inactive clients across the scope", () => {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-rate-prune-"));
+  const db = openDatabase(path.join(tempDir, "community.sqlite"));
+
+  try {
+    const insert = db.prepare(`
+      INSERT INTO rate_limit_events (scope, client_ip, created_at_ms)
+      VALUES (?, ?, ?)
+    `);
+    insert.run("chat", "198.51.100.1", 100);
+    insert.run("chat", "198.51.100.2", 200);
+    insert.run("chat", "198.51.100.3", 950);
+    insert.run("community", "198.51.100.4", 100);
+
+    const store = createRateLimitStore({ db });
+    const result = store.consume({
+      scope: "chat",
+      clientIp: "198.51.100.5",
+      windowMs: 500,
+      maxEvents: 5,
+      createdAtMs: 1000,
+    });
+    assert.equal(result.allowed, true);
+
+    const chatRows = db.prepare("SELECT client_ip FROM rate_limit_events WHERE scope = 'chat' ORDER BY client_ip").all();
+    assert.deepEqual(chatRows.map((row) => row.client_ip), ["198.51.100.3", "198.51.100.5"]);
+    const communityRows = db.prepare("SELECT client_ip FROM rate_limit_events WHERE scope = 'community'").all();
+    assert.deepEqual(communityRows.map((row) => row.client_ip), ["198.51.100.4"]);
+  } finally {
+    db.close();
+    fs.rmSync(tempDir, { recursive: true, force: true });
   }
 });

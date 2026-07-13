@@ -16,7 +16,7 @@ function createAuthRequiredError() {
   return error;
 }
 
-function createMaintainerRouter({ auth, staticRoot, submissionService, importService }) {
+function createMaintainerRouter({ auth, staticRoot, submissionService, importService, rateLimiter = null }) {
   const router = express.Router();
 
   router.use(["/maintainer", "/api/maintainer"], (req, res, next) => {
@@ -50,6 +50,7 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, importSer
 
   router.post("/api/maintainer/session", (req, res, next) => {
     if (!auth.authenticate(req.body?.passphrase || "")) {
+      rateLimiter?.check("maintainer-login", req.ip || "");
       const error = new Error("Incorrect maintainer passphrase.");
       error.statusCode = 401;
       return next(error);

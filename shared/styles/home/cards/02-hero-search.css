@@ -13,7 +13,7 @@
   background:
     linear-gradient(90deg, rgba(3, 5, 8, 0.98) 0%, rgba(4, 6, 9, 0.95) 36%, rgba(5, 8, 11, 0.58) 64%, rgba(6, 8, 11, 0.2) 100%),
     linear-gradient(180deg, rgba(3, 5, 8, 0.02) 52%, rgba(3, 5, 8, 0.42) 74%, rgba(3, 5, 8, 0.82) 100%),
-    url("/images/hero-archive-dish.png") right center / cover no-repeat,
+    url("/images/hero-archive-dish.webp") right center / cover no-repeat,
     #05070a;
   box-shadow: var(--shadow-lg);
   padding: 38px 30px 20px;

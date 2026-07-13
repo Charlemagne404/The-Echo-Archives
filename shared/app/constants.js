@@ -1,13 +1,19 @@
 import { HOME_FAVORITE_ROUTE_IDS as HOME_FAVORITE_ROUTE_IDS_CONFIG, HOME_MOST_POPULAR_IDS as HOME_MOST_POPULAR_IDS_CONFIG } from "./home-config.js";
 
-export const SHOWS_DATA_URL = "/data/shows.json";
-export const COLLECTIONS_DATA_URL = "/data/collections.json";
+const SHOWS_DATA_VERSION = document.body?.dataset.showsVersion?.trim() || "";
+const COLLECTIONS_DATA_VERSION = document.body?.dataset.collectionsVersion?.trim() || "";
+export const SHOWS_DATA_URL = SHOWS_DATA_VERSION
+  ? `/data/shows.json?v=${SHOWS_DATA_VERSION}`
+  : "/data/shows.json";
+export const COLLECTIONS_DATA_URL = COLLECTIONS_DATA_VERSION
+  ? `/data/collections.json?v=${COLLECTIONS_DATA_VERSION}`
+  : "/data/collections.json";
 const SEARCH_INDEX_VERSION = document.body?.dataset.searchIndexVersion?.trim() || "";
 export const SEARCH_INDEX_URL = SEARCH_INDEX_VERSION
   ? `/data/search-index.json?v=${SEARCH_INDEX_VERSION}`
   : "/data/search-index.json";
 export const ARCHIVE_STATS_URL = "/data/archive-stats.json";
-export const DEFAULT_SOCIAL_IMAGE = "/images/Logo.png";
+export const DEFAULT_SOCIAL_IMAGE = "/og-image.png";
 export const DEFAULT_FALLBACK_COVER_IMAGE = "/images/TEA-Logo-S.png";
 export const TOP_RATED_BADGE_ASSET_URL = "/images/badges/top-rated-bookmark.png";
 export const archiveSearch = globalThis.EchoArchiveSearch;
@@ -37,6 +43,7 @@ export const dataCache = {
   collections: null,
   searchIndex: null,
   communitySummaries: new Map(),
+  communitySummaryRequests: new Map(),
 };
 
 export const chatState = {
@@ -51,18 +58,35 @@ export const communityState = {
   configPromise: null,
 };
 
-export const backToTopBtn = document.getElementById("backToTop");
-export const toggleBtn = document.getElementById("chat-toggle");
-export const closeChatBtn = document.getElementById("chat-close");
-export const clearChatButton = document.getElementById("chat-clear");
-export const chatContainer = document.getElementById("chat-container");
-export const chatLog = document.getElementById("chatLog");
-export const chatStatus = document.getElementById("chatStatus");
-export const chatSuggestionRegion = document.getElementById("chatSuggestionRegion");
-export const chatSuggestions = document.getElementById("chatSuggestions");
-export const chatFootnote = document.querySelector(".chat-footnote");
-export const userInput = document.getElementById("userInput");
-export const sendMessageButton = document.getElementById("sendMessageButton");
+export let backToTopBtn;
+export let toggleBtn;
+export let closeChatBtn;
+export let clearChatButton;
+export let chatContainer;
+export let chatLog;
+export let chatStatus;
+export let chatSuggestionRegion;
+export let chatSuggestions;
+export let chatFootnote;
+export let userInput;
+export let sendMessageButton;
+
+export function refreshSharedElements() {
+  backToTopBtn = document.getElementById("backToTop");
+  toggleBtn = document.getElementById("chat-toggle");
+  closeChatBtn = document.getElementById("chat-close");
+  clearChatButton = document.getElementById("chat-clear");
+  chatContainer = document.getElementById("chat-container");
+  chatLog = document.getElementById("chatLog");
+  chatStatus = document.getElementById("chatStatus");
+  chatSuggestionRegion = document.getElementById("chatSuggestionRegion");
+  chatSuggestions = document.getElementById("chatSuggestions");
+  chatFootnote = document.querySelector(".chat-footnote");
+  userInput = document.getElementById("userInput");
+  sendMessageButton = document.getElementById("sendMessageButton");
+}
+
+refreshSharedElements();
 
 if (!archiveSearch) {
   throw new Error("EchoArchiveSearch helper was not loaded before script.js.");

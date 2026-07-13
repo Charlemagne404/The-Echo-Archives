@@ -367,6 +367,24 @@ test("Ask the Archivist and the remade submit page interactions work across mode
   }
 });
 
+test("submit keeps the new-show intake usable when archive lookup data fails", async () => {
+  const page = await browser.newPage();
+
+  try {
+    await page.route("**/data/search-index.json*", async (route) => {
+      await route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"unavailable"}' });
+    });
+    await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+
+    await page.locator("#submitLoadStatus .route-error-surface").waitFor();
+    assert.ok((await page.locator("#submitModeCards [data-submission-mode]").count()) > 0);
+    await page.locator("#submitShowTitle").waitFor();
+    assert.match(await page.locator("#submitLoadStatus").innerText(), /new-show submission/i);
+  } finally {
+    await page.close();
+  }
+});
+
 test("submit success and failure flows surface inline status and toast feedback", async () => {
   const page = await browser.newPage();
 

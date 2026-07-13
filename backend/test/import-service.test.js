@@ -243,6 +243,10 @@ test("import service writes drafts, blocks invalid publish attempts, and promote
 
     writtenShows = readShowsFile(context.siteRoot);
     assert.equal(writtenShows.find((show) => show.id === draftShowId)?.status, "draft");
+    const generatedShowsAfterRollback = JSON.parse(
+      fs.readFileSync(path.join(context.siteRoot, "data", "shows.json"), "utf8"),
+    );
+    assert.equal(generatedShowsAfterRollback.find((show) => show.id === draftShowId), undefined);
 
     const publishReadyShows = writtenShows.map((show) => {
       if (show.id !== draftShowId) {

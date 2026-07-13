@@ -1,7 +1,10 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const { fetchBufferWithLimits } = require("./import/fetch");
 
 const COVER_SOURCE_TIMEOUT_MS = 10_000;
+const COVER_DOCUMENT_MAX_BYTES = 5 * 1024 * 1024;
+const COVER_IMAGE_MAX_BYTES = 8 * 1024 * 1024;
 const COVER_SYNC_USER_AGENT = "TheEchoArchivesCoverSync/1.0 (+https://echo.continental-hub.com)";
 const MANAGED_COVERS_DIR = "images/covers";
 const PLACEHOLDER_COVER = "images/TEA-Logo-S.png";
@@ -127,35 +130,30 @@ function extractRssImageUrl(documentText = "", baseUrl = "") {
   return "";
 }
 
-async function fetchWithTimeout(fetchImpl, url, { accept = "*/*" } = {}) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), COVER_SOURCE_TIMEOUT_MS);
-
-  try {
-    const response = await fetchImpl(url, {
+async function fetchBounded(fetchImpl, url, { accept = "*/*", timeoutMs, maxBytes, label } = {}) {
+  return fetchBufferWithLimits(fetchImpl, url, {
       redirect: "follow",
-      signal: controller.signal,
       headers: {
         Accept: accept,
         "User-Agent": COVER_SYNC_USER_AGENT,
       },
-    });
-
-    return response;
-  } finally {
-    clearTimeout(timeoutId);
-  }
+    }, { timeoutMs, maxBytes, label });
 }
 
-async function fetchText(fetchImpl, url, parserLabel, accept) {
-  const response = await fetchWithTimeout(fetchImpl, url, { accept });
+async function fetchText(fetchImpl, url, parserLabel, accept, limits) {
+  const { response, buffer } = await fetchBounded(fetchImpl, url, {
+    accept,
+    timeoutMs: limits.timeoutMs,
+    maxBytes: limits.documentMaxBytes,
+    label: parserLabel,
+  });
   if (!response.ok) {
     throw new Error(`${parserLabel} request failed with ${response.status}`);
   }
 
   return {
     url: response.url || url,
-    text: await response.text(),
+    text: buffer.toString("utf8"),
   };
 }
 
@@ -168,7 +166,6 @@ function getExtensionFromContentType(contentType = "") {
     ["image/webp", ".webp"],
     ["image/gif", ".gif"],
     ["image/avif", ".avif"],
-    ["image/svg+xml", ".svg"],
   ]);
 
   return contentTypeMap.get(normalizedType) || "";
@@ -186,7 +183,7 @@ function getExtensionFromUrl(url = "") {
       return ".jpg";
     }
 
-    if ([".jpg", ".png", ".webp", ".gif", ".avif", ".svg"].includes(extension)) {
+    if ([".jpg", ".png", ".webp", ".gif", ".avif"].includes(extension)) {
       return extension;
     }
   } catch (_error) {
@@ -217,9 +214,9 @@ function removeStaleManagedCoverVariants(siteRoot, showId, nextRelativePath) {
   }
 }
 
-async function resolveImageUrlForSource(fetchImpl, source) {
+async function resolveImageUrlForSource(fetchImpl, source, limits) {
   if (source.type === "rss") {
-    const rss = await fetchText(fetchImpl, source.url, source.label, "application/rss+xml, application/xml, text/xml;q=0.9, text/plain;q=0.8");
+    const rss = await fetchText(fetchImpl, source.url, source.label, "application/rss+xml, application/xml, text/xml;q=0.9, text/plain;q=0.8", limits);
     const imageUrl = extractRssImageUrl(rss.text, rss.url);
     if (!imageUrl) {
       throw new Error(`${source.label} did not expose an RSS cover image`);
@@ -229,7 +226,7 @@ async function resolveImageUrlForSource(fetchImpl, source) {
   }
 
   if (source.type === "apple") {
-    const page = await fetchText(fetchImpl, source.url, source.label, "text/html,application/xhtml+xml");
+    const page = await fetchText(fetchImpl, source.url, source.label, "text/html,application/xhtml+xml", limits);
     const imageUrl = extractMetaImageUrl(page.text, page.url);
     if (!imageUrl) {
       throw new Error(`${source.label} did not expose og:image`);
@@ -238,7 +235,7 @@ async function resolveImageUrlForSource(fetchImpl, source) {
     return imageUrl;
   }
 
-  const page = await fetchText(fetchImpl, source.url, source.label, "text/html,application/xhtml+xml");
+  const page = await fetchText(fetchImpl, source.url, source.label, "text/html,application/xhtml+xml", limits);
   const imageUrl = extractMetaImageUrl(page.text, page.url);
   if (!imageUrl) {
     throw new Error(`${source.label} did not expose og:image or twitter:image`);
@@ -247,22 +244,27 @@ async function resolveImageUrlForSource(fetchImpl, source) {
   return imageUrl;
 }
 
-async function downloadManagedCover(siteRoot, showId, imageUrl, fetchImpl) {
-  const response = await fetchWithTimeout(fetchImpl, imageUrl, { accept: "image/*,*/*;q=0.8" });
+async function downloadManagedCover(siteRoot, showId, imageUrl, fetchImpl, limits) {
+  const { response, buffer } = await fetchBounded(fetchImpl, imageUrl, {
+    accept: "image/*,*/*;q=0.8",
+    timeoutMs: limits.timeoutMs,
+    maxBytes: limits.coverMaxBytes,
+    label: "Cover download",
+  });
   if (!response.ok) {
     throw new Error(`cover download failed with ${response.status}`);
   }
 
   const contentType = String(response.headers.get("content-type") || "").toLowerCase();
-  if (!contentType.startsWith("image/")) {
-    throw new Error(`cover download returned non-image content type "${contentType || "unknown"}"`);
+  if (!getExtensionFromContentType(contentType)) {
+    throw new Error(`cover download returned unsupported content type "${contentType || "unknown"}"`);
   }
 
   const relativePath = getManagedCoverRelativePath(showId, response.url || imageUrl, contentType);
   const absolutePath = path.join(siteRoot, relativePath);
   fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
 
-  const bytes = Buffer.from(await response.arrayBuffer());
+  const bytes = buffer;
   if (bytes.length === 0) {
     throw new Error("cover download returned an empty body");
   }
@@ -285,7 +287,7 @@ function shouldSyncCover(siteRoot, record) {
   return !fs.existsSync(getLocalCoverAbsolutePath(siteRoot, coverPath));
 }
 
-async function resolveManagedCoverForRecord(siteRoot, record, fetchImpl) {
+async function resolveManagedCoverForRecord(siteRoot, record, fetchImpl, limits) {
   const sources = getSourceCandidates(record);
   if (sources.length === 0) {
     return {
@@ -297,8 +299,8 @@ async function resolveManagedCoverForRecord(siteRoot, record, fetchImpl) {
   const failures = [];
   for (const source of sources) {
     try {
-      const imageUrl = await resolveImageUrlForSource(fetchImpl, source);
-      const relativePath = await downloadManagedCover(siteRoot, record.id, imageUrl, fetchImpl);
+      const imageUrl = await resolveImageUrlForSource(fetchImpl, source, limits);
+      const relativePath = await downloadManagedCover(siteRoot, record.id, imageUrl, fetchImpl, limits);
       return {
         ok: true,
         relativePath,
@@ -322,7 +324,14 @@ function writeJsonFile(filePath, value) {
 async function syncShowCovers(
   siteRoot,
   records,
-  { fetchImpl = globalThis.fetch, logger = console, persistRecords = null } = {},
+  {
+    fetchImpl = globalThis.fetch,
+    logger = console,
+    persistRecords = null,
+    timeoutMs = COVER_SOURCE_TIMEOUT_MS,
+    documentMaxBytes = COVER_DOCUMENT_MAX_BYTES,
+    coverMaxBytes = COVER_IMAGE_MAX_BYTES,
+  } = {},
 ) {
   if (!Array.isArray(records) || records.length === 0) {
     return { didPersist: false, warnings: [] };
@@ -332,6 +341,7 @@ async function syncShowCovers(
   const runtimePatches = [];
   const warnings = [];
   let didPersist = false;
+  const limits = { timeoutMs, documentMaxBytes, coverMaxBytes };
 
   for (const record of records) {
     if (!shouldSyncCover(siteRoot, record)) {
@@ -350,7 +360,7 @@ async function syncShowCovers(
       continue;
     }
 
-    const result = await resolveManagedCoverForRecord(siteRoot, record, fetchFunction);
+    const result = await resolveManagedCoverForRecord(siteRoot, record, fetchFunction, limits);
     if (result.ok) {
       record.cover = result.relativePath;
       if (!String(record.coverAlt || "").trim()) {

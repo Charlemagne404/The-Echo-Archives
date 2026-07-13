@@ -7,6 +7,7 @@ const {
   resolveUrl,
   trimText,
 } = require("../utils");
+const { fetchTextWithLimits } = require("../fetch");
 
 function extractFirstMatch(text = "", pattern) {
   const match = String(text || "").match(pattern);
@@ -106,20 +107,18 @@ function parseRssText(text = "", sourceUrl = "") {
   };
 }
 
-function createRssAdapter({ fetchImpl = globalThis.fetch, userAgent } = {}) {
+function createRssAdapter({ fetchImpl = globalThis.fetch, userAgent, timeoutMs = 15_000, maxBytes = 5 * 1024 * 1024 } = {}) {
   async function fetchByUrl(url) {
-    const response = await fetchImpl(url, {
+    const { response, text } = await fetchTextWithLimits(fetchImpl, url, {
       headers: {
         Accept: "application/rss+xml, application/xml, text/xml;q=0.9, text/plain;q=0.8, */*;q=0.7",
         "User-Agent": userAgent,
       },
-    });
+    }, { timeoutMs, maxBytes, label: "RSS request" });
 
     if (!response.ok) {
       throw new Error(`RSS request failed with ${response.status}`);
     }
-
-    const text = await response.text();
 
     return {
       sourceType: "rss",

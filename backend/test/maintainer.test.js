@@ -8,6 +8,7 @@ const { spawn } = require("node:child_process");
 const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
+const { findFreePort } = require("./helpers/free-port");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -67,7 +68,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
   throw new Error(`Timed out waiting for ${url}`);
 }
 
-async function startMaintainerServer({ enabled = true } = {}) {
+async function startMaintainerServer({ enabled = true, envOverrides = {} } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-maintainer-server-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
@@ -89,7 +90,7 @@ async function startMaintainerServer({ enabled = true } = {}) {
   });
   db.close();
 
-  const port = 3480 + Math.floor(Math.random() * 200);
+  const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
   const serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: projectRoot,
@@ -103,6 +104,7 @@ async function startMaintainerServer({ enabled = true } = {}) {
       MAINTAINER_REVIEW_PASSPHRASE: enabled ? "archive-test-passphrase" : "",
       MAINTAINER_REVIEW_COOKIE_SECRET: enabled ? "archive-test-secret" : "",
       MAINTAINER_REVIEW_SESSION_TTL_HOURS: "12",
+      ...envOverrides,
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -343,6 +345,56 @@ test("maintainer routes return 404 when the maintainer passphrase is disabled", 
     const apiResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions`);
     assert.equal(apiResponse.status, 404);
     assert.deepEqual(await readJson(apiResponse), {});
+  } finally {
+    await stopMaintainerServer(context);
+  }
+});
+
+test("maintainer auth handles malformed cookies and throttles repeated failed logins", async () => {
+  const context = await startMaintainerServer({
+    envOverrides: {
+      MAINTAINER_LOGIN_MAX: "2",
+      MAINTAINER_LOGIN_WINDOW_MS: "150",
+    },
+  });
+
+  try {
+    const malformedCookie = await fetch(`${context.baseUrl}/api/maintainer/submissions`, {
+      headers: { Cookie: "echo-maintainer-session=%E0%A4%A" },
+    });
+    assert.equal(malformedCookie.status, 401);
+
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const rejected = await fetch(`${context.baseUrl}/api/maintainer/session`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ passphrase: "wrong" }),
+      });
+      assert.equal(rejected.status, 401);
+    }
+
+    const throttled = await fetch(`${context.baseUrl}/api/maintainer/session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ passphrase: "wrong" }),
+    });
+    assert.equal(throttled.status, 429);
+    assert.match(throttled.headers.get("retry-after") || "", /^[1-9]\d*$/);
+
+    const correctWhileThrottled = await fetch(`${context.baseUrl}/api/maintainer/session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ passphrase: "archive-test-passphrase" }),
+    });
+    assert.equal(correctWhileThrottled.status, 204);
+
+    await new Promise((resolve) => setTimeout(resolve, 200));
+    const rejectedAfterWindow = await fetch(`${context.baseUrl}/api/maintainer/session`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ passphrase: "wrong" }),
+    });
+    assert.equal(rejectedAfterWindow.status, 401);
   } finally {
     await stopMaintainerServer(context);
   }

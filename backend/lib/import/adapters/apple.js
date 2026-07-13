@@ -7,6 +7,7 @@ const {
   normalizeUrl,
   trimText,
 } = require("../utils");
+const { fetchJsonWithLimits } = require("../fetch");
 
 const APPLE_SEARCH_BASE_URL = "https://itunes.apple.com/search";
 const APPLE_LOOKUP_BASE_URL = "https://itunes.apple.com/lookup";
@@ -33,22 +34,22 @@ function normalizeAppleResult(result = {}, fallbackUrl = "") {
   };
 }
 
-async function fetchJson(fetchImpl, url, userAgent) {
-  const response = await fetchImpl(url, {
+async function fetchJson(fetchImpl, url, userAgent, limits) {
+  const { response, json } = await fetchJsonWithLimits(fetchImpl, url, {
     headers: buildHeaders({
       userAgent,
       accept: "application/json, text/javascript;q=0.9, */*;q=0.8",
     }),
-  });
+  }, { ...limits, label: "Apple request" });
 
   if (!response.ok) {
     throw new Error(`Apple request failed with ${response.status}`);
   }
 
-  return response.json();
+  return json;
 }
 
-function createAppleAdapter({ fetchImpl = globalThis.fetch, userAgent } = {}) {
+function createAppleAdapter({ fetchImpl = globalThis.fetch, userAgent, timeoutMs = 15_000, maxBytes = 5 * 1024 * 1024 } = {}) {
   async function searchByTerm(query, limit = 10) {
     const trimmedQuery = trimText(query, 240);
     if (!trimmedQuery) {
@@ -61,7 +62,7 @@ function createAppleAdapter({ fetchImpl = globalThis.fetch, userAgent } = {}) {
       term: trimmedQuery,
       limit: String(Math.min(20, Math.max(1, limit))),
     });
-    const payload = await fetchJson(fetchImpl, `${APPLE_SEARCH_BASE_URL}?${search.toString()}`, userAgent);
+    const payload = await fetchJson(fetchImpl, `${APPLE_SEARCH_BASE_URL}?${search.toString()}`, userAgent, { timeoutMs, maxBytes });
 
     return (Array.isArray(payload.results) ? payload.results : []).map((result) => ({
       sourceType: "apple",
@@ -83,7 +84,7 @@ function createAppleAdapter({ fetchImpl = globalThis.fetch, userAgent } = {}) {
       entity: "podcast",
       id: normalizedId,
     });
-    const payload = await fetchJson(fetchImpl, `${APPLE_LOOKUP_BASE_URL}?${search.toString()}`, userAgent);
+    const payload = await fetchJson(fetchImpl, `${APPLE_LOOKUP_BASE_URL}?${search.toString()}`, userAgent, { timeoutMs, maxBytes });
     const result = Array.isArray(payload.results) ? payload.results[0] : null;
     if (!result) {
       throw new Error(`Apple lookup returned no podcast for ${normalizedId}.`);

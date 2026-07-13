@@ -1,10 +1,11 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
-import { buildShowMap, loadCollections, loadShows } from "../data.js";
+import { buildShowMap, loadCollections, loadShows, normalizeShowRecord } from "../data.js";
 import { initializeDetailRatingPage } from "../community.js";
 import { initializeManagedImages } from "../images.js";
 import { createShowPageMarkup } from "../render-show.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { bindShareButton } from "../share.js";
+import { buildShowStructuredData } from "../structured-data.js";
 import { updateDocumentMetadata } from "../utils.js";
 
 export async function initializeShowPage() {
@@ -15,6 +16,13 @@ export async function initializeShowPage() {
   }
 
   const hasServerRenderedContent = showRoot.children.length > 0;
+  const bootstrapShow = hasServerRenderedContent ? readShowBootstrap() : null;
+  if (bootstrapShow) {
+    applyShowMetadata(bootstrapShow);
+    await hydrateShowPage(showRoot, bootstrapShow);
+    return;
+  }
+
   if (!hasServerRenderedContent) {
     showRoot.innerHTML = createShowLoadingMarkup();
   }
@@ -32,6 +40,31 @@ export async function initializeShowPage() {
     return;
   }
 
+  applyShowMetadata(show);
+
+  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
+  await hydrateShowPage(showRoot, show);
+}
+
+function readShowBootstrap() {
+  const node = document.getElementById("showBootstrap");
+  if (!(node instanceof HTMLScriptElement) || node.type !== "application/json") {
+    return null;
+  }
+
+  try {
+    const show = normalizeShowRecord(JSON.parse(node.textContent || "null"));
+    const requestedId = new URLSearchParams(window.location.search).get("id") || "";
+    if (!show.id || show.id !== requestedId || show.status !== "published") {
+      return null;
+    }
+    return show;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function applyShowMetadata(show) {
   document.body.style.setProperty("--detail-accent", show.accent?.hex || "#e54838");
   document.body.style.setProperty("--detail-accent-rgb", show.accent?.rgb || "229, 72, 56");
   updateDocumentMetadata({
@@ -39,10 +72,9 @@ export async function initializeShowPage() {
     description: show.description,
     path: `/show?id=${encodeURIComponent(show.id)}`,
     image: show.imageSrc || `/${show.cover}`,
+    imageAlt: show.imageAlt || show.coverAlt || `${show.title} cover art`,
+    structuredData: buildShowStructuredData(show),
   });
-
-  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
-  hydrateShowPage(showRoot, show);
 }
 
 async function loadShowPageData(showRoot) {
@@ -67,7 +99,7 @@ async function hydrateShowPage(showRoot, show) {
     bindShareButton(shareButton, {
       title: `${show.title} - The Echo Archives`,
       text: show.description,
-      url: window.location.href,
+      url: document.querySelector('link[rel="canonical"]')?.href || window.location.href,
     });
   }
   const detailRoot = showRoot.querySelector(".podcast-detail");

@@ -223,6 +223,10 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
     return id;
   }
 
+  function findProfileId(profileId) {
+    return profileId ? statements.getProfile.get(profileId)?.id || null : null;
+  }
+
   function ensureDeviceProfile({ voterHash, userAgent = "", abuseHash = "" }) {
     const existing = statements.getProfileByVoterHash.get(voterHash);
     if (existing) {
@@ -233,6 +237,10 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
     const id = randomUUID();
     statements.insertDeviceProfile.run({ id, voterHash, userAgent, abuseHash });
     return id;
+  }
+
+  function findDeviceProfileId(voterHash) {
+    return voterHash ? statements.getProfileByVoterHash.get(voterHash)?.id || null : null;
   }
 
   function recordAbuseEvent({ scope = "community", abuseHash, createdAtMs = Date.now(), retentionMs }) {
@@ -349,6 +357,8 @@ function createCommunityStore({ db, catalog, minPublicRatings = 1 }) {
   return {
     ensureProfile,
     ensureDeviceProfile,
+    findProfileId,
+    findDeviceProfileId,
     getPodcast,
     listRatingSummaries,
     listAbuseEvents,

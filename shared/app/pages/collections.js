@@ -1,8 +1,9 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
-import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadShows } from "../data.js";
+import { buildShowMap, getCollectionShows, getPublishedShows, loadCollections, loadSearchIndex } from "../data.js";
 import { createCollectionDirectoryCard, createCollectionFeatureCard, getCollectionAnchorShow } from "../render-collections.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { createScrollRestoration } from "../scroll-restoration.js";
+import { buildCollectionsDirectoryStructuredData } from "../structured-data.js";
 import { formatDate, normalizeTag, setTextContent, updateDocumentMetadata } from "../utils.js";
 import { buildIntentCounts, buildIntentFilters, createStickyMoodBarController, mountMoodChips, syncMoodChipState } from "./collections-intents.js";
 import { getCollectionsGridMotionProfile, syncCollectionGrid } from "./collections-grid-motion.js";
@@ -235,15 +236,16 @@ export async function initializeCollectionsPage() {
   if (!shows || !collections) return;
   const publishedShows = getPublishedShows(shows);
   const showMap = buildShowMap(publishedShows);
+  const orderedCollections = sortCollections(collections, new Map(collections.map((entry) => [entry.id, []])), "editorial");
 
   updateDocumentMetadata({
     title: "Collections - The Echo Archives",
     description: "Browse curated listening paths by mood, tone, and commitment in The Echo Archives.",
     path: "/collections",
     image: DEFAULT_SOCIAL_IMAGE,
+    structuredData: buildCollectionsDirectoryStructuredData(orderedCollections),
   });
 
-  const orderedCollections = sortCollections(collections, new Map(collections.map((entry) => [entry.id, []])), "editorial");
   const similarityCollections = orderedCollections.filter((collection) => collection.kind === "similarity");
   const intentFilters = buildIntentFilters(orderedCollections);
   const intentCounts = buildIntentCounts(orderedCollections);
@@ -429,7 +431,7 @@ export async function initializeCollectionsPage() {
 
 async function loadCollectionsPageData(elements) {
   try {
-    return await Promise.all([loadShows(), loadCollections()]);
+    return await Promise.all([loadSearchIndex(), loadCollections()]);
   } catch (_error) {
     [elements.similarityGrid, elements.featuredGrid].forEach((grid) => {
       if (grid) grid.textContent = "";

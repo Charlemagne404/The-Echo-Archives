@@ -7,6 +7,7 @@ const {
   normalizeUrl,
   trimText,
 } = require("../utils");
+const { fetchJsonWithLimits } = require("../fetch");
 
 const PODCAST_INDEX_BASE_URL = "https://api.podcastindex.org/api/1.0";
 
@@ -54,13 +55,16 @@ function normalizePodcastIndexResult(feed = {}, fallbackSourceUrl = "") {
   };
 }
 
-async function fetchJson(fetchImpl, url, headers) {
-  const response = await fetchImpl(url, { headers });
+async function fetchJson(fetchImpl, url, headers, limits) {
+  const { response, json } = await fetchJsonWithLimits(fetchImpl, url, { headers }, {
+    ...limits,
+    label: "Podcast Index request",
+  });
   if (!response.ok) {
     throw new Error(`Podcast Index request failed with ${response.status}`);
   }
 
-  return response.json();
+  return json;
 }
 
 function createPodcastIndexAdapter({
@@ -68,6 +72,8 @@ function createPodcastIndexAdapter({
   apiKey = "",
   apiSecret = "",
   userAgent = DEFAULT_IMPORT_USER_AGENT,
+  timeoutMs = 15_000,
+  maxBytes = 5 * 1024 * 1024,
 } = {}) {
   const enabled = Boolean(apiKey && apiSecret && userAgent);
 
@@ -77,7 +83,12 @@ function createPodcastIndexAdapter({
     }
 
     const url = `${PODCAST_INDEX_BASE_URL}${pathname}?${searchParams.toString()}`;
-    const payload = await fetchJson(fetchImpl, url, buildPodcastIndexAuthHeaders({ apiKey, apiSecret, userAgent }));
+    const payload = await fetchJson(
+      fetchImpl,
+      url,
+      buildPodcastIndexAuthHeaders({ apiKey, apiSecret, userAgent }),
+      { timeoutMs, maxBytes },
+    );
     return payload;
   }
 

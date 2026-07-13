@@ -1,6 +1,6 @@
-function createTurnstileError(message = "Rating verification failed.") {
+function createTurnstileError(message = "Rating verification failed.", statusCode = 400) {
   const error = new Error(message);
-  error.statusCode = 400;
+  error.statusCode = statusCode;
   return error;
 }
 
@@ -8,6 +8,7 @@ function createTurnstileService({
   enabled = false,
   secretKey = "",
   endpoint = "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+  timeoutMs = 5000,
   fetchImpl = globalThis.fetch,
 } = {}) {
   async function verify(token, remoteIp = "") {
@@ -26,23 +27,32 @@ function createTurnstileService({
       throw createTurnstileError("Complete the rating verification before saving.");
     }
 
-    const response = await fetchImpl(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        secret: secretKey,
-        response: token,
-        remoteip: remoteIp || undefined,
-      }),
-    });
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    let result;
 
-    if (!response.ok) {
-      throw createTurnstileError("Rating verification could not be checked.");
+    try {
+      const response = await fetchImpl(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: secretKey,
+          response: token,
+          remoteip: remoteIp || undefined,
+        }),
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        throw new Error(`Turnstile request failed with ${response.status}`);
+      }
+      result = await response.json();
+    } catch (_error) {
+      throw createTurnstileError("Rating verification is temporarily unavailable. Try again shortly.", 503);
+    } finally {
+      clearTimeout(timeout);
     }
-
-    const result = await response.json();
     if (!result?.success) {
       throw createTurnstileError("Rating verification failed. Refresh the check and try again.");
     }

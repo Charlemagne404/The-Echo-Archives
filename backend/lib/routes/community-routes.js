@@ -41,7 +41,7 @@ function createVoterSecret() {
   return crypto.randomBytes(32).toString("base64url");
 }
 
-function createCommunityRouter({ communityService, config }) {
+function createCommunityRouter({ communityService, config, rateLimiter = null }) {
   const router = express.Router();
 
   function getProfileId(req) {
@@ -79,6 +79,7 @@ function createCommunityRouter({ communityService, config }) {
 
   router.post("/profiles/anonymous", (req, res, next) => {
     try {
+      rateLimiter?.check("community", req.ip || "");
       const payload = communityService.createDeviceProfile({
         voterSecret: ensureVoterSecret(req, res),
         userAgent: req.get("user-agent") || "",
@@ -106,17 +107,10 @@ function createCommunityRouter({ communityService, config }) {
   router.get("/ratings/summary", (req, res, next) => {
     try {
       const voterSecret = getExistingVoterSecret(req);
-      const deviceProfile = voterSecret
-        ? communityService.createDeviceProfile({
-            voterSecret,
-            userAgent: req.get("user-agent") || "",
-            sourceIp: getSourceIp(req),
-          })
-        : null;
       const result = communityService.getRatingSummaries({
         podcastIds: typeof req.query.podcastIds === "string" ? req.query.podcastIds : "",
-        profileId: deviceProfile?.profileId || getProfileId(req),
-        userAgent: req.get("user-agent") || "",
+        profileId: getProfileId(req),
+        voterSecret,
       });
       res.json(result);
     } catch (error) {

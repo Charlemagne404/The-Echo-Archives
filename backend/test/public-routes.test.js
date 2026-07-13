@@ -5,6 +5,8 @@ const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
 const { loadCatalog, loadCollections } = require("../lib/catalog");
+const { injectRuntimeSiteConfig } = require("../lib/public-page-render");
+const { findFreePort } = require("./helpers/free-port");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -31,7 +33,7 @@ async function waitForServer(url, timeoutMs = 20_000) {
 async function startPublicRouteServer(envOverrides = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-public-routes-"));
   const dbPath = path.join(tempDir, "community.sqlite");
-  const port = 3660 + Math.floor(Math.random() * 200);
+  const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
   const serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: projectRoot,
@@ -41,6 +43,8 @@ async function startPublicRouteServer(envOverrides = {}) {
       SERVE_STATIC: "true",
       STATIC_ROOT: siteRoot,
       DB_PATH: dbPath,
+      SITE_URL: baseUrl,
+      NODE_ENV: "test",
       OLLAMA_URL: "http://127.0.0.1:9/api/generate",
       ENABLE_TEST_ERROR_ROUTES: "true",
       ...envOverrides,
@@ -68,6 +72,22 @@ async function stopPublicRouteServer({ serverProcess, tempDir }) {
   }
 }
 
+test("runtime page config replaces every versioned public-data attribute", () => {
+  const rendered = injectRuntimeSiteConfig(
+    '<body data-shows-version="stale" data-collections-version="stale" data-search-index-version="stale"></body>',
+    {
+      showsVersion: "shows-current",
+      collectionsVersion: "collections-current",
+      searchIndexVersion: "search-current",
+    },
+  );
+
+  assert.match(rendered, /data-shows-version="shows-current"/);
+  assert.match(rendered, /data-collections-version="collections-current"/);
+  assert.match(rendered, /data-search-index-version="search-current"/);
+  assert.doesNotMatch(rendered, /stale/);
+});
+
 test("public clean routes resolve and legacy html routes redirect", async () => {
   const context = await startPublicRouteServer();
 
@@ -76,6 +96,7 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
       const response = await fetch(`${context.baseUrl}${route}`);
       assert.equal(response.status, 200, route);
       assert.match(response.headers.get("content-type") || "", /text\/html/);
+      assert.equal(response.headers.get("cache-control"), "no-cache", route);
     }
 
     const redirectResponse = await fetch(`${context.baseUrl}/collections.html`, {
@@ -105,6 +126,15 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.match(showHtml, new RegExp(`<meta property="og:image" content="${context.baseUrl}/`));
     assert.match(showHtml, /<main\b[^>]*id="showRoot"[^>]*>\s*<section class="detail-main podcast-detail">/);
     assert.match(showHtml, /<h1>Impact Winter<\/h1>/);
+    assert.match(showHtml, /<script id="showBootstrap" type="application\/json"[^>]*>/);
+    const structuredDataMatch = showHtml.match(
+      /<script id="pageStructuredData" type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/,
+    );
+    assert.ok(structuredDataMatch);
+    const structuredData = JSON.parse(structuredDataMatch[1]);
+    assert.equal(structuredData["@type"], "PodcastSeries");
+    assert.equal(structuredData.url, `${context.baseUrl}/show?id=impact-winter`);
+    assert.ok(structuredData.creator.every((creator) => typeof creator === "string"));
 
     const collectionResponse = await fetch(`${context.baseUrl}/collection?id=best-for-long-walks`);
     assert.equal(collectionResponse.status, 200);
@@ -117,6 +147,9 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
       collectionHtml,
       new RegExp(`<link rel="canonical" href="${context.baseUrl}/collection\\?id=best-for-long-walks" \\/>`),
     );
+    assert.match(collectionHtml, /<h1 id="collectionTitle">Best for long walks<\/h1>/);
+    assert.doesNotMatch(collectionHtml, /Loading collection/);
+    assert.match(collectionHtml, /8 curated entries in this listening path/);
 
     assert.ok(similarityCollection?.id);
     assert.ok(similarityAnchor?.cover);
@@ -164,7 +197,10 @@ test("search index responses use cache-friendly headers for versioned and unvers
 
     const unversionedResponse = await fetch(`${context.baseUrl}/data/search-index.json`);
     assert.equal(unversionedResponse.status, 200);
-    assert.equal(unversionedResponse.headers.get("cache-control"), "public, max-age=0, stale-while-revalidate=60");
+    assert.equal(
+      unversionedResponse.headers.get("cache-control"),
+      "public, max-age=0, must-revalidate, stale-while-revalidate=60",
+    );
   } finally {
     await stopPublicRouteServer(context);
   }
@@ -190,9 +226,137 @@ test("public 500s return branded HTML while API 500s stay JSON", async () => {
     });
     assert.equal(apiFailure.status, 500);
     assert.match(apiFailure.headers.get("content-type") || "", /application\/json/);
-    assert.deepEqual(await apiFailure.json(), {
-      error: "Intentional API test route failure.",
+    const apiFailurePayload = await apiFailure.json();
+    assert.equal(apiFailurePayload.error, "Unexpected server error.");
+    assert.match(apiFailurePayload.requestId, /^[0-9a-f-]{36}$/i);
+    assert.equal(apiFailure.headers.get("x-request-id"), apiFailurePayload.requestId);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("server exposes only intended public files and preserves legacy show redirects", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    for (const route of [
+      "/package.json",
+      "/catalog-src/shows/_order.json",
+      "/site-src/page-manifest.json",
+      "/docs/ARCHITECTURE.md",
+      "/deploy/echo-archives.service",
+      "/README.md",
+      "/TODO.md",
+      "/data/schema.md",
+      "/shared/package.json",
+    ]) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 404, route);
+    }
+
+    for (const route of [
+      "/style.css",
+      "/shared/app/app.js",
+      "/images/Horizontal-Logo-W.png",
+      "/data/reviews/impact-winter.json",
+    ]) {
+      const response = await fetch(`${context.baseUrl}${route}`);
+      assert.equal(response.status, 200, route);
+    }
+
+    for (const [route, location] of [
+      ["/shows/oz9/oz9.html", "/show?id=oz-9"],
+      ["/shows/Impact%20Winter/impact-winter.html", "/show?id=impact-winter"],
+      ["/shows/ars%20paradoxica/ars-paradoxica.html", "/show?id=ars-paradoxica"],
+    ]) {
+      const legacy = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
+      assert.equal(legacy.status, 301, route);
+      assert.equal(legacy.headers.get("location"), location, route);
+    }
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("errors, contact, robots, canonical origin, and security headers have safe semantics", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const missing = await fetch(`${context.baseUrl}/definitely-missing`, { headers: { Accept: "text/html" } });
+    assert.equal(missing.status, 404);
+    assert.equal(missing.headers.get("cache-control"), "no-cache");
+    assert.match(missing.headers.get("x-robots-tag") || "", /noindex/);
+    assert.match(await missing.text(), /Page not found\./i);
+
+    assert.equal((await fetch(`${context.baseUrl}/404.html`)).status, 404);
+    assert.equal((await fetch(`${context.baseUrl}/500.html`)).status, 500);
+    assert.equal((await fetch(`${context.baseUrl}/offline.html`)).status, 200);
+
+    const contact = await fetch(`${context.baseUrl}/contact`, { redirect: "manual" });
+    assert.equal(contact.status, 301);
+    assert.equal(contact.headers.get("location"), "https://contact.continental-hub.com/");
+
+    const robots = await fetch(`${context.baseUrl}/robots.txt`);
+    assert.equal(robots.status, 200);
+    const robotsText = await robots.text();
+    assert.match(robotsText, new RegExp(`Sitemap: ${context.baseUrl}/sitemap\\.xml`));
+    assert.match(robotsText, /Disallow: \/maintainer\//);
+
+    const response = await fetch(`${context.baseUrl}/show?id=impact-winter`, {
+      headers: { Host: "attacker.example" },
     });
+    const html = await response.text();
+    assert.match(html, new RegExp(`<link rel="canonical" href="${context.baseUrl}/show\\?id=impact-winter"`));
+    assert.doesNotMatch(html, /attacker\.example/);
+    const csp = response.headers.get("content-security-policy") || "";
+    assert.match(csp, /default-src 'self'/);
+    assert.doesNotMatch(csp, /script-src[^;]*'unsafe-inline'/);
+    const nonce = csp.match(/'nonce-([^']+)'/)?.[1];
+    assert.ok(nonce);
+    assert.ok(html.includes(`type="application/ld+json" nonce="${nonce}"`));
+    assert.equal(response.headers.get("x-frame-options"), "DENY");
+    assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+
+    const missingShow = await fetch(`${context.baseUrl}/show?id=not-a-show`);
+    assert.equal(missingShow.status, 404);
+    assert.match(missingShow.headers.get("x-robots-tag") || "", /noindex/);
+    assert.match(await missingShow.text(), /name="robots" content="noindex, nofollow, noarchive"/);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("public data responses are versionable and exclude server-only catalog fields", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=launch`);
+    assert.equal(showsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    const shows = await showsResponse.json();
+    assert.ok(Array.isArray(shows));
+    assert.equal(Object.hasOwn(shows[0], "imageSrc"), false);
+    assert.equal(Object.hasOwn(shows[0], "searchIndex"), false);
+
+    const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=launch`);
+    assert.equal(collectionsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    assert.ok(Array.isArray(await collectionsResponse.json()));
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
+test("malformed JSON requests remain actionable 400 responses", async () => {
+  const context = await startPublicRouteServer();
+
+  try {
+    const response = await fetch(`${context.baseUrl}/api/submissions/shows`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{not-json",
+    });
+    assert.equal(response.status, 400);
+    const payload = await response.json();
+    assert.doesNotMatch(payload.error || "", /unexpected server/i);
   } finally {
     await stopPublicRouteServer(context);
   }

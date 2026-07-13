@@ -19,19 +19,30 @@ export function createMostPopularController({
   let mostPopularShows = fallbackMostPopularShows;
   let mostPopularResolutionToken = 0;
 
-  function renderMostPopularSection() {
-    popularGrid.textContent = "";
+  function hasRenderedShowOrder() {
+    const renderedIds = Array.from(popularGrid.querySelectorAll(":scope > [data-podcast-id]"))
+      .map((card) => card.dataset.podcastId || "");
+    return (
+      renderedIds.length === mostPopularShows.length &&
+      renderedIds.every((showId, index) => showId === mostPopularShows[index]?.id)
+    );
+  }
 
+  function renderMostPopularSection() {
     if (mostPopularShows.length === 0) {
+      popularGrid.textContent = "";
       if (onVisibilityChange(false, popularSection) !== true) {
         popularSection.hidden = true;
       }
       return;
     }
 
-    mostPopularShows.forEach((show) => {
-      popularGrid.appendChild(createMostPopularCard(show));
-    });
+    if (!hasRenderedShowOrder()) {
+      popularGrid.textContent = "";
+      mostPopularShows.forEach((show) => {
+        popularGrid.appendChild(createMostPopularCard(show));
+      });
+    }
     syncMostPopularSectionVisibility();
     void syncCommunityCardBadges(popularGrid, mostPopularShows);
   }

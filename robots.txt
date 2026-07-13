@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /maintainer/
 
 Sitemap: https://echo.continental-hub.com/sitemap.xml

@@ -5,6 +5,7 @@ const http = require("node:http");
 const os = require("node:os");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
+const { findFreePort } = require("./helpers/free-port");
 
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -61,7 +62,7 @@ async function startCommunityServer() {
   const turnstile = await createTurnstileMock();
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-community-route-"));
   const dbPath = path.join(tempDir, "community.sqlite");
-  const port = 3620 + Math.floor(Math.random() * 200);
+  const port = await findFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
   const serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: projectRoot,

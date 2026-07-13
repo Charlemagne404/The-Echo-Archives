@@ -6,6 +6,13 @@
     "description": "A lean sci-fi survival pick for listeners who want tension, isolation, and an immediate sense of danger.",
     "cover": "shows/solar/solar.jpeg",
     "coverAlt": "Solar cover art",
+    "creators": [
+      "Chris Porter"
+    ],
+    "accent": {
+      "hex": "#cc5b42",
+      "rgb": "204, 91, 66"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -118,6 +125,13 @@
     "description": "A softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog.",
     "cover": "shows/story/story.jpg",
     "coverAlt": "Story cover art",
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "accent": {
+      "hex": "#976f48",
+      "rgb": "151, 111, 72"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -214,6 +228,13 @@
     "description": "A compact archive pick for listeners who want momentum, time-slip tension, and a cleaner sci-fi hook.",
     "cover": "shows/from now/fromnow.jpeg",
     "coverAlt": "From Now cover art",
+    "creators": [
+      "Rhys Wakefield and William Day Frank"
+    ],
+    "accent": {
+      "hex": "#8d413e",
+      "rgb": "141, 65, 62"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -323,6 +344,13 @@
     "description": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
     "cover": "shows/deca tapes/decatapes.jpeg",
     "coverAlt": "The Deca Tapes cover art",
+    "creators": [
+      "Lex Noteboom"
+    ],
+    "accent": {
+      "hex": "#6f5664",
+      "rgb": "111, 86, 100"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -418,6 +446,13 @@
     "description": "A darker catalog entry for listeners who want genre pressure more than comfort.",
     "cover": "shows/earth eclipsed/eartheclipsed.jpeg",
     "coverAlt": "Earth Eclipsed cover art",
+    "creators": [
+      "The Lunar Company"
+    ],
+    "accent": {
+      "hex": "#4e657c",
+      "rgb": "78, 101, 124"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -512,6 +547,13 @@
     "description": "A sci-fi archive entry that leans more toward exploration and forward motion than claustrophobic dread.",
     "cover": "shows/vast horizon/vasthorizon.jpeg",
     "coverAlt": "Vast Horizon cover art",
+    "creators": [
+      "K.A. Statz and Travis Vengroff"
+    ],
+    "accent": {
+      "hex": "#457693",
+      "rgb": "69, 118, 147"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -619,6 +661,13 @@
     "description": "One of the easier horror entries to recommend when someone wants ghosts, procedure, and mystery in the same lane.",
     "cover": "shows/how i died/howidied.jpeg",
     "coverAlt": "How I Died cover art",
+    "creators": [
+      "Vince Dajani"
+    ],
+    "accent": {
+      "hex": "#88506a",
+      "rgb": "136, 80, 106"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -722,6 +771,13 @@
     "description": "A more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci-fi.",
     "cover": "shows/windfall/windfall.jpeg",
     "coverAlt": "Windfall cover art",
+    "creators": [
+      "Rogue Dialogue Productions"
+    ],
+    "accent": {
+      "hex": "#8f3b3e",
+      "rgb": "143, 59, 62"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -830,6 +886,13 @@
     "description": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
     "cover": "shows/the waystation/waystation.jpeg",
     "coverAlt": "The Waystation cover art",
+    "creators": [
+      "Wired Cowslip"
+    ],
+    "accent": {
+      "hex": "#497f8a",
+      "rgb": "73, 127, 138"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -925,6 +988,13 @@
     "description": "One of the archive's foundational survival recommendations: pressure, group dynamics, and a bigger commitment that pays off.",
     "cover": "shows/were alive/WereAlive.jpeg",
     "coverAlt": "We're Alive cover art",
+    "creators": [
+      "Kc Wayland"
+    ],
+    "accent": {
+      "hex": "#7d4f3e",
+      "rgb": "125, 79, 62"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -1027,6 +1097,13 @@
     "description": "Endless winter, bunker survival, and just enough vampire politics to keep the whole thing nasty in the right way.",
     "cover": "shows/Impact Winter/Impact-winter.jpeg",
     "coverAlt": "Impact Winter cover art",
+    "creators": [
+      "Travis Beacham"
+    ],
+    "accent": {
+      "hex": "#851a28",
+      "rgb": "133, 26, 40"
+    },
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "inactive",
@@ -1139,6 +1216,13 @@
     "description": "Corporate deep-space nonsense, incompetent crew energy, and a review that admits the audience is stronger than the personal fit.",
     "cover": "shows/oz9/oz9.jpeg",
     "coverAlt": "Oz 9 cover art",
+    "creators": [
+      "Shannon Perry"
+    ],
+    "accent": {
+      "hex": "#07ac3e",
+      "rgb": "7, 172, 62"
+    },
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "active",
@@ -1251,6 +1335,13 @@
     "description": "Cold War intrigue, scientific paranoia, and one of the archive's smarter time-travel spirals.",
     "cover": "shows/ars paradoxica/ArsParadoxica.jpeg",
     "coverAlt": "Ars Paradoxica cover art",
+    "creators": [
+      "Mischa Stanton and Daniel Manning"
+    ],
+    "accent": {
+      "hex": "#217997",
+      "rgb": "33, 121, 151"
+    },
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "completed",
@@ -1377,6 +1468,13 @@
     "description": "A smart archive-adjacent mystery pick when you want science, secrecy, and a colder conceptual frame.",
     "cover": "shows/red valley/RedValley.jpeg",
     "coverAlt": "Red Valley cover art",
+    "creators": [
+      "Jonathan Williams and Alan Mandel"
+    ],
+    "accent": {
+      "hex": "#92605d",
+      "rgb": "146, 96, 93"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -1475,6 +1573,13 @@
     "description": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
     "cover": "shows/white-vault/WhiteVault.jpeg",
     "coverAlt": "The White Vault cover art",
+    "creators": [
+      "K.A. Statz and Travis Vengroff"
+    ],
+    "accent": {
+      "hex": "#6c7e89",
+      "rgb": "108, 126, 137"
+    },
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "active",
@@ -1588,6 +1693,13 @@
     "description": "A lighter archive pick for when you want jokes first and speculative stakes second.",
     "cover": "shows/eos10/EOS10.jpeg",
     "coverAlt": "EOS 10 cover art",
+    "creators": [
+      "Justin McLachlan"
+    ],
+    "accent": {
+      "hex": "#497b84",
+      "rgb": "73, 123, 132"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -1684,6 +1796,13 @@
     "description": "A good archive reset when everything else starts feeling too grim, too metallic, or too self-serious.",
     "cover": "shows/desert-skies/DesertSkies.jpeg",
     "coverAlt": "Desert Skies cover art",
+    "creators": [
+      "Jared Carter"
+    ],
+    "accent": {
+      "hex": "#ae7b4c",
+      "rgb": "174, 123, 76"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -1783,6 +1902,13 @@
     "description": "A dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later.",
     "cover": "shows/wolf359/Wolf359.jpeg",
     "coverAlt": "Wolf 359 cover art",
+    "creators": [
+      "Gabriel Urbina"
+    ],
+    "accent": {
+      "hex": "#728187",
+      "rgb": "114, 129, 135"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -1888,6 +2014,13 @@
     "description": "A strange little archive pick when you want comedy, confinement, and just enough pressure under the jokes.",
     "cover": "shows/station151/Station151.jpeg",
     "coverAlt": "Station 151 cover art",
+    "creators": [
+      "Andy Scearce and Steven James Scearce"
+    ],
+    "accent": {
+      "hex": "#5e7571",
+      "rgb": "94, 117, 113"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -1992,6 +2125,13 @@
     "description": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
     "cover": "shows/midnight burger/MidnightBurger.jpeg",
     "coverAlt": "Midnight Burger cover art",
+    "creators": [
+      "Joe Fisher"
+    ],
+    "accent": {
+      "hex": "#b26745",
+      "rgb": "178, 103, 69"
+    },
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "active",
@@ -2093,6 +2233,13 @@
     "description": "A lower-key archive mystery entry for listeners who want sci-fi atmosphere and uncertainty more than loud bombast.",
     "cover": "shows/spectre/Spectre.jpeg",
     "coverAlt": "Spectre cover art",
+    "creators": [
+      "Stef Howerton"
+    ],
+    "accent": {
+      "hex": "#61718c",
+      "rgb": "97, 113, 140"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -2187,6 +2334,13 @@
     "description": "A more severe survival entry for listeners who want fear, uncertainty, and pressure over character comfort.",
     "cover": "shows/the phenomenon/Phenomenon.jpeg",
     "coverAlt": "The Phenomenon cover art",
+    "creators": [
+      "Jared J. Smith"
+    ],
+    "accent": {
+      "hex": "#5a5e79",
+      "rgb": "90, 94, 121"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -2290,6 +2444,13 @@
     "description": "A browseable horror entry for listeners who want something paranormal, tense, and less sci-fi coded.",
     "cover": "shows/paralyzed/Paralyzed.jpeg",
     "coverAlt": "Paralyzed cover art",
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "accent": {
+      "hex": "#7e5a77",
+      "rgb": "126, 90, 119"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -2387,6 +2548,13 @@
     "description": "One of the archive's strongest high-intensity sci-fi picks when the user wants something serious, propulsive, and built to hit hard.",
     "cover": "shows/derelict/Derelict.jpeg",
     "coverAlt": "Derelict cover art",
+    "creators": [
+      "J. Barton Mitchell"
+    ],
+    "accent": {
+      "hex": "#4a6580",
+      "rgb": "74, 101, 128"
+    },
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "active",
@@ -2490,6 +2658,13 @@
     "description": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
     "cover": "shows/crystal-blue/CrystalBlue.jpeg",
     "coverAlt": "Crystal Blues cover art",
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "accent": {
+      "hex": "#6c6ea0",
+      "rgb": "108, 110, 160"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -2586,6 +2761,13 @@
     "description": "A survival-oriented archive entry for listeners who want threat, creatures, and forward motion more than elegance.",
     "cover": "shows/eoah/EOAH.jpeg",
     "coverAlt": "End of all Hope cover art",
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "accent": {
+      "hex": "#8d503f",
+      "rgb": "141, 80, 63"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -2684,6 +2866,13 @@
     "description": "A good archive browse pick when the listener wants something remote, watchful, and just a little unsettling.",
     "cover": "shows/towe4/Tower4.jpeg",
     "coverAlt": "Tower 4 cover art",
+    "creators": [
+      "7 Lamb Productions"
+    ],
+    "accent": {
+      "hex": "#7e6448",
+      "rgb": "126, 100, 72"
+    },
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -2783,6 +2972,9 @@
     "description": "A character-first science-fiction drama about therapy, power, secrecy, and the personal cost of being unusual in a world that wants to study you.",
     "cover": "images/covers/the-bright-sessions.jpg",
     "coverAlt": "The Bright Sessions cover art",
+    "creators": [
+      "Lauren Shippen"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -2857,6 +3049,9 @@
     "description": "A British comedy fiction series about dueling funeral directors, escalating grudges, and a village small enough for every petty disaster to feel personal.",
     "cover": "images/covers/wooden-overcoats.jpg",
     "coverAlt": "Wooden Overcoats cover art",
+    "creators": [
+      "Wooden Overcoats Ltd"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -2923,6 +3118,9 @@
     "description": "A serialized horror thriller about a truck driver crossing America in search of the wife she thought was dead, with conspiracies and not-quite-human dangers waiting along the road.",
     "cover": "images/covers/alice-isnt-dead.jpg",
     "coverAlt": "Alice Isn't Dead cover art",
+    "creators": [
+      "Joseph Fink"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -3003,6 +3201,9 @@
     "description": "A three-thread horror drama moving across centuries, using one haunting to connect women, memory, and long-range consequence.",
     "cover": "images/covers/mirrors.jpg",
     "coverAlt": "Mirrors cover art",
+    "creators": [
+      "ZoomDoom Stories"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3072,6 +3273,9 @@
     "description": "A long-running small-town horror drama about a boarding house, buried history, ghosts, and the people who slowly become each other's family.",
     "cover": "images/covers/unwell.jpg",
     "coverAlt": "Unwell cover art",
+    "creators": [
+      "Audacious Machine Creative"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3140,6 +3344,9 @@
     "description": "A reality-bending sci-fantasy audio drama in which three narrators guide the listener through a dangerous cosmos full of bad decisions, power structures, and gorgeous nonsense.",
     "cover": "images/covers/midst.jpg",
     "coverAlt": "Midst cover art",
+    "creators": [
+      "Third Person"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3211,6 +3418,9 @@
     "description": "A speculative anthology set inside a future social order where money, state, and god have fused into one governing force.",
     "cover": "images/covers/the-program-audio-series.jpg",
     "coverAlt": "The Program audio series cover art",
+    "creators": [
+      "IMS"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -3282,6 +3492,9 @@
     "description": "A horror serial following Arthur Lester, an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head.",
     "cover": "images/covers/malevolent.jpg",
     "coverAlt": "Malevolent cover art",
+    "creators": [
+      "Harlan Guthrie"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -3353,6 +3566,9 @@
     "description": "A scripted suspense series about a psychiatrist and a patient who claims to be from the future, turning therapeutic sessions into a time-loop crisis.",
     "cover": "images/covers/case-63.jpg",
     "coverAlt": "Case 63 cover art",
+    "creators": [
+      "Julio Rojas"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3426,6 +3642,9 @@
     "description": "A dark mystery series about a town full of rumors, disappearances, and the awful machinery hidden behind a local legend.",
     "cover": "images/covers/borrasca.jpg",
     "coverAlt": "Borrasca cover art",
+    "creators": [
+      "Rebecca Klingel"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3497,6 +3716,10 @@
     "description": "A fiction podcast about ghosts, hidden histories, and missed connections, told through intimate messages and a steadily deepening sense of the uncanny.",
     "cover": "images/covers/mabel.jpg",
     "coverAlt": "Mabel cover art",
+    "creators": [
+      "Becca De La Rosa",
+      "Mabel Martin"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3565,6 +3788,9 @@
     "description": "An archival horror series that starts with restored tapes and keeps widening into stranger rituals, cities, broadcasts, and buried histories.",
     "cover": "images/covers/archive-81.jpg",
     "coverAlt": "Archive 81 cover art",
+    "creators": [
+      "Dead Signals"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -3634,6 +3860,9 @@
     "description": "A suspense drama about an experimental facility, institutional manipulation, and the cost of trying to piece together a story that does not want to be told cleanly.",
     "cover": "images/covers/homecoming.jpg",
     "coverAlt": "Homecoming cover art",
+    "creators": [
+      "Gimlet Media"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -3706,6 +3935,10 @@
     "description": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
     "cover": "images/covers/welcome-to-night-vale.jpg",
     "coverAlt": "Welcome to Night Vale cover art",
+    "creators": [
+      "Joseph Fink",
+      "Jeffrey Cranor"
+    ],
     "status": "published",
     "reviewStatus": "full-review",
     "releaseStatus": "active",
@@ -3780,6 +4013,9 @@
     "description": "A full-cast Mars-colony drama about first-settlement optimism colliding with sabotage, AI pressure, and the feeling that every system can fail at once.",
     "cover": "images/covers/marsfall.jpg",
     "coverAlt": "Marsfall cover art",
+    "creators": [
+      "Marsfall LLC"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -3863,6 +4099,9 @@
     "description": "A postwar space-opera serial about a surviving smuggler crew, anti-imperial resistance, and the way a funny ensemble can still carry sharp political stakes.",
     "cover": "images/covers/the-strange-case-of-starship-iris.jpg",
     "coverAlt": "The Strange Case of Starship Iris cover art",
+    "creators": [
+      "Jessica Best"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -3945,6 +4184,9 @@
     "description": "A long-running black-comedy fiction podcast about a secret agency that stages fake deaths for clients who need to vanish and come back as someone else.",
     "cover": "images/covers/the-amelia-project.jpg",
     "coverAlt": "The Amelia Project cover art",
+    "creators": [
+      "Imploding Fictions"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -4026,6 +4268,9 @@
     "description": "A full-cast detective comedy set in an impossibly large 1887 London, balancing murder mystery plotting with brisk ensemble charm and world-sized absurdity.",
     "cover": "images/covers/victoriocity.jpg",
     "coverAlt": "Victoriocity cover art",
+    "creators": [
+      "Victoriocity"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -4107,6 +4352,9 @@
     "description": "A cheerful first-person travelogue through a strange galaxy, built around a protagonist who left home to chase wonder instead of status.",
     "cover": "images/covers/startripper.png",
     "coverAlt": "StarTripper!! cover art",
+    "creators": [
+      "StarTripper!!"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -4186,6 +4434,9 @@
     "description": "A BBC mystery-thriller series that reframes Lovecraft stories as contemporary investigative journalism, using podcast structure to make the paranoia feel immediate.",
     "cover": "images/covers/the-lovecraft-investigations.jpg",
     "coverAlt": "The Lovecraft Investigations cover art",
+    "creators": [
+      "Julian Simpson"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -4269,6 +4520,10 @@
     "description": "A compact horror serial about a cursed VHS tape, a missing-store legend, and the way media obsession becomes the path into something older and meaner.",
     "cover": "images/covers/video-palace.jpg",
     "coverAlt": "Video Palace cover art",
+    "creators": [
+      "Nick Braccia",
+      "Mike Monello"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4354,6 +4609,7 @@
     "description": "A faux-investigative mystery that uses public-radio reporting to pull listeners into a disappearance case that keeps widening into stranger and darker territory.",
     "cover": "images/covers/limetown.jpg",
     "coverAlt": "Limetown cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4420,6 +4676,7 @@
     "description": "A paranormal-investigation thriller built around skeptical inquiry, old recordings, and the slow realization that each case is tied to something much larger.",
     "cover": "images/covers/the-black-tapes.jpg",
     "coverAlt": "The Black Tapes cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -4487,6 +4744,7 @@
     "description": "A character-first sci-fi mystery about isolation, memory, and survival, anchored by a lone voice on a station where every answer raises a new problem.",
     "cover": "images/covers/girl-in-space.jpg",
     "coverAlt": "Girl in Space cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -4552,6 +4810,7 @@
     "description": "A fast, playful mystery set inside a retro theme park where understaffed chaos, class friction, and slasher energy all keep colliding.",
     "cover": "images/covers/mockery-manor.jpg",
     "coverAlt": "Mockery Manor cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -4617,6 +4876,7 @@
     "description": "A compact dystopian sci-fi drama about ecological memory, synthetic soundscapes, and what gets lost when a world forgets the feel of the natural one.",
     "cover": "images/covers/forest-404.jpg",
     "coverAlt": "Forest 404 cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4684,6 +4944,7 @@
     "description": "An expansive ensemble drama that turns alternate-history Boston into a place for civic absurdity, interpersonal fallout, and long-game character work.",
     "cover": "images/covers/greater-boston.jpg",
     "coverAlt": "Greater Boston cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -4749,6 +5010,7 @@
     "description": "A sprawling palace-intrigue drama built around power struggles, espionage, shifting loyalties, and the feeling that every victory is buying a larger disaster.",
     "cover": "images/covers/tumanbay.jpg",
     "coverAlt": "Tumanbay cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4815,6 +5077,7 @@
     "description": "A reverse-structured sci-fi horror story that uses mission logs, isolation, and xenoarchaeology to turn discovery into dread.",
     "cover": "images/covers/janus-descending.jpg",
     "coverAlt": "Janus Descending cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4881,6 +5144,7 @@
     "description": "A cult-haunted horror serial about memory loss, dangerous power, and the violent institutions circling a woman who woke up at the center of something awful.",
     "cover": "images/covers/spines-podcast.jpg",
     "coverAlt": "Spines cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -4946,6 +5210,7 @@
     "description": "A queer fantasy road-trip drama about monsters, found family, and the kind of hidden world that keeps getting bigger the farther you travel into it.",
     "cover": "images/covers/caravan.jpg",
     "coverAlt": "Caravan cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5011,6 +5276,7 @@
     "description": "A workplace sci-fi comedy about an abandoned-feeling space posting where boredom, incompetence, and actual danger keep arriving in the same package.",
     "cover": "images/covers/oblivity.png",
     "coverAlt": "Oblivity cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5076,6 +5342,7 @@
     "description": "A portal-fantasy epic that starts with genre familiarity and then digs into politics, class, war, and the limits of trying to fix a world you barely understand.",
     "cover": "images/covers/the-once-and-future-nerd.jpg",
     "coverAlt": "The Once and Future Nerd cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5141,6 +5408,7 @@
     "description": "A paranormal small-town comedy-drama framed through a late-night radio show, where local banter keeps mutating into something stranger and more emotional than the setup first suggests.",
     "cover": "images/covers/king-falls-am.png",
     "coverAlt": "King Falls AM cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -5207,6 +5475,7 @@
     "description": "A neon-chaotic comedy about five demons killing time in a suburban mall until their singer vanishes and the countdown to disaster starts moving faster.",
     "cover": "images/covers/brimstone-valley-mall.jpg",
     "coverAlt": "Brimstone Valley Mall cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5273,6 +5542,7 @@
     "description": "A melancholy mystery drama about a drifting musician, a strange town, and the emotional static that keeps surfacing through music, memory, and local secrets.",
     "cover": "images/covers/midnight-radio.png",
     "coverAlt": "Midnight Radio cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -5338,6 +5608,7 @@
     "description": "An ensemble spy comedy about the backup team no one wanted to call, and how quickly bureaucratic humiliation becomes a real mission.",
     "cover": "images/covers/mission-rejected.jpg",
     "coverAlt": "Mission Rejected cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -5405,6 +5676,7 @@
     "description": "A queer space-road-trip comedy about two repair workers trapped in a corporate nightmare that somehow still leaves room for affection, exhaustion, and good jokes.",
     "cover": "images/covers/we-fix-space-junk.jpg",
     "coverAlt": "We Fix Space Junk cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -5471,6 +5743,7 @@
     "description": "A supernatural small-town drama where cryptids, family pressure, and local secrets all feel personal before they feel mythic.",
     "cover": "images/covers/harbor.png",
     "coverAlt": "Harbor cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -5537,6 +5810,7 @@
     "description": "A conspiracy mystery built around a vanished plane, a reporter in over her head, and the growing sense that every answer has already been managed by someone else.",
     "cover": "images/covers/passenger-list.png",
     "coverAlt": "Passenger List cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -5603,6 +5877,7 @@
     "description": "A queer emotional sci-fi drama about a decommissioned moonbase, the people left awake to narrate its last days, and what survives when the official mission is already over.",
     "cover": "images/covers/moonbase-theta-out.jpg",
     "coverAlt": "Moonbase Theta, Out cover art",
+    "creators": [],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",

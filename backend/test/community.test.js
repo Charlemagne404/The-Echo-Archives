@@ -244,3 +244,44 @@ test("abuse hash events are pruned after the retention window", async () => {
     cleanupCommunityContext(context);
   }
 });
+
+test("community summary batches are capped before querying the store", async () => {
+  const context = await createCommunityContext({
+    serviceOptions: { maxSummaryIds: 1 },
+  });
+
+  try {
+    const result = context.community.getRatingSummaries({
+      podcastIds: "impact-winter,ars-paradoxica",
+      profileId: null,
+      userAgent: "test-agent",
+    });
+    assert.deepEqual(Object.keys(result.summaries), ["impact-winter"]);
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});
+
+test("community summary reads never create profiles for unrecognized client identifiers", async () => {
+  const context = await createCommunityContext({ minPublicRatings: 1 });
+
+  try {
+    const countProfiles = () => context.db.prepare("SELECT COUNT(*) AS count FROM community_profiles").get().count;
+    const beforeCount = countProfiles();
+
+    const byCookie = context.community.getRatingSummaries({
+      podcastIds: "impact-winter",
+      voterSecret: "forged-but-syntactically-valid-cookie-value",
+    });
+    const byHeader = context.community.getRatingSummaries({
+      podcastIds: "impact-winter",
+      profileId: "11111111-1111-1111-1111-111111111111",
+    });
+
+    assert.equal(byCookie.profileId, null);
+    assert.equal(byHeader.profileId, null);
+    assert.equal(countProfiles(), beforeCount);
+  } finally {
+    cleanupCommunityContext(context);
+  }
+});

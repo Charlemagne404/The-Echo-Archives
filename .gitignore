@@ -9,6 +9,7 @@ podcast-ai/data/*.sqlite
 podcast-ai/data/*.sqlite-*
 backend/data/*.sqlite
 backend/data/*.sqlite-*
+backend/data/backups/
 podcast-ai/.DS_Store
 backend/.DS_Store
 *.log

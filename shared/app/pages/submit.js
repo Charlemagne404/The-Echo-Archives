@@ -1,5 +1,5 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
-import { getPublishedShows, loadShows } from "../data.js";
+import { getPublishedShows, loadSearchIndex } from "../data.js";
 import { updateDocumentMetadata } from "../utils.js";
 import {
   MODE_CONFIG,
@@ -27,6 +27,7 @@ import { captureCurrentDraft } from "./submit/draft.js";
 import { getSubmitElements } from "./submit/elements.js";
 import { createSubmitUiController } from "./submit/ui.js";
 import { showToast } from "../toast.js";
+import { renderRouteErrorSurface } from "../route-error.js";
 
 export async function initializeSubmitPage() {
   updateDocumentMetadata({
@@ -41,7 +42,18 @@ export async function initializeSubmitPage() {
     return;
   }
 
-  const shows = getPublishedShows(await loadShows()).sort((left, right) => left.title.localeCompare(right.title));
+  let shows = [];
+  try {
+    shows = getPublishedShows(await loadSearchIndex()).sort((left, right) => left.title.localeCompare(right.title));
+  } catch (_error) {
+    elements.loadStatus.hidden = false;
+    renderRouteErrorSurface(elements.loadStatus, {
+      title: "Archive lookup is temporarily unavailable",
+      explanation: "You can still send a new-show submission. Corrections, listener reviews, and creator verification need the archive lookup to recover first.",
+      primaryAction: { href: "/help-center", label: "Get help" },
+      onRetry: () => window.location.reload(),
+    });
+  }
   const state = {
     activeMode: "show",
     searchOpen: false,

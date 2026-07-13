@@ -1,9 +1,8 @@
 function createRateLimitStore({ db }) {
   const statements = {
-    pruneScopeForClient: db.prepare(`
+    pruneExpiredScope: db.prepare(`
       DELETE FROM rate_limit_events
       WHERE scope = @scope
-        AND client_ip = @clientIp
         AND created_at_ms <= @cutoffMs
     `),
     listScopeForClient: db.prepare(`
@@ -21,7 +20,7 @@ function createRateLimitStore({ db }) {
 
   const consume = db.transaction(({ scope, clientIp, windowMs, maxEvents, createdAtMs }) => {
     const cutoffMs = createdAtMs - windowMs;
-    statements.pruneScopeForClient.run({ scope, clientIp, cutoffMs });
+    statements.pruneExpiredScope.run({ scope, cutoffMs });
 
     const activeRows = statements.listScopeForClient.all({ scope, clientIp });
     if (activeRows.length >= maxEvents) {
