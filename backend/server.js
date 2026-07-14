@@ -435,7 +435,7 @@ async function startServer() {
       return res.redirect(301, `${redirectPath}${search}`);
     });
 
-    app.get(["/contact", "/contact.html"], (_req, res) => res.redirect(301, CONTACT_URL));
+    app.get(["/contact", "/contact.html"], (_req, res) => res.redirect(302, CONTACT_URL));
 
     for (const routePath of PUBLIC_PAGE_FILES.keys()) {
       if (routePath === "/") continue;

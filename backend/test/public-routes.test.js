@@ -293,7 +293,7 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     assert.equal((await fetch(`${context.baseUrl}/offline.html`)).status, 200);
 
     const contact = await fetch(`${context.baseUrl}/contact`, { redirect: "manual" });
-    assert.equal(contact.status, 301);
+    assert.equal(contact.status, 302);
     assert.equal(contact.headers.get("location"), "https://contact.continental-hub.com/");
 
     const robots = await fetch(`${context.baseUrl}/robots.txt`);
