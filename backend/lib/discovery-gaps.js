@@ -198,14 +198,17 @@ function buildDiscoveryGapReport(catalog = [], collections = []) {
 
 function getGateBCriticalValidationErrors(catalog = [], collections = []) {
   const errors = [];
-  const publishedShowsWithOutOfRangeSimilarLinks = findPublishedShowsWithOutOfRangeSimilarLinks(catalog);
-  const publishedShowsMissingSimilarReasons = findPublishedShowsMissingSimilarReasons(catalog);
+  const editorialCatalog = (Array.isArray(catalog) ? catalog : []).filter(
+    (show) => ["full-review", "spotlight"].includes(show?.reviewStatus),
+  );
+  const publishedShowsWithOutOfRangeSimilarLinks = findPublishedShowsWithOutOfRangeSimilarLinks(editorialCatalog);
+  const publishedShowsMissingSimilarReasons = findPublishedShowsMissingSimilarReasons(editorialCatalog);
   const publishedShowsWithTooFewCollectionMemberships = findPublishedShowsWithTooFewCollectionMemberships(
-    catalog,
+    editorialCatalog,
     collections,
   );
-  const anchorShowsWithTooFewCollectionMemberships = findAnchorShowsWithTooFewCollectionMemberships(catalog, collections);
-  const publishedShowsMissingDiscoveryFields = findPublishedShowsMissingDiscoveryFields(catalog);
+  const anchorShowsWithTooFewCollectionMemberships = findAnchorShowsWithTooFewCollectionMemberships(editorialCatalog, collections);
+  const publishedShowsMissingDiscoveryFields = findPublishedShowsMissingDiscoveryFields(editorialCatalog);
   const routeCollectionsMissingShowReasons = findRouteCollectionsMissingShowReasons(collections);
 
   publishedShowsWithOutOfRangeSimilarLinks.forEach((show) => {

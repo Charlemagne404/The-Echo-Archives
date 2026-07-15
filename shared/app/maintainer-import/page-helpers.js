@@ -10,10 +10,11 @@ import { formatScopeStatus, formatSourceType, formatStatus } from "./format.js";
 export const IMPORT_FILTER_OPTIONS = {
   status: [
     ["", "All open"],
-    ["discovered", "Discovered"],
-    ["hydrated", "Hydrated"],
+    ["queued", "Queued"],
+    ["processing", "Processing"],
+    ["ready", "Ready"],
     ["needs-review", "Needs review"],
-    ["drafted", "Drafted"],
+    ["failed", "Failed"],
     ["published", "Published"],
     ["duplicate", "Duplicate"],
     ["rejected", "Rejected"],

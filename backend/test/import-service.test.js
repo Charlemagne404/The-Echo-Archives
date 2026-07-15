@@ -7,465 +7,342 @@ const path = require("node:path");
 const { openDatabase } = require("../lib/store/database");
 const { createImportService } = require("../lib/services/import-service");
 const { createImportStore } = require("../lib/store/import-store");
-const { readCatalogSource, writeCatalogSource } = require("../../tools/lib/catalog-source");
-const { readShowsFile, validateSiteData, writeShowsFile } = require("../scripts/review-helpers");
+const { readShowsFile } = require("../scripts/review-helpers");
+
+const repositoryRoot = path.resolve(__dirname, "../..");
+const coverBytes = fs.readFileSync(path.join(repositoryRoot, "images/covers/archive-81.jpg"));
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
 
-function createTempImportContext({ shows = [], collections = [], fetchImpl } = {}) {
-  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-import-"));
+function createTempImportContext({ shows = [], collections = [], fetchImpl, onPublished = null } = {}) {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-import-v2-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const siteRoot = path.join(tempDir, "site");
-
-  writeJson(path.join(siteRoot, "data", "shows.json"), shows);
-  writeJson(path.join(siteRoot, "data", "collections.json"), collections);
-
+  writeJson(path.join(siteRoot, "data/shows.json"), shows);
+  writeJson(path.join(siteRoot, "data/collections.json"), collections);
   const db = openDatabase(dbPath);
   const store = createImportStore({ db });
   const service = createImportService({
     store,
     staticRoot: siteRoot,
     config: {
+      DB_PATH: dbPath,
+      DATA_ROOT: tempDir,
       PODCAST_INDEX_API_KEY: "",
       PODCAST_INDEX_API_SECRET: "",
-      PODCAST_INDEX_USER_AGENT: "",
-      IMPORT_SUGGESTION_PROVIDER: "",
-      IMPORT_SUGGESTION_MODEL: "",
+      PODCAST_INDEX_USER_AGENT: "Echo Import Tests",
+      IMPORT_AUTO_WORKER: false,
+      IMPORT_FETCH_TIMEOUT_MS: 2_000,
+      IMPORT_DOCUMENT_MAX_BYTES: 2 * 1024 * 1024,
+      IMPORT_COVER_MAX_BYTES: 2 * 1024 * 1024,
     },
     fetchImpl,
+    onPublished,
   });
-
-  return {
-    db,
-    service,
-    siteRoot,
-    tempDir,
-  };
+  return { db, store, service, siteRoot, tempDir };
 }
 
-function cleanupTempImportContext(context) {
+function cleanup(context) {
+  context.service.stop();
   context.db.close();
   fs.rmSync(context.tempDir, { recursive: true, force: true });
 }
 
-function createShowRecord(id, title, similarTo = []) {
-  return {
-    id,
-    title,
-    description: `${title} archive description.`,
-    cover: "images/demo-cover.png",
-    coverAlt: `${title} cover art`,
+function appleEmptyResponse() {
+  return new Response(JSON.stringify({ resultCount: 0, results: [] }), {
+    status: 200,
+    headers: { "content-type": "application/json" },
+  });
+}
+
+function rssDocument({ title = "Signal Lost", website = "https://example.com/", feedUrl = "https://example.com/feed.xml", complete = false } = {}) {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+    <rss version="2.0"
+      xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+      xmlns:podcast="https://podcastindex.org/namespace/1.0">
+      <channel>
+        <title>${title}</title>
+        <link>${website}</link>
+        <itunes:author>Archive Studio</itunes:author>
+        <itunes:subtitle>Strange transmissions from a missing station.</itunes:subtitle>
+        <itunes:summary>A serialized fiction audio drama about a vanished research station.</itunes:summary>
+        <itunes:image href="https://example.com/cover.jpg" />
+        <language>en</language>
+        <itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category>
+        <itunes:type>serial</itunes:type>
+        ${complete ? "<podcast:complete>true</podcast:complete>" : ""}
+        <podcast:guid>4c4d1ac2-1ab3-42ad-8898-123456789abc</podcast:guid>
+        <podcast:person role="writer" group="creative">Alex Writer</podcast:person>
+        <podcast:funding url="https://example.com/support">Support the show</podcast:funding>
+        <item>
+          <guid>signal-1</guid><title>Episode 1</title>
+          <itunes:duration>00:30:00</itunes:duration><itunes:season>1</itunes:season>
+          <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+          <podcast:transcript url="https://example.com/transcripts/1.vtt" type="text/vtt" language="en" />
+        </item>
+        <item>
+          <guid>signal-bonus</guid><title>Behind the signal</title><itunes:episodeType>bonus</itunes:episodeType>
+          <pubDate>Mon, 02 Jun 2026 00:00:00 GMT</pubDate>
+        </item>
+      </channel>
+    </rss>`;
+}
+
+function sourceRichFetch({ conflictingWebsiteTitle = "" } = {}) {
+  return async (url) => {
+    const value = String(url);
+    if (value.startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
+    if (value === "https://example.com/feed.xml") {
+      return new Response(rssDocument(), { status: 200, headers: { "content-type": "application/rss+xml", etag: '"feed-v1"' } });
+    }
+    if (value === "https://example.com/" || value === "https://example.com") {
+      const structured = conflictingWebsiteTitle
+        ? `<script type="application/ld+json">${JSON.stringify({ "@type": "PodcastSeries", name: conflictingWebsiteTitle, description: "A serialized fiction audio drama about a vanished research station." })}</script>`
+        : "";
+      return new Response(`<!doctype html><html lang="en"><head>${structured}<title>Signal Lost</title></head><body><a href="https://open.spotify.com/show/abc123">Listen on Spotify</a><a href="https://podcasts.apple.com/us/podcast/id123456">Apple</a></body></html>`, {
+        status: 200,
+        headers: { "content-type": "text/html" },
+      });
+    }
+    if (value === "https://example.com/cover.jpg") {
+      return new Response(coverBytes, { status: 200, headers: { "content-type": "image/jpeg" } });
+    }
+    throw new Error(`Unexpected fetch URL: ${value}`);
+  };
+}
+
+test("seed upsert reuses exact identities and queues persistent work", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const first = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], actor: "CA" });
+    const second = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], actor: "CA" });
+    assert.equal(first.candidates[0].status, "queued");
+    assert.equal(second.candidateIds[0], first.candidateIds[0]);
+    assert.equal(context.service.listForMaintainer({ includeClosed: true }).total, 1);
+    assert.equal(context.service.getRun(second.runId).progress.total, 1);
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("exact Apple title discovery is confirmed by collection lookup and cached separately", async () => {
+  const baseFetch = sourceRichFetch();
+  let lookupCount = 0;
+  const appleResult = {
+    collectionId: 123456,
+    collectionName: "Signal Lost",
+    artistName: "Test Network",
+    collectionViewUrl: "https://podcasts.apple.com/us/podcast/signal-lost/id123456",
+    feedUrl: "https://example.com/feed.xml",
+    artworkUrl600: "https://example.com/cover.jpg",
+    genres: ["Fiction"],
+    kind: "podcast",
+  };
+  const context = createTempImportContext({
+    fetchImpl: async (url, init) => {
+      const value = String(url);
+      if (value.startsWith("https://itunes.apple.com/search")) {
+        return new Response(JSON.stringify({ resultCount: 1, results: [appleResult] }), { status: 200, headers: { "content-type": "application/json" } });
+      }
+      if (value.startsWith("https://itunes.apple.com/lookup")) {
+        lookupCount += 1;
+        return new Response(JSON.stringify({ resultCount: 1, results: [appleResult] }), { status: 200, headers: { "content-type": "application/json" } });
+      }
+      return baseFetch(url, init);
+    },
+  });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["Signal Lost"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.status, "ready");
+    assert.equal(lookupCount, 1);
+    assert.equal(candidate.sources.find((source) => source.sourceType === "apple").normalized.identityExact, true);
+    assert.ok(candidate.fieldEvidence.some((item) => item.fieldName === "appleCollectionId" && item.sourceType === "apple" && item.confidence === 0.9));
+    assert.ok(context.store.getSourceCache("apple-search", "signal-lost"));
+    assert.ok(context.store.getSourceCache("apple", "123456"));
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("a source-rich RSS import becomes review-and-publish ready and publishes without catalog editing", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], actor: "CA", autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.status, "ready");
+    assert.equal(candidate.readiness.ready, true);
+    assert.equal(candidate.preparedRecord.reviewStatus, "indexed-only");
+    assert.deepEqual(candidate.preparedRecord.tones, []);
+    assert.deepEqual(candidate.preparedRecord.similarTo, []);
+    assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
+    assert.equal(candidate.preparedRecord.length.episodes, 1);
+    assert.equal(candidate.preparedRecord.length.episodeCounts.bonus, 1);
+    assert.equal(candidate.preparedRecord.availability.transcripts, "1 observed episodes");
+    assert.equal(candidate.coverStage.width, 1200);
+    assert.equal(candidate.coverStage.echoPublishable, true);
+    assert.ok(candidate.fieldEvidence.some((item) => item.fieldName === "description" && item.confidence === 0.95));
+
+    const published = await context.service.publishForMaintainer(candidate.id, "CA");
+    assert.equal(published.candidate.status, "published");
+    assert.equal(published.buildCount, 1);
+    const record = readShowsFile(context.siteRoot).find((show) => show.id === published.showId);
+    assert.ok(record);
+    assert.equal(record.status, "published");
+    assert.match(record.verification.status, /source-reviewed/);
+    assert.equal(record.ratings.archive, undefined);
+    assert.ok(fs.existsSync(path.join(context.siteRoot, record.cover)));
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("high-confidence official disagreement blocks publication and exposes reviewer-selectable evidence", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch({ conflictingWebsiteTitle: "Signal Harbour" }) });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.status, "needs-review");
+    assert.ok(candidate.conflicts.some((conflict) => conflict.fieldName === "title" && conflict.blocking));
+    assert.ok(candidate.readiness.blockers.some((blocker) => blocker.code === "source-conflict"));
+    const rssTitle = candidate.fieldEvidence.find((item) => item.fieldName === "title" && item.sourceType === "rss");
+    const queued = context.service.selectEvidenceForMaintainer(candidate.id, "title", rssTitle.id, "CA");
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(queued.runId);
+    const resolved = context.service.getForMaintainer(candidate.id);
+    assert.equal(resolved.objective.title, "Signal Lost");
+    assert.equal(resolved.conflicts.some((conflict) => conflict.fieldName === "title"), false);
+    assert.equal(resolved.status, "ready");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("catalog update candidates preserve legacy and human-owned fields", async () => {
+  const existing = {
+    id: "signal-lost",
+    title: "Signal Lost",
+    subtitle: "Human subtitle",
+    description: "Human-polished factual description.",
+    cover: "images/covers/archive-81.jpg",
+    coverAlt: "Signal Lost art",
     status: "published",
     reviewStatus: "indexed-only",
-    releaseStatus: "completed",
-    completionStatus: "finished",
-    listenLinks: {},
-    genres: ["sci-fi"],
-    tones: ["dark"],
-    formats: ["full-cast"],
-    tags: ["Archive"],
-    ratings: {
-      archive: 8,
-    },
-    bestFor: ["easy-entry"],
-    similarTo,
-    similarReasons: Object.fromEntries(similarTo.map((neighborId) => [neighborId, `Close to ${neighborId}.`])),
-    archiveTake: `${title} is worth indexing.`,
-    spoilerFreeReview: "",
-    thoughts: "",
-    quote: {
-      text: "",
-      attribution: "",
-    },
+    releaseStatus: "unknown",
+    completionStatus: "unclear",
+    listenLinks: { rss: "https://example.com/feed.xml" },
+    genres: ["sci-fi"], tones: ["dark"], formats: ["serialized"], tags: ["Curated"],
+    ratings: { archive: 9 }, bestFor: ["late-night"], similarTo: [], similarReasons: {},
+    archiveTake: "Human archive take.", spoilerFreeReview: "", thoughts: "", quote: { text: "", attribution: "" },
+    officialLinks: {}, credits: {}, availability: {}, content: {}, metadata: {}, featured: true,
     updatedAt: "2026-06-30",
   };
-}
-
-function createBaselineCollections(showIds) {
-  return [
-    {
-      id: "baseline-route-one",
-      title: "Baseline Route One",
-      description: "First baseline route.",
-      showIds: [...showIds],
-      showReasons: Object.fromEntries(showIds.map((showId) => [showId, `${showId} reason one.`])),
-      updatedAt: "2026-06-30",
-    },
-    {
-      id: "baseline-route-two",
-      title: "Baseline Route Two",
-      description: "Second baseline route.",
-      showIds: [...showIds],
-      showReasons: Object.fromEntries(showIds.map((showId) => [showId, `${showId} reason two.`])),
-      updatedAt: "2026-06-30",
-    },
-  ];
-}
-
-test("import service seeds candidates and persists duplicate or scope review state", async () => {
-  const context = createTempImportContext();
-
+  const context = createTempImportContext({ shows: [existing], fetchImpl: sourceRichFetch() });
+  fs.mkdirSync(path.join(context.siteRoot, "images/covers"), { recursive: true });
+  fs.copyFileSync(path.join(repositoryRoot, "images/covers/archive-81.jpg"), path.join(context.siteRoot, existing.cover));
   try {
-    const seeded = await context.service.seedCandidates({
-      entries: ["Signal Lost"],
-      actor: "CA",
-    });
-    assert.equal(seeded.candidates.length, 1);
-    assert.equal(seeded.candidates[0].status, "discovered");
-
-    const reviewed = context.service.reviewForMaintainer(
-      seeded.candidates[0].id,
-      {
-        status: "duplicate",
-        scopeStatus: "borderline",
-        duplicateOfShowId: "signal-lost",
-        reviewNotes: "Same feed already exists in the archive.",
-        reviewedBy: "CA",
-      },
-      "CA",
-    );
-
-    assert.equal(reviewed.status, "duplicate");
-    assert.equal(reviewed.scopeStatus, "borderline");
-    assert.equal(reviewed.duplicateOfShowId, "signal-lost");
-    assert.match(reviewed.reviewNotes, /same feed/i);
-    assert.equal(context.service.listForMaintainer({ includeClosed: true }).total, 1);
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.mode, "update");
+    assert.equal(candidate.existingShowId, existing.id);
+    assert.equal(candidate.status, "ready");
+    assert.equal(candidate.preparedRecord.description, existing.description);
+    assert.deepEqual(candidate.preparedRecord.ratings, existing.ratings);
+    assert.equal(candidate.preparedRecord.archiveTake, existing.archiveTake);
+    assert.ok(candidate.lockedFields.includes("description"));
+    await context.service.publishForMaintainer(candidate.id, "CA");
+    const updated = readShowsFile(context.siteRoot).find((show) => show.id === existing.id);
+    assert.deepEqual(updated.ratings, existing.ratings);
+    assert.equal(updated.archiveTake, existing.archiveTake);
+    assert.deepEqual(updated.tones, existing.tones);
   } finally {
-    cleanupTempImportContext(context);
+    cleanup(context);
   }
 });
 
-test("import service hydrates candidates from Apple search and RSS metadata", async () => {
+test("permanent source failures finish with explicit readiness blockers instead of invented metadata", async () => {
+  const context = createTempImportContext({
+    fetchImpl: async () => new Response("missing", { status: 404, headers: { "content-type": "text/plain" } }),
+  });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/missing.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    assert.equal(candidate.status, "needs-review");
+    assert.ok(candidate.sourceHealth.errors.some((error) => error.retryable === false));
+    assert.ok(candidate.readiness.blockers.some((blocker) => blocker.code === "weak-description"));
+    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA"), /not ready to publish/i);
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("failed publication rolls authored and generated catalog data back and leaves the candidate ready", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    context.store.updateCandidate(candidate.id, { preparedRecord: { ...candidate.preparedRecord, title: "" } });
+    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA"), /title/i);
+    assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
+    assert.equal(readShowsFile(context.siteRoot).some((show) => show.id === candidate.preparedRecord.id), false);
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("failed post-build reload rolls publication back before identities are bound", async () => {
+  const context = createTempImportContext({
+    fetchImpl: sourceRichFetch(),
+    onPublished: async () => {
+      throw new Error("simulated runtime reload failure");
+    },
+  });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA"), /runtime reload failure/i);
+    assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
+    assert.equal(readShowsFile(context.siteRoot).some((show) => show.id === candidate.preparedRecord.id), false);
+    assert.equal(context.store.findIdentity("rss-url", "https://example.com/feed.xml").existingShowId, "");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("batch publication requires individual review and performs one catalog build", async () => {
   const fetchImpl = async (url) => {
     const value = String(url);
-
-    if (value.startsWith("https://itunes.apple.com/search")) {
-      return new Response(
-        JSON.stringify({
-          results: [
-            {
-              collectionId: 123456,
-              collectionName: "Signal Lost",
-              artistName: "Archive Studio",
-              description: "A serialized fiction mystery.",
-              collectionViewUrl: "https://podcasts.apple.com/us/podcast/signal-lost/id123456",
-              feedUrl: "https://example.com/feed.xml",
-              artworkUrl600: "https://example.com/cover.jpg",
-              genres: ["Fiction", "Drama"],
-              primaryGenreName: "Fiction",
-            },
-          ],
-        }),
-        {
-          status: 200,
-          headers: {
-            "content-type": "application/json",
-          },
-        },
-      );
+    if (value.startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
+    const feedMatch = value.match(/^https:\/\/(one|two)\.example\.com\/feed\.xml$/);
+    if (feedMatch) {
+      const number = feedMatch[1] === "one" ? "One" : "Two";
+      const guid = feedMatch[1] === "one" ? "11111111-1111-4111-8111-111111111111" : "22222222-2222-4222-8222-222222222222";
+      return new Response(`<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0"><channel><title>Signal ${number}</title><link>https://${feedMatch[1]}.example.com/</link><description>A fiction audio drama for batch publication.</description><language>en</language><itunes:category text="Fiction"/><itunes:image href="https://${feedMatch[1]}.example.com/cover.jpg"/><podcast:guid>${guid}</podcast:guid><item><title>Episode</title><pubDate>2026-06-01T00:00:00Z</pubDate></item></channel></rss>`, {
+        status: 200, headers: { "content-type": "application/rss+xml" },
+      });
     }
-
-    if (value === "https://example.com/feed.xml") {
-      return new Response(
-        `<?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-          <channel>
-            <title>Signal Lost</title>
-            <itunes:author>Archive Studio</itunes:author>
-            <itunes:summary>Fiction audio drama about a vanished station.</itunes:summary>
-            <itunes:image href="https://example.com/cover.jpg" />
-            <language>en</language>
-            <itunes:category text="Fiction" />
-            <item><title>Episode 1</title><pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate></item>
-          </channel>
-        </rss>`,
-        {
-          status: 200,
-          headers: {
-            "content-type": "application/rss+xml",
-          },
-        },
-      );
-    }
-
+    if (/^https:\/\/(one|two)\.example\.com\/?$/.test(value)) return new Response("<!doctype html><title>Signal</title>", { status: 200, headers: { "content-type": "text/html" } });
+    if (/^https:\/\/(one|two)\.example\.com\/cover\.jpg$/.test(value)) return new Response(coverBytes, { status: 200, headers: { "content-type": "image/jpeg" } });
     throw new Error(`Unexpected fetch URL: ${value}`);
   };
-
   const context = createTempImportContext({ fetchImpl });
-
   try {
     const seeded = await context.service.seedCandidates({
-      entries: ["Signal Lost"],
-      actor: "CA",
-    });
-    const hydrated = await context.service.hydrateForMaintainer(seeded.candidates[0].id, "CA");
-
-    assert.equal(hydrated.status, "hydrated");
-    assert.equal(hydrated.scopeStatus, "in-scope");
-    assert.equal(hydrated.objective.title, "Signal Lost");
-    assert.equal(hydrated.objective.creatorName, "Archive Studio");
-    assert.equal(hydrated.objective.rssUrl, "https://example.com/feed.xml");
-    assert.deepEqual(hydrated.sources.map((source) => source.sourceType), ["rss", "apple"]);
-  } finally {
-    cleanupTempImportContext(context);
-  }
-});
-
-test("import service writes drafts, blocks invalid publish attempts, and promotes publish-ready drafts", async () => {
-  const showIds = ["alpha-show", "beta-show", "gamma-show", "delta-show"];
-  const shows = showIds.map((showId) =>
-    createShowRecord(showId, showId.replace(/-/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()), showIds.filter((id) => id !== showId)),
-  );
-  const collections = createBaselineCollections(showIds);
-  const context = createTempImportContext({ shows, collections });
-
-  try {
-    const seeded = await context.service.seedCandidates({
-      entries: ["Fresh Import"],
-      actor: "CA",
-    });
-    const draftResult = await context.service.draftForMaintainer(seeded.candidates[0].id, "CA");
-    const draftShowId = draftResult.showId;
-    let writtenShows = readShowsFile(context.siteRoot);
-    const draftedShow = writtenShows.find((show) => show.id === draftShowId);
-
-    assert.ok(draftedShow);
-    assert.equal(draftedShow.status, "draft");
-    assert.equal(draftedShow.ratings.archive, undefined);
-
-    await assert.rejects(
-      context.service.publishForMaintainer(seeded.candidates[0].id, "CA"),
-      /ratings\.archive|Gate B validation failed/i,
-    );
-
-    writtenShows = readShowsFile(context.siteRoot);
-    assert.equal(writtenShows.find((show) => show.id === draftShowId)?.status, "draft");
-    const generatedShowsAfterRollback = JSON.parse(
-      fs.readFileSync(path.join(context.siteRoot, "data", "shows.json"), "utf8"),
-    );
-    assert.equal(generatedShowsAfterRollback.find((show) => show.id === draftShowId), undefined);
-
-    const publishReadyShows = writtenShows.map((show) => {
-      if (show.id !== draftShowId) {
-        return show;
-      }
-
-      return {
-        ...show,
-        ratings: {
-          archive: 7,
-        },
-        tones: ["dark"],
-        formats: ["full-cast"],
-        bestFor: ["easy-entry"],
-        similarTo: ["alpha-show", "beta-show", "gamma-show"],
-        similarReasons: {
-          "alpha-show": "Shares the same closed-system sci-fi tension.",
-          "beta-show": "Leans on the same atmospheric character focus.",
-          "gamma-show": "Feels similarly serialized and immersive.",
-        },
-      };
-    });
-    writeShowsFile(context.siteRoot, publishReadyShows);
-
-    const publishReadyCollections = createBaselineCollections([...showIds, draftShowId]);
-    const sourceData = readCatalogSource(context.siteRoot);
-    writeCatalogSource(
-      context.siteRoot,
-      {
-        ...sourceData,
-        collections: publishReadyCollections,
-      },
-      { mode: sourceData.mode },
-    );
-
-    await validateSiteData(context.siteRoot);
-
-    const published = await context.service.publishForMaintainer(seeded.candidates[0].id, "CA");
-    assert.equal(published.candidate.status, "published");
-    assert.equal(published.showId, draftShowId);
-
-    const finalShows = readShowsFile(context.siteRoot);
-    assert.equal(finalShows.find((show) => show.id === draftShowId)?.status, "published");
-  } finally {
-    cleanupTempImportContext(context);
-  }
-});
-
-test("import drafts carry forward richer hydrated metadata without auto-publishing", async () => {
-  const fetchImpl = async (url) => {
-    const value = String(url);
-
-    if (value.startsWith("https://itunes.apple.com/search")) {
-      return new Response(
-        JSON.stringify({
-          results: [
-            {
-              collectionId: 456789,
-              collectionName: "Signal Harbor",
-              artistName: "Archive Studio",
-              description: "An archive mystery by the coast.",
-              collectionViewUrl: "https://podcasts.apple.com/us/podcast/signal-harbor/id456789",
-              feedUrl: "https://example.com/signal-harbor.xml",
-              artworkUrl600: "https://example.com/signal-harbor.jpg",
-              genres: ["Fiction", "Mystery"],
-              primaryGenreName: "Fiction",
-            },
-          ],
-        }),
-        {
-          status: 200,
-          headers: {
-            "content-type": "application/json",
-          },
-        },
-      );
-    }
-
-    if (value === "https://example.com/signal-harbor.xml") {
-      return new Response(
-        `<?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-          <channel>
-            <title>Signal Harbor</title>
-            <itunes:author>Archive Studio</itunes:author>
-            <itunes:subtitle>Mystery calls from a locked harbor.</itunes:subtitle>
-            <itunes:summary>A serialized coastal fiction mystery.</itunes:summary>
-            <itunes:image href="https://example.com/signal-harbor.jpg" />
-            <language>en</language>
-            <itunes:category text="Fiction" />
-            <itunes:category text="Mystery" />
-            <itunes:type>serial</itunes:type>
-            <itunes:complete>yes</itunes:complete>
-            <item>
-              <title>Episode 1</title>
-              <itunes:duration>00:30:00</itunes:duration>
-              <itunes:season>1</itunes:season>
-              <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            </item>
-            <item>
-              <title>Episode 2</title>
-              <itunes:duration>00:27:00</itunes:duration>
-              <itunes:season>1</itunes:season>
-              <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
-            </item>
-          </channel>
-        </rss>`,
-        {
-          status: 200,
-          headers: {
-            "content-type": "application/rss+xml",
-          },
-        },
-      );
-    }
-
-    throw new Error(`Unexpected fetch URL: ${value}`);
-  };
-
-  const context = createTempImportContext({ fetchImpl });
-
-  try {
-    const seeded = await context.service.seedCandidates({
-      entries: ["Signal Harbor"],
-      actor: "CA",
+      entries: ["https://one.example.com/feed.xml", "https://two.example.com/feed.xml"],
       autoHydrate: true,
     });
-    const draftResult = await context.service.draftForMaintainer(seeded.candidates[0].id, "CA");
-    const draftedShow = readShowsFile(context.siteRoot).find((show) => show.id === draftResult.showId);
-
-    assert.ok(draftedShow);
-    assert.equal(draftedShow.subtitle, "Mystery calls from a locked harbor.");
-    assert.equal(draftedShow.completionStatus, "finished");
-    assert.deepEqual(draftedShow.formats, ["serialized", "limited-series"]);
-    assert.equal(draftedShow.length.episodes, 2);
-    assert.equal(draftedShow.length.avgEpisodeMinutes, 29);
-    assert.equal(draftedShow.releaseDates.first, "2026-06-01");
-    assert.equal(draftedShow.releaseDates.latest, "2026-06-08");
+    const candidates = seeded.candidateIds.map((id) => context.service.getForMaintainer(id));
+    assert.ok(candidates.every((candidate) => candidate.status === "ready"));
+    await assert.rejects(context.service.batchPublishForMaintainer(seeded.candidateIds, "CA"), /individually reviewed/i);
+    seeded.candidateIds.forEach((id) => context.service.reviewForMaintainer(id, { status: "ready", reviewedBy: "CA" }, "CA"));
+    const result = await context.service.batchPublishForMaintainer(seeded.candidateIds, "CA");
+    assert.equal(result.buildCount, 1);
+    assert.equal(result.showIds.length, 2);
+    assert.equal(readShowsFile(context.siteRoot).length, 2);
   } finally {
-    cleanupTempImportContext(context);
-  }
-});
-
-test("import service can auto-hydrate new candidates during seed intake", async () => {
-  const fetchImpl = async (url) => {
-    const value = String(url);
-
-    if (value.startsWith("https://itunes.apple.com/search")) {
-      return new Response(
-        JSON.stringify({
-          results: [
-            {
-              collectionId: 789123,
-              collectionName: "The Signal House",
-              artistName: "Signal Collective",
-              description: "A tense fiction series.",
-              collectionViewUrl: "https://podcasts.apple.com/us/podcast/the-signal-house/id789123",
-              feedUrl: "https://example.com/the-signal-house.xml",
-              artworkUrl600: "https://example.com/signal-house.jpg",
-              genres: ["Fiction", "Drama"],
-              primaryGenreName: "Fiction",
-            },
-          ],
-        }),
-        {
-          status: 200,
-          headers: {
-            "content-type": "application/json",
-          },
-        },
-      );
-    }
-
-    if (value === "https://example.com/the-signal-house.xml") {
-      return new Response(
-        `<?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-          <channel>
-            <title>The Signal House</title>
-            <itunes:author>Signal Collective</itunes:author>
-            <itunes:summary>Tense fiction from a strange station.</itunes:summary>
-            <itunes:subtitle>Strange station transmissions.</itunes:subtitle>
-            <itunes:image href="https://example.com/signal-house.jpg" />
-            <language>en</language>
-            <itunes:category text="Fiction" />
-            <itunes:type>serial</itunes:type>
-            <item>
-              <title>Episode 1</title>
-              <itunes:duration>00:24:00</itunes:duration>
-              <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
-            </item>
-          </channel>
-        </rss>`,
-        {
-          status: 200,
-          headers: {
-            "content-type": "application/rss+xml",
-          },
-        },
-      );
-    }
-
-    throw new Error(`Unexpected fetch URL: ${value}`);
-  };
-
-  const context = createTempImportContext({ fetchImpl });
-
-  try {
-    const seeded = await context.service.seedCandidates({
-      entries: ["The Signal House"],
-      actor: "CA",
-      autoHydrate: true,
-    });
-
-    assert.equal(seeded.hydratedCount, 1);
-    assert.equal(seeded.candidates[0].status, "hydrated");
-    assert.equal(seeded.candidates[0].objective.feedType, "serial");
-    assert.equal(seeded.candidates[0].objective.subtitle, "Strange station transmissions.");
-  } finally {
-    cleanupTempImportContext(context);
+    cleanup(context);
   }
 });

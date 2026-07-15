@@ -1,7 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 
-const { fetchTextWithLimits } = require("../lib/import/fetch");
+const { assertSafeRemoteUrl, fetchTextWithLimits } = require("../lib/import/fetch");
 const { createTurnstileService } = require("../lib/services/turnstile-service");
 
 function abortableNeverFetch(_url, init = {}) {
@@ -50,6 +50,13 @@ test("bounded import fetches reject oversized and timed-out responses", async ()
       }),
     /timed out after 20ms/i,
   );
+});
+
+test("import fetch safety rejects private-network and credentialed URLs before fetching", async () => {
+  for (const url of ["http://127.0.0.1/feed", "http://[::1]/feed", "http://169.254.169.254/latest", "https://user:pass@example.com/feed", "file:///tmp/feed.xml"]) {
+    await assert.rejects(() => assertSafeRemoteUrl(url, { resolveDns: false }), /unsafe|private-network/i);
+  }
+  await assert.doesNotReject(() => assertSafeRemoteUrl("https://example.com/feed.xml", { resolveDns: false }));
 });
 
 test("Turnstile verification fails closed with a bounded service-unavailable response", async () => {

@@ -119,6 +119,38 @@ export async function hydrateMaintainerImportCandidate(id, payload = {}) {
   });
 }
 
+export async function fetchMaintainerImportRun(runId) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/runs/${encodeURIComponent(runId)}`);
+}
+
+export async function retryMaintainerImportCandidate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/retry`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function selectMaintainerImportEvidence(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/evidence`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function auditMaintainerImportCatalog(payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/audit`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function batchPublishMaintainerImports(payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/batch-publish`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function patchMaintainerImportCandidateReview(id, updates = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/review`, {
     method: "PATCH",

@@ -1,38 +1,42 @@
-const {
-  createAppleAdapter,
-} = require("../import/adapters/apple");
-const {
-  createPodcastIndexAdapter,
-} = require("../import/adapters/podcast-index");
-const {
-  createRssAdapter,
-} = require("../import/adapters/rss");
-const {
-  createWebsiteAdapter,
-} = require("../import/adapters/website");
+const fs = require("node:fs");
+const path = require("node:path");
+const { randomUUID } = require("node:crypto");
+
+const { createAppleAdapter } = require("../import/adapters/apple");
+const { createPodcastIndexAdapter } = require("../import/adapters/podcast-index");
+const { createRssAdapter } = require("../import/adapters/rss");
+const { createWebsiteAdapter } = require("../import/adapters/website");
+const { inspectCoverBuffer, promoteStagedCover, stageCover } = require("../import/cover-stage");
 const { buildDedupeMatches } = require("../import/dedupe");
-const { buildDraftShowRecord } = require("../import/draft");
-const { createSuggestionService } = require("../import/suggestion-service");
+const { buildPreparedShowRecord, evaluateReadiness } = require("../import/draft");
+const { mergePreparedWithExisting } = require("../import/managed-fields");
+const { resolveSourceFacts } = require("../import/resolution");
 const {
   DEFAULT_IMPORT_USER_AGENT,
   IMPORT_CANDIDATE_STATUSES,
   IMPORT_OPEN_STATUSES,
   IMPORT_SCOPE_STATUSES,
-  buildResearchGaps,
   cleanDescription,
   detectSeedEntry,
-  firstNonEmpty,
-  mapCategoryToGenre,
+  extractAppleCollectionId,
   mergeUniqueStrings,
   normalizeTitleCreatorKey,
   normalizeUrl,
-  parseDateValue,
   slugify,
-  toDateStamp,
   trimText,
 } = require("../import/utils");
-const { readShowsFile, validateSiteData, writeShowsFile } = require("../../scripts/review-helpers");
+const { readShowsFile, validateSiteData } = require("../../scripts/review-helpers");
 const { buildCatalog } = require("../../../tools/build-catalog");
+const { writeShowRecordsAtomically } = require("../../../tools/lib/catalog-source");
+
+const PIPELINE_VERSION = "2.0";
+const IDENTITY_FIELDS = [
+  ["podcast-guid", "podcastGuid"],
+  ["rss-url", "rssUrl"],
+  ["apple-id", "appleCollectionId"],
+  ["podcast-index-id", "podcastIndexFeedId"],
+  ["website-url", "websiteUrl"],
+];
 
 function ensureValidStatus(value = "") {
   const status = trimText(value, 80);
@@ -41,7 +45,6 @@ function ensureValidStatus(value = "") {
     error.statusCode = 400;
     throw error;
   }
-
   return status;
 }
 
@@ -52,370 +55,183 @@ function ensureValidScopeStatus(value = "") {
     error.statusCode = 400;
     throw error;
   }
-
   return scopeStatus;
-}
-
-function normalizeSearchSource(value = "") {
-  const source = trimText(value, 80).toLowerCase();
-  return ["apple", "podcast-index", "all"].includes(source) ? source : "all";
-}
-
-function pickBestAppleSearchResult(results = [], { title = "", creatorName = "" } = {}) {
-  const normalizedTitle = slugify(title);
-  const normalizedCreator = slugify(creatorName);
-
-  return [...results]
-    .map((result) => {
-      let score = 0;
-      const resultTitle = slugify(result.normalized?.title || "");
-      const resultCreator = slugify(result.normalized?.creatorName || "");
-
-      if (normalizedTitle && resultTitle === normalizedTitle) {
-        score += 100;
-      } else if (normalizedTitle && resultTitle.includes(normalizedTitle)) {
-        score += 50;
-      }
-
-      if (normalizedCreator && resultCreator === normalizedCreator) {
-        score += 60;
-      } else if (normalizedCreator && resultCreator.includes(normalizedCreator)) {
-        score += 30;
-      }
-
-      if (!normalizedCreator && result.normalized?.creatorName) {
-        score += 10;
-      }
-
-      return {
-        score,
-        result,
-      };
-    })
-    .sort((left, right) => right.score - left.score)[0]?.result || results[0] || null;
-}
-
-function buildSearchResultPayload(sourceResult = {}) {
-  return {
-    sourceType: sourceResult.sourceType || "",
-    sourceKey: sourceResult.sourceKey || "",
-    sourceUrl: sourceResult.sourceUrl || "",
-    title: trimText(sourceResult.normalized?.title || "", 240),
-    creatorName: trimText(sourceResult.normalized?.creatorName || "", 240),
-    objective: {
-      ...sourceResult.normalized,
-      objectiveSources: mergeUniqueStrings([sourceResult.sourceUrl || ""]),
-      categories: mergeUniqueStrings(
-        sourceResult.normalized?.categories || [],
-        sourceResult.normalized?.genreHints || [],
-      ),
-    },
-  };
-}
-
-function buildInitialCandidatePayload(seed = {}) {
-  const objectiveSeed = seed.objective && typeof seed.objective === "object" ? seed.objective : {};
-  const objective = {
-    title: trimText(objectiveSeed.title || seed.title || "", 240),
-    subtitle: trimText(objectiveSeed.subtitle || seed.subtitle || "", 240),
-    creatorName: trimText(objectiveSeed.creatorName || seed.creatorName || "", 240),
-    rssUrl: trimText(objectiveSeed.rssUrl || seed.rssUrl || "", 500),
-    appleUrl: trimText(objectiveSeed.appleUrl || seed.appleUrl || "", 500),
-    appleCollectionId: trimText(objectiveSeed.appleCollectionId || seed.appleCollectionId || "", 80),
-    websiteUrl: trimText(objectiveSeed.websiteUrl || seed.websiteUrl || "", 500),
-    description: cleanDescription(objectiveSeed.description || seed.description || "", 1200),
-    artworkUrl: trimText(objectiveSeed.artworkUrl || seed.artworkUrl || "", 500),
-    genreHints: mergeUniqueStrings(objectiveSeed.genreHints || seed.genreHints || []),
-    categories: mergeUniqueStrings(objectiveSeed.categories || seed.categories || []),
-    spotifyUrl: trimText(objectiveSeed.spotifyUrl || seed.spotifyUrl || "", 500),
-    patreonUrl: trimText(objectiveSeed.patreonUrl || seed.patreonUrl || "", 500),
-    discordUrl: trimText(objectiveSeed.discordUrl || seed.discordUrl || "", 500),
-    youtubeUrl: trimText(objectiveSeed.youtubeUrl || seed.youtubeUrl || "", 500),
-    networkName: trimText(objectiveSeed.networkName || seed.networkName || "", 240),
-    objectiveSources: mergeUniqueStrings(
-      [
-        objectiveSeed.rssUrl,
-        objectiveSeed.appleUrl,
-        objectiveSeed.websiteUrl,
-        seed.rssUrl,
-        seed.appleUrl,
-        seed.websiteUrl,
-        seed.sourceUrl,
-      ].filter(Boolean),
-    ),
-  };
-
-  return {
-    status: "discovered",
-    scopeStatus: "in-scope",
-    title: objective.title || trimText(seed.titleQuery || seed.seedQuery || seed.rawValue || "", 240),
-    creatorName: objective.creatorName,
-    canonicalId: slugify(objective.title || seed.titleQuery || ""),
-    primarySourceType: seed.sourceType || seed.seedType || "",
-    primarySourceKey: trimText(seed.sourceKey || seed.appleCollectionId || "", 240),
-    primarySourceUrl: trimText(seed.sourceUrl || seed.rssUrl || seed.appleUrl || seed.websiteUrl || "", 500),
-    seedQuery: trimText(seed.seedQuery || seed.titleQuery || seed.rawValue || "", 500),
-    objective,
-    provenance: {
-      fields: {},
-      sourceErrors: [],
-    },
-    aiSuggestions: {},
-    dedupe: {},
-  };
-}
-
-function addFieldProvenance(provenance, fieldName, source, value) {
-  const normalizedValue = typeof value === "string" ? trimText(value, 500) : value;
-  if (
-    normalizedValue === "" ||
-    normalizedValue === null ||
-    normalizedValue === undefined ||
-    (Array.isArray(normalizedValue) && normalizedValue.length === 0)
-  ) {
-    return;
-  }
-
-  if (!provenance.fields[fieldName]) {
-    provenance.fields[fieldName] = [];
-  }
-
-  provenance.fields[fieldName].push({
-    sourceType: source.sourceType,
-    sourceKey: source.sourceKey,
-    sourceUrl: source.sourceUrl,
-    value: normalizedValue,
-  });
-}
-
-function mergeObjectiveField(target, fieldName, source, sourceValue, options = {}) {
-  if (
-    sourceValue === "" ||
-    sourceValue === null ||
-    sourceValue === undefined ||
-    (Array.isArray(sourceValue) && sourceValue.length === 0)
-  ) {
-    return;
-  }
-
-  if (Array.isArray(sourceValue)) {
-    target[fieldName] = mergeUniqueStrings(target[fieldName] || [], sourceValue);
-  } else if (
-    options.replace ||
-    !target[fieldName] ||
-    (typeof target[fieldName] === "string" && !trimText(target[fieldName]))
-  ) {
-    target[fieldName] = sourceValue;
-  }
-
-  addFieldProvenance(target.__provenance, fieldName, source, sourceValue);
-}
-
-function mergeObjectiveData(baseObjective = {}, sources = []) {
-  const target = {
-    ...baseObjective,
-    __provenance: {
-      fields: {},
-      sourceErrors: Array.isArray(baseObjective.__sourceErrors) ? baseObjective.__sourceErrors : [],
-    },
-  };
-
-  const order = ["apple", "website", "podcast-index", "rss"];
-  const orderedSources = [...sources].sort(
-    (left, right) => order.indexOf(left.sourceType) - order.indexOf(right.sourceType),
-  );
-
-  orderedSources.forEach((source) => {
-    const normalized = source.normalized || {};
-    mergeObjectiveField(target, "title", source, trimText(normalized.title, 240), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "subtitle", source, trimText(normalized.subtitle, 240), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "creatorName", source, trimText(normalized.creatorName, 240), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "description", source, cleanDescription(normalized.description || "", 1200), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "rssUrl", source, normalizeUrl(normalized.rssUrl || ""), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "appleUrl", source, normalizeUrl(normalized.appleUrl || ""));
-    mergeObjectiveField(target, "appleCollectionId", source, trimText(normalized.appleCollectionId, 80));
-    mergeObjectiveField(target, "websiteUrl", source, normalizeUrl(normalized.websiteUrl || ""), {
-      replace: source.sourceType === "website",
-    });
-    mergeObjectiveField(target, "artworkUrl", source, normalizeUrl(normalized.artworkUrl || ""), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "language", source, trimText(normalized.language, 40), {
-      replace: source.sourceType === "rss",
-    });
-    mergeObjectiveField(target, "firstPublicationDate", source, parseDateValue(normalized.firstPublicationDate || ""));
-    mergeObjectiveField(target, "categories", source, mergeUniqueStrings(normalized.categories || []));
-    mergeObjectiveField(target, "genreHints", source, mergeUniqueStrings(normalized.genreHints || []));
-    mergeObjectiveField(target, "primaryGenre", source, trimText(normalized.primaryGenre, 120));
-    mergeObjectiveField(target, "explicit", source, trimText(normalized.explicit, 60));
-    mergeObjectiveField(target, "podcastIndexFeedId", source, trimText(normalized.podcastIndexFeedId, 80));
-    mergeObjectiveField(target, "podcastIndexGuid", source, trimText(normalized.podcastIndexGuid, 240));
-    mergeObjectiveField(target, "networkName", source, trimText(normalized.networkName, 240));
-    mergeObjectiveField(target, "spotifyUrl", source, normalizeUrl(normalized.spotifyUrl || ""));
-    mergeObjectiveField(target, "patreonUrl", source, normalizeUrl(normalized.patreonUrl || ""));
-    mergeObjectiveField(target, "discordUrl", source, normalizeUrl(normalized.discordUrl || ""));
-    mergeObjectiveField(target, "youtubeUrl", source, normalizeUrl(normalized.youtubeUrl || ""));
-    mergeObjectiveField(target, "feedType", source, trimText(normalized.feedType, 80).toLowerCase());
-    mergeObjectiveField(target, "country", source, trimText(normalized.country, 40));
-
-    if (Number.isFinite(Number(normalized.episodeCount))) {
-      const current = Number.isFinite(Number(target.episodeCount)) ? Number(target.episodeCount) : 0;
-      target.episodeCount = Math.max(current, Number(normalized.episodeCount));
-      addFieldProvenance(target.__provenance, "episodeCount", source, target.episodeCount);
-    }
-
-    if (Number.isFinite(Number(normalized.avgEpisodeMinutes))) {
-      const current = Number.isFinite(Number(target.avgEpisodeMinutes)) ? Number(target.avgEpisodeMinutes) : 0;
-      const nextValue = Number(normalized.avgEpisodeMinutes);
-      target.avgEpisodeMinutes = current > 0 ? Math.round((current + nextValue) / 2) : nextValue;
-      addFieldProvenance(target.__provenance, "avgEpisodeMinutes", source, target.avgEpisodeMinutes);
-    }
-
-    if (Number.isFinite(Number(normalized.seasonCount))) {
-      const current = Number.isFinite(Number(target.seasonCount)) ? Number(target.seasonCount) : 0;
-      target.seasonCount = Math.max(current, Number(normalized.seasonCount));
-      addFieldProvenance(target.__provenance, "seasonCount", source, target.seasonCount);
-    }
-
-    const normalizedDate = parseDateValue(normalized.latestPublicationDate || "");
-    if (normalizedDate) {
-      const currentDate = parseDateValue(target.latestPublicationDate || "");
-      if (!currentDate || Date.parse(normalizedDate) > Date.parse(currentDate)) {
-        target.latestPublicationDate = normalizedDate;
-      }
-      addFieldProvenance(target.__provenance, "latestPublicationDate", source, normalizedDate);
-    }
-
-    if (normalized.dead === true) {
-      target.dead = true;
-      addFieldProvenance(target.__provenance, "dead", source, true);
-    }
-
-    if (normalized.complete === true) {
-      target.complete = true;
-      addFieldProvenance(target.__provenance, "complete", source, true);
-    }
-  });
-
-  target.objectiveSources = mergeUniqueStrings(
-    baseObjective.objectiveSources || [],
-    orderedSources.map((source) => source.sourceUrl || ""),
-  );
-  delete target.__sourceErrors;
-
-  return {
-    objective: target,
-    provenance: target.__provenance,
-  };
 }
 
 function inferScopeStatus(objective = {}) {
   const language = trimText(objective.language, 40).toLowerCase();
-  const haystack = [
-    ...(Array.isArray(objective.categories) ? objective.categories : []),
-    ...(Array.isArray(objective.genreHints) ? objective.genreHints : []),
-    objective.title,
-    objective.description,
-    objective.primaryGenre,
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  if (language && !["en", "english", "en-us", "en-gb"].includes(language)) {
-    return "out-of-scope";
-  }
-
-  if (/(actual play|roleplaying|role-playing|ttrpg|tabletop)/i.test(haystack)) {
-    return "out-of-scope";
-  }
-
-  if (/(fiction|audio drama|comedy fiction|drama|science fiction|horror|mystery|fantasy|thriller)/i.test(haystack)) {
-    return "in-scope";
-  }
-
+  const text = [objective.title, objective.description, objective.primaryGenre, ...(objective.categories || []), ...(objective.keywords || [])].join(" ").toLowerCase();
+  if (language && !["en", "english", "en-us", "en-gb"].includes(language)) return "out-of-scope";
+  if (/(actual play|roleplaying|role-playing|ttrpg|tabletop)/i.test(text)) return "out-of-scope";
+  if (/(fiction|audio drama|comedy fiction|drama|science fiction|horror|mystery|fantasy|thriller)/i.test(text)) return "in-scope";
   return "borderline";
 }
 
-function buildObjectiveForDedupe(candidate) {
+function pickBestSearchResult(results = [], { title = "", creatorName = "" } = {}) {
+  const wantedTitle = slugify(title);
+  const wantedCreator = slugify(creatorName);
+  return [...results].map((result) => {
+    const resultTitle = slugify(result.normalized?.title || "");
+    const resultCreator = slugify(result.normalized?.creatorName || "");
+    let score = resultTitle === wantedTitle ? 100 : resultTitle.includes(wantedTitle) ? 40 : 0;
+    if (wantedCreator) score += resultCreator === wantedCreator ? 60 : resultCreator.includes(wantedCreator) ? 20 : 0;
+    return { result, score };
+  }).sort((left, right) => right.score - left.score)[0]?.result || null;
+}
+
+function buildSearchResultPayload(result = {}) {
   return {
-    ...candidate.objective,
-    title: candidate.objective?.title || candidate.title,
-    creatorName: candidate.objective?.creatorName || candidate.creatorName,
+    sourceType: result.sourceType || "",
+    sourceKey: result.sourceKey || "",
+    sourceUrl: result.sourceUrl || "",
+    title: trimText(result.normalized?.title, 240),
+    creatorName: trimText(result.normalized?.creatorName, 240),
+    objective: { ...(result.normalized || {}), objectiveSources: [result.sourceUrl].filter(Boolean) },
   };
 }
 
-function normalizeReviewUpdates(rawUpdates = {}) {
+function buildInitialCandidatePayload(seed = {}) {
+  const input = seed.objective && typeof seed.objective === "object" ? seed.objective : {};
+  const objective = {
+    ...input,
+    title: trimText(input.title || seed.title || "", 240),
+    creatorName: trimText(input.creatorName || seed.creatorName || "", 240),
+    rssUrl: normalizeUrl(input.rssUrl || seed.rssUrl || ""),
+    appleUrl: normalizeUrl(input.appleUrl || seed.appleUrl || ""),
+    appleCollectionId: trimText(input.appleCollectionId || seed.appleCollectionId || "", 80),
+    websiteUrl: normalizeUrl(input.websiteUrl || seed.websiteUrl || ""),
+    description: cleanDescription(input.description || seed.description || "", 4_000),
+    artworkUrl: normalizeUrl(input.artworkUrl || seed.artworkUrl || ""),
+    categories: mergeUniqueStrings(input.categories || [], input.genreHints || []),
+    objectiveSources: mergeUniqueStrings(input.objectiveSources || [], [seed.sourceUrl, seed.rssUrl, seed.appleUrl, seed.websiteUrl].filter(Boolean)),
+  };
+  const title = objective.title || trimText(seed.titleQuery || seed.seedQuery || seed.rawValue || "", 240);
+  return {
+    status: "queued",
+    mode: "create",
+    scopeStatus: "borderline",
+    title,
+    creatorName: objective.creatorName || "",
+    canonicalId: normalizeTitleCreatorKey(title, objective.creatorName),
+    primarySourceType: seed.sourceType || seed.seedType || "",
+    primarySourceKey: trimText(seed.sourceKey || seed.appleCollectionId || "", 1_000),
+    primarySourceUrl: normalizeUrl(seed.sourceUrl || seed.rssUrl || seed.appleUrl || seed.websiteUrl || ""),
+    seedQuery: trimText(seed.seedQuery || seed.titleQuery || seed.rawValue || "", 500),
+    objective,
+    provenance: { fields: {}, sourceErrors: [] },
+    dedupe: {},
+    pipelineVersion: PIPELINE_VERSION,
+  };
+}
+
+function identityPairs(objective = {}) {
+  return [
+    ...IDENTITY_FIELDS.map(([type, field]) => [type, objective[field]]),
+    ...(objective.feedRedirects || []).map((value) => ["rss-url", value]),
+    ...(objective.previousRssUrl ? [["rss-url", objective.previousRssUrl]] : []),
+  ].filter(([, value]) => value);
+}
+
+function showIdentityPairs(show = {}) {
+  const identifiers = show.metadata?.import?.identifiers || show.metadata?.importIdentifiers || {};
+  return [
+    ["podcast-guid", identifiers.podcastGuid || identifiers.podcastIndexGuid],
+    ["rss-url", identifiers.rssUrl || show.listenLinks?.rss],
+    ["apple-id", identifiers.appleCollectionId || extractAppleCollectionId(show.listenLinks?.apple)],
+    ["podcast-index-id", identifiers.podcastIndexFeedId],
+    ["website-url", show.officialLinks?.website || show.listenLinks?.website],
+    ...(identifiers.feedRedirects || []).map((value) => ["rss-url", value]),
+  ].filter(([, value]) => value);
+}
+
+function normalizeReviewUpdates(raw = {}) {
   const updates = {};
-
-  if (Object.hasOwn(rawUpdates, "status")) {
-    updates.status = ensureValidStatus(rawUpdates.status);
-  }
-
-  if (Object.hasOwn(rawUpdates, "scopeStatus")) {
-    updates.scopeStatus = ensureValidScopeStatus(rawUpdates.scopeStatus);
-  }
-
-  if (Object.hasOwn(rawUpdates, "reviewNotes")) {
-    updates.reviewNotes = trimText(rawUpdates.reviewNotes, 4000);
-  }
-
-  if (Object.hasOwn(rawUpdates, "reviewedBy")) {
-    updates.reviewedBy = trimText(rawUpdates.reviewedBy, 160);
-  }
-
-  if (Object.hasOwn(rawUpdates, "duplicateOfShowId")) {
-    updates.duplicateOfShowId = trimText(rawUpdates.duplicateOfShowId, 160);
-  }
-
-  if (Object.hasOwn(rawUpdates, "duplicateOfCandidateId")) {
-    updates.duplicateOfCandidateId = trimText(rawUpdates.duplicateOfCandidateId, 160);
-  }
-
+  if (raw.status !== undefined) updates.status = ensureValidStatus(raw.status);
+  if (raw.scopeStatus !== undefined) updates.scopeStatus = ensureValidScopeStatus(raw.scopeStatus);
+  if (raw.reviewNotes !== undefined) updates.reviewNotes = trimText(raw.reviewNotes, 4_000);
+  if (raw.reviewedBy !== undefined) updates.reviewedBy = trimText(raw.reviewedBy, 160);
+  if (raw.duplicateOfShowId !== undefined) updates.duplicateOfShowId = trimText(raw.duplicateOfShowId, 160);
+  if (raw.duplicateOfCandidateId !== undefined) updates.duplicateOfCandidateId = trimText(raw.duplicateOfCandidateId, 160);
   if (Object.keys(updates).length === 0) {
     const error = new Error("No import review fields were provided.");
     error.statusCode = 400;
     throw error;
   }
-
   return updates;
 }
 
-function createImportService({
-  store,
-  staticRoot,
-  config,
-  fetchImpl = globalThis.fetch,
-  onPublished = null,
-}) {
-  const userAgent = trimText(config.PODCAST_INDEX_USER_AGENT || DEFAULT_IMPORT_USER_AGENT, 240) || DEFAULT_IMPORT_USER_AGENT;
-  const fetchLimits = {
-    timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS,
-    maxBytes: config.IMPORT_DOCUMENT_MAX_BYTES,
+function createLimitedFetch(fetchImpl, { perHost = 2, applePerMinute = 15 } = {}) {
+  const active = new Map();
+  const waiters = new Map();
+  const appleRequests = [];
+  async function acquire(host) {
+    if ((active.get(host) || 0) >= perHost) await new Promise((resolve) => {
+      const queue = waiters.get(host) || [];
+      queue.push(resolve);
+      waiters.set(host, queue);
+    });
+    active.set(host, (active.get(host) || 0) + 1);
+  }
+  function release(host) {
+    active.set(host, Math.max(0, (active.get(host) || 1) - 1));
+    const next = waiters.get(host)?.shift();
+    if (next) next();
+  }
+  const limitedFetch = async (url, init) => {
+    const host = new URL(String(url)).hostname.toLowerCase();
+    await acquire(host);
+    try {
+      if (host === "itunes.apple.com") {
+        const now = Date.now();
+        while (appleRequests.length && appleRequests[0] <= now - 60_000) appleRequests.shift();
+        if (appleRequests.length >= applePerMinute) {
+          await new Promise((resolve) => setTimeout(resolve, Math.max(1, appleRequests[0] + 60_000 - now)));
+        }
+        appleRequests.push(Date.now());
+      }
+      return await fetchImpl(url, init);
+    } finally {
+      release(host);
+    }
   };
-  const apple = createAppleAdapter({ fetchImpl, userAgent, ...fetchLimits });
-  const rss = createRssAdapter({ fetchImpl, userAgent, ...fetchLimits });
+  limitedFetch.isNetworkFetch = fetchImpl === globalThis.fetch || fetchImpl.isNetworkFetch === true;
+  return limitedFetch;
+}
+
+function createImportService({ store, staticRoot, config = {}, fetchImpl = globalThis.fetch, onPublished = null }) {
+  const userAgent = trimText(config.PODCAST_INDEX_USER_AGENT || DEFAULT_IMPORT_USER_AGENT, 240) || DEFAULT_IMPORT_USER_AGENT;
+  const workerConcurrency = Math.min(16, Math.max(1, Number(config.IMPORT_WORKER_CONCURRENCY) || 4));
+  const limitedFetch = createLimitedFetch(fetchImpl, {
+    perHost: Math.min(8, Math.max(1, Number(config.IMPORT_HOST_CONCURRENCY) || 2)),
+    applePerMinute: Math.min(20, Math.max(1, Number(config.IMPORT_APPLE_REQUESTS_PER_MINUTE) || 15)),
+  });
+  const limits = { timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS, maxBytes: config.IMPORT_DOCUMENT_MAX_BYTES };
+  const apple = createAppleAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
+  const rss = createRssAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
+  const website = createWebsiteAdapter({ fetchImpl: limitedFetch, userAgent, ...limits });
   const podcastIndex = createPodcastIndexAdapter({
-    fetchImpl,
+    fetchImpl: limitedFetch,
     apiKey: config.PODCAST_INDEX_API_KEY,
     apiSecret: config.PODCAST_INDEX_API_SECRET,
     userAgent,
-    ...fetchLimits,
+    ...limits,
   });
-  const website = createWebsiteAdapter({ fetchImpl, userAgent, ...fetchLimits });
-  const suggestionService = createSuggestionService({ config, fetchImpl });
+  const stagingRoot = config.IMPORT_STAGING_ROOT || path.join(config.DATA_ROOT || path.dirname(config.DB_PATH || path.join(staticRoot, "backend-data", "imports.sqlite")), "import-staging");
+  const workerId = `${process.pid}-${randomUUID()}`;
+  let catalogCache = null;
+  let workTimer = null;
+  let processing = false;
+  store.compactPublishedSnapshots?.(90);
 
-  function readCatalogRecords() {
-    return readShowsFile(staticRoot);
+  function readCatalogRecords(force = false) {
+    if (!catalogCache || force) catalogCache = readShowsFile(staticRoot);
+    return catalogCache;
+  }
+
+  function registerCatalogIdentities() {
+    readCatalogRecords().forEach((show) => showIdentityPairs(show).forEach(([type, value]) => {
+      store.claimIdentity(type, value, { existingShowId: show.id });
+    }));
   }
 
   function getCandidate(id) {
@@ -425,416 +241,584 @@ function createImportService({
       error.statusCode = 404;
       throw error;
     }
-
     return candidate;
   }
 
-  function buildDedupeForCandidate(candidate) {
-    return buildDedupeMatches({
-      objective: buildObjectiveForDedupe(candidate),
-      shows: readCatalogRecords(),
-      candidates: store.listCandidateBasics(),
-      currentCandidateId: candidate.id,
-    });
+  function findExactMapping(objective = {}) {
+    for (const [type, value] of identityPairs(objective)) {
+      const mapping = store.findIdentity(type, value);
+      if (mapping) return mapping;
+    }
+    return null;
   }
 
-  async function searchExternalSources({ q, source = "all", limit = 10 }) {
-    const results = [];
-    const normalizedSource = normalizeSearchSource(source);
-
-    if (normalizedSource === "all" || normalizedSource === "apple") {
-      const appleResults = await apple.searchByTerm(q, limit);
-      results.push(...appleResults.map(buildSearchResultPayload));
-    }
-
-    if ((normalizedSource === "all" || normalizedSource === "podcast-index") && podcastIndex.enabled) {
-      const podcastIndexResults = await podcastIndex.searchByTerm(q, limit);
-      results.push(...podcastIndexResults.map(buildSearchResultPayload));
-    }
-
-    return {
-      source: normalizedSource,
-      podcastIndexEnabled: podcastIndex.enabled,
-      results,
-    };
+  function buildDedupe(candidate) {
+    const title = candidate.objective?.title || candidate.title;
+    const creatorName = candidate.objective?.creatorName || candidate.creatorName;
+    const titleKey = slugify(title);
+    const creatorKey = slugify(creatorName);
+    const shows = readCatalogRecords().filter((show) => {
+      if (candidate.existingShowId && show.id === candidate.existingShowId) return false;
+      return slugify(show.title) === titleKey;
+    });
+    const candidatePage = title ? store.listCandidates({ q: title, includeClosed: true, openStatuses: [], pageSize: 25 }) : { items: [] };
+    const candidates = candidatePage.items.filter((entry) => entry.id !== candidate.id && slugify(entry.title) === titleKey && (!creatorKey || !entry.creatorName || slugify(entry.creatorName) === creatorKey));
+    return buildDedupeMatches({ objective: { ...candidate.objective, title, creatorName }, shows, candidates, currentCandidateId: candidate.id });
   }
 
   function listForMaintainer(filters = {}) {
-    return store.listCandidates({
-      ...filters,
-      openStatuses: IMPORT_OPEN_STATUSES,
+    return store.listCandidates({ ...filters, openStatuses: IMPORT_OPEN_STATUSES });
+  }
+
+  async function searchExternalSources({ q, source = "all", limit = 10 }) {
+    const selected = ["apple", "podcast-index", "all"].includes(String(source).toLowerCase()) ? String(source).toLowerCase() : "all";
+    const results = [];
+    if (["apple", "all"].includes(selected)) results.push(...(await apple.searchByTerm(q, limit)).map(buildSearchResultPayload));
+    if (["podcast-index", "all"].includes(selected) && podcastIndex.enabled) results.push(...(await podcastIndex.searchByTerm(q, limit)).map(buildSearchResultPayload));
+    return { source: selected, podcastIndexEnabled: podcastIndex.enabled, results };
+  }
+
+  function scheduleWork(delayMs = 0) {
+    if (config.IMPORT_AUTO_WORKER === false || workTimer) return;
+    workTimer = setTimeout(() => {
+      workTimer = null;
+      processPendingJobs().catch(() => {});
+    }, Math.max(0, delayMs));
+    workTimer.unref?.();
+  }
+
+  function refreshRun(runId) {
+    if (!runId) return null;
+    const run = store.getRun(runId);
+    if (!run) return null;
+    const done = run.progress.completed + run.progress.failed;
+    const status = run.progress.total > 0 && done === run.progress.total
+      ? run.progress.failed > 0 ? "failed" : "completed"
+      : run.progress.processing > 0 || done > 0 ? "processing" : "queued";
+    return store.updateRun(runId, {
+      status,
+      summary: { ...run.summary, ...run.progress, candidateIds: run.jobs.map((job) => job.candidateId) },
     });
+  }
+
+  function enqueueCandidate(candidateId, { actor = "", runType = "prepare", incrementRevision = true } = {}) {
+    const candidate = getCandidate(candidateId);
+    const revision = incrementRevision ? candidate.inputRevision + 1 : candidate.inputRevision;
+    const run = store.createRun({ runType, status: "queued", input: { candidateIds: [candidateId], actor }, summary: { candidateCount: 1 } });
+    store.updateCandidate(candidateId, { status: "queued", inputRevision: revision, lastRunId: run.id, lastError: "" });
+    store.enqueueJob({ candidateId, runId: run.id, inputRevision: revision, payload: { actor } });
+    store.recordEvent(candidateId, "prepare-enqueued", actor, { runId: run.id, inputRevision: revision });
+    scheduleWork();
+    return { runId: run.id, candidateIds: [candidateId], candidate: getCandidate(candidateId) };
   }
 
   async function seedCandidates({ entries = [], searchResults = [], actor = "", autoHydrate = false } = {}) {
-    const created = [];
-    const normalizedEntries = [
-      ...(Array.isArray(entries) ? entries : []).map((entry) => detectSeedEntry(entry)).filter(Boolean),
-      ...(Array.isArray(searchResults) ? searchResults : []).map((result) => ({
-        ...result,
-        sourceType: trimText(result.sourceType, 80),
-      })),
+    registerCatalogIdentities();
+    const seeds = [
+      ...(Array.isArray(entries) ? entries.map(detectSeedEntry).filter(Boolean) : []),
+      ...(Array.isArray(searchResults) ? searchResults.map((entry) => ({ ...entry, sourceType: trimText(entry.sourceType, 80) })) : []),
     ];
-
-    const runId = store.createRun({
-      runType: "seed",
-      input: {
-        entries,
-        searchResults,
-      },
-      summary: {
-        candidateCount: normalizedEntries.length,
-      },
-    });
-
-    normalizedEntries.forEach((seed) => {
+    const run = store.createRun({ runType: "seed", status: "queued", input: { entries, searchResults }, summary: { candidateCount: seeds.length } });
+    const candidates = [];
+    for (const seed of seeds) {
       const payload = buildInitialCandidatePayload(seed);
-      payload.canonicalId = payload.canonicalId || slugify(payload.title || payload.seedQuery || "");
-      const candidate = store.createCandidate(payload);
-      const dedupe = buildDedupeForCandidate(candidate);
-      const updated = store.updateCandidate(candidate.id, {
-        hasDuplicateMatch: dedupe.hasDuplicateMatch,
-        dedupe,
-      });
-      store.recordEvent(updated.id, "seeded", actor, {
-        runId,
-        seedQuery: updated.seedQuery,
-        primarySourceType: updated.primarySourceType,
-      });
-      created.push(updated);
-    });
-
-    const finalCandidates = [];
-    if (autoHydrate) {
-      for (const candidate of created) {
-        finalCandidates.push(await hydrateForMaintainer(candidate.id, actor));
+      const mapping = findExactMapping(payload.objective);
+      let candidate = mapping?.candidateId ? store.getCandidate(mapping.candidateId) : null;
+      if (!candidate) {
+        if (mapping?.existingShowId) {
+          payload.mode = "update";
+          payload.existingShowId = mapping.existingShowId;
+        }
+        payload.lastRunId = run.id;
+        candidate = store.createCandidate(payload);
+        identityPairs(payload.objective).forEach(([type, value]) => store.claimIdentity(type, value, { candidateId: candidate.id, existingShowId: payload.existingShowId || "" }));
+      } else {
+        candidate = store.updateCandidate(candidate.id, {
+          status: "queued",
+          inputRevision: candidate.inputRevision + 1,
+          lastRunId: run.id,
+          lastError: "",
+        });
       }
-    } else {
-      finalCandidates.push(...created);
+      const dedupe = buildDedupe(candidate);
+      candidate = store.updateCandidate(candidate.id, { hasDuplicateMatch: dedupe.hasDuplicateMatch, dedupe });
+      store.enqueueJob({ candidateId: candidate.id, runId: run.id, inputRevision: candidate.inputRevision, payload: { actor } });
+      store.recordEvent(candidate.id, mapping?.candidateId ? "reseeded" : "seeded", actor, { runId: run.id, reused: Boolean(mapping?.candidateId), mode: candidate.mode });
+      candidates.push(candidate);
     }
+    refreshRun(run.id);
+    scheduleWork();
+    if (autoHydrate) {
+      await processPendingJobs({ limit: 4 });
+      await waitForRun(run.id, 30_000);
+    }
+    return { runId: run.id, candidateIds: candidates.map((candidate) => candidate.id), candidates: candidates.map((candidate) => getCandidate(candidate.id)), hydratedCount: autoHydrate ? candidates.length : 0 };
+  }
 
+  function cachedResult(sourceType, sourceKey, ttlMs) {
+    const cache = store.getSourceCache(sourceType, sourceKey);
+    if (!cache || !cache.fetchedAt || Date.now() - Date.parse(cache.fetchedAt) > ttlMs || !cache.normalized || Object.keys(cache.normalized).length === 0) return null;
     return {
-      runId,
-      candidates: finalCandidates,
-      hydratedCount: autoHydrate ? finalCandidates.length : 0,
+      sourceType, sourceKey, sourceUrl: cache.sourceUrl, fetchStatus: "cache-hit", httpStatus: cache.httpStatus,
+      etag: cache.etag, lastModified: cache.lastModified, raw: { text: cache.rawBody }, normalized: cache.normalized,
     };
   }
 
-  async function hydrateForMaintainer(id, actor = "") {
-    const candidate = getCandidate(id);
-    const sourceSnapshots = [];
-    const sourceErrors = [];
-
-    async function capture(sourceType, loader) {
-      try {
-        const result = await loader();
-        if (result) {
-          sourceSnapshots.push({
-            sourceType: result.sourceType,
-            sourceKey: result.sourceKey,
-            sourceUrl: result.sourceUrl,
-            fetchStatus: "fetched",
-            payload: result.raw,
-            normalized: result.normalized,
-            fetchedAt: new Date().toISOString(),
-          });
-        }
-      } catch (error) {
-        sourceErrors.push({
-          sourceType,
-          error: error.message || String(error),
-        });
-      }
-    }
-
-    const title = candidate.objective?.title || candidate.title || candidate.seedQuery;
-    const creatorName = candidate.objective?.creatorName || candidate.creatorName || "";
-    const primarySourceType = candidate.primarySourceType;
-    const primarySourceUrl = candidate.primarySourceUrl;
-    const appleCollectionId = candidate.objective?.appleCollectionId || candidate.primarySourceKey;
-    const rssUrl = candidate.objective?.rssUrl || (primarySourceType === "rss" ? primarySourceUrl : "");
-    const websiteUrl = candidate.objective?.websiteUrl || (primarySourceType === "website" ? primarySourceUrl : "");
-
-    if (primarySourceType === "apple" && appleCollectionId) {
-      await capture("apple", () => apple.lookupByCollectionId(appleCollectionId));
-    } else if (primarySourceType === "rss" && rssUrl) {
-      await capture("rss", () => rss.fetchByUrl(rssUrl));
-    } else if (primarySourceType === "website" && websiteUrl) {
-      await capture("website", () => website.fetchByUrl(websiteUrl));
-    }
-
-    if (!sourceSnapshots.some((source) => source.sourceType === "apple") && title) {
-      await capture("apple", async () => {
-        const results = await apple.searchByTerm(
-          creatorName ? `${title} ${creatorName}` : title,
-          5,
-        );
-        return pickBestAppleSearchResult(results, { title, creatorName });
+  async function prepareCandidate(candidateId) {
+    let candidate = getCandidate(candidateId);
+    const sources = [];
+    const failures = [];
+    const seen = new Set();
+    const addResult = (result, cacheIdentity = {}) => {
+      if (!result) return;
+      const key = `${result.sourceType}|${result.sourceUrl || result.sourceKey}`;
+      if (seen.has(key)) return;
+      seen.add(key);
+      sources.push({ ...result, fetchStatus: result.fetchStatus || "fetched", fetchedAt: new Date().toISOString() });
+      const rawBody = typeof result.raw === "string" ? result.raw : result.raw?.text || JSON.stringify(result.raw || {});
+      store.putSourceCache({
+        sourceType: cacheIdentity.sourceType || result.sourceType,
+        sourceKey: cacheIdentity.sourceKey || result.sourceKey || result.sourceUrl,
+        sourceUrl: result.sourceUrl,
+        fetchStatus: result.fetchStatus || "fetched", httpStatus: result.httpStatus,
+        etag: result.etag, lastModified: result.lastModified, rawBody, normalized: result.normalized,
       });
-    }
-
-    const appleSnapshot = sourceSnapshots.find((source) => source.sourceType === "apple");
-    const effectiveRssUrl = rssUrl || appleSnapshot?.normalized?.rssUrl || "";
-    if (!sourceSnapshots.some((source) => source.sourceType === "rss") && effectiveRssUrl) {
-      await capture("rss", () => rss.fetchByUrl(effectiveRssUrl));
-    }
-
-    const rssSnapshot = sourceSnapshots.find((source) => source.sourceType === "rss");
-    const effectiveWebsiteUrl =
-      websiteUrl ||
-      rssSnapshot?.normalized?.websiteUrl ||
-      appleSnapshot?.normalized?.websiteUrl ||
-      "";
-    if (!sourceSnapshots.some((source) => source.sourceType === "website") && effectiveWebsiteUrl) {
-      await capture("website", () => website.fetchByUrl(effectiveWebsiteUrl));
-    }
-
-    if (podcastIndex.enabled) {
-      const podcastIndexRssUrl = rssSnapshot?.normalized?.rssUrl || appleSnapshot?.normalized?.rssUrl || rssUrl;
-      if (podcastIndexRssUrl) {
-        await capture("podcast-index", () => podcastIndex.lookupByFeedUrl(podcastIndexRssUrl));
-      } else if (appleCollectionId) {
-        await capture("podcast-index", () => podcastIndex.lookupByItunesId(appleCollectionId));
-      }
-    }
-
-    const merged = mergeObjectiveData(candidate.objective || {}, sourceSnapshots);
-    const objective = {
-      ...merged.objective,
-      categories: mergeUniqueStrings(
-        merged.objective.categories || [],
-        merged.objective.genreHints || [],
-      ),
-      researchGaps: buildResearchGaps(merged.objective),
-      languageDisplay:
-        trimText(merged.objective.language, 40).toLowerCase() === "en" ? "English" : trimText(merged.objective.language, 40),
     };
-    const dedupe = buildDedupeMatches({
-      objective: {
-        ...objective,
-        title: objective.title || candidate.title,
-        creatorName: objective.creatorName || candidate.creatorName,
-      },
-      shows: readCatalogRecords(),
-      candidates: store.listCandidateBasics(),
-      currentCandidateId: candidate.id,
-    });
-
-    let aiSuggestions = {};
-    if (suggestionService.enabled) {
+    const capture = async (sourceType, sourceKey, loader, ttlMs = 0, resultSourceType = sourceType) => {
       try {
-        aiSuggestions = await suggestionService.suggest({
-          objective,
-          sources: sourceSnapshots,
-          existingCatalog: readCatalogRecords().filter((show) => show.status === "published"),
-        });
+        const cached = ttlMs > 0 ? cachedResult(sourceType, sourceKey, ttlMs) : null;
+        const result = cached || await loader(store.getSourceCache(sourceType, sourceKey));
+        addResult(result ? { ...result, sourceType: resultSourceType } : result, { sourceType, sourceKey });
       } catch (error) {
-        sourceErrors.push({
-          sourceType: "suggestions",
-          error: error.message || String(error),
+        failures.push({ sourceType, sourceKey, error: trimText(error.message || error, 1_000), retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
+      }
+    };
+
+    const original = candidate.objective || {};
+    const title = original.title || candidate.title || candidate.seedQuery;
+    const creatorName = original.creatorName || candidate.creatorName;
+    const appleId = original.appleCollectionId || (candidate.primarySourceType === "apple" ? candidate.primarySourceKey : "");
+    const initialRss = original.rssUrl || (candidate.primarySourceType === "rss" ? candidate.primarySourceUrl : "");
+    const initialWebsite = original.websiteUrl || (candidate.primarySourceType === "website" ? candidate.primarySourceUrl : "");
+
+    if (appleId) await capture("apple", appleId, () => apple.lookupByCollectionId(appleId), 24 * 60 * 60 * 1_000);
+    if (initialRss) await capture("rss", normalizeUrl(initialRss), (cache) => rss.fetchByUrl(initialRss, cache));
+    if (!sources.some((source) => source.sourceType === "apple") && title) {
+      await capture("apple-search", slugify(`${title}-${creatorName}`), async () => {
+        const result = pickBestSearchResult(await apple.searchByTerm(creatorName ? `${title} ${creatorName}` : title, 5), { title, creatorName });
+        if (result) {
+          result.normalized.discoveryTitleQuery = title;
+          result.normalized.discoveryTitleExact = slugify(result.normalized.title) === slugify(title);
+        }
+        return result;
+      }, 24 * 60 * 60 * 1_000, "apple");
+    }
+    let appleSource = sources.find((source) => source.sourceType === "apple");
+    if (appleSource?.normalized?.identityExact === false && appleSource.normalized.discoveryTitleExact && appleSource.normalized.appleCollectionId) {
+      try {
+        const confirmed = cachedResult("apple", appleSource.normalized.appleCollectionId, 24 * 60 * 60 * 1_000)
+          || await apple.lookupByCollectionId(appleSource.normalized.appleCollectionId);
+        const discoveryIndex = sources.indexOf(appleSource);
+        if (discoveryIndex >= 0) sources.splice(discoveryIndex, 1);
+        seen.delete(`${appleSource.sourceType}|${appleSource.sourceUrl || appleSource.sourceKey}`);
+        addResult({ ...confirmed, sourceType: "apple" }, { sourceType: "apple", sourceKey: appleSource.normalized.appleCollectionId });
+        appleSource = sources.find((source) => source.sourceType === "apple");
+      } catch (error) {
+        failures.push({
+          sourceType: "apple",
+          sourceKey: appleSource.normalized.appleCollectionId,
+          error: trimText(error.message || error, 1_000),
+          retryable: error.retryable !== false,
+          retryAfterMs: error.retryAfterMs || 0,
         });
       }
     }
+    const effectiveRss = initialRss || appleSource?.normalized?.rssUrl || "";
+    if (effectiveRss && !sources.some((source) => source.sourceType === "rss")) await capture("rss", normalizeUrl(effectiveRss), (cache) => rss.fetchByUrl(effectiveRss, cache));
+    const rssSource = sources.find((source) => source.sourceType === "rss");
+    const effectiveWebsite = initialWebsite || rssSource?.normalized?.websiteUrl || appleSource?.normalized?.websiteUrl || "";
+    if (effectiveWebsite) {
+      try {
+        const crawl = await website.crawlByUrl(effectiveWebsite);
+        crawl.results.forEach(addResult);
+      } catch (error) {
+        failures.push({ sourceType: "website", sourceKey: effectiveWebsite, error: trimText(error.message || error, 1_000), retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
+      }
+    }
+    if (podcastIndex.enabled) {
+      if (effectiveRss) await capture("podcast-index", normalizeUrl(effectiveRss), () => podcastIndex.lookupByFeedUrl(effectiveRss), 12 * 60 * 60 * 1_000);
+      else if (appleId) await capture("podcast-index", appleId, () => podcastIndex.lookupByItunesId(appleId), 12 * 60 * 60 * 1_000);
+    }
 
-    store.replaceCandidateSources(
-      candidate.id,
-      sourceSnapshots,
-    );
-
-    const updated = store.updateCandidate(candidate.id, {
-      status: ["drafted", "published", "duplicate", "rejected"].includes(candidate.status) ? candidate.status : "hydrated",
-      scopeStatus: inferScopeStatus(objective),
-      hasDuplicateMatch: dedupe.hasDuplicateMatch,
+    if (sources.length === 0 && failures.some((failure) => failure.retryable)) {
+      const first = failures.find((failure) => failure.retryable);
+      const error = new Error(first.error);
+      error.retryable = true;
+      error.retryAfterMs = first.retryAfterMs;
+      throw error;
+    }
+    const failureSources = failures.map((failure) => ({
+      sourceType: failure.sourceType, sourceKey: failure.sourceKey, sourceUrl: normalizeUrl(failure.sourceKey),
+      fetchStatus: "failed", payload: { error: failure.error, retryable: failure.retryable }, normalized: {}, fetchedAt: new Date().toISOString(),
+    }));
+    const appended = store.appendCandidateSources(candidateId, [...sources, ...failureSources]);
+    const successful = appended.filter((source) => source.fetchStatus !== "failed");
+    const resolved = resolveSourceFacts(successful, candidate.fieldEvidence || []);
+    store.appendFieldEvidence(candidateId, resolved.evidence.filter((item) => !item.selected));
+    const objective = {
+      ...original,
+      ...resolved.objective,
+      objectiveSources: mergeUniqueStrings(original.objectiveSources || [], resolved.objective.objectiveSources || []),
+      feedRedirects: mergeUniqueStrings(
+        original.feedRedirects || [],
+        [
+          initialRss,
+          resolved.objective.previousRssUrl,
+          ...successful.filter((source) => source.sourceType === "rss").map((source) => source.sourceUrl),
+          ...successful.map((source) => source.normalized?.rssUrl).filter(Boolean),
+        ].filter(Boolean),
+      ).filter((value) => normalizeUrl(value) !== normalizeUrl(resolved.objective.rssUrl || "")),
+    };
+    const identityConflicts = successful
+      .filter((source) => source.sourceType === "apple" && source.normalized?.identityExact === false && source.normalized?.discoveryTitleExact === false)
+      .map((source) => ({
+        fieldName: "sourceIdentity",
+        blocking: true,
+        message: `Title-only discovery for "${source.normalized.discoveryTitleQuery}" resolved to materially different show "${source.normalized.title}".`,
+        options: [{ sourceType: "apple", title: source.normalized.title, sourceUrl: source.sourceUrl }],
+      }));
+    let mode = candidate.mode;
+    let existingShowId = candidate.existingShowId;
+    identityPairs(objective).forEach(([type, value]) => {
+      const mapping = store.claimIdentity(type, value, { candidateId, existingShowId });
+      if (mapping?.collision) identityConflicts.push({ fieldName: type, blocking: true, message: `Identity ${type} is already assigned to another import candidate.`, options: [mapping] });
+      if (mapping?.existingShowId && !existingShowId) {
+        existingShowId = mapping.existingShowId;
+        mode = "update";
+      }
+    });
+    const conflicts = [...resolved.conflicts, ...identityConflicts];
+    const inferredScope = candidate.lockedFields.includes("scopeStatus") ? candidate.scopeStatus : inferScopeStatus(objective);
+    candidate = store.updateCandidate(candidateId, {
+      mode,
+      existingShowId,
+      scopeStatus: inferredScope,
       title: objective.title || candidate.title,
       creatorName: objective.creatorName || candidate.creatorName,
       canonicalId: normalizeTitleCreatorKey(objective.title || candidate.title, objective.creatorName || candidate.creatorName),
-      primarySourceType: candidate.primarySourceType || sourceSnapshots[0]?.sourceType || "",
-      primarySourceKey: candidate.primarySourceKey || sourceSnapshots[0]?.sourceKey || "",
-      primarySourceUrl: candidate.primarySourceUrl || sourceSnapshots[0]?.sourceUrl || "",
-      objective: {
-        ...objective,
-        objectiveSources: mergeUniqueStrings(objective.objectiveSources || []),
+      objective,
+      conflicts,
+      sourceHealth: {
+        healthy: successful.length,
+        failed: failures.length,
+        lastSuccessfulFetch: successful.length ? new Date().toISOString() : candidate.sourceHealth?.lastSuccessfulFetch || "",
+        sources: successful.map((source) => ({ sourceType: source.sourceType, sourceUrl: source.sourceUrl, status: source.fetchStatus })),
+        errors: failures,
       },
-      aiSuggestions,
-      provenance: {
-        ...merged.provenance,
-        sourceErrors,
-      },
-      dedupe,
-      reviewedAt: actor ? new Date().toISOString() : candidate.reviewedAt,
-      reviewedBy: actor || candidate.reviewedBy,
+      provenance: { fields: resolved.fieldSummary, sourceErrors: failures },
     });
+    const dedupe = buildDedupe(candidate);
+    candidate = store.updateCandidate(candidateId, { hasDuplicateMatch: dedupe.hasDuplicateMatch, dedupe });
 
-    store.recordEvent(candidate.id, "hydrated", actor, {
-      sourceTypes: sourceSnapshots.map((source) => source.sourceType),
-      sourceErrors,
+    let coverStage = null;
+    const existing = existingShowId ? readCatalogRecords().find((show) => show.id === existingShowId) : null;
+    const existingCoverPath = existing?.cover && !/^https?:/i.test(existing.cover) ? path.join(staticRoot, String(existing.cover).replace(/^\/+/, "")) : "";
+    if (existingCoverPath && fs.existsSync(existingCoverPath)) {
+      try {
+        const inspection = inspectCoverBuffer(fs.readFileSync(existingCoverPath), "");
+        if (inspection.echoPublishable) coverStage = { ready: true, existing: true, existingRelativePath: existing.cover, stagedPath: existingCoverPath, ...inspection };
+      } catch (_error) {
+        coverStage = null;
+      }
+    }
+    if (!coverStage) {
+      const priority = { rss: 0, website: 1, apple: 2, "podcast-index": 3 };
+      const coverSources = successful.filter((source) => source.normalized?.artworkUrl).sort((left, right) => (priority[left.sourceType] ?? 9) - (priority[right.sourceType] ?? 9)).map((source) => ({ url: source.normalized.artworkUrl, sourceType: source.sourceType }));
+      coverStage = await stageCover({
+        candidateId, coverSources, stagingRoot, fetchImpl: limitedFetch, userAgent,
+        timeoutMs: config.IMPORT_FETCH_TIMEOUT_MS, maxBytes: config.IMPORT_COVER_MAX_BYTES,
+      });
+    }
+    candidate = store.updateCandidate(candidateId, { coverStage });
+    let preparedRecord = buildPreparedShowRecord({ candidate, shows: readCatalogRecords() });
+    let updateDiff = [];
+    if (existing) {
+      const merged = mergePreparedWithExisting(preparedRecord, existing, { reviewerLocks: candidate.lockedFields });
+      preparedRecord = merged.record;
+      updateDiff = merged.diff;
+      candidate = store.updateCandidate(candidateId, { lockedFields: merged.lockedFields });
+    }
+    const readiness = evaluateReadiness({ candidate: { ...candidate, coverStage, conflicts }, preparedRecord });
+    readiness.updateDiff = updateDiff;
+    const status = readiness.ready ? "ready" : "needs-review";
+    candidate = store.updateCandidate(candidateId, { status, preparedRecord, readiness, lastError: "" });
+    store.recordEvent(candidateId, "prepared", "worker", { status, blockers: readiness.blockers, warnings: readiness.warnings, sourceTypes: successful.map((source) => source.sourceType) });
+    return candidate;
+  }
+
+  async function processJob(job) {
+    store.updateCandidate(job.candidateId, { status: "processing", lastRunId: job.runId });
+    try {
+      const candidate = await prepareCandidate(job.candidateId);
+      store.completeJob(job.id, { status: candidate.status, readiness: candidate.readiness });
+    } catch (error) {
+      const failedJob = store.failJob(job.id, error, { retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
+      store.updateCandidate(job.candidateId, { status: failedJob.status === "failed" ? "failed" : "queued", lastError: trimText(error.message || error, 4_000) });
+      store.recordEvent(job.candidateId, failedJob.status === "failed" ? "prepare-failed" : "prepare-retry-scheduled", "worker", { error: error.message || String(error), nextAttemptAt: failedJob.nextAttemptAt });
+      if (failedJob.nextAttemptAt) scheduleWork(Math.min(60_000, Math.max(1, Date.parse(failedJob.nextAttemptAt) - Date.now())));
+    } finally {
+      refreshRun(job.runId);
+    }
+  }
+
+  async function processPendingJobs({ limit = 4 } = {}) {
+    if (processing) return { claimed: 0 };
+    processing = true;
+    try {
+      const jobs = [];
+      for (let index = 0; index < Math.min(workerConcurrency, Math.max(1, limit)); index += 1) {
+        const job = store.claimNextJob({ workerId, leaseMs: 120_000, jobType: "prepare" });
+        if (!job) break;
+        jobs.push(job);
+      }
+      await Promise.all(jobs.map(processJob));
+      scheduleWork(jobs.length > 0 ? 0 : 30_000);
+      return { claimed: jobs.length, jobIds: jobs.map((job) => job.id) };
+    } finally {
+      processing = false;
+    }
+  }
+
+  async function waitForRun(runId, timeoutMs = 30_000) {
+    const startedAt = Date.now();
+    while (Date.now() - startedAt < timeoutMs) {
+      const run = store.getRun(runId);
+      if (run && ["completed", "failed"].includes(run.status)) return run;
+      await processPendingJobs({ limit: 4 });
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    const error = new Error(`Import run ${runId} did not finish within ${timeoutMs}ms.`);
+    error.statusCode = 504;
+    throw error;
+  }
+
+  async function hydrateForMaintainer(id, actor = "") {
+    const queued = enqueueCandidate(id, { actor, runType: "hydrate", incrementRevision: true });
+    await processPendingJobs({ limit: 4 });
+    await waitForRun(queued.runId);
+    return getCandidate(id);
+  }
+
+  async function draftForMaintainer(id, actor = "") {
+    const queued = enqueueCandidate(id, { actor, runType: "prepare", incrementRevision: true });
+    await processPendingJobs({ limit: 4 });
+    await waitForRun(queued.runId);
+    const candidate = getCandidate(id);
+    return { ...queued, candidate, showId: candidate.preparedRecord?.id || "" };
+  }
+
+  function retryForMaintainer(id, actor = "") {
+    return enqueueCandidate(id, { actor, runType: "retry", incrementRevision: true });
+  }
+
+  function retryRunForMaintainer(runId, actor = "") {
+    const prior = store.getRun(runId);
+    if (!prior) {
+      const error = new Error("Import run not found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    const candidateIds = mergeUniqueStrings(prior.jobs.filter((job) => job.status === "failed").map((job) => job.candidateId));
+    if (candidateIds.length === 0) {
+      const error = new Error("This run has no exhausted failed jobs to retry.");
+      error.statusCode = 400;
+      throw error;
+    }
+    const run = store.createRun({ runType: "retry-run", status: "queued", input: { priorRunId: runId, candidateIds, actor }, summary: { candidateCount: candidateIds.length } });
+    candidateIds.forEach((candidateId) => {
+      const candidate = getCandidate(candidateId);
+      const revision = candidate.inputRevision + 1;
+      store.updateCandidate(candidateId, { status: "queued", inputRevision: revision, lastRunId: run.id, lastError: "" });
+      store.enqueueJob({ candidateId, runId: run.id, inputRevision: revision, payload: { actor, priorRunId: runId } });
     });
-
-    return updated;
+    scheduleWork();
+    return { runId: run.id, candidateIds };
   }
 
   function reviewForMaintainer(id, rawUpdates = {}, actor = "") {
     const candidate = getCandidate(id);
     const updates = normalizeReviewUpdates(rawUpdates);
-    const reviewedAt = new Date().toISOString();
-
-    const updated = store.updateCandidate(candidate.id, {
+    const locks = new Set(candidate.lockedFields || []);
+    if (updates.scopeStatus) locks.add("scopeStatus");
+    const updated = store.updateCandidate(id, {
       ...updates,
-      reviewedAt,
-      reviewedBy: updates.reviewedBy ?? actor ?? candidate.reviewedBy,
+      lockedFields: [...locks],
+      reviewedAt: new Date().toISOString(),
+      reviewedBy: updates.reviewedBy || actor || candidate.reviewedBy,
     });
-    store.recordEvent(candidate.id, "reviewed", actor || updates.reviewedBy || "", updates);
+    store.recordEvent(id, "reviewed", actor || updates.reviewedBy || "", updates);
     return updated;
   }
 
-  async function draftForMaintainer(id, actor = "") {
+  function selectEvidenceForMaintainer(id, fieldName, evidenceId, actor = "") {
     const candidate = getCandidate(id);
-    if (["duplicate", "rejected", "published"].includes(candidate.status)) {
-      const error = new Error(`Cannot write a draft from a ${candidate.status} candidate.`);
-      error.statusCode = 400;
-      throw error;
-    }
-
-    const shows = readCatalogRecords();
-    const existingDraft = candidate.draftedShowId ? shows.find((show) => show.id === candidate.draftedShowId) : null;
-    const draftedShowId = existingDraft?.id || candidate.draftedShowId || "";
-
-    if (existingDraft) {
-      const updated = store.updateCandidate(candidate.id, {
-        status: "drafted",
-        draftedShowId,
-        reviewedAt: new Date().toISOString(),
-        reviewedBy: actor || candidate.reviewedBy,
-      });
-      store.recordEvent(candidate.id, "drafted", actor, {
-        showId: draftedShowId,
-        reusedExistingDraft: true,
-      });
-      return {
-        candidate: updated,
-        showId: draftedShowId,
-      };
-    }
-
-    const today = new Date().toISOString().slice(0, 10);
-    const nextShow = buildDraftShowRecord({
-      candidate,
-      shows,
-      today,
-    });
-
-    shows.push(nextShow);
-    writeShowsFile(staticRoot, shows);
-
-    try {
-      await validateSiteData(staticRoot);
-    } catch (error) {
-      writeShowsFile(
-        staticRoot,
-        shows.filter((show) => show.id !== nextShow.id),
-      );
-      await buildCatalog(staticRoot);
-      throw error;
-    }
-
-    const updated = store.updateCandidate(candidate.id, {
-      status: "drafted",
-      draftedShowId: nextShow.id,
-      reviewedAt: new Date().toISOString(),
-      reviewedBy: actor || candidate.reviewedBy,
-    });
-    store.recordEvent(candidate.id, "drafted", actor, {
-      showId: nextShow.id,
-      reusedExistingDraft: false,
-    });
-
-    return {
-      candidate: updated,
-      showId: nextShow.id,
-    };
-  }
-
-  async function publishForMaintainer(id, actor = "") {
-    const candidate = getCandidate(id);
-    const showId = candidate.publishedShowId || candidate.draftedShowId;
-    if (!showId) {
-      const error = new Error("Write a draft show before publishing.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    const shows = readCatalogRecords();
-    const show = shows.find((record) => record.id === showId);
-    if (!show) {
-      const error = new Error(`Draft show "${showId}" is missing from the authored catalog source.`);
+    const selected = store.selectEvidence(candidate.id, trimText(fieldName, 200), Number(evidenceId), actor);
+    if (!selected) {
+      const error = new Error("Field evidence was not found.");
       error.statusCode = 404;
       throw error;
     }
-
-    const previousStatus = show.status;
-    const previousUpdatedAt = show.updatedAt;
-    const today = new Date().toISOString().slice(0, 10);
-    show.status = "published";
-    show.updatedAt = today;
-    show.createdAt = show.createdAt || today;
-    writeShowsFile(staticRoot, shows);
-
-    try {
-      await validateSiteData(staticRoot);
-    } catch (error) {
-      show.status = previousStatus;
-      show.updatedAt = previousUpdatedAt;
-      writeShowsFile(staticRoot, shows);
-      await buildCatalog(staticRoot);
-      throw error;
-    }
-
-    const updated = store.updateCandidate(candidate.id, {
-      status: "published",
-      publishedShowId: showId,
-      reviewedAt: new Date().toISOString(),
-      reviewedBy: actor || candidate.reviewedBy,
-    });
-    store.recordEvent(candidate.id, "published", actor, {
-      showId,
-    });
-
-    if (typeof onPublished === "function") {
-      await onPublished();
-    }
-
-    return {
-      candidate: updated,
-      showId,
-    };
+    return enqueueCandidate(id, { actor, runType: "resolve-conflict", incrementRevision: true });
   }
 
-  function getForMaintainer(id) {
-    return getCandidate(id);
+  function acquirePublishLock() {
+    fs.mkdirSync(stagingRoot, { recursive: true });
+    const lockPath = path.join(stagingRoot, "publish.lock");
+    try {
+      const descriptor = fs.openSync(lockPath, "wx");
+      fs.writeFileSync(descriptor, `${process.pid} ${new Date().toISOString()}\n`);
+      fs.closeSync(descriptor);
+    } catch (_error) {
+      const error = new Error("Another import publication is already running.");
+      error.statusCode = 409;
+      throw error;
+    }
+    return () => fs.rmSync(lockPath, { force: true });
+  }
+
+  async function publishCandidates(ids, actor = "", { batch = false } = {}) {
+    const candidateIds = mergeUniqueStrings(ids);
+    if (candidateIds.length === 0) {
+      const error = new Error("At least one ready import candidate is required.");
+      error.statusCode = 400;
+      throw error;
+    }
+    const candidates = candidateIds.map(getCandidate);
+    candidates.forEach((candidate) => {
+      if (candidate.status !== "ready" || !candidate.readiness?.ready || !candidate.preparedRecord?.id) {
+        const error = new Error(`Import candidate ${candidate.id} is not ready to publish: ${(candidate.readiness?.blockers || []).map((blocker) => blocker.message).join("; ") || "preparation is incomplete"}.`);
+        error.statusCode = 400;
+        throw error;
+      }
+      if (batch && !candidate.reviewedAt) {
+        const error = new Error(`Import candidate ${candidate.id} must be individually reviewed before batch publication.`);
+        error.statusCode = 400;
+        throw error;
+      }
+    });
+    const releaseLock = acquirePublishLock();
+    const hadSplitCatalog = fs.existsSync(path.join(staticRoot, "catalog-src"));
+    const coverBackups = [];
+    let catalogTransaction = null;
+    try {
+      const records = candidates.map((candidate) => {
+        const record = JSON.parse(JSON.stringify(candidate.preparedRecord));
+        record.verification = {
+          ...record.verification,
+          status: record.metadata?.import?.optionalGaps?.length ? "partially-source-reviewed" : "source-reviewed",
+          verifiedAt: new Date().toISOString().slice(0, 10),
+        };
+        if (candidate.coverStage?.ready && !candidate.coverStage.existing && record.cover === candidate.preparedRecord.cover) {
+          const targetPath = path.join(staticRoot, record.cover);
+          coverBackups.push({ targetPath, content: fs.existsSync(targetPath) ? fs.readFileSync(targetPath) : null });
+          const promoted = promoteStagedCover(candidate.coverStage, staticRoot, record.id);
+          record.cover = promoted.relativePath;
+        }
+        return record;
+      });
+      catalogTransaction = writeShowRecordsAtomically(staticRoot, records);
+      await validateSiteData(staticRoot);
+      catalogCache = null;
+      if (typeof onPublished === "function") await onPublished();
+      const published = candidates.map((candidate) => {
+        const showId = candidate.preparedRecord.id;
+        store.bindIdentitiesToShow(candidate.id, showId);
+        const updated = store.updateCandidate(candidate.id, {
+          status: "published", publishedShowId: showId, reviewedAt: new Date().toISOString(),
+          reviewedBy: actor || candidate.reviewedBy || "authenticated-maintainer", lastError: "",
+        });
+        store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", { showId, batch });
+        return updated;
+      });
+      return { candidates: published, showIds: records.map((record) => record.id), candidate: published[0], showId: records[0]?.id || "", buildCount: 1 };
+    } catch (error) {
+      catalogTransaction?.rollback();
+      if (!hadSplitCatalog) fs.rmSync(path.join(staticRoot, "catalog-src"), { recursive: true, force: true });
+      coverBackups.reverse().forEach(({ targetPath, content }) => {
+        if (content === null) fs.rmSync(targetPath, { force: true });
+        else {
+          fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+          fs.writeFileSync(targetPath, content);
+        }
+      });
+      await buildCatalog(staticRoot).catch(() => {});
+      candidates.forEach((candidate) => store.updateCandidate(candidate.id, { status: "ready", lastError: trimText(error.message || error, 4_000) }));
+      throw error;
+    } finally {
+      releaseLock();
+    }
+  }
+
+  function publishForMaintainer(id, actor = "") {
+    return publishCandidates([id], actor, { batch: false });
+  }
+
+  function batchPublishForMaintainer(ids, actor = "") {
+    return publishCandidates(ids, actor, { batch: true });
+  }
+
+  async function auditCatalog({ actor = "" } = {}) {
+    const searchResults = readCatalogRecords().map((show) => ({
+      sourceType: show.listenLinks?.rss ? "rss" : show.listenLinks?.apple ? "apple" : "website",
+      sourceKey: show.listenLinks?.rss || extractAppleCollectionId(show.listenLinks?.apple) || show.officialLinks?.website || "",
+      sourceUrl: show.listenLinks?.rss || show.listenLinks?.apple || show.officialLinks?.website || "",
+      title: show.title,
+      creatorName: show.credits?.creatorName || show.creators?.[0] || "",
+      objective: {
+        title: show.title,
+        creatorName: show.credits?.creatorName || show.creators?.[0] || "",
+        rssUrl: show.listenLinks?.rss || "",
+        appleUrl: show.listenLinks?.apple || "",
+        appleCollectionId: extractAppleCollectionId(show.listenLinks?.apple),
+        websiteUrl: show.officialLinks?.website || show.listenLinks?.website || "",
+        ...show.metadata?.import?.identifiers,
+      },
+    })).filter((entry) => entry.sourceKey);
+    return seedCandidates({ searchResults, actor, autoHydrate: false });
   }
 
   function buildReport(filters = {}) {
-    return listForMaintainer({
-      ...filters,
-      includeClosed: true,
-      page: 1,
-      pageSize: 200,
-    });
+    return listForMaintainer({ ...filters, includeClosed: true, page: 1, pageSize: 200 });
   }
 
+  function stop() {
+    if (workTimer) clearTimeout(workTimer);
+    workTimer = null;
+  }
+
+  scheduleWork();
+
   return {
+    auditCatalog,
+    batchPublishForMaintainer,
     buildReport,
     draftForMaintainer,
-    getForMaintainer,
+    enqueueForMaintainer: enqueueCandidate,
+    getForMaintainer: getCandidate,
+    getRun: (id) => store.getRun(id),
     hydrateForMaintainer,
     listForMaintainer,
+    processPendingJobs,
     publishForMaintainer,
+    retryForMaintainer,
+    retryRunForMaintainer,
     reviewForMaintainer,
     searchExternalSources,
     seedCandidates,
+    selectEvidenceForMaintainer,
+    stop,
+    waitForRun,
   };
 }
 
-module.exports = {
-  createImportService,
-};
+module.exports = { PIPELINE_VERSION, createImportService };

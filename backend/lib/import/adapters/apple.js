@@ -7,7 +7,7 @@ const {
   normalizeUrl,
   trimText,
 } = require("../utils");
-const { fetchJsonWithLimits } = require("../fetch");
+const { fetchJsonWithLimits, throwForUpstreamStatus } = require("../fetch");
 
 const APPLE_SEARCH_BASE_URL = "https://itunes.apple.com/search";
 const APPLE_LOOKUP_BASE_URL = "https://itunes.apple.com/lookup";
@@ -31,6 +31,9 @@ function normalizeAppleResult(result = {}, fallbackUrl = "") {
     episodeCount: Number.isFinite(Number(result.trackCount)) ? Number(result.trackCount) : null,
     latestPublicationDate: trimText(result.releaseDate, 60),
     country: trimText(result.country, 40),
+    feedType: trimText(result.kind, 80).toLowerCase() === "podcast" ? "" : trimText(result.kind, 80).toLowerCase(),
+    copyright: trimText(result.copyright, 500),
+    identityExact: true,
   };
 }
 
@@ -42,9 +45,7 @@ async function fetchJson(fetchImpl, url, userAgent, limits) {
     }),
   }, { ...limits, label: "Apple request" });
 
-  if (!response.ok) {
-    throw new Error(`Apple request failed with ${response.status}`);
-  }
+  throwForUpstreamStatus(response, "Apple request");
 
   return json;
 }
@@ -69,7 +70,7 @@ function createAppleAdapter({ fetchImpl = globalThis.fetch, userAgent, timeoutMs
       sourceKey: String(result.collectionId || result.trackId || ""),
       sourceUrl: normalizeUrl(result.collectionViewUrl || result.trackViewUrl || ""),
       raw: result,
-      normalized: normalizeAppleResult(result),
+      normalized: { ...normalizeAppleResult(result), identityExact: false },
     }));
   }
 

@@ -2,10 +2,11 @@ import { escapeHtml, toDisplayTag, toLabel } from "../utils.js";
 import { formatDateTime, renderBadge, renderLabeledLink } from "../maintainer/format.js";
 
 const STATUS_TONES = {
-  discovered: "neutral",
-  hydrated: "accent",
+  queued: "neutral",
+  processing: "accent",
+  ready: "good",
   "needs-review": "warning",
-  drafted: "warm",
+  failed: "warning",
   published: "good",
   duplicate: "muted",
   rejected: "muted",
@@ -62,8 +63,8 @@ export function summarizeImportCounts(counts = {}, total = 0) {
       tone: "neutral",
     },
     {
-      label: "Hydrated",
-      value: counts.status?.hydrated || 0,
+      label: "Processing",
+      value: (counts.status?.queued || 0) + (counts.status?.processing || 0),
       tone: "accent",
     },
     {
@@ -72,19 +73,19 @@ export function summarizeImportCounts(counts = {}, total = 0) {
       tone: "warning",
     },
     {
-      label: "Drafted",
-      value: counts.status?.drafted || 0,
-      tone: "warm",
+      label: "Ready to publish",
+      value: counts.status?.ready || 0,
+      tone: "good",
     },
   ];
 }
 
 export function buildImportPreview(candidate) {
   return (
-    candidate?.aiSuggestions?.shortDescription?.value ||
+    candidate?.preparedRecord?.description ||
     candidate?.objective?.description ||
     candidate?.seedQuery ||
-    "Imported candidate awaiting metadata hydration."
+    "Imported candidate awaiting source preparation."
   );
 }
 

@@ -3,12 +3,15 @@ import {
   destroyMaintainerSession,
   draftMaintainerImportCandidate,
   fetchMaintainerImportCandidate,
+  fetchMaintainerImportRun,
   fetchMaintainerImports,
   hydrateMaintainerImportCandidate,
   MaintainerAuthError,
   patchMaintainerImportCandidateReview,
   publishMaintainerImportCandidate,
+  retryMaintainerImportCandidate,
   searchMaintainerImportSources,
+  selectMaintainerImportEvidence,
   seedMaintainerImportCandidates,
 } from "../maintainer/api.js";
 import {
@@ -147,6 +150,17 @@ export async function initializeMaintainerImportsPage() {
     elements.searchResults.innerHTML = renderImportSearchResults(state.searchResults);
   }
 
+  async function waitForImportRun(runId) {
+    if (!runId) return null;
+    for (let attempt = 0; attempt < 100; attempt += 1) {
+      const { run } = await fetchMaintainerImportRun(runId);
+      elements.detailMeta.textContent = `Import run: ${run.progress.completed + run.progress.failed}/${run.progress.total} complete · ${run.progress.processing} processing.`;
+      if (["completed", "failed"].includes(run.status)) return run;
+      await new Promise((resolve) => window.setTimeout(resolve, 600));
+    }
+    return null;
+  }
+
   async function loadDetail() {
     if (!state.selectedId) {
       elements.detail.innerHTML = renderImportDetailPane({ candidate: null, storedReviewer: state.storedReviewer });
@@ -191,10 +205,13 @@ export async function initializeMaintainerImportsPage() {
         elements.detailMeta.textContent = `${action === "hydrate" ? "Hydrating" : "Processing"} import candidate…`;
 
         try {
+          let result = null;
           if (action === "hydrate") {
-            await hydrateMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
+            result = await hydrateMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
           } else if (action === "draft") {
-            await draftMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
+            result = await draftMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
+          } else if (action === "retry") {
+            result = await retryMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
           } else if (action === "publish") {
             await publishMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
           } else if (action === "reject") {
@@ -209,9 +226,29 @@ export async function initializeMaintainerImportsPage() {
             });
           }
 
+          if (result?.runId) await waitForImportRun(result.runId);
+
           await loadQueue(true);
         } catch (error) {
           elements.detailMeta.textContent = error instanceof Error ? error.message : "Import action failed.";
+        }
+      });
+    });
+
+    elements.detail.querySelectorAll("[data-import-evidence-id]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        if (!(button instanceof HTMLButtonElement)) return;
+        elements.detailMeta.textContent = "Selecting evidence and re-running preparation…";
+        try {
+          const result = await selectMaintainerImportEvidence(state.selectedId, {
+            evidenceId: Number(button.dataset.importEvidenceId),
+            fieldName: button.dataset.importEvidenceField,
+            reviewedBy: state.storedReviewer,
+          });
+          await waitForImportRun(result.runId);
+          await loadQueue(true);
+        } catch (error) {
+          elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to select field evidence.";
         }
       });
     });
@@ -324,21 +361,21 @@ export async function initializeMaintainerImportsPage() {
 
     elements.seedStatus.textContent = "Seeding import candidates…";
     try {
-      const autoHydrate = Boolean(elements.seedAutoHydrate?.checked);
       const result = await seedMaintainerImportCandidates({
         entries,
         reviewedBy: state.storedReviewer,
-        autoHydrate,
       });
-      elements.seedStatus.textContent = autoHydrate
-        ? `Seeded ${result.candidates.length} candidates and hydrated ${result.hydratedCount || 0}.`
-        : `Seeded ${result.candidates.length} candidates.`;
+      elements.seedStatus.textContent = `Queued ${result.candidateIds?.length || result.candidates?.length || 0} candidates for automatic preparation.`;
       if (elements.seedInput instanceof HTMLTextAreaElement) {
         elements.seedInput.value = "";
       }
       if (elements.seedFile instanceof HTMLInputElement) {
         elements.seedFile.value = "";
       }
+      const run = await waitForImportRun(result.runId);
+      elements.seedStatus.textContent = run
+        ? `Preparation finished: ${run.progress.completed} ready or reviewable, ${run.progress.failed} failed.`
+        : "Preparation is still running. Refresh the queue to see its latest progress.";
       await loadQueue();
     } catch (error) {
       elements.seedStatus.textContent = error instanceof Error ? error.message : "Failed to seed candidates.";
@@ -382,15 +419,15 @@ export async function initializeMaintainerImportsPage() {
 
     elements.searchStatus.textContent = "Adding search result as an import candidate…";
     try {
-      const autoHydrate = Boolean(elements.searchAutoHydrate?.checked);
       const response = await seedMaintainerImportCandidates({
         searchResults: [searchResult],
         reviewedBy: state.storedReviewer,
-        autoHydrate,
       });
-      elements.searchStatus.textContent = autoHydrate
-        ? `Added ${response.candidates.length} candidate from external search and hydrated it.`
-        : `Added ${response.candidates.length} candidate from external search.`;
+      elements.searchStatus.textContent = `Queued ${response.candidateIds?.length || 1} candidate for automatic preparation.`;
+      const run = await waitForImportRun(response.runId);
+      elements.searchStatus.textContent = run
+        ? `Preparation finished: ${run.progress.completed} ready or reviewable, ${run.progress.failed} failed.`
+        : "Preparation is still running. Refresh the queue to see its latest progress.";
       await loadQueue();
     } catch (error) {
       elements.searchStatus.textContent = error instanceof Error ? error.message : "Failed to add search result.";

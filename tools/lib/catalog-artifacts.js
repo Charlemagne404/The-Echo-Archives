@@ -15,7 +15,29 @@ function serializeRuntimeShow(record) {
     ...serializable
   } = record;
 
-  return serializable;
+  const importMetadata = serializable.metadata?.import;
+  if (!importMetadata) {
+    return serializable;
+  }
+
+  return {
+    ...serializable,
+    metadata: {
+      ...serializable.metadata,
+      import: {
+        pipelineVersion: importMetadata.pipelineVersion,
+        identifiers: importMetadata.identifiers,
+        selectedSources: (importMetadata.selectedSources || []).map(({ sourceType, sourceUrl, fetchedAt }) => ({
+          sourceType,
+          sourceUrl,
+          fetchedAt,
+        })),
+        fields: importMetadata.fields,
+        importedAt: importMetadata.importedAt,
+        optionalGaps: importMetadata.optionalGaps,
+      },
+    },
+  };
 }
 
 function createSearchIndexRecord(record) {

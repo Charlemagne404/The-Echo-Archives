@@ -9,6 +9,7 @@
     "dev": "node ../tools/run-backend.js --watch",
     "test": "node --test test/*.test.js",
     "test:smoke": "node scripts/run-smoke-tests.js",
+    "test:smoke:maintainer-import": "node --test test/maintainer-import.smoke.js",
     "test:smoke:serial": "node --test --test-concurrency=1 test/*.smoke.js",
     "check:config": "node ../tools/run-backend.js --check-config",
     "validate:data": "node scripts/validate-data.js",
@@ -22,6 +23,9 @@
     "import:report": "node scripts/import-report.js",
     "import:draft": "node scripts/import-draft.js",
     "import:publish": "node scripts/import-publish.js",
+    "import:audit": "node scripts/import-audit.js",
+    "import:benchmark": "node scripts/import-benchmark.js",
+    "import:live-smoke": "node scripts/import-live-smoke.js",
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },
   "engines": {
@@ -29,6 +33,9 @@
   },
   "dependencies": {
     "better-sqlite3": "^12.10.0",
+    "cheerio": "^1.0.0",
+    "fast-xml-parser": "^5.2.5",
+    "image-size": "^1.2.1",
     "express": "^5.1.0"
   },
   "devDependencies": {

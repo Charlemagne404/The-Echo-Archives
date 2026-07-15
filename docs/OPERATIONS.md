@@ -77,6 +77,10 @@ Operational limits have conservative defaults and normally do not need overrides
 | `IMPORT_FETCH_TIMEOUT_MS` | `15000` | Maintainer import request timeout |
 | `IMPORT_DOCUMENT_MAX_BYTES` | `5242880` | Maximum imported text/JSON document size |
 | `IMPORT_COVER_MAX_BYTES` | `8388608` | Maximum imported cover response size |
+| `IMPORT_WORKER_CONCURRENCY` | `4` | Concurrent candidate preparation jobs |
+| `IMPORT_HOST_CONCURRENCY` | `2` | Concurrent requests to one source host |
+| `IMPORT_APPLE_REQUESTS_PER_MINUTE` | `15` | Apple lookup/search rate bucket |
+| `IMPORT_AUTO_WORKER` | `true` | Run queued import jobs in the backend process |
 
 Validate the effective local or production-style configuration from the repo root:
 
@@ -382,10 +386,16 @@ Protected import APIs:
 - `GET /api/maintainer/imports`
 - `POST /api/maintainer/imports`
 - `GET /api/maintainer/imports/search`
+- `GET /api/maintainer/imports/runs/:runId`
+- `POST /api/maintainer/imports/runs/:runId/retry`
+- `POST /api/maintainer/imports/audit`
+- `POST /api/maintainer/imports/batch-publish`
 - `GET /api/maintainer/imports/:id`
 - `POST /api/maintainer/imports/:id/hydrate`
 - `PATCH /api/maintainer/imports/:id/review`
 - `POST /api/maintainer/imports/:id/draft`
+- `POST /api/maintainer/imports/:id/retry`
+- `POST /api/maintainer/imports/:id/evidence`
 - `POST /api/maintainer/imports/:id/publish`
 
 Useful import CLI commands:
@@ -397,24 +407,27 @@ npm run import:hydrate -- --candidate <candidate-id>
 npm run import:report
 npm run import:draft -- --candidate <candidate-id>
 npm run import:publish -- --candidate <candidate-id>
+npm run import:audit
+npm run import:benchmark
 ```
 
 Import workflow:
 
 1. Seed titles, Apple URLs, RSS URLs, or mixed newline lists into the internal queue.
-2. Hydrate candidates from RSS first where possible, using Apple as the default discovery and `feedUrl` recovery path.
-3. Review duplicate matches, scope status, and factual metadata before touching `catalog-src/shows/`.
-4. Write approved candidates into `catalog-src/shows/` as `status: "draft"` and regenerate `data/`.
-5. Fill archive-owned discovery and editorial fields manually.
-6. Publish only after the record satisfies normal `published` validation and Gate B discovery rules.
+2. Persistent workers enrich, resolve, stage covers, and prepare records automatically.
+3. Inspect `ready` records; resolve only the named blockers on `needs-review` records.
+4. Use **Approve and publish** to write a factual `indexed-only` record and run one catalog build.
+5. Add archive-owned editorial enrichment later through the independent review workflow.
 
 Operational rules:
 
 - nothing public auto-publishes
-- objective metadata may be auto-hydrated
-- AI suggestions remain suggestions only
+- objective metadata is automatically resolved from retained evidence
+- AI output never populates the prepared factual record
 - Podcast Index enrichment is optional and must degrade cleanly when credentials are absent
-- external source calls should stay rate-limited and batch-oriented; prefer seeding first, then hydrating candidates in review waves instead of hammering providers one record at a time
+- external calls are protected by persistent retries, caching, per-host concurrency, and rate buckets
+
+Full source policy, readiness rules, retry timing, update locks, snapshot retention, and publication recovery are in `docs/IMPORTER.md`.
 
 Duplicate review rules:
 

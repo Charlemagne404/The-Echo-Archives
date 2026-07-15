@@ -412,7 +412,7 @@ test("similarity collections reject unknown anchorShowId", () => {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("published shows still fail Gate B validation when discovery fields are missing", async () => {
+test("indexed-only factual records can publish without editorial discovery fields", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
 
@@ -432,6 +432,12 @@ test("published shows still fail Gate B validation when discovery fields are mis
   );
   writeJson(path.join(dataRoot, "collections.json"), []);
 
+  await assert.doesNotReject(validateSiteData(tempRoot));
+
+  const authoredShowPath = path.join(tempRoot, "catalog-src/shows/demo-show.json");
+  const authoredShow = JSON.parse(fs.readFileSync(authoredShowPath, "utf8"));
+  authoredShow.reviewStatus = "spotlight";
+  writeJson(authoredShowPath, authoredShow);
   await assert.rejects(validateSiteData(tempRoot), /Gate B validation failed/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });

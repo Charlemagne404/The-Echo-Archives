@@ -9,7 +9,7 @@ async function main() {
   const context = createImportContext();
   try {
     const result = await context.service.draftForMaintainer(candidateId, "cli");
-    console.log(`Drafted ${result.showId} from import candidate ${result.candidate.id}.`);
+    console.log(`Prepared ${result.showId || "an incomplete record"} in SQLite for import candidate ${result.candidate.id} [${result.candidate.status}].`);
   } finally {
     context.close();
   }

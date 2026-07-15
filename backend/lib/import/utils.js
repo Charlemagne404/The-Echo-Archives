@@ -1,13 +1,14 @@
 const IMPORT_CANDIDATE_STATUSES = new Set([
-  "discovered",
-  "hydrated",
+  "queued",
+  "processing",
+  "ready",
   "needs-review",
-  "drafted",
+  "failed",
   "published",
   "duplicate",
   "rejected",
 ]);
-const IMPORT_OPEN_STATUSES = ["discovered", "hydrated", "needs-review", "drafted"];
+const IMPORT_OPEN_STATUSES = ["queued", "processing", "ready", "needs-review", "failed"];
 const IMPORT_SCOPE_STATUSES = new Set(["in-scope", "borderline", "out-of-scope"]);
 const DEFAULT_IMPORT_USER_AGENT = "TheEchoArchivesImport/1.0 (+https://echo.continental-hub.com)";
 

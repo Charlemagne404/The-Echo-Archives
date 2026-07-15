@@ -93,6 +93,7 @@ test("getGateBCriticalValidationErrors aggregates the new similarity and collect
     createShowRecord({
       id: "midnight-burger",
       title: "Midnight Burger",
+      reviewStatus: "full-review",
       similarTo: ["neighbor-a", "neighbor-b"],
       similarReasons: {
         "neighbor-a": "Reason A",

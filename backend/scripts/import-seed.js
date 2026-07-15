@@ -10,8 +10,11 @@ async function main() {
   const context = createImportContext();
   try {
     const result = await context.service.seedCandidates({ entries, actor: "cli" });
-    console.log(`Seeded ${result.candidates.length} import candidates.`);
-    result.candidates.forEach((candidate) => {
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(result.runId);
+    const candidates = result.candidateIds.map((id) => context.service.getForMaintainer(id));
+    console.log(`Prepared ${candidates.length} import candidates in run ${result.runId}.`);
+    candidates.forEach((candidate) => {
       console.log(`- ${candidate.id} :: ${candidate.title || candidate.seedQuery} [${candidate.primarySourceType || "title"}]`);
     });
   } finally {

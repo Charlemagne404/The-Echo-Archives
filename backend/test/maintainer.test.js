@@ -104,6 +104,7 @@ async function startMaintainerServer({ enabled = true, envOverrides = {} } = {})
       MAINTAINER_REVIEW_PASSPHRASE: enabled ? "archive-test-passphrase" : "",
       MAINTAINER_REVIEW_COOKIE_SECRET: enabled ? "archive-test-secret" : "",
       MAINTAINER_REVIEW_SESSION_TTL_HOURS: "12",
+      IMPORT_AUTO_WORKER: "false",
       ...envOverrides,
     },
     stdio: ["ignore", "pipe", "pipe"],
@@ -293,10 +294,27 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
         reviewedBy: "CA",
       }),
     });
-    assert.equal(seedResponse.status, 201);
+    assert.equal(seedResponse.status, 202);
     const seedPayload = await seedResponse.json();
     assert.equal(seedPayload.candidates.length, 1);
     const candidateId = seedPayload.candidates[0].id;
+    assert.ok(seedPayload.runId);
+
+    const runResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/runs/${seedPayload.runId}`, {
+      headers: { Cookie: cookie },
+    });
+    assert.equal(runResponse.status, 200);
+    const runPayload = await runResponse.json();
+    assert.equal(runPayload.run.progress.total, 1);
+    assert.equal(runPayload.run.jobs[0].candidateId, candidateId);
+
+    const prepareResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}/draft`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ reviewedBy: "CA" }),
+    });
+    assert.equal(prepareResponse.status, 202);
+    assert.ok((await prepareResponse.json()).runId);
 
     const authenticatedList = await fetch(`${context.baseUrl}/api/maintainer/imports`, {
       headers: { Cookie: cookie },
@@ -304,7 +322,7 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
     assert.equal(authenticatedList.status, 200);
     const listPayload = await authenticatedList.json();
     assert.equal(listPayload.total, 1);
-    assert.equal(listPayload.items[0].status, "discovered");
+    assert.equal(listPayload.items[0].status, "queued");
 
     const detailResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}`, {
       headers: { Cookie: cookie },

@@ -83,8 +83,12 @@ function renderSourceSnapshot(source) {
     ["Language", normalized.language],
     ["RSS", normalized.rssUrl],
     ["Episodes", normalized.episodeCount],
+    ["Full / bonus / trailer", normalized.episodeCounts ? `${normalized.episodeCounts.full || 0} / ${normalized.episodeCounts.bonus || 0} / ${normalized.episodeCounts.trailer || 0}` : ""],
     ["Avg episode", normalized.avgEpisodeMinutes ? `${normalized.avgEpisodeMinutes} min` : ""],
+    ["Median / range", normalized.medianEpisodeMinutes ? `${normalized.medianEpisodeMinutes} min / ${normalized.minEpisodeMinutes || "?"}-${normalized.maxEpisodeMinutes || "?"} min` : ""],
     ["Seasons", normalized.seasonCount],
+    ["Transcripts", normalized.transcripts?.episodeCount ? `${normalized.transcripts.episodeCount} episodes (${Math.round((normalized.transcripts.coverage || 0) * 100)}%)` : ""],
+    ["People", (normalized.people || []).map((person) => `${person.name} (${person.role})`).join(" • ")],
     ["Latest release", normalized.latestPublicationDate ? normalized.latestPublicationDate.slice(0, 10) : ""],
   ];
 
@@ -178,36 +182,106 @@ function renderObjectiveSection(candidate) {
   `;
 }
 
-function renderSuggestionSection(candidate) {
-  const suggestions = candidate.aiSuggestions || {};
-  const shortDescription = suggestions.shortDescription?.value
-    ? `
-      <section class="maintainer-detail-section">
-        <h3>AI draft short description</h3>
-        <p>${escapeHtml(suggestions.shortDescription.value)}</p>
-        ${suggestions.shortDescription.confidence ? `<p class="maintainer-panel-meta">Confidence ${escapeHtml(formatConfidence(suggestions.shortDescription.confidence))}</p>` : ""}
-      </section>
-    `
-    : "";
+function renderReadiness(candidate) {
+  const readiness = candidate.readiness || {};
+  const blockers = readiness.blockers || [];
+  const warnings = readiness.warnings || [];
+  const cover = candidate.coverStage || {};
+  return `
+    <section class="maintainer-detail-section import-readiness-card">
+      <div class="import-source-card-top">
+        <div>
+          <h3>${readiness.ready ? "Review and publish" : "Preparation blockers"}</h3>
+          <p>${readiness.ready ? "All factual publication checks passed. Inspect the prepared record, then approve it." : "The importer has named every issue that still prevents publication."}</p>
+        </div>
+        ${renderBadge(readiness.ready ? "Ready" : `${blockers.length} blockers`, readiness.ready ? "good" : "warning")}
+      </div>
+      ${blockers.length ? `<ul>${blockers.map((item) => `<li><strong>${escapeHtml(toDisplayTag(item.field || item.code))}:</strong> ${escapeHtml(item.message)}</li>`).join("")}</ul>` : ""}
+      ${warnings.length ? `<details><summary>${warnings.length} optional gaps</summary><ul>${warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></details>` : ""}
+      ${cover.sourceUrl ? `
+        <div class="import-cover-preview">
+          <img src="${escapeHtml(cover.sourceUrl)}" alt="Staged cover preview" loading="lazy" />
+          <p>${escapeHtml(`${cover.width || "?"} x ${cover.height || "?"} · ${cover.contentType || "unknown format"} · ${cover.byteSize || 0} bytes`)}</p>
+          <p>${cover.appleQuality ? "Meets Apple cover quality target." : "Echo-publishable; Apple quality target is reported as a warning."}</p>
+        </div>
+      ` : ""}
+    </section>
+  `;
+}
 
-  return [
-    shortDescription,
-    renderSuggestionList("Suggested tags", suggestions.tags),
-    renderSuggestionList("Suggested tones", suggestions.tones),
-    renderSuggestionList("Suggested formats", suggestions.formats),
-    renderSuggestionList("Suggested similar shows", suggestions.similarShowIds),
-    suggestions.completionStatus?.value
-      ? `
-        <section class="maintainer-detail-section">
-          <h3>Suggested completion status</h3>
-          <p>${escapeHtml(suggestions.completionStatus.value)}</p>
-          ${suggestions.completionStatus.confidence ? `<p class="maintainer-panel-meta">Confidence ${escapeHtml(formatConfidence(suggestions.completionStatus.confidence))}</p>` : ""}
-        </section>
-      `
-      : "",
-  ]
-    .filter(Boolean)
-    .join("");
+function renderConflicts(candidate) {
+  const conflicts = candidate.conflicts || [];
+  if (!conflicts.length) return "";
+  return `
+    <section class="maintainer-detail-section">
+      <h3>Source conflicts</h3>
+      ${conflicts.map((conflict) => `
+        <article class="import-match-card">
+          <strong>${escapeHtml(toDisplayTag(conflict.fieldName))}</strong>
+          <p>${escapeHtml(conflict.message)}</p>
+          ${(conflict.options || []).map((option) => `<pre>${escapeHtml(JSON.stringify(option, null, 2))}</pre>`).join("")}
+        </article>
+      `).join("")}
+    </section>
+  `;
+}
+
+function renderFieldEvidence(candidate) {
+  const evidence = candidate.fieldEvidence || [];
+  if (!evidence.length) return "";
+  const groups = new Map();
+  evidence.forEach((item) => {
+    const key = item.fieldName;
+    const group = groups.get(key) || [];
+    if (!group.some((entry) => entry.normalizedValue === item.normalizedValue && entry.sourceType === item.sourceType)) group.push(item);
+    groups.set(key, group);
+  });
+  return `
+    <section class="maintainer-detail-section">
+      <h3>Field provenance</h3>
+      <div class="import-source-grid">
+        ${[...groups.entries()].map(([fieldName, items]) => {
+          const selected = candidate.provenance?.fields?.[fieldName];
+          return `
+            <article class="import-source-card">
+              <div class="import-source-card-top">
+                <h4>${escapeHtml(toDisplayTag(fieldName))}</h4>
+                ${selected?.confidence ? renderBadge(formatConfidence(selected.confidence), selected.confidence >= 0.9 ? "good" : "neutral") : ""}
+              </div>
+              <p class="maintainer-panel-meta">${escapeHtml(selected?.method ? toDisplayTag(selected.method) : "Evidence collected")}</p>
+              ${items.slice(0, 6).map((item) => `
+                <div class="import-evidence-row">
+                  <div><strong>${escapeHtml(formatSourceType(item.sourceType))}</strong> · ${escapeHtml(formatConfidence(item.confidence))}</div>
+                  <p>${escapeHtml(typeof item.value === "string" ? item.value : JSON.stringify(item.value))}</p>
+                  ${items.length > 1 ? `<button class="maintainer-ghost-button" type="button" data-import-evidence-id="${item.id}" data-import-evidence-field="${escapeHtml(fieldName)}">Select and lock</button>` : ""}
+                </div>
+              `).join("")}
+            </article>
+          `;
+        }).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderPreparedRecord(candidate) {
+  const record = candidate.preparedRecord || {};
+  if (!record.id) return "";
+  return `
+    <section class="maintainer-detail-section">
+      <h3>Prepared publication record</h3>
+      ${renderRows([
+        ["Mode", candidate.mode],
+        ["Show ID", record.id],
+        ["Review state", record.reviewStatus],
+        ["Release / completion", `${record.releaseStatus} / ${record.completionStatus}`],
+        ["Listen links", Object.values(record.listenLinks || {}).filter(Boolean).length],
+        ["Update changes", candidate.readiness?.updateDiff?.length || ""],
+      ])}
+      <p>${escapeHtml(record.description || "")}</p>
+      <details class="maintainer-raw-data"><summary>Preview complete JSON</summary><pre>${escapeHtml(JSON.stringify(record, null, 2))}</pre></details>
+    </section>
+  `;
 }
 
 export function renderImportSummaryCards(counts = {}, total = 0) {
@@ -296,11 +370,11 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
       </div>
 
       <div class="import-action-row">
-        <button type="button" class="maintainer-ghost-button" data-import-action="hydrate">Hydrate</button>
+        <button type="button" class="maintainer-ghost-button" data-import-action="hydrate">Re-run preparation</button>
+        ${candidate.status === "failed" ? '<button type="button" class="maintainer-ghost-button" data-import-action="retry">Retry failed import</button>' : ""}
         <button type="button" class="maintainer-ghost-button" data-import-action="reject">Reject</button>
         <button type="button" class="maintainer-ghost-button" data-import-action="duplicate">Mark duplicate</button>
-        <button type="button" class="maintainer-primary-button" data-import-action="draft">Write draft</button>
-        <button type="button" class="maintainer-primary-button" data-import-action="publish" ${candidate.draftedShowId ? "" : "disabled"}>Publish</button>
+        ${candidate.status === "ready" && candidate.readiness?.ready ? '<button type="button" class="maintainer-primary-button" data-import-action="publish">Approve and publish</button>' : ""}
       </div>
 
       ${renderRows([
@@ -309,7 +383,8 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
         ["Primary source", formatSourceType(candidate.primarySourceType || "title")],
         ["Primary source key", candidate.primarySourceKey],
         ["Primary source URL", candidate.primarySourceUrl],
-        ["Draft show ID", candidate.draftedShowId],
+        ["Import mode", candidate.mode],
+        ["Existing show ID", candidate.existingShowId],
         ["Published show ID", candidate.publishedShowId],
       ])}
 
@@ -318,7 +393,7 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
           <label class="maintainer-field">
             <span>Status</span>
             <select name="status">
-              ${["discovered", "hydrated", "needs-review", "drafted", "published", "duplicate", "rejected"]
+              ${["queued", "processing", "ready", "needs-review", "failed", "published", "duplicate", "rejected"]
                 .map(
                   (value) => `
                     <option value="${value}" ${candidate.status === value ? "selected" : ""}>${escapeHtml(formatStatus(value))}</option>
@@ -364,9 +439,12 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
         </div>
       </form>
 
+      ${renderReadiness(candidate)}
+      ${renderPreparedRecord(candidate)}
       ${renderObjectiveSection(candidate)}
       ${renderDedupeMatches(candidate)}
-      ${renderSuggestionSection(candidate)}
+      ${renderConflicts(candidate)}
+      ${renderFieldEvidence(candidate)}
 
       <section class="maintainer-detail-section">
         <h3>Source snapshots</h3>
@@ -379,9 +457,10 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
         <summary>Raw candidate payload</summary>
         <pre>${escapeHtml(JSON.stringify({
           objective: candidate.objective,
-          aiSuggestions: candidate.aiSuggestions,
           provenance: candidate.provenance,
           dedupe: candidate.dedupe,
+          readiness: candidate.readiness,
+          sourceHealth: candidate.sourceHealth,
         }, null, 2))}</pre>
       </details>
     </div>
@@ -398,7 +477,7 @@ export function renderImportReportContent({ counts = {}, items = [], total = 0, 
     `;
   }
 
-  const groups = ["discovered", "hydrated", "needs-review", "drafted", "published", "duplicate", "rejected"]
+  const groups = ["queued", "processing", "ready", "needs-review", "failed", "published", "duplicate", "rejected"]
     .map((status) => ({
       status,
       items: items.filter((candidate) => candidate.status === status),

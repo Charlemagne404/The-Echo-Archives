@@ -146,23 +146,24 @@ The schema is intentionally allowed to be richer than the current UI. If structu
 `catalog-src/` remains the canonical editorial catalog source.
 `data/` remains generated runtime/public output.
 
-Internal machine-ingest workflow state now lives separately in SQLite under the import tables managed by `backend/`. Those candidate records are operational only. They support discovery, hydration, provenance, duplicate review, and draft writing, but they are not a public or editorial source of truth.
+Internal machine-ingest workflow state lives separately in SQLite under the import tables managed by `backend/`. Those operational records include asynchronous runs, leased jobs, identity mappings, cached/retained source data, field evidence, staged-cover metadata, prepared records, conflicts, and readiness reports. They are not a public or editorial source of truth.
 
-The import lane writes into the authored show source only after a maintainer explicitly drafts or publishes a candidate, then regenerates `data/`.
+The import lane prepares entirely in SQLite. Only explicit maintainer approval writes a factual published `indexed-only` record into the authored show source, then regenerates `data/` once.
 
 ## Internal Import Candidate Shape
 
 The import subsystem normalizes external source data into an internal candidate record with:
 
-- queue status: `discovered`, `hydrated`, `needs-review`, `drafted`, `published`, `duplicate`, or `rejected`
+- queue status: `queued`, `processing`, `ready`, `needs-review`, `failed`, `published`, `duplicate`, or `rejected`
 - scope status: `in-scope`, `borderline`, or `out-of-scope`
 - normalized objective fields such as title, creator, feed URL, Apple URL, website URL, artwork, categories, language, and episode count
-- field-level provenance for each captured value
-- raw source payload snapshots for RSS, Apple, Podcast Index, or website fetches
+- prepared factual record, readiness report, conflicts, source health, cover quality, mode, existing show id, pipeline version, and input revision
+- field-level evidence, deterministic confidence, selected source method, and reviewer locks
+- retained gzip-compressed source snapshots and conditional source cache entries for RSS, Apple, Podcast Index, or official-site fetches
 - dedupe matches against existing catalog entries and existing candidates
-- separate AI suggestion fields for subjective archive suggestions such as tags, tones, formats, completion hints, and similar-show candidates
+- persistent leased jobs, run progress, retry state, and indexed identity mappings
 
-This internal candidate shape is intentionally non-canonical and may evolve without changing the public show schema.
+Prepared records do not apply subjective AI suggestions. This internal candidate shape is intentionally non-canonical and may evolve without changing the public show schema. See `docs/IMPORTER.md` for the complete contract.
 
 ## Automatic Cover Sync
 

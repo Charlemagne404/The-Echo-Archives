@@ -10,6 +10,7 @@ const readOnlySmokeFiles = [
   "test/creator-flow.smoke.js",
   "test/browser.smoke.js",
   "test/discovery-stability.smoke.js",
+  "test/maintainer-import.smoke.js",
 ];
 const statefulSmokeFiles = ["test/chat-submit-flow.smoke.js", "test/community-rating-flow.smoke.js"];
 

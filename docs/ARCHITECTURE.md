@@ -184,7 +184,7 @@ The archive supports both `indexed-only` and `full-review` as valid long-term sh
 - `DELETE /api/community/podcasts/:podcastId/rating`
 - `POST /api/submissions/shows`
 - protected maintainer session and submission queue APIs
-- protected maintainer import queue, hydration, draft, and publish APIs
+- protected asynchronous import runs, factual preparation, evidence review, and explicit publication APIs
 - optional static file serving from the repo root
 
 The backend owns:
@@ -283,21 +283,23 @@ This storage layer exists to support workflow without replacing the structured e
 
 ## Catalog Import Lane
 
-The new catalog import lane is intentionally separate from both the public submission surface and the authored catalog files.
+The catalog import lane is intentionally separate from both the public submission surface and the authored catalog files. Its full source, confidence, readiness, retry, and publication contract is documented in `docs/IMPORTER.md`.
 
 Boundaries:
 
 - public show intake still lives in the submission queue
-- machine-found show candidates live in SQLite import tables
-- approved candidates are written into the authored show source catalog as `status: "draft"` and then regenerated into `data/`
+- machine-found show candidates, leased jobs, source cache/snapshots, field evidence, conflicts, staged-cover metadata, and prepared records live in SQLite
+- source-rich candidates become `ready`; authenticated approval atomically writes a factual `indexed-only` published record and rebuilds generated data once
+- editorial discovery requirements apply to richer review states, not to factual indexed publication
 - only fully reviewed records are promoted to `published`
 
-Source strategy in v1:
+Source strategy:
 
 - RSS is the primary objective metadata source
 - Apple Search and lookup are the primary discovery helpers and `feedUrl` recovery path
 - Podcast Index is optional authenticated enrichment when credentials are configured
-- AI suggestions are provider-abstracted and optional; they may suggest subjective fields but never auto-publish anything
+- structured official-site data provides exact links and credits; unstructured extraction remains reviewer assistance only
+- subjective AI suggestions are outside the prepared record and never auto-populate catalogue fields
 
 ## Trust Boundaries
 

@@ -149,6 +149,7 @@ function migrate(db) {
       fetch_status TEXT NOT NULL DEFAULT 'fetched',
       payload_json TEXT NOT NULL DEFAULT '{}',
       normalized_json TEXT NOT NULL DEFAULT '{}',
+      raw_compacted INTEGER NOT NULL DEFAULT 0,
       fetched_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
 
@@ -168,6 +169,72 @@ function migrate(db) {
       input_json TEXT NOT NULL DEFAULT '{}',
       summary_json TEXT NOT NULL DEFAULT '{}',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_identities (
+      identity_type TEXT NOT NULL,
+      identity_value TEXT NOT NULL,
+      candidate_id TEXT REFERENCES catalog_import_candidates(id) ON DELETE CASCADE,
+      existing_show_id TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (identity_type, identity_value)
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_field_evidence (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      candidate_id TEXT NOT NULL REFERENCES catalog_import_candidates(id) ON DELETE CASCADE,
+      field_name TEXT NOT NULL,
+      value_json TEXT NOT NULL DEFAULT 'null',
+      normalized_value TEXT NOT NULL DEFAULT '',
+      source_snapshot_id INTEGER REFERENCES catalog_import_sources(id) ON DELETE SET NULL,
+      source_type TEXT NOT NULL DEFAULT '',
+      source_url TEXT NOT NULL DEFAULT '',
+      confidence REAL NOT NULL DEFAULT 0,
+      method TEXT NOT NULL DEFAULT 'direct',
+      evidence_status TEXT NOT NULL DEFAULT 'candidate',
+      selected INTEGER NOT NULL DEFAULT 0,
+      observed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_jobs (
+      id TEXT PRIMARY KEY,
+      candidate_id TEXT NOT NULL REFERENCES catalog_import_candidates(id) ON DELETE CASCADE,
+      run_id TEXT REFERENCES catalog_import_runs(id) ON DELETE SET NULL,
+      job_type TEXT NOT NULL DEFAULT 'prepare',
+      status TEXT NOT NULL DEFAULT 'queued',
+      attempt_count INTEGER NOT NULL DEFAULT 0,
+      max_attempts INTEGER NOT NULL DEFAULT 4,
+      next_attempt_at TEXT,
+      lease_owner TEXT NOT NULL DEFAULT '',
+      lease_expires_at TEXT,
+      input_revision INTEGER NOT NULL DEFAULT 1,
+      payload_json TEXT NOT NULL DEFAULT '{}',
+      result_json TEXT NOT NULL DEFAULT '{}',
+      error_text TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      started_at TEXT,
+      completed_at TEXT,
+      UNIQUE (candidate_id, job_type, input_revision)
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_import_source_cache (
+      source_type TEXT NOT NULL,
+      source_key TEXT NOT NULL,
+      source_url TEXT NOT NULL DEFAULT '',
+      fetch_status TEXT NOT NULL DEFAULT 'fetched',
+      http_status INTEGER,
+      etag TEXT NOT NULL DEFAULT '',
+      last_modified TEXT NOT NULL DEFAULT '',
+      payload_gzip BLOB,
+      payload_hash TEXT NOT NULL DEFAULT '',
+      raw_truncated INTEGER NOT NULL DEFAULT 0,
+      normalized_json TEXT NOT NULL DEFAULT '{}',
+      error_text TEXT NOT NULL DEFAULT '',
+      fetched_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      expires_at TEXT,
+      PRIMARY KEY (source_type, source_key)
     );
 
     CREATE TABLE IF NOT EXISTS rate_limit_events (
@@ -206,6 +273,21 @@ function migrate(db) {
 
     CREATE INDEX IF NOT EXISTS idx_catalog_import_events_candidate
       ON catalog_import_events (candidate_id, created_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_identities_candidate
+      ON catalog_import_identities (candidate_id);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_identities_show
+      ON catalog_import_identities (existing_show_id);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_evidence_candidate_field
+      ON catalog_import_field_evidence (candidate_id, field_name, confidence DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_jobs_claim
+      ON catalog_import_jobs (status, next_attempt_at, lease_expires_at, created_at);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_import_jobs_candidate
+      ON catalog_import_jobs (candidate_id, created_at DESC);
 
     CREATE INDEX IF NOT EXISTS idx_rate_limit_scope_ip_created
       ON rate_limit_events (scope, client_ip, created_at_ms);
@@ -294,6 +376,28 @@ function migrate(db) {
     "duplicate_of_candidate_id",
     "duplicate_of_candidate_id TEXT NOT NULL DEFAULT ''",
   );
+  ensureColumn(db, "catalog_import_candidates", "mode", "mode TEXT NOT NULL DEFAULT 'create'");
+  ensureColumn(db, "catalog_import_candidates", "existing_show_id", "existing_show_id TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "prepared_record_json", "prepared_record_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "catalog_import_candidates", "readiness_json", "readiness_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "catalog_import_candidates", "conflicts_json", "conflicts_json TEXT NOT NULL DEFAULT '[]'");
+  ensureColumn(db, "catalog_import_candidates", "source_health_json", "source_health_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "catalog_import_candidates", "locked_fields_json", "locked_fields_json TEXT NOT NULL DEFAULT '[]'");
+  ensureColumn(db, "catalog_import_candidates", "cover_stage_json", "cover_stage_json TEXT NOT NULL DEFAULT '{}'");
+  ensureColumn(db, "catalog_import_candidates", "pipeline_version", "pipeline_version TEXT NOT NULL DEFAULT '2'");
+  ensureColumn(db, "catalog_import_candidates", "input_revision", "input_revision INTEGER NOT NULL DEFAULT 1");
+  ensureColumn(db, "catalog_import_candidates", "last_run_id", "last_run_id TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "last_error", "last_error TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_sources", "http_status", "http_status INTEGER");
+  ensureColumn(db, "catalog_import_sources", "etag", "etag TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_sources", "last_modified", "last_modified TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_sources", "payload_hash", "payload_hash TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_sources", "payload_gzip", "payload_gzip BLOB");
+  ensureColumn(db, "catalog_import_sources", "raw_truncated", "raw_truncated INTEGER NOT NULL DEFAULT 0");
+  ensureColumn(db, "catalog_import_sources", "raw_compacted", "raw_compacted INTEGER NOT NULL DEFAULT 0");
+  ensureColumn(db, "catalog_import_runs", "updated_at", "updated_at TEXT");
+  ensureColumn(db, "catalog_import_runs", "started_at", "started_at TEXT");
+  ensureColumn(db, "catalog_import_runs", "completed_at", "completed_at TEXT");
   ensureColumn(db, "community_profiles", "voter_hash", "voter_hash TEXT");
   ensureColumn(db, "community_profiles", "last_abuse_hash", "last_abuse_hash TEXT");
   ensureColumn(db, "rating_submissions", "verified_at", "verified_at TEXT");
@@ -309,6 +413,45 @@ function migrate(db) {
   applyMigrationOnce(db, "community-device-voting-reset-2026-06-21", () => {
     db.prepare("DELETE FROM rating_events").run();
     db.prepare("DELETE FROM rating_submissions").run();
+  });
+
+  applyMigrationOnce(db, "catalog-import-v2-statuses-2026-07-14", () => {
+    db.exec(`
+      UPDATE catalog_import_candidates SET status = 'queued' WHERE status = 'discovered';
+      UPDATE catalog_import_candidates SET status = 'needs-review' WHERE status IN ('hydrated', 'drafted');
+    `);
+  });
+
+  db.exec(`
+    CREATE VIRTUAL TABLE IF NOT EXISTS catalog_import_candidates_fts USING fts5(
+      title,
+      creator_name,
+      seed_query,
+      review_notes,
+      content='catalog_import_candidates',
+      content_rowid='rowid'
+    );
+
+    CREATE TRIGGER IF NOT EXISTS catalog_import_candidates_fts_insert AFTER INSERT ON catalog_import_candidates BEGIN
+      INSERT INTO catalog_import_candidates_fts(rowid, title, creator_name, seed_query, review_notes)
+      VALUES (new.rowid, new.title, new.creator_name, new.seed_query, new.review_notes);
+    END;
+
+    CREATE TRIGGER IF NOT EXISTS catalog_import_candidates_fts_delete AFTER DELETE ON catalog_import_candidates BEGIN
+      INSERT INTO catalog_import_candidates_fts(catalog_import_candidates_fts, rowid, title, creator_name, seed_query, review_notes)
+      VALUES ('delete', old.rowid, old.title, old.creator_name, old.seed_query, old.review_notes);
+    END;
+
+    CREATE TRIGGER IF NOT EXISTS catalog_import_candidates_fts_update AFTER UPDATE ON catalog_import_candidates BEGIN
+      INSERT INTO catalog_import_candidates_fts(catalog_import_candidates_fts, rowid, title, creator_name, seed_query, review_notes)
+      VALUES ('delete', old.rowid, old.title, old.creator_name, old.seed_query, old.review_notes);
+      INSERT INTO catalog_import_candidates_fts(rowid, title, creator_name, seed_query, review_notes)
+      VALUES (new.rowid, new.title, new.creator_name, new.seed_query, new.review_notes);
+    END;
+  `);
+
+  applyMigrationOnce(db, "catalog-import-v2-fts-backfill-2026-07-14", () => {
+    db.prepare("INSERT INTO catalog_import_candidates_fts(catalog_import_candidates_fts) VALUES ('rebuild')").run();
   });
 }
 

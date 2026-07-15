@@ -7,7 +7,7 @@ const {
   normalizeUrl,
   trimText,
 } = require("../utils");
-const { fetchJsonWithLimits } = require("../fetch");
+const { fetchJsonWithLimits, throwForUpstreamStatus } = require("../fetch");
 
 const PODCAST_INDEX_BASE_URL = "https://api.podcastindex.org/api/1.0";
 
@@ -52,6 +52,12 @@ function normalizePodcastIndexResult(feed = {}, fallbackSourceUrl = "") {
     dead: Number(feed.dead) === 1,
     medium: trimText(feed.medium, 80),
     networkName: trimText(feed.ownerName || "", 240),
+    appleCollectionId: String(feed.itunesId || "").trim(),
+    funding: normalizeStringArray(feed.funding || [], 12),
+    contentType: trimText(feed.contentType, 120),
+    lastUpdateTime: Number.isFinite(Number(feed.lastUpdateTime))
+      ? new Date(Number(feed.lastUpdateTime) * 1000).toISOString()
+      : "",
   };
 }
 
@@ -60,9 +66,7 @@ async function fetchJson(fetchImpl, url, headers, limits) {
     ...limits,
     label: "Podcast Index request",
   });
-  if (!response.ok) {
-    throw new Error(`Podcast Index request failed with ${response.status}`);
-  }
+  throwForUpstreamStatus(response, "Podcast Index request");
 
   return json;
 }

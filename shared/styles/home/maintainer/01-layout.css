@@ -352,6 +352,37 @@
   white-space: pre-wrap;
 }
 
+.import-readiness-card ul,
+.import-readiness-card details {
+  margin: 14px 0 0;
+}
+
+.import-cover-preview {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 8px 16px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.import-cover-preview img {
+  grid-row: span 2;
+  width: 112px;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.import-evidence-row {
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.import-evidence-row:first-of-type {
+  border-top: 0;
+}
+
 .import-action-row {
   display: flex;
   gap: 12px;

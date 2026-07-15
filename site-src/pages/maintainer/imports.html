@@ -4,7 +4,7 @@
       <div class="maintainer-hero-copy">
         <p class="maintainer-kicker">Maintainer workspace</p>
         <h1>Catalog imports</h1>
-        <p>Seed machine-found shows, compare source snapshots, and move approved candidates into draft-only catalog entries without exposing unfinished metadata to the public archive.</p>
+        <p>Queue shows for automatic source enrichment, inspect a publication-ready factual record, and explicitly approve it without manual catalog editing.</p>
       </div>
       <div class="maintainer-hero-actions">
         <a id="maintainerReportLink" class="maintainer-link-button" href="/maintainer/imports/report.html">Open report</a>
@@ -46,7 +46,7 @@
       <form id="maintainerFilterForm" class="maintainer-toolbar-grid">
         <label class="maintainer-field maintainer-field--search">
           <span>Search</span>
-          <input id="maintainerSearch" name="q" type="search" placeholder="Show title, creator, source URL, notes, or candidate id..." />
+          <input id="maintainerSearch" name="q" type="search" placeholder="Show title, creator, seed query, notes, or candidate id..." />
         </label>
         <label class="maintainer-field">
           <span>Status</span>
@@ -101,13 +101,9 @@
             <span>Upload list</span>
             <input id="maintainerImportSeedFile" type="file" accept=".txt,.csv,.md" />
           </label>
-          <label class="maintainer-checkbox">
-            <input id="maintainerImportAutoHydrate" type="checkbox" checked />
-            <span>Auto-hydrate new candidates after seeding</span>
-          </label>
           <div class="maintainer-review-actions">
-            <button class="maintainer-primary-button" type="submit">Seed candidates</button>
-            <p id="maintainerImportSeedStatus" class="maintainer-status-copy">Create candidates from mixed title and URL inputs, then optionally fetch source metadata immediately.</p>
+            <button class="maintainer-primary-button" type="submit">Queue imports</button>
+            <p id="maintainerImportSeedStatus" class="maintainer-status-copy">Repeated identities are reused automatically; every queued candidate proceeds through preparation in the background.</p>
           </div>
         </form>
       </article>
@@ -131,10 +127,6 @@
               <select id="maintainerImportSearchSource"></select>
             </label>
           </div>
-          <label class="maintainer-checkbox">
-            <input id="maintainerImportSearchAutoHydrate" type="checkbox" checked />
-            <span>Auto-hydrate candidates added from search results</span>
-          </label>
           <div class="maintainer-review-actions">
             <button class="maintainer-primary-button" type="submit">Search sources</button>
             <p id="maintainerImportSearchStatus" class="maintainer-status-copy">Search results stay internal until you add them as candidates.</p>
@@ -167,7 +159,7 @@
             <p class="maintainer-kicker">Detail</p>
             <h2>Selected candidate</h2>
           </div>
-          <p id="maintainerDetailMeta" class="maintainer-panel-meta">Choose a candidate to compare source metadata, AI suggestions, and draft or publish readiness.</p>
+          <p id="maintainerDetailMeta" class="maintainer-panel-meta">Choose a candidate to inspect readiness, the prepared record, cover quality, source evidence, and named blockers.</p>
         </div>
         <div id="maintainerDetail" class="maintainer-detail" aria-live="polite"></div>
       </article>

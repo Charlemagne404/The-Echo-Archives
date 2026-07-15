@@ -24,6 +24,7 @@ function createImportContext() {
     store,
     service,
     close() {
+      service.stop?.();
       db.close();
     },
   };

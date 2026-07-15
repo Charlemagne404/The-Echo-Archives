@@ -20,6 +20,70 @@ function writeJsonFile(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
 
+function writeJsonFileAtomic(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const tempPath = `${filePath}.import-${process.pid}-${Date.now()}`;
+  fs.writeFileSync(tempPath, `${JSON.stringify(value, null, 2)}\n`);
+  fs.renameSync(tempPath, filePath);
+}
+
+function writeShowRecordsAtomically(siteRoot, records = []) {
+  const nextRecords = Array.isArray(records) ? records : [];
+  if (nextRecords.length === 0) {
+    throw new Error("At least one show record is required.");
+  }
+  const backups = new Map();
+  const changedPaths = [];
+  const remember = (filePath) => {
+    if (!backups.has(filePath)) backups.set(filePath, fs.existsSync(filePath) ? fs.readFileSync(filePath) : null);
+  };
+  const rollback = () => {
+    [...backups.entries()].reverse().forEach(([filePath, content]) => {
+      if (content === null) fs.rmSync(filePath, { force: true });
+      else {
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+        fs.writeFileSync(filePath, content);
+      }
+    });
+  };
+
+  try {
+    if (hasSplitCatalogSource(siteRoot)) {
+      const directoryPath = path.join(siteRoot, SHOWS_SOURCE_DIR);
+      const orderPath = getOrderFilePath(directoryPath);
+      const order = readOrderFile(directoryPath);
+      const nextOrder = [...order];
+      nextRecords.forEach((record) => {
+        const filePath = path.join(directoryPath, `${record.id}.json`);
+        remember(filePath);
+        writeJsonFileAtomic(filePath, record);
+        changedPaths.push(filePath);
+        if (!nextOrder.includes(record.id)) nextOrder.push(record.id);
+      });
+      if (nextOrder.length !== order.length) {
+        remember(orderPath);
+        writeJsonFileAtomic(orderPath, nextOrder);
+        changedPaths.push(orderPath);
+      }
+    } else {
+      const showsPath = path.join(siteRoot, RUNTIME_DATA_DIR, "shows.json");
+      const source = readCatalogSource(siteRoot);
+      const replacements = new Map(nextRecords.map((record) => [record.id, record]));
+      const shows = source.shows.map((show) => replacements.get(show.id) || show);
+      nextRecords.forEach((record) => {
+        if (!source.shows.some((show) => show.id === record.id)) shows.push(record);
+      });
+      remember(showsPath);
+      writeJsonFileAtomic(showsPath, shows);
+      changedPaths.push(showsPath);
+    }
+  } catch (error) {
+    rollback();
+    throw error;
+  }
+  return { changedPaths, rollback };
+}
+
 function hasSplitCatalogSource(siteRoot) {
   return fs.existsSync(path.join(siteRoot, CATALOG_SOURCE_ROOT));
 }
@@ -233,4 +297,6 @@ module.exports = {
   readJsonFile,
   writeCatalogSource,
   writeJsonFile,
+  writeJsonFileAtomic,
+  writeShowRecordsAtomically,
 };

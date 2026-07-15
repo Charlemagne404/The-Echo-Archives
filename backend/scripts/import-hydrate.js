@@ -10,7 +10,7 @@ async function main() {
       : context.service
           .listForMaintainer({ page: 1, pageSize: 50 })
           .items
-          .filter((candidate) => ["discovered", "hydrated", "needs-review"].includes(candidate.status))
+          .filter((candidate) => ["queued", "failed", "needs-review"].includes(candidate.status))
           .map((candidate) => candidate.id);
 
     if (targetIds.length === 0) {
@@ -19,7 +19,7 @@ async function main() {
 
     for (const candidateId of targetIds) {
       const candidate = await context.service.hydrateForMaintainer(candidateId, "cli");
-      console.log(`Hydrated ${candidate.id} :: ${candidate.title || candidate.seedQuery}`);
+      console.log(`Prepared ${candidate.id} :: ${candidate.title || candidate.seedQuery} [${candidate.status}]`);
     }
   } finally {
     context.close();
