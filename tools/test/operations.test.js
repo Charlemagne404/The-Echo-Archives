@@ -101,6 +101,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(migrationScript, /install-echo-archives-system\.sh/);
   assert.match(migrationScript, /echo\.continental-hub\.com:443:127\.0\.0\.1/);
   assert.match(migrationScript, /legacy host did not return HTTP 301/);
+  assert.match(migrationScript, /grep -qiE '\^location:/);
 });
 
 test("checked-in service and proxy retain production hardening", () => {
