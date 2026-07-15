@@ -84,8 +84,25 @@ function applyGeneratedCoverVariants(siteRoot, catalog) {
   return catalog;
 }
 
+function reuseExistingOutput(outputPath, maxBytes) {
+  if (!fs.existsSync(outputPath)) {
+    return null;
+  }
+
+  const stats = fs.statSync(outputPath);
+  if (!stats.isFile() || stats.size <= 0 || stats.size > maxBytes) {
+    return null;
+  }
+
+  return stats.size;
+}
+
 async function writeWithinBudget(createPipeline, outputPath, qualities, maxBytes) {
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  const existingSize = reuseExistingOutput(outputPath, maxBytes);
+  if (existingSize !== null) {
+    return existingSize;
+  }
 
   for (const quality of qualities) {
     const buffer = await createPipeline(quality).toBuffer();

@@ -75,6 +75,37 @@ test("responsive image generation preserves authored covers and enforces determi
   assert.equal(fs.existsSync(path.join(siteRoot, "images/generated/covers/orphan.webp")), false);
 });
 
+test("responsive image generation reuses existing generated outputs when they already satisfy the budget", async (t) => {
+  const siteRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-responsive-reuse-"));
+  t.after(() => fs.rmSync(siteRoot, { recursive: true, force: true }));
+
+  const coversDirectory = path.join(siteRoot, "images", "covers");
+  fs.mkdirSync(coversDirectory, { recursive: true });
+  const sourcePath = path.join(coversDirectory, "fixture.png");
+  await sharp({
+    create: {
+      width: 1000,
+      height: 1000,
+      channels: 3,
+      background: { r: 31, g: 73, b: 109 },
+    },
+  }).png().toFile(sourcePath);
+
+  const catalog = [{ id: "fixture", cover: "images/covers/fixture.png" }];
+  await generateCoverVariants(siteRoot, catalog);
+  const outputPath = path.join(siteRoot, catalog[0].coverVariants[0].src.replace(/^\/+/, ""));
+  const originalContents = fs.readFileSync(outputPath);
+
+  fs.writeFileSync(outputPath, originalContents);
+  const beforeMtime = fs.statSync(outputPath).mtimeMs;
+  await new Promise((resolve) => setTimeout(resolve, 25));
+
+  await generateCoverVariants(siteRoot, catalog);
+
+  assert.equal(fs.statSync(outputPath).mtimeMs, beforeMtime);
+  assert.deepEqual(fs.readFileSync(outputPath), originalContents);
+});
+
 test("static information illustrations receive WebP and AVIF variants", async (t) => {
   const siteRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-static-images-"));
   t.after(() => fs.rmSync(siteRoot, { recursive: true, force: true }));
