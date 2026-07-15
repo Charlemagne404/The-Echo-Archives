@@ -9,6 +9,7 @@
     "dev": "node ../tools/run-backend.js --watch",
     "test": "node --test test/*.test.js",
     "test:smoke": "node scripts/run-smoke-tests.js",
+    "test:setup:browser": "playwright install chromium",
     "test:smoke:maintainer-import": "node --test test/maintainer-import.smoke.js",
     "test:smoke:serial": "node --test --test-concurrency=1 test/*.smoke.js",
     "check:config": "node ../tools/run-backend.js --check-config",

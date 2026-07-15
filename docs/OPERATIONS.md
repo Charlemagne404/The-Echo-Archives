@@ -223,6 +223,20 @@ Explicit paths are supported for one-off checks and off-host mount points. Relat
 npm run backup:database -- --source /absolute/path/community.sqlite --destination /absolute/path/community-backup.sqlite
 ```
 
+### Daily local backup timer
+
+The checked-in `echo-archives-backup.service` runs the same verified backup command each day at approximately 03:15 local time, with a randomized delay of up to 15 minutes. Install and start it on the production host:
+
+```bash
+sudo install -m 0644 deploy/echo-archives-backup.service /etc/systemd/system/echo-archives-backup.service
+sudo install -m 0644 deploy/echo-archives-backup.timer /etc/systemd/system/echo-archives-backup.timer
+sudo systemctl daemon-reload
+sudo systemctl enable --now echo-archives-backup.timer
+systemctl list-timers echo-archives-backup.timer
+```
+
+The timer creates local recovery copies only. Configure an encrypted off-host destination and a retention policy separately; a backup stored only on this server does not protect against host loss.
+
 Before trusting the backup process for launch, copy one backup to a temporary location, open it with `sqlite3`, and confirm expected table counts. Perform a restore drill on a non-production copy.
 
 Restore is a manual maintenance operation. Confirm every path before running it:
