@@ -1,0 +1,17 @@
+[Unit]
+Description=Verified SQLite backup for The Echo Archives
+After=network-online.target echo-archives.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=charlie
+Group=charlie
+WorkingDirectory=/home/charlie/The-Echo-Archives
+EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
+ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/tools/backup-database.js
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+
