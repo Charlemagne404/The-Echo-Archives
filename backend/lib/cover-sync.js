@@ -5,7 +5,7 @@ const { fetchBufferWithLimits } = require("./import/fetch");
 const COVER_SOURCE_TIMEOUT_MS = 10_000;
 const COVER_DOCUMENT_MAX_BYTES = 5 * 1024 * 1024;
 const COVER_IMAGE_MAX_BYTES = 8 * 1024 * 1024;
-const COVER_SYNC_USER_AGENT = "TheEchoArchivesCoverSync/1.0 (+https://echo.continental-hub.com)";
+const COVER_SYNC_USER_AGENT = "TheEchoArchivesCoverSync/1.0 (+https://echoarchives.net)";
 const MANAGED_COVERS_DIR = "images/covers";
 const PLACEHOLDER_COVER = "images/TEA-Logo-S.png";
 

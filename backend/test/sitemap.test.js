@@ -11,31 +11,31 @@ test("buildSitemapEntries includes public pages, shows, and collections", async 
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
   const entries = buildSitemapEntries({
-    siteUrl: "https://echo.continental-hub.com",
+    siteUrl: "https://echoarchives.net",
     catalog,
     collections,
   });
   const urls = entries.map((entry) => entry.loc);
 
-  assert.ok(urls.includes("https://echo.continental-hub.com/"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/collections"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/for-creators"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/creator-standards"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/supporters"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/help-center"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/privacy"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/terms"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/cookies"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/copyright"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/shows/impact-winter"));
-  assert.ok(urls.includes("https://echo.continental-hub.com/collections/best-for-long-walks"));
+  assert.ok(urls.includes("https://echoarchives.net/"));
+  assert.ok(urls.includes("https://echoarchives.net/collections"));
+  assert.ok(urls.includes("https://echoarchives.net/for-creators"));
+  assert.ok(urls.includes("https://echoarchives.net/creator-standards"));
+  assert.ok(urls.includes("https://echoarchives.net/supporters"));
+  assert.ok(urls.includes("https://echoarchives.net/help-center"));
+  assert.ok(urls.includes("https://echoarchives.net/privacy"));
+  assert.ok(urls.includes("https://echoarchives.net/terms"));
+  assert.ok(urls.includes("https://echoarchives.net/cookies"));
+  assert.ok(urls.includes("https://echoarchives.net/copyright"));
+  assert.ok(urls.includes("https://echoarchives.net/shows/impact-winter"));
+  assert.ok(urls.includes("https://echoarchives.net/collections/best-for-long-walks"));
   assert.equal(urls.some((url) => url.includes("?id=")), false);
   assert.equal(new Set(urls).size, urls.length);
 });
 
 test("buildSitemapXml serializes the sitemap document", () => {
   const xml = buildSitemapXml({
-    siteUrl: "https://echo.continental-hub.com",
+    siteUrl: "https://echoarchives.net",
     catalog: [
       { id: "impact-winter", status: "published", updatedAt: "2026-06-02" },
       { id: "solar", status: "published", updatedAt: "2026-06-02" },

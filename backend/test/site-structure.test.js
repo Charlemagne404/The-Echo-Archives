@@ -175,7 +175,7 @@ test("web manifest icons exist on disk", () => {
 test("committed sitemap includes generated show and collection routes", () => {
   const sitemapXml = fs.readFileSync(path.join(siteRoot, "sitemap.xml"), "utf8");
 
-  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/shows\/[a-z0-9-]+<\/loc>/);
-  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/collections\/[a-z0-9-]+<\/loc>/);
+  assert.match(sitemapXml, /<loc>https:\/\/echoarchives\.net\/shows\/[a-z0-9-]+<\/loc>/);
+  assert.match(sitemapXml, /<loc>https:\/\/echoarchives\.net\/collections\/[a-z0-9-]+<\/loc>/);
   assert.doesNotMatch(sitemapXml, /\?(?:id|q)=/);
 });

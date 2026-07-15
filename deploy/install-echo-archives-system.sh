@@ -53,7 +53,7 @@ awk '
     skipping = 0
     depth = 0
   }
-  /^echo\.continental-hub\.com[[:space:]]*\{/ {
+  /^(echo\.continental-hub\.com|echoarchives\.net)[[:space:]]*\{/ {
     skipping = 1
     line = $0
     opens = gsub(/\{/, "{", line)
@@ -127,6 +127,6 @@ curl -fsS --max-time 5 http://127.0.0.1:3010/api/health
 
 echo
 echo
-echo "Caddy is configured for echo.continental-hub.com."
-echo "Public DNS still needs to point echo.continental-hub.com at this server."
+echo "Caddy is configured for echoarchives.net and redirects echo.continental-hub.com permanently."
+echo "Public DNS for both hosts must point at this server while the redirect is retained."
 echo "Expected records should match the other live subdomains on this host instead of GitHub Pages."

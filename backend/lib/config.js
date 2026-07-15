@@ -38,7 +38,7 @@ const config = {
   TRUST_PROXY: process.env.TRUST_PROXY || "loopback",
   STATIC_ROOT: path.resolve(PROJECT_ROOT, process.env.STATIC_ROOT || ".."),
   DB_PATH: process.env.DB_PATH || path.join(DATA_ROOT, "community.sqlite"),
-  SITE_URL: process.env.SITE_URL || "https://echo.continental-hub.com",
+  SITE_URL: process.env.SITE_URL || "https://echoarchives.net",
   CHAT_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.CHAT_RATE_LIMIT_WINDOW_MS, 600000),
   CHAT_RATE_LIMIT_MAX: parseInteger(process.env.CHAT_RATE_LIMIT_MAX, 40),
   CHAT_MESSAGE_MAX_LENGTH: parseInteger(process.env.CHAT_MESSAGE_MAX_LENGTH, 2000),

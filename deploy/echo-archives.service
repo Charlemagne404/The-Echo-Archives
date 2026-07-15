@@ -15,7 +15,7 @@ Environment=HOST=127.0.0.1
 Environment=PORT=3010
 Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
 Environment=SERVE_STATIC=true
-Environment=SITE_URL=https://echo.continental-hub.com
+Environment=SITE_URL=https://echoarchives.net
 Environment=DB_PATH=/home/charlie/The-Echo-Archives/backend/data/community.sqlite
 Environment=OLLAMA_URL=http://127.0.0.1:11434/api/generate
 Environment=OLLAMA_MODEL=mistral

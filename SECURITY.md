@@ -2,7 +2,7 @@
 
 ## Supported deployment
 
-The current maintained deployment is the live `echo.continental-hub.com` site
+The current maintained deployment is the live `echoarchives.net` site
 and the current default branch of this repository.
 
 ## Reporting a vulnerability

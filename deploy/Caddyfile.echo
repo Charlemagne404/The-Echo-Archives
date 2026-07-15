@@ -1,4 +1,4 @@
-echo.continental-hub.com {
+echoarchives.net {
 	encode zstd gzip
 
 	header {
@@ -9,4 +9,8 @@ echo.continental-hub.com {
 	route {
 		reverse_proxy 127.0.0.1:3010
 	}
+}
+
+echo.continental-hub.com {
+	redir https://echoarchives.net{uri} permanent
 }

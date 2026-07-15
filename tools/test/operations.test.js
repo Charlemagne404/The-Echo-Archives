@@ -110,11 +110,15 @@ test("checked-in service and proxy retain production hardening", () => {
   }
 
   const caddy = read("deploy/Caddyfile.echo");
+  assert.match(caddy, /^echoarchives\.net \{$/m);
+  assert.match(caddy, /^echo\.continental-hub\.com \{$/m);
+  assert.match(caddy, /redir https:\/\/echoarchives\.net\{uri\} permanent/);
   assert.match(caddy, /encode zstd gzip/);
   assert.match(caddy, /-Server/);
   assert.match(caddy, /Strict-Transport-Security "max-age=31536000; includeSubDomains"/);
   assert.match(caddy, /reverse_proxy 127\.0\.0\.1:3010/);
   assert.doesNotMatch(caddy, /Cache-Control/, "Express should own status-aware cache policy.");
+  assert.match(service, /Environment=SITE_URL=https:\/\/echoarchives\.net/);
 
   const rootPackage = JSON.parse(read("package.json"));
   assert.match(rootPackage.scripts.verify, /npm run test:tools/);

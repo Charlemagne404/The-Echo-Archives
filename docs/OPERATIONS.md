@@ -21,7 +21,7 @@ The supported production shape is:
 
 - Node.js `20.12` or newer
 - the Express service bound to `127.0.0.1:3010` through Caddy
-- Caddy terminating HTTPS for `https://echo.continental-hub.com`
+- Caddy terminating HTTPS for `https://echoarchives.net`
 - systemd running the app as the unprivileged `charlie` user
 - SQLite at `/home/charlie/The-Echo-Archives/backend/data/community.sqlite`
 - runtime secrets and overrides in `/home/charlie/The-Echo-Archives/backend/.env`
@@ -151,6 +151,27 @@ The installer:
 
 It does not configure DNS, create secrets, or modify a live database.
 
+## Production Domain Migration
+
+The canonical public origin is `https://echoarchives.net`. The checked-in Caddy
+configuration serves that host and sends `https://echo.continental-hub.com` to
+the same path and query on the new origin with a permanent redirect.
+
+Before installing the migration on the production server:
+
+1. Point the apex `echoarchives.net` A/AAAA records at the Caddy host. Keep the
+   existing `echo.continental-hub.com` records pointed there too; Caddy must be
+   able to serve HTTPS before it can return the redirect.
+2. In the production `backend/.env`, set `SITE_URL=https://echoarchives.net`.
+   That file overrides the value in the systemd unit.
+3. Pull the release, install production dependencies, run the production
+   configuration check, then run `sudo ./deploy/install-echo-archives-system.sh`.
+
+After the install, verify the new host serves the application and the legacy
+host returns a permanent redirect before updating any external links. Retain the
+legacy redirect for the foreseeable future to preserve existing bookmarks and
+search-engine signals.
+
 ## Routine Server Update
 
 Run routine updates as the `charlie` application user, not root:
@@ -242,13 +263,17 @@ After installing or changing the proxy configuration, verify locally and publicl
 
 ```bash
 sudo caddy validate --config /etc/caddy/Caddyfile
-curl --compressed --silent --show-error --dump-header - --output /dev/null https://echo.continental-hub.com/
-curl --silent --show-error --dump-header - --output /dev/null 'https://echo.continental-hub.com/style.css?v=<current-version>'
-curl --silent --show-error --dump-header - --output /dev/null https://echo.continental-hub.com/sw.js
-curl --silent --show-error --dump-header - --output /dev/null https://echo.continental-hub.com/api/health
+curl --compressed --silent --show-error --dump-header - --output /dev/null https://echoarchives.net/
+curl --silent --show-error --dump-header - --output /dev/null 'https://echoarchives.net/style.css?v=<current-version>'
+curl --silent --show-error --dump-header - --output /dev/null https://echoarchives.net/sw.js
+curl --silent --show-error --dump-header - --output /dev/null https://echoarchives.net/api/health
+curl --silent --show-error --dump-header - --output /dev/null https://echo.continental-hub.com/
 ```
 
 Confirm HTTPS, HSTS, compression on eligible content, the expected cache policy, and absence of internal paths or server error detail. Caddy is not available in every development environment, so its config must also be validated on the target host before launch.
+
+For the legacy host, confirm a `308` response with a `Location` header whose
+origin is `https://echoarchives.net` and whose path and query are unchanged.
 
 ## Generated Output Rule
 
