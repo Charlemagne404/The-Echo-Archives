@@ -1,0 +1,92 @@
+@media (max-width: 959px) {
+  .home-page #chat-toggle.chat-toggle-button {
+    right: max(12px, var(--safe-area-right));
+    bottom: max(16px, var(--safe-area-bottom));
+    width: 54px;
+    height: 54px;
+  }
+
+  #chat-container {
+    --chat-floating-edge: 12px;
+    --chat-launcher-size: 54px;
+    top: calc(var(--visual-viewport-offset-top) + max(12px, var(--safe-area-top)));
+    right: var(--chat-floating-edge);
+    bottom: auto;
+    width: calc(100vw - (var(--chat-floating-edge) * 2));
+    height: min(640px, calc(var(--visual-viewport-height) - max(24px, var(--safe-area-top)) - max(24px, var(--safe-area-bottom))));
+  }
+
+  .chat-input-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .chat-suggestions {
+    grid-auto-columns: minmax(168px, 82%);
+  }
+
+  .chat-panel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chat-panel-actions {
+    justify-content: space-between;
+  }
+
+  #chat-container {
+    top: calc(var(--visual-viewport-offset-top) + max(8px, var(--safe-area-top)));
+    right: max(12px, var(--safe-area-right));
+    left: max(12px, var(--safe-area-left));
+    width: auto;
+    height: min(640px, calc(var(--visual-viewport-height) - max(16px, var(--safe-area-top)) - max(16px, var(--safe-area-bottom))));
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  #chat-toggle.chat-toggle-button {
+    right: max(8px, var(--safe-area-right));
+    bottom: max(12px, var(--safe-area-bottom));
+    width: clamp(46px, 14vw, 50px);
+    height: clamp(46px, 14vw, 50px);
+  }
+
+  #backToTop {
+    right: calc(max(12px, var(--safe-area-right)) + 60px);
+    bottom: max(16px, var(--safe-area-bottom));
+  }
+
+  .home-page.chat-panel-open .chat-footnote {
+    min-height: 52px;
+    padding-left: 64px;
+  }
+}
+
+@media (max-width: 959px) and (max-height: 500px) {
+  #chat-container {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .chat-panel-header {
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 10px;
+  }
+
+  .chat-status,
+  .chat-suggestion-region,
+  .chat-footnote {
+    display: none;
+  }
+
+  .chat-input-area {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 8px;
+  }
+
+  #chatLog {
+    min-height: 64px;
+  }
+}

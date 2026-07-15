@@ -304,7 +304,16 @@ test("Ask the Archivist and the remade submit page interactions work across mode
 
     await page.locator('[data-submission-mode="correction"]').click();
     await page.locator("#submitExistingShowSearch").fill("Impact");
-    await page.locator('[data-show-option-id="impact-winter"]').click();
+    await page.locator("#submitExistingShowSearch").press("ArrowDown");
+    const activeDescendant = await page.locator("#submitExistingShowSearch").getAttribute("aria-activedescendant");
+    assert.match(activeDescendant || "", /submitExistingShowSearchResultsOption\d+/);
+    await page.locator("#submitExistingShowSearch").press("Enter");
+    await page.waitForFunction(
+      () => document.getElementById("existingShowId")?.value === "impact-winter" &&
+        document.getElementById("submitExistingShowSearch")?.value === "Impact Winter",
+      undefined,
+      { timeout: 5_000 },
+    );
     formState = await page.evaluate(() => ({
       submissionType: document.getElementById("submissionType")?.value || "",
       existingShowId: document.getElementById("existingShowId")?.value || "",
@@ -367,21 +376,34 @@ test("Ask the Archivist and the remade submit page interactions work across mode
   }
 });
 
-test("submit keeps the new-show intake usable when archive lookup data fails", async () => {
-  const page = await browser.newPage();
+test("submit defers archive lookup and keeps the new-show intake usable when lookup fails", async () => {
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
+  let lookupRequests = 0;
 
   try {
     await page.route("**/data/search-index.json*", async (route) => {
+      lookupRequests += 1;
       await route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"unavailable"}' });
     });
     await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
 
-    await page.locator("#submitLoadStatus .route-error-surface").waitFor();
     assert.ok((await page.locator("#submitModeCards [data-submission-mode]").count()) > 0);
     await page.locator("#submitShowTitle").waitFor();
-    assert.match(await page.locator("#submitLoadStatus").innerText(), /new-show submission/i);
+    assert.equal(lookupRequests, 0, "default new-show intake should not request the search index");
+
+    await page.locator('[data-submission-mode="correction"]').click();
+    await page.locator('.submit-lookup-status[data-state="error"]').waitFor();
+    assert.equal(lookupRequests, 1);
+    assert.match(await page.locator(".submit-lookup-status").innerText(), /temporarily unavailable/i);
+    assert.equal(await page.locator("#submitExistingShowSearch").isDisabled(), true);
+    assert.equal(await page.locator("[data-retry-submit-lookup]").isVisible(), true);
+
+    await page.locator('[data-submission-mode="show"]').click();
+    await page.locator("#submitShowTitle").fill("Still usable without lookup");
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "Still usable without lookup");
   } finally {
-    await page.close();
+    await context.close();
   }
 });
 

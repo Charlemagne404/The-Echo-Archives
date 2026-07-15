@@ -191,10 +191,25 @@ export function renderSegmentedField({ fieldName, label, value, options, helper 
   });
 }
 
-export function renderExistingShowField({ label, value, helper, searchResults, searchOpen, selectedShowId, required = false }) {
+export function renderExistingShowField({
+  label,
+  value,
+  helper,
+  searchResults,
+  searchOpen,
+  selectedShowId,
+  required = false,
+  lookupStatus = "ready",
+  lookupMessage = "",
+  highlightIndex = -1,
+}) {
   const fieldId = "submitExistingShowSearch";
   const resultsId = `${fieldId}Results`;
   const { labelId, helperId, errorId } = getFieldIds(fieldId);
+  const lookupReady = lookupStatus === "ready";
+  const activeOptionId = lookupReady && searchOpen && highlightIndex >= 0
+    ? `${resultsId}Option${highlightIndex}`
+    : "";
   return renderFieldShell({
     fieldId,
     labelId,
@@ -218,9 +233,11 @@ export function renderExistingShowField({ label, value, helper, searchResults, s
             aria-autocomplete="list"
             aria-expanded="${String(searchOpen)}"
             aria-controls="${resultsId}"
+            ${activeOptionId ? `aria-activedescendant="${activeOptionId}"` : ""}
             aria-labelledby="${labelId}"
             aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
             aria-errormessage="${errorId}"
+            ${lookupReady ? "" : 'disabled aria-disabled="true"'}
             ${required ? "required" : ""}
           />
           <div class="submit-search-actions">
@@ -241,13 +258,18 @@ export function renderExistingShowField({ label, value, helper, searchResults, s
               aria-label="${searchOpen ? "Collapse show suggestions" : "Expand show suggestions"}"
               aria-expanded="${String(searchOpen)}"
               aria-controls="${resultsId}"
+              ${lookupReady ? "" : 'disabled aria-disabled="true"'}
             >
               ${iconMarkup("chevron-down")}
             </button>
           </div>
         </div>
+        <div class="submit-lookup-status" data-state="${escapeAttribute(lookupStatus)}" role="${lookupStatus === "error" ? "alert" : "status"}" aria-live="polite">
+          <span>${lookupReady ? "" : escapeHtml(lookupMessage)}</span>
+          ${lookupStatus === "error" ? '<button type="button" class="submit-lookup-retry" data-retry-submit-lookup>Retry archive lookup</button>' : ""}
+        </div>
         <div id="${resultsId}" class="submit-search-results" role="listbox" aria-labelledby="${labelId}" ${searchOpen ? "" : "hidden"}>
-          ${searchOpen ? renderSearchResultsMarkup(searchResults, selectedShowId, value) : ""}
+          ${searchOpen ? renderSearchResultsMarkup(searchResults, selectedShowId, value, highlightIndex) : ""}
         </div>
       </div>
     `,

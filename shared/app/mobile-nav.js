@@ -1,6 +1,6 @@
 import { addMediaQueryListener } from "./utils.js";
 
-const MOBILE_NAV_BREAKPOINT = "(max-width: 780px)";
+const MOBILE_NAV_BREAKPOINT = "(max-width: 959px)";
 
 export function initializeMobileNav() {
   const toggle = document.getElementById("siteNavToggle");

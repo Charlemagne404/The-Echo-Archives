@@ -13,6 +13,9 @@ export function renderCreatorVerificationMode(draft, context) {
       searchResults: context.searchResults,
       searchOpen: context.searchOpen,
       selectedShowId: draft.existingShowId,
+      lookupStatus: context.lookupStatus,
+      lookupMessage: context.lookupMessage,
+      highlightIndex: context.showHighlightIndex,
     }),
     renderFormRow([
       renderTextInputField({

@@ -4,6 +4,7 @@ import { updateDocumentMetadata } from "../utils.js";
 import {
   MODE_CONFIG,
   MODES_WITH_EXISTING_SHOW,
+  FALLBACK_TAG_OPTIONS,
   REVIEW_CONTEXT_OPTIONS,
   REVIEW_STRENGTH_OPTIONS,
 } from "../submit/config.js";
@@ -27,7 +28,6 @@ import { captureCurrentDraft } from "./submit/draft.js";
 import { getSubmitElements } from "./submit/elements.js";
 import { createSubmitUiController } from "./submit/ui.js";
 import { showToast } from "../toast.js";
-import { renderRouteErrorSurface } from "../route-error.js";
 
 export async function initializeSubmitPage() {
   updateDocumentMetadata({
@@ -42,18 +42,6 @@ export async function initializeSubmitPage() {
     return;
   }
 
-  let shows = [];
-  try {
-    shows = getPublishedShows(await loadSearchIndex()).sort((left, right) => left.title.localeCompare(right.title));
-  } catch (_error) {
-    elements.loadStatus.hidden = false;
-    renderRouteErrorSurface(elements.loadStatus, {
-      title: "Archive lookup is temporarily unavailable",
-      explanation: "You can still send a new-show submission. Corrections, listener reviews, and creator verification need the archive lookup to recover first.",
-      primaryAction: { href: "/help-center", label: "Get help" },
-      onRetry: () => window.location.reload(),
-    });
-  }
   const state = {
     activeMode: "show",
     searchOpen: false,
@@ -62,10 +50,15 @@ export async function initializeSubmitPage() {
     activeTagField: "selectedTags",
     tagQuery: "",
     tagHighlightIndex: -1,
-    shows,
-    showMap: new Map(shows.map((show) => [show.id, show])),
+    showHighlightIndex: -1,
+    shows: [],
+    showMap: new Map(),
+    lookupStatus: "idle",
+    lookupMessage: "Archive lookup loads only when this submission path needs it.",
+    lookupPromise: null,
+    requestedShowId: "",
     tagFieldOptions: {
-      selectedTags: buildTagOptions(shows),
+      selectedTags: [...FALLBACK_TAG_OPTIONS],
       bestFor: REVIEW_CONTEXT_OPTIONS,
       workedBest: REVIEW_STRENGTH_OPTIONS,
     },
@@ -73,9 +66,64 @@ export async function initializeSubmitPage() {
   };
   const ui = createSubmitUiController({ state, elements });
 
-  seedStateFromParams(state);
+  const initialParams = seedStateFromParams(state);
+  state.requestedShowId = initialParams?.requestedShowId || "";
   ui.renderAll();
-  bindSubmitPageClickHandlers({ state, elements, ui });
+  const ensureLookup = async ({ force = false, focusSearch = false } = {}) => {
+    if (state.lookupStatus === "ready") {
+      if (focusSearch && MODES_WITH_EXISTING_SHOW.has(state.activeMode)) {
+        ui.focusExistingShowSearch(getActiveDraft(state).showSearch.length);
+      }
+      return state.shows;
+    }
+
+    if (state.lookupPromise && !force) {
+      return state.lookupPromise;
+    }
+
+    state.lookupStatus = "loading";
+    state.lookupMessage = "Loading the archive show index…";
+    state.searchOpen = false;
+    state.showHighlightIndex = -1;
+    ui.renderAll();
+
+    state.lookupPromise = loadSearchIndex()
+      .then((records) => {
+        const shows = getPublishedShows(records).sort((left, right) => left.title.localeCompare(right.title));
+        state.shows = shows;
+        state.showMap = new Map(shows.map((show) => [show.id, show]));
+        state.tagFieldOptions.selectedTags = buildTagOptions(shows);
+        state.lookupStatus = "ready";
+        state.lookupMessage = "";
+        seedStateFromParams(state);
+        state.requestedShowId = "";
+        ui.renderAll();
+        if (focusSearch && MODES_WITH_EXISTING_SHOW.has(state.activeMode)) {
+          ui.focusExistingShowSearch(getActiveDraft(state).showSearch.length);
+        }
+        return shows;
+      })
+      .catch((error) => {
+        state.lookupStatus = "error";
+        state.lookupMessage = "Archive lookup is temporarily unavailable. Retry here, or use the new-show path now.";
+        ui.renderAll();
+        throw error;
+      })
+      .finally(() => {
+        state.lookupPromise = null;
+      });
+
+    return state.lookupPromise;
+  };
+  bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup });
+
+  if (MODES_WITH_EXISTING_SHOW.has(initialParams?.requestedMode)) {
+    try {
+      await ensureLookup();
+    } catch (_error) {
+      // The dependent form owns its retry surface; the new-show path stays usable.
+    }
+  }
 
   elements.form.addEventListener("focusin", (event) => {
     const target = event.target;
@@ -84,7 +132,11 @@ export async function initializeSubmitPage() {
     }
 
     if (target.id === "submitExistingShowSearch") {
+      if (state.lookupStatus !== "ready") {
+        return;
+      }
       state.searchOpen = true;
+      state.showHighlightIndex = -1;
       ui.updateSearchResults();
       return;
     }
@@ -120,6 +172,7 @@ export async function initializeSubmitPage() {
         draft.existingShowId = "";
       }
       state.searchOpen = true;
+      state.showHighlightIndex = -1;
       ui.syncHiddenInputs();
       ui.syncQueryState();
       ui.updateSearchResults();
@@ -149,6 +202,54 @@ export async function initializeSubmitPage() {
   elements.form.addEventListener("keydown", (event) => {
     const target = event.target;
     if (!(target instanceof HTMLInputElement)) {
+      return;
+    }
+
+    if (target.id === "submitExistingShowSearch") {
+      if (state.lookupStatus !== "ready") {
+        return;
+      }
+
+      const draft = getActiveDraft(state);
+      const matches = getShowMatches(state.shows, draft.showSearch).slice(0, 7);
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        state.searchOpen = true;
+        if (matches.length === 0) {
+          state.showHighlightIndex = -1;
+        } else if (event.key === "ArrowDown") {
+          state.showHighlightIndex = state.showHighlightIndex < 0
+            ? 0
+            : (state.showHighlightIndex + 1) % matches.length;
+        } else {
+          state.showHighlightIndex = state.showHighlightIndex <= 0
+            ? matches.length - 1
+            : state.showHighlightIndex - 1;
+        }
+        ui.updateSearchResults();
+        return;
+      }
+
+      if (event.key === "Enter" && state.searchOpen && state.showHighlightIndex >= 0) {
+        const selectedShow = matches[state.showHighlightIndex];
+        if (selectedShow) {
+          event.preventDefault();
+          draft.existingShowId = selectedShow.id;
+          draft.showSearch = selectedShow.title;
+          state.searchOpen = false;
+          state.showHighlightIndex = -1;
+          ui.renderAll();
+          ui.focusExistingShowSearch(draft.showSearch.length);
+        }
+        return;
+      }
+
+      if (event.key === "Escape" && state.searchOpen) {
+        event.preventDefault();
+        state.searchOpen = false;
+        state.showHighlightIndex = -1;
+        ui.updateSearchResults();
+      }
       return;
     }
 

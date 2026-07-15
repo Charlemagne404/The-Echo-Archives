@@ -67,10 +67,14 @@ export function createSubmitUiController({ state, elements }) {
       selectedShow,
       searchResults: getShowMatches(state.shows, draft.showSearch),
       searchOpen: state.searchOpen,
+      lookupStatus: state.lookupStatus,
+      lookupMessage: state.lookupMessage,
+      showHighlightIndex: state.showHighlightIndex,
     });
 
     elements.sideRail.innerHTML = config.railCards.map((card) => renderRailCard(card)).join("");
     elements.submitButtonText.textContent = config.submitLabel;
+    elements.submitButton.disabled = MODES_WITH_EXISTING_SHOW.has(mode) && state.lookupStatus !== "ready";
     elements.submitFooterNote.textContent = config.footerNote;
     elements.submitFooterNote.dataset.noteKind = "locked";
 
@@ -95,6 +99,8 @@ export function createSubmitUiController({ state, elements }) {
       const draft = getActiveDraft(state);
       if (draft.existingShowId) {
         params.set("showId", draft.existingShowId);
+      } else if (state.lookupStatus !== "ready" && state.requestedShowId) {
+        params.set("showId", state.requestedShowId);
       } else {
         params.delete("showId");
       }
@@ -261,12 +267,24 @@ export function createSubmitUiController({ state, elements }) {
     if (!MODES_WITH_EXISTING_SHOW.has(state.activeMode) || !state.searchOpen) {
       container.hidden = true;
       container.innerHTML = "";
+      input.setAttribute("aria-expanded", "false");
+      input.removeAttribute("aria-activedescendant");
       return;
     }
 
     const draft = getActiveDraft(state);
     const matches = getShowMatches(state.shows, draft.showSearch);
     container.hidden = false;
-    container.innerHTML = renderSearchResultsMarkup(matches, draft.existingShowId, draft.showSearch);
+    const boundedHighlightIndex = matches.length === 0
+      ? -1
+      : Math.max(-1, Math.min(state.showHighlightIndex, Math.min(matches.length, 7) - 1));
+    state.showHighlightIndex = boundedHighlightIndex;
+    container.innerHTML = renderSearchResultsMarkup(matches, draft.existingShowId, draft.showSearch, boundedHighlightIndex);
+    input.setAttribute("aria-expanded", "true");
+    if (boundedHighlightIndex >= 0) {
+      input.setAttribute("aria-activedescendant", `${container.id}Option${boundedHighlightIndex}`);
+    } else {
+      input.removeAttribute("aria-activedescendant");
+    }
   }
 }

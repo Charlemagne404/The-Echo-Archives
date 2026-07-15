@@ -45,13 +45,22 @@
             <span id="stickyFilterCount" class="filter-count" hidden>0</span>
           </button>
 
-          <div id="stickyFilterDropdown" class="dropdown" hidden>
+          <button class="filter-sheet-backdrop" type="button" data-filter-sheet-dismiss tabindex="-1" aria-label="Close archive filters" hidden></button>
+          <div id="stickyFilterDropdown" class="dropdown" aria-labelledby="stickyFilterDialogTitle" hidden>
             <div class="filter-dropdown-header">
               <div>
                 <p class="filter-dropdown-kicker">Refine the archive</p>
+                <p class="filter-dropdown-title" id="stickyFilterDialogTitle">Archive filters</p>
                 <p class="filter-dropdown-copy">Stack archive filters by tone, format, completion status, coverage, listening context, or tags.</p>
               </div>
-              <button id="stickyFilterClear" class="filter-clear-button" type="button">Clear</button>
+              <div class="filter-dropdown-header-actions">
+                <button id="stickyFilterClear" class="filter-clear-button" type="button">Clear</button>
+                <button class="filter-sheet-close" type="button" data-filter-sheet-dismiss aria-label="Close archive filters">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+                  </svg>
+                </button>
+              </div>
             </div>
             <div id="stickyFilterOptionGrid" class="filter-option-grid"></div>
           </div>
@@ -102,20 +111,40 @@
                 <span id="filterCount" class="filter-count" hidden>0</span>
               </button>
 
-              <div id="filterDropdown" class="dropdown" hidden>
+              <button class="filter-sheet-backdrop" type="button" data-filter-sheet-dismiss tabindex="-1" aria-label="Close archive filters" hidden></button>
+              <div id="filterDropdown" class="dropdown" aria-labelledby="filterDialogTitle" hidden>
                 <div class="filter-dropdown-header">
                   <div>
                     <p class="filter-dropdown-kicker">Refine the archive</p>
+                    <p class="filter-dropdown-title" id="filterDialogTitle">Archive filters</p>
                     <p class="filter-dropdown-copy">Stack archive filters by tone, format, completion status, coverage, listening context, or tags.</p>
                   </div>
-                  <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
+                  <div class="filter-dropdown-header-actions">
+                    <button id="filterClear" class="filter-clear-button" type="button">Clear</button>
+                    <button class="filter-sheet-close" type="button" data-filter-sheet-dismiss aria-label="Close archive filters">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
                 <div id="filterOptionGrid" class="filter-option-grid"></div>
               </div>
             </div>
 
-            <div class="browse-modes" id="browseModes" role="group" aria-label="Browse modes"></div>
-            <div class="quick-filters" id="quickFilters" role="group" aria-label="Quick filters"></div>
+            <div class="browse-modes" id="browseModes" role="group" aria-label="Browse modes">
+              <button class="browse-mode-button is-active" type="button" data-browse-mode="default" aria-pressed="true" aria-disabled="true" disabled>Default order</button>
+              <button class="browse-mode-button" type="button" data-browse-mode="recently-updated" aria-pressed="false" aria-disabled="true" disabled>Recently updated</button>
+            </div>
+            <div class="quick-filters" id="quickFilters" role="group" aria-label="Quick filters">
+              <button class="quick-filter is-active" type="button" data-chip-filter="all" aria-pressed="true" aria-disabled="true" disabled>All</button>
+              <button class="quick-filter" type="button" data-chip-filter="sci-fi" aria-pressed="false" aria-disabled="true" disabled>Sci-fi</button>
+              <button class="quick-filter" type="button" data-chip-filter="mystery" aria-pressed="false" aria-disabled="true" disabled>Mystery</button>
+              <button class="quick-filter" type="button" data-chip-filter="horror" aria-pressed="false" aria-disabled="true" disabled>Horror</button>
+              <button class="quick-filter" type="button" data-chip-filter="comedy" aria-pressed="false" aria-disabled="true" disabled>Comedy</button>
+              <button class="quick-filter" type="button" data-chip-filter="survival" aria-pressed="false" aria-disabled="true" disabled>Survival</button>
+              <button class="quick-filter" type="button" data-chip-filter="time-travel" aria-pressed="false" aria-disabled="true" disabled>Time travel</button>
+            </div>
           </div>
         </div>
         <section class="archive-trust-grid" aria-label="Archive trust signals">

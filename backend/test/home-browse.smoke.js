@@ -481,6 +481,10 @@ test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in d
       return {
         bodyLocked: document.body.classList.contains("filter-sheet-open"),
         bucketCount: document.querySelectorAll("#filterOptionGrid .filter-bucket-card").length,
+        dialogRole: dropdown?.getAttribute("role") || "",
+        ariaModal: dropdown?.getAttribute("aria-modal") || "",
+        closeFocused: document.activeElement?.classList.contains("filter-sheet-close") || false,
+        mainInert: document.querySelector("main")?.inert || false,
         launcherScrollable: launcher ? launcher.scrollHeight > launcher.clientHeight : true,
         position: styles?.position || "",
       };
@@ -488,6 +492,10 @@ test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in d
 
     assert.equal(launcherState.bodyLocked, true);
     assert.equal(launcherState.bucketCount, 5);
+    assert.equal(launcherState.dialogRole, "dialog");
+    assert.equal(launcherState.ariaModal, "true");
+    assert.equal(launcherState.closeFocused, true);
+    assert.equal(launcherState.mainInert, true);
     assert.equal(launcherState.launcherScrollable, false);
     assert.equal(launcherState.position, "fixed");
 
@@ -507,7 +515,8 @@ test("homepage mobile filter uses a non-scrolling launcher sheet with drill-in d
     await page.waitForFunction(
       () =>
         document.getElementById("filterDropdown")?.hidden === true &&
-        !document.body.classList.contains("filter-sheet-open"),
+        !document.body.classList.contains("filter-sheet-open") &&
+        document.activeElement?.id === "filterToggle",
     );
   } finally {
     await page.close();

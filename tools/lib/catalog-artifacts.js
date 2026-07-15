@@ -49,6 +49,7 @@ function createSearchIndexRecord(record) {
     subtitle: runtimeRecord.subtitle,
     description: runtimeRecord.description,
     cover: runtimeRecord.cover,
+    coverVariants: runtimeRecord.coverVariants,
     coverAlt: runtimeRecord.coverAlt,
     creators: runtimeRecord.creators,
     accent: runtimeRecord.accent,

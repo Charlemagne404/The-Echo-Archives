@@ -72,12 +72,12 @@ export function createMaintainerListHref(filters = {}) {
   return `${MAINTAINER_API_ROOT}/submissions${search ? `?${search}` : ""}`;
 }
 
-export async function fetchMaintainerSubmissions(filters = {}) {
-  return requestJson(createMaintainerListHref(filters));
+export async function fetchMaintainerSubmissions(filters = {}, options = {}) {
+  return requestJson(createMaintainerListHref(filters), { signal: options.signal });
 }
 
-export async function fetchMaintainerSubmission(id) {
-  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}`);
+export async function fetchMaintainerSubmission(id, options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}`, { signal: options.signal });
 }
 
 export async function patchMaintainerSubmission(id, updates) {
@@ -92,12 +92,12 @@ export function createMaintainerImportListHref(filters = {}) {
   return `${MAINTAINER_API_ROOT}/imports${search ? `?${search}` : ""}`;
 }
 
-export async function fetchMaintainerImports(filters = {}) {
-  return requestJson(createMaintainerImportListHref(filters));
+export async function fetchMaintainerImports(filters = {}, options = {}) {
+  return requestJson(createMaintainerImportListHref(filters), { signal: options.signal });
 }
 
-export async function fetchMaintainerImportCandidate(id) {
-  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}`);
+export async function fetchMaintainerImportCandidate(id, options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}`, { signal: options.signal });
 }
 
 export async function searchMaintainerImportSources(filters = {}) {
@@ -119,8 +119,8 @@ export async function hydrateMaintainerImportCandidate(id, payload = {}) {
   });
 }
 
-export async function fetchMaintainerImportRun(runId) {
-  return requestJson(`${MAINTAINER_API_ROOT}/imports/runs/${encodeURIComponent(runId)}`);
+export async function fetchMaintainerImportRun(runId, options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/runs/${encodeURIComponent(runId)}`, { signal: options.signal });
 }
 
 export async function retryMaintainerImportCandidate(id, payload = {}) {

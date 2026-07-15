@@ -18,7 +18,7 @@
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 979px) {
   .creator-spotlight-feature {
     grid-template-columns: 214px minmax(0, 1fr);
     gap: 22px;

@@ -68,6 +68,7 @@
   min-height: 48px;
   margin: 0;
   padding: 0 13px;
+  font-size: 1rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(7, 10, 14, 0.78);

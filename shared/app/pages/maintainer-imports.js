@@ -16,57 +16,35 @@ import {
 } from "../maintainer/api.js";
 import {
   buildImportFilterSummary,
+  focusMaintainerWorkspace,
+  getMaintainerViewElements,
   getStoredReviewer,
   IMPORT_FILTER_OPTIONS,
   initializeAuthFlow,
+  isAbortError,
   readImportFilters,
   renderSelectOptions,
-  setAuthState,
+  runMaintainerAction,
+  setMaintainerViewState,
   setStoredReviewer,
   syncImportFiltersToUrl,
 } from "../maintainer-import/page-helpers.js";
-import {
-  formatScopeStatus,
-  formatStatus,
-  summarizeImportCounts,
-} from "../maintainer-import/format.js";
+import { formatScopeStatus, formatStatus } from "../maintainer-import/format.js";
 import {
   renderImportDetailPane,
   renderImportQueueList,
-  renderImportReportContent,
   renderImportSearchResults,
   renderImportSummaryCards,
 } from "../maintainer-import/render.js";
-
-async function readFileInput(fileInput) {
-  const file = fileInput?.files?.[0];
-  return file ? file.text() : "";
-}
-
-async function collectSeedEntries(textarea, fileInput) {
-  const [textareaText, fileText] = await Promise.all([
-    Promise.resolve(textarea?.value || ""),
-    readFileInput(fileInput),
-  ]);
-
-  return [textareaText, fileText]
-    .join("\n")
-    .split(/\r?\n/)
-    .map((entry) => entry.trim())
-    .filter(Boolean);
-}
-
-function buildReviewPayload(form) {
-  const formData = new FormData(form);
-  return {
-    status: String(formData.get("status") || ""),
-    scopeStatus: String(formData.get("scopeStatus") || ""),
-    reviewedBy: String(formData.get("reviewedBy") || "").trim(),
-    reviewNotes: String(formData.get("reviewNotes") || ""),
-    duplicateOfShowId: String(formData.get("duplicateOfShowId") || "").trim(),
-    duplicateOfCandidateId: String(formData.get("duplicateOfCandidateId") || "").trim(),
-  };
-}
+import {
+  buildReviewPayload,
+  collectSeedEntries,
+  IMPORT_RUN_TIMEOUT_MS,
+  revealCompactDetail,
+  waitForDelay,
+  waitForVisibleDocument,
+} from "../maintainer-import/workflow.js";
+import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
 
 export async function initializeMaintainerImportsPage() {
   if (!document.body.classList.contains("maintainer-import-page")) {
@@ -84,6 +62,11 @@ export async function initializeMaintainerImportsPage() {
     selectedId: "",
     storedReviewer: getStoredReviewer(),
     searchResults: [],
+    hasBeenReady: false,
+    queueController: null,
+    detailController: null,
+    runController: null,
+    searchSequence: 0,
   };
 
   const elements = {
@@ -101,7 +84,6 @@ export async function initializeMaintainerImportsPage() {
     nextPage: document.getElementById("maintainerNextPage"),
     filterForm: document.getElementById("maintainerFilterForm"),
     refreshButton: document.getElementById("maintainerRefreshButton"),
-    logoutButton: document.getElementById("maintainerLogoutButton"),
     reportLink: document.getElementById("maintainerReportLink"),
     search: document.getElementById("maintainerSearch"),
     status: document.getElementById("maintainerStatusFilter"),
@@ -113,15 +95,20 @@ export async function initializeMaintainerImportsPage() {
     seedForm: document.getElementById("maintainerImportSeedForm"),
     seedInput: document.getElementById("maintainerImportSeedInput"),
     seedFile: document.getElementById("maintainerImportSeedFile"),
-    seedAutoHydrate: document.getElementById("maintainerImportAutoHydrate"),
     seedStatus: document.getElementById("maintainerImportSeedStatus"),
     searchForm: document.getElementById("maintainerImportSearchForm"),
     searchQuery: document.getElementById("maintainerImportSearchQuery"),
     searchSource: document.getElementById("maintainerImportSearchSource"),
-    searchAutoHydrate: document.getElementById("maintainerImportSearchAutoHydrate"),
     searchStatus: document.getElementById("maintainerImportSearchStatus"),
     searchResults: document.getElementById("maintainerImportSearchResults"),
+    retryButton: document.getElementById("maintainerRetryButton"),
+    listCard: document.getElementById("maintainerListCard"),
+    listHeading: document.getElementById("maintainerListHeading"),
+    detailCard: document.getElementById("maintainerDetailCard"),
+    detailHeading: document.getElementById("maintainerDetailHeading"),
+    backToQueue: document.getElementById("maintainerBackToQueue"),
   };
+  const view = getMaintainerViewElements(elements.appShell);
 
   renderSelectOptions(elements.status, IMPORT_FILTER_OPTIONS.status, state.filters.status);
   renderSelectOptions(elements.scopeStatus, IMPORT_FILTER_OPTIONS.scopeStatus, state.filters.scopeStatus);
@@ -138,13 +125,38 @@ export async function initializeMaintainerImportsPage() {
     elements.pageSize.value = String(state.filters.pageSize);
   }
 
+  const abortRequests = () => {
+    state.queueController?.abort();
+    state.detailController?.abort();
+    state.runController?.abort();
+  };
+
   const auth = await initializeAuthFlow({
     createMaintainerSession,
     destroyMaintainerSession,
-    onAuthenticated: async () => {
-      await loadQueue();
+    onAuthenticated: async () => loadQueue(false, { afterAuthentication: true }),
+    onLoggedOut: async () => {
+      abortRequests();
+      state.hasBeenReady = false;
+      setMaintainerViewState(view, "authRequired", { message: "Signed out. Sign in to continue." });
     },
   });
+
+  function hideWorkspaceControls() {
+    auth.logoutButtons.forEach((button) => { button.hidden = true; });
+    if (elements.refreshButton) elements.refreshButton.hidden = true;
+  }
+
+  function showAuthentication(error = null) {
+    abortRequests();
+    hideWorkspaceControls();
+    setMaintainerViewState(view, "authRequired", {
+      message: state.hasBeenReady
+        ? "Your maintainer session expired. Sign in again to continue."
+        : error instanceof Error ? error.message : "Sign in to continue.",
+    });
+    window.requestAnimationFrame(() => document.getElementById("maintainerPassphrase")?.focus());
+  }
 
   function renderSearchResults() {
     elements.searchResults.innerHTML = renderImportSearchResults(state.searchResults);
@@ -152,124 +164,185 @@ export async function initializeMaintainerImportsPage() {
 
   async function waitForImportRun(runId) {
     if (!runId) return null;
-    for (let attempt = 0; attempt < 100; attempt += 1) {
-      const { run } = await fetchMaintainerImportRun(runId);
-      elements.detailMeta.textContent = `Import run: ${run.progress.completed + run.progress.failed}/${run.progress.total} complete · ${run.progress.processing} processing.`;
-      if (["completed", "failed"].includes(run.status)) return run;
-      await new Promise((resolve) => window.setTimeout(resolve, 600));
+    state.runController?.abort();
+    const controller = new AbortController();
+    state.runController = controller;
+    const startedAt = Date.now();
+
+    try {
+      while (Date.now() - startedAt < IMPORT_RUN_TIMEOUT_MS) {
+        await waitForVisibleDocument(controller.signal);
+        const { run } = await fetchMaintainerImportRun(runId, { signal: controller.signal });
+        elements.detailMeta.textContent = `Import run: ${run.progress.completed + run.progress.failed}/${run.progress.total} complete · ${run.progress.processing} processing.`;
+        if (["completed", "failed"].includes(run.status)) return run;
+        const elapsed = Date.now() - startedAt;
+        await waitForDelay(elapsed < 10_000 ? 1_000 : 2_000, controller.signal);
+      }
+
+      elements.detailMeta.textContent = "Import preparation is taking longer than two minutes. Refresh the queue to check its latest state.";
+      return null;
+    } finally {
+      if (state.runController === controller) state.runController = null;
     }
-    return null;
   }
 
-  async function loadDetail() {
+  async function loadDetail({ focusDetail = false } = {}) {
+    state.detailController?.abort();
     if (!state.selectedId) {
       elements.detail.innerHTML = renderImportDetailPane({ candidate: null, storedReviewer: state.storedReviewer });
       return;
     }
 
-    const result = await fetchMaintainerImportCandidate(state.selectedId);
-    const candidate = result.candidate;
-    elements.detail.innerHTML = renderImportDetailPane({ candidate, storedReviewer: state.storedReviewer });
-    elements.detailMeta.textContent = `${formatStatus(candidate.status)} · ${formatScopeStatus(candidate.scopeStatus)}.`;
+    const selectedId = state.selectedId;
+    const controller = new AbortController();
+    state.detailController = controller;
+    try {
+      const result = await fetchMaintainerImportCandidate(selectedId, { signal: controller.signal });
+      if (controller.signal.aborted || selectedId !== state.selectedId) return;
+      const candidate = result.candidate;
+      elements.detail.innerHTML = renderImportDetailPane({ candidate, storedReviewer: state.storedReviewer });
+      elements.detailMeta.textContent = `${formatStatus(candidate.status)} · ${formatScopeStatus(candidate.scopeStatus)}.`;
 
-    const reviewForm = document.getElementById("maintainerImportReviewForm");
-    reviewForm?.addEventListener(
-      "submit",
-      async (event) => {
+      const reviewForm = document.getElementById("maintainerImportReviewForm");
+      reviewForm?.addEventListener("submit", async (event) => {
         event.preventDefault();
-        const payload = buildReviewPayload(reviewForm);
-        setStoredReviewer(payload.reviewedBy);
-        state.storedReviewer = payload.reviewedBy;
-        elements.detailMeta.textContent = "Saving import review state…";
-        try {
-          await patchMaintainerImportCandidateReview(state.selectedId, payload);
-          await loadQueue(true);
-          elements.detailMeta.textContent = "Import review state saved.";
-        } catch (error) {
-          elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to save import review state.";
-        }
-      },
-      { once: true },
-    );
+        const submitButton = event.submitter instanceof HTMLElement ? event.submitter : reviewForm.querySelector('button[type="submit"]');
+        await runMaintainerAction({
+          control: submitButton,
+          region: reviewForm,
+          action: async () => {
+            const payload = buildReviewPayload(reviewForm);
+            setStoredReviewer(payload.reviewedBy);
+            state.storedReviewer = payload.reviewedBy;
+            elements.detailMeta.textContent = "Saving import review state…";
+            try {
+              await patchMaintainerImportCandidateReview(selectedId, payload);
+              await loadQueue(true);
+              elements.detailMeta.textContent = "Import review state saved.";
+            } catch (error) {
+              if (error instanceof MaintainerAuthError) {
+                showAuthentication(error);
+                return;
+              }
+              elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to save import review state.";
+            }
+          },
+        });
+      });
 
-    elements.detail.querySelectorAll("[data-import-action]").forEach((button) => {
-      button.addEventListener("click", async () => {
+      elements.detail.querySelectorAll("[data-import-action]").forEach((button) => {
+        button.addEventListener("click", async () => {
         if (!(button instanceof HTMLButtonElement)) {
           return;
         }
 
         const action = button.dataset.importAction || "";
+        const confirmationCopy = {
+          publish: "Publish this prepared catalog record?",
+          reject: "Reject this import candidate?",
+          duplicate: "Mark this import candidate as a duplicate?",
+        }[action];
+        if (confirmationCopy && !window.confirm(confirmationCopy)) return;
         const payload = reviewForm ? buildReviewPayload(reviewForm) : { reviewedBy: state.storedReviewer };
         setStoredReviewer(payload.reviewedBy || "");
         state.storedReviewer = payload.reviewedBy || state.storedReviewer;
         elements.detailMeta.textContent = `${action === "hydrate" ? "Hydrating" : "Processing"} import candidate…`;
 
-        try {
-          let result = null;
-          if (action === "hydrate") {
-            result = await hydrateMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
-          } else if (action === "draft") {
-            result = await draftMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
-          } else if (action === "retry") {
-            result = await retryMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
-          } else if (action === "publish") {
-            await publishMaintainerImportCandidate(state.selectedId, { reviewedBy: payload.reviewedBy });
-          } else if (action === "reject") {
-            await patchMaintainerImportCandidateReview(state.selectedId, {
-              ...payload,
-              status: "rejected",
-            });
-          } else if (action === "duplicate") {
-            await patchMaintainerImportCandidateReview(state.selectedId, {
-              ...payload,
-              status: "duplicate",
-            });
-          }
+          await runMaintainerAction({
+            control: button,
+            region: elements.detail,
+            action: async () => {
+              try {
+                let actionResult = null;
+                if (action === "hydrate") {
+                  actionResult = await hydrateMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
+                } else if (action === "draft") {
+                  actionResult = await draftMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
+                } else if (action === "retry") {
+                  actionResult = await retryMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
+                } else if (action === "publish") {
+                  await publishMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
+                } else if (action === "reject") {
+                  await patchMaintainerImportCandidateReview(selectedId, { ...payload, status: "rejected" });
+                } else if (action === "duplicate") {
+                  await patchMaintainerImportCandidateReview(selectedId, { ...payload, status: "duplicate" });
+                }
 
-          if (result?.runId) await waitForImportRun(result.runId);
-
-          await loadQueue(true);
-        } catch (error) {
-          elements.detailMeta.textContent = error instanceof Error ? error.message : "Import action failed.";
-        }
+                if (actionResult?.runId) await waitForImportRun(actionResult.runId);
+                await loadQueue(true);
+              } catch (error) {
+                if (isAbortError(error)) return;
+                if (error instanceof MaintainerAuthError) {
+                  showAuthentication(error);
+                  return;
+                }
+                elements.detailMeta.textContent = error instanceof Error ? error.message : "Import action failed.";
+              }
+            },
+          });
+        });
       });
-    });
 
-    elements.detail.querySelectorAll("[data-import-evidence-id]").forEach((button) => {
-      button.addEventListener("click", async () => {
+      elements.detail.querySelectorAll("[data-import-evidence-id]").forEach((button) => {
+        button.addEventListener("click", async () => {
         if (!(button instanceof HTMLButtonElement)) return;
         elements.detailMeta.textContent = "Selecting evidence and re-running preparation…";
-        try {
-          const result = await selectMaintainerImportEvidence(state.selectedId, {
-            evidenceId: Number(button.dataset.importEvidenceId),
-            fieldName: button.dataset.importEvidenceField,
-            reviewedBy: state.storedReviewer,
+          await runMaintainerAction({
+            control: button,
+            region: elements.detail,
+            action: async () => {
+              try {
+                const evidenceResult = await selectMaintainerImportEvidence(selectedId, {
+                  evidenceId: Number(button.dataset.importEvidenceId),
+                  fieldName: button.dataset.importEvidenceField,
+                  reviewedBy: state.storedReviewer,
+                });
+                await waitForImportRun(evidenceResult.runId);
+                await loadQueue(true);
+              } catch (error) {
+                if (isAbortError(error)) return;
+                if (error instanceof MaintainerAuthError) {
+                  showAuthentication(error);
+                  return;
+                }
+                elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to select field evidence.";
+              }
+            },
           });
-          await waitForImportRun(result.runId);
-          await loadQueue(true);
-        } catch (error) {
-          elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to select field evidence.";
-        }
+        });
       });
-    });
+
+      if (focusDetail) revealCompactDetail(elements);
+    } catch (error) {
+      if (isAbortError(error)) return;
+      if (error instanceof MaintainerAuthError) {
+        showAuthentication(error);
+        return;
+      }
+      elements.detail.innerHTML = renderImportDetailPane({ candidate: null, storedReviewer: state.storedReviewer });
+      elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to load import candidate detail.";
+    }
   }
 
-  async function loadQueue(preserveSelection = false) {
+  async function loadQueue(preserveSelection = false, { afterAuthentication = false } = {}) {
+    state.queueController?.abort();
+    const controller = new AbortController();
+    state.queueController = controller;
+    if (!state.hasBeenReady) {
+      setMaintainerViewState(view, "loading", { message: "Loading the protected import queue…", retry: false });
+    }
     try {
-      const response = await fetchMaintainerImports(state.filters);
+      const response = await fetchMaintainerImports(state.filters, { signal: controller.signal });
+      if (controller.signal.aborted) return;
       state.response = response;
+      state.hasBeenReady = true;
       auth.logoutButtons.forEach((button) => {
         button.hidden = false;
       });
       if (elements.refreshButton) {
         elements.refreshButton.hidden = false;
       }
-      setAuthState({
-        authPanel: auth.authPanel,
-        appShell: elements.appShell,
-        statusNode: auth.authStatus,
-        signedIn: true,
-      });
+      setMaintainerViewState(view, "ready");
       elements.summaryCards.innerHTML = renderImportSummaryCards(response.counts, response.total);
       if (!preserveSelection || !response.items.some((item) => item.id === state.selectedId)) {
         state.selectedId = response.items[0]?.id || "";
@@ -287,12 +360,17 @@ export async function initializeMaintainerImportsPage() {
         elements.reportLink.href = `/maintainer/imports/report.html${window.location.search}`;
       }
       await loadDetail();
+      if (afterAuthentication) focusMaintainerWorkspace();
     } catch (error) {
+      if (isAbortError(error)) return;
       if (error instanceof MaintainerAuthError) {
-        setAuthState({ authPanel: auth.authPanel, appShell: elements.appShell, statusNode: auth.authStatus, signedIn: false });
+        showAuthentication(error);
         return;
       }
-      elements.listStatus.textContent = error instanceof Error ? error.message : "Failed to load import candidates.";
+      hideWorkspaceControls();
+      setMaintainerViewState(view, "error", {
+        message: error instanceof Error ? error.message : "Failed to load import candidates.",
+      });
     }
   }
 
@@ -309,10 +387,10 @@ export async function initializeMaintainerImportsPage() {
       page: 1,
     };
     syncImportFiltersToUrl(state.filters);
-    await loadQueue();
+    await runMaintainerAction({ control: event.submitter, region: elements.filterForm, action: async () => loadQueue() });
   });
 
-  document.getElementById("maintainerResetFilters")?.addEventListener("click", async () => {
+  document.getElementById("maintainerResetFilters")?.addEventListener("click", () => {
     state.filters = {
       q: "",
       status: "",
@@ -327,19 +405,24 @@ export async function initializeMaintainerImportsPage() {
     window.location.reload();
   });
 
-  elements.refreshButton?.addEventListener("click", async () => loadQueue(true));
-  elements.previousPage?.addEventListener("click", async () => {
+  elements.retryButton?.addEventListener("click", async (event) => {
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
+  });
+  elements.refreshButton?.addEventListener("click", async (event) => {
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
+  });
+  elements.previousPage?.addEventListener("click", async (event) => {
     if (state.filters.page <= 1) {
       return;
     }
     state.filters.page -= 1;
     syncImportFiltersToUrl(state.filters);
-    await loadQueue();
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue() });
   });
-  elements.nextPage?.addEventListener("click", async () => {
+  elements.nextPage?.addEventListener("click", async (event) => {
     state.filters.page += 1;
     syncImportFiltersToUrl(state.filters);
-    await loadQueue();
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue() });
   });
   elements.list?.addEventListener("click", async (event) => {
     const button = event.target instanceof Element ? event.target.closest("[data-import-candidate-id]") : null;
@@ -348,38 +431,46 @@ export async function initializeMaintainerImportsPage() {
     }
     state.selectedId = button.dataset.importCandidateId || "";
     elements.list.innerHTML = renderImportQueueList({ items: state.response?.items || [], selectedId: state.selectedId });
-    await loadDetail();
+    await runMaintainerAction({ control: button, region: elements.detail, action: async () => loadDetail({ focusDetail: true }) });
+  });
+  elements.backToQueue?.addEventListener("click", () => {
+    elements.listCard?.scrollIntoView({ block: "start", behavior: "auto" });
+    window.requestAnimationFrame(() => elements.listHeading?.focus({ preventScroll: true }));
   });
 
   elements.seedForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const entries = await collectSeedEntries(elements.seedInput, elements.seedFile);
-    if (entries.length === 0) {
-      elements.seedStatus.textContent = "Paste one or more titles or URLs first.";
-      return;
-    }
+    await runMaintainerAction({
+      control: event.submitter,
+      region: elements.seedForm,
+      action: async () => {
+        const entries = await collectSeedEntries(elements.seedInput, elements.seedFile);
+        if (entries.length === 0) {
+          elements.seedStatus.textContent = "Paste one or more titles or URLs first.";
+          return;
+        }
 
-    elements.seedStatus.textContent = "Seeding import candidates…";
-    try {
-      const result = await seedMaintainerImportCandidates({
-        entries,
-        reviewedBy: state.storedReviewer,
-      });
-      elements.seedStatus.textContent = `Queued ${result.candidateIds?.length || result.candidates?.length || 0} candidates for automatic preparation.`;
-      if (elements.seedInput instanceof HTMLTextAreaElement) {
-        elements.seedInput.value = "";
-      }
-      if (elements.seedFile instanceof HTMLInputElement) {
-        elements.seedFile.value = "";
-      }
-      const run = await waitForImportRun(result.runId);
-      elements.seedStatus.textContent = run
-        ? `Preparation finished: ${run.progress.completed} ready or reviewable, ${run.progress.failed} failed.`
-        : "Preparation is still running. Refresh the queue to see its latest progress.";
-      await loadQueue();
-    } catch (error) {
-      elements.seedStatus.textContent = error instanceof Error ? error.message : "Failed to seed candidates.";
-    }
+        elements.seedStatus.textContent = "Seeding import candidates…";
+        try {
+          const result = await seedMaintainerImportCandidates({ entries, reviewedBy: state.storedReviewer });
+          elements.seedStatus.textContent = `Queued ${result.candidateIds?.length || result.candidates?.length || 0} candidates for automatic preparation.`;
+          if (elements.seedInput instanceof HTMLTextAreaElement) elements.seedInput.value = "";
+          if (elements.seedFile instanceof HTMLInputElement) elements.seedFile.value = "";
+          const run = await waitForImportRun(result.runId);
+          elements.seedStatus.textContent = run
+            ? `Preparation finished: ${run.progress.completed} ready or reviewable, ${run.progress.failed} failed.`
+            : "Preparation is still running. Refresh the queue to see its latest progress.";
+          await loadQueue();
+        } catch (error) {
+          if (isAbortError(error)) return;
+          if (error instanceof MaintainerAuthError) {
+            showAuthentication(error);
+            return;
+          }
+          elements.seedStatus.textContent = error instanceof Error ? error.message : "Failed to seed candidates.";
+        }
+      },
+    });
   });
 
   elements.searchForm?.addEventListener("submit", async (event) => {
@@ -390,19 +481,28 @@ export async function initializeMaintainerImportsPage() {
       return;
     }
 
+    const sequence = ++state.searchSequence;
     elements.searchStatus.textContent = "Searching external sources…";
-    try {
-      const response = await searchMaintainerImportSources({
-        q,
-        source: elements.searchSource.value,
-        limit: 8,
-      });
-      state.searchResults = response.results || [];
-      renderSearchResults();
-      elements.searchStatus.textContent = `Loaded ${state.searchResults.length} external results.`;
-    } catch (error) {
-      elements.searchStatus.textContent = error instanceof Error ? error.message : "External search failed.";
-    }
+    await runMaintainerAction({
+      control: event.submitter,
+      region: elements.searchForm,
+      action: async () => {
+        try {
+          const response = await searchMaintainerImportSources({ q, source: elements.searchSource.value, limit: 8 });
+          if (sequence !== state.searchSequence) return;
+          state.searchResults = response.results || [];
+          renderSearchResults();
+          elements.searchStatus.textContent = `Loaded ${state.searchResults.length} external results.`;
+        } catch (error) {
+          if (sequence !== state.searchSequence) return;
+          if (error instanceof MaintainerAuthError) {
+            showAuthentication(error);
+            return;
+          }
+          elements.searchStatus.textContent = error instanceof Error ? error.message : "External search failed.";
+        }
+      },
+    });
   });
 
   elements.searchResults?.addEventListener("click", async (event) => {
@@ -418,75 +518,31 @@ export async function initializeMaintainerImportsPage() {
     }
 
     elements.searchStatus.textContent = "Adding search result as an import candidate…";
-    try {
-      const response = await seedMaintainerImportCandidates({
-        searchResults: [searchResult],
-        reviewedBy: state.storedReviewer,
-      });
-      elements.searchStatus.textContent = `Queued ${response.candidateIds?.length || 1} candidate for automatic preparation.`;
-      const run = await waitForImportRun(response.runId);
-      elements.searchStatus.textContent = run
-        ? `Preparation finished: ${run.progress.completed} ready or reviewable, ${run.progress.failed} failed.`
-        : "Preparation is still running. Refresh the queue to see its latest progress.";
-      await loadQueue();
-    } catch (error) {
-      elements.searchStatus.textContent = error instanceof Error ? error.message : "Failed to add search result.";
-    }
+    await runMaintainerAction({
+      control: button,
+      region: elements.searchResults,
+      action: async () => {
+        try {
+          const response = await seedMaintainerImportCandidates({ searchResults: [searchResult], reviewedBy: state.storedReviewer });
+          elements.searchStatus.textContent = `Queued ${response.candidateIds?.length || 1} candidate for automatic preparation.`;
+          const run = await waitForImportRun(response.runId);
+          elements.searchStatus.textContent = run
+            ? `Preparation finished: ${run.progress.completed} ready or reviewable, ${run.progress.failed} failed.`
+            : "Preparation is still running. Refresh the queue to see its latest progress.";
+          await loadQueue();
+        } catch (error) {
+          if (isAbortError(error)) return;
+          if (error instanceof MaintainerAuthError) {
+            showAuthentication(error);
+            return;
+          }
+          elements.searchStatus.textContent = error instanceof Error ? error.message : "Failed to add search result.";
+        }
+      },
+    });
   });
 
   renderSearchResults();
+  window.addEventListener("pagehide", abortRequests, { once: true });
   await loadQueue();
-}
-
-async function initializeMaintainerImportsReportPage() {
-  const filters = readImportFilters(200);
-  const auth = await initializeAuthFlow({
-    createMaintainerSession,
-    destroyMaintainerSession,
-    onAuthenticated: async () => {
-      await loadReport();
-    },
-  });
-
-  const shell = document.getElementById("maintainerReportShell");
-  const content = document.getElementById("maintainerReportContent");
-  const meta = document.getElementById("maintainerReportMeta");
-  const printButton = document.getElementById("maintainerPrintButton");
-  const queueLink = document.getElementById("maintainerQueueLink");
-
-  async function loadReport() {
-    try {
-      const response = await fetchMaintainerImports({
-        ...filters,
-        includeClosed: true,
-      });
-      auth.logoutButtons.forEach((button) => {
-        button.hidden = false;
-      });
-      if (printButton) {
-        printButton.hidden = false;
-      }
-      setAuthState({ authPanel: auth.authPanel, appShell: shell, statusNode: auth.authStatus, signedIn: true });
-      const filterSummary = buildImportFilterSummary(filters, response.total);
-      meta.textContent = filterSummary;
-      content.innerHTML = renderImportReportContent({
-        counts: response.counts,
-        items: response.items,
-        total: response.total,
-        filterSummary,
-      });
-      if (queueLink instanceof HTMLAnchorElement) {
-        queueLink.href = `/maintainer/imports.html${window.location.search}`;
-      }
-    } catch (error) {
-      if (error instanceof MaintainerAuthError) {
-        setAuthState({ authPanel: auth.authPanel, appShell: shell, statusNode: auth.authStatus, signedIn: false });
-        return;
-      }
-      meta.textContent = error instanceof Error ? error.message : "Failed to load import report.";
-    }
-  }
-
-  printButton?.addEventListener("click", () => window.print());
-  await loadReport();
 }

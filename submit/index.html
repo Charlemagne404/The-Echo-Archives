@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
 <title>Submit a Show - The Echo Archives</title>
 <meta name="description" content="Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives." />
 <link rel="canonical" href="https://echo.continental-hub.com/submit" />
@@ -22,15 +22,15 @@
 <meta name="theme-color" content="#06080b" />
 
 
-<link rel="stylesheet" href="/style.css?v=d2a12bfb7d" />
-<link rel="stylesheet" href="/home.css?v=935655c33b" />
+<link rel="stylesheet" href="/style.css?v=bbbdb2cafd" />
+<link rel="stylesheet" href="/submit.css?v=d7a942f641" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
 
 </head>
-<body class="home-page submit-page info-page" data-site-url="https://echo.continental-hub.com" data-home-card-hover-expand-enabled="false" data-shows-version="070f2cb66e" data-collections-version="9afac6e32d" data-search-index-version="882e8181c9">
+<body class="home-page submit-page info-page" data-site-url="https://echo.continental-hub.com" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="acd458f1e5" data-collections-version="9afac6e32d" data-search-index-version="989a23ad7a">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -137,17 +137,118 @@
         <h2>Choose an intake path</h2>
       </div>
       <div id="submitLoadStatus" aria-live="assertive" hidden></div>
-      <div id="submitModeCards" class="submit-mode-grid" role="radiogroup" aria-label="Submission type"></div>
+      <div id="submitModeCards" class="submit-mode-grid" role="radiogroup" aria-label="Submission type">
+      <button
+        type="button"
+        class="submit-mode-card"
+        data-submission-mode="show"
+        data-active="true"
+        role="radio"
+        aria-checked="true"
+        tabindex="0"
+      >
+        <span class="submit-mode-card-icon" aria-hidden="true"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10.95 26.1 16 8.35l5.05 17.75M13.4 19.9h5.2" fill="none" stroke="#8d9198" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.1"/><path d="M12.15 8.9a4.85 4.85 0 0 0 0 6.95M8.55 5.55a9.15 9.15 0 0 0 0 13.55M19.85 8.9a4.85 4.85 0 0 1 0 6.95M23.45 5.55a9.15 9.15 0 0 1 0 13.55" fill="none" stroke="#ff3b2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.15"/><circle cx="16" cy="12.35" r="2.45" fill="#575c64"/></svg></span>
+        <span class="submit-mode-card-copy">
+          <span class="submit-mode-card-title">Submit a new show</span>
+          <span class="submit-mode-card-description">Add a show that should be considered for the archive.</span>
+        </span>
+        <span class="submit-mode-card-check" aria-hidden="true"></span>
+      </button>
+
+      <button
+        type="button"
+        class="submit-mode-card"
+        data-submission-mode="correction"
+        data-active="false"
+        role="radio"
+        aria-checked="false"
+        tabindex="-1"
+      >
+        <span class="submit-mode-card-icon" aria-hidden="true"><svg viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"><path d="M16 7.5H9a2 2 0 0 0-2 2v13.5a2 2 0 0 0 2 2h13.5a2 2 0 0 0 2-2v-6.6"/><path d="M21.85 7.15a1 1 0 0 1 3 3l-8.8 8.8a2 2 0 0 1-.83.5l-2.78.81a.52.52 0 0 1-.65-.65l.81-2.78a2 2 0 0 1 .5-.83Z"/></g></svg></span>
+        <span class="submit-mode-card-copy">
+          <span class="submit-mode-card-title">Suggest a correction</span>
+          <span class="submit-mode-card-description">Fix factual data or update existing information.</span>
+        </span>
+        <span class="submit-mode-card-check" aria-hidden="true"></span>
+      </button>
+
+      <button
+        type="button"
+        class="submit-mode-card"
+        data-submission-mode="listener-review"
+        data-active="false"
+        role="radio"
+        aria-checked="false"
+        tabindex="-1"
+      >
+        <span class="submit-mode-card-icon" aria-hidden="true"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M24.5 21.35a2 2 0 0 1-2 2h-9.65a2 2 0 0 0-1.42.58l-2.54 2.54a.72.72 0 0 1-1.23-.51V9.5a2 2 0 0 1 2-2H22.5a2 2 0 0 1 2 2Z" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.15"/><path d="m24.85 18.85.88 2.55 2.68.04-2.17 1.57.82 2.55-2.2-1.57L23 25.56l.82-2.55-2.17-1.57 2.68-.04.88-2.55Z" fill="#ff3b2f"/></svg></span>
+        <span class="submit-mode-card-copy">
+          <span class="submit-mode-card-title">Submit a listener review</span>
+          <span class="submit-mode-card-description">Share your take to help other listeners discover.</span>
+        </span>
+        <span class="submit-mode-card-check" aria-hidden="true"></span>
+      </button>
+
+      <button
+        type="button"
+        class="submit-mode-card"
+        data-submission-mode="creator-verification"
+        data-active="false"
+        role="radio"
+        aria-checked="false"
+        tabindex="-1"
+      >
+        <span class="submit-mode-card-icon" aria-hidden="true"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M24 16.2c0 5.1-3.55 7.65-7.77 9.12a1 1 0 0 1-.68-.01C11.35 23.84 7.8 21.3 7.8 16.2V9.25a1 1 0 0 1 1-1c2 0 4.55-1.24 6.33-2.79a1.19 1.19 0 0 1 1.55 0C18.45 7 21 8.25 23 8.25a1 1 0 0 1 1 1Z" fill="none" stroke="#f5f4ee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.15"/><path d="m13 15.65 2.15 2.15 4.6-4.6" fill="none" stroke="#ff3b2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"/><circle cx="24.55" cy="22.85" r="2.95" fill="#07090d" stroke="#ff8d80" stroke-width="1.85"/></svg></span>
+        <span class="submit-mode-card-copy">
+          <span class="submit-mode-card-title">Creator verification</span>
+          <span class="submit-mode-card-description">Verify your show or update official details.</span>
+        </span>
+        <span class="submit-mode-card-check" aria-hidden="true"></span>
+      </button>
+    </div>
       <div class="submit-steps-shell">
         <h3>What happens next</h3>
-        <div id="submitStepsPanel" class="submit-steps-panel" aria-live="polite"></div>
+        <div id="submitStepsPanel" class="submit-steps-panel" aria-live="polite">
+      <div class="submit-step-item">
+        <span class="submit-step-number" aria-hidden="true">1</span>
+        <span class="submit-step-copy">
+          <strong>You submit</strong>
+          <span>Send us the details using the form below.</span>
+        </span>
+      </div>
+      <span class="submit-step-arrow" aria-hidden="true"><svg viewBox="0 0 28 12" aria-hidden="true"><path d="M2 6h18.5M16 2.25 21.5 6 16 9.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45"/></svg></span>
+
+      <div class="submit-step-item">
+        <span class="submit-step-number" aria-hidden="true">2</span>
+        <span class="submit-step-copy">
+          <strong>We review</strong>
+          <span>Our team verifies and adds context as needed.</span>
+        </span>
+      </div>
+      <span class="submit-step-arrow" aria-hidden="true"><svg viewBox="0 0 28 12" aria-hidden="true"><path d="M2 6h18.5M16 2.25 21.5 6 16 9.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.45"/></svg></span>
+
+      <div class="submit-step-item">
+        <span class="submit-step-number" aria-hidden="true">3</span>
+        <span class="submit-step-copy">
+          <strong>It enters the archive</strong>
+          <span>If accepted, it becomes part of the curated collection.</span>
+        </span>
+      </div>
+
+    </div>
       </div>
     </section>
 
     <section class="submit-content-shell">
       <div class="submit-content-grid">
         <article class="submit-surface-card submit-form-surface">
-          <div id="submitFormIntro" class="submit-surface-heading submit-form-intro" aria-live="polite"></div>
+          <div id="submitFormIntro" class="submit-surface-heading submit-form-intro" aria-live="polite">
+      <div class="submit-form-intro-meta">
+        <span class="submit-form-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4.75h6l4 4v10.5H8z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><path d="M14 4.75v4h4M10.25 12h5.5M10.25 15.25h5.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+        <h2>Submission details</h2>
+      </div>
+      <p>Provide accurate, verifiable information to help us review your submission.</p>
+    </div>
           <form id="showSubmitForm" class="submit-remake-form" novalidate>
             <input type="hidden" id="submissionType" name="submissionType" value="show" />
             <input type="hidden" id="existingShowId" name="existingShowId" value="" />
@@ -157,7 +258,524 @@
               <input type="text" name="website" tabindex="-1" autocomplete="off" />
             </label>
 
-            <div id="submitDynamicFields" class="submit-dynamic-fields"></div>
+            <div id="submitDynamicFields" class="submit-dynamic-fields"><div class="submit-form-row ">
+    <div class="submit-field" data-field-shell="submitShowTitle">
+      <label class="submit-field-label" for="submitShowTitle" id="submitShowTitleLabel">
+        <span class="submit-field-label-main">
+          Show title<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </label>
+
+      <input
+        id="submitShowTitle"
+        name="submitShowTitle"
+        type="text"
+        value=""
+        maxlength="160"
+        placeholder="e.g., The White Vault"
+        autocomplete="off"
+        aria-labelledby="submitShowTitleLabel"
+
+        aria-errormessage="submitShowTitleError"
+        required
+      />
+
+
+      <p id="submitShowTitleError" class="submit-field-error" hidden></p>
+    </div>
+
+    <div class="submit-field" data-field-shell="submitCreatorName">
+      <label class="submit-field-label" for="submitCreatorName" id="submitCreatorNameLabel">
+        <span class="submit-field-label-main">
+          Creator or network<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </label>
+
+      <input
+        id="submitCreatorName"
+        name="submitCreatorName"
+        type="text"
+        value=""
+        maxlength="160"
+        placeholder="e.g., Fool &amp; Scholar"
+        autocomplete="off"
+        aria-labelledby="submitCreatorNameLabel"
+
+        aria-errormessage="submitCreatorNameError"
+        required
+      />
+
+
+      <p id="submitCreatorNameError" class="submit-field-error" hidden></p>
+    </div>
+  </div><div class="submit-form-row ">
+    <div class="submit-field" data-field-shell="submitContactEmail">
+      <label class="submit-field-label" for="submitContactEmail" id="submitContactEmailLabel">
+        <span class="submit-field-label-main">
+          Contact email<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </label>
+
+      <input
+        id="submitContactEmail"
+        name="submitContactEmail"
+        type="email"
+        value=""
+        maxlength="160"
+        placeholder="you@example.com"
+        autocomplete="email"
+        aria-labelledby="submitContactEmailLabel"
+
+        aria-errormessage="submitContactEmailError"
+        required
+      />
+
+
+      <p id="submitContactEmailError" class="submit-field-error" hidden></p>
+    </div>
+
+    <div class="submit-field" data-field-shell="submitOfficialSite">
+      <label class="submit-field-label" for="submitOfficialSite" id="submitOfficialSiteLabel">
+        <span class="submit-field-label-main">
+          Official website
+        </span>
+      </label>
+
+      <input
+        id="submitOfficialSite"
+        name="submitOfficialSite"
+        type="url"
+        value=""
+        maxlength="500"
+        placeholder="https://example.com"
+        autocomplete="off"
+        aria-labelledby="submitOfficialSiteLabel"
+
+        aria-errormessage="submitOfficialSiteError"
+
+      />
+
+
+      <p id="submitOfficialSiteError" class="submit-field-error" hidden></p>
+    </div>
+  </div>
+    <div class="submit-field" data-field-shell="submitListenLinks">
+      <span class="submit-field-label"  id="submitListenLinksLabel">
+        <span class="submit-field-label-main">
+          Listen links (add at least one)<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </span>
+
+      <div
+        id="submitListenLinks"
+        class="submit-link-list"
+        aria-describedby="submitListenLinksHelp submitListenLinksError"
+      >
+        <p class="submit-link-list-empty">No listener links added yet.</p>
+
+
+          <div class="submit-add-link-options" role="group" aria-label="Add a listener link">
+
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="listenLinks"
+                data-add-link-value="Spotify"
+                aria-describedby="submitListenLinksError"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--spotify" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1ed760"/><path d="M7.6 9.2c3.38-1 6.98-.66 10.32.9" fill="none" stroke="#08110d" stroke-linecap="round" stroke-width="1.85"/><path d="M8.35 12c2.78-.72 5.6-.42 8.08.82" fill="none" stroke="#08110d" stroke-linecap="round" stroke-width="1.65"/><path d="M9.05 14.65c2.16-.46 4.16-.2 5.98.72" fill="none" stroke="#08110d" stroke-linecap="round" stroke-width="1.5"/></svg></span>
+                <span>Spotify</span>
+              </button>
+
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="listenLinks"
+                data-add-link-value="Apple Podcasts"
+                aria-describedby="submitListenLinksError"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--apple-podcasts" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="#b150e2"/><circle cx="12" cy="8.35" r="1.6" fill="#fff"/><path d="M12 10.95c-1.3 0-2.35 1.08-2.35 2.42 0 .94.45 1.66 1.12 2.12l-.56 2.73a.82.82 0 0 0 1.61.34l.18-.84.18.84a.82.82 0 0 0 1.61-.34l-.56-2.73c.67-.46 1.12-1.18 1.12-2.12 0-1.34-1.05-2.42-2.35-2.42Z" fill="#fff"/><path d="M8.4 10.55a3.95 3.95 0 0 1 7.2 0M6.65 9.3a6 6 0 0 1 10.7 0" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.35"/></svg></span>
+                <span>Apple Podcasts</span>
+              </button>
+
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="listenLinks"
+                data-add-link-value="RSS Feed"
+                aria-describedby="submitListenLinksError"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--rss-feed" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.25" fill="#f68b1f"/><circle cx="7.25" cy="16.75" r="1.75" fill="#fff"/><path d="M6.5 11.6a5.9 5.9 0 0 1 5.9 5.9M6.5 7a10.5 10.5 0 0 1 10.5 10.5" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.8"/></svg></span>
+                <span>RSS Feed</span>
+              </button>
+
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="listenLinks"
+                data-add-link-value="Official Website"
+                aria-describedby="submitListenLinksError"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--official-website" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#0f141a"/><circle cx="12" cy="12" r="7.2" fill="none" stroke="#ffffff" stroke-width="1.45"/><path d="M4.8 12h14.4M12 4.8a11 11 0 0 1 0 14.4M12 4.8a11 11 0 0 0 0 14.4" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="1.2"/></svg></span>
+                <span>Official Website</span>
+              </button>
+
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="listenLinks"
+                data-add-link-value="YouTube"
+                aria-describedby="submitListenLinksError"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--youtube" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.3" width="18" height="11.4" rx="3.2" fill="#ff0033"/><path d="m10.3 9.45 5 2.55-5 2.55z" fill="#fff"/></svg></span>
+                <span>YouTube</span>
+              </button>
+
+              <button
+                type="button"
+                class="submit-add-link-option"
+                data-add-link-option="listenLinks"
+                data-add-link-value="Other"
+                aria-describedby="submitListenLinksError"
+              >
+                <span class="submit-link-source-icon submit-link-source-icon--other" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14 8.25 15.75a2.75 2.75 0 1 1-3.89-3.89L6.1 10.1a2.75 2.75 0 0 1 3.9 0M14 10l1.75-1.75a2.75 2.75 0 1 1 3.89 3.89L17.9 13.9a2.75 2.75 0 0 1-3.9 0M9.5 14.5l5-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+                <span>Other</span>
+              </button>
+
+          </div>
+
+      </div>
+
+      <p id="submitListenLinksHelp" class="submit-field-helper">Click a listener link type to add it, then paste the official destination URL.</p>
+      <p id="submitListenLinksError" class="submit-field-error" hidden></p>
+    </div>
+  <div class="submit-form-row ">
+    <div class="submit-field" data-field-shell="submitSelectedTags">
+      <span class="submit-field-label"  id="submitSelectedTagsLabel">
+        <span class="submit-field-label-main">
+          Genres or tags<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </span>
+
+      <div
+        id="submitSelectedTags"
+        class="submit-tag-picker"
+        data-tag-picker="selectedTags"
+        aria-describedby="submitSelectedTagsHelp submitSelectedTagsError"
+      >
+        <div class="submit-tag-picker-input">
+          <div class="submit-tag-picker-values">
+
+            <input
+              id="submitSelectedTagsInput"
+              class="submit-tag-input"
+              type="text"
+              name="submitSelectedTagsInput"
+              role="combobox"
+              value=""
+              maxlength="48"
+              placeholder="Select up to 8 tags."
+              autocomplete="off"
+              aria-labelledby="submitSelectedTagsLabel"
+              aria-describedby="submitSelectedTagsHelp submitSelectedTagsError"
+              aria-label="Type a genre or tag"
+              aria-autocomplete="list"
+              aria-controls="submitSelectedTagsMenu"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+
+              aria-errormessage="submitSelectedTagsError"
+              data-tag-input="selectedTags"
+
+            />
+          </div>
+          <button
+            id="submitSelectedTagsToggle"
+            type="button"
+            class="submit-tag-picker-toggle"
+            data-toggle-tag-picker="selectedTags"
+            aria-expanded="false"
+            aria-controls="submitSelectedTagsMenu"
+            aria-haspopup="listbox"
+            aria-label="Choose genres or tags"
+
+          >
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5.25 7.5 4.75 5 4.75-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>
+          </button>
+        </div>
+        <div id="submitSelectedTagsMenu" class="submit-tag-picker-menu" role="listbox" aria-labelledby="submitSelectedTagsLabel" hidden>
+          <div class="submit-tag-picker-meta">Choose an existing tag or type your own and press Enter.</div>
+
+          <div class="submit-chip-group submit-chip-group--menu">
+
+              <button
+                id="submitSelectedTagsMenuOption0"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Horror"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Horror</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption1"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Sci-fi"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Sci-fi</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption2"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Mystery"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Mystery</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption3"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Fantasy"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Fantasy</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption4"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Comedy"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Comedy</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption5"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Thriller"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Thriller</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption6"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Drama"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Drama</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption7"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Adventure"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Adventure</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption8"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Anthology"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Anthology</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption9"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Full-cast"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Full-cast</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption10"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Serialized"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Serialized</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption11"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Character-driven"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Character-driven</span>
+              </button>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p id="submitSelectedTagsHelp" class="submit-field-helper">Choose up to eight tags that help listeners find the show.</p>
+      <p id="submitSelectedTagsError" class="submit-field-error" hidden></p>
+    </div>
+
+    <div class="submit-field" data-field-shell="submitCompletionStatus">
+      <label class="submit-field-label" for="submitCompletionStatus" id="submitCompletionStatusLabel">
+        <span class="submit-field-label-main">
+          Completion status<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </label>
+
+      <select
+        id="submitCompletionStatus"
+        name="submitCompletionStatus"
+        aria-labelledby="submitCompletionStatusLabel"
+        aria-describedby="submitCompletionStatusHelp"
+        aria-errormessage="submitCompletionStatusError"
+        required
+      >
+        <option value="ongoing" selected>Ongoing</option><option value="completed" >Completed</option><option value="hiatus" >On hiatus</option><option value="returning" >Returning / seasonal</option><option value="anthology" >Anthology</option><option value="unknown" >Unknown</option>
+      </select>
+
+      <p id="submitCompletionStatusHelp" class="submit-field-helper">Select the current state of the show.</p>
+      <p id="submitCompletionStatusError" class="submit-field-error" hidden></p>
+    </div>
+  </div>
+    <div class="submit-field" data-field-shell="submitShortDescription">
+      <label class="submit-field-label" for="submitShortDescription" id="submitShortDescriptionLabel">
+        <span class="submit-field-label-main">
+          Short spoiler-free description<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </label>
+
+      <div class="submit-textarea-shell">
+        <textarea
+          id="submitShortDescription"
+          name="submitShortDescription"
+          rows="5"
+          maxlength="1000"
+          placeholder="Give a concise, spoiler-safe description of the show."
+          class="submit-short-textarea"
+          aria-labelledby="submitShortDescriptionLabel"
+          aria-describedby="submitShortDescriptionHelp submitShortDescriptionCount"
+          aria-errormessage="submitShortDescriptionError"
+          required
+        ></textarea>
+        <span id="submitShortDescriptionCount" class="submit-textarea-counter" data-counter-target="submitShortDescription">0/1000</span>
+      </div>
+
+      <p id="submitShortDescriptionHelp" class="submit-field-helper">Who is it for and what can listeners expect?</p>
+      <p id="submitShortDescriptionError" class="submit-field-error" hidden></p>
+    </div>
+
+    <div class="submit-field" data-field-shell="submitArchiveFitNote">
+      <label class="submit-field-label" for="submitArchiveFitNote" id="submitArchiveFitNoteLabel">
+        <span class="submit-field-label-main">
+          Why it belongs in the archive<span class="submit-required" aria-label="Required">*</span>
+        </span>
+      </label>
+
+      <div class="submit-textarea-shell">
+        <textarea
+          id="submitArchiveFitNote"
+          name="submitArchiveFitNote"
+          rows="4"
+          maxlength="500"
+          placeholder="Explain why this show fits the archive."
+          class="submit-short-textarea"
+          aria-labelledby="submitArchiveFitNoteLabel"
+          aria-describedby="submitArchiveFitNoteHelp submitArchiveFitNoteCount"
+          aria-errormessage="submitArchiveFitNoteError"
+          required
+        ></textarea>
+        <span id="submitArchiveFitNoteCount" class="submit-textarea-counter" data-counter-target="submitArchiveFitNote">0/500</span>
+      </div>
+
+      <p id="submitArchiveFitNoteHelp" class="submit-field-helper">Tell us why this show should be preserved and discoverable.</p>
+      <p id="submitArchiveFitNoteError" class="submit-field-error" hidden></p>
+    </div>
+
+    <div class="submit-field" data-field-shell="submitVerificationNotes">
+      <label class="submit-field-label" for="submitVerificationNotes" id="submitVerificationNotesLabel">
+        <span class="submit-field-label-main">
+          Optional notes or verification sources
+        </span>
+      </label>
+
+      <div class="submit-textarea-shell">
+        <textarea
+          id="submitVerificationNotes"
+          name="submitVerificationNotes"
+          rows="4"
+          maxlength="1000"
+          placeholder="Anything else the archive should know."
+          class="submit-short-textarea"
+          aria-labelledby="submitVerificationNotesLabel"
+          aria-describedby="submitVerificationNotesHelp submitVerificationNotesCount"
+          aria-errormessage="submitVerificationNotesError"
+
+        ></textarea>
+        <span id="submitVerificationNotesCount" class="submit-textarea-counter" data-counter-target="submitVerificationNotes">0/1000</span>
+      </div>
+
+      <p id="submitVerificationNotesHelp" class="submit-field-helper">Share press kits, creator pages, IMDb links, or anything else that helps review.</p>
+      <p id="submitVerificationNotesError" class="submit-field-error" hidden></p>
+    </div>
+  </div>
 
             <div class="submit-form-actions">
               <button type="submit" id="submitPrimaryButton" class="submit-primary-button">
@@ -169,13 +787,116 @@
                 </span>
                 <span id="submitPrimaryButtonText">Send to archive review</span>
               </button>
-              <p id="submitFooterNote" class="submit-footer-note" aria-live="polite"></p>
+              <p id="submitFooterNote" class="submit-footer-note" aria-live="polite">All submissions are manually reviewed.</p>
             </div>
             <p id="submitStatus" class="submit-status" role="status" aria-live="polite" aria-atomic="true">Nothing submitted yet.</p>
           </form>
         </article>
 
-        <aside id="submitSideRail" class="submit-side-rail" aria-live="polite"></aside>
+        <aside id="submitSideRail" class="submit-side-rail" aria-live="polite">
+    <article class="submit-rail-card ">
+      <div class="submit-rail-card-heading">
+        <span class="submit-rail-card-icon is-accent" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.25 5.75h5.5a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-5.5a1.5 1.5 0 0 1-1.5-1.5v-10a1.5 1.5 0 0 1 1.5-1.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><path d="M10.5 5.75a1.5 1.5 0 1 1 3 0M10 10.5h4M10 13.5h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+        <div>
+          <h3>Submission guidelines</h3>
+
+        </div>
+      </div>
+      <div class="submit-rail-list">
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon is-accent" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.75 4 4 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Provide accurate, verifiable information.</strong>
+
+      </span>
+    </div>
+
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon is-accent" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.75 4 4 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Include at least one official listen link.</strong>
+
+      </span>
+    </div>
+
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon is-accent" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.75 4 4 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Keep descriptions spoiler-safe and factual.</strong>
+
+      </span>
+    </div>
+
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon is-accent" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.75 4 4 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Edits may be made for clarity and consistency.</strong>
+
+      </span>
+    </div>
+  </div>
+
+
+    </article>
+
+    <article class="submit-rail-card ">
+      <div class="submit-rail-card-heading">
+        <span class="submit-rail-card-icon " aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18.25a6.25 6.25 0 1 0 0-12.5 6.25 6.25 0 0 0 0 12.5ZM12 10.5v4M12 8.25h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+        <div>
+          <h3>Good to know</h3>
+
+        </div>
+      </div>
+      <div class="submit-rail-list">
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon " aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18.25a6.25 6.25 0 1 0 0-12.5 6.25 6.25 0 0 0 0 12.5ZM12 10.5v4M12 8.25h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Nothing auto-publishes</strong>
+        <span>Every submission is manually reviewed before it enters the archive.</span>
+      </span>
+    </div>
+
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon " aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 8.5h10.5v8.75H6.75zM5.75 8.5h12.5V5.75H5.75zM10 12h4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Editorial stance stays independent</strong>
+        <span>Creator or listener input improves metadata, not archive ratings or reviews.</span>
+      </span>
+    </div>
+
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon " aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.75 5.75 7.5v4.25c0 3.88 2.42 6.97 6.25 7.5 3.83-.53 6.25-3.62 6.25-7.5V7.5L12 4.75Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><path d="m9 12.25 2 2 4.25-4.25" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Creator corrections update facts</strong>
+        <span>Verification improves metadata quality and provenance only.</span>
+      </span>
+    </div>
+
+    <div class="submit-rail-list-item">
+      <span class="submit-rail-list-item-icon " aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18.25a6.25 6.25 0 1 0 0-12.5 6.25 6.25 0 0 0 0 12.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><path d="M12 9v3.25l2.25 1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+      <span class="submit-rail-list-item-copy">
+        <strong>Response time</strong>
+        <span>Most submissions receive a response within 7-14 days.</span>
+      </span>
+    </div>
+  </div>
+
+
+    </article>
+
+    <article class="submit-rail-card submit-rail-help">
+      <div class="submit-rail-card-heading">
+        <span class="submit-rail-card-icon is-accent" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18.25a6.25 6.25 0 1 0 0-12.5 6.25 6.25 0 0 0 0 12.5Zm-1.5-7a1.5 1.5 0 1 1 2.45 1.15c-.7.57-.95.92-.95 1.6M12 16.25h.01" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span>
+        <div>
+          <h3>Questions?</h3>
+          <p>Visit our help center or reach out to the Archivist.</p>
+        </div>
+      </div>
+
+      <button type="button" class="submit-rail-help-button" data-open-chat><span class="submit-rail-help-button-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.75 18.5a7.75 7.75 0 1 1 5.48-2.27l3.02 3.02" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></span><span>Ask the Archivist</span></button>
+      <p>We&#39;re here to help.</p>
+    </article>
+  </aside>
       </div>
     </section>
   </main>
@@ -246,10 +967,10 @@
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=cd1ad0c974"></script>
+  <script src="/shared/archive-record.js?v=f8943301bf"></script>
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=516906fc9e"></script>
+  <script type="module" src="/script.js?v=2f89dece9d"></script>
 </body>
 </html>

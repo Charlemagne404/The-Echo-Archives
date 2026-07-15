@@ -225,7 +225,7 @@
 .creator-action-link {
   justify-content: space-between;
   width: 100%;
-  min-height: 26px;
+  min-height: 44px;
 }
 
 .creator-action-link:hover,

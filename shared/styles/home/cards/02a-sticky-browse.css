@@ -1,6 +1,6 @@
 .sticky-browse-bar {
   position: fixed;
-  top: max(12px, env(safe-area-inset-top));
+  top: calc(var(--visual-viewport-offset-top) + max(12px, var(--safe-area-top)));
   left: 50%;
   z-index: 92;
   width: min(var(--shell-max-width), calc(100% - (var(--shell-inline-padding) * 2)));

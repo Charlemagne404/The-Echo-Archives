@@ -1,8 +1,13 @@
 import {
+  focusMaintainerWorkspace,
+  getMaintainerViewElements,
   getStoredReviewer,
   initializeAuthFlow,
+  isAbortError,
   renderSelectOptions,
+  runMaintainerAction,
   setAuthState,
+  setMaintainerViewState,
   setStoredReviewer,
 } from "../maintainer/page-helpers.js";
 import { formatScopeStatus, formatSourceType, formatStatus } from "./format.js";
@@ -92,9 +97,14 @@ export function buildImportFilterSummary(filters, total) {
 }
 
 export {
+  focusMaintainerWorkspace,
+  getMaintainerViewElements,
   getStoredReviewer,
   initializeAuthFlow,
+  isAbortError,
   renderSelectOptions,
+  runMaintainerAction,
   setAuthState,
+  setMaintainerViewState,
   setStoredReviewer,
 };

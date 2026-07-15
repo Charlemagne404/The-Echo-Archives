@@ -256,6 +256,13 @@ test("server exposes only intended public files and preserves legacy show redire
 
     for (const route of [
       "/style.css",
+      "/info.css",
+      "/collections.css",
+      "/creators.css",
+      "/submit.css",
+      "/maintainer.css",
+      "/detail.css",
+      "/chat.css",
       "/shared/app/app.js",
       "/images/Horizontal-Logo-W.png",
       "/data/reviews/impact-winter.json",

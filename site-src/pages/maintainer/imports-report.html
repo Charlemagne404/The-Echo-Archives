@@ -14,6 +14,15 @@
     </div>
   </section>
 
+  <section id="maintainerStatePanel" class="page-card maintainer-state-panel" role="region" aria-labelledby="maintainerStateTitle">
+    <div>
+      <p class="maintainer-kicker">Protected workspace</p>
+      <h2 id="maintainerStateTitle">Checking maintainer access</h2>
+      <p id="maintainerStateMessage" aria-live="polite">Loading the protected import report…</p>
+    </div>
+    <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
+  </section>
+
   <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
     <div class="maintainer-auth-copy">
       <p class="maintainer-kicker">Protected</p>
@@ -36,7 +45,7 @@
     <div class="page-card maintainer-report-toolbar">
       <div>
         <p class="maintainer-kicker">Snapshot</p>
-        <h2>Current filters</h2>
+        <h2 id="maintainerWorkspaceTitle" tabindex="-1">Current filters</h2>
       </div>
       <p id="maintainerReportMeta" class="maintainer-toolbar-meta">Loading report…</p>
     </div>

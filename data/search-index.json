@@ -5,6 +5,16 @@
     "subtitle": "A spacebound thriller with a steady pressure-cooker pulse.",
     "description": "A lean sci-fi survival pick for listeners who want tension, isolation, and an immediate sense of danger.",
     "cover": "shows/solar/solar.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/solar-60d515e2dc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/solar-60d515e2dc-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Solar cover art",
     "creators": [
       "Chris Porter"
@@ -124,6 +134,16 @@
     "subtitle": "A more grounded adventure-leaning mystery entry.",
     "description": "A softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog.",
     "cover": "shows/story/story.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/story-5cfe5e54f5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/story-5cfe5e54f5-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Story cover art",
     "creators": [
       "7 Lamb Productions"
@@ -343,6 +363,16 @@
     "subtitle": "Mystery-first sci-fi built around controlled reveals.",
     "description": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
     "cover": "shows/deca tapes/decatapes.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-deca-tapes-1ad6ad42aa-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-deca-tapes-1ad6ad42aa-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Deca Tapes cover art",
     "creators": [
       "Lex Noteboom"
@@ -445,6 +475,16 @@
     "subtitle": "Dystopian sci-fi with a heavier thriller edge.",
     "description": "A darker catalog entry for listeners who want genre pressure more than comfort.",
     "cover": "shows/earth eclipsed/eartheclipsed.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/earth-eclipsed-d49b67da88-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/earth-eclipsed-d49b67da88-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Earth Eclipsed cover art",
     "creators": [
       "The Lunar Company"
@@ -660,6 +700,16 @@
     "subtitle": "Paranormal mystery with stronger horror hooks than melodrama.",
     "description": "One of the easier horror entries to recommend when someone wants ghosts, procedure, and mystery in the same lane.",
     "cover": "shows/how i died/howidied.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/how-i-died-93e49e8cc1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/how-i-died-93e49e8cc1-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "How I Died cover art",
     "creators": [
       "Vince Dajani"
@@ -885,6 +935,16 @@
     "subtitle": "Space adventure for listeners who want a little more open sky.",
     "description": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
     "cover": "shows/the waystation/waystation.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-waystation-93b7750910-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-waystation-93b7750910-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Waystation cover art",
     "creators": [
       "Wired Cowslip"
@@ -1096,6 +1156,16 @@
     "subtitle": "Post-apocalyptic vampire survival under endless winter.",
     "description": "Endless winter, bunker survival, and just enough vampire politics to keep the whole thing nasty in the right way.",
     "cover": "shows/Impact Winter/Impact-winter.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/impact-winter-223a921604-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/impact-winter-223a921604-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Impact Winter cover art",
     "creators": [
       "Travis Beacham"
@@ -1334,6 +1404,16 @@
     "subtitle": "Cold War sci-fi with real respect for paradox, secrecy, and consequence.",
     "description": "Cold War intrigue, scientific paranoia, and one of the archive's smarter time-travel spirals.",
     "cover": "shows/ars paradoxica/ArsParadoxica.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/ars-paradoxica-4895cfcb22-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/ars-paradoxica-4895cfcb22-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Ars Paradoxica cover art",
     "creators": [
       "Mischa Stanton and Daniel Manning"
@@ -1467,6 +1547,16 @@
     "subtitle": "A science-heavy mystery with enough conceptual weirdness to stick.",
     "description": "A smart archive-adjacent mystery pick when you want science, secrecy, and a colder conceptual frame.",
     "cover": "shows/red valley/RedValley.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/red-valley-ca21e3975b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/red-valley-ca21e3975b-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Red Valley cover art",
     "creators": [
       "Jonathan Williams and Alan Mandel"
@@ -1572,6 +1662,16 @@
     "subtitle": "Cold-weather dread with one of the archive's stronger isolation profiles.",
     "description": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
     "cover": "shows/white-vault/WhiteVault.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-white-vault-ddb98627f9-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-white-vault-ddb98627f9-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The White Vault cover art",
     "creators": [
       "K.A. Statz and Travis Vengroff"
@@ -1692,6 +1792,16 @@
     "subtitle": "Space comedy with a stronger station-sitcom pulse.",
     "description": "A lighter archive pick for when you want jokes first and speculative stakes second.",
     "cover": "shows/eos10/EOS10.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/eos-10-9eddea0852-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/eos-10-9eddea0852-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "EOS 10 cover art",
     "creators": [
       "Justin McLachlan"
@@ -1795,6 +1905,16 @@
     "subtitle": "A warmer, stranger fantasy-comedy entry.",
     "description": "A good archive reset when everything else starts feeling too grim, too metallic, or too self-serious.",
     "cover": "shows/desert-skies/DesertSkies.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/desert-skies-1a11e94703-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/desert-skies-1a11e94703-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Desert Skies cover art",
     "creators": [
       "Jared Carter"
@@ -1901,6 +2021,16 @@
     "subtitle": "The archive bridge between space comedy and bigger sci-fi stakes.",
     "description": "A dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later.",
     "cover": "shows/wolf359/Wolf359.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/wolf-359-647b5c815e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/wolf-359-647b5c815e-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Wolf 359 cover art",
     "creators": [
       "Gabriel Urbina"
@@ -2013,6 +2143,16 @@
     "subtitle": "Isolation comedy with a colder edge than the usual station banter.",
     "description": "A strange little archive pick when you want comedy, confinement, and just enough pressure under the jokes.",
     "cover": "shows/station151/Station151.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/station-151-12c169c259-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/station-151-12c169c259-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Station 151 cover art",
     "creators": [
       "Andy Scearce and Steven James Scearce"
@@ -2124,6 +2264,16 @@
     "subtitle": "A warm, idea-rich sci-fi comedy with real range.",
     "description": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
     "cover": "shows/midnight burger/MidnightBurger.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/midnight-burger-50aed834c6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/midnight-burger-50aed834c6-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Midnight Burger cover art",
     "creators": [
       "Joe Fisher"
@@ -2443,6 +2593,16 @@
     "subtitle": "Supernatural mystery with a stronger horror pulse.",
     "description": "A browseable horror entry for listeners who want something paranormal, tense, and less sci-fi coded.",
     "cover": "shows/paralyzed/Paralyzed.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/paralyzed-409264758d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/paralyzed-409264758d-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Paralyzed cover art",
     "creators": [
       "7 Lamb Productions"
@@ -2547,6 +2707,16 @@
     "subtitle": "Big-scale sci-fi tension with a thriller engine underneath it.",
     "description": "One of the archive's strongest high-intensity sci-fi picks when the user wants something serious, propulsive, and built to hit hard.",
     "cover": "shows/derelict/Derelict.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/derelict-764d1a3c55-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/derelict-764d1a3c55-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Derelict cover art",
     "creators": [
       "J. Barton Mitchell"
@@ -2657,6 +2827,16 @@
     "subtitle": "Future-facing sci-fi comedy with a lighter archive profile.",
     "description": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
     "cover": "shows/crystal-blue/CrystalBlue.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/crystal-blue-4ae2199e68-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/crystal-blue-4ae2199e68-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Crystal Blues cover art",
     "creators": [
       "7 Lamb Productions"
@@ -2760,6 +2940,16 @@
     "subtitle": "Creature pressure and survival pacing in a more pulpy register.",
     "description": "A survival-oriented archive entry for listeners who want threat, creatures, and forward motion more than elegance.",
     "cover": "shows/eoah/EOAH.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/end-of-all-hope-8f65a28688-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/end-of-all-hope-8f65a28688-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "End of all Hope cover art",
     "creators": [
       "7 Lamb Productions"
@@ -2865,6 +3055,16 @@
     "subtitle": "Isolation mystery with a slow-burn dread profile.",
     "description": "A good archive browse pick when the listener wants something remote, watchful, and just a little unsettling.",
     "cover": "shows/towe4/Tower4.jpeg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/tower-4-e16b7606e2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/tower-4-e16b7606e2-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Tower 4 cover art",
     "creators": [
       "7 Lamb Productions"
@@ -2971,6 +3171,16 @@
     "subtitle": "Therapy sessions for the strange and unusual, with a larger sci-fi story waiting underneath.",
     "description": "A character-first science-fiction drama about therapy, power, secrecy, and the personal cost of being unusual in a world that wants to study you.",
     "cover": "images/covers/the-bright-sessions.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-bright-sessions-de58f8456f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-bright-sessions-de58f8456f-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Bright Sessions cover art",
     "creators": [
       "Lauren Shippen"
@@ -3048,6 +3258,16 @@
     "subtitle": "A funeral-home sitcom full of vanity, sabotage, and immaculate comic timing.",
     "description": "A British comedy fiction series about dueling funeral directors, escalating grudges, and a village small enough for every petty disaster to feel personal.",
     "cover": "images/covers/wooden-overcoats.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/wooden-overcoats-bd0f58d842-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/wooden-overcoats-bd0f58d842-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Wooden Overcoats cover art",
     "creators": [
       "Wooden Overcoats Ltd"
@@ -3117,6 +3337,16 @@
     "subtitle": "A road-haunted search story told in a voice that keeps pulling you forward.",
     "description": "A serialized horror thriller about a truck driver crossing America in search of the wife she thought was dead, with conspiracies and not-quite-human dangers waiting along the road.",
     "cover": "images/covers/alice-isnt-dead.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/alice-isnt-dead-39a439382b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/alice-isnt-dead-39a439382b-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Alice Isn't Dead cover art",
     "creators": [
       "Joseph Fink"
@@ -3200,6 +3430,16 @@
     "subtitle": "A sci-fi ghost story with a colder, more deliberate sense of haunting.",
     "description": "A three-thread horror drama moving across centuries, using one haunting to connect women, memory, and long-range consequence.",
     "cover": "images/covers/mirrors.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mirrors-bcf35bd03c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/mirrors-bcf35bd03c-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Mirrors cover art",
     "creators": [
       "ZoomDoom Stories"
@@ -3272,6 +3512,16 @@
     "subtitle": "Midwestern gothic fiction that balances haunted-town dread with found-family warmth.",
     "description": "A long-running small-town horror drama about a boarding house, buried history, ghosts, and the people who slowly become each other's family.",
     "cover": "images/covers/unwell.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/unwell-d846ce1ad3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/unwell-d846ce1ad3-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Unwell cover art",
     "creators": [
       "Audacious Machine Creative"
@@ -3343,6 +3593,16 @@
     "subtitle": "A surreal space-western told with swagger, precision, and a refusal to stay conventional.",
     "description": "A reality-bending sci-fantasy audio drama in which three narrators guide the listener through a dangerous cosmos full of bad decisions, power structures, and gorgeous nonsense.",
     "cover": "images/covers/midst.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/midst-112a25975f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/midst-112a25975f-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Midst cover art",
     "creators": [
       "Third Person"
@@ -3417,6 +3677,16 @@
     "subtitle": "A colder sci-fi anthology for listeners who want systems, doctrine, and unease.",
     "description": "A speculative anthology set inside a future social order where money, state, and god have fused into one governing force.",
     "cover": "images/covers/the-program-audio-series.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-program-audio-series-1ec863e1d7-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-program-audio-series-1ec863e1d7-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Program audio series cover art",
     "creators": [
       "IMS"
@@ -3491,6 +3761,16 @@
     "subtitle": "Cosmic-horror mystery with enough momentum to make the darkness feel athletic.",
     "description": "A horror serial following Arthur Lester, an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head.",
     "cover": "images/covers/malevolent.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/malevolent-0454c6c877-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/malevolent-0454c6c877-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Malevolent cover art",
     "creators": [
       "Harlan Guthrie"
@@ -3565,6 +3845,16 @@
     "subtitle": "A tight time-travel thriller built around two voices and a steadily tightening paradox.",
     "description": "A scripted suspense series about a psychiatrist and a patient who claims to be from the future, turning therapeutic sessions into a time-loop crisis.",
     "cover": "images/covers/case-63.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/case-63-30d94fcb3a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/case-63-30d94fcb3a-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Case 63 cover art",
     "creators": [
       "Julio Rojas"
@@ -3641,6 +3931,16 @@
     "subtitle": "A psychological thriller that keeps turning childhood dread into something worse.",
     "description": "A dark mystery series about a town full of rumors, disappearances, and the awful machinery hidden behind a local legend.",
     "cover": "images/covers/borrasca.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/borrasca-5766c68fa6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/borrasca-5766c68fa6-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Borrasca cover art",
     "creators": [
       "Rebecca Klingel"
@@ -3715,6 +4015,16 @@
     "subtitle": "Ghosts, family secrets, and intimate audio that makes the house itself feel like a voice.",
     "description": "A fiction podcast about ghosts, hidden histories, and missed connections, told through intimate messages and a steadily deepening sense of the uncanny.",
     "cover": "images/covers/mabel.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mabel-002a979400-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/mabel-002a979400-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Mabel cover art",
     "creators": [
       "Becca De La Rosa",
@@ -3787,6 +4097,16 @@
     "subtitle": "Found-footage horror about ritual, sound, and the feeling that a recording can bite back.",
     "description": "An archival horror series that starts with restored tapes and keeps widening into stranger rituals, cities, broadcasts, and buried histories.",
     "cover": "images/covers/archive-81.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/archive-81-7d75c28211-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/archive-81-7d75c28211-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Archive 81 cover art",
     "creators": [
       "Dead Signals"
@@ -3859,6 +4179,16 @@
     "subtitle": "A psychological thriller built from calls, overheard fragments, and deliberate unease.",
     "description": "A suspense drama about an experimental facility, institutional manipulation, and the cost of trying to piece together a story that does not want to be told cleanly.",
     "cover": "images/covers/homecoming.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/homecoming-5e47c83d22-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/homecoming-5e47c83d22-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Homecoming cover art",
     "creators": [
       "Gimlet Media"
@@ -3934,6 +4264,16 @@
     "subtitle": "Community-radio weirdness that treats the impossible like a local bulletin.",
     "description": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
     "cover": "images/covers/welcome-to-night-vale.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/welcome-to-night-vale-842179748f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/welcome-to-night-vale-842179748f-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Welcome to Night Vale cover art",
     "creators": [
       "Joseph Fink",
@@ -4012,6 +4352,16 @@
     "subtitle": "Mars-colony survival sci-fi with enough pressure to keep the optimism uneasy.",
     "description": "A full-cast Mars-colony drama about first-settlement optimism colliding with sabotage, AI pressure, and the feeling that every system can fail at once.",
     "cover": "images/covers/marsfall.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/marsfall-933a0b8f3e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/marsfall-933a0b8f3e-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Marsfall cover art",
     "creators": [
       "Marsfall LLC"
@@ -4098,6 +4448,16 @@
     "subtitle": "Found-family space opera with politics, jokes, and real forward pull.",
     "description": "A postwar space-opera serial about a surviving smuggler crew, anti-imperial resistance, and the way a funny ensemble can still carry sharp political stakes.",
     "cover": "images/covers/the-strange-case-of-starship-iris.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-strange-case-of-starship-iris-6b3abebb07-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-strange-case-of-starship-iris-6b3abebb07-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Strange Case of Starship Iris cover art",
     "creators": [
       "Jessica Best"
@@ -4183,6 +4543,16 @@
     "subtitle": "Deadpan black-comedy mystery built around disappearances, reinventions, and cocoa.",
     "description": "A long-running black-comedy fiction podcast about a secret agency that stages fake deaths for clients who need to vanish and come back as someone else.",
     "cover": "images/covers/the-amelia-project.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-amelia-project-b83be9b66e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-amelia-project-b83be9b66e-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Amelia Project cover art",
     "creators": [
       "Imploding Fictions"
@@ -4267,6 +4637,16 @@
     "subtitle": "Alternate-Victorian detective comedy with real momentum under the jokes.",
     "description": "A full-cast detective comedy set in an impossibly large 1887 London, balancing murder mystery plotting with brisk ensemble charm and world-sized absurdity.",
     "cover": "images/covers/victoriocity.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/victoriocity-a16d9c9f31-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/victoriocity-a16d9c9f31-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Victoriocity cover art",
     "creators": [
       "Victoriocity"
@@ -4351,6 +4731,16 @@
     "subtitle": "Road-trip space comfort with enough curiosity to make the galaxy feel generous.",
     "description": "A cheerful first-person travelogue through a strange galaxy, built around a protagonist who left home to chase wonder instead of status.",
     "cover": "images/covers/startripper.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/startripper-2aed0ddf5b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/startripper-2aed0ddf5b-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "StarTripper!! cover art",
     "creators": [
       "StarTripper!!"
@@ -4433,6 +4823,16 @@
     "subtitle": "Faux-journalism cosmic horror that turns investigation into contagion.",
     "description": "A BBC mystery-thriller series that reframes Lovecraft stories as contemporary investigative journalism, using podcast structure to make the paranoia feel immediate.",
     "cover": "images/covers/the-lovecraft-investigations.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-lovecraft-investigations-ca50ab000b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-lovecraft-investigations-ca50ab000b-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Lovecraft Investigations cover art",
     "creators": [
       "Julian Simpson"
@@ -4519,6 +4919,16 @@
     "subtitle": "Found-audio horror about cursed media and the kind of mystery that keeps getting worse.",
     "description": "A compact horror serial about a cursed VHS tape, a missing-store legend, and the way media obsession becomes the path into something older and meaner.",
     "cover": "images/covers/video-palace.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/video-palace-ef50761b8c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/video-palace-ef50761b8c-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Video Palace cover art",
     "creators": [
       "Nick Braccia",
@@ -4608,6 +5018,16 @@
     "subtitle": "What happened to the people of Limetown?",
     "description": "A faux-investigative mystery that uses public-radio reporting to pull listeners into a disappearance case that keeps widening into stranger and darker territory.",
     "cover": "images/covers/limetown.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/limetown-9bc95bcb6e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/limetown-9bc95bcb6e-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Limetown cover art",
     "creators": [],
     "status": "published",
@@ -4675,6 +5095,16 @@
     "subtitle": "",
     "description": "A paranormal-investigation thriller built around skeptical inquiry, old recordings, and the slow realization that each case is tied to something much larger.",
     "cover": "images/covers/the-black-tapes.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-black-tapes-05d1573be2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-black-tapes-05d1573be2-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Black Tapes cover art",
     "creators": [],
     "status": "published",
@@ -4743,6 +5173,16 @@
     "subtitle": "",
     "description": "A character-first sci-fi mystery about isolation, memory, and survival, anchored by a lone voice on a station where every answer raises a new problem.",
     "cover": "images/covers/girl-in-space.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/girl-in-space-757f56195d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/girl-in-space-757f56195d-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Girl in Space cover art",
     "creators": [],
     "status": "published",
@@ -4809,6 +5249,16 @@
     "subtitle": "",
     "description": "A fast, playful mystery set inside a retro theme park where understaffed chaos, class friction, and slasher energy all keep colliding.",
     "cover": "images/covers/mockery-manor.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mockery-manor-56b69adadc-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/mockery-manor-56b69adadc-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Mockery Manor cover art",
     "creators": [],
     "status": "published",
@@ -4875,6 +5325,16 @@
     "subtitle": "Our final soundscape, a full playout of the Forest 404 theme tune composed by Bonobo.",
     "description": "A compact dystopian sci-fi drama about ecological memory, synthetic soundscapes, and what gets lost when a world forgets the feel of the natural one.",
     "cover": "images/covers/forest-404.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/forest-404-d7a73d935e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/forest-404-d7a73d935e-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Forest 404 cover art",
     "creators": [],
     "status": "published",
@@ -4943,6 +5403,16 @@
     "subtitle": "",
     "description": "An expansive ensemble drama that turns alternate-history Boston into a place for civic absurdity, interpersonal fallout, and long-game character work.",
     "cover": "images/covers/greater-boston.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/greater-boston-07692acf81-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/greater-boston-07692acf81-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Greater Boston cover art",
     "creators": [],
     "status": "published",
@@ -5009,6 +5479,16 @@
     "subtitle": "A fiction podcast on an epic scale set in the most powerful city on earth... Tumanbay.",
     "description": "A sprawling palace-intrigue drama built around power struggles, espionage, shifting loyalties, and the feeling that every victory is buying a larger disaster.",
     "cover": "images/covers/tumanbay.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/tumanbay-9a183917a3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/tumanbay-9a183917a3-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Tumanbay cover art",
     "creators": [],
     "status": "published",
@@ -5076,6 +5556,16 @@
     "subtitle": "",
     "description": "A reverse-structured sci-fi horror story that uses mission logs, isolation, and xenoarchaeology to turn discovery into dread.",
     "cover": "images/covers/janus-descending.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/janus-descending-9f8e3c8138-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/janus-descending-9f8e3c8138-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Janus Descending cover art",
     "creators": [],
     "status": "published",
@@ -5143,6 +5633,16 @@
     "subtitle": "",
     "description": "A cult-haunted horror serial about memory loss, dangerous power, and the violent institutions circling a woman who woke up at the center of something awful.",
     "cover": "images/covers/spines-podcast.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/spines-podcast-5461c454fd-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/spines-podcast-5461c454fd-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Spines cover art",
     "creators": [],
     "status": "published",
@@ -5209,6 +5709,16 @@
     "subtitle": "A Weird-West Audio Drama Adventure",
     "description": "A queer fantasy road-trip drama about monsters, found family, and the kind of hidden world that keeps getting bigger the farther you travel into it.",
     "cover": "images/covers/caravan.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/caravan-a24f4d56c1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/caravan-a24f4d56c1-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Caravan cover art",
     "creators": [],
     "status": "published",
@@ -5275,6 +5785,16 @@
     "subtitle": "",
     "description": "A workplace sci-fi comedy about an abandoned-feeling space posting where boredom, incompetence, and actual danger keep arriving in the same package.",
     "cover": "images/covers/oblivity.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/oblivity-925a3e57ce-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/oblivity-925a3e57ce-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Oblivity cover art",
     "creators": [],
     "status": "published",
@@ -5341,6 +5861,16 @@
     "subtitle": "",
     "description": "A portal-fantasy epic that starts with genre familiarity and then digs into politics, class, war, and the limits of trying to fix a world you barely understand.",
     "cover": "images/covers/the-once-and-future-nerd.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-once-and-future-nerd-0e3474eaba-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-once-and-future-nerd-0e3474eaba-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "The Once and Future Nerd cover art",
     "creators": [],
     "status": "published",
@@ -5407,6 +5937,16 @@
     "subtitle": "",
     "description": "A paranormal small-town comedy-drama framed through a late-night radio show, where local banter keeps mutating into something stranger and more emotional than the setup first suggests.",
     "cover": "images/covers/king-falls-am.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/king-falls-am-e125f50569-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/king-falls-am-e125f50569-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "King Falls AM cover art",
     "creators": [],
     "status": "published",
@@ -5474,6 +6014,16 @@
     "subtitle": "Five demons, one suburban mall, and a missing bandmate before the biggest gig of 1999.",
     "description": "A neon-chaotic comedy about five demons killing time in a suburban mall until their singer vanishes and the countdown to disaster starts moving faster.",
     "cover": "images/covers/brimstone-valley-mall.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/brimstone-valley-mall-24964fb070-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/brimstone-valley-mall-24964fb070-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Brimstone Valley Mall cover art",
     "creators": [],
     "status": "published",
@@ -5541,6 +6091,16 @@
     "subtitle": "",
     "description": "A melancholy mystery drama about a drifting musician, a strange town, and the emotional static that keeps surfacing through music, memory, and local secrets.",
     "cover": "images/covers/midnight-radio.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/midnight-radio-1af40ab2cb-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/midnight-radio-1af40ab2cb-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Midnight Radio cover art",
     "creators": [],
     "status": "published",
@@ -5607,6 +6167,16 @@
     "subtitle": "The story of the world's most secret agents...the backups. For the first time in his career, Special Agent Chet Phillips has discovered that he can choose NOT to accept a mission! That means there's no choice but to send in the \"B Team\": A",
     "description": "An ensemble spy comedy about the backup team no one wanted to call, and how quickly bureaucratic humiliation becomes a real mission.",
     "cover": "images/covers/mission-rejected.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mission-rejected-015e830327-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/mission-rejected-015e830327-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Mission Rejected cover art",
     "creators": [],
     "status": "published",
@@ -5675,6 +6245,16 @@
     "subtitle": "",
     "description": "A queer space-road-trip comedy about two repair workers trapped in a corporate nightmare that somehow still leaves room for affection, exhaustion, and good jokes.",
     "cover": "images/covers/we-fix-space-junk.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/we-fix-space-junk-bdbeb81bef-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/we-fix-space-junk-bdbeb81bef-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "We Fix Space Junk cover art",
     "creators": [],
     "status": "published",
@@ -5742,6 +6322,16 @@
     "subtitle": "",
     "description": "A supernatural small-town drama where cryptids, family pressure, and local secrets all feel personal before they feel mythic.",
     "cover": "images/covers/harbor.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/harbor-85427891b4-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/harbor-85427891b4-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Harbor cover art",
     "creators": [],
     "status": "published",
@@ -5809,6 +6399,16 @@
     "subtitle": "A missing plane, a cabin full of suspects, a search for truth. A mystery thriller from PRX’s Radiotopia.",
     "description": "A conspiracy mystery built around a vanished plane, a reporter in over her head, and the growing sense that every answer has already been managed by someone else.",
     "cover": "images/covers/passenger-list.png",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/passenger-list-bbace46451-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/passenger-list-bbace46451-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Passenger List cover art",
     "creators": [],
     "status": "published",
@@ -5876,6 +6476,16 @@
     "subtitle": "",
     "description": "A queer emotional sci-fi drama about a decommissioned moonbase, the people left awake to narrate its last days, and what survives when the official mission is already over.",
     "cover": "images/covers/moonbase-theta-out.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/moonbase-theta-out-ec2e70a439-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/moonbase-theta-out-ec2e70a439-640.webp",
+        "width": 640
+      }
+    ],
     "coverAlt": "Moonbase Theta, Out cover art",
     "creators": [],
     "status": "published",

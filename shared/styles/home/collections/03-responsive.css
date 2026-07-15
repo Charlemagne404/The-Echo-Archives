@@ -273,7 +273,7 @@
 
 @media (max-width: 560px) {
   .collections-sticky-mood-bar {
-    top: max(10px, env(safe-area-inset-top));
+    top: calc(var(--visual-viewport-offset-top) + max(10px, var(--safe-area-top)));
     width: min(100%, calc(100% - (var(--shell-inline-padding-phone) * 2)));
   }
 
@@ -337,7 +337,7 @@
   }
 
   .collections-mood-chip-compact {
-    min-height: 32px;
+    min-height: 44px;
     padding: 0 9px;
     gap: 6px;
   }

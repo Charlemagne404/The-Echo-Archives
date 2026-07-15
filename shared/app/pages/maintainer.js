@@ -1,13 +1,37 @@
 import { createMaintainerSession, destroyMaintainerSession, fetchMaintainerSubmission, fetchMaintainerSubmissions, MaintainerAuthError, patchMaintainerSubmission } from "../maintainer/api.js";
 import { formatDateTime, formatStatus, formatSubmissionType, summarizeCounts } from "../maintainer/format.js";
-import { buildFilterSummary, FILTER_OPTIONS, getStoredReviewer, initializeAuthFlow, readFilters, renderSelectOptions, setAuthState, setStoredReviewer, syncFiltersToUrl } from "../maintainer/page-helpers.js";
+import {
+  buildFilterSummary,
+  FILTER_OPTIONS,
+  focusMaintainerWorkspace,
+  getMaintainerViewElements,
+  getStoredReviewer,
+  initializeAuthFlow,
+  isAbortError,
+  readFilters,
+  renderSelectOptions,
+  runMaintainerAction,
+  setMaintainerViewState,
+  setStoredReviewer,
+  syncFiltersToUrl,
+} from "../maintainer/page-helpers.js";
 import { renderDetailPane, renderQueueList, renderReportContent, renderSummaryCards } from "../maintainer/render.js";
 
-export async function initializeMaintainerPage() {
-  if (!document.body.classList.contains("maintainer-page")) {
-    return;
-  }
+const COMPACT_WORKSPACE_QUERY = "(max-width: 720px)";
 
+function revealCompactDetail(elements) {
+  if (!window.matchMedia(COMPACT_WORKSPACE_QUERY).matches) return;
+  elements.detailCard?.scrollIntoView({ block: "start", behavior: "auto" });
+  window.requestAnimationFrame(() => elements.detailHeading?.focus({ preventScroll: true }));
+}
+
+function hideWorkspaceControls(auth, elements) {
+  auth.logoutButtons.forEach((button) => { button.hidden = true; });
+  if (elements.refreshButton) elements.refreshButton.hidden = true;
+}
+
+export async function initializeMaintainerPage() {
+  if (!document.body.classList.contains("maintainer-page")) return;
   if (document.body.classList.contains("maintainer-report-page")) {
     await initializeMaintainerReportPage();
     return;
@@ -18,6 +42,9 @@ export async function initializeMaintainerPage() {
     response: null,
     selectedId: "",
     storedReviewer: getStoredReviewer(),
+    hasBeenReady: false,
+    queueController: null,
+    detailController: null,
   };
   const elements = {
     authPanel: document.getElementById("maintainerAuthPanel"),
@@ -34,7 +61,6 @@ export async function initializeMaintainerPage() {
     nextPage: document.getElementById("maintainerNextPage"),
     filterForm: document.getElementById("maintainerFilterForm"),
     refreshButton: document.getElementById("maintainerRefreshButton"),
-    logoutButton: document.getElementById("maintainerLogoutButton"),
     reportLink: document.getElementById("maintainerReportLink"),
     search: document.getElementById("maintainerSearch"),
     status: document.getElementById("maintainerStatusFilter"),
@@ -42,7 +68,14 @@ export async function initializeMaintainerPage() {
     priority: document.getElementById("maintainerPriorityFilter"),
     includeClosed: document.getElementById("maintainerIncludeClosed"),
     pageSize: document.getElementById("maintainerPageSize"),
+    retryButton: document.getElementById("maintainerRetryButton"),
+    listCard: document.getElementById("maintainerListCard"),
+    listHeading: document.getElementById("maintainerListHeading"),
+    detailCard: document.getElementById("maintainerDetailCard"),
+    detailHeading: document.getElementById("maintainerDetailHeading"),
+    backToQueue: document.getElementById("maintainerBackToQueue"),
   };
+  const view = getMaintainerViewElements(elements.appShell);
 
   renderSelectOptions(elements.status, FILTER_OPTIONS.status, state.filters.status);
   renderSelectOptions(elements.submissionType, FILTER_OPTIONS.submissionType, state.filters.submissionType);
@@ -51,55 +84,109 @@ export async function initializeMaintainerPage() {
   if (elements.includeClosed instanceof HTMLInputElement) elements.includeClosed.checked = state.filters.includeClosed;
   if (elements.pageSize instanceof HTMLSelectElement) elements.pageSize.value = String(state.filters.pageSize);
 
+  const abortRequests = () => {
+    state.queueController?.abort();
+    state.detailController?.abort();
+  };
+
   const auth = await initializeAuthFlow({
     createMaintainerSession,
     destroyMaintainerSession,
-    onAuthenticated: async () => {
-      await loadQueue();
+    onAuthenticated: async () => loadQueue(false, { afterAuthentication: true }),
+    onLoggedOut: async () => {
+      abortRequests();
+      state.hasBeenReady = false;
+      setMaintainerViewState(view, "authRequired", { message: "Signed out. Sign in to continue." });
     },
   });
 
-  async function loadDetail() {
+  function showAuthentication(error = null) {
+    abortRequests();
+    hideWorkspaceControls(auth, elements);
+    const message = state.hasBeenReady
+      ? "Your maintainer session expired. Sign in again to continue."
+      : error instanceof Error ? error.message : "Sign in to continue.";
+    setMaintainerViewState(view, "authRequired", { message });
+    window.requestAnimationFrame(() => document.getElementById("maintainerPassphrase")?.focus());
+  }
+
+  async function loadDetail({ focusDetail = false } = {}) {
+    state.detailController?.abort();
     if (!state.selectedId) {
       elements.detail.innerHTML = renderDetailPane({ submission: null, storedReviewer: state.storedReviewer });
       return;
     }
 
-    const result = await fetchMaintainerSubmission(state.selectedId);
-    elements.detail.innerHTML = renderDetailPane({ submission: result.submission, storedReviewer: state.storedReviewer });
-    elements.detailMeta.textContent = `Submitted ${formatDateTime(result.submission.submittedAt)} · ${formatStatus(result.submission.status)}.`;
+    const selectedId = state.selectedId;
+    const controller = new AbortController();
+    state.detailController = controller;
+    try {
+      const result = await fetchMaintainerSubmission(selectedId, { signal: controller.signal });
+      if (controller.signal.aborted || selectedId !== state.selectedId) return;
+      elements.detail.innerHTML = renderDetailPane({ submission: result.submission, storedReviewer: state.storedReviewer });
+      elements.detailMeta.textContent = `Submitted ${formatDateTime(result.submission.submittedAt)} · ${formatStatus(result.submission.status)}.`;
 
-    const reviewForm = document.getElementById("maintainerReviewForm");
-    reviewForm?.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const formData = new FormData(reviewForm);
-      const reviewedBy = String(formData.get("reviewedBy") || "").trim();
-      setStoredReviewer(reviewedBy);
-      state.storedReviewer = reviewedBy;
-      elements.detailMeta.textContent = "Saving review state…";
-      try {
-        const response = await patchMaintainerSubmission(state.selectedId, {
-          status: formData.get("status"),
-          priority: formData.get("priority"),
-          reviewedBy,
-          reviewNotes: formData.get("reviewNotes"),
+      const reviewForm = document.getElementById("maintainerReviewForm");
+      reviewForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const submitButton = event.submitter instanceof HTMLElement ? event.submitter : reviewForm.querySelector('button[type="submit"]');
+        await runMaintainerAction({
+          control: submitButton,
+          region: reviewForm,
+          action: async () => {
+            const formData = new FormData(reviewForm);
+            const reviewedBy = String(formData.get("reviewedBy") || "").trim();
+            setStoredReviewer(reviewedBy);
+            state.storedReviewer = reviewedBy;
+            elements.detailMeta.textContent = "Saving review state…";
+            try {
+              await patchMaintainerSubmission(selectedId, {
+                status: formData.get("status"),
+                priority: formData.get("priority"),
+                reviewedBy,
+                reviewNotes: formData.get("reviewNotes"),
+              });
+              await loadQueue(true);
+              elements.detailMeta.textContent = "Review state saved.";
+            } catch (error) {
+              if (error instanceof MaintainerAuthError) {
+                showAuthentication(error);
+                return;
+              }
+              elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to save review state.";
+            }
+          },
         });
-        elements.detail.innerHTML = renderDetailPane({ submission: response.submission, storedReviewer: state.storedReviewer });
-        elements.detailMeta.textContent = "Review state saved.";
-        await loadQueue(true);
-      } catch (error) {
-        elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to save review state.";
+      });
+
+      if (focusDetail) revealCompactDetail(elements);
+    } catch (error) {
+      if (isAbortError(error)) return;
+      if (error instanceof MaintainerAuthError) {
+        showAuthentication(error);
+        return;
       }
-    }, { once: true });
+      elements.detail.innerHTML = renderDetailPane({ submission: null, storedReviewer: state.storedReviewer });
+      elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to load submission detail.";
+    }
   }
 
-  async function loadQueue(preserveSelection = false) {
+  async function loadQueue(preserveSelection = false, { afterAuthentication = false } = {}) {
+    state.queueController?.abort();
+    const controller = new AbortController();
+    state.queueController = controller;
+    if (!state.hasBeenReady) {
+      setMaintainerViewState(view, "loading", { message: "Loading the protected submission queue…", retry: false });
+    }
+
     try {
-      const response = await fetchMaintainerSubmissions(state.filters);
+      const response = await fetchMaintainerSubmissions(state.filters, { signal: controller.signal });
+      if (controller.signal.aborted) return;
       state.response = response;
+      state.hasBeenReady = true;
       auth.logoutButtons.forEach((button) => { button.hidden = false; });
       if (elements.refreshButton) elements.refreshButton.hidden = false;
-      setAuthState({ authPanel: auth.authPanel, appShell: elements.appShell, statusNode: auth.authStatus, signedIn: true });
+      setMaintainerViewState(view, "ready");
       elements.summaryCards.innerHTML = renderSummaryCards(summarizeCounts(response.counts, response.total));
       if (!preserveSelection || !response.items.some((item) => item.id === state.selectedId)) {
         state.selectedId = response.items[0]?.id || "";
@@ -116,15 +203,23 @@ export async function initializeMaintainerPage() {
         elements.reportLink.href = `/maintainer/submissions/report.html${window.location.search}`;
       }
       await loadDetail();
+      if (afterAuthentication) focusMaintainerWorkspace();
     } catch (error) {
+      if (isAbortError(error)) return;
       if (error instanceof MaintainerAuthError) {
-        setAuthState({ authPanel: auth.authPanel, appShell: elements.appShell, statusNode: auth.authStatus, signedIn: false });
+        showAuthentication(error);
         return;
       }
-      elements.listStatus.textContent = error instanceof Error ? error.message : "Failed to load submissions.";
+      hideWorkspaceControls(auth, elements);
+      setMaintainerViewState(view, "error", {
+        message: error instanceof Error ? error.message : "Failed to load submissions.",
+      });
     }
   }
 
+  elements.retryButton?.addEventListener("click", async (event) => {
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
+  });
   elements.filterForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
     state.filters = {
@@ -137,79 +232,111 @@ export async function initializeMaintainerPage() {
       page: 1,
     };
     syncFiltersToUrl(state.filters);
-    await loadQueue();
+    await runMaintainerAction({ control: event.submitter, region: elements.filterForm, action: async () => loadQueue() });
   });
-  document.getElementById("maintainerResetFilters")?.addEventListener("click", async () => {
+  document.getElementById("maintainerResetFilters")?.addEventListener("click", () => {
     state.filters = { q: "", status: "", submissionType: "", priority: "", includeClosed: false, page: 1, pageSize: 20 };
     syncFiltersToUrl(state.filters);
     window.location.reload();
   });
-  elements.refreshButton?.addEventListener("click", async () => loadQueue(true));
-  elements.previousPage?.addEventListener("click", async () => {
+  elements.refreshButton?.addEventListener("click", async (event) => {
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
+  });
+  elements.previousPage?.addEventListener("click", async (event) => {
     if (state.filters.page <= 1) return;
     state.filters.page -= 1;
     syncFiltersToUrl(state.filters);
-    await loadQueue();
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue() });
   });
-  elements.nextPage?.addEventListener("click", async () => {
+  elements.nextPage?.addEventListener("click", async (event) => {
     state.filters.page += 1;
     syncFiltersToUrl(state.filters);
-    await loadQueue();
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue() });
   });
   elements.list?.addEventListener("click", async (event) => {
     const button = event.target instanceof Element ? event.target.closest("[data-submission-id]") : null;
-    if (!(button instanceof HTMLElement)) return;
+    if (!(button instanceof HTMLElement) || button.dataset.maintainerBusy === "true") return;
     state.selectedId = button.dataset.submissionId || "";
     elements.list.innerHTML = renderQueueList({ items: state.response?.items || [], selectedId: state.selectedId });
-    await loadDetail();
+    await runMaintainerAction({ control: button, region: elements.detail, action: async () => loadDetail({ focusDetail: true }) });
+  });
+  elements.backToQueue?.addEventListener("click", () => {
+    elements.listCard?.scrollIntoView({ block: "start", behavior: "auto" });
+    window.requestAnimationFrame(() => elements.listHeading?.focus({ preventScroll: true }));
   });
 
+  window.addEventListener("pagehide", abortRequests, { once: true });
   await loadQueue();
 }
 
 async function initializeMaintainerReportPage() {
   const filters = readFilters(200);
-  const auth = await initializeAuthFlow({
-    createMaintainerSession,
-    destroyMaintainerSession,
-    onAuthenticated: async () => {
-      await loadReport();
-    },
-  });
   const shell = document.getElementById("maintainerReportShell");
   const content = document.getElementById("maintainerReportContent");
   const meta = document.getElementById("maintainerReportMeta");
   const printButton = document.getElementById("maintainerPrintButton");
   const queueLink = document.getElementById("maintainerQueueLink");
-  const logoutButton = document.getElementById("maintainerReportLogoutButton");
+  const retryButton = document.getElementById("maintainerRetryButton");
+  const view = getMaintainerViewElements(shell);
+  let hasBeenReady = false;
+  let reportController = null;
 
-  async function loadReport() {
+  const auth = await initializeAuthFlow({
+    createMaintainerSession,
+    destroyMaintainerSession,
+    onAuthenticated: async () => loadReport({ afterAuthentication: true }),
+    onLoggedOut: async () => {
+      reportController?.abort();
+      hasBeenReady = false;
+      setMaintainerViewState(view, "authRequired", { message: "Signed out. Sign in to continue." });
+    },
+  });
+
+  function showAuthentication(error = null) {
+    reportController?.abort();
+    auth.logoutButtons.forEach((button) => { button.hidden = true; });
+    if (printButton) printButton.hidden = true;
+    setMaintainerViewState(view, "authRequired", {
+      message: hasBeenReady ? "Your maintainer session expired. Sign in again to continue." : error instanceof Error ? error.message : "Sign in to continue.",
+    });
+    window.requestAnimationFrame(() => document.getElementById("maintainerPassphrase")?.focus());
+  }
+
+  async function loadReport({ afterAuthentication = false } = {}) {
+    reportController?.abort();
+    const controller = new AbortController();
+    reportController = controller;
+    if (!hasBeenReady) {
+      setMaintainerViewState(view, "loading", { message: "Loading the protected submission report…", retry: false });
+    }
     try {
-      const response = await fetchMaintainerSubmissions(filters);
+      const response = await fetchMaintainerSubmissions(filters, { signal: controller.signal });
+      if (controller.signal.aborted) return;
+      hasBeenReady = true;
       auth.logoutButtons.forEach((button) => { button.hidden = false; });
-      if (logoutButton) logoutButton.hidden = false;
       if (printButton) printButton.hidden = false;
-      setAuthState({ authPanel: auth.authPanel, appShell: shell, statusNode: auth.authStatus, signedIn: true });
+      setMaintainerViewState(view, "ready");
       const filterSummary = buildFilterSummary(filters, response.total, formatStatus, formatSubmissionType);
       meta.textContent = filterSummary;
-      content.innerHTML = renderReportContent({
-        counts: response.counts,
-        items: response.items,
-        total: response.total,
-        filterSummary,
-      });
-      if (queueLink instanceof HTMLAnchorElement) {
-        queueLink.href = `/maintainer/submissions.html${window.location.search}`;
-      }
+      content.innerHTML = renderReportContent({ counts: response.counts, items: response.items, total: response.total, filterSummary });
+      if (queueLink instanceof HTMLAnchorElement) queueLink.href = `/maintainer/submissions.html${window.location.search}`;
+      if (afterAuthentication) focusMaintainerWorkspace();
     } catch (error) {
+      if (isAbortError(error)) return;
       if (error instanceof MaintainerAuthError) {
-        setAuthState({ authPanel: auth.authPanel, appShell: shell, statusNode: auth.authStatus, signedIn: false });
+        showAuthentication(error);
         return;
       }
-      meta.textContent = error instanceof Error ? error.message : "Failed to load report.";
+      auth.logoutButtons.forEach((button) => { button.hidden = true; });
+      if (printButton) printButton.hidden = true;
+      setMaintainerViewState(view, "error", { message: error instanceof Error ? error.message : "Failed to load report." });
     }
   }
 
+  retryButton?.addEventListener("click", async (event) => {
+    await runMaintainerAction({ control: event.currentTarget, action: async () => loadReport() });
+  });
   printButton?.addEventListener("click", () => window.print());
+  window.addEventListener("pagehide", () => reportController?.abort(), { once: true });
   await loadReport();
 }

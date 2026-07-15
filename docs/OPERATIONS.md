@@ -262,6 +262,8 @@ Keep these ownership rules intact:
 - `docs/`, `docs/research/`, and `docs/archive/` are never runtime inputs
 - temporary outputs belong in ignored temp locations, not tracked repo folders
 
+Catalog/page builds also own `images/generated/covers/`, `images/generated/info/`, and the root route CSS bundles. Run `npm run build:catalog` before `npm run build:pages`; review generated image, runtime catalog, stylesheet, page, and service-worker diffs together. Do not copy responsive image metadata into authored catalog records or hand-edit generated variants.
+
 ## Catalog And Asset Checks
 
 Validation and normal startup can auto-download missing show cover art into `images/covers/` and rewrite the authored show source with the resolved local cover path.
@@ -275,6 +277,10 @@ Before publishing catalog changes, confirm:
 - no invalid enum values or duplicate taxonomy terms exist
 - no review companion merge issues exist
 - no optional dataset errors exist if `creators.json`, `networks.json`, or `changelog.json` are introduced later
+- each local published cover has generated 320px/640px variants when the source is large enough, with the original retained as fallback
+- generated 320px covers stay at or below 100 KiB, 640px covers at or below 220 KiB, and generated information-page illustrations at or below 350 KiB
+- the service-worker install list remains an offline shell rather than including catalog JSON, the search index, route modules, maintainer code, submit code, or chat code
+- each page requests only its manifest-declared route CSS; `chat.css` should not load before the launcher is used
 
 ## Manual Route QA
 

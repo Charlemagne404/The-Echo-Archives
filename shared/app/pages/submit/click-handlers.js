@@ -5,6 +5,7 @@ import { captureCurrentDraft } from "./draft.js";
 
 function resetModeUiState(state) {
   state.searchOpen = false;
+  state.showHighlightIndex = -1;
   state.tagPickerOpen = false;
   state.tagPickerPinned = false;
   state.activeTagField = "selectedTags";
@@ -48,7 +49,7 @@ function escapeCssIdentifier(value = "") {
   return String(value).replace(/["\\]/g, "\\$&");
 }
 
-export function bindSubmitPageClickHandlers({ state, elements, ui }) {
+export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup }) {
   function activateMode(nextMode, { focus = false } = {}) {
     if (!nextMode || nextMode === state.activeMode || !Object.prototype.hasOwnProperty.call(MODE_CONFIG, nextMode)) {
       return;
@@ -63,6 +64,10 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
 
     if (focus) {
       focusAfterRender(`[data-submission-mode="${escapeCssIdentifier(nextMode)}"]`);
+    }
+
+    if (nextMode !== "show") {
+      void ensureLookup().catch(() => {});
     }
   }
 
@@ -275,6 +280,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       draft.existingShowId = "";
       draft.showSearch = "";
       state.searchOpen = true;
+      state.showHighlightIndex = -1;
       ui.syncHiddenInputs();
       ui.syncQueryState();
       ui.renderAll();
@@ -286,6 +292,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
     if (toggleShowSearch) {
       event.preventDefault();
       state.searchOpen = !state.searchOpen;
+      state.showHighlightIndex = -1;
       ui.renderAll();
       if (state.searchOpen) {
         ui.focusExistingShowSearch(getActiveDraft(state).showSearch.length);
@@ -310,9 +317,17 @@ export function bindSubmitPageClickHandlers({ state, elements, ui }) {
       draft.existingShowId = show.id;
       draft.showSearch = show.title;
       state.searchOpen = false;
+      state.showHighlightIndex = -1;
       ui.syncHiddenInputs();
       ui.syncQueryState();
       ui.renderAll();
+      return;
+    }
+
+    const retryLookup = target.closest("[data-retry-submit-lookup]");
+    if (retryLookup) {
+      event.preventDefault();
+      void ensureLookup({ force: true, focusSearch: true }).catch(() => {});
     }
   });
 

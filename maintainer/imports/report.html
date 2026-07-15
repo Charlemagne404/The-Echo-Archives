@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
 <title>Catalog Import Report - The Echo Archives</title>
 <meta name="description" content="Maintainer catalog import report for The Echo Archives." />
 <link rel="canonical" href="https://echo.continental-hub.com/maintainer/imports/report.html" />
@@ -22,15 +22,15 @@
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="noindex, nofollow" />
 
-<link rel="stylesheet" href="/style.css?v=d2a12bfb7d" />
-<link rel="stylesheet" href="/home.css?v=935655c33b" />
+<link rel="stylesheet" href="/style.css?v=bbbdb2cafd" />
+<link rel="stylesheet" href="/maintainer.css?v=8ece9d2341" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
 
 </head>
-<body class="home-page maintainer-import-page maintainer-import-report-page info-page" data-site-url="https://echo.continental-hub.com" data-home-card-hover-expand-enabled="false" data-shows-version="070f2cb66e" data-collections-version="9afac6e32d" data-search-index-version="882e8181c9">
+<body class="home-page maintainer-import-page maintainer-import-report-page info-page" data-site-url="https://echo.continental-hub.com" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="acd458f1e5" data-collections-version="9afac6e32d" data-search-index-version="989a23ad7a">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -98,6 +98,15 @@
     </div>
   </section>
 
+  <section id="maintainerStatePanel" class="page-card maintainer-state-panel" role="region" aria-labelledby="maintainerStateTitle">
+    <div>
+      <p class="maintainer-kicker">Protected workspace</p>
+      <h2 id="maintainerStateTitle">Checking maintainer access</h2>
+      <p id="maintainerStateMessage" aria-live="polite">Loading the protected import report…</p>
+    </div>
+    <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
+  </section>
+
   <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
     <div class="maintainer-auth-copy">
       <p class="maintainer-kicker">Protected</p>
@@ -120,7 +129,7 @@
     <div class="page-card maintainer-report-toolbar">
       <div>
         <p class="maintainer-kicker">Snapshot</p>
-        <h2>Current filters</h2>
+        <h2 id="maintainerWorkspaceTitle" tabindex="-1">Current filters</h2>
       </div>
       <p id="maintainerReportMeta" class="maintainer-toolbar-meta">Loading report…</p>
     </div>
@@ -182,10 +191,10 @@
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=cd1ad0c974"></script>
+  <script src="/shared/archive-record.js?v=f8943301bf"></script>
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=516906fc9e"></script>
+  <script type="module" src="/script.js?v=2f89dece9d"></script>
 </body>
 </html>

@@ -17,6 +17,7 @@ const { createCommunityService } = require("./lib/services/community-service");
 const { createImportService } = require("./lib/services/import-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
+const { applyGeneratedCoverVariants } = require("./lib/responsive-images");
 const { createTurnstileService } = require("./lib/services/turnstile-service");
 const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
@@ -46,7 +47,13 @@ const CONTACT_URL = "https://contact.continental-hub.com/";
 const PUBLIC_ROOT_ASSETS = new Set([
   "style.css",
   "home.css",
+  "info.css",
+  "collections.css",
+  "creators.css",
+  "submit.css",
+  "maintainer.css",
   "detail.css",
+  "chat.css",
   "script.js",
   "sw.js",
   "site.webmanifest",
@@ -190,6 +197,7 @@ async function startServer() {
         coverMaxBytes: config.IMPORT_COVER_MAX_BYTES,
       },
     });
+    applyGeneratedCoverVariants(config.STATIC_ROOT, catalog);
     const publicCatalog = catalog.filter((show) => show.status === "published");
     const publicRuntimeCatalog = publicCatalog.map(serializeRuntimeShow);
     const publicSearchIndex = publicCatalog.map(createSearchIndexRecord);

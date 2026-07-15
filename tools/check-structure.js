@@ -128,14 +128,25 @@ function checkGeneratedPages() {
 
 function checkGeneratedAssets() {
   const jsAssets = ["script.js", "sw.js"].map((fileName) => readFile(path.join(ROOT, fileName)));
-  const cssAssets = ["style.css", "home.css", "detail.css"].map((fileName) => readFile(path.join(ROOT, fileName)));
+  const cssFileNames = [
+    "style.css",
+    "home.css",
+    "info.css",
+    "collections.css",
+    "creators.css",
+    "submit.css",
+    "maintainer.css",
+    "detail.css",
+    "chat.css",
+  ];
+  const cssAssets = cssFileNames.map((fileName) => readFile(path.join(ROOT, fileName)));
 
   jsAssets.forEach((contents, index) => {
     const fileName = ["script.js", "sw.js"][index];
     assert(contents.startsWith(GENERATED_JS_BANNER), `${fileName} is missing the generated-file banner.`);
   });
   cssAssets.forEach((contents, index) => {
-    const fileName = ["style.css", "home.css", "detail.css"][index];
+    const fileName = cssFileNames[index];
     assert(contents.startsWith(GENERATED_CSS_BANNER), `${fileName} is missing the generated-file banner.`);
     assert(!/@import\s/i.test(contents), `${fileName} still contains render-blocking CSS imports.`);
   });
@@ -168,6 +179,17 @@ function checkImageBudgets() {
     if (coverSize > COVER_SOFT_MAX_BYTES) {
       warn(`${relativeCover} exceeds the referenced-cover soft limit of 500 KB (${Math.ceil(coverSize / 1024)} KB).`);
     }
+
+    (Array.isArray(show.coverVariants) ? show.coverVariants : []).forEach((variant) => {
+      const width = Number(variant?.width);
+      const relativeVariant = String(variant?.src || "").replace(/^\/+/, "");
+      assert([320, 640].includes(width), `${show.id} has an unsupported responsive cover width.`);
+      assert(relativeVariant.startsWith("images/generated/covers/"), `${show.id} has a responsive cover outside the generated directory.`);
+      const variantPath = path.resolve(ROOT, relativeVariant);
+      assert(fs.existsSync(variantPath), `${show.id} is missing ${relativeVariant}.`);
+      const variantBudget = width === 320 ? 100 * 1024 : 220 * 1024;
+      assert(fs.statSync(variantPath).size <= variantBudget, `${relativeVariant} exceeds its ${width}px budget.`);
+    });
   });
 }
 

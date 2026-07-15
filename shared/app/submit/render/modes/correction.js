@@ -13,6 +13,9 @@ export function renderCorrectionMode(draft, context) {
       searchResults: context.searchResults,
       searchOpen: context.searchOpen,
       selectedShowId: draft.existingShowId,
+      lookupStatus: context.lookupStatus,
+      lookupMessage: context.lookupMessage,
+      highlightIndex: context.showHighlightIndex,
     }),
     renderSelectField({
       id: "submitCorrectionType",

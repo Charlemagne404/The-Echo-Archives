@@ -14,8 +14,59 @@ export function initializeServiceWorker() {
   }
 
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {
-      // The archive should stay fully usable without service worker registration.
-    });
+    navigator.serviceWorker.register("/sw.js")
+      .then(() => warmVisitedPageCache())
+      .catch(() => {
+        // The archive should stay fully usable without service worker registration.
+      });
+  });
+}
+
+async function warmVisitedPageCache() {
+  await navigator.serviceWorker.ready;
+  const controller = await waitForServiceWorkerController();
+  if (!controller) {
+    return;
+  }
+
+  const urls = new Set([window.location.href]);
+  performance.getEntriesByType("resource").forEach((entry) => {
+    try {
+      const url = new URL(entry.name, window.location.href);
+      if (url.origin === window.location.origin && !url.pathname.startsWith("/api/")) {
+        urls.add(url.href);
+      }
+    } catch (_error) {
+      // Ignore malformed third-party performance entries.
+    }
+  });
+
+  await new Promise((resolve) => {
+    const channel = new MessageChannel();
+    const timeout = window.setTimeout(resolve, 8_000);
+    channel.port1.addEventListener("message", () => {
+      window.clearTimeout(timeout);
+      resolve();
+    }, { once: true });
+    channel.port1.start();
+    controller.postMessage(
+      { type: "CACHE_VISITED_RESOURCES", urls: [...urls] },
+      [channel.port2],
+    );
+  });
+  document.body.dataset.offlineReady = "true";
+}
+
+function waitForServiceWorkerController() {
+  if (navigator.serviceWorker.controller) {
+    return Promise.resolve(navigator.serviceWorker.controller);
+  }
+
+  return new Promise((resolve) => {
+    const timeout = window.setTimeout(() => resolve(null), 8_000);
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      window.clearTimeout(timeout);
+      resolve(navigator.serviceWorker.controller);
+    }, { once: true });
   });
 }

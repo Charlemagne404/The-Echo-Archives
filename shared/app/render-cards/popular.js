@@ -1,5 +1,5 @@
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
-import { configureImageElement, resolveImageSrc } from "../images.js";
+import { configureShowImageElement } from "../images.js";
 import { toDisplayTag } from "../utils.js";
 
 export function createMostPopularCard(show) {
@@ -17,12 +17,12 @@ export function createMostPopularCard(show) {
   media.className = "popular-card-media";
 
   const image = document.createElement("img");
-  image.src = show.imageSrc || resolveImageSrc(show.cover);
   image.alt = show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`;
-  configureImageElement(image, {
+  configureShowImageElement(image, show, {
     loading: "lazy",
     width: 320,
     height: 320,
+    sizes: "(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px",
   });
   media.appendChild(image);
 

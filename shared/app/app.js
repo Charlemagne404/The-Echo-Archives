@@ -2,8 +2,10 @@ import { initializeManagedImages } from "./images.js";
 import { initializeMobileNav } from "./mobile-nav.js";
 import { initializeServiceWorker } from "./service-worker.js";
 import { showToast } from "./toast.js";
+import { initializeViewportMetrics } from "./viewport-metrics.js";
 
 export async function initializeApp() {
+  initializeViewportMetrics();
   initializeServiceWorker();
   initializeMobileNav();
   initializeBackToTop();
@@ -74,8 +76,48 @@ function initializeLazySharedChatLauncher() {
     return;
   }
 
-  const mobileLauncherQuery = window.matchMedia("(max-width: 560px)");
+  const mobileLauncherQuery = window.matchMedia("(max-width: 959px)");
   let sharedChatPromise;
+  let sharedChatStylesPromise;
+
+  const loadSharedChatStyles = () => {
+    if (sharedChatStylesPromise) {
+      return sharedChatStylesPromise;
+    }
+
+    const href = document.body.dataset.chatStylesheet?.trim();
+    if (!href) {
+      sharedChatStylesPromise = Promise.resolve();
+      return sharedChatStylesPromise;
+    }
+
+    const existing = document.querySelector('link[data-shared-chat-styles="true"]');
+    if (existing instanceof HTMLLinkElement && existing.sheet) {
+      sharedChatStylesPromise = Promise.resolve();
+      return sharedChatStylesPromise;
+    }
+
+    sharedChatStylesPromise = new Promise((resolve, reject) => {
+      const stylesheet = existing instanceof HTMLLinkElement ? existing : document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = href;
+      stylesheet.dataset.sharedChatStyles = "true";
+      stylesheet.addEventListener("load", resolve, { once: true });
+      stylesheet.addEventListener(
+        "error",
+        () => {
+          stylesheet.remove();
+          sharedChatStylesPromise = undefined;
+          reject(new Error("Ask the Archivist styles failed to load."));
+        },
+        { once: true },
+      );
+      if (!stylesheet.isConnected) {
+        document.head.appendChild(stylesheet);
+      }
+    });
+    return sharedChatStylesPromise;
+  };
 
   const syncLauncherVisibility = () => {
     const chatContainer = document.getElementById("chat-container");
@@ -89,7 +131,9 @@ function initializeLazySharedChatLauncher() {
 
   const openChat = (initialPrompt = "") => {
     if (!sharedChatPromise) {
-      sharedChatPromise = import("./chat-loader.js").then(({ mountAndInitializeSharedChat }) => mountAndInitializeSharedChat());
+      sharedChatPromise = Promise.all([loadSharedChatStyles(), import("./chat-loader.js")]).then(
+        ([, { mountAndInitializeSharedChat }]) => mountAndInitializeSharedChat(),
+      );
     }
 
     toggleBtn.setAttribute("aria-busy", "true");
@@ -206,10 +250,10 @@ function initializeBackToTop() {
 
   function syncBackToTopState() {
     const showBackToTop = window.scrollY > 420;
-    const baseClearance = window.innerWidth <= 780 ? 16 : 18;
-    const topSafeZone = window.innerWidth <= 780 ? 92 : 96;
-    const maxFloatingHeight = window.innerWidth <= 780 ? 54 : 56;
-    const panelGap = window.innerWidth <= 780 ? 12 : 14;
+    const baseClearance = window.innerWidth <= 959 ? 16 : 18;
+    const topSafeZone = window.innerWidth <= 959 ? 92 : 96;
+    const maxFloatingHeight = window.innerWidth <= 959 ? 54 : 56;
+    const panelGap = window.innerWidth <= 959 ? 12 : 14;
     let clearance = baseClearance;
     let hideFloatingControls = false;
 
@@ -220,7 +264,7 @@ function initializeBackToTop() {
         const footerClearance = Math.max(baseClearance, Math.round(window.innerHeight - footerRect.top + baseClearance));
         const maxVisibleClearance = Math.max(baseClearance, window.innerHeight - maxFloatingHeight - topSafeZone);
         clearance = Math.min(footerClearance, maxVisibleClearance);
-        hideFloatingControls = window.innerWidth <= 780 && footerClearance > maxVisibleClearance;
+        hideFloatingControls = window.innerWidth <= 959 && footerClearance > maxVisibleClearance;
       }
     }
 
@@ -239,8 +283,13 @@ function initializeBackToTop() {
 
     const activeChatContainer = document.getElementById("chat-container");
     if (activeChatContainer) {
-      activeChatContainer.style.top = "auto";
-      activeChatContainer.style.bottom = `${clearance}px`;
+      if (window.innerWidth <= 959) {
+        activeChatContainer.style.removeProperty("top");
+        activeChatContainer.style.removeProperty("bottom");
+      } else {
+        activeChatContainer.style.top = "auto";
+        activeChatContainer.style.bottom = `${clearance}px`;
+      }
 
       const panelRect = activeChatContainer.getBoundingClientRect();
       const maxVisibleRight = Math.max(baseClearance, window.innerWidth - maxFloatingHeight - baseClearance);

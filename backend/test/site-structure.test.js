@@ -68,6 +68,11 @@ test("public runtime pages defer chat markup and code until the launcher is used
   const appSource = fs.readFileSync(path.join(siteRoot, "shared/app/app.js"), "utf8");
   assert.match(appSource, /import\("\.\/chat-loader\.js"\)/, "The launcher should load the chat only on demand.");
   assert.doesNotMatch(appSource, /import\("\.\/chat\.js"\)/, "The app shell must not import the chat module eagerly.");
+  runtimePages.forEach((pagePath) => {
+    const html = fs.readFileSync(path.join(siteRoot, pagePath), "utf8");
+    assert.match(html, /data-chat-stylesheet="\/chat\.css\?v=[a-z0-9]+"/, `${pagePath} should expose the lazy chat stylesheet URL.`);
+    assert.doesNotMatch(html, /<link[^>]+href="\/chat\.css\?v=/, `${pagePath} should not load chat.css eagerly.`);
+  });
 });
 
 test("public runtime pages expose a build-stable search index version", () => {
@@ -81,9 +86,26 @@ test("public runtime pages expose a build-stable search index version", () => {
   });
 
   const sw = fs.readFileSync(path.join(siteRoot, "sw.js"), "utf8");
-  assert.match(sw, /"\/data\/search-index\.json\?v=[a-z0-9]+"/, "sw.js should precache the versioned search index URL.");
   assert.match(sw, /"\/shared\/app\/app\.js\?v=[a-z0-9]+"/, "sw.js should precache the versioned app entry module.");
-  assert.match(sw, /"\/shared\/app\/pages\/home\.js"/, "sw.js should precache the lazy home module graph.");
+  assert.match(sw, /"\/offline\.html"/, "sw.js should precache the offline fallback.");
+  assert.doesNotMatch(sw, /"\/data\/search-index\.json/, "sw.js should not install the full search index.");
+  assert.doesNotMatch(sw, /"\/shared\/app\/pages\/home\.js"/, "sw.js should leave lazy route modules to runtime caching.");
+});
+
+test("homepage discovery controls are present before hydration", () => {
+  const html = fs.readFileSync(path.join(siteRoot, "index.html"), "utf8");
+
+  assert.match(html, /id="quickFilters"[\s\S]*data-chip-filter="all"/);
+  assert.match(html, /id="browseModes"[\s\S]*data-browse-mode="default"/);
+  assert.match(html, /id="browseModes"[\s\S]*data-browse-mode="recently-updated"/);
+});
+
+test("default new-show submission is present before hydration", () => {
+  const html = fs.readFileSync(path.join(siteRoot, "submit.html"), "utf8");
+
+  assert.match(html, /id="submitModeCards"[\s\S]*data-submission-mode="show"/);
+  assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitShowTitle"/);
+  assert.match(html, /id="submitDynamicFields"[\s\S]*data-tag-input="selectedTags"/);
 });
 
 test("legacy redirect manifest matches redirect shim files", () => {

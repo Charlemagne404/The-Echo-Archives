@@ -1,4 +1,5 @@
 import { createArchiveGenreHref } from "../urls.js";
+import { getPreferredCoverSource, getResponsiveImageSource } from "../images.js";
 import {
   escapeHtml,
   formatRating,
@@ -23,6 +24,8 @@ const HERO_LINK_LABELS = {
 const HERO_LINK_ORDER = ["website", "apple", "spotify", "rss"];
 
 export function renderDetailHero(show) {
+  const coverSource = getResponsiveImageSource(show, "(max-width: 959px) 84vw, 320px");
+  const coverBackground = getPreferredCoverSource(show, 640);
   const hasArchiveRating = Number.isFinite(Number(show.finalRating));
   const archiveRatingValue = hasArchiveRating ? `${formatRating(show.finalRating)}/10` : "Unrated";
   const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
@@ -42,7 +45,7 @@ export function renderDetailHero(show) {
 
   return `
     <section class="detail-hero-shell">
-      <div class="detail-hero-panel" style="--detail-cover-image: url('${escapeHtml(show.cover)}');">
+      <div class="detail-hero-panel" style="--detail-cover-image: url('${escapeHtml(coverBackground)}');">
         ${renderDetailBreadcrumbs(show)}
 
         <div class="detail-hero-grid">
@@ -96,7 +99,8 @@ export function renderDetailHero(show) {
           <div class="detail-cover-column">
             <div class="detail-cover-card">
               <img
-                src="/${escapeHtml(show.cover)}"
+                src="${escapeHtml(coverSource.src)}"
+                ${coverSource.srcset ? `srcset="${escapeHtml(coverSource.srcset)}" sizes="${escapeHtml(coverSource.sizes)}"` : ""}
                 alt="${escapeHtml(show.coverAlt)}"
                 width="320"
                 height="320"

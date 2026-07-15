@@ -3,6 +3,7 @@ const path = require("node:path");
 const { loadArchiveContext } = require("../backend/lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../backend/lib/catalog");
 const { buildDiscoveryGapReport, getGateBCriticalValidationErrors } = require("../backend/lib/discovery-gaps");
+const { generateCoverVariants } = require("../backend/lib/responsive-images");
 const { writeCatalogArtifacts } = require("./lib/catalog-artifacts");
 const { ensureSplitCatalogSource, readCatalogSource } = require("./lib/catalog-source");
 
@@ -23,6 +24,8 @@ async function buildCatalog(siteRoot = resolveSiteRoot()) {
   if (gateBErrors.length > 0) {
     throw new Error(`Gate B validation failed:\n- ${gateBErrors.join("\n- ")}`);
   }
+
+  await generateCoverVariants(siteRoot, catalog);
 
   const artifacts = writeCatalogArtifacts(siteRoot, {
     catalog,

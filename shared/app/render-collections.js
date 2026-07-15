@@ -1,5 +1,5 @@
 import { getCollectionShows } from "./data.js";
-import { configureImageElement, resolveImageSrc } from "./images.js";
+import { configureShowImageElement, getPreferredCoverSource } from "./images.js";
 import { createArchiveCollectionHref, createCollectionHref } from "./urls.js";
 import { toDisplayTag } from "./utils.js";
 
@@ -73,12 +73,12 @@ export function createCollectionCoverCollage(
     frame.dataset.coverIndex = String(index + 1);
 
     const image = document.createElement("img");
-    image.src = show.imageSrc || resolveImageSrc(show.cover);
     image.alt = "";
-    configureImageElement(image, {
+    configureShowImageElement(image, show, {
       loading,
       width: 320,
       height: 320,
+      sizes: "(max-width: 560px) 42vw, (max-width: 960px) 28vw, 240px",
     });
 
     frame.appendChild(image);
@@ -140,7 +140,7 @@ export function createCollectionCard(collection, index, showMap, { isClone = fal
   }
 
   if (coverShow?.imageSrc || coverShow?.cover) {
-    card.style.setProperty("--collection-cover-image", `url("${coverShow.imageSrc || resolveImageSrc(coverShow.cover)}")`);
+    card.style.setProperty("--collection-cover-image", `url("${getPreferredCoverSource(coverShow, 320)}")`);
   }
   applyCollectionAccent(card, anchorShow ? [anchorShow, ...collectionShows] : collectionShows);
 

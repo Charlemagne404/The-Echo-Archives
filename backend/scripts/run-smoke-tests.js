@@ -4,6 +4,7 @@ const { spawnSync } = require("node:child_process");
 const testRoot = path.resolve(__dirname, "..");
 // Keep mutating flows isolated while overlapping the slower read-only browser smoke files.
 const readOnlySmokeFiles = [
+  "test/mobile-launch.smoke.js",
   "test/home-browse.smoke.js",
   "test/home-card-interactions.smoke.js",
   "test/show-detail-navigation.smoke.js",

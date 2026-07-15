@@ -352,6 +352,7 @@ test("service worker supports cached public pages offline and falls back for unc
       await navigator.serviceWorker.ready;
     });
     await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
+    await page.waitForFunction(() => document.body.dataset.offlineReady === "true", undefined, { timeout: 10_000 });
 
     await context.route("**/*", async (route) => {
       await route.abort();
@@ -480,6 +481,10 @@ test("mobile header menu opens, closes, and routes cleanly on phone widths", asy
         document.getElementById("siteNavShell")?.dataset.state === "closed" &&
         document.querySelector('.site-nav a.is-active')?.getAttribute("href") === "/for-creators",
     );
+
+    await page.setViewportSize({ width: 844, height: 390 });
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    assert.notEqual(await page.locator("#siteNavToggle").evaluate((node) => window.getComputedStyle(node).display), "none");
   } finally {
     await page.close();
   }

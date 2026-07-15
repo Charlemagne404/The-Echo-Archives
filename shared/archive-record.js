@@ -50,6 +50,30 @@
     return `/${normalized}`;
   }
 
+  function normalizeCoverVariants(value) {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+
+    const variants = new Map();
+    value.forEach((entry) => {
+      const width = Number(entry?.width);
+      const src = normalizeDisplayText(entry?.src);
+      if (![320, 640].includes(width) || !src) {
+        return;
+      }
+
+      variants.set(width, {
+        src: /^(?:https?:)?\/\//i.test(src) || /^data:image\//i.test(src)
+          ? src
+          : `/${src.replace(/^\/+/, "")}`,
+        width,
+      });
+    });
+
+    return [...variants.values()].sort((left, right) => left.width - right.width);
+  }
+
   function normalizeTagValue(value) {
     return String(value || "")
       .trim()
@@ -280,6 +304,7 @@
       description,
       cover,
       coverAlt,
+      coverVariants: normalizeCoverVariants(source.coverVariants),
       status,
       reviewStatus,
       releaseStatus,
@@ -334,6 +359,7 @@
     DEPRECATED_SHOW_FIELDS,
     createShowHref,
     normalizeCollectionRecord,
+    normalizeCoverVariants,
     normalizePopularity,
     normalizeKeyedTextMap,
     normalizeReviewParagraphs,

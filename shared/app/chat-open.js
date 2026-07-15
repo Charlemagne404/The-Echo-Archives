@@ -10,6 +10,8 @@ const CHAT_FOCUSABLE_SELECTOR = [
 ].join(",");
 
 let chatReturnFocusTarget = null;
+const chatBackgroundStates = new Map();
+const compactChatQuery = window.matchMedia("(max-width: 959px)");
 
 function getChatFocusableElements() {
   if (!chatContainer) {
@@ -68,8 +70,47 @@ function restoreChatFocus() {
   chatReturnFocusTarget = null;
 }
 
+function syncChatBackground(isOpen) {
+  const shouldLockBackground = isOpen && compactChatQuery.matches;
+
+  if (shouldLockBackground) {
+    Array.from(document.body.children).forEach((node) => {
+      if (
+        !(node instanceof HTMLElement) ||
+        node === chatContainer ||
+        node.tagName === "SCRIPT" ||
+        node.classList.contains("archive-toast-stack")
+      ) {
+        return;
+      }
+      if (!chatBackgroundStates.has(node)) {
+        chatBackgroundStates.set(node, {
+          ariaHidden: node.getAttribute("aria-hidden"),
+          inert: node.inert,
+        });
+      }
+      node.inert = true;
+      node.setAttribute("aria-hidden", "true");
+    });
+    return;
+  }
+
+  chatBackgroundStates.forEach((state, node) => {
+    node.inert = state.inert;
+    if (state.ariaHidden === null) {
+      node.removeAttribute("aria-hidden");
+    } else {
+      node.setAttribute("aria-hidden", state.ariaHidden);
+    }
+  });
+  chatBackgroundStates.clear();
+}
+
 export function initializeChatOpenState() {
   syncChatInteractivity(false);
+  compactChatQuery.addEventListener("change", () => {
+    syncChatBackground(Boolean(chatContainer?.classList.contains("is-open")));
+  });
 }
 
 export function trapChatFocus(event) {
@@ -116,6 +157,7 @@ export function setChatOpen(isOpen, { restoreFocus = !isOpen } = {}) {
   chatContainer.setAttribute("aria-hidden", String(!isOpen));
   syncChatInteractivity(isOpen);
   document.body?.classList.toggle("chat-panel-open", isOpen);
+  syncChatBackground(isOpen);
   toggleBtn.setAttribute("aria-expanded", String(isOpen));
   window.dispatchEvent(new CustomEvent("echo:chat-open-change", { detail: { isOpen } }));
 

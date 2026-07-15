@@ -7,7 +7,10 @@
     "canonicalUrl": "https://echo.continental-hub.com/",
     "bodyClass": "home-page",
     "activeNav": "browse",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "home.css",
+      "collections.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -20,7 +23,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/about",
     "bodyClass": "home-page about-page info-page",
     "activeNav": "about",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -33,7 +38,10 @@
     "canonicalUrl": "https://echo.continental-hub.com/for-creators",
     "bodyClass": "home-page for-creators-page info-page",
     "activeNav": "for-creators",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css",
+      "creators.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -46,7 +54,10 @@
     "canonicalUrl": "https://echo.continental-hub.com/creator-standards",
     "bodyClass": "home-page creator-standards-page info-page",
     "activeNav": "for-creators",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css",
+      "creators.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -59,7 +70,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/supporters",
     "bodyClass": "home-page supporters-page info-page",
     "activeNav": "supporters",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -72,7 +85,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/help-center",
     "bodyClass": "home-page help-center-page info-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -85,7 +100,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/collections",
     "bodyClass": "home-page collections-page info-page",
     "activeNav": "collections",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "collections.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -98,7 +115,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/collection",
     "bodyClass": "home-page collection-page info-page",
     "activeNav": "collections",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "collections.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -126,7 +145,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/submit",
     "bodyClass": "home-page submit-page info-page",
     "activeNav": "submit",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "submit.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -139,7 +160,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/404.html",
     "bodyClass": "home-page info-page not-found-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "noIndex": true,
     "includeChatShell": false,
@@ -153,7 +176,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/500.html",
     "bodyClass": "home-page info-page server-error-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "noIndex": true,
     "includeChatShell": false,
@@ -167,7 +192,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/offline.html",
     "bodyClass": "home-page info-page offline-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": false,
     "noIndex": true,
     "includeChatShell": false,
@@ -181,7 +208,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/maintainer/submissions.html",
     "bodyClass": "home-page maintainer-page info-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "maintainer.css"
+    ],
     "includeAnalytics": false,
     "noIndex": true,
     "includeChatShell": false,
@@ -195,7 +224,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/maintainer/submissions/report.html",
     "bodyClass": "home-page maintainer-page maintainer-report-page info-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "maintainer.css"
+    ],
     "includeAnalytics": false,
     "noIndex": true,
     "includeChatShell": false,
@@ -209,7 +240,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/maintainer/imports.html",
     "bodyClass": "home-page maintainer-import-page info-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "maintainer.css"
+    ],
     "includeAnalytics": false,
     "noIndex": true,
     "includeChatShell": false,
@@ -223,7 +256,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/maintainer/imports/report.html",
     "bodyClass": "home-page maintainer-import-page maintainer-import-report-page info-page",
     "activeNav": "",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "maintainer.css"
+    ],
     "includeAnalytics": false,
     "noIndex": true,
     "includeChatShell": false,
@@ -237,7 +272,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/privacy",
     "bodyClass": "home-page info-page",
     "activeNav": "privacy",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -250,7 +287,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/terms",
     "bodyClass": "home-page info-page",
     "activeNav": "terms",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -263,7 +302,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/cookies",
     "bodyClass": "home-page info-page",
     "activeNav": "cookies",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true
@@ -276,7 +317,9 @@
     "canonicalUrl": "https://echo.continental-hub.com/copyright",
     "bodyClass": "home-page info-page",
     "activeNav": "terms",
-    "extraStylesheets": [],
+    "extraStylesheets": [
+      "info.css"
+    ],
     "includeAnalytics": true,
     "includeChatShell": true,
     "includeFloatingControls": true

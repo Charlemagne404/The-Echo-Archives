@@ -123,18 +123,19 @@ export function getShowMatches(shows, query) {
   });
 }
 
-export function renderSearchResultsMarkup(results, selectedShowId, query) {
+export function renderSearchResultsMarkup(results, selectedShowId, query, highlightIndex = -1) {
   if (!Array.isArray(results) || results.length === 0) {
     return `<div class="submit-search-empty">No matching archive entry found for "${escapeHtml(query || "")}".</div>`;
   }
 
-  return results.slice(0, 7).map((show) => `
+  return results.slice(0, 7).map((show, index) => `
     <button
+      id="submitExistingShowSearchResultsOption${index}"
       type="button"
-      class="submit-search-result"
+      class="submit-search-result ${index === highlightIndex ? "is-highlighted" : ""}"
       data-show-option-id="${escapeAttribute(show.id)}"
       role="option"
-      aria-selected="${String(selectedShowId === show.id)}"
+      aria-selected="${String(index === highlightIndex || selectedShowId === show.id)}"
     >
       <span class="submit-search-result-topline">
         <span class="submit-search-result-title">${escapeHtml(show.title)}</span>

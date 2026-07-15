@@ -48,25 +48,28 @@ function renderListItem(candidate, isSelected) {
   const preview = buildImportPreview(candidate);
 
   return `
-    <button
-      type="button"
-      class="maintainer-list-item ${isSelected ? "is-selected" : ""}"
-      data-import-candidate-id="${escapeHtml(candidate.id)}"
-    >
-      <span class="maintainer-list-item-top">
-        <span class="maintainer-list-item-title">${escapeHtml(candidate.title || candidate.seedQuery || candidate.id)}</span>
-        <span class="maintainer-list-item-badges">
-          ${renderBadge(formatStatus(candidate.status), getImportStatusTone(candidate.status))}
-          ${renderBadge(formatScopeStatus(candidate.scopeStatus), getScopeTone(candidate.scopeStatus))}
-          ${candidate.hasDuplicateMatch ? renderBadge("Duplicate match", "muted") : ""}
+    <article class="maintainer-list-item ${isSelected ? "is-selected" : ""}">
+      <button
+        type="button"
+        class="maintainer-list-item-select"
+        data-import-candidate-id="${escapeHtml(candidate.id)}"
+        ${isSelected ? 'aria-current="true"' : ""}
+      >
+        <span class="maintainer-list-item-top">
+          <span class="maintainer-list-item-title">${escapeHtml(candidate.title || candidate.seedQuery || candidate.id)}</span>
+          <span class="maintainer-list-item-badges">
+            ${renderBadge(formatStatus(candidate.status), getImportStatusTone(candidate.status))}
+            ${renderBadge(formatScopeStatus(candidate.scopeStatus), getScopeTone(candidate.scopeStatus))}
+            ${candidate.hasDuplicateMatch ? renderBadge("Duplicate match", "muted") : ""}
+          </span>
         </span>
-      </span>
-      <span class="maintainer-list-item-meta">
-        <span>${escapeHtml(formatSourceType(candidate.primarySourceType || "title"))}</span>
-        <span>${escapeHtml(formatDateTime(candidate.updatedAt || candidate.createdAt))}</span>
-      </span>
-      <span class="maintainer-list-item-preview">${escapeHtml(preview)}</span>
-    </button>
+        <span class="maintainer-list-item-meta">
+          <span>${escapeHtml(formatSourceType(candidate.primarySourceType || "title"))}</span>
+          <span>${escapeHtml(formatDateTime(candidate.updatedAt || candidate.createdAt))}</span>
+        </span>
+        <span class="maintainer-list-item-preview">${escapeHtml(preview)}</span>
+      </button>
+    </article>
   `;
 }
 
@@ -200,7 +203,7 @@ function renderReadiness(candidate) {
       ${warnings.length ? `<details><summary>${warnings.length} optional gaps</summary><ul>${warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></details>` : ""}
       ${cover.sourceUrl ? `
         <div class="import-cover-preview">
-          <img src="${escapeHtml(cover.sourceUrl)}" alt="Staged cover preview" loading="lazy" />
+          <img src="${escapeHtml(cover.sourceUrl)}" alt="Staged cover preview" width="112" height="112" loading="lazy" decoding="async" />
           <p>${escapeHtml(`${cover.width || "?"} x ${cover.height || "?"} · ${cover.contentType || "unknown format"} · ${cover.byteSize || 0} bytes`)}</p>
           <p>${cover.appleQuality ? "Meets Apple cover quality target." : "Echo-publishable; Apple quality target is reported as a warning."}</p>
         </div>

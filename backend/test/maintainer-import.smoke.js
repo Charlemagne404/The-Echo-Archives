@@ -104,7 +104,7 @@ function listPayload(candidates) {
 }
 
 test("maintainer import workspace handles progress, blockers, evidence, retry, review, and approval", async () => {
-  const page = await browser.newPage();
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
   const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0 };
   const candidates = [
     createCandidate(),
@@ -200,18 +200,26 @@ test("maintainer import workspace handles progress, blockers, evidence, retry, r
     await page.locator("#maintainerPassphrase").fill("smoke-maintainer");
     await page.getByRole("button", { name: "Unlock import lane" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
+    await page.waitForFunction(() => document.activeElement?.id === "maintainerWorkspaceTitle" && window.scrollY <= 1);
     await page.getByText("Review and publish", { exact: true }).waitFor();
     assert.equal(await page.locator(".import-cover-preview img").count(), 1);
+    assert.deepEqual(await page.locator(".import-cover-preview img").evaluate((image) => [image.getAttribute("width"), image.getAttribute("height")]), ["112", "112"]);
     assert.match(await page.locator("#maintainerDetail").innerText(), /Field provenance/);
 
     await page.locator("#maintainerImportSeedInput").fill("Another Show");
-    await page.getByRole("button", { name: "Queue imports" }).click();
+    await page.getByRole("button", { name: "Queue imports" }).evaluate((button) => {
+      button.click();
+      button.click();
+    });
     await page.getByText("Preparation finished: 1 ready or reviewable, 0 failed.").waitFor();
     assert.equal(calls.seed, 1);
 
     await page.locator('[data-import-candidate-id="blocked-1"]').click();
+    await page.waitForFunction(() => document.activeElement?.id === "maintainerDetailHeading");
     await page.getByText("Preparation blockers", { exact: true }).waitFor();
     assert.match(await page.locator("#maintainerDetail").innerText(), /Official sources disagree on the title/);
+    await page.getByRole("button", { name: "Back to queue" }).click();
+    await page.waitForFunction(() => document.activeElement?.id === "maintainerListHeading");
     await page.locator('[data-import-evidence-id="21"]').click();
     await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Needs Review"));
     assert.equal(calls.evidence, 1);
@@ -226,9 +234,85 @@ test("maintainer import workspace handles progress, blockers, evidence, retry, r
     await page.getByRole("button", { name: "Save review state" }).click();
     await page.getByText("Import review state saved.").waitFor();
     assert.equal(calls.review, 1);
+    page.once("dialog", (dialog) => dialog.accept());
     await page.getByRole("button", { name: "Approve and publish" }).click();
     await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Published"));
     assert.equal(calls.publish, 1);
+
+    const failImportQueue = (route) => route.fulfill({
+      status: 500,
+      contentType: "application/json",
+      body: JSON.stringify({ error: "Temporary maintainer outage." }),
+    });
+    await page.route("**/api/maintainer/imports**", failImportQueue);
+    await page.reload({ waitUntil: "networkidle" });
+    await page.locator("#maintainerStatePanel").waitFor({ state: "visible" });
+    assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "error");
+    assert.match(await page.locator("#maintainerStateMessage").innerText(), /temporary maintainer outage/i);
+    assert.equal(await page.locator("#maintainerRetryButton").isVisible(), true);
+    assert.equal(await page.locator("#maintainerAppShell").isHidden(), true);
+    await page.unroute("**/api/maintainer/imports**", failImportQueue);
+    await page.getByRole("button", { name: "Retry" }).click();
+    await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
+
+    const expireSession = (route) => route.fulfill({
+      status: 401,
+      contentType: "application/json",
+      body: JSON.stringify({ error: "Maintainer authentication required." }),
+    });
+    await page.unroute("**/api/maintainer/imports**");
+    await page.route("**/api/maintainer/imports**", expireSession);
+    await Promise.all([
+      page.waitForResponse((response) => new URL(response.url()).pathname === "/api/maintainer/imports" && response.status() === 401),
+      page.getByRole("button", { name: "Refresh queue" }).click(),
+    ]);
+    await page.locator("#maintainerAuthPanel").waitFor({ state: "visible" });
+    await page.waitForFunction(() => document.body.dataset.maintainerState === "authRequired");
+    assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "authRequired");
+    assert.match(await page.locator("#maintainerAuthStatus").innerText(), /session expired/i);
+  } finally {
+    await page.close();
+  }
+});
+
+test("maintainer reports expose focused, overflow-safe ready states on mobile", async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const emptyReport = {
+    items: [],
+    total: 0,
+    page: 1,
+    pageSize: 200,
+    counts: { status: {} },
+  };
+
+  await page.route("**/api/maintainer/imports**", (route) => {
+    const authenticated = route.request().headers().cookie?.includes("echo-maintainer-session=");
+    return route.fulfill({
+      status: authenticated ? 200 : 401,
+      contentType: "application/json",
+      body: JSON.stringify(authenticated ? emptyReport : { error: "Maintainer authentication required." }),
+    });
+  });
+  await page.route("**/api/maintainer/submissions**", (route) => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify(emptyReport),
+  }));
+
+  try {
+    await page.goto(`${baseUrl}/maintainer/imports/report.html`, { waitUntil: "networkidle" });
+    await page.locator("#maintainerAuthPanel").waitFor({ state: "visible" });
+    await page.locator("#maintainerPassphrase").fill("smoke-maintainer");
+    await page.getByRole("button", { name: "Unlock report" }).click();
+    await page.locator("#maintainerReportShell").waitFor({ state: "visible" });
+    await page.waitForFunction(() => document.activeElement?.id === "maintainerWorkspaceTitle" && window.scrollY <= 1);
+    assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "ready");
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), true);
+
+    await page.goto(`${baseUrl}/maintainer/submissions/report.html`, { waitUntil: "networkidle" });
+    await page.locator("#maintainerReportShell").waitFor({ state: "visible" });
+    assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "ready");
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), true);
   } finally {
     await page.close();
   }

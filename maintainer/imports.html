@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
 <title>Catalog Imports - The Echo Archives</title>
 <meta name="description" content="Maintainer catalog import queue for The Echo Archives." />
 <link rel="canonical" href="https://echo.continental-hub.com/maintainer/imports.html" />
@@ -22,15 +22,15 @@
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="noindex, nofollow" />
 
-<link rel="stylesheet" href="/style.css?v=d2a12bfb7d" />
-<link rel="stylesheet" href="/home.css?v=935655c33b" />
+<link rel="stylesheet" href="/style.css?v=bbbdb2cafd" />
+<link rel="stylesheet" href="/maintainer.css?v=8ece9d2341" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
 
 </head>
-<body class="home-page maintainer-import-page info-page" data-site-url="https://echo.continental-hub.com" data-home-card-hover-expand-enabled="false" data-shows-version="070f2cb66e" data-collections-version="9afac6e32d" data-search-index-version="882e8181c9">
+<body class="home-page maintainer-import-page info-page" data-site-url="https://echo.continental-hub.com" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="acd458f1e5" data-collections-version="9afac6e32d" data-search-index-version="989a23ad7a">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -98,6 +98,15 @@
     </div>
   </section>
 
+  <section id="maintainerStatePanel" class="page-card maintainer-state-panel" role="region" aria-labelledby="maintainerStateTitle">
+    <div>
+      <p class="maintainer-kicker">Protected workspace</p>
+      <h2 id="maintainerStateTitle">Checking maintainer access</h2>
+      <p id="maintainerStateMessage" aria-live="polite">Loading the protected import queue…</p>
+    </div>
+    <button id="maintainerRetryButton" class="maintainer-ghost-button" type="button" hidden>Retry</button>
+  </section>
+
   <section id="maintainerAuthPanel" class="page-card maintainer-auth-panel" hidden>
     <div class="maintainer-auth-copy">
       <p class="maintainer-kicker">Protected</p>
@@ -123,7 +132,7 @@
       <div class="maintainer-toolbar-heading">
         <div>
           <p class="maintainer-kicker">Filters</p>
-          <h2>Import queue</h2>
+          <h2 id="maintainerWorkspaceTitle" tabindex="-1">Import queue</h2>
         </div>
         <p id="maintainerQueueMeta" class="maintainer-toolbar-meta">Open import candidates are shown by default.</p>
       </div>
@@ -221,11 +230,11 @@
     </section>
 
     <section class="maintainer-workspace">
-      <article class="page-card maintainer-list-card">
+      <article id="maintainerListCard" class="page-card maintainer-list-card">
         <div class="maintainer-panel-heading">
           <div>
             <p class="maintainer-kicker">Queue</p>
-            <h2>Import candidates</h2>
+            <h2 id="maintainerListHeading" tabindex="-1">Import candidates</h2>
           </div>
           <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
         </div>
@@ -237,12 +246,13 @@
         </div>
       </article>
 
-      <article class="page-card maintainer-detail-card">
+      <article id="maintainerDetailCard" class="page-card maintainer-detail-card">
         <div class="maintainer-panel-heading">
           <div>
             <p class="maintainer-kicker">Detail</p>
-            <h2>Selected candidate</h2>
+            <h2 id="maintainerDetailHeading" tabindex="-1">Selected candidate</h2>
           </div>
+          <button id="maintainerBackToQueue" class="maintainer-ghost-button maintainer-mobile-back" type="button">Back to queue</button>
           <p id="maintainerDetailMeta" class="maintainer-panel-meta">Choose a candidate to inspect readiness, the prepared record, cover quality, source evidence, and named blockers.</p>
         </div>
         <div id="maintainerDetail" class="maintainer-detail" aria-live="polite"></div>
@@ -305,10 +315,10 @@
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=cd1ad0c974"></script>
+  <script src="/shared/archive-record.js?v=f8943301bf"></script>
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=516906fc9e"></script>
+  <script type="module" src="/script.js?v=2f89dece9d"></script>
 </body>
 </html>

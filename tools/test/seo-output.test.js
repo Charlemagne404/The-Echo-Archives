@@ -4,6 +4,7 @@ const path = require("node:path");
 const test = require("node:test");
 
 const {
+  createPrecacheUrlSet,
   resolveManifestCanonicalUrls,
   resolveSiteUrl,
   serializeStructuredData,
@@ -46,6 +47,23 @@ test("structured data serialization cannot close its script element", () => {
   const serialized = serializeStructuredData({ value: "</script><script>alert(1)</script>" });
   assert.doesNotMatch(serialized, /</);
   assert.equal(JSON.parse(serialized).value, "</script><script>alert(1)</script>");
+});
+
+test("service-worker install list stays within the offline-shell budget", () => {
+  const urls = createPrecacheUrlSet([], {
+    app: "app-version",
+    archiveRecord: "record-version",
+    archiveSearch: "search-version",
+    script: "script-version",
+    style: "style-version",
+    extra: new Map([["info.css", "info-version"]]),
+  });
+
+  assert.ok(urls.length <= 30, `expected no more than 30 install URLs, received ${urls.length}`);
+  assert.ok(urls.includes("/offline.html"));
+  assert.ok(urls.some((url) => url.startsWith("/info.css?v=")));
+  assert.equal(urls.some((url) => url.includes("/data/")), false);
+  assert.equal(urls.some((url) => url.includes("/pages/") || url.includes("maintainer") || url.includes("chat")), false);
 });
 
 test("generated public metadata and discovery documents use one configured origin", () => {
@@ -95,15 +113,40 @@ test("private pages and generated asset plumbing have launch-safe output", () =>
     assert.match(read(relativePath), /<meta name="robots" content="noindex, nofollow"/);
   });
 
-  ["style.css", "home.css", "detail.css"].forEach((relativePath) => {
+  const home = read("index.html");
+  assert.match(home, /href="\/home\.css\?v=/);
+  assert.match(home, /href="\/collections\.css\?v=/);
+  assert.doesNotMatch(home, /href="\/(?:submit|maintainer|creators)\.css\?v=/);
+
+  const submit = read("submit.html");
+  assert.match(submit, /href="\/submit\.css\?v=/);
+  assert.doesNotMatch(submit, /href="\/(?:home|maintainer|creators)\.css\?v=/);
+
+  const maintainer = read("maintainer/submissions.html");
+  assert.match(maintainer, /href="\/maintainer\.css\?v=/);
+  assert.doesNotMatch(maintainer, /href="\/(?:home|submit|creators)\.css\?v=/);
+
+  [
+    "style.css",
+    "home.css",
+    "info.css",
+    "collections.css",
+    "creators.css",
+    "submit.css",
+    "maintainer.css",
+    "detail.css",
+    "chat.css",
+  ].forEach((relativePath) => {
     assert.doesNotMatch(read(relativePath), /@import\b/i, `${relativePath} should be flattened`);
   });
 
   const serviceWorker = read("sw.js");
   assert.doesNotMatch(serviceWorker, /"\/404\.html"/);
   assert.doesNotMatch(serviceWorker, /"\/500\.html"/);
-  assert.match(serviceWorker, /"\/data\/shows\.json\?v=[a-f0-9]+"/);
-  assert.match(serviceWorker, /"\/data\/collections\.json\?v=[a-f0-9]+"/);
+  assert.match(serviceWorker, /"\/offline\.html"/);
+  assert.match(serviceWorker, /"\/info\.css\?v=[a-f0-9]+"/);
+  assert.doesNotMatch(serviceWorker, /"\/data\/(?:shows|collections|search-index)\.json/);
+  assert.doesNotMatch(serviceWorker, /"\/shared\/app\/(?:chat|maintainer|pages)\//);
 });
 
 test("archive statistics are present before client JavaScript runs", () => {

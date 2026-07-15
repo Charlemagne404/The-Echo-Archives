@@ -45,12 +45,12 @@
 }
 
 .chat-secondary-button {
-  min-height: 42px;
+  min-height: 44px;
   padding: 0 14px;
 }
 
 .chat-icon-button {
-  width: 42px;
+  width: 44px;
   padding: 0;
   display: inline-flex;
   align-items: center;
@@ -68,8 +68,8 @@
 }
 
 .chat-close-button {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
 }
 
 .chat-stage {

@@ -13,10 +13,64 @@
 }
 
 @media (max-width: 1100px) {
-  .maintainer-summary-grid,
+  .maintainer-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .maintainer-toolbar-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .maintainer-field--search {
+    grid-column: span 2;
+  }
+
+  .maintainer-review-grid,
+  .maintainer-detail-grid,
+  .import-source-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1100px),
+  (min-width: 800px) and (max-width: 959px) and (orientation: landscape) {
+  .maintainer-workspace {
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .maintainer-import-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 959px) and (orientation: portrait),
+  (max-width: 799px) {
   .maintainer-workspace,
-  .maintainer-import-grid,
+  .maintainer-import-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 959px) {
+  .maintainer-toolbar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .maintainer-field--search {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .maintainer-field input,
+  .maintainer-field select,
+  .maintainer-field textarea {
+    font-size: 1rem;
+  }
+
+  .maintainer-summary-grid,
   .maintainer-toolbar-grid,
+  .maintainer-review-grid,
   .maintainer-detail-grid,
   .import-source-grid {
     grid-template-columns: 1fr;
@@ -25,10 +79,9 @@
   .maintainer-field--search {
     grid-column: auto;
   }
-}
 
-@media (max-width: 720px) {
   .maintainer-hero-panel,
+  .maintainer-state-panel,
   .maintainer-toolbar-heading,
   .maintainer-panel-heading,
   .maintainer-report-summary,
@@ -54,6 +107,15 @@
   .maintainer-checkbox {
     width: 100%;
   }
+
+  .maintainer-state-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .maintainer-mobile-back {
+    display: inline-flex;
+    order: 3;
+  }
 }
 
 @media (max-width: 560px) {
@@ -63,6 +125,7 @@
 
   .maintainer-hero-panel,
   .maintainer-auth-panel,
+  .maintainer-state-panel,
   .maintainer-toolbar-card,
   .maintainer-list-card,
   .maintainer-detail-card,

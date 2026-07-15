@@ -1,4 +1,18 @@
 
+@media (max-width: 959px) {
+  .submit-page .submit-remake-form input:not([type="checkbox"]):not([type="radio"]),
+  .submit-page .submit-remake-form textarea,
+  .submit-page .submit-remake-form select,
+  .submit-tag-input {
+    font-size: 16px;
+  }
+
+  .submit-search-results,
+  .submit-tag-picker-menu {
+    max-block-size: min(50dvh, 22rem);
+  }
+}
+
 @media (max-width: 560px) {
   .submit-main {
     gap: 14px;

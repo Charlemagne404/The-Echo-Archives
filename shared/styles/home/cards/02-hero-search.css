@@ -215,6 +215,18 @@
   gap: 12px;
 }
 
+@media (max-width: 979px) {
+  .home-page .search-container {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .search-actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
 .filter-container {
   position: relative;
   flex: 0 0 auto;

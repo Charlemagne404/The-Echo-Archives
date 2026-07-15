@@ -1,5 +1,5 @@
 import { HOME_CARD_PREVIEW_ID_PREFIX } from "../constants.js";
-import { configureImageElement, resolveImageSrc } from "../images.js";
+import { configureShowImageElement } from "../images.js";
 import { setHighlightedText, toDisplayTag } from "../utils.js";
 import { createEditorialBadges } from "./badges.js";
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
@@ -40,12 +40,12 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "",
   }
 
   const image = document.createElement("img");
-  image.src = show.imageSrc || resolveImageSrc(show.cover);
   image.alt = show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`;
-  configureImageElement(image, {
+  configureShowImageElement(image, show, {
     loading: "lazy",
     width: 320,
     height: 320,
+    sizes: "(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px",
   });
 
   const editorialBadges = createEditorialBadges(show);
@@ -142,13 +142,13 @@ function createHomeCardPreviewPanel(show, previewId) {
   media.className = "home-card-preview-media";
 
   const image = document.createElement("img");
-  image.src = show.imageSrc || resolveImageSrc(show.cover);
   image.alt = show.imageAlt || show.coverAlt || `${titleText} cover art`;
   image.className = "home-card-preview-media-art";
-  configureImageElement(image, {
+  configureShowImageElement(image, show, {
     loading: "lazy",
     width: 320,
     height: 320,
+    sizes: "(max-width: 560px) 84vw, (max-width: 960px) 50vw, 320px",
   });
   media.appendChild(image);
 

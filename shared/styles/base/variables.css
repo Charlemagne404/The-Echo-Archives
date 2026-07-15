@@ -1,1 +1,15 @@
-/* Root public CSS variables stay sourced from the existing page styles. */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --visual-viewport-height: 100vh;
+  --visual-viewport-offset-top: 0px;
+  --keyboard-inset: 0px;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --visual-viewport-height: 100dvh;
+  }
+}

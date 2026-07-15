@@ -1,4 +1,4 @@
-@media (max-width: 780px) {
+@media (max-width: 959px) {
   .footer-support-actions {
     width: 100%;
     grid-template-columns: 1fr;
@@ -123,10 +123,10 @@
   #chat-container {
     --chat-floating-edge: 12px;
     --chat-launcher-size: 54px;
-    top: auto;
+    top: calc(var(--visual-viewport-offset-top) + max(12px, var(--safe-area-top)));
     right: var(--chat-floating-edge);
-    bottom: max(16px, env(safe-area-inset-bottom));
+    bottom: auto;
     width: calc(100vw - (var(--chat-floating-edge) * 2));
-    height: min(72vh, 640px);
+    height: min(640px, calc(var(--visual-viewport-height) - max(24px, var(--safe-area-top)) - max(24px, var(--safe-area-bottom))));
   }
 }

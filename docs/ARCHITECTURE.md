@@ -35,7 +35,7 @@ These boundaries are intentional and should be preserved:
 
 - `site-src/`: authored page sources, page manifest, and reusable HTML partials
 - `catalog-src/`: authored catalog source files and order manifests
-- repo root `*.html`, `style.css`, `home.css`, `detail.css`, and `script.js`: generated, committed public output and stable browser entry assets
+- repo root `*.html`, route CSS bundles, and `script.js`: generated, committed public output and stable browser entry assets
 - `shared/`: browser modules, rendering helpers, search logic, shared CSS partials, and compatibility manifests
 - `data/`: generated runtime/public catalog data only
 - `backend/`: backend services, tests, validation scripts, and SQLite-backed workflow storage
@@ -121,7 +121,8 @@ The frontend should:
 - derive search, filters, cards, and detail views from shared metadata rather than duplicated markup
 - preserve the current visual identity
 - keep root HTML generated from `site-src/`
-- keep public CSS URLs stable while `shared/styles/` owns imported partials
+- keep public CSS URLs stable while `shared/styles/` owns imported partials; `style.css` is the common shell, while `home.css`, `info.css`, `collections.css`, `creators.css`, `submit.css`, `maintainer.css`, and `detail.css` are route-owned bundles
+- load `chat.css` only when the shared chat launcher is used
 
 The homepage currently supports:
 
@@ -135,6 +136,8 @@ The homepage currently supports:
 - no-results recovery
 
 This is enough surface area that future UI work should start from the existing data and rendering model rather than from a rewrite impulse.
+
+The service worker installs only the offline fallback shell, icons, common/info CSS, the browser entry, and its small static dependency graph. Public HTML, catalog/search data, responsive images, route modules, maintainer code, submit code, and chat code enter the cache only after a successful runtime request. This prevents installation from downloading the entire application while preserving offline access to previously visited routes.
 
 ## Canonical Editorial Data
 
@@ -151,6 +154,10 @@ Generated runtime/public output lives in:
 - `data/collections.json`
 - `data/reviews/*.json`
 - `data/search-index.json`
+
+`npm run build:catalog` also creates deterministic 320px and 640px WebP files under `images/generated/covers/`. Generated show and search-index records may expose these as the optional runtime-only `coverVariants` array; authored show records keep the original `cover` field unchanged, and renderers always retain that original as fallback.
+
+`npm run build:pages` creates 480px and 960px AVIF/WebP variants for the large About/Supporters illustrations under `images/generated/info/`, then emits the route CSS bundles. Do not hand-edit either generated image directory.
 
 The frontend, Ask the Archivist, sitemap generation, and related public surfaces should read from these structured datasets instead of scraping or inferring from HTML.
 

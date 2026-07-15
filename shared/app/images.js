@@ -17,6 +17,48 @@ export function resolveImageSrc(value = "", fallbackSrc = DEFAULT_FALLBACK_COVER
   return `/${normalized.replace(/^\/+/, "")}`;
 }
 
+function getCoverVariants(show) {
+  return (Array.isArray(show?.coverVariants) ? show.coverVariants : [])
+    .map((entry) => ({ src: resolveImageSrc(entry?.src, ""), width: Number(entry?.width) }))
+    .filter((entry) => entry.src && [320, 640].includes(entry.width))
+    .sort((left, right) => left.width - right.width);
+}
+
+export function getPreferredCoverSource(show, preferredWidth = 320) {
+  const variants = getCoverVariants(show);
+  const exact = variants.find((variant) => variant.width === preferredWidth);
+  const fallback = preferredWidth <= 320 ? variants[0] : variants.at(-1);
+  return exact?.src || fallback?.src || show?.imageSrc || resolveImageSrc(show?.cover);
+}
+
+export function getResponsiveImageSource(show, sizes = "(max-width: 560px) 50vw, 320px") {
+  const variants = getCoverVariants(show);
+  return {
+    src: show?.imageSrc || resolveImageSrc(show?.cover),
+    srcset: variants.map((variant) => `${variant.src} ${variant.width}w`).join(", "),
+    sizes: variants.length > 0 ? sizes : "",
+  };
+}
+
+export function configureShowImageElement(image, show, options = {}) {
+  if (!(image instanceof HTMLImageElement)) {
+    return image;
+  }
+
+  const { sizes, ...imageOptions } = options;
+  const source = getResponsiveImageSource(show, sizes);
+  image.src = source.src;
+  if (source.srcset) {
+    image.srcset = source.srcset;
+    image.sizes = source.sizes;
+  } else {
+    image.removeAttribute("srcset");
+    image.removeAttribute("sizes");
+  }
+
+  return configureImageElement(image, imageOptions);
+}
+
 function shouldPreferEagerLoading(image) {
   return Boolean(
     image.closest(".detail-cover-card") ||
@@ -46,6 +88,8 @@ function bindFallback(image, fallbackSrc) {
     }
 
     image.dataset.imageFallbackApplied = "true";
+    image.removeAttribute("srcset");
+    image.removeAttribute("sizes");
     image.classList.add("is-image-fallback");
     image.src = nextFallback;
   });

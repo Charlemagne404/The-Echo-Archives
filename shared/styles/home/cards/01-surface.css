@@ -18,12 +18,17 @@
   --shell-inline-padding-phone: 10px;
   --floating-edge: 18px;
   min-height: 100vh;
+  min-height: 100dvh;
   background:
     radial-gradient(circle at top right, rgba(255, 255, 255, 0.05), transparent 22%),
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.025), transparent 18%),
     linear-gradient(180deg, #040507 0%, #07090c 48%, #050608 100%);
   color: var(--text-primary);
   font-family: "Helvetica Neue", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.home-page {
+  scroll-padding-top: calc(88px + var(--safe-area-top));
 }
 
 .home-page::before {
@@ -45,6 +50,13 @@
 
 .home-page.site-nav-open {
   overflow: hidden;
+}
+
+@media (max-width: 959px) {
+  .home-page.chat-panel-open {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
 }
 
 .home-page a {
@@ -125,14 +137,16 @@
 }
 
 .site-brand {
+  display: block;
+  width: clamp(250px, 21vw, 356px);
+  aspect-ratio: 977 / 255;
   justify-self: start;
 }
 
 .site-brand img {
-  width: clamp(250px, 21vw, 356px);
-  height: auto;
-  max-width: 100%;
-  aspect-ratio: 977 / 255;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 

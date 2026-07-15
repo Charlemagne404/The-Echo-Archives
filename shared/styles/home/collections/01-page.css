@@ -10,7 +10,7 @@
 
 .collections-sticky-mood-bar {
   position: fixed;
-  top: max(12px, env(safe-area-inset-top));
+  top: calc(var(--visual-viewport-offset-top) + max(12px, var(--safe-area-top)));
   left: 50%;
   z-index: 88;
   width: min(var(--shell-max-width), calc(100% - (var(--shell-inline-padding) * 2)));
@@ -247,7 +247,7 @@
 }
 
 .collections-mood-chip-compact {
-  min-height: 34px;
+  min-height: 44px;
   gap: 7px;
   padding: 0 10px;
   border-radius: 12px;
@@ -500,7 +500,7 @@
   border: 0;
   background: transparent;
   color: var(--text-primary);
-  font-size: 0.96rem;
+  font-size: 1rem;
 }
 
 .collections-search-field input:focus-visible,
@@ -523,7 +523,7 @@
 }
 
 .collections-sort-field select {
-  min-height: 38px;
+  min-height: 44px;
   border: 0;
   background: transparent;
   color: var(--text-primary);

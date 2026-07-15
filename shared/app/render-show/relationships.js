@@ -1,5 +1,5 @@
 import { getShowCollectionMemberships } from "../render-collections.js";
-import { resolveImageSrc } from "../images.js";
+import { getResponsiveImageSource } from "../images.js";
 import { createCollectionHref } from "../urls.js";
 import { escapeHtml, getSimilarReason } from "./utils.js";
 
@@ -67,11 +67,11 @@ export function renderSimilarSection(show, showMap) {
       <div class="detail-similar-grid">
         ${neighbors
           .map(
-            ({ neighbor, reason }) => `
+            ({ neighbor, reason }) => {
+              const coverSource = getResponsiveImageSource(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px");
+              return `
               <article class="detail-similar-card">
-                <img src="${escapeHtml(
-                  neighbor.imageSrc || resolveImageSrc(neighbor.cover),
-                )}" alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+                <img src="${escapeHtml(coverSource.src)}"${coverSource.srcset ? ` srcset="${escapeHtml(coverSource.srcset)}" sizes="${escapeHtml(coverSource.sizes)}"` : ""} alt="${escapeHtml(neighbor.imageAlt || neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
                 <div class="detail-card-copy">
                   <h3>${escapeHtml(neighbor.title || "Untitled show")}</h3>
                   <p class="detail-similar-reason">${escapeHtml(reason)}</p>
@@ -79,7 +79,8 @@ export function renderSimilarSection(show, showMap) {
                   <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}">Open show</a>
                 </div>
               </article>
-            `,
+            `;
+            },
           )
           .join("")}
       </div>

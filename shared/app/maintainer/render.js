@@ -27,25 +27,28 @@ function renderListItem(submission, isSelected) {
     : "";
 
   return `
-    <button
-      type="button"
-      class="maintainer-list-item ${isSelected ? "is-selected" : ""}"
-      data-submission-id="${escapeHtml(submission.id)}"
-    >
-      <span class="maintainer-list-item-top">
-        <span class="maintainer-list-item-title">${escapeHtml(submission.showTitle)}</span>
-        <span class="maintainer-list-item-badges">
-          ${renderBadge(formatStatus(submission.status), getStatusTone(submission.status))}
-          ${renderBadge(formatPriority(submission.priority), getPriorityTone(submission.priority))}
+    <article class="maintainer-list-item ${isSelected ? "is-selected" : ""}">
+      <button
+        type="button"
+        class="maintainer-list-item-select"
+        data-submission-id="${escapeHtml(submission.id)}"
+        ${isSelected ? 'aria-current="true"' : ""}
+      >
+        <span class="maintainer-list-item-top">
+          <span class="maintainer-list-item-title">${escapeHtml(submission.showTitle)}</span>
+          <span class="maintainer-list-item-badges">
+            ${renderBadge(formatStatus(submission.status), getStatusTone(submission.status))}
+            ${renderBadge(formatPriority(submission.priority), getPriorityTone(submission.priority))}
+          </span>
         </span>
-      </span>
-      <span class="maintainer-list-item-meta">
-        <span>${escapeHtml(formatSubmissionType(submission.submissionType))}</span>
-        <span>${escapeHtml(formatDateTime(submission.submittedAt))}</span>
-      </span>
-      <span class="maintainer-list-item-preview">${escapeHtml(buildSubmissionPreview(submission))}</span>
-      ${showLink ? `<span class="maintainer-list-item-link">${showLink}</span>` : ""}
-    </button>
+        <span class="maintainer-list-item-meta">
+          <span>${escapeHtml(formatSubmissionType(submission.submissionType))}</span>
+          <span>${escapeHtml(formatDateTime(submission.submittedAt))}</span>
+        </span>
+        <span class="maintainer-list-item-preview">${escapeHtml(buildSubmissionPreview(submission))}</span>
+      </button>
+      ${showLink ? `<div class="maintainer-list-item-link">${showLink}</div>` : ""}
+    </article>
   `;
 }
 

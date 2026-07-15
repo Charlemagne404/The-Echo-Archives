@@ -155,6 +155,7 @@
   border: 0;
   display: inline-flex;
   align-items: flex-end;
+  min-height: 44px;
   gap: 12px;
   max-width: none;
   background: transparent;

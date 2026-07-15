@@ -16,7 +16,7 @@ export function seedStateFromParams(state) {
   const requestedShowId = params.get("showId");
   if (!requestedShowId || !state.showMap.has(requestedShowId)) {
     state.searchOpen = false;
-    return;
+    return { requestedMode: state.activeMode, requestedShowId: requestedShowId || "" };
   }
 
   const show = state.showMap.get(requestedShowId);
@@ -25,6 +25,7 @@ export function seedStateFromParams(state) {
     state.drafts[mode].showSearch = show.title;
   }
   state.searchOpen = false;
+  return { requestedMode: state.activeMode, requestedShowId };
 }
 
 export function createDrafts() {

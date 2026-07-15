@@ -1501,6 +1501,10 @@
 }
 
 @media (max-width: 640px) {
+  .detail-link-chip {
+    min-height: 44px;
+  }
+
   .detail-hero-panel,
   .detail-best-for-strip,
   .detail-section,

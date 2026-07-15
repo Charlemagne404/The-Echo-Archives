@@ -106,6 +106,26 @@ function resolveImageSrc(value = "") {
   return `/${normalized.replace(/^\/+/, "")}`;
 }
 
+function getCoverVariantSource(show, preferredWidth = 320) {
+  const variants = Array.isArray(show?.coverVariants) ? show.coverVariants : [];
+  const exact = variants.find((variant) => Number(variant?.width) === preferredWidth);
+  return exact?.src || show?.imageSrc || resolveImageSrc(show?.cover);
+}
+
+function renderResponsiveCoverAttributes(show, sizes) {
+  const variants = (Array.isArray(show?.coverVariants) ? show.coverVariants : [])
+    .filter((variant) => [320, 640].includes(Number(variant?.width)) && variant?.src)
+    .sort((left, right) => Number(left.width) - Number(right.width));
+  if (variants.length === 0) {
+    return "";
+  }
+
+  const srcset = variants
+    .map((variant) => `${resolveImageSrc(variant.src)} ${Number(variant.width)}w`)
+    .join(", ");
+  return ` srcset="${escapeAttribute(srcset)}" sizes="${escapeAttribute(sizes)}"`;
+}
+
 function createShowHref(id = "") {
   return `/show?id=${encodeURIComponent(id)}`;
 }
@@ -256,7 +276,7 @@ function renderArchiveCard(show) {
     <div class="podcast-card-shell" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}">
       <a class="podcast-card" href="${href}" data-podcast-id="${escapeAttribute(show.id || "unknown-show")}">
         ${renderEditorialBadges(show)}
-        <img src="${imageSrc}" alt="${imageAlt}" loading="lazy" decoding="async" width="320" height="320" />
+        <img src="${imageSrc}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px")} alt="${imageAlt}" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">${title}</h2>
         <p class="tags" data-card-meta="true"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <div class="rating">
@@ -289,7 +309,7 @@ function renderMostPopularCard(show) {
   return `
     <a class="popular-card" href="${escapeAttribute(show.href || createShowHref(show.id || ""))}" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="Open ${escapeAttribute(show.title || "Untitled show")} in the archive"${accentStyle}>
       <div class="popular-card-media">
-        <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}" alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
+        <img src="${escapeAttribute(show.imageSrc || resolveImageSrc(show.cover))}"${renderResponsiveCoverAttributes(show, "(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px")} alt="${escapeAttribute(show.imageAlt || show.coverAlt || `${show.title || "Untitled show"} cover art`)}" loading="lazy" decoding="async" width="320" height="320" />
       </div>
       <div class="popular-card-body">
         <div class="popular-card-status"${chips.length === 0 ? " hidden" : ""}>${chips.join("")}</div>
@@ -316,7 +336,7 @@ function renderCollectionCard(collection, showMap) {
   const accent = (anchorShow || collectionShows.find((show) => show?.accent?.hex))?.accent?.hex || "";
   const styleFragments = [];
   if (leadShow?.imageSrc || leadShow?.cover) {
-    styleFragments.push(`--collection-cover-image: url(&quot;${escapeAttribute(leadShow.imageSrc || resolveImageSrc(leadShow.cover))}&quot;)`);
+    styleFragments.push(`--collection-cover-image: url(&quot;${escapeAttribute(getCoverVariantSource(leadShow, 320))}&quot;)`);
   }
   if (accent) {
     styleFragments.push(`--collection-accent: ${escapeAttribute(accent)}`);
@@ -354,7 +374,7 @@ function setSectionVisibility(markup, isVisible, dataAttributeValue = "") {
 }
 
 function loadHomePrerenderData(rootDir) {
-  const showsPath = path.join(rootDir, "data", "search-index.json");
+  const showsPath = path.join(rootDir, "data", "shows.json");
   const collectionsPath = path.join(rootDir, "data", "collections.json");
   const showRecords = readJson(showsPath).map((record) => archiveRecord.normalizeShowRecord(record));
   const collections = readJson(collectionsPath).map((record) => archiveRecord.normalizeCollectionRecord(record));

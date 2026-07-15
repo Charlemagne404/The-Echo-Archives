@@ -39,7 +39,7 @@
 }
 
 .submit-tag-picker-values .submit-chip {
-  min-height: 34px;
+  min-height: 44px;
   padding: 0 12px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.03);
@@ -128,8 +128,8 @@
 }
 
 .submit-star-button {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -171,7 +171,7 @@
 }
 
 .submit-search-control #submitExistingShowSearch {
-  padding-right: 92px;
+  padding-right: 112px;
 }
 
 .submit-search-shell.is-selected #submitExistingShowSearch {
@@ -184,7 +184,7 @@
 .submit-search-actions {
   position: absolute;
   top: 50%;
-  right: 12px;
+  right: 8px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -192,8 +192,8 @@
 }
 
 .submit-search-action {
-  width: 30px;
-  height: 30px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
@@ -237,6 +237,11 @@
   box-shadow: var(--shadow-md);
   display: grid;
   gap: 6px;
+  max-block-size: min(50vh, 22rem);
+  max-block-size: min(50dvh, 22rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .submit-search-results[hidden] {
@@ -262,8 +267,41 @@
 }
 
 .submit-search-result:hover,
-.submit-search-result:focus-visible {
+.submit-search-result:focus-visible,
+.submit-search-result.is-highlighted {
   background: rgba(255, 255, 255, 0.04);
+}
+
+.submit-lookup-status {
+  min-height: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.submit-lookup-status[data-state="ready"] {
+  visibility: hidden;
+}
+
+.submit-lookup-status[data-state="error"] {
+  color: #ffc5bf;
+}
+
+.submit-lookup-retry {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 122, 102, 0.36);
+  border-radius: 11px;
+  background: rgba(229, 72, 56, 0.1);
+  color: #fff1ee;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .submit-search-result-topline {

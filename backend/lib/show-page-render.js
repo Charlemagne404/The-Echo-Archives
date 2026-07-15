@@ -42,6 +42,31 @@ function getShowImageSrc(show) {
   return `/${cover.replace(/^\/+/, "")}`;
 }
 
+function getShowCoverVariants(show) {
+  return (Array.isArray(show?.coverVariants) ? show.coverVariants : [])
+    .filter((variant) => [320, 640].includes(Number(variant?.width)) && variant?.src)
+    .sort((left, right) => Number(left.width) - Number(right.width));
+}
+
+function getShowCoverVariantSrc(show, preferredWidth = 640) {
+  const variants = getShowCoverVariants(show);
+  const exact = variants.find((variant) => Number(variant.width) === preferredWidth);
+  const fallback = variants.at(-1);
+  return exact?.src || fallback?.src || getShowImageSrc(show);
+}
+
+function renderResponsiveCoverAttributes(show, sizes) {
+  const variants = getShowCoverVariants(show);
+  if (variants.length === 0) {
+    return "";
+  }
+
+  const srcset = variants
+    .map((variant) => `${getShowImageSrc({ cover: variant.src })} ${Number(variant.width)}w`)
+    .join(", ");
+  return ` srcset="${escapeHtml(srcset)}" sizes="${escapeHtml(sizes)}"`;
+}
+
 function parseDisplayDate(value) {
   const text = String(value || "").trim();
   const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);
@@ -135,6 +160,8 @@ function getPrimaryListenLink(show) {
 }
 
 function renderDetailHero(show) {
+  const coverSrc = getShowImageSrc(show);
+  const coverBackground = getShowCoverVariantSrc(show, 640);
   const hasArchiveRating = Number.isFinite(Number(show.finalRating));
   const archiveRatingValue = hasArchiveRating ? `${formatRating(show.finalRating)}/10` : "Unrated";
   const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
@@ -149,7 +176,7 @@ function renderDetailHero(show) {
 
   return `
     <section class="detail-hero-shell">
-      <div class="detail-hero-panel" style="--detail-cover-image: url('${escapeHtml(show.cover)}');">
+      <div class="detail-hero-panel" style="--detail-cover-image: url('${escapeHtml(coverBackground)}');">
         <div class="detail-breadcrumbs">
           <a href="/">Archive</a>
           ${
@@ -201,7 +228,7 @@ function renderDetailHero(show) {
           </div>
           <div class="detail-cover-column">
             <div class="detail-cover-card">
-              <img src="/${escapeHtml(show.cover)}" alt="${escapeHtml(show.coverAlt || `${show.title} cover art`)}" width="320" height="320" loading="eager" decoding="async" data-image-loading="eager" data-image-fetch-priority="high" />
+              <img src="${escapeHtml(coverSrc)}"${renderResponsiveCoverAttributes(show, "(max-width: 959px) 84vw, 320px")} alt="${escapeHtml(show.coverAlt || `${show.title} cover art`)}" width="320" height="320" loading="eager" decoding="async" data-image-loading="eager" data-image-fetch-priority="high" />
             </div>
           </div>
         </div>
@@ -377,7 +404,7 @@ function renderSimilarSection(show, showMap) {
           .map(
             (neighbor) => `
               <article class="detail-similar-card">
-                <img src="${escapeHtml(getShowImageSrc(neighbor))}" alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
+                <img src="${escapeHtml(getShowImageSrc(neighbor))}"${renderResponsiveCoverAttributes(neighbor, "(max-width: 959px) 84vw, (max-width: 1120px) 42vw, 320px")} alt="${escapeHtml(neighbor.coverAlt || `${neighbor.title || "Untitled show"} cover art`)}" width="320" height="320" loading="lazy" decoding="async" />
                 <div class="detail-card-copy"><h3>${escapeHtml(neighbor.title || "Untitled show")}</h3><p>${escapeHtml(neighbor.archiveTake || neighbor.description || "Description not cataloged yet.")}</p><a class="detail-archive-link" href="${escapeHtml(neighbor.href || `/show?id=${neighbor.id || ""}`)}">Open show</a></div>
               </article>
             `,

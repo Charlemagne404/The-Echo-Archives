@@ -4,6 +4,7 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const { buildSitemapXml } = require("../backend/lib/sitemap");
+const { generateStaticImageVariants } = require("../backend/lib/responsive-images");
 const { renderHomePagePrerender } = require("./lib/home-page-prerender");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -33,17 +34,61 @@ const ENTRY_ASSETS = {
     "shared/styles/base/variables.css",
     "shared/styles/base/global.css",
     "shared/styles/base/header-footer.css",
-    "shared/styles/base/chat.css",
+    "shared/styles/home/cards/01-surface.css",
+    "shared/styles/home/cards/02-hero-search.css",
+    "shared/styles/home/cards/07-archive-cards.css",
+    "shared/styles/home/cards/08-footer.css",
+    "shared/styles/home/cards/11-community-rating.css",
+    "shared/styles/home/cards/13-chat-about-base.css",
+    "shared/styles/home/cards/16-empty-tablet.css",
+    "shared/styles/home/cards/17-responsive-780-a.css",
+    "shared/styles/home/cards/18-responsive-780-b.css",
+    "shared/styles/home/cards/19-responsive-560.css",
+    "shared/styles/home/cards/20-motion.css",
+    "shared/styles/home/public-heroes.css",
   ]),
   "home.css": () => renderCssBundle([
-    "shared/styles/home/hero.css",
-    "shared/styles/home/filters.css",
-    "shared/styles/home/cards.css",
+    "shared/styles/home/cards/02a-sticky-browse.css",
+    "shared/styles/home/cards/03-filter-controls.css",
+    "shared/styles/home/cards/03a-filter-detail-controls.css",
+    "shared/styles/home/cards/03b-filter-actions.css",
+    "shared/styles/home/cards/04-browse-bands.css",
+    "shared/styles/home/cards/06-featured-cards.css",
+    "shared/styles/home/cards/09-preview-shell.css",
+    "shared/styles/home/cards/10-preview-content.css",
+    "shared/styles/home/cards/16-empty-tablet.css",
+    "shared/styles/home/cards/17-responsive-780-a.css",
+    "shared/styles/home/cards/18-responsive-780-b.css",
+    "shared/styles/home/cards/19-responsive-560.css",
+  ]),
+  "info.css": () => renderCssBundle([
+    "shared/styles/home/cards/14-about-features.css",
+    "shared/styles/home/cards/14b-about-page-polish.css",
+    "shared/styles/home/cards/15-about-supporters.css",
+    "shared/styles/home/cards/15b-info-pages.css",
+    "shared/styles/home/cards/15c-info-pages-responsive.css",
+    "shared/styles/home/cards/15d-help-center.css",
+    "shared/styles/home/cards/15e-help-center-motion.css",
+  ]),
+  "submit.css": () => renderCssBundle([
     "shared/styles/home/submit.css",
+  ]),
+  "maintainer.css": () => renderCssBundle([
     "shared/styles/home/maintainer.css",
+  ]),
+  "collections.css": () => renderCssBundle([
+    "shared/styles/home/cards/05-collection-cards.css",
     "shared/styles/home/collections.css",
+  ]),
+  "creators.css": () => renderCssBundle([
     "shared/styles/home/creators.css",
-    "shared/styles/home/responsive.css",
+  ]),
+  "chat.css": () => renderCssBundle([
+    "shared/styles/base/global/03-responsive.css",
+    "shared/styles/home/cards/11-community-rating.css",
+    "shared/styles/home/cards/12-chat-panel.css",
+    "shared/styles/home/cards/13-chat-about-base.css",
+    "shared/styles/home/chat-responsive.css",
   ]),
   "detail.css": () => renderCssBundle([
     "shared/styles/show/hero.css",
@@ -60,7 +105,7 @@ function readFile(filePath) {
 
 function writeFile(filePath, contents) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, contents);
+  fs.writeFileSync(filePath, String(contents).replace(/[ \t]+$/gm, ""));
 }
 
 function rewriteCssAssetUrls(contents, sourcePath) {
@@ -220,7 +265,6 @@ function parseBoolean(value, fallback = false) {
 function renderStylesheets(extraStylesheets = [], versions = {}) {
   return [
     `<link rel="stylesheet" href="/style.css?v=${versions.style}" />`,
-    `<link rel="stylesheet" href="/home.css?v=${versions.home}" />`,
     ...extraStylesheets.map((href) => {
       const basePath = stripQuery(href);
       const version = versions.extra.get(basePath) || hashFile(basePath);
@@ -296,6 +340,11 @@ function replaceElementTextById(html, id, value) {
   return html.replace(pattern, `$1${escapeHtml(value)}$3`);
 }
 
+function replaceElementMarkupById(html, id, value) {
+  const pattern = new RegExp(`(<([a-z][a-z0-9-]*)\\b[^>]*\\bid="${escapeRegExp(id)}"[^>]*>)[\\s\\S]*?(<\\/\\2>)`, "i");
+  return html.replace(pattern, `$1${value}$3`);
+}
+
 function formatLongDate(value) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value || "").trim());
   if (!match) {
@@ -363,7 +412,7 @@ function prerenderArchiveStats(pageBody, entry, archiveStats) {
   );
 }
 
-function renderPageBody(entry, homeConfig, archiveStats) {
+function renderPageBody(entry, homeConfig, archiveStats, submitPrerender) {
   let pageBody = ensureMainContentTarget(readFile(path.join(PAGES_DIR, entry.source)).trim(), resolveMainContentTarget(entry));
 
   if (entry.output === "index.html") {
@@ -371,6 +420,12 @@ function renderPageBody(entry, homeConfig, archiveStats) {
       rootDir: ROOT,
       homeMostPopularIds: homeConfig.homeMostPopularIds,
       homeFavoriteRouteIds: homeConfig.homeFavoriteRouteIds,
+    });
+  }
+
+  if (entry.output === "submit.html" && submitPrerender) {
+    Object.entries(submitPrerender).forEach(([id, markup]) => {
+      pageBody = replaceElementMarkupById(pageBody, id, markup);
     });
   }
 
@@ -453,7 +508,7 @@ function buildPageStructuredData({ siteUrl, entry, collections }) {
   return null;
 }
 
-function renderPage(entry, partials, versions, homeConfig, seoContext) {
+function renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender) {
   const homeCardHoverExpandEnabled = parseBoolean(process.env.HOME_CARD_HOVER_EXPAND_ENABLED, false);
   const socialImageUrl = new URL("/og-image.png", `${seoContext.siteUrl}/`).toString();
   const structuredData = buildPageStructuredData({
@@ -475,7 +530,7 @@ function renderPage(entry, partials, versions, homeConfig, seoContext) {
     navLinks: renderNavLinks(entry.activeNav),
   });
   const mainContentTarget = resolveMainContentTarget(entry);
-  const pageBody = renderPageBody(entry, homeConfig, seoContext.archiveStats);
+  const pageBody = renderPageBody(entry, homeConfig, seoContext.archiveStats, submitPrerender);
   const bodySections = [
     renderSkipLink(mainContentTarget),
     headerMarkup,
@@ -500,7 +555,7 @@ function renderPage(entry, partials, versions, homeConfig, seoContext) {
       : "",
     renderStructuredData(structuredData),
     "</head>",
-    `<body class="${entry.bodyClass}" data-site-url="${escapeAttribute(seoContext.siteUrl)}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-shows-version="${versions.shows}" data-collections-version="${versions.collections}" data-search-index-version="${versions.searchIndex}">`,
+    `<body class="${entry.bodyClass}" data-site-url="${escapeAttribute(seoContext.siteUrl)}" data-chat-stylesheet="/chat.css?v=${versions.extra.get("chat.css")}" data-home-card-hover-expand-enabled="${String(homeCardHoverExpandEnabled)}" data-shows-version="${versions.shows}" data-collections-version="${versions.collections}" data-search-index-version="${versions.searchIndex}">`,
     bodySections,
     "</body>",
     "</html>",
@@ -577,46 +632,32 @@ function resolveManifestCanonicalUrls(manifest, siteUrl) {
   });
 }
 
-function createPrecacheUrlSet(manifest, versions) {
-  const appModuleUrls = listFilesDeep(path.join(ROOT, "shared", "app"))
-    .filter((filePath) => filePath.endsWith(".js") && path.basename(filePath) !== "app.js")
-    .map((filePath) => `/${path.relative(ROOT, filePath).split(path.sep).join("/")}`);
+function createPrecacheUrlSet(_manifest, versions) {
+  const offlineAppModuleUrls = [
+    "constants.js",
+    "home-config.js",
+    "images.js",
+    "mobile-nav.js",
+    "service-worker.js",
+    "toast.js",
+    "utils.js",
+    "viewport-metrics.js",
+  ].map((fileName) => `/shared/app/${fileName}`);
   const precacheUrls = new Set([
-    "/",
     "/offline.html",
     "/site.webmanifest",
     "/favicon.ico",
     "/apple-touch-icon.png",
     "/icon-192.png",
     "/icon-512.png",
-    "/og-image.png",
     `/style.css?v=${versions.style}`,
-    `/home.css?v=${versions.home}`,
-    `/detail.css?v=${versions.extra.get("detail.css")}`,
+    `/info.css?v=${versions.extra.get("info.css")}`,
     `/script.js?v=${versions.script}`,
     `/shared/app/app.js?v=${versions.app}`,
     `/shared/archive-record.js?v=${versions.archiveRecord}`,
     `/shared/archive-search.js?v=${versions.archiveSearch}`,
-    getVersionedDataUrl("shows.json", versions.shows),
-    getVersionedDataUrl("collections.json", versions.collections),
-    getVersionedSearchIndexUrl(versions.searchIndex),
-    ...appModuleUrls,
+    ...offlineAppModuleUrls,
   ]);
-
-  manifest.forEach((entry) => {
-    if (entry.output.startsWith("maintainer/") || entry.noIndex) {
-      return;
-    }
-
-    try {
-      const canonicalPath = new URL(entry.canonicalUrl).pathname || "";
-      if (canonicalPath && !["/collection", "/show"].includes(canonicalPath)) {
-        precacheUrls.add(canonicalPath);
-      }
-    } catch (_error) {
-      // Ignore malformed canonical URLs here; the page build still owns correctness.
-    }
-  });
 
   return [...precacheUrls].sort();
 }
@@ -629,13 +670,9 @@ function renderServiceWorker({ versions, manifest }) {
         script: versions.script,
         app: versions.app,
         style: versions.style,
-        home: versions.home,
-        detail: versions.extra.get("detail.css"),
+        info: versions.extra.get("info.css"),
         archiveRecord: versions.archiveRecord,
         archiveSearch: versions.archiveSearch,
-        shows: versions.shows,
-        collections: versions.collections,
-        searchIndex: versions.searchIndex,
         precacheUrls,
       }),
     ),
@@ -660,7 +697,11 @@ function renderServiceWorker({ versions, manifest }) {
     "    caches",
     "      .keys()",
     "      .then((keys) => Promise.all(keys.filter((key) => key.startsWith(\"echo-archives-\") && key !== HTML_CACHE && key !== ASSET_CACHE).map((key) => caches.delete(key))))",
-    "      .then(() => self.clients.claim()),",
+    "      .then(async () => {",
+    "        const clients = await self.clients.matchAll({ type: \"window\", includeUncontrolled: true });",
+    "        await Promise.all(clients.map((client) => cacheVisitedPage(client.url)));",
+    "        await self.clients.claim();",
+    "      }),",
     "  );",
     "});",
     "",
@@ -681,6 +722,19 @@ function renderServiceWorker({ versions, manifest }) {
     "  }",
     "",
     "  event.respondWith(handleAssetRequest(request));",
+    "});",
+    "",
+    "self.addEventListener(\"message\", (event) => {",
+    "  if (event.data?.type !== \"CACHE_VISITED_RESOURCES\") {",
+    "    return;",
+    "  }",
+    "",
+    "  const responsePort = event.ports?.[0];",
+    "  event.waitUntil(",
+    "    cacheVisitedResources(event.data.urls)",
+    "      .then((cached) => responsePort?.postMessage({ cached }))",
+    "      .catch(() => responsePort?.postMessage({ cached: 0 })),",
+    "  );",
     "});",
     "",
     "async function handleNavigationRequest(request) {",
@@ -705,6 +759,53 @@ function renderServiceWorker({ versions, manifest }) {
     "",
     "    return caches.match(OFFLINE_FALLBACK_URL);",
     "  }",
+    "}",
+    "",
+    "async function cacheVisitedPage(url) {",
+    "  try {",
+    "    const response = await fetch(url, { credentials: \"same-origin\" });",
+    "    if (!response || !response.ok) {",
+    "      return;",
+    "    }",
+    "",
+    "    const cache = await caches.open(HTML_CACHE);",
+    "    await cache.put(url, response.clone());",
+    "  } catch (_error) {",
+    "    // A visited page can still be cached by its next successful navigation.",
+    "  }",
+    "}",
+    "",
+    "async function cacheVisitedResources(urls) {",
+    "  const uniqueUrls = [...new Set(Array.isArray(urls) ? urls : [])]",
+    "    .map((value) => {",
+    "      try {",
+    "        return new URL(value, self.location.origin);",
+    "      } catch (_error) {",
+    "        return null;",
+    "      }",
+    "    })",
+    "    .filter((url) => url && url.origin === self.location.origin && !url.pathname.startsWith(\"/api/\"));",
+    "  let cached = 0;",
+    "",
+    "  await Promise.all(uniqueUrls.map(async (url) => {",
+    "    try {",
+    "      const response = await fetch(url.href, { credentials: \"same-origin\" });",
+    "      if (!response || !response.ok) {",
+    "        return;",
+    "      }",
+    "      const destinationCache = isHtmlUrl(url) ? HTML_CACHE : ASSET_CACHE;",
+    "      const cache = await caches.open(destinationCache);",
+    "      await cache.put(url.href, response.clone());",
+    "      cached += 1;",
+    "    } catch (_error) {",
+    "      // Individual optional assets must not prevent the visited page from becoming offline-ready.",
+    "    }",
+    "  }));",
+    "  return cached;",
+    "}",
+    "",
+    "function isHtmlUrl(url) {",
+    "  return url.pathname === \"/\" || url.pathname.endsWith(\"/\") || url.pathname.endsWith(\".html\") || !/\\.[a-z0-9]+$/i.test(url.pathname);",
     "}",
     "",
     "async function handleAssetRequest(request) {",
@@ -795,8 +896,64 @@ async function loadHomeConfig() {
   };
 }
 
+async function loadSubmitPrerender() {
+  const moduleUrl = (relativePath) => pathToFileURL(path.join(ROOT, relativePath)).href;
+  const [configModule, renderModule, stateModule, utilsModule] = await Promise.all([
+    import(moduleUrl("shared/app/submit/config.js")),
+    import(moduleUrl("shared/app/submit/render.js")),
+    import(moduleUrl("shared/app/submit/state.js")),
+    import(moduleUrl("shared/app/submit/utils.js")),
+  ]);
+  const config = configModule.MODE_CONFIG.show;
+  const draft = stateModule.createDrafts().show;
+  const context = {
+    tagFieldOptions: { selectedTags: configModule.FALLBACK_TAG_OPTIONS },
+    activeTagField: "",
+    tagPickerOpen: false,
+    tagQuery: "",
+    tagHighlightIndex: -1,
+    selectedShow: null,
+    searchResults: [],
+    searchOpen: false,
+    lookupStatus: "idle",
+    lookupMessage: "Archive lookup loads only when this submission path needs it.",
+    showHighlightIndex: -1,
+  };
+
+  return {
+    submitModeCards: renderModule.renderModeCardsMarkup("show"),
+    submitStepsPanel: config.steps.map((step, index) => `
+      <div class="submit-step-item">
+        <span class="submit-step-number" aria-hidden="true">${index + 1}</span>
+        <span class="submit-step-copy">
+          <strong>${utilsModule.escapeHtml(step.title)}</strong>
+          <span>${utilsModule.escapeHtml(step.body)}</span>
+        </span>
+      </div>
+      ${index < config.steps.length - 1 ? `<span class="submit-step-arrow" aria-hidden="true">${utilsModule.iconMarkup("arrow-right")}</span>` : ""}
+    `).join(""),
+    submitFormIntro: `
+      <div class="submit-form-intro-meta">
+        <span class="submit-form-icon" aria-hidden="true">${utilsModule.iconMarkup(config.introIcon)}</span>
+        <h2>${utilsModule.escapeHtml(config.introTitle)}</h2>
+      </div>
+      <p>${utilsModule.escapeHtml(config.introDescription)}</p>
+    `,
+    submitDynamicFields: renderModule.renderModeFields("show", draft, context),
+    submitSideRail: config.railCards.map((card) => renderModule.renderRailCard(card)).join(""),
+    submitFooterNote: utilsModule.escapeHtml(config.footerNote),
+  };
+}
+
 async function main() {
+  await generateStaticImageVariants(ROOT);
   buildEntryAssets();
+
+  const cssVersions = new Map(
+    Object.keys(ENTRY_ASSETS)
+      .filter((fileName) => fileName.endsWith(".css"))
+      .map((fileName) => [fileName, hashFile(fileName)]),
+  );
 
   const versions = {
     app: hashTree("shared/app"),
@@ -806,11 +963,9 @@ async function main() {
     collections: hashFile("data/collections.json"),
     searchIndex: hashFile("data/search-index.json"),
     script: hashFile("script.js"),
-    style: hashFile("style.css"),
-    home: hashFile("home.css"),
-    extra: new Map([
-      ["detail.css", hashFile("detail.css")],
-    ]),
+    style: cssVersions.get("style.css"),
+    home: cssVersions.get("home.css"),
+    extra: new Map([...cssVersions].filter(([fileName]) => !["style.css", "home.css"].includes(fileName))),
   };
   const sourceManifest = JSON.parse(readFile(MANIFEST_PATH));
   const siteUrl = resolveSiteUrl(sourceManifest);
@@ -820,6 +975,7 @@ async function main() {
   const archiveStats = readJsonIfExists(path.join(ROOT, "data", "archive-stats.json"), {});
   const seoContext = { siteUrl, catalog, collections, archiveStats };
   const homeConfig = await loadHomeConfig();
+  const submitPrerender = await loadSubmitPrerender();
   const partials = {
     head: readFile(path.join(PARTIALS_DIR, "head.html")).trim(),
     header: readFile(path.join(PARTIALS_DIR, "header.html")).trim(),
@@ -833,13 +989,13 @@ async function main() {
 
   manifest.forEach((entry) => {
     const outputPath = path.join(ROOT, entry.output);
-    const pageMarkup = renderPage(entry, partials, versions, homeConfig, seoContext);
+    const pageMarkup = renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender);
     writeFile(outputPath, pageMarkup);
 
     const cleanRouteAlias = resolveCleanRouteAlias(entry);
     if (cleanRouteAlias) {
       const aliasMarkup = shouldNoIndexAlias(cleanRouteAlias)
-        ? renderPage({ ...entry, noIndex: true }, partials, versions, homeConfig, seoContext)
+        ? renderPage({ ...entry, noIndex: true }, partials, versions, homeConfig, seoContext, submitPrerender)
         : pageMarkup;
       writeFile(path.join(ROOT, cleanRouteAlias, "index.html"), aliasMarkup);
     }
@@ -854,6 +1010,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  createPrecacheUrlSet,
   resolveManifestCanonicalUrls,
   resolveSiteUrl,
   serializeStructuredData,

@@ -89,6 +89,15 @@
   max-width: 33ch;
 }
 
+@media (max-width: 979px) {
+  .creators-hero-panel .hero-copy h1,
+  .creator-standards-hero-panel .hero-copy h1 {
+    max-width: 12ch;
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
 @media (max-width: 780px) {
   .info-hero-panel,
   .about-page .about-hero-panel,

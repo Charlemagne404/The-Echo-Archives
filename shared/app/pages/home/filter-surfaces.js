@@ -83,7 +83,7 @@ export function createHomeFilterSurfaceController({
       surfaces.forEach((surface) => {
         surface.toggle.addEventListener("click", () => {
           if (surface.controller.isOpen()) {
-            surface.controller.close();
+            surface.controller.close({ returnFocus: surface.controller.isSheet() });
             return;
           }
 
@@ -102,7 +102,7 @@ export function createHomeFilterSurfaceController({
 
       surfaces.forEach((surface) => {
         if (surface.controller.isOpen() && !surface.dropdown.contains(target) && !surface.toggle.contains(target)) {
-          surface.controller.close();
+          surface.controller.close({ returnFocus: surface.controller.isSheet() });
         }
       });
     },

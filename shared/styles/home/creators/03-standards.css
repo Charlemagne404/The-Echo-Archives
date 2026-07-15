@@ -200,6 +200,7 @@
   align-items: center;
   gap: 10px;
   width: fit-content;
+  min-height: 44px;
   padding-top: 2px;
   color: var(--text-primary);
   text-decoration: none;

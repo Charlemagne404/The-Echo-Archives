@@ -3,29 +3,52 @@ import { getActiveFilterCount } from "./filter-state.js";
 import { formatFilterBucketStatus, formatFilterGroupCount, getBucketSelectionCount } from "./filter-utils.js";
 
 export function renderQuickFilters({ quickFiltersRoot, quickFilters, onClearAllFilters, onToggleTagFilter }) {
-  quickFiltersRoot.textContent = "";
-  quickFiltersRoot.appendChild(createQuickFilterButton({ id: "all", label: "All" }, { onClearAllFilters, onToggleTagFilter }));
+  const tags = [{ id: "all", label: "All" }, ...quickFilters];
+  const expectedIds = new Set(tags.map((tag) => tag.id));
+  const existingButtons = new Map(
+    Array.from(quickFiltersRoot.querySelectorAll(".quick-filter[data-chip-filter]"))
+      .filter((button) => button instanceof HTMLButtonElement)
+      .map((button) => [button.dataset.chipFilter || "", button]),
+  );
 
-  quickFilters.forEach((tag) => {
-    quickFiltersRoot.appendChild(createQuickFilterButton(tag, { onClearAllFilters, onToggleTagFilter }));
+  quickFiltersRoot.querySelectorAll(".quick-filter[data-chip-filter]").forEach((button) => {
+    if (!expectedIds.has(button.getAttribute("data-chip-filter") || "")) {
+      button.remove();
+    }
+  });
+
+  tags.forEach((tag) => {
+    const button = createQuickFilterButton(
+      tag,
+      { onClearAllFilters, onToggleTagFilter },
+      existingButtons.get(tag.id),
+    );
+    quickFiltersRoot.appendChild(button);
   });
 }
 
 export function renderBrowseModes({ browseModesRoot, onModeChange }) {
-  browseModesRoot.textContent = "";
-
-  [
+  const modes = [
     { id: "default", label: "Default order" },
     { id: "recently-updated", label: "Recently updated" },
-  ].forEach((mode) => {
-    const button = document.createElement("button");
+  ];
+  const existingButtons = new Map(
+    Array.from(browseModesRoot.querySelectorAll(".browse-mode-button[data-browse-mode]"))
+      .filter((button) => button instanceof HTMLButtonElement)
+      .map((button) => [button.dataset.browseMode || "", button]),
+  );
+
+  modes.forEach((mode) => {
+    const button = existingButtons.get(mode.id) || document.createElement("button");
     button.className = "browse-mode-button";
     button.type = "button";
     button.dataset.browseMode = mode.id;
     button.textContent = mode.label;
-    button.addEventListener("click", () => {
+    button.disabled = false;
+    button.removeAttribute("aria-disabled");
+    button.onclick = () => {
       onModeChange(mode.id);
-    });
+    };
     browseModesRoot.appendChild(button);
   });
 }
@@ -126,19 +149,21 @@ export function syncHomeControls({
   }
 }
 
-function createQuickFilterButton(tag, { onClearAllFilters, onToggleTagFilter }) {
-  const button = document.createElement("button");
+function createQuickFilterButton(tag, { onClearAllFilters, onToggleTagFilter }, existingButton = null) {
+  const button = existingButton instanceof HTMLButtonElement ? existingButton : document.createElement("button");
   button.className = "quick-filter";
   button.type = "button";
   button.dataset.chipFilter = tag.id;
   button.textContent = tag.label;
-  button.addEventListener("click", () => {
+  button.disabled = false;
+  button.removeAttribute("aria-disabled");
+  button.onclick = () => {
     if (tag.id === "all") {
       onClearAllFilters();
       return;
     }
 
     onToggleTagFilter(tag.id);
-  });
+  };
   return button;
 }

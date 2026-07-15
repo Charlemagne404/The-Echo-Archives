@@ -25,6 +25,16 @@
 
 body.filter-sheet-open {
   overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.filter-sheet-backdrop,
+.filter-sheet-close {
+  display: none;
+}
+
+.filter-sheet-backdrop[hidden] {
+  display: none;
 }
 
 #filterDropdown[hidden] {
@@ -46,7 +56,7 @@ body.filter-sheet-open {
   flex-direction: column;
   gap: 14px;
   width: min(400px, calc(100vw - 48px));
-  max-height: min(430px, calc(100vh - 96px));
+  max-height: min(430px, calc(var(--visual-viewport-height) - 96px));
   overflow: hidden;
   padding: 18px;
   border-radius: 20px;
@@ -120,6 +130,12 @@ body.filter-sheet-open {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.filter-dropdown-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .filter-dropdown-header,
 .filter-option-grid {
   opacity: 0;
@@ -179,7 +195,7 @@ body.filter-sheet-open {
 }
 
 .filter-clear-button {
-  min-height: 38px;
+  min-height: 44px;
   padding: 0 14px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
@@ -204,6 +220,9 @@ body.filter-sheet-open {
   min-height: 0;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .filter-menu-launcher {
@@ -303,7 +322,7 @@ body.filter-sheet-open {
 
 .filter-back-button,
 .filter-bucket-clear {
-  min-height: 38px;
+  min-height: 44px;
   padding: 0 14px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
@@ -313,6 +332,56 @@ body.filter-sheet-open {
   font-weight: 600;
   cursor: pointer;
   transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+@media (max-width: 959px) {
+  .filter-sheet-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1190;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: rgba(3, 5, 8, 0.82);
+    backdrop-filter: blur(4px);
+  }
+
+  .filter-sheet-close {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  .filter-sheet-close svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  #filterDropdown[data-filter-presentation="sheet"],
+  #stickyFilterDropdown[data-filter-presentation="sheet"] {
+    position: fixed;
+    top: calc(var(--visual-viewport-offset-top) + max(8px, var(--safe-area-top)));
+    right: max(8px, var(--safe-area-right));
+    bottom: max(8px, var(--safe-area-bottom));
+    left: max(8px, var(--safe-area-left));
+    width: auto;
+    max-height: none;
+    z-index: 1200;
+  }
+
+  #filterDropdown[data-filter-presentation="sheet"]::before,
+  #stickyFilterDropdown[data-filter-presentation="sheet"]::before {
+    display: none;
+  }
 }
 
 .filter-back-button:hover,
