@@ -70,7 +70,7 @@ for attempt in {1..20}; do
 done
 
 legacy_headers="$(curl --silent --show-error --resolve "echo.continental-hub.com:443:127.0.0.1" --dump-header - --output /dev/null "${LEGACY_URL}/shows/derelict?source=legacy")"
-grep -qE '^HTTP/[0-9.]+ 308' <<< "${legacy_headers}" || fail "legacy host did not return HTTP 308."
+grep -qE '^HTTP/[0-9.]+ 301' <<< "${legacy_headers}" || fail "legacy host did not return HTTP 301."
 grep -qE '^Location: https://echoarchives\.net/shows/derelict\?source=legacy' <<< "${legacy_headers}" || fail "legacy redirect did not preserve the expected path and query."
 
 echo "Domain migration complete. ${SITE_URL} is healthy and ${LEGACY_URL} redirects permanently."

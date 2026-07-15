@@ -280,7 +280,7 @@ curl --silent --show-error --dump-header - --output /dev/null https://echo.conti
 
 Confirm HTTPS, HSTS, compression on eligible content, the expected cache policy, and absence of internal paths or server error detail. Caddy is not available in every development environment, so its config must also be validated on the target host before launch.
 
-For the legacy host, confirm a `308` response with a `Location` header whose
+For the legacy host, confirm a permanent `301` response with a `Location` header whose
 origin is `https://echoarchives.net` and whose path and query are unchanged.
 
 ## Generated Output Rule
