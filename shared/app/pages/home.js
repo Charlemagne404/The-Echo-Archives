@@ -12,6 +12,7 @@ import {
 } from "../data.js";
 import { initializeHomePreviewController } from "../home-preview.js";
 import { buildWebsiteStructuredData } from "../structured-data.js";
+import { BRAND_DESCRIPTOR, DEFAULT_SEO_DESCRIPTION } from "../seo.js";
 import { updateDocumentMetadata } from "../utils.js";
 import { renderCollectionsRail } from "./home/collections.js";
 import { loadHomePageData } from "./home/data-load.js";
@@ -50,13 +51,11 @@ export async function initializeHomePage() {
   const showMap = buildShowMap(shows);
 
   updateDocumentMetadata({
-    title: "The Echo Archives",
-    description: "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.",
+    title: BRAND_DESCRIPTOR,
+    description: DEFAULT_SEO_DESCRIPTION,
     path: "/",
     image: DEFAULT_SOCIAL_IMAGE,
-    structuredData: buildWebsiteStructuredData(
-      "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.",
-    ),
+    structuredData: buildWebsiteStructuredData(DEFAULT_SEO_DESCRIPTION),
   });
   applyArchiveStats("home", getArchiveStats(shows, collections));
 

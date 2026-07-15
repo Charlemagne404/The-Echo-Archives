@@ -1,4 +1,6 @@
 import { buildSiteAbsoluteUrl } from "./utils.js";
+import { BRAND_DESCRIPTOR, buildCollectionSeoDescription, buildCollectionSeoTitle, buildShowSeoDescription, buildShowSeoTitle } from "./seo.js";
+import { createCollectionHref, createShowHref } from "./urls.js";
 
 function cleanText(value) {
   return String(value || "").trim();
@@ -36,12 +38,13 @@ function compactObject(record) {
   }));
 }
 
-function buildShowListItems(shows = []) {
+function buildShowListItems(shows = [], showReasons = {}) {
   return (Array.isArray(shows) ? shows : []).map((show, index) => ({
     "@type": "ListItem",
     position: index + 1,
     name: cleanText(show?.title) || "Untitled archive entry",
-    url: buildSiteAbsoluteUrl(`/show?id=${encodeURIComponent(show?.id || "")}`),
+    ...(cleanText(showReasons?.[show?.id]) ? { description: cleanText(showReasons[show.id]) } : {}),
+    url: buildSiteAbsoluteUrl(createShowHref(show?.id || "")),
   }));
 }
 
@@ -49,18 +52,37 @@ export function buildWebsiteStructuredData(description) {
   const homeUrl = buildSiteAbsoluteUrl("/");
   return {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "The Echo Archives",
-    url: homeUrl,
-    description: cleanText(description),
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${homeUrl}?q={search_term_string}#archive`,
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${homeUrl}#website`,
+        name: "The Echo Archives",
+        alternateName: BRAND_DESCRIPTOR,
+        url: homeUrl,
+        description: cleanText(description),
+        about: [
+          { "@type": "Thing", name: "Audio drama discovery" },
+          { "@type": "Thing", name: "Fiction podcast recommendations" },
+          { "@type": "Thing", name: "Audio drama reviews" },
+        ],
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: `${homeUrl}?q={search_term_string}#archive`,
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
-      "query-input": "required name=search_term_string",
-    },
+      {
+        "@type": "WebPage",
+        "@id": `${homeUrl}#webpage`,
+        url: homeUrl,
+        name: BRAND_DESCRIPTOR,
+        description: cleanText(description),
+        isPartOf: { "@id": `${homeUrl}#website` },
+      },
+    ],
   };
 }
 
@@ -73,12 +95,14 @@ export function buildShowStructuredData(show) {
   ]);
   const image = show?.imageSrc || (show?.cover ? `/${String(show.cover).replace(/^\/+/, "")}` : "");
 
-  return compactObject({
-    "@context": "https://schema.org",
+  const pageUrl = buildSiteAbsoluteUrl(createShowHref(show?.id || ""));
+  const homeUrl = buildSiteAbsoluteUrl("/");
+  const podcast = compactObject({
     "@type": "PodcastSeries",
+    "@id": `${pageUrl}#podcast`,
     name: title,
     description: cleanText(show?.description),
-    url: buildSiteAbsoluteUrl(`/show?id=${encodeURIComponent(show?.id || "")}`),
+    url: pageUrl,
     image: image ? buildSiteAbsoluteUrl(image) : "",
     genre: uniqueTextValues(show?.genres),
     creator: creators,
@@ -86,41 +110,104 @@ export function buildShowStructuredData(show) {
     dateModified: cleanText(show?.updatedAt),
     sameAs,
   });
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: buildShowSeoTitle(show),
+        description: buildShowSeoDescription(show),
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        mainEntity: { "@id": `${pageUrl}#podcast` },
+        ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: buildSiteAbsoluteUrl(image) } } : {}),
+        ...(show?.updatedAt ? { dateModified: show.updatedAt } : {}),
+      },
+      podcast,
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: title, item: pageUrl },
+        ],
+      },
+    ],
+  };
 }
 
 export function buildCollectionStructuredData(collection, shows = []) {
-  const itemListElement = buildShowListItems(shows);
+  const itemListElement = buildShowListItems(shows, collection?.showReasons);
+  const pageUrl = buildSiteAbsoluteUrl(createCollectionHref(collection?.id || ""));
+  const homeUrl = buildSiteAbsoluteUrl("/");
   return {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: cleanText(collection?.title) || "The Echo Archives collection",
-    description: cleanText(collection?.description),
-    url: buildSiteAbsoluteUrl(`/collection?id=${encodeURIComponent(collection?.id || "")}`),
-    mainEntity: {
-      "@type": "ItemList",
-      numberOfItems: itemListElement.length,
-      itemListElement,
-    },
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        name: buildCollectionSeoTitle(collection),
+        description: buildCollectionSeoDescription(collection, shows),
+        url: pageUrl,
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        mainEntity: { "@id": `${pageUrl}#itemlist` },
+        ...(collection?.updatedAt ? { dateModified: collection.updatedAt } : {}),
+      },
+      { "@type": "ItemList", "@id": `${pageUrl}#itemlist`, numberOfItems: itemListElement.length, itemListElement },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: buildSiteAbsoluteUrl("/collections") },
+          { "@type": "ListItem", position: 3, name: cleanText(collection?.title), item: pageUrl },
+        ],
+      },
+    ],
   };
 }
 
 export function buildCollectionsDirectoryStructuredData(collections = []) {
   const records = Array.isArray(collections) ? collections : [];
+  const pageUrl = buildSiteAbsoluteUrl("/collections");
+  const homeUrl = buildSiteAbsoluteUrl("/");
+  const description =
+    "Browse human-curated audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.";
   return {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Collections - The Echo Archives",
-    description: "Browse curated listening paths by mood, tone, and commitment in The Echo Archives.",
-    url: buildSiteAbsoluteUrl("/collections"),
-    mainEntity: {
-      "@type": "ItemList",
-      numberOfItems: records.length,
-      itemListElement: records.map((collection, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: cleanText(collection?.title) || "Untitled collection",
-        url: buildSiteAbsoluteUrl(`/collection?id=${encodeURIComponent(collection?.id || "")}`),
-      })),
-    },
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        name: "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives",
+        description,
+        url: pageUrl,
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        mainEntity: { "@id": `${pageUrl}#itemlist` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#itemlist`,
+        numberOfItems: records.length,
+        itemListElement: records.map((collection, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: cleanText(collection?.title) || "Untitled collection",
+          url: buildSiteAbsoluteUrl(createCollectionHref(collection?.id || "")),
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: pageUrl },
+        ],
+      },
+    ],
   };
 }

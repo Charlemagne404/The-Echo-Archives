@@ -117,7 +117,7 @@ test("chat route uses page context for show-page trust questions", async () => {
       message: "What does creator verified mean?",
       history: [],
       page: {
-        path: `/show?id=${verifiedShow.id}`,
+        path: `/shows/${verifiedShow.id}`,
         pageType: "show",
         showId: verifiedShow.id,
       },
@@ -210,7 +210,7 @@ test("chat route explains rating persistence issues on show pages", async () => 
       message: "Why didn't my rating stick?",
       history: [],
       page: {
-        path: "/show?id=impact-winter",
+        path: "/shows/impact-winter",
         pageType: "show",
         showId: "impact-winter",
       },
@@ -220,7 +220,7 @@ test("chat route explains rating persistence issues on show pages", async () => 
     assert.equal(result.body.source, "site-help");
     assert.equal(result.body.recommendations.length, 0);
     assert.match(result.body.answer, /local storage|cookie|verification|backend/i);
-    assert.equal(result.body.actions[0].href, "/show?id=impact-winter");
+    assert.equal(result.body.actions[0].href, "/shows/impact-winter");
   } finally {
     await closeChatTestServer(context.server);
   }

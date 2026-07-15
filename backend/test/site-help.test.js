@@ -104,14 +104,14 @@ test("site help explains why a rating might not stick", async () => {
   const response = buildSiteHelpResponse({
     message: "Why didn't my rating stick?",
     helpTopic: "rating-help",
-    page: { pageType: "show", path: "/show", showId: "impact-winter" },
+    page: { pageType: "show", path: "/shows/impact-winter", showId: "impact-winter" },
     catalog: context.catalog,
     collections: context.collections,
     siteHelpContext: context.siteHelpContext,
   });
 
   assert.match(response.answer, /local storage|cookie|verification|backend/i);
-  assert.equal(response.actions[0].href, "/show?id=impact-winter");
+  assert.equal(response.actions[0].href, "/shows/impact-winter");
 });
 
 test("site help escalates repeated broken-link follow-up questions", async () => {

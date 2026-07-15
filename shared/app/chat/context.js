@@ -1,4 +1,5 @@
 import { chatFootnote, userInput } from "../constants.js";
+import { getCollectionIdFromLocation, getShowIdFromLocation } from "../urls.js";
 
 function applyChatCopy() {
   const inputLabel = document.querySelector('label[for="userInput"]');
@@ -32,15 +33,13 @@ function applyChatCopy() {
 }
 
 function getChatPageContext() {
-  const params = new URLSearchParams(window.location.search);
   const pageType = getChatPageType();
-  const id = params.get("id") || "";
 
   return {
     path: window.location.pathname,
     pageType,
-    showId: pageType === "show" ? id : "",
-    collectionId: pageType === "collection" ? id : "",
+    showId: pageType === "show" ? getShowIdFromLocation() : "",
+    collectionId: pageType === "collection" ? getCollectionIdFromLocation() : "",
   };
 }
 

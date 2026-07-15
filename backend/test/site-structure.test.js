@@ -157,7 +157,7 @@ test("public and error pages ship the expected metadata primitives", () => {
 
   for (const errorPagePath of ["404.html", "500.html", "offline.html"]) {
     const html = fs.readFileSync(path.join(siteRoot, errorPagePath), "utf8");
-    assert.match(html, /<meta name="robots" content="noindex, nofollow"/, `${errorPagePath} should stay noindex.`);
+    assert.match(html, /<meta name="robots" content="noindex, nofollow, noarchive"/, `${errorPagePath} should stay noindex.`);
   }
 });
 
@@ -175,6 +175,7 @@ test("web manifest icons exist on disk", () => {
 test("committed sitemap includes generated show and collection routes", () => {
   const sitemapXml = fs.readFileSync(path.join(siteRoot, "sitemap.xml"), "utf8");
 
-  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/show\?id=/);
-  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/collection\?id=/);
+  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/shows\/[a-z0-9-]+<\/loc>/);
+  assert.match(sitemapXml, /<loc>https:\/\/echo\.continental-hub\.com\/collections\/[a-z0-9-]+<\/loc>/);
+  assert.doesNotMatch(sitemapXml, /\?(?:id|q)=/);
 });

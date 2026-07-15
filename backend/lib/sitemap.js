@@ -1,3 +1,10 @@
+const {
+  buildCollectionPath,
+  buildShowPath,
+  isIndexableCollection,
+  normalizeSiteUrl,
+} = require("./seo");
+
 function escapeXml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -7,14 +14,16 @@ function escapeXml(value = "") {
     .replace(/'/g, "&apos;");
 }
 
-function normalizeSiteUrl(siteUrl = "") {
-  return String(siteUrl || "").replace(/\/+$/, "");
-}
-
 function buildSitemapEntries({ siteUrl, catalog, collections }) {
   const baseUrl = normalizeSiteUrl(siteUrl);
   const publishedShows = (Array.isArray(catalog) ? catalog : []).filter((show) => show.status === "published");
-  const collectionRecords = Array.isArray(collections) ? collections : [];
+  const showMap = new Map(publishedShows.map((show) => [show.id, show]));
+  const collectionRecords = (Array.isArray(collections) ? collections : []).filter((collection) => {
+    const collectionShows = (Array.isArray(collection.showIds) ? collection.showIds : [])
+      .map((showId) => showMap.get(showId))
+      .filter(Boolean);
+    return isIndexableCollection(collection, collectionShows);
+  });
 
   return [
     { loc: `${baseUrl}/` },
@@ -30,11 +39,11 @@ function buildSitemapEntries({ siteUrl, catalog, collections }) {
     { loc: `${baseUrl}/cookies` },
     { loc: `${baseUrl}/copyright` },
     ...publishedShows.map((show) => ({
-      loc: `${baseUrl}/show?id=${encodeURIComponent(show.id)}`,
+      loc: `${baseUrl}${buildShowPath(show.id)}`,
       lastmod: show.updatedAt || "",
     })),
     ...collectionRecords.map((collection) => ({
-      loc: `${baseUrl}/collection?id=${encodeURIComponent(collection.id)}`,
+      loc: `${baseUrl}${buildCollectionPath(collection.id)}`,
       lastmod: collection.updatedAt || "",
     })),
   ];

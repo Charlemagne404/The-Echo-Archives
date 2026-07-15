@@ -512,7 +512,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     await firstCard.tap();
     await touchLinkPage.waitForTimeout(200);
     await firstShell.locator(".preview-open-link").tap();
-    await touchLinkPage.waitForURL(`${baseUrl}/show?id=*`, { timeout: 5_000 });
+    await touchLinkPage.waitForURL(`${baseUrl}/shows/*`, { timeout: 5_000 });
   } finally {
     await touchLinkPage.close();
   }

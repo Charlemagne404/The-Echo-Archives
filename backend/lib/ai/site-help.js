@@ -586,7 +586,7 @@ function buildPageNavigationResponse(page, show, collection, siteHelpContext, su
     ]),
     actions: buildActionList([
       show ? { label: "Open Show", href: show.href, external: false } : null,
-      collection ? { label: "Open Collection", href: `/collection?id=${encodeURIComponent(collection.id)}`, external: false } : null,
+      collection ? { label: "Open Collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false } : null,
       siteHelpContext.routes.browse,
       siteHelpContext.routes.collections,
       siteHelpContext.routes.submit,
@@ -649,7 +649,7 @@ function buildCollectionsResponse(collection, siteHelpContext) {
     return {
       answer: `${collection.title} is a curated listening path, not a generic genre folder. This route currently carries ${collection.showIds.length} archive picks and is meant to move you by mood, tone, or intent rather than taxonomy alone.`,
       actions: [
-        { label: "Open Collection", href: `/collection?id=${encodeURIComponent(collection.id)}`, external: false },
+        { label: "Open Collection", href: `/collections/${encodeURIComponent(collection.id)}`, external: false },
         siteHelpContext.routes.collections,
       ],
       suggestedPrompts: [

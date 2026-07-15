@@ -6,6 +6,8 @@ import { createShowPageMarkup } from "../render-show.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { bindShareButton } from "../share.js";
 import { buildShowStructuredData } from "../structured-data.js";
+import { buildShowSeoDescription, buildShowSeoTitle } from "../seo.js";
+import { createShowHref, getShowIdFromLocation } from "../urls.js";
 import { updateDocumentMetadata } from "../utils.js";
 
 export async function initializeShowPage() {
@@ -31,8 +33,7 @@ export async function initializeShowPage() {
   if (!shows || !collections) return;
   const showMap = buildShowMap(shows);
 
-  const params = new URLSearchParams(window.location.search);
-  const showId = params.get("id") || "";
+  const showId = getShowIdFromLocation();
   const show = showMap.get(showId);
 
   if (!show) {
@@ -54,7 +55,7 @@ function readShowBootstrap() {
 
   try {
     const show = normalizeShowRecord(JSON.parse(node.textContent || "null"));
-    const requestedId = new URLSearchParams(window.location.search).get("id") || "";
+    const requestedId = getShowIdFromLocation();
     if (!show.id || show.id !== requestedId || show.status !== "published") {
       return null;
     }
@@ -68,9 +69,9 @@ function applyShowMetadata(show) {
   document.body.style.setProperty("--detail-accent", show.accent?.hex || "#e54838");
   document.body.style.setProperty("--detail-accent-rgb", show.accent?.rgb || "229, 72, 56");
   updateDocumentMetadata({
-    title: `${show.title} - The Echo Archives`,
-    description: show.description,
-    path: `/show?id=${encodeURIComponent(show.id)}`,
+    title: buildShowSeoTitle(show),
+    description: buildShowSeoDescription(show),
+    path: createShowHref(show.id),
     image: show.imageSrc || `/${show.cover}`,
     imageAlt: show.imageAlt || show.coverAlt || `${show.title} cover art`,
     structuredData: buildShowStructuredData(show),
@@ -114,7 +115,7 @@ function renderMissingShowPage(showRoot) {
   updateDocumentMetadata({
     title: "Show not found - The Echo Archives",
     description: "The requested Echo Archives show page could not be found.",
-    path: "/show",
+    path: window.location.pathname,
     image: DEFAULT_SOCIAL_IMAGE,
   });
   showRoot.innerHTML = `

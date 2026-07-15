@@ -80,7 +80,7 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/show?id=solar`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/shows/solar`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () => Boolean(document.querySelector(".detail-side-rail") && document.querySelector(".detail-main-column")),
       undefined,
@@ -133,7 +133,7 @@ test("show-page genre breadcrumb returns to the archive with that genre filter a
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/show?id=were-alive`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
     await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
     await page.waitForURL(`${baseUrl}/?genre=thriller#archive`);
     await openFilterBucket(page, "storyType");
@@ -176,7 +176,7 @@ test("clearing a breadcrumb-driven genre filter also clears it from the URL afte
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/show?id=were-alive`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
     await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
     await page.waitForURL(`${baseUrl}/?genre=thriller#archive`);
     await page.locator('#activeBrowseState .active-browse-chip[data-active-browse-id="genres:thriller"]').click();

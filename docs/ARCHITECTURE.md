@@ -88,8 +88,8 @@ Primary public routes:
 - `/supporters`
 - `/help-center`
 - `/collections`
-- `/collection?id=<collection-id>`
-- `/show?id=<show-id>`
+- `/collections/<collection-id>`
+- `/shows/<show-id>`
 - `/submit`
 - `/privacy`
 - `/terms`
@@ -109,7 +109,7 @@ Maintainer-only routes when configured:
 - `/maintainer/imports.html`
 - `/maintainer/imports/report.html`
 
-Legacy detail pages still exist under `shows/` and are kept as compatibility redirects to the reusable show route.
+Legacy detail HTML and `/show?id=...` or `/collection?id=...` aliases are compatibility routes only. The backend permanently redirects them to the clean canonical routes, which are the only detail URLs emitted by internal links and the sitemap.
 
 ## Frontend Role
 

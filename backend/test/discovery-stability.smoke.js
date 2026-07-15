@@ -155,7 +155,7 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
     await page.waitForFunction((scrollTarget) => window.scrollY >= Math.max(0, scrollTarget - 8), stateBeforeNavigate.scrollTarget);
 
     await page.locator("#podcast-grid .podcast-card").first().click();
-    await page.waitForURL(/\/show\?id=/);
+    await page.waitForURL(/\/shows\/[^/?#]+$/);
     await page.goBack({ waitUntil: "networkidle" });
 
     await page.waitForFunction(
@@ -368,7 +368,7 @@ test("show and collection pages expose honest empty states and working copy-link
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/show?id=solar`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/shows/solar`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => Boolean(document.querySelector(".detail-listener-reviews-section")));
     await page.evaluate(() => {
       Object.defineProperty(navigator, "clipboard", {
@@ -388,11 +388,11 @@ test("show and collection pages expose honest empty states and working copy-link
       emptyCopy: document.querySelector(".detail-reviews-empty-state")?.textContent || "",
       reviewHref: document.querySelector('.detail-reviews-empty-state a[href*="submissionType=listener-review"]')?.getAttribute("href") || "",
     }));
-    assert.equal(showState.copiedValue, `${baseUrl}/show?id=solar`);
+    assert.equal(showState.copiedValue, `${baseUrl}/shows/solar`);
     assert.match(showState.emptyCopy, /No listener reviews are published/i);
     assert.equal(showState.reviewHref, "/submit?submissionType=listener-review&showId=solar");
 
-    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => Boolean(document.getElementById("collectionCopyLink")));
     await page.evaluate(() => {
       delete navigator.clipboard;
@@ -416,7 +416,7 @@ test("show and collection pages expose honest empty states and working copy-link
       relatedCollectionIds: Array.from(document.querySelectorAll("#collectionRelatedGrid .collections-directory-card")).map(
         (node) => node.getAttribute("data-collection-id") || "",
       ),
-      currentCollectionId: new URLSearchParams(window.location.search).get("id") || "",
+      currentCollectionId: window.location.pathname.split("/").filter(Boolean).at(-1) || "",
     }));
 
     assert.equal(collectionState.legacyCommand, "copy");
@@ -438,7 +438,7 @@ test("similarity collection pages render anchor context in the overview panel", 
   const anchorShow = showFixtures.find((show) => show.id === similarityCollection?.anchorShowId);
 
   try {
-    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () =>
         document.getElementById("collectionTitle")?.textContent?.trim() !== "Collection" &&
@@ -465,7 +465,7 @@ test("similarity collection pages render anchor context in the overview panel", 
     }));
 
     assert.ok(state.anchorLabel.length > 0);
-    assert.match(state.anchorHref, /^\/show\?id=/);
+    assert.match(state.anchorHref, /^\/shows\//);
     assert.match(state.metaLine, /route/i);
     assert.ok(state.overviewSignals.length > 0);
     assert.ok(anchorShow?.cover);

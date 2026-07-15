@@ -2,9 +2,9 @@
   {
     "source": "index.html",
     "output": "index.html",
-    "title": "The Echo Archives",
-    "description": "A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.",
-    "canonicalUrl": "https://echo.continental-hub.com/",
+    "title": "The Echo Archives — Audio Drama Discovery",
+    "description": "Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.",
+    "canonicalUrl": "/",
     "bodyClass": "home-page",
     "activeNav": "browse",
     "extraStylesheets": [
@@ -18,9 +18,9 @@
   {
     "source": "about.html",
     "output": "about.html",
-    "title": "About - The Echo Archives",
-    "description": "Why The Echo Archives exists, how it stays listener-first, and how the archive handles trust, ratings, and support.",
-    "canonicalUrl": "https://echo.continental-hub.com/about",
+    "title": "About Our Audio Drama Archive | The Echo Archives",
+    "description": "How The Echo Archives human-curates audio drama reviews and fiction podcast recommendations while keeping editorial, community, and factual signals separate.",
+    "canonicalUrl": "/about",
     "bodyClass": "home-page about-page info-page",
     "activeNav": "about",
     "extraStylesheets": [
@@ -33,9 +33,9 @@
   {
     "source": "for-creators.html",
     "output": "for-creators.html",
-    "title": "For Creators - The Echo Archives",
-    "description": "How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/for-creators",
+    "title": "For Audio Drama Creators | The Echo Archives",
+    "description": "Audio drama and fiction podcast creators can submit shows, correct factual metadata, add official links, and request creator verification.",
+    "canonicalUrl": "/for-creators",
     "bodyClass": "home-page for-creators-page info-page",
     "activeNav": "for-creators",
     "extraStylesheets": [
@@ -51,7 +51,7 @@
     "output": "creator-standards.html",
     "title": "Creator Standards - The Echo Archives",
     "description": "The standards and trust rules The Echo Archives uses when handling creator submissions, verification, and metadata updates.",
-    "canonicalUrl": "https://echo.continental-hub.com/creator-standards",
+    "canonicalUrl": "/creator-standards",
     "bodyClass": "home-page creator-standards-page info-page",
     "activeNav": "for-creators",
     "extraStylesheets": [
@@ -67,7 +67,7 @@
     "output": "supporters.html",
     "title": "Support the Archive - The Echo Archives",
     "description": "Help keep The Echo Archives listener-supported, ad-free, and independent.",
-    "canonicalUrl": "https://echo.continental-hub.com/supporters",
+    "canonicalUrl": "/supporters",
     "bodyClass": "home-page supporters-page info-page",
     "activeNav": "supporters",
     "extraStylesheets": [
@@ -82,7 +82,7 @@
     "output": "help-center.html",
     "title": "Help Center - The Echo Archives",
     "description": "Common fixes, archive FAQs, and practical help for discovery, ratings, links, and browser behavior in The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/help-center",
+    "canonicalUrl": "/help-center",
     "bodyClass": "home-page help-center-page info-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -95,9 +95,9 @@
   {
     "source": "collections.html",
     "output": "collections.html",
-    "title": "Collections - The Echo Archives",
-    "description": "Browse curated listening paths by mood, tone, and commitment in The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/collections",
+    "title": "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives",
+    "description": "Browse human-curated audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.",
+    "canonicalUrl": "/collections",
     "bodyClass": "home-page collections-page info-page",
     "activeNav": "collections",
     "extraStylesheets": [
@@ -110,9 +110,9 @@
   {
     "source": "collection.html",
     "output": "collection.html",
-    "title": "Collection - The Echo Archives",
-    "description": "A curated collection of fiction podcasts and audio dramas from The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/collection",
+    "title": "Audio Drama Recommendations | The Echo Archives",
+    "description": "A human-curated collection of audio drama and fiction podcast recommendations from The Echo Archives.",
+    "canonicalUrl": "/collection",
     "bodyClass": "home-page collection-page info-page",
     "activeNav": "collections",
     "extraStylesheets": [
@@ -125,9 +125,9 @@
   {
     "source": "show.html",
     "output": "show.html",
-    "title": "Show - The Echo Archives",
-    "description": "A reusable archive page for fiction podcasts and audio dramas in The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/show",
+    "title": "Audio Drama Review & Similar Shows | The Echo Archives",
+    "description": "A human-curated audio drama guide with editorial context, factual podcast metadata, listening links, and similar fiction podcast recommendations.",
+    "canonicalUrl": "/show",
     "bodyClass": "home-page detail-page show-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -142,7 +142,7 @@
     "output": "submit.html",
     "title": "Submit a Show - The Echo Archives",
     "description": "Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/submit",
+    "canonicalUrl": "/submit",
     "bodyClass": "home-page submit-page info-page",
     "activeNav": "submit",
     "extraStylesheets": [
@@ -157,7 +157,7 @@
     "output": "404.html",
     "title": "Page Not Found - The Echo Archives",
     "description": "The route you followed does not map to a live Echo Archives page. Return to the archive or browse collections.",
-    "canonicalUrl": "https://echo.continental-hub.com/404.html",
+    "canonicalUrl": "/404.html",
     "bodyClass": "home-page info-page not-found-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -173,7 +173,7 @@
     "output": "500.html",
     "title": "Server Error - The Echo Archives",
     "description": "The archive hit a temporary server problem. Try again in a moment or return to the public routes.",
-    "canonicalUrl": "https://echo.continental-hub.com/500.html",
+    "canonicalUrl": "/500.html",
     "bodyClass": "home-page info-page server-error-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -189,7 +189,7 @@
     "output": "offline.html",
     "title": "Offline - The Echo Archives",
     "description": "The archive cannot reach the network right now. Reconnect to keep browsing and fetching live data.",
-    "canonicalUrl": "https://echo.continental-hub.com/offline.html",
+    "canonicalUrl": "/offline.html",
     "bodyClass": "home-page info-page offline-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -205,7 +205,7 @@
     "output": "maintainer/submissions.html",
     "title": "Submission Queue - The Echo Archives",
     "description": "Maintainer submission queue for The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/maintainer/submissions.html",
+    "canonicalUrl": "/maintainer/submissions.html",
     "bodyClass": "home-page maintainer-page info-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -221,7 +221,7 @@
     "output": "maintainer/submissions/report.html",
     "title": "Submission Report - The Echo Archives",
     "description": "Maintainer submission report for The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/maintainer/submissions/report.html",
+    "canonicalUrl": "/maintainer/submissions/report.html",
     "bodyClass": "home-page maintainer-page maintainer-report-page info-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -237,7 +237,7 @@
     "output": "maintainer/imports.html",
     "title": "Catalog Imports - The Echo Archives",
     "description": "Maintainer catalog import queue for The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/maintainer/imports.html",
+    "canonicalUrl": "/maintainer/imports.html",
     "bodyClass": "home-page maintainer-import-page info-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -253,7 +253,7 @@
     "output": "maintainer/imports/report.html",
     "title": "Catalog Import Report - The Echo Archives",
     "description": "Maintainer catalog import report for The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/maintainer/imports/report.html",
+    "canonicalUrl": "/maintainer/imports/report.html",
     "bodyClass": "home-page maintainer-import-page maintainer-import-report-page info-page",
     "activeNav": "",
     "extraStylesheets": [
@@ -269,7 +269,7 @@
     "output": "privacy.html",
     "title": "Privacy - The Echo Archives",
     "description": "How The Echo Archives handles anonymous ratings, submissions, chat history, and limited technical data.",
-    "canonicalUrl": "https://echo.continental-hub.com/privacy",
+    "canonicalUrl": "/privacy",
     "bodyClass": "home-page info-page",
     "activeNav": "privacy",
     "extraStylesheets": [
@@ -284,7 +284,7 @@
     "output": "terms.html",
     "title": "Terms - The Echo Archives",
     "description": "Terms for using The Echo Archives website, submissions, ratings, and archive content.",
-    "canonicalUrl": "https://echo.continental-hub.com/terms",
+    "canonicalUrl": "/terms",
     "bodyClass": "home-page info-page",
     "activeNav": "terms",
     "extraStylesheets": [
@@ -299,7 +299,7 @@
     "output": "cookies.html",
     "title": "Cookies - The Echo Archives",
     "description": "Cookie and browser storage information for The Echo Archives.",
-    "canonicalUrl": "https://echo.continental-hub.com/cookies",
+    "canonicalUrl": "/cookies",
     "bodyClass": "home-page info-page",
     "activeNav": "cookies",
     "extraStylesheets": [
@@ -314,7 +314,7 @@
     "output": "copyright.html",
     "title": "Copyright & Takedown - The Echo Archives",
     "description": "How The Echo Archives handles rights-holder corrections, attribution requests, and takedown notices.",
-    "canonicalUrl": "https://echo.continental-hub.com/copyright",
+    "canonicalUrl": "/copyright",
     "bodyClass": "home-page info-page",
     "activeNav": "terms",
     "extraStylesheets": [

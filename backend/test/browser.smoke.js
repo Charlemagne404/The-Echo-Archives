@@ -19,6 +19,7 @@ const {
   teardownSmoke,
   waitForMostPopularBandIds,
 } = require("./helpers/browser-smoke");
+const { buildCollectionSeoTitle, buildShowSeoTitle } = require("../lib/seo");
 
 let browser;
 let baseUrl;
@@ -55,21 +56,21 @@ test("main routes render expected page titles", async () => {
 
   try {
     const routes = [
-      { url: `${baseUrl}/`, title: "The Echo Archives" },
-      { url: `${baseUrl}/about`, title: "About - The Echo Archives" },
-      { url: `${baseUrl}/for-creators`, title: "For Creators - The Echo Archives" },
+      { url: `${baseUrl}/`, title: "The Echo Archives — Audio Drama Discovery" },
+      { url: `${baseUrl}/about`, title: "About Our Audio Drama Archive | The Echo Archives" },
+      { url: `${baseUrl}/for-creators`, title: "For Audio Drama Creators | The Echo Archives" },
       { url: `${baseUrl}/creator-standards`, title: "Creator Standards - The Echo Archives" },
       { url: `${baseUrl}/supporters`, title: "Support the Archive - The Echo Archives" },
       { url: `${baseUrl}/help-center`, title: "Help Center - The Echo Archives" },
-      { url: `${baseUrl}/collections`, title: "Collections - The Echo Archives" },
+      { url: `${baseUrl}/collections`, title: "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives" },
       {
-        url: `${baseUrl}/collection?id=${firstCollectionId}`,
-        title: `${collectionFixtures[0].title} - The Echo Archives`,
+        url: `${baseUrl}/collections/${firstCollectionId}`,
+        title: buildCollectionSeoTitle(collectionFixtures[0]),
         waitForResolvedTitle: true,
       },
       {
-        url: `${baseUrl}/show?id=${firstShowId}`,
-        title: `${showFixtures[0].title} - The Echo Archives`,
+        url: `${baseUrl}/shows/${firstShowId}`,
+        title: buildShowSeoTitle(showFixtures[0]),
         waitForResolvedTitle: true,
       },
       { url: `${baseUrl}/submit`, title: "Submit a Show - The Echo Archives" },
@@ -121,20 +122,20 @@ test("public and error routes expose the expected metadata", async () => {
     const checks = [
       {
         url: `${baseUrl}/`,
-        expectedTitle: "The Echo Archives",
+        expectedTitle: "The Echo Archives — Audio Drama Discovery",
         expectedCanonical: `${baseUrl}/`,
         noIndex: false,
       },
       {
-        url: `${baseUrl}/show?id=${firstShowId}`,
-        expectedTitle: `${showFixtures[0].title} - The Echo Archives`,
-        expectedCanonical: `${baseUrl}/show?id=${encodeURIComponent(firstShowId)}`,
+        url: `${baseUrl}/shows/${firstShowId}`,
+        expectedTitle: buildShowSeoTitle(showFixtures[0]),
+        expectedCanonical: `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`,
         noIndex: false,
       },
       {
-        url: `${baseUrl}/collection?id=${firstCollectionId}`,
-        expectedTitle: `${collectionFixtures[0].title} - The Echo Archives`,
-        expectedCanonical: `${baseUrl}/collection?id=${encodeURIComponent(firstCollectionId)}`,
+        url: `${baseUrl}/collections/${firstCollectionId}`,
+        expectedTitle: buildCollectionSeoTitle(collectionFixtures[0]),
+        expectedCanonical: `${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`,
         noIndex: false,
       },
       {
@@ -183,7 +184,7 @@ test("public and error routes expose the expected metadata", async () => {
       assert.ok(metadata.twitterImage.length > 0);
       assert.equal(metadata.themeColor, "#06080b");
       assert.equal(metadata.manifest, "/site.webmanifest");
-      assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow, noarchive" : "");
+      assert.equal(metadata.robots, check.noIndex ? "noindex, nofollow, noarchive" : "index, follow, max-image-preview:large");
     }
   } finally {
     await page.close();
@@ -194,7 +195,7 @@ test("collection detail pages expose listener-facing overview and related route 
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
 
   try {
-    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () =>
         document.querySelectorAll("#collectionOverviewChips .collection-detail-signal-chip").length > 0 &&
@@ -226,7 +227,7 @@ test("collection detail pages expose listener-facing overview and related route 
     assert.ok(collectionState.overviewChipCount > 0);
     assert.ok(collectionState.compactRelatedCount > 0);
 
-    await page.goto(`${baseUrl}/collection?id=${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstSimilarityCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(
       () => document.querySelector("#collectionOverviewMetaLine .collection-detail-anchor-link"),
       undefined,
@@ -239,7 +240,7 @@ test("collection detail pages expose listener-facing overview and related route 
     }));
 
     assert.ok(similarityState.anchorText.length > 0);
-    assert.match(similarityState.anchorHref, /^\/show\?id=/);
+    assert.match(similarityState.anchorHref, /^\/shows\//);
   } finally {
     await page.close();
   }
@@ -279,7 +280,7 @@ test("show and collection share actions trigger native share or copy feedback", 
       });
     });
 
-    await nativeSharePage.goto(`${baseUrl}/show?id=${firstShowId}`, { waitUntil: "networkidle" });
+    await nativeSharePage.goto(`${baseUrl}/shows/${firstShowId}`, { waitUntil: "networkidle" });
     await nativeSharePage.locator('[data-share-action]').click();
     await nativeSharePage.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
 
@@ -290,7 +291,7 @@ test("show and collection share actions trigger native share or copy feedback", 
     }));
     assert.equal(nativeShareState.buttonLabel, "Share");
     assert.equal(nativeShareState.toastMessage, "Shared from the archive.");
-    assert.equal(nativeShareState.shareData?.url, `${baseUrl}/show?id=${encodeURIComponent(firstShowId)}`);
+    assert.equal(nativeShareState.shareData?.url, `${baseUrl}/shows/${encodeURIComponent(firstShowId)}`);
     assert.match(nativeShareState.shareData?.title || "", /The Echo Archives/);
 
     await fallbackCopyPage.addInitScript(() => {
@@ -324,7 +325,7 @@ test("show and collection share actions trigger native share or copy feedback", 
       });
     });
 
-    await fallbackCopyPage.goto(`${baseUrl}/collection?id=${firstCollectionId}`, { waitUntil: "networkidle" });
+    await fallbackCopyPage.goto(`${baseUrl}/collections/${firstCollectionId}`, { waitUntil: "networkidle" });
     await fallbackCopyPage.locator("#collectionCopyLink").click();
     await fallbackCopyPage.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
 
@@ -335,7 +336,7 @@ test("show and collection share actions trigger native share or copy feedback", 
     }));
     assert.equal(fallbackCopyState.buttonLabel, "Share");
     assert.equal(fallbackCopyState.toastMessage, "Link copied to clipboard.");
-    assert.match(fallbackCopyState.copiedText, /\/collection\?id=/);
+    assert.match(fallbackCopyState.copiedText, /\/collections\//);
   } finally {
     await nativeSharePage.close();
     await fallbackCopyPage.close();
@@ -358,7 +359,7 @@ test("service worker supports cached public pages offline and falls back for unc
       await route.abort();
     });
     await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
-    assert.equal(await page.title(), "The Echo Archives");
+    assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
     await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 10_000 });
     await page.locator("#filterToggle").click();
     await page.waitForFunction(() => document.getElementById("filterDropdown")?.dataset.state === "open");
@@ -376,7 +377,7 @@ test("fresh browser contexts load the core public routes without relying on prio
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
-    assert.equal(await page.title(), "The Echo Archives");
+    assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
 
     const homeStorageState = await page.evaluate(() => ({
       chatHistory: window.sessionStorage.getItem("echo-archives-chat-v3"),
@@ -397,9 +398,9 @@ test("fresh browser contexts load the core public routes without relying on prio
     assert.equal(mountedChatState.chatControls, "chat-container");
     await page.getByRole("button", { name: "Close chat" }).click();
 
-    await page.goto(`${baseUrl}/show?id=${firstShowId}`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/shows/${firstShowId}`, { waitUntil: "networkidle" });
     await page.locator('[data-share-action]').waitFor();
-    assert.equal(await page.title(), `${showFixtures[0].title} - The Echo Archives`);
+    assert.equal(await page.title(), buildShowSeoTitle(showFixtures[0]));
 
     await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
     await page.waitForFunction(
@@ -421,11 +422,13 @@ test("legacy detail redirects still land on the canonical show route", async () 
 
   try {
     for (const redirect of legacyRedirectManifest) {
+      const showId = new URL(redirect.target, baseUrl).searchParams.get("id");
+      const expectedTarget = `/shows/${encodeURIComponent(showId)}`;
       await page.goto(encodeURI(`${baseUrl}/${redirect.path}`), { waitUntil: "domcontentloaded" });
-      await page.waitForFunction((expectedTarget) => location.pathname + location.search === expectedTarget, redirect.target, {
+      await page.waitForFunction((target) => location.pathname + location.search === target, expectedTarget, {
         timeout: 5_000,
       });
-      assert.equal(new URL(await page.url()).pathname + new URL(await page.url()).search, redirect.target);
+      assert.equal(new URL(await page.url()).pathname + new URL(await page.url()).search, expectedTarget);
     }
   } finally {
     await page.close();
@@ -497,7 +500,7 @@ test("mobile chat launcher stays out of the first viewport until the user starts
     const routeChecks = [
       { url: `${baseUrl}/`, ready: () => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0 },
       { url: `${baseUrl}/privacy`, ready: () => Boolean(document.querySelector(".info-document-layout")) },
-      { url: `${baseUrl}/show?id=${fullReviewShowId}`, ready: () => Boolean(document.querySelector(".podcast-detail")) },
+      { url: `${baseUrl}/shows/${fullReviewShowId}`, ready: () => Boolean(document.querySelector(".podcast-detail")) },
     ];
 
     for (const routeCheck of routeChecks) {
@@ -578,7 +581,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/collection?id=${firstCollectionId}`,
+        url: `${baseUrl}/collections/${firstCollectionId}`,
         ready: () => document.getElementById("collectionTitle")?.textContent?.trim() !== "Collection",
         evaluate: () => ({
           scrollWidth: document.documentElement.scrollWidth,
@@ -596,7 +599,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         },
       },
       {
-        url: `${baseUrl}/show?id=${fullReviewShowId}`,
+        url: `${baseUrl}/shows/${fullReviewShowId}`,
         ready: () => document.querySelector(".detail-official-summary-section") && document.querySelector(".community-review-panel"),
         evaluate: () => {
           const officialTop = document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0;

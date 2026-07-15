@@ -709,7 +709,7 @@ test("homepage most popular band renders a valid 4-card band and hides outside t
       assert.ok(title);
     });
     defaultState.hrefs.forEach((href, index) => {
-      assert.equal(href, `/show?id=${defaultState.cardIds[index]}`);
+      assert.equal(href, `/shows/${defaultState.cardIds[index]}`);
     });
 
     const gridCounts = await page.evaluate(

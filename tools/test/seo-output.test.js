@@ -23,6 +23,10 @@ function readStructuredData(relativePath) {
   return JSON.parse(match[1]);
 }
 
+function graphNode(data, type) {
+  return (Array.isArray(data?.["@graph"]) ? data["@graph"] : [data]).find((entry) => entry?.["@type"] === type);
+}
+
 test("SITE_URL is authoritative for generated canonical origins", () => {
   const previousSiteUrl = process.env.SITE_URL;
   process.env.SITE_URL = "https://preview.example.test/some-path";
@@ -86,21 +90,32 @@ test("generated public metadata and discovery documents use one configured origi
 
   assert.match(read("robots.txt"), new RegExp(`Sitemap: ${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/sitemap\\.xml`));
   assert.match(read("robots.txt"), /^Disallow: \/maintainer\/$/m);
+  assert.match(read("robots.txt"), /^Disallow: \/api\/$/m);
   assert.match(read("sitemap.xml"), new RegExp(`<loc>${siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\/</loc>`));
+  assert.doesNotMatch(read("sitemap.xml"), /\/(?:show|collection)\?id=/);
 });
 
 test("generated structured data describes only supported discovery entities", () => {
-  const website = readStructuredData("index.html");
+  const websiteData = readStructuredData("index.html");
+  const website = graphNode(websiteData, "WebSite");
+  const homepage = graphNode(websiteData, "WebPage");
   assert.equal(website["@type"], "WebSite");
+  assert.equal(website.alternateName, "The Echo Archives — Audio Drama Discovery");
   assert.equal(website.potentialAction["@type"], "SearchAction");
   assert.match(website.potentialAction.target.urlTemplate, /\?q=\{search_term_string\}#archive$/);
+  assert.equal(homepage.name, "The Echo Archives — Audio Drama Discovery");
 
-  const directory = readStructuredData("collections.html");
+  const directoryData = readStructuredData("collections.html");
+  const directory = graphNode(directoryData, "CollectionPage");
+  const itemList = graphNode(directoryData, "ItemList");
   const collections = JSON.parse(read("data/collections.json"));
   assert.equal(directory["@type"], "CollectionPage");
-  assert.equal(directory.mainEntity["@type"], "ItemList");
-  assert.equal(directory.mainEntity.numberOfItems, collections.length);
-  assert.equal(directory.mainEntity.itemListElement.length, collections.length);
+  assert.equal(directory.mainEntity["@id"], itemList["@id"]);
+  assert.equal(itemList.numberOfItems, collections.length);
+  assert.equal(itemList.itemListElement.length, collections.length);
+  assert.ok(itemList.itemListElement.every((entry) => /\/collections\/[a-z0-9-]+$/.test(entry.url)));
+  assert.match(read("collections.html"), /data-collections-prerendered="true"/);
+  assert.match(read("collections.html"), /href="\/collections\/shows-like-midnight-burger"/);
 });
 
 test("private pages and generated asset plumbing have launch-safe output", () => {
@@ -110,7 +125,7 @@ test("private pages and generated asset plumbing have launch-safe output", () =>
     "maintainer/imports.html",
     "maintainer/imports/report.html",
   ].forEach((relativePath) => {
-    assert.match(read(relativePath), /<meta name="robots" content="noindex, nofollow"/);
+    assert.match(read(relativePath), /<meta name="robots" content="noindex, nofollow, noarchive"/);
   });
 
   const home = read("index.html");

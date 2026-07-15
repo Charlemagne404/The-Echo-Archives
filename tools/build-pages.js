@@ -4,8 +4,9 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 
 const { buildSitemapXml } = require("../backend/lib/sitemap");
+const { BRAND_DESCRIPTOR, DEFAULT_DESCRIPTION } = require("../backend/lib/seo");
 const { generateStaticImageVariants } = require("../backend/lib/responsive-images");
-const { renderHomePagePrerender } = require("./lib/home-page-prerender");
+const { renderCollectionsPagePrerender, renderHomePagePrerender } = require("./lib/home-page-prerender");
 
 const ROOT = path.resolve(__dirname, "..");
 const SITE_SRC = path.join(ROOT, "site-src");
@@ -274,7 +275,9 @@ function renderStylesheets(extraStylesheets = [], versions = {}) {
 }
 
 function renderRobotsMeta(entry) {
-  return entry.noIndex ? '<meta name="robots" content="noindex, nofollow" />' : "";
+  return entry.noIndex
+    ? '<meta name="robots" content="noindex, nofollow, noarchive" />'
+    : '<meta name="robots" content="index, follow, max-image-preview:large" />';
 }
 
 function renderAnalyticsScript(entry) {
@@ -423,6 +426,10 @@ function renderPageBody(entry, homeConfig, archiveStats, submitPrerender) {
     });
   }
 
+  if (entry.output === "collections.html") {
+    pageBody = renderCollectionsPagePrerender(pageBody, { rootDir: ROOT });
+  }
+
   if (entry.output === "submit.html" && submitPrerender) {
     Object.entries(submitPrerender).forEach(([id, markup]) => {
       pageBody = replaceElementMarkupById(pageBody, id, markup);
@@ -463,41 +470,80 @@ function renderStructuredData(value) {
 }
 
 function buildCollectionsStructuredData({ siteUrl, entry, collections }) {
+  const homeUrl = new URL("/", `${siteUrl}/`).toString();
+  const pageUrl = entry.canonicalUrl;
   return {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: entry.title,
-    description: entry.description,
-    url: entry.canonicalUrl,
-    mainEntity: {
-      "@type": "ItemList",
-      numberOfItems: collections.length,
-      itemListElement: collections.map((collection, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: collection.title,
-        url: new URL(`/collection?id=${encodeURIComponent(collection.id)}`, `${siteUrl}/`).toString(),
-      })),
-    },
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        name: entry.title,
+        description: entry.description,
+        url: pageUrl,
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+        mainEntity: { "@id": `${pageUrl}#itemlist` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${pageUrl}#itemlist`,
+        numberOfItems: collections.length,
+        itemListElement: collections.map((collection, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: collection.title,
+          url: new URL(`/collections/${encodeURIComponent(collection.id)}`, `${siteUrl}/`).toString(),
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: pageUrl },
+        ],
+      },
+    ],
   };
 }
 
 function buildPageStructuredData({ siteUrl, entry, collections }) {
   if (entry.output === "index.html") {
+    const homeUrl = new URL("/", `${siteUrl}/`).toString();
     return {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "The Echo Archives",
-      url: new URL("/", `${siteUrl}/`).toString(),
-      description: entry.description,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${new URL("/", `${siteUrl}/`).toString()}?q={search_term_string}#archive`,
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": `${homeUrl}#website`,
+          name: "The Echo Archives",
+          alternateName: BRAND_DESCRIPTOR,
+          url: homeUrl,
+          description: entry.description,
+          about: [
+            { "@type": "Thing", name: "Audio drama discovery" },
+            { "@type": "Thing", name: "Fiction podcast recommendations" },
+            { "@type": "Thing", name: "Audio drama reviews" },
+          ],
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${homeUrl}?q={search_term_string}#archive`,
+            },
+            "query-input": "required name=search_term_string",
+          },
         },
-        "query-input": "required name=search_term_string",
-      },
+        {
+          "@type": "WebPage",
+          "@id": `${homeUrl}#webpage`,
+          url: homeUrl,
+          name: BRAND_DESCRIPTOR,
+          description: entry.description || DEFAULT_DESCRIPTION,
+          isPartOf: { "@id": `${homeUrl}#website` },
+        },
+      ],
     };
   }
 
@@ -505,7 +551,31 @@ function buildPageStructuredData({ siteUrl, entry, collections }) {
     return buildCollectionsStructuredData({ siteUrl, entry, collections });
   }
 
-  return null;
+  if (entry.noIndex) return null;
+  const homeUrl = new URL("/", `${siteUrl}/`).toString();
+  const pageUrl = entry.canonicalUrl;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: entry.title,
+        description: entry.description,
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: entry.title, item: pageUrl },
+        ],
+      },
+    ],
+  };
 }
 
 function renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender) {
@@ -578,7 +648,7 @@ function resolveCleanRouteAlias(entry) {
 
   let pathname = "";
   try {
-    pathname = new URL(entry.canonicalUrl).pathname || "";
+    pathname = new URL(entry.canonicalUrl, DEFAULT_SITE_URL).pathname || "";
   } catch (_error) {
     return null;
   }
@@ -879,6 +949,7 @@ function writeRobots({ siteUrl }) {
   const contents = [
     "User-agent: *",
     "Allow: /",
+    "Disallow: /api/",
     "Disallow: /maintainer/",
     "",
     `Sitemap: ${new URL("/sitemap.xml", `${siteUrl}/`).toString()}`,

@@ -15,19 +15,17 @@ function escapeRegExp(value = "") {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function normalizeSiteUrl(siteUrl = "") {
-  return String(siteUrl || "").replace(/\/+$/, "");
-}
-
-function buildAbsoluteUrl(siteUrl, value = "") {
-  const normalizedSiteUrl = normalizeSiteUrl(siteUrl);
-
-  try {
-    return new URL(value, `${normalizedSiteUrl}/`).toString();
-  } catch (_error) {
-    return `${normalizedSiteUrl}${value}`;
-  }
-}
+const {
+  BRAND_DESCRIPTOR,
+  buildAbsoluteUrl,
+  buildCollectionPath,
+  buildCollectionSeoDescription,
+  buildCollectionSeoTitle,
+  buildShowPath,
+  buildShowSeoDescription,
+  buildShowSeoTitle,
+} = require("./seo");
+const { renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
 
 function replaceNamedMeta(html, name, content) {
   const escapedName = escapeRegExp(name);
@@ -64,6 +62,38 @@ function replaceBodyDataAttribute(html, attributeName, value) {
 
     return `<body${attributes} ${attributeName}="${renderedValue}">`;
   });
+}
+
+function replaceStructuredDataOrigin(html, previousSiteUrl, nextSiteUrl) {
+  const previousOrigin = String(previousSiteUrl || "").replace(/\/+$/, "");
+  const nextOrigin = String(nextSiteUrl || "").replace(/\/+$/, "");
+  if (!previousOrigin || !nextOrigin || previousOrigin === nextOrigin) {
+    return html;
+  }
+
+  const rewriteValue = (value) => {
+    if (typeof value === "string") {
+      return value === previousOrigin || value.startsWith(`${previousOrigin}/`) || value.startsWith(`${previousOrigin}#`)
+        ? `${nextOrigin}${value.slice(previousOrigin.length)}`
+        : value;
+    }
+    if (Array.isArray(value)) return value.map(rewriteValue);
+    if (value && typeof value === "object") {
+      return Object.fromEntries(Object.entries(value).map(([key, entry]) => [key, rewriteValue(entry)]));
+    }
+    return value;
+  };
+
+  return html.replace(
+    /(<script\b[^>]*\bid="pageStructuredData"[^>]*\btype="application\/ld\+json"[^>]*>)([\s\S]*?)(<\/script>)/i,
+    (match, opening, json, closing) => {
+      try {
+        return `${opening}${safeJson(rewriteValue(JSON.parse(json)))}${closing}`;
+      } catch (_error) {
+        return match;
+      }
+    },
+  );
 }
 
 function fallbackDescription(description = "") {
@@ -106,9 +136,9 @@ function getCollectionLeadShow(collection, { collectionShows = [], anchorShow = 
 function buildShowPageMetadata({ siteUrl, show }) {
   const imageSource = getShowImagePath(show);
   return {
-    title: `${show.title} - The Echo Archives`,
-    description: fallbackDescription(show.description),
-    canonicalUrl: buildAbsoluteUrl(siteUrl, `/show?id=${encodeURIComponent(show.id)}`),
+    title: buildShowSeoTitle(show),
+    description: buildShowSeoDescription(show),
+    canonicalUrl: buildAbsoluteUrl(siteUrl, buildShowPath(show.id)),
     imageUrl: imageSource ? buildAbsoluteUrl(siteUrl, imageSource) : fallbackImageUrl(siteUrl),
     imageAlt: String(show.coverAlt || `${show.title} cover art`).trim(),
   };
@@ -118,9 +148,9 @@ function buildCollectionPageMetadata({ siteUrl, collection, collectionShows = []
   const firstCoverShow = getCollectionLeadShow(collection, { collectionShows, anchorShow });
   const firstCover = getShowImagePath(firstCoverShow);
   return {
-    title: `${collection.title} - The Echo Archives`,
-    description: fallbackDescription(collection.description),
-    canonicalUrl: buildAbsoluteUrl(siteUrl, `/collection?id=${encodeURIComponent(collection.id)}`),
+    title: buildCollectionSeoTitle(collection),
+    description: buildCollectionSeoDescription(collection, collectionShows),
+    canonicalUrl: buildAbsoluteUrl(siteUrl, buildCollectionPath(collection.id)),
     imageUrl: firstCover ? buildAbsoluteUrl(siteUrl, firstCover) : fallbackImageUrl(siteUrl),
     imageAlt: String(firstCoverShow?.coverAlt || `${collection.title} collection preview`).trim(),
   };
@@ -157,9 +187,13 @@ function collectHttpUrls(...sources) {
 
 function buildShowStructuredData({ siteUrl, show }) {
   const metadata = buildShowPageMetadata({ siteUrl, show });
-  const data = {
-    "@context": "https://schema.org",
+  const homeUrl = buildAbsoluteUrl(siteUrl, "/");
+  const pageId = `${metadata.canonicalUrl}#webpage`;
+  const podcastId = `${metadata.canonicalUrl}#podcast`;
+  const breadcrumbId = `${metadata.canonicalUrl}#breadcrumb`;
+  const podcast = {
     "@type": "PodcastSeries",
+    "@id": podcastId,
     name: show.title,
     description: fallbackDescription(show.description),
     url: metadata.canonicalUrl,
@@ -178,38 +212,100 @@ function buildShowStructuredData({ siteUrl, show }) {
 
   if (genres.length > 0) {
     const seenGenres = new Set();
-    data.genre = genres.filter((genre) => {
+    podcast.genre = genres.filter((genre) => {
       const key = genre.toLowerCase();
       if (seenGenres.has(key)) return false;
       seenGenres.add(key);
       return true;
     });
   }
-  if (creators.length > 0) data.creator = creators;
-  if (languages.length > 0) data.inLanguage = languages;
-  if (show.updatedAt) data.dateModified = show.updatedAt;
-  if (sameAs.length > 0) data.sameAs = sameAs;
-  return data;
-}
-
-function buildCollectionStructuredData({ siteUrl, collection, collectionShows = [] }) {
-  const canonicalUrl = buildAbsoluteUrl(siteUrl, `/collection?id=${encodeURIComponent(collection.id)}`);
+  if (creators.length > 0) podcast.creator = creators;
+  if (languages.length > 0) podcast.inLanguage = languages;
+  if (show.updatedAt) podcast.dateModified = show.updatedAt;
+  if (sameAs.length > 0) podcast.sameAs = sameAs;
   return {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: collection.title,
-    description: fallbackDescription(collection.description),
-    url: canonicalUrl,
-    mainEntity: {
-      "@type": "ItemList",
-      numberOfItems: collectionShows.length,
-      itemListElement: collectionShows.map((show, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: show.title,
-        url: buildAbsoluteUrl(siteUrl, `/show?id=${encodeURIComponent(show.id)}`),
-      })),
-    },
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": pageId,
+        url: metadata.canonicalUrl,
+        name: metadata.title,
+        description: metadata.description,
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: { "@id": podcastId },
+        primaryImageOfPage: { "@type": "ImageObject", url: metadata.imageUrl },
+        ...(show.updatedAt ? { dateModified: show.updatedAt } : {}),
+      },
+      podcast,
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: show.title, item: metadata.canonicalUrl },
+        ],
+      },
+    ],
+  };
+}
+
+function buildCollectionStructuredData({ siteUrl, collection, collectionShows = [], anchorShow = null }) {
+  const metadata = buildCollectionPageMetadata({ siteUrl, collection, collectionShows, anchorShow });
+  const canonicalUrl = metadata.canonicalUrl;
+  const homeUrl = buildAbsoluteUrl(siteUrl, "/");
+  const collectionsUrl = buildAbsoluteUrl(siteUrl, "/collections");
+  const pageId = `${canonicalUrl}#webpage`;
+  const listId = `${canonicalUrl}#itemlist`;
+  const breadcrumbId = `${canonicalUrl}#breadcrumb`;
+  const showReasons = collection.showReasons && typeof collection.showReasons === "object" ? collection.showReasons : {};
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": pageId,
+        name: metadata.title,
+        description: metadata.description,
+        url: canonicalUrl,
+        isPartOf: { "@id": `${homeUrl}#website` },
+        breadcrumb: { "@id": breadcrumbId },
+        mainEntity: { "@id": listId },
+        primaryImageOfPage: { "@type": "ImageObject", url: metadata.imageUrl },
+        ...(collection.updatedAt ? { dateModified: collection.updatedAt } : {}),
+        ...(anchorShow
+          ? {
+              about: {
+                "@type": "PodcastSeries",
+                name: anchorShow.title,
+                url: buildAbsoluteUrl(siteUrl, buildShowPath(anchorShow.id)),
+              },
+            }
+          : {}),
+      },
+      {
+        "@type": "ItemList",
+        "@id": listId,
+        numberOfItems: collectionShows.length,
+        itemListElement: collectionShows.map((show, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: show.title,
+          description: String(showReasons[show.id] || "").trim(),
+          url: buildAbsoluteUrl(siteUrl, buildShowPath(show.id)),
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": breadcrumbId,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_DESCRIPTOR, item: homeUrl },
+          { "@type": "ListItem", position: 2, name: "Curated audio drama collections", item: collectionsUrl },
+          { "@type": "ListItem", position: 3, name: collection.title, item: canonicalUrl },
+        ],
+      },
+    ],
   };
 }
 
@@ -234,6 +330,7 @@ function injectPageMetadata(html, metadata) {
 
 function injectRuntimeSiteConfig(html, config = {}) {
   let rendered = html;
+  const previousSiteUrl = rendered.match(/<body\b[^>]*\bdata-site-url="([^"]*)"/i)?.[1] || "";
 
   if (Object.hasOwn(config, "homeCardHoverExpandEnabled")) {
     rendered = replaceBodyDataAttribute(
@@ -252,6 +349,10 @@ function injectRuntimeSiteConfig(html, config = {}) {
     if (Object.hasOwn(config, key)) {
       rendered = replaceBodyDataAttribute(rendered, attributeName, String(config[key] || ""));
     }
+  }
+
+  if (Object.hasOwn(config, "siteUrl")) {
+    rendered = replaceStructuredDataOrigin(rendered, previousSiteUrl, config.siteUrl);
   }
 
   if (config.nonce) {
@@ -288,8 +389,8 @@ function injectJsonBootstrap(html, id, data) {
   return withoutExisting.replace(/<\/body>/i, `  ${markup}\n</body>`);
 }
 
-function injectNoIndex(html) {
-  return replaceNamedMeta(html, "robots", "noindex, nofollow, noarchive");
+function injectNoIndex(html, { follow = false } = {}) {
+  return replaceNamedMeta(html, "robots", `noindex, ${follow ? "follow" : "nofollow"}, noarchive`);
 }
 
 function replaceElementText(html, id, value) {
@@ -299,6 +400,7 @@ function replaceElementText(html, id, value) {
 
 function injectCollectionSummary(html, { collection, collectionShows = [] }) {
   let rendered = replaceElementText(html, "collectionTitle", collection.title);
+  rendered = replaceElementText(rendered, "collectionBreadcrumbTitle", collection.title);
   rendered = replaceElementText(rendered, "collectionDescription", fallbackDescription(collection.description));
   const count = collectionShows.length;
   const showTitles = collectionShows.slice(0, 4).map((show) => show.title).filter(Boolean);
@@ -311,6 +413,17 @@ function injectCollectionSummary(html, { collection, collectionShows = [] }) {
   return rendered;
 }
 
+function injectCollectionShowCards(html, { collection, collectionShows = [] }) {
+  const showReasons = collection.showReasons && typeof collection.showReasons === "object" ? collection.showReasons : {};
+  const markup = collectionShows
+    .map((show) => renderCollectionShowCard(show, showReasons[show.id]))
+    .join("");
+  return html.replace(
+    /(<div\s+id="collectionShowGrid"\s+class="podcast-card-grid">)[\s\S]*?(<\/div>)/i,
+    `$1${markup}$2`,
+  );
+}
+
 module.exports = {
   buildCollectionPageMetadata,
   buildCollectionStructuredData,
@@ -319,6 +432,7 @@ module.exports = {
   injectRuntimeSiteConfig,
   injectPageMetadata,
   injectCollectionSummary,
+  injectCollectionShowCards,
   injectJsonBootstrap,
   injectNoIndex,
   injectStructuredData,

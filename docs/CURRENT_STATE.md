@@ -43,8 +43,8 @@ Public routes currently include:
 - `/supporters`
 - `/help-center`
 - `/collections`
-- `/collection?id=<collection-id>`
-- `/show?id=<show-id>`
+- `/collections/<collection-id>`
+- `/shows/<show-id>`
 - `/submit`
 - `/privacy`
 - `/terms`
@@ -59,7 +59,7 @@ Operational and trust-related surfaces currently include:
 - `/maintainer/submissions.html`
 - `/maintainer/submissions/report.html`
 
-Legacy show pages under `shows/` still exist as compatibility entry points and redirect into the reusable show route.
+Legacy show pages and query-string detail aliases remain as permanent compatibility redirects to the clean detail routes.
 
 ## Catalog Baseline
 
@@ -108,7 +108,7 @@ The reusable detail pages are in place.
 
 Show pages currently support the core archive-detail model:
 
-- canonical `/show?id=<show-id>` routing
+- canonical `/shows/<show-id>` routing
 - structured metadata rendering
 - links and factual context
 - collection and relationship context
@@ -117,7 +117,7 @@ Show pages currently support the core archive-detail model:
 
 Collection pages currently support:
 
-- canonical `/collection?id=<collection-id>` routing
+- canonical `/collections/<collection-id>` routing
 - featured and directory presentation
 - motion-enhanced browsing behavior
 - collection-as-discovery-route positioning rather than generic taxonomy folders

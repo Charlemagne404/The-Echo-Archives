@@ -61,9 +61,11 @@ function renderCollectionsLoadingState(elements) {
       grid.appendChild(createCollectionsSkeletonCard());
     }
   });
-  elements.directoryRoot.textContent = "";
-  for (let index = 0; index < 6; index += 1) {
-    elements.directoryRoot.appendChild(createCollectionsSkeletonCard());
+  if (elements.directoryRoot.dataset.collectionsPrerendered !== "true") {
+    elements.directoryRoot.textContent = "";
+    for (let index = 0; index < 6; index += 1) {
+      elements.directoryRoot.appendChild(createCollectionsSkeletonCard());
+    }
   }
 }
 
@@ -239,8 +241,8 @@ export async function initializeCollectionsPage() {
   const orderedCollections = sortCollections(collections, new Map(collections.map((entry) => [entry.id, []])), "editorial");
 
   updateDocumentMetadata({
-    title: "Collections - The Echo Archives",
-    description: "Browse curated listening paths by mood, tone, and commitment in The Echo Archives.",
+    title: "Curated Audio Drama & Fiction Podcast Collections | The Echo Archives",
+    description: "Browse human-curated audio drama and fiction podcast recommendations by mood, genre, listening time, completion status, and similar shows.",
     path: "/collections",
     image: DEFAULT_SOCIAL_IMAGE,
     structuredData: buildCollectionsDirectoryStructuredData(orderedCollections),

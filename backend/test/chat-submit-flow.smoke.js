@@ -354,7 +354,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(deepLinkState.reviewFieldVisible, true);
     assert.equal(deepLinkState.ratingButtons, 5);
 
-    await page.goto(`${baseUrl}/show?id=impact-winter`, { waitUntil: "networkidle" });
+    await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
     await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
     await page.locator("#userInput").fill("What does creator verified mean?");

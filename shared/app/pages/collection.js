@@ -19,8 +19,9 @@ import {
 } from "../render-collections.js";
 import { resolveImageSrc } from "../images.js";
 import { bindShareButton } from "../share.js";
+import { buildCollectionSeoDescription, buildCollectionSeoTitle } from "../seo.js";
 import { buildCollectionStructuredData } from "../structured-data.js";
-import { createArchiveCollectionHref } from "../urls.js";
+import { createArchiveCollectionHref, createCollectionHref, getCollectionIdFromLocation } from "../urls.js";
 import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
 
 function createCollectionLoadingCard() {
@@ -236,7 +237,7 @@ function getRelatedCollections(collection, collections = []) {
 }
 
 export async function initializeCollectionPage() {
-  const collectionId = new URLSearchParams(window.location.search).get("id") || "";
+  const collectionId = getCollectionIdFromLocation();
   const root = document.getElementById("collectionRoot");
   const grid = document.getElementById("collectionShowGrid");
   const archiveSection = document.getElementById("collectionArchiveSection");
@@ -248,9 +249,10 @@ export async function initializeCollectionPage() {
     return;
   }
 
-  grid.textContent = "";
-  for (let index = 0; index < 6; index += 1) {
-    grid.appendChild(createCollectionLoadingCard());
+  if (grid.children.length === 0) {
+    for (let index = 0; index < 6; index += 1) {
+      grid.appendChild(createCollectionLoadingCard());
+    }
   }
 
   const [shows, collections] = await loadCollectionPageData({ root, grid });
@@ -268,7 +270,7 @@ export async function initializeCollectionPage() {
     updateDocumentMetadata({
       title: "Collection not found - The Echo Archives",
       description: "The requested Echo Archives collection could not be found.",
-      path: "/collection",
+      path: window.location.pathname,
       image: DEFAULT_SOCIAL_IMAGE,
     });
     setTextContent("collectionTitle", "Collection not found");
@@ -296,9 +298,9 @@ export async function initializeCollectionPage() {
   const leadCoverShow = anchorShow || collectionShows[0] || null;
   const firstCover = leadCoverShow?.imageSrc || (leadCoverShow?.cover ? resolveImageSrc(leadCoverShow.cover) : DEFAULT_SOCIAL_IMAGE);
   updateDocumentMetadata({
-    title: `${collectionTitle} - The Echo Archives`,
-    description: collectionDescription,
-    path: `/collection?id=${encodeURIComponent(collection.id)}`,
+    title: buildCollectionSeoTitle(collection),
+    description: buildCollectionSeoDescription(collection, collectionShows),
+    path: createCollectionHref(collection.id),
     image: firstCover,
     imageAlt: leadCoverShow
       ? leadCoverShow.imageAlt || leadCoverShow.coverAlt || `${collectionTitle} collection cover art`
@@ -338,9 +340,9 @@ export async function initializeCollectionPage() {
   }
   if (shareButton instanceof HTMLButtonElement) {
     bindShareButton(shareButton, {
-      title: `${collectionTitle} - The Echo Archives`,
-      text: collectionDescription,
-      url: window.location.href,
+      title: buildCollectionSeoTitle(collection),
+      text: buildCollectionSeoDescription(collection, collectionShows),
+      url: document.querySelector('link[rel="canonical"]')?.href || window.location.href,
     });
   }
 

@@ -4,23 +4,23 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
-<title>The Echo Archives</title>
-<meta name="description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
+<title>The Echo Archives — Audio Drama Discovery</title>
+<meta name="description" content="Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes." />
 <link rel="canonical" href="https://echo.continental-hub.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="The Echo Archives" />
-<meta property="og:title" content="The Echo Archives" />
-<meta property="og:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
+<meta property="og:title" content="The Echo Archives — Audio Drama Discovery" />
+<meta property="og:description" content="Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes." />
 <meta property="og:url" content="https://echo.continental-hub.com/" />
 <meta property="og:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta property="og:image:alt" content="The Echo Archives social preview" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Echo Archives" />
-<meta name="twitter:description" content="A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity." />
+<meta name="twitter:title" content="The Echo Archives — Audio Drama Discovery" />
+<meta name="twitter:description" content="Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes." />
 <meta name="twitter:image" content="https://echo.continental-hub.com/og-image.png" />
 <meta name="twitter:image:alt" content="The Echo Archives social preview" />
 <meta name="theme-color" content="#06080b" />
-
+<meta name="robots" content="index, follow, max-image-preview:large" />
 
 <link rel="stylesheet" href="/style.css?v=bbbdb2cafd" />
 <link rel="stylesheet" href="/home.css?v=3c5ac09cfc" />
@@ -29,9 +29,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="preload" as="image" href="/images/hero-archive-dish.webp" type="image/webp" fetchpriority="high" />
-<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"The Echo Archives","url":"https://echo.continental-hub.com/","description":"A human-curated archive for discovering fiction podcasts by mood, tone, format, completion status, and similarity.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echo.continental-hub.com/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}}</script>
+<script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://echo.continental-hub.com/#website","name":"The Echo Archives","alternateName":"The Echo Archives — Audio Drama Discovery","url":"https://echo.continental-hub.com/","description":"Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.","about":[{"@type":"Thing","name":"Audio drama discovery"},{"@type":"Thing","name":"Fiction podcast recommendations"},{"@type":"Thing","name":"Audio drama reviews"}],"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echo.continental-hub.com/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://echo.continental-hub.com/#webpage","url":"https://echo.continental-hub.com/","name":"The Echo Archives — Audio Drama Discovery","description":"Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.","isPartOf":{"@id":"https://echo.continental-hub.com/#website"}}]}</script>
 </head>
-<body class="home-page" data-site-url="https://echo.continental-hub.com" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="acd458f1e5" data-collections-version="9afac6e32d" data-search-index-version="989a23ad7a">
+<body class="home-page" data-site-url="https://echo.continental-hub.com" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="d7ac00b444" data-collections-version="9afac6e32d" data-search-index-version="989a23ad7a">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -156,20 +156,20 @@
     <section class="hero-shell" id="browse">
       <div class="hero-panel">
         <div class="hero-copy">
-          <h1>Find your next fiction podcast</h1>
+          <h1>Find your next audio drama or fiction podcast</h1>
           <p>
             A human-curated archive for audio dramas and fiction podcasts. Browse by mood, tone, format, completion status, and shows like the ones you already love.
           </p>
           <div class="home-hero-actions" aria-label="Recommended discovery routes">
-            <a class="home-hero-route is-primary" href="/collection?id=shows-like-midnight-burger" aria-label="Browse shows like Midnight Burger">
+            <a class="home-hero-route is-primary" href="/collections/shows-like-midnight-burger" aria-label="Browse shows like Midnight Burger">
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Midnight Burger</span>
             </a>
-            <a class="home-hero-route" href="/collection?id=finished-arcs" aria-label="Browse completed shows">
+            <a class="home-hero-route" href="/collections/finished-arcs" aria-label="Browse completed shows">
               <span class="home-hero-route-kicker">Start with</span>
               <span class="home-hero-route-label">Completed shows</span>
             </a>
-            <a class="home-hero-route" href="/collection?id=shows-like-welcome-to-night-vale" aria-label="Browse shows like Welcome to Night Vale">
+            <a class="home-hero-route" href="/collections/shows-like-welcome-to-night-vale" aria-label="Browse shows like Welcome to Night Vale">
               <span class="home-hero-route-kicker">Shows like</span>
               <span class="home-hero-route-label">Welcome to Night Vale</span>
             </a>
@@ -282,7 +282,7 @@
           </div>
         </div>
 
-        <div class="popular-grid" id="popularGrid" data-home-prerendered="true"><a class="popular-card" href="/show?id=midnight-burger" data-podcast-id="midnight-burger" aria-label="Open Midnight Burger in the archive" style="--popular-card-accent-rgb: 178, 103, 69;">
+        <div class="popular-grid" id="popularGrid" data-home-prerendered="true"><a class="popular-card" href="/shows/midnight-burger" data-podcast-id="midnight-burger" aria-label="Open Midnight Burger in the archive" style="--popular-card-accent-rgb: 178, 103, 69;">
       <div class="popular-card-media">
         <img src="/shows/midnight burger/MidnightBurger.jpeg" srcset="/images/generated/covers/midnight-burger-50aed834c6-320.webp 320w, /images/generated/covers/midnight-burger-50aed834c6-640.webp 640w" sizes="(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px" alt="Midnight Burger cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -319,7 +319,7 @@
           </div>
         </div>
       </div>
-    </a><a class="popular-card" href="/show?id=were-alive" data-podcast-id="were-alive" aria-label="Open We're Alive in the archive" style="--popular-card-accent-rgb: 125, 79, 62;">
+    </a><a class="popular-card" href="/shows/were-alive" data-podcast-id="were-alive" aria-label="Open We're Alive in the archive" style="--popular-card-accent-rgb: 125, 79, 62;">
       <div class="popular-card-media">
         <img src="/shows/were alive/WereAlive.jpeg" alt="We're Alive cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -356,7 +356,7 @@
           </div>
         </div>
       </div>
-    </a><a class="popular-card" href="/show?id=red-valley" data-podcast-id="red-valley" aria-label="Open Red Valley in the archive" style="--popular-card-accent-rgb: 146, 96, 93;">
+    </a><a class="popular-card" href="/shows/red-valley" data-podcast-id="red-valley" aria-label="Open Red Valley in the archive" style="--popular-card-accent-rgb: 146, 96, 93;">
       <div class="popular-card-media">
         <img src="/shows/red valley/RedValley.jpeg" srcset="/images/generated/covers/red-valley-ca21e3975b-320.webp 320w, /images/generated/covers/red-valley-ca21e3975b-640.webp 640w" sizes="(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px" alt="Red Valley cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -393,7 +393,7 @@
           </div>
         </div>
       </div>
-    </a><a class="popular-card" href="/show?id=derelict" data-podcast-id="derelict" aria-label="Open Derelict in the archive" style="--popular-card-accent-rgb: 74, 101, 128;">
+    </a><a class="popular-card" href="/shows/derelict" data-podcast-id="derelict" aria-label="Open Derelict in the archive" style="--popular-card-accent-rgb: 74, 101, 128;">
       <div class="popular-card-media">
         <img src="/shows/derelict/Derelict.jpeg" srcset="/images/generated/covers/derelict-764d1a3c55-320.webp 320w, /images/generated/covers/derelict-764d1a3c55-640.webp 640w" sizes="(max-width: 560px) 82vw, (max-width: 960px) 44vw, 320px" alt="Derelict cover art" loading="lazy" decoding="async" width="320" height="320" />
       </div>
@@ -452,7 +452,7 @@
       </section>
 
       <div id="podcast-grid" data-home-prerendered="true"><div class="podcast-card-shell" data-podcast-id="solar">
-      <a class="podcast-card" href="/show?id=solar" data-podcast-id="solar">
+      <a class="podcast-card" href="/shows/solar" data-podcast-id="solar">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/solar/solar.jpeg" srcset="/images/generated/covers/solar-60d515e2dc-320.webp 320w, /images/generated/covers/solar-60d515e2dc-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Solar cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Solar</h2>
@@ -483,7 +483,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="story">
-      <a class="podcast-card" href="/show?id=story" data-podcast-id="story">
+      <a class="podcast-card" href="/shows/story" data-podcast-id="story">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/story/story.jpg" srcset="/images/generated/covers/story-5cfe5e54f5-320.webp 320w, /images/generated/covers/story-5cfe5e54f5-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Story cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Story</h2>
@@ -514,7 +514,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="from-now">
-      <a class="podcast-card" href="/show?id=from-now" data-podcast-id="from-now">
+      <a class="podcast-card" href="/shows/from-now" data-podcast-id="from-now">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/from now/fromnow.jpeg" alt="From Now cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">From Now</h2>
@@ -545,7 +545,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-deca-tapes">
-      <a class="podcast-card" href="/show?id=the-deca-tapes" data-podcast-id="the-deca-tapes">
+      <a class="podcast-card" href="/shows/the-deca-tapes" data-podcast-id="the-deca-tapes">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/deca tapes/decatapes.jpeg" srcset="/images/generated/covers/the-deca-tapes-1ad6ad42aa-320.webp 320w, /images/generated/covers/the-deca-tapes-1ad6ad42aa-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Deca Tapes cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Deca Tapes</h2>
@@ -576,7 +576,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="earth-eclipsed">
-      <a class="podcast-card" href="/show?id=earth-eclipsed" data-podcast-id="earth-eclipsed">
+      <a class="podcast-card" href="/shows/earth-eclipsed" data-podcast-id="earth-eclipsed">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/earth eclipsed/eartheclipsed.jpeg" srcset="/images/generated/covers/earth-eclipsed-d49b67da88-320.webp 320w, /images/generated/covers/earth-eclipsed-d49b67da88-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Earth Eclipsed cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Earth Eclipsed</h2>
@@ -607,7 +607,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="vast-horizon">
-      <a class="podcast-card" href="/show?id=vast-horizon" data-podcast-id="vast-horizon">
+      <a class="podcast-card" href="/shows/vast-horizon" data-podcast-id="vast-horizon">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/vast horizon/vasthorizon.jpeg" alt="Vast Horizon cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Vast Horizon</h2>
@@ -638,7 +638,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="how-i-died">
-      <a class="podcast-card" href="/show?id=how-i-died" data-podcast-id="how-i-died">
+      <a class="podcast-card" href="/shows/how-i-died" data-podcast-id="how-i-died">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span></div>
         <img src="/shows/how i died/howidied.jpeg" srcset="/images/generated/covers/how-i-died-93e49e8cc1-320.webp 320w, /images/generated/covers/how-i-died-93e49e8cc1-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="How I Died cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">How I Died</h2>
@@ -669,7 +669,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="windfall">
-      <a class="podcast-card" href="/show?id=windfall" data-podcast-id="windfall">
+      <a class="podcast-card" href="/shows/windfall" data-podcast-id="windfall">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span></div>
         <img src="/shows/windfall/windfall.jpeg" alt="Windfall cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Windfall</h2>
@@ -700,7 +700,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-waystation">
-      <a class="podcast-card" href="/show?id=the-waystation" data-podcast-id="the-waystation">
+      <a class="podcast-card" href="/shows/the-waystation" data-podcast-id="the-waystation">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/the waystation/waystation.jpeg" srcset="/images/generated/covers/the-waystation-93b7750910-320.webp 320w, /images/generated/covers/the-waystation-93b7750910-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Waystation cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Waystation</h2>
@@ -731,7 +731,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="were-alive">
-      <a class="podcast-card" href="/show?id=were-alive" data-podcast-id="were-alive">
+      <a class="podcast-card" href="/shows/were-alive" data-podcast-id="were-alive">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/were alive/WereAlive.jpeg" alt="We're Alive cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">We&#39;re Alive</h2>
@@ -762,7 +762,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="impact-winter">
-      <a class="podcast-card" href="/show?id=impact-winter" data-podcast-id="impact-winter">
+      <a class="podcast-card" href="/shows/impact-winter" data-podcast-id="impact-winter">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/shows/Impact Winter/Impact-winter.jpeg" srcset="/images/generated/covers/impact-winter-223a921604-320.webp 320w, /images/generated/covers/impact-winter-223a921604-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Impact Winter cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Impact Winter</h2>
@@ -793,7 +793,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="oz-9">
-      <a class="podcast-card" href="/show?id=oz-9" data-podcast-id="oz-9">
+      <a class="podcast-card" href="/shows/oz-9" data-podcast-id="oz-9">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/shows/oz9/oz9.jpeg" alt="Oz 9 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Oz 9</h2>
@@ -824,7 +824,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="ars-paradoxica">
-      <a class="podcast-card" href="/show?id=ars-paradoxica" data-podcast-id="ars-paradoxica">
+      <a class="podcast-card" href="/shows/ars-paradoxica" data-podcast-id="ars-paradoxica">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/shows/ars paradoxica/ArsParadoxica.jpeg" srcset="/images/generated/covers/ars-paradoxica-4895cfcb22-320.webp 320w, /images/generated/covers/ars-paradoxica-4895cfcb22-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Ars Paradoxica cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Ars Paradoxica</h2>
@@ -855,7 +855,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="red-valley">
-      <a class="podcast-card" href="/show?id=red-valley" data-podcast-id="red-valley">
+      <a class="podcast-card" href="/shows/red-valley" data-podcast-id="red-valley">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/red valley/RedValley.jpeg" srcset="/images/generated/covers/red-valley-ca21e3975b-320.webp 320w, /images/generated/covers/red-valley-ca21e3975b-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Red Valley cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Red Valley</h2>
@@ -886,7 +886,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-white-vault">
-      <a class="podcast-card" href="/show?id=the-white-vault" data-podcast-id="the-white-vault">
+      <a class="podcast-card" href="/shows/the-white-vault" data-podcast-id="the-white-vault">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/shows/white-vault/WhiteVault.jpeg" srcset="/images/generated/covers/the-white-vault-ddb98627f9-320.webp 320w, /images/generated/covers/the-white-vault-ddb98627f9-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The White Vault cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The White Vault</h2>
@@ -917,7 +917,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="eos-10">
-      <a class="podcast-card" href="/show?id=eos-10" data-podcast-id="eos-10">
+      <a class="podcast-card" href="/shows/eos-10" data-podcast-id="eos-10">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/eos10/EOS10.jpeg" srcset="/images/generated/covers/eos-10-9eddea0852-320.webp 320w, /images/generated/covers/eos-10-9eddea0852-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="EOS 10 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">EOS 10</h2>
@@ -948,7 +948,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="desert-skies">
-      <a class="podcast-card" href="/show?id=desert-skies" data-podcast-id="desert-skies">
+      <a class="podcast-card" href="/shows/desert-skies" data-podcast-id="desert-skies">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/desert-skies/DesertSkies.jpeg" srcset="/images/generated/covers/desert-skies-1a11e94703-320.webp 320w, /images/generated/covers/desert-skies-1a11e94703-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Desert Skies cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Desert Skies</h2>
@@ -979,7 +979,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="wolf-359">
-      <a class="podcast-card" href="/show?id=wolf-359" data-podcast-id="wolf-359">
+      <a class="podcast-card" href="/shows/wolf-359" data-podcast-id="wolf-359">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/wolf359/Wolf359.jpeg" srcset="/images/generated/covers/wolf-359-647b5c815e-320.webp 320w, /images/generated/covers/wolf-359-647b5c815e-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Wolf 359 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Wolf 359</h2>
@@ -1010,7 +1010,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="station-151">
-      <a class="podcast-card" href="/show?id=station-151" data-podcast-id="station-151">
+      <a class="podcast-card" href="/shows/station-151" data-podcast-id="station-151">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/station151/Station151.jpeg" srcset="/images/generated/covers/station-151-12c169c259-320.webp 320w, /images/generated/covers/station-151-12c169c259-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Station 151 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Station 151</h2>
@@ -1041,7 +1041,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="midnight-burger">
-      <a class="podcast-card" href="/show?id=midnight-burger" data-podcast-id="midnight-burger">
+      <a class="podcast-card" href="/shows/midnight-burger" data-podcast-id="midnight-burger">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/shows/midnight burger/MidnightBurger.jpeg" srcset="/images/generated/covers/midnight-burger-50aed834c6-320.webp 320w, /images/generated/covers/midnight-burger-50aed834c6-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Midnight Burger cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Midnight Burger</h2>
@@ -1072,7 +1072,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="spectre">
-      <a class="podcast-card" href="/show?id=spectre" data-podcast-id="spectre">
+      <a class="podcast-card" href="/shows/spectre" data-podcast-id="spectre">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/spectre/Spectre.jpeg" alt="Spectre cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Spectre</h2>
@@ -1103,7 +1103,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-phenomenon">
-      <a class="podcast-card" href="/show?id=the-phenomenon" data-podcast-id="the-phenomenon">
+      <a class="podcast-card" href="/shows/the-phenomenon" data-podcast-id="the-phenomenon">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/the phenomenon/Phenomenon.jpeg" alt="The Phenomenon cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Phenomenon</h2>
@@ -1134,7 +1134,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="paralyzed">
-      <a class="podcast-card" href="/show?id=paralyzed" data-podcast-id="paralyzed">
+      <a class="podcast-card" href="/shows/paralyzed" data-podcast-id="paralyzed">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/paralyzed/Paralyzed.jpeg" srcset="/images/generated/covers/paralyzed-409264758d-320.webp 320w, /images/generated/covers/paralyzed-409264758d-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Paralyzed cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Paralyzed</h2>
@@ -1165,7 +1165,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="derelict">
-      <a class="podcast-card" href="/show?id=derelict" data-podcast-id="derelict">
+      <a class="podcast-card" href="/shows/derelict" data-podcast-id="derelict">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/shows/derelict/Derelict.jpeg" srcset="/images/generated/covers/derelict-764d1a3c55-320.webp 320w, /images/generated/covers/derelict-764d1a3c55-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Derelict cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Derelict</h2>
@@ -1196,7 +1196,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="crystal-blue">
-      <a class="podcast-card" href="/show?id=crystal-blue" data-podcast-id="crystal-blue">
+      <a class="podcast-card" href="/shows/crystal-blue" data-podcast-id="crystal-blue">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/crystal-blue/CrystalBlue.jpeg" srcset="/images/generated/covers/crystal-blue-4ae2199e68-320.webp 320w, /images/generated/covers/crystal-blue-4ae2199e68-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Crystal Blues cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Crystal Blue</h2>
@@ -1227,7 +1227,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="end-of-all-hope">
-      <a class="podcast-card" href="/show?id=end-of-all-hope" data-podcast-id="end-of-all-hope">
+      <a class="podcast-card" href="/shows/end-of-all-hope" data-podcast-id="end-of-all-hope">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/shows/eoah/EOAH.jpeg" srcset="/images/generated/covers/end-of-all-hope-8f65a28688-320.webp 320w, /images/generated/covers/end-of-all-hope-8f65a28688-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="End of all Hope cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">End of All Hope</h2>
@@ -1258,7 +1258,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="tower-4">
-      <a class="podcast-card" href="/show?id=tower-4" data-podcast-id="tower-4">
+      <a class="podcast-card" href="/shows/tower-4" data-podcast-id="tower-4">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-corner"><img class="editorial-badge-artwork" src="/images/badges/top-rated-bookmark.png" alt="" loading="lazy" decoding="async" width="128" height="128" /></span></div>
         <img src="/shows/towe4/Tower4.jpeg" srcset="/images/generated/covers/tower-4-e16b7606e2-320.webp 320w, /images/generated/covers/tower-4-e16b7606e2-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Tower 4 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Tower 4</h2>
@@ -1289,7 +1289,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-bright-sessions">
-      <a class="podcast-card" href="/show?id=the-bright-sessions" data-podcast-id="the-bright-sessions">
+      <a class="podcast-card" href="/shows/the-bright-sessions" data-podcast-id="the-bright-sessions">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-bright-sessions.jpg" srcset="/images/generated/covers/the-bright-sessions-de58f8456f-320.webp 320w, /images/generated/covers/the-bright-sessions-de58f8456f-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Bright Sessions cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Bright Sessions</h2>
@@ -1320,7 +1320,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="wooden-overcoats">
-      <a class="podcast-card" href="/show?id=wooden-overcoats" data-podcast-id="wooden-overcoats">
+      <a class="podcast-card" href="/shows/wooden-overcoats" data-podcast-id="wooden-overcoats">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/wooden-overcoats.jpg" srcset="/images/generated/covers/wooden-overcoats-bd0f58d842-320.webp 320w, /images/generated/covers/wooden-overcoats-bd0f58d842-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Wooden Overcoats cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Wooden Overcoats</h2>
@@ -1351,7 +1351,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="alice-isnt-dead">
-      <a class="podcast-card" href="/show?id=alice-isnt-dead" data-podcast-id="alice-isnt-dead">
+      <a class="podcast-card" href="/shows/alice-isnt-dead" data-podcast-id="alice-isnt-dead">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/alice-isnt-dead.jpg" srcset="/images/generated/covers/alice-isnt-dead-39a439382b-320.webp 320w, /images/generated/covers/alice-isnt-dead-39a439382b-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Alice Isn't Dead cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Alice Isn&#39;t Dead</h2>
@@ -1382,7 +1382,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="mirrors">
-      <a class="podcast-card" href="/show?id=mirrors" data-podcast-id="mirrors">
+      <a class="podcast-card" href="/shows/mirrors" data-podcast-id="mirrors">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/mirrors.jpg" srcset="/images/generated/covers/mirrors-bcf35bd03c-320.webp 320w, /images/generated/covers/mirrors-bcf35bd03c-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Mirrors cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Mirrors</h2>
@@ -1413,7 +1413,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="unwell">
-      <a class="podcast-card" href="/show?id=unwell" data-podcast-id="unwell">
+      <a class="podcast-card" href="/shows/unwell" data-podcast-id="unwell">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/unwell.jpg" srcset="/images/generated/covers/unwell-d846ce1ad3-320.webp 320w, /images/generated/covers/unwell-d846ce1ad3-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Unwell cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Unwell</h2>
@@ -1444,7 +1444,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="midst">
-      <a class="podcast-card" href="/show?id=midst" data-podcast-id="midst">
+      <a class="podcast-card" href="/shows/midst" data-podcast-id="midst">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/midst.jpg" srcset="/images/generated/covers/midst-112a25975f-320.webp 320w, /images/generated/covers/midst-112a25975f-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Midst cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Midst</h2>
@@ -1475,7 +1475,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-program-audio-series">
-      <a class="podcast-card" href="/show?id=the-program-audio-series" data-podcast-id="the-program-audio-series">
+      <a class="podcast-card" href="/shows/the-program-audio-series" data-podcast-id="the-program-audio-series">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-program-audio-series.jpg" srcset="/images/generated/covers/the-program-audio-series-1ec863e1d7-320.webp 320w, /images/generated/covers/the-program-audio-series-1ec863e1d7-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Program audio series cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Program audio series</h2>
@@ -1506,7 +1506,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="malevolent">
-      <a class="podcast-card" href="/show?id=malevolent" data-podcast-id="malevolent">
+      <a class="podcast-card" href="/shows/malevolent" data-podcast-id="malevolent">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/malevolent.jpg" srcset="/images/generated/covers/malevolent-0454c6c877-320.webp 320w, /images/generated/covers/malevolent-0454c6c877-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Malevolent cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Malevolent</h2>
@@ -1537,7 +1537,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="case-63">
-      <a class="podcast-card" href="/show?id=case-63" data-podcast-id="case-63">
+      <a class="podcast-card" href="/shows/case-63" data-podcast-id="case-63">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/case-63.jpg" srcset="/images/generated/covers/case-63-30d94fcb3a-320.webp 320w, /images/generated/covers/case-63-30d94fcb3a-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Case 63 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Case 63</h2>
@@ -1568,7 +1568,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="borrasca">
-      <a class="podcast-card" href="/show?id=borrasca" data-podcast-id="borrasca">
+      <a class="podcast-card" href="/shows/borrasca" data-podcast-id="borrasca">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/borrasca.jpg" srcset="/images/generated/covers/borrasca-5766c68fa6-320.webp 320w, /images/generated/covers/borrasca-5766c68fa6-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Borrasca cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Borrasca</h2>
@@ -1599,7 +1599,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="mabel">
-      <a class="podcast-card" href="/show?id=mabel" data-podcast-id="mabel">
+      <a class="podcast-card" href="/shows/mabel" data-podcast-id="mabel">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/mabel.jpg" srcset="/images/generated/covers/mabel-002a979400-320.webp 320w, /images/generated/covers/mabel-002a979400-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Mabel cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Mabel</h2>
@@ -1630,7 +1630,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="archive-81">
-      <a class="podcast-card" href="/show?id=archive-81" data-podcast-id="archive-81">
+      <a class="podcast-card" href="/shows/archive-81" data-podcast-id="archive-81">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/archive-81.jpg" srcset="/images/generated/covers/archive-81-7d75c28211-320.webp 320w, /images/generated/covers/archive-81-7d75c28211-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Archive 81 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Archive 81</h2>
@@ -1661,7 +1661,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="homecoming">
-      <a class="podcast-card" href="/show?id=homecoming" data-podcast-id="homecoming">
+      <a class="podcast-card" href="/shows/homecoming" data-podcast-id="homecoming">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/homecoming.jpg" srcset="/images/generated/covers/homecoming-5e47c83d22-320.webp 320w, /images/generated/covers/homecoming-5e47c83d22-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Homecoming cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Homecoming</h2>
@@ -1692,7 +1692,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="welcome-to-night-vale">
-      <a class="podcast-card" href="/show?id=welcome-to-night-vale" data-podcast-id="welcome-to-night-vale">
+      <a class="podcast-card" href="/shows/welcome-to-night-vale" data-podcast-id="welcome-to-night-vale">
         <div class="editorial-badges" aria-hidden="true"><span class="editorial-badge editorial-badge-ribbon"><span class="editorial-badge-ribbon-label">Full review</span></span></div>
         <img src="/images/covers/welcome-to-night-vale.jpg" srcset="/images/generated/covers/welcome-to-night-vale-842179748f-320.webp 320w, /images/generated/covers/welcome-to-night-vale-842179748f-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Welcome to Night Vale cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Welcome to Night Vale</h2>
@@ -1723,7 +1723,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="marsfall">
-      <a class="podcast-card" href="/show?id=marsfall" data-podcast-id="marsfall">
+      <a class="podcast-card" href="/shows/marsfall" data-podcast-id="marsfall">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/marsfall.jpg" srcset="/images/generated/covers/marsfall-933a0b8f3e-320.webp 320w, /images/generated/covers/marsfall-933a0b8f3e-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Marsfall cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Marsfall</h2>
@@ -1754,7 +1754,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-strange-case-of-starship-iris">
-      <a class="podcast-card" href="/show?id=the-strange-case-of-starship-iris" data-podcast-id="the-strange-case-of-starship-iris">
+      <a class="podcast-card" href="/shows/the-strange-case-of-starship-iris" data-podcast-id="the-strange-case-of-starship-iris">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-strange-case-of-starship-iris.jpg" srcset="/images/generated/covers/the-strange-case-of-starship-iris-6b3abebb07-320.webp 320w, /images/generated/covers/the-strange-case-of-starship-iris-6b3abebb07-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Strange Case of Starship Iris cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Strange Case of Starship Iris</h2>
@@ -1785,7 +1785,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-amelia-project">
-      <a class="podcast-card" href="/show?id=the-amelia-project" data-podcast-id="the-amelia-project">
+      <a class="podcast-card" href="/shows/the-amelia-project" data-podcast-id="the-amelia-project">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-amelia-project.jpg" srcset="/images/generated/covers/the-amelia-project-b83be9b66e-320.webp 320w, /images/generated/covers/the-amelia-project-b83be9b66e-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Amelia Project cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Amelia Project</h2>
@@ -1816,7 +1816,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="victoriocity">
-      <a class="podcast-card" href="/show?id=victoriocity" data-podcast-id="victoriocity">
+      <a class="podcast-card" href="/shows/victoriocity" data-podcast-id="victoriocity">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/victoriocity.jpg" srcset="/images/generated/covers/victoriocity-a16d9c9f31-320.webp 320w, /images/generated/covers/victoriocity-a16d9c9f31-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Victoriocity cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Victoriocity</h2>
@@ -1847,7 +1847,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="startripper">
-      <a class="podcast-card" href="/show?id=startripper" data-podcast-id="startripper">
+      <a class="podcast-card" href="/shows/startripper" data-podcast-id="startripper">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/startripper.png" srcset="/images/generated/covers/startripper-2aed0ddf5b-320.webp 320w, /images/generated/covers/startripper-2aed0ddf5b-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="StarTripper!! cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">StarTripper!!</h2>
@@ -1878,7 +1878,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-lovecraft-investigations">
-      <a class="podcast-card" href="/show?id=the-lovecraft-investigations" data-podcast-id="the-lovecraft-investigations">
+      <a class="podcast-card" href="/shows/the-lovecraft-investigations" data-podcast-id="the-lovecraft-investigations">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-lovecraft-investigations.jpg" srcset="/images/generated/covers/the-lovecraft-investigations-ca50ab000b-320.webp 320w, /images/generated/covers/the-lovecraft-investigations-ca50ab000b-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Lovecraft Investigations cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Lovecraft Investigations</h2>
@@ -1909,7 +1909,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="video-palace">
-      <a class="podcast-card" href="/show?id=video-palace" data-podcast-id="video-palace">
+      <a class="podcast-card" href="/shows/video-palace" data-podcast-id="video-palace">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/video-palace.jpg" srcset="/images/generated/covers/video-palace-ef50761b8c-320.webp 320w, /images/generated/covers/video-palace-ef50761b8c-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Video Palace cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Video Palace</h2>
@@ -1940,7 +1940,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="limetown">
-      <a class="podcast-card" href="/show?id=limetown" data-podcast-id="limetown">
+      <a class="podcast-card" href="/shows/limetown" data-podcast-id="limetown">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/limetown.jpg" srcset="/images/generated/covers/limetown-9bc95bcb6e-320.webp 320w, /images/generated/covers/limetown-9bc95bcb6e-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Limetown cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Limetown</h2>
@@ -1971,7 +1971,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-black-tapes">
-      <a class="podcast-card" href="/show?id=the-black-tapes" data-podcast-id="the-black-tapes">
+      <a class="podcast-card" href="/shows/the-black-tapes" data-podcast-id="the-black-tapes">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-black-tapes.jpg" srcset="/images/generated/covers/the-black-tapes-05d1573be2-320.webp 320w, /images/generated/covers/the-black-tapes-05d1573be2-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Black Tapes cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Black Tapes</h2>
@@ -2002,7 +2002,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="girl-in-space">
-      <a class="podcast-card" href="/show?id=girl-in-space" data-podcast-id="girl-in-space">
+      <a class="podcast-card" href="/shows/girl-in-space" data-podcast-id="girl-in-space">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/girl-in-space.jpg" srcset="/images/generated/covers/girl-in-space-757f56195d-320.webp 320w, /images/generated/covers/girl-in-space-757f56195d-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Girl in Space cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Girl in Space</h2>
@@ -2033,7 +2033,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="mockery-manor">
-      <a class="podcast-card" href="/show?id=mockery-manor" data-podcast-id="mockery-manor">
+      <a class="podcast-card" href="/shows/mockery-manor" data-podcast-id="mockery-manor">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/mockery-manor.jpg" srcset="/images/generated/covers/mockery-manor-56b69adadc-320.webp 320w, /images/generated/covers/mockery-manor-56b69adadc-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Mockery Manor cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Mockery Manor</h2>
@@ -2064,7 +2064,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="forest-404">
-      <a class="podcast-card" href="/show?id=forest-404" data-podcast-id="forest-404">
+      <a class="podcast-card" href="/shows/forest-404" data-podcast-id="forest-404">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/forest-404.jpg" srcset="/images/generated/covers/forest-404-d7a73d935e-320.webp 320w, /images/generated/covers/forest-404-d7a73d935e-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Forest 404 cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Forest 404</h2>
@@ -2095,7 +2095,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="greater-boston">
-      <a class="podcast-card" href="/show?id=greater-boston" data-podcast-id="greater-boston">
+      <a class="podcast-card" href="/shows/greater-boston" data-podcast-id="greater-boston">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/greater-boston.jpg" srcset="/images/generated/covers/greater-boston-07692acf81-320.webp 320w, /images/generated/covers/greater-boston-07692acf81-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Greater Boston cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Greater Boston</h2>
@@ -2126,7 +2126,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="tumanbay">
-      <a class="podcast-card" href="/show?id=tumanbay" data-podcast-id="tumanbay">
+      <a class="podcast-card" href="/shows/tumanbay" data-podcast-id="tumanbay">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/tumanbay.jpg" srcset="/images/generated/covers/tumanbay-9a183917a3-320.webp 320w, /images/generated/covers/tumanbay-9a183917a3-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Tumanbay cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Tumanbay</h2>
@@ -2157,7 +2157,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="janus-descending">
-      <a class="podcast-card" href="/show?id=janus-descending" data-podcast-id="janus-descending">
+      <a class="podcast-card" href="/shows/janus-descending" data-podcast-id="janus-descending">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/janus-descending.jpg" srcset="/images/generated/covers/janus-descending-9f8e3c8138-320.webp 320w, /images/generated/covers/janus-descending-9f8e3c8138-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Janus Descending cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Janus Descending</h2>
@@ -2188,7 +2188,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="spines-podcast">
-      <a class="podcast-card" href="/show?id=spines-podcast" data-podcast-id="spines-podcast">
+      <a class="podcast-card" href="/shows/spines-podcast" data-podcast-id="spines-podcast">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/spines-podcast.jpg" srcset="/images/generated/covers/spines-podcast-5461c454fd-320.webp 320w, /images/generated/covers/spines-podcast-5461c454fd-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Spines cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Spines</h2>
@@ -2219,7 +2219,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="caravan">
-      <a class="podcast-card" href="/show?id=caravan" data-podcast-id="caravan">
+      <a class="podcast-card" href="/shows/caravan" data-podcast-id="caravan">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/caravan.jpg" srcset="/images/generated/covers/caravan-a24f4d56c1-320.webp 320w, /images/generated/covers/caravan-a24f4d56c1-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Caravan cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Caravan</h2>
@@ -2250,7 +2250,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="oblivity">
-      <a class="podcast-card" href="/show?id=oblivity" data-podcast-id="oblivity">
+      <a class="podcast-card" href="/shows/oblivity" data-podcast-id="oblivity">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/oblivity.png" srcset="/images/generated/covers/oblivity-925a3e57ce-320.webp 320w, /images/generated/covers/oblivity-925a3e57ce-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Oblivity cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Oblivity</h2>
@@ -2281,7 +2281,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="the-once-and-future-nerd">
-      <a class="podcast-card" href="/show?id=the-once-and-future-nerd" data-podcast-id="the-once-and-future-nerd">
+      <a class="podcast-card" href="/shows/the-once-and-future-nerd" data-podcast-id="the-once-and-future-nerd">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/the-once-and-future-nerd.jpg" srcset="/images/generated/covers/the-once-and-future-nerd-0e3474eaba-320.webp 320w, /images/generated/covers/the-once-and-future-nerd-0e3474eaba-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="The Once and Future Nerd cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">The Once and Future Nerd</h2>
@@ -2312,7 +2312,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="king-falls-am">
-      <a class="podcast-card" href="/show?id=king-falls-am" data-podcast-id="king-falls-am">
+      <a class="podcast-card" href="/shows/king-falls-am" data-podcast-id="king-falls-am">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/king-falls-am.png" srcset="/images/generated/covers/king-falls-am-e125f50569-320.webp 320w, /images/generated/covers/king-falls-am-e125f50569-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="King Falls AM cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">King Falls AM</h2>
@@ -2343,7 +2343,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="brimstone-valley-mall">
-      <a class="podcast-card" href="/show?id=brimstone-valley-mall" data-podcast-id="brimstone-valley-mall">
+      <a class="podcast-card" href="/shows/brimstone-valley-mall" data-podcast-id="brimstone-valley-mall">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/brimstone-valley-mall.jpg" srcset="/images/generated/covers/brimstone-valley-mall-24964fb070-320.webp 320w, /images/generated/covers/brimstone-valley-mall-24964fb070-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Brimstone Valley Mall cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Brimstone Valley Mall</h2>
@@ -2374,7 +2374,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="midnight-radio">
-      <a class="podcast-card" href="/show?id=midnight-radio" data-podcast-id="midnight-radio">
+      <a class="podcast-card" href="/shows/midnight-radio" data-podcast-id="midnight-radio">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/midnight-radio.png" srcset="/images/generated/covers/midnight-radio-1af40ab2cb-320.webp 320w, /images/generated/covers/midnight-radio-1af40ab2cb-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Midnight Radio cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Midnight Radio</h2>
@@ -2405,7 +2405,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="mission-rejected">
-      <a class="podcast-card" href="/show?id=mission-rejected" data-podcast-id="mission-rejected">
+      <a class="podcast-card" href="/shows/mission-rejected" data-podcast-id="mission-rejected">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/mission-rejected.jpg" srcset="/images/generated/covers/mission-rejected-015e830327-320.webp 320w, /images/generated/covers/mission-rejected-015e830327-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Mission Rejected cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Mission Rejected</h2>
@@ -2436,7 +2436,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="we-fix-space-junk">
-      <a class="podcast-card" href="/show?id=we-fix-space-junk" data-podcast-id="we-fix-space-junk">
+      <a class="podcast-card" href="/shows/we-fix-space-junk" data-podcast-id="we-fix-space-junk">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/we-fix-space-junk.jpg" srcset="/images/generated/covers/we-fix-space-junk-bdbeb81bef-320.webp 320w, /images/generated/covers/we-fix-space-junk-bdbeb81bef-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="We Fix Space Junk cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">We Fix Space Junk</h2>
@@ -2467,7 +2467,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="harbor">
-      <a class="podcast-card" href="/show?id=harbor" data-podcast-id="harbor">
+      <a class="podcast-card" href="/shows/harbor" data-podcast-id="harbor">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/harbor.png" srcset="/images/generated/covers/harbor-85427891b4-320.webp 320w, /images/generated/covers/harbor-85427891b4-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Harbor cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Harbor</h2>
@@ -2498,7 +2498,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="passenger-list">
-      <a class="podcast-card" href="/show?id=passenger-list" data-podcast-id="passenger-list">
+      <a class="podcast-card" href="/shows/passenger-list" data-podcast-id="passenger-list">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/passenger-list.png" srcset="/images/generated/covers/passenger-list-bbace46451-320.webp 320w, /images/generated/covers/passenger-list-bbace46451-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Passenger List cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Passenger List</h2>
@@ -2529,7 +2529,7 @@
         </div>
       </a>
     </div><div class="podcast-card-shell" data-podcast-id="moonbase-theta-out">
-      <a class="podcast-card" href="/show?id=moonbase-theta-out" data-podcast-id="moonbase-theta-out">
+      <a class="podcast-card" href="/shows/moonbase-theta-out" data-podcast-id="moonbase-theta-out">
         <div class="editorial-badges" aria-hidden="true"></div>
         <img src="/images/covers/moonbase-theta-out.jpg" srcset="/images/generated/covers/moonbase-theta-out-ec2e70a439-320.webp 320w, /images/generated/covers/moonbase-theta-out-ec2e70a439-640.webp 640w" sizes="(max-width: 560px) 44vw, (max-width: 960px) 30vw, 240px" alt="Moonbase Theta, Out cover art" loading="lazy" decoding="async" width="320" height="320" />
         <h2 data-card-title="true">Moonbase Theta, Out</h2>
@@ -2586,37 +2586,37 @@
         </button>
 
         <div class="collection-carousel-viewport" id="favoriteRoutesViewport">
-          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=shows-like-midnight-burger" aria-label="Browse the Shows like Midnight Burger collection" data-collection-id="shows-like-midnight-burger" data-anchor-show-id="midnight-burger" style="--collection-cover-image: url(&quot;/images/generated/covers/midnight-burger-50aed834c6-320.webp&quot;); --collection-accent: #b26745">
+          <div class="collection-grid collection-carousel-track" id="favoriteRoutesGrid" data-home-prerendered="true"><a class="collection-card" href="/collections/shows-like-midnight-burger" aria-label="Browse the Shows like Midnight Burger collection" data-collection-id="shows-like-midnight-burger" data-anchor-show-id="midnight-burger" style="--collection-cover-image: url(&quot;/images/generated/covers/midnight-burger-50aed834c6-320.webp&quot;); --collection-accent: #b26745">
       <h3>Shows like Midnight Burger</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">9 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-welcome-to-night-vale" aria-label="Browse the Shows like Welcome to Night Vale collection" data-collection-id="shows-like-welcome-to-night-vale" data-anchor-show-id="welcome-to-night-vale" style="--collection-cover-image: url(&quot;/images/generated/covers/welcome-to-night-vale-842179748f-320.webp&quot;)">
+    </a><a class="collection-card" href="/collections/shows-like-welcome-to-night-vale" aria-label="Browse the Shows like Welcome to Night Vale collection" data-collection-id="shows-like-welcome-to-night-vale" data-anchor-show-id="welcome-to-night-vale" style="--collection-cover-image: url(&quot;/images/generated/covers/welcome-to-night-vale-842179748f-320.webp&quot;)">
       <h3>Shows like Welcome to Night Vale</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">9 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-derelict" aria-label="Browse the Shows like Derelict collection" data-collection-id="shows-like-derelict" data-anchor-show-id="derelict" style="--collection-cover-image: url(&quot;/images/generated/covers/derelict-764d1a3c55-320.webp&quot;); --collection-accent: #4a6580">
+    </a><a class="collection-card" href="/collections/shows-like-derelict" aria-label="Browse the Shows like Derelict collection" data-collection-id="shows-like-derelict" data-anchor-show-id="derelict" style="--collection-cover-image: url(&quot;/images/generated/covers/derelict-764d1a3c55-320.webp&quot;); --collection-accent: #4a6580">
       <h3>Shows like Derelict</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-the-white-vault" aria-label="Browse the Shows like The White Vault collection" data-collection-id="shows-like-the-white-vault" data-anchor-show-id="the-white-vault" style="--collection-cover-image: url(&quot;/images/generated/covers/the-white-vault-ddb98627f9-320.webp&quot;); --collection-accent: #6c7e89">
+    </a><a class="collection-card" href="/collections/shows-like-the-white-vault" aria-label="Browse the Shows like The White Vault collection" data-collection-id="shows-like-the-white-vault" data-anchor-show-id="the-white-vault" style="--collection-cover-image: url(&quot;/images/generated/covers/the-white-vault-ddb98627f9-320.webp&quot;); --collection-accent: #6c7e89">
       <h3>Shows like The White Vault</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-midst" aria-label="Browse the Shows like Midst collection" data-collection-id="shows-like-midst" data-anchor-show-id="midst" style="--collection-cover-image: url(&quot;/images/generated/covers/midst-112a25975f-320.webp&quot;)">
+    </a><a class="collection-card" href="/collections/shows-like-midst" aria-label="Browse the Shows like Midst collection" data-collection-id="shows-like-midst" data-anchor-show-id="midst" style="--collection-cover-image: url(&quot;/images/generated/covers/midst-112a25975f-320.webp&quot;)">
       <h3>Shows like Midst</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=shows-like-malevolent" aria-label="Browse the Shows like Malevolent collection" data-collection-id="shows-like-malevolent" data-anchor-show-id="malevolent" style="--collection-cover-image: url(&quot;/images/generated/covers/malevolent-0454c6c877-320.webp&quot;)">
+    </a><a class="collection-card" href="/collections/shows-like-malevolent" aria-label="Browse the Shows like Malevolent collection" data-collection-id="shows-like-malevolent" data-anchor-show-id="malevolent" style="--collection-cover-image: url(&quot;/images/generated/covers/malevolent-0454c6c877-320.webp&quot;)">
       <h3>Shows like Malevolent</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">8 shows</p>
@@ -2645,37 +2645,37 @@
         </button>
 
         <div class="collection-carousel-viewport" id="collectionViewport">
-          <div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true"><a class="collection-card" href="/collection?id=best-for-long-walks" aria-label="Browse the Best for long walks collection" data-collection-id="best-for-long-walks" style="--collection-cover-image: url(&quot;/images/generated/covers/impact-winter-223a921604-320.webp&quot;); --collection-accent: #851a28">
+          <div class="collection-grid collection-carousel-track" id="collectionGrid" data-home-prerendered="true"><a class="collection-card" href="/collections/best-for-long-walks" aria-label="Browse the Best for long walks collection" data-collection-id="best-for-long-walks" style="--collection-cover-image: url(&quot;/images/generated/covers/impact-winter-223a921604-320.webp&quot;); --collection-accent: #851a28">
       <h3>Best for long walks</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">8 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=easy-first-steps" aria-label="Browse the Start here collection" data-collection-id="easy-first-steps" style="--collection-cover-image: url(&quot;/images/generated/covers/the-bright-sessions-de58f8456f-320.webp&quot;); --collection-accent: #976f48">
+    </a><a class="collection-card" href="/collections/easy-first-steps" aria-label="Browse the Start here collection" data-collection-id="easy-first-steps" style="--collection-cover-image: url(&quot;/images/generated/covers/the-bright-sessions-de58f8456f-320.webp&quot;); --collection-accent: #976f48">
       <h3>Start here</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">12 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=serious-sci-fi" aria-label="Browse the Serious sci-fi collection" data-collection-id="serious-sci-fi" style="--collection-cover-image: url(&quot;/images/generated/covers/derelict-764d1a3c55-320.webp&quot;); --collection-accent: #851a28">
+    </a><a class="collection-card" href="/collections/serious-sci-fi" aria-label="Browse the Serious sci-fi collection" data-collection-id="serious-sci-fi" style="--collection-cover-image: url(&quot;/images/generated/covers/derelict-764d1a3c55-320.webp&quot;); --collection-accent: #851a28">
       <h3>Serious sci-fi</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">14 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=funny-space-disasters" aria-label="Browse the Funny space disasters collection" data-collection-id="funny-space-disasters" style="--collection-cover-image: url(&quot;/shows/oz9/oz9.jpeg&quot;); --collection-accent: #07ac3e">
+    </a><a class="collection-card" href="/collections/funny-space-disasters" aria-label="Browse the Funny space disasters collection" data-collection-id="funny-space-disasters" style="--collection-cover-image: url(&quot;/shows/oz9/oz9.jpeg&quot;); --collection-accent: #07ac3e">
       <h3>Funny space disasters</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">8 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=cold-isolation-horror" aria-label="Browse the Cold isolation horror collection" data-collection-id="cold-isolation-horror" style="--collection-cover-image: url(&quot;/images/generated/covers/the-white-vault-ddb98627f9-320.webp&quot;); --collection-accent: #6c7e89">
+    </a><a class="collection-card" href="/collections/cold-isolation-horror" aria-label="Browse the Cold isolation horror collection" data-collection-id="cold-isolation-horror" style="--collection-cover-image: url(&quot;/images/generated/covers/the-white-vault-ddb98627f9-320.webp&quot;); --collection-accent: #6c7e89">
       <h3>Cold isolation horror</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">6 shows</p>
         <span class="collection-card-cta">Browse</span>
       </div>
-    </a><a class="collection-card" href="/collection?id=finished-arcs" aria-label="Browse the Completed shows collection" data-collection-id="finished-arcs" style="--collection-cover-image: url(&quot;/images/generated/covers/the-bright-sessions-de58f8456f-320.webp&quot;); --collection-accent: #cc5b42">
+    </a><a class="collection-card" href="/collections/finished-arcs" aria-label="Browse the Completed shows collection" data-collection-id="finished-arcs" style="--collection-cover-image: url(&quot;/images/generated/covers/the-bright-sessions-de58f8456f-320.webp&quot;); --collection-accent: #cc5b42">
       <h3>Completed shows</h3>
       <div class="collection-card-footer">
         <p class="collection-card-count">15 shows</p>
@@ -2709,7 +2709,7 @@
     <a class="footer-brand-mark" href="/" aria-label="The Echo Archives home">
       <img src="/images/Horizontal-Logo-W.png" alt="The Echo Archives" width="977" height="255" />
     </a>
-    <p class="footer-brand-note">Editorial picks, listening paths, and clean metadata for finding the right fiction podcast next.</p>
+    <p class="footer-brand-note">Human-curated audio drama reviews, fiction podcast recommendations, listening paths, and clean show metadata.</p>
     <div class="footer-meta-row">
       <p class="footer-brand-subnote">A Continental project</p>
       <p class="footer-meta">© 2026 The Echo Archives · <a href="https://github.com/Charlemagne404" target="_blank" rel="noreferrer">Maintainer</a></p>
@@ -2758,10 +2758,10 @@
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=f8943301bf"></script>
+  <script src="/shared/archive-record.js?v=dedd423053"></script>
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=2f89dece9d"></script>
+  <script type="module" src="/script.js?v=eb015a81ce"></script>
 </body>
 </html>

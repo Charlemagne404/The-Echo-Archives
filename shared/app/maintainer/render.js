@@ -23,7 +23,7 @@ function renderSummaryCard(card) {
 
 function renderListItem(submission, isSelected) {
   const showLink = submission.existingShowId
-    ? `<a class="maintainer-inline-link" href="/show?id=${encodeURIComponent(submission.existingShowId)}" target="_blank" rel="noreferrer">Open show</a>`
+    ? `<a class="maintainer-inline-link" href="/shows/${encodeURIComponent(submission.existingShowId)}" target="_blank" rel="noreferrer">Open show</a>`
     : "";
 
   return `
@@ -138,7 +138,7 @@ export function renderDetailPane({ submission = null, storedReviewer = "" }) {
 
   const reviewedBy = submission.reviewedBy || storedReviewer || "";
   const showLink = submission.existingShowId
-    ? renderLabeledLink("Open matching show page", `/show?id=${encodeURIComponent(submission.existingShowId)}`)
+    ? renderLabeledLink("Open matching show page", `/shows/${encodeURIComponent(submission.existingShowId)}`)
     : "";
 
   return `

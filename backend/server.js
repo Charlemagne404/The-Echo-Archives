@@ -30,12 +30,14 @@ const {
   buildShowPageMetadata,
   buildShowStructuredData,
   injectCollectionSummary,
+  injectCollectionShowCards,
   injectJsonBootstrap,
   injectNoIndex,
   injectRuntimeSiteConfig,
   injectPageMetadata,
   injectStructuredData,
 } = require("./lib/public-page-render");
+const { buildCollectionPath, buildShowPath, isIndexableCollection } = require("./lib/seo");
 const {
   createMissingShowPageMarkup,
   createShowPageMarkup,
@@ -319,6 +321,10 @@ async function startServer() {
     next();
   });
   app.use(express.json({ limit: "24kb" }));
+  app.use("/api", (_req, res, next) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    next();
+  });
 
   app.get("/api/health", (_req, res) => {
     res.set("Cache-Control", "no-store");
@@ -370,6 +376,7 @@ async function startServer() {
       [
         "User-agent: *",
         "Allow: /",
+        "Disallow: /api/",
         "Disallow: /maintainer/",
         `Sitemap: ${normalizeSiteUrl(config.SITE_URL)}/sitemap.xml`,
         "",
@@ -378,16 +385,19 @@ async function startServer() {
   });
 
   app.get("/data/shows.json", (_req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(_req, res);
     res.json(state.publicRuntimeCatalog);
   });
 
   app.get("/data/collections.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
     res.json(state.collections);
   });
 
   app.get("/data/search-index.json", (req, res) => {
+    res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
     setPublicCacheHeaders(req, res);
     res.json(state.publicSearchIndex);
   });
@@ -432,15 +442,40 @@ async function startServer() {
       fs.readFileSync(path.join(config.STATIC_ROOT, "shared", "config", "legacy-redirects.json"), "utf8"),
     );
 
+    const resolveEntityAliasTarget = (routePath, req) => {
+      const id = typeof req.query.id === "string" ? req.query.id.trim() : "";
+      if (routePath === "/show") {
+        return id && state.publicCatalog.some((show) => show.id === id) ? buildShowPath(id) : id ? "" : routePath;
+      }
+      if (routePath === "/collection") {
+        return id && state.collections.some((collection) => collection.id === id)
+          ? buildCollectionPath(id)
+          : id
+            ? ""
+            : routePath;
+      }
+      const queryIndex = req.url.indexOf("?");
+      const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
+      return `${routePath}${search}`;
+    };
+
+    app.use((req, res, next) => {
+      if ((req.method !== "GET" && req.method !== "HEAD") || req.path === "/" || !req.path.endsWith("/")) {
+        return next();
+      }
+      const queryIndex = req.url.indexOf("?");
+      const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
+      return res.redirect(301, `${req.path.replace(/\/+$/, "")}${search}`);
+    });
+
     app.use((req, res, next) => {
       const redirectPath = PUBLIC_ROUTE_REDIRECTS.get(req.path);
       if (!redirectPath) {
         return next();
       }
 
-      const queryIndex = req.url.indexOf("?");
-      const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
-      return res.redirect(301, `${redirectPath}${search}`);
+      const target = resolveEntityAliasTarget(redirectPath, req);
+      return target ? res.redirect(301, target) : next();
     });
 
     app.get(["/contact", "/contact.html"], (_req, res) => res.redirect(302, CONTACT_URL));
@@ -448,9 +483,8 @@ async function startServer() {
     for (const routePath of PUBLIC_PAGE_FILES.keys()) {
       if (routePath === "/") continue;
       app.get(`${routePath}/index.html`, (req, res) => {
-        const queryIndex = req.url.indexOf("?");
-        const search = queryIndex >= 0 ? req.url.slice(queryIndex) : "";
-        return res.redirect(301, `${routePath}${search}`);
+        const target = resolveEntityAliasTarget(routePath, req);
+        return target ? res.redirect(301, target) : res.status(404).type("html").send(renderErrorPage(req, "404.html"));
       });
     }
 
@@ -472,11 +506,23 @@ async function startServer() {
       }
 
       const target = legacyRedirectMap.get(decodedPath);
-      return target ? res.redirect(301, target) : next();
+      if (!target) return next();
+      let normalizedTarget = target;
+      try {
+        const targetUrl = new URL(target, config.SITE_URL);
+        const id = targetUrl.searchParams.get("id") || "";
+        if (targetUrl.pathname === "/show" && state.publicCatalog.some((show) => show.id === id)) {
+          normalizedTarget = buildShowPath(id);
+        } else if (targetUrl.pathname === "/collection" && state.collections.some((collection) => collection.id === id)) {
+          normalizedTarget = buildCollectionPath(id);
+        }
+      } catch (_error) {
+        // Keep the explicitly configured local target when it cannot be parsed.
+      }
+      return res.redirect(301, normalizedTarget);
     });
 
-    app.get("/collection", (req, res) => {
-      const collectionId = typeof req.query.id === "string" ? req.query.id.trim() : "";
+    const renderCollectionPage = (req, res, collectionId) => {
       const collection = state.collections.find((entry) => entry.id === collectionId);
 
       if (!collection) {
@@ -493,7 +539,10 @@ async function startServer() {
         collection.anchorShowId && showMap.has(collection.anchorShowId) ? showMap.get(collection.anchorShowId) : null;
       const template = readPublicPageTemplate("collection.html");
       let rendered = injectPageMetadata(
-        injectCollectionSummary(template, { collection, collectionShows }),
+        injectCollectionShowCards(
+          injectCollectionSummary(template, { collection, collectionShows }),
+          { collection, collectionShows },
+        ),
         buildCollectionPageMetadata({
           siteUrl: config.SITE_URL,
           collection,
@@ -507,15 +556,40 @@ async function startServer() {
           siteUrl: config.SITE_URL,
           collection,
           collectionShows,
+          anchorShow,
         }),
       );
 
+      if (!isIndexableCollection(collection, collectionShows)) {
+        rendered = injectNoIndex(rendered, { follow: true });
+        res.set("X-Robots-Tag", "noindex, follow, noarchive");
+      }
+
       res.set("Cache-Control", "no-cache");
       return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+    };
+
+    app.get("/collections/:collectionId", (req, res) => {
+      const collectionId = String(req.params.collectionId || "").trim();
+      const canonicalPath = buildCollectionPath(collectionId);
+      if (Object.keys(req.query).length > 0) {
+        return res.redirect(301, canonicalPath);
+      }
+      return renderCollectionPage(req, res, collectionId);
     });
 
-    app.get("/show", (req, res) => {
-      const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
+    app.get("/collection", (req, res) => {
+      const collectionId = typeof req.query.id === "string" ? req.query.id.trim() : "";
+      const collection = state.collections.find((entry) => entry.id === collectionId);
+      if (!collection) {
+        res.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+        res.set("Cache-Control", "no-cache");
+        return res.status(404).type("html").send(renderErrorPage(req, "404.html"));
+      }
+      return res.redirect(301, buildCollectionPath(collection.id));
+    });
+
+    const renderShowPage = (req, res, showId) => {
       const show = state.publicCatalog.find((entry) => entry.id === showId);
       const template = readPublicPageTemplate("show.html");
 
@@ -548,6 +622,24 @@ async function startServer() {
 
       res.set("Cache-Control", "no-cache");
       return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
+    };
+
+    app.get("/shows/:showId", (req, res) => {
+      const showId = String(req.params.showId || "").trim();
+      const canonicalPath = buildShowPath(showId);
+      if (Object.keys(req.query).length > 0) {
+        return res.redirect(301, canonicalPath);
+      }
+      return renderShowPage(req, res, showId);
+    });
+
+    app.get("/show", (req, res) => {
+      const showId = typeof req.query.id === "string" ? req.query.id.trim() : "";
+      const show = state.publicCatalog.find((entry) => entry.id === showId);
+      if (!show) {
+        return renderShowPage(req, res, showId);
+      }
+      return res.redirect(301, buildShowPath(show.id));
     });
 
     PUBLIC_PAGE_FILES.forEach((fileName, routePath) => {
@@ -558,7 +650,7 @@ async function startServer() {
           return res.sendFile(path.join(config.STATIC_ROOT, fileName));
         }
 
-        const rendered = injectPageMetadata(
+        let rendered = injectPageMetadata(
           readPublicPageTemplate(fileName),
           buildStaticPageMetadata({
             routePath,
@@ -566,6 +658,11 @@ async function startServer() {
             manifestEntry,
           }),
         );
+        const isFilteredDiscoveryPage = ["/", "/collections"].includes(routePath) && Object.keys(req.query).length > 0;
+        if (isFilteredDiscoveryPage) {
+          rendered = injectNoIndex(rendered, { follow: true });
+          res.set("X-Robots-Tag", "noindex, follow, noarchive");
+        }
         return res.type("html").send(applyRuntimeSiteConfig(rendered, req.cspNonce));
       });
     });

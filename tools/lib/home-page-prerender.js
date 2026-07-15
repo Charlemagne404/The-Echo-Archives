@@ -127,11 +127,11 @@ function renderResponsiveCoverAttributes(show, sizes) {
 }
 
 function createShowHref(id = "") {
-  return `/show?id=${encodeURIComponent(id)}`;
+  return `/shows/${encodeURIComponent(id)}`;
 }
 
 function createCollectionHref(id = "") {
-  return `/collection?id=${encodeURIComponent(id)}`;
+  return `/collections/${encodeURIComponent(id)}`;
 }
 
 function getSortableDateValue(value) {
@@ -289,6 +289,20 @@ function renderArchiveCard(show) {
   `.trim();
 }
 
+function renderCollectionShowCard(show, reason = "") {
+  const note = String(reason || "").trim();
+  let card = renderArchiveCard(show)
+    .replace('class="podcast-card-shell"', 'class="podcast-card-shell collection-show-card-shell"')
+    .replace('class="podcast-card"', 'class="podcast-card collection-show-card"');
+  if (note) {
+    card = card.replace(
+      '<div class="rating">',
+      `<p class="collection-show-card-note">${escapeHtml(note)}</p><div class="rating">`,
+    );
+  }
+  return card;
+}
+
 function renderMostPopularCard(show) {
   const lifecycleLabel = getMostPopularLifecycleLabel(show);
   const chips = [];
@@ -352,6 +366,31 @@ function renderCollectionCard(collection, showMap) {
       </div>
     </a>
   `.trim();
+}
+
+function renderCollectionDirectoryCard(collection, showMap) {
+  const collectionShows = getCollectionShows(collection, showMap);
+  const anchorShow = getCollectionAnchorShow(collection, showMap);
+  const leadShow = anchorShow || getCollectionLeadShow(collection, showMap);
+  const title = collection.title || "Untitled collection";
+  const description = collection.description || "Collection description not cataloged yet.";
+  const coverMarkup = leadShow
+    ? `<div class="collection-cover-collage collection-cover-collage-compact" aria-hidden="true"><span class="collection-cover-frame" data-cover-index="1"><img src="${escapeAttribute(getCoverVariantSource(leadShow, 320))}"${renderResponsiveCoverAttributes(leadShow, "(max-width: 560px) 42vw, (max-width: 960px) 28vw, 240px")} alt="" loading="lazy" decoding="async" width="320" height="320" /></span></div>`
+    : "";
+  const intentTags = (collection.intentTags || [])
+    .map((tag) => `<span>${escapeHtml(toDisplayTag(tag))}</span>`)
+    .join("");
+  const meta = `${collectionShows.length} ${collectionShows.length === 1 ? "show" : "shows"} / ${collection.commitment || collection.kind || "Curated path"}`;
+
+  return `<a class="collections-directory-card" href="${escapeAttribute(createCollectionHref(collection.id || ""))}" data-collection-id="${escapeAttribute(collection.id || "")}" data-intent-tags="${escapeAttribute((collection.intentTags || []).join(" "))}" aria-label="Open the ${escapeAttribute(title)} collection">
+    ${coverMarkup}
+    <span class="collections-card-label">${escapeHtml(collection.label || (collection.featured ? "Featured route" : "Curated route"))}</span>
+    <h3>${escapeHtml(title)}</h3>
+    <p class="collections-directory-description">${escapeHtml(description)}</p>
+    <p class="collections-card-meta">${escapeHtml(meta)}</p>
+    <div class="collection-intent-tags">${intentTags}</div>
+    <div class="collection-directory-actions"><span class="collection-action">Open collection</span></div>
+  </a>`;
 }
 
 function replaceMarkup(source, pattern, replacement, label) {
@@ -476,6 +515,42 @@ function renderHomePagePrerender(pageBody, { rootDir, homeMostPopularIds = [], h
   return rendered;
 }
 
+function renderCollectionsPagePrerender(pageBody, { rootDir }) {
+  const { publishedShows, collections } = loadHomePrerenderData(rootDir);
+  const showMap = new Map(publishedShows.map((show) => [show.id, show]));
+  const directoryMarkup = collections.map((collection) => renderCollectionDirectoryCard(collection, showMap)).join("");
+  const coveredShowIds = new Set(collections.flatMap((collection) => collection.showIds || []));
+  const latestUpdatedAt = collections.map((collection) => collection.updatedAt).filter(Boolean).sort().at(-1) || "";
+  const fullDate = latestUpdatedAt
+    ? new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric" }).format(new Date(`${latestUpdatedAt}T00:00:00`))
+    : "Unknown";
+
+  let rendered = replaceMarkup(
+    pageBody,
+    /<div id="collectionsDirectory" class="collections-directory-grid" aria-live="polite"><\/div>/,
+    `<div id="collectionsDirectory" class="collections-directory-grid" aria-live="polite" data-collections-prerendered="true">${directoryMarkup}</div>`,
+    "collections directory prerender",
+  );
+  for (const [id, value] of [
+    ["collectionsCount", collections.length],
+    ["collectionsShowReach", coveredShowIds.size],
+    ["collectionsFeaturedCount", collections.filter((collection) => collection.featured).length],
+    ["collectionsLastUpdated", fullDate],
+  ]) {
+    rendered = rendered.replace(
+      new RegExp(`(<[^>]+id="${id}"[^>]*>)[\\s\\S]*?(<\\/[^>]+>)`),
+      `$1${escapeHtml(value)}$2`,
+    );
+  }
+  return rendered.replace(
+    /(<p id="collectionsDirectorySummary">)[\s\S]*?(<\/p>)/,
+    `$1${collections.length} human-curated audio drama and fiction podcast listening paths.$2`,
+  );
+}
+
 module.exports = {
+  renderArchiveCard,
+  renderCollectionShowCard,
+  renderCollectionsPagePrerender,
   renderHomePagePrerender,
 };

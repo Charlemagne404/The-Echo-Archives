@@ -25,6 +25,8 @@ const mainPages = [
 ];
 const failures = [];
 const htmlCache = new Map();
+const publishedShowIds = new Set();
+const collectionIds = new Set();
 
 function getHtmlContents(relativePath) {
   if (!htmlCache.has(relativePath)) {
@@ -59,6 +61,23 @@ function normalizeLocalTarget(reference = "") {
   const normalized = withoutQuery.startsWith("/") ? withoutQuery.slice(1) : withoutQuery;
   if (!normalized) {
     return null;
+  }
+
+  const dynamicRoute = normalized.match(/^(shows|collections)\/([^/]+)$/);
+  if (dynamicRoute) {
+    let routeId = "";
+    try {
+      routeId = decodeURIComponent(dynamicRoute[2]);
+    } catch (_error) {
+      routeId = "";
+    }
+    const isKnownRoute = dynamicRoute[1] === "shows" ? publishedShowIds.has(routeId) : collectionIds.has(routeId);
+    if (isKnownRoute) {
+      return {
+        file: dynamicRoute[1] === "shows" ? "show.html" : "collection.html",
+        hash,
+      };
+    }
   }
 
   const extensionlessRoute = !path.extname(normalized);
@@ -132,11 +151,13 @@ function scanManifestIcons() {
 }
 
 async function main() {
-  mainPages.forEach(scanHtmlFile);
-  scanManifestIcons();
-
   const catalog = await loadCatalog(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)));
+  catalog.filter((show) => show.status === "published").forEach((show) => publishedShowIds.add(show.id));
+  collections.forEach((collection) => collectionIds.add(collection.id));
+
+  mainPages.forEach(scanHtmlFile);
+  scanManifestIcons();
 
   catalog.forEach((show) => {
     assertFileExists(path.join(siteRoot, show.cover), `Show "${show.id}" cover`);

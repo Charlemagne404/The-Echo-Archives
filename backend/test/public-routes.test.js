@@ -11,6 +11,11 @@ const { findFreePort } = require("./helpers/free-port");
 const projectRoot = path.resolve(__dirname, "..");
 const siteRoot = path.resolve(projectRoot, "..");
 
+function graphNode(structuredData, type) {
+  const nodes = Array.isArray(structuredData?.["@graph"]) ? structuredData["@graph"] : [structuredData];
+  return nodes.find((node) => node?.["@type"] === type);
+}
+
 async function waitForServer(url, timeoutMs = 20_000) {
   const startedAt = Date.now();
 
@@ -92,7 +97,14 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
   const context = await startPublicRouteServer();
 
   try {
-    for (const route of ["/about", "/collections", "/submit", "/privacy", "/show?id=impact-winter", "/collection?id=best-for-long-walks"]) {
+    for (const route of [
+      "/about",
+      "/collections",
+      "/submit",
+      "/privacy",
+      "/shows/impact-winter",
+      "/collections/best-for-long-walks",
+    ]) {
       const response = await fetch(`${context.baseUrl}${route}`);
       assert.equal(response.status, 200, route);
       assert.match(response.headers.get("content-type") || "", /text\/html/);
@@ -104,6 +116,19 @@ test("public clean routes resolve and legacy html routes redirect", async () => 
     });
     assert.equal(redirectResponse.status, 301);
     assert.equal(redirectResponse.headers.get("location"), "/collections");
+
+    for (const [route, location] of [
+      ["/show?id=impact-winter", "/shows/impact-winter"],
+      ["/show.html?id=impact-winter", "/shows/impact-winter"],
+      ["/show/index.html?id=impact-winter", "/shows/impact-winter"],
+      ["/collection?id=best-for-long-walks", "/collections/best-for-long-walks"],
+      ["/collection.html?id=best-for-long-walks", "/collections/best-for-long-walks"],
+      ["/collections/best-for-long-walks/", "/collections/best-for-long-walks"],
+    ]) {
+      const alias = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
+      assert.equal(alias.status, 301, route);
+      assert.equal(alias.headers.get("location"), location, route);
+    }
   } finally {
     await stopPublicRouteServer(context);
   }
@@ -118,11 +143,11 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     const similarityCollection = collections.find((collection) => collection.kind === "similarity");
     const similarityAnchor = catalog.find((show) => show.id === similarityCollection?.anchorShowId);
 
-    const showResponse = await fetch(`${context.baseUrl}/show?id=impact-winter`);
+    const showResponse = await fetch(`${context.baseUrl}/shows/impact-winter`);
     assert.equal(showResponse.status, 200);
     const showHtml = await showResponse.text();
-    assert.match(showHtml, /<title>Impact Winter - The Echo Archives<\/title>/);
-    assert.match(showHtml, new RegExp(`<link rel="canonical" href="${context.baseUrl}/show\\?id=impact-winter" \\/>`));
+    assert.match(showHtml, /<title>Impact Winter Review &amp; Similar Podcasts \| The Echo Archives<\/title>/);
+    assert.match(showHtml, new RegExp(`<link rel="canonical" href="${context.baseUrl}/shows/impact-winter" \\/>`));
     assert.match(showHtml, new RegExp(`<meta property="og:image" content="${context.baseUrl}/`));
     assert.match(showHtml, /<main\b[^>]*id="showRoot"[^>]*>\s*<section class="detail-main podcast-detail">/);
     assert.match(showHtml, /<h1>Impact Winter<\/h1>/);
@@ -132,29 +157,46 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     );
     assert.ok(structuredDataMatch);
     const structuredData = JSON.parse(structuredDataMatch[1]);
-    assert.equal(structuredData["@type"], "PodcastSeries");
-    assert.equal(structuredData.url, `${context.baseUrl}/show?id=impact-winter`);
-    assert.ok(structuredData.creator.every((creator) => typeof creator === "string"));
+    const podcastSeries = graphNode(structuredData, "PodcastSeries");
+    const showWebPage = graphNode(structuredData, "WebPage");
+    const showBreadcrumbs = graphNode(structuredData, "BreadcrumbList");
+    assert.equal(podcastSeries.url, `${context.baseUrl}/shows/impact-winter`);
+    assert.equal(showWebPage.url, `${context.baseUrl}/shows/impact-winter`);
+    assert.equal(showWebPage.mainEntity["@id"], podcastSeries["@id"]);
+    assert.equal(showBreadcrumbs.itemListElement.at(-1).item, `${context.baseUrl}/shows/impact-winter`);
+    assert.ok(podcastSeries.creator.every((creator) => typeof creator === "string"));
 
-    const collectionResponse = await fetch(`${context.baseUrl}/collection?id=best-for-long-walks`);
+    const collectionResponse = await fetch(`${context.baseUrl}/collections/best-for-long-walks`);
     assert.equal(collectionResponse.status, 200);
     const collectionHtml = await collectionResponse.text();
     assert.match(
       collectionHtml,
-      new RegExp(`<title>${"Best for long walks".replace(/[.*+?^${}()|[\]\\]/g, "\\$&")} - The Echo Archives<\\/title>`),
+      /<title>Best for long walks: Audio Drama Recommendations \| The Echo Archives<\/title>/,
     );
     assert.match(
       collectionHtml,
-      new RegExp(`<link rel="canonical" href="${context.baseUrl}/collection\\?id=best-for-long-walks" \\/>`),
+      new RegExp(`<link rel="canonical" href="${context.baseUrl}/collections/best-for-long-walks" \\/>`),
     );
     assert.match(collectionHtml, /<h1 id="collectionTitle">Best for long walks<\/h1>/);
     assert.doesNotMatch(collectionHtml, /Loading collection/);
     assert.match(collectionHtml, /8 curated entries in this listening path/);
+    assert.match(collectionHtml, /href="\/shows\/impact-winter"/);
+    assert.match(collectionHtml, /class="collection-show-card-note"/);
+    const collectionStructuredDataMatch = collectionHtml.match(
+      /<script id="pageStructuredData" type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/,
+    );
+    assert.ok(collectionStructuredDataMatch);
+    const collectionStructuredData = JSON.parse(collectionStructuredDataMatch[1]);
+    const collectionPage = graphNode(collectionStructuredData, "CollectionPage");
+    const collectionItemList = graphNode(collectionStructuredData, "ItemList");
+    assert.equal(collectionPage.url, `${context.baseUrl}/collections/best-for-long-walks`);
+    assert.equal(collectionItemList.numberOfItems, 8);
+    assert.ok(collectionItemList.itemListElement.every((item) => item.url.startsWith(`${context.baseUrl}/shows/`)));
 
     assert.ok(similarityCollection?.id);
     assert.ok(similarityAnchor?.cover);
     const similarityCollectionResponse = await fetch(
-      `${context.baseUrl}/collection?id=${encodeURIComponent(similarityCollection.id)}`,
+      `${context.baseUrl}/collections/${encodeURIComponent(similarityCollection.id)}`,
     );
     assert.equal(similarityCollectionResponse.status, 200);
     const similarityCollectionHtml = await similarityCollectionResponse.text();
@@ -165,8 +207,13 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
       ),
     );
 
-    const missingShowResponse = await fetch(`${context.baseUrl}/show?id=missing-show`);
+    const missingShowResponse = await fetch(`${context.baseUrl}/shows/missing-show`);
     assert.equal(missingShowResponse.status, 404);
+    assert.match(missingShowResponse.headers.get("x-robots-tag") || "", /noindex/);
+
+    const missingCollectionResponse = await fetch(`${context.baseUrl}/collections/missing-collection`);
+    assert.equal(missingCollectionResponse.status, 404);
+    assert.match(missingCollectionResponse.headers.get("x-robots-tag") || "", /noindex/);
   } finally {
     await stopPublicRouteServer(context);
   }
@@ -272,9 +319,9 @@ test("server exposes only intended public files and preserves legacy show redire
     }
 
     for (const [route, location] of [
-      ["/shows/oz9/oz9.html", "/show?id=oz-9"],
-      ["/shows/Impact%20Winter/impact-winter.html", "/show?id=impact-winter"],
-      ["/shows/ars%20paradoxica/ars-paradoxica.html", "/show?id=ars-paradoxica"],
+      ["/shows/oz9/oz9.html", "/shows/oz-9"],
+      ["/shows/Impact%20Winter/impact-winter.html", "/shows/impact-winter"],
+      ["/shows/ars%20paradoxica/ars-paradoxica.html", "/shows/ars-paradoxica"],
     ]) {
       const legacy = await fetch(`${context.baseUrl}${route}`, { redirect: "manual" });
       assert.equal(legacy.status, 301, route);
@@ -308,12 +355,13 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     const robotsText = await robots.text();
     assert.match(robotsText, new RegExp(`Sitemap: ${context.baseUrl}/sitemap\\.xml`));
     assert.match(robotsText, /Disallow: \/maintainer\//);
+    assert.match(robotsText, /Disallow: \/api\//);
 
-    const response = await fetch(`${context.baseUrl}/show?id=impact-winter`, {
+    const response = await fetch(`${context.baseUrl}/shows/impact-winter`, {
       headers: { Host: "attacker.example" },
     });
     const html = await response.text();
-    assert.match(html, new RegExp(`<link rel="canonical" href="${context.baseUrl}/show\\?id=impact-winter"`));
+    assert.match(html, new RegExp(`<link rel="canonical" href="${context.baseUrl}/shows/impact-winter"`));
     assert.doesNotMatch(html, /attacker\.example/);
     const csp = response.headers.get("content-security-policy") || "";
     assert.match(csp, /default-src 'self'/);
@@ -324,10 +372,25 @@ test("errors, contact, robots, canonical origin, and security headers have safe 
     assert.equal(response.headers.get("x-frame-options"), "DENY");
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
 
-    const missingShow = await fetch(`${context.baseUrl}/show?id=not-a-show`);
+    const missingShow = await fetch(`${context.baseUrl}/shows/not-a-show`);
     assert.equal(missingShow.status, 404);
     assert.match(missingShow.headers.get("x-robots-tag") || "", /noindex/);
     assert.match(await missingShow.text(), /name="robots" content="noindex, nofollow, noarchive"/);
+
+    const filteredHome = await fetch(`${context.baseUrl}/?q=horror`);
+    assert.equal(filteredHome.status, 200);
+    assert.match(filteredHome.headers.get("x-robots-tag") || "", /noindex, follow/);
+    const filteredHomeHtml = await filteredHome.text();
+    assert.match(filteredHomeHtml, /name="robots" content="noindex, follow, noarchive"/);
+    assert.doesNotMatch(filteredHomeHtml, /https:\/\/echo\.continental-hub\.com/);
+    const filteredStructuredData = JSON.parse(
+      filteredHomeHtml.match(/<script id="pageStructuredData" type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/)[1],
+    );
+    assert.equal(graphNode(filteredStructuredData, "WebPage").url, `${context.baseUrl}/`);
+
+    const trackingQuery = await fetch(`${context.baseUrl}/shows/impact-winter?utm_source=test`, { redirect: "manual" });
+    assert.equal(trackingQuery.status, 301);
+    assert.equal(trackingQuery.headers.get("location"), "/shows/impact-winter");
   } finally {
     await stopPublicRouteServer(context);
   }
@@ -339,6 +402,7 @@ test("public data responses are versionable and exclude server-only catalog fiel
   try {
     const showsResponse = await fetch(`${context.baseUrl}/data/shows.json?v=launch`);
     assert.equal(showsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    assert.match(showsResponse.headers.get("x-robots-tag") || "", /noindex/);
     const shows = await showsResponse.json();
     assert.ok(Array.isArray(shows));
     assert.equal(Object.hasOwn(shows[0], "imageSrc"), false);
@@ -346,6 +410,7 @@ test("public data responses are versionable and exclude server-only catalog fiel
 
     const collectionsResponse = await fetch(`${context.baseUrl}/data/collections.json?v=launch`);
     assert.equal(collectionsResponse.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    assert.match(collectionsResponse.headers.get("x-robots-tag") || "", /noindex/);
     assert.ok(Array.isArray(await collectionsResponse.json()));
   } finally {
     await stopPublicRouteServer(context);

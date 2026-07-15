@@ -24,7 +24,7 @@
   const FALLBACK_COLLECTION_DESCRIPTION = "Collection description not cataloged yet.";
 
   function createShowHref(id) {
-    return `/show?id=${encodeURIComponent(id)}`;
+    return `/shows/${encodeURIComponent(id)}`;
   }
 
   function normalizeDisplayText(value, fallback = "") {
