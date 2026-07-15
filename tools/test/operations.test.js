@@ -67,7 +67,11 @@ test("database backup creates a private, integrity-checked copy and refuses over
 });
 
 test("deployment shell scripts parse and preserve the required safety order", () => {
-  for (const relativePath of ["deploy/install-echo-archives-system.sh", "deploy/update-echo-archives.sh"]) {
+  for (const relativePath of [
+    "deploy/install-echo-archives-system.sh",
+    "deploy/migrate-echoarchives-domain.sh",
+    "deploy/update-echo-archives.sh",
+  ]) {
     const result = spawnSync("bash", ["-n", path.join(ROOT, relativePath)], { encoding: "utf8" });
     assert.equal(result.status, 0, `${relativePath}: ${result.stderr}`);
   }
@@ -91,6 +95,12 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "systemctl restart echo-archives.service",
     "systemctl reload caddy",
   ]);
+
+  const migrationScript = read("deploy/migrate-echoarchives-domain.sh");
+  assert.match(migrationScript, /SITE_URL="https:\/\/echoarchives\.net"/);
+  assert.match(migrationScript, /install-echo-archives-system\.sh/);
+  assert.match(migrationScript, /echo\.continental-hub\.com:443:127\.0\.0\.1/);
+  assert.match(migrationScript, /legacy host did not return HTTP 308/);
 });
 
 test("checked-in service and proxy retain production hardening", () => {

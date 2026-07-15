@@ -167,6 +167,14 @@ Before installing the migration on the production server:
 3. Pull the release, install production dependencies, run the production
    configuration check, then run `sudo ./deploy/install-echo-archives-system.sh`.
 
+The committed domain cutover helper performs the environment update, Caddy and
+systemd installation, local HTTPS health check, and legacy-redirect check in
+one operation. Run it from the production checkout after pulling the release:
+
+```bash
+sudo ./deploy/migrate-echoarchives-domain.sh
+```
+
 After the install, verify the new host serves the application and the legacy
 host returns a permanent redirect before updating any external links. Retain the
 legacy redirect for the foreseeable future to preserve existing bookmarks and
