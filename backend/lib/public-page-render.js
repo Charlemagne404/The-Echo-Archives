@@ -104,7 +104,7 @@ function fallbackDescription(description = "") {
 }
 
 function fallbackImageUrl(siteUrl) {
-  return buildAbsoluteUrl(siteUrl, "/og-image.png");
+  return buildAbsoluteUrl(siteUrl, "/echo-wordmark1.png");
 }
 
 function getShowImagePath(show) {

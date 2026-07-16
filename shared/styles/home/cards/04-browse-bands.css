@@ -213,17 +213,6 @@
   bottom: 0;
 }
 
-.archive-trust-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-  align-items: end;
-  width: 100%;
-  margin-top: 0;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
 .collection-carousel {
   --collection-headroom: 28px;
   --collection-viewport-inline-pad: clamp(10px, 1.6vw, 18px);

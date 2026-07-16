@@ -1,7 +1,9 @@
 export function createStickyBrowseController({ elements, state, stickyFilterDropdownController }) {
   let stickySearchManuallyExpanded = false;
+  const mobileStickyMediaQuery = window.matchMedia("(max-width: 560px)");
 
   const isStickySearchFocused = () => document.activeElement === elements.stickySearchInput;
+  const usesMobileStickyLayout = () => mobileStickyMediaQuery.matches;
 
   const syncStickySearchAccessibility = (isExpanded) => {
     elements.stickySearchToggle.setAttribute("aria-expanded", String(isExpanded));
@@ -23,7 +25,7 @@ export function createStickyBrowseController({ elements, state, stickyFilterDrop
       stickySearchManuallyExpanded = false;
     }
 
-    const shouldExpand = Boolean(state.query || stickySearchManuallyExpanded);
+    const shouldExpand = Boolean(usesMobileStickyLayout() || state.query || stickySearchManuallyExpanded);
     elements.stickyBrowseBar.dataset.mode = shouldExpand ? "expanded" : "collapsed";
     syncStickySearchAccessibility(shouldExpand);
 
@@ -116,5 +118,6 @@ export function createStickyBrowseController({ elements, state, stickyFilterDrop
     markExpanded,
     setStickyBrowseVisibility,
     syncStickySearchMode,
+    usesMobileStickyLayout,
   };
 }

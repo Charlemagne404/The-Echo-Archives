@@ -311,7 +311,9 @@ test("server exposes only intended public files and preserves legacy show redire
       "/detail.css",
       "/chat.css",
       "/shared/app/app.js",
-      "/images/Horizontal-Logo-W.png",
+      "/echo-wordmark-nosub1.svg",
+      "/echo-wordmark-sub1.svg",
+      "/echo-wordmark1.png",
       "/data/reviews/impact-winter.json",
     ]) {
       const response = await fetch(`${context.baseUrl}${route}`);

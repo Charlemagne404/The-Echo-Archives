@@ -580,7 +580,7 @@ function buildPageStructuredData({ siteUrl, entry, collections }) {
 
 function renderPage(entry, partials, versions, homeConfig, seoContext, submitPrerender) {
   const homeCardHoverExpandEnabled = parseBoolean(process.env.HOME_CARD_HOVER_EXPAND_ENABLED, false);
-  const socialImageUrl = new URL("/og-image.png", `${seoContext.siteUrl}/`).toString();
+  const socialImageUrl = new URL("/echo-wordmark1.png", `${seoContext.siteUrl}/`).toString();
   const structuredData = buildPageStructuredData({
     siteUrl: seoContext.siteUrl,
     entry,
@@ -720,6 +720,9 @@ function createPrecacheUrlSet(_manifest, versions) {
     "/apple-touch-icon.png",
     "/icon-192.png",
     "/icon-512.png",
+    "/echo-wordmark1.png",
+    "/echo-wordmark-nosub1.svg",
+    "/echo-wordmark-sub1.svg",
     `/style.css?v=${versions.style}`,
     `/info.css?v=${versions.extra.get("info.css")}`,
     `/script.js?v=${versions.script}`,
@@ -743,6 +746,7 @@ function renderServiceWorker({ versions, manifest }) {
         info: versions.extra.get("info.css"),
         archiveRecord: versions.archiveRecord,
         archiveSearch: versions.archiveSearch,
+        icons: versions.icons,
         precacheUrls,
       }),
     ),
@@ -1033,6 +1037,7 @@ async function main() {
     shows: hashFile("data/shows.json"),
     collections: hashFile("data/collections.json"),
     searchIndex: hashFile("data/search-index.json"),
+    icons: ["favicon.ico", "apple-touch-icon.png", "icon-192.png", "icon-512.png"].map(hashFile),
     script: hashFile("script.js"),
     style: cssVersions.get("style.css"),
     home: cssVersions.get("home.css"),

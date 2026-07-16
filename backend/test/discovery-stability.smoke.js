@@ -274,7 +274,7 @@ test("collections page reveals similarity routes five at a time and keeps the an
     assert.deepEqual(expandedState.ids, expectedOrder.slice(0, expandedVisibleCount));
     assert.equal(expandedState.hasMoreButton, expectedOrder.length > expandedVisibleCount);
     if (expectedOrder.length > expandedVisibleCount) {
-      assert.equal(expandedState.buttonLabel, `Show ${fullyExpandedVisibleCount - expandedVisibleCount} more`);
+      assert.equal(expandedState.buttonLabel, `Show ${fullyExpandedVisibleCount - expandedVisibleCount} more routes`);
       await page.locator("#collectionsSimilarityMore").click();
       await page.waitForFunction(
         (count) => document.querySelectorAll("#collectionsSimilarityGrid .collections-feature-card").length === count,

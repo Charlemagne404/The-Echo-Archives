@@ -96,6 +96,38 @@ test("main routes render expected page titles", async () => {
   }
 });
 
+test("collections trust bar matches the browse hero", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  const trustBarStyles = async (selector) =>
+    page.locator(selector).evaluate((element) => {
+      const grid = window.getComputedStyle(element);
+      const item = window.getComputedStyle(element.querySelector(".archive-trust-item"));
+      return {
+        display: grid.display,
+        gridTemplateColumns: grid.gridTemplateColumns,
+        gap: grid.gap,
+        paddingTop: grid.paddingTop,
+        borderTopWidth: grid.borderTopWidth,
+        textAlign: item.textAlign,
+        whiteSpace: item.whiteSpace,
+        fontSize: item.fontSize,
+        lineHeight: item.lineHeight,
+      };
+    });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    const browseStyles = await trustBarStyles(".archive-trust-grid");
+
+    await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+    const collectionStyles = await trustBarStyles(".collections-hero-panel .archive-trust-grid");
+
+    assert.deepEqual(collectionStyles, browseStyles);
+  } finally {
+    await page.close();
+  }
+});
+
 test("static delivery files expose intentional HTTP statuses", async () => {
   const staticPaths = [
     { path: "/404.html", status: 404 },
@@ -566,7 +598,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
           scrollWidth: document.documentElement.scrollWidth,
           viewport: window.innerWidth,
           statsColumns: (() => {
-            const template = window.getComputedStyle(document.querySelector(".collections-hero-trust-grid")).gridTemplateColumns.trim();
+            const template = window.getComputedStyle(document.querySelector(".collections-hero-panel .archive-trust-grid")).gridTemplateColumns.trim();
             return template && template !== "none" ? template.split(" ").length : 0;
           })(),
           directoryColumns: (() => {

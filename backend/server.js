@@ -63,6 +63,9 @@ const PUBLIC_ROOT_ASSETS = new Set([
   "apple-touch-icon.png",
   "icon-192.png",
   "icon-512.png",
+  "echo-wordmark1.png",
+  "echo-wordmark-nosub1.svg",
+  "echo-wordmark-sub1.svg",
   "og-image.png",
 ]);
 const PUBLIC_SHARED_EXTENSIONS = new Set([".css", ".js"]);
@@ -171,7 +174,7 @@ function buildStaticPageMetadata({ routePath, requestSiteUrl, manifestEntry }) {
     title: manifestEntry.title,
     description: manifestEntry.description,
     canonicalUrl,
-    imageUrl: `${normalizedSiteUrl}/og-image.png`,
+    imageUrl: `${normalizedSiteUrl}/echo-wordmark1.png`,
   };
 }
 
@@ -301,7 +304,7 @@ async function startServer() {
         ? "The Echo Archives encountered an unexpected server error."
         : "The requested Echo Archives page could not be found.",
       canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/${fileName}`,
-      imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/og-image.png`,
+      imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
       imageAlt: "The Echo Archives social preview",
     };
     const template = fs.readFileSync(path.join(config.STATIC_ROOT, fileName), "utf8");
@@ -600,7 +603,7 @@ async function startServer() {
             title: "Show not found - The Echo Archives",
             description: "The requested Echo Archives show page could not be found.",
             canonicalUrl: `${normalizeSiteUrl(config.SITE_URL)}/show`,
-            imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/og-image.png`,
+            imageUrl: `${normalizeSiteUrl(config.SITE_URL)}/echo-wordmark1.png`,
             imageAlt: "The Echo Archives social preview",
           },
         );

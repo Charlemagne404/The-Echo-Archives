@@ -18,6 +18,10 @@
     width: min(100%, 265px);
   }
 
+  .site-brand img {
+    transform: scale(1.14);
+  }
+
   .site-nav-toggle,
   .site-nav-close {
     display: inline-flex;
@@ -456,9 +460,9 @@
   }
 
   .archive-trust-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding-top: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+    padding: 16px 4px 2px;
   }
 
   .quick-filters {
@@ -497,11 +501,11 @@
   }
 
   .footer-brand-mark {
-    max-width: min(100%, 240px);
+    max-width: min(100%, 360px);
   }
 
   .footer-brand-mark img {
-    width: min(100%, 240px);
+    width: min(100%, 360px);
   }
 
   .footer-brand-note {

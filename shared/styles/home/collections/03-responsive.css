@@ -171,27 +171,6 @@
     scroll-snap-align: start;
   }
 
-  .collections-hero-trust-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px 12px;
-    padding-top: 10px;
-  }
-
-  .collections-hero-trust-grid .archive-trust-item {
-    padding: 10px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.03);
-    line-height: 1.22;
-    white-space: normal;
-    text-align: left;
-  }
-
-  .collections-hero-trust-grid .archive-trust-item strong,
-  .collections-hero-trust-grid .archive-trust-item span {
-    display: block;
-  }
-
   .collection-cover-collage {
     min-height: 180px;
   }
@@ -265,12 +244,6 @@
   }
 }
 
-@media (max-width: 780px) {
-  .collections-hero-trust-grid {
-    padding-top: 14px;
-  }
-}
-
 @media (max-width: 560px) {
   .collections-sticky-mood-bar {
     top: calc(var(--visual-viewport-offset-top) + max(10px, var(--safe-area-top)));
@@ -327,15 +300,6 @@
     border-radius: 14px;
   }
 
-  .collections-hero-trust-grid {
-    gap: 8px;
-  }
-
-  .collections-hero-trust-grid .archive-trust-item {
-    padding: 9px 10px;
-    font-size: 0.84rem;
-  }
-
   .collections-mood-chip-compact {
     min-height: 44px;
     padding: 0 9px;
@@ -368,11 +332,5 @@
 
   .collections-feature-card-body {
     padding-right: 10px;
-  }
-}
-
-@media (max-width: 420px) {
-  .collections-hero-trust-grid {
-    grid-template-columns: 1fr;
   }
 }

@@ -4,7 +4,7 @@
   margin: 0;
   padding: clamp(28px, 2.6vw, 36px) clamp(20px, 2.8vw, 34px) clamp(24px, 2.4vw, 32px);
   display: grid;
-  grid-template-columns: minmax(280px, 1.08fr) minmax(0, 1.72fr) minmax(280px, 0.96fr);
+  grid-template-columns: minmax(400px, 1.08fr) minmax(0, 1.72fr) minmax(280px, 0.96fr);
   gap: clamp(24px, 2.4vw, 34px);
   align-items: start;
   border: 0;
@@ -56,11 +56,12 @@
   display: inline-flex;
   align-self: start;
   justify-self: center;
-  max-width: min(100%, 272px);
+  width: min(100%, 400px);
+  max-width: 400px;
 }
 
 .footer-brand-mark img {
-  width: min(100%, 272px);
+  width: 100%;
   height: auto;
 }
 

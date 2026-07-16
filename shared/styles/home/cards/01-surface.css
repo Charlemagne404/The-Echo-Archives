@@ -139,6 +139,7 @@
 .site-brand {
   display: block;
   width: clamp(250px, 21vw, 356px);
+  /* Preserve the original header height now that the SVG has no transparent canvas. */
   aspect-ratio: 977 / 255;
   justify-self: start;
 }
@@ -148,6 +149,8 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: scale(1.25);
+  transform-origin: left center;
 }
 
 .site-nav-toggle,

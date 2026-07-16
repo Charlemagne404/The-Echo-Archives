@@ -316,7 +316,8 @@ export async function initializeCollectionsPage() {
       elements.similarityMore.disabled = !hasMore;
 
       if (hasMore) {
-        elements.similarityMore.textContent = `Show ${nextRevealCount} more`;
+        elements.similarityMore.textContent = `Show ${nextRevealCount} more routes`;
+        elements.similarityMore.setAttribute("aria-label", `Show ${nextRevealCount} more similar-show routes`);
       }
     }
   };

@@ -317,6 +317,54 @@ test("mobile discovery, collection, and submit controls meet input and touch siz
   }
 });
 
+test("mobile sticky search prioritizes typing space and stays out of the way while browsing down", { timeout: 45_000 }, async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
+
+  try {
+    await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => !document.getElementById("search")?.disabled);
+    await page.evaluate(() => window.scrollTo({ top: window.innerHeight * 2, behavior: "auto" }));
+    await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "hidden");
+
+    await page.evaluate(() => window.scrollBy({ top: -280, behavior: "auto" }));
+    await page.waitForFunction(
+      () =>
+        document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible" &&
+        document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded",
+    );
+
+    const stickyState = await page.evaluate(() => {
+      const search = document.getElementById("stickySearch");
+      const filter = document.getElementById("stickyFilterToggle");
+      const toggle = document.getElementById("stickySearchToggle");
+      const searchRect = search?.getBoundingClientRect();
+      const filterRect = filter?.getBoundingClientRect();
+      return {
+        searchWidth: searchRect?.width || 0,
+        filterWidth: filterRect?.width || 0,
+        filterHeight: filterRect?.height || 0,
+        toggleDisplay: toggle ? window.getComputedStyle(toggle).display : "",
+        searchTabIndex: search?.getAttribute("tabindex"),
+      };
+    });
+
+    assert.ok(stickyState.searchWidth >= 250, `Expected at least 250px of sticky search width, received ${stickyState.searchWidth}px.`);
+    assert.ok(stickyState.filterWidth >= 44 && stickyState.filterHeight >= 44);
+    assert.equal(stickyState.toggleDisplay, "none");
+    assert.equal(stickyState.searchTabIndex, null);
+
+    await page.locator("#stickySearch").fill("midnight");
+    await page.evaluate(() => window.scrollBy({ top: 280, behavior: "auto" }));
+    await page.waitForFunction(
+      () =>
+        document.getElementById("stickyBrowseBar")?.dataset.visibility === "visible" &&
+        document.getElementById("stickySearch")?.value === "midnight",
+    );
+  } finally {
+    await page.close();
+  }
+});
+
 test("reduced motion disables continuous and nonessential animation", { timeout: 30_000 }, async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true });
 

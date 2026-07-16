@@ -249,26 +249,6 @@
   outline-offset: 3px;
 }
 
-.archive-trust-item {
-  margin: 0;
-  color: rgba(247, 247, 243, 0.88);
-  font-size: 0.92rem;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  text-align: center;
-}
-
-.archive-trust-item strong,
-.archive-trust-item span {
-  font: inherit;
-}
-
-.archive-trust-item strong {
-  color: #ffffff;
-  font-weight: 600;
-}
-
 .submit-form {
   display: grid;
   gap: 16px;

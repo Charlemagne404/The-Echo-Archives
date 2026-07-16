@@ -29,6 +29,7 @@ import { syncResultsSurfaceVisibility } from "./home/results-motion.js";
 import { createHomeSearchPerformanceCache } from "./home/search-cache.js";
 import { createHomeState } from "./home/state.js";
 import { createStickyBrowseController } from "./home/sticky-search.js";
+import { createStickyBrowseVisibilityController } from "./home/sticky-visibility.js";
 import { seedHomeStateFromParams } from "./home/url-state.js";
 
 const SHOW_HOME_RECENTLY_ADDED_BAND = false;
@@ -115,7 +116,6 @@ export async function initializeHomePage() {
   let collectionCarouselControls = null;
   let favoriteRoutesCarouselControls = null;
   let searchRenderTimer = 0;
-  let stickyBrowseObserver = null;
   if (elements.activeBrowseClear) {
     elements.activeBrowseClear.hidden = true;
   }
@@ -212,6 +212,12 @@ export async function initializeHomePage() {
     state,
     stickyBrowseController,
   });
+  const stickyBrowseVisibilityController = createStickyBrowseVisibilityController({
+    elements,
+    state,
+    stickyBrowseController,
+    stickyFilterDropdownController: filterSurfaceController.stickyFilterDropdownController,
+  });
 
   filterSurfaceController.renderAll();
   renderQuickFilters({
@@ -272,6 +278,7 @@ export async function initializeHomePage() {
     }
     syncSearchInputs(input.value, input);
     state.query = input.value.trim();
+    stickyBrowseVisibilityController.sync();
     if (searchRenderTimer) {
       window.clearTimeout(searchRenderTimer);
     }
@@ -286,18 +293,19 @@ export async function initializeHomePage() {
   });
 
   elements.stickySearchToggle.addEventListener("click", stickyBrowseController.handleStickySearchToggle);
-  elements.stickySearchInput.addEventListener("focus", stickyBrowseController.handleStickySearchFocus);
-  elements.stickySearchInput.addEventListener("blur", stickyBrowseController.handleStickySearchBlur);
 
   filterSurfaceController.bindToggles();
+  stickyBrowseVisibilityController.bind();
 
   // Close on pointerdown so inside clicks are classified before the menu rerenders.
   document.addEventListener("pointerdown", (event) => {
     filterSurfaceController.closeOnOutsidePointerDown(event);
+    stickyBrowseVisibilityController.queueSync();
   });
 
   document.addEventListener("keydown", (event) => {
     if (filterSurfaceController.closeOnEscape(event)) {
+      stickyBrowseVisibilityController.queueSync();
       return;
     }
 
@@ -316,16 +324,7 @@ export async function initializeHomePage() {
   elements.stickyFilterClear?.addEventListener("click", clearAllFilters);
   elements.clearResultsState?.addEventListener("click", clearAllFilters);
   elements.activeBrowseClear?.addEventListener("click", clearAllFilters);
-  if ("IntersectionObserver" in window) {
-    stickyBrowseObserver = new IntersectionObserver(
-      ([entry]) => {
-        const shouldShowStickyBar = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
-        stickyBrowseController.setStickyBrowseVisibility(shouldShowStickyBar);
-      },
-      { threshold: 0 },
-    );
-    stickyBrowseObserver.observe(elements.heroShell);
-  }
+  stickyBrowseVisibilityController.observe();
 
   window.addEventListener("resize", () => {
     previewController.closeActivePreview({ immediate: true });
@@ -336,12 +335,14 @@ export async function initializeHomePage() {
       state.gridLayoutBucket = nextGridLayoutBucket;
       renderHomeResults("layout-change");
     }
+    stickyBrowseController.syncStickySearchMode();
+    stickyBrowseVisibilityController.sync();
   });
 
   window.addEventListener("beforeunload", () => {
     scrollRestoration.save();
     scrollRestoration.destroy();
-    stickyBrowseObserver?.disconnect();
+    stickyBrowseVisibilityController.destroy();
   });
 
   setBrowseControlsDisabled(elements, false);
