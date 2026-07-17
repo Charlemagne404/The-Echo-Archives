@@ -99,6 +99,8 @@ function hydrateCandidate(row) {
     publishedShowId: row.published_show_id,
     duplicateOfShowId: row.duplicate_of_show_id,
     duplicateOfCandidateId: row.duplicate_of_candidate_id,
+    discoverySourceId: row.discovery_source_id || "",
+    discoveryRunId: row.discovery_run_id || "",
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -197,6 +199,79 @@ function hydrateRun(row) {
   };
 }
 
+function hydrateDiscoverySource(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    name: row.name,
+    sourceType: row.source_type,
+    query: row.query_text || "",
+    config: json(row.config_json, {}),
+    enabled: Boolean(row.enabled),
+    intervalMinutes: Number(row.interval_minutes) || 1440,
+    lastCheckedAt: row.last_checked_at,
+    nextRunAt: row.next_run_at,
+    lastStatus: row.last_status || "idle",
+    lastError: row.last_error || "",
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+  };
+}
+
+function hydrateDiscoveryRun(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    sourceId: row.source_id,
+    status: row.status,
+    summary: json(row.summary_json, {}),
+    error: row.error_text || "",
+    createdAt: row.created_at,
+    startedAt: row.started_at,
+    completedAt: row.completed_at,
+  };
+}
+
+function hydrateDiscoveryItem(row) {
+  if (!row) return null;
+  return {
+    id: Number(row.id),
+    sourceId: row.source_id,
+    sourceItemKey: row.source_item_key,
+    candidateId: row.candidate_id || "",
+    existingShowId: row.existing_show_id || "",
+    disposition: row.disposition || "new",
+    identity: json(row.identity_json, {}),
+    result: json(row.result_json, {}),
+    firstSeenAt: row.first_seen_at,
+    lastSeenAt: row.last_seen_at,
+    lastRunId: row.last_run_id || "",
+  };
+}
+
+function hydrateDiscoveryJob(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    sourceId: row.source_id,
+    runId: row.run_id,
+    jobType: row.job_type,
+    status: row.status,
+    attemptCount: Number(row.attempt_count) || 0,
+    maxAttempts: Number(row.max_attempts) || 4,
+    nextAttemptAt: row.next_attempt_at,
+    leaseOwner: row.lease_owner || "",
+    leaseExpiresAt: row.lease_expires_at,
+    payload: json(row.payload_json, {}),
+    result: json(row.result_json, {}),
+    error: row.error_text || "",
+    createdAt: row.created_at,
+    updatedAt: row.updated_at,
+    startedAt: row.started_at,
+    completedAt: row.completed_at,
+  };
+}
+
 function buildFtsQuery(value = "") {
   return trimText(value, 200)
     .split(/\s+/)
@@ -286,7 +361,7 @@ function createImportStore({ db }) {
         conflicts_json, source_health_json, locked_fields_json, cover_stage_json,
         pipeline_version, input_revision, last_run_id, last_error, review_notes,
         reviewed_by, reviewed_at, drafted_show_id, published_show_id,
-        duplicate_of_show_id, duplicate_of_candidate_id
+        duplicate_of_show_id, duplicate_of_candidate_id, discovery_source_id, discovery_run_id
       ) VALUES (
         @id, @status, @mode, @existingShowId, @scopeStatus, @hasDuplicateMatch,
         @title, @creatorName, @canonicalId, @primarySourceType, @primarySourceKey,
@@ -295,7 +370,7 @@ function createImportStore({ db }) {
         @conflictsJson, @sourceHealthJson, @lockedFieldsJson, @coverStageJson,
         @pipelineVersion, @inputRevision, @lastRunId, @lastError, @reviewNotes,
         @reviewedBy, @reviewedAt, @draftedShowId, @publishedShowId,
-        @duplicateOfShowId, @duplicateOfCandidateId
+        @duplicateOfShowId, @duplicateOfCandidateId, @discoverySourceId, @discoveryRunId
       )
     `).run({
       id,
@@ -332,6 +407,8 @@ function createImportStore({ db }) {
       publishedShowId: payload.publishedShowId || "",
       duplicateOfShowId: payload.duplicateOfShowId || "",
       duplicateOfCandidateId: payload.duplicateOfCandidateId || "",
+      discoverySourceId: payload.discoverySourceId || "",
+      discoveryRunId: payload.discoveryRunId || "",
     });
     return getCandidate(id);
   }
@@ -526,6 +603,8 @@ function createImportStore({ db }) {
         drafted_show_id=@draftedShowId, published_show_id=@publishedShowId,
         duplicate_of_show_id=@duplicateOfShowId,
         duplicate_of_candidate_id=@duplicateOfCandidateId,
+        discovery_source_id=@discoverySourceId,
+        discovery_run_id=@discoveryRunId,
         updated_at=CURRENT_TIMESTAMP
       WHERE id=@id
     `).run({
@@ -563,6 +642,8 @@ function createImportStore({ db }) {
       publishedShowId: next.publishedShowId || "",
       duplicateOfShowId: next.duplicateOfShowId || "",
       duplicateOfCandidateId: next.duplicateOfCandidateId || "",
+      discoverySourceId: next.discoverySourceId || "",
+      discoveryRunId: next.discoveryRunId || "",
     });
     return getCandidate(id);
   }
@@ -830,6 +911,217 @@ function createImportStore({ db }) {
     }));
   }
 
+  function createDiscoverySource(payload = {}) {
+    const id = payload.id || randomUUID();
+    const intervalMinutes = Math.min(43_200, Math.max(15, Number(payload.intervalMinutes) || 1_440));
+    db.prepare(`
+      INSERT INTO catalog_discovery_sources (
+        id, name, source_type, query_text, config_json, enabled, interval_minutes,
+        next_run_at, last_status, last_error
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'idle', '')
+    `).run(
+      id,
+      trimText(payload.name, 160),
+      trimText(payload.sourceType, 80),
+      trimText(payload.query, 500),
+      JSON.stringify(payload.config || {}),
+      payload.enabled === false ? 0 : 1,
+      intervalMinutes,
+      payload.nextRunAt || new Date().toISOString(),
+    );
+    return getDiscoverySource(id);
+  }
+
+  function getDiscoverySource(id) {
+    return hydrateDiscoverySource(db.prepare("SELECT * FROM catalog_discovery_sources WHERE id = ?").get(id));
+  }
+
+  function listDiscoverySources({ includeDisabled = true } = {}) {
+    const rows = db.prepare(`
+      SELECT s.*, (
+        SELECT COUNT(*) FROM catalog_discovery_items i WHERE i.source_id = s.id
+      ) AS item_count
+      FROM catalog_discovery_sources s
+      ${includeDisabled ? "" : "WHERE s.enabled = 1"}
+      ORDER BY s.enabled DESC, datetime(COALESCE(s.next_run_at, s.created_at)), s.name COLLATE NOCASE
+    `).all();
+    return rows.map((row) => ({ ...hydrateDiscoverySource(row), itemCount: Number(row.item_count) || 0 }));
+  }
+
+  function listDueDiscoverySources(limit = 20) {
+    return db.prepare(`
+      SELECT * FROM catalog_discovery_sources
+      WHERE enabled = 1 AND (next_run_at IS NULL OR datetime(next_run_at) <= datetime('now'))
+      ORDER BY datetime(COALESCE(next_run_at, created_at)), id
+      LIMIT ?
+    `).all(Math.max(1, Math.min(100, Number(limit) || 20))).map(hydrateDiscoverySource);
+  }
+
+  function updateDiscoverySource(id, updates = {}) {
+    const current = getDiscoverySource(id);
+    if (!current) return null;
+    const next = { ...current, ...updates };
+    const intervalMinutes = Math.min(43_200, Math.max(15, Number(next.intervalMinutes) || 1_440));
+    db.prepare(`
+      UPDATE catalog_discovery_sources SET
+        name=?, source_type=?, query_text=?, config_json=?, enabled=?, interval_minutes=?,
+        next_run_at=?, last_checked_at=?, last_status=?, last_error=?, updated_at=CURRENT_TIMESTAMP
+      WHERE id=?
+    `).run(
+      trimText(next.name, 160), trimText(next.sourceType, 80), trimText(next.query, 500),
+      JSON.stringify(next.config || {}), next.enabled ? 1 : 0, intervalMinutes,
+      next.nextRunAt || null, next.lastCheckedAt || null, trimText(next.lastStatus, 80) || "idle",
+      trimText(next.lastError, 4_000), id,
+    );
+    return getDiscoverySource(id);
+  }
+
+  function createDiscoveryRun({ sourceId, status = "queued", summary = {} }) {
+    const id = randomUUID();
+    const now = new Date().toISOString();
+    db.prepare(`
+      INSERT INTO catalog_discovery_runs (id, source_id, status, summary_json, started_at, completed_at)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `).run(id, sourceId, status, JSON.stringify(summary || {}), status === "processing" ? now : null, status === "completed" ? now : null);
+    return getDiscoveryRun(id);
+  }
+
+  function getDiscoveryRun(id) {
+    const run = hydrateDiscoveryRun(db.prepare("SELECT * FROM catalog_discovery_runs WHERE id = ?").get(id));
+    if (!run) return null;
+    const jobs = db.prepare("SELECT * FROM catalog_discovery_jobs WHERE run_id = ? ORDER BY created_at, id").all(id).map(hydrateDiscoveryJob);
+    return {
+      ...run,
+      jobs,
+      progress: {
+        total: jobs.length,
+        queued: jobs.filter((job) => ["queued", "retry"].includes(job.status)).length,
+        processing: jobs.filter((job) => job.status === "processing").length,
+        completed: jobs.filter((job) => job.status === "completed").length,
+        failed: jobs.filter((job) => job.status === "failed").length,
+      },
+    };
+  }
+
+  function listDiscoveryRuns({ limit = 20, sourceId = "" } = {}) {
+    const rows = db.prepare(`
+      SELECT r.*, s.name AS source_name
+      FROM catalog_discovery_runs r
+      JOIN catalog_discovery_sources s ON s.id = r.source_id
+      ${sourceId ? "WHERE r.source_id = ?" : ""}
+      ORDER BY datetime(r.created_at) DESC, r.id DESC
+      LIMIT ?
+    `).all(...(sourceId ? [sourceId] : []), Math.max(1, Math.min(100, Number(limit) || 20)));
+    return rows.map((row) => ({ ...hydrateDiscoveryRun(row), sourceName: row.source_name }));
+  }
+
+  function updateDiscoveryRun(id, updates = {}) {
+    const current = getDiscoveryRun(id);
+    if (!current) return null;
+    const status = updates.status || current.status;
+    const now = new Date().toISOString();
+    db.prepare(`
+      UPDATE catalog_discovery_runs SET status=?, summary_json=?, error_text=?,
+        started_at=COALESCE(started_at, ?), completed_at=?
+      WHERE id=?
+    `).run(
+      status,
+      JSON.stringify(updates.summary ?? current.summary ?? {}),
+      trimText(updates.error ?? current.error, 4_000),
+      status === "processing" ? now : null,
+      ["completed", "failed"].includes(status) ? now : null,
+      id,
+    );
+    return getDiscoveryRun(id);
+  }
+
+  function getDiscoveryItem(sourceId, sourceItemKey) {
+    return hydrateDiscoveryItem(db.prepare(`
+      SELECT * FROM catalog_discovery_items WHERE source_id = ? AND source_item_key = ?
+    `).get(sourceId, trimText(sourceItemKey, 1_000)));
+  }
+
+  function upsertDiscoveryItem(entry = {}) {
+    const sourceItemKey = trimText(entry.sourceItemKey, 1_000);
+    if (!entry.sourceId || !sourceItemKey) return null;
+    db.prepare(`
+      INSERT INTO catalog_discovery_items (
+        source_id, source_item_key, candidate_id, existing_show_id, disposition,
+        identity_json, result_json, last_seen_at, last_run_id
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?)
+      ON CONFLICT(source_id, source_item_key) DO UPDATE SET
+        candidate_id=COALESCE(excluded.candidate_id, catalog_discovery_items.candidate_id),
+        existing_show_id=CASE WHEN excluded.existing_show_id <> '' THEN excluded.existing_show_id ELSE catalog_discovery_items.existing_show_id END,
+        disposition=excluded.disposition,
+        identity_json=excluded.identity_json,
+        result_json=excluded.result_json,
+        last_seen_at=CURRENT_TIMESTAMP,
+        last_run_id=excluded.last_run_id
+    `).run(
+      entry.sourceId, sourceItemKey, entry.candidateId || null, entry.existingShowId || "",
+      trimText(entry.disposition, 80) || "new", JSON.stringify(entry.identity || {}),
+      JSON.stringify(entry.result || {}), entry.lastRunId || null,
+    );
+    return getDiscoveryItem(entry.sourceId, sourceItemKey);
+  }
+
+  function enqueueDiscoveryJob({ sourceId, runId, payload = {}, maxAttempts = 4 }) {
+    const id = randomUUID();
+    db.prepare(`
+      INSERT INTO catalog_discovery_jobs (
+        id, source_id, run_id, job_type, status, max_attempts, payload_json, updated_at
+      ) VALUES (?, ?, ?, 'discover', 'queued', ?, ?, CURRENT_TIMESTAMP)
+      ON CONFLICT(source_id, run_id, job_type) DO UPDATE SET
+        status=CASE WHEN catalog_discovery_jobs.status = 'processing' THEN 'processing' ELSE 'queued' END,
+        attempt_count=CASE WHEN catalog_discovery_jobs.status = 'processing' THEN catalog_discovery_jobs.attempt_count ELSE 0 END,
+        payload_json=excluded.payload_json, error_text='', next_attempt_at=NULL,
+        completed_at=NULL, updated_at=CURRENT_TIMESTAMP
+    `).run(id, sourceId, runId, Math.max(1, Number(maxAttempts) || 4), JSON.stringify(payload || {}));
+    return hydrateDiscoveryJob(db.prepare(`
+      SELECT * FROM catalog_discovery_jobs WHERE source_id = ? AND run_id = ? AND job_type = 'discover'
+    `).get(sourceId, runId));
+  }
+
+  const claimNextDiscoveryJob = db.transaction(({ workerId, leaseMs = 120_000 }) => {
+    const row = db.prepare(`
+      SELECT * FROM catalog_discovery_jobs
+      WHERE (status IN ('queued', 'retry') AND (next_attempt_at IS NULL OR datetime(next_attempt_at) <= datetime('now')))
+        OR (status = 'processing' AND lease_expires_at IS NOT NULL AND datetime(lease_expires_at) <= datetime('now'))
+      ORDER BY datetime(COALESCE(next_attempt_at, created_at)), id
+      LIMIT 1
+    `).get();
+    if (!row) return null;
+    const now = new Date();
+    db.prepare(`
+      UPDATE catalog_discovery_jobs SET status='processing', attempt_count=attempt_count + 1,
+        lease_owner=?, lease_expires_at=?, started_at=COALESCE(started_at, ?), updated_at=CURRENT_TIMESTAMP
+      WHERE id=?
+    `).run(workerId, new Date(now.getTime() + leaseMs).toISOString(), now.toISOString(), row.id);
+    return hydrateDiscoveryJob(db.prepare("SELECT * FROM catalog_discovery_jobs WHERE id = ?").get(row.id));
+  });
+
+  function completeDiscoveryJob(id, result = {}) {
+    db.prepare(`
+      UPDATE catalog_discovery_jobs SET status='completed', result_json=?, error_text='', lease_owner='',
+        lease_expires_at=NULL, completed_at=?, updated_at=CURRENT_TIMESTAMP WHERE id=?
+    `).run(JSON.stringify(result || {}), new Date().toISOString(), id);
+    return hydrateDiscoveryJob(db.prepare("SELECT * FROM catalog_discovery_jobs WHERE id = ?").get(id));
+  }
+
+  function failDiscoveryJob(id, error, { retryable = true, retryAfterMs = 0 } = {}) {
+    const current = hydrateDiscoveryJob(db.prepare("SELECT * FROM catalog_discovery_jobs WHERE id = ?").get(id));
+    if (!current) return null;
+    const exhausted = !retryable || current.attemptCount >= current.maxAttempts;
+    const delays = [300_000, 1_800_000, 7_200_000, 7_200_000];
+    const delay = Math.max(retryAfterMs, delays[Math.max(0, current.attemptCount - 1)] || 7_200_000);
+    const nextAttemptAt = exhausted ? null : new Date(Date.now() + delay + Math.floor(Math.random() * 1_000)).toISOString();
+    db.prepare(`
+      UPDATE catalog_discovery_jobs SET status=?, error_text=?, next_attempt_at=?, lease_owner='',
+        lease_expires_at=NULL, completed_at=?, updated_at=CURRENT_TIMESTAMP WHERE id=?
+    `).run(exhausted ? "failed" : "retry", trimText(error?.message || error, 4_000), nextAttemptAt, exhausted ? new Date().toISOString() : null, id);
+    return hydrateDiscoveryJob(db.prepare("SELECT * FROM catalog_discovery_jobs WHERE id = ?").get(id));
+  }
+
   function compactPublishedSnapshots(olderThanDays = 90) {
     const days = Math.max(1, Number(olderThanDays) || 90);
     return db.prepare(`
@@ -852,26 +1144,41 @@ function createImportStore({ db }) {
     appendFieldEvidence,
     bindIdentitiesToShow,
     claimIdentity,
+    claimNextDiscoveryJob,
     claimNextJob,
+    completeDiscoveryJob,
     completeJob,
     compactPublishedSnapshots,
     createCandidate,
+    createDiscoveryRun,
+    createDiscoverySource,
     createRun,
+    enqueueDiscoveryJob,
     enqueueJob,
+    failDiscoveryJob,
     failJob,
     findIdentity,
     getCandidate,
+    getDiscoveryItem,
+    getDiscoveryRun,
+    getDiscoverySource,
     getRun,
     getSourceCache,
     listCandidateBasics,
     listCandidates,
+    listDiscoveryRuns,
+    listDiscoverySources,
+    listDueDiscoverySources,
     listIdentities,
     putSourceCache,
     recordEvent,
     replaceCandidateSources: appendCandidateSources,
     selectEvidence,
+    updateDiscoveryRun,
+    updateDiscoverySource,
     updateCandidate,
     updateRun,
+    upsertDiscoveryItem,
     withTransaction,
   };
 }

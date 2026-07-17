@@ -1,0 +1,11 @@
+[Unit]
+Description=Run The Echo Archives discovery source checks
+
+[Timer]
+OnCalendar=*-*-* *:0/30:00
+Persistent=true
+RandomizedDelaySec=5m
+Unit=echo-archives-discovery.service
+
+[Install]
+WantedBy=timers.target

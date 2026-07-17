@@ -9,6 +9,10 @@ fi
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SERVICE_SOURCE="${REPO_ROOT}/deploy/echo-archives.service"
 SERVICE_DEST="/etc/systemd/system/echo-archives.service"
+DISCOVERY_SERVICE_SOURCE="${REPO_ROOT}/deploy/echo-archives-discovery.service"
+DISCOVERY_TIMER_SOURCE="${REPO_ROOT}/deploy/echo-archives-discovery.timer"
+DISCOVERY_SERVICE_DEST="/etc/systemd/system/echo-archives-discovery.service"
+DISCOVERY_TIMER_DEST="/etc/systemd/system/echo-archives-discovery.timer"
 CADDY_SNIPPET="${REPO_ROOT}/deploy/Caddyfile.echo"
 CADDYFILE="/etc/caddy/Caddyfile"
 TIMESTAMP="$(date +%Y%m%d%H%M%S)"
@@ -21,6 +25,11 @@ trap cleanup EXIT
 
 if [[ ! -f "${SERVICE_SOURCE}" ]]; then
   echo "Missing service template: ${SERVICE_SOURCE}"
+  exit 1
+fi
+
+if [[ ! -f "${DISCOVERY_SERVICE_SOURCE}" || ! -f "${DISCOVERY_TIMER_SOURCE}" ]]; then
+  echo "Missing discovery service templates."
   exit 1
 fi
 
@@ -95,9 +104,12 @@ fi
 install -m 0644 "${TMP_CADDYFILE}" "${CADDYFILE}"
 
 install -m 0644 "${SERVICE_SOURCE}" "${SERVICE_DEST}"
+install -m 0644 "${DISCOVERY_SERVICE_SOURCE}" "${DISCOVERY_SERVICE_DEST}"
+install -m 0644 "${DISCOVERY_TIMER_SOURCE}" "${DISCOVERY_TIMER_DEST}"
 
 systemctl daemon-reload
 systemctl enable echo-archives.service
+systemctl enable --now echo-archives-discovery.timer
 systemctl restart echo-archives.service
 
 for attempt in {1..20}; do

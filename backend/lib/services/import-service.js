@@ -37,6 +37,8 @@ const IDENTITY_FIELDS = [
   ["podcast-index-id", "podcastIndexFeedId"],
   ["website-url", "websiteUrl"],
 ];
+const DISCOVERY_SOURCE_TYPES = new Set(["apple-search", "podcast-index-search"]);
+const SUPPRESSED_CANDIDATE_STATUSES = new Set(["duplicate", "rejected"]);
 
 function ensureValidStatus(value = "") {
   const status = trimText(value, 80);
@@ -121,6 +123,28 @@ function buildInitialCandidatePayload(seed = {}) {
     provenance: { fields: {}, sourceErrors: [] },
     dedupe: {},
     pipelineVersion: PIPELINE_VERSION,
+  };
+}
+
+function discoveryItemKey(result = {}) {
+  const objective = result.objective || {};
+  return trimText(
+    result.sourceKey || objective.appleCollectionId || objective.podcastIndexFeedId || objective.podcastIndexGuid || objective.rssUrl || result.sourceUrl || normalizeTitleCreatorKey(result.title || objective.title, result.creatorName || objective.creatorName),
+    1_000,
+  ).toLowerCase();
+}
+
+function discoveryIdentity(result = {}) {
+  const objective = result.objective || {};
+  return {
+    sourceType: result.sourceType || "",
+    sourceKey: result.sourceKey || "",
+    sourceUrl: result.sourceUrl || "",
+    rssUrl: objective.rssUrl || "",
+    appleCollectionId: objective.appleCollectionId || "",
+    podcastIndexFeedId: objective.podcastIndexFeedId || "",
+    podcastIndexGuid: objective.podcastIndexGuid || "",
+    titleCreatorKey: normalizeTitleCreatorKey(result.title || objective.title, result.creatorName || objective.creatorName),
   };
 }
 
@@ -221,6 +245,9 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
   let catalogCache = null;
   let workTimer = null;
   let processing = false;
+  let discoveryTimer = null;
+  let discoveryProcessing = false;
+  const discoveryConcurrency = Math.min(8, Math.max(1, Number(config.IMPORT_DISCOVERY_CONCURRENCY) || 2));
   store.compactPublishedSnapshots?.(90);
 
   function readCatalogRecords(force = false) {
@@ -252,6 +279,19 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return null;
   }
 
+  function findSuppressedTitleCandidate(objective = {}) {
+    const canonicalId = normalizeTitleCreatorKey(objective.title, objective.creatorName);
+    if (!canonicalId) return null;
+    return store.listCandidates({
+      q: objective.title,
+      includeClosed: true,
+      openStatuses: [],
+      pageSize: 50,
+    }).items.find((candidate) => (
+      SUPPRESSED_CANDIDATE_STATUSES.has(candidate.status) && candidate.canonicalId === canonicalId
+    )) || null;
+  }
+
   function buildDedupe(candidate) {
     const title = candidate.objective?.title || candidate.title;
     const creatorName = candidate.objective?.creatorName || candidate.creatorName;
@@ -278,6 +318,262 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return { source: selected, podcastIndexEnabled: podcastIndex.enabled, results };
   }
 
+  function normalizeDiscoverySourceInput(raw = {}, current = null) {
+    const sourceType = trimText(raw.sourceType ?? current?.sourceType, 80);
+    if (!DISCOVERY_SOURCE_TYPES.has(sourceType)) {
+      const error = new Error("Discovery sources must use Apple search or Podcast Index search.");
+      error.statusCode = 400;
+      throw error;
+    }
+    const query = trimText(raw.query ?? current?.query, 500);
+    if (!query) {
+      const error = new Error("A discovery search query is required.");
+      error.statusCode = 400;
+      throw error;
+    }
+    const name = trimText(raw.name ?? current?.name, 160) || `${sourceType === "apple-search" ? "Apple" : "Podcast Index"}: ${query}`;
+    const currentConfig = current?.config || {};
+    const configValue = raw.config && typeof raw.config === "object" ? raw.config : {};
+    return {
+      name,
+      sourceType,
+      query,
+      enabled: raw.enabled === undefined ? current?.enabled !== false : Boolean(raw.enabled),
+      intervalMinutes: Math.min(43_200, Math.max(15, Number(raw.intervalMinutes ?? current?.intervalMinutes) || 1_440)),
+      config: {
+        ...currentConfig,
+        ...configValue,
+        limit: Math.min(20, Math.max(1, Number(configValue.limit ?? currentConfig.limit) || 10)),
+        includeBorderline: configValue.includeBorderline === undefined
+          ? Boolean(currentConfig.includeBorderline)
+          : Boolean(configValue.includeBorderline),
+      },
+    };
+  }
+
+  function listDiscoveryForMaintainer() {
+    return {
+      sources: store.listDiscoverySources({ includeDisabled: true }),
+      runs: store.listDiscoveryRuns({ limit: 20 }),
+      podcastIndexEnabled: podcastIndex.enabled,
+    };
+  }
+
+  function createDiscoverySourceForMaintainer(raw = {}) {
+    const source = store.createDiscoverySource(normalizeDiscoverySourceInput(raw));
+    return source;
+  }
+
+  function updateDiscoverySourceForMaintainer(id, raw = {}) {
+    const current = store.getDiscoverySource(id);
+    if (!current) {
+      const error = new Error("Discovery source not found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    const source = store.updateDiscoverySource(id, normalizeDiscoverySourceInput(raw, current));
+    if (source.enabled && raw.enabled !== false && raw.runSoon === true) {
+      store.updateDiscoverySource(id, { ...source, nextRunAt: new Date().toISOString() });
+    }
+    return store.getDiscoverySource(id);
+  }
+
+  function scheduleDiscoveryWork(delayMs = 0, { periodic = false } = {}) {
+    if ((periodic && config.IMPORT_AUTO_DISCOVERY === false) || discoveryTimer) return;
+    discoveryTimer = setTimeout(() => {
+      discoveryTimer = null;
+      if (periodic) runDueDiscovery().catch(() => {});
+      else processPendingDiscoveryJobs().catch(() => {});
+    }, Math.max(0, delayMs));
+    discoveryTimer.unref?.();
+  }
+
+  function refreshDiscoveryRun(runId) {
+    if (!runId) return null;
+    const run = store.getDiscoveryRun(runId);
+    if (!run) return null;
+    const done = run.progress.completed + run.progress.failed;
+    const status = run.progress.total === 0
+      ? "completed"
+      : done === run.progress.total
+        ? run.progress.failed > 0 ? "failed" : "completed"
+        : run.progress.processing > 0 || done > 0 ? "processing" : "queued";
+    return store.updateDiscoveryRun(runId, {
+      status,
+      summary: { ...run.summary, ...run.progress },
+    });
+  }
+
+  function enqueueDiscoverySource(sourceId, { actor = "", force = false } = {}) {
+    const source = store.getDiscoverySource(sourceId);
+    if (!source) {
+      const error = new Error("Discovery source not found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    if (!source.enabled && !force) {
+      const error = new Error("Enable this discovery source before scheduling it.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const run = store.createDiscoveryRun({ sourceId, status: "queued", summary: { sourceName: source.name, actor } });
+    store.enqueueDiscoveryJob({ sourceId, runId: run.id, payload: { actor, force } });
+    store.updateDiscoverySource(sourceId, { ...source, lastStatus: "queued", lastError: "" });
+    scheduleDiscoveryWork();
+    return { runId: run.id, source: store.getDiscoverySource(sourceId) };
+  }
+
+  async function discoveryResultsForSource(source) {
+    const limit = Math.min(20, Math.max(1, Number(source.config?.limit) || 10));
+    if (source.sourceType === "apple-search") {
+      return (await apple.searchByTerm(source.query, limit)).map(buildSearchResultPayload);
+    }
+    if (source.sourceType === "podcast-index-search") {
+      if (!podcastIndex.enabled) {
+        const error = new Error("Podcast Index credentials are not configured.");
+        error.retryable = false;
+        throw error;
+      }
+      return (await podcastIndex.searchByTerm(source.query, limit)).map(buildSearchResultPayload);
+    }
+    const error = new Error("Unsupported discovery source type.");
+    error.retryable = false;
+    throw error;
+  }
+
+  async function ingestDiscoveryResult({ source, runId, result }) {
+    const sourceItemKey = discoveryItemKey(result);
+    if (!sourceItemKey) return { disposition: "invalid" };
+    const identity = discoveryIdentity(result);
+    const itemPayload = {
+      sourceId: source.id,
+      sourceItemKey,
+      identity,
+      result: { title: result.title, creatorName: result.creatorName, sourceUrl: result.sourceUrl, sourceType: result.sourceType },
+      lastRunId: runId,
+    };
+    const prior = store.getDiscoveryItem(source.id, sourceItemKey);
+    if (prior) {
+      store.upsertDiscoveryItem({ ...itemPayload, candidateId: prior.candidateId, existingShowId: prior.existingShowId, disposition: prior.disposition });
+      return { disposition: "seen", candidateId: prior.candidateId, existingShowId: prior.existingShowId };
+    }
+    const scopeStatus = inferScopeStatus(result.objective || {});
+    if (scopeStatus !== "in-scope" && !(scopeStatus === "borderline" && source.config?.includeBorderline)) {
+      store.upsertDiscoveryItem({ ...itemPayload, disposition: scopeStatus });
+      return { disposition: scopeStatus };
+    }
+    const seeded = await seedCandidates({
+      searchResults: [result],
+      actor: "discovery-worker",
+      origin: "discovery",
+      discoveryContext: { sourceId: source.id, runId },
+    });
+    const candidate = seeded.candidates[0];
+    const suppressed = seeded.suppressed[0];
+    const disposition = candidate ? "queued" : suppressed?.reason || "seen";
+    store.upsertDiscoveryItem({
+      ...itemPayload,
+      candidateId: candidate?.id || suppressed?.candidateId || "",
+      existingShowId: suppressed?.existingShowId || "",
+      disposition,
+    });
+    return { disposition, candidateId: candidate?.id || suppressed?.candidateId || "", existingShowId: suppressed?.existingShowId || "" };
+  }
+
+  async function processDiscoveryJob(job) {
+    const source = store.getDiscoverySource(job.sourceId);
+    if (!source) {
+      const error = new Error("Discovery source no longer exists.");
+      error.retryable = false;
+      throw error;
+    }
+    store.updateDiscoveryRun(job.runId, { status: "processing" });
+    try {
+      const results = await discoveryResultsForSource(source);
+      const outcomes = [];
+      for (const result of results) outcomes.push(await ingestDiscoveryResult({ source, runId: job.runId, result }));
+      const dispositionCounts = outcomes.reduce((counts, outcome) => {
+        counts[outcome.disposition] = (counts[outcome.disposition] || 0) + 1;
+        return counts;
+      }, {});
+      const summary = {
+        found: results.length,
+        dispositions: dispositionCounts,
+        candidateIds: outcomes.map((outcome) => outcome.candidateId).filter(Boolean),
+      };
+      const currentRun = store.getDiscoveryRun(job.runId);
+      store.updateDiscoveryRun(job.runId, { status: "processing", summary: { ...currentRun?.summary, ...summary } });
+      store.completeDiscoveryJob(job.id, summary);
+      const nextRunAt = new Date(Date.now() + (source.intervalMinutes * 60_000)).toISOString();
+      store.updateDiscoverySource(source.id, {
+        ...source,
+        lastCheckedAt: new Date().toISOString(),
+        nextRunAt,
+        lastStatus: "completed",
+        lastError: "",
+      });
+      return summary;
+    } catch (error) {
+      const failed = store.failDiscoveryJob(job.id, error, { retryable: error.retryable !== false, retryAfterMs: error.retryAfterMs || 0 });
+      store.updateDiscoverySource(source.id, {
+        ...source,
+        lastCheckedAt: new Date().toISOString(),
+        nextRunAt: failed.nextAttemptAt || new Date(Date.now() + (source.intervalMinutes * 60_000)).toISOString(),
+        lastStatus: failed.status,
+        lastError: trimText(error.message || error, 4_000),
+      });
+      throw error;
+    } finally {
+      refreshDiscoveryRun(job.runId);
+    }
+  }
+
+  async function processPendingDiscoveryJobs({ limit = discoveryConcurrency } = {}) {
+    if (discoveryProcessing) return { claimed: 0 };
+    discoveryProcessing = true;
+    try {
+      const jobs = [];
+      for (let index = 0; index < Math.min(discoveryConcurrency, Math.max(1, limit)); index += 1) {
+        const job = store.claimNextDiscoveryJob({ workerId, leaseMs: 120_000 });
+        if (!job) break;
+        jobs.push(job);
+      }
+      await Promise.all(jobs.map(async (job) => {
+        try {
+          await processDiscoveryJob(job);
+        } catch (_error) {
+          // The failed job and source state are recorded in processDiscoveryJob.
+        }
+      }));
+      if (config.IMPORT_AUTO_DISCOVERY === true) scheduleDiscoveryWork(60_000, { periodic: true });
+      return { claimed: jobs.length, jobIds: jobs.map((job) => job.id) };
+    } finally {
+      discoveryProcessing = false;
+    }
+  }
+
+  async function runDueDiscovery({ force = false, actor = "scheduler" } = {}) {
+    const sources = force
+      ? store.listDiscoverySources({ includeDisabled: false })
+      : store.listDueDiscoverySources(20);
+    const scheduled = sources.map((source) => enqueueDiscoverySource(source.id, { actor, force: true }));
+    await processPendingDiscoveryJobs({ limit: discoveryConcurrency });
+    return { runIds: scheduled.map((entry) => entry.runId), sourceIds: sources.map((source) => source.id) };
+  }
+
+  async function waitForDiscoveryRun(runId, timeoutMs = 30_000) {
+    const startedAt = Date.now();
+    while (Date.now() - startedAt < timeoutMs) {
+      const run = store.getDiscoveryRun(runId);
+      if (run && ["completed", "failed"].includes(run.status)) return run;
+      await processPendingDiscoveryJobs({ limit: discoveryConcurrency });
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    const error = new Error(`Discovery run ${runId} did not finish within ${timeoutMs}ms.`);
+    error.statusCode = 504;
+    throw error;
+  }
+
   function scheduleWork(delayMs = 0) {
     if (config.IMPORT_AUTO_WORKER === false || workTimer) return;
     workTimer = setTimeout(() => {
@@ -292,17 +588,24 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     const run = store.getRun(runId);
     if (!run) return null;
     const done = run.progress.completed + run.progress.failed;
-    const status = run.progress.total > 0 && done === run.progress.total
-      ? run.progress.failed > 0 ? "failed" : "completed"
-      : run.progress.processing > 0 || done > 0 ? "processing" : "queued";
+    const status = run.progress.total === 0
+      ? "completed"
+      : done === run.progress.total
+        ? run.progress.failed > 0 ? "failed" : "completed"
+        : run.progress.processing > 0 || done > 0 ? "processing" : "queued";
     return store.updateRun(runId, {
       status,
       summary: { ...run.summary, ...run.progress, candidateIds: run.jobs.map((job) => job.candidateId) },
     });
   }
 
-  function enqueueCandidate(candidateId, { actor = "", runType = "prepare", incrementRevision = true } = {}) {
+  function enqueueCandidate(candidateId, { actor = "", runType = "prepare", incrementRevision = true, reopen = false } = {}) {
     const candidate = getCandidate(candidateId);
+    if (SUPPRESSED_CANDIDATE_STATUSES.has(candidate.status) && !reopen) {
+      const error = new Error("This closed import candidate must be explicitly reopened before it can be prepared again.");
+      error.statusCode = 409;
+      throw error;
+    }
     const revision = incrementRevision ? candidate.inputRevision + 1 : candidate.inputRevision;
     const run = store.createRun({ runType, status: "queued", input: { candidateIds: [candidateId], actor }, summary: { candidateCount: 1 } });
     store.updateCandidate(candidateId, { status: "queued", inputRevision: revision, lastRunId: run.id, lastError: "" });
@@ -312,7 +615,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return { runId: run.id, candidateIds: [candidateId], candidate: getCandidate(candidateId) };
   }
 
-  async function seedCandidates({ entries = [], searchResults = [], actor = "", autoHydrate = false } = {}) {
+  async function seedCandidates({ entries = [], searchResults = [], actor = "", autoHydrate = false, origin = "manual", discoveryContext = null } = {}) {
     registerCatalogIdentities();
     const seeds = [
       ...(Array.isArray(entries) ? entries.map(detectSeedEntry).filter(Boolean) : []),
@@ -320,16 +623,34 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     ];
     const run = store.createRun({ runType: "seed", status: "queued", input: { entries, searchResults }, summary: { candidateCount: seeds.length } });
     const candidates = [];
+    const suppressed = [];
     for (const seed of seeds) {
       const payload = buildInitialCandidatePayload(seed);
       const mapping = findExactMapping(payload.objective);
       let candidate = mapping?.candidateId ? store.getCandidate(mapping.candidateId) : null;
+      if (!candidate) candidate = findSuppressedTitleCandidate(payload.objective);
+      if (candidate && SUPPRESSED_CANDIDATE_STATUSES.has(candidate.status)) {
+        suppressed.push({ candidateId: candidate.id, reason: candidate.status, existingShowId: candidate.existingShowId || "" });
+        continue;
+      }
+      if (origin === "discovery" && candidate) {
+        suppressed.push({ candidateId: candidate.id, reason: candidate.status === "published" ? "published" : "already-open", existingShowId: candidate.existingShowId || "" });
+        continue;
+      }
+      if (origin === "discovery" && mapping?.existingShowId) {
+        suppressed.push({ candidateId: "", reason: "existing-show", existingShowId: mapping.existingShowId });
+        continue;
+      }
       if (!candidate) {
         if (mapping?.existingShowId) {
           payload.mode = "update";
           payload.existingShowId = mapping.existingShowId;
         }
         payload.lastRunId = run.id;
+        if (discoveryContext) {
+          payload.discoverySourceId = discoveryContext.sourceId || "";
+          payload.discoveryRunId = discoveryContext.runId || "";
+        }
         candidate = store.createCandidate(payload);
         identityPairs(payload.objective).forEach(([type, value]) => store.claimIdentity(type, value, { candidateId: candidate.id, existingShowId: payload.existingShowId || "" }));
       } else {
@@ -342,6 +663,17 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       }
       const dedupe = buildDedupe(candidate);
       candidate = store.updateCandidate(candidate.id, { hasDuplicateMatch: dedupe.hasDuplicateMatch, dedupe });
+      if (origin === "discovery" && dedupe.hasDuplicateMatch) {
+        candidate = store.updateCandidate(candidate.id, {
+          status: "duplicate",
+          reviewedAt: new Date().toISOString(),
+          reviewedBy: "discovery-worker",
+          reviewNotes: candidate.reviewNotes || "Automatically held because discovery matched an existing show or candidate.",
+        });
+        store.recordEvent(candidate.id, "discovery-suppressed", actor || "discovery-worker", { reason: "duplicate-match", discoveryContext });
+        suppressed.push({ candidateId: candidate.id, reason: "duplicate-match", existingShowId: candidate.existingShowId || "" });
+        continue;
+      }
       store.enqueueJob({ candidateId: candidate.id, runId: run.id, inputRevision: candidate.inputRevision, payload: { actor } });
       store.recordEvent(candidate.id, mapping?.candidateId ? "reseeded" : "seeded", actor, { runId: run.id, reused: Boolean(mapping?.candidateId), mode: candidate.mode });
       candidates.push(candidate);
@@ -352,7 +684,13 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       await processPendingJobs({ limit: 4 });
       await waitForRun(run.id, 30_000);
     }
-    return { runId: run.id, candidateIds: candidates.map((candidate) => candidate.id), candidates: candidates.map((candidate) => getCandidate(candidate.id)), hydratedCount: autoHydrate ? candidates.length : 0 };
+    return {
+      runId: run.id,
+      candidateIds: candidates.map((candidate) => candidate.id),
+      candidates: candidates.map((candidate) => getCandidate(candidate.id)),
+      suppressed,
+      hydratedCount: autoHydrate ? candidates.length : 0,
+    };
   }
 
   function cachedResult(sourceType, sourceKey, ttlMs) {
@@ -621,6 +959,53 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return enqueueCandidate(id, { actor, runType: "retry", incrementRevision: true });
   }
 
+  function reopenForMaintainer(id, actor = "") {
+    const candidate = getCandidate(id);
+    if (!SUPPRESSED_CANDIDATE_STATUSES.has(candidate.status)) {
+      const error = new Error("Only rejected or duplicate candidates need to be reopened.");
+      error.statusCode = 400;
+      throw error;
+    }
+    store.recordEvent(id, "reopened", actor || "authenticated-maintainer", { previousStatus: candidate.status });
+    return enqueueCandidate(id, { actor, runType: "reopen", incrementRevision: true, reopen: true });
+  }
+
+  async function seedSubmissionForMaintainer(submission = {}, actor = "") {
+    if (submission.submissionType !== "show") {
+      const error = new Error("Only new-show submissions can enter the import preparation lane.");
+      error.statusCode = 400;
+      throw error;
+    }
+    if (submission.status === "rejected") {
+      const error = new Error("A rejected submission cannot be handed to the import lane.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const payload = submission.payload || {};
+    const result = await seedCandidates({
+      actor: actor || "authenticated-maintainer",
+      origin: "submission",
+      searchResults: [{
+        sourceType: "submission",
+        sourceKey: submission.id,
+        sourceUrl: submission.rssOrListenLink || submission.officialSite || "",
+        title: submission.showTitle,
+        creatorName: submission.creatorName,
+        objective: {
+          title: submission.showTitle,
+          creatorName: submission.creatorName,
+          description: payload.shortDescription || "",
+          rssUrl: submission.rssOrListenLink || "",
+          websiteUrl: submission.officialSite || "",
+          categories: payload.selectedTags || String(submission.genres || "").split(",").map((value) => value.trim()).filter(Boolean),
+          objectiveSources: [submission.rssOrListenLink, submission.officialSite].filter(Boolean),
+        },
+      }],
+    });
+    result.candidateIds.forEach((candidateId) => store.recordEvent(candidateId, "submission-handed-off", actor || "authenticated-maintainer", { submissionId: submission.id }));
+    return result;
+  }
+
   function retryRunForMaintainer(runId, actor = "") {
     const prior = store.getRun(runId);
     if (!prior) {
@@ -794,29 +1179,42 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
   function stop() {
     if (workTimer) clearTimeout(workTimer);
     workTimer = null;
+    if (discoveryTimer) clearTimeout(discoveryTimer);
+    discoveryTimer = null;
   }
 
   scheduleWork();
+  if (config.IMPORT_AUTO_DISCOVERY === true) scheduleDiscoveryWork(0, { periodic: true });
 
   return {
     auditCatalog,
     batchPublishForMaintainer,
     buildReport,
+    createDiscoverySourceForMaintainer,
     draftForMaintainer,
     enqueueForMaintainer: enqueueCandidate,
+    enqueueDiscoverySource,
     getForMaintainer: getCandidate,
+    getDiscoveryRun: (id) => store.getDiscoveryRun(id),
     getRun: (id) => store.getRun(id),
     hydrateForMaintainer,
+    listDiscoveryForMaintainer,
     listForMaintainer,
+    processPendingDiscoveryJobs,
     processPendingJobs,
     publishForMaintainer,
+    reopenForMaintainer,
     retryForMaintainer,
     retryRunForMaintainer,
     reviewForMaintainer,
+    runDueDiscovery,
     searchExternalSources,
     seedCandidates,
+    seedSubmissionForMaintainer,
     selectEvidenceForMaintainer,
     stop,
+    updateDiscoverySourceForMaintainer,
+    waitForDiscoveryRun,
     waitForRun,
   };
 }

@@ -1,4 +1,4 @@
-import { createMaintainerSession, destroyMaintainerSession, fetchMaintainerListenerReview, fetchMaintainerSubmission, fetchMaintainerSubmissions, MaintainerAuthError, patchMaintainerSubmission } from "../maintainer/api.js";
+import { createMaintainerSession, destroyMaintainerSession, fetchMaintainerListenerReview, fetchMaintainerSubmission, fetchMaintainerSubmissions, handoffMaintainerSubmissionToImport, MaintainerAuthError, patchMaintainerSubmission } from "../maintainer/api.js";
 import { bindMaintainerListenerReviewEditor } from "../maintainer/listener-review-editor.js";
 import { formatDateTime, formatStatus, formatSubmissionType, summarizeCounts } from "../maintainer/format.js";
 import {
@@ -171,6 +171,31 @@ export async function initializeMaintainerPage() {
         onAuthError: showAuthentication,
         onComplete: () => loadDetail(),
         setStatus: (message) => { elements.detailMeta.textContent = message; },
+      });
+
+      const importButton = elements.detail.querySelector("[data-submission-import]");
+      importButton?.addEventListener("click", async () => {
+        if (!(importButton instanceof HTMLButtonElement)) return;
+        if (!window.confirm("Send this new-show submission into the import preparation lane?")) return;
+        await runMaintainerAction({
+          control: importButton,
+          region: elements.detail,
+          action: async () => {
+            try {
+              const result = await handoffMaintainerSubmissionToImport(selectedId, { reviewedBy: state.storedReviewer });
+              const candidateId = result.candidateIds?.[0] || result.suppressed?.[0]?.candidateId;
+              elements.detailMeta.textContent = candidateId
+                ? `Import handoff complete. Candidate ${candidateId} is available in Catalog imports.`
+                : "This submission matched a previously handled import identity and was not requeued.";
+            } catch (error) {
+              if (error instanceof MaintainerAuthError) {
+                showAuthentication(error);
+                return;
+              }
+              elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to prepare the import candidate.";
+            }
+          },
+        });
       });
 
       if (focusDetail) revealCompactDetail(elements);

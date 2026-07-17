@@ -48,6 +48,14 @@ Workers claim persistent two-minute leases, safely reclaim expired work, process
 
 Raw bodies are gzip-compressed and capped. Per source identity, raw bodies remain available for the latest two successful snapshots and latest failure; older snapshot rows are compacted to lightweight hash/normalized history instead of deleted. Hashes and normalized field evidence persist. Published snapshot compaction can be performed without changing selected evidence or canonical records.
 
+## Automatic Discovery
+
+Discovery is opt-in and separate from preparation. Maintainers configure narrow Apple Search or Podcast Index search sources, each with an explicit query, cadence, result limit, and optional borderline policy. Persistent discovery sources, leased `discover` jobs, runs, and source-item records retain every external item’s identity, first/last-seen time, resulting candidate, and disposition.
+
+The discovery worker only queues new in-scope results. Existing catalog identities, already-open candidates, duplicates, and prior rejections are remembered and suppressed. Rejected and duplicate candidates can only return to preparation through an explicit maintainer reopen action; a later search or scheduled source check cannot revive them silently. Every candidate created this way retains its discovery source and run IDs.
+
+The checked-in `echo-archives-discovery.timer` invokes the one-shot `import:discover` command every 30 minutes; each source’s own cadence decides whether it is due. The timer runs outside the website process. `IMPORT_AUTO_DISCOVERY=true` is available only for a deliberately opted-in in-process scheduler, and is disabled by default.
+
 ## Publication And Update Protection
 
 Prepared records live only in SQLite. Approval acquires a cross-process publish lock, promotes the staged cover, writes only the affected split show files and order manifest, validates/builds once, and then marks candidates published. A failure restores authored files and cover bytes, rebuilds the prior generated state, and leaves the candidate `ready` with an actionable error. Batch publication accepts individually reviewed ready candidates and runs one catalog build.
@@ -65,8 +73,13 @@ Human-owned fields are always preserved. Legacy non-empty factual fields are pre
 - `POST /api/maintainer/imports/:id/publish` explicitly approves one ready candidate.
 - `POST /api/maintainer/imports/batch-publish` publishes individually reviewed ready candidates in one build.
 - `POST /api/maintainer/imports/audit` queues safe refresh candidates for the current catalog without changing it.
+- `GET /api/maintainer/imports/discovery` lists configured sources and recent runs.
+- `POST /api/maintainer/imports/discovery/sources` and `PATCH /api/maintainer/imports/discovery/sources/:sourceId` manage approved source searches.
+- `POST /api/maintainer/imports/discovery/sources/:sourceId/run` schedules one source immediately.
+- `POST /api/maintainer/imports/:id/reopen` explicitly reopens a rejected or duplicate candidate.
+- `POST /api/maintainer/submissions/:id/import` hands a non-rejected public new-show submission into factual import preparation.
 
-CLI commands are `import:seed`, `import:hydrate`, `import:draft` (SQLite preparation compatibility alias), `import:publish`, `import:audit`, `import:report`, and `import:benchmark`.
+CLI commands are `import:seed`, `import:discover`, `import:hydrate`, `import:draft` (SQLite preparation compatibility alias), `import:publish`, `import:audit`, `import:report`, and `import:benchmark`.
 
 ## Recovery
 

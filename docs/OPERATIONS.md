@@ -81,6 +81,8 @@ Operational limits have conservative defaults and normally do not need overrides
 | `IMPORT_HOST_CONCURRENCY` | `2` | Concurrent requests to one source host |
 | `IMPORT_APPLE_REQUESTS_PER_MINUTE` | `15` | Apple lookup/search rate bucket |
 | `IMPORT_AUTO_WORKER` | `true` | Run queued import jobs in the backend process |
+| `IMPORT_AUTO_DISCOVERY` | `false` | Optional in-process scheduler; production discovery uses the systemd timer |
+| `IMPORT_DISCOVERY_CONCURRENCY` | `2` | Maximum concurrent discovery source checks |
 
 Validate the effective local or production-style configuration from the repo root:
 
@@ -238,6 +240,20 @@ systemctl list-timers echo-archives-backup.timer
 The timer creates local recovery copies only. Configure an encrypted off-host destination and a retention policy separately; a backup stored only on this server does not protect against host loss.
 
 Before trusting the backup process for launch, copy one backup to a temporary location, open it with `sqlite3`, and confirm expected table counts. Perform a restore drill on a non-production copy.
+
+### Scheduled show discovery
+
+The checked-in discovery timer runs the protected `import:discover` command every 30 minutes. It does nothing until a maintainer configures and enables a focused source in **Catalog imports**; each source still observes its own configured cadence.
+
+```bash
+sudo install -m 0644 deploy/echo-archives-discovery.service /etc/systemd/system/echo-archives-discovery.service
+sudo install -m 0644 deploy/echo-archives-discovery.timer /etc/systemd/system/echo-archives-discovery.timer
+sudo systemctl daemon-reload
+sudo systemctl enable --now echo-archives-discovery.timer
+systemctl list-timers echo-archives-discovery.timer
+```
+
+Run all enabled sources manually for an operational check with `npm --prefix backend run import:discover -- --all`. Discovery only creates internal candidates; the existing maintainer review and explicit publication approval remain mandatory.
 
 Restore is a manual maintenance operation. Confirm every path before running it:
 
@@ -442,12 +458,17 @@ Protected import APIs:
 - `GET /api/maintainer/imports/runs/:runId`
 - `POST /api/maintainer/imports/runs/:runId/retry`
 - `POST /api/maintainer/imports/audit`
+- `GET /api/maintainer/imports/discovery`
+- `POST /api/maintainer/imports/discovery/sources`
+- `PATCH /api/maintainer/imports/discovery/sources/:sourceId`
+- `POST /api/maintainer/imports/discovery/sources/:sourceId/run`
 - `POST /api/maintainer/imports/batch-publish`
 - `GET /api/maintainer/imports/:id`
 - `POST /api/maintainer/imports/:id/hydrate`
 - `PATCH /api/maintainer/imports/:id/review`
 - `POST /api/maintainer/imports/:id/draft`
 - `POST /api/maintainer/imports/:id/retry`
+- `POST /api/maintainer/imports/:id/reopen`
 - `POST /api/maintainer/imports/:id/evidence`
 - `POST /api/maintainer/imports/:id/publish`
 
@@ -462,6 +483,7 @@ npm run import:draft -- --candidate <candidate-id>
 npm run import:publish -- --candidate <candidate-id>
 npm run import:audit
 npm run import:benchmark
+npm run import:discover -- --all
 ```
 
 Import workflow:

@@ -107,6 +107,7 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
       const routeArtWidth = document.querySelector(".detail-collection-route-art")?.getBoundingClientRect().width || 0;
       const disabledChips = document.querySelectorAll(".detail-link-chip.is-disabled").length;
       const hasRail = Boolean(document.querySelector(".detail-side-rail"));
+      const firstReviewCard = document.querySelector(".detail-first-review-card");
 
       return {
         mainWidth: main?.getBoundingClientRect().width || 0,
@@ -122,11 +123,19 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
         routeArtWidth,
         disabledChips,
         hasRail,
+        firstReviewText: firstReviewCard?.textContent?.trim() || "",
+        firstReviewHref: firstReviewCard?.querySelector("a")?.getAttribute("href") || "",
+        hasScoreBreakdown: Boolean(document.querySelector(".detail-community-score-section")),
       };
     });
 
     assert.ok(state.mainWidth > 1200);
-    assert.equal(state.reviewHeading, "Reviews");
+    assert.equal(state.reviewHeading, "");
+    assert.match(state.firstReviewText, /Add your take to help listeners find their next show\./);
+    assert.match(state.firstReviewText, /Be the first to review/);
+    assert.match(state.firstReviewHref, /submissionType=listener-review/);
+    assert.match(state.firstReviewHref, /showId=solar/);
+    assert.equal(state.hasScoreBreakdown, false);
     assert.match(state.creatorValue, /Chris Porter/i);
     assert.match(state.creatorValue, /CurtCo Media/i);
     assert.equal(state.linkStatus, "");
@@ -165,11 +174,34 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
         factsWidth: facts?.getBoundingClientRect().width || 0,
         sideRail: Boolean(document.querySelector(".detail-side-rail")),
         overflow: document.documentElement.scrollWidth - window.innerWidth,
+        archiveNote: Boolean(document.querySelector(".detail-indexed-archive-note")),
+        firstReviewCard: Boolean(document.querySelector(".detail-first-review-card")),
+        reviewSection: Boolean(document.querySelector(".detail-review-section")),
+        scoreBreakdown: Boolean(document.querySelector(".detail-community-score-section")),
       };
     });
     assert.equal(indexedDesktop.sideRail, false);
     assert.ok(indexedDesktop.factsWidth > indexedDesktop.layoutWidth * 0.8);
     assert.ok(indexedDesktop.overflow <= 1);
+    assert.equal(indexedDesktop.archiveNote, true);
+    assert.equal(indexedDesktop.firstReviewCard, true);
+    assert.equal(indexedDesktop.reviewSection, false);
+    assert.equal(indexedDesktop.scoreBreakdown, false);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
+    const indexedMobile = await page.evaluate(() => {
+      const card = document.querySelector(".detail-first-review-card");
+      const action = card?.querySelector(".detail-primary-action");
+      return {
+        overflow: document.documentElement.scrollWidth - window.innerWidth,
+        cardWidth: card?.getBoundingClientRect().width || 0,
+        actionWidth: action?.getBoundingClientRect().width || 0,
+      };
+    });
+    assert.ok(indexedMobile.overflow <= 1);
+    assert.ok(indexedMobile.cardWidth > 0);
+    assert.ok(indexedMobile.actionWidth >= indexedMobile.cardWidth - 40);
 
     await page.setViewportSize({ width: 980, height: 1100 });
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });

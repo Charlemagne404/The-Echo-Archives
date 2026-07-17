@@ -26,6 +26,7 @@
     "import:publish": "node scripts/import-publish.js",
     "import:audit": "node scripts/import-audit.js",
     "import:benchmark": "node scripts/import-benchmark.js",
+    "import:discover": "node scripts/import-discover.js",
     "import:live-smoke": "node scripts/import-live-smoke.js",
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },

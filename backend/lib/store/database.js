@@ -166,6 +166,8 @@ function migrate(db) {
       published_show_id TEXT NOT NULL DEFAULT '',
       duplicate_of_show_id TEXT NOT NULL DEFAULT '',
       duplicate_of_candidate_id TEXT NOT NULL DEFAULT '',
+      discovery_source_id TEXT NOT NULL DEFAULT '',
+      discovery_run_id TEXT NOT NULL DEFAULT '',
       created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
     );
@@ -267,6 +269,69 @@ function migrate(db) {
       PRIMARY KEY (source_type, source_key)
     );
 
+    CREATE TABLE IF NOT EXISTS catalog_discovery_sources (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      source_type TEXT NOT NULL,
+      query_text TEXT NOT NULL DEFAULT '',
+      config_json TEXT NOT NULL DEFAULT '{}',
+      enabled INTEGER NOT NULL DEFAULT 1,
+      interval_minutes INTEGER NOT NULL DEFAULT 1440,
+      last_checked_at TEXT,
+      next_run_at TEXT,
+      last_status TEXT NOT NULL DEFAULT 'idle',
+      last_error TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_discovery_runs (
+      id TEXT PRIMARY KEY,
+      source_id TEXT NOT NULL REFERENCES catalog_discovery_sources(id) ON DELETE CASCADE,
+      status TEXT NOT NULL DEFAULT 'queued',
+      summary_json TEXT NOT NULL DEFAULT '{}',
+      error_text TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      started_at TEXT,
+      completed_at TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_discovery_items (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      source_id TEXT NOT NULL REFERENCES catalog_discovery_sources(id) ON DELETE CASCADE,
+      source_item_key TEXT NOT NULL,
+      candidate_id TEXT REFERENCES catalog_import_candidates(id) ON DELETE SET NULL,
+      existing_show_id TEXT NOT NULL DEFAULT '',
+      disposition TEXT NOT NULL DEFAULT 'new',
+      identity_json TEXT NOT NULL DEFAULT '{}',
+      result_json TEXT NOT NULL DEFAULT '{}',
+      first_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      last_seen_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      last_run_id TEXT REFERENCES catalog_discovery_runs(id) ON DELETE SET NULL,
+      UNIQUE (source_id, source_item_key)
+    );
+
+    CREATE TABLE IF NOT EXISTS catalog_discovery_jobs (
+      id TEXT PRIMARY KEY,
+      source_id TEXT NOT NULL REFERENCES catalog_discovery_sources(id) ON DELETE CASCADE,
+      run_id TEXT NOT NULL REFERENCES catalog_discovery_runs(id) ON DELETE CASCADE,
+      job_type TEXT NOT NULL DEFAULT 'discover',
+      status TEXT NOT NULL DEFAULT 'queued',
+      attempt_count INTEGER NOT NULL DEFAULT 0,
+      max_attempts INTEGER NOT NULL DEFAULT 4,
+      next_attempt_at TEXT,
+      lease_owner TEXT NOT NULL DEFAULT '',
+      lease_expires_at TEXT,
+      payload_json TEXT NOT NULL DEFAULT '{}',
+      result_json TEXT NOT NULL DEFAULT '{}',
+      error_text TEXT NOT NULL DEFAULT '',
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      started_at TEXT,
+      completed_at TEXT,
+      UNIQUE (source_id, run_id, job_type)
+    );
+
     CREATE TABLE IF NOT EXISTS rate_limit_events (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       scope TEXT NOT NULL,
@@ -324,6 +389,18 @@ function migrate(db) {
 
     CREATE INDEX IF NOT EXISTS idx_catalog_import_jobs_candidate
       ON catalog_import_jobs (candidate_id, created_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_discovery_sources_due
+      ON catalog_discovery_sources (enabled, next_run_at);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_discovery_items_candidate
+      ON catalog_discovery_items (candidate_id, last_seen_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_discovery_runs_source
+      ON catalog_discovery_runs (source_id, created_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_catalog_discovery_jobs_claim
+      ON catalog_discovery_jobs (status, next_attempt_at, lease_expires_at, created_at);
 
     CREATE INDEX IF NOT EXISTS idx_rate_limit_scope_ip_created
       ON rate_limit_events (scope, client_ip, created_at_ms);
@@ -412,6 +489,8 @@ function migrate(db) {
     "duplicate_of_candidate_id",
     "duplicate_of_candidate_id TEXT NOT NULL DEFAULT ''",
   );
+  ensureColumn(db, "catalog_import_candidates", "discovery_source_id", "discovery_source_id TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "discovery_run_id", "discovery_run_id TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "catalog_import_candidates", "mode", "mode TEXT NOT NULL DEFAULT 'create'");
   ensureColumn(db, "catalog_import_candidates", "existing_show_id", "existing_show_id TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "catalog_import_candidates", "prepared_record_json", "prepared_record_json TEXT NOT NULL DEFAULT '{}'");

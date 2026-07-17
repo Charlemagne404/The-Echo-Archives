@@ -128,6 +128,90 @@ test("seed upsert reuses exact identities and queues persistent work", async () 
   }
 });
 
+test("discovery sources persist seen results, suppress closed identities, and require an explicit reopen", async () => {
+  const discoveryFetch = async (url) => {
+    if (String(url).startsWith("https://itunes.apple.com/search")) {
+      return new Response(JSON.stringify({
+        resultCount: 1,
+        results: [{
+          collectionId: 987654321,
+          collectionName: "Discovery Signal",
+          artistName: "Discovery Studio",
+          description: "A fiction audio drama from a distant relay.",
+          primaryGenreName: "Fiction",
+          feedUrl: "https://discovery.example/feed.xml",
+          collectionViewUrl: "https://podcasts.apple.com/us/podcast/discovery-signal/id987654321",
+        }],
+      }), { status: 200, headers: { "content-type": "application/json" } });
+    }
+    throw new Error(`Unexpected fetch URL: ${url}`);
+  };
+  const context = createTempImportContext({ fetchImpl: discoveryFetch });
+  try {
+    const source = context.service.createDiscoverySourceForMaintainer({
+      name: "Focused fiction source",
+      sourceType: "apple-search",
+      query: "fiction audio drama",
+      intervalMinutes: 60,
+    });
+    const scheduled = await context.service.runDueDiscovery({ force: true, actor: "test" });
+    const run = await context.service.waitForDiscoveryRun(scheduled.runIds[0]);
+    assert.equal(run.status, "completed");
+    assert.equal(run.summary.found, 1);
+    assert.equal(run.summary.candidateIds.length, 1);
+
+    const candidateId = run.summary.candidateIds[0];
+    const candidate = context.service.getForMaintainer(candidateId);
+    assert.equal(candidate.discoverySourceId, source.id);
+    assert.equal(candidate.discoveryRunId, run.id);
+
+    context.service.reviewForMaintainer(candidateId, { status: "rejected", reviewedBy: "CA" }, "CA");
+    const reseed = await context.service.seedCandidates({
+      searchResults: [{
+        sourceType: "apple",
+        sourceKey: "987654321",
+        sourceUrl: "https://podcasts.apple.com/us/podcast/discovery-signal/id987654321",
+        title: "Discovery Signal",
+        creatorName: "Discovery Studio",
+        objective: { appleCollectionId: "987654321", rssUrl: "https://discovery.example/feed.xml", primaryGenre: "Fiction" },
+      }],
+    });
+    assert.equal(reseed.candidateIds.length, 0);
+    assert.equal(reseed.suppressed[0].reason, "rejected");
+
+    const reopened = context.service.reopenForMaintainer(candidateId, "CA");
+    assert.equal(reopened.candidateIds[0], candidateId);
+    assert.equal(context.service.getForMaintainer(candidateId).status, "queued");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("a vetted new-show submission can enter the protected import lane without publication", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const result = await context.service.seedSubmissionForMaintainer({
+      id: "submission-123",
+      submissionType: "show",
+      status: "in-review",
+      showTitle: "Submission Signal",
+      creatorName: "Submission Studio",
+      officialSite: "https://example.com/",
+      rssOrListenLink: "https://example.com/feed.xml",
+      genres: "fiction, drama",
+      payload: { shortDescription: "A factual submission ready for source enrichment.", selectedTags: ["fiction", "drama"] },
+    }, "CA");
+    assert.equal(result.candidateIds.length, 1);
+    const candidate = context.service.getForMaintainer(result.candidateIds[0]);
+    assert.equal(candidate.status, "queued");
+    assert.equal(candidate.primarySourceType, "submission");
+    assert.match(candidate.events[0].eventType, /submission-handed-off|seeded/);
+    assert.equal(candidate.publishedShowId, "");
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("exact Apple title discovery is confirmed by collection lookup and cached separately", async () => {
   const baseFetch = sourceRichFetch();
   let lookupCount = 0;

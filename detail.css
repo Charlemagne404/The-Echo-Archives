@@ -937,6 +937,29 @@
     rgba(6, 8, 11, 0.64);
 }
 
+.detail-first-review-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(var(--detail-accent-rgb), 0.2);
+  border-radius: 16px;
+  background:
+    linear-gradient(105deg, rgba(var(--detail-accent-rgb), 0.09), transparent 46%),
+    rgba(6, 8, 11, 0.6);
+}
+
+.detail-first-review-card p {
+  margin: 0;
+  color: var(--detail-text-secondary);
+  line-height: 1.55;
+}
+
+.detail-first-review-card .detail-primary-action {
+  flex: 0 0 auto;
+}
+
 .detail-summary-kicker {
   color: rgba(255, 255, 255, 0.82);
   font-size: 0.77rem;
@@ -1479,6 +1502,16 @@
 @media (max-width: 640px) {
   .detail-link-chip {
     min-height: 44px;
+  }
+
+  .detail-first-review-card {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .detail-first-review-card .detail-primary-action {
+    align-self: stretch;
   }
 
   .detail-hero-panel,

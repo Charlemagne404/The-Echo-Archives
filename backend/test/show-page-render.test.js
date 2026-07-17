@@ -6,17 +6,21 @@ const { createShowPageMarkup } = require("../lib/show-page-render");
 
 const showMap = new Map(shows.map((show) => [show.id, show]));
 
-test("indexed entries use a community carousel and standalone score breakdown without rendering preserved quote data", () => {
+test("empty indexed entries move editorial context out of Reviews and invite the first listener review", () => {
   const markup = createShowPageMarkup(showMap.get("were-alive"), showMap, collections);
 
   assert.match(markup, /detail-main--indexed/);
   assert.match(markup, /<h2>About this show<\/h2>/);
-  assert.match(markup, /<h2>Reviews<\/h2>/);
-  assert.match(markup, /detail-review-carousel/);
-  assert.match(markup, /Community score breakdown/);
+  assert.match(markup, /detail-indexed-archive-note/);
   assert.match(markup, /Archive note/);
-  assert.match(markup, /The Echo Archives/);
+  assert.match(markup, /detail-first-review-card/);
+  assert.match(markup, /Add your take to help listeners find their next show\./);
+  assert.match(markup, /href="\/submit\?submissionType=listener-review&amp;showId=were-alive">Be the first to review/);
   assert.match(markup, /detail-facts-links-card--inline/);
+  assert.match(markup, /detail-best-for-icon" aria-hidden="true"><svg/);
+  assert.doesNotMatch(markup, /<h2>Reviews<\/h2>/);
+  assert.doesNotMatch(markup, /detail-review-carousel/);
+  assert.doesNotMatch(markup, /Community score breakdown/);
   assert.doesNotMatch(markup, /Official summary/);
   assert.doesNotMatch(markup, /<h2>Archive take<\/h2>/);
   assert.doesNotMatch(markup, /data-community-hero/);
@@ -63,7 +67,7 @@ test("full reviews server-render archive first and reserve later listener pages 
   assert.ok((markup.match(/collection-cover-frame/g) || []).length >= 4);
 });
 
-test("non-archive and empty pages begin with a listener review or clear moderated submission state", () => {
+test("indexed listener reviews and public category scores appear only when they have real published content", () => {
   const nonArchive = {
     ...showMap.get("solar"),
     archiveTake: "",
@@ -83,15 +87,32 @@ test("non-archive and empty pages begin with a listener review or clear moderate
   const emptyMarkup = createShowPageMarkup(nonArchive, showMap, collections, {
     reviews: [], pagination: { page: 1, pageSize: 1, totalPages: 1, totalReviews: 0 }, scoreSummary: {},
   });
+  const publicScoresMarkup = createShowPageMarkup(nonArchive, showMap, collections, {
+    reviews: [{
+      id: "listener-1", authorName: "Listener42", title: "A first response", body: "Worth hearing.", ratingStars: 5,
+      spoilerLevel: "spoiler-free", bestFor: [], workedBest: [], helpfulCount: 0, publishedAt: "2026-07-16T12:00:00.000Z",
+    }],
+    pagination: { page: 1, pageSize: 1, totalPages: 1, totalReviews: 1 },
+    scoreSummary: {
+      voiceActing: { averageRating: 8.5, ratingCount: 3, isPublic: true },
+      soundDesign: { averageRating: 7.5, ratingCount: 2, isPublic: false },
+    },
+  });
 
   assert.match(listenerMarkup, /data-has-archive="false"/);
   assert.match(listenerMarkup, /Listener42/);
   assert.match(listenerMarkup, /Reveal spoilers/);
   assert.match(listenerMarkup, /data-review-helpful="listener-1"/);
   assert.doesNotMatch(listenerMarkup, /The Echo Archives/);
-  assert.match(emptyMarkup, /No reviews are published for this show yet/);
-  assert.match(emptyMarkup, /Submit the first review/);
-  assert.match(emptyMarkup, /Community score breakdown/);
+  assert.doesNotMatch(listenerMarkup, /Community score breakdown/);
+  assert.match(emptyMarkup, /detail-first-review-card/);
+  assert.match(emptyMarkup, /Be the first to review/);
+  assert.doesNotMatch(emptyMarkup, /<h2>Reviews<\/h2>/);
+  assert.doesNotMatch(emptyMarkup, /Community score breakdown/);
+  assert.match(publicScoresMarkup, /Community score breakdown/);
+  assert.match(publicScoresMarkup, /Voice acting/);
+  assert.doesNotMatch(publicScoresMarkup, /Building/);
+  assert.equal((publicScoresMarkup.match(/detail-community-rating-card/g) || []).length, 1);
 });
 
 test("official descriptions and route expansion retain source attribution and each show route", () => {

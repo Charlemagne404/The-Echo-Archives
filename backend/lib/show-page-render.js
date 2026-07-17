@@ -294,7 +294,7 @@ function renderBestForStrip(show) {
           .map(
             (value) => `
               <article class="detail-best-for-item">
-                <span class="detail-best-for-icon" aria-hidden="true"></span>
+                <span class="detail-best-for-icon" aria-hidden="true">${getBestForIconMarkup(value)}</span>
                 <span class="detail-best-for-text">${escapeHtml(toDisplayTag(value))}</span>
               </article>
             `,
@@ -303,6 +303,36 @@ function renderBestForStrip(show) {
       </div>
     </section>
   `;
+}
+
+function getBestForIconMarkup(value) {
+  const iconMap = {
+    "long-walks":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4.5c1.1 0 2 .9 2 2S9.1 8.5 8 8.5 6 7.6 6 6.5s.9-2 2-2Zm7 0c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2Zm-6.25 6.5 2.1 2.5L9.1 19.5H6.9l1.65-5.15-1.95-2.1 2.15-1.25Zm6.6 0 2.15 1.25-1.95 2.1 1.65 5.15H14.9l-1.75-6 2.2-2.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>',
+    "headphones-on":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.75 13.5a7.25 7.25 0 1 1 14.5 0v4.25a1.5 1.5 0 0 1-1.5 1.5h-1.25a1.5 1.5 0 0 1-1.5-1.5v-3a1.5 1.5 0 0 1 1.5-1.5h2.75m-13.5 0H7.5a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5H6.25a1.5 1.5 0 0 1-1.5-1.5V13.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>',
+    "serious-sci-fi":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75 14.2 9l5.55.45-4.25 3.65 1.3 5.4L12 15.6 7.2 18.5l1.3-5.4-4.25-3.65L9.8 9 12 3.75Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>',
+    worldbuilding:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75c4.56 0 8.25 3.69 8.25 8.25S16.56 20.25 12 20.25 3.75 16.56 3.75 12 7.44 3.75 12 3.75Zm0 0c2.1 2.2 3.25 5.15 3.25 8.25S14.1 18.05 12 20.25m0-16.5c-2.1 2.2-3.25 5.15-3.25 8.25S9.9 18.05 12 20.25m-7.9-5.25h15.8M4.1 9h15.8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55"/></svg>',
+    "binge-listening":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6.5v11l8.75-5.5L6 6.5Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.7"/><path d="M17.5 7.5v9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7"/></svg>',
+    "late-night":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8 15.9a6.8 6.8 0 0 1-8.7-8.7 7 7 0 1 0 8.7 8.7Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>',
+    "easy-entry":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.75h9v10.5H9m0-10.5-3 3m3-3 3 3m-3 7.5-3-3m3 3 3-3" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/></svg>',
+    "funny-space-disasters":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.25 15.75 15.9 8.1m-4.1-.35 4.45-1.2-1.2 4.45m-6.8 4.75-1.55 1.55m8.35-8.35 1.55-1.55m-9.1 4.3c-1.95 1.95-2.15 4.9-.45 6.6 1.7 1.7 4.65 1.5 6.6-.45l2.15-2.15-6.15-6.15-2.15 2.15Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.55"/></svg>',
+    "cold-isolation-horror":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.75v16.5M6.55 6.55l10.9 10.9M3.75 12h16.5M6.55 17.45l10.9-10.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.55"/></svg>',
+    "short-under-five-hours":
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5.25v6l3.75 2.25M12 20.25a8.25 8.25 0 1 0 0-16.5 8.25 8.25 0 0 0 0 16.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.65"/></svg>',
+  };
+
+  return (
+    iconMap[value] ||
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5 19.5 12 12 19.5 4.5 12 12 4.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"/></svg>'
+  );
 }
 
 function renderOfficialSummarySection(show) {
@@ -339,6 +369,22 @@ function renderArchiveReviewCard(show) {
       ${reviewCopy ? `<div class="detail-review-prose">${reviewCopy}</div>` : ""}
       ${reactionCopy ? `<div class="detail-review-reaction">${reactionCopy}</div>` : ""}
     </article>
+  `;
+}
+
+function renderIndexedArchiveNote(show) {
+  if (show.reviewStatus === "full-review" || !hasArchiveReviewContent(show)) return "";
+  const reviewCopy = renderParagraphs(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
+  const reactionCopy = renderParagraphs(show.thoughtsParagraphs, show.thoughts);
+  const content = [
+    show.archiveTake ? `<p>${escapeHtml(show.archiveTake)}</p>` : "",
+    reviewCopy,
+    reactionCopy,
+  ].filter(Boolean).join("");
+  return `
+    <section class="detail-section detail-indexed-archive-note" aria-labelledby="indexed-archive-note-title">
+      <article class="detail-summary detail-archive-note-summary"><p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>${content}</article>
+    </section>
   `;
 }
 
@@ -392,10 +438,12 @@ function renderReviewDots(totalSlides, currentIndex) {
 
 function renderReviewSection(show, reviewData = {}) {
   const reviewPage = getReviewPage(reviewData);
-  const archiveCard = renderArchiveReviewCard(show);
+  const isFullReview = show.reviewStatus === "full-review";
+  const archiveCard = isFullReview ? renderArchiveReviewCard(show) : "";
   const hasArchive = Boolean(archiveCard);
   const initialListenerReview = reviewPage.reviews[0] || null;
   const totalListenerReviews = Number(reviewPage.pagination?.totalReviews || 0);
+  if (!isFullReview && totalListenerReviews === 0) return "";
   const totalSlides = totalListenerReviews + (hasArchive ? 1 : 0);
   const initialCard = hasArchive ? archiveCard : initialListenerReview ? renderListenerReviewCard(initialListenerReview) : "";
   return `
@@ -409,6 +457,17 @@ function renderReviewSection(show, reviewData = {}) {
           <div class="detail-review-carousel-pagination"><div class="detail-review-carousel-dots" data-review-carousel-dots>${renderReviewDots(totalSlides, 0)}</div><p class="detail-review-carousel-status" data-review-carousel-status aria-live="polite">Review 1 of ${totalSlides}</p></div>
         </div>
       `}
+    </section>
+  `;
+}
+
+function renderFirstReviewCta(show, reviewData = {}) {
+  const totalListenerReviews = Number(getReviewPage(reviewData).pagination?.totalReviews || 0);
+  if (show.reviewStatus === "full-review" || totalListenerReviews > 0) return "";
+  return `
+    <section class="detail-section detail-first-review-card" aria-label="Listener review invitation">
+      <p>Add your take to help listeners find their next show.</p>
+      <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Be the first to review</a>
     </section>
   `;
 }
@@ -560,11 +619,18 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
     ["ads", "Ads"],
     ["length", "Length"],
   ];
+  const isFullReview = show.reviewStatus === "full-review";
+  const visibleCategories = categories.filter(([key]) => {
+    const summary = scoreSummary?.[key] || {};
+    return Boolean(summary.isPublic) && Number.isFinite(Number(summary.averageRating));
+  });
+  const categoriesToRender = isFullReview ? categories : visibleCategories;
+  if (categoriesToRender.length === 0) return "";
   return `
     <section class="detail-section detail-community-score-section" aria-labelledby="community-score-breakdown-title">
       <div class="detail-section-header"><div><h2 id="community-score-breakdown-title">Community score breakdown</h2><p>Category averages come only from published listener reviews. Archive ratings stay editorially separate.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Add your scores</a></div>
       <div class="detail-ratings-grid detail-community-ratings-grid">
-        ${categories.map(([key, label]) => {
+        ${categoriesToRender.map(([key, label]) => {
           const summary = scoreSummary?.[key] || {};
           const ratingCount = Number(summary.ratingCount || 0);
           const average = Number(summary.averageRating);
@@ -587,7 +653,7 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) 
       ${renderDetailHero(show)}
       <div class="detail-content-layout">
         <div class="detail-main-stack">
-          <div class="detail-main-column">${renderOverviewSection(show)}${renderReviewSection(show, reviewData)}${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}${isFullReview ? "" : facts}</div>
+          <div class="detail-main-column">${renderOverviewSection(show)}${renderIndexedArchiveNote(show)}${renderReviewSection(show, reviewData)}${renderFirstReviewCta(show, reviewData)}${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}${isFullReview ? "" : facts}</div>
         </div>
         ${renderCommunityFallback()}
         ${isFullReview ? `<aside class="detail-side-rail">${facts}</aside>` : ""}

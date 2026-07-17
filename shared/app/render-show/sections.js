@@ -51,6 +51,22 @@ function renderArchiveReviewCard(show) {
   `;
 }
 
+export function renderIndexedArchiveNote(show) {
+  if (show.reviewStatus === "full-review" || !hasArchiveReviewContent(show)) return "";
+  const reviewCopy = renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
+  const reactionCopy = renderParagraphMarkup(show.thoughtsParagraphs, show.thoughts);
+  const content = [
+    show.archiveTake ? `<p>${escapeHtml(show.archiveTake)}</p>` : "",
+    reviewCopy,
+    reactionCopy,
+  ].filter(Boolean).join("");
+  return `
+    <section class="detail-section detail-indexed-archive-note" aria-labelledby="indexed-archive-note-title">
+      <article class="detail-summary detail-archive-note-summary"><p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>${content}</article>
+    </section>
+  `;
+}
+
 export function renderListenerReviewCard(review) {
   const spoilerLevel = String(review?.spoilerLevel || "spoiler-free").trim();
   const hasSpoilers = spoilerLevel !== "spoiler-free";
@@ -101,10 +117,12 @@ function renderDots(totalSlides, currentIndex) {
 
 export function renderReviewSection(show, reviewData = {}) {
   const reviewPage = getReviewPage(reviewData);
-  const archiveCard = renderArchiveReviewCard(show);
+  const isFullReview = show.reviewStatus === "full-review";
+  const archiveCard = isFullReview ? renderArchiveReviewCard(show) : "";
   const hasArchive = Boolean(archiveCard);
   const initialListenerReview = reviewPage.reviews[0] || null;
   const totalListenerReviews = Number(reviewPage.pagination?.totalReviews || 0);
+  if (!isFullReview && totalListenerReviews === 0) return "";
   const totalSlides = totalListenerReviews + (hasArchive ? 1 : 0);
   const initialIndex = hasArchive ? 0 : 0;
   const initialCard = hasArchive ? archiveCard : initialListenerReview ? renderListenerReviewCard(initialListenerReview) : "";
@@ -124,12 +142,30 @@ export function renderReviewSection(show, reviewData = {}) {
   `;
 }
 
+export function renderFirstReviewCta(show, reviewData = {}) {
+  const totalListenerReviews = Number(getReviewPage(reviewData).pagination?.totalReviews || 0);
+  if (show.reviewStatus === "full-review" || totalListenerReviews > 0) return "";
+  return `
+    <section class="detail-section detail-first-review-card" aria-label="Listener review invitation">
+      <p>Add your take to help listeners find their next show.</p>
+      <a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Be the first to review</a>
+    </section>
+  `;
+}
+
 export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
+  const isFullReview = show.reviewStatus === "full-review";
+  const visibleCategories = CATEGORY_ORDER.filter(([key]) => {
+    const summary = scoreSummary?.[key] || {};
+    return Boolean(summary.isPublic) && Number.isFinite(Number(summary.averageRating));
+  });
+  const categoriesToRender = isFullReview ? CATEGORY_ORDER : visibleCategories;
+  if (categoriesToRender.length === 0) return "";
   return `
     <section class="detail-section detail-community-score-section" aria-labelledby="community-score-breakdown-title">
       <div class="detail-section-header"><div><h2 id="community-score-breakdown-title">Community score breakdown</h2><p>Category averages come only from published listener reviews. Archive ratings stay editorially separate.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Add your scores</a></div>
       <div class="detail-ratings-grid detail-community-ratings-grid">
-        ${CATEGORY_ORDER.map(([key, label]) => {
+        ${categoriesToRender.map(([key, label]) => {
           const summary = scoreSummary?.[key] || {};
           const ratingCount = Number(summary.ratingCount || 0);
           const average = Number(summary.averageRating);

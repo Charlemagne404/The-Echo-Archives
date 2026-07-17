@@ -373,10 +373,14 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
       </div>
 
       <div class="import-action-row">
-        <button type="button" class="maintainer-ghost-button" data-import-action="hydrate">Re-run preparation</button>
-        ${candidate.status === "failed" ? '<button type="button" class="maintainer-ghost-button" data-import-action="retry">Retry failed import</button>' : ""}
-        <button type="button" class="maintainer-ghost-button" data-import-action="reject">Reject</button>
-        <button type="button" class="maintainer-ghost-button" data-import-action="duplicate">Mark duplicate</button>
+        ${["rejected", "duplicate"].includes(candidate.status)
+          ? '<button type="button" class="maintainer-primary-button" data-import-action="reopen">Reopen for preparation</button>'
+          : `
+            <button type="button" class="maintainer-ghost-button" data-import-action="hydrate">Re-run preparation</button>
+            ${candidate.status === "failed" ? '<button type="button" class="maintainer-ghost-button" data-import-action="retry">Retry failed import</button>' : ""}
+            <button type="button" class="maintainer-ghost-button" data-import-action="reject">Reject</button>
+            <button type="button" class="maintainer-ghost-button" data-import-action="duplicate">Mark duplicate</button>
+          `}
         ${candidate.status === "ready" && candidate.readiness?.ready ? '<button type="button" class="maintainer-primary-button" data-import-action="publish">Approve and publish</button>' : ""}
       </div>
 
@@ -387,6 +391,8 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
         ["Primary source key", candidate.primarySourceKey],
         ["Primary source URL", candidate.primarySourceUrl],
         ["Import mode", candidate.mode],
+        ["Discovery source", candidate.discoverySourceId],
+        ["Discovery run", candidate.discoveryRunId],
         ["Existing show ID", candidate.existingShowId],
         ["Published show ID", candidate.publishedShowId],
       ])}

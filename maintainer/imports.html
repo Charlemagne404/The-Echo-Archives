@@ -229,6 +229,66 @@
       </article>
     </section>
 
+    <section class="maintainer-import-grid">
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div>
+            <p class="maintainer-kicker">Automatic discovery</p>
+            <h2>Approved source searches</h2>
+          </div>
+          <p class="maintainer-toolbar-meta">Use narrow queries against Apple or Podcast Index. Each source remembers external results, duplicates, and rejections before it can create a review candidate.</p>
+        </div>
+        <form id="maintainerDiscoverySourceForm" class="maintainer-review-form">
+          <div class="maintainer-review-grid">
+            <label class="maintainer-field">
+              <span>Source name</span>
+              <input name="name" type="text" placeholder="Monthly fiction audio scan" />
+            </label>
+            <label class="maintainer-field">
+              <span>Directory</span>
+              <select name="sourceType">
+                <option value="apple-search">Apple search</option>
+                <option value="podcast-index-search">Podcast Index search</option>
+              </select>
+            </label>
+          </div>
+          <label class="maintainer-field">
+            <span>Focused query</span>
+            <input name="query" type="search" required placeholder="audio drama science fiction" />
+          </label>
+          <div class="maintainer-review-grid">
+            <label class="maintainer-field">
+              <span>Check every (minutes)</span>
+              <input name="intervalMinutes" type="number" min="15" max="43200" value="1440" />
+            </label>
+            <label class="maintainer-field">
+              <span>Results per check</span>
+              <input name="limit" type="number" min="1" max="20" value="10" />
+            </label>
+          </div>
+          <label class="maintainer-checkbox">
+            <input name="includeBorderline" type="checkbox" />
+            <span>Also queue borderline fiction matches for review</span>
+          </label>
+          <div class="maintainer-review-actions">
+            <button class="maintainer-primary-button" type="submit">Save discovery source</button>
+            <p id="maintainerDiscoveryStatus" class="maintainer-status-copy">Discovery is opt-in. Every result must still pass the existing moderation and publication checks.</p>
+          </div>
+        </form>
+      </article>
+
+      <article class="page-card maintainer-toolbar-card">
+        <div class="maintainer-toolbar-heading">
+          <div>
+            <p class="maintainer-kicker">Sources and runs</p>
+            <h2>Discovery history</h2>
+          </div>
+          <p class="maintainer-toolbar-meta">Run a source on demand or leave it enabled for the scheduled discovery service.</p>
+        </div>
+        <div id="maintainerDiscoveryWorkspace" aria-live="polite"></div>
+      </article>
+    </section>
+
     <section class="maintainer-workspace">
       <article id="maintainerListCard" class="page-card maintainer-list-card">
         <div class="maintainer-panel-heading">
@@ -319,6 +379,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=493f5786ea"></script>
+  <script type="module" src="/script.js?v=ae8fd89624"></script>
 </body>
 </html>

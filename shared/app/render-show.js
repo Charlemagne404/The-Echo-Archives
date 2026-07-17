@@ -4,6 +4,8 @@ import { renderCollectionsSection, renderSimilarSection } from "./render-show/re
 import {
   renderCommunityFallback,
   renderCommunityScoreBreakdown,
+  renderFirstReviewCta,
+  renderIndexedArchiveNote,
   renderOverviewSection,
   renderReviewSection,
 } from "./render-show/sections.js";
@@ -20,7 +22,9 @@ export function createShowPageMarkup(show, showMap, collections = [], reviewData
         <div class="detail-main-stack">
           <div class="detail-main-column">
             ${renderOverviewSection(show)}
+              ${renderIndexedArchiveNote(show)}
               ${renderReviewSection(show, reviewData)}
+              ${renderFirstReviewCta(show, reviewData)}
               ${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}
               ${isFullReview ? "" : facts}
           </div>

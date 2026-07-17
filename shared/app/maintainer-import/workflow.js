@@ -68,3 +68,35 @@ export function buildReviewPayload(form) {
     duplicateOfCandidateId: String(formData.get("duplicateOfCandidateId") || "").trim(),
   };
 }
+
+export async function waitForImportPreparation({ runId, fetchRun, onProgress, signal, timeoutMs = IMPORT_RUN_TIMEOUT_MS } = {}) {
+  if (!runId) return null;
+  const startedAt = Date.now();
+  while (Date.now() - startedAt < timeoutMs) {
+    await waitForVisibleDocument(signal);
+    const { run } = await fetchRun(runId, { signal });
+    onProgress?.(run);
+    if (["completed", "failed"].includes(run.status)) return run;
+    const elapsed = Date.now() - startedAt;
+    await waitForDelay(elapsed < 10_000 ? 1_000 : 2_000, signal);
+  }
+  return null;
+}
+
+export async function waitForManagedImportRun({ runId, state, fetchRun, setStatus }) {
+  state.runController?.abort();
+  const controller = new AbortController();
+  state.runController = controller;
+  try {
+    const run = await waitForImportPreparation({
+      runId,
+      fetchRun,
+      signal: controller.signal,
+      onProgress: (nextRun) => setStatus(`Import run: ${nextRun.progress.completed + nextRun.progress.failed}/${nextRun.progress.total} complete · ${nextRun.progress.processing} processing.`),
+    });
+    if (!run) setStatus("Import preparation is taking longer than two minutes. Refresh the queue to check its latest state.");
+    return run;
+  } finally {
+    if (state.runController === controller) state.runController = null;
+  }
+}

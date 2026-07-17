@@ -76,6 +76,8 @@ const config = {
   IMPORT_HOST_CONCURRENCY: parseInteger(process.env.IMPORT_HOST_CONCURRENCY, 2),
   IMPORT_APPLE_REQUESTS_PER_MINUTE: parseInteger(process.env.IMPORT_APPLE_REQUESTS_PER_MINUTE, 15),
   IMPORT_AUTO_WORKER: parseBoolean(process.env.IMPORT_AUTO_WORKER, true),
+  IMPORT_AUTO_DISCOVERY: parseBoolean(process.env.IMPORT_AUTO_DISCOVERY, false),
+  IMPORT_DISCOVERY_CONCURRENCY: parseInteger(process.env.IMPORT_DISCOVERY_CONCURRENCY, 2),
   HOME_CARD_HOVER_EXPAND_ENABLED: parseBoolean(process.env.HOME_CARD_HOVER_EXPAND_ENABLED, false),
   PROFILE_HEADER: "x-echo-profile-id",
   MAINTAINER_REVIEW_COOKIE_NAME: "echo-maintainer-session",
@@ -107,6 +109,7 @@ const POSITIVE_INTEGER_KEYS = [
   "IMPORT_WORKER_CONCURRENCY",
   "IMPORT_HOST_CONCURRENCY",
   "IMPORT_APPLE_REQUESTS_PER_MINUTE",
+  "IMPORT_DISCOVERY_CONCURRENCY",
 ];
 
 function isValidAbsoluteUrl(value, { httpsOnly = false } = {}) {

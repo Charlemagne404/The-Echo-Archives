@@ -239,6 +239,16 @@ export function renderDetailPane({ submission = null, storedReviewer = "", publi
         </div>
       </form>
 
+      ${submission.submissionType === "show" && submission.status !== "rejected" ? `
+        <section class="maintainer-detail-section">
+          <h3>Import preparation</h3>
+          <p class="maintainer-panel-meta">Send this submitted factual information into the protected import lane. It will still be enriched, deduplicated, and require separate publication approval.</p>
+          <div class="maintainer-toolbar-actions">
+            <button class="maintainer-ghost-button" type="button" data-submission-import="true">Prepare import candidate</button>
+          </div>
+        </section>
+      ` : ""}
+
       ${renderPublishedListenerReviewEditor(submission, publicReview)}
 
       ${getDetailSections(submission).map(renderSection).join("")}

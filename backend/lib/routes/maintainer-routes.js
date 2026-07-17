@@ -108,6 +108,18 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
     }
   });
 
+  router.post("/api/maintainer/submissions/:id/import", requireMaintainerSession, async (req, res, next) => {
+    try {
+      const submission = submissionService.getForMaintainer(req.params.id);
+      return res.status(202).json(await importService.seedSubmissionForMaintainer(
+        submission,
+        req.body?.reviewedBy || "",
+      ));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
   router.get("/api/maintainer/submissions/:id/listener-review", requireMaintainerSession, (req, res, next) => {
     try {
       return res.json({ review: publishedListenerReviewService.getForMaintainer(req.params.id) });
@@ -222,6 +234,55 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
     }
   });
 
+  router.get("/api/maintainer/imports/discovery", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json(importService.listDiscoveryForMaintainer());
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/discovery/sources", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.status(201).json({ source: importService.createDiscoverySourceForMaintainer(req.body || {}) });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.patch("/api/maintainer/imports/discovery/sources/:sourceId", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({ source: importService.updateDiscoverySourceForMaintainer(req.params.sourceId, req.body || {}) });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/discovery/sources/:sourceId/run", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.status(202).json(importService.enqueueDiscoverySource(req.params.sourceId, {
+        actor: req.body?.reviewedBy || "",
+        force: true,
+      }));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/imports/discovery/runs/:runId", requireMaintainerSession, (req, res, next) => {
+    try {
+      const run = importService.getDiscoveryRun(req.params.runId);
+      if (!run) {
+        const error = new Error("Discovery run not found.");
+        error.statusCode = 404;
+        throw error;
+      }
+      return res.json({ run });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
   router.post("/api/maintainer/imports/batch-publish", requireMaintainerSession, async (req, res, next) => {
     try {
       return res.json(await importService.batchPublishForMaintainer(
@@ -287,6 +348,14 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
   router.post("/api/maintainer/imports/:id/retry", requireMaintainerSession, (req, res, next) => {
     try {
       return res.status(202).json(importService.retryForMaintainer(req.params.id, req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/:id/reopen", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.status(202).json(importService.reopenForMaintainer(req.params.id, req.body?.reviewedBy || ""));
     } catch (error) {
       return next(error);
     }

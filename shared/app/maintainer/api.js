@@ -87,6 +87,13 @@ export async function patchMaintainerSubmission(id, updates) {
   });
 }
 
+export async function handoffMaintainerSubmissionToImport(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/import`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function fetchMaintainerListenerReview(id) {
   return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/listener-review`);
 }
@@ -120,6 +127,35 @@ export async function fetchMaintainerImports(filters = {}, options = {}) {
   return requestJson(createMaintainerImportListHref(filters), { signal: options.signal });
 }
 
+export async function fetchMaintainerDiscovery(options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery`, { signal: options.signal });
+}
+
+export async function createMaintainerDiscoverySource(payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery/sources`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function patchMaintainerDiscoverySource(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery/sources/${encodeURIComponent(id)}`, {
+    method: "PATCH",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function runMaintainerDiscoverySource(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery/sources/${encodeURIComponent(id)}/run`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function fetchMaintainerDiscoveryRun(runId, options = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery/runs/${encodeURIComponent(runId)}`, { signal: options.signal });
+}
+
 export async function fetchMaintainerImportCandidate(id, options = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}`, { signal: options.signal });
 }
@@ -149,6 +185,13 @@ export async function fetchMaintainerImportRun(runId, options = {}) {
 
 export async function retryMaintainerImportCandidate(id, payload = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/retry`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function reopenMaintainerImportCandidate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/reopen`, {
     method: "POST",
     body: JSON.stringify(payload),
   });

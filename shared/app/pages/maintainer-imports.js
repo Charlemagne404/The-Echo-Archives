@@ -10,6 +10,7 @@ import {
   patchMaintainerImportCandidateReview,
   publishMaintainerImportCandidate,
   retryMaintainerImportCandidate,
+  reopenMaintainerImportCandidate,
   searchMaintainerImportSources,
   selectMaintainerImportEvidence,
   seedMaintainerImportCandidates,
@@ -36,13 +37,12 @@ import {
   renderImportSearchResults,
   renderImportSummaryCards,
 } from "../maintainer-import/render.js";
+import { bindDiscoveryWorkspace } from "../maintainer-import/discovery-workspace.js";
 import {
   buildReviewPayload,
   collectSeedEntries,
-  IMPORT_RUN_TIMEOUT_MS,
   revealCompactDetail,
-  waitForDelay,
-  waitForVisibleDocument,
+  waitForManagedImportRun,
 } from "../maintainer-import/workflow.js";
 import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
 
@@ -101,6 +101,9 @@ export async function initializeMaintainerImportsPage() {
     searchSource: document.getElementById("maintainerImportSearchSource"),
     searchStatus: document.getElementById("maintainerImportSearchStatus"),
     searchResults: document.getElementById("maintainerImportSearchResults"),
+    discoveryForm: document.getElementById("maintainerDiscoverySourceForm"),
+    discoveryWorkspace: document.getElementById("maintainerDiscoveryWorkspace"),
+    discoveryStatus: document.getElementById("maintainerDiscoveryStatus"),
     retryButton: document.getElementById("maintainerRetryButton"),
     listCard: document.getElementById("maintainerListCard"),
     listHeading: document.getElementById("maintainerListHeading"),
@@ -125,10 +128,13 @@ export async function initializeMaintainerImportsPage() {
     elements.pageSize.value = String(state.filters.pageSize);
   }
 
+  let discoveryWorkspace = null;
+
   const abortRequests = () => {
     state.queueController?.abort();
     state.detailController?.abort();
     state.runController?.abort();
+    discoveryWorkspace?.abort();
   };
 
   const auth = await initializeAuthFlow({
@@ -162,28 +168,20 @@ export async function initializeMaintainerImportsPage() {
     elements.searchResults.innerHTML = renderImportSearchResults(state.searchResults);
   }
 
+  discoveryWorkspace = bindDiscoveryWorkspace({
+    elements: {
+      form: elements.discoveryForm,
+      workspace: elements.discoveryWorkspace,
+      status: elements.discoveryStatus,
+    },
+    getReviewer: () => state.storedReviewer,
+    runAction: runMaintainerAction,
+    onAuthError: showAuthentication,
+    onCandidatesChanged: () => loadQueue(true),
+  });
+
   async function waitForImportRun(runId) {
-    if (!runId) return null;
-    state.runController?.abort();
-    const controller = new AbortController();
-    state.runController = controller;
-    const startedAt = Date.now();
-
-    try {
-      while (Date.now() - startedAt < IMPORT_RUN_TIMEOUT_MS) {
-        await waitForVisibleDocument(controller.signal);
-        const { run } = await fetchMaintainerImportRun(runId, { signal: controller.signal });
-        elements.detailMeta.textContent = `Import run: ${run.progress.completed + run.progress.failed}/${run.progress.total} complete · ${run.progress.processing} processing.`;
-        if (["completed", "failed"].includes(run.status)) return run;
-        const elapsed = Date.now() - startedAt;
-        await waitForDelay(elapsed < 10_000 ? 1_000 : 2_000, controller.signal);
-      }
-
-      elements.detailMeta.textContent = "Import preparation is taking longer than two minutes. Refresh the queue to check its latest state.";
-      return null;
-    } finally {
-      if (state.runController === controller) state.runController = null;
-    }
+    return waitForManagedImportRun({ runId, state, fetchRun: fetchMaintainerImportRun, setStatus: (message) => { elements.detailMeta.textContent = message; } });
   }
 
   async function loadDetail({ focusDetail = false } = {}) {
@@ -260,6 +258,8 @@ export async function initializeMaintainerImportsPage() {
                   actionResult = await draftMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
                 } else if (action === "retry") {
                   actionResult = await retryMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
+                } else if (action === "reopen") {
+                  actionResult = await reopenMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
                 } else if (action === "publish") {
                   await publishMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
                 } else if (action === "reject") {
@@ -360,6 +360,7 @@ export async function initializeMaintainerImportsPage() {
         elements.reportLink.href = `/maintainer/imports/report.html${window.location.search}`;
       }
       await loadDetail();
+      await discoveryWorkspace.load();
       if (afterAuthentication) focusMaintainerWorkspace();
     } catch (error) {
       if (isAbortError(error)) return;
@@ -543,6 +544,7 @@ export async function initializeMaintainerImportsPage() {
   });
 
   renderSearchResults();
+  discoveryWorkspace.render();
   window.addEventListener("pagehide", abortRequests, { once: true });
   await loadQueue();
 }

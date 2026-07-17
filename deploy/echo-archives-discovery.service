@@ -1,0 +1,20 @@
+[Unit]
+Description=The Echo Archives scheduled show discovery
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=charlie
+Group=charlie
+WorkingDirectory=/home/charlie/The-Echo-Archives/backend
+Environment=NODE_ENV=production
+Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
+Environment=DB_PATH=/home/charlie/The-Echo-Archives/backend/data/community.sqlite
+EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
+ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/backend/scripts/import-discover.js
+NoNewPrivileges=true
+PrivateTmp=true
+UMask=0027
+StandardOutput=journal
+StandardError=journal

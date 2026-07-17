@@ -114,6 +114,16 @@
     min-height: 44px;
   }
 
+  .detail-first-review-card {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .detail-first-review-card .detail-primary-action {
+    align-self: stretch;
+  }
+
   .detail-hero-panel,
   .detail-best-for-strip,
   .detail-section,
