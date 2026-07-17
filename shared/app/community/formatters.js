@@ -15,6 +15,10 @@ function normalizeIntegerInRange(value, { min = 0, max = Number.MAX_SAFE_INTEGER
 }
 
 function normalizeRatingValue(value) {
+  if (value === null || value === undefined || value === "") {
+    return null;
+  }
+
   const numericValue = Number(value);
   return Number.isFinite(numericValue) && numericValue >= 0 && numericValue <= 10 ? numericValue : null;
 }
@@ -82,16 +86,6 @@ function getDetailCommunityMetricCount(summary) {
   }
 
   return `${summary.ratingCount} ${summary.ratingCount === 1 ? "rating" : "ratings"}`;
-}
-
-function syncHeroCommunityMetric(widget, summary) {
-  if (widget.heroValue) {
-    widget.heroValue.textContent = getDetailCommunityMetricValue(summary);
-  }
-
-  if (widget.heroCount) {
-    widget.heroCount.textContent = getDetailCommunityMetricCount(summary);
-  }
 }
 
 function formatCommunityBadgeText(summary) {

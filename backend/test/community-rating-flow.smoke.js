@@ -51,14 +51,7 @@ test("full-review detail page promotes community, trims the rail, and preserves 
 
   try {
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
-    await page.waitForFunction(
-      () => {
-        const heroCount = document.querySelector("[data-community-hero-count]");
-        return Boolean(heroCount && !/Checking listener signal/i.test(heroCount.textContent || ""));
-      },
-      undefined,
-      { timeout: 5_000 },
-    );
+    await page.waitForFunction(() => Boolean(document.querySelector(".community-review-panel")), undefined, { timeout: 5_000 });
 
     const layout = await page.evaluate(() => {
       const getRollingText = (selector) => {
@@ -70,7 +63,6 @@ test("full-review detail page promotes community, trims the rail, and preserves 
       const mainColumn = document.querySelector(".detail-main-column");
       const officialSummary = document.querySelector(".detail-official-summary-section");
       const communityCard = document.querySelector(".community-review-panel");
-      const archiveTakeCard = document.querySelector(".detail-archive-take-card");
       const communityBody = document.querySelector(".community-review-body");
       const factLabels = Array.from(document.querySelectorAll(".detail-fact-row dt")).map((node) =>
         (node.textContent || "").trim().toLowerCase(),
@@ -91,11 +83,11 @@ test("full-review detail page promotes community, trims the rail, and preserves 
       const boxedDiscoveryGroups = document.querySelectorAll(".detail-discovery-group").length;
       const heroTagLabel = document.querySelector(".detail-hero-tag-label")?.textContent?.trim() || "";
       const heroTagCount = document.querySelectorAll(".detail-hero-tag-list .detail-tag").length;
-      const reviewLinkHref = document.querySelector(".community-review-link")?.getAttribute("href") || "";
+      const listenerReviewHref = document.querySelector(".detail-review-section a[href*='listener-review']")?.getAttribute("href") || "";
 
       return {
         mainWidth: main?.getBoundingClientRect().width || 0,
-        railLeft: communityCard?.getBoundingClientRect().left || 0,
+        railLeft: rail?.getBoundingClientRect().left || 0,
         mainLeft: mainColumn?.getBoundingClientRect().left || 0,
         communityCollapsed: communityBody?.hidden ?? null,
         factLabels,
@@ -111,13 +103,12 @@ test("full-review detail page promotes community, trims the rail, and preserves 
         boxedDiscoveryGroups,
         heroTagLabel,
         heroTagCount,
-        reviewLinkHref,
+        listenerReviewHref,
         officialTop: officialSummary?.getBoundingClientRect().top || 0,
-        overviewTop: document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0,
+        reviewTop: document.querySelector("#review-notes")?.getBoundingClientRect().top || 0,
         communityTop: communityCard?.getBoundingClientRect().top || 0,
-        archiveTop: archiveTakeCard?.getBoundingClientRect().top || 0,
-        heroCommunityCount: getRollingText("[data-community-hero-count]"),
-        heroCommunityValue: getRollingText("[data-community-hero-rating]"),
+        heroCommunityCount: document.querySelectorAll("[data-community-hero-count]").length,
+        heroCommunityValue: document.querySelectorAll("[data-community-hero-rating]").length,
         listenActionText: listenAction?.textContent?.trim() || "",
         listenActionHref: listenAction?.getAttribute("href") || "",
         turnstileHidden: document.querySelector(".community-turnstile-shell")?.hidden ?? null,
@@ -126,13 +117,13 @@ test("full-review detail page promotes community, trims the rail, and preserves 
 
     assert.ok(layout.mainWidth > 1200);
     assert.ok(layout.railLeft > layout.mainLeft);
-    assert.equal(layout.communityCollapsed, true);
+    assert.equal(layout.communityCollapsed, false);
     assert.equal(layout.bestForLabel, "Best for");
     assert.ok(layout.bestForItems >= 1);
     assert.equal(layout.boxedDiscoveryGroups, 0);
     assert.equal(layout.heroTagLabel, "Key tags");
     assert.ok(layout.heroTagCount >= 1);
-    assert.equal(layout.disabledChips, 2);
+    assert.equal(layout.disabledChips, 0);
     assert.deepEqual(layout.factLabels, [
       "creator / network",
       "fact check",
@@ -141,45 +132,37 @@ test("full-review detail page promotes community, trims the rail, and preserves 
       "seasons / episodes",
       "first release",
       "latest release",
+      "runtime note",
     ]);
     assert.match(layout.factCheckText, /Factual metadata only/i);
     assert.match(layout.listenActionText, /^Open /);
     assert.match(layout.listenActionHref, /^https?:\/\//);
-    assert.deepEqual(layout.railHeadings, ["Archive take", "Facts & links"]);
+    assert.deepEqual(layout.railHeadings, ["Facts & links"]);
     assert.equal(layout.routeInRail, false);
     assert.equal(layout.correctionInRail, false);
     assert.ok(layout.routeSectionWidth > 900);
     assert.ok(layout.correctionSectionWidth > 900);
-    assert.ok(layout.officialTop < layout.overviewTop);
-    assert.ok(layout.communityTop <= layout.archiveTop);
-    assert.equal(layout.reviewLinkHref, "/submit?submissionType=listener-review&showId=impact-winter");
-    assert.match(layout.heroCommunityCount, /No ratings yet/i);
-    assert.equal(layout.heroCommunityValue, "--/10");
+    assert.ok(layout.officialTop < layout.reviewTop);
+    assert.equal(layout.listenerReviewHref, "/submit?submissionType=listener-review&showId=impact-winter");
+    assert.equal(layout.heroCommunityCount, 0);
+    assert.equal(layout.heroCommunityValue, 0);
     assert.equal(layout.turnstileHidden, true);
-    assert.equal(await page.locator(".community-review-body").isVisible(), false);
+    assert.equal(await page.locator(".community-review-body").isVisible(), true);
     assert.equal(await page.locator(".community-review-clear").isVisible(), false);
-    assert.equal(await page.locator(".community-review-link").isVisible(), true);
 
     const communityState = await page.evaluate(() => {
-      const getRollingText = (selector) => {
-        const node = document.querySelector(selector);
-        return node?.dataset.displayText?.trim() || node?.textContent?.trim() || "";
-      };
-
       return {
-        heroCount: getRollingText("[data-community-hero-count]"),
-        heroValue: getRollingText("[data-community-hero-rating]"),
-        railValue: getRollingText(".community-review-metric-value"),
-        toggleText: document.querySelector(".community-review-toggle")?.textContent?.trim() || "",
-        toggleDisabled: Boolean(document.querySelector(".community-review-toggle")?.disabled),
+        railValue: document.querySelector(".community-review-metric-value")?.dataset.displayText?.trim() || document.querySelector(".community-review-metric-value")?.textContent?.trim() || "",
+        ratingButtonsDisabled: Array.from(document.querySelectorAll(".community-review-button")).every((button) => button.disabled),
+        distributionRows: document.querySelectorAll(".community-distribution-row").length,
+        distributionVisible: Boolean(document.querySelector(".community-review-distribution")?.getClientRects().length),
         clearVisible: !document.querySelector(".community-review-clear")?.hidden,
       };
     });
-    assert.match(communityState.heroCount, /No ratings yet/i);
-    assert.equal(communityState.heroValue, "--/10");
     assert.equal(communityState.railValue, "--/10");
-    assert.match(communityState.toggleText, /read-only/i);
-    assert.equal(communityState.toggleDisabled, true);
+    assert.equal(communityState.ratingButtonsDisabled, true);
+    assert.equal(communityState.distributionRows, 10);
+    assert.equal(communityState.distributionVisible, true);
     assert.equal(communityState.clearVisible, false);
   } finally {
     await page.close();
@@ -198,13 +181,13 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     const mobileLayout = await mobilePage.evaluate(() => ({
       officialTop: document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0,
       communityTop: document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0,
-      overviewTop: document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0,
-      archiveTop: document.querySelector(".detail-archive-take-card")?.getBoundingClientRect().top || 0,
+      reviewTop: document.querySelector("#review-notes")?.getBoundingClientRect().top || 0,
+      factsTop: document.querySelector(".detail-facts-links-card")?.getBoundingClientRect().top || 0,
     }));
 
     assert.ok(mobileLayout.officialTop < mobileLayout.communityTop);
-    assert.ok(mobileLayout.communityTop < mobileLayout.overviewTop);
-    assert.ok(mobileLayout.archiveTop > mobileLayout.overviewTop);
+    assert.ok(mobileLayout.reviewTop < mobileLayout.factsTop);
+    assert.ok(mobileLayout.factsTop < mobileLayout.communityTop);
   } finally {
     await mobilePage.close();
   }
@@ -264,8 +247,7 @@ test("detail community rating renders Turnstile and sends the verification token
     });
 
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
-    await page.getByRole("button", { name: "Rate this show" }).click();
-    await page.locator(".community-turnstile-shell").waitFor({ state: "visible" });
+    await page.locator(".community-review-panel .community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
 
     await page.locator(".community-review-button").nth(6).click();
@@ -274,6 +256,162 @@ test("detail community rating renders Turnstile and sends the verification token
     assert.equal(ratingRequests.length, 1);
     assert.equal(ratingRequests[0].rating, 7);
     assert.equal(ratingRequests[0].turnstileToken, "browser-turnstile-token");
+  } finally {
+    await page.close();
+  }
+});
+
+test("review carousel keeps the server-rendered archive first, supports accessible navigation, and recovers from later-page failures", { timeout: 20_000 }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+  let failedPage = 0;
+  const helpfulRequests = [];
+
+  try {
+    await page.route("**/shows/impact-winter", async (route) => {
+      if (!route.request().isNavigationRequest()) {
+        await route.continue();
+        return;
+      }
+      const response = await route.fetch();
+      const body = (await response.text())
+        .replace('data-listener-total="0"', 'data-listener-total="8"')
+        .replace('Review 1 of 1', 'Review 1 of 9');
+      await route.fulfill({ response, body });
+    });
+    await page.route("**/api/community/config", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          minPublicRatings: 3,
+          ratings: { writeEnabled: true },
+          turnstile: { enabled: false, siteKey: "" },
+        }),
+      });
+    });
+    await page.route("**/api/community/profiles/anonymous", async (route) => {
+      await route.fulfill({ status: 201, contentType: "application/json", body: JSON.stringify({ profileId: "carousel-profile" }) });
+    });
+    await page.route("**/api/reviews/shows/impact-winter?*", async (route) => {
+      const requestUrl = new URL(route.request().url());
+      const reviewPage = Number(requestUrl.searchParams.get("page") || "1");
+      if (reviewPage === failedPage) {
+        await route.fulfill({ status: 503, contentType: "application/json", body: JSON.stringify({ error: "offline" }) });
+        return;
+      }
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          reviews: [{
+            id: `listener-${reviewPage}`,
+            authorName: `Listener ${reviewPage}`,
+            title: `Listener page ${reviewPage}`,
+            body: `A moderated response from page ${reviewPage}.`,
+            ratingStars: 4,
+            spoilerLevel: "spoiler-free",
+            bestFor: [],
+            workedBest: [],
+            helpfulCount: reviewPage - 1,
+            viewerMarkedHelpful: false,
+            publishedAt: "2026-07-16T12:00:00.000Z",
+          }],
+          pagination: { page: reviewPage, pageSize: 1, totalPages: 8, totalReviews: 8 },
+          scoreSummary: {},
+        }),
+      });
+    });
+    await page.route("**/api/reviews/*/helpful", async (route) => {
+      helpfulRequests.push({ method: route.request().method(), body: route.request().postDataJSON() });
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ reviewId: "listener-3", helpfulCount: 3, viewerMarkedHelpful: true }),
+      });
+    });
+
+    await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "domcontentloaded" });
+    await page.waitForFunction(() => document.querySelector("[data-review-carousel-status]")?.textContent?.includes("Review 1 of 9"));
+    const carousel = page.locator("[data-review-carousel]");
+    const sectionOrder = await page.evaluate(() => {
+      const reviews = document.querySelector("#review-notes");
+      const scoreBreakdown = document.querySelector(".detail-community-score-section");
+      return {
+        hasQuote: Boolean(document.querySelector(".detail-quote")),
+        reviewTop: reviews?.getBoundingClientRect().top || 0,
+        scoreTop: scoreBreakdown?.getBoundingClientRect().top || 0,
+        scoreInsideReviews: Boolean(reviews?.contains(scoreBreakdown)),
+      };
+    });
+    assert.equal(sectionOrder.hasQuote, false);
+    assert.equal(sectionOrder.scoreInsideReviews, false);
+    assert.ok(sectionOrder.scoreTop > sectionOrder.reviewTop);
+    assert.equal(await carousel.locator("[data-review-carousel-slide] .detail-archive-review").count(), 1);
+
+    await carousel.locator("[data-review-carousel-next]").click();
+    await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 1"));
+    await carousel.locator("[data-review-carousel-viewport]").focus();
+    await page.keyboard.press("ArrowRight");
+    await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 2"));
+
+    await carousel.locator("[data-review-carousel-viewport]").evaluate((node) => {
+      node.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: 320 }));
+      node.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, clientX: 80 }));
+    });
+    await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 3"));
+    const dotState = await carousel.evaluate((node) => ({
+      dots: node.querySelectorAll("[data-review-carousel-dot]").length,
+      hasEllipsis: Boolean(node.querySelector(".detail-review-carousel-ellipsis")),
+    }));
+    assert.equal(dotState.dots, 7);
+    assert.equal(dotState.hasEllipsis, true);
+
+    await carousel.locator("[data-review-helpful]").click();
+    await page.waitForFunction(() => document.querySelector("[data-review-helpful]")?.getAttribute("aria-pressed") === "true");
+    assert.deepEqual(helpfulRequests, [{ method: "PUT", body: { turnstileToken: "" } }]);
+
+    failedPage = 4;
+    await carousel.locator("[data-review-carousel-next]").click();
+    await page.waitForFunction(() => /Review page failed.*Try another review/i.test(document.querySelector("[data-review-carousel-status]")?.textContent || ""));
+    assert.match(await carousel.locator("[data-review-carousel-slide]").textContent(), /Listener page 3/);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    const mobile = await carousel.evaluate((node) => ({
+      width: node.getBoundingClientRect().width,
+      overflow: document.documentElement.scrollWidth - window.innerWidth,
+      previousWidth: node.querySelector("[data-review-carousel-previous]")?.getBoundingClientRect().width || 0,
+      nextWidth: node.querySelector("[data-review-carousel-next]")?.getBoundingClientRect().width || 0,
+    }));
+    assert.ok(mobile.width > 0);
+    assert.ok(mobile.overflow <= 1);
+    assert.ok(mobile.previousWidth >= 40);
+    assert.ok(mobile.nextWidth >= 40);
+  } finally {
+    await page.close();
+  }
+});
+
+test("listener review category controls start unselected and expose six labelled 1-to-10 radio scales", async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+
+  try {
+    await page.goto(`${baseUrl}/submit?submissionType=listener-review&showId=impact-winter`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.querySelectorAll("[data-category-score-group]").length === 6);
+    const categories = await page.evaluate(() => Array.from(document.querySelectorAll("[data-category-score-group]")).map((group) => ({
+      name: group.getAttribute("aria-label") || "",
+      required: group.getAttribute("aria-required"),
+      radioCount: group.querySelectorAll('[role="radio"]').length,
+      checked: group.querySelectorAll('[role="radio"][aria-checked="true"]').length,
+    })));
+    assert.equal(categories.length, 6);
+    categories.forEach((category) => {
+      assert.match(category.name, /rating$/i);
+      assert.equal(category.required, "true");
+      assert.equal(category.radioCount, 10);
+      assert.equal(category.checked, 0);
+    });
+    await page.locator('[data-category-score="voiceActing"][data-category-score-value="8"]').click();
+    assert.equal(await page.locator('[data-category-score="voiceActing"][aria-checked="true"]').count(), 1);
   } finally {
     await page.close();
   }

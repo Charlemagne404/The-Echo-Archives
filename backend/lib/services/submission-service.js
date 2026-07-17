@@ -6,6 +6,7 @@ const MODERATION_STATUS_SET = new Set(MODERATION_STATUSES);
 const OPEN_MODERATION_STATUSES = ["new", "in-review", "needs-follow-up"];
 const PRIORITIES = ["high", "normal", "low"];
 const PRIORITY_SET = new Set(PRIORITIES);
+const LISTENER_REVIEW_CATEGORY_KEYS = ["voiceActing", "soundDesign", "story", "characters", "ads", "length"];
 
 function trimString(value, maxLength = 2000) {
   return String(value || "").trim().slice(0, maxLength);
@@ -82,6 +83,24 @@ function parseIntegerInRange(value, minimum, maximum) {
   }
 
   return numericValue;
+}
+
+function normalizeListenerReviewCategoryScores(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    const error = new Error("Rate every category from 1 to 10 before submitting a listener review.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  return Object.fromEntries(LISTENER_REVIEW_CATEGORY_KEYS.map((key) => {
+    const score = parseIntegerInRange(value[key], 1, 10);
+    if (!score) {
+      const error = new Error("Rate every category from 1 to 10 before submitting a listener review.");
+      error.statusCode = 400;
+      throw error;
+    }
+    return [key, score];
+  }));
 }
 
 function ensureKnownShowId(knownShowIds, submissionType, showId) {
@@ -465,6 +484,7 @@ function createListenerReviewSubmissionHandler({ store }) {
     const workedBest = trimStringArray(rawBody?.workedBest, { maxItems: 12, maxItemLength: 80 });
     const similarShows = trimString(rawBody?.similarShows, 120);
     const alias = trimString(rawBody?.alias, 120);
+    const categoryScores = normalizeListenerReviewCategoryScores(rawBody?.categoryScores);
 
     if (!ratingStars || !rating) {
       const error = new Error("Listener reviews require a rating between 1 and 5 stars.");
@@ -493,6 +513,7 @@ function createListenerReviewSubmissionHandler({ store }) {
         payload: {
           ratingStars,
           rating,
+          categoryScores,
           spoilerLevel: common.spoilerLevel,
           reviewTitle,
           review: reviewText,

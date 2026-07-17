@@ -11,18 +11,21 @@ const { buildSitemapXml } = require("./lib/sitemap");
 const { openDatabase } = require("./lib/store/database");
 const { createCommunityStore } = require("./lib/store/community-store");
 const { createImportStore } = require("./lib/store/import-store");
+const { createPublishedListenerReviewStore } = require("./lib/store/published-listener-review-store");
 const { createRateLimitStore } = require("./lib/store/rate-limit-store");
 const { createSubmissionStore } = require("./lib/store/submission-store");
 const { createCommunityService } = require("./lib/services/community-service");
 const { createImportService } = require("./lib/services/import-service");
 const { createRateLimitService } = require("./lib/services/rate-limit-service");
 const { createSubmissionService } = require("./lib/services/submission-service");
+const { createPublishedListenerReviewService } = require("./lib/services/published-listener-review-service");
 const { applyGeneratedCoverVariants } = require("./lib/responsive-images");
 const { createTurnstileService } = require("./lib/services/turnstile-service");
 const { createChatRouter } = require("./lib/routes/chat-routes");
 const { createCommunityRouter } = require("./lib/routes/community-routes");
 const { createMaintainerRouter } = require("./lib/routes/maintainer-routes");
 const { createSubmissionRouter } = require("./lib/routes/submission-routes");
+const { createPublishedListenerReviewRouter } = require("./lib/routes/published-listener-review-routes");
 const { loadSiteHelpContext } = require("./lib/ai/site-help");
 const {
   buildCollectionPageMetadata,
@@ -252,6 +255,7 @@ async function startServer() {
     minPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
   });
   const submissionStore = createSubmissionStore({ db: database });
+  const publishedListenerReviewStore = createPublishedListenerReviewStore({ db: database });
   const importStore = createImportStore({ db: database });
   const turnstileService = createTurnstileService({
     enabled: config.COMMUNITY_TURNSTILE_ENABLED,
@@ -272,6 +276,17 @@ async function startServer() {
     knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
     rateLimiter: rateLimitService,
   });
+  const publishedListenerReviewService = createPublishedListenerReviewService({
+    store: publishedListenerReviewStore,
+    submissionStore,
+    communityStore,
+    rateLimiter: rateLimitService,
+    turnstile: turnstileService,
+    voterHashSecret: config.COMMUNITY_VOTER_HASH_SECRET,
+    abuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
+    minimumPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
+    knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
+  });
   const importService = createImportService({
     store: importStore,
     staticRoot: config.STATIC_ROOT,
@@ -280,6 +295,7 @@ async function startServer() {
       await reloadState();
       communityStore.syncCatalog(state.publicCatalog);
       submissionService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
+      publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
     },
   });
   const maintainerAuth = createMaintainerAuth(config);
@@ -416,12 +432,14 @@ async function startServer() {
     }),
   );
   app.use("/api/community", createCommunityRouter({ communityService, config, rateLimiter: rateLimitService }));
+  app.use("/api/reviews", createPublishedListenerReviewRouter({ reviewService: publishedListenerReviewService, config }));
   app.use("/api/submissions", createSubmissionRouter({ submissionService }));
   app.use(
     createMaintainerRouter({
       auth: maintainerAuth,
       staticRoot: config.STATIC_ROOT,
       submissionService,
+      publishedListenerReviewService,
       importService,
       rateLimiter: rateLimitService,
     }),
@@ -614,7 +632,15 @@ async function startServer() {
 
       const showMap = new Map(state.publicCatalog.map((entry) => [entry.id, entry]));
       let rendered = injectPageMetadata(
-        injectShowRootContent(template, createShowPageMarkup(show, showMap, state.collections)),
+        injectShowRootContent(
+          template,
+          createShowPageMarkup(
+            show,
+            showMap,
+            state.collections,
+            publishedListenerReviewService.getPublicReviewPage(show.id, { page: 1, pageSize: 1 }),
+          ),
+        ),
         buildShowPageMetadata({
           siteUrl: config.SITE_URL,
           show,

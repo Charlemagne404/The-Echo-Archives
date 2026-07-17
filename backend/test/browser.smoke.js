@@ -636,7 +636,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         evaluate: () => {
           const officialTop = document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0;
           const communityTop = document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0;
-          const overviewTop = document.querySelector(".detail-overview-section")?.getBoundingClientRect().top || 0;
+          const reviewTop = document.querySelector("#review-notes")?.getBoundingClientRect().top || 0;
           const decisionConsoleTop = document.querySelector(".detail-decision-console")?.getBoundingClientRect().top || 0;
           const coverTop = document.querySelector(".detail-cover-column")?.getBoundingClientRect().top || 0;
           const coverWidth = document.querySelector(".detail-cover-column")?.getBoundingClientRect().width || 0;
@@ -649,7 +649,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
             })(),
             officialTop,
             communityTop,
-            overviewTop,
+            reviewTop,
             decisionConsoleTop,
             coverTop,
             coverWidth,
@@ -660,8 +660,8 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
           assert.equal(result.metaColumns, 1);
           assert.ok(result.decisionConsoleTop < result.coverTop);
           assert.ok(result.coverWidth <= 220);
-          assert.ok(result.officialTop < result.communityTop);
-          assert.ok(result.communityTop < result.overviewTop);
+          assert.ok(result.officialTop < result.reviewTop);
+          assert.ok(result.reviewTop < result.communityTop);
         },
       },
       {

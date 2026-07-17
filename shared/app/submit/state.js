@@ -68,6 +68,7 @@ export function createDraft(mode) {
         existingShowId: "",
         showSearch: "",
         ratingStars: 4,
+        categoryScores: {},
         spoilerLevel: "spoiler-free",
         reviewTitle: "",
         reviewText: "",

@@ -82,6 +82,14 @@ async function startMaintainerServer({ enabled = true, envOverrides = {} } = {})
     payload: {
       ratingStars: 5,
       rating: 10,
+      categoryScores: {
+        voiceActing: 10,
+        soundDesign: 9,
+        story: 9,
+        characters: 8,
+        ads: 7,
+        length: 8,
+      },
       reviewTitle: "Excellent tension",
       review: "Very sharp pacing and atmosphere throughout.",
       spoilerLevel: "spoiler-free",
@@ -240,6 +248,36 @@ test("maintainer session and queue routes enforce auth and allow queue updates a
     const patchPayload = await patchResponse.json();
     assert.equal(patchPayload.submission.status, "accepted");
     assert.equal(patchPayload.submission.reviewedBy, "CA");
+
+    const publishResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions/${context.seededId}/listener-review/publish`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ authorName: "Queue listener", body: "Edited and approved public copy." }),
+    });
+    assert.equal(publishResponse.status, 200);
+    const publishPayload = await publishResponse.json();
+    assert.equal(publishPayload.review.published, true);
+
+    const publicReviewResponse = await fetch(`${context.baseUrl}/api/reviews/shows/impact-winter`);
+    assert.equal(publicReviewResponse.status, 200);
+    const publicReviewPayload = await publicReviewResponse.json();
+    assert.equal(publicReviewPayload.reviews.length, 1);
+    assert.equal(publicReviewPayload.reviews[0].authorName, "Queue listener");
+    assert.doesNotMatch(JSON.stringify(publicReviewPayload), /sourceIp|userAgent|reviewNotes/i);
+
+    const renderedShowResponse = await fetch(`${context.baseUrl}/shows/impact-winter`);
+    assert.equal(renderedShowResponse.status, 200);
+    const renderedShow = await renderedShowResponse.text();
+    assert.match(renderedShow, /data-listener-total="1"/);
+    assert.doesNotMatch(renderedShow, /Queue listener/);
+    assert.doesNotMatch(renderedShow, /Edited and approved public copy/);
+
+    const unpublishResponse = await fetch(`${context.baseUrl}/api/maintainer/submissions/${context.seededId}/listener-review`, {
+      method: "DELETE",
+      headers: { Cookie: cookie },
+    });
+    assert.equal(unpublishResponse.status, 200);
+    assert.equal((await unpublishResponse.json()).review.published, false);
 
     const closedList = await fetch(`${context.baseUrl}/api/maintainer/submissions?includeClosed=true`, {
       headers: { Cookie: cookie },

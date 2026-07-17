@@ -1,40 +1,36 @@
-import { renderArchiveTakeCard, renderCorrectionSection, renderFactsLinksCard } from "./render-show/facts.js";
+import { renderCorrectionSection, renderFactsLinksCard } from "./render-show/facts.js";
 import { renderDetailHero } from "./render-show/hero.js";
 import { renderCollectionsSection, renderSimilarSection } from "./render-show/relationships.js";
 import {
-  renderCreatorLinksSection,
-  renderListenerReviewsSection,
-  renderOfficialSummarySection,
+  renderCommunityFallback,
+  renderCommunityScoreBreakdown,
   renderOverviewSection,
-  renderQuoteSection,
   renderReviewSection,
 } from "./render-show/sections.js";
 
-export function createShowPageMarkup(show, showMap, collections = []) {
+export function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) {
+  const isFullReview = show.reviewStatus === "full-review";
+  const facts = renderFactsLinksCard(show, { inline: !isFullReview });
+
   return `
-    <section class="detail-main podcast-detail">
+    <section class="detail-main podcast-detail detail-main--${isFullReview ? "full" : "indexed"}">
       ${renderDetailHero(show)}
 
       <div class="detail-content-layout">
         <div class="detail-main-stack">
-          ${renderOfficialSummarySection(show)}
-          ${renderCreatorLinksSection(show)}
           <div class="detail-main-column">
             ${renderOverviewSection(show)}
-            ${renderReviewSection(show)}
-            ${renderQuoteSection(show)}
-            ${renderListenerReviewsSection(show)}
+              ${renderReviewSection(show, reviewData)}
+              ${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}
+              ${isFullReview ? "" : facts}
           </div>
         </div>
-        <div class="detail-community-slot"></div>
+        ${renderCommunityFallback()}
 
-        <aside class="detail-side-rail">
-          ${renderArchiveTakeCard(show)}
-          ${renderFactsLinksCard(show)}
-        </aside>
+        ${isFullReview ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
 
         ${renderSimilarSection(show, showMap)}
-        ${renderCollectionsSection(show, collections)}
+        ${renderCollectionsSection(show, collections, showMap)}
         ${renderCorrectionSection(show)}
       </div>
     </section>

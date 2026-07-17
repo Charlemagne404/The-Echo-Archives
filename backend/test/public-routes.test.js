@@ -149,7 +149,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.match(showHtml, /<title>Impact Winter Review &amp; Similar Podcasts \| The Echo Archives<\/title>/);
     assert.match(showHtml, new RegExp(`<link rel="canonical" href="${context.baseUrl}/shows/impact-winter" \\/>`));
     assert.match(showHtml, new RegExp(`<meta property="og:image" content="${context.baseUrl}/`));
-    assert.match(showHtml, /<main\b[^>]*id="showRoot"[^>]*>\s*<section class="detail-main podcast-detail">/);
+    assert.match(showHtml, /<main\b[^>]*id="showRoot"[^>]*>\s*<section class="detail-main podcast-detail detail-main--full">/);
     assert.match(showHtml, /<h1>Impact Winter<\/h1>/);
     assert.match(showHtml, /<script id="showBootstrap" type="application\/json"[^>]*>/);
     const structuredDataMatch = showHtml.match(

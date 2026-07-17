@@ -62,6 +62,7 @@ export function buildPayload(mode, draft, showMap) {
       genres: "",
       listenerRating: String(normalizedRating),
       ratingStars: draft.ratingStars,
+      categoryScores: { ...draft.categoryScores },
       spoilerLevel: draft.spoilerLevel,
       listenerReview: draft.reviewText,
       notes: "",

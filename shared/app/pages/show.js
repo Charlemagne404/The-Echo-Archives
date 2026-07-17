@@ -1,8 +1,9 @@
 import { DEFAULT_SOCIAL_IMAGE } from "../constants.js";
-import { buildShowMap, loadCollections, loadShows, normalizeShowRecord } from "../data.js";
+import { buildShowMap, fetchJson, loadCollections, loadShows, normalizeShowRecord } from "../data.js";
 import { initializeDetailRatingPage } from "../community.js";
 import { initializeManagedImages } from "../images.js";
 import { createShowPageMarkup } from "../render-show.js";
+import { initializeReviewCarousels } from "../show-review-carousel.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { bindShareButton } from "../share.js";
 import { buildShowStructuredData } from "../structured-data.js";
@@ -43,8 +44,18 @@ export async function initializeShowPage() {
 
   applyShowMetadata(show);
 
-  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections);
+  const reviewData = await loadPublicListenerReviews(show.id);
+  showRoot.innerHTML = createShowPageMarkup(show, showMap, collections, reviewData);
   await hydrateShowPage(showRoot, show);
+}
+
+async function loadPublicListenerReviews(showId) {
+  try {
+    const payload = await fetchJson(`/api/reviews/shows/${encodeURIComponent(showId)}`);
+    return payload && typeof payload === "object" ? payload : { reviews: [], pagination: { page: 1, totalReviews: 0 }, scoreSummary: {} };
+  } catch (_error) {
+    return { reviews: [], pagination: { page: 1, totalReviews: 0 }, scoreSummary: {} };
+  }
 }
 
 function readShowBootstrap() {
@@ -109,6 +120,7 @@ async function hydrateShowPage(showRoot, show) {
     detailRoot.dataset.podcastTitle = show.title;
     await initializeDetailRatingPage(show);
   }
+  initializeReviewCarousels(showRoot);
 }
 
 function renderMissingShowPage(showRoot) {

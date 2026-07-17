@@ -82,7 +82,7 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
   try {
     await page.goto(`${baseUrl}/shows/solar`, { waitUntil: "networkidle" });
     await page.waitForFunction(
-      () => Boolean(document.querySelector(".detail-side-rail") && document.querySelector(".detail-main-column")),
+      () => Boolean(document.querySelector(".detail-main--indexed") && document.querySelector(".detail-facts-links-card--inline")),
       undefined,
       { timeout: 5_000 },
     );
@@ -91,7 +91,7 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
       const main = document.querySelector(".detail-main");
       const reviewHeading = Array.from(document.querySelectorAll(".detail-section-header h2"))
         .map((node) => (node.textContent || "").trim())
-        .find((text) => /archive note|review notes/i.test(text)) || "";
+        .find((text) => /reviews/i.test(text)) || "";
       const creatorValue = document.querySelector(".detail-fact-row:nth-child(1) dd")?.textContent?.trim() || "";
       const linkStatus = document.querySelector(".detail-link-status")?.textContent?.trim() || "";
       const firstRelease = Array.from(document.querySelectorAll(".detail-fact-row"))
@@ -101,7 +101,12 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
         .find((row) => /latest release/i.test(row.querySelector("dt")?.textContent || ""))
         ?.querySelector("dd")?.textContent?.trim() || "";
       const routeCount = document.querySelectorAll(".detail-collection-route").length;
+      const routeArtCount = document.querySelectorAll(".detail-collection-route-art").length;
+      const routeArtImageCount = document.querySelectorAll(".detail-collection-route-art img").length;
+      const routeArtFrameCount = document.querySelectorAll(".detail-collection-route-art .collection-cover-frame").length;
+      const routeArtWidth = document.querySelector(".detail-collection-route-art")?.getBoundingClientRect().width || 0;
       const disabledChips = document.querySelectorAll(".detail-link-chip.is-disabled").length;
+      const hasRail = Boolean(document.querySelector(".detail-side-rail"));
 
       return {
         mainWidth: main?.getBoundingClientRect().width || 0,
@@ -111,19 +116,94 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
         firstRelease,
         latestRelease,
         routeCount,
+        routeArtCount,
+        routeArtImageCount,
+        routeArtFrameCount,
+        routeArtWidth,
         disabledChips,
+        hasRail,
       };
     });
 
     assert.ok(state.mainWidth > 1200);
-    assert.equal(state.reviewHeading, "Archive note");
+    assert.equal(state.reviewHeading, "Reviews");
     assert.match(state.creatorValue, /Chris Porter/i);
     assert.match(state.creatorValue, /CurtCo Media/i);
     assert.equal(state.linkStatus, "");
     assert.match(state.firstRelease, /2022/i);
     assert.match(state.latestRelease, /2022/i);
-    assert.equal(state.disabledChips, 2);
+    assert.equal(state.disabledChips, 0);
+    assert.equal(state.hasRail, false);
     assert.ok(state.routeCount >= 1);
+    assert.equal(state.routeArtCount, state.routeCount);
+    assert.ok(state.routeArtImageCount >= state.routeCount * 4);
+    assert.ok(state.routeArtFrameCount >= state.routeCount * 4);
+    assert.ok(state.routeArtWidth >= 148);
+
+    const firstRoute = page.locator(".detail-collection-route").first();
+    const secondFrame = firstRoute.locator('.collection-cover-frame[data-cover-index="2"]');
+    const beforeHover = await secondFrame.evaluate((node) => window.getComputedStyle(node).transform);
+    await firstRoute.hover();
+    await page.waitForTimeout(300);
+    const afterHover = await secondFrame.evaluate((node) => window.getComputedStyle(node).transform);
+    assert.notEqual(afterHover, beforeHover);
+  } finally {
+    await page.close();
+  }
+});
+
+test("show detail layouts stay readable across desktop, intermediate, and compact widths", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
+
+  try {
+    await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
+    const indexedDesktop = await page.evaluate(() => {
+      const layout = document.querySelector(".detail-content-layout");
+      const facts = document.querySelector(".detail-facts-links-card");
+      return {
+        layoutWidth: layout?.getBoundingClientRect().width || 0,
+        factsWidth: facts?.getBoundingClientRect().width || 0,
+        sideRail: Boolean(document.querySelector(".detail-side-rail")),
+        overflow: document.documentElement.scrollWidth - window.innerWidth,
+      };
+    });
+    assert.equal(indexedDesktop.sideRail, false);
+    assert.ok(indexedDesktop.factsWidth > indexedDesktop.layoutWidth * 0.8);
+    assert.ok(indexedDesktop.overflow <= 1);
+
+    await page.setViewportSize({ width: 980, height: 1100 });
+    await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
+    const intermediate = await page.evaluate(() => ({
+      overflow: document.documentElement.scrollWidth - window.innerWidth,
+      reviewTop: document.querySelector("#review-notes")?.getBoundingClientRect().top || 0,
+      factsTop: document.querySelector(".detail-facts-links-card")?.getBoundingClientRect().top || 0,
+      communityTop: document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0,
+    }));
+    assert.ok(intermediate.overflow <= 1);
+    assert.ok(intermediate.reviewTop < intermediate.factsTop);
+    assert.ok(intermediate.factsTop < intermediate.communityTop);
+
+    for (const width of [390, 320]) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
+      const expansion = page.locator(".detail-route-overflow summary");
+      await expansion.focus();
+      const focused = await expansion.evaluate((node) => {
+        const styles = window.getComputedStyle(node);
+        return { outlineStyle: styles.outlineStyle, outlineWidth: styles.outlineWidth };
+      });
+      await expansion.click();
+      const compact = await page.evaluate(() => ({
+        overflow: document.documentElement.scrollWidth - window.innerWidth,
+        expanded: document.querySelector(".detail-route-overflow")?.open || false,
+        visibleRoutes: document.querySelectorAll(".detail-collection-route").length,
+      }));
+      assert.ok(compact.overflow <= 1, `${width}px should not overflow`);
+      assert.equal(focused.outlineStyle, "solid");
+      assert.notEqual(focused.outlineWidth, "0px");
+      assert.equal(compact.expanded, true);
+      assert.equal(compact.visibleRoutes, 8);
+    }
   } finally {
     await page.close();
   }

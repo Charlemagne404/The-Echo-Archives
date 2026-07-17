@@ -369,7 +369,7 @@ test("show and collection pages expose honest empty states and working copy-link
 
   try {
     await page.goto(`${baseUrl}/shows/solar`, { waitUntil: "networkidle" });
-    await page.waitForFunction(() => Boolean(document.querySelector(".detail-listener-reviews-section")));
+    await page.waitForFunction(() => Boolean(document.querySelector(".detail-review-section")));
     await page.evaluate(() => {
       Object.defineProperty(navigator, "clipboard", {
         configurable: true,
@@ -389,7 +389,7 @@ test("show and collection pages expose honest empty states and working copy-link
       reviewHref: document.querySelector('.detail-reviews-empty-state a[href*="submissionType=listener-review"]')?.getAttribute("href") || "",
     }));
     assert.equal(showState.copiedValue, `${baseUrl}/shows/solar`);
-    assert.match(showState.emptyCopy, /No listener reviews are published/i);
+    assert.match(showState.emptyCopy, /No reviews are published/i);
     assert.equal(showState.reviewHref, "/submit?submissionType=listener-review&showId=solar");
 
     await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });

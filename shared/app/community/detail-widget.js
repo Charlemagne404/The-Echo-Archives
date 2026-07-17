@@ -1,4 +1,3 @@
-import { createSubmissionHref } from "../urls.js";
 import { clearCommunityRating, ensureCommunityProfile, fetchCommunityConfig, fetchRatingSummaries, submitCommunityRating } from "./api.js";
 import {
   EMPTY_COMMUNITY_SCORE_TEXT,
@@ -8,7 +7,7 @@ import {
   normalizeCommunitySummary,
 } from "./formatters.js";
 import { configureRatingVerification, getRatingVerificationToken, resetRatingVerification } from "./turnstile.js";
-import { clearDetailBodyMotion, closeDetailWidgetBody, openDetailWidgetBody, playRatingConfirmation, prefersReducedMotion, prepareRollingTextNode, setRollingTextNodeContent } from "./detail-motion.js";
+import { playRatingConfirmation, prepareRollingTextNode, setRollingTextNodeContent } from "./detail-motion.js";
 
 function buildCommunityWidgetId(podcastId, suffix) {
   return `community-${String(podcastId || "show").replace(/[^a-zA-Z0-9_-]+/g, "-")}-${suffix}`;
@@ -44,7 +43,7 @@ export async function initializeDetailRatingPage(show) {
 
 function mountDetailRatingWidget(detailRoot, podcast) {
   const section = document.createElement("section");
-  section.className = "detail-side-card community-review-panel";
+  section.className = "detail-section community-review-panel";
   section.dataset.podcastId = podcast.podcastId;
   section.setAttribute("aria-labelledby", buildCommunityWidgetId(podcast.podcastId, "title"));
 
@@ -55,6 +54,10 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   const title = document.createElement("h2");
   title.id = buildCommunityWidgetId(podcast.podcastId, "title");
   title.textContent = "Community voice";
+
+  const heading = document.createElement("div");
+  heading.className = "community-review-heading";
+  heading.append(kicker, title);
 
   const metricRow = document.createElement("div");
   metricRow.className = "community-review-metric";
@@ -72,19 +75,6 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   const summary = document.createElement("p");
   summary.className = "community-review-summary";
   summary.textContent = formatDetailCommunitySummary(null);
-
-  const toggleButton = document.createElement("button");
-  toggleButton.type = "button";
-  toggleButton.className = "community-review-toggle";
-  toggleButton.setAttribute("aria-expanded", "false");
-
-  const reviewLink = document.createElement("a");
-  reviewLink.className = "community-review-link";
-  reviewLink.href = createSubmissionHref("listener-review", podcast.podcastId);
-  reviewLink.textContent = "Submit a listener review";
-
-  const actions = document.createElement("div");
-  actions.className = "community-review-actions";
 
   const buttons = document.createElement("div");
   buttons.className = "community-review-buttons";
@@ -112,9 +102,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   const body = document.createElement("div");
   body.className = "community-review-body";
   body.id = buildCommunityWidgetId(podcast.podcastId, "body");
-  body.hidden = true;
-  body.dataset.state = "closed";
-  toggleButton.setAttribute("aria-controls", body.id);
+  body.dataset.state = "open";
 
   const clearButton = document.createElement("button");
   clearButton.type = "button";
@@ -122,17 +110,24 @@ function mountDetailRatingWidget(detailRoot, podcast) {
   clearButton.textContent = "Clear your rating";
   clearButton.hidden = true;
 
+  const ratingHint = document.createElement("p");
+  ratingHint.className = "community-review-hint";
+  ratingHint.textContent = "Choose a score to save it.";
+
+  const utility = document.createElement("div");
+  utility.className = "community-review-utility";
+  utility.append(ratingHint, clearButton);
+
   const ratingButtons = [];
   const widget = {
     root: section,
     summary,
     clearButton,
+    ratingHint,
     ratingButtons,
     distribution,
     metricValue,
     metricCount,
-    toggleButton,
-    reviewLink,
     body,
     verification,
     verificationSlot,
@@ -145,31 +140,10 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     lastSummary: null,
     summaryRequestId: 0,
     hasHydratedSummary: false,
-    bodyTimer: 0,
-    bodyFrame: 0,
-    heroValue: detailRoot.querySelector("[data-community-hero-rating]"),
-    heroCount: detailRoot.querySelector("[data-community-hero-count]"),
   };
 
   prepareRollingTextNode(metricValue);
   prepareRollingTextNode(metricCount);
-  prepareRollingTextNode(widget.heroValue);
-  prepareRollingTextNode(widget.heroCount);
-
-  toggleButton.addEventListener("click", () => {
-    const isExpanded = widget.toggleButton.getAttribute("aria-expanded") === "true";
-    setDetailWidgetExpanded(widget, !isExpanded);
-  });
-
-  body.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") {
-      return;
-    }
-
-    event.preventDefault();
-    setDetailWidgetExpanded(widget, false);
-    widget.toggleButton.focus();
-  });
 
   for (let rating = 1; rating <= 10; rating += 1) {
     const button = document.createElement("button");
@@ -255,9 +229,8 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     distribution.appendChild(row);
   }
 
-  actions.append(toggleButton, reviewLink);
-  body.append(verification, buttons, clearButton, distribution);
-  section.append(kicker, title, metricRow, summary, actions, body);
+  body.append(verification, buttons, utility, distribution);
+  section.append(heading, metricRow, summary, body);
 
   const communitySlot = detailRoot.querySelector(".detail-community-slot");
   if (communitySlot) {
@@ -266,7 +239,6 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     detailRoot.appendChild(section);
   }
 
-  updateDetailWidgetToggleLabel(widget);
   return widget;
 }
 
@@ -286,6 +258,7 @@ function syncDetailRatingWidget(widget, summary) {
   setRollingTextNodeContent(widget.metricValue, getDetailCommunityMetricValue(summary), shouldAnimateMetrics);
   setRollingTextNodeContent(widget.metricCount, getDetailCommunityMetricCount(summary), shouldAnimateMetrics);
   widget.clearButton.hidden = !summary?.myRating;
+  widget.ratingHint.hidden = Boolean(summary?.myRating);
 
   widget.ratingButtons.forEach((button, index) => {
     const rating = index + 1;
@@ -313,68 +286,21 @@ function syncDetailRatingWidget(widget, summary) {
     }
   });
 
-  syncHeroCommunityMetric(widget, summary, shouldAnimateMetrics);
-  updateDetailWidgetToggleLabel(widget, summary);
   widget.hasHydratedSummary = true;
 }
 
 function setDetailWidgetBusy(widget, isBusy) {
   widget.ratingButtons.forEach((button) => { button.disabled = isBusy; });
   widget.clearButton.disabled = isBusy;
-  widget.toggleButton.disabled = isBusy;
-}
-
-function setDetailWidgetExpanded(widget, isExpanded) {
-  widget.toggleButton.setAttribute("aria-expanded", String(isExpanded));
-  updateDetailWidgetToggleLabel(widget, widget.lastSummary);
-
-  if (prefersReducedMotion()) {
-    widget.body.hidden = !isExpanded;
-    widget.body.dataset.state = isExpanded ? "open" : "closed";
-    widget.root.classList.toggle("is-expanded", isExpanded);
-    widget.body.style.height = "";
-    widget.body.style.opacity = "";
-    widget.body.style.transform = "";
-    return;
-  }
-
-  clearDetailBodyMotion(widget);
-  if (isExpanded) {
-    openDetailWidgetBody(widget);
-    return;
-  }
-
-  closeDetailWidgetBody(widget);
-}
-
-function updateDetailWidgetToggleLabel(widget, summary = widget.lastSummary) {
-  if (!widget.writesEnabled) {
-    widget.toggleButton.textContent = "Ratings read-only";
-    return;
-  }
-
-  if (widget.toggleButton.getAttribute("aria-expanded") !== "true") {
-    const hasRating = Boolean(summary?.myRating);
-    widget.toggleButton.textContent = hasRating ? "Update your rating" : "Rate this show";
-    return;
-  }
-
-  widget.toggleButton.textContent = "Hide rating controls";
 }
 
 function setCommunityWidgetReadOnly(widget) {
   widget.summary.textContent = "Public rating summaries remain visible when available. New rating submissions are not enabled on this deployment.";
-  widget.toggleButton.disabled = true;
-  widget.toggleButton.setAttribute("aria-expanded", "false");
-  widget.toggleButton.textContent = "Ratings read-only";
   widget.ratingButtons.forEach((button) => {
     button.disabled = true;
   });
   widget.clearButton.hidden = true;
-  clearDetailBodyMotion(widget);
-  widget.body.hidden = true;
-  widget.body.dataset.state = "closed";
-  widget.root.classList.remove("is-expanded");
+  widget.ratingHint.hidden = false;
 }
 
 function setCommunityWidgetUnavailable(widget) {
@@ -382,25 +308,9 @@ function setCommunityWidgetUnavailable(widget) {
   widget.summary.textContent = "Community ratings are temporarily unavailable.";
   setRollingTextNodeContent(widget.metricValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
   setRollingTextNodeContent(widget.metricCount, "Offline", false);
-  widget.toggleButton.disabled = true;
-  clearDetailBodyMotion(widget);
-  widget.body.hidden = true;
-  widget.body.dataset.state = "closed";
-  widget.body.style.height = "";
-  widget.body.style.opacity = "";
-  widget.body.style.transform = "";
-  widget.root.classList.remove("is-expanded");
-  widget.toggleButton.setAttribute("aria-expanded", "false");
-  widget.toggleButton.textContent = "Ratings unavailable";
-  if (widget.heroValue) {
-    setRollingTextNodeContent(widget.heroValue, EMPTY_COMMUNITY_SCORE_TEXT, false);
-  }
-  if (widget.heroCount) {
-    setRollingTextNodeContent(widget.heroCount, "Offline", false);
-  }
-}
-
-function syncHeroCommunityMetric(widget, summary, shouldAnimateMetrics) {
-  setRollingTextNodeContent(widget.heroValue, getDetailCommunityMetricValue(summary), shouldAnimateMetrics);
-  setRollingTextNodeContent(widget.heroCount, getDetailCommunityMetricCount(summary), shouldAnimateMetrics);
+  widget.ratingButtons.forEach((button) => {
+    button.disabled = true;
+  });
+  widget.clearButton.hidden = true;
+  widget.ratingHint.hidden = false;
 }

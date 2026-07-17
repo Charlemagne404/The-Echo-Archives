@@ -236,6 +236,14 @@ test("listener review submissions normalize 5 stars into the 10-point score and 
     rssOrListenLink: "",
     genres: "",
     ratingStars: 4,
+    categoryScores: {
+      voiceActing: 9,
+      soundDesign: 8,
+      story: 7,
+      characters: 8,
+      ads: 6,
+      length: 7,
+    },
     spoilerLevel: "spoiler-free",
     reviewTitle: "Atmospheric and sharply paced",
     reviewText: "A strong starting point with great atmosphere and very clean momentum.",
@@ -255,6 +263,14 @@ test("listener review submissions normalize 5 stars into the 10-point score and 
   assert.deepEqual(result.submission.payload_json, {
     ratingStars: 4,
     rating: 8,
+    categoryScores: {
+      voiceActing: 9,
+      soundDesign: 8,
+      story: 7,
+      characters: 8,
+      ads: 6,
+      length: 7,
+    },
     spoilerLevel: "spoiler-free",
     reviewTitle: "Atmospheric and sharply paced",
     review: "A strong starting point with great atmosphere and very clean momentum.",
@@ -267,6 +283,36 @@ test("listener review submissions normalize 5 stars into the 10-point score and 
   });
 
   cleanupTempService(context);
+});
+
+test("listener review submissions reject incomplete or out-of-range category scores", () => {
+  const context = createTempSubmissionService({ knownShowIds: new Set(["impact-winter"]) });
+  const baseReview = {
+    submissionType: "listener-review",
+    existingShowId: "impact-winter",
+    showTitle: "Impact Winter",
+    ratingStars: 4,
+    spoilerLevel: "spoiler-free",
+    reviewTitle: "A complete review",
+    reviewText: "A spoiler-safe public review with enough detail to moderate.",
+    website: "",
+  };
+
+  try {
+    assert.throws(
+      () => submit(context, { ...baseReview, categoryScores: { voiceActing: 8, soundDesign: 7, story: 8, characters: 8, ads: 7 } }),
+      /Rate every category/i,
+    );
+    assert.throws(
+      () => submit(context, {
+        ...baseReview,
+        categoryScores: { voiceActing: 8, soundDesign: 7, story: 11, characters: 8, ads: 7, length: 8 },
+      }),
+      /Rate every category/i,
+    );
+  } finally {
+    cleanupTempService(context);
+  }
 });
 
 test("creator verification submissions persist structured provenance without requiring contact email", () => {

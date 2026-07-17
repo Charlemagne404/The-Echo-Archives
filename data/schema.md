@@ -15,6 +15,8 @@ Generated runtime/public output is written into:
 
 The frontend, chat assistant, and community features should all read from these files instead of scraping HTML.
 
+`officialDescription` is optional. When supplied it must be verified creator, network, show-site, or official-platform wording with a source label and URL. It is distinct from the archive-written `description` fallback.
+
 ## Show Shape
 
 Each show record uses this practical v1 shape:
@@ -25,6 +27,12 @@ Each show record uses this practical v1 shape:
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
   "description": "Spoiler-free archive description.",
+  "officialDescription": {
+    "text": "Verified creator or official-listing wording.",
+    "sourceLabel": "Official show site",
+    "sourceUrl": "https://example.com",
+    "verifiedAt": "2026-07-16"
+  },
   "cover": "shows/Impact Winter/Impact-winter.jpeg",
   "coverAlt": "Impact Winter cover art",
   "status": "published",

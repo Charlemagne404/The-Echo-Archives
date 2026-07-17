@@ -20,6 +20,12 @@ function createShowTemplate({ id, title = "", today = "" }) {
     title: resolvedTitle,
     subtitle: "",
     description: "Draft archive description pending editorial pass.",
+    officialDescription: {
+      text: "",
+      sourceLabel: "",
+      sourceUrl: "",
+      verifiedAt: "",
+    },
     cover: "images/TEA-Logo-S.png",
     coverAlt: `${resolvedTitle} cover art`,
     status: "draft",

@@ -322,3 +322,27 @@ export function renderRatingField(ratingStars) {
     `,
   });
 }
+
+export function renderCategoryRatingFields(categoryScores, categories) {
+  return `
+    <fieldset class="submit-category-ratings">
+      <legend>Rate the details <span aria-hidden="true">*</span></legend>
+      <p class="submit-category-ratings-copy">Rate each category from 1 to 10. These scores are averaged only after your review is published.</p>
+      ${categories.map(({ key, label }) => {
+        const fieldId = `submitCategory${key[0].toUpperCase()}${key.slice(1)}`;
+        const selected = Number(categoryScores?.[key]) || 0;
+        return `
+          <div class="submit-category-rating" id="${fieldId}" data-category-score-group="${key}" role="radiogroup" aria-label="${escapeAttribute(label)} rating" aria-required="true">
+            <span class="submit-category-rating-label">${escapeHtml(label)}</span>
+            <div class="submit-category-rating-options">
+              ${Array.from({ length: 10 }, (_unused, index) => {
+                const value = index + 1;
+                return `<button type="button" class="submit-category-rating-option${value === selected ? " is-selected" : ""}" data-category-score="${key}" data-category-score-value="${value}" role="radio" aria-checked="${String(value === selected)}" tabindex="${value === selected || (!selected && value === 1) ? "0" : "-1"}" aria-label="${escapeAttribute(label)} ${value} out of 10">${value}</button>`;
+              }).join("")}
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </fieldset>
+  `;
+}

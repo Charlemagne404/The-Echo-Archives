@@ -3,12 +3,9 @@ import { getPreferredCoverSource, getResponsiveImageSource } from "../images.js"
 import {
   escapeHtml,
   formatRating,
-  formatCompactDate,
-  getCreatorNetworkLabel,
   getCompletionNote,
   getHeroFormatNote,
   getHeroFormatValue,
-  getHeroRuntimeNote,
   getHeroRuntimeValue,
   getReleaseNote,
   toDisplayTag,
@@ -62,11 +59,10 @@ export function renderDetailHero(show) {
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
                 ${renderHeroScoreCard("Archive rating", archiveRatingValue, archiveRatingNote, "archive")}
-                ${renderHeroCommunityMetaCard()}
               </div>
 
               <div class="detail-meta-grid">
-                ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)), escapeHtml(getHeroRuntimeNote(show)))}
+                ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)))}
                 ${renderHeroMetaCard("Format", escapeHtml(getHeroFormatValue(show)), escapeHtml(getHeroFormatNote(show)))}
                 ${renderHeroMetaCard(
                   "Completion",
@@ -80,7 +76,6 @@ export function renderDetailHero(show) {
                 )}
               </div>
 
-              ${renderHeroTrustBar(show)}
             </div>
 
             <div class="detail-actions">
@@ -89,7 +84,7 @@ export function renderDetailHero(show) {
                   ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">Open ${escapeHtml(primaryLink.label)}</a>`
                   : '<a class="detail-primary-action detail-listen-action" href="#facts-links">Find listen links</a>'
               }
-              <a class="detail-secondary-action" href="#review-notes">Review notes</a>
+              <a class="detail-secondary-action" href="#review-notes">${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>
               <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
               <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
             </div>
@@ -110,7 +105,6 @@ export function renderDetailHero(show) {
                 data-image-fetch-priority="high"
               />
             </div>
-            ${renderHeroCoverNote(show)}
           </div>
         </div>
       </div>
@@ -158,16 +152,6 @@ function renderHeroScoreCard(label, value, note = "", type = "") {
   `;
 }
 
-function renderHeroCommunityMetaCard() {
-  return `
-    <article class="detail-hero-score-card detail-meta-card-community">
-      <span class="detail-meta-label">Community rating</span>
-      <strong class="detail-hero-score-value" data-community-hero-rating>--/10</strong>
-      <span class="detail-meta-note" data-community-hero-count>No ratings yet</span>
-    </article>
-  `;
-}
-
 function renderHeroKeyTags(show) {
   const tags = Array.isArray(show.tags) ? show.tags.slice(0, 4) : [];
   if (tags.length === 0) {
@@ -182,61 +166,6 @@ function renderHeroKeyTags(show) {
       </div>
     </div>
   `;
-}
-
-function renderHeroTrustBar(show) {
-  const creatorNetwork = getCreatorNetworkLabel(show);
-  const verification = getHeroVerificationLabel(show);
-  const items = [
-    { label: "Creator / network", value: creatorNetwork.text, isEmpty: creatorNetwork.isEmpty },
-    verification,
-  ].filter(Boolean);
-
-  if (items.length === 0) {
-    return "";
-  }
-
-  return `
-    <div class="detail-hero-trust-bar" aria-label="Archive trust signals">
-      ${items
-        .map(
-          (item) => `
-            <article class="detail-hero-trust-item${item.isEmpty ? " is-empty" : ""}">
-              <span class="detail-meta-label">${escapeHtml(item.label)}</span>
-              <span>${escapeHtml(item.value)}</span>
-            </article>
-          `,
-        )
-        .join("")}
-    </div>
-  `;
-}
-
-function renderHeroCoverNote(show) {
-  const releaseStatus = toDisplayTag(show.releaseStatus || "unknown");
-  const reviewStatus = toDisplayTag(show.reviewStatus || "unknown");
-
-  return `
-    <div class="detail-cover-note" aria-label="Archive status">
-      <span>${escapeHtml(reviewStatus)}</span>
-      <span>${escapeHtml(releaseStatus)}</span>
-    </div>
-  `;
-}
-
-function getHeroVerificationLabel(show) {
-  if (!show.verification?.status) {
-    return null;
-  }
-
-  const status = toDisplayTag(show.verification.status);
-  const verifiedAt = show.verification.verifiedAt ? ` • ${formatCompactDate(show.verification.verifiedAt)}` : "";
-
-  return {
-    label: "Fact check",
-    value: `${status}${verifiedAt}`,
-    isEmpty: false,
-  };
 }
 
 function getHeroPrimaryListenLink(show) {

@@ -2,7 +2,6 @@ import { createSubmissionHref } from "../urls.js";
 import {
   escapeHtml,
   formatDate,
-  getArchivePerspectiveText,
   getCreatorNetworkLabel,
   getKnownDateLabel,
   getSeasonsEpisodesLabel,
@@ -20,32 +19,14 @@ const DETAIL_LINK_LABELS = {
 
 const DETAIL_LINK_ORDER = ["website", "apple", "spotify", "rss"];
 
-export function renderArchiveTakeCard(show) {
-  const archiveTake = getArchivePerspectiveText(show);
-  const note =
-    show.reviewStatus === "full-review"
-      ? ""
-      : "Full review not published yet. This page stays live so the archive can still recommend the show now.";
-
-  return `
-    <section class="detail-side-card detail-archive-take-card">
-      <div class="detail-side-card-header">
-        <h2>Archive take</h2>
-      </div>
-      <p>${escapeHtml(archiveTake)}</p>
-      ${note ? `<p class="detail-side-note">${escapeHtml(note)}</p>` : ""}
-    </section>
-  `;
-}
-
-export function renderFactsLinksCard(show) {
+export function renderFactsLinksCard(show, { inline = false } = {}) {
   const creatorNetwork = getCreatorNetworkLabel(show);
   const seasonsEpisodes = getSeasonsEpisodesLabel(show);
   const firstRelease = getKnownDateLabel(getShowDateValue(show, "first"));
   const latestRelease = getKnownDateLabel(getShowDateValue(show, "latest"));
 
   return `
-    <section class="detail-side-card detail-facts-links-card" id="facts-links">
+    <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links">
       <div class="detail-side-card-header">
         <h2>Facts &amp; links</h2>
       </div>
@@ -53,11 +34,12 @@ export function renderFactsLinksCard(show) {
       <dl class="detail-fact-list">
         ${renderFactRow("Creator / network", creatorNetwork.text, { isEmpty: creatorNetwork.isEmpty })}
         ${renderVerificationRow(show)}
-        ${renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true })}
-        ${renderFactRow("Status", renderStatusPills(show), { html: true })}
+        ${renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true, wide: true })}
+        ${renderFactRow("Status", renderStatusPills(show), { html: true, wide: true })}
         ${renderFactRow("Seasons / episodes", seasonsEpisodes.text, { isEmpty: seasonsEpisodes.isEmpty })}
         ${renderFactRow("First release", firstRelease.text, { isEmpty: firstRelease.isEmpty })}
         ${renderFactRow("Latest release", latestRelease.text, { isEmpty: latestRelease.isEmpty })}
+        ${show.length?.label ? renderFactRow("Runtime note", show.length.label, { wide: true }) : ""}
       </dl>
     </section>
   `;
@@ -113,12 +95,12 @@ function renderVerificationRow(show) {
   );
 }
 
-function renderFactRow(label, value, { html = false, isEmpty = false } = {}) {
+function renderFactRow(label, value, { html = false, isEmpty = false, wide = false } = {}) {
   const content = html ? value : escapeHtml(value);
   const classes = `detail-fact-value${isEmpty ? " is-empty" : ""}`;
 
   return `
-    <div class="detail-fact-row">
+    <div class="detail-fact-row${wide ? " is-wide" : ""}">
       <dt>${escapeHtml(label)}</dt>
       <dd class="${classes}">${content}</dd>
     </div>
@@ -146,6 +128,7 @@ function renderStatusPills(show) {
 function renderListenLinkCluster(show) {
   const links = show.listenLinks || {};
   const primaryLink = getPrimaryListenLink(show);
+  const alternateLinks = DETAIL_LINK_ORDER.filter((key) => key !== primaryLink?.key && links[key]);
 
   return `
     <div class="detail-link-cluster">
@@ -156,20 +139,14 @@ function renderListenLinkCluster(show) {
             )}</a>`
           : '<p class="detail-link-status is-empty">Links being verified</p>'
       }
-      <div class="detail-link-chip-row">
-        ${DETAIL_LINK_ORDER.map((key) => renderListenLinkChip(key, links[key])).join("")}
-      </div>
+      ${alternateLinks.length ? `<div class="detail-link-chip-row">${alternateLinks.map((key) => renderListenLinkChip(key, links[key])).join("")}</div>` : ""}
     </div>
   `;
 }
 
 function renderListenLinkChip(key, href) {
   const label = DETAIL_LINK_LABELS[key] || toLabel(key);
-  if (href) {
-    return `<a class="detail-link-chip" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
-  }
-
-  return `<span class="detail-link-chip is-disabled" aria-disabled="true">${escapeHtml(label)}</span>`;
+  return `<a class="detail-link-chip" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`;
 }
 
 function getPrimaryListenLink(show) {

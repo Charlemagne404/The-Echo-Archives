@@ -109,6 +109,54 @@ function renderSubmissionBasics(submission) {
   return renderDetailRows(basics);
 }
 
+function renderPublishedListenerReviewEditor(submission, publicReview = null) {
+  if (submission.submissionType !== "listener-review") return "";
+  const payload = submission.payload || {};
+  const review = publicReview || {};
+  const commaList = (values) => (Array.isArray(values) ? values.join(", ") : "");
+  const canPublish = submission.status === "accepted";
+  const categories = [
+    ["voiceActing", "Voice acting"],
+    ["soundDesign", "Sound design"],
+    ["story", "Story"],
+    ["characters", "Characters"],
+    ["ads", "Ads"],
+    ["length", "Length"],
+  ];
+  return `
+    <form id="maintainerListenerReviewForm" class="maintainer-review-form" data-submission-id="${escapeHtml(submission.id)}">
+      <div class="maintainer-detail-section">
+        <h3>Public listener review</h3>
+        <p class="maintainer-panel-meta">Edit the public-safe copy here. Contact details and internal notes are never published.</p>
+        <div class="maintainer-review-grid">
+          <label class="maintainer-field"><span>Name or alias</span><input name="authorName" maxlength="120" value="${escapeHtml(review.authorName || payload.alias || "Anonymous listener")}" /></label>
+          <label class="maintainer-field"><span>Rating</span><select name="ratingStars">${[1, 2, 3, 4, 5].map((value) => `<option value="${value}" ${Number(review.ratingStars || payload.ratingStars) === value ? "selected" : ""}>${value}/5</option>`).join("")}</select></label>
+          <label class="maintainer-field"><span>Spoiler level</span><select name="spoilerLevel">${[["spoiler-free", "Spoiler-free"], ["light-spoilers", "Mild spoilers"], ["full-spoilers", "Full spoilers"]].map(([value, label]) => `<option value="${value}" ${(review.spoilerLevel || payload.spoilerLevel || "spoiler-free") === value ? "selected" : ""}>${label}</option>`).join("")}</select></label>
+        </div>
+        <div class="maintainer-review-grid maintainer-review-grid--categories">
+          ${categories.map(([key, label]) => {
+            const value = Number(review.categoryScores?.[key] ?? payload.categoryScores?.[key]) || "";
+            const name = `category${key[0].toUpperCase()}${key.slice(1)}`;
+            return `<label class="maintainer-field"><span>${label} (1–10)</span><select name="${name}"><option value="">Not rated</option>${Array.from({ length: 10 }, (_unused, index) => index + 1).map((score) => `<option value="${score}" ${value === score ? "selected" : ""}>${score}/10</option>`).join("")}</select></label>`;
+          }).join("")}
+        </div>
+        <label class="maintainer-field"><span>Title</span><input name="title" maxlength="80" value="${escapeHtml(review.title || payload.reviewTitle || "")}" /></label>
+        <label class="maintainer-field"><span>Review text</span><textarea name="body" rows="7" maxlength="4000">${escapeHtml(review.body || payload.review || "")}</textarea></label>
+        <div class="maintainer-review-grid">
+          <label class="maintainer-field"><span>Best for</span><input name="bestFor" value="${escapeHtml(commaList(review.bestFor || payload.bestFor))}" /></label>
+          <label class="maintainer-field"><span>Worked best</span><input name="workedBest" value="${escapeHtml(commaList(review.workedBest || payload.workedBest))}" /></label>
+        </div>
+        <div class="maintainer-review-actions">
+          <button class="maintainer-secondary-button" type="submit" name="listenerReviewAction" value="save">Save public draft</button>
+          <button class="maintainer-primary-button" type="submit" name="listenerReviewAction" value="publish" ${canPublish ? "" : "disabled"}>${review.published ? "Update published review" : "Publish review"}</button>
+          ${review.published ? `<button class="maintainer-secondary-button" type="submit" name="listenerReviewAction" value="unpublish">Unpublish</button>` : ""}
+          <p class="maintainer-panel-meta">${review.publishedAt ? `Published ${escapeHtml(formatDateTime(review.publishedAt))}` : canPublish ? "Accept the submission, then publish when ready." : "Set the submission status to Accepted before publishing."}</p>
+        </div>
+      </div>
+    </form>
+  `;
+}
+
 export function renderSummaryCards(cards = []) {
   return cards.map(renderSummaryCard).join("");
 }
@@ -126,7 +174,7 @@ export function renderQueueList({ items = [], selectedId = "" }) {
   return items.map((submission) => renderListItem(submission, submission.id === selectedId)).join("");
 }
 
-export function renderDetailPane({ submission = null, storedReviewer = "" }) {
+export function renderDetailPane({ submission = null, storedReviewer = "", publicReview = null }) {
   if (!submission) {
     return `
       <div class="maintainer-empty-state">
@@ -190,6 +238,8 @@ export function renderDetailPane({ submission = null, storedReviewer = "" }) {
           <p class="maintainer-panel-meta">${escapeHtml(submission.reviewedAt ? `Last reviewed ${formatDateTime(submission.reviewedAt)}` : "No review timestamp yet.")}</p>
         </div>
       </form>
+
+      ${renderPublishedListenerReviewEditor(submission, publicReview)}
 
       ${getDetailSections(submission).map(renderSection).join("")}
 

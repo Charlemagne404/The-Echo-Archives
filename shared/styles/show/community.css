@@ -1,1 +1,205 @@
-/* Community-specific extraction is intentionally deferred to preserve the current cascade exactly. */
+/* The listener controls stay compact and continuously visible so scoring never changes the page structure. */
+
+.community-review-panel {
+  position: relative;
+  overflow: hidden;
+  grid-template-areas:
+    "heading metric"
+    "summary summary"
+    "body body";
+  grid-template-columns: minmax(0, 1fr) 152px;
+  gap: 10px 14px;
+  padding: 14px 18px;
+}
+
+.community-review-heading {
+  display: grid;
+  grid-area: heading;
+  gap: 3px;
+  align-self: center;
+}
+
+.community-review-metric {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 1px;
+  grid-area: metric;
+  min-width: 0;
+  min-height: 70px;
+  padding: 10px 14px;
+  border: 1px solid rgba(var(--community-accent-rgb), 0.24);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(var(--community-accent-rgb), 0.17), rgba(var(--community-accent-rgb), 0.04) 72%),
+    rgba(5, 8, 10, 0.52);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.community-review-metric::before {
+  content: "Listener average";
+  grid-column: 1;
+  grid-row: 1;
+  color: rgba(205, 229, 212, 0.72);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.community-review-metric-value {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: clamp(1.65rem, 2.1vw, 2rem);
+  text-shadow: 0 1px 18px rgba(var(--community-accent-rgb), 0.14);
+}
+
+.community-review-metric-count {
+  grid-column: 1;
+  grid-row: 3;
+  color: rgba(214, 231, 219, 0.82);
+  font-size: 0.76rem;
+}
+
+.community-review-summary {
+  grid-area: summary;
+  max-width: 56ch;
+  min-height: 4.35em;
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.community-review-body {
+  display: grid;
+  grid-area: body;
+  grid-template-areas:
+    "verification"
+    "buttons"
+    "utility"
+    "distribution";
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin-top: 0;
+  padding-top: 10px;
+  overflow: visible;
+  border-top: 1px solid rgba(var(--community-accent-rgb), 0.18);
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.community-turnstile-shell {
+  grid-area: verification;
+}
+
+.community-review-buttons {
+  grid-area: buttons;
+  gap: 6px;
+}
+
+.community-review-button {
+  min-height: 34px;
+  border-radius: 9px;
+  font-size: 0.82rem;
+}
+
+.community-review-utility {
+  display: flex;
+  grid-area: utility;
+  align-items: center;
+  min-height: 34px;
+}
+
+.community-review-hint {
+  margin: 0;
+  color: rgba(214, 231, 219, 0.7);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.community-review-clear {
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 9px;
+  font-size: 0.8rem;
+}
+
+.community-review-distribution {
+  display: grid;
+  grid-area: distribution;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px 10px;
+  padding: 0;
+}
+
+.community-distribution-row {
+  grid-template-columns: 12px minmax(0, 1fr) 12px;
+  gap: 5px;
+}
+
+.community-distribution-label,
+.community-distribution-count {
+  color: rgba(215, 225, 219, 0.84);
+  font-size: 0.68rem;
+}
+
+.community-distribution-count {
+  text-align: right;
+}
+
+.community-distribution-bar {
+  height: 4px;
+}
+
+@media (min-width: 641px) {
+  .community-review-panel {
+    grid-template-areas:
+      "heading metric summary"
+      "body body body";
+    grid-template-columns: minmax(138px, 0.7fr) 160px minmax(260px, 1.7fr);
+    gap: 10px 16px;
+    padding: 16px 20px;
+  }
+
+  .community-review-heading {
+    grid-area: heading;
+  }
+
+  .community-review-summary {
+    align-self: center;
+  }
+
+  .community-review-body {
+    grid-template-areas:
+      "verification verification"
+      "buttons distribution"
+      "utility distribution";
+    grid-template-columns: minmax(0, 1fr) minmax(250px, 0.9fr);
+    column-gap: 16px;
+  }
+
+  .community-review-buttons {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 360px) {
+  .community-review-panel {
+    grid-template-areas:
+      "heading"
+      "metric"
+      "summary"
+      "body";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .community-review-metric {
+    width: min(100%, 180px);
+  }
+
+  .community-review-summary {
+    min-height: 5.8em;
+  }
+}

@@ -235,6 +235,21 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup 
       return;
     }
 
+    const categoryScore = target.closest("[data-category-score]");
+    if (categoryScore) {
+      event.preventDefault();
+      captureCurrentDraft(state, elements);
+      const key = categoryScore.getAttribute("data-category-score");
+      const value = Number.parseInt(categoryScore.getAttribute("data-category-score-value") || "", 10);
+      if (key && Number.isInteger(value) && value >= 1 && value <= 10) {
+        const draft = getActiveDraft(state);
+        draft.categoryScores = { ...(draft.categoryScores || {}), [key]: value };
+        ui.renderAll();
+        focusAfterRender(`[data-category-score="${escapeCssIdentifier(key)}"][data-category-score-value="${value}"]`);
+      }
+      return;
+    }
+
     const addLinkOption = target.closest("[data-add-link-option]");
     if (addLinkOption) {
       event.preventDefault();

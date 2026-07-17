@@ -1,4 +1,5 @@
-import { createMaintainerSession, destroyMaintainerSession, fetchMaintainerSubmission, fetchMaintainerSubmissions, MaintainerAuthError, patchMaintainerSubmission } from "../maintainer/api.js";
+import { createMaintainerSession, destroyMaintainerSession, fetchMaintainerListenerReview, fetchMaintainerSubmission, fetchMaintainerSubmissions, MaintainerAuthError, patchMaintainerSubmission } from "../maintainer/api.js";
+import { bindMaintainerListenerReviewEditor } from "../maintainer/listener-review-editor.js";
 import { formatDateTime, formatStatus, formatSubmissionType, summarizeCounts } from "../maintainer/format.js";
 import {
   buildFilterSummary,
@@ -123,7 +124,10 @@ export async function initializeMaintainerPage() {
     try {
       const result = await fetchMaintainerSubmission(selectedId, { signal: controller.signal });
       if (controller.signal.aborted || selectedId !== state.selectedId) return;
-      elements.detail.innerHTML = renderDetailPane({ submission: result.submission, storedReviewer: state.storedReviewer });
+      const listenerReview = result.submission.submissionType === "listener-review"
+        ? await fetchMaintainerListenerReview(selectedId).then((payload) => payload.review).catch(() => null)
+        : null;
+      elements.detail.innerHTML = renderDetailPane({ submission: result.submission, storedReviewer: state.storedReviewer, publicReview: listenerReview });
       elements.detailMeta.textContent = `Submitted ${formatDateTime(result.submission.submittedAt)} · ${formatStatus(result.submission.status)}.`;
 
       const reviewForm = document.getElementById("maintainerReviewForm");
@@ -157,6 +161,16 @@ export async function initializeMaintainerPage() {
             }
           },
         });
+      });
+
+      const listenerReviewForm = document.getElementById("maintainerListenerReviewForm");
+      bindMaintainerListenerReviewEditor({
+        form: listenerReviewForm,
+        submissionId: selectedId,
+        runAction: runMaintainerAction,
+        onAuthError: showAuthentication,
+        onComplete: () => loadDetail(),
+        setStatus: (message) => { elements.detailMeta.textContent = message; },
       });
 
       if (focusDetail) revealCompactDetail(elements);

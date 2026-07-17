@@ -100,6 +100,13 @@ export function validateDraft(mode, draft, showMap) {
     if (!Number.isInteger(draft.ratingStars) || draft.ratingStars < 1 || draft.ratingStars > 5) {
       return createValidationError("submitRatingStars", "Listener reviews require a 1 to 5 star rating.");
     }
+    const categoryKeys = ["voiceActing", "soundDesign", "story", "characters", "ads", "length"];
+    for (const key of categoryKeys) {
+      const rating = Number(draft.categoryScores?.[key]);
+      if (!Number.isInteger(rating) || rating < 1 || rating > 10) {
+        return createValidationError(`submitCategory${key[0].toUpperCase()}${key.slice(1)}`, "Rate every category from 1 to 10.");
+      }
+    }
     if (!draft.reviewTitle) {
       return createValidationError("submitReviewTitle", "Review title is required.");
     }

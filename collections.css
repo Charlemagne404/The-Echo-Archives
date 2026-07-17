@@ -716,7 +716,7 @@
 .collections-similarity-more:focus-visible::after {
   transform: translateY(2px);
 }
-
+/* Source: shared/styles/home/collections/01b-directory-toolbar.css */
 .collections-directory-toolbar {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) auto;

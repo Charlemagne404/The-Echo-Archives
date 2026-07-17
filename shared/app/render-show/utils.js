@@ -38,23 +38,50 @@ export function getArchivePerspectiveText(show) {
   return "Archive perspective is still being expanded. This entry stays live because the show is already useful in the discovery graph.";
 }
 
-export function getOfficialSummaryText(show) {
+export function getSummaryDescriptor(show) {
+  const official = show?.officialDescription && typeof show.officialDescription === "object" ? show.officialDescription : {};
+  const officialText = String(official.text || "").trim();
+  if (officialText) {
+    return {
+      title: "Official description",
+      description: `From ${String(official.sourceLabel || "Official source").trim()}.`,
+      text: officialText,
+      sourceUrl: String(official.sourceUrl || "").trim(),
+    };
+  }
+
   const importedSummary = String(show?.metadata?.importOfficialSummary || "").trim();
-  if (importedSummary) {
-    return importedSummary;
+  const importedSource = Array.isArray(show?.metadata?.objectiveSources)
+    ? show.metadata.objectiveSources.find((value) => /^https?:\/\//i.test(String(value || "")))
+    : "";
+  if (importedSummary && importedSource) {
+    return {
+      title: "Official description",
+      description: "From an official listing.",
+      text: importedSummary,
+      sourceUrl: importedSource,
+    };
   }
 
   const description = String(show?.description || "").trim();
   if (description) {
-    return description;
+    return {
+      title: "About this show",
+      description: "A concise spoiler-free setup from the archive.",
+      text: description,
+    };
   }
 
   const subtitle = String(show?.subtitle || "").trim();
   if (subtitle) {
-    return subtitle;
+    return {
+      title: "About this show",
+      description: "A concise spoiler-free setup from the archive.",
+      text: subtitle,
+    };
   }
 
-  return "Official summary not cataloged yet.";
+  return null;
 }
 
 function isSuppressedCatalogValue(value = "") {
@@ -92,9 +119,13 @@ export function getKnownDateLabel(value) {
 }
 
 export function getHeroRuntimeValue(show) {
-  if (typeof show.length?.totalHours === "number") {
+  if (typeof show.length?.totalHours === "number" && show.length.totalHours > 0) {
     const hours = formatRating(show.length.totalHours);
     return `${hours} ${show.length.totalHours === 1 ? "hour" : "hours"}`;
+  }
+
+  if (typeof show.length?.episodes === "number" && show.length.episodes > 0) {
+    return `${show.length.episodes} episodes`;
   }
 
   return getRuntimeLabel(show);
@@ -160,8 +191,8 @@ export function getHeroFormatNote(show) {
 }
 
 export function getCompletionNote(show) {
-  const seasonsLabel = typeof show.length?.seasons === "number" ? `${show.length.seasons} seasons` : "";
-  const episodesLabel = typeof show.length?.episodes === "number" ? `${show.length.episodes} episodes` : "";
+  const seasonsLabel = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? `${show.length.seasons} seasons` : "";
+  const episodesLabel = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? `${show.length.episodes} episodes` : "";
   return [seasonsLabel, episodesLabel].filter(Boolean).join(" • ") || "Archive completion";
 }
 
@@ -185,8 +216,8 @@ export function getCreatorNetworkLabel(show) {
 }
 
 export function getSeasonsEpisodesLabel(show) {
-  const seasons = typeof show.length?.seasons === "number" ? `${show.length.seasons} seasons` : "";
-  const episodes = typeof show.length?.episodes === "number" ? `${show.length.episodes} episodes` : "";
+  const seasons = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? `${show.length.seasons} seasons` : "";
+  const episodes = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? `${show.length.episodes} episodes` : "";
   const text = [seasons, episodes].filter(Boolean).join(" • ");
 
   if (!text) {

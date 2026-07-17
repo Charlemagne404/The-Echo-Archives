@@ -16,7 +16,7 @@ function createAuthRequiredError() {
   return error;
 }
 
-function createMaintainerRouter({ auth, staticRoot, submissionService, importService, rateLimiter = null }) {
+function createMaintainerRouter({ auth, staticRoot, submissionService, publishedListenerReviewService, importService, rateLimiter = null }) {
   const router = express.Router();
 
   router.use(["/maintainer", "/api/maintainer"], (req, res, next) => {
@@ -103,6 +103,42 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, importSer
           reviewedBy: req.body?.reviewedBy,
         }),
       });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.get("/api/maintainer/submissions/:id/listener-review", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({ review: publishedListenerReviewService.getForMaintainer(req.params.id) });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.put("/api/maintainer/submissions/:id/listener-review", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({
+        review: publishedListenerReviewService.saveForMaintainer(req.params.id, req.body || {}),
+      });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/submissions/:id/listener-review/publish", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({
+        review: publishedListenerReviewService.publishForMaintainer(req.params.id, req.body || {}),
+      });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.delete("/api/maintainer/submissions/:id/listener-review", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({ review: publishedListenerReviewService.unpublishForMaintainer(req.params.id) });
     } catch (error) {
       return next(error);
     }

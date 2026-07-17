@@ -87,6 +87,30 @@ export async function patchMaintainerSubmission(id, updates) {
   });
 }
 
+export async function fetchMaintainerListenerReview(id) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/listener-review`);
+}
+
+export async function saveMaintainerListenerReview(id, review) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/listener-review`, {
+    method: "PUT",
+    body: JSON.stringify(review),
+  });
+}
+
+export async function publishMaintainerListenerReview(id, review) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/listener-review/publish`, {
+    method: "POST",
+    body: JSON.stringify(review),
+  });
+}
+
+export async function unpublishMaintainerListenerReview(id) {
+  return requestJson(`${MAINTAINER_API_ROOT}/submissions/${encodeURIComponent(id)}/listener-review`, {
+    method: "DELETE",
+  });
+}
+
 export function createMaintainerImportListHref(filters = {}) {
   const search = createSearch(filters);
   return `${MAINTAINER_API_ROOT}/imports${search ? `?${search}` : ""}`;

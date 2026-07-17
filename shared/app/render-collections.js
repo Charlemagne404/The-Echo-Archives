@@ -273,5 +273,7 @@ export function getShowCollectionMemberships(showId, collections = []) {
       title: collection.title,
       reason: getCollectionShowReason(collection, showId),
       featured: Boolean(collection.featured),
+      coverShowIds: collection.coverShowIds || [],
+      showIds: collection.showIds || [],
     }));
 }

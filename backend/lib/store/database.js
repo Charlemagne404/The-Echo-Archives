@@ -113,6 +113,36 @@ function migrate(db) {
       user_agent TEXT NOT NULL DEFAULT ''
     );
 
+    CREATE TABLE IF NOT EXISTS published_listener_reviews (
+      id TEXT PRIMARY KEY,
+      submission_id TEXT NOT NULL UNIQUE REFERENCES show_submissions(id) ON DELETE CASCADE,
+      show_id TEXT NOT NULL,
+      author_name TEXT NOT NULL DEFAULT 'Anonymous listener',
+      title TEXT NOT NULL,
+      body TEXT NOT NULL,
+      rating_stars INTEGER NOT NULL CHECK (rating_stars BETWEEN 1 AND 5),
+      voice_acting_score INTEGER CHECK (voice_acting_score IS NULL OR voice_acting_score BETWEEN 1 AND 10),
+      sound_design_score INTEGER CHECK (sound_design_score IS NULL OR sound_design_score BETWEEN 1 AND 10),
+      story_score INTEGER CHECK (story_score IS NULL OR story_score BETWEEN 1 AND 10),
+      characters_score INTEGER CHECK (characters_score IS NULL OR characters_score BETWEEN 1 AND 10),
+      ads_score INTEGER CHECK (ads_score IS NULL OR ads_score BETWEEN 1 AND 10),
+      length_score INTEGER CHECK (length_score IS NULL OR length_score BETWEEN 1 AND 10),
+      spoiler_level TEXT NOT NULL DEFAULT 'spoiler-free',
+      best_for_json TEXT NOT NULL DEFAULT '[]',
+      worked_best_json TEXT NOT NULL DEFAULT '[]',
+      is_published INTEGER NOT NULL DEFAULT 0,
+      published_at TEXT,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS listener_review_helpful_votes (
+      review_id TEXT NOT NULL REFERENCES published_listener_reviews(id) ON DELETE CASCADE,
+      profile_id TEXT NOT NULL REFERENCES community_profiles(id) ON DELETE CASCADE,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY (review_id, profile_id)
+    );
+
     CREATE TABLE IF NOT EXISTS catalog_import_candidates (
       id TEXT PRIMARY KEY,
       status TEXT NOT NULL DEFAULT 'discovered',
@@ -259,6 +289,12 @@ function migrate(db) {
     CREATE INDEX IF NOT EXISTS idx_show_submissions_status
       ON show_submissions (status, submitted_at DESC);
 
+    CREATE INDEX IF NOT EXISTS idx_published_listener_reviews_show
+      ON published_listener_reviews (show_id, is_published, published_at DESC);
+
+    CREATE INDEX IF NOT EXISTS idx_listener_review_helpful_votes_review
+      ON listener_review_helpful_votes (review_id);
+
     CREATE INDEX IF NOT EXISTS idx_catalog_import_candidates_status
       ON catalog_import_candidates (status, updated_at DESC);
 
@@ -403,6 +439,42 @@ function migrate(db) {
   ensureColumn(db, "rating_submissions", "verified_at", "verified_at TEXT");
   ensureColumn(db, "rating_submissions", "abuse_hash", "abuse_hash TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "rating_events", "abuse_hash", "abuse_hash TEXT NOT NULL DEFAULT ''");
+  ensureColumn(
+    db,
+    "published_listener_reviews",
+    "voice_acting_score",
+    "voice_acting_score INTEGER CHECK (voice_acting_score IS NULL OR voice_acting_score BETWEEN 1 AND 10)",
+  );
+  ensureColumn(
+    db,
+    "published_listener_reviews",
+    "sound_design_score",
+    "sound_design_score INTEGER CHECK (sound_design_score IS NULL OR sound_design_score BETWEEN 1 AND 10)",
+  );
+  ensureColumn(
+    db,
+    "published_listener_reviews",
+    "story_score",
+    "story_score INTEGER CHECK (story_score IS NULL OR story_score BETWEEN 1 AND 10)",
+  );
+  ensureColumn(
+    db,
+    "published_listener_reviews",
+    "characters_score",
+    "characters_score INTEGER CHECK (characters_score IS NULL OR characters_score BETWEEN 1 AND 10)",
+  );
+  ensureColumn(
+    db,
+    "published_listener_reviews",
+    "ads_score",
+    "ads_score INTEGER CHECK (ads_score IS NULL OR ads_score BETWEEN 1 AND 10)",
+  );
+  ensureColumn(
+    db,
+    "published_listener_reviews",
+    "length_score",
+    "length_score INTEGER CHECK (length_score IS NULL OR length_score BETWEEN 1 AND 10)",
+  );
 
   db.exec(`
     CREATE UNIQUE INDEX IF NOT EXISTS idx_community_profiles_voter_hash

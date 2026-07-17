@@ -261,6 +261,24 @@ function validateShowRecord(record, seenIds) {
   validateUrlMap(record.id, "listenLinks", record.listenLinks);
   validateUrlMap(record.id, "officialLinks", record.officialLinks);
 
+  if (record.officialDescription !== undefined) {
+    if (!record.officialDescription || typeof record.officialDescription !== "object" || Array.isArray(record.officialDescription)) {
+      throw new Error(`Show "${record.id}" has invalid officialDescription data.`);
+    }
+    const official = record.officialDescription;
+    if (official.text || official.sourceLabel || official.sourceUrl || official.verifiedAt) {
+      if (typeof official.text !== "string" || !official.text.trim() || typeof official.sourceLabel !== "string" || !official.sourceLabel.trim()) {
+        throw new Error(`Show "${record.id}" needs official description text and source label.`);
+      }
+      if (!isValidUrl(official.sourceUrl)) {
+        throw new Error(`Show "${record.id}" has invalid officialDescription.sourceUrl.`);
+      }
+      if (official.verifiedAt && !isValidDateValue(official.verifiedAt)) {
+        throw new Error(`Show "${record.id}" has invalid officialDescription.verifiedAt.`);
+      }
+    }
+  }
+
   const datedFields = [
     ["releaseDates.first", record.releaseDates?.first],
     ["releaseDates.latest", record.releaseDates?.latest],

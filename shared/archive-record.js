@@ -282,6 +282,15 @@
     const content = normalizeStructuredObject(source.content);
     const verification = normalizeStructuredObject(source.verification);
     const metadata = normalizeStructuredObject(source.metadata);
+    const rawOfficialDescription = source.officialDescription && typeof source.officialDescription === "object" && !Array.isArray(source.officialDescription)
+      ? source.officialDescription
+      : {};
+    const officialDescription = {
+      text: typeof rawOfficialDescription.text === "string" ? rawOfficialDescription.text.trim() : "",
+      sourceLabel: typeof rawOfficialDescription.sourceLabel === "string" ? rawOfficialDescription.sourceLabel.trim() : "",
+      sourceUrl: typeof rawOfficialDescription.sourceUrl === "string" ? rawOfficialDescription.sourceUrl.trim() : "",
+      verifiedAt: typeof rawOfficialDescription.verifiedAt === "string" ? rawOfficialDescription.verifiedAt.trim() : "",
+    };
     const popularity = normalizePopularity(source.popularity);
     const releaseDates = normalizeStructuredObject(source.releaseDates);
     const ratings = normalizeRatings(source.ratings);
@@ -331,6 +340,7 @@
       content,
       verification,
       metadata,
+      officialDescription,
       popularity,
       releaseDates: {
         ...releaseDates,

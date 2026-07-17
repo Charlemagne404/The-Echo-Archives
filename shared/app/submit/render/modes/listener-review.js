@@ -1,5 +1,5 @@
-import { REVIEW_CONTEXT_OPTIONS, REVIEW_STRENGTH_OPTIONS, SPOILER_LEVEL_OPTIONS } from "../../config.js";
-import { renderChipGroupField, renderExistingShowField, renderRatingField, renderSegmentedField } from "../choice-fields.js";
+import { LISTENER_REVIEW_CATEGORIES, REVIEW_CONTEXT_OPTIONS, REVIEW_STRENGTH_OPTIONS, SPOILER_LEVEL_OPTIONS } from "../../config.js";
+import { renderCategoryRatingFields, renderChipGroupField, renderExistingShowField, renderRatingField, renderSegmentedField } from "../choice-fields.js";
 import { renderFormRow, renderTextInputField, renderTextareaField } from "../base-fields.js";
 
 export function renderListenerReviewMode(draft, context) {
@@ -17,6 +17,7 @@ export function renderListenerReviewMode(draft, context) {
       highlightIndex: context.showHighlightIndex,
     }),
     renderRatingField(draft.ratingStars),
+    renderCategoryRatingFields(draft.categoryScores, LISTENER_REVIEW_CATEGORIES),
     renderSegmentedField({
       fieldName: "spoilerLevel",
       label: "Spoiler level",

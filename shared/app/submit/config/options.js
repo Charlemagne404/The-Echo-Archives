@@ -80,6 +80,15 @@ export const REVIEW_STRENGTH_OPTIONS = [
   "Emotional impact",
 ];
 
+export const LISTENER_REVIEW_CATEGORIES = [
+  { key: "voiceActing", label: "Voice acting" },
+  { key: "soundDesign", label: "Sound design" },
+  { key: "story", label: "Story" },
+  { key: "characters", label: "Characters" },
+  { key: "ads", label: "Ads" },
+  { key: "length", label: "Length" },
+];
+
 export const ROLE_OPTIONS = [
   { value: "creator", label: "Creator" },
   { value: "producer", label: "Producer" },

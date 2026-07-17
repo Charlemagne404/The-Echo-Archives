@@ -3,8 +3,13 @@ import { getResponsiveImageSource } from "../images.js";
 import { createCollectionHref } from "../urls.js";
 import { escapeHtml, getSimilarReason } from "./utils.js";
 
-export function renderCollectionsSection(show, collections = []) {
+export function renderCollectionsSection(show, collections = [], showMap = new Map()) {
   const memberships = getShowCollectionMemberships(show.id, collections);
+  if (memberships.length === 0) {
+    return "";
+  }
+  const visibleMemberships = memberships.slice(0, 3);
+  const hiddenMemberships = memberships.slice(3);
 
   return `
     <section class="detail-section detail-collections-section">
@@ -14,30 +19,14 @@ export function renderCollectionsSection(show, collections = []) {
           <p>Curated listening paths already connected to this show in the archive.</p>
         </div>
       </div>
-      ${
-        memberships.length > 0
-          ? `<div class="detail-collection-route-list">${memberships
-              .map(
-                (collection) => `
-                  <a class="detail-collection-route" href="${escapeHtml(createCollectionHref(collection.id))}">
-                    <span class="detail-collection-route-title">${escapeHtml(collection.title)}</span>
-                    ${
-                      collection.reason
-                        ? `<span class="detail-collection-route-reason">${escapeHtml(collection.reason)}</span>`
-                        : `<span class="detail-collection-route-reason">Curated route in the archive.</span>`
-                    }
-                  </a>
-                `,
-              )
-              .join("")}</div>`
-          : '<p class="detail-side-note">No collection routes have been published for this show yet.</p>'
-      }
+      <div class="detail-collection-route-list">${visibleMemberships.map((collection) => renderCollectionRoute(collection, showMap)).join("")}</div>
+      ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>Show all routes <span>${hiddenMemberships.length}</span></summary><div class="detail-route-overflow-grid">${hiddenMemberships.map((collection) => renderCollectionRoute(collection, showMap)).join("")}</div></details>` : ""}
     </section>
   `;
 }
 
 export function renderSimilarSection(show, showMap) {
-  const neighbors = show.similarTo
+  const neighbors = (show.similarTo || [])
     .map((id) => {
       const neighbor = showMap.get(id);
       const reason = getSimilarReason(show, id);
@@ -50,7 +39,8 @@ export function renderSimilarSection(show, showMap) {
         reason,
       };
     })
-    .filter(Boolean);
+    .filter(Boolean)
+    .slice(0, 3);
   if (neighbors.length === 0) {
     return "";
   }
@@ -75,7 +65,6 @@ export function renderSimilarSection(show, showMap) {
                 <div class="detail-card-copy">
                   <h3>${escapeHtml(neighbor.title || "Untitled show")}</h3>
                   <p class="detail-similar-reason">${escapeHtml(reason)}</p>
-                  <p>${escapeHtml(neighbor.archiveTake || neighbor.description || "Description not cataloged yet.")}</p>
                   <a class="detail-archive-link" href="${escapeHtml(neighbor.href || "/")}">Open show</a>
                 </div>
               </article>
@@ -86,4 +75,59 @@ export function renderSimilarSection(show, showMap) {
       </div>
     </section>
   `;
+}
+
+function renderCollectionRoute(collection, showMap) {
+  return `
+    <a class="detail-collection-route" href="${escapeHtml(createCollectionHref(collection.id))}">
+      ${renderCollectionRouteArt(collection, showMap)}
+      <span class="detail-collection-route-copy">
+        <span class="detail-collection-route-title">${escapeHtml(collection.title)}</span>
+        <span class="detail-collection-route-reason">${escapeHtml(collection.reason || "Curated route in the archive.")}</span>
+      </span>
+    </a>
+  `;
+}
+
+function renderCollectionRouteArt(collection, showMap) {
+  const coverShows = getCollectionCoverShows(collection, showMap);
+  if (coverShows.length === 0) {
+    return '<span class="detail-collection-route-art is-empty" aria-hidden="true"></span>';
+  }
+
+  const accent = getCollectionAccent(coverShows);
+  const accentStyle = accent ? ` style="--collection-accent: ${escapeHtml(accent)}"` : "";
+
+  return `
+    <span class="detail-collection-route-art collection-cover-collage" aria-hidden="true"${accentStyle}>
+      ${coverShows
+        .map((coverShow, index) => {
+          const source = getResponsiveImageSource(coverShow, "(max-width: 640px) 116px, 168px");
+          return `<span class="collection-cover-frame" data-cover-index="${index + 1}"><img src="${escapeHtml(source.src)}"${source.srcset ? ` srcset="${escapeHtml(source.srcset)}" sizes="(max-width: 640px) 116px, 168px"` : ""} alt="" width="168" height="168" loading="lazy" decoding="async" /></span>`;
+        })
+        .join("")}
+    </span>
+  `;
+}
+
+function getCollectionCoverShows(collection, showMap) {
+  const showIds = [...(collection.coverShowIds || []), ...(collection.showIds || [])];
+  const seen = new Set();
+
+  return showIds
+    .filter((showId) => {
+      if (!showId || seen.has(showId)) {
+        return false;
+      }
+      seen.add(showId);
+      return true;
+    })
+    .map((showId) => showMap.get(showId))
+    .filter(Boolean)
+    .slice(0, 4);
+}
+
+function getCollectionAccent(coverShows) {
+  const accent = coverShows.find((show) => /^#[0-9a-f]{3,8}$/i.test(String(show?.accent?.hex || "")))?.accent?.hex;
+  return String(accent || "");
 }
