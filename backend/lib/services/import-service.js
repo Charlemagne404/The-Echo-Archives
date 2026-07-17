@@ -39,6 +39,7 @@ const IDENTITY_FIELDS = [
 ];
 const DISCOVERY_SOURCE_TYPES = new Set(["apple-search", "podcast-index-search"]);
 const SUPPRESSED_CANDIDATE_STATUSES = new Set(["duplicate", "rejected"]);
+const BATCH_PREPARATION_STATUSES = ["ready", "needs-review", "failed"];
 
 function ensureValidStatus(value = "") {
   const status = trimText(value, 80);
@@ -182,6 +183,73 @@ function normalizeReviewUpdates(raw = {}) {
     throw error;
   }
   return updates;
+}
+
+function splitTags(value = "") {
+  return mergeUniqueStrings(String(value || "").split(/[\n,]/).map((item) => trimText(item, 80)).filter(Boolean));
+}
+
+function normalizeEditedUrl(value, label) {
+  const input = trimText(value, 2_000);
+  if (!input) return "";
+  const normalized = normalizeUrl(input);
+  if (!normalized) {
+    const error = new Error(`${label} must be a complete http or https URL.`);
+    error.statusCode = 400;
+    throw error;
+  }
+  return normalized;
+}
+
+function normalizeEditedNumber(value, label) {
+  const input = trimText(value, 40);
+  if (!input) return undefined;
+  const number = Number(input);
+  if (!Number.isFinite(number) || number < 0) {
+    const error = new Error(`${label} must be a positive number.`);
+    error.statusCode = 400;
+    throw error;
+  }
+  return Math.round(number * 10) / 10;
+}
+
+function normalizeEditedDate(value, label) {
+  const input = trimText(value, 20);
+  if (!input) return "";
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(input) || !Number.isFinite(Date.parse(input))) {
+    const error = new Error(`${label} must use YYYY-MM-DD.`);
+    error.statusCode = 400;
+    throw error;
+  }
+  return input;
+}
+
+function normalizeEditableDetails(raw = {}) {
+  const title = trimText(raw.title, 240);
+  if (!title) {
+    const error = new Error("A show title is required.");
+    error.statusCode = 400;
+    throw error;
+  }
+  const completionStatus = ["unknown", "ongoing", "finished"].includes(raw.completionStatus) ? raw.completionStatus : "unknown";
+  return {
+    title,
+    creatorName: trimText(raw.creatorName, 240),
+    networkName: trimText(raw.networkName, 240),
+    description: cleanDescription(raw.description, 4_000),
+    categories: splitTags(raw.categories),
+    language: trimText(raw.language, 80),
+    rssUrl: normalizeEditedUrl(raw.rssUrl, "RSS feed URL"),
+    websiteUrl: normalizeEditedUrl(raw.websiteUrl, "Official website URL"),
+    appleUrl: normalizeEditedUrl(raw.appleUrl, "Apple URL"),
+    spotifyUrl: normalizeEditedUrl(raw.spotifyUrl, "Spotify URL"),
+    episodeCount: normalizeEditedNumber(raw.episodeCount, "Episode count"),
+    seasonCount: normalizeEditedNumber(raw.seasonCount, "Season count"),
+    avgEpisodeMinutes: normalizeEditedNumber(raw.avgEpisodeMinutes, "Average runtime"),
+    firstPublicationDate: normalizeEditedDate(raw.firstPublicationDate, "First release date"),
+    latestPublicationDate: normalizeEditedDate(raw.latestPublicationDate, "Latest release date"),
+    manualReleaseState: completionStatus,
+  };
 }
 
 function createLimitedFetch(fetchImpl, { perHost = 2, applePerMinute = 15 } = {}) {
@@ -959,6 +1027,31 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return enqueueCandidate(id, { actor, runType: "retry", incrementRevision: true });
   }
 
+  function rerunAllForMaintainer(actor = "") {
+    const candidateIds = store.listCandidateIdsByStatuses(BATCH_PREPARATION_STATUSES);
+    if (candidateIds.length === 0) {
+      const error = new Error("There are no ready, needs-review, or failed candidates to prepare again.");
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const run = store.createRun({
+      runType: "batch-prepare",
+      status: "queued",
+      input: { candidateIds, actor },
+      summary: { candidateCount: candidateIds.length },
+    });
+    candidateIds.forEach((candidateId) => {
+      const candidate = getCandidate(candidateId);
+      const revision = candidate.inputRevision + 1;
+      store.updateCandidate(candidateId, { status: "queued", inputRevision: revision, lastRunId: run.id, lastError: "" });
+      store.enqueueJob({ candidateId, runId: run.id, inputRevision: revision, payload: { actor, batch: true } });
+      store.recordEvent(candidateId, "batch-prepare-enqueued", actor, { runId: run.id, inputRevision: revision });
+    });
+    scheduleWork();
+    return { runId: run.id, candidateIds };
+  }
+
   function reopenForMaintainer(id, actor = "") {
     const candidate = getCandidate(id);
     if (!SUPPRESSED_CANDIDATE_STATUSES.has(candidate.status)) {
@@ -1035,13 +1128,73 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     const updates = normalizeReviewUpdates(rawUpdates);
     const locks = new Set(candidate.lockedFields || []);
     if (updates.scopeStatus) locks.add("scopeStatus");
-    const updated = store.updateCandidate(id, {
+    let updated = store.updateCandidate(id, {
       ...updates,
       lockedFields: [...locks],
       reviewedAt: new Date().toISOString(),
       reviewedBy: updates.reviewedBy || actor || candidate.reviewedBy,
     });
-    store.recordEvent(id, "reviewed", actor || updates.reviewedBy || "", updates);
+    if (rawUpdates.details) {
+      if (candidate.status === "published") {
+        const error = new Error("Published shows must be updated through a new import candidate.");
+        error.statusCode = 409;
+        throw error;
+      }
+      const details = normalizeEditableDetails(rawUpdates.details);
+      const objective = { ...candidate.objective, ...details };
+      delete objective.complete;
+      ["episodeCount", "seasonCount", "avgEpisodeMinutes"].forEach((field) => {
+        if (details[field] === undefined) delete objective[field];
+      });
+      const provenance = { ...(candidate.provenance || {}), fields: { ...(candidate.provenance?.fields || {}) } };
+      const editedFields = {
+        title: "title", creatorName: "creatorName", networkName: "networkName", description: "description",
+        categories: "genres", language: "languages", rssUrl: "listenLinks", websiteUrl: "officialLinks",
+        appleUrl: "listenLinks", spotifyUrl: "listenLinks", episodeCount: "length", seasonCount: "length",
+        avgEpisodeMinutes: "length", firstPublicationDate: "releaseDates", latestPublicationDate: "releaseDates",
+        manualReleaseState: "releaseStatus",
+      };
+      Object.entries(editedFields).forEach(([field, recordField]) => {
+        provenance.fields[field] = { confidence: 1, method: "maintainer-edit", sources: [] };
+        locks.add(recordField);
+      });
+      const nextCandidate = {
+        ...candidate,
+        ...updates,
+        title: details.title,
+        creatorName: details.creatorName,
+        canonicalId: normalizeTitleCreatorKey(details.title, details.creatorName),
+        objective,
+        provenance,
+        lockedFields: [...locks],
+      };
+      let preparedRecord = buildPreparedShowRecord({ candidate: nextCandidate, shows: readCatalogRecords() });
+      let updateDiff = [];
+      const existing = candidate.existingShowId ? readCatalogRecords().find((show) => show.id === candidate.existingShowId) : null;
+      if (existing) {
+        const merged = mergePreparedWithExisting(preparedRecord, existing, { reviewerLocks: nextCandidate.lockedFields });
+        preparedRecord = merged.record;
+        updateDiff = merged.diff;
+        nextCandidate.lockedFields = merged.lockedFields;
+      }
+      const readiness = evaluateReadiness({ candidate: nextCandidate, preparedRecord });
+      readiness.updateDiff = updateDiff;
+      updated = store.updateCandidate(id, {
+        ...updates,
+        title: nextCandidate.title,
+        creatorName: nextCandidate.creatorName,
+        canonicalId: nextCandidate.canonicalId,
+        objective,
+        provenance,
+        lockedFields: nextCandidate.lockedFields,
+        preparedRecord,
+        readiness,
+        status: readiness.ready ? "ready" : "needs-review",
+        reviewedAt: new Date().toISOString(),
+        reviewedBy: updates.reviewedBy || actor || candidate.reviewedBy,
+      });
+    }
+    store.recordEvent(id, rawUpdates.details ? "details-edited" : "reviewed", actor || updates.reviewedBy || "", updates);
     return updated;
   }
 
@@ -1206,6 +1359,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     reopenForMaintainer,
     retryForMaintainer,
     retryRunForMaintainer,
+    rerunAllForMaintainer,
     reviewForMaintainer,
     runDueDiscovery,
     searchExternalSources,

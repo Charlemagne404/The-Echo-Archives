@@ -131,6 +131,13 @@ export async function fetchMaintainerDiscovery(options = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery`, { signal: options.signal });
 }
 
+export async function runMaintainerDiscovery(payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery/run`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export async function createMaintainerDiscoverySource(payload = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/discovery/sources`, {
     method: "POST",
@@ -181,6 +188,13 @@ export async function hydrateMaintainerImportCandidate(id, payload = {}) {
 
 export async function fetchMaintainerImportRun(runId, options = {}) {
   return requestJson(`${MAINTAINER_API_ROOT}/imports/runs/${encodeURIComponent(runId)}`, { signal: options.signal });
+}
+
+export async function rerunAllMaintainerImportPreparation(payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/prepare-all`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
 }
 
 export async function retryMaintainerImportCandidate(id, payload = {}) {

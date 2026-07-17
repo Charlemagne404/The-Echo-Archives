@@ -4,18 +4,23 @@ import {
   fetchMaintainerDiscoveryRun,
   MaintainerAuthError,
   patchMaintainerDiscoverySource,
+  runMaintainerDiscovery,
   runMaintainerDiscoverySource,
 } from "../maintainer/api.js";
 import { isAbortError } from "./page-helpers.js";
 import { renderImportDiscoveryWorkspace } from "./discovery-render.js";
 import { IMPORT_RUN_TIMEOUT_MS, waitForDelay, waitForVisibleDocument } from "./workflow.js";
-
 export function bindDiscoveryWorkspace({ elements, getReviewer, runAction, onAuthError, onCandidatesChanged }) {
   let discovery = null;
   let controller = null;
 
   function setStatus(message) {
     if (elements.status) elements.status.textContent = message;
+  }
+
+  function setRunFeedback(message) {
+    const feedback = document.getElementById("maintainerDiscoveryRunFeedback");
+    if (feedback) feedback.textContent = message;
   }
 
   function render() {
@@ -45,6 +50,7 @@ export function bindDiscoveryWorkspace({ elements, getReviewer, runAction, onAut
     while (Date.now() - startedAt < IMPORT_RUN_TIMEOUT_MS) {
       const { run } = await fetchMaintainerDiscoveryRun(runId);
       setStatus(`Discovery run: ${run.progress.completed + run.progress.failed}/${run.progress.total} complete.`);
+      setRunFeedback(`Checking discovery sources: ${run.progress.completed + run.progress.failed}/${run.progress.total} complete.`);
       if (["completed", "failed"].includes(run.status)) return run;
       await waitForVisibleDocument();
       await waitForDelay(1_000);
@@ -79,6 +85,42 @@ export function bindDiscoveryWorkspace({ elements, getReviewer, runAction, onAut
         } catch (error) {
           if (error instanceof MaintainerAuthError) return onAuthError(error);
           setStatus(error instanceof Error ? error.message : "Failed to save discovery source.");
+        }
+      },
+    });
+  });
+
+  elements.runAll?.addEventListener("click", async () => {
+    await runAction({
+      control: elements.runAll,
+      region: elements.workspace,
+      action: async () => {
+        try {
+          setStatus("Running all enabled discovery sources…");
+          setRunFeedback("Discovery has started. Searching Podcast Index now…");
+          elements.runAll.textContent = "Discovery running…";
+          const result = await runMaintainerDiscovery({ reviewedBy: getReviewer() });
+          if (!result.runIds?.length) {
+            setStatus("No enabled discovery sources are configured yet. Save a focused source below, then run it here.");
+            setRunFeedback("No enabled sources are available yet.");
+            return;
+          }
+          if (result.createdDefaultSource) setStatus("Set up a Podcast Index audio drama source and started discovery…");
+          const runs = await Promise.all(result.runIds.map((runId) => waitForRun(runId)));
+          const found = runs.reduce((total, run) => total + (Number(run?.summary?.found) || 0), 0);
+          const candidates = runs.reduce((total, run) => total + (run?.summary?.candidateIds?.length || 0), 0);
+          const failures = runs.filter((run) => run?.status === "failed").length;
+          setRunFeedback(failures
+            ? `Discovery finished with ${failures} source error${failures === 1 ? "" : "s"}. Check the run history below.`
+            : `Discovery complete: ${found} results checked; ${candidates} candidate${candidates === 1 ? "" : "s"} added for review.`);
+          await load();
+          await onCandidatesChanged();
+        } catch (error) {
+          if (error instanceof MaintainerAuthError) return onAuthError(error);
+          setStatus(error instanceof Error ? error.message : "Discovery run failed.");
+          setRunFeedback(error instanceof Error ? `Discovery did not start: ${error.message}` : "Discovery did not start.");
+        } finally {
+          elements.runAll.textContent = "Start discovery";
         }
       },
     });

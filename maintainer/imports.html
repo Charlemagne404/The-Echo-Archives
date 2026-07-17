@@ -23,14 +23,14 @@
 <meta name="robots" content="noindex, nofollow, noarchive" />
 
 <link rel="stylesheet" href="/style.css?v=a5b3dac1a4" />
-<link rel="stylesheet" href="/maintainer.css?v=8ece9d2341" />
+<link rel="stylesheet" href="/maintainer.css?v=1910489ee1" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="manifest" href="/site.webmanifest" />
 
 
 </head>
-<body class="home-page maintainer-import-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="5b7f8b13c9" data-collections-version="9afac6e32d" data-search-index-version="b98d73fa83">
+<body class="home-page maintainer-import-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="3068aa0ce8" data-collections-version="9afac6e32d" data-search-index-version="b17d3277eb">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -283,8 +283,12 @@
             <p class="maintainer-kicker">Sources and runs</p>
             <h2>Discovery history</h2>
           </div>
-          <p class="maintainer-toolbar-meta">Run a source on demand or leave it enabled for the scheduled discovery service.</p>
+          <div class="maintainer-toolbar-actions">
+            <button id="maintainerDiscoveryRunAll" class="maintainer-primary-button" type="button">Start discovery</button>
+            <p class="maintainer-toolbar-meta">One click runs every enabled source. The first run sets up a focused audio-drama search automatically.</p>
+          </div>
         </div>
+        <p id="maintainerDiscoveryRunFeedback" class="maintainer-status-copy maintainer-discovery-feedback" role="status" aria-live="polite">Ready to search Podcast Index for audio dramas.</p>
         <div id="maintainerDiscoveryWorkspace" aria-live="polite"></div>
       </article>
     </section>
@@ -296,7 +300,10 @@
             <p class="maintainer-kicker">Queue</p>
             <h2 id="maintainerListHeading" tabindex="-1">Import candidates</h2>
           </div>
-          <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
+          <div class="maintainer-toolbar-actions">
+            <button id="maintainerRerunAllPreparation" class="maintainer-ghost-button" type="button">Re-run all preparation</button>
+            <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
+          </div>
         </div>
         <div id="maintainerList" class="maintainer-list" aria-live="polite"></div>
         <div class="maintainer-pagination">
@@ -379,6 +386,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=ae8fd89624"></script>
+  <script type="module" src="/script.js?v=d872bc638d"></script>
 </body>
 </html>

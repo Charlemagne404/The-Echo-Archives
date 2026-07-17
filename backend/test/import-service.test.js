@@ -72,6 +72,7 @@ function rssDocument({ title = "Signal Lost", website = "https://example.com/", 
         <itunes:image href="https://example.com/cover.jpg" />
         <language>en</language>
         <itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category>
+        <itunes:keywords>mystery, deep space, abandoned station</itunes:keywords>
         <itunes:type>serial</itunes:type>
         ${complete ? "<podcast:complete>true</podcast:complete>" : ""}
         <podcast:guid>4c4d1ac2-1ab3-42ad-8898-123456789abc</podcast:guid>
@@ -187,6 +188,28 @@ test("discovery sources persist seen results, suppress closed identities, and re
   }
 });
 
+test("batch preparation requeues every eligible open candidate and leaves closed candidates untouched", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({
+      entries: ["https://example.com/feed.xml", "Second Signal", "Closed Signal"],
+    });
+    const [readyId, reviewId, closedId] = seeded.candidateIds;
+    context.store.updateCandidate(readyId, { status: "ready" });
+    context.store.updateCandidate(reviewId, { status: "needs-review" });
+    context.store.updateCandidate(closedId, { status: "rejected" });
+
+    const queued = context.service.rerunAllForMaintainer("CA");
+    assert.deepEqual(new Set(queued.candidateIds), new Set([readyId, reviewId]));
+    assert.equal(context.service.getRun(queued.runId).progress.total, 2);
+    assert.equal(context.service.getForMaintainer(readyId).status, "queued");
+    assert.equal(context.service.getForMaintainer(reviewId).status, "queued");
+    assert.equal(context.service.getForMaintainer(closedId).status, "rejected");
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("a vetted new-show submission can enter the protected import lane without publication", async () => {
   const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
   try {
@@ -263,9 +286,16 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.deepEqual(candidate.preparedRecord.tones, []);
     assert.deepEqual(candidate.preparedRecord.similarTo, []);
     assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
+    assert.deepEqual(candidate.preparedRecord.tags, ["Drama", "mystery", "deep space", "abandoned station"]);
+    assert.equal(candidate.preparedRecord.metadata.import.fields.tags.method, "source-categories-and-keywords");
     assert.equal(candidate.preparedRecord.length.episodes, 1);
     assert.equal(candidate.preparedRecord.length.episodeCounts.bonus, 1);
+    assert.equal(candidate.preparedRecord.length.durationCoverage, 1);
+    assert.deepEqual(candidate.preparedRecord.length.observedSeasons, [1]);
     assert.equal(candidate.preparedRecord.availability.transcripts, "1 observed episodes");
+    assert.deepEqual(candidate.preparedRecord.availability.transcriptLanguages, ["English"]);
+    assert.deepEqual(candidate.preparedRecord.availability.transcriptFormats, ["text/vtt"]);
+    assert.equal(candidate.preparedRecord.metadata.importOfficialSummary, "A serialized fiction audio drama about a vanished research station.");
     assert.equal(candidate.coverStage.width, 1200);
     assert.equal(candidate.coverStage.echoPublishable, true);
     assert.ok(candidate.fieldEvidence.some((item) => item.fieldName === "description" && item.confidence === 0.95));

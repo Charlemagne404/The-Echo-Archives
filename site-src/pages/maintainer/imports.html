@@ -199,8 +199,12 @@
             <p class="maintainer-kicker">Sources and runs</p>
             <h2>Discovery history</h2>
           </div>
-          <p class="maintainer-toolbar-meta">Run a source on demand or leave it enabled for the scheduled discovery service.</p>
+          <div class="maintainer-toolbar-actions">
+            <button id="maintainerDiscoveryRunAll" class="maintainer-primary-button" type="button">Start discovery</button>
+            <p class="maintainer-toolbar-meta">One click runs every enabled source. The first run sets up a focused audio-drama search automatically.</p>
+          </div>
         </div>
+        <p id="maintainerDiscoveryRunFeedback" class="maintainer-status-copy maintainer-discovery-feedback" role="status" aria-live="polite">Ready to search Podcast Index for audio dramas.</p>
         <div id="maintainerDiscoveryWorkspace" aria-live="polite"></div>
       </article>
     </section>
@@ -212,7 +216,10 @@
             <p class="maintainer-kicker">Queue</p>
             <h2 id="maintainerListHeading" tabindex="-1">Import candidates</h2>
           </div>
-          <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
+          <div class="maintainer-toolbar-actions">
+            <button id="maintainerRerunAllPreparation" class="maintainer-ghost-button" type="button">Re-run all preparation</button>
+            <p id="maintainerListStatus" class="maintainer-panel-meta">Loading import queue…</p>
+          </div>
         </div>
         <div id="maintainerList" class="maintainer-list" aria-live="polite"></div>
         <div class="maintainer-pagination">

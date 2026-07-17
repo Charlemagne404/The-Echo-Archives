@@ -103,9 +103,9 @@ function listPayload(candidates) {
   };
 }
 
-test("maintainer import workspace handles progress, blockers, evidence, retry, review, and approval", async () => {
+test("maintainer import workspace handles progress, batch preparation, blockers, evidence, retry, review, and approval", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0 };
+  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0 };
   const candidates = [
     createCandidate(),
     createCandidate({
@@ -171,6 +171,10 @@ test("maintainer import workspace handles progress, blockers, evidence, retry, r
         calls.retry += 1;
         return respond({ runId: "run-retry", candidateIds: ["failed-1"] }, 202);
       }
+      if (method === "POST" && pathname === "/api/maintainer/imports/prepare-all") {
+        calls.rerunAll += 1;
+        return respond({ runId: "run-prepare-all", candidateIds: ["ready-1", "blocked-1", "failed-1"] }, 202);
+      }
       if (method === "POST" && pathname.endsWith("/publish")) {
         calls.publish += 1;
         candidates[0].status = "published";
@@ -205,6 +209,11 @@ test("maintainer import workspace handles progress, blockers, evidence, retry, r
     assert.equal(await page.locator(".import-cover-preview img").count(), 1);
     assert.deepEqual(await page.locator(".import-cover-preview img").evaluate((image) => [image.getAttribute("width"), image.getAttribute("height")]), ["112", "112"]);
     assert.match(await page.locator("#maintainerDetail").innerText(), /Field provenance/);
+
+    page.once("dialog", (dialog) => dialog.accept());
+    await page.getByRole("button", { name: "Re-run all preparation" }).click();
+    await page.waitForFunction(() => document.querySelector("#maintainerListStatus")?.textContent?.includes("Showing"));
+    assert.equal(calls.rerunAll, 1);
 
     await page.locator("#maintainerImportSeedInput").fill("Another Show");
     await page.getByRole("button", { name: "Queue imports" }).evaluate((button) => {

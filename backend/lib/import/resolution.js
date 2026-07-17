@@ -22,7 +22,7 @@ const SIMPLE_FIELDS = [
   "discordUrl", "youtubeUrl", "socialUrls", "language", "explicit", "copyright", "categories", "keywords",
   "feedType", "medium", "complete", "podcastGuid", "podcastGuidIsValid", "podcastIndexFeedId",
   "podcastIndexGuid", "episodeCount", "episodeCountObserved", "episodeCountExact", "episodeCounts",
-  "scheduledReleaseCount", "firstPublicationDate", "latestPublicationDate", "latestAnyPublicationDate",
+  "scheduledReleaseCount", "firstPublicationDate", "latestPublicationDate", "latestAnyPublicationDate", "nextScheduledPublicationDate",
   "seasonCount", "seasonsObserved", "avgEpisodeMinutes", "medianEpisodeMinutes", "minEpisodeMinutes",
   "maxEpisodeMinutes", "totalObservedHours", "durationCoverage", "cadence", "people", "channelPeople",
   "transcripts", "funding", "supportUrl", "license", "location", "country", "dead", "sourceFormat",

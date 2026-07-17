@@ -173,6 +173,10 @@ The import subsystem normalizes external source data into an internal candidate 
 
 Prepared records do not apply subjective AI suggestions. This internal candidate shape is intentionally non-canonical and may evolve without changing the public show schema. See `docs/IMPORTER.md` for the complete contract.
 
+For factual imports, publisher-provided RSS/iTunes categories and keywords populate `tags` automatically. The raw values are retained as `metadata.sourceCategories`, `metadata.sourceKeywords`, and `metadata.sourceTags`; the importer records their provenance separately from editorial tags or recommendations.
+
+Importer-prepared records may also include factual `releaseDates.latestFeedItem` and `releaseDates.next`, richer observed runtime values under `length`, transcript coverage/language/format values under `availability`, and source/feed details under `metadata`. These are evidence-backed operational facts, not archive editorial judgments.
+
 ## Automatic Cover Sync
 
 Authoring can now leave `cover` blank when the show has at least one usable source link:

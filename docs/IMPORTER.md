@@ -10,6 +10,10 @@ New records publish as `reviewStatus: "indexed-only"`. Ratings, reviews, archive
 
 RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descriptions, type, structured people, transcripts, funding, GUID, medium, license, and location. An official site is primary for reciprocally linked credits and exact official/support/platform links. Apple and Podcast Index supply identity cross-checks and directory fallbacks.
 
+Publisher-supplied RSS/iTunes categories and keywords automatically populate the factual `tags` field (up to twelve unique values). Their original values remain in `metadata.sourceCategories`, `metadata.sourceKeywords`, and `metadata.sourceTags`, with import provenance marked `source-categories-and-keywords`. These tags are searchable and refresh on later imports unless a maintainer changes them, which locks the managed field. AI/editorial suggestions remain non-binding and never auto-populate the catalog.
+
+Prepared records also retain high-signal feed facts without expanding the default browse cards: observed runtime coverage and seasons, first/latest/latest-feed/next scheduled release dates, transcript coverage/languages/formats, structured owner and production metadata, feed cadence, licensing, explicit flag, and source format. The show page surfaces only the listener-useful subset—upcoming release, cadence, and transcript availability—in its existing Facts & links card.
+
 Only the official homepage and up to four same-origin, depth-one pages labeled listen, about, cast, credits, episodes, or transcripts are fetched. DTD/entity XML, private-network URLs, unsafe redirects, oversized responses, unsupported MIME types, malformed documents, corrupt images, and SVG covers are rejected.
 
 Confidence is deterministic:

@@ -468,6 +468,21 @@ function createImportStore({ db }) {
     };
   }
 
+  function listCandidateIdsByStatuses(statuses = []) {
+    const normalizedStatuses = [...new Set((Array.isArray(statuses) ? statuses : [])
+      .map((status) => trimText(status, 80))
+      .filter(Boolean))];
+    if (normalizedStatuses.length === 0) {
+      return [];
+    }
+
+    return db.prepare(`
+      SELECT id FROM catalog_import_candidates
+      WHERE status IN (${normalizedStatuses.map(() => "?").join(", ")})
+      ORDER BY datetime(updated_at) DESC, id DESC
+    `).all(...normalizedStatuses).map((row) => row.id);
+  }
+
   function pruneSourceHistory(candidateId) {
     const rows = getCandidateSources.all(candidateId);
     const groups = new Map();
@@ -1166,6 +1181,7 @@ function createImportStore({ db }) {
     getSourceCache,
     listCandidateBasics,
     listCandidates,
+    listCandidateIdsByStatuses,
     listDiscoveryRuns,
     listDiscoverySources,
     listDueDiscoverySources,

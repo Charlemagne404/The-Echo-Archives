@@ -191,6 +191,7 @@ function parseRssText(text = "", sourceUrl = "") {
   const episodes = rawEpisodes.map((item) => parseEpisode(item, sourceUrl, isAtom));
   const fullEpisodes = episodes.filter((episode) => episode.episodeType === "full");
   const publishedFullEpisodes = fullEpisodes.filter((episode) => episode.publicationDate && !episode.scheduled);
+  const scheduledFullEpisodes = fullEpisodes.filter((episode) => episode.publicationDate && episode.scheduled);
   const dates = publishedFullEpisodes.map((episode) => episode.publicationDate).filter(Boolean).sort();
   const allDates = episodes.map((episode) => episode.publicationDate).filter(Boolean).sort();
   const durationStats = numericStats(fullEpisodes.map((episode) => episode.durationMinutes));
@@ -255,6 +256,7 @@ function parseRssText(text = "", sourceUrl = "") {
     firstPublicationDate: dates[0] || allDates[0] || "",
     latestPublicationDate: dates.at(-1) || "",
     latestAnyPublicationDate: allDates.at(-1) || "",
+    nextScheduledPublicationDate: scheduledFullEpisodes.map((episode) => episode.publicationDate).sort()[0] || "",
     seasonCount: Math.max(0, ...fullEpisodes.map((episode) => episode.season || 0)) || null,
     seasonsObserved: mergeUniqueStrings(fullEpisodes.map((episode) => episode.season).filter(Boolean).map(String)).map(Number),
     avgEpisodeMinutes: durationStats.average,

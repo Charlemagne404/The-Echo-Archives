@@ -1,4 +1,6 @@
 import { formatDateTime, renderBadge, renderLabeledLink } from "../maintainer/format.js";
+import { renderQuickDetailsEditor } from "./details-editor.js";
+import { renderExternalVerificationWorkspace } from "./external-verification.js";
 import {
   buildImportPreview,
   escapeHtml,
@@ -12,7 +14,6 @@ import {
   summarizeImportCounts,
   toDisplayTag,
 } from "./format.js";
-
 function renderSummaryCard(card) {
   return `
     <article class="page-card maintainer-summary-card is-${escapeHtml(card.tone || "neutral")}">
@@ -21,13 +22,11 @@ function renderSummaryCard(card) {
     </article>
   `;
 }
-
 function renderRows(rows = []) {
   const filtered = rows.filter(([, value]) => Boolean(value));
   if (filtered.length === 0) {
     return "";
   }
-
   return `
     <dl class="maintainer-detail-grid">
       ${filtered
@@ -43,10 +42,8 @@ function renderRows(rows = []) {
     </dl>
   `;
 }
-
 function renderListItem(candidate, isSelected) {
   const preview = buildImportPreview(candidate);
-
   return `
     <article class="maintainer-list-item ${isSelected ? "is-selected" : ""}">
       <button
@@ -72,7 +69,6 @@ function renderListItem(candidate, isSelected) {
     </article>
   `;
 }
-
 function renderSourceSnapshot(source) {
   const normalized = source.normalized || {};
   const rows = [
@@ -94,7 +90,6 @@ function renderSourceSnapshot(source) {
     ["People", (normalized.people || []).map((person) => `${person.name} (${person.role})`).join(" • ")],
     ["Latest release", normalized.latestPublicationDate ? normalized.latestPublicationDate.slice(0, 10) : ""],
   ];
-
   return `
     <article class="import-source-card">
       <div class="import-source-card-top">
@@ -112,13 +107,11 @@ function renderSourceSnapshot(source) {
     </article>
   `;
 }
-
 function renderDedupeMatches(candidate) {
   const matches = candidate?.dedupe?.allMatches || [];
   if (matches.length === 0) {
     return "";
   }
-
   return `
     <section class="maintainer-detail-section">
       <h3>Duplicate checks</h3>
@@ -151,6 +144,8 @@ function renderObjectiveSection(candidate) {
     ["Description", objective.description],
     ["Language", objective.languageDisplay || objective.language],
     ["Categories", (objective.categories || []).join(" • ")],
+    ["Publisher keywords", (objective.keywords || []).join(" • ")],
+    ["Automatic source tags", (candidate.preparedRecord?.tags || []).join(" • ")],
     ["RSS", objective.rssUrl],
     ["Apple", objective.appleUrl],
     ["Spotify", objective.spotifyUrl],
@@ -277,6 +272,7 @@ function renderPreparedRecord(candidate) {
         ["Mode", candidate.mode],
         ["Show ID", record.id],
         ["Review state", record.reviewStatus],
+        ["Automatic source tags", (record.tags || []).join(" • ")],
         ["Release / completion", `${record.releaseStatus} / ${record.completionStatus}`],
         ["Listen links", Object.values(record.listenLinks || {}).filter(Boolean).length],
         ["Update changes", candidate.readiness?.updateDiff?.length || ""],
@@ -398,6 +394,8 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
       ])}
 
       <form id="maintainerImportReviewForm" class="maintainer-review-form" data-import-candidate-id="${escapeHtml(candidate.id)}">
+        ${renderExternalVerificationWorkspace(candidate)}
+        ${renderQuickDetailsEditor(candidate)}
         <div class="maintainer-review-grid">
           <label class="maintainer-field">
             <span>Status</span>

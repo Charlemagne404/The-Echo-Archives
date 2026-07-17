@@ -92,6 +92,17 @@ test("parseRssText handles Podcasting 2.0 people, transcripts, funding, episode 
   assert.equal(normalized.license.value, "CC BY 4.0");
 });
 
+test("parseRssText keeps an explicit scheduled full-episode date separate from the latest published release", () => {
+  const normalized = parseRssText(`<?xml version="1.0"?>
+    <rss version="2.0"><channel><title>Future Signal</title>
+      <item><title>Published</title><pubDate>2026-01-01T00:00:00Z</pubDate></item>
+      <item><title>Scheduled</title><pubDate>2099-01-15T00:00:00Z</pubDate></item>
+    </channel></rss>`, "https://example.com/feed.xml");
+
+  assert.equal(normalized.latestPublicationDate, "2026-01-01T00:00:00.000Z");
+  assert.equal(normalized.nextScheduledPublicationDate, "2099-01-15T00:00:00.000Z");
+});
+
 test("parseRssText supports Atom entries and rejects DTD/entity or malformed XML", () => {
   const atom = parseRssText(`<?xml version="1.0"?>
     <feed xmlns="http://www.w3.org/2005/Atom">

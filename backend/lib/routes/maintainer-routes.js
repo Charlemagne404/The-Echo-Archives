@@ -226,6 +226,14 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
     }
   });
 
+  router.post("/api/maintainer/imports/prepare-all", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.status(202).json(importService.rerunAllForMaintainer(req.body?.reviewedBy || ""));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
   router.post("/api/maintainer/imports/audit", requireMaintainerSession, async (req, res, next) => {
     try {
       return res.status(202).json(await importService.auditCatalog({ actor: req.body?.reviewedBy || "" }));
@@ -237,6 +245,28 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
   router.get("/api/maintainer/imports/discovery", requireMaintainerSession, (req, res, next) => {
     try {
       return res.json(importService.listDiscoveryForMaintainer());
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/discovery/run", requireMaintainerSession, async (req, res, next) => {
+    try {
+      const discovery = importService.listDiscoveryForMaintainer();
+      const createdDefaultSource = discovery.sources.length === 0;
+      if (createdDefaultSource) {
+        importService.createDiscoverySourceForMaintainer({
+          name: discovery.podcastIndexEnabled ? "Podcast Index audio drama" : "Apple audio drama",
+          sourceType: discovery.podcastIndexEnabled ? "podcast-index-search" : "apple-search",
+          query: "audio drama",
+          intervalMinutes: 1_440,
+          config: { limit: 10, includeBorderline: false },
+        });
+      }
+      return res.status(202).json({ ...(await importService.runDueDiscovery({
+        force: true,
+        actor: req.body?.reviewedBy || "",
+      })), createdDefaultSource });
     } catch (error) {
       return next(error);
     }
@@ -326,6 +356,7 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
           reviewedBy: req.body?.reviewedBy,
           duplicateOfShowId: req.body?.duplicateOfShowId,
           duplicateOfCandidateId: req.body?.duplicateOfCandidateId,
+          details: req.body?.details,
         }, req.body?.reviewedBy || ""),
       });
     } catch (error) {

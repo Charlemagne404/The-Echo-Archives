@@ -16,7 +16,7 @@ const HUMAN_OWNED_FIELDS = [
 ];
 const MANAGED_FIELDS = [
   "title", "subtitle", "description", "cover", "coverAlt", "releaseStatus", "completionStatus",
-  "listenLinks", "officialLinks", "genres", "formats", "aliases", "languages", "transcriptLanguages",
+  "listenLinks", "officialLinks", "genres", "tags", "formats", "aliases", "languages", "transcriptLanguages",
   "length", "releaseDates", "credits", "creators", "cast", "availability", "verification",
 ];
 
@@ -42,6 +42,12 @@ function managedFingerprints(record) {
 }
 
 function releaseState(objective = {}) {
+  if (objective.manualReleaseState === "finished") {
+    return { releaseStatus: "completed", completionStatus: "finished", method: "maintainer-edit", confidence: 1 };
+  }
+  if (objective.manualReleaseState === "ongoing") {
+    return { releaseStatus: "active", completionStatus: "ongoing", method: "maintainer-edit", confidence: 1 };
+  }
   if (objective.complete === true) {
     return { releaseStatus: "completed", completionStatus: "finished", method: "explicit-completion", confidence: 0.95 };
   }
@@ -79,6 +85,8 @@ function buildLengthData(objective = {}) {
     ...(Number.isFinite(Number(objective.minEpisodeMinutes)) ? { minEpisodeMinutes: Number(objective.minEpisodeMinutes) } : {}),
     ...(Number.isFinite(Number(objective.maxEpisodeMinutes)) ? { maxEpisodeMinutes: Number(objective.maxEpisodeMinutes) } : {}),
     ...(Number.isFinite(Number(objective.totalObservedHours)) ? { totalObservedHours: Number(objective.totalObservedHours) } : {}),
+    ...(Number.isFinite(Number(objective.durationCoverage)) ? { durationCoverage: Number(objective.durationCoverage) } : {}),
+    ...(Array.isArray(objective.seasonsObserved) && objective.seasonsObserved.length ? { observedSeasons: objective.seasonsObserved } : {}),
     countQualifier: counts.exact || objective.episodeCountExact ? "exact" : "at-least",
     episodeCounts: {
       full: Number(counts.full) || 0,
@@ -115,6 +123,29 @@ function selectedSources(candidate) {
   ])).values()];
 }
 
+function sourceTags(objective = {}) {
+  return mergeUniqueStrings(
+    objective.categories || [],
+    objective.keywords || [],
+  )
+    .map((value) => trimText(value, 80))
+    .filter((value) => value.length >= 2 && value.toLowerCase() !== "fiction")
+    .slice(0, 12);
+}
+
+function sourceTagProvenance(candidate, tags) {
+  if (tags.length === 0) return null;
+  const sourceFields = ["categories", "keywords"]
+    .map((field) => candidate.provenance?.fields?.[field])
+    .filter(Boolean);
+
+  return {
+    confidence: sourceFields.length ? Math.max(...sourceFields.map((field) => Number(field.confidence) || 0)) : 0.7,
+    method: "source-categories-and-keywords",
+    sources: sourceFields.flatMap((field) => field.sources || []),
+  };
+}
+
 function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toISOString().slice(0, 10) }) {
   const objective = candidate.objective || {};
   const title = trimText(objective.title || candidate.title, 240);
@@ -123,6 +154,8 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const state = releaseState(objective);
   const categories = mergeUniqueStrings(objective.categories || []);
   const genres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
+  const tags = sourceTags(objective);
+  const tagProvenance = sourceTagProvenance(candidate, tags);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
   const formats = mergeUniqueStrings([
@@ -162,7 +195,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     genres,
     tones: [],
     formats,
-    tags: [],
+    tags,
     aliases: aliasTitles(candidate, title),
     themes: [],
     contentNotes: [],
@@ -172,6 +205,8 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     releaseDates: {
       first: toDateStamp(objective.firstPublicationDate),
       latest: toDateStamp(objective.latestPublicationDate),
+      latestFeedItem: toDateStamp(objective.latestAnyPublicationDate),
+      next: toDateStamp(objective.nextScheduledPublicationDate),
     },
     ratings: {},
     facts: {},
@@ -193,6 +228,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     },
     credits: {
       ...(objective.creatorName ? { creatorName: objective.creatorName } : {}),
+      ...(objective.ownerName ? { ownerName: objective.ownerName } : {}),
       ...(objective.networkName ? { network: objective.networkName } : {}),
       ...(people.writers.length ? { writers: people.writers } : {}),
       ...(people.directors.length ? { directors: people.directors } : {}),
@@ -211,12 +247,16 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
       transcripts: objective.transcripts?.episodeCount ? `${objective.transcripts.episodeCount} observed episodes` : "unknown",
       captions: objective.transcripts?.captions ? "available in structured transcript data" : "unknown",
       transcriptCoverage: Number(objective.transcripts?.coverage) || 0,
+      transcriptFormats: mergeUniqueStrings(objective.transcripts?.formats || []),
+      transcriptLanguages: transcriptLanguages,
     },
     content: {},
     metadata: {
       objectiveSources: sourceReferences.map((source) => source.sourceUrl).filter(Boolean),
       sourceCategories: categories,
       sourceKeywords: mergeUniqueStrings(objective.keywords || []),
+      sourceTags: tags,
+      importOfficialSummary: trimText(objective.description, 4_000),
       socialUrls: mergeUniqueStrings(objective.socialUrls || []),
       funding: Array.isArray(objective.funding) ? objective.funding : [],
       schedule: objective.cadence || { label: "unknown" },
@@ -226,6 +266,10 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
         explicit: objective.explicit ?? "",
         license: objective.license || {},
         productionLocation: trimText(objective.location, 240),
+        country: trimText(objective.country, 80),
+        sourceFormat: trimText(objective.sourceFormat, 40),
+        contentType: trimText(objective.contentType, 120),
+        directoryMarkedDead: objective.dead === true,
       },
       import: {
         pipelineVersion: candidate.pipelineVersion || "2",
@@ -241,6 +285,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           ...(candidate.provenance?.fields || {}),
           releaseStatus: { confidence: state.confidence, method: state.method, sources: [] },
           completionStatus: { confidence: state.confidence, method: state.method, sources: [] },
+          ...(tagProvenance ? { tags: tagProvenance } : {}),
           ...(formats.length ? { formats: { confidence: candidate.provenance?.fields?.feedType?.confidence || 0.7, method: "deterministic-feed-type", sources: candidate.provenance?.fields?.feedType?.sources || [] } } : {}),
         },
         importedAt: new Date().toISOString(),
@@ -308,4 +353,5 @@ module.exports = {
   ensureUniqueShowId,
   evaluateReadiness,
   managedFingerprints,
+  sourceTags,
 };

@@ -9,6 +9,7 @@ import {
   MaintainerAuthError,
   patchMaintainerImportCandidateReview,
   publishMaintainerImportCandidate,
+  rerunAllMaintainerImportPreparation,
   retryMaintainerImportCandidate,
   reopenMaintainerImportCandidate,
   searchMaintainerImportSources,
@@ -38,12 +39,16 @@ import {
   renderImportSummaryCards,
 } from "../maintainer-import/render.js";
 import { bindDiscoveryWorkspace } from "../maintainer-import/discovery-workspace.js";
+import { bindImportCandidateActions } from "../maintainer-import/detail-actions.js";
 import {
   buildReviewPayload,
   collectSeedEntries,
   revealCompactDetail,
   waitForManagedImportRun,
 } from "../maintainer-import/workflow.js";
+import {
+  bindExternalVerificationWorkspace,
+} from "../maintainer-import/external-verification.js";
 import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
 
 export async function initializeMaintainerImportsPage() {
@@ -82,6 +87,7 @@ export async function initializeMaintainerImportsPage() {
     paginationSummary: document.getElementById("maintainerPaginationSummary"),
     previousPage: document.getElementById("maintainerPreviousPage"),
     nextPage: document.getElementById("maintainerNextPage"),
+    rerunAllPreparation: document.getElementById("maintainerRerunAllPreparation"),
     filterForm: document.getElementById("maintainerFilterForm"),
     refreshButton: document.getElementById("maintainerRefreshButton"),
     reportLink: document.getElementById("maintainerReportLink"),
@@ -173,6 +179,7 @@ export async function initializeMaintainerImportsPage() {
       form: elements.discoveryForm,
       workspace: elements.discoveryWorkspace,
       status: elements.discoveryStatus,
+      runAll: document.getElementById("maintainerDiscoveryRunAll"),
     },
     getReviewer: () => state.storedReviewer,
     runAction: runMaintainerAction,
@@ -202,6 +209,8 @@ export async function initializeMaintainerImportsPage() {
       elements.detailMeta.textContent = `${formatStatus(candidate.status)} · ${formatScopeStatus(candidate.scopeStatus)}.`;
 
       const reviewForm = document.getElementById("maintainerImportReviewForm");
+      bindExternalVerificationWorkspace({ container: elements.detail, reviewForm, runAction: runMaintainerAction });
+
       reviewForm?.addEventListener("submit", async (event) => {
         event.preventDefault();
         const submitButton = event.submitter instanceof HTMLElement ? event.submitter : reviewForm.querySelector('button[type="submit"]');
@@ -209,7 +218,7 @@ export async function initializeMaintainerImportsPage() {
           control: submitButton,
           region: reviewForm,
           action: async () => {
-            const payload = buildReviewPayload(reviewForm);
+            const payload = buildReviewPayload(reviewForm, submitButton?.dataset.importSaveDetails === "true");
             setStoredReviewer(payload.reviewedBy);
             state.storedReviewer = payload.reviewedBy;
             elements.detailMeta.textContent = "Saving import review state…";
@@ -228,88 +237,31 @@ export async function initializeMaintainerImportsPage() {
         });
       });
 
-      elements.detail.querySelectorAll("[data-import-action]").forEach((button) => {
-        button.addEventListener("click", async () => {
-        if (!(button instanceof HTMLButtonElement)) {
-          return;
-        }
-
-        const action = button.dataset.importAction || "";
-        const confirmationCopy = {
-          publish: "Publish this prepared catalog record?",
-          reject: "Reject this import candidate?",
-          duplicate: "Mark this import candidate as a duplicate?",
-        }[action];
-        if (confirmationCopy && !window.confirm(confirmationCopy)) return;
-        const payload = reviewForm ? buildReviewPayload(reviewForm) : { reviewedBy: state.storedReviewer };
-        setStoredReviewer(payload.reviewedBy || "");
-        state.storedReviewer = payload.reviewedBy || state.storedReviewer;
-        elements.detailMeta.textContent = `${action === "hydrate" ? "Hydrating" : "Processing"} import candidate…`;
-
-          await runMaintainerAction({
-            control: button,
-            region: elements.detail,
-            action: async () => {
-              try {
-                let actionResult = null;
-                if (action === "hydrate") {
-                  actionResult = await hydrateMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
-                } else if (action === "draft") {
-                  actionResult = await draftMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
-                } else if (action === "retry") {
-                  actionResult = await retryMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
-                } else if (action === "reopen") {
-                  actionResult = await reopenMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
-                } else if (action === "publish") {
-                  await publishMaintainerImportCandidate(selectedId, { reviewedBy: payload.reviewedBy });
-                } else if (action === "reject") {
-                  await patchMaintainerImportCandidateReview(selectedId, { ...payload, status: "rejected" });
-                } else if (action === "duplicate") {
-                  await patchMaintainerImportCandidateReview(selectedId, { ...payload, status: "duplicate" });
-                }
-
-                if (actionResult?.runId) await waitForImportRun(actionResult.runId);
-                await loadQueue(true);
-              } catch (error) {
-                if (isAbortError(error)) return;
-                if (error instanceof MaintainerAuthError) {
-                  showAuthentication(error);
-                  return;
-                }
-                elements.detailMeta.textContent = error instanceof Error ? error.message : "Import action failed.";
-              }
-            },
-          });
-        });
-      });
-
-      elements.detail.querySelectorAll("[data-import-evidence-id]").forEach((button) => {
-        button.addEventListener("click", async () => {
-        if (!(button instanceof HTMLButtonElement)) return;
-        elements.detailMeta.textContent = "Selecting evidence and re-running preparation…";
-          await runMaintainerAction({
-            control: button,
-            region: elements.detail,
-            action: async () => {
-              try {
-                const evidenceResult = await selectMaintainerImportEvidence(selectedId, {
-                  evidenceId: Number(button.dataset.importEvidenceId),
-                  fieldName: button.dataset.importEvidenceField,
-                  reviewedBy: state.storedReviewer,
-                });
-                await waitForImportRun(evidenceResult.runId);
-                await loadQueue(true);
-              } catch (error) {
-                if (isAbortError(error)) return;
-                if (error instanceof MaintainerAuthError) {
-                  showAuthentication(error);
-                  return;
-                }
-                elements.detailMeta.textContent = error instanceof Error ? error.message : "Failed to select field evidence.";
-              }
-            },
-          });
-        });
+      bindImportCandidateActions({
+        container: elements.detail,
+        candidateId: selectedId,
+        reviewForm,
+        getReviewer: () => state.storedReviewer,
+        setReviewer: (reviewedBy) => {
+          setStoredReviewer(reviewedBy);
+          state.storedReviewer = reviewedBy || state.storedReviewer;
+        },
+        setStatus: (message) => { elements.detailMeta.textContent = message; },
+        runAction: runMaintainerAction,
+        waitForRun: waitForImportRun,
+        reloadQueue: () => loadQueue(true),
+        isAbortError,
+        isAuthError: (error) => error instanceof MaintainerAuthError,
+        showAuthentication,
+        api: {
+          hydrate: hydrateMaintainerImportCandidate,
+          draft: draftMaintainerImportCandidate,
+          retry: retryMaintainerImportCandidate,
+          reopen: reopenMaintainerImportCandidate,
+          publish: publishMaintainerImportCandidate,
+          review: patchMaintainerImportCandidateReview,
+          selectEvidence: selectMaintainerImportEvidence,
+        },
       });
 
       if (focusDetail) revealCompactDetail(elements);
@@ -411,6 +363,39 @@ export async function initializeMaintainerImportsPage() {
   });
   elements.refreshButton?.addEventListener("click", async (event) => {
     await runMaintainerAction({ control: event.currentTarget, action: async () => loadQueue(true) });
+  });
+  elements.rerunAllPreparation?.addEventListener("click", async (event) => {
+    if (!window.confirm("Re-run preparation for every ready, needs-review, and failed candidate? Candidates already queued or processing will continue their current preparation.")) {
+      return;
+    }
+    await runMaintainerAction({
+      control: event.currentTarget,
+      region: elements.listCard,
+      action: async () => {
+        try {
+          elements.listStatus.textContent = "Queueing preparation for all eligible candidates…";
+          const result = await rerunAllMaintainerImportPreparation({ reviewedBy: state.storedReviewer });
+          const run = await waitForManagedImportRun({
+            runId: result.runId,
+            state,
+            fetchRun: fetchMaintainerImportRun,
+            setStatus: (message) => { elements.listStatus.textContent = message; },
+          });
+          if (!run) {
+            elements.listStatus.textContent = "Batch preparation is still running. Refresh the queue to check its latest progress.";
+            return;
+          }
+          await loadQueue(true);
+        } catch (error) {
+          if (isAbortError(error)) return;
+          if (error instanceof MaintainerAuthError) {
+            showAuthentication(error);
+            return;
+          }
+          elements.listStatus.textContent = error instanceof Error ? error.message : "Failed to re-run preparation for the queue.";
+        }
+      },
+    });
   });
   elements.previousPage?.addEventListener("click", async (event) => {
     if (state.filters.page <= 1) {

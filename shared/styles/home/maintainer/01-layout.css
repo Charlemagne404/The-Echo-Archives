@@ -237,6 +237,14 @@
   justify-content: flex-end;
 }
 
+.maintainer-discovery-feedback {
+  margin: 0.8rem 0 0;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(228, 86, 52, 0.38);
+  border-radius: 0.5rem;
+  background: rgba(228, 86, 52, 0.08);
+}
+
 .maintainer-summary-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }

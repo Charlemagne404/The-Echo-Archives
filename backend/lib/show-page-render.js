@@ -501,6 +501,17 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
     .filter((key) => links[key] && links[key] !== primaryLink?.href)
     .map((key) => `<a class="detail-link-chip" href="${escapeHtml(links[key])}" target="_blank" rel="noreferrer">${linkLabels[key]}</a>`)
     .join("");
+  const nextRelease = show.releaseDates?.next ? `<div class="detail-fact-row"><dt>Next release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates.next))}</dd></div>` : "";
+  const cadence = String(show.metadata?.schedule?.label || "").trim();
+  const cadenceRow = cadence && cadence !== "unknown" ? `<div class="detail-fact-row"><dt>Release cadence</dt><dd class="detail-fact-value">${escapeHtml(toDisplayTag(cadence))}</dd></div>` : "";
+  const transcriptCount = Number(show.availability?.transcriptCoverage || 0);
+  const transcriptDetails = [
+    Array.isArray(show.availability?.transcriptLanguages) ? show.availability.transcriptLanguages.join(" • ") : "",
+    Array.isArray(show.availability?.transcriptFormats) ? show.availability.transcriptFormats.join(" • ") : "",
+  ].filter(Boolean).join(" • ");
+  const transcriptRow = show.availability?.transcripts && show.availability.transcripts !== "unknown"
+    ? `<div class="detail-fact-row is-wide"><dt>Transcripts</dt><dd class="detail-fact-value">${escapeHtml(show.availability.transcripts)}${transcriptDetails ? `<small> · ${escapeHtml(transcriptDetails)}</small>` : ""}${transcriptCount > 0 ? `<small> · ${escapeHtml(`${Math.round(transcriptCount * 100)}% observed coverage`)}</small>` : ""}</dd></div>`
+    : "";
   return `
     <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links">
       <div class="detail-side-card-header"><h2>Facts &amp; links</h2></div>
@@ -512,6 +523,9 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
         <div class="detail-fact-row"><dt>Seasons / episodes</dt><dd class="detail-fact-value">${escapeHtml(seasonsEpisodes)}</dd></div>
         <div class="detail-fact-row"><dt>First release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates?.first))}</dd></div>
         <div class="detail-fact-row"><dt>Latest release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates?.latest))}</dd></div>
+        ${nextRelease}
+        ${cadenceRow}
+        ${transcriptRow}
         ${show.length?.label ? `<div class="detail-fact-row is-wide"><dt>Runtime note</dt><dd class="detail-fact-value">${escapeHtml(show.length.label)}</dd></div>` : ""}
       </dl>
     </section>
