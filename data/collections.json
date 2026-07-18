@@ -214,6 +214,7 @@
       "tower-4",
       "station-151",
       "impact-winter",
+      "copperheart-a-riggstories-audio-drama",
       "how-i-died",
       "the-phenomenon"
     ],
@@ -222,13 +223,14 @@
       "tower-4": "Isolation and surveillance make the quiet stretches feel dangerous.",
       "station-151": "A strange station premise adds cold absurdity to the pressure.",
       "impact-winter": "Endless winter and survival stakes bring a bigger cinematic chill.",
+      "copperheart-a-riggstories-audio-drama": "A sealed reconstruction bunker turns nuclear winter into sustained institutional pressure.",
       "how-i-died": "Supernatural investigation keeps the horror direct and readable.",
       "the-phenomenon": "Bleak large-scale tension makes the world itself feel hostile."
     },
     "featured": true,
     "order": 50,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-23"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "time-bent-and-weird",
@@ -414,7 +416,8 @@
       "tumanbay",
       "janus-descending",
       "spines-podcast",
-      "moonbase-theta-out"
+      "moonbase-theta-out",
+      "flash-gordon-and-buck-rogers-radio-adventurers"
     ],
     "showReasons": {
       "solar": "A contained survival-thriller route with a known runway.",
@@ -431,12 +434,13 @@
       "tumanbay": "A full epic run with an actual end state.",
       "janus-descending": "A complete horror-sci-fi listen with a deliberate structure.",
       "spines-podcast": "A finished horror serial that can be recommended without caveats about continuation.",
-      "moonbase-theta-out": "A complete emotional space drama for listeners who want closure."
+      "moonbase-theta-out": "A complete emotional space drama for listeners who want closure.",
+      "flash-gordon-and-buck-rogers-radio-adventurers": "A completed limited feed of surviving vintage serial adventures with a defined endpoint."
     },
     "featured": true,
     "order": 90,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "quick-first-listens",
@@ -503,7 +507,6 @@
       "midnight-burger",
       "desert-skies",
       "story",
-      "the-waystation",
       "eos-10",
       "wolf-359",
       "unwell",
@@ -518,7 +521,6 @@
       "midnight-burger": "The archive's strongest warm-cosmic weirdness lane.",
       "desert-skies": "Gentle surrealism keeps the route soft around the edges.",
       "story": "Hopeful drama gives the collection a grounded entry point.",
-      "the-waystation": "Hopeful sci-fi exploration adds curiosity without harshness.",
       "eos-10": "Comedy and character friction keep the sci-fi light.",
       "wolf-359": "A funny space-station opener that can deepen over time.",
       "unwell": "Midwestern gothic warmth makes the eerie side feel lived-in instead of punishing.",
@@ -532,7 +534,7 @@
     "featured": false,
     "order": 110,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "survival-pressure",
@@ -559,6 +561,7 @@
       "the-phenomenon",
       "the-white-vault",
       "derelict",
+      "copperheart-a-riggstories-audio-drama",
       "windfall"
     ],
     "showReasons": {
@@ -568,12 +571,13 @@
       "the-phenomenon": "Large-scale threat gives the collection a bleak public edge.",
       "the-white-vault": "Environmental survival turns isolation into the threat.",
       "derelict": "Industrial sci-fi tension adds a high-pressure mystery variant.",
+      "copperheart-a-riggstories-audio-drama": "A large bunker population and an unexpected visitor keep the reconstruction plan under pressure.",
       "windfall": "Conspiracy pressure and collapsing systems keep the route urgent even when the threat is more political than monstrous."
     },
     "featured": false,
     "order": 120,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "worldbuilding-deep-dives",
@@ -604,25 +608,27 @@
       "marsfall",
       "the-strange-case-of-starship-iris",
       "tumanbay",
-      "the-once-and-future-nerd"
+      "the-once-and-future-nerd",
+      "flash-gordon-and-buck-rogers-radio-adventurers"
     ],
     "showReasons": {
       "midnight-burger": "Its cosmic premise keeps opening into more places and people.",
       "vast-horizon": "A large sci-fi setting gives the route scale quickly.",
       "ars-paradoxica": "Its time-science structure builds a dense alternate-history frame.",
       "impact-winter": "A cinematic survival world with enough lore to keep expanding.",
-      "the-waystation": "Exploratory sci-fi gives the collection a hopeful angle.",
+      "the-waystation": "A wormhole waystation and the investigation of its destruction give the route a compact cosmic-horror setting.",
       "were-alive": "A long survival saga with room for factions, geography, and consequence.",
       "midst": "A stranger, more formally ambitious worldbuilding route for listeners who want the cosmos to feel authored all the way down.",
       "marsfall": "The colony politics and systems pressure give the collection another lived-in frontier world.",
       "the-strange-case-of-starship-iris": "Resistance politics and ensemble space-opera sprawl deepen the route’s social worldbuilding.",
       "tumanbay": "A city-scale political world that keeps expanding through pressure and perspective.",
-      "the-once-and-future-nerd": "Portal fantasy that earns its scale through social and political detail."
+      "the-once-and-future-nerd": "Portal fantasy that earns its scale through social and political detail.",
+      "flash-gordon-and-buck-rogers-radio-adventurers": "The vintage serials offer a direct look at the planetary adventure worlds that shaped later space opera."
     },
     "featured": false,
     "order": 130,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "small-town-strange-signals",
@@ -748,11 +754,10 @@
       "desert-skies",
       "wolf-359",
       "midst",
-      "the-waystation"
+      "the-bright-sessions"
     ],
     "showIds": [
       "desert-skies",
-      "the-waystation",
       "wolf-359",
       "the-bright-sessions",
       "midst",
@@ -763,7 +768,6 @@
     ],
     "showReasons": {
       "desert-skies": "A warm, strange doorway for listeners who liked the comfort side.",
-      "the-waystation": "Hopeful sci-fi exploration keeps the mood generous and curious.",
       "wolf-359": "Station comedy that grows into deeper character stakes.",
       "the-bright-sessions": "A character-first sci-fi branch if the emotional connection mattered as much as the weirdness.",
       "midst": "For the cosmic, reality-sliding appetite once the diner hop feels too grounded.",
@@ -775,7 +779,7 @@
     "featured": false,
     "order": 140,
     "createdAt": "2026-06-23",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "shows-like-derelict",
@@ -1218,7 +1222,7 @@
       "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
       "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
       "the-program-audio-series": "A colder, more systems-minded branch for listeners who want the worldview to stay central.",
-      "the-waystation": "An exploratory route if the strange setting and sense of scale mattered more than the chaos.",
+      "the-waystation": "A darker, more compact route if the strange setting and institutional mystery mattered more than the chaos.",
       "case-63": "A tighter paradox-thriller branch when you want the brain-bending hook in a cleaner package.",
       "red-valley": "Keeps the controlled weirdness and institutional mystery alive without chasing the same frontier sprawl."
     },

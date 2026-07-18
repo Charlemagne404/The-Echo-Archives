@@ -1,8 +1,14 @@
 {
   "id": "we-fix-space-junk",
   "title": "We Fix Space Junk",
-  "subtitle": "",
-  "description": "A queer space-road-trip comedy about two repair workers trapped in a corporate nightmare that somehow still leaves room for affection, exhaustion, and good jokes.",
+  "subtitle": "Two women cross a corporate dystopia doing odd jobs on the fringes of the law.",
+  "description": "'We Fix Space Junk' follows seasoned smuggler Kilner and reluctant fugitive Samantha as they travel the galaxy, dodging bullets and meeting strange and wonderful beings as they carry out odd jobs on the fringes of the law. A female-led sci-fi comedy sitcom set in the far future, in a high-tech, dystopian world, We Fix Space Junk draws on the sci-fi of the past, following in the footsteps of Harry Harrison and of Douglas Adams' Hitchhiker's Guide to the Galaxy. Equal parts love-letter to sci-fi and satire of the present-day, Space Junk is lovingly produced by Beth Crane and Hedley Knights of Battle Bird Productions. To support the show visit patreon.com/BattleBirdProd or visit Battlebird.productions",
+  "officialDescription": {
+    "text": "'We Fix Space Junk' follows seasoned smuggler Kilner and reluctant fugitive Samantha as they travel the galaxy, dodging bullets and meeting strange and wonderful beings as they carry out odd jobs on the fringes of the law. A female-led sci-fi comedy sitcom set in the far future, in a high-tech, dystopian world, We Fix Space Junk draws on the sci-fi of the past, following in the footsteps of Harry Harrison and of Douglas Adams' Hitchhiker's Guide to the Galaxy. Equal parts love-letter to sci-fi and satire of the present-day, Space Junk is lovingly produced by Beth Crane and Hedley Knights of Battle Bird Productions. To support the show visit patreon.com/BattleBirdProd or visit Battlebird.productions",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/wefixspacejunk",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/we-fix-space-junk.jpg",
   "coverAlt": "We Fix Space Junk cover art",
   "status": "published",
@@ -30,26 +36,31 @@
   ],
   "tags": [
     "Sci-fi",
-    "Road Trip",
-    "Corporate Dystopia",
+    "Road trip",
+    "Corporate dystopia",
     "Queer"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "corporate exploitation",
+    "friendship",
+    "survival"
+  ],
+  "contentNotes": [
+    "science-fiction violence and dystopian themes"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "7 seasons • 82 episodes • ~15 min episodes",
+    "label": "7 seasons / 82 public feed entries, including story episodes and bonus material",
     "seasons": 7,
-    "episodes": 82,
     "avgEpisodeMinutes": 15,
-    "totalHours": 20.5
+    "feedEntries": 82
   },
   "releaseDates": {
-    "first": "2021-05-16",
+    "first": "2018-02-14",
     "latest": "2026-06-29"
   },
   "ratings": {},
@@ -84,13 +95,22 @@
     "network": "Battle Bird Productions"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://feeds.megaphone.fm/wefixspacejunk; https://podcasts.apple.com/us/podcast/we-fix-space-junk/id1360406263?uo=4; https://battlebird.productions/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available from Battle Bird Productions",
+    "captions": "not applicable",
+    "regionNotes": "The show is active and available through the official feed and major platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a far-future corporate dystopia across the galaxy",
+    "pov": "Kilner-and-Samantha-led full-cast ensemble",
+    "intensity": "medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/wefixspacejunk",
@@ -98,7 +118,7 @@
       "https://battlebird.productions/"
     ],
     "importCandidateId": "24078cac-07e5-4e06-a1b7-b2dc0261daad",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1360406263"
     },
@@ -110,14 +130,19 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:25.167Z",
-    "importOfficialSummary": "'We Fix Space Junk' follows seasoned smuggler Kilner and reluctant fugitive Samantha as they travel the galaxy, dodging bullets and meeting strange and wonderful beings as they carry out odd jobs on the fringes of the law. A female-led sci-fi comedy sitcom set in the far future, in a high-tech, dystopian world, We Fix Space Junk draws on the sci-fi of the past, following in the footsteps of Harry Harrison and of Douglas Adams' Hitchhiker's Guide to the Galaxy. Equal parts love-letter to sci-fi and satire of the present-day, Space Junk is lovingly produced by Beth Crane and Hedley Knights of Battle Bird Productions. To support the show visit patreon.com/BattleBirdProd or visit Battlebird.productions"
+    "importOfficialSummary": "'We Fix Space Junk' follows seasoned smuggler Kilner and reluctant fugitive Samantha as they travel the galaxy, dodging bullets and meeting strange and wonderful beings as they carry out odd jobs on the fringes of the law. A female-led sci-fi comedy sitcom set in the far future, in a high-tech, dystopian world, We Fix Space Junk draws on the sci-fi of the past, following in the footsteps of Harry Harrison and of Douglas Adams' Hitchhiker's Guide to the Galaxy. Equal parts love-letter to sci-fi and satire of the present-day, Space Junk is lovingly produced by Beth Crane and Hedley Knights of Battle Bird Productions. To support the show visit patreon.com/BattleBirdProd or visit Battlebird.productions",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "battle-bird-productions",
   "networkId": "battle-bird-productions",
-  "updatedAt": "2026-07-09",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Beth Crane",
+    "Hedley Knights"
+  ],
   "popularity": {}
 }

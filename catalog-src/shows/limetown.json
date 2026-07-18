@@ -2,7 +2,13 @@
   "id": "limetown",
   "title": "Limetown",
   "subtitle": "What happened to the people of Limetown?",
-  "description": "A faux-investigative mystery that uses public-radio reporting to pull listeners into a disappearance case that keeps widening into stranger and darker territory.",
+  "description": "Ten years ago, over three hundred men, women and children disappeared from a small town in Tennessee, never to be heard from again. In this podcast, American Public Radio reporter Lia Haddock asks the question once more, \"What happened to the people of Limetown?\" Limetown is produced by Two-Up, the producers of 36 Questions, The Wilderness and Shipworm.",
+  "officialDescription": {
+    "text": "Ten years ago, over three hundred men, women and children disappeared from a small town in Tennessee, never to be heard from again. In this podcast, American Public Radio reporter Lia Haddock asks the question once more, \"What happened to the people of Limetown?\" Limetown is produced by Two-Up, the producers of 36 Questions, The Wilderness and Shipworm.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/PPY5621646923",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/limetown.jpg",
   "coverAlt": "Limetown cover art",
   "status": "published",
@@ -11,7 +17,7 @@
   "completionStatus": "finished",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/limetown/id1024247322?uo=4",
-    "website": "https://twoupproductions.com/limetown/tv-series",
+    "website": "https://twoupproductions.com/limetown/podcast",
     "rss": "https://feeds.megaphone.fm/PPY5621646923"
   },
   "genres": [
@@ -29,24 +35,31 @@
     "serialized"
   ],
   "tags": [
-    "Mystery",
+    "Missing town",
     "Conspiracy",
-    "Investigative",
-    "Documentary Framing"
+    "Investigation",
+    "Documentary framing"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "disappearance",
+    "institutional conspiracy",
+    "memory"
+  ],
+  "contentNotes": [
+    "death, threat, and psychological distress"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons • 22 episodes • ~22 min episodes",
+    "label": "2 seasons / 12 numbered story episodes; 22 public feed entries",
     "seasons": 2,
-    "episodes": 22,
+    "episodes": 12,
     "avgEpisodeMinutes": 22,
-    "totalHours": 8.1
+    "totalHours": 4.4,
+    "feedEntries": 22
   },
   "releaseDates": {
     "first": "2015-07-21",
@@ -76,28 +89,37 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://twoupproductions.com/limetown/tv-series"
+    "website": "https://twoupproductions.com/limetown/podcast"
   },
   "credits": {
     "creatorName": "Two-Up",
     "network": "Two-Up Productions"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
-    "source": "https://feeds.megaphone.fm/PPY5621646923; https://podcasts.apple.com/us/podcast/limetown/id1024247322?uo=4; https://twoupproductions.com/limetown/tv-series",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://feeds.megaphone.fm/PPY5621646923; https://podcasts.apple.com/us/podcast/limetown/id1024247322; https://twoupproductions.com/limetown/podcast",
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Two completed podcast seasons are available through major platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the aftermath of a Tennessee research-town disappearance",
+    "pov": "investigative reporter Lia Haddock",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/PPY5621646923",
       "https://podcasts.apple.com/us/podcast/limetown/id1024247322?uo=4",
-      "https://twoupproductions.com/limetown/tv-series"
+      "https://twoupproductions.com/limetown/podcast"
     ],
     "importCandidateId": "2e468802-871d-4248-b580-e48abbdcaec1",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1024247322"
     },
@@ -109,14 +131,18 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:11.618Z",
-    "importOfficialSummary": "Ten years ago, over three hundred men, women and children disappeared from a small town in Tennessee, never to be heard from again. In this podcast, American Public Radio reporter Lia Haddock asks the question once more, \"What happened to the people of Limetown?\" Limetown is produced by Two-Up, the producers of 36 Questions, The Wilderness and Shipworm."
+    "importOfficialSummary": "Ten years ago, over three hundred men, women and children disappeared from a small town in Tennessee, never to be heard from again. In this podcast, American Public Radio reporter Lia Haddock asks the question once more, \"What happened to the people of Limetown?\" Limetown is produced by Two-Up, the producers of 36 Questions, The Wilderness and Shipworm.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "two-up",
   "networkId": "two-up-productions",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Two-Up"
+  ],
   "popularity": {}
 }

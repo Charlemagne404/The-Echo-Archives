@@ -2,7 +2,13 @@
   "id": "homecoming",
   "title": "Homecoming",
   "subtitle": "A psychological thriller built from calls, overheard fragments, and deliberate unease.",
-  "description": "A suspense drama about an experimental facility, institutional manipulation, and the cost of trying to piece together a story that does not want to be told cleanly.",
+  "description": "Now a Prime Original TV series. From Spotify Studios, Homecoming centers on a caseworker at an experimental facility, her ambitious supervisor, and a soldier eager to rejoin civilian life — presented in an enigmatic collage of telephone calls, therapy sessions, and overheard conversations. Starring Catherine Keener, Oscar Isaac, David Schwimmer, David Cross, Amy Sedaris, Michael Cera, Mercedes Ruehl, Alia Shawkat, Chris Gethard, and Spike Jonze.",
+  "officialDescription": {
+    "text": "Now a Prime Original TV series. From Spotify Studios, Homecoming centers on a caseworker at an experimental facility, her ambitious supervisor, and a soldier eager to rejoin civilian life — presented in an enigmatic collage of telephone calls, therapy sessions, and overheard conversations. Starring Catherine Keener, Oscar Isaac, David Schwimmer, David Cross, Amy Sedaris, Michael Cera, Mercedes Ruehl, Alia Shawkat, Chris Gethard, and Spike Jonze.",
+    "sourceLabel": "Apple Podcasts official listing",
+    "sourceUrl": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/homecoming.jpg",
   "coverAlt": "Homecoming cover art",
   "status": "published",
@@ -30,8 +36,9 @@
     "serialized"
   ],
   "tags": [
-    "Thriller",
-    "Mystery",
+    "Psychological thriller",
+    "Military",
+    "Experimental treatment",
     "Conspiracy"
   ],
   "aliases": [],
@@ -93,7 +100,7 @@
     "Amy Sedaris"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "similarReasons": {
     "case-63": "A compact prestige-thriller branch if you want another slickly delivered mystery with speculative edges.",
     "the-deca-tapes": "Keeps the engineered puzzle-box feel alive while changing the emotional texture.",
@@ -103,14 +110,25 @@
     "creatorName": "Eli Horowitz and Micah Bloomberg",
     "productionCompany": "Gimlet"
   },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a secretive reintegration treatment program",
+    "pov": "calls, recordings, and overheard conversations",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
       "https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
       "https://gimletmedia.com/"
     ],
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   }
 }

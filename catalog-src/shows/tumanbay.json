@@ -1,8 +1,14 @@
 {
   "id": "tumanbay",
   "title": "Tumanbay",
-  "subtitle": "A fiction podcast on an epic scale set in the most powerful city on earth... Tumanbay.",
-  "description": "A sprawling palace-intrigue drama built around power struggles, espionage, shifting loyalties, and the feeling that every victory is buying a larger disaster.",
+  "subtitle": "Imperial power, rebellion, and survival in a city built on political danger.",
+  "description": "A vast empire threatened by rebellion. A fiction podcast on an epic scale set in the most powerful city on earth... Visit www.tumanbay.com to see full credits and download scripts. Can't get enough of the Tumanbay universe? The first Tumanbay novel, \"The City of a Thousand Faces\" by Walker Dryden, is now available.",
+  "officialDescription": {
+    "text": "A vast empire threatened by rebellion. A fiction podcast on an epic scale set in the most powerful city on earth... Visit www.tumanbay.com to see full credits and download scripts. Can't get enough of the Tumanbay universe? The first Tumanbay novel, \"The City of a Thousand Faces\" by Walker Dryden, is now available.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rss",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/tumanbay.jpg",
   "coverAlt": "Tumanbay cover art",
   "status": "published",
@@ -11,7 +17,7 @@
   "completionStatus": "finished",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/tumanbay/id1278345733?uo=4",
-    "website": "https://www.piercingsbytim.co.uk/blog/lumps-and-bumps",
+    "website": "https://tumanbay.co.uk/",
     "rss": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rss"
   },
   "genres": [
@@ -30,27 +36,35 @@
   ],
   "tags": [
     "Historical",
-    "Political Intrigue",
+    "Political intrigue",
     "War",
     "Epic"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "power",
+    "rebellion",
+    "political survival"
+  ],
+  "contentNotes": [
+    "war and political violence"
+  ],
   "languages": [
     "en-us"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "4 seasons • 68 episodes • ~32 min episodes",
+    "label": "4 seasons / 34 story episodes; 68 current feed entries including trailers and promotions",
     "seasons": 4,
-    "episodes": 68,
-    "avgEpisodeMinutes": 32,
-    "totalHours": 36.3
+    "episodes": 34,
+    "avgEpisodeMinutes": 45,
+    "totalHours": 25.5,
+    "feedEntries": 68
   },
   "releaseDates": {
-    "first": "2020-03-13",
-    "latest": "2025-07-23"
+    "first": "2015-12-02",
+    "latest": "2020-07-13",
+    "note": "Dates cover the four-season drama. Later feed activity promotes other productions or the Tumanbay novel."
   },
   "ratings": {},
   "facts": {},
@@ -65,7 +79,7 @@
   ],
   "similarReasons": {
     "ars-paradoxica": "Both trust listeners to keep up with larger systems and power struggles without flattening the human stakes.",
-    "the-waystation": "A good next route if the listener wants worldbuilding depth and people trapped inside inherited structures.",
+    "the-waystation": "A smaller cosmic-horror route for listeners who still want people trapped inside an institution larger than themselves.",
     "midst": "Useful when the appeal is less plot shape and more the feeling of a fully inhabited, pressure-rich world."
   },
   "archiveTake": "A strong recommendation when you want scale, political pressure, and a world that feels bigger than any single character.",
@@ -76,28 +90,41 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://www.piercingsbytim.co.uk/blog/lumps-and-bumps"
+    "website": "https://tumanbay.co.uk/"
   },
   "credits": {
-    "creatorName": "iHeartPodcasts",
-    "network": "LIATOGEL"
+    "creatorName": [
+      "John Scott Dryden",
+      "Mike Walker"
+    ],
+    "productionCompany": "Goldhawk Productions",
+    "network": "iHeartPodcasts"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
-    "source": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rs; https://podcasts.apple.com/us/podcast/tumanbay/id1278345733?uo=4; https://www.piercingsbytim.co.uk/blog/lumps-and-bumps",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://tumanbay.co.uk/; https://podcasts.apple.com/us/podcast/tumanbay/id1278345733; https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rss",
+    "note": "Official site, Apple listing, and publisher feed verify the four-season drama, creators, production company, description, and current listening links."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available from the official site",
+    "captions": "not applicable",
+    "regionNotes": "Available through the publisher feed and major podcast platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the fictional imperial city of Tumanbay",
+    "pov": "large political ensemble",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
-      "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rs",
-      "https://podcasts.apple.com/us/podcast/tumanbay/id1278345733?uo=4",
-      "https://www.piercingsbytim.co.uk/blog/lumps-and-bumps"
+      "https://tumanbay.co.uk/",
+      "https://podcasts.apple.com/us/podcast/tumanbay/id1278345733",
+      "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/80515a5f-ce9a-498e-bc9b-ae2801568b2f/c31e105f-1a8a-4253-a20b-ae2801568b3d/podcast.rss"
     ],
     "importCandidateId": "d56dc152-554b-4ad2-b204-7a16396a366f",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1278345733"
     },
@@ -109,14 +136,21 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:16.208Z",
-    "importOfficialSummary": "A vast empire threatened by rebellion. A fiction podcast on an epic scale set in the most powerful city on earth... Visit www.tumanbay.com to see full credits and download scripts. Can't get enough of the Tumanbay universe? The first Tumanbay novel, \"The City of a Thousand Faces\" by Walker Dryden, is now available."
+    "importOfficialSummary": "A vast empire threatened by rebellion. A fiction podcast on an epic scale set in the most powerful city on earth... Visit www.tumanbay.com to see full credits and download scripts. Can't get enough of the Tumanbay universe? The first Tumanbay novel, \"The City of a Thousand Faces\" by Walker Dryden, is now available.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "objectiveNote": "Official site and platform listing verify 34 story episodes across four seasons. The larger feed total includes trailers and promotions and is recorded separately.",
+    "researchGaps": [],
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
-  "creatorId": "iheartpodcasts",
-  "networkId": "liatogel",
-  "updatedAt": "2026-07-10",
+  "creatorId": "john-scott-dryden-and-mike-walker",
+  "networkId": "iheartpodcasts",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "John Scott Dryden",
+    "Mike Walker"
+  ],
   "popularity": {}
 }

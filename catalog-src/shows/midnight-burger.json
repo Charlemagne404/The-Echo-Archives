@@ -2,7 +2,13 @@
   "id": "midnight-burger",
   "title": "Midnight Burger",
   "subtitle": "A warm, idea-rich sci-fi comedy with real range.",
-  "description": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
+  "description": "When Gloria took a waitressing job at a diner outside of Phoenix, she didn't realize she was now an employee of Midnight Burger, a time-traveling, dimension-spanning diner. Every day Midnight Burger appears somewhere new in the cosmos along with it's staff: a galactic drifter, a rogue theoretical physicist, a sentient old-timey radio, and some guy named Caspar. No one knows who built Midnight Burger or how it works, but when it appears there's always someone around who could really use a cup of coffee. \"When the waves of the universe crash unrelentingly, when the stars seem indifferent to your plight, suddenly there is a diner.\" We open at 6.",
+  "officialDescription": {
+    "text": "When Gloria took a waitressing job at a diner outside of Phoenix, she didn't realize she was now an employee of Midnight Burger, a time-traveling, dimension-spanning diner. Every day Midnight Burger appears somewhere new in the cosmos along with it's staff: a galactic drifter, a rogue theoretical physicist, a sentient old-timey radio, and some guy named Caspar. No one knows who built Midnight Burger or how it works, but when it appears there's always someone around who could really use a cup of coffee. \"When the waves of the universe crash unrelentingly, when the stars seem indifferent to your plight, suddenly there is a diner.\" We open at 6.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.art19.com/midnight-burger",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/midnight burger/MidnightBurger.jpeg",
   "coverAlt": "Midnight Burger cover art",
   "status": "published",
@@ -18,7 +24,7 @@
   "genres": [
     "sci-fi",
     "comedy",
-    "science"
+    "drama"
   ],
   "tones": [
     "warm",
@@ -30,8 +36,9 @@
     "serialized"
   ],
   "tags": [
-    "Sci-fi",
-    "Science",
+    "Time travel",
+    "Diner",
+    "Found family",
     "Comedy"
   ],
   "length": {
@@ -74,7 +81,7 @@
     "hex": "#b26745",
     "rgb": "178, 103, 69"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2020-10-27",
     "latest": "2026-05-26",
@@ -116,10 +123,11 @@
     "objectiveSources": [
       "https://www.weopenatsix.com/",
       "https://www.weopenatsix.com/episodes/",
-      "https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218"
+      "https://podcasts.apple.com/us/podcast/midnight-burger/id1537653218",
+      "https://rss.art19.com/midnight-burger"
     ],
     "objectiveNote": "Official site verifies premise, platform links, RSS, Business Goose Media, art credit, 105 total episode listings, season counts, and latest listed episode date.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/midnight-burger.json",
     "researchGaps": [
       "exact total runtime from RSS",
@@ -130,7 +138,7 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified",
@@ -165,7 +173,7 @@
   "similarReasons": {
     "desert-skies": "For listeners who want the gentle, off-kilter comfort side of the recommendation.",
     "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",
-    "the-waystation": "Hopeful speculative storytelling with a similarly generous curiosity about people and place.",
+    "the-waystation": "A darker station-to-station branch that keeps the cosmic setting but swaps warmth for recovered-recording mystery.",
     "midst": "A stranger, more reality-bending branch for listeners chasing the cosmic side of the appeal."
   }
 }

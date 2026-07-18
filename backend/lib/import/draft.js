@@ -154,7 +154,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const state = releaseState(objective);
   const categories = mergeUniqueStrings(objective.categories || []);
   const genres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
-  const tags = sourceTags(objective);
+  const tags = mergeUniqueStrings(objective.manualTags?.length ? objective.manualTags : sourceTags(objective));
   const tagProvenance = sourceTagProvenance(candidate, tags);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));

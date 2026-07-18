@@ -2,7 +2,13 @@
   "id": "wooden-overcoats",
   "title": "Wooden Overcoats",
   "subtitle": "A funeral-home sitcom full of vanity, sabotage, and immaculate comic timing.",
-  "description": "A British comedy fiction series about dueling funeral directors, escalating grudges, and a village small enough for every petty disaster to feel personal.",
+  "description": "Award Winning Sitcom || Rudyard Funn and his equally miserable sister Antigone run their family’s failing funeral parlour, where they get the body in the coffin in the ground on time. But one day they find everyone enjoying themselves at the funerals of a new competitor – the impossibly perfect Eric Chapman! With their dogsbody Georgie, and a mouse called Madeleine, the Funns are taking drastic steps to stay in business…",
+  "officialDescription": {
+    "text": "Award Winning Sitcom || Rudyard Funn and his equally miserable sister Antigone run their family’s failing funeral parlour, where they get the body in the coffin in the ground on time. But one day they find everyone enjoying themselves at the funerals of a new competitor – the impossibly perfect Eric Chapman! With their dogsbody Georgie, and a mouse called Madeleine, the Funns are taking drastic steps to stay in business…",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/woodenovercoats",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/wooden-overcoats.jpg",
   "coverAlt": "Wooden Overcoats cover art",
   "status": "published",
@@ -29,9 +35,10 @@
     "serialized"
   ],
   "tags": [
-    "Comedy",
+    "Funeral directors",
+    "Sitcom",
     "Small town",
-    "Rivals"
+    "Rivalry"
   ],
   "aliases": [
     "Wooden Overcoats podcast"
@@ -86,20 +93,37 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "similarReasons": {
     "wolf-359": "Keeps the ensemble friction and running bit energy alive in a bigger sci-fi frame.",
     "oz-9": "Pushes the incompetence and comic disaster angle much harder.",
     "eos-10": "Another banter-heavy ensemble comedy route with a lighter speculative wrapper."
   },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "The completed four-season sitcom remains available through the official feed."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "competing funeral homes on the island of Piffling",
+    "pov": "full-cast sitcom ensemble",
+    "intensity": "low"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.woodenovercoats.com/",
       "https://podcasts.apple.com/us/podcast/wooden-overcoats/id1039662268",
-      "https://feeds.megaphone.fm/woodenovercoats"
+      "https://feeds.megaphone.fm/woodenovercoats",
+      "https://www.woodenovercoats.com/press"
     ],
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "credits": {
+    "creatorName": "David K. Barnes",
+    "headWriter": "David K. Barnes",
+    "productionCompany": "Wooden Overcoats Ltd"
   }
 }

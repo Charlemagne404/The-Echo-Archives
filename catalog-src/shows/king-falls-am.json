@@ -1,8 +1,14 @@
 {
   "id": "king-falls-am",
   "title": "King Falls AM",
-  "subtitle": "",
-  "description": "A paranormal small-town comedy-drama framed through a late-night radio show, where local banter keeps mutating into something stranger and more emotional than the setup first suggests.",
+  "subtitle": "Late-night small-town radio where every caller makes the paranormal feel local.",
+  "description": "King Falls AM centers on a lonely little mountain town's late-night AM talk radio show and its paranormal, peculiar happenings and inhabitants. New shows available the 1st and 15th of every month! Be sure to start from Sammy's first show (May 1st, 2015) to stay up to date with all your King Falls favorites.",
+  "officialDescription": {
+    "text": "King Falls AM centers on a lonely little mountain town's late-night AM talk radio show and its paranormal, peculiar happenings and inhabitants. New shows available the 1st and 15th of every month! Be sure to start from Sammy's first show (May 1st, 2015) to stay up to date with all your King Falls favorites.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/474897/destinations/4028520.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/king-falls-am.png",
   "coverAlt": "King Falls AM cover art",
   "status": "published",
@@ -30,27 +36,35 @@
     "episodic"
   ],
   "tags": [
-    "Small Town",
+    "Small town",
     "Paranormal",
-    "Late-night Radio",
+    "Late-night radio",
     "Comedy"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "community",
+    "conspiracy",
+    "friendship"
+  ],
+  "contentNotes": [
+    "paranormal threat and occasional violence"
+  ],
   "languages": [
     "en-us"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "121 episodes • ~33 min episodes",
-    "episodes": 121,
+    "label": "100 numbered story episodes; 121 public feed entries including bonus material and updates",
+    "episodes": 100,
     "avgEpisodeMinutes": 33,
-    "totalHours": 66.5
+    "totalHours": 55,
+    "feedEntries": 121
   },
   "releaseDates": {
-    "first": "2019-04-15",
-    "latest": "2025-12-15"
+    "first": "2015-05-01",
+    "latest": "2019-12-15",
+    "note": "Dates cover the 100 numbered story episodes. The final 2020 feed item is a production update, and the story stopped without a completed ending."
   },
   "ratings": {},
   "facts": {},
@@ -82,13 +96,22 @@
     "creatorName": "King Falls AM"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://rss.libsyn.com/shows/474897/destinations/4028520.xml; https://podcasts.apple.com/us/podcast/king-falls-am/id1016760065?uo=4; https://audioboom.com/channel/kingfallsam",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "The public feed remains available, but the story stopped without a completed ending."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the paranormal mountain town of King Falls",
+    "pov": "late-night call-in radio broadcast",
+    "intensity": "medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/474897/destinations/4028520.xml",
@@ -96,7 +119,7 @@
       "https://audioboom.com/channel/kingfallsam"
     ],
     "importCandidateId": "3f3d42ec-e50c-46a8-85a7-d6e41c3792ef",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1016760065"
     },
@@ -108,13 +131,17 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:22.574Z",
-    "importOfficialSummary": "King Falls AM centers on a lonely little mountain town's late-night AM talk radio show and its paranormal, peculiar happenings and inhabitants. New shows available the 1st and 15th of every month! Be sure to start from Sammy's first show (May 1st, 2015) to stay up to date with all your King Falls favorites."
+    "importOfficialSummary": "King Falls AM centers on a lonely little mountain town's late-night AM talk radio show and its paranormal, peculiar happenings and inhabitants. New shows available the 1st and 15th of every month! Be sure to start from Sammy's first show (May 1st, 2015) to stay up to date with all your King Falls favorites.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "king-falls-am",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "King Falls AM"
+  ],
   "popularity": {}
 }

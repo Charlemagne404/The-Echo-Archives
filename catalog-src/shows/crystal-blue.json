@@ -2,7 +2,13 @@
   "id": "crystal-blue",
   "title": "Crystal Blue",
   "subtitle": "Future-facing sci-fi comedy with a lighter archive profile.",
-  "description": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
+  "description": "Crystal Blue is a sci-fi audio drama about fifteen military outcasts that evade dishonorable discharge and are instead sent to a remote grouping of planets known as the Theras. Thera II houses the base known as Crystal Blue, where each member is forced to work a specific job such as building air purifier towers, maintaining the base, or monitoring space travel. It's a boring job, but someone as to do it. But things get crazy when a mysterious shuttle crash lands on the planet, holding some secret information about an alien race. An alien race that has not been in contact with humans for centuries. What could this mean for the members of Crystal Blue?! Listen and find out!!",
+  "officialDescription": {
+    "text": "Crystal Blue is a sci-fi audio drama about fifteen military outcasts that evade dishonorable discharge and are instead sent to a remote grouping of planets known as the Theras. Thera II houses the base known as Crystal Blue, where each member is forced to work a specific job such as building air purifier towers, maintaining the base, or monitoring space travel. It's a boring job, but someone as to do it. But things get crazy when a mysterious shuttle crash lands on the planet, holding some secret information about an alien race. An alien race that has not been in contact with humans for centuries. What could this mean for the members of Crystal Blue?! Listen and find out!!",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.simplecast.com/4JMRfOVa",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/crystal-blue/CrystalBlue.jpeg",
   "coverAlt": "Crystal Blues cover art",
   "status": "published",
@@ -13,14 +19,16 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
     "website": "https://www.7lamb.com/audiodramas/crystal-blue",
-    "rss": ""
+    "rss": "https://feeds.simplecast.com/4JMRfOVa"
   },
   "genres": [
     "sci-fi",
-    "comedy"
+    "drama",
+    "mystery"
   ],
   "tones": [
-    "funny",
+    "tense",
+    "cinematic",
     "weird"
   ],
   "formats": [
@@ -28,9 +36,10 @@
     "serialized"
   ],
   "tags": [
-    "Sci-fi",
-    "Future",
-    "Comedy"
+    "Military outcasts",
+    "Remote colony",
+    "Alien contact",
+    "Space"
   ],
   "length": {
     "label": "Season 1 has 9 story episodes released plus trailer/message entries; Apple episode numbering reaches 10 because of feed extras",
@@ -69,7 +78,7 @@
     "hex": "#6c6ea0",
     "rgb": "108, 110, 160"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas",
     "patreon": "",
@@ -94,7 +103,7 @@
   "availability": {
     "transcripts": "not verified",
     "captions": "not applicable",
-    "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+    "regionNotes": "Official 7 Lamb page links to podcast platforms; the current Simplecast RSS feed is publicly available."
   },
   "content": {
     "sourceMaterial": "original fiction",
@@ -106,10 +115,11 @@
     "objectiveSources": [
       "https://www.7lamb.com/audiodramas",
       "https://www.7lamb.com/audiodramas/crystal-blue",
-      "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190"
+      "https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
+      "https://feeds.simplecast.com/4JMRfOVa"
     ],
-    "objectiveNote": "Official 7 Lamb listing uses the title Crystal Blue and verifies the distant-planet military-outpost premise. Existing archive ID/title Crystal Blues is preserved for compatibility.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Official 7 Lamb listing and the publisher RSS use the title Crystal Blue and verify the distant-planet military-outpost premise. Crystal Blues remains only as a search alias for compatibility.",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/crystal-blue.json",
     "researchGaps": [
       "future Season 1 continuation status",
@@ -120,12 +130,12 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified-with-title-normalization",
-    "verifiedAt": "2026-06-15",
-    "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/crystal-blue; https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190",
+    "verifiedAt": "2026-07-18",
+    "source": "https://www.7lamb.com/audiodramas; https://www.7lamb.com/audiodramas/crystal-blue; https://podcasts.apple.com/us/podcast/crystal-blue/id1599396190; https://feeds.simplecast.com/4JMRfOVa",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
   "aliases": [

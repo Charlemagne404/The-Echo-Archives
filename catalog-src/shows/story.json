@@ -2,7 +2,13 @@
   "id": "story",
   "title": "Story",
   "subtitle": "A more grounded adventure-leaning mystery entry.",
-  "description": "A softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog.",
+  "description": "Every season is a different fictional tale. A mini-series for the ears. Every season will introduce a new genre, a new plot, and new characters.",
+  "officialDescription": {
+    "text": "Every season is a different fictional tale. A mini-series for the ears. Every season will introduce a new genre, a new plot, and new characters.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.simplecast.com/3bWx59ox",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/story/story.jpg",
   "coverAlt": "Story cover art",
   "status": "published",
@@ -26,12 +32,13 @@
   ],
   "formats": [
     "full-cast",
+    "anthology",
     "serialized"
   ],
   "tags": [
-    "Drama",
-    "Mystery",
-    "Adventure"
+    "Seasonal anthology",
+    "Genre anthology",
+    "Mini-series"
   ],
   "length": {
     "label": "56 public feed episodes; anthology mini-series with different fictional tales by season",
@@ -67,7 +74,7 @@
     "hex": "#976f48",
     "rgb": "151, 111, 72"
   },
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "officialLinks": {
     "website": "https://www.7lamb.com/audiodramas/story",
     "patreon": "",
@@ -108,7 +115,7 @@
       "https://feeds.simplecast.com/3bWx59ox"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/story.json",
     "researchGaps": [],
     "awards": [],
@@ -116,7 +123,7 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "partially-source-verified",
@@ -156,7 +163,7 @@
   "creatorId": "7-lamb-productions",
   "networkId": "7-lamb-productions",
   "similarReasons": {
-    "the-waystation": "Keeps the hopeful speculative curiosity alive without hardening the tone.",
+    "the-waystation": "A darker limited-run mystery when a self-contained genre story matters more than keeping the tone gentle.",
     "the-bright-sessions": "A character-first branch if the emotional legibility matters more than the adventure frame.",
     "desert-skies": "Another soft-entry weird-fiction pick when you want warmth before lore."
   }

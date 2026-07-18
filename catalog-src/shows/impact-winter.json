@@ -2,12 +2,12 @@
   "id": "impact-winter",
   "title": "Impact Winter",
   "subtitle": "Post-apocalyptic vampire survival under endless winter.",
-  "description": "Endless winter, bunker survival, and just enough vampire politics to keep the whole thing nasty in the right way.",
+  "description": "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness. But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand.",
   "officialDescription": {
     "text": "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness. But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand.",
     "sourceLabel": "Audible's official listing",
     "sourceUrl": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
-    "verifiedAt": "2026-06-15"
+    "verifiedAt": "2026-07-18"
   },
   "cover": "shows/Impact Winter/Impact-winter.jpeg",
   "coverAlt": "Impact Winter cover art",
@@ -87,7 +87,7 @@
     "hex": "#851a28",
     "rgb": "133, 26, 40"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2022-02-17",
     "latest": "2024-07-18",
@@ -104,20 +104,32 @@
   },
   "credits": {
     "creatorName": "Travis Beacham",
-    "productionCompany": "Audible Originals",
-    "writer": "Not verified",
-    "director": "Not verified",
+    "productionCompany": [
+      "Skybound Entertainment",
+      "Anonymous Content",
+      "Audible Originals"
+    ],
+    "writer": "Travis Beacham",
+    "director": "Travis Beacham",
     "producer": "Not verified",
     "soundDesign": "Not verified",
     "composer": "Not verified",
     "network": "Not verified",
-    "cast": "Not verified",
+    "cast": [
+      "Holliday Grainger",
+      "Esmé Creed-Miles",
+      "David Gyasi",
+      "Caroline Ford",
+      "Sacha Dhawan",
+      "Ellie Bamber",
+      "Andrew Gower"
+    ],
     "coverArt": "Not verified"
   },
   "availability": {
     "transcripts": "unknown",
     "captions": "n/a",
-    "regionNotes": "Audible Original also available on podcast platforms in some regions."
+    "regionNotes": "Audible is the canonical current listing; no public publisher RSS feed was located during the 2026-07-18 audit."
   },
   "content": {
     "sourceMaterial": "original fiction",
@@ -129,21 +141,21 @@
     "objectiveSources": [
       "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
       "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
-      "https://www.audible.com/pd/Impact-Winter-Season-3-Audiobook/B0D6GQWSBK"
+      "https://www.audible.com/pd/Impact-Winter-Season-3-Audiobook/B0D6GQWSBK",
+      "https://www.audible.com/about/newsroom/announcing-the-premiere-date-and-cast-of-audible-original-impact-winter/1000"
     ],
     "objectiveNote": "Audible/Apple listings identify official distribution and Travis Beacham/Audible context. Existing opinion review text is preserved.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/impact-winter.json",
     "researchGaps": [
-      "future season status beyond Season 3",
-      "exact RSS URL"
+      "future season status beyond Season 3"
     ],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified",

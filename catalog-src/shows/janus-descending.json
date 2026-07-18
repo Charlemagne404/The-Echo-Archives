@@ -1,8 +1,14 @@
 {
   "id": "janus-descending",
   "title": "Janus Descending",
-  "subtitle": "",
-  "description": "A reverse-structured sci-fi horror story that uses mission logs, isolation, and xenoarchaeology to turn discovery into dread.",
+  "subtitle": "Two xenoarchaeologists, one dead world, and a story moving in opposite directions.",
+  "description": "NOW PLAYING: Descendants, The Janus Descending Sequel: Book One - Inheritance JANUS DESCENDING is limited series, science fiction/horror audio drama podcast, follows the arrival of two xenoarcheologists on a small world orbiting a binary star. But what starts off as an expedition to survey the planet and the remains of a lost alien civilization, turns into a monstrous game of cat and mouse, as the two scientists are left to face the creatures that killed the planet in the first place. Told from two alternating perspectives, Janus Descending is an experience of crossing timelines, as one character describes the nightmare from end to beginning, and the other, from beginning to the end. DESCENDANTS is a two-season limited series science-fiction adventure/thriller, and the sequel of Janus Descending. The story begins where Janus Descending left off, at our lost crew's nightmarish homecoming, and follows Peter's older brother, Axel, through the aftermath of the Janus Disaster. Three days after the wreckage of the Adamantine was found, crashed on the barren plains of the Rosseter Moon Colony, the remains of the missing ship were brought back to Aphelion Industries. But something survived the crash, and now, it's beginning to spread. As the Gorgons begin their rampage to consume and multiply, Axel, Captain Rori, and the ARC Juno team must fight their way out of the quarantined facilities, and find a way to stay alive... but in doing so, they just might damn their world...",
+  "officialDescription": {
+    "text": "NOW PLAYING: Descendants, The Janus Descending Sequel: Book One - Inheritance JANUS DESCENDING is limited series, science fiction/horror audio drama podcast, follows the arrival of two xenoarcheologists on a small world orbiting a binary star. But what starts off as an expedition to survey the planet and the remains of a lost alien civilization, turns into a monstrous game of cat and mouse, as the two scientists are left to face the creatures that killed the planet in the first place. Told from two alternating perspectives, Janus Descending is an experience of crossing timelines, as one character describes the nightmare from end to beginning, and the other, from beginning to the end. DESCENDANTS is a two-season limited series science-fiction adventure/thriller, and the sequel of Janus Descending. The story begins where Janus Descending left off, at our lost crew's nightmarish homecoming, and follows Peter's older brother, Axel, through the aftermath of the Janus Disaster. Three days after the wreckage of the Adamantine was found, crashed on the barren plains of the Rosseter Moon Colony, the remains of the missing ship were brought back to Aphelion Industries. But something survived the crash, and now, it's beginning to spread. As the Gorgons begin their rampage to consume and multiply, Axel, Captain Rori, and the ARC Juno team must fight their way out of the quarantined facilities, and find a way to stay alive... but in doing so, they just might damn their world...",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/131305/destinations/799640.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/janus-descending.jpg",
   "coverAlt": "Janus Descending cover art",
   "status": "published",
@@ -11,7 +17,7 @@
   "completionStatus": "finished",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/janus-descending/id1440409010?uo=4",
-    "website": "https://www.nosuchthingradio.com/",
+    "website": "https://www.nosuchthingradio.com/janus-descending",
     "rss": "https://rss.libsyn.com/shows/131305/destinations/799640.xml"
   },
   "genres": [
@@ -35,22 +41,31 @@
     "Xenoarchaeology"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "exploration",
+    "grief",
+    "contagion"
+  ],
+  "contentNotes": [
+    "science-fiction horror",
+    "violence and death"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons • 36 episodes • ~33 min episodes",
-    "seasons": 2,
-    "episodes": 36,
-    "avgEpisodeMinutes": 33,
-    "totalHours": 19.8
+    "label": "13 full Janus Descending episodes plus prologues and an epilogue; 36 entries in the shared Janus / Descendants feed",
+    "seasons": 1,
+    "episodes": 13,
+    "avgEpisodeMinutes": 17,
+    "totalHours": 3.7,
+    "feedEntries": 36
   },
   "releaseDates": {
-    "first": "2019-01-09",
-    "latest": "2025-12-15"
+    "first": "2018-10-31",
+    "latest": "2019-02-02",
+    "note": "Dates and episode count cover the original Janus Descending limited series. The same feed later carries its sequel, Descendants."
   },
   "ratings": {},
   "facts": {},
@@ -76,7 +91,7 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://www.nosuchthingradio.com/",
+    "website": "https://www.nosuchthingradio.com/janus-descending",
     "patreon": "http://www.patreon.com/nosuchthingproductions"
   },
   "credits": {
@@ -84,21 +99,30 @@
     "network": "Nosuchthing"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
-    "source": "https://rss.libsyn.com/shows/131305/destinations/799640.xml; https://podcasts.apple.com/us/podcast/janus-descending/id1440409010?uo=4; https://www.nosuchthingradio.com/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://rss.libsyn.com/shows/131305/destinations/799640.xml; https://podcasts.apple.com/us/podcast/janus-descending/id1440409010; https://www.nosuchthingradio.com/janus-descending",
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available through the official production site",
+    "captions": "not applicable",
+    "regionNotes": "The shared feed includes Janus Descending and its sequel series Descendants."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "an alien archaeological site and its aftermath",
+    "pov": "alternating timelines and perspectives",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/131305/destinations/799640.xml",
       "https://podcasts.apple.com/us/podcast/janus-descending/id1440409010?uo=4",
-      "https://www.nosuchthingradio.com/"
+      "https://www.nosuchthingradio.com/janus-descending"
     ],
     "importCandidateId": "5350fc36-a3de-4900-a0f9-5d6abe17a2ff",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1440409010"
     },
@@ -110,14 +134,18 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:16.612Z",
-    "importOfficialSummary": "NOW PLAYING: Descendants, The Janus Descending Sequel: Book One - Inheritance JANUS DESCENDING is limited series, science fiction/horror audio drama podcast, follows the arrival of two xenoarcheologists on a small world orbiting a binary star. But what starts off as an expedition to survey the planet and the remains of a lost alien civilization, turns into a monstrous game of cat and mouse, as the two scientists are left to face the creatures that killed the planet in the first place. Told from two alternating perspectives, Janus Descending is an experience of crossing timelines, as one character describes the nightmare from end to beginning, and the other, from beginning to the end. DESCENDANTS is a two-season limited series science-fiction adventure/thriller, and the sequel of Janus Descending. The story begins where Janus Descending left off, at our lost crew's nightmarish homecoming, and follows Peter's older brother, Axel, through the aftermath of the Janus Disaster. Three days after the wreckage of the Adamantine was found, crashed on the barren plains of the Rosseter Moon Colony, the remains of the missing ship were brought back to Aphelion Industries. But something survived"
+    "importOfficialSummary": "NOW PLAYING: Descendants, The Janus Descending Sequel: Book One - Inheritance JANUS DESCENDING is limited series, science fiction/horror audio drama podcast, follows the arrival of two xenoarcheologists on a small world orbiting a binary star. But what starts off as an expedition to survey the planet and the remains of a lost alien civilization, turns into a monstrous game of cat and mouse, as the two scientists are left to face the creatures that killed the planet in the first place. Told from two alternating perspectives, Janus Descending is an experience of crossing timelines, as one character describes the nightmare from end to beginning, and the other, from beginning to the end. DESCENDANTS is a two-season limited series science-fiction adventure/thriller, and the sequel of Janus Descending. The story begins where Janus Descending left off, at our lost crew's nightmarish homecoming, and follows Peter's older brother, Axel, through the aftermath of the Janus Disaster. Three days after the wreckage of the Adamantine was found, crashed on the barren plains of the Rosseter Moon Colony, the remains of the missing ship were brought back to Aphelion Industries. But something survived the crash, and now, it's beginning to spread. As the Gorgons begin their rampage to consume and multiply, Axel, Captain Rori, and the ARC Juno team must fight their way out of the quarantined facilities, and find a way to stay alive... but in doing so, they just might damn their world...",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "no-such-thing-productions",
   "networkId": "nosuchthing",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Jordan Cobb"
+  ],
   "popularity": {}
 }

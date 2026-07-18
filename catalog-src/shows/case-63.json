@@ -2,7 +2,13 @@
   "id": "case-63",
   "title": "Case 63",
   "subtitle": "A tight time-travel thriller built around two voices and a steadily tightening paradox.",
-  "description": "A scripted suspense series about a psychiatrist and a patient who claims to be from the future, turning therapeutic sessions into a time-loop crisis.",
+  "description": "CASE 63 IS OUT NOW Season Two of Case 63 transports us back to 2012 where Eliza Beatrix Knight wakes confused and naked in a bathroom at JFK airport, having failed her mission. Taken to a hospital, she is treated by Dr. Vincent Caldwell - a resident psychiatrist with a familiar voice. Beatrix is now Case 63. With the future of humanity ever more at risk, Beatrix and Vincent must race to unravel the past to save an uncertain future. Season 2 of CASE 63 is created and written by Julio Rojas. Adapted by Mara Vélez Meléndez. Directed by Mimi O’Donnell and stars Julianne Moore and Oscar Isaac.",
+  "officialDescription": {
+    "text": "CASE 63 IS OUT NOW Season Two of Case 63 transports us back to 2012 where Eliza Beatrix Knight wakes confused and naked in a bathroom at JFK airport, having failed her mission. Taken to a hospital, she is treated by Dr. Vincent Caldwell - a resident psychiatrist with a familiar voice. Beatrix is now Case 63. With the future of humanity ever more at risk, Beatrix and Vincent must race to unravel the past to save an uncertain future. Season 2 of CASE 63 is created and written by Julio Rojas. Adapted by Mara Vélez Meléndez. Directed by Mimi O’Donnell and stars Julianne Moore and Oscar Isaac.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/GLT7513443834",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/case-63.jpg",
   "coverAlt": "Case 63 cover art",
   "status": "published",
@@ -91,7 +97,7 @@
     "Oscar Isaac"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "similarReasons": {
     "ars-paradoxica": "The clearest next step if you want the time-travel consequences to get denser and more systemic.",
     "from-now": "A compact companion route when you want another short-form time-dislocation mystery.",
@@ -103,6 +109,17 @@
     "adaptation": "Mara Velez Melendez",
     "director": "Mimi O'Donnell"
   },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+  },
+  "content": {
+    "sourceMaterial": "English-language adaptation of Caso 63",
+    "setting": "psychiatric sessions shaped by a claimed future catastrophe",
+    "pov": "two-person recorded-session thriller",
+    "intensity": "medium-high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/case-63/id1703294291",
@@ -110,8 +127,8 @@
       "https://feeds.megaphone.fm/GLT7513443834",
       "https://gimletmedia.com/"
     ],
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   }
 }

@@ -1,8 +1,14 @@
 {
   "id": "the-black-tapes",
   "title": "The Black Tapes",
-  "subtitle": "",
-  "description": "A paranormal-investigation thriller built around skeptical inquiry, old recordings, and the slow realization that each case is tied to something much larger.",
+  "subtitle": "A journalist investigates a skeptic's unsolved supernatural cases.",
+  "description": "The Black Tapes is a weekly podcast from the creators of Pacific Northwest Stories, and is hosted by Alex Reagan. The Black Tapes Podcast is a serialized docudrama about one journalist's search for truth, her subject's mysterious past, and the literal and figurative ghosts that haunt them both. Do you believe?",
+  "officialDescription": {
+    "text": "The Black Tapes is a weekly podcast from the creators of Pacific Northwest Stories, and is hosted by Alex Reagan. The Black Tapes Podcast is a serialized docudrama about one journalist's search for truth, her subject's mysterious past, and the literal and figurative ghosts that haunt them both. Do you believe?",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/67700/destinations/276638.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/the-black-tapes.jpg",
   "coverAlt": "The Black Tapes cover art",
   "status": "published",
@@ -36,22 +42,30 @@
     "Conspiracy"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "skepticism",
+    "belief",
+    "haunting"
+  ],
+  "contentNotes": [
+    "supernatural horror and psychological threat"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "3 seasons • 51 episodes • ~27 min episodes",
+    "label": "3 seasons / 30 numbered story episodes; 51 current feed entries including trailers and promotions",
     "seasons": 3,
-    "episodes": 51,
+    "episodes": 30,
     "avgEpisodeMinutes": 27,
-    "totalHours": 22.9
+    "totalHours": 13.5,
+    "feedEntries": 51
   },
   "releaseDates": {
-    "first": "2016-03-01",
-    "latest": "2026-05-29"
+    "first": "2015-05-21",
+    "latest": "2017-11-07",
+    "note": "Dates cover the original numbered story run. Later feed entries are reissues or promotions for other Pacific Northwest Stories projects."
   },
   "ratings": {},
   "facts": {},
@@ -84,13 +98,22 @@
     "network": "THE BLACK TAPES"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://theblacktapes.libsyn.com/rss; https://podcasts.apple.com/us/podcast/the-black-tapes/id997522893?uo=4; http://theblacktapespodcast.com/; https://rss.libsyn.com/shows/67700/destinations/276638.xml",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "The numbered story run is inactive and does not have a fully resolved ending."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Pacific Northwest paranormal investigations",
+    "pov": "serialized investigative docudrama",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://theblacktapes.libsyn.com/rss",
@@ -99,7 +122,7 @@
       "https://rss.libsyn.com/shows/67700/destinations/276638.xml"
     ],
     "importCandidateId": "0fb4ff05-b801-4377-bf7b-f912b444186b",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "997522893"
     },
@@ -111,14 +134,18 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:11.898Z",
-    "importOfficialSummary": "The Black Tapes is a weekly podcast from the creators of Pacific Northwest Stories, and is hosted by Alex Reagan. The Black Tapes Podcast is a serialized docudrama about one journalist's search for truth, her subject's mysterious past, and the literal and figurative ghosts that haunt them both. Do you believe?"
+    "importOfficialSummary": "The Black Tapes is a weekly podcast from the creators of Pacific Northwest Stories, and is hosted by Alex Reagan. The Black Tapes Podcast is a serialized docudrama about one journalist's search for truth, her subject's mysterious past, and the literal and figurative ghosts that haunt them both. Do you believe?",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "pacific-northwest-stories",
   "networkId": "the-black-tapes",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Pacific Northwest Stories"
+  ],
   "popularity": {}
 }

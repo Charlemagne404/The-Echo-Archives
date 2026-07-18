@@ -78,7 +78,6 @@ function createPublishedListenerReviewRouter({ reviewService, config }) {
         reviewId: String(req.params.reviewId || "").trim(),
         helpful,
         voterSecret: ensureVoterSecret(req, res),
-        turnstileToken: req.body?.turnstileToken,
         userAgent: req.get("user-agent") || "",
         sourceIp: req.ip || "",
       });

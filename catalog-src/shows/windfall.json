@@ -2,7 +2,13 @@
   "id": "windfall",
   "title": "Windfall",
   "subtitle": "Mystery-thriller energy with a darker speculative edge.",
-  "description": "A more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci-fi.",
+  "description": "Ever since the castle first appeared in the sky above the city of Windfall, its residents have been building upward. Now the city consists of towers where the wealthiest residents live at the top while the poor eke out a living on the ground. Our podcast follows Cas, Shaima, and Argus, three brothers who live with their Uncle Vern after being orphaned during the grounder rebellion twenty years earlier. They find themselves drifting apart as Argus, the youngest, falls hopelessly in love with the much-older Helina, a foreign merchant haunted by her past; Cas, the middle brother, works in secret for the local crime boss; and Shaima, the oldest, struggles to keep their uncle’s scrap shop from going under. When Cas’s best friend, Kendall, is offered a position with the Wolfpac, Windfall’s military cult that acts as the city’s police, Cas is forced to decide where his loyalties lie. Meanwhile, something sinister looms over the city itself, threatening the lives of all who live in Windfall, from the wealthiest residents to the ground-level poor. Start at Episode 1.00.",
+  "officialDescription": {
+    "text": "Ever since the castle first appeared in the sky above the city of Windfall, its residents have been building upward. Now the city consists of towers where the wealthiest residents live at the top while the poor eke out a living on the ground. Our podcast follows Cas, Shaima, and Argus, three brothers who live with their Uncle Vern after being orphaned during the grounder rebellion twenty years earlier. They find themselves drifting apart as Argus, the youngest, falls hopelessly in love with the much-older Helina, a foreign merchant haunted by her past; Cas, the middle brother, works in secret for the local crime boss; and Shaima, the oldest, struggles to keep their uncle’s scrap shop from going under. When Cas’s best friend, Kendall, is offered a position with the Wolfpac, Windfall’s military cult that acts as the city’s police, Cas is forced to decide where his loyalties lie. Meanwhile, something sinister looms over the city itself, threatening the lives of all who live in Windfall, from the wealthiest residents to the ground-level poor. Start at Episode 1.00.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/windfallpodcast",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/windfall/windfall.jpeg",
   "coverAlt": "Windfall cover art",
   "status": "published",
@@ -16,8 +22,9 @@
     "rss": "https://feeds.megaphone.fm/windfallpodcast"
   },
   "genres": [
-    "thriller",
-    "mystery"
+    "fantasy",
+    "drama",
+    "thriller"
   ],
   "tones": [
     "dark",
@@ -28,9 +35,10 @@
     "serialized"
   ],
   "tags": [
-    "Thriller",
-    "Mystery",
-    "Dystopia"
+    "Floating city",
+    "Class conflict",
+    "Dystopia",
+    "Political intrigue"
   ],
   "length": {
     "label": "2 seasons, 22 main story episodes; feed also includes trailers, bonuses, crossovers, and feed swaps",
@@ -71,7 +79,7 @@
     "hex": "#8f3b3e",
     "rgb": "143, 59, 62"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2019-02-13",
     "latest": "2025-12-17",
@@ -130,7 +138,7 @@
       "https://feeds.megaphone.fm/windfallpodcast"
     ],
     "objectiveNote": "Official Rogue Dialogue URL is identified, but current source capture was incomplete in this pass. Kept conservative metadata and recheck notes.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/windfall.json",
     "researchGaps": [
       "whether to mark series as ongoing after Season 2 finale or inactive until a future story season is announced"
@@ -140,7 +148,7 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified-with-feed-note",

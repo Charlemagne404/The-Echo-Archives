@@ -2,7 +2,13 @@
   "id": "welcome-to-night-vale",
   "title": "Welcome to Night Vale",
   "subtitle": "Community-radio weirdness that treats the impossible like a local bulletin.",
-  "description": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
+  "description": "Twice-monthly community updates for the small desert town of Night Vale, where every conspiracy theory is true. Turn on your radio and hide. Never listened before? It's an ongoing radio show. Start with the current episode, and you'll catch on in no time. Or, go right to Episode 1 if you wanna binge-listen.",
+  "officialDescription": {
+    "text": "Twice-monthly community updates for the small desert town of Night Vale, where every conspiracy theory is true. Turn on your radio and hide. Never listened before? It's an ongoing radio show. Start with the current episode, and you'll catch on in no time. Or, go right to Episode 1 if you wanna binge-listen.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/SBP4591212513",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/welcome-to-night-vale.jpg",
   "coverAlt": "Welcome to Night Vale cover art",
   "status": "published",
@@ -95,12 +101,23 @@
     "Cecil Baldwin"
   ],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "similarReasons": {
     "alice-isnt-dead": "A road-haunted branch if the intimate narration and creeping unreality are the real hook.",
     "desert-skies": "Keeps the voice-led weirdness and surprising warmth while making the premise gentler.",
     "midnight-burger": "For listeners who want the humor, heart, and metaphysical appetite to scale outward.",
     "unwell": "A small-town gothic branch if the community feeling matters as much as the cosmic oddness."
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "The long-running show is available through its official feed and major podcast platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the impossible desert town of Night Vale",
+    "pov": "community-radio broadcasts",
+    "intensity": "low-medium"
   },
   "metadata": {
     "objectiveSources": [
@@ -108,10 +125,24 @@
       "https://www.welcometonightvale.com/listen",
       "https://podcasts.apple.com/us/podcast/welcome-to-night-vale/id536258179",
       "http://feeds.nightvalepresents.com/welcometonightvalepodcast",
-      "https://feeds.megaphone.fm/SBP4591212513"
+      "https://feeds.megaphone.fm/SBP4591212513",
+      "https://www.welcometonightvale.com/who-we-are"
     ],
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "credits": {
+    "creatorName": [
+      "Joseph Fink",
+      "Jeffrey Cranor"
+    ],
+    "writer": [
+      "Joseph Fink",
+      "Jeffrey Cranor"
+    ],
+    "narrator": "Cecil Baldwin",
+    "music": "Disparition",
+    "productionCompany": "Night Vale Presents"
   }
 }

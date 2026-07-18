@@ -2,13 +2,19 @@
   "id": "passenger-list",
   "title": "Passenger List",
   "subtitle": "A missing plane, a cabin full of suspects, a search for truth. A mystery thriller from PRX’s Radiotopia.",
-  "description": "A conspiracy mystery built around a vanished plane, a reporter in over her head, and the growing sense that every answer has already been managed by someone else.",
+  "description": "Atlantic Flight 702 has disappeared mid-flight between London and New York with 256 passengers on board. Kaitlin Le (Kelly Marie Tran), a college student whose twin brother vanished with the flight, is determined to uncover the truth. Passenger List is a mystery thriller podcast from PRX’s Radiotopia.",
+  "officialDescription": {
+    "text": "Atlantic Flight 702 has disappeared mid-flight between London and New York with 256 passengers on board. Kaitlin Le (Kelly Marie Tran), a college student whose twin brother vanished with the flight, is determined to uncover the truth. Passenger List is a mystery thriller podcast from PRX’s Radiotopia.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feed.passengerlist.org/",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/passenger-list.png",
   "coverAlt": "Passenger List cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "inactive",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "spotify": "https://open.spotify.com/show/2TevVBfS0JReKn1MMeNkv2",
     "apple": "https://podcasts.apple.com/us/podcast/passenger-list/id1472392291?uo=4",
@@ -30,28 +36,36 @@
     "serialized"
   ],
   "tags": [
-    "Mystery",
+    "Missing plane",
     "Conspiracy",
     "Aviation",
     "Investigation"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "grief",
+    "truth",
+    "conspiracy"
+  ],
+  "contentNotes": [
+    "aviation disaster, death, and psychological distress"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons • 27 episodes • ~25 min episodes",
+    "label": "2 seasons / 16 numbered story episodes; 27 public feed entries",
     "seasons": 2,
-    "episodes": 27,
+    "episodes": 16,
     "avgEpisodeMinutes": 25,
-    "totalHours": 11.3
+    "totalHours": 6.7,
+    "feedEntries": 27
   },
   "releaseDates": {
     "first": "2019-09-23",
-    "latest": "2025-03-06"
+    "latest": "2021-05-10",
+    "note": "Dates cover the two eight-episode story seasons; later feed items are not additional Passenger List story episodes."
   },
   "ratings": {},
   "facts": {},
@@ -84,13 +98,22 @@
     "network": "Passenger List"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://feed.passengerlist.org/; https://podcasts.apple.com/us/podcast/passenger-list/id1472392291?uo=4; https://www.passengerlist.org/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "downloadable scripts are available on the official site",
+    "captions": "not applicable",
+    "regionNotes": "Both eight-episode story seasons are available through Radiotopia."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "an international investigation into Atlantic Flight 702",
+    "pov": "Kaitlin Le-led investigative thriller",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feed.passengerlist.org/",
@@ -98,7 +121,7 @@
       "https://www.passengerlist.org/"
     ],
     "importCandidateId": "f5ff4c44-6fcd-4769-8459-d8af81a6d02c",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1472392291"
     },
@@ -110,14 +133,18 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:26.025Z",
-    "importOfficialSummary": "A missing plane, a cabin full of suspects. A new 8-episode podcast series from PRX’s Radiotopia starring Kelly Marie Tran. Listen for free online."
+    "importOfficialSummary": "Atlantic Flight 702 has disappeared mid-flight between London and New York with 256 passengers on board. Kaitlin Le (Kelly Marie Tran), a college student whose twin brother vanished with the flight, is determined to uncover the truth. Passenger List is a mystery thriller podcast from PRX’s Radiotopia.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "passenger-list-and-radiotopia",
   "networkId": "passenger-list",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "John Scott Dryden"
+  ],
   "popularity": {}
 }

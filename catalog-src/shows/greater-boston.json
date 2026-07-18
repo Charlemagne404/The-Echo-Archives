@@ -1,8 +1,14 @@
 {
   "id": "greater-boston",
   "title": "Greater Boston",
-  "subtitle": "",
-  "description": "An expansive ensemble drama that turns alternate-history Boston into a place for civic absurdity, interpersonal fallout, and long-game character work.",
+  "subtitle": "A sprawling Boston ensemble where civic systems become strange, comic, and deeply personal.",
+  "description": "Greater Boston is a bi-monthly full-cast audio drama that blends the real and the unreal, the historical and the fantastical. It all begins with the death of Leon Stamatis, a man for whom the least hint of uncertainty makes life unbearable. But by leaving the world, he has irrevocably changed it. Greater Boston is written and produced by Alexander Danner and Jeff Van Dreason. A production of ThirdSight Media LLC.",
+  "officialDescription": {
+    "text": "Greater Boston is a bi-monthly full-cast audio drama that blends the real and the unreal, the historical and the fantastical. It all begins with the death of Leon Stamatis, a man for whom the least hint of uncertainty makes life unbearable. But by leaving the world, he has irrevocably changed it. Greater Boston is written and produced by Alexander Danner and Jeff Van Dreason. A production of ThirdSight Media LLC.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/greaterboston",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/greater-boston.jpg",
   "coverAlt": "Greater Boston cover art",
   "status": "published",
@@ -17,7 +23,8 @@
   },
   "genres": [
     "drama",
-    "comedy"
+    "comedy",
+    "fantasy"
   ],
   "tones": [
     "warm",
@@ -30,27 +37,33 @@
   ],
   "tags": [
     "Ensemble",
-    "Political",
-    "Offbeat",
-    "Urban"
+    "Magical realism",
+    "Boston",
+    "Urban fantasy"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "community",
+    "uncertainty",
+    "civic systems"
+  ],
+  "contentNotes": [
+    "episode-specific notes vary across the long-running ensemble story"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "4 seasons • 135 episodes • ~32 min episodes",
+    "label": "4 seasons / 135 public feed entries, including numbered episodes, mini-episodes, and bonus material",
     "seasons": 4,
-    "episodes": 135,
     "avgEpisodeMinutes": 32,
-    "totalHours": 72
+    "feedEntries": 135
   },
   "releaseDates": {
-    "first": "2023-04-04",
-    "latest": "2026-07-07"
+    "first": "2016-01-05",
+    "latest": "2026-07-07",
+    "note": "The feed total includes mini-episodes and bonus material as well as numbered story episodes."
   },
   "ratings": {},
   "facts": {},
@@ -84,13 +97,22 @@
     "network": "Greater Boston"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://feeds.megaphone.fm/greaterboston; https://podcasts.apple.com/us/podcast/greater-boston/id1074410525?uo=4; https://www.greaterbostonshow.com/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available through the official show site",
+    "captions": "not applicable",
+    "regionNotes": "The public feed includes story episodes, mini-episodes, and bonus material."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "an alternate, increasingly fantastical Greater Boston",
+    "pov": "large full-cast ensemble",
+    "intensity": "variable"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/greaterboston",
@@ -98,7 +120,7 @@
       "https://www.greaterbostonshow.com/"
     ],
     "importCandidateId": "41e55baf-a517-41a8-be0f-a2e3d3f21551",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1074410525"
     },
@@ -110,14 +132,19 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:16.046Z",
-    "importOfficialSummary": "Greater Boston is a bi-monthly&nbsp;full-cast audio drama that blends the real and the unreal,&nbsp;the historical and the fantastical. It all begins with the death of Leon Stamatis, a man for whom&nbsp;the least hint of uncertainty makes life unbearable. But by leaving the world, he has irrevocably changed it. Greater Boston&nbsp;is written and produced by Alexander Danner and Jeff Van Dreason. A production of ThirdSight Media LLC."
+    "importOfficialSummary": "Greater Boston is a bi-monthly full-cast audio drama that blends the real and the unreal, the historical and the fantastical. It all begins with the death of Leon Stamatis, a man for whom the least hint of uncertainty makes life unbearable. But by leaving the world, he has irrevocably changed it. Greater Boston is written and produced by Alexander Danner and Jeff Van Dreason. A production of ThirdSight Media LLC.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "alexander-danner-jeff-van-dreason",
   "networkId": "greater-boston",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Alexander Danner",
+    "Jeff Van Dreason"
+  ],
   "popularity": {}
 }

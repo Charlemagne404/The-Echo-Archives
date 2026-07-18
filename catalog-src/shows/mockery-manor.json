@@ -1,8 +1,14 @@
 {
   "id": "mockery-manor",
   "title": "Mockery Manor",
-  "subtitle": "",
-  "description": "A fast, playful mystery set inside a retro theme park where understaffed chaos, class friction, and slasher energy all keep colliding.",
+  "subtitle": "Murder, twins, and black comedy inside a dangerously cheerful theme park.",
+  "description": "Summer, 1989, somewhere in deepest darkest England. Mockery Manor is a theme park where people disappear, and it's up to a pair of chaotic teenage twins to catch a killer. British Podcast Awards 'Best Fiction' Nominee 2020. If you like Widow's Bay, Hot Fuzz , and Only Murders In The Building , then Mockery Manor is for you. Mockery Manor is a full-cast production best enjoyed using headphones.",
+  "officialDescription": {
+    "text": "Summer, 1989, somewhere in deepest darkest England. Mockery Manor is a theme park where people disappear, and it's up to a pair of chaotic teenage twins to catch a killer. British Podcast Awards 'Best Fiction' Nominee 2020. If you like Widow's Bay, Hot Fuzz , and Only Murders In The Building , then Mockery Manor is for you. Mockery Manor is a full-cast production best enjoyed using headphones.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.art19.com/mockery-manor",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/mockery-manor.jpg",
   "coverAlt": "Mockery Manor cover art",
   "status": "published",
@@ -11,11 +17,12 @@
   "completionStatus": "ongoing",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/mockery-manor/id1481983747?uo=4",
-    "website": "https://art19.com/shows/mockery-manor",
+    "website": "https://www.longcatmedia.com/mockery-manor",
     "rss": "https://rss.art19.com/mockery-manor"
   },
   "genres": [
     "comedy",
+    "mystery",
     "drama"
   ],
   "tones": [
@@ -28,27 +35,32 @@
     "serialized"
   ],
   "tags": [
-    "Mystery",
-    "Theme Park",
-    "British",
-    "Retro"
+    "Theme park",
+    "Murder mystery",
+    "1980s",
+    "Twins"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "family secrets",
+    "murder",
+    "workplace rivalry"
+  ],
+  "contentNotes": [
+    "murder, threat, and black comedy"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "4 seasons • 67 episodes • ~23 min episodes",
+    "label": "4 seasons / 67 public feed entries, including story episodes, trailers, and lore material",
     "seasons": 4,
-    "episodes": 67,
     "avgEpisodeMinutes": 23,
-    "totalHours": 25.7
+    "feedEntries": 67
   },
   "releaseDates": {
-    "first": "2023-06-20",
+    "first": "2019-10-31",
     "latest": "2026-06-16"
   },
   "ratings": {},
@@ -75,28 +87,37 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://art19.com/shows/mockery-manor"
+    "website": "https://www.longcatmedia.com/mockery-manor"
   },
   "credits": {
     "creatorName": "Long Cat Media",
     "network": "ART19"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
-    "source": "https://rss.art19.com/mockery-manor; https://podcasts.apple.com/us/podcast/mockery-manor/id1481983747?uo=4; https://art19.com/shows/mockery-manor",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://rss.art19.com/mockery-manor; https://podcasts.apple.com/us/podcast/mockery-manor/id1481983747; https://www.longcatmedia.com/mockery-manor",
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available from Long Cat Media",
+    "captions": "not applicable",
+    "regionNotes": "Four seasons are listed by the official Apple Podcasts page."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "English theme parks beginning in summer 1989",
+    "pov": "twin-led full-cast mystery",
+    "intensity": "medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.art19.com/mockery-manor",
       "https://podcasts.apple.com/us/podcast/mockery-manor/id1481983747?uo=4",
-      "https://art19.com/shows/mockery-manor"
+      "https://www.longcatmedia.com/mockery-manor"
     ],
     "importCandidateId": "67b6a81a-c578-4d32-98e0-b088cd9482a4",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1481983747"
     },
@@ -108,14 +129,19 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:15.697Z",
-    "importOfficialSummary": "Summer, 1989, somewhere in deepest darkest England. Mockery Manor is a theme park where people disappear, and it's up to a pair of chaotic teenage twins to catch a killer. British Podcast Awards 'Best Fiction' Nominee 2020. If you like Widow's Bay, Hot Fuzz , and Only Murders In The Building , then Mockery Manor is for you. Mockery Manor is a full-cast production best enjoyed using headphones. ]]>"
+    "importOfficialSummary": "Summer, 1989, somewhere in deepest darkest England. Mockery Manor is a theme park where people disappear, and it's up to a pair of chaotic teenage twins to catch a killer. British Podcast Awards 'Best Fiction' Nominee 2020. If you like Widow's Bay, Hot Fuzz , and Only Murders In The Building , then Mockery Manor is for you. Mockery Manor is a full-cast production best enjoyed using headphones.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "long-cat-media",
   "networkId": "art19",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Lindsay Sharman",
+    "Laurence Owen"
+  ],
   "popularity": {}
 }

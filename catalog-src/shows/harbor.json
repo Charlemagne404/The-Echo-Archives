@@ -1,8 +1,14 @@
 {
   "id": "harbor",
   "title": "Harbor",
-  "subtitle": "",
-  "description": "A supernatural small-town drama where cryptids, family pressure, and local secrets all feel personal before they feel mythic.",
+  "subtitle": "Queer small-town cryptid drama with found-family warmth and bureaucratic bite.",
+  "description": "The Greer siblings have a lot on their plate- stressful jobs, southern heat, small town politics AND Cryptids with personal problems. Remember, normal is what you get used to. Harbor is an audio drama intended for mature audiences with instances of language, violence and implied sexual situations. Listener discretion is advised.",
+  "officialDescription": {
+    "text": "The Greer siblings have a lot on their plate- stressful jobs, southern heat, small town politics AND Cryptids with personal problems. Remember, normal is what you get used to. Harbor is an audio drama intended for mature audiences with instances of language, violence and implied sexual situations. Listener discretion is advised.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/212942/destinations/1539887.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/harbor.png",
   "coverAlt": "Harbor cover art",
   "status": "published",
@@ -30,28 +36,38 @@
     "serialized"
   ],
   "tags": [
-    "Small Town",
+    "Small town",
     "Cryptids",
     "Family",
     "Supernatural"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "family",
+    "belonging",
+    "bureaucracy"
+  ],
+  "contentNotes": [
+    "language",
+    "violence",
+    "implied sexual situations"
+  ],
   "languages": [
     "en-us"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons • 24 episodes • ~40 min episodes",
+    "label": "2 seasons / 20 numbered story episodes; 24 public feed entries",
     "seasons": 2,
-    "episodes": 24,
+    "episodes": 20,
     "avgEpisodeMinutes": 40,
-    "totalHours": 16
+    "totalHours": 13.3,
+    "feedEntries": 24
   },
   "releaseDates": {
     "first": "2019-09-11",
-    "latest": "2025-12-15"
+    "latest": "2022-03-01",
+    "note": "Latest numbered story episode is Season 2, Episode 10; later feed activity is not a new story season."
   },
   "ratings": {},
   "facts": {},
@@ -84,13 +100,22 @@
     "network": "Harbor - An Audio Drama Podcast"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://rss.libsyn.com/shows/212942/destinations/1539887.xml; https://podcasts.apple.com/us/podcast/harbor/id1479639548?uo=4; https://harborpodcast.com/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available on the official show site",
+    "captions": "not applicable",
+    "regionNotes": "Two numbered story seasons are publicly available."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a small Southern town shared with cryptids",
+    "pov": "Greer-sibling ensemble",
+    "intensity": "medium-high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/212942/destinations/1539887.xml",
@@ -98,7 +123,7 @@
       "https://harborpodcast.com/"
     ],
     "importCandidateId": "c492cf9b-4c27-4de2-b121-5af8a1b0b8fe",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1479639548"
     },
@@ -109,14 +134,18 @@
         ]
       }
     },
-    "objectiveImportedAt": "2026-07-09T22:44:25.543Z"
+    "objectiveImportedAt": "2026-07-09T22:44:25.543Z",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "tartarus-jenny-studios",
   "networkId": "harbor-an-audio-drama-podcast",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Faraday Roke"
+  ],
   "popularity": {}
 }

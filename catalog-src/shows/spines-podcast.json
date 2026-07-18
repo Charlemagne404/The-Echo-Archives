@@ -1,8 +1,14 @@
 {
   "id": "spines-podcast",
   "title": "Spines",
-  "subtitle": "",
-  "description": "A cult-haunted horror serial about memory loss, dangerous power, and the violent institutions circling a woman who woke up at the center of something awful.",
+  "subtitle": "A blood-soaked awakening leads into cults, missing memories, and dangerous powers.",
+  "description": "One day, Wren wakes up covered in blood, suffering from memory loss, and surrounded by the remnants of some strange cult ritual. SPINES is the story of her search for answers, and the deadly, powerful people she encounters along the way. Listen to the complete series now.",
+  "officialDescription": {
+    "text": "One day, Wren wakes up covered in blood, suffering from memory loss, and surrounded by the remnants of some strange cult ritual. SPINES is the story of her search for answers, and the deadly, powerful people she encounters along the way. Listen to the complete series now.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/104293/destinations/557869.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/spines-podcast.jpg",
   "coverAlt": "Spines cover art",
   "status": "published",
@@ -35,22 +41,30 @@
     "Cults"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "identity",
+    "memory",
+    "power"
+  ],
+  "contentNotes": [
+    "blood, cults, and supernatural violence"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "3 seasons • 28 episodes • ~22 min episodes",
+    "label": "3 seasons / 24 numbered story episodes; 28 public feed entries",
     "seasons": 3,
-    "episodes": 28,
+    "episodes": 24,
     "avgEpisodeMinutes": 22,
-    "totalHours": 10.3
+    "totalHours": 8.8,
+    "feedEntries": 28
   },
   "releaseDates": {
-    "first": "2018-02-05",
-    "latest": "2025-12-14"
+    "first": "2016-09-24",
+    "latest": "2018-02-05",
+    "note": "The complete three-season story ends with Episode 24; the feed also contains trailers and bonus entries."
   },
   "ratings": {},
   "facts": {},
@@ -82,13 +96,22 @@
     "creatorName": "ZoomDoom Stories"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://rss.libsyn.com/shows/104293/destinations/557869.xml; https://podcasts.apple.com/us/podcast/spines-podcast/id1158565649?uo=4; https://spinespodcast.com/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "The complete series is available through the publisher feed."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a contemporary supernatural conspiracy",
+    "pov": "Wren-led narration",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/104293/destinations/557869.xml",
@@ -96,7 +119,7 @@
       "https://spinespodcast.com/"
     ],
     "importCandidateId": "8e24aad9-0578-4e89-a5d1-770457d8938f",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1158565649"
     },
@@ -108,13 +131,17 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:17.061Z",
-    "importOfficialSummary": "One day, Wren wakes up covered in blood, suffering from memory loss, and surrounded by the remnants of some strange cult ritual. SPINES is the story of her search for answers, and the deadly, powerful people she encounters along the way. Listen to the complete series now."
+    "importOfficialSummary": "One day, Wren wakes up covered in blood, suffering from memory loss, and surrounded by the remnants of some strange cult ritual. SPINES is the story of her search for answers, and the deadly, powerful people she encounters along the way. Listen to the complete series now.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "zoomdoom-stories",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "ZoomDoom Stories"
+  ],
   "popularity": {}
 }

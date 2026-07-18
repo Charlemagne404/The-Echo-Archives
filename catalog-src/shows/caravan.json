@@ -2,7 +2,13 @@
   "id": "caravan",
   "title": "Caravan",
   "subtitle": "A Weird-West Audio Drama Adventure",
-  "description": "A queer fantasy road-trip drama about monsters, found family, and the kind of hidden world that keeps getting bigger the farther you travel into it.",
+  "description": "CARAVAN is a story about getting through Hell with the people you love. When Samir and his best friend Carlyle take a camping trip to the Canyon, they don't plan on getting caught in a thunderstorm. Even worse, they don't plan on Samir falling into the Canyon. When he wakes up, Samir finds himself in a new world, where ghosts, demons, vampires, and other monsters terrorize the locals like any villains in a western. Samir joins up with a caravan—a vigilante train of supernatural bounty hunters—to delve deep into the Canyon depths, and find a way out of Hell once and for all.",
+  "officialDescription": {
+    "text": "CARAVAN is a story about getting through Hell with the people you love. When Samir and his best friend Carlyle take a camping trip to the Canyon, they don't plan on getting caught in a thunderstorm. Even worse, they don't plan on Samir falling into the Canyon. When he wakes up, Samir finds himself in a new world, where ghosts, demons, vampires, and other monsters terrorize the locals like any villains in a western. Samir joins up with a caravan—a vigilante train of supernatural bounty hunters—to delve deep into the Canyon depths, and find a way out of Hell once and for all.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/caravan",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/caravan.jpg",
   "coverAlt": "Caravan cover art",
   "status": "published",
@@ -11,7 +17,7 @@
   "completionStatus": "ongoing",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/caravan/id1449947569?uo=4",
-    "website": "https://art19.com/shows/caravan",
+    "website": "https://www.whisperforge.org/caravan",
     "rss": "https://feeds.megaphone.fm/caravan"
   },
   "genres": [
@@ -29,28 +35,36 @@
     "serialized"
   ],
   "tags": [
-    "Fantasy",
-    "Road Trip",
+    "Portal fantasy",
+    "Supernatural western",
     "Queer",
-    "Supernatural"
+    "Found family"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "found family",
+    "escape",
+    "belonging"
+  ],
+  "contentNotes": [
+    "mature language, violence, and sexual themes"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season • 13 episodes • ~26 min episodes",
+    "label": "1 season / 10 numbered story episodes; 13 public feed entries",
     "seasons": 1,
-    "episodes": 13,
+    "episodes": 10,
     "avgEpisodeMinutes": 26,
-    "totalHours": 5.6
+    "totalHours": 4.3,
+    "feedEntries": 13
   },
   "releaseDates": {
-    "first": "2019-01-18",
-    "latest": "2021-05-14"
+    "first": "2019-01-31",
+    "latest": "2019-05-31",
+    "note": "Dates cover the ten numbered Season 1 story episodes; later feed entries are bonus or promotional material."
   },
   "ratings": {},
   "facts": {},
@@ -76,27 +90,36 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://art19.com/shows/caravan"
+    "website": "https://www.whisperforge.org/caravan"
   },
   "credits": {
     "creatorName": "The Whisperforge"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
-    "source": "https://feeds.megaphone.fm/caravan; https://podcasts.apple.com/us/podcast/caravan/id1449947569?uo=4; https://art19.com/shows/caravan",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://feeds.megaphone.fm/caravan; https://podcasts.apple.com/us/podcast/caravan/id1449947569; https://www.whisperforge.org/caravan",
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available on the official Whisperforge site",
+    "captions": "not applicable",
+    "regionNotes": "Available through the publisher feed and major podcast platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the supernatural Weird West of Wound Canyon",
+    "pov": "Samir-led full-cast ensemble",
+    "intensity": "medium-high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/caravan",
       "https://podcasts.apple.com/us/podcast/caravan/id1449947569?uo=4",
-      "https://art19.com/shows/caravan"
+      "https://www.whisperforge.org/caravan"
     ],
     "importCandidateId": "ebd0b226-d3e9-411e-85bc-e71804369a06",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1449947569"
     },
@@ -108,13 +131,17 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:18.315Z",
-    "importOfficialSummary": "CARAVAN is a story about getting through Hell with the people you love. When Samir and his best friend Carlyle take a camping trip to the Canyon, they don't plan on getting caught in a thunderstorm. Even worse, they don't plan on Samir falling into the Canyon. When he wakes up, Samir finds himself in a new world, where ghosts, demons, vampires, and other monsters terrorize the locals like any villains in a western. Samir joins up with a caravan—a vigilante train of supernatural bounty hunters—to delve deep into the Canyon depths, and find a way out of Hell once and for all."
+    "importOfficialSummary": "CARAVAN is a story about getting through Hell with the people you love. When Samir and his best friend Carlyle take a camping trip to the Canyon, they don't plan on getting caught in a thunderstorm. Even worse, they don't plan on Samir falling into the Canyon. When he wakes up, Samir finds himself in a new world, where ghosts, demons, vampires, and other monsters terrorize the locals like any villains in a western. Samir joins up with a caravan—a vigilante train of supernatural bounty hunters—to delve deep into the Canyon depths, and find a way out of Hell once and for all.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "the-whisperforge",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Tau Zaman"
+  ],
   "popularity": {}
 }

@@ -1,14 +1,20 @@
 {
   "id": "midnight-radio",
   "title": "Midnight Radio",
-  "subtitle": "",
-  "description": "A melancholy mystery drama about a drifting musician, a strange town, and the emotional static that keeps surfacing through music, memory, and local secrets.",
+  "subtitle": "A ghost broadcaster and a living listener begin an impossible correspondence.",
+  "description": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories.",
+  "officialDescription": {
+    "text": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/123514/destinations/729596.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/midnight-radio.png",
   "coverAlt": "Midnight Radio cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "inactive",
-  "completionStatus": "unclear",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066?uo=4",
     "website": "https://www.martletradio.com/",
@@ -29,27 +35,35 @@
     "serialized"
   ],
   "tags": [
-    "Mystery",
-    "Small Town",
-    "Supernatural",
-    "Music"
+    "Ghost story",
+    "Small town",
+    "Queer romance",
+    "Radio"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "love",
+    "haunting",
+    "hometown memory"
+  ],
+  "contentNotes": [
+    "grief and death"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "12 episodes • ~16 min episodes",
-    "episodes": 12,
+    "label": "10-part completed story plus trailer/bonus feed entries",
+    "episodes": 10,
     "avgEpisodeMinutes": 16,
-    "totalHours": 3.2
+    "totalHours": 2.7,
+    "feedEntries": 12
   },
   "releaseDates": {
     "first": "2018-06-02",
-    "latest": "2025-12-13"
+    "latest": "2018-08-04",
+    "note": "Ten-part limited series; later feed activity is not an additional story episode."
   },
   "ratings": {},
   "facts": {},
@@ -81,13 +95,22 @@
     "creatorName": "Martlet Radio"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://rss.libsyn.com/shows/123514/destinations/729596.xml; https://podcasts.apple.com/us/podcast/midnight-radio/id1393315066?uo=4; https://www.martletradio.com/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available from Martlet Radio",
+    "captions": "not applicable",
+    "regionNotes": "The ten-part limited series is complete."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "Dawn Arbor across the 1950s and present day",
+    "pov": "epistolary radio correspondence",
+    "intensity": "low-medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.libsyn.com/shows/123514/destinations/729596.xml",
@@ -95,7 +118,7 @@
       "https://www.martletradio.com/"
     ],
     "importCandidateId": "6392ce9c-362c-44dd-af1b-35bbbdd17489",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1393315066"
     },
@@ -107,13 +130,17 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:24.610Z",
-    "importOfficialSummary": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories."
+    "importOfficialSummary": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "martlet-radio",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Bobbie Parker"
+  ],
   "popularity": {}
 }

@@ -2,7 +2,13 @@
   "id": "how-i-died",
   "title": "How I Died",
   "subtitle": "Paranormal mystery with stronger horror hooks than melodrama.",
-  "description": "One of the easier horror entries to recommend when someone wants ghosts, procedure, and mystery in the same lane.",
+  "description": "Bodies are piling up in the strange town of Springfield, and forensic pathologist Jonathan Spacer intends to find out why. But, Jon isn’t without his own secrets… He can talk to the dead, for starters. A full-cast serial fiction podcast for mature audiences. Available now on all podcast apps. Find us on Patreon for premium content, including bonus episodes and early access: https://www.patreon.com/HowIDied",
+  "officialDescription": {
+    "text": "Bodies are piling up in the strange town of Springfield, and forensic pathologist Jonathan Spacer intends to find out why. But, Jon isn’t without his own secrets… He can talk to the dead, for starters. A full-cast serial fiction podcast for mature audiences. Available now on all podcast apps. Find us on Patreon for premium content, including bonus episodes and early access: https://www.patreon.com/HowIDied",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/SBP7060579303",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/how i died/howidied.jpeg",
   "coverAlt": "How I Died cover art",
   "status": "published",
@@ -13,7 +19,7 @@
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/how-i-died/id1450764373",
     "website": "https://audiohmmedia.com/howidied/",
-    "rss": ""
+    "rss": "https://feeds.megaphone.fm/SBP7060579303"
   },
   "genres": [
     "horror",
@@ -29,14 +35,18 @@
     "serialized"
   ],
   "tags": [
-    "Horror",
-    "Supernatural",
-    "Mystery"
+    "Forensic mystery",
+    "Ghosts",
+    "Small town",
+    "Supernatural"
   ],
   "length": {
-    "label": "Season 4 released in 2025 with a planned 13-episode run; exact total feed count still needs RSS verification",
+    "label": "4 seasons / 52 main-story episodes; Season 4 concluded December 17, 2025",
     "seasons": 4,
-    "avgEpisodeMinutes": 30
+    "episodes": 52,
+    "avgEpisodeMinutes": 25,
+    "totalHours": 21.7,
+    "feedEntries": 78
   },
   "ratings": {
     "archive": 9
@@ -69,7 +79,7 @@
     "hex": "#88506a",
     "rgb": "136, 80, 106"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "officialLinks": {
     "website": "https://audiohmmedia.com/howidied/",
     "patreon": "https://www.patreon.com/howidied",
@@ -110,27 +120,24 @@
     "objectiveSources": [
       "https://audiohmmedia.com/",
       "https://audiohmmedia.com/howidied/",
-      "https://podcasts.apple.com/us/podcast/how-i-died/id1450764373"
+      "https://podcasts.apple.com/us/podcast/how-i-died/id1450764373",
+      "https://feeds.megaphone.fm/SBP7060579303"
     ],
-    "objectiveNote": "Official Audiohm pages verify creator, full-cast serial format, principal cast, mature-audience note, transcript availability, and Season 4 status. Episode count remains deliberately unfilled because a clean current feed count was not captured.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "Official Audiohm pages verify creator, full-cast serial format, principal cast, mature-audience note, and transcript availability. The current publisher RSS verifies four 13-episode story seasons; promotional feed swaps, trailers, and bonus items are excluded from the 52-episode story count.",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/how-i-died.json",
-    "researchGaps": [
-      "exact total episode count",
-      "exact Season 4 final episode date",
-      "exact RSS feed URL"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
-    "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
-    "source": "https://audiohmmedia.com/; https://audiohmmedia.com/howidied/; https://podcasts.apple.com/us/podcast/how-i-died/id1450764373",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://audiohmmedia.com/; https://audiohmmedia.com/howidied/; https://podcasts.apple.com/us/podcast/how-i-died/id1450764373; https://feeds.megaphone.fm/SBP7060579303",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
   "aliases": [
@@ -139,8 +146,8 @@
   ],
   "releaseDates": {
     "first": "2019-01-11",
-    "latest": "2025-08-18",
-    "note": "Official transcript listing exposed Season 4 transcript files through at least Episode 11 on 2025-08-18; Season 4 was announced as a 13-episode run, so exact final public release date should still be feed-checked."
+    "latest": "2025-12-17",
+    "note": "The publisher RSS identifies S4E13, Selfless, as the latest core-series episode. Later feed items promote a separate prequel series or other shows."
   },
   "themes": [
     "horror",

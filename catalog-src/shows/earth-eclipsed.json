@@ -2,7 +2,13 @@
   "id": "earth-eclipsed",
   "title": "Earth Eclipsed",
   "subtitle": "Dystopian sci-fi with a heavier thriller edge.",
-  "description": "A darker catalog entry for listeners who want genre pressure more than comfort.",
+  "description": "An Official Selection of the Tribeca Festival 2021. A brilliant neuroscientist on the brink of a galaxy-changing discovery that will save millions of lives has her work cut short when she’s kidnapped by a renegade miner. Follow Dr. Alexine Prometh as she works to outwit Nico Dunn and complete the Abacus Project, her life's work. Set in the distant future, this immersive audio series explores what it means to live in a utopian society, and the great lengths a person must go to preserve humanity.",
+  "officialDescription": {
+    "text": "An Official Selection of the Tribeca Festival 2021. A brilliant neuroscientist on the brink of a galaxy-changing discovery that will save millions of lives has her work cut short when she’s kidnapped by a renegade miner. Follow Dr. Alexine Prometh as she works to outwit Nico Dunn and complete the Abacus Project, her life's work. Set in the distant future, this immersive audio series explores what it means to live in a utopian society, and the great lengths a person must go to preserve humanity.",
+    "sourceLabel": "Official Apple Podcasts listing",
+    "sourceUrl": "https://podcasts.apple.com/us/podcast/earth-eclipsed/id1544552983",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/earth eclipsed/eartheclipsed.jpeg",
   "coverAlt": "Earth Eclipsed cover art",
   "status": "published",
@@ -11,13 +17,14 @@
   "completionStatus": "unclear",
   "listenLinks": {
     "spotify": "",
-    "apple": "",
+    "apple": "https://podcasts.apple.com/us/podcast/earth-eclipsed/id1544552983",
     "website": "https://eartheclipsed.com/",
     "rss": ""
   },
   "genres": [
     "sci-fi",
-    "thriller"
+    "thriller",
+    "drama"
   ],
   "tones": [
     "dark",
@@ -28,14 +35,17 @@
     "serialized"
   ],
   "tags": [
-    "Sci-fi",
-    "Dystopia",
-    "Thriller"
+    "Neuroscience",
+    "Utopia",
+    "Kidnapping",
+    "Dystopia"
   ],
   "length": {
-    "label": "8 episodes",
+    "label": "8 story episodes plus one trailer",
     "seasons": 1,
-    "episodes": 8
+    "episodes": 8,
+    "avgEpisodeMinutes": 30,
+    "feedEntries": 9
   },
   "ratings": {
     "archive": 8
@@ -67,7 +77,7 @@
     "hex": "#4e657c",
     "rgb": "78, 101, 124"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2021-09-01",
     "latest": "2021-10-20"
@@ -83,20 +93,41 @@
   },
   "credits": {
     "productionCompany": "The Lunar Company",
-    "creatorName": "Not verified",
+    "creatorName": [
+      "Nicholas Prufer",
+      "AJ Churchill",
+      "Victor Lee"
+    ],
     "writer": "Not verified",
-    "director": "Not verified",
-    "producer": "Not verified",
+    "director": "Nicholas Prufer",
+    "producer": [
+      "Nicholas Prufer",
+      "AJ Churchill",
+      "Victor Lee"
+    ],
     "soundDesign": "Not verified",
-    "composer": "Not verified",
-    "network": "Not verified",
-    "cast": "Not verified",
+    "composer": [
+      "AJ Churchill",
+      "Shane Rutherfoord-Jones",
+      "Alessandro Apolloni"
+    ],
+    "network": "Apollo Podcasts",
+    "cast": [
+      "Allegra Rodriguez Shivers",
+      "Reginald West",
+      "Christian T. Chan",
+      "Amy Lyndon",
+      "Michael Malconian",
+      "Tali de Assis",
+      "Shogo Miyakita",
+      "Andrew Oakes"
+    ],
     "coverArt": "Not verified"
   },
   "availability": {
-    "transcripts": "unknown",
-    "captions": "n/a",
-    "regionNotes": "Platform availability not fully verified in this pass."
+    "transcripts": "available from the official site for all eight story episodes",
+    "captions": "not applicable",
+    "regionNotes": "The official Apple Podcasts listing contains eight numbered story episodes and one trailer."
   },
   "content": {
     "sourceMaterial": "original fiction",
@@ -106,27 +137,25 @@
   },
   "metadata": {
     "objectiveSources": [
-      "https://eartheclipsed.com/"
+      "https://eartheclipsed.com/",
+      "https://www.eartheclipsed.com/app/uploads/2021/05/press-release-5-6-21.pdf",
+      "https://podcasts.apple.com/us/podcast/earth-eclipsed/id1544552983"
     ],
-    "objectiveNote": "Official URL is identified, but current web capture was incomplete. Kept conservative metadata and included recheck notes rather than inventing missing facts.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "The official site, press release, and Apple Podcasts listing verify the premise, eight-episode story count, principal creators, production company, director, producers, composers, principal cast, and transcript availability.",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/earth-eclipsed.json",
-    "researchGaps": [
-      "working official source capture",
-      "exact current platform count",
-      "complete credits"
-    ],
+    "researchGaps": [],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
-    "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
-    "source": "https://eartheclipsed.com/",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://eartheclipsed.com/; https://www.eartheclipsed.com/app/uploads/2021/05/press-release-5-6-21.pdf; https://podcasts.apple.com/us/podcast/earth-eclipsed/id1544552983",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
   "aliases": [
@@ -146,9 +175,20 @@
   ],
   "transcriptLanguages": [],
   "creators": [
-    "The Lunar Company"
+    "Nicholas Prufer",
+    "AJ Churchill",
+    "Victor Lee"
   ],
-  "cast": [],
+  "cast": [
+    "Allegra Rodriguez Shivers",
+    "Reginald West",
+    "Christian T. Chan",
+    "Amy Lyndon",
+    "Michael Malconian",
+    "Tali de Assis",
+    "Shogo Miyakita",
+    "Andrew Oakes"
+  ],
   "createdAt": "2026-06-01",
   "creatorId": "the-lunar-company",
   "networkId": "the-lunar-company-apollo-podcasts",

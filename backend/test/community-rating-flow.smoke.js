@@ -368,7 +368,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
 
     await carousel.locator("[data-review-helpful]").click();
     await page.waitForFunction(() => document.querySelector("[data-review-helpful]")?.getAttribute("aria-pressed") === "true");
-    assert.deepEqual(helpfulRequests, [{ method: "PUT", body: { turnstileToken: "" } }]);
+    assert.deepEqual(helpfulRequests, [{ method: "PUT", body: {} }]);
 
     failedPage = 4;
     await carousel.locator("[data-review-carousel-next]").click();

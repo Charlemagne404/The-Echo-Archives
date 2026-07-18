@@ -2,7 +2,13 @@
   "id": "malevolent",
   "title": "Malevolent",
   "subtitle": "Cosmic-horror mystery with enough momentum to make the darkness feel athletic.",
-  "description": "A horror serial following Arthur Lester, an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head.",
+  "description": "Do not fear the dark, fear what darkness brings... Arkham Private Investigator Arthur Lester wakes up with no memory of who he is or what has happened, only a nameless, eerie voice guiding him through the darkness. Blind, terrified, and confused, his journey will lead him towards a series of mysteries in the hopes of understanding the truth of what has transpired. As cosmic horrors seep into the world around, Arthur must ask himself whether this entity truly seeks to help him, or are its intentions more… Malevolent Malevolent is produced, written, edited, performed, scored & created by Harlan Guthrie. This podcast contains mature themes, explicit language, bodily horror, violence, otherworldly terror and death. Listener discretion is advised. Full transcripts of every episode are available here . Hosted on Acast. See acast.com/privacy for more information.",
+  "officialDescription": {
+    "text": "Do not fear the dark, fear what darkness brings... Arkham Private Investigator Arthur Lester wakes up with no memory of who he is or what has happened, only a nameless, eerie voice guiding him through the darkness. Blind, terrified, and confused, his journey will lead him towards a series of mysteries in the hopes of understanding the truth of what has transpired. As cosmic horrors seep into the world around, Arthur must ask himself whether this entity truly seeks to help him, or are its intentions more… Malevolent Malevolent is produced, written, edited, performed, scored & created by Harlan Guthrie. This podcast contains mature themes, explicit language, bodily horror, violence, otherworldly terror and death. Listener discretion is advised. Full transcripts of every episode are available here . Hosted on Acast. See acast.com/privacy for more information.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/malevolent.jpg",
   "coverAlt": "Malevolent cover art",
   "status": "published",
@@ -30,9 +36,10 @@
     "serialized"
   ],
   "tags": [
-    "Horror",
-    "Lovecraftian",
-    "Mystery"
+    "Cosmic horror",
+    "Amnesia",
+    "Private investigator",
+    "1930s"
   ],
   "aliases": [],
   "themes": [
@@ -89,21 +96,42 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "similarReasons": {
     "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
     "tower-4": "A quieter paranoia branch if the voice-driven unease is the part you want to keep.",
     "impact-winter": "A more overtly cinematic escalation if the intensity matters more than the occult frame.",
     "archive-81": "A stranger signal-horror branch once you want the mystery to become more structurally weird."
   },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Available through the official feed and major podcast platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "1930s Lovecraftian horror across shifting locations",
+    "pov": "Arthur Lester and the entity sharing his body",
+    "intensity": "high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://www.malevolent.ca/",
       "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
-      "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c"
+      "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c",
+      "https://www.malevolent.ca/for-your-consideration/"
     ],
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "credits": {
+    "creatorName": "Harlan Guthrie",
+    "writer": "Harlan Guthrie",
+    "director": "Harlan Guthrie",
+    "producer": "Harlan Guthrie",
+    "performer": "Harlan Guthrie",
+    "soundDesign": "Harlan Guthrie",
+    "composer": "Harlan Guthrie"
   }
 }

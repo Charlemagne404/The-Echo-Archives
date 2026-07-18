@@ -2,7 +2,13 @@
   "id": "video-palace",
   "title": "Video Palace",
   "subtitle": "Found-audio horror about cursed media and the kind of mystery that keeps getting worse.",
-  "description": "A compact horror serial about a cursed VHS tape, a missing-store legend, and the way media obsession becomes the path into something older and meaner.",
+  "description": "When video collector Mark Cambria watches a mysterious VHS tape, he begins talking in his sleep in a language that doesn't exist. Mark and his girlfriend Tamra set out to investigate the tape's origin and find themselves caught up in a web of conspiracy, occult, and dread surrounding a legendary video store with a sinister purpose beyond imagining. Video Palace was created by Nick Braccia and Mike Monello, directed by Ben Rock, written by Ben Rock & Bob DeRosa and stars Chase Williamson and Devin Sidell.",
+  "officialDescription": {
+    "text": "When video collector Mark Cambria watches a mysterious VHS tape, he begins talking in his sleep in a language that doesn't exist. Mark and his girlfriend Tamra set out to investigate the tape's origin and find themselves caught up in a web of conspiracy, occult, and dread surrounding a legendary video store with a sinister purpose beyond imagining. Video Palace was created by Nick Braccia and Mike Monello, directed by Ben Rock, written by Ben Rock & Bob DeRosa and stars Chase Williamson and Devin Sidell.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.art19.com/video-palace",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/video-palace.jpg",
   "coverAlt": "Video Palace cover art",
   "status": "published",
@@ -127,14 +133,14 @@
       "podcastIndexGuid": ""
     },
     "objectiveImportedAt": "2026-07-01T14:07:21.527Z",
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "shudder",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "creators": [
     "Nick Braccia",
     "Mike Monello"

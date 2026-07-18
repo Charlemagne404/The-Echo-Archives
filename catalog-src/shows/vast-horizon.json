@@ -2,7 +2,13 @@
   "id": "vast-horizon",
   "title": "Vast Horizon",
   "subtitle": "Adventure-forward space fiction with a stronger scale sense.",
-  "description": "A sci-fi archive entry that leans more toward exploration and forward motion than claustrophobic dread.",
+  "description": "Nolira is an agronomist tasked with establishing agriculture in a new solar system, but when she wakes up on a now- empty colony ship, the whole of her plan disappears. The ship has been set adrift, with numerous mission-critical problems requiring immediate attendance outside of her area of expertise. Nolira is aided by the ship’s malfunctioning AI, which acts as her confidant and companion during the fight for survival.",
+  "officialDescription": {
+    "text": "Nolira is an agronomist tasked with establishing agriculture in a new solar system, but when she wakes up on a now- empty colony ship, the whole of her plan disappears. The ship has been set adrift, with numerous mission-critical problems requiring immediate attendance outside of her area of expertise. Nolira is aided by the ship’s malfunctioning AI, which acts as her confidant and companion during the fight for survival.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/SBP6322056253",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/vast horizon/vasthorizon.jpeg",
   "coverAlt": "Vast Horizon cover art",
   "status": "published",
@@ -17,20 +23,23 @@
   },
   "genres": [
     "sci-fi",
+    "thriller",
     "adventure"
   ],
   "tones": [
+    "tense",
     "cinematic",
-    "hopeful"
+    "dark"
   ],
   "formats": [
     "full-cast",
     "serialized"
   ],
   "tags": [
-    "Sci-fi",
-    "Space",
-    "Adventure"
+    "Colony ship",
+    "Survival",
+    "Isolation",
+    "Amnesia"
   ],
   "length": {
     "label": "Complete series; 3 seasons; platform feeds may include bonus/trailer entries beyond main episodes",
@@ -70,7 +79,7 @@
     "hex": "#457693",
     "rgb": "69, 118, 147"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2019-05-28",
     "latest": "2022-11-29"
@@ -121,10 +130,11 @@
   },
   "metadata": {
     "objectiveSources": [
-      "https://www.foolandscholar.com/about-vast-horizon"
+      "https://www.foolandscholar.com/about-vast-horizon",
+      "https://feeds.megaphone.fm/SBP6322056253"
     ],
     "objectiveNote": "Official Fool & Scholar page confirms premise, complete availability, listening links, RSS, and cast list.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/vast-horizon.json",
     "researchGaps": [],
     "awards": [],
@@ -132,7 +142,7 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified",
@@ -174,7 +184,7 @@
   "networkId": "fool-and-scholar-productions",
   "similarReasons": {
     "solar": "A tighter survival chamber if you want the space danger without the same wandering sprawl.",
-    "the-waystation": "Keeps the hopeful exploratory side alive once the survival edge softens.",
+    "the-waystation": "Another stranded-space mystery with full-cast survival pressure, framed through recovered recordings.",
     "midst": "A stranger worldbuilding escalation for listeners who want the setting to get weirder and bigger."
   }
 }

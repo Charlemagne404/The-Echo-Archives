@@ -1,0 +1,50 @@
+.import-verification-workspace {
+  display: grid;
+  gap: 16px;
+  border-color: rgba(229, 72, 56, 0.28);
+  background:
+    linear-gradient(180deg, rgba(229, 72, 56, 0.07), rgba(8, 10, 12, 0.82)),
+    rgba(8, 10, 12, 0.78);
+}
+
+.import-verification-brief {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.import-verification-brief summary {
+  cursor: pointer;
+  color: #f5f1ea;
+}
+
+.import-verification-brief .maintainer-field {
+  margin-top: 14px;
+}
+
+.import-verification-brief textarea {
+  min-height: 18rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.import-verification-preview {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(48, 130, 94, 0.44);
+  border-radius: 16px;
+  background: rgba(48, 130, 94, 0.1);
+}
+
+.import-verification-preview p {
+  margin: 0;
+  color: #e2e7e8;
+}
+
+.import-verification-preview a {
+  color: #f0a293;
+  overflow-wrap: anywhere;
+}

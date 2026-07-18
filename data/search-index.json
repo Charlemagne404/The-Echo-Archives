@@ -3,7 +3,7 @@
     "id": "solar",
     "title": "Solar",
     "subtitle": "A spacebound thriller with a steady pressure-cooker pulse.",
-    "description": "A lean sci-fi survival pick for listeners who want tension, isolation, and an immediate sense of danger.",
+    "description": "SOLAR, starring Stephanie Beatriz, Tony Award winner Alan Cumming, Academy Award winner Helen Hunt and Jonathan Bangs, is a journey to the heart of the solar system and an exploration of the vastness of the human spirit. Disconnected from Earth and trapped on separate parts of their spacecraft, crew members must fight for survival following a disaster on board the ill-fated Aethon, a manned solar research probe sent to explore temporal distortion around the sun. As painful memories, forgotten dreams, technological challenges and blunt realities collide--they must work together to keep their hope alive in the face of growing darkness. SHADOWS ARE DARKER THIS CLOSE TO THE SUN. SOLAR is a CurtCo Media production. To learn more, visit solarthepodcast.com",
     "cover": "shows/solar/solar.jpeg",
     "coverVariants": [
       {
@@ -40,9 +40,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Space",
-      "Thriller"
+      "Spacecraft disaster",
+      "Survival",
+      "Isolation",
+      "Solar research"
     ],
     "aliases": [
       "Solar",
@@ -126,13 +127,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "story",
     "title": "Story",
     "subtitle": "A more grounded adventure-leaning mystery entry.",
-    "description": "A softer archive entry for listeners who want fiction podcast discovery without jumping straight into the bleakest corners of the catalog.",
+    "description": "Every season is a different fictional tale. A mini-series for the ears. Every season will introduce a new genre, a new plot, and new characters.",
     "cover": "shows/story/story.jpg",
     "coverVariants": [
       {
@@ -167,12 +168,13 @@
     ],
     "formats": [
       "full-cast",
+      "anthology",
       "serialized"
     ],
     "tags": [
-      "Drama",
-      "Mystery",
-      "Adventure"
+      "Seasonal anthology",
+      "Genre anthology",
+      "Mini-series"
     ],
     "aliases": [
       "Story",
@@ -200,7 +202,7 @@
       "desert-skies"
     ],
     "similarReasons": {
-      "the-waystation": "Keeps the hopeful speculative curiosity alive without hardening the tone.",
+      "the-waystation": "A darker limited-run mystery when a self-contained genre story matters more than keeping the tone gentle.",
       "the-bright-sessions": "A character-first branch if the emotional legibility matters more than the adventure frame.",
       "desert-skies": "Another soft-entry weird-fiction pick when you want warmth before lore."
     },
@@ -239,13 +241,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "from-now",
     "title": "From Now",
     "subtitle": "Time-travel sci-fi with a thriller spine.",
-    "description": "A compact archive pick for listeners who want momentum, time-slip tension, and a cleaner sci-fi hook.",
+    "description": "A famed lost spaceship, the USS HOPE, returns to Earth after vanishing thirty-five years prior. The lone survivor (Richard Madden) disembarks mysteriously​ looking the exact same age as when he left​. Following the ensuing media chaos, he finally reunites with his formerly identical twin brother (now an old man) for a one-on-one meeting. But what starts as a joyful reconciliation soon leads to dark revelations that threaten their relationship -- and the future of humanity. FROM NOW stars and is Executive Produced by Richard Madden and Brian Cox. Created & Written by Rhys Wakefield and William Day Frank.",
     "cover": "shows/from now/fromnow.jpeg",
     "coverAlt": "From Now cover art",
     "creators": [
@@ -272,9 +274,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Time Travel",
-      "Thriller"
+      "Lost spaceship",
+      "Time displacement",
+      "Twins",
+      "Conspiracy"
     ],
     "aliases": [
       "From Now",
@@ -355,13 +358,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-deca-tapes",
     "title": "The Deca Tapes",
     "subtitle": "Mystery-first sci-fi built around controlled reveals.",
-    "description": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
+    "description": "Footage has surfaced of 10 people locked together in the same room. We don't know where they are, or whether they can go outside. Each member of the group has received very specific instructions on how to live their lives. They have been assigned a role, which they must play in order to serve the group. Who writes those instructions? And why is the group forced to build a life cut off from the outside world? The answers must be somewhere on these recordings.",
     "cover": "shows/deca tapes/decatapes.jpeg",
     "coverVariants": [
       {
@@ -386,9 +389,9 @@
     "releaseStatus": "inactive",
     "completionStatus": "unclear",
     "genres": [
+      "sci-fi",
       "mystery",
-      "thriller",
-      "science"
+      "thriller"
     ],
     "tones": [
       "tense",
@@ -396,12 +399,14 @@
     ],
     "formats": [
       "full-cast",
+      "serialized",
       "limited-series"
     ],
     "tags": [
-      "Mystery",
-      "Thriller",
-      "Science"
+      "Locked-room mystery",
+      "Assigned roles",
+      "Found tapes",
+      "Dystopia"
     ],
     "aliases": [
       "The Deca Tapes",
@@ -467,13 +472,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "earth-eclipsed",
     "title": "Earth Eclipsed",
     "subtitle": "Dystopian sci-fi with a heavier thriller edge.",
-    "description": "A darker catalog entry for listeners who want genre pressure more than comfort.",
+    "description": "An Official Selection of the Tribeca Festival 2021. A brilliant neuroscientist on the brink of a galaxy-changing discovery that will save millions of lives has her work cut short when she’s kidnapped by a renegade miner. Follow Dr. Alexine Prometh as she works to outwit Nico Dunn and complete the Abacus Project, her life's work. Set in the distant future, this immersive audio series explores what it means to live in a utopian society, and the great lengths a person must go to preserve humanity.",
     "cover": "shows/earth eclipsed/eartheclipsed.jpeg",
     "coverVariants": [
       {
@@ -487,7 +492,9 @@
     ],
     "coverAlt": "Earth Eclipsed cover art",
     "creators": [
-      "The Lunar Company"
+      "Nicholas Prufer",
+      "AJ Churchill",
+      "Victor Lee"
     ],
     "accent": {
       "hex": "#4e657c",
@@ -499,7 +506,8 @@
     "completionStatus": "unclear",
     "genres": [
       "sci-fi",
-      "thriller"
+      "thriller",
+      "drama"
     ],
     "tones": [
       "dark",
@@ -510,9 +518,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Dystopia",
-      "Thriller"
+      "Neuroscience",
+      "Utopia",
+      "Kidnapping",
+      "Dystopia"
     ],
     "aliases": [
       "Earth Eclipsed",
@@ -551,20 +560,41 @@
     },
     "credits": {
       "productionCompany": "The Lunar Company",
-      "creatorName": "Not verified",
+      "creatorName": [
+        "Nicholas Prufer",
+        "AJ Churchill",
+        "Victor Lee"
+      ],
       "writer": "Not verified",
-      "director": "Not verified",
-      "producer": "Not verified",
+      "director": "Nicholas Prufer",
+      "producer": [
+        "Nicholas Prufer",
+        "AJ Churchill",
+        "Victor Lee"
+      ],
       "soundDesign": "Not verified",
-      "composer": "Not verified",
-      "network": "Not verified",
-      "cast": "Not verified",
+      "composer": [
+        "AJ Churchill",
+        "Shane Rutherfoord-Jones",
+        "Alessandro Apolloni"
+      ],
+      "network": "Apollo Podcasts",
+      "cast": [
+        "Allegra Rodriguez Shivers",
+        "Reginald West",
+        "Christian T. Chan",
+        "Amy Lyndon",
+        "Michael Malconian",
+        "Tali de Assis",
+        "Shogo Miyakita",
+        "Andrew Oakes"
+      ],
       "coverArt": "Not verified"
     },
     "availability": {
-      "transcripts": "unknown",
-      "captions": "n/a",
-      "regionNotes": "Platform availability not fully verified in this pass."
+      "transcripts": "available from the official site for all eight story episodes",
+      "captions": "not applicable",
+      "regionNotes": "The official Apple Podcasts listing contains eight numbered story episodes and one trailer."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -578,13 +608,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "vast-horizon",
     "title": "Vast Horizon",
     "subtitle": "Adventure-forward space fiction with a stronger scale sense.",
-    "description": "A sci-fi archive entry that leans more toward exploration and forward motion than claustrophobic dread.",
+    "description": "Nolira is an agronomist tasked with establishing agriculture in a new solar system, but when she wakes up on a now- empty colony ship, the whole of her plan disappears. The ship has been set adrift, with numerous mission-critical problems requiring immediate attendance outside of her area of expertise. Nolira is aided by the ship’s malfunctioning AI, which acts as her confidant and companion during the fight for survival.",
     "cover": "shows/vast horizon/vasthorizon.jpeg",
     "coverAlt": "Vast Horizon cover art",
     "creators": [
@@ -600,20 +630,23 @@
     "completionStatus": "finished",
     "genres": [
       "sci-fi",
+      "thriller",
       "adventure"
     ],
     "tones": [
+      "tense",
       "cinematic",
-      "hopeful"
+      "dark"
     ],
     "formats": [
       "full-cast",
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Space",
-      "Adventure"
+      "Colony ship",
+      "Survival",
+      "Isolation",
+      "Amnesia"
     ],
     "aliases": [
       "Vast Horizon",
@@ -642,7 +675,7 @@
     ],
     "similarReasons": {
       "solar": "A tighter survival chamber if you want the space danger without the same wandering sprawl.",
-      "the-waystation": "Keeps the hopeful exploratory side alive once the survival edge softens.",
+      "the-waystation": "Another stranded-space mystery with full-cast survival pressure, framed through recovered recordings.",
       "midst": "A stranger worldbuilding escalation for listeners who want the setting to get weirder and bigger."
     },
     "archiveTake": "A good bridge between harder survival sci-fi and lighter adventure runs.",
@@ -692,13 +725,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "how-i-died",
     "title": "How I Died",
     "subtitle": "Paranormal mystery with stronger horror hooks than melodrama.",
-    "description": "One of the easier horror entries to recommend when someone wants ghosts, procedure, and mystery in the same lane.",
+    "description": "Bodies are piling up in the strange town of Springfield, and forensic pathologist Jonathan Spacer intends to find out why. But, Jon isn’t without his own secrets… He can talk to the dead, for starters. A full-cast serial fiction podcast for mature audiences. Available now on all podcast apps. Find us on Patreon for premium content, including bonus episodes and early access: https://www.patreon.com/HowIDied",
     "cover": "shows/how i died/howidied.jpeg",
     "coverVariants": [
       {
@@ -736,9 +769,10 @@
       "serialized"
     ],
     "tags": [
-      "Horror",
-      "Supernatural",
-      "Mystery"
+      "Forensic mystery",
+      "Ghosts",
+      "Small town",
+      "Supernatural"
     ],
     "aliases": [
       "How I Died",
@@ -812,13 +846,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "windfall",
     "title": "Windfall",
     "subtitle": "Mystery-thriller energy with a darker speculative edge.",
-    "description": "A more urgent thriller entry when you want conspiracy pressure and movement rather than meditative sci-fi.",
+    "description": "Ever since the castle first appeared in the sky above the city of Windfall, its residents have been building upward. Now the city consists of towers where the wealthiest residents live at the top while the poor eke out a living on the ground. Our podcast follows Cas, Shaima, and Argus, three brothers who live with their Uncle Vern after being orphaned during the grounder rebellion twenty years earlier. They find themselves drifting apart as Argus, the youngest, falls hopelessly in love with the much-older Helina, a foreign merchant haunted by her past; Cas, the middle brother, works in secret for the local crime boss; and Shaima, the oldest, struggles to keep their uncle’s scrap shop from going under. When Cas’s best friend, Kendall, is offered a position with the Wolfpac, Windfall’s military cult that acts as the city’s police, Cas is forced to decide where his loyalties lie. Meanwhile, something sinister looms over the city itself, threatening the lives of all who live in Windfall, from the wealthiest residents to the ground-level poor. Start at Episode 1.00.",
     "cover": "shows/windfall/windfall.jpeg",
     "coverAlt": "Windfall cover art",
     "creators": [
@@ -833,8 +867,9 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
-      "thriller",
-      "mystery"
+      "fantasy",
+      "drama",
+      "thriller"
     ],
     "tones": [
       "dark",
@@ -845,9 +880,10 @@
       "serialized"
     ],
     "tags": [
-      "Thriller",
-      "Mystery",
-      "Dystopia"
+      "Floating city",
+      "Class conflict",
+      "Dystopia",
+      "Political intrigue"
     ],
     "aliases": [
       "Windfall",
@@ -927,13 +963,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-waystation",
     "title": "The Waystation",
-    "subtitle": "Space adventure for listeners who want a little more open sky.",
-    "description": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
+    "subtitle": "A recovered-recording space-station mystery under cosmic pressure.",
+    "description": "In the future, interstellar travel is a walk down the street, with another planet a few weeks away. The crew of waystation Concord - a pit-stop for cargo ships passing through wormholes - discover a strange celestial object, creating something that threatens to enmesh them all. Armed with the recordings of the events, a federal agent scours the logs and entries of the crew in search of the truth behind the unexplained destruction of Concord.",
     "cover": "shows/the waystation/waystation.jpeg",
     "coverVariants": [
       {
@@ -959,10 +995,12 @@
     "completionStatus": "unclear",
     "genres": [
       "sci-fi",
-      "adventure"
+      "horror",
+      "mystery"
     ],
     "tones": [
-      "hopeful",
+      "dark",
+      "tense",
       "cinematic"
     ],
     "formats": [
@@ -970,9 +1008,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Adventure",
-      "Space"
+      "Space station",
+      "Found footage",
+      "Cosmic horror",
+      "Wormholes"
     ],
     "aliases": [
       "The Waystation",
@@ -984,7 +1023,10 @@
       "space"
     ],
     "contentNotes": [
-      "content notes not verified beyond public premise"
+      "extreme violence",
+      "death",
+      "suicide",
+      "profanity"
     ],
     "languages": [
       "English"
@@ -992,40 +1034,48 @@
     "transcriptLanguages": [],
     "bestFor": [
       "worldbuilding",
-      "easy-entry"
+      "late-night"
     ],
     "similarTo": [
       "vast-horizon",
-      "story",
-      "midnight-burger"
+      "archive-81",
+      "station-151"
     ],
     "similarReasons": {
-      "vast-horizon": "Keeps the spacefaring exploration lane active with a little more survival drag.",
-      "story": "A softer, more grounded companion if you want warmth and clarity first.",
-      "midnight-burger": "A warmer cosmic escalation once the appetite shifts from exploration to range and oddity."
+      "vast-horizon": "Another full-cast deep-space mystery built around a crew under escalating survival pressure.",
+      "archive-81": "Shares the recovered-recording structure, institutional investigation, and reality-bending horror.",
+      "station-151": "The closest compact follow-up for isolation, recorded logs, and an unexplained threat at a remote station."
     },
-    "archiveTake": "A cleaner browse recommendation when the archive starts feeling too bleak.",
+    "archiveTake": "A compact space-station mystery for listeners who like recovered logs, institutional investigation, and cosmic threat.",
     "facts": {
       "structure": "Indexed entry.",
       "narrator": "Unknown.",
       "ads": "Unknown."
     },
     "credits": {
-      "creatorName": "Wired Cowslip",
+      "creatorName": "Elliot Somerfield",
       "writer": "Elliot Somerfield",
       "director": "Elliot Somerfield",
       "producer": "Wired Cowslip",
-      "soundDesign": "Not verified",
+      "soundDesign": "Kathryn Stanley",
       "composer": "Tatenda Shamiso",
       "productionCompany": "Wired Cowslip",
       "network": "Wired Cowslip",
-      "cast": "Not verified",
+      "cast": [
+        "Nicole Tuttle",
+        "Daphne Nitsuga",
+        "Elizabeth Plant",
+        "Aud Andrews",
+        "B. Narr",
+        "Zach Cipriano",
+        "Saito Kabuyama"
+      ],
       "coverArt": "Paul Ignacio"
     },
     "availability": {
       "transcripts": "unknown",
-      "captions": "n/a",
-      "regionNotes": "No reliable official source captured in this pass."
+      "captions": "not applicable",
+      "regionNotes": "The official Apple Podcasts listing contains nine numbered story episodes, one trailer, and one bonus blooper reel."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -1039,13 +1089,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "were-alive",
     "title": "We're Alive",
     "subtitle": "A survival-first apocalypse staple with real archive gravity.",
-    "description": "One of the archive's foundational survival recommendations: pressure, group dynamics, and a bigger commitment that pays off.",
+    "description": "We're Alive is an award-winning audio drama that follows a group of Survivors in a post-apocalyptic Los Angeles now ruled by the \"Infected.\" It begins with “A Story of Survival” which spans from Chapters 1-48. Our survivors band together, fortify a safe haven known as the Tower, and discover that the Infected are far from the biggest threat they will have to face. The adventure continues with: “Lockdown” - A small group of inmates and prison guards are trapped in the T-block at Twin Towers Jail. They are forced to work together and find a way to escape while the rest of the world ends around them. “Goldrush” - Set 17 years after the main events of “A Story of Survival”, this is a recollection story that describes the efforts of the four Soldiers as they attempt a side mission to retrieve a suspected stash of gold bullion. \"Scout's Honor\" (on it's own feed!) - Adventure Scouts stranded on Catalina Island off the coast of California must use their wits and teamwork to survive during Outbreak. And “We’re Alive: Descendants,\" which follows the children of the Survivors as they navigate a dangerous new world. The story of survival continues; the fight is not over. 18 years after the Outbreak, the world is starting to re-organize and rebuild, but many different forms of humanity are still struggling to survive in the aftermath. Nicholas Tink grew up in the shadow of his father. Little does he know that deep in the places where infected dwell, another descendant lies waiting. Content Warning: This podcast contains descriptions of graphic violence, sexual references, and strong language. Listener discretion is advised. Hosted on Acast. See acast.com/privacy for more information.",
     "cover": "shows/were alive/WereAlive.jpeg",
     "coverAlt": "We're Alive cover art",
     "creators": [
@@ -1060,8 +1110,9 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
+      "horror",
       "thriller",
-      "survival"
+      "drama"
     ],
     "tones": [
       "dark",
@@ -1069,12 +1120,14 @@
     ],
     "formats": [
       "full-cast",
+      "serialized",
       "long-running"
     ],
     "tags": [
-      "Thriller",
-      "Apocalypse",
-      "Survival"
+      "Zombie apocalypse",
+      "Survival",
+      "Found family",
+      "Military"
     ],
     "aliases": [
       "We're Alive",
@@ -1148,13 +1201,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "impact-winter",
     "title": "Impact Winter",
     "subtitle": "Post-apocalyptic vampire survival under endless winter.",
-    "description": "Endless winter, bunker survival, and just enough vampire politics to keep the whole thing nasty in the right way.",
+    "description": "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness. But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand.",
     "cover": "shows/Impact Winter/Impact-winter.jpeg",
     "coverVariants": [
       {
@@ -1244,20 +1297,32 @@
     },
     "credits": {
       "creatorName": "Travis Beacham",
-      "productionCompany": "Audible Originals",
-      "writer": "Not verified",
-      "director": "Not verified",
+      "productionCompany": [
+        "Skybound Entertainment",
+        "Anonymous Content",
+        "Audible Originals"
+      ],
+      "writer": "Travis Beacham",
+      "director": "Travis Beacham",
       "producer": "Not verified",
       "soundDesign": "Not verified",
       "composer": "Not verified",
       "network": "Not verified",
-      "cast": "Not verified",
+      "cast": [
+        "Holliday Grainger",
+        "Esmé Creed-Miles",
+        "David Gyasi",
+        "Caroline Ford",
+        "Sacha Dhawan",
+        "Ellie Bamber",
+        "Andrew Gower"
+      ],
       "coverArt": "Not verified"
     },
     "availability": {
       "transcripts": "unknown",
       "captions": "n/a",
-      "regionNotes": "Audible Original also available on podcast platforms in some regions."
+      "regionNotes": "Audible is the canonical current listing; no public publisher RSS feed was located during the 2026-07-18 audit."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -1277,13 +1342,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "oz-9",
     "title": "Oz 9",
     "subtitle": "Shipboard comedy powered by total incompetence and escalating nonsense.",
-    "description": "Corporate deep-space nonsense, incompetent crew energy, and a review that admits the audience is stronger than the personal fit.",
+    "description": "It's Spring 2142 (a Tuesday), and Gated Galaxies has launched its 400 Oz-8000 ships, each carrying 50,000 \"resting guests\" to, hopefully, a new home on a shiny, brand-new planet. Except this whole \"terraform and take over\" idea isn't actually the plan; the real plan is far more nefarious and involves a great deal of cackling. But those aboard the ships don't know that, so off they toodle (those that make it out of Earth's atmosphere, at least), all shiny and optimistic. This is the story of one of those ships – the Oz 9 – and its tiny crew of hopeless incompetents. So far, they've been in space half an hour and several hundred people are dead. So... bright future, clearly.",
     "cover": "shows/oz9/oz9.jpeg",
     "coverAlt": "Oz 9 cover art",
     "creators": [
@@ -1308,14 +1373,14 @@
     ],
     "formats": [
       "full-cast",
+      "serialized",
       "long-running"
     ],
     "tags": [
-      "Space",
-      "Unserious",
-      "Comedy",
-      "Sci-fi",
-      "Future"
+      "Space comedy",
+      "Incompetent crew",
+      "Corporate conspiracy",
+      "Sleeper ship"
     ],
     "aliases": [
       "Oz 9",
@@ -1396,13 +1461,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "ars-paradoxica",
     "title": "Ars Paradoxica",
     "subtitle": "Cold War sci-fi with real respect for paradox, secrecy, and consequence.",
-    "description": "Cold War intrigue, scientific paranoia, and one of the archive's smarter time-travel spirals.",
+    "description": "When an experiment in a time much like our own goes horribly awry, Dr. Sally Grissom finds herself stranded in the past and entrenched in the activities of a clandestine branch of the US government. Grissom and her team quickly learn that there's no safety net when toying with the fundamental logic of the universe.",
     "cover": "shows/ars paradoxica/ArsParadoxica.jpeg",
     "coverVariants": [
       {
@@ -1428,8 +1493,8 @@
     "completionStatus": "finished",
     "genres": [
       "sci-fi",
-      "science",
-      "mystery"
+      "mystery",
+      "drama"
     ],
     "tones": [
       "tense",
@@ -1441,11 +1506,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Science",
       "Time travel",
-      "Paradoxes",
-      "Mystery"
+      "Alternate history",
+      "Secret government",
+      "Paradoxes"
     ],
     "aliases": [
       "ars PARADOXICA",
@@ -1539,13 +1603,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "red-valley",
     "title": "Red Valley",
     "subtitle": "A science-heavy mystery with enough conceptual weirdness to stick.",
-    "description": "A smart archive-adjacent mystery pick when you want science, secrecy, and a colder conceptual frame.",
+    "description": "A mystery drama about the limits of experimental science, confronting your own past, present & future, & trying to remember the level select cheat from Sonic 2.",
     "cover": "shows/red valley/RedValley.jpeg",
     "coverVariants": [
       {
@@ -1571,20 +1635,23 @@
     "completionStatus": "ongoing",
     "genres": [
       "sci-fi",
-      "mystery"
+      "mystery",
+      "drama"
     ],
     "tones": [
       "weird",
-      "tense"
+      "tense",
+      "dark"
     ],
     "formats": [
       "full-cast",
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Future",
-      "Mystery"
+      "Cryonics",
+      "Experimental science",
+      "Corporate conspiracy",
+      "Memory"
     ],
     "aliases": [
       "Red Valley",
@@ -1654,13 +1721,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-white-vault",
     "title": "The White Vault",
     "subtitle": "Cold-weather dread with one of the archive's stronger isolation profiles.",
-    "description": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
+    "description": "Explore the far reaches of the world’s horrors in the audio drama podcast The White Vault. Follow the collected records of a repair team sent to Outpost Fristed in the vast white wastes of Svalbard and unravel what lies waiting in the ice below. This Fool and Scholar production is intended for mature audiences.",
     "cover": "shows/white-vault/WhiteVault.jpeg",
     "coverVariants": [
       {
@@ -1699,9 +1766,10 @@
       "serialized"
     ],
     "tags": [
-      "Mystery",
-      "Survival",
-      "Thriller"
+      "Arctic horror",
+      "Isolation",
+      "Found audio",
+      "Survival"
     ],
     "aliases": [
       "The White Vault",
@@ -1784,13 +1852,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "eos-10",
     "title": "EOS 10",
     "subtitle": "Space comedy with a stronger station-sitcom pulse.",
-    "description": "A lighter archive pick for when you want jokes first and speculative stakes second.",
+    "description": "Doctors in space, a deposed alien prince, a super gay space pirate and a fiery nurse who’ll help you win your bar fight.",
     "cover": "shows/eos10/EOS10.jpeg",
     "coverVariants": [
       {
@@ -1816,7 +1884,8 @@
     "completionStatus": "finished",
     "genres": [
       "sci-fi",
-      "comedy"
+      "comedy",
+      "drama"
     ],
     "tones": [
       "funny",
@@ -1827,8 +1896,9 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Science",
+      "Medical drama",
+      "Space station",
+      "Queer",
       "Comedy"
     ],
     "aliases": [
@@ -1897,13 +1967,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "desert-skies",
     "title": "Desert Skies",
     "subtitle": "A warmer, stranger fantasy-comedy entry.",
-    "description": "A good archive reset when everything else starts feeling too grim, too metallic, or too self-serious.",
+    "description": "On a lonely highway between life and the next life there's one last stop that we all have to make. Desert Skies Astral Plane Fuel and Service Station serves travelers as they embark on their journey through the celestial spheres. Meet the Attendant, the Mechanic, and C.A.S.H. Register. Together, they'll make sure you're prepared for the ride. All episodes written and produced, and all characters performed, by Jared Carter. Club 86: https://patreon.com/desertskies Merch: https://desertskies.myshopify.com Discord: https://discord.gg/7fuUU78mUh Website: https://desertskiespodcast.com/",
     "cover": "shows/desert-skies/DesertSkies.jpeg",
     "coverVariants": [
       {
@@ -1938,13 +2008,14 @@
       "hopeful"
     ],
     "formats": [
-      "full-cast",
+      "narrated",
       "serialized"
     ],
     "tags": [
-      "Emotion",
-      "Fantasy",
-      "Comedy"
+      "Afterlife",
+      "Road trip",
+      "Found family",
+      "Metaphysical"
     ],
     "aliases": [
       "Desert Skies",
@@ -2013,13 +2084,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "wolf-359",
     "title": "Wolf 359",
     "subtitle": "The archive bridge between space comedy and bigger sci-fi stakes.",
-    "description": "A dependable archive recommendation when someone wants a shipboard show that can start playful and still hold larger tension later.",
+    "description": "Life's not easy for Doug Eiffel, the communications officer for the U.S.S. Hephaestus Research Station, currently on Day 448 of its orbit around red dwarf star Wolf 359. He's stuck on a scientific survey mission of indeterminate length, 7.8 light years from Earth. His only company on board the station are stern mission chief Minkowski, insane science officer Hilbert, and Hephaestus Station's sentient, often malfunctioning operating system Hera. He doesn't have much to do for his job other than monitoring static and intercepting the occasional decades-old radio broadcast from Earth, so he spends most of his time creating extensive audio logs about the ordinary, day-to-day happenings within the station. But the Hephaestus is an odd place, and life in extremely isolated, zero gravity conditions has a way of doing funny things to people's minds. Even the simplest of tasks can turn into a gargantuan struggle, and the most ordinary-seeming things have a way of turning into anything but that. Wolf 359 is a radio drama in the tradition of Golden Age of Radio shows. Take one part space-faring adventure, add one part character drama, and mix in one part absurdist sitcom, and you get Wolf 359.",
     "cover": "shows/wolf359/Wolf359.jpeg",
     "coverVariants": [
       {
@@ -2056,8 +2127,9 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Space",
+      "Space station",
+      "Found family",
+      "Conspiracy",
       "Comedy"
     ],
     "aliases": [
@@ -2135,13 +2207,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "station-151",
     "title": "Station 151",
     "subtitle": "Isolation comedy with a colder edge than the usual station banter.",
-    "description": "A strange little archive pick when you want comedy, confinement, and just enough pressure under the jokes.",
+    "description": "Station 151 is Antarctica’s first and only astronomical radio observatory. Built by the Telders Corporation at an estimated cost of $200M USD, the station promises to reveal the darkest secrets of the universe. Join Astrophysicist Wayne Robertson at the bottom of the world as he sets off on the adventure of a lifetime (and possibly his last). Station 151 is a science-fiction podcast written by Andy Scearce and Steven James Scearce. It is produced by Bear Weiter and Pale Matter.",
     "cover": "shows/station151/Station151.jpeg",
     "coverVariants": [
       {
@@ -2167,21 +2239,23 @@
     "completionStatus": "ongoing",
     "genres": [
       "sci-fi",
-      "comedy"
+      "horror",
+      "mystery"
     ],
     "tones": [
-      "funny",
-      "weird",
-      "bleak"
+      "dark",
+      "tense",
+      "weird"
     ],
     "formats": [
       "full-cast",
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
+      "Antarctica",
       "Isolation",
-      "Comedy"
+      "Conspiracy",
+      "Cosmic horror"
     ],
     "aliases": [
       "Station 151",
@@ -2256,13 +2330,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "midnight-burger",
     "title": "Midnight Burger",
     "subtitle": "A warm, idea-rich sci-fi comedy with real range.",
-    "description": "One of the archive's broadest recommendation engines in show form: funny, weird, welcoming, and built to keep expanding.",
+    "description": "When Gloria took a waitressing job at a diner outside of Phoenix, she didn't realize she was now an employee of Midnight Burger, a time-traveling, dimension-spanning diner. Every day Midnight Burger appears somewhere new in the cosmos along with it's staff: a galactic drifter, a rogue theoretical physicist, a sentient old-timey radio, and some guy named Caspar. No one knows who built Midnight Burger or how it works, but when it appears there's always someone around who could really use a cup of coffee. \"When the waves of the universe crash unrelentingly, when the stars seem indifferent to your plight, suddenly there is a diner.\" We open at 6.",
     "cover": "shows/midnight burger/MidnightBurger.jpeg",
     "coverVariants": [
       {
@@ -2289,7 +2363,7 @@
     "genres": [
       "sci-fi",
       "comedy",
-      "science"
+      "drama"
     ],
     "tones": [
       "warm",
@@ -2301,8 +2375,9 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Science",
+      "Time travel",
+      "Diner",
+      "Found family",
       "Comedy"
     ],
     "aliases": [
@@ -2336,7 +2411,7 @@
     "similarReasons": {
       "desert-skies": "For listeners who want the gentle, off-kilter comfort side of the recommendation.",
       "wolf-359": "A comic space ensemble that starts loose and eventually earns much deeper attachment.",
-      "the-waystation": "Hopeful speculative storytelling with a similarly generous curiosity about people and place.",
+      "the-waystation": "A darker station-to-station branch that keeps the cosmic setting but swaps warmth for recovered-recording mystery.",
       "midst": "A stranger, more reality-bending branch for listeners chasing the cosmic side of the appeal."
     },
     "archiveTake": "Still one of the archive's easiest recommendations when the listener wants range instead of a single-note genre loop.",
@@ -2374,13 +2449,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "spectre",
     "title": "Spectre",
     "subtitle": "Space mystery with a colder, more watchful tone.",
-    "description": "A lower-key archive mystery entry for listeners who want sci-fi atmosphere and uncertainty more than loud bombast.",
+    "description": "Space exploration is lawless, dirty, and inconvenient, but that doesn't stop Rho from seeking to recover lost memories and find her place in a universe that seems hell-bent on destroying her. SPECTRE is a swashbuckling space opera about the dangers of technology and the loss of humanity as a result of its use. New episodes bi-weekly!",
     "cover": "shows/spectre/Spectre.jpeg",
     "coverAlt": "Spectre cover art",
     "creators": [
@@ -2396,6 +2471,7 @@
     "completionStatus": "finished",
     "genres": [
       "sci-fi",
+      "adventure",
       "mystery"
     ],
     "tones": [
@@ -2407,9 +2483,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Space",
-      "Mystery"
+      "Space opera",
+      "Amnesia",
+      "Technology",
+      "Swashbuckling"
     ],
     "aliases": [
       "Spectre",
@@ -2475,13 +2552,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-phenomenon",
     "title": "The Phenomenon",
     "subtitle": "Survival mystery built around a threat you feel before you understand.",
-    "description": "A more severe survival entry for listeners who want fear, uncertainty, and pressure over character comfort.",
+    "description": "When a supernatural threat drives mankind to the point of extinction, survivors around the globe struggle to endure in a world with just three rules: Do not look outside. Do not look at the sky. Do not make noise.",
     "cover": "shows/the phenomenon/Phenomenon.jpeg",
     "coverAlt": "The Phenomenon cover art",
     "creators": [
@@ -2496,9 +2573,9 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "genres": [
-      "mystery",
-      "thriller",
-      "science"
+      "sci-fi",
+      "horror",
+      "thriller"
     ],
     "tones": [
       "bleak",
@@ -2509,9 +2586,10 @@
       "serialized"
     ],
     "tags": [
+      "Apocalypse",
       "Survival",
-      "Science",
-      "Mystery"
+      "Alien invasion",
+      "Found audio"
     ],
     "aliases": [
       "The Phenomenon",
@@ -2564,7 +2642,7 @@
       "composer": "Andrew Pomeroy",
       "coverArt": "Amanda Pecharsky",
       "productionCompany": "Luciola Creative",
-      "creatorName": "Not verified",
+      "creatorName": "Jared J. Smith",
       "network": "Not verified",
       "cast": "Not verified"
     },
@@ -2585,13 +2663,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "paralyzed",
     "title": "Paralyzed",
     "subtitle": "Supernatural mystery with a stronger horror pulse.",
-    "description": "A browseable horror entry for listeners who want something paranormal, tense, and less sci-fi coded.",
+    "description": "This fictional podcast follows David, a chronic sufferer of sleep paralysis on his annual camping trip with friends. But something evil from his dreams awaits.",
     "cover": "shows/paralyzed/Paralyzed.jpeg",
     "coverVariants": [
       {
@@ -2699,13 +2777,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "derelict",
     "title": "Derelict",
     "subtitle": "Big-scale sci-fi tension with a thriller engine underneath it.",
-    "description": "One of the archive's strongest high-intensity sci-fi picks when the user wants something serious, propulsive, and built to hit hard.",
+    "description": "Something has been found at the bottom of Earth's ocean. An ancient artifact that can only be described as a giant door, inset into the sea floor. It becomes known as the Vault. A gigantic enigma, buried and forgotten...nineteen thousand feet down. To study the artifact, the galaxy's most powerful corporation, Maas-Dorian, has built a massive, self-contained, secret laboratory base surrounding it, named FATHOM. It's objective: unlock the secrets of the artifact and discover what it holds. But some mysteries should remain buried. And some doors should never be opened....The story of DERELICT begins with season one, FATHOM, a narrative podcast experience from award winning science fiction author J. Barton Mitchell, and produced by Night Rocket Productions. Website: derelictpodcast.com",
     "cover": "shows/derelict/Derelict.jpeg",
     "coverVariants": [
       {
@@ -2744,9 +2822,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Thriller",
-      "Mystery"
+      "Underwater",
+      "Ancient artifact",
+      "Corporate secrecy",
+      "Survival"
     ],
     "aliases": [
       "DERELICT",
@@ -2819,13 +2898,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "crystal-blue",
     "title": "Crystal Blue",
     "subtitle": "Future-facing sci-fi comedy with a lighter archive profile.",
-    "description": "A lighter speculative browse entry when someone wants future-tech flavor without a darker mood requirement.",
+    "description": "Crystal Blue is a sci-fi audio drama about fifteen military outcasts that evade dishonorable discharge and are instead sent to a remote grouping of planets known as the Theras. Thera II houses the base known as Crystal Blue, where each member is forced to work a specific job such as building air purifier towers, maintaining the base, or monitoring space travel. It's a boring job, but someone as to do it. But things get crazy when a mysterious shuttle crash lands on the planet, holding some secret information about an alien race. An alien race that has not been in contact with humans for centuries. What could this mean for the members of Crystal Blue?! Listen and find out!!",
     "cover": "shows/crystal-blue/CrystalBlue.jpeg",
     "coverVariants": [
       {
@@ -2851,10 +2930,12 @@
     "completionStatus": "ongoing",
     "genres": [
       "sci-fi",
-      "comedy"
+      "drama",
+      "mystery"
     ],
     "tones": [
-      "funny",
+      "tense",
+      "cinematic",
       "weird"
     ],
     "formats": [
@@ -2862,9 +2943,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Future",
-      "Comedy"
+      "Military outcasts",
+      "Remote colony",
+      "Alien contact",
+      "Space"
     ],
     "aliases": [
       "Crystal Blues",
@@ -2918,7 +3000,7 @@
     "availability": {
       "transcripts": "not verified",
       "captions": "not applicable",
-      "regionNotes": "Official 7 Lamb page links to podcast platforms, but current capture did not expose a full feed ledger."
+      "regionNotes": "Official 7 Lamb page links to podcast platforms; the current Simplecast RSS feed is publicly available."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -2932,13 +3014,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-06-30"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "end-of-all-hope",
     "title": "End of All Hope",
     "subtitle": "Creature pressure and survival pacing in a more pulpy register.",
-    "description": "A survival-oriented archive entry for listeners who want threat, creatures, and forward motion more than elegance.",
+    "description": "A fictional podcast following three survivors as they trek across the country trying to survive an alien invasion.",
     "cover": "shows/eoah/EOAH.jpeg",
     "coverVariants": [
       {
@@ -2963,9 +3045,9 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
+      "sci-fi",
       "thriller",
-      "survival",
-      "sci-fi"
+      "adventure"
     ],
     "tones": [
       "tense",
@@ -2976,9 +3058,10 @@
       "serialized"
     ],
     "tags": [
+      "Alien invasion",
+      "Post-apocalyptic",
       "Survival",
-      "Aliens",
-      "Comedy"
+      "Road trip"
     ],
     "aliases": [
       "End of All Hope",
@@ -3047,13 +3130,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "tower-4",
     "title": "Tower 4",
     "subtitle": "Isolation mystery with a slow-burn dread profile.",
-    "description": "A good archive browse pick when the listener wants something remote, watchful, and just a little unsettling.",
+    "description": "Mike Archer is a newly appointed fire watcher in the Wyoming woods. While he's never done anything like this before, he needed something new after his mom passed. Now he hopes to spend his days in a tower above the trees looking for fires and working on his new book. But things aren't as quiet and peaceful as he hoped. Strange interference blasts over his radio at night and he starts seeing and hearing creepy noises in the woods. But are these odd occurrences actually happening or is he just going stir crazy?",
     "cover": "shows/towe4/Tower4.jpeg",
     "coverVariants": [
       {
@@ -3090,9 +3173,10 @@
       "serialized"
     ],
     "tags": [
-      "Mystery",
+      "Fire lookout",
       "Isolation",
-      "Comedy"
+      "Conspiracy",
+      "Wilderness"
     ],
     "aliases": [
       "Tower 4",
@@ -3163,13 +3247,13 @@
     "popularity": {},
     "featured": true,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-bright-sessions",
     "title": "The Bright Sessions",
     "subtitle": "Therapy sessions for the strange and unusual, with a larger sci-fi story waiting underneath.",
-    "description": "A character-first science-fiction drama about therapy, power, secrecy, and the personal cost of being unusual in a world that wants to study you.",
+    "description": "The Bright Sessions is a science fiction audio drama that follows a group of therapy patients. But these are not your typical patients - each has a unique supernatural ability. The show documents their struggles and discoveries as well as the motivations of their mysterious therapist, Dr. Bright. The show was created by Lauren Shippen and is a production of Atypical Artists . The show has seven seasons, including the previously paywalled Seasons 6 and 7, The AM Archives and The College Tapes . The Bright Sessions has been downloaded tens of millions of times and cemented itself as a classic of audio fiction. Three spin-off novels were published through Tor Teen: The Infinite Noise, A Neon Darkness, and Some Faraway Place. If you enjoy this show, check out the rest of Atypical Artists' shows!",
     "cover": "images/covers/the-bright-sessions.jpg",
     "coverVariants": [
       {
@@ -3204,9 +3288,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
       "Therapy",
-      "Superpowers"
+      "Superpowers",
+      "Found family",
+      "Conspiracy"
     ],
     "aliases": [
       "The Bright Sessions podcast"
@@ -3245,18 +3330,27 @@
       "creatorName": "Lauren Shippen",
       "productionCompany": "Atypical Artists"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available from the official show site",
+      "captions": "not applicable",
+      "regionNotes": "The completed main series and related feed material remain available through major platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "therapy sessions for people with supernatural abilities",
+      "pov": "recorded therapy sessions expanding into a full-cast ensemble",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "wooden-overcoats",
     "title": "Wooden Overcoats",
     "subtitle": "A funeral-home sitcom full of vanity, sabotage, and immaculate comic timing.",
-    "description": "A British comedy fiction series about dueling funeral directors, escalating grudges, and a village small enough for every petty disaster to feel personal.",
+    "description": "Award Winning Sitcom || Rudyard Funn and his equally miserable sister Antigone run their family’s failing funeral parlour, where they get the body in the coffin in the ground on time. But one day they find everyone enjoying themselves at the funerals of a new competitor – the impossibly perfect Eric Chapman! With their dogsbody Georgie, and a mouse called Madeleine, the Funns are taking drastic steps to stay in business…",
     "cover": "images/covers/wooden-overcoats.jpg",
     "coverVariants": [
       {
@@ -3290,9 +3384,10 @@
       "serialized"
     ],
     "tags": [
-      "Comedy",
+      "Funeral directors",
+      "Sitcom",
       "Small town",
-      "Rivals"
+      "Rivalry"
     ],
     "aliases": [
       "Wooden Overcoats podcast"
@@ -3323,19 +3418,32 @@
     },
     "archiveTake": "A strong next stop when the listener wants ensemble comedy with sharper jokes than warmth-first comfort.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": "David K. Barnes",
+      "headWriter": "David K. Barnes",
+      "productionCompany": "Wooden Overcoats Ltd"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The completed four-season sitcom remains available through the official feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "competing funeral homes on the island of Piffling",
+      "pov": "full-cast sitcom ensemble",
+      "intensity": "low"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "alice-isnt-dead",
     "title": "Alice Isn't Dead",
     "subtitle": "A road-haunted search story told in a voice that keeps pulling you forward.",
-    "description": "A serialized horror thriller about a truck driver crossing America in search of the wife she thought was dead, with conspiracies and not-quite-human dangers waiting along the road.",
+    "description": "A truck driver searches across America for the wife she had long assumed was dead. In the course of her search, she will encounter not-quite-human serial murderers, towns literally lost in time, and a conspiracy that goes way beyond one missing woman.",
     "cover": "images/covers/alice-isnt-dead.jpg",
     "coverVariants": [
       {
@@ -3412,7 +3520,11 @@
       "performer": "Jasika Nicole",
       "soundDesign": "Disparition"
     },
-    "availability": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The completed story remains available through the official feed and major podcast platforms."
+    },
     "content": {
       "setting": "road-horror across the United States",
       "pov": "first-person narrated search",
@@ -3422,13 +3534,13 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "mirrors",
     "title": "Mirrors",
     "subtitle": "A sci-fi ghost story with a colder, more deliberate sense of haunting.",
-    "description": "A three-thread horror drama moving across centuries, using one haunting to connect women, memory, and long-range consequence.",
+    "description": "Three women. Three centuries. One haunting. Mirrors is a sci-fi ghost story from ZoomDoom Stories. Find out more at https://www.mirrorspodcast.com/ Our cover image is courtesy of the Wellcome Library and has been made available under Creative Commons License 4.0.",
     "cover": "images/covers/mirrors.jpg",
     "coverVariants": [
       {
@@ -3498,19 +3610,39 @@
     },
     "archiveTake": "A good step up when the listener wants eerie atmosphere without sacrificing the speculative-fiction spine.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": "Jamie Killen",
+      "writer": "Jamie Killen",
+      "producer": "Jamie Killen",
+      "cast": [
+        "Lucy Pearce",
+        "Sarah Hemmi",
+        "Jamie Killen",
+        "Karin Heimdahl",
+        "Sarah Rhea Warner"
+      ]
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The completed story remains available through the publisher feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "interconnected hauntings across multiple eras",
+      "pov": "three-woman science-fiction ghost story",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "unwell",
     "title": "Unwell",
     "subtitle": "Midwestern gothic fiction that balances haunted-town dread with found-family warmth.",
-    "description": "A long-running small-town horror drama about a boarding house, buried history, ghosts, and the people who slowly become each other's family.",
+    "description": "Unwell, a Midwestern Gothic Mystery is a new audio drama from HartLife NFP. Lillian Harper moves to the small town of Mt. Absalom, Ohio, to care for her estranged mother Dorothy after an injury. Living in the town's boarding house which has been run by her family for generations, she discovers conspiracies, ghosts, and a new family in the house's strange assortment of residents.",
     "cover": "images/covers/unwell.jpg",
     "coverVariants": [
       {
@@ -3579,19 +3711,37 @@
     },
     "archiveTake": "Stronger for listeners who want gothic atmosphere with affection still left in the tank.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": "Audacious Machine Creative",
+      "executiveProducer": [
+        "Jeffrey Nils Gardner",
+        "Eleanor Hyde"
+      ],
+      "director": "Jeffrey Nils Gardner",
+      "composer": "Stephen Poon",
+      "productionCompany": "Audacious Machine Creative"
+    },
+    "availability": {
+      "transcripts": "available from the official show site",
+      "captions": "not applicable",
+      "regionNotes": "The completed five-season story remains available through the official feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the haunted Midwestern town of Mt. Absalom, Ohio",
+      "pov": "large full-cast ensemble",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "midst",
     "title": "Midst",
     "subtitle": "A surreal space-western told with swagger, precision, and a refusal to stay conventional.",
-    "description": "A reality-bending sci-fantasy audio drama in which three narrators guide the listener through a dangerous cosmos full of bad decisions, power structures, and gorgeous nonsense.",
+    "description": "The small desert planet of Midst spins on the border between the two halves of the cosmos: the dazzling Un and the mysterious Fold. Life is simple for most of the planet’s inhabitants… until an influential civilization known as the Trust takes an interest in Midst and sparks an unexpected chain of events, intertwining the lives of three complicated antiheroes. Also, unrelated to any of that, Midst’s moon is about to fall out of the sky and cause reality to eat itself alive, so that’s not great either.",
     "cover": "images/covers/midst.jpg",
     "coverVariants": [
       {
@@ -3626,9 +3776,10 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "Fantasy",
-      "Space western"
+      "Science fantasy",
+      "Space western",
+      "Unreliable narrators",
+      "Frontier"
     ],
     "aliases": [],
     "themes": [
@@ -3659,23 +3810,46 @@
       "midnight-burger": "A warmer cosmic branch if the big ideas mattered as much as the affection.",
       "ars-paradoxica": "Keeps the conceptual ambition high while making the science spine more explicit.",
       "the-program-audio-series": "A colder, more systems-minded branch for listeners who want the worldview to stay central.",
-      "the-waystation": "An exploratory route if the strange setting and sense of scale mattered more than the chaos."
+      "the-waystation": "A darker, more compact route if the strange setting and institutional mystery mattered more than the chaos."
     },
     "archiveTake": "A good escalation route once the listener wants bigger conceptual play without losing strong character propulsion.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": "Third Person",
+      "creators": [
+        "Matt Roen",
+        "Sara Wile",
+        "Xen"
+      ],
+      "narrator": [
+        "Matt Roen",
+        "Sara Wile",
+        "Xen"
+      ],
+      "productionCompany": "Third Person",
+      "network": "Critical Role Productions"
+    },
+    "availability": {
+      "transcripts": "available from the official show site",
+      "captions": "not applicable",
+      "regionNotes": "The completed three-season story remains available through official platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the islet of Midst and the surrounding cosmos",
+      "pov": "three omniscient narrators",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-program-audio-series",
     "title": "The Program audio series",
     "subtitle": "A colder sci-fi anthology for listeners who want systems, doctrine, and unease.",
-    "description": "A speculative anthology set inside a future social order where money, state, and god have fused into one governing force.",
+    "description": "A science fiction anthology set in a future in which Money, State, and God became fused into a single entity called the Program. Each episode is a self-contained story focusing on ordinary people inhabiting this extraordinary world. Best rated episodes include \"White Algorithm's burden\" (true crime), \"Four ways to stop your system from freezing\" (drama), \"Contemporary Cube Theory\" (academic lecture), \"How to keep device drivers from crashing\" (comedy), \"Overclocking\" (adventure), and \"All unsaved progress will be lost\" (alternate history). New episodes take time but are coming out regularly. Speed up the process by becoming a supporter at www.patreon.com/programaudioseries to listen ad-free and get subscriber-exclusive episodes (including a behind-the-scenes companion series). Visit www.programaudioseries.com for more info. Our current favourite review: \"The Program is more than an audio drama (\"radio drama\" if you're old school) - it’s a thought experiment examining the tradeoffs between different economic and political systems (capitalism, socialism, communism, hybrid models) challenging the listener with an uncomfortable question: Would you rather live in a free society, or a fair one? The show uses speculative sociology to blur the line between utopia and dystopia, making listeners question their own reality (literally - some stories are set in a simulation). But for all its big ideas, the series never forgets the emotional core that makes it resonate. This is smart, grounded, slice-of-life sci-fi in the tradition of Octavia Butler, Ursula K. Le Guin, Ted Chiang, and Black Mirror - and all hail the algorithm that recommended it!\" Hosted on Acast. See acast.com/privacy for more information.",
     "cover": "images/covers/the-program-audio-series.jpg",
     "coverVariants": [
       {
@@ -3748,18 +3922,27 @@
     "credits": {
       "creatorName": "IMS"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Available through the official feed and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a future society organized by an all-encompassing algorithmic Program",
+      "pov": "anthology of oral histories and accounts",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "malevolent",
     "title": "Malevolent",
     "subtitle": "Cosmic-horror mystery with enough momentum to make the darkness feel athletic.",
-    "description": "A horror serial following Arthur Lester, an amnesiac private investigator forced to navigate eldritch mysteries with the help of a voice inside his head.",
+    "description": "Do not fear the dark, fear what darkness brings... Arkham Private Investigator Arthur Lester wakes up with no memory of who he is or what has happened, only a nameless, eerie voice guiding him through the darkness. Blind, terrified, and confused, his journey will lead him towards a series of mysteries in the hopes of understanding the truth of what has transpired. As cosmic horrors seep into the world around, Arthur must ask himself whether this entity truly seeks to help him, or are its intentions more… Malevolent Malevolent is produced, written, edited, performed, scored & created by Harlan Guthrie. This podcast contains mature themes, explicit language, bodily horror, violence, otherworldly terror and death. Listener discretion is advised. Full transcripts of every episode are available here . Hosted on Acast. See acast.com/privacy for more information.",
     "cover": "images/covers/malevolent.jpg",
     "coverVariants": [
       {
@@ -3794,9 +3977,10 @@
       "serialized"
     ],
     "tags": [
-      "Horror",
-      "Lovecraftian",
-      "Mystery"
+      "Cosmic horror",
+      "Amnesia",
+      "Private investigator",
+      "1930s"
     ],
     "aliases": [],
     "themes": [
@@ -3831,19 +4015,36 @@
     },
     "archiveTake": "A strong escalation pick when the listener wants more occult intensity without losing narrative drive.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": "Harlan Guthrie",
+      "writer": "Harlan Guthrie",
+      "director": "Harlan Guthrie",
+      "producer": "Harlan Guthrie",
+      "performer": "Harlan Guthrie",
+      "soundDesign": "Harlan Guthrie",
+      "composer": "Harlan Guthrie"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Available through the official feed and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "1930s Lovecraftian horror across shifting locations",
+      "pov": "Arthur Lester and the entity sharing his body",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "case-63",
     "title": "Case 63",
     "subtitle": "A tight time-travel thriller built around two voices and a steadily tightening paradox.",
-    "description": "A scripted suspense series about a psychiatrist and a patient who claims to be from the future, turning therapeutic sessions into a time-loop crisis.",
+    "description": "CASE 63 IS OUT NOW Season Two of Case 63 transports us back to 2012 where Eliza Beatrix Knight wakes confused and naked in a bathroom at JFK airport, having failed her mission. Taken to a hospital, she is treated by Dr. Vincent Caldwell - a resident psychiatrist with a familiar voice. Beatrix is now Case 63. With the future of humanity ever more at risk, Beatrix and Vincent must race to unravel the past to save an uncertain future. Season 2 of CASE 63 is created and written by Julio Rojas. Adapted by Mara Vélez Meléndez. Directed by Mimi O’Donnell and stars Julianne Moore and Oscar Isaac.",
     "cover": "images/covers/case-63.jpg",
     "coverVariants": [
       {
@@ -3918,18 +4119,27 @@
       "adaptation": "Mara Velez Melendez",
       "director": "Mimi O'Donnell"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+    },
+    "content": {
+      "sourceMaterial": "English-language adaptation of Caso 63",
+      "setting": "psychiatric sessions shaped by a claimed future catastrophe",
+      "pov": "two-person recorded-session thriller",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "borrasca",
     "title": "Borrasca",
     "subtitle": "A psychological thriller that keeps turning childhood dread into something worse.",
-    "description": "A dark mystery series about a town full of rumors, disappearances, and the awful machinery hidden behind a local legend.",
+    "description": "A gripping psychological thriller starring Cole Sprouse as Sam Walker. In the first season we followed Sam as he painstakingly recounts the summer his sister disappeared; the friends he made, the legends he heard, the pain and confusion of loss. Over nine episodes, we uncovered the unspeakable secrets of Drisking, Missouri and the people who live there. After leaving the audience with a jaw dropping cliffhanger, we are finally returning to Sam and the terrible truths of Drisking. Across seven episode of Season 2, a ghost of Sam’s past arrives to drag him back to Drisking for revenge. Back to the forests that color his nightmares. Back to the mysteries he never solved. Back… to the gates of Borrasca. Please be advised this show contains adult language, violent acts and triggering situations. It is intended for adult audiences only. Produced by QCODE. Created and written by Rebecca Klingel. Directed by Kristin Burke. Starring Cole Sprouse and Sarah Yarkin. Borrasca is presented by Mint Mobile. Mint Mobile is the affordable, premium wireless service that you buy online. To get your new phone plan for just 15 bucks a month, go to www.mintmobile.com/BORRASCA. QCODE+ subscribers on Apple Podcasts will get early access to new episodes before anyone else and exclusive bonus content. Learn more at apple.co/qcode.",
     "cover": "images/covers/borrasca.jpg",
     "coverVariants": [
       {
@@ -4002,18 +4212,27 @@
       "creatorName": "Rebecca Klingel",
       "productionCompany": "QCODE"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+    },
+    "content": {
+      "sourceMaterial": "adapted from the story by C.K. Walker",
+      "setting": "the town of Drisking, Missouri",
+      "pov": "Sam Walker-led psychological mystery",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "mabel",
     "title": "Mabel",
     "subtitle": "Ghosts, family secrets, and intimate audio that makes the house itself feel like a voice.",
-    "description": "A fiction podcast about ghosts, hidden histories, and missed connections, told through intimate messages and a steadily deepening sense of the uncanny.",
+    "description": "Mabel is a fiction podcast about ghosts, family secrets, strange houses, and missed connections.",
     "cover": "images/covers/mabel.jpg",
     "coverVariants": [
       {
@@ -4083,19 +4302,42 @@
     },
     "archiveTake": "A good match when the listener wants quieter supernatural unease and strong voice-driven atmosphere.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": [
+        "Becca De La Rosa",
+        "Maybell Marten"
+      ],
+      "writer": [
+        "Becca De La Rosa",
+        "Maybell Marten"
+      ],
+      "producer": "Becca De La Rosa",
+      "soundDesign": [
+        "Becca De La Rosa",
+        "Maybell Marten"
+      ]
+    },
+    "availability": {
+      "transcripts": "available from the official show site",
+      "captions": "not applicable",
+      "regionNotes": "The completed story remains available through the official feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "an old house and the family history rooted inside it",
+      "pov": "voicemails and intimate audio correspondence",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "archive-81",
     "title": "Archive 81",
     "subtitle": "Found-footage horror about ritual, sound, and the feeling that a recording can bite back.",
-    "description": "An archival horror series that starts with restored tapes and keeps widening into stranger rituals, cities, broadcasts, and buried histories.",
+    "description": "Archive 81 is a fiction podcast about horror, cities, and the subconscious. New episodes will be released every other Wednesday. Start from \"01 - A Body In A New Place\"",
     "cover": "images/covers/archive-81.jpg",
     "coverVariants": [
       {
@@ -4126,13 +4368,14 @@
       "cinematic"
     ],
     "formats": [
-      "narrated",
+      "full-cast",
       "serialized"
     ],
     "tags": [
-      "Horror",
-      "Found footage",
-      "Archive"
+      "Found audio",
+      "Archival horror",
+      "Occult",
+      "Cosmic horror"
     ],
     "aliases": [],
     "themes": [
@@ -4165,19 +4408,42 @@
     },
     "archiveTake": "One of the better escalation picks when the listener wants horror to get weirder, more structural, and more sound-driven.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": [
+        "Marc Sollinger",
+        "Dan Powell"
+      ],
+      "writer": [
+        "Marc Sollinger",
+        "Dan Powell"
+      ],
+      "producer": [
+        "Marc Sollinger",
+        "Dan Powell"
+      ],
+      "productionCompany": "Dead Signals"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Three main seasons and later miniseries material remain available through the official feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "an archive of dangerous recordings that expands into occult alternate realities",
+      "pov": "found-audio investigation and full-cast ensemble",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "homecoming",
     "title": "Homecoming",
     "subtitle": "A psychological thriller built from calls, overheard fragments, and deliberate unease.",
-    "description": "A suspense drama about an experimental facility, institutional manipulation, and the cost of trying to piece together a story that does not want to be told cleanly.",
+    "description": "Now a Prime Original TV series. From Spotify Studios, Homecoming centers on a caseworker at an experimental facility, her ambitious supervisor, and a soldier eager to rejoin civilian life — presented in an enigmatic collage of telephone calls, therapy sessions, and overheard conversations. Starring Catherine Keener, Oscar Isaac, David Schwimmer, David Cross, Amy Sedaris, Michael Cera, Mercedes Ruehl, Alia Shawkat, Chris Gethard, and Spike Jonze.",
     "cover": "images/covers/homecoming.jpg",
     "coverVariants": [
       {
@@ -4212,8 +4478,9 @@
       "serialized"
     ],
     "tags": [
-      "Thriller",
-      "Mystery",
+      "Psychological thriller",
+      "Military",
+      "Experimental treatment",
       "Conspiracy"
     ],
     "aliases": [],
@@ -4251,18 +4518,27 @@
       "creatorName": "Eli Horowitz and Micah Bloomberg",
       "productionCompany": "Gimlet"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a secretive reintegration treatment program",
+      "pov": "calls, recordings, and overheard conversations",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "welcome-to-night-vale",
     "title": "Welcome to Night Vale",
     "subtitle": "Community-radio weirdness that treats the impossible like a local bulletin.",
-    "description": "A twice-monthly fiction podcast delivered as community updates from the desert town of Night Vale, where conspiracy theories, cosmic horror, and dry humor all sound like normal civic news.",
+    "description": "Twice-monthly community updates for the small desert town of Night Vale, where every conspiracy theory is true. Turn on your radio and hide. Never listened before? It's an ongoing radio show. Start with the current episode, and you'll catch on in no time. Or, go right to Episode 1 if you wanna binge-listen.",
     "cover": "images/covers/welcome-to-night-vale.jpg",
     "coverVariants": [
       {
@@ -4338,19 +4614,40 @@
     },
     "archiveTake": "Still one of the clearest archive answers when someone wants foundational weird fiction with a strong voice and a lighter touch than outright horror.",
     "facts": {},
-    "credits": {},
-    "availability": {},
-    "content": {},
+    "credits": {
+      "creatorName": [
+        "Joseph Fink",
+        "Jeffrey Cranor"
+      ],
+      "writer": [
+        "Joseph Fink",
+        "Jeffrey Cranor"
+      ],
+      "narrator": "Cecil Baldwin",
+      "music": "Disparition",
+      "productionCompany": "Night Vale Presents"
+    },
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The long-running show is available through its official feed and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the impossible desert town of Night Vale",
+      "pov": "community-radio broadcasts",
+      "intensity": "low-medium"
+    },
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "marsfall",
     "title": "Marsfall",
     "subtitle": "Mars-colony survival sci-fi with enough pressure to keep the optimism uneasy.",
-    "description": "A full-cast Mars-colony drama about first-settlement optimism colliding with sabotage, AI pressure, and the feeling that every system can fail at once.",
+    "description": "Jacki and her crew left Earth and its problems behind for a chance at giving humanity a fresh start on Mars. But mysterious aliens, malicious AI, and the expected difficulties of colonizing this inhospitable planet leave them all questioning if they’ve made the right choice to abandon their home. Marsfall takes place in 2047 and follows the first colonists to settle on Mars as they face problem after problem. This high-intensity show features scenarios such as harsh storms, shadowy alien attacks, and forced assimilation by an artificial intelligence. It’s full of adult themes including violent disasters, death and betrayal, and philosophical questions. This show is not recommended for younger audiences.",
     "cover": "images/covers/marsfall.jpg",
     "coverVariants": [
       {
@@ -4440,13 +4737,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-strange-case-of-starship-iris",
     "title": "The Strange Case of Starship Iris",
     "subtitle": "Found-family space opera with politics, jokes, and real forward pull.",
-    "description": "A postwar space-opera serial about a surviving smuggler crew, anti-imperial resistance, and the way a funny ensemble can still carry sharp political stakes.",
+    "description": "In 2189, Earth narrowly won a war against extraterrestrials. The Strange Case of Starship Iris is about what comes after. It's a story of outer space, survival, espionage, resistance, identity, friendship, found family, romance, and secrets. (Also, there’s jokes.) For more info, visit http://procyonpodcasts.com/starship-iris",
     "cover": "images/covers/the-strange-case-of-starship-iris.jpg",
     "coverVariants": [
       {
@@ -4535,13 +4832,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-amelia-project",
     "title": "The Amelia Project",
     "subtitle": "Deadpan black-comedy mystery built around disappearances, reinventions, and cocoa.",
-    "description": "A long-running black-comedy fiction podcast about a secret agency that stages fake deaths for clients who need to vanish and come back as someone else.",
+    "description": "The Amelia Project is a secret agency that fakes its clients' deaths, then lets them reappear with a brand new identity! A black comedy full of secrets, twists... and cocoa. The series starts as a succession of interviews with clients who want to fake their deaths, then slowly a larger narrative begins to emerge... Each episode tells its own story, but we recommend starting with Season 1.",
     "cover": "images/covers/the-amelia-project.jpg",
     "coverVariants": [
       {
@@ -4629,13 +4926,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "victoriocity",
     "title": "Victoriocity",
     "subtitle": "Alternate-Victorian detective comedy with real momentum under the jokes.",
-    "description": "A full-cast detective comedy set in an impossibly large 1887 London, balancing murder mystery plotting with brisk ensemble charm and world-sized absurdity.",
+    "description": "A detective comedy drama || Even Greater London, 1887. In this vast metropolis, Inspector Archibald Fleet and journalist Clara Entwhistle investigate a murder, only to find themselves at the centre of a conspiracy of impossible proportions.",
     "cover": "images/covers/victoriocity.jpg",
     "coverVariants": [
       {
@@ -4723,13 +5020,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "startripper",
     "title": "StarTripper!!",
     "subtitle": "Road-trip space comfort with enough curiosity to make the galaxy feel generous.",
-    "description": "A cheerful first-person travelogue through a strange galaxy, built around a protagonist who left home to chase wonder instead of status.",
+    "description": "Join Feston Pyxis on a road-trip through the cosmos, as he leaves behind his old life in search of the best and wildest experiences the galaxy has to offer!",
     "cover": "images/covers/startripper.png",
     "coverVariants": [
       {
@@ -4793,7 +5090,7 @@
     "similarReasons": {
       "midnight-burger": "Another generous cosmic route when the warmth matters more than the tension.",
       "desert-skies": "Keeps the comfort-forward oddness intact with even lighter stakes.",
-      "the-waystation": "A hopeful speculative branch if what you want is curiosity about place and encounter.",
+      "the-waystation": "A much darker space-station branch if curiosity about unfamiliar places can turn into recovered-recording dread.",
       "eos-10": "A funnier ensemble route once you want more friction and less solitude."
     },
     "archiveTake": "A good archive answer for listeners who want the weirdness to feel restorative instead of threatening.",
@@ -4815,13 +5112,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-lovecraft-investigations",
     "title": "The Lovecraft Investigations",
     "subtitle": "Faux-journalism cosmic horror that turns investigation into contagion.",
-    "description": "A BBC mystery-thriller series that reframes Lovecraft stories as contemporary investigative journalism, using podcast structure to make the paranoia feel immediate.",
+    "description": "Julian Simpson's mystery thriller/horror fiction series, based on several works by H.P. Lovecraft and his Cthulhu Mythos.",
     "cover": "images/covers/the-lovecraft-investigations.jpg",
     "coverVariants": [
       {
@@ -4911,13 +5208,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "video-palace",
     "title": "Video Palace",
     "subtitle": "Found-audio horror about cursed media and the kind of mystery that keeps getting worse.",
-    "description": "A compact horror serial about a cursed VHS tape, a missing-store legend, and the way media obsession becomes the path into something older and meaner.",
+    "description": "When video collector Mark Cambria watches a mysterious VHS tape, he begins talking in his sleep in a language that doesn't exist. Mark and his girlfriend Tamra set out to investigate the tape's origin and find themselves caught up in a web of conspiracy, occult, and dread surrounding a legendary video store with a sinister purpose beyond imagining. Video Palace was created by Nick Braccia and Mike Monello, directed by Ben Rock, written by Ben Rock & Bob DeRosa and stars Chase Williamson and Devin Sidell.",
     "cover": "images/covers/video-palace.jpg",
     "coverVariants": [
       {
@@ -5010,13 +5307,13 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-01"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "limetown",
     "title": "Limetown",
     "subtitle": "What happened to the people of Limetown?",
-    "description": "A faux-investigative mystery that uses public-radio reporting to pull listeners into a disappearance case that keeps widening into stranger and darker territory.",
+    "description": "Ten years ago, over three hundred men, women and children disappeared from a small town in Tennessee, never to be heard from again. In this podcast, American Public Radio reporter Lia Haddock asks the question once more, \"What happened to the people of Limetown?\" Limetown is produced by Two-Up, the producers of 36 Questions, The Wilderness and Shipworm.",
     "cover": "images/covers/limetown.jpg",
     "coverVariants": [
       {
@@ -5029,7 +5326,9 @@
       }
     ],
     "coverAlt": "Limetown cover art",
-    "creators": [],
+    "creators": [
+      "Two-Up"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -5049,14 +5348,20 @@
       "serialized"
     ],
     "tags": [
-      "Mystery",
+      "Missing town",
       "Conspiracy",
-      "Investigative",
-      "Documentary Framing"
+      "Investigation",
+      "Documentary framing"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "disappearance",
+      "institutional conspiracy",
+      "memory"
+    ],
+    "contentNotes": [
+      "death, threat, and psychological distress"
+    ],
     "languages": [
       "English"
     ],
@@ -5081,19 +5386,28 @@
       "creatorName": "Two-Up",
       "network": "Two-Up Productions"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Two completed podcast seasons are available through major platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the aftermath of a Tennessee research-town disappearance",
+      "pov": "investigative reporter Lia Haddock",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-black-tapes",
     "title": "The Black Tapes",
-    "subtitle": "",
-    "description": "A paranormal-investigation thriller built around skeptical inquiry, old recordings, and the slow realization that each case is tied to something much larger.",
+    "subtitle": "A journalist investigates a skeptic's unsolved supernatural cases.",
+    "description": "The Black Tapes is a weekly podcast from the creators of Pacific Northwest Stories, and is hosted by Alex Reagan. The Black Tapes Podcast is a serialized docudrama about one journalist's search for truth, her subject's mysterious past, and the literal and figurative ghosts that haunt them both. Do you believe?",
     "cover": "images/covers/the-black-tapes.jpg",
     "coverVariants": [
       {
@@ -5106,7 +5420,9 @@
       }
     ],
     "coverAlt": "The Black Tapes cover art",
-    "creators": [],
+    "creators": [
+      "Pacific Northwest Stories"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -5133,8 +5449,14 @@
       "Conspiracy"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "skepticism",
+      "belief",
+      "haunting"
+    ],
+    "contentNotes": [
+      "supernatural horror and psychological threat"
+    ],
     "languages": [
       "English"
     ],
@@ -5159,19 +5481,28 @@
       "creatorName": "Pacific Northwest Stories",
       "network": "THE BLACK TAPES"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The numbered story run is inactive and does not have a fully resolved ending."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Pacific Northwest paranormal investigations",
+      "pov": "serialized investigative docudrama",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "girl-in-space",
     "title": "Girl in Space",
-    "subtitle": "",
-    "description": "A character-first sci-fi mystery about isolation, memory, and survival, anchored by a lone voice on a station where every answer raises a new problem.",
+    "subtitle": "A lonely scientist's audio diary from a failing space station.",
+    "description": "Nothing fancy here — just the simple audio diary of a girl in space. Also, there’s this weird and potentially ominous light in the distance that seems to be growing steadily closer. Listen for science, guns, trust, anti-matter, truth, beauty, inner turmoil, and delicious cheeses. It’s all here. In space.",
     "cover": "images/covers/girl-in-space.jpg",
     "coverVariants": [
       {
@@ -5184,7 +5515,9 @@
       }
     ],
     "coverAlt": "Girl in Space cover art",
-    "creators": [],
+    "creators": [
+      "Sarah Rhea Werner"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5206,11 +5539,18 @@
       "Sci-fi",
       "Space",
       "Isolation",
-      "Character Drama"
+      "Character drama"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "isolation",
+      "trust",
+      "survival"
+    ],
+    "contentNotes": [
+      "science-fiction violence",
+      "mentions of blood"
+    ],
     "languages": [
       "English"
     ],
@@ -5235,19 +5575,28 @@
       "creatorName": "Sarah Rhea Werner",
       "network": "Girl In Space"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available for all 13 story episodes on the official site",
+      "captions": "not applicable",
+      "regionNotes": "The official site also offers a separate paid five-episode prequel miniseries."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a failing research station in deep space",
+      "pov": "first-person audio diary",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "mockery-manor",
     "title": "Mockery Manor",
-    "subtitle": "",
-    "description": "A fast, playful mystery set inside a retro theme park where understaffed chaos, class friction, and slasher energy all keep colliding.",
+    "subtitle": "Murder, twins, and black comedy inside a dangerously cheerful theme park.",
+    "description": "Summer, 1989, somewhere in deepest darkest England. Mockery Manor is a theme park where people disappear, and it's up to a pair of chaotic teenage twins to catch a killer. British Podcast Awards 'Best Fiction' Nominee 2020. If you like Widow's Bay, Hot Fuzz , and Only Murders In The Building , then Mockery Manor is for you. Mockery Manor is a full-cast production best enjoyed using headphones.",
     "cover": "images/covers/mockery-manor.jpg",
     "coverVariants": [
       {
@@ -5260,13 +5609,17 @@
       }
     ],
     "coverAlt": "Mockery Manor cover art",
-    "creators": [],
+    "creators": [
+      "Lindsay Sharman",
+      "Laurence Owen"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
       "comedy",
+      "mystery",
       "drama"
     ],
     "tones": [
@@ -5279,14 +5632,20 @@
       "serialized"
     ],
     "tags": [
-      "Mystery",
-      "Theme Park",
-      "British",
-      "Retro"
+      "Theme park",
+      "Murder mystery",
+      "1980s",
+      "Twins"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "family secrets",
+      "murder",
+      "workplace rivalry"
+    ],
+    "contentNotes": [
+      "murder, threat, and black comedy"
+    ],
     "languages": [
       "English"
     ],
@@ -5311,19 +5670,28 @@
       "creatorName": "Long Cat Media",
       "network": "ART19"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available from Long Cat Media",
+      "captions": "not applicable",
+      "regionNotes": "Four seasons are listed by the official Apple Podcasts page."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "English theme parks beginning in summer 1989",
+      "pov": "twin-led full-cast mystery",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "forest-404",
     "title": "Forest 404",
-    "subtitle": "Our final soundscape, a full playout of the Forest 404 theme tune composed by Bonobo.",
-    "description": "A compact dystopian sci-fi drama about ecological memory, synthetic soundscapes, and what gets lost when a world forgets the feel of the natural one.",
+    "subtitle": "An environmental sci-fi thriller about an archivist discovering a vanished natural world.",
+    "description": "Can you feel loss for something you've never known? An environmental thriller starring Pearl Mackie, Tanya Moodie and Pippa Haywood. With theme music by Bonobo. Written by Timothy X Atack and directed by Becky Ripley. Each episode comes with its own talk and soundscape. Plus, take part in The Forest 404 Experiment to see how you respond to sounds of nature.",
     "cover": "images/covers/forest-404.jpg",
     "coverVariants": [
       {
@@ -5336,7 +5704,9 @@
       }
     ],
     "coverAlt": "Forest 404 cover art",
-    "creators": [],
+    "creators": [
+      "Timothy X Atack"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -5360,11 +5730,17 @@
       "Sci-fi",
       "Climate",
       "Dystopia",
-      "Environmental Collapse"
+      "Environmental collapse"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "ecological memory",
+      "extinction",
+      "grief"
+    ],
+    "contentNotes": [
+      "climate loss and ecological collapse"
+    ],
     "languages": [
       "English"
     ],
@@ -5389,19 +5765,28 @@
       "creatorName": "BBC Radio 4",
       "network": "BBC"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The complete BBC feed pairs each of nine story episodes with a factual talk and an immersive soundscape."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a post-Cataclysm future where forests have been forgotten",
+      "pov": "archivist Pan",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "greater-boston",
     "title": "Greater Boston",
-    "subtitle": "",
-    "description": "An expansive ensemble drama that turns alternate-history Boston into a place for civic absurdity, interpersonal fallout, and long-game character work.",
+    "subtitle": "A sprawling Boston ensemble where civic systems become strange, comic, and deeply personal.",
+    "description": "Greater Boston is a bi-monthly full-cast audio drama that blends the real and the unreal, the historical and the fantastical. It all begins with the death of Leon Stamatis, a man for whom the least hint of uncertainty makes life unbearable. But by leaving the world, he has irrevocably changed it. Greater Boston is written and produced by Alexander Danner and Jeff Van Dreason. A production of ThirdSight Media LLC.",
     "cover": "images/covers/greater-boston.jpg",
     "coverVariants": [
       {
@@ -5414,14 +5799,18 @@
       }
     ],
     "coverAlt": "Greater Boston cover art",
-    "creators": [],
+    "creators": [
+      "Alexander Danner",
+      "Jeff Van Dreason"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "genres": [
       "drama",
-      "comedy"
+      "comedy",
+      "fantasy"
     ],
     "tones": [
       "warm",
@@ -5434,13 +5823,19 @@
     ],
     "tags": [
       "Ensemble",
-      "Political",
-      "Offbeat",
-      "Urban"
+      "Magical realism",
+      "Boston",
+      "Urban fantasy"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "community",
+      "uncertainty",
+      "civic systems"
+    ],
+    "contentNotes": [
+      "episode-specific notes vary across the long-running ensemble story"
+    ],
     "languages": [
       "English"
     ],
@@ -5465,19 +5860,28 @@
       "creatorName": "Alexander Danner & Jeff Van Dreason",
       "network": "Greater Boston"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available through the official show site",
+      "captions": "not applicable",
+      "regionNotes": "The public feed includes story episodes, mini-episodes, and bonus material."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "an alternate, increasingly fantastical Greater Boston",
+      "pov": "large full-cast ensemble",
+      "intensity": "variable"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "tumanbay",
     "title": "Tumanbay",
-    "subtitle": "A fiction podcast on an epic scale set in the most powerful city on earth... Tumanbay.",
-    "description": "A sprawling palace-intrigue drama built around power struggles, espionage, shifting loyalties, and the feeling that every victory is buying a larger disaster.",
+    "subtitle": "Imperial power, rebellion, and survival in a city built on political danger.",
+    "description": "A vast empire threatened by rebellion. A fiction podcast on an epic scale set in the most powerful city on earth... Visit www.tumanbay.com to see full credits and download scripts. Can't get enough of the Tumanbay universe? The first Tumanbay novel, \"The City of a Thousand Faces\" by Walker Dryden, is now available.",
     "cover": "images/covers/tumanbay.jpg",
     "coverVariants": [
       {
@@ -5490,7 +5894,10 @@
       }
     ],
     "coverAlt": "Tumanbay cover art",
-    "creators": [],
+    "creators": [
+      "John Scott Dryden",
+      "Mike Walker"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -5511,13 +5918,19 @@
     ],
     "tags": [
       "Historical",
-      "Political Intrigue",
+      "Political intrigue",
       "War",
       "Epic"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "power",
+      "rebellion",
+      "political survival"
+    ],
+    "contentNotes": [
+      "war and political violence"
+    ],
     "languages": [
       "en-us"
     ],
@@ -5533,28 +5946,41 @@
     ],
     "similarReasons": {
       "ars-paradoxica": "Both trust listeners to keep up with larger systems and power struggles without flattening the human stakes.",
-      "the-waystation": "A good next route if the listener wants worldbuilding depth and people trapped inside inherited structures.",
+      "the-waystation": "A smaller cosmic-horror route for listeners who still want people trapped inside an institution larger than themselves.",
       "midst": "Useful when the appeal is less plot shape and more the feeling of a fully inhabited, pressure-rich world."
     },
     "archiveTake": "A strong recommendation when you want scale, political pressure, and a world that feels bigger than any single character.",
     "facts": {},
     "credits": {
-      "creatorName": "iHeartPodcasts",
-      "network": "LIATOGEL"
+      "creatorName": [
+        "John Scott Dryden",
+        "Mike Walker"
+      ],
+      "productionCompany": "Goldhawk Productions",
+      "network": "iHeartPodcasts"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available from the official site",
+      "captions": "not applicable",
+      "regionNotes": "Available through the publisher feed and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the fictional imperial city of Tumanbay",
+      "pov": "large political ensemble",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "janus-descending",
     "title": "Janus Descending",
-    "subtitle": "",
-    "description": "A reverse-structured sci-fi horror story that uses mission logs, isolation, and xenoarchaeology to turn discovery into dread.",
+    "subtitle": "Two xenoarchaeologists, one dead world, and a story moving in opposite directions.",
+    "description": "NOW PLAYING: Descendants, The Janus Descending Sequel: Book One - Inheritance JANUS DESCENDING is limited series, science fiction/horror audio drama podcast, follows the arrival of two xenoarcheologists on a small world orbiting a binary star. But what starts off as an expedition to survey the planet and the remains of a lost alien civilization, turns into a monstrous game of cat and mouse, as the two scientists are left to face the creatures that killed the planet in the first place. Told from two alternating perspectives, Janus Descending is an experience of crossing timelines, as one character describes the nightmare from end to beginning, and the other, from beginning to the end. DESCENDANTS is a two-season limited series science-fiction adventure/thriller, and the sequel of Janus Descending. The story begins where Janus Descending left off, at our lost crew's nightmarish homecoming, and follows Peter's older brother, Axel, through the aftermath of the Janus Disaster. Three days after the wreckage of the Adamantine was found, crashed on the barren plains of the Rosseter Moon Colony, the remains of the missing ship were brought back to Aphelion Industries. But something survived the crash, and now, it's beginning to spread. As the Gorgons begin their rampage to consume and multiply, Axel, Captain Rori, and the ARC Juno team must fight their way out of the quarantined facilities, and find a way to stay alive... but in doing so, they just might damn their world...",
     "cover": "images/covers/janus-descending.jpg",
     "coverVariants": [
       {
@@ -5567,7 +5993,9 @@
       }
     ],
     "coverAlt": "Janus Descending cover art",
-    "creators": [],
+    "creators": [
+      "Jordan Cobb"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -5593,8 +6021,15 @@
       "Xenoarchaeology"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "exploration",
+      "grief",
+      "contagion"
+    ],
+    "contentNotes": [
+      "science-fiction horror",
+      "violence and death"
+    ],
     "languages": [
       "English"
     ],
@@ -5619,19 +6054,28 @@
       "creatorName": "No Such Thing Productions",
       "network": "Nosuchthing"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available through the official production site",
+      "captions": "not applicable",
+      "regionNotes": "The shared feed includes Janus Descending and its sequel series Descendants."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "an alien archaeological site and its aftermath",
+      "pov": "alternating timelines and perspectives",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "spines-podcast",
     "title": "Spines",
-    "subtitle": "",
-    "description": "A cult-haunted horror serial about memory loss, dangerous power, and the violent institutions circling a woman who woke up at the center of something awful.",
+    "subtitle": "A blood-soaked awakening leads into cults, missing memories, and dangerous powers.",
+    "description": "One day, Wren wakes up covered in blood, suffering from memory loss, and surrounded by the remnants of some strange cult ritual. SPINES is the story of her search for answers, and the deadly, powerful people she encounters along the way. Listen to the complete series now.",
     "cover": "images/covers/spines-podcast.jpg",
     "coverVariants": [
       {
@@ -5644,7 +6088,9 @@
       }
     ],
     "coverAlt": "Spines cover art",
-    "creators": [],
+    "creators": [
+      "ZoomDoom Stories"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -5670,8 +6116,14 @@
       "Cults"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "identity",
+      "memory",
+      "power"
+    ],
+    "contentNotes": [
+      "blood, cults, and supernatural violence"
+    ],
     "languages": [
       "English"
     ],
@@ -5695,19 +6147,28 @@
     "credits": {
       "creatorName": "ZoomDoom Stories"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The complete series is available through the publisher feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a contemporary supernatural conspiracy",
+      "pov": "Wren-led narration",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "caravan",
     "title": "Caravan",
     "subtitle": "A Weird-West Audio Drama Adventure",
-    "description": "A queer fantasy road-trip drama about monsters, found family, and the kind of hidden world that keeps getting bigger the farther you travel into it.",
+    "description": "CARAVAN is a story about getting through Hell with the people you love. When Samir and his best friend Carlyle take a camping trip to the Canyon, they don't plan on getting caught in a thunderstorm. Even worse, they don't plan on Samir falling into the Canyon. When he wakes up, Samir finds himself in a new world, where ghosts, demons, vampires, and other monsters terrorize the locals like any villains in a western. Samir joins up with a caravan—a vigilante train of supernatural bounty hunters—to delve deep into the Canyon depths, and find a way out of Hell once and for all.",
     "cover": "images/covers/caravan.jpg",
     "coverVariants": [
       {
@@ -5720,7 +6181,9 @@
       }
     ],
     "coverAlt": "Caravan cover art",
-    "creators": [],
+    "creators": [
+      "Tau Zaman"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5740,14 +6203,20 @@
       "serialized"
     ],
     "tags": [
-      "Fantasy",
-      "Road Trip",
+      "Portal fantasy",
+      "Supernatural western",
       "Queer",
-      "Supernatural"
+      "Found family"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "found family",
+      "escape",
+      "belonging"
+    ],
+    "contentNotes": [
+      "mature language, violence, and sexual themes"
+    ],
     "languages": [
       "English"
     ],
@@ -5771,19 +6240,28 @@
     "credits": {
       "creatorName": "The Whisperforge"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available on the official Whisperforge site",
+      "captions": "not applicable",
+      "regionNotes": "Available through the publisher feed and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the supernatural Weird West of Wound Canyon",
+      "pov": "Samir-led full-cast ensemble",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "oblivity",
     "title": "Oblivity",
-    "subtitle": "",
-    "description": "A workplace sci-fi comedy about an abandoned-feeling space posting where boredom, incompetence, and actual danger keep arriving in the same package.",
+    "subtitle": "A disgraced commander, a dysfunctional Pluto outpost, and very British space chaos.",
+    "description": "A comedy sci-fi series || Commander Falconer is missing the war... Following years in front line combat, a decorated hero is posted to the remote ice plains of Pluto on her toughest mission yet: to oversee a small, dysfunctional research team. Oblivity is a comedy science fiction audiodrama about family, isolation and meteorites www.oblivitypodcast.com @oblivitypodcast",
     "cover": "images/covers/oblivity.png",
     "coverVariants": [
       {
@@ -5796,7 +6274,9 @@
       }
     ],
     "coverAlt": "Oblivity cover art",
-    "creators": [],
+    "creators": [
+      "Rob Stringer"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5822,8 +6302,14 @@
       "Satire"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "family",
+      "isolation",
+      "loyalty"
+    ],
+    "contentNotes": [
+      "warfare and weaponry"
+    ],
     "languages": [
       "English"
     ],
@@ -5847,19 +6333,28 @@
     "credits": {
       "creatorName": "Oblivity"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "Two seasons are available through the official feed."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a remote research outpost on Pluto",
+      "pov": "full-cast workplace ensemble",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "the-once-and-future-nerd",
     "title": "The Once and Future Nerd",
-    "subtitle": "",
-    "description": "A portal-fantasy epic that starts with genre familiarity and then digs into politics, class, war, and the limits of trying to fix a world you barely understand.",
+    "subtitle": "Three modern teenagers trapped in a politically tangled high-fantasy world.",
+    "description": "When three high school students from modern-day Pennsylvania find themselves trapped in a world of wizards, elves, and feudal intrigue, they must learn to survive in their new surroundings, and undertake an epic quest to save the world from the encroaching forces of chaos. WARNING: This Audio Drama contains adult language, graphic descriptions of violence, and explicit discussions of sexuality. This is, of course, in the interest of historical realism. We hope you enjoy our story about wizards and elves.",
     "cover": "images/covers/the-once-and-future-nerd.jpg",
     "coverVariants": [
       {
@@ -5872,7 +6367,10 @@
       }
     ],
     "coverAlt": "The Once and Future Nerd cover art",
-    "creators": [],
+    "creators": [
+      "Zach Glass",
+      "Christian Kelley-Madera"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "hiatus",
@@ -5893,13 +6391,21 @@
     ],
     "tags": [
       "Fantasy",
-      "Portal Fantasy",
+      "Portal fantasy",
       "Ensemble",
       "Adventure"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "power",
+      "prejudice",
+      "friendship"
+    ],
+    "contentNotes": [
+      "adult language",
+      "graphic descriptions of violence",
+      "explicit discussions of sexuality"
+    ],
     "languages": [
       "en-us"
     ],
@@ -5915,7 +6421,7 @@
     ],
     "similarReasons": {
       "midnight-burger": "Both reward listeners who want warmth, humor, and a larger moral imagination beneath the weirdness.",
-      "the-waystation": "A strong fit if the listener wants thoughtful worldbuilding and characters living inside larger systems.",
+      "the-waystation": "A much darker sci-fi branch that still centers characters caught inside a larger, dangerous system.",
       "victoriocity": "Useful if the draw is sharp world texture and a cast navigating a setting bigger than the immediate plot."
     },
     "archiveTake": "Worth the commitment if you want fantasy that grows well past its premise and keeps getting more politically textured.",
@@ -5923,19 +6429,28 @@
     "credits": {
       "creatorName": "Glass & Madera"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available through the official episode guide",
+      "captions": "not applicable",
+      "regionNotes": "The official site separates main-story chapters from bonus content."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the high-fantasy world of Iorden",
+      "pov": "full-cast portal-fantasy ensemble",
+      "intensity": "variable"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "king-falls-am",
     "title": "King Falls AM",
-    "subtitle": "",
-    "description": "A paranormal small-town comedy-drama framed through a late-night radio show, where local banter keeps mutating into something stranger and more emotional than the setup first suggests.",
+    "subtitle": "Late-night small-town radio where every caller makes the paranormal feel local.",
+    "description": "King Falls AM centers on a lonely little mountain town's late-night AM talk radio show and its paranormal, peculiar happenings and inhabitants. New shows available the 1st and 15th of every month! Be sure to start from Sammy's first show (May 1st, 2015) to stay up to date with all your King Falls favorites.",
     "cover": "images/covers/king-falls-am.png",
     "coverVariants": [
       {
@@ -5948,7 +6463,9 @@
       }
     ],
     "coverAlt": "King Falls AM cover art",
-    "creators": [],
+    "creators": [
+      "King Falls AM"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -5969,14 +6486,20 @@
       "episodic"
     ],
     "tags": [
-      "Small Town",
+      "Small town",
       "Paranormal",
-      "Late-night Radio",
+      "Late-night radio",
       "Comedy"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "community",
+      "conspiracy",
+      "friendship"
+    ],
+    "contentNotes": [
+      "paranormal threat and occasional violence"
+    ],
     "languages": [
       "en-us"
     ],
@@ -6000,19 +6523,28 @@
     "credits": {
       "creatorName": "King Falls AM"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "not verified",
+      "captions": "not applicable",
+      "regionNotes": "The public feed remains available, but the story stopped without a completed ending."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the paranormal mountain town of King Falls",
+      "pov": "late-night call-in radio broadcast",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "brimstone-valley-mall",
     "title": "Brimstone Valley Mall",
     "subtitle": "Five demons, one suburban mall, and a missing bandmate before the biggest gig of 1999.",
-    "description": "A neon-chaotic comedy about five demons killing time in a suburban mall until their singer vanishes and the countdown to disaster starts moving faster.",
+    "description": "The year is 1999. Lurking somewhere between Hot Topic and the food court, five misfit demons from Hell kill time inciting sin in a suburban shopping mall. When the lead singer of their band goes mysteriously missing, the demons only have two weeks to find him before they play the biggest gig of the millenium - or face the wrath of Satan herself.",
     "cover": "images/covers/brimstone-valley-mall.jpg",
     "coverVariants": [
       {
@@ -6025,11 +6557,13 @@
       }
     ],
     "coverAlt": "Brimstone Valley Mall cover art",
-    "creators": [],
+    "creators": [
+      "Kristen DiMercurio"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "hiatus",
-    "completionStatus": "ongoing",
+    "releaseStatus": "inactive",
+    "completionStatus": "unclear",
     "genres": [
       "comedy",
       "fantasy",
@@ -6051,8 +6585,14 @@
       "Punk"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "found family",
+      "music",
+      "demonic workplace comedy"
+    ],
+    "contentNotes": [
+      "mature comedy and supernatural violence"
+    ],
     "languages": [
       "English"
     ],
@@ -6077,19 +6617,28 @@
       "creatorName": "Brimstone Valley Mall",
       "network": "ART19"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available on the official show site",
+      "captions": "not applicable",
+      "regionNotes": "Available through the publisher feed and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a suburban shopping mall in 1999",
+      "pov": "full-cast demon ensemble",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "midnight-radio",
     "title": "Midnight Radio",
-    "subtitle": "",
-    "description": "A melancholy mystery drama about a drifting musician, a strange town, and the emotional static that keeps surfacing through music, memory, and local secrets.",
+    "subtitle": "A ghost broadcaster and a living listener begin an impossible correspondence.",
+    "description": "Drawing inspiration from 1950s radio serials and ghost stories, Midnight Radio follows two women finding love through an unlikely correspondence about community, leaving your small hometown, our relationship to the past, what it means to be haunted, and what we leave behind when we die. Remember: all ghost stories are love stories.",
     "cover": "images/covers/midnight-radio.png",
     "coverVariants": [
       {
@@ -6102,11 +6651,13 @@
       }
     ],
     "coverAlt": "Midnight Radio cover art",
-    "creators": [],
+    "creators": [
+      "Bobbie Parker"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "inactive",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "mystery",
       "drama",
@@ -6122,14 +6673,20 @@
       "serialized"
     ],
     "tags": [
-      "Mystery",
-      "Small Town",
-      "Supernatural",
-      "Music"
+      "Ghost story",
+      "Small town",
+      "Queer romance",
+      "Radio"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "love",
+      "haunting",
+      "hometown memory"
+    ],
+    "contentNotes": [
+      "grief and death"
+    ],
     "languages": [
       "English"
     ],
@@ -6153,19 +6710,28 @@
     "credits": {
       "creatorName": "Martlet Radio"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available from Martlet Radio",
+      "captions": "not applicable",
+      "regionNotes": "The ten-part limited series is complete."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "Dawn Arbor across the 1950s and present day",
+      "pov": "epistolary radio correspondence",
+      "intensity": "low-medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "mission-rejected",
     "title": "Mission Rejected",
-    "subtitle": "The story of the world's most secret agents...the backups. For the first time in his career, Special Agent Chet Phillips has discovered that he can choose NOT to accept a mission! That means there's no choice but to send in the \"B Team\": A",
-    "description": "An ensemble spy comedy about the backup team no one wanted to call, and how quickly bureaucratic humiliation becomes a real mission.",
+    "subtitle": "The world's most secret agents are unavailable, so the backups take the mission.",
+    "description": "The story of the world's most secret agents...the backups. For the first time in his career, Special Agent Chet Phillips has discovered that he can choose NOT to accept a mission! That means there's no choice but to send in the \"B Team\": A nervous pencil pusher promoted to the field, a computer hacker working off her sentence, a fading former sitcom star and a recently reassigned White House intern. A full cast comedy audio adventure with a new episode debuting each month!",
     "cover": "images/covers/mission-rejected.jpg",
     "coverVariants": [
       {
@@ -6178,7 +6744,11 @@
       }
     ],
     "coverAlt": "Mission Rejected cover art",
-    "creators": [],
+    "creators": [
+      "Pete Barry",
+      "J. Michael DeAngelis",
+      "John P. Dowgin"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -6197,7 +6767,7 @@
       "serialized"
     ],
     "tags": [
-      "Spy Comedy",
+      "Spy comedy",
       "Ensemble",
       "Action",
       "Bureaucracy"
@@ -6205,8 +6775,14 @@
     "aliases": [
       "Mission: Rejected"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "teamwork",
+      "espionage",
+      "found family"
+    ],
+    "contentNotes": [
+      "comedic action and spy violence"
+    ],
     "languages": [
       "English"
     ],
@@ -6231,19 +6807,28 @@
       "creatorName": "The Porch Room",
       "network": "Mission: Rejected"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available from the official show site",
+      "captions": "not applicable",
+      "regionNotes": "Available through the official site and major podcast platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "comic international spy missions",
+      "pov": "full-cast B-team ensemble",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "we-fix-space-junk",
     "title": "We Fix Space Junk",
-    "subtitle": "",
-    "description": "A queer space-road-trip comedy about two repair workers trapped in a corporate nightmare that somehow still leaves room for affection, exhaustion, and good jokes.",
+    "subtitle": "Two women cross a corporate dystopia doing odd jobs on the fringes of the law.",
+    "description": "'We Fix Space Junk' follows seasoned smuggler Kilner and reluctant fugitive Samantha as they travel the galaxy, dodging bullets and meeting strange and wonderful beings as they carry out odd jobs on the fringes of the law. A female-led sci-fi comedy sitcom set in the far future, in a high-tech, dystopian world, We Fix Space Junk draws on the sci-fi of the past, following in the footsteps of Harry Harrison and of Douglas Adams' Hitchhiker's Guide to the Galaxy. Equal parts love-letter to sci-fi and satire of the present-day, Space Junk is lovingly produced by Beth Crane and Hedley Knights of Battle Bird Productions. To support the show visit patreon.com/BattleBirdProd or visit Battlebird.productions",
     "cover": "images/covers/we-fix-space-junk.jpg",
     "coverVariants": [
       {
@@ -6256,7 +6841,10 @@
       }
     ],
     "coverAlt": "We Fix Space Junk cover art",
-    "creators": [],
+    "creators": [
+      "Beth Crane",
+      "Hedley Knights"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
@@ -6277,13 +6865,19 @@
     ],
     "tags": [
       "Sci-fi",
-      "Road Trip",
-      "Corporate Dystopia",
+      "Road trip",
+      "Corporate dystopia",
       "Queer"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "corporate exploitation",
+      "friendship",
+      "survival"
+    ],
+    "contentNotes": [
+      "science-fiction violence and dystopian themes"
+    ],
     "languages": [
       "English"
     ],
@@ -6308,19 +6902,28 @@
       "creatorName": "Battle Bird Productions",
       "network": "Battle Bird Productions"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available from Battle Bird Productions",
+      "captions": "not applicable",
+      "regionNotes": "The show is active and available through the official feed and major platforms."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a far-future corporate dystopia across the galaxy",
+      "pov": "Kilner-and-Samantha-led full-cast ensemble",
+      "intensity": "medium"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-09"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "harbor",
     "title": "Harbor",
-    "subtitle": "",
-    "description": "A supernatural small-town drama where cryptids, family pressure, and local secrets all feel personal before they feel mythic.",
+    "subtitle": "Queer small-town cryptid drama with found-family warmth and bureaucratic bite.",
+    "description": "The Greer siblings have a lot on their plate- stressful jobs, southern heat, small town politics AND Cryptids with personal problems. Remember, normal is what you get used to. Harbor is an audio drama intended for mature audiences with instances of language, violence and implied sexual situations. Listener discretion is advised.",
     "cover": "images/covers/harbor.png",
     "coverVariants": [
       {
@@ -6333,7 +6936,9 @@
       }
     ],
     "coverAlt": "Harbor cover art",
-    "creators": [],
+    "creators": [
+      "Faraday Roke"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "inactive",
@@ -6353,14 +6958,22 @@
       "serialized"
     ],
     "tags": [
-      "Small Town",
+      "Small town",
       "Cryptids",
       "Family",
       "Supernatural"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "family",
+      "belonging",
+      "bureaucracy"
+    ],
+    "contentNotes": [
+      "language",
+      "violence",
+      "implied sexual situations"
+    ],
     "languages": [
       "en-us"
     ],
@@ -6385,19 +6998,28 @@
       "creatorName": "Tartarus Jenny Studios",
       "network": "Harbor - An Audio Drama Podcast"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available on the official show site",
+      "captions": "not applicable",
+      "regionNotes": "Two numbered story seasons are publicly available."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "a small Southern town shared with cryptids",
+      "pov": "Greer-sibling ensemble",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "passenger-list",
     "title": "Passenger List",
     "subtitle": "A missing plane, a cabin full of suspects, a search for truth. A mystery thriller from PRX’s Radiotopia.",
-    "description": "A conspiracy mystery built around a vanished plane, a reporter in over her head, and the growing sense that every answer has already been managed by someone else.",
+    "description": "Atlantic Flight 702 has disappeared mid-flight between London and New York with 256 passengers on board. Kaitlin Le (Kelly Marie Tran), a college student whose twin brother vanished with the flight, is determined to uncover the truth. Passenger List is a mystery thriller podcast from PRX’s Radiotopia.",
     "cover": "images/covers/passenger-list.png",
     "coverVariants": [
       {
@@ -6410,11 +7032,13 @@
       }
     ],
     "coverAlt": "Passenger List cover art",
-    "creators": [],
+    "creators": [
+      "John Scott Dryden"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "inactive",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
       "thriller",
       "mystery",
@@ -6430,14 +7054,20 @@
       "serialized"
     ],
     "tags": [
-      "Mystery",
+      "Missing plane",
       "Conspiracy",
       "Aviation",
       "Investigation"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "grief",
+      "truth",
+      "conspiracy"
+    ],
+    "contentNotes": [
+      "aviation disaster, death, and psychological distress"
+    ],
     "languages": [
       "English"
     ],
@@ -6462,19 +7092,28 @@
       "creatorName": "Passenger List and Radiotopia",
       "network": "Passenger List"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "downloadable scripts are available on the official site",
+      "captions": "not applicable",
+      "regionNotes": "Both eight-episode story seasons are available through Radiotopia."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "an international investigation into Atlantic Flight 702",
+      "pov": "Kaitlin Le-led investigative thriller",
+      "intensity": "high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "moonbase-theta-out",
     "title": "Moonbase Theta, Out",
-    "subtitle": "",
-    "description": "A queer emotional sci-fi drama about a decommissioned moonbase, the people left awake to narrate its last days, and what survives when the official mission is already over.",
+    "subtitle": "A decommissioned moonbase counts down its final weeks—and what comes after.",
+    "description": "Moonbase Theta, Out – a queer emotional sci-fi audio drama by D.J. Sylvis. It is 2098. The Moonbase program has been determined unprofitable. The last base, Theta, is twenty weeks from being decommissioned. Most of the crew is in stasis awaiting retrieval. Five remain – Roger Bragado-Fischer, Nessa Cheong, Ashwini Ray, Michell L’Anglois, and Wilder. Join the crew of Moonbase Theta as they reach out to share the beauty, the isolation and frustration, the love and enmity, the humour, and the tragedy, as all count down to the operation’s end ... and what comes after.",
     "cover": "images/covers/moonbase-theta-out.jpg",
     "coverVariants": [
       {
@@ -6487,7 +7126,9 @@
       }
     ],
     "coverAlt": "Moonbase Theta, Out cover art",
-    "creators": [],
+    "creators": [
+      "D.J. Sylvis"
+    ],
     "status": "published",
     "reviewStatus": "indexed-only",
     "releaseStatus": "completed",
@@ -6512,8 +7153,14 @@
       "Isolation"
     ],
     "aliases": [],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "labor",
+      "connection",
+      "isolation"
+    ],
+    "contentNotes": [
+      "corporate exploitation, grief, and science-fiction threat"
+    ],
     "languages": [
       "English"
     ],
@@ -6537,47 +7184,67 @@
     "credits": {
       "creatorName": "D.J. Sylvis"
     },
-    "availability": {},
-    "content": {},
+    "availability": {
+      "transcripts": "available on the official Monkeyman Productions site",
+      "captions": "not applicable",
+      "regionNotes": "The main series is complete; the feed also contains miniseries and post-series shorts."
+    },
+    "content": {
+      "sourceMaterial": "original fiction",
+      "setting": "the last corporate moonbase in 2098",
+      "pov": "communications logs expanding into a full-cast ensemble",
+      "intensity": "medium-high"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-09",
-    "updatedAt": "2026-07-10"
+    "updatedAt": "2026-07-18"
   },
   {
     "id": "flash-gordon-and-buck-rogers-radio-adventurers",
     "title": "Flash Gordon and Buck Rogers Radio Adventurers",
-    "subtitle": "Before Star Wars... before Star Trek… there were Flash Gordon and Buck Rogers. These legendary space heroes captured imaginations across the globe with tales of rockets, ray guns, and far-off worlds—and in the 1930s, they blasted off from t",
+    "subtitle": "Surviving 1930s radio serials starring two foundational space-adventure heroes.",
     "description": "Before Star Wars... before Star Trek… there were Flash Gordon and Buck Rogers. These legendary space heroes captured imaginations across the globe with tales of rockets, ray guns, and far-off worlds—and in the 1930s, they blasted off from the comic strips into the airwaves in some of the earliest science fiction audio dramas ever produced. In this feed from The Great Adventures of Old Time Radio, host Adam Graham presents the surviving radio serial adventures of these two pioneers of planetary peril. First, journey with Flash Gordon launched into space by a paranoid scientist and crash-landed onto the strange and savage Planet Mongo. There, he joins strange allies to challenge the tyrannical Ming the Merciless in a thrilling, serialized science-fantasy saga from 1935. Then meet Buck Rogers, a 20th-century man who wakes up 500 years in the future—and quickly finds himself battling the nefarious Killer Kane as a space-age lawman in a rare complete story arc from the golden age of radio. Whether you're a fan of classic science fiction, pulp heroes, or vintage radio serials, this limited series offers a thrilling ride through audio history—featuring the characters who launched a thousand space operas. For more thrilling tales of espionage, jungle treks, underwater escapades, and audio adventure from the 1930s–60s, check out The Great Adventures of Old Time Radio—where the golden age still burns bright.",
     "cover": "images/covers/flash-gordon-and-buck-rogers-radio-adventurers.jpg",
     "coverVariants": [
       {
-        "src": "/images/generated/covers/flash-gordon-and-buck-rogers-radio-adventurers-61398970f9-320.webp",
+        "src": "/images/generated/covers/flash-gordon-and-buck-rogers-radio-adventurers-610020acc3-320.webp",
         "width": 320
       },
       {
-        "src": "/images/generated/covers/flash-gordon-and-buck-rogers-radio-adventurers-61398970f9-640.webp",
+        "src": "/images/generated/covers/flash-gordon-and-buck-rogers-radio-adventurers-610020acc3-640.webp",
         "width": 640
       }
     ],
     "coverAlt": "Flash Gordon and Buck Rogers Radio Adventurers cover art",
     "creators": [
-      "Adam Graham|Science Fiction Audio Drama Podcast Host"
+      "Adam Graham"
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "unknown",
-    "completionStatus": "unclear",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
     "genres": [
-      "drama",
-      "sci-fi"
+      "sci-fi",
+      "adventure",
+      "drama"
     ],
-    "tones": [],
+    "tones": [
+      "cinematic",
+      "hopeful"
+    ],
     "formats": [
-      "episodic"
+      "full-cast",
+      "serialized",
+      "limited-series"
     ],
-    "tags": [],
+    "tags": [
+      "Classic radio",
+      "Pulp adventure",
+      "Space opera",
+      "Retro-futurism"
+    ],
     "aliases": [
       "Flash Gordon and Buck Rogers Radio Adventurers",
       "Flash Gordon: Chapters 23 and 24",
@@ -6585,33 +7252,153 @@
       "Buck Rogers: The Mechanical Mole, Episodes 1-4",
       "Buck Rogers: The Mechanical Mole: The Conclusion"
     ],
-    "themes": [],
-    "contentNotes": [],
+    "themes": [
+      "pulp heroism",
+      "serialized adventure",
+      "classic science fiction"
+    ],
+    "contentNotes": [
+      "dated 1930s material"
+    ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [
       "English"
     ],
-    "bestFor": [],
-    "similarTo": [],
-    "similarReasons": {},
-    "archiveTake": "",
+    "bestFor": [
+      "binge-listening",
+      "worldbuilding",
+      "easy-entry"
+    ],
+    "similarTo": [
+      "startripper",
+      "the-once-and-future-nerd",
+      "victoriocity"
+    ],
+    "similarReasons": {
+      "startripper": "A modern, lighter route into episodic space travel after the vintage serials.",
+      "the-once-and-future-nerd": "Another long-form adventure that embraces cliffhangers and classic genre storytelling.",
+      "victoriocity": "A polished modern audio drama with a deliberately period-inspired adventure frame."
+    },
+    "archiveTake": "A compact archival route into the radio serials that helped define space adventure before modern screen franchises.",
     "facts": {},
     "credits": {
-      "creatorName": "Adam Graham|Science Fiction Audio Drama Podcast Host",
-      "network": "Adam Graham"
+      "creatorName": "Adam Graham",
+      "network": "The Great Adventures of Old Time Radio",
+      "host": "Adam Graham"
     },
     "availability": {
       "transcripts": "15 observed episodes",
       "captions": "available in structured transcript data",
       "transcriptCoverage": 1
     },
-    "content": {},
+    "content": {
+      "setting": "Planet Mongo and a 25th-century future",
+      "pov": "heroic ensemble",
+      "sourceMaterial": "1930s comic-strip radio adaptations",
+      "intensity": "moderate"
+    },
     "ratings": {},
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-17",
-    "updatedAt": "2026-07-17"
+    "updatedAt": "2026-07-18"
+  },
+  {
+    "id": "copperheart-a-riggstories-audio-drama",
+    "title": "COPPERHEART: A RiggStories Audio Drama",
+    "subtitle": "A bunker-bound nuclear-winter drama about survival, secrecy, and an unexpected visitor.",
+    "description": "COPPERHEART is an Audio Drama set in an alternate reality during a Nuclear Winter. Over 2,000 people (civilians, scientists, and military personnel) live underground in a multi-leveled USRB (United States Reconstruction Bunker) in Groom Lake, Nevada. They're all just waiting out the clock, preparing future generations to re-claim the surface of the earth...until a visitor arrives.",
+    "cover": "images/covers/copperheart-a-riggstories-audio-drama.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/copperheart-a-riggstories-audio-drama-e05bdfa84a-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "COPPERHEART: A RiggStories Audio Drama cover art",
+    "creators": [
+      "Michael J Rigg"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "sci-fi",
+      "drama",
+      "thriller"
+    ],
+    "tones": [
+      "dark",
+      "tense",
+      "cinematic"
+    ],
+    "formats": [
+      "full-cast",
+      "serialized"
+    ],
+    "tags": [
+      "Nuclear winter",
+      "Bunker",
+      "Survival",
+      "Post-apocalyptic"
+    ],
+    "aliases": [
+      "COPPERHEART: A RiggStories Audio Drama"
+    ],
+    "themes": [
+      "survival",
+      "isolation",
+      "societal reconstruction"
+    ],
+    "contentNotes": [
+      "nuclear apocalypse",
+      "violence",
+      "mature themes"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [
+      "binge-listening",
+      "cold-isolation-horror",
+      "serious-sci-fi"
+    ],
+    "similarTo": [
+      "impact-winter",
+      "were-alive",
+      "derelict"
+    ],
+    "similarReasons": {
+      "impact-winter": "Another underground survival story shaped by an unending environmental catastrophe.",
+      "were-alive": "A larger ensemble survival drama about people rebuilding under sustained threat.",
+      "derelict": "Another high-pressure speculative mystery centered on a sealed facility and a dangerous arrival."
+    },
+    "archiveTake": "A long-form bunker mystery for listeners who want post-apocalyptic survival with institutional secrets.",
+    "facts": {},
+    "credits": {
+      "creatorName": "Michael J Rigg",
+      "ownerName": "Michael J Rigg",
+      "network": "RiggStories"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {
+      "setting": "Groom Lake, Nevada, during an alternate-reality nuclear winter",
+      "pov": "ensemble",
+      "sourceMaterial": "original fiction",
+      "intensity": "high"
+    },
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-07-18",
+    "updatedAt": "2026-07-18"
   }
 ]

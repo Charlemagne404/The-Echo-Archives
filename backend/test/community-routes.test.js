@@ -282,7 +282,7 @@ test("community rating summaries ignore malformed cookie values", async () => {
   }
 });
 
-test("published review pages paginate listener reviews and helpful votes use the device identity", async () => {
+test("published review pages paginate listener reviews and helpful votes use the device identity without Turnstile", async () => {
   const context = await startCommunityServer({ minimumPublicRatings: 3 });
 
   try {
@@ -298,7 +298,7 @@ test("published review pages paginate listener reviews and helpful votes use the
     const cookie = getCookieHeader(profileResponse);
     const helpfulResponse = await putJson(
       `${context.baseUrl}/api/reviews/${context.review.id}/helpful`,
-      { turnstileToken: "valid-token" },
+      {},
       { headers: { cookie } },
     );
     assert.equal(helpfulResponse.status, 200);
@@ -310,7 +310,7 @@ test("published review pages paginate listener reviews and helpful votes use the
 
     const repeatedResponse = await putJson(
       `${context.baseUrl}/api/reviews/${context.review.id}/helpful`,
-      { turnstileToken: "valid-token" },
+      {},
       { headers: { cookie } },
     );
     assert.equal((await repeatedResponse.json()).helpfulCount, 1);
@@ -321,11 +321,11 @@ test("published review pages paginate listener reviews and helpful votes use the
     const removeResponse = await fetch(`${context.baseUrl}/api/reviews/${context.review.id}/helpful`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json", cookie },
-      body: JSON.stringify({ turnstileToken: "valid-token" }),
+      body: JSON.stringify({}),
     });
     assert.equal(removeResponse.status, 200);
     assert.equal((await removeResponse.json()).helpfulCount, 0);
-    assert.deepEqual(context.turnstile.calls.map((call) => call.response), ["valid-token", "valid-token", "valid-token"]);
+    assert.deepEqual(context.turnstile.calls, []);
   } finally {
     await stopCommunityServer(context);
   }

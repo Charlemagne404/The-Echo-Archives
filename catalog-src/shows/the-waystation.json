@@ -1,8 +1,14 @@
 {
   "id": "the-waystation",
   "title": "The Waystation",
-  "subtitle": "Space adventure for listeners who want a little more open sky.",
-  "description": "A lighter archive sci-fi pick that leans toward exploration and movement over relentless dread.",
+  "subtitle": "A recovered-recording space-station mystery under cosmic pressure.",
+  "description": "In the future, interstellar travel is a walk down the street, with another planet a few weeks away. The crew of waystation Concord - a pit-stop for cargo ships passing through wormholes - discover a strange celestial object, creating something that threatens to enmesh them all. Armed with the recordings of the events, a federal agent scours the logs and entries of the crew in search of the truth behind the unexplained destruction of Concord.",
+  "officialDescription": {
+    "text": "In the future, interstellar travel is a walk down the street, with another planet a few weeks away. The crew of waystation Concord - a pit-stop for cargo ships passing through wormholes - discover a strange celestial object, creating something that threatens to enmesh them all. Armed with the recordings of the events, a federal agent scours the logs and entries of the crew in search of the truth behind the unexplained destruction of Concord.",
+    "sourceLabel": "Official show site",
+    "sourceUrl": "https://thewaystation.carrd.co/",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/the waystation/waystation.jpeg",
   "coverAlt": "The Waystation cover art",
   "status": "published",
@@ -11,16 +17,18 @@
   "completionStatus": "unclear",
   "listenLinks": {
     "spotify": "https://open.spotify.com/show/2VNI54tTfmqn0hvbU8jKZn",
-    "apple": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-waystation/id1566565757",
     "website": "https://thewaystation.carrd.co/",
     "rss": "https://rss.com/podcasts/thewaystation/"
   },
   "genres": [
     "sci-fi",
-    "adventure"
+    "horror",
+    "mystery"
   ],
   "tones": [
-    "hopeful",
+    "dark",
+    "tense",
     "cinematic"
   ],
   "formats": [
@@ -28,15 +36,17 @@
     "serialized"
   ],
   "tags": [
-    "Sci-fi",
-    "Adventure",
-    "Space"
+    "Space station",
+    "Found footage",
+    "Cosmic horror",
+    "Wormholes"
   ],
   "length": {
-    "label": "12 feed episodes; Season 1 has 9 numbered episodes plus trailer/extra entries depending on platform",
+    "label": "9 story episodes plus a trailer and bonus blooper reel",
     "seasons": 1,
-    "episodes": 12,
-    "avgEpisodeMinutes": 26
+    "episodes": 9,
+    "avgEpisodeMinutes": 26,
+    "feedEntries": 11
   },
   "ratings": {
     "archive": 7
@@ -50,14 +60,14 @@
   },
   "bestFor": [
     "worldbuilding",
-    "easy-entry"
+    "late-night"
   ],
   "similarTo": [
     "vast-horizon",
-    "story",
-    "midnight-burger"
+    "archive-81",
+    "station-151"
   ],
-  "archiveTake": "A cleaner browse recommendation when the archive starts feeling too bleak.",
+  "archiveTake": "A compact space-station mystery for listeners who like recovered logs, institutional investigation, and cosmic threat.",
   "spoilerFreeReview": "",
   "thoughts": "",
   "quote": {
@@ -69,9 +79,9 @@
     "hex": "#497f8a",
     "rgb": "73, 127, 138"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "officialLinks": {
-    "website": "",
+    "website": "https://thewaystation.carrd.co/",
     "patreon": "",
     "discord": "",
     "youtube": "",
@@ -80,21 +90,29 @@
     "facebook": ""
   },
   "credits": {
-    "creatorName": "Wired Cowslip",
+    "creatorName": "Elliot Somerfield",
     "writer": "Elliot Somerfield",
     "director": "Elliot Somerfield",
     "producer": "Wired Cowslip",
-    "soundDesign": "Not verified",
+    "soundDesign": "Kathryn Stanley",
     "composer": "Tatenda Shamiso",
     "productionCompany": "Wired Cowslip",
     "network": "Wired Cowslip",
-    "cast": "Not verified",
+    "cast": [
+      "Nicole Tuttle",
+      "Daphne Nitsuga",
+      "Elizabeth Plant",
+      "Aud Andrews",
+      "B. Narr",
+      "Zach Cipriano",
+      "Saito Kabuyama"
+    ],
     "coverArt": "Paul Ignacio"
   },
   "availability": {
     "transcripts": "unknown",
-    "captions": "n/a",
-    "regionNotes": "No reliable official source captured in this pass."
+    "captions": "not applicable",
+    "regionNotes": "The official Apple Podcasts listing contains nine numbered story episodes, one trailer, and one bonus blooper reel."
   },
   "content": {
     "sourceMaterial": "original fiction",
@@ -106,13 +124,12 @@
     "objectiveSources": [
       "https://thewaystation.carrd.co/",
       "https://rss.com/podcasts/thewaystation/",
-      "https://www.podchaser.com/podcasts/the-waystation-1953344"
+      "https://podcasts.apple.com/us/podcast/the-waystation/id1566565757"
     ],
-    "objectiveNote": "No reliable official match found in this pass without high risk of mixing it with unrelated Waystation/Way Station works. Left objective fields explicitly unverified.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveNote": "The official show site and Apple Podcasts listing verify the premise, nine-episode first season, principal creator, writer/director, sound designer, composer, cover artist, and principal cast.",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/the-waystation.json",
     "researchGaps": [
-      "exact Apple Podcasts URL if still listed",
       "current Season 2 status"
     ],
     "awards": [],
@@ -120,12 +137,12 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
-    "status": "partially-source-verified",
-    "verifiedAt": "2026-06-15",
-    "source": "https://thewaystation.carrd.co/; https://rss.com/podcasts/thewaystation/; https://www.podchaser.com/podcasts/the-waystation-1953344",
+    "status": "source-verified-with-future-status-note",
+    "verifiedAt": "2026-07-18",
+    "source": "https://thewaystation.carrd.co/; https://rss.com/podcasts/thewaystation/; https://podcasts.apple.com/us/podcast/the-waystation/id1566565757",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
   "aliases": [
@@ -138,7 +155,10 @@
     "space"
   ],
   "contentNotes": [
-    "content notes not verified beyond public premise"
+    "extreme violence",
+    "death",
+    "suicide",
+    "profanity"
   ],
   "languages": [
     "English"
@@ -147,18 +167,26 @@
   "creators": [
     "Wired Cowslip"
   ],
-  "cast": [],
+  "cast": [
+    "Nicole Tuttle",
+    "Daphne Nitsuga",
+    "Elizabeth Plant",
+    "Aud Andrews",
+    "B. Narr",
+    "Zach Cipriano",
+    "Saito Kabuyama"
+  ],
   "releaseDates": {
-    "first": "2021-05-20",
+    "first": "2021-06-23",
     "latest": "2021-12-01",
-    "note": "Platform counts vary: RSS.com exposes S01E09 on 2021-10-20; Podchaser reports 12 feed episodes and latest 2021-12-01. Season 2 was described as in pre-production on social profile, but no public Season 2 release was verified."
+    "note": "Apple Podcasts lists nine numbered story episodes from 2021-06-23 through 2021-10-20, plus a trailer and a 2021-12-01 bonus blooper reel. Season 2 was described as in pre-production, but no public Season 2 release was verified."
   },
   "createdAt": "2026-06-01",
-  "creatorId": "not-verified",
-  "networkId": "not-verified",
+  "creatorId": "elliot-somerfield",
+  "networkId": "wired-cowslip",
   "similarReasons": {
-    "vast-horizon": "Keeps the spacefaring exploration lane active with a little more survival drag.",
-    "story": "A softer, more grounded companion if you want warmth and clarity first.",
-    "midnight-burger": "A warmer cosmic escalation once the appetite shifts from exploration to range and oddity."
+    "vast-horizon": "Another full-cast deep-space mystery built around a crew under escalating survival pressure.",
+    "archive-81": "Shares the recovered-recording structure, institutional investigation, and reality-bending horror.",
+    "station-151": "The closest compact follow-up for isolation, recorded logs, and an unexplained threat at a remote station."
   }
 }

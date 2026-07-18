@@ -2,7 +2,13 @@
   "id": "the-white-vault",
   "title": "The White Vault",
   "subtitle": "Cold-weather dread with one of the archive's stronger isolation profiles.",
-  "description": "An archive staple for listeners who want survival horror, environmental dread, and the feeling of being trapped somewhere unforgiving.",
+  "description": "Explore the far reaches of the world’s horrors in the audio drama podcast The White Vault. Follow the collected records of a repair team sent to Outpost Fristed in the vast white wastes of Svalbard and unravel what lies waiting in the ice below. This Fool and Scholar production is intended for mature audiences.",
+  "officialDescription": {
+    "text": "Explore the far reaches of the world’s horrors in the audio drama podcast The White Vault. Follow the collected records of a repair team sent to Outpost Fristed in the vast white wastes of Svalbard and unravel what lies waiting in the ice below. This Fool and Scholar production is intended for mature audiences.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/SBP7754210900",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/white-vault/WhiteVault.jpeg",
   "coverAlt": "The White Vault cover art",
   "status": "published",
@@ -30,9 +36,10 @@
     "serialized"
   ],
   "tags": [
-    "Mystery",
-    "Survival",
-    "Thriller"
+    "Arctic horror",
+    "Isolation",
+    "Found audio",
+    "Survival"
   ],
   "length": {
     "label": "Shared Fool & Scholar feed; Apple shows Season 8 active, and public feed counts vary because related series/bonus entries are included",
@@ -74,7 +81,7 @@
     "hex": "#6c7e89",
     "rgb": "108, 126, 137"
   },
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2017-08-02",
     "latest": "2026-03-10"
@@ -128,7 +135,7 @@
       "https://feeds.megaphone.fm/SBP7754210900"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/the-white-vault.json",
     "researchGaps": [],
     "awards": [],
@@ -136,7 +143,7 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "partially-source-verified-with-feed-note",

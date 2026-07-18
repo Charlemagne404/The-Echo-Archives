@@ -238,6 +238,7 @@ function normalizeEditableDetails(raw = {}) {
     networkName: trimText(raw.networkName, 240),
     description: cleanDescription(raw.description, 4_000),
     categories: splitTags(raw.categories),
+    tags: splitTags(raw.tags),
     language: trimText(raw.language, 80),
     rssUrl: normalizeEditedUrl(raw.rssUrl, "RSS feed URL"),
     websiteUrl: normalizeEditedUrl(raw.websiteUrl, "Official website URL"),
@@ -1141,7 +1142,8 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         throw error;
       }
       const details = normalizeEditableDetails(rawUpdates.details);
-      const objective = { ...candidate.objective, ...details };
+      const { tags, ...objectiveDetails } = details;
+      const objective = { ...candidate.objective, ...objectiveDetails, manualTags: tags };
       delete objective.complete;
       ["episodeCount", "seasonCount", "avgEpisodeMinutes"].forEach((field) => {
         if (details[field] === undefined) delete objective[field];
@@ -1149,7 +1151,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       const provenance = { ...(candidate.provenance || {}), fields: { ...(candidate.provenance?.fields || {}) } };
       const editedFields = {
         title: "title", creatorName: "creatorName", networkName: "networkName", description: "description",
-        categories: "genres", language: "languages", rssUrl: "listenLinks", websiteUrl: "officialLinks",
+        categories: "genres", tags: "tags", language: "languages", rssUrl: "listenLinks", websiteUrl: "officialLinks",
         appleUrl: "listenLinks", spotifyUrl: "listenLinks", episodeCount: "length", seasonCount: "length",
         avgEpisodeMinutes: "length", firstPublicationDate: "releaseDates", latestPublicationDate: "releaseDates",
         manualReleaseState: "releaseStatus",

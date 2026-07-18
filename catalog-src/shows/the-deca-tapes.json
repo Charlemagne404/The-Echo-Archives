@@ -2,7 +2,13 @@
   "id": "the-deca-tapes",
   "title": "The Deca Tapes",
   "subtitle": "Mystery-first sci-fi built around controlled reveals.",
-  "description": "A tighter mystery-thriller entry for listeners who want something structural and puzzle-driven.",
+  "description": "Footage has surfaced of 10 people locked together in the same room. We don't know where they are, or whether they can go outside. Each member of the group has received very specific instructions on how to live their lives. They have been assigned a role, which they must play in order to serve the group. Who writes those instructions? And why is the group forced to build a life cut off from the outside world? The answers must be somewhere on these recordings.",
+  "officialDescription": {
+    "text": "Footage has surfaced of 10 people locked together in the same room. We don't know where they are, or whether they can go outside. Each member of the group has received very specific instructions on how to live their lives. They have been assigned a role, which they must play in order to serve the group. Who writes those instructions? And why is the group forced to build a life cut off from the outside world? The answers must be somewhere on these recordings.",
+    "sourceLabel": "Creator's official show page",
+    "sourceUrl": "https://www.thedecatapes.com/",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/deca tapes/decatapes.jpeg",
   "coverAlt": "The Deca Tapes cover art",
   "status": "published",
@@ -13,12 +19,12 @@
     "spotify": "https://open.spotify.com/show/6S8iYyZ3eg9vP1Dcg9E0I3",
     "apple": "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
     "website": "https://www.thedecatapes.com/",
-    "rss": ""
+    "rss": "https://feeds.megaphone.fm/SBP7220818085"
   },
   "genres": [
+    "sci-fi",
     "mystery",
-    "thriller",
-    "science"
+    "thriller"
   ],
   "tones": [
     "tense",
@@ -26,19 +32,22 @@
   ],
   "formats": [
     "full-cast",
+    "serialized",
     "limited-series"
   ],
   "tags": [
-    "Mystery",
-    "Thriller",
-    "Science"
+    "Locked-room mystery",
+    "Assigned roles",
+    "Found tapes",
+    "Dystopia"
   ],
   "length": {
     "label": "Season 1: 8 episodes; Season 2: 13 episodes; 21 main episodes total",
     "seasons": 2,
     "episodes": 21,
-    "avgEpisodeMinutes": 30,
-    "totalHours": 10.5
+    "avgEpisodeMinutes": 34,
+    "totalHours": 11.9,
+    "feedEntries": 25
   },
   "ratings": {
     "archive": 6
@@ -70,9 +79,9 @@
     "hex": "#6f5664",
     "rgb": "111, 86, 100"
   },
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
-    "first": "2019-08-08",
+    "first": "2019-03-11",
     "latest": "2025-09-08",
     "note": "Latest date is Season 2 Episode 13 / finale according to Apple Podcasts; future status not confirmed."
   },
@@ -117,25 +126,25 @@
     "objectiveSources": [
       "https://www.thedecatapes.com/",
       "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
-      "https://www.lexnoteboom.com/en/the-deca-tapes/l70c11"
+      "https://www.lexnoteboom.com/en/the-deca-tapes/l70c11",
+      "https://feeds.megaphone.fm/SBP7220818085"
     ],
     "objectiveNote": "Official creator page verifies title, date, English (US), links, and Lex Noteboom writing/directing/composition. Apple page verifies current platform listing.",
-    "objectiveVerifiedAt": "2026-06-15",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/the-deca-tapes.json",
     "researchGaps": [
-      "full current RSS URL",
       "future season status"
     ],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Corrected metadata pass on 2026-06-15. Subjective ratings/reviews were preserved; objective show metadata was updated from official and major platform listings where possible."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified",
-    "verifiedAt": "2026-06-15",
-    "source": "https://www.thedecatapes.com/; https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412; https://www.lexnoteboom.com/en/the-deca-tapes/l70c11",
+    "verifiedAt": "2026-07-18",
+    "source": "https://www.thedecatapes.com/; https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412; https://www.lexnoteboom.com/en/the-deca-tapes/l70c11; https://feeds.megaphone.fm/SBP7220818085",
     "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
   },
   "aliases": [

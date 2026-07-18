@@ -2,7 +2,13 @@
   "id": "from-now",
   "title": "From Now",
   "subtitle": "Time-travel sci-fi with a thriller spine.",
-  "description": "A compact archive pick for listeners who want momentum, time-slip tension, and a cleaner sci-fi hook.",
+  "description": "A famed lost spaceship, the USS HOPE, returns to Earth after vanishing thirty-five years prior. The lone survivor (Richard Madden) disembarks mysteriously​ looking the exact same age as when he left​. Following the ensuing media chaos, he finally reunites with his formerly identical twin brother (now an old man) for a one-on-one meeting. But what starts as a joyful reconciliation soon leads to dark revelations that threaten their relationship -- and the future of humanity. FROM NOW stars and is Executive Produced by Richard Madden and Brian Cox. Created & Written by Rhys Wakefield and William Day Frank.",
+  "officialDescription": {
+    "text": "A famed lost spaceship, the USS HOPE, returns to Earth after vanishing thirty-five years prior. The lone survivor (Richard Madden) disembarks mysteriously​ looking the exact same age as when he left​. Following the ensuing media chaos, he finally reunites with his formerly identical twin brother (now an old man) for a one-on-one meeting. But what starts as a joyful reconciliation soon leads to dark revelations that threaten their relationship -- and the future of humanity. FROM NOW stars and is Executive Produced by Richard Madden and Brian Cox. Created & Written by Rhys Wakefield and William Day Frank.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/QCD7924418919",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "shows/from now/fromnow.jpeg",
   "coverAlt": "From Now cover art",
   "status": "published",
@@ -28,9 +34,10 @@
     "serialized"
   ],
   "tags": [
-    "Sci-fi",
-    "Time Travel",
-    "Thriller"
+    "Lost spaceship",
+    "Time displacement",
+    "Twins",
+    "Conspiracy"
   ],
   "length": {
     "label": "6 main story episodes; Apple/QCODE+ listings include trailer and bonus entries",
@@ -70,7 +77,7 @@
     "hex": "#8d413e",
     "rgb": "141, 65, 62"
   },
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "releaseDates": {
     "first": "2020-12-21",
     "latest": "2022-08-23"
@@ -123,10 +130,11 @@
     "objectiveSources": [
       "https://qcodemedia.com/from-now",
       "https://podcasts.apple.com/us/podcast/from-now/id1544239486",
-      "https://rss.pdrl.fm/15cb75/feeds.megaphone.fm/QCD7924418919"
+      "https://rss.pdrl.fm/15cb75/feeds.megaphone.fm/QCD7924418919",
+      "https://feeds.megaphone.fm/QCD7924418919"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/from-now.json",
     "researchGaps": [],
     "awards": [],
@@ -134,7 +142,7 @@
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Research-gap closure pass on 2026-07-01. Objective feed and platform metadata were normalized to the current archive modeling rules."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "verification": {
     "status": "source-verified-with-feed-note",

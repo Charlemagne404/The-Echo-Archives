@@ -2,7 +2,13 @@
   "id": "archive-81",
   "title": "Archive 81",
   "subtitle": "Found-footage horror about ritual, sound, and the feeling that a recording can bite back.",
-  "description": "An archival horror series that starts with restored tapes and keeps widening into stranger rituals, cities, broadcasts, and buried histories.",
+  "description": "Archive 81 is a fiction podcast about horror, cities, and the subconscious. New episodes will be released every other Wednesday. Start from \"01 - A Body In A New Place\"",
+  "officialDescription": {
+    "text": "Archive 81 is a fiction podcast about horror, cities, and the subconscious. New episodes will be released every other Wednesday. Start from \"01 - A Body In A New Place\"",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.libsyn.com/shows/124004/destinations/733937.xml",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/archive-81.jpg",
   "coverAlt": "Archive 81 cover art",
   "status": "published",
@@ -26,13 +32,14 @@
     "cinematic"
   ],
   "formats": [
-    "narrated",
+    "full-cast",
     "serialized"
   ],
   "tags": [
-    "Horror",
-    "Found footage",
-    "Archive"
+    "Found audio",
+    "Archival horror",
+    "Occult",
+    "Cosmic horror"
   ],
   "aliases": [],
   "themes": [
@@ -89,21 +96,48 @@
   ],
   "cast": [],
   "createdAt": "2026-06-30",
-  "updatedAt": "2026-07-01",
+  "updatedAt": "2026-07-18",
   "similarReasons": {
     "the-white-vault": "A colder isolation-horror neighbor if you want the setting itself to feel more hostile.",
     "tower-4": "Keeps the remote-post suspicion active in a more grounded mystery shape.",
     "malevolent": "A darker occult escalation once the sound-led weirdness needs a more intimate supernatural bond."
+  },
+  "availability": {
+    "transcripts": "not verified",
+    "captions": "not applicable",
+    "regionNotes": "Three main seasons and later miniseries material remain available through the official feed."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "an archive of dangerous recordings that expands into occult alternate realities",
+    "pov": "found-audio investigation and full-cast ensemble",
+    "intensity": "high"
   },
   "metadata": {
     "objectiveSources": [
       "https://www.archive81.com/",
       "https://podcasts.apple.com/us/podcast/archive-81/id1098194172",
       "https://open.spotify.com/show/2jyRVoDZxyNzilVdmq7U3B",
-      "https://rss.libsyn.com/shows/124004/destinations/733937.xml"
+      "https://rss.libsyn.com/shows/124004/destinations/733937.xml",
+      "https://www.archive81.com/cast/"
     ],
-    "objectiveVerifiedAt": "2026-07-01",
+    "objectiveVerifiedAt": "2026-07-18",
     "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-    "auditPass": "Phase 2 trust sweep on 2026-07-01. Objective metadata was normalized against current official and platform sources while preserving archive ratings and editorial copy."
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+  },
+  "credits": {
+    "creatorName": [
+      "Marc Sollinger",
+      "Dan Powell"
+    ],
+    "writer": [
+      "Marc Sollinger",
+      "Dan Powell"
+    ],
+    "producer": [
+      "Marc Sollinger",
+      "Dan Powell"
+    ],
+    "productionCompany": "Dead Signals"
   }
 }

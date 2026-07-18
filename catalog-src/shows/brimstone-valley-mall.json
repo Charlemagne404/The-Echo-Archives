@@ -2,16 +2,22 @@
   "id": "brimstone-valley-mall",
   "title": "Brimstone Valley Mall",
   "subtitle": "Five demons, one suburban mall, and a missing bandmate before the biggest gig of 1999.",
-  "description": "A neon-chaotic comedy about five demons killing time in a suburban mall until their singer vanishes and the countdown to disaster starts moving faster.",
+  "description": "The year is 1999. Lurking somewhere between Hot Topic and the food court, five misfit demons from Hell kill time inciting sin in a suburban shopping mall. When the lead singer of their band goes mysteriously missing, the demons only have two weeks to find him before they play the biggest gig of the millenium - or face the wrath of Satan herself.",
+  "officialDescription": {
+    "text": "The year is 1999. Lurking somewhere between Hot Topic and the food court, five misfit demons from Hell kill time inciting sin in a suburban shopping mall. When the lead singer of their band goes mysteriously missing, the demons only have two weeks to find him before they play the biggest gig of the millenium - or face the wrath of Satan herself.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://rss.art19.com/brimstone-valley-mall",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/brimstone-valley-mall.jpg",
   "coverAlt": "Brimstone Valley Mall cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "hiatus",
-  "completionStatus": "ongoing",
+  "releaseStatus": "inactive",
+  "completionStatus": "unclear",
   "listenLinks": {
     "apple": "https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925?uo=4",
-    "website": "https://art19.com/shows/brimstone-valley-mall",
+    "website": "https://www.brimstonevalleymall.com/",
     "rss": "https://rss.art19.com/brimstone-valley-mall"
   },
   "genres": [
@@ -35,22 +41,30 @@
     "Punk"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "found family",
+    "music",
+    "demonic workplace comedy"
+  ],
+  "contentNotes": [
+    "mature comedy and supernatural violence"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "2 seasons • 24 episodes • ~25 min episodes",
+    "label": "2 seasons / 19 numbered story episodes; 24 public feed entries",
     "seasons": 2,
-    "episodes": 24,
+    "episodes": 19,
     "avgEpisodeMinutes": 25,
-    "totalHours": 10
+    "totalHours": 7.9,
+    "feedEntries": 24
   },
   "releaseDates": {
-    "first": "2019-01-17",
-    "latest": "2024-12-26"
+    "first": "2019-12-19",
+    "latest": "2024-12-26",
+    "note": "Dates cover the 19 numbered story episodes; the public feed also contains trailers."
   },
   "ratings": {},
   "facts": {},
@@ -76,28 +90,37 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://art19.com/shows/brimstone-valley-mall"
+    "website": "https://www.brimstonevalleymall.com/"
   },
   "credits": {
     "creatorName": "Brimstone Valley Mall",
     "network": "ART19"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
-    "source": "https://rss.art19.com/brimstone-valley-mall; https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925?uo=4; https://art19.com/shows/brimstone-valley-mall",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
+    "source": "https://rss.art19.com/brimstone-valley-mall; https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925; https://www.brimstonevalleymall.com/",
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available on the official show site",
+    "captions": "not applicable",
+    "regionNotes": "Available through the publisher feed and major podcast platforms."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a suburban shopping mall in 1999",
+    "pov": "full-cast demon ensemble",
+    "intensity": "medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://rss.art19.com/brimstone-valley-mall",
       "https://podcasts.apple.com/us/podcast/brimstone-valley-mall/id1489428925?uo=4",
-      "https://art19.com/shows/brimstone-valley-mall"
+      "https://www.brimstonevalleymall.com/"
     ],
     "importCandidateId": "320bc0a7-bb1a-4539-885b-3cf91c81e14b",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1489428925"
     },
@@ -109,14 +132,18 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:24.404Z",
-    "importOfficialSummary": "The year is 1999. Lurking somewhere between Hot Topic and the food court, five misfit demons from Hell kill time inciting sin in a suburban shopping mall. When the lead singer of their band goes mysteriously missing, the demons only have two weeks to find him before they play the biggest gig of the millenium - or face the wrath of Satan herself."
+    "importOfficialSummary": "The year is 1999. Lurking somewhere between Hot Topic and the food court, five misfit demons from Hell kill time inciting sin in a suburban shopping mall. When the lead singer of their band goes mysteriously missing, the demons only have two weeks to find him before they play the biggest gig of the millenium - or face the wrath of Satan herself.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "brimstone-valley-mall",
   "networkId": "art19",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Kristen DiMercurio"
+  ],
   "popularity": {}
 }

@@ -1,8 +1,14 @@
 {
   "id": "moonbase-theta-out",
   "title": "Moonbase Theta, Out",
-  "subtitle": "",
-  "description": "A queer emotional sci-fi drama about a decommissioned moonbase, the people left awake to narrate its last days, and what survives when the official mission is already over.",
+  "subtitle": "A decommissioned moonbase counts down its final weeks—and what comes after.",
+  "description": "Moonbase Theta, Out – a queer emotional sci-fi audio drama by D.J. Sylvis. It is 2098. The Moonbase program has been determined unprofitable. The last base, Theta, is twenty weeks from being decommissioned. Most of the crew is in stasis awaiting retrieval. Five remain – Roger Bragado-Fischer, Nessa Cheong, Ashwini Ray, Michell L’Anglois, and Wilder. Join the crew of Moonbase Theta as they reach out to share the beauty, the isolation and frustration, the love and enmity, the humour, and the tragedy, as all count down to the operation’s end ... and what comes after.",
+  "officialDescription": {
+    "text": "Moonbase Theta, Out – a queer emotional sci-fi audio drama by D.J. Sylvis. It is 2098. The Moonbase program has been determined unprofitable. The last base, Theta, is twenty weeks from being decommissioned. Most of the crew is in stasis awaiting retrieval. Five remain – Roger Bragado-Fischer, Nessa Cheong, Ashwini Ray, Michell L’Anglois, and Wilder. Join the crew of Moonbase Theta as they reach out to share the beauty, the isolation and frustration, the love and enmity, the humour, and the tragedy, as all count down to the operation’s end ... and what comes after.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/moonbasethetaout",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/moonbase-theta-out.jpg",
   "coverAlt": "Moonbase Theta, Out cover art",
   "status": "published",
@@ -34,22 +40,28 @@
     "Isolation"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "labor",
+    "connection",
+    "isolation"
+  ],
+  "contentNotes": [
+    "corporate exploitation, grief, and science-fiction threat"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "5 seasons • 134 episodes • ~23 min episodes",
-    "seasons": 5,
-    "episodes": 134,
+    "label": "4 main seasons plus miniseries and post-series shorts; 134 public feed entries",
+    "seasons": 4,
     "avgEpisodeMinutes": 23,
-    "totalHours": 51.4
+    "feedEntries": 134
   },
   "releaseDates": {
-    "first": "2023-08-20",
-    "latest": "2026-01-07"
+    "first": "2018-09-23",
+    "latest": "2023-11-26",
+    "note": "The main series completed in November 2023. Later feed items belong to post-series shorts, remixes, or announcements."
   },
   "ratings": {},
   "facts": {},
@@ -81,13 +93,22 @@
     "creatorName": "D.J. Sylvis"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://feeds.megaphone.fm/moonbasethetaout; https://podcasts.apple.com/us/podcast/moonbase-theta-out/id1439047722?uo=4; https://monkeymanproductions.com/moonbase-theta-out/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available on the official Monkeyman Productions site",
+    "captions": "not applicable",
+    "regionNotes": "The main series is complete; the feed also contains miniseries and post-series shorts."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "the last corporate moonbase in 2098",
+    "pov": "communications logs expanding into a full-cast ensemble",
+    "intensity": "medium-high"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/moonbasethetaout",
@@ -95,7 +116,7 @@
       "https://monkeymanproductions.com/moonbase-theta-out/"
     ],
     "importCandidateId": "2a57ee2b-8398-450f-a419-242689855273",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1439047722"
     },
@@ -107,13 +128,17 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:26.410Z",
-    "importOfficialSummary": "Moonbase Theta, Out – a queer emotional sci-fi audio drama by D.J. Sylvis. It is 2098. The Moonbase program has been determined unprofitable. The last base, Theta, is twenty weeks from being decommissioned. Most of the crew is in stasis awaiting retrieval. Five remain – Roger Bragado-Fischer, Nessa Cheong, Ashwini Ray, Michell L’Anglois, and Wilder. Join the crew of Moonbase Theta as they reach out to share the beauty, the isolation and frustration, the love and enmity, the humour, and the tragedy, as all count down to the operation’s end ... and what comes after."
+    "importOfficialSummary": "Moonbase Theta, Out – a queer emotional sci-fi audio drama by D.J. Sylvis. It is 2098. The Moonbase program has been determined unprofitable. The last base, Theta, is twenty weeks from being decommissioned. Most of the crew is in stasis awaiting retrieval. Five remain – Roger Bragado-Fischer, Nessa Cheong, Ashwini Ray, Michell L’Anglois, and Wilder. Join the crew of Moonbase Theta as they reach out to share the beauty, the isolation and frustration, the love and enmity, the humour, and the tragedy, as all count down to the operation’s end ... and what comes after.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "d-j-sylvis",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "D.J. Sylvis"
+  ],
   "popularity": {}
 }

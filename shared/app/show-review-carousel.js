@@ -1,28 +1,5 @@
 import { ensureCommunityProfile, fetchCommunityConfig } from "./community/api.js";
-import { configureRatingVerification, getRatingVerificationToken, resetRatingVerification } from "./community/turnstile.js";
 import { renderListenerReviewCard } from "./render-show/sections.js";
-
-function createVerificationWidget(carousel) {
-  const verification = document.createElement("div");
-  verification.className = "detail-review-helpful-verification community-turnstile-shell";
-  verification.hidden = true;
-  const verificationSlot = document.createElement("div");
-  verificationSlot.className = "community-turnstile-slot";
-  const verificationStatus = document.createElement("p");
-  verificationStatus.className = "community-turnstile-status";
-  verificationStatus.setAttribute("aria-live", "polite");
-  verification.append(verificationSlot, verificationStatus);
-  carousel.append(verification);
-  return {
-    verification,
-    verificationSlot,
-    verificationStatus,
-    verificationPromise: Promise.resolve(),
-    turnstileEnabled: false,
-    turnstileToken: "",
-    turnstileWidgetId: null,
-  };
-}
 
 function getVisibleDotIndexes(totalSlides, currentIndex) {
   if (totalSlides <= 7) return Array.from({ length: totalSlides }, (_unused, index) => index);
@@ -46,12 +23,12 @@ async function fetchReviewPage(showId, page) {
   return response.json();
 }
 
-async function updateHelpful(reviewId, helpful, turnstileToken) {
+async function updateHelpful(reviewId, helpful) {
   await ensureCommunityProfile();
   const response = await fetch(`/api/reviews/${encodeURIComponent(reviewId)}/helpful`, {
     method: helpful ? "PUT" : "DELETE",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ turnstileToken }),
+    body: JSON.stringify({}),
   });
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(payload.error || `Helpful vote failed with ${response.status}`);
@@ -74,7 +51,6 @@ function initializeCarousel(carousel) {
   let listenerTotal = Number.parseInt(carousel.dataset.listenerTotal || "", 10) || 0;
   let currentIndex = Number.parseInt(carousel.dataset.currentIndex || "", 10) || 0;
   let writesEnabled = false;
-  let verificationWidget = null;
   let pointerStartX = null;
   let busy = false;
   let statusMessage = "";
@@ -150,13 +126,11 @@ function initializeCarousel(carousel) {
     busy = true;
     setHelpfulControls();
     try {
-      const turnstileToken = verificationWidget ? await getRatingVerificationToken(verificationWidget) : "";
-      const result = await updateHelpful(reviewId, helpful.getAttribute("aria-pressed") !== "true", turnstileToken);
+      const result = await updateHelpful(reviewId, helpful.getAttribute("aria-pressed") !== "true");
       helpful.classList.toggle("is-active", Boolean(result.viewerMarkedHelpful));
       helpful.setAttribute("aria-pressed", String(Boolean(result.viewerMarkedHelpful)));
       const count = helpful.querySelector("[data-review-helpful-count]");
       if (count) count.textContent = String(result.helpfulCount || 0);
-      resetRatingVerification(verificationWidget);
     } catch (error) {
       statusMessage = error instanceof Error ? error.message : "Helpful vote could not be saved.";
     } finally {
@@ -187,10 +161,6 @@ function initializeCarousel(carousel) {
     try {
       const config = await fetchCommunityConfig();
       writesEnabled = Boolean(config.ratings?.writeEnabled);
-      if (writesEnabled) {
-        verificationWidget = createVerificationWidget(carousel);
-        verificationWidget.verificationPromise = configureRatingVerification(verificationWidget);
-      }
     } catch (_error) {
       writesEnabled = false;
     } finally {

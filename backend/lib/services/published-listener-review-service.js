@@ -87,7 +87,6 @@ function createPublishedListenerReviewService({
   submissionStore,
   communityStore = null,
   rateLimiter = null,
-  turnstile = null,
   voterHashSecret = "",
   abuseRetentionDays = 30,
   knownShowIds = new Set(),
@@ -198,7 +197,7 @@ function createPublishedListenerReviewService({
     return store.listPublishedForShow(showId).map(toPublicReview);
   }
 
-  async function updateHelpful({ reviewId, voterSecret, turnstileToken, userAgent = "", sourceIp = "", helpful }) {
+  async function updateHelpful({ reviewId, voterSecret, userAgent = "", sourceIp = "", helpful }) {
     if (!communityStore) throw new Error("Community profiles are unavailable.");
     const review = store.getPublishedById(reviewId);
     if (!review) {
@@ -209,7 +208,6 @@ function createPublishedListenerReviewService({
 
     const abuseHash = createAbuseHash({ secret: voterHashSecret, sourceIp, userAgent });
     rateLimiter?.check("community", abuseHash);
-    await turnstile?.verify(turnstileToken, sourceIp);
     const profileId = communityStore.ensureDeviceProfile({
       voterHash: hashValue(voterHashSecret, voterSecret),
       userAgent,

@@ -1,8 +1,14 @@
 {
   "id": "girl-in-space",
   "title": "Girl in Space",
-  "subtitle": "",
-  "description": "A character-first sci-fi mystery about isolation, memory, and survival, anchored by a lone voice on a station where every answer raises a new problem.",
+  "subtitle": "A lonely scientist's audio diary from a failing space station.",
+  "description": "Nothing fancy here — just the simple audio diary of a girl in space. Also, there’s this weird and potentially ominous light in the distance that seems to be growing steadily closer. Listen for science, guns, trust, anti-matter, truth, beauty, inner turmoil, and delicious cheeses. It’s all here. In space.",
+  "officialDescription": {
+    "text": "Nothing fancy here — just the simple audio diary of a girl in space. Also, there’s this weird and potentially ominous light in the distance that seems to be growing steadily closer. Listen for science, guns, trust, anti-matter, truth, beauty, inner turmoil, and delicious cheeses. It’s all here. In space.",
+    "sourceLabel": "Publisher RSS feed",
+    "sourceUrl": "https://feeds.megaphone.fm/girlinspace",
+    "verifiedAt": "2026-07-18"
+  },
   "cover": "images/covers/girl-in-space.jpg",
   "coverAlt": "Girl in Space cover art",
   "status": "published",
@@ -32,25 +38,34 @@
     "Sci-fi",
     "Space",
     "Isolation",
-    "Character Drama"
+    "Character drama"
   ],
   "aliases": [],
-  "themes": [],
-  "contentNotes": [],
+  "themes": [
+    "isolation",
+    "trust",
+    "survival"
+  ],
+  "contentNotes": [
+    "science-fiction violence",
+    "mentions of blood"
+  ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season • 15 episodes • ~36 min episodes",
+    "label": "1 season / 13 story episodes; 15 public feed entries",
     "seasons": 1,
-    "episodes": 15,
+    "episodes": 13,
     "avgEpisodeMinutes": 36,
-    "totalHours": 9
+    "totalHours": 7.8,
+    "feedEntries": 15
   },
   "releaseDates": {
     "first": "2017-09-09",
-    "latest": "2020-04-17"
+    "latest": "2019-08-18",
+    "note": "The official site identifies Episode 13 as the Season 1 finale. Later public-feed items are not additional numbered story episodes; Season 2 remains described as in the works."
   },
   "ratings": {},
   "facts": {},
@@ -86,13 +101,22 @@
     "network": "Girl In Space"
   },
   "verification": {
-    "status": "source-import-draft",
-    "verifiedAt": "2026-07-09",
+    "status": "source-verified",
+    "verifiedAt": "2026-07-18",
     "source": "https://feeds.megaphone.fm/girlinspace; https://podcasts.apple.com/us/podcast/girl-in-space/id1281287693?uo=4; https://www.girlinspacepodcast.com/",
-    "note": "Imported from external sources. Verification covers factual metadata only and still needs archive review."
+    "note": "Official publisher sources were reviewed on 2026-07-18. Verification covers factual metadata only; archive ratings, recommendations, and editorial text remain separate."
   },
-  "availability": {},
-  "content": {},
+  "availability": {
+    "transcripts": "available for all 13 story episodes on the official site",
+    "captions": "not applicable",
+    "regionNotes": "The official site also offers a separate paid five-episode prequel miniseries."
+  },
+  "content": {
+    "sourceMaterial": "original fiction",
+    "setting": "a failing research station in deep space",
+    "pov": "first-person audio diary",
+    "intensity": "medium"
+  },
   "metadata": {
     "objectiveSources": [
       "https://feeds.megaphone.fm/girlinspace",
@@ -100,7 +124,7 @@
       "https://www.girlinspacepodcast.com/"
     ],
     "importCandidateId": "ec1ed4b3-7613-42db-80a0-b134f6756bc8",
-    "importStatus": "draft",
+    "importStatus": "reviewed",
     "importIdentifiers": {
       "appleCollectionId": "1281287693"
     },
@@ -112,14 +136,18 @@
       }
     },
     "objectiveImportedAt": "2026-07-09T22:44:15.396Z",
-    "importOfficialSummary": "Nothing fancy here — just the simple audio diary of a girl in space. Also, there’s this weird and potentially ominous light in the distance that seems to be growing steadily closer. Listen for science, guns, trust, anti-matter, truth, beauty, inner turmoil, and delicious cheeses. It’s all here. In space."
+    "importOfficialSummary": "Nothing fancy here — just the simple audio diary of a girl in space. Also, there’s this weird and potentially ominous light in the distance that seems to be growing steadily closer. Listen for science, guns, trust, anti-matter, truth, beauty, inner turmoil, and delicious cheeses. It’s all here. In space.",
+    "objectiveVerifiedAt": "2026-07-18",
+    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-09",
   "creatorId": "sarah-rhea-werner",
   "networkId": "girl-in-space",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-18",
   "cast": [],
-  "creators": [],
+  "creators": [
+    "Sarah Rhea Werner"
+  ],
   "popularity": {}
 }

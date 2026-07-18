@@ -281,7 +281,6 @@ async function startServer() {
     submissionStore,
     communityStore,
     rateLimiter: rateLimitService,
-    turnstile: turnstileService,
     voterHashSecret: config.COMMUNITY_VOTER_HASH_SECRET,
     abuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
     minimumPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
