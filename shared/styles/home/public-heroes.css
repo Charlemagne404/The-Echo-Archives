@@ -1,4 +1,4 @@
-/* Canonical public hero contract derived from the browse page hero. */
+/* Canonical public hero contract. The browse hero is the source of truth. */
 
 .info-hero-panel,
 .about-page .about-hero-panel,
@@ -7,12 +7,22 @@
 .creator-standards-hero-panel,
 .submit-hero-panel,
 .collections-hero-panel,
-.collection-detail-hero-panel {
+.collection-detail-hero-panel,
+.help-center-page .help-center-hero-panel {
+  min-height: 430px;
   overflow: hidden;
-  padding: 34px 28px 26px;
+  padding: 38px 30px 20px;
   border-color: rgba(255, 255, 255, 0.16);
   border-radius: 26px;
   box-shadow: var(--shadow-lg);
+}
+
+/* Compact public heroes keep the shared visual language without the browse hero's discovery depth. */
+.about-page .about-hero-panel,
+.creators-hero-panel,
+.submit-hero-panel {
+  min-height: 330px;
+  padding: 30px;
 }
 
 .info-hero-copy h1,
@@ -89,6 +99,47 @@
   max-width: 33ch;
 }
 
+.collections-hero-actions .collections-primary-action,
+.collections-hero-actions .collections-secondary-action,
+.creator-hero-actions .about-cta,
+.page-hero-actions .about-cta,
+.help-center-hero-actions .about-cta {
+  min-height: 58px;
+  padding: 0 18px;
+  border-radius: 14px;
+}
+
+.collections-hero-actions .collections-primary-action,
+.collections-hero-actions .collections-secondary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+@media (max-width: 1180px) {
+  .info-hero-panel,
+  .about-page .about-hero-panel,
+  .supporters-hero-panel,
+  .creators-hero-panel,
+  .creator-standards-hero-panel,
+  .submit-hero-panel,
+  .collections-hero-panel,
+  .collection-detail-hero-panel,
+  .help-center-page .help-center-hero-panel {
+    min-height: 390px;
+    padding: 28px;
+  }
+
+  .about-page .about-hero-panel,
+  .creators-hero-panel,
+  .submit-hero-panel {
+    min-height: 350px;
+  }
+}
+
 @media (max-width: 979px) {
   .creators-hero-panel .hero-copy h1,
   .creator-standards-hero-panel .hero-copy h1 {
@@ -105,9 +156,12 @@
   .creators-hero-panel,
   .creator-standards-hero-panel,
   .submit-hero-panel,
-  .collections-hero-panel {
+  .collections-hero-panel,
+  .collection-detail-hero-panel,
+  .help-center-page .help-center-hero-panel {
     min-height: 0;
     padding: 22px;
+    border-radius: 26px;
     background-position: center;
   }
 
@@ -118,10 +172,13 @@
   .creator-standards-hero-panel .hero-copy h1,
   .submit-hero-copy h1,
   .collections-hero-copy h1,
+  .collection-detail-hero-copy h1,
   .help-center-page .help-center-hero-copy h1 {
     max-width: 12ch;
+    overflow: visible;
     font-size: clamp(2.8rem, 11vw, 3.9rem);
     white-space: normal;
+    text-overflow: clip;
   }
 
   .info-hero-copy p,
@@ -131,27 +188,20 @@
   .creator-standards-hero-copy p,
   .submit-hero-copy p,
   .collections-hero-copy p,
+  .collection-detail-hero-copy p,
   .help-center-page .help-center-hero-copy p {
     max-width: 24rem;
     font-size: 1rem;
   }
 }
 
-@media (max-width: 860px) {
-  .collection-detail-hero-panel {
-    padding: 30px 22px;
-  }
-
-  .collection-detail-hero-copy h1 {
-    max-width: 11ch;
-    font-size: clamp(2.35rem, 8vw, 3.65rem);
-    white-space: normal;
-    text-overflow: clip;
-  }
-}
-
 @media (max-width: 560px) {
-  .collection-detail-hero-panel {
-    padding: 20px 18px 16px;
+  .collections-hero-actions .collections-primary-action,
+  .collections-hero-actions .collections-secondary-action,
+  .creator-hero-actions .about-cta,
+  .page-hero-actions .about-cta,
+  .help-center-hero-actions .about-cta {
+    min-height: 54px;
+    padding-inline: 14px;
   }
 }

@@ -51,6 +51,7 @@ const { createSearchIndexRecord, serializeRuntimeShow } = require("../tools/lib/
 const CONTACT_URL = "https://contact.continental-hub.com/";
 const PUBLIC_ROOT_ASSETS = new Set([
   "style.css",
+  "public-heroes.css",
   "home.css",
   "info.css",
   "collections.css",

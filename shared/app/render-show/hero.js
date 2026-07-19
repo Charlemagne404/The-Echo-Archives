@@ -12,13 +12,14 @@ import {
 } from "./utils.js";
 
 const HERO_LINK_LABELS = {
+  start: "Start listening",
   website: "Website",
   apple: "Apple",
   spotify: "Spotify",
   rss: "RSS",
 };
 
-const HERO_LINK_ORDER = ["website", "apple", "spotify", "rss"];
+const HERO_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
 
 export function renderDetailHero(show) {
   const coverSource = getResponsiveImageSource(show, "(max-width: 959px) 84vw, 320px");
@@ -39,6 +40,7 @@ export function renderDetailHero(show) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
   }
   const primaryLink = getHeroPrimaryListenLink(show);
+  const archiveTarget = getArchiveTarget(show);
 
   return `
     <section class="detail-hero-shell">
@@ -81,11 +83,11 @@ export function renderDetailHero(show) {
             <div class="detail-actions">
               ${
                 primaryLink
-                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">Open ${escapeHtml(primaryLink.label)}</a>`
-                  : '<a class="detail-primary-action detail-listen-action" href="#facts-links">Find listen links</a>'
+                  ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
+                  : '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>'
               }
-              <a class="detail-secondary-action" href="#review-notes">${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>
-              <a class="detail-secondary-action" href="#facts-links">Facts &amp; links</a>
+              ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
+              <a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>
               <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
@@ -182,6 +184,14 @@ function getHeroPrimaryListenLink(show) {
   }
 
   return null;
+}
+
+function getArchiveTarget(show) {
+  if (show.reviewStatus === "full-review") {
+    return "#review-notes";
+  }
+
+  return [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((value) => String(value || "").trim()) ? "#archive-note" : "";
 }
 
 function renderBestForStrip(show) {

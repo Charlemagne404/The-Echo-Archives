@@ -97,7 +97,16 @@ function buildLengthData(objective = {}) {
 }
 
 function peopleByRole(objective = {}) {
-  const people = Array.isArray(objective.people) ? objective.people : [];
+  const manualPeople = Array.isArray(objective.manualEnrichment?.people) ? objective.manualEnrichment.people : [];
+  const seen = new Set();
+  const people = [...(Array.isArray(objective.people) ? objective.people : []), ...manualPeople]
+    .filter((person) => person?.name && person?.role)
+    .filter((person) => {
+      const key = `${person.name}`.trim().toLowerCase() + `|${person.role}`.trim().toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   const names = (pattern) => mergeUniqueStrings(people.filter((person) => pattern.test(`${person.role || ""} ${person.group || ""}`)).map((person) => person.name));
   return {
     creators: mergeUniqueStrings([objective.creatorName], names(/creator|author|writer|host/i)),
@@ -148,6 +157,7 @@ function sourceTagProvenance(candidate, tags) {
 
 function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toISOString().slice(0, 10) }) {
   const objective = candidate.objective || {};
+  const enrichment = objective.manualEnrichment || {};
   const title = trimText(objective.title || candidate.title, 240);
   const showId = candidate.existingShowId || candidate.draftedShowId || ensureUniqueShowId(shows, title);
   const people = peopleByRole(objective);
@@ -159,10 +169,12 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
   const formats = mergeUniqueStrings([
+    ...(enrichment.formats || []),
     objective.feedType === "serial" ? "serialized" : "",
     objective.feedType === "episodic" ? "episodic" : "",
   ].filter(Boolean));
   const listenLinks = {
+    start: normalizeUrl(objective.startUrl || ""),
     spotify: normalizeUrl(objective.spotifyUrl || ""),
     apple: normalizeUrl(objective.appleUrl || ""),
     website: normalizeUrl(objective.websiteUrl || ""),
@@ -172,8 +184,12 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     pocketCasts: normalizeUrl(objective.pocketCastsUrl || ""),
   };
   const sourceReferences = selectedSources(candidate);
+  const externalSources = mergeUniqueStrings(
+    objective.externalResearch?.sourceUrls || [],
+    Object.values(objective.externalResearch?.fieldSources || {}).flat(),
+  );
   const optionalGaps = [];
-  if (!objective.people?.length) optionalGaps.push("Structured creator/cast/production credits were not exposed by the sources.");
+  if (!people.people.length) optionalGaps.push("Structured creator/cast/production credits were not exposed by the sources.");
   if (!objective.transcripts?.episodeCount) optionalGaps.push("No structured transcript links were exposed by the feed.");
   if (!objective.episodeCount) optionalGaps.push("No full-episode total was available.");
   if (state.releaseStatus === "unknown") optionalGaps.push("Release status remains unknown; old or dead feeds are not treated as cancelled or complete.");
@@ -181,7 +197,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const record = {
     id: showId,
     title,
-    subtitle: trimText(objective.subtitle, 240),
+    subtitle: trimText(objective.manualSubtitle || objective.subtitle, 240),
     description: trimText(objective.description, 4_000),
     cover: candidate.coverStage?.ready
       ? candidate.coverStage.existingRelativePath || `images/covers/${showId}${candidate.coverStage.extension}`
@@ -193,12 +209,12 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     completionStatus: state.completionStatus,
     listenLinks,
     genres,
-    tones: [],
+    tones: mergeUniqueStrings(enrichment.tones || []),
     formats,
     tags,
     aliases: aliasTitles(candidate, title),
-    themes: [],
-    contentNotes: [],
+    themes: mergeUniqueStrings(enrichment.themes || []),
+    contentNotes: mergeUniqueStrings(enrichment.contentNotes || []),
     languages: language ? [language] : [],
     transcriptLanguages,
     length: buildLengthData(objective),
@@ -219,11 +235,11 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     quote: { text: "", attribution: "" },
     officialLinks: {
       website: normalizeUrl(objective.websiteUrl || ""),
-      patreon: normalizeUrl(objective.patreonUrl || ""),
-      koFi: normalizeUrl(objective.koFiUrl || ""),
-      discord: normalizeUrl(objective.discordUrl || ""),
-      youtube: normalizeUrl(objective.youtubeUrl || ""),
-      social: mergeUniqueStrings(objective.socialUrls || [])[0] || "",
+      patreon: normalizeUrl(enrichment.officialLinks?.patreonUrl || objective.patreonUrl || ""),
+      koFi: normalizeUrl(enrichment.officialLinks?.koFiUrl || objective.koFiUrl || ""),
+      discord: normalizeUrl(enrichment.officialLinks?.discordUrl || objective.discordUrl || ""),
+      youtube: normalizeUrl(enrichment.officialLinks?.youtubeUrl || objective.youtubeUrl || ""),
+      social: mergeUniqueStrings(enrichment.socialUrls || objective.socialUrls || [])[0] || "",
       funding: mergeUniqueStrings((objective.funding || []).map((entry) => entry.url).filter(Boolean))[0] || "",
     },
     credits: {
@@ -240,7 +256,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     verification: {
       status: optionalGaps.length > 0 ? "partially-source-reviewed" : "source-reviewed",
       verifiedAt: today,
-      source: sourceReferences.map((source) => source.sourceUrl).filter(Boolean).join("; "),
+      source: mergeUniqueStrings(sourceReferences.map((source) => source.sourceUrl).filter(Boolean), externalSources).join("; "),
       note: "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.",
     },
     availability: {
@@ -252,14 +268,14 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     },
     content: {},
     metadata: {
-      objectiveSources: sourceReferences.map((source) => source.sourceUrl).filter(Boolean),
+      objectiveSources: mergeUniqueStrings(sourceReferences.map((source) => source.sourceUrl).filter(Boolean), externalSources),
       sourceCategories: categories,
       sourceKeywords: mergeUniqueStrings(objective.keywords || []),
       sourceTags: tags,
       importOfficialSummary: trimText(objective.description, 4_000),
-      socialUrls: mergeUniqueStrings(objective.socialUrls || []),
+      socialUrls: mergeUniqueStrings(enrichment.socialUrls || objective.socialUrls || []),
       funding: Array.isArray(objective.funding) ? objective.funding : [],
-      schedule: objective.cadence || { label: "unknown" },
+      schedule: enrichment.cadenceLabel ? { label: enrichment.cadenceLabel, method: "maintainer-verified" } : objective.cadence || { label: "unknown" },
       podcast: {
         medium: trimText(objective.medium, 80),
         copyright: trimText(objective.copyright, 500),
@@ -281,12 +297,17 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
           feedRedirects: mergeUniqueStrings(objective.feedRedirects || []),
         },
         selectedSources: sourceReferences,
+        ...(objective.externalResearch ? { externalResearch: objective.externalResearch } : {}),
         fields: {
           ...(candidate.provenance?.fields || {}),
           releaseStatus: { confidence: state.confidence, method: state.method, sources: [] },
           completionStatus: { confidence: state.confidence, method: state.method, sources: [] },
           ...(tagProvenance ? { tags: tagProvenance } : {}),
-          ...(formats.length ? { formats: { confidence: candidate.provenance?.fields?.feedType?.confidence || 0.7, method: "deterministic-feed-type", sources: candidate.provenance?.fields?.feedType?.sources || [] } } : {}),
+          ...(formats.length ? { formats: {
+            confidence: enrichment.formats?.length ? 1 : candidate.provenance?.fields?.feedType?.confidence || 0.7,
+            method: enrichment.formats?.length ? "maintainer-verified-research" : "deterministic-feed-type",
+            sources: enrichment.formats?.length ? objective.externalResearch?.fieldSources?.formats || [] : candidate.provenance?.fields?.feedType?.sources || [],
+          } } : {}),
         },
         importedAt: new Date().toISOString(),
         humanOwnedFields: HUMAN_OWNED_FIELDS,

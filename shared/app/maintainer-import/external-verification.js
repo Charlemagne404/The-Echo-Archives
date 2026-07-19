@@ -1,5 +1,6 @@
 const EDITABLE_FIELDS = [
   "title",
+  "subtitle",
   "creatorName",
   "networkName",
   "description",
@@ -18,8 +19,12 @@ const EDITABLE_FIELDS = [
   "completionStatus",
 ];
 
+const ENRICHMENT_LIST_FIELDS = new Set(["formats", "tones", "themes", "contentNotes", "socialUrls"]);
+const OFFICIAL_LINK_FIELDS = new Set(["patreonUrl", "koFiUrl", "discordUrl", "youtubeUrl"]);
+
 const FIELD_LABELS = {
   title: "Title",
+  subtitle: "Subtitle",
   creatorName: "Creator",
   networkName: "Network",
   description: "Description",
@@ -36,10 +41,19 @@ const FIELD_LABELS = {
   firstPublicationDate: "First release date",
   latestPublicationDate: "Latest release date",
   completionStatus: "Completion status",
+  formats: "Format labels",
+  tones: "Tone labels",
+  themes: "Themes",
+  contentNotes: "Content notes",
+  people: "Credits",
+  officialLinks: "Official links",
+  socialUrls: "Official social links",
+  cadenceLabel: "Release cadence",
 };
 
 const FIELD_ALIASES = {
   creator_name: "creatorName",
+  subtitle_text: "subtitle",
   network_name: "networkName",
   rss_url: "rssUrl",
   website_url: "websiteUrl",
@@ -105,6 +119,7 @@ function normalizeTags(value) {
 
 function fieldValue(objective, candidate, field) {
   if (field === "title") return objective.title || candidate.title || "";
+  if (field === "subtitle") return objective.manualSubtitle || objective.subtitle || "";
   if (field === "creatorName") return objective.creatorName || candidate.creatorName || "";
   if (field === "categories") return Array.isArray(objective.categories) ? objective.categories : [];
   if (field === "tags") return Array.isArray(objective.manualTags) ? objective.manualTags : candidate.preparedRecord?.tags || [];
@@ -112,6 +127,20 @@ function fieldValue(objective, candidate, field) {
     return objective.manualReleaseState || (objective.complete ? "finished" : "unknown");
   }
   return objective[field] ?? "";
+}
+
+function enrichmentSnapshot(objective = {}) {
+  const manual = objective.manualEnrichment || {};
+  return {
+    formats: manual.formats || [],
+    tones: manual.tones || [],
+    themes: manual.themes || [],
+    contentNotes: manual.contentNotes || [],
+    people: manual.people || [],
+    officialLinks: manual.officialLinks || {},
+    socialUrls: manual.socialUrls || [],
+    cadenceLabel: manual.cadenceLabel || "",
+  };
 }
 
 function buildVerificationSnapshot(candidate = {}) {
@@ -141,6 +170,7 @@ function buildVerificationSnapshot(candidate = {}) {
       conflicts: candidate.conflicts || [],
       researchGaps: objective.researchGaps || [],
     },
+    catalogEnrichment: enrichmentSnapshot(objective),
     knownSources: sources,
   };
 }
@@ -149,17 +179,20 @@ export function buildExternalVerificationBrief(candidate = {}) {
   const snapshot = buildVerificationSnapshot(candidate);
   return `You are verifying factual show metadata for The Echo Archives, an audio-drama discovery archive. Browse the web before answering and prefer the official show site, the RSS feed, and official platform pages.
 
-Check the editable show details below against reliable sources. Do not guess, infer, or invent missing facts. Do not comment on ratings, reviews, recommendations, or whether the show is good. If a value cannot be verified, omit it from \"verified\" and name it in \"uncertain_fields\".
+Check the editable show details and catalog enrichment below against reliable sources. Do not guess, infer, or invent missing facts. Do not comment on ratings, archive takes, reviews, recommendations, best-for guidance, similar shows, or whether the show is good. If a value cannot be verified, omit it and name it in \"uncertain_fields\".
 
 The \"description\" field has a strict rule: it must be the complete official show description from the current official RSS feed or official show website. Copy that source text faithfully, only normalizing whitespace or stripping source HTML. Never write, shorten, expand, summarize, paraphrase, combine, or infer a description. If you cannot find a current official description, omit \"description\" and add it to \"uncertain_fields\". Include the official description page or feed URL in \"field_sources.description\".
 
 Genre and tag rules: return one or more source-supported values in \"categories\" using only the archive's normalized genre vocabulary: \"sci-fi\" (never \"science fiction\", \"science-fiction\", or \"sci fi\"), \"fantasy\", \"horror\", \"mystery\", \"thriller\", \"comedy\", \"drama\", \"adventure\", \"science\", or \"supernatural\". Separately, always return 2 to 6 distinct source-supported values in \"tags\". Tags are concise listener discovery labels in title case, such as \"Sci-fi\", \"Space\", \"Time travel\", \"Found footage\", \"Survival\", \"Post-apocalyptic\", \"Dystopian\", \"Anthology\", \"Full cast\", \"Serialized\", \"Narrated\", \"Historical\", or \"Queer\". You may add a new concise tag when none of these captures a clearly supported discovery trait. Do not use duplicate synonyms, vague labels, ratings, quality claims, or unverified plot assumptions. Never use \"Science Fiction\" as a tag; use \"Sci-fi\" instead.
 
+Also prepare the \"enrichment\" object where sources support it. These are catalog facts and discovery labels, not editorial judgment: formats (for example Serialized, Anthology, Full cast, Narrated), tones, themes, content notes, credited people with a role, official Patreon/Ko-fi/Discord/YouTube links, official social URLs, and a stated release cadence. Use a concise label only when the wording is supported by an official source; omit the field rather than making a plausible interpretation. Content notes must be explicit source-backed advisories, never warnings inferred from genre. Return no more than 8 values per enrichment list and no more than 20 credited people. Every enrichment field needs a corresponding URL in \"field_sources\".
+
 Return exactly one JSON object, with no Markdown fences or commentary, in this shape:
 {
-  "echo_archives_verification": "v1",
+  "echo_archives_verification": "v2",
   "verified": {
     "title": "Only include fields you verified",
+    "subtitle": "",
     "creatorName": "",
     "networkName": "",
     "description": "Complete official description copied from the official RSS feed or show website only",
@@ -177,8 +210,18 @@ Return exactly one JSON object, with no Markdown fences or commentary, in this s
     "latestPublicationDate": "YYYY-MM-DD",
     "completionStatus": "unknown | ongoing | finished"
   },
+  "enrichment": {
+    "formats": ["Source-supported format labels only"],
+    "tones": ["Source-supported tone labels only"],
+    "themes": ["Source-supported themes only"],
+    "contentNotes": ["Explicit source-backed content advisories only"],
+    "people": [{ "name": "", "role": "writer | director | producer | cast | creator", "url": "" }],
+    "officialLinks": { "patreonUrl": "", "koFiUrl": "", "discordUrl": "", "youtubeUrl": "" },
+    "socialUrls": ["Official profile URLs only"],
+    "cadenceLabel": "Only a cadence stated by an official source"
+  },
   "source_urls": ["Every URL used to support the verified fields"],
-  "field_sources": { "description": ["Official RSS feed or official show page used for the description"] },
+  "field_sources": { "description": ["Official RSS feed or official show page used for the description"], "formats": ["Source used for this enrichment field"] },
   "notes": "Short factual caveats only",
   "uncertain_fields": ["Fields you could not verify"]
 }
@@ -195,7 +238,7 @@ export function renderExternalVerificationWorkspace(candidate) {
         <div>
           <p class="maintainer-kicker">External verification</p>
           <h3>Verify details with ChatGPT</h3>
-          <p>Copy the factual brief, ask ChatGPT to check it with web access, then paste its JSON response here. Descriptions must come from official show copy, not an AI rewrite. Pasted values only fill the editor for your review; they are never saved or published automatically.</p>
+          <p>Copy the research brief, ask ChatGPT to check it with web access, then paste its JSON response here. It can prepare source-backed catalog detail as well as core facts. Descriptions must come from official show copy, not an AI rewrite. Nothing is saved or published until you review the populated editor.</p>
         </div>
         ${renderBadge("Source review required", "warning")}
       </div>
@@ -276,6 +319,42 @@ function sourceUrls(value) {
     .filter((item) => /^https?:\/\//i.test(item)))].slice(0, 12);
 }
 
+function sourceMap(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value)
+    .map(([field, urls]) => [trimText(field, 80), sourceUrls(urls)])
+    .filter(([field, urls]) => field && urls.length));
+}
+
+function normalizeEnrichment(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  const enrichment = {};
+  ENRICHMENT_LIST_FIELDS.forEach((field) => {
+    if (!Object.hasOwn(value, field)) return;
+    const values = valuesFromList(value[field]).slice(0, field === "socialUrls" ? 12 : 8);
+    if (values.length) enrichment[field] = field === "socialUrls" ? values.filter((item) => /^https?:\/\//i.test(item)) : values;
+  });
+  if (Array.isArray(value.people)) {
+    const people = value.people.map((person) => {
+      if (!person || typeof person !== "object") return null;
+      const name = trimText(person.name, 240);
+      const role = trimText(person.role, 100).toLowerCase();
+      const url = trimText(person.url, 2_000);
+      return name && role ? { name, role, ...(/^https?:\/\//i.test(url) ? { url } : {}) } : null;
+    }).filter(Boolean).slice(0, 20);
+    if (people.length) enrichment.people = people;
+  }
+  if (value.officialLinks && typeof value.officialLinks === "object" && !Array.isArray(value.officialLinks)) {
+    const links = Object.fromEntries(Object.entries(value.officialLinks)
+      .filter(([field, url]) => OFFICIAL_LINK_FIELDS.has(field) && /^https?:\/\//i.test(trimText(url, 2_000)))
+      .map(([field, url]) => [field, trimText(url, 2_000)]));
+    if (Object.keys(links).length) enrichment.officialLinks = links;
+  }
+  const cadenceLabel = trimText(value.cadenceLabel, 160);
+  if (cadenceLabel) enrichment.cadenceLabel = cadenceLabel;
+  return enrichment;
+}
+
 export function parseExternalVerificationResponse(text) {
   const response = extractJson(text);
   const submitted = response.verified || response.details || response.fields || response;
@@ -289,6 +368,7 @@ export function parseExternalVerificationResponse(text) {
     const value = normalizeValue(field, rawValue);
     if (value) details[field] = value;
   });
+  const enrichment = normalizeEnrichment(response.enrichment || response.catalog_enrichment || response.catalogEnrichment);
 
   if (Object.keys(details).length === 0) {
     throw new Error("No usable verified show details were found. Fields with null, empty, or invalid values are left unchanged.");
@@ -299,7 +379,9 @@ export function parseExternalVerificationResponse(text) {
 
   return {
     details,
+    enrichment,
     sourceUrls: sourceUrls(response.source_urls || response.sourceUrls || response.sources),
+    fieldSources: sourceMap(response.field_sources || response.fieldSources),
     notes: trimText(response.notes || response.note, 1_200),
     uncertainFields: Array.isArray(response.uncertain_fields || response.uncertainFields)
       ? (response.uncertain_fields || response.uncertainFields).map((field) => trimText(String(field), 120)).filter(Boolean).slice(0, 20)
@@ -309,13 +391,16 @@ export function parseExternalVerificationResponse(text) {
 
 export function renderExternalVerificationPreview(result) {
   const changes = Object.entries(result.details || {});
+  const enrichment = Object.entries(result.enrichment || {}).filter(([, value]) => Array.isArray(value) ? value.length : Boolean(value && (typeof value !== "object" || Object.keys(value).length)));
   return `
     <div class="import-verification-preview" role="status">
       <p><strong>${changes.length} verified ${changes.length === 1 ? "field" : "fields"} ready to place in the editor.</strong> Nothing has been saved or published.</p>
       <dl class="maintainer-detail-grid">
         ${changes.map(([field, value]) => `<div class="maintainer-detail-row"><dt>${escapeHtml(FIELD_LABELS[field] || field)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}
       </dl>
+      ${enrichment.length ? `<p><strong>Catalog enrichment ready:</strong> ${enrichment.map(([field, value]) => `${escapeHtml(FIELD_LABELS[field] || field)} — ${escapeHtml(Array.isArray(value) ? value.map((item) => typeof item === "object" ? `${item.name} (${item.role})` : item).join(", ") : typeof value === "object" ? Object.keys(value).join(", ") : value)}`).join(" · ")}</p>` : ""}
       ${result.sourceUrls?.length ? `<p><strong>Sources supplied:</strong> ${result.sourceUrls.map((url) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(url)}</a>`).join(" · ")}</p>` : ""}
+      ${Object.keys(result.fieldSources || {}).length ? `<p><strong>Field-level sources:</strong> ${Object.entries(result.fieldSources).map(([field, urls]) => `${escapeHtml(FIELD_LABELS[field] || field)} (${urls.map((url) => `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">source</a>`).join(", ")})`).join(" · ")}</p>` : ""}
       ${result.notes ? `<p><strong>Verification note:</strong> ${escapeHtml(result.notes)}</p>` : ""}
       ${result.uncertainFields?.length ? `<p><strong>Still uncertain:</strong> ${escapeHtml(result.uncertainFields.join(", "))}</p>` : ""}
     </div>
@@ -328,10 +413,35 @@ export function applyExternalVerificationToForm(form, result) {
     if (input && "value" in input) input.value = value;
   });
 
+  Object.entries(result.enrichment || {}).forEach(([field, value]) => {
+    if (field === "officialLinks") {
+      Object.entries(value).forEach(([linkField, linkValue]) => {
+        const input = form.elements.namedItem(linkField);
+        if (input && "value" in input) input.value = linkValue;
+      });
+      return;
+    }
+    const input = form.elements.namedItem(field === "people" ? "credits" : field);
+    if (!input || !("value" in input)) return;
+    input.value = field === "people"
+      ? value.map((person) => `${person.name} — ${person.role}`).join("\n")
+      : Array.isArray(value) ? value.join(", ") : value;
+  });
+
+  const researchInput = form.elements.namedItem("externalVerification");
+  if (researchInput && "value" in researchInput) {
+    researchInput.value = JSON.stringify({
+      sourceUrls: result.sourceUrls || [],
+      fieldSources: result.fieldSources || {},
+      notes: result.notes || "",
+      uncertainFields: result.uncertainFields || [],
+    });
+  }
+
   const reviewNotes = form.elements.namedItem("reviewNotes");
   if (reviewNotes && "value" in reviewNotes && (result.notes || result.sourceUrls?.length || result.uncertainFields?.length)) {
     const annotation = [
-      "External AI verification — source review still required.",
+      "External AI research — source review still required.",
       result.notes ? `Notes: ${result.notes}` : "",
       result.sourceUrls?.length ? `Sources: ${result.sourceUrls.join(" ")}` : "",
       result.uncertainFields?.length ? `Uncertain: ${result.uncertainFields.join(", ")}` : "",

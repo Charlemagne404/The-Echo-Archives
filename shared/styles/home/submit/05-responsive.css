@@ -24,7 +24,7 @@
   }
 
   .submit-hero-trust {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .submit-surface-card,
@@ -45,8 +45,8 @@
   }
 
   .submit-trust-pill {
-    min-height: 52px;
-    padding: 0 18px;
+    min-height: 58px;
+    padding: 9px 12px;
     font-size: 0.94rem;
   }
 
@@ -61,5 +61,11 @@
   .submit-page .submit-remake-form select {
     padding-left: 14px;
     padding-right: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .submit-hero-trust {
+    grid-template-columns: 1fr;
   }
 }

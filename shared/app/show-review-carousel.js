@@ -35,6 +35,14 @@ async function updateHelpful(reviewId, helpful) {
   return payload;
 }
 
+function prefersReducedMotion() {
+  return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
+}
+
+function waitForMotion(durationMs) {
+  return new Promise((resolve) => window.setTimeout(resolve, durationMs));
+}
+
 function initializeCarousel(carousel) {
   const showId = carousel.dataset.showId || "";
   if (!showId) return;
@@ -74,7 +82,32 @@ function initializeCarousel(carousel) {
     dots.innerHTML = renderDots(total, currentIndex);
     status.textContent = statusMessage || `Review ${currentIndex + 1} of ${total}`;
     carousel.dataset.currentIndex = String(currentIndex);
+    viewport.setAttribute("aria-busy", String(busy));
     setHelpfulControls();
+  }
+
+  async function replaceSlide(markup, direction) {
+    if (prefersReducedMotion()) {
+      slide.innerHTML = markup;
+      return;
+    }
+
+    const height = Math.ceil(slide.getBoundingClientRect().height);
+    if (height > 0) {
+      viewport.style.minHeight = `${height}px`;
+    }
+    slide.dataset.transitionDirection = direction;
+    slide.classList.add("is-review-slide-leaving");
+    await waitForMotion(70);
+    slide.innerHTML = markup;
+    slide.classList.remove("is-review-slide-leaving");
+    slide.classList.add("is-review-slide-entering");
+    await new Promise((resolve) => window.requestAnimationFrame(resolve));
+    slide.classList.add("is-review-slide-entering-active");
+    await waitForMotion(150);
+    slide.classList.remove("is-review-slide-entering", "is-review-slide-entering-active");
+    slide.removeAttribute("data-transition-direction");
+    viewport.style.minHeight = "";
   }
 
   async function renderSlide(index) {
@@ -83,16 +116,18 @@ function initializeCarousel(carousel) {
     statusMessage = "";
     renderNavigation();
     try {
+      let nextMarkup = "";
       if (hasArchive && index === 0) {
-        slide.innerHTML = archiveMarkup;
+        nextMarkup = archiveMarkup;
       } else {
         const page = listenerPageForIndex(index);
         const payload = await fetchReviewPage(showId, page);
         listenerTotal = Number(payload?.pagination?.totalReviews || listenerTotal);
         const review = Array.isArray(payload?.reviews) ? payload.reviews[0] : null;
         if (!review) throw new Error("That review is no longer available.");
-        slide.innerHTML = renderListenerReviewCard(review);
+        nextMarkup = renderListenerReviewCard(review);
       }
+      await replaceSlide(nextMarkup, index > currentIndex ? "forward" : "backward");
       currentIndex = index;
       statusMessage = "";
     } catch (error) {

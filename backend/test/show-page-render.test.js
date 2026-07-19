@@ -10,13 +10,15 @@ test("empty indexed entries move editorial context out of Reviews and invite the
   const markup = createShowPageMarkup(showMap.get("were-alive"), showMap, collections);
 
   assert.match(markup, /detail-main--indexed/);
-  assert.match(markup, /<h2>About this show<\/h2>/);
+  assert.match(markup, /<h2>Official description<\/h2>/);
   assert.match(markup, /detail-indexed-archive-note/);
+  assert.match(markup, /id="archive-note" tabindex="-1"/);
   assert.match(markup, /Archive note/);
   assert.match(markup, /detail-first-review-card/);
   assert.match(markup, /Add your take to help listeners find their next show\./);
   assert.match(markup, /href="\/submit\?submissionType=listener-review&amp;showId=were-alive">Be the first to review/);
   assert.match(markup, /detail-facts-links-card--inline/);
+  assert.match(markup, /id="facts-links" tabindex="-1"/);
   assert.match(markup, /detail-best-for-icon" aria-hidden="true"><svg/);
   assert.doesNotMatch(markup, /<h2>Reviews<\/h2>/);
   assert.doesNotMatch(markup, /detail-review-carousel/);
@@ -45,6 +47,7 @@ test("full reviews server-render archive first and reserve later listener pages 
   const uniqueSpoilerFreeLine = show.spoilerFreeReviewParagraphs[0];
 
   assert.match(markup, /detail-main--full/);
+  assert.match(markup, /id="review-notes" tabindex="-1"/);
   assert.match(markup, /<h2>Reviews<\/h2>/);
   assert.match(markup, /Archive verdict/);
   assert.match(markup, /The Echo Archives/);
@@ -140,4 +143,33 @@ test("official descriptions and route expansion retain source attribution and ea
   assert.equal(markup.split("detail-collection-route-art").length - 1, 4);
   assert.equal(markup.split("collection-cover-frame").length - 1, 4);
   assert.equal(markup.split('alt="" width="168"').length - 1, 4);
+});
+
+test("verified start links become the primary handoff without changing provider fallback", () => {
+  const verifiedStartMarkup = createShowPageMarkup({
+    ...showMap.get("spectre"),
+    listenLinks: {
+      ...showMap.get("spectre").listenLinks,
+      start: "https://example.com/episode-one",
+    },
+  }, showMap, collections);
+  const fallbackMarkup = createShowPageMarkup({
+    ...showMap.get("spectre"),
+    listenLinks: {
+      ...showMap.get("spectre").listenLinks,
+      start: "",
+    },
+  }, showMap, collections);
+
+  assert.equal((verifiedStartMarkup.match(/>Start listening</g) || []).length, 2);
+  assert.match(verifiedStartMarkup, /href="https:\/\/example\.com\/episode-one"/);
+  assert.doesNotMatch(verifiedStartMarkup, /Open Start listening/);
+  assert.match(fallbackMarkup, /Open Website/);
+});
+
+test("Derelict's primary listen handoff uses its verified Apple show page", () => {
+  const markup = createShowPageMarkup(showMap.get("derelict"), showMap, collections);
+
+  assert.match(markup, /href="https:\/\/podcasts\.apple\.com\/us\/podcast\/derelict\/id1473460202"[^>]*>Start listening<\/a>/);
+  assert.doesNotMatch(markup, /derelictpodcast\.com\/season-one/);
 });

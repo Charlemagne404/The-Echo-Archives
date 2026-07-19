@@ -11,13 +11,14 @@ import {
 } from "./utils.js";
 
 const DETAIL_LINK_LABELS = {
+  start: "Start listening",
   website: "Website",
   apple: "Apple",
   spotify: "Spotify",
   rss: "RSS",
 };
 
-const DETAIL_LINK_ORDER = ["website", "apple", "spotify", "rss"];
+const DETAIL_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
 
 export function renderFactsLinksCard(show, { inline = false } = {}) {
   const creatorNetwork = getCreatorNetworkLabel(show);
@@ -26,7 +27,7 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
   const latestRelease = getKnownDateLabel(getShowDateValue(show, "latest"));
 
   return `
-    <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links">
+    <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links" tabindex="-1">
       <div class="detail-side-card-header">
         <h2>Facts &amp; links</h2>
       </div>
@@ -128,15 +129,13 @@ function renderStatusPills(show) {
 function renderListenLinkCluster(show) {
   const links = show.listenLinks || {};
   const primaryLink = getPrimaryListenLink(show);
-  const alternateLinks = DETAIL_LINK_ORDER.filter((key) => key !== primaryLink?.key && links[key]);
+  const alternateLinks = DETAIL_LINK_ORDER.filter((key) => key !== primaryLink?.key && links[key] && links[key] !== primaryLink?.href);
 
   return `
     <div class="detail-link-cluster">
       ${
         primaryLink
-          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">Open ${escapeHtml(
-              primaryLink.label,
-            )}</a>`
+          ? `<a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
           : '<p class="detail-link-status is-empty">Links being verified</p>'
       }
       ${alternateLinks.length ? `<div class="detail-link-chip-row">${alternateLinks.map((key) => renderListenLinkChip(key, links[key])).join("")}</div>` : ""}

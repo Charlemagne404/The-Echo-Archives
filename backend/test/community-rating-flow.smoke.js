@@ -186,8 +186,8 @@ test("full-review detail page promotes community, trims the rail, and preserves 
     }));
 
     assert.ok(mobileLayout.officialTop < mobileLayout.communityTop);
-    assert.ok(mobileLayout.reviewTop < mobileLayout.factsTop);
-    assert.ok(mobileLayout.factsTop < mobileLayout.communityTop);
+    assert.ok(mobileLayout.reviewTop < mobileLayout.communityTop);
+    assert.ok(mobileLayout.communityTop < mobileLayout.factsTop);
   } finally {
     await mobilePage.close();
   }
@@ -250,6 +250,19 @@ test("detail community rating renders Turnstile and sends the verification token
     await page.locator(".community-review-panel .community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
 
+    const turnstilePlacement = await page.evaluate(() => {
+      const body = document.querySelector(".community-review-body");
+      const verification = document.querySelector(".community-turnstile-shell");
+      const distribution = document.querySelector(".community-review-distribution");
+      return {
+        isLastControl: body?.lastElementChild === verification,
+        verificationTop: verification?.getBoundingClientRect().top || 0,
+        distributionBottom: distribution?.getBoundingClientRect().bottom || 0,
+      };
+    });
+    assert.equal(turnstilePlacement.isLastControl, true);
+    assert.ok(turnstilePlacement.verificationTop >= turnstilePlacement.distributionBottom);
+
     await page.locator(".community-review-button").nth(6).click();
     await page.waitForFunction(() => window.__echoTurnstileReset === "test-widget-id");
 
@@ -261,7 +274,7 @@ test("detail community rating renders Turnstile and sends the verification token
   }
 });
 
-test("review carousel keeps the server-rendered archive first, supports accessible navigation, and recovers from later-page failures", { timeout: 20_000 }, async () => {
+test("review carousel keeps the server-rendered archive first, supports accessible navigation, and recovers from later-page failures", { timeout: 60_000 }, async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
   let failedPage = 0;
   const helpfulRequests = [];

@@ -154,6 +154,15 @@
   margin-top: 12px;
 }
 
+.detail-route-overflow.is-route-overflow-revealing .detail-route-overflow-grid {
+  animation: detail-route-overflow-reveal 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes detail-route-overflow-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .detail-collections-section .detail-collection-route-list,
 .detail-route-overflow-grid {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -253,7 +262,7 @@
   .detail-main--full .detail-side-rail {
     grid-column: 1;
     grid-row: auto;
-    order: 2;
+    order: 3;
   }
 
   .detail-main--full .detail-content-layout > .detail-community-slot,
@@ -261,7 +270,7 @@
   .detail-main--indexed .detail-content-layout > .detail-community-slot,
   .detail-main--indexed .detail-content-layout > .community-review-panel {
     grid-column: 1;
-    order: 3;
+    order: 2;
   }
 
   .detail-main--full .detail-similar-section,
@@ -309,6 +318,12 @@
     min-height: 44px;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-route-overflow.is-route-overflow-revealing .detail-route-overflow-grid {
+    animation-duration: 1ms;
+  }
 }
 
 @media (max-width: 360px) {

@@ -21,7 +21,7 @@ test("external verification brief includes the editable record and known sources
     readiness: { blockers: [{ code: "weak-description" }] },
   });
 
-  assert.match(brief, /"echo_archives_verification": "v1"/);
+  assert.match(brief, /"echo_archives_verification": "v2"/);
   assert.match(brief, /"title": "Signal Lost"/);
   assert.match(brief, /https:\/\/example\.com\/feed\.xml/);
   assert.match(brief, /weak-description/);
@@ -30,6 +30,8 @@ test("external verification brief includes the editable record and known sources
   assert.match(brief, /always return 2 to 6 distinct source-supported values in "tags"/i);
   assert.match(brief, /"sci-fi" \(never "science fiction"/i);
   assert.match(brief, /Never use "Science Fiction" as a tag; use "Sci-fi" instead/i);
+  assert.match(brief, /catalog enrichment/i);
+  assert.match(brief, /archive takes, reviews, recommendations/i);
 });
 
 test("external verification parser accepts fenced JSON and ignores unsafe values", async () => {
@@ -73,4 +75,38 @@ test("external verification parser requires two normalized discovery tags", asyn
     () => parseExternalVerificationResponse(JSON.stringify({ verified: { title: "Signal Lost", tags: ["Science Fiction"] } })),
     /at least two source-supported discovery tags/i,
   );
+});
+
+test("external verification parser carries source-backed catalog enrichment into the editor", async () => {
+  const { parseExternalVerificationResponse } = await loadVerificationWorkflow();
+  const response = parseExternalVerificationResponse(JSON.stringify({
+    verified: { title: "Signal Lost", tags: ["Science Fiction", "Space"] },
+    enrichment: {
+      formats: ["Serialized", "Full cast"],
+      tones: ["Atmospheric"],
+      themes: ["Isolation"],
+      contentNotes: ["Official site notes strong language"],
+      people: [{ name: "Alex Writer", role: "writer", url: "https://example.com/about" }],
+      officialLinks: { patreonUrl: "https://patreon.com/signal-lost", youtubeUrl: "https://youtube.com/@signallost" },
+      socialUrls: ["https://instagram.com/signallost", "not-a-url"],
+      cadenceLabel: "Weekly",
+    },
+    source_urls: ["https://example.com/feed.xml"],
+    field_sources: { formats: ["https://example.com/about"], cadenceLabel: ["https://example.com/episodes"] },
+  }));
+
+  assert.deepEqual(response.enrichment, {
+    formats: ["Serialized", "Full cast"],
+    tones: ["Atmospheric"],
+    themes: ["Isolation"],
+    contentNotes: ["Official site notes strong language"],
+    people: [{ name: "Alex Writer", role: "writer", url: "https://example.com/about" }],
+    officialLinks: { patreonUrl: "https://patreon.com/signal-lost", youtubeUrl: "https://youtube.com/@signallost" },
+    socialUrls: ["https://instagram.com/signallost"],
+    cadenceLabel: "Weekly",
+  });
+  assert.deepEqual(response.fieldSources, {
+    formats: ["https://example.com/about"],
+    cadenceLabel: ["https://example.com/episodes"],
+  });
 });

@@ -166,6 +166,7 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
 
   try {
     await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");
     const indexedDesktop = await page.evaluate(() => {
       const layout = document.querySelector(".detail-content-layout");
       const facts = document.querySelector(".detail-facts-links-card");
@@ -197,11 +198,20 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
         overflow: document.documentElement.scrollWidth - window.innerWidth,
         cardWidth: card?.getBoundingClientRect().width || 0,
         actionWidth: action?.getBoundingClientRect().width || 0,
+        summaryTop: document.querySelector(".detail-official-summary-section")?.getBoundingClientRect().top || 0,
+        archiveNoteTop: document.querySelector("#archive-note")?.getBoundingClientRect().top || 0,
+        firstReviewTop: card?.getBoundingClientRect().top || 0,
+        factsTop: document.querySelector(".detail-facts-links-card")?.getBoundingClientRect().top || 0,
+        communityTop: document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0,
       };
     });
     assert.ok(indexedMobile.overflow <= 1);
     assert.ok(indexedMobile.cardWidth > 0);
     assert.ok(indexedMobile.actionWidth >= indexedMobile.cardWidth - 40);
+    assert.ok(indexedMobile.summaryTop < indexedMobile.archiveNoteTop);
+    assert.ok(indexedMobile.archiveNoteTop < indexedMobile.firstReviewTop);
+    assert.ok(indexedMobile.firstReviewTop < indexedMobile.factsTop);
+    assert.ok(indexedMobile.factsTop < indexedMobile.communityTop);
 
     await page.setViewportSize({ width: 980, height: 1100 });
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
@@ -210,32 +220,79 @@ test("show detail layouts stay readable across desktop, intermediate, and compac
       reviewTop: document.querySelector("#review-notes")?.getBoundingClientRect().top || 0,
       factsTop: document.querySelector(".detail-facts-links-card")?.getBoundingClientRect().top || 0,
       communityTop: document.querySelector(".community-review-panel")?.getBoundingClientRect().top || 0,
+      scoresTop: document.querySelector(".detail-community-score-section")?.getBoundingClientRect().top || 0,
     }));
     assert.ok(intermediate.overflow <= 1);
-    assert.ok(intermediate.reviewTop < intermediate.factsTop);
-    assert.ok(intermediate.factsTop < intermediate.communityTop);
+    assert.ok(intermediate.reviewTop < intermediate.scoresTop);
+    assert.ok(intermediate.scoresTop < intermediate.communityTop);
+    assert.ok(intermediate.communityTop < intermediate.factsTop);
 
     for (const width of [390, 320]) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
+      await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");
       const expansion = page.locator(".detail-route-overflow summary");
       await expansion.focus();
+      await page.evaluate(() => {
+        const details = document.querySelector(".detail-route-overflow");
+        window.__routeMotionObserved = false;
+        new MutationObserver(() => {
+          if (details?.classList.contains("is-route-overflow-revealing")) {
+            window.__routeMotionObserved = true;
+          }
+        }).observe(details, { attributes: true, attributeFilter: ["class"] });
+      });
       const focused = await expansion.evaluate((node) => {
         const styles = window.getComputedStyle(node);
         return { outlineStyle: styles.outlineStyle, outlineWidth: styles.outlineWidth };
       });
       await expansion.click();
+      await page.waitForFunction(() => window.__routeMotionObserved === true);
       const compact = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth - window.innerWidth,
         expanded: document.querySelector(".detail-route-overflow")?.open || false,
         visibleRoutes: document.querySelectorAll(".detail-collection-route").length,
+        actionHeights: Array.from(document.querySelectorAll(".detail-actions > a, .detail-actions > button"))
+          .map((node) => node.getBoundingClientRect().height),
       }));
       assert.ok(compact.overflow <= 1, `${width}px should not overflow`);
       assert.equal(focused.outlineStyle, "solid");
       assert.notEqual(focused.outlineWidth, "0px");
       assert.equal(compact.expanded, true);
       assert.equal(compact.visibleRoutes, 8);
+      assert.ok(compact.actionHeights.every((height) => height >= 44));
     }
+  } finally {
+    await page.close();
+  }
+});
+
+test("detail hero anchors focus their destination and verified start links are promoted", async () => {
+  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+
+  try {
+    await page.goto(`${baseUrl}/shows/spectre`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");
+    const startLink = page.locator(".detail-listen-action");
+    assert.equal(await startLink.textContent(), "Start listening");
+    assert.equal(await startLink.getAttribute("href"), "https://www.spectrepod.com/1-1-a-way-out/");
+
+    await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
+    await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");
+    await page.locator('[data-detail-anchor][href="#review-notes"]').click();
+    await page.waitForFunction(() => document.activeElement?.id === "review-notes");
+    const anchorState = await page.evaluate(() => ({
+      hash: window.location.hash,
+      arrived: document.querySelector("#review-notes")?.classList.contains("is-detail-anchor-arrived") || false,
+    }));
+    assert.equal(anchorState.hash, "#review-notes");
+    assert.equal(anchorState.arrived, true);
+
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.locator('[data-detail-anchor][href="#facts-links"]').click();
+    await page.waitForFunction(() => document.activeElement?.id === "facts-links");
+    const reducedState = await page.evaluate(() => document.querySelector("#facts-links")?.classList.contains("is-detail-anchor-arrived") || false);
+    assert.equal(reducedState, false);
   } finally {
     await page.close();
   }

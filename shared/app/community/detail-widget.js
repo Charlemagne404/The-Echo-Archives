@@ -229,7 +229,7 @@ function mountDetailRatingWidget(detailRoot, podcast) {
     distribution.appendChild(row);
   }
 
-  body.append(verification, buttons, utility, distribution);
+  body.append(buttons, utility, distribution, verification);
   section.append(heading, metricRow, summary, body);
 
   const communitySlot = detailRoot.querySelector(".detail-community-slot");

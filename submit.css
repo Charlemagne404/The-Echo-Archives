@@ -15,13 +15,14 @@
 
 .submit-hero-panel {
   min-height: 280px;
+  justify-content: space-between;
   padding: 34px 28px 26px;
   border-color: rgba(255, 255, 255, 0.14);
 }
 
 .submit-hero-copy {
   max-width: 36rem;
-  padding-top: 4px;
+  padding-top: 8px;
 }
 
 .submit-hero-copy p {
@@ -29,38 +30,70 @@
 }
 
 .submit-hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .submit-trust-pill {
-  min-height: 48px;
-  padding: 0 16px;
-  border-radius: 13px;
+  min-width: 0;
+  min-height: 64px;
+  padding: 10px 14px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: rgba(8, 11, 15, 0.84);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   color: rgba(247, 247, 243, 0.95);
   font-size: 0.92rem;
   font-weight: 600;
+  line-height: 1.2;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .submit-trust-pill-icon {
-  width: 17px;
-  height: 17px;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(247, 247, 243, 0.84);
+  border: 1px solid rgba(239, 89, 67, 0.18);
+  border-radius: 11px;
+  background: rgba(239, 89, 67, 0.09);
+  color: rgba(255, 144, 122, 0.96);
 }
 
 .submit-trust-pill-icon svg {
-  width: 100%;
-  height: 100%;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.submit-trust-pill-icon.is-protected {
+  border-color: rgba(118, 214, 90, 0.18);
+  background: rgba(118, 214, 90, 0.08);
+  color: rgba(153, 229, 130, 0.96);
+}
+
+.submit-trust-pill-icon.is-independent {
+  border-color: rgba(242, 184, 92, 0.2);
+  background: rgba(242, 184, 92, 0.08);
+  color: rgba(247, 198, 119, 0.96);
+}
+
+.submit-trust-pill-icon.is-community {
+  border-color: rgba(111, 179, 236, 0.2);
+  background: rgba(111, 179, 236, 0.08);
+  color: rgba(150, 204, 247, 0.96);
 }
 
 .submit-surface-card {
@@ -1594,7 +1627,7 @@
   }
 
   .submit-hero-trust {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .submit-surface-card,
@@ -1615,8 +1648,8 @@
   }
 
   .submit-trust-pill {
-    min-height: 52px;
-    padding: 0 18px;
+    min-height: 58px;
+    padding: 9px 12px;
     font-size: 0.94rem;
   }
 
@@ -1631,5 +1664,11 @@
   .submit-page .submit-remake-form select {
     padding-left: 14px;
     padding-right: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .submit-hero-trust {
+    grid-template-columns: 1fr;
   }
 }

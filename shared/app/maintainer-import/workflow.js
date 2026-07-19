@@ -71,10 +71,16 @@ export function buildReviewPayload(form, includeDetails = false) {
       networkName: String(formData.get("networkName") || ""), description: String(formData.get("description") || ""),
       categories: String(formData.get("categories") || ""), tags: String(formData.get("tags") || ""), language: String(formData.get("language") || ""),
       rssUrl: String(formData.get("rssUrl") || ""), websiteUrl: String(formData.get("websiteUrl") || ""),
-      appleUrl: String(formData.get("appleUrl") || ""), spotifyUrl: String(formData.get("spotifyUrl") || ""),
+      appleUrl: String(formData.get("appleUrl") || ""), spotifyUrl: String(formData.get("spotifyUrl") || ""), startUrl: String(formData.get("startUrl") || ""),
       episodeCount: String(formData.get("episodeCount") || ""), seasonCount: String(formData.get("seasonCount") || ""),
       avgEpisodeMinutes: String(formData.get("avgEpisodeMinutes") || ""), firstPublicationDate: String(formData.get("firstPublicationDate") || ""),
       latestPublicationDate: String(formData.get("latestPublicationDate") || ""), completionStatus: String(formData.get("completionStatus") || "unknown"),
+      subtitle: String(formData.get("subtitle") || ""), formats: String(formData.get("formats") || ""),
+      tones: String(formData.get("tones") || ""), themes: String(formData.get("themes") || ""), contentNotes: String(formData.get("contentNotes") || ""),
+      credits: String(formData.get("credits") || ""), patreonUrl: String(formData.get("patreonUrl") || ""),
+      koFiUrl: String(formData.get("koFiUrl") || ""), discordUrl: String(formData.get("discordUrl") || ""),
+      youtubeUrl: String(formData.get("youtubeUrl") || ""), socialUrls: String(formData.get("socialUrls") || ""),
+      cadenceLabel: String(formData.get("cadenceLabel") || ""), externalVerification: String(formData.get("externalVerification") || ""),
     } } : {}),
   };
 }

@@ -49,7 +49,7 @@ export function renderSimilarSection(show, showMap) {
     <section class="detail-section detail-similar-section">
       <div class="detail-section-header">
         <div>
-          <h2>Start next</h2>
+          <h2>Try next</h2>
           <p>Closest neighboring picks in the archive once you finish this one.</p>
         </div>
       </div>

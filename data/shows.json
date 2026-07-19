@@ -2467,6 +2467,7 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
+      "start": "https://arsparadoxica.com/season-1",
       "spotify": "https://open.spotify.com/show/6zCjlwfTyQ8grdlLIW4EAq",
       "apple": "https://podcasts.apple.com/us/podcast/ars-paradoxica/id1006173000",
       "website": "https://arsparadoxica.com/",
@@ -4123,6 +4124,7 @@
     "releaseStatus": "completed",
     "completionStatus": "finished",
     "listenLinks": {
+      "start": "https://www.spectrepod.com/1-1-a-way-out/",
       "apple": "https://podcasts.apple.com/us/podcast/spectre/id1593110598",
       "website": "https://www.spectrepod.com/",
       "rss": "https://feeds.redcircle.com/1d63f10e-ef38-41eb-8e2b-d2fd3fe007e6"
@@ -4677,6 +4679,7 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
+      "start": "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
       "spotify": "https://open.spotify.com/show/0RRSDPSo4fDJI5g7iHbJTy",
       "apple": "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
       "website": "https://www.derelictpodcast.com/",
@@ -4777,7 +4780,6 @@
     "metadata": {
       "objectiveSources": [
         "https://www.derelictpodcast.com/",
-        "https://www.derelictpodcast.com/season-one",
         "https://www.derelictpodcast.com/season-two",
         "https://podcasts.apple.com/us/podcast/derelict/id1473460202",
         "https://www.kickstarter.com/projects/nightrocket/derelict-war",
@@ -4799,7 +4801,7 @@
     "verification": {
       "status": "source-verified",
       "verifiedAt": "2026-07-18",
-      "source": "https://www.derelictpodcast.com/; https://www.derelictpodcast.com/season-one; https://www.derelictpodcast.com/season-two; https://podcasts.apple.com/us/podcast/derelict/id1473460202; https://www.kickstarter.com/projects/nightrocket/derelict-war; https://feeds.megaphone.fm/SBP4341397353",
+      "source": "https://www.derelictpodcast.com/; https://www.derelictpodcast.com/season-two; https://podcasts.apple.com/us/podcast/derelict/id1473460202; https://www.kickstarter.com/projects/nightrocket/derelict-war; https://feeds.megaphone.fm/SBP4341397353",
       "note": "Verification covers factual/objective metadata only. Ratings, recommendations, review text, and other opinion fields were preserved from the original archive data."
     },
     "aliases": [

@@ -40,6 +40,7 @@ Each show record uses this practical v1 shape:
   "releaseStatus": "active",
   "completionStatus": "ongoing",
   "listenLinks": {
+    "start": "https://example.com/season-1-or-episode-1",
     "spotify": "",
     "apple": "",
     "website": "",
@@ -326,6 +327,7 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - Every `similarTo` id must resolve to a real show.
 - Every `similarReasons` key must also appear in `similarTo`.
 - Every populated URL in `listenLinks` must be a valid absolute URL.
+- `listenLinks.start` is optional and reserved for a verified canonical beginning: an official episode-one, season-one, or explicit start-here page. Do not infer it from episode counts, use a generic show landing page, or link directly to an RSS audio enclosure.
 - Every populated URL in `officialLinks` must be a valid absolute URL.
 - Every populated `ratings` value must be numeric and between 0 and 10.
 - `popularity.score`, when present, must be numeric.

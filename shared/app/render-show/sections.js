@@ -61,7 +61,7 @@ export function renderIndexedArchiveNote(show) {
     reactionCopy,
   ].filter(Boolean).join("");
   return `
-    <section class="detail-section detail-indexed-archive-note" aria-labelledby="indexed-archive-note-title">
+    <section class="detail-section detail-indexed-archive-note" id="archive-note" tabindex="-1" aria-labelledby="indexed-archive-note-title">
       <article class="detail-summary detail-archive-note-summary"><p class="detail-summary-kicker" id="indexed-archive-note-title">Archive note</p>${content}</article>
     </section>
   `;
@@ -128,7 +128,7 @@ export function renderReviewSection(show, reviewData = {}) {
   const initialCard = hasArchive ? archiveCard : initialListenerReview ? renderListenerReviewCard(initialListenerReview) : "";
   const empty = totalSlides === 0;
   return `
-    <section class="detail-section detail-review-section" id="review-notes">
+    <section class="detail-section detail-review-section" id="review-notes" tabindex="-1">
       <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive editorial and moderated listener response, clearly credited.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${empty ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="${initialIndex}">

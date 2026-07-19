@@ -4,6 +4,7 @@ import { initializeDetailRatingPage } from "../community.js";
 import { initializeManagedImages } from "../images.js";
 import { createShowPageMarkup } from "../render-show.js";
 import { initializeReviewCarousels } from "../show-review-carousel.js";
+import { initializeShowDetailMotion } from "../show-detail-motion.js";
 import { renderRouteErrorSurface } from "../route-error.js";
 import { bindShareButton } from "../share.js";
 import { buildShowStructuredData } from "../structured-data.js";
@@ -121,6 +122,7 @@ async function hydrateShowPage(showRoot, show) {
     await initializeDetailRatingPage(show);
   }
   initializeReviewCarousels(showRoot);
+  initializeShowDetailMotion(showRoot);
 }
 
 function renderMissingShowPage(showRoot) {

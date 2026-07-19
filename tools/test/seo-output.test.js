@@ -131,10 +131,12 @@ test("private pages and generated asset plumbing have launch-safe output", () =>
   const home = read("index.html");
   assert.match(home, /href="\/home\.css\?v=/);
   assert.match(home, /href="\/collections\.css\?v=/);
+  assert.match(home, /href="\/public-heroes\.css\?v=/);
   assert.doesNotMatch(home, /href="\/(?:submit|maintainer|creators)\.css\?v=/);
 
   const submit = read("submit.html");
   assert.match(submit, /href="\/submit\.css\?v=/);
+  assert.match(submit, /href="\/public-heroes\.css\?v=/);
   assert.doesNotMatch(submit, /href="\/(?:home|maintainer|creators)\.css\?v=/);
 
   const maintainer = read("maintainer/submissions.html");
@@ -143,6 +145,7 @@ test("private pages and generated asset plumbing have launch-safe output", () =>
 
   [
     "style.css",
+    "public-heroes.css",
     "home.css",
     "info.css",
     "collections.css",
@@ -160,6 +163,7 @@ test("private pages and generated asset plumbing have launch-safe output", () =>
   assert.doesNotMatch(serviceWorker, /"\/500\.html"/);
   assert.match(serviceWorker, /"\/offline\.html"/);
   assert.match(serviceWorker, /"\/info\.css\?v=[a-f0-9]+"/);
+  assert.match(serviceWorker, /"\/public-heroes\.css\?v=[a-f0-9]+"/);
   assert.doesNotMatch(serviceWorker, /"\/data\/(?:shows|collections|search-index)\.json/);
   assert.doesNotMatch(serviceWorker, /"\/shared\/app\/(?:chat|maintainer|pages)\//);
 });

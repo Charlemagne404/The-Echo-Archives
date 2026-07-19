@@ -35,7 +35,7 @@ function canUseNativeShare() {
   return typeof navigator.share === "function" && window.matchMedia?.("(pointer: coarse)")?.matches === true;
 }
 
-function updateInlineStatus(button, message = "") {
+function updateInlineStatus(button, message = "", tone = "") {
   const statusNode =
     button.parentElement?.querySelector("[data-copy-link-status]") ||
     button.closest(".hero-copy, .detail-hero-copy, .collection-detail-hero-copy, .detail-section, .page-card")?.querySelector(
@@ -44,6 +44,14 @@ function updateInlineStatus(button, message = "") {
 
   if (statusNode instanceof HTMLElement) {
     statusNode.textContent = message;
+    statusNode.dataset.state = tone;
+    if (tone === "success") {
+      statusNode.classList.remove("is-detail-feedback-active");
+      void statusNode.offsetWidth;
+      statusNode.classList.add("is-detail-feedback-active");
+    } else {
+      statusNode.classList.remove("is-detail-feedback-active");
+    }
   }
 }
 
@@ -79,7 +87,7 @@ export function bindCopyLinkButton(
     const copied = await writeText(text);
     button.textContent = copied ? successLabel : failureLabel;
     const statusMessage = copied ? "Link copied to clipboard." : "Copy the current page URL manually.";
-    updateInlineStatus(button, statusMessage);
+    updateInlineStatus(button, statusMessage, copied ? "success" : "error");
     showToast({
       message: statusMessage,
       tone: copied ? "success" : "error",
@@ -120,7 +128,7 @@ export function bindShareButton(
           text: String(text || "").trim(),
           url: normalizedUrl,
         });
-        updateInlineStatus(button, shareSuccessMessage);
+        updateInlineStatus(button, shareSuccessMessage, "success");
         showToast({
           message: shareSuccessMessage,
           tone: "success",
@@ -137,7 +145,7 @@ export function bindShareButton(
 
     const copied = await writeText(normalizedUrl);
     const message = copied ? copySuccessMessage : copyFailureMessage;
-    updateInlineStatus(button, message);
+    updateInlineStatus(button, message, copied ? "success" : "error");
     showToast({
       message,
       tone: copied ? "success" : "error",

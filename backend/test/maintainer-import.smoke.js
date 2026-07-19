@@ -105,7 +105,7 @@ function listPayload(candidates) {
 
 test("maintainer import workspace handles progress, batch preparation, blockers, evidence, retry, review, and approval", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0 };
+  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0, lastReviewPayload: null };
   const candidates = [
     createCandidate(),
     createCandidate({
@@ -183,6 +183,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       }
       if (method === "PATCH" && pathname.endsWith("/review")) {
         calls.review += 1;
+        calls.lastReviewPayload = JSON.parse(request.postData() || "{}");
         candidates[0].reviewedAt = "2026-07-14T10:30:00.000Z";
         candidates[0].reviewedBy = "QA";
         return respond({ candidate: candidates[0] });
@@ -239,10 +240,31 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     assert.equal(calls.retry, 1);
 
     await page.locator('[data-import-candidate-id="ready-1"]').click();
+    await page.locator("[data-import-verification-response]").fill(JSON.stringify({
+      verified: { title: "Signal Test", tags: ["Science Fiction", "Space"] },
+      enrichment: {
+        formats: ["Serialized", "Full cast"],
+        tones: ["Atmospheric"],
+        people: [{ name: "Alex Writer", role: "writer" }],
+        cadenceLabel: "Weekly",
+      },
+      source_urls: ["https://example.com/feed.xml"],
+      field_sources: { formats: ["https://example.com/about"] },
+    }));
+    await page.getByRole("button", { name: "Preview verified fields" }).click();
+    await page.getByText("Catalog enrichment ready:").waitFor();
+    await page.getByRole("button", { name: "Apply verified fields to editor" }).click();
+    assert.equal(await page.locator('input[name="formats"]').inputValue(), "Serialized, Full cast");
+    assert.equal(await page.locator('input[name="cadenceLabel"]').inputValue(), "Weekly");
+    assert.equal(await page.locator('textarea[name="credits"]').inputValue(), "Alex Writer — writer");
+    await page.getByRole("button", { name: "Save show details" }).click();
+    await page.getByText("Import review state saved.").waitFor();
+    assert.equal(calls.lastReviewPayload.details.formats, "Serialized, Full cast");
+    assert.match(calls.lastReviewPayload.details.externalVerification, /https:\/\/example\.com\/about/);
     await page.locator('input[name="reviewedBy"]').fill("QA");
     await page.getByRole("button", { name: "Save review state" }).click();
     await page.getByText("Import review state saved.").waitFor();
-    assert.equal(calls.review, 1);
+    assert.equal(calls.review, 2);
     page.once("dialog", (dialog) => dialog.accept());
     await page.getByRole("button", { name: "Approve and publish" }).click();
     await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Published"));

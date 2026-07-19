@@ -75,10 +75,10 @@
   display: grid;
   grid-area: body;
   grid-template-areas:
-    "verification"
     "buttons"
     "utility"
-    "distribution";
+    "distribution"
+    "verification";
   grid-template-columns: minmax(0, 1fr);
   gap: 8px;
   margin-top: 0;
@@ -173,9 +173,9 @@
 
   .community-review-body {
     grid-template-areas:
-      "verification verification"
       "buttons distribution"
-      "utility distribution";
+      "utility distribution"
+      "verification verification";
     grid-template-columns: minmax(0, 1fr) minmax(250px, 0.9fr);
     column-gap: 16px;
   }

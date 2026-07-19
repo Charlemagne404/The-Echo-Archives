@@ -33,6 +33,7 @@ function createShowTemplate({ id, title = "", today = "" }) {
     releaseStatus: "unknown",
     completionStatus: "unclear",
     listenLinks: {
+      start: "",
       spotify: "",
       apple: "",
       website: "",

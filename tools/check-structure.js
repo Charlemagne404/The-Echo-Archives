@@ -130,6 +130,7 @@ function checkGeneratedAssets() {
   const jsAssets = ["script.js", "sw.js"].map((fileName) => readFile(path.join(ROOT, fileName)));
   const cssFileNames = [
     "style.css",
+    "public-heroes.css",
     "home.css",
     "info.css",
     "collections.css",

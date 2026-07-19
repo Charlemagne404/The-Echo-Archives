@@ -189,6 +189,45 @@ function splitTags(value = "") {
   return mergeUniqueStrings(String(value || "").split(/[\n,]/).map((item) => trimText(item, 80)).filter(Boolean));
 }
 
+function splitEditorList(value = "", limit = 8) {
+  return splitTags(value).slice(0, limit);
+}
+
+function normalizeCredits(value = "") {
+  return String(value || "").split(/\r?\n/).map((line) => {
+    const [name, ...roleParts] = line.split(/\s*(?:—|–|-)\s*/);
+    const normalizedName = trimText(name, 240);
+    const role = trimText(roleParts.join(" "), 100).toLowerCase();
+    return normalizedName && role ? { name: normalizedName, role } : null;
+  }).filter(Boolean).slice(0, 20);
+}
+
+function parseExternalVerification(value = "") {
+  const input = trimText(value, 20_000);
+  if (!input) return null;
+  let parsed;
+  try {
+    parsed = JSON.parse(input);
+  } catch (_error) {
+    const error = new Error("External verification metadata must be valid JSON.");
+    error.statusCode = 400;
+    throw error;
+  }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
+  const urls = (items) => mergeUniqueStrings(Array.isArray(items) ? items : [])
+    .map((item) => normalizeUrl(item)).filter(Boolean).slice(0, 12);
+  const fieldSources = Object.fromEntries(Object.entries(parsed.fieldSources || {})
+    .map(([field, sourceUrls]) => [trimText(field, 80), urls(sourceUrls)])
+    .filter(([field, sourceUrls]) => field && sourceUrls.length));
+  return {
+    sourceUrls: urls(parsed.sourceUrls),
+    fieldSources,
+    notes: trimText(parsed.notes, 1_200),
+    uncertainFields: splitEditorList(Array.isArray(parsed.uncertainFields) ? parsed.uncertainFields.join(",") : "", 20),
+    reviewedAt: new Date().toISOString(),
+  };
+}
+
 function normalizeEditedUrl(value, label) {
   const input = trimText(value, 2_000);
   if (!input) return "";
@@ -232,8 +271,10 @@ function normalizeEditableDetails(raw = {}) {
     throw error;
   }
   const completionStatus = ["unknown", "ongoing", "finished"].includes(raw.completionStatus) ? raw.completionStatus : "unknown";
+  const externalResearch = parseExternalVerification(raw.externalVerification);
   return {
     title,
+    subtitle: trimText(raw.subtitle, 240),
     creatorName: trimText(raw.creatorName, 240),
     networkName: trimText(raw.networkName, 240),
     description: cleanDescription(raw.description, 4_000),
@@ -244,12 +285,29 @@ function normalizeEditableDetails(raw = {}) {
     websiteUrl: normalizeEditedUrl(raw.websiteUrl, "Official website URL"),
     appleUrl: normalizeEditedUrl(raw.appleUrl, "Apple URL"),
     spotifyUrl: normalizeEditedUrl(raw.spotifyUrl, "Spotify URL"),
+    startUrl: normalizeEditedUrl(raw.startUrl, "Start-listening URL"),
     episodeCount: normalizeEditedNumber(raw.episodeCount, "Episode count"),
     seasonCount: normalizeEditedNumber(raw.seasonCount, "Season count"),
     avgEpisodeMinutes: normalizeEditedNumber(raw.avgEpisodeMinutes, "Average runtime"),
     firstPublicationDate: normalizeEditedDate(raw.firstPublicationDate, "First release date"),
     latestPublicationDate: normalizeEditedDate(raw.latestPublicationDate, "Latest release date"),
     manualReleaseState: completionStatus,
+    manualEnrichment: {
+      formats: splitEditorList(raw.formats),
+      tones: splitEditorList(raw.tones),
+      themes: splitEditorList(raw.themes),
+      contentNotes: splitEditorList(raw.contentNotes),
+      people: normalizeCredits(raw.credits),
+      officialLinks: {
+        patreonUrl: normalizeEditedUrl(raw.patreonUrl, "Patreon URL"),
+        koFiUrl: normalizeEditedUrl(raw.koFiUrl, "Ko-fi URL"),
+        discordUrl: normalizeEditedUrl(raw.discordUrl, "Discord URL"),
+        youtubeUrl: normalizeEditedUrl(raw.youtubeUrl, "YouTube URL"),
+      },
+      socialUrls: splitEditorList(raw.socialUrls, 12).map((url) => normalizeEditedUrl(url, "Official social URL")).filter(Boolean),
+      cadenceLabel: trimText(raw.cadenceLabel, 160),
+    },
+    ...(externalResearch ? { externalResearch } : {}),
   };
 }
 
@@ -1142,8 +1200,15 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         throw error;
       }
       const details = normalizeEditableDetails(rawUpdates.details);
-      const { tags, ...objectiveDetails } = details;
-      const objective = { ...candidate.objective, ...objectiveDetails, manualTags: tags };
+      const { tags, subtitle, manualEnrichment, externalResearch, ...objectiveDetails } = details;
+      const objective = {
+        ...candidate.objective,
+        ...objectiveDetails,
+        manualSubtitle: subtitle,
+        manualTags: tags,
+        manualEnrichment,
+        ...(externalResearch ? { externalResearch } : {}),
+      };
       delete objective.complete;
       ["episodeCount", "seasonCount", "avgEpisodeMinutes"].forEach((field) => {
         if (details[field] === undefined) delete objective[field];
@@ -1152,9 +1217,9 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       const editedFields = {
         title: "title", creatorName: "creatorName", networkName: "networkName", description: "description",
         categories: "genres", tags: "tags", language: "languages", rssUrl: "listenLinks", websiteUrl: "officialLinks",
-        appleUrl: "listenLinks", spotifyUrl: "listenLinks", episodeCount: "length", seasonCount: "length",
+        appleUrl: "listenLinks", spotifyUrl: "listenLinks", startUrl: "listenLinks", episodeCount: "length", seasonCount: "length",
         avgEpisodeMinutes: "length", firstPublicationDate: "releaseDates", latestPublicationDate: "releaseDates",
-        manualReleaseState: "releaseStatus",
+        manualReleaseState: "releaseStatus", subtitle: "subtitle", manualEnrichment: "catalogEnrichment",
       };
       Object.entries(editedFields).forEach(([field, recordField]) => {
         provenance.fields[field] = { confidence: 1, method: "maintainer-edit", sources: [] };

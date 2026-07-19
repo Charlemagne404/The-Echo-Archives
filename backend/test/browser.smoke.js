@@ -128,6 +128,99 @@ test("collections trust bar matches the browse hero", async () => {
   }
 });
 
+test("public heroes keep full and compact sizing contracts", async () => {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  const fullRoutes = [
+    { url: "/collections", panel: ".collections-hero-panel", copy: ".collections-hero-copy" },
+    { url: "/help-center", panel: ".help-center-hero-panel", copy: ".help-center-hero-copy" },
+  ];
+  const compactRoutes = [
+    { url: "/for-creators", panel: ".creators-hero-panel", copy: ".creators-hero-copy" },
+    { url: "/submit", panel: ".submit-hero-panel", copy: ".submit-hero-copy" },
+    { url: "/about", panel: ".about-hero-panel", copy: ".about-hero-copy" },
+  ];
+  const heroStyles = async (panelSelector, copySelector) =>
+    page.locator(panelSelector).evaluate((panel, copy) => {
+      const panelStyles = window.getComputedStyle(panel);
+      const headingStyles = window.getComputedStyle(document.querySelector(`${copy} h1`));
+      return {
+        panel: {
+          minHeight: panelStyles.minHeight,
+          padding: panelStyles.padding,
+          borderRadius: panelStyles.borderRadius,
+        },
+        heading: {
+          fontSize: headingStyles.fontSize,
+          lineHeight: headingStyles.lineHeight,
+          letterSpacing: headingStyles.letterSpacing,
+        },
+      };
+    }, copySelector);
+
+  try {
+    for (const viewport of [
+      { width: 1440, height: 900 },
+      { width: 390, height: 844 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await page.goto(`${baseUrl}/`, { waitUntil: "load" });
+      const browseStyles = await heroStyles(".hero-panel", ".hero-copy");
+
+      for (const route of fullRoutes) {
+        await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
+        assert.deepEqual(
+          await heroStyles(route.panel, route.copy),
+          browseStyles,
+          `${route.url} should match the browse hero at ${viewport.width}px`,
+        );
+      }
+
+      if (viewport.width <= 780) {
+        for (const route of compactRoutes) {
+          await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
+          assert.deepEqual(
+            await heroStyles(route.panel, route.copy),
+            browseStyles,
+            `${route.url} should use the browse mobile contract at ${viewport.width}px`,
+          );
+        }
+      } else {
+        let compactPanelStyles = null;
+        for (const route of compactRoutes) {
+          await page.goto(`${baseUrl}${route.url}`, { waitUntil: "load" });
+          const routeStyles = await heroStyles(route.panel, route.copy);
+          compactPanelStyles ||= routeStyles.panel;
+          assert.deepEqual(routeStyles.panel, compactPanelStyles, `${route.url} should use the shared compact panel`);
+          assert.deepEqual(routeStyles.heading, browseStyles.heading, `${route.url} should keep browse heading typography`);
+          assert.equal(
+            Math.round(await page.locator(route.panel).evaluate((panel) => panel.getBoundingClientRect().height)),
+            330,
+            `${route.url} should render at the compact desktop height`,
+          );
+        }
+      }
+    }
+
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(`${baseUrl}/collections`, { waitUntil: "load" });
+    const moodActionStyles = await page.locator("#startWithMood").evaluate((button) => {
+      const styles = window.getComputedStyle(button);
+      return {
+        display: styles.display,
+        minHeight: styles.minHeight,
+        borderRadius: styles.borderRadius,
+      };
+    });
+    assert.deepEqual(moodActionStyles, {
+      display: "flex",
+      minHeight: "58px",
+      borderRadius: "14px",
+    });
+  } finally {
+    await page.close();
+  }
+});
+
 test("static delivery files expose intentional HTTP statuses", async () => {
   const staticPaths = [
     { path: "/404.html", status: 404 },

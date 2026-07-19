@@ -303,6 +303,7 @@ test("server exposes only intended public files and preserves legacy show redire
 
     for (const route of [
       "/style.css",
+      "/public-heroes.css",
       "/info.css",
       "/collections.css",
       "/creators.css",

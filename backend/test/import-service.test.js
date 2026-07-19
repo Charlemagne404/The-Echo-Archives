@@ -314,6 +314,69 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
   }
 });
 
+test("maintainer enrichment prepares source-backed discovery detail without creating editorial content", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], actor: "CA", autoHydrate: true });
+    const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
+    const updated = context.service.reviewForMaintainer(candidate.id, {
+      status: "ready",
+      scopeStatus: "in-scope",
+      reviewedBy: "CA",
+      details: {
+        title: candidate.objective.title,
+        subtitle: "Strange transmissions from a missing station.",
+        creatorName: candidate.objective.creatorName,
+        networkName: candidate.objective.networkName,
+        description: candidate.objective.description,
+        categories: candidate.objective.categories.join(", "),
+        tags: "Sci-fi, Space, Mystery",
+        language: candidate.objective.language,
+        rssUrl: candidate.objective.rssUrl,
+        websiteUrl: candidate.objective.websiteUrl,
+        appleUrl: candidate.objective.appleUrl,
+        spotifyUrl: candidate.objective.spotifyUrl,
+        episodeCount: candidate.objective.episodeCount,
+        seasonCount: candidate.objective.seasonCount,
+        avgEpisodeMinutes: candidate.objective.avgEpisodeMinutes,
+        firstPublicationDate: candidate.objective.firstPublicationDate?.slice(0, 10),
+        latestPublicationDate: candidate.objective.latestPublicationDate?.slice(0, 10),
+        completionStatus: "ongoing",
+        formats: "Serialized, Full cast",
+        tones: "Atmospheric, Suspenseful",
+        themes: "Isolation, First contact",
+        contentNotes: "Official advisory: strong language",
+        credits: "Alex Writer — writer\nMorgan Voice — cast",
+        patreonUrl: "https://patreon.com/signal-lost",
+        koFiUrl: "",
+        discordUrl: "https://discord.gg/signal-lost",
+        youtubeUrl: "",
+        socialUrls: "https://instagram.com/signal-lost",
+        cadenceLabel: "Weekly",
+        externalVerification: JSON.stringify({
+          sourceUrls: ["https://example.com/feed.xml"],
+          fieldSources: { formats: ["https://example.com/about"] },
+          notes: "Credits and cadence checked against the official about page.",
+        }),
+      },
+    }, "CA");
+
+    assert.equal(updated.preparedRecord.subtitle, "Strange transmissions from a missing station.");
+    assert.deepEqual(updated.preparedRecord.tones, ["Atmospheric", "Suspenseful"]);
+    assert.deepEqual(updated.preparedRecord.themes, ["Isolation", "First contact"]);
+    assert.deepEqual(updated.preparedRecord.contentNotes, ["Official advisory: strong language"]);
+    assert.ok(updated.preparedRecord.formats.includes("Full cast"));
+    assert.deepEqual(updated.preparedRecord.cast, ["Morgan Voice"]);
+    assert.equal(updated.preparedRecord.officialLinks.patreon, "https://patreon.com/signal-lost");
+    assert.equal(updated.preparedRecord.metadata.schedule.label, "Weekly");
+    assert.equal(updated.preparedRecord.metadata.import.externalResearch.notes, "Credits and cadence checked against the official about page.");
+    assert.equal(updated.preparedRecord.archiveTake, "");
+    assert.deepEqual(updated.preparedRecord.ratings, {});
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("high-confidence official disagreement blocks publication and exposes reviewer-selectable evidence", async () => {
   const context = createTempImportContext({ fetchImpl: sourceRichFetch({ conflictingWebsiteTitle: "Signal Harbour" }) });
   try {
