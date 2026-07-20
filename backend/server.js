@@ -274,7 +274,7 @@ async function startServer() {
   });
   const submissionService = createSubmissionService({
     store: submissionStore,
-    knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
+    knownShows: state.publicCatalog,
     rateLimiter: rateLimitService,
   });
   const publishedListenerReviewService = createPublishedListenerReviewService({
@@ -294,7 +294,7 @@ async function startServer() {
     onPublished: async () => {
       await reloadState();
       communityStore.syncCatalog(state.publicCatalog);
-      submissionService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
+      submissionService.setKnownShows(state.publicCatalog);
       publishedListenerReviewService.setKnownShowIds(new Set(state.publicCatalog.map((show) => show.id)));
     },
   });

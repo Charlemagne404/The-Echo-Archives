@@ -404,25 +404,30 @@ test("review carousel keeps the server-rendered archive first, supports accessib
   }
 });
 
-test("listener review category controls start unselected and expose six labelled 1-to-10 radio scales", async () => {
+test("listener review category controls start optional, collapsed, and expose six labelled 1-to-10 radio scales", async () => {
   const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
 
   try {
     await page.goto(`${baseUrl}/submit?submissionType=listener-review&showId=impact-winter`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.querySelectorAll("[data-category-score-group]").length === 6);
-    const categories = await page.evaluate(() => Array.from(document.querySelectorAll("[data-category-score-group]")).map((group) => ({
-      name: group.getAttribute("aria-label") || "",
-      required: group.getAttribute("aria-required"),
-      radioCount: group.querySelectorAll('[role="radio"]').length,
-      checked: group.querySelectorAll('[role="radio"][aria-checked="true"]').length,
-    })));
+    const categories = await page.evaluate(() => Array.from(document.querySelectorAll("[data-category-score-group]")).map((group) => {
+      const radiogroup = group.querySelector('[role="radiogroup"]');
+      return {
+        name: radiogroup?.getAttribute("aria-label") || "",
+        required: radiogroup?.getAttribute("aria-required"),
+        radioCount: radiogroup?.querySelectorAll('[role="radio"]').length || 0,
+        checked: radiogroup?.querySelectorAll('[role="radio"][aria-checked="true"]').length || 0,
+      };
+    }));
     assert.equal(categories.length, 6);
     categories.forEach((category) => {
       assert.match(category.name, /rating$/i);
-      assert.equal(category.required, "true");
+      assert.equal(category.required, null);
       assert.equal(category.radioCount, 10);
       assert.equal(category.checked, 0);
     });
+    assert.equal(await page.locator("#submitDetailedRatings").getAttribute("open"), null);
+    await page.locator("#submitDetailedRatings > summary").click();
     await page.locator('[data-category-score="voiceActing"][data-category-score-value="8"]').click();
     assert.equal(await page.locator('[data-category-score="voiceActing"][aria-checked="true"]').count(), 1);
   } finally {

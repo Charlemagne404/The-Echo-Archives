@@ -27,6 +27,26 @@ export const CORRECTION_TYPE_OPTIONS = [
   { value: "other", label: "Other" },
 ];
 
+export const CORRECTION_LINK_ACTION_OPTIONS = [
+  { value: "replace", label: "Replace link" },
+  { value: "remove", label: "Remove link" },
+];
+
+export const CORRECTION_METADATA_FIELD_OPTIONS = [
+  { value: "creator", label: "Creator or network" },
+  { value: "description", label: "Description" },
+  { value: "release-date", label: "Release date" },
+  { value: "runtime", label: "Runtime" },
+  { value: "language", label: "Language" },
+  { value: "other", label: "Other metadata" },
+];
+
+export const CORRECTION_CREDIT_ACTION_OPTIONS = [
+  { value: "add", label: "Add credit" },
+  { value: "update", label: "Update credit" },
+  { value: "remove", label: "Remove credit" },
+];
+
 export const COMPLETION_STATUS_OPTIONS = [
   { value: "ongoing", label: "Ongoing" },
   { value: "completed", label: "Completed" },
@@ -81,12 +101,12 @@ export const REVIEW_STRENGTH_OPTIONS = [
 ];
 
 export const LISTENER_REVIEW_CATEGORIES = [
-  { key: "voiceActing", label: "Voice acting" },
-  { key: "soundDesign", label: "Sound design" },
-  { key: "story", label: "Story" },
-  { key: "characters", label: "Characters" },
-  { key: "ads", label: "Ads" },
-  { key: "length", label: "Length" },
+  { key: "voiceActing", label: "Voice acting", description: "1 = weak; 10 = exceptional" },
+  { key: "soundDesign", label: "Sound design", description: "1 = weak; 10 = exceptional" },
+  { key: "story", label: "Story", description: "1 = weak; 10 = exceptional" },
+  { key: "characters", label: "Characters", description: "1 = weak; 10 = exceptional" },
+  { key: "ads", label: "Ad experience", description: "1 = very disruptive; 10 = ad-free or unobtrusive" },
+  { key: "length", label: "Episode length & pacing", description: "1 = poorly matched; 10 = feels right for the show" },
 ];
 
 export const ROLE_OPTIONS = [

@@ -2,14 +2,128 @@ import { OFFICIAL_LINK_OPTIONS, ROLE_OPTIONS, VERIFICATION_METHOD_OPTIONS } from
 import { renderExistingShowField, renderSegmentedField } from "../choice-fields.js";
 import { renderFormRow, renderSelectField, renderTextInputField, renderTextareaField } from "../base-fields.js";
 import { renderLinkListField } from "../link-fields.js";
+import { renderOptionalDisclosure, renderShowContext } from "../supporting.js";
+
+function renderEvidenceFields(draft) {
+  switch (draft.verificationMethod) {
+    case "official-domain-email":
+      return renderTextInputField({
+        id: "submitContactEmail",
+        label: "Official-domain email",
+        required: true,
+        type: "email",
+        value: draft.contactEmail,
+        maxLength: 160,
+        placeholder: "name@official-show-domain.com",
+        autocomplete: "email",
+        helper: "Domain matching helps review but never creates automatic verification.",
+      });
+    case "website":
+      return renderTextInputField({
+        id: "submitProofUrl",
+        label: "Official website proof URL",
+        required: true,
+        type: "url",
+        value: draft.proofUrl,
+        maxLength: 500,
+        placeholder: "https://example.com/about",
+      });
+    case "social-account":
+      return renderTextInputField({
+        id: "submitProofUrl",
+        label: "Official social profile URL",
+        required: true,
+        type: "url",
+        value: draft.proofUrl,
+        maxLength: 500,
+        placeholder: "https://social.example.com/official-profile",
+      });
+    case "press-kit":
+      return renderTextInputField({
+        id: "submitProofUrl",
+        label: "Public press-kit URL",
+        required: true,
+        type: "url",
+        value: draft.proofUrl,
+        maxLength: 500,
+        placeholder: "https://example.com/press-kit",
+      });
+    default:
+      return [
+        renderFormRow([
+          renderTextInputField({
+            id: "submitProofUrl",
+            label: "Evidence URL (optional)",
+            type: "url",
+            value: draft.proofUrl,
+            maxLength: 500,
+            placeholder: "https://example.com/proof",
+          }),
+          renderTextInputField({
+            id: "submitContactEmail",
+            label: "Contact email (optional)",
+            type: "email",
+            value: draft.contactEmail,
+            maxLength: 160,
+            placeholder: "you@example.com",
+            autocomplete: "email",
+            helper: "Provide this or an evidence URL.",
+          }),
+        ]),
+        renderTextareaField({
+          id: "submitEvidenceDescription",
+          label: "How can we verify your association?",
+          required: true,
+          value: draft.evidenceDescription,
+          maxLength: 1000,
+          rows: 4,
+          helper: "Describe the proof path and provide either the URL or email above.",
+          placeholder: "Explain the official channel or evidence we should check.",
+          short: true,
+        }),
+      ].join("");
+  }
+}
 
 export function renderCreatorVerificationMode(draft, context) {
+  const optionalFields = [
+    renderTextareaField({
+      id: "submitPreferredDescription",
+      label: "Preferred official description (optional)",
+      value: draft.preferredDescription,
+      maxLength: 1000,
+      rows: 5,
+      helper: "Add this only when the official description should be updated.",
+      placeholder: "Paste the official short description.",
+    }),
+    renderLinkListField({
+      fieldName: "officialLinks",
+      label: "Official links to confirm or update (optional)",
+      helper: "Add only destinations that should be added, confirmed, or changed.",
+      rows: draft.officialLinks,
+      options: OFFICIAL_LINK_OPTIONS,
+      plain: false,
+      chooseBeforeAdd: true,
+      emptyMessage: "No official link changes added.",
+      addOptionsAriaLabel: "Add an official link update",
+    }),
+    renderTextareaField({
+      id: "submitVerificationNotes",
+      label: "Additional notes (optional)",
+      value: draft.optionalNotes,
+      maxLength: 1000,
+      rows: 4,
+      placeholder: "Anything else that helps the verification review.",
+      short: true,
+    }),
+  ].join("");
+
   return [
     renderExistingShowField({
       label: "Archive entry / show",
       required: true,
       value: draft.showSearch,
-      helper: "Search or select the archive entry this update applies to.",
+      helper: "Search and select the archive entry this request applies to.",
       searchResults: context.searchResults,
       searchOpen: context.searchOpen,
       selectedShowId: draft.existingShowId,
@@ -17,6 +131,7 @@ export function renderCreatorVerificationMode(draft, context) {
       lookupMessage: context.lookupMessage,
       highlightIndex: context.showHighlightIndex,
     }),
+    renderShowContext(context),
     renderFormRow([
       renderTextInputField({
         id: "submitCreatorName",
@@ -32,26 +147,6 @@ export function renderCreatorVerificationMode(draft, context) {
         required: true,
         value: draft.role,
         options: ROLE_OPTIONS,
-        helper: "Examples: creator, producer, network rep, publicist.",
-      }),
-    ]),
-    renderFormRow([
-      renderTextInputField({
-        id: "submitOfficialSite",
-        label: "Official website",
-        type: "url",
-        value: draft.officialSite,
-        maxLength: 500,
-        placeholder: "https://example.com",
-      }),
-      renderTextInputField({
-        id: "submitProofUrl",
-        label: "Proof link or profile URL",
-        required: true,
-        type: "url",
-        value: draft.proofUrl,
-        maxLength: 500,
-        placeholder: "https://example.com/about",
       }),
     ]),
     renderSegmentedField({
@@ -63,46 +158,23 @@ export function renderCreatorVerificationMode(draft, context) {
       options: VERIFICATION_METHOD_OPTIONS,
       wide: true,
     }),
+    `<section id="submitVerificationEvidence" class="submit-conditional-fields" aria-label="Verification evidence">${renderEvidenceFields(draft)}</section>`,
     renderTextareaField({
       id: "submitRequestedUpdates",
-      label: "Requested updates",
+      label: "Facts to confirm or update",
       required: true,
       value: draft.requestedUpdates,
       maxLength: 1000,
       rows: 5,
-      helper: "Describe what should be confirmed or updated, such as links, status, artwork, or metadata.",
-      placeholder: "Describe the factual updates that should be confirmed.",
+      helper: "Describe factual links, status, artwork, credits, or metadata—not ratings or editorial opinions.",
+      placeholder: "Describe the factual details that should be confirmed or updated.",
     }),
-    renderTextareaField({
-      id: "submitPreferredDescription",
-      label: "Preferred official description (optional)",
-      value: draft.preferredDescription,
-      maxLength: 1000,
-      rows: 5,
-      helper: "Provide the official description to be used in the archive.",
-      placeholder: "Paste the official short description if you want us to consider it.",
-    }),
-    renderLinkListField({
-      fieldName: "officialLinks",
-      label: "Official links (add at least one)",
-      helper: "Click an official link type to add it, then paste the official destination URL.",
-      required: true,
-      rows: draft.officialLinks,
-      options: OFFICIAL_LINK_OPTIONS,
-      plain: false,
-      chooseBeforeAdd: true,
-      emptyMessage: "No official links added yet.",
-      addOptionsAriaLabel: "Add an official link",
-    }),
-    renderTextareaField({
-      id: "submitVerificationNotes",
-      label: "Optional notes",
-      value: draft.optionalNotes,
-      maxLength: 1000,
-      rows: 4,
-      helper: "Anything else we should know.",
-      placeholder: "Optional notes for the archive review team.",
-      short: true,
+    renderOptionalDisclosure({
+      id: "submitAdditionalVerification",
+      title: "Add proposed official details (optional)",
+      summary: "Description, link updates, and notes",
+      open: draft.additionalVerificationOpen,
+      content: optionalFields,
     }),
   ].join("");
 }

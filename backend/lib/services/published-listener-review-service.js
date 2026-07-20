@@ -19,10 +19,14 @@ function createValidationError(message) {
   return error;
 }
 
-function normalizeCategoryScores(value, { requireComplete = false } = {}) {
+function normalizeCategoryScores(value) {
   const source = value && typeof value === "object" && !Array.isArray(value) ? value : {};
   const normalized = {};
-  let suppliedCount = 0;
+
+  const unknownKeys = Object.keys(source).filter((key) => !CATEGORY_SCORE_KEYS.includes(key));
+  if (unknownKeys.length > 0) {
+    throw createValidationError("Unknown detailed rating category.");
+  }
 
   for (const key of CATEGORY_SCORE_KEYS) {
     const rawValue = source[key];
@@ -30,20 +34,14 @@ function normalizeCategoryScores(value, { requireComplete = false } = {}) {
       normalized[key] = null;
       continue;
     }
-    suppliedCount += 1;
-    const score = Number.parseInt(String(rawValue), 10);
+    const normalizedValue = String(rawValue).trim();
+    const score = /^\d+$/.test(normalizedValue) ? Number(normalizedValue) : Number.NaN;
     if (!Number.isInteger(score) || score < 1 || score > 10) {
       throw createValidationError(`${toCategoryLabel(key)} must be a whole number from 1 to 10.`);
     }
     normalized[key] = score;
   }
 
-  if (suppliedCount > 0 && suppliedCount !== CATEGORY_SCORE_KEYS.length) {
-    throw createValidationError("Rate every category from 1 to 10 before publishing this listener review.");
-  }
-  if (requireComplete && suppliedCount !== CATEGORY_SCORE_KEYS.length) {
-    throw createValidationError("Published listener reviews need all six category scores.");
-  }
   return normalized;
 }
 
@@ -114,9 +112,9 @@ function createPublishedListenerReviewService({
 
   function buildValues(submission, edits = {}, existing = null) {
     const payload = submission.payload_json || {};
-    const ratingStars = Number.parseInt(String(edits.ratingStars ?? payload.ratingStars), 10);
+    const ratingStars = Number(String(edits.ratingStars ?? payload.ratingStars).trim());
     const spoilerLevel = trim(edits.spoilerLevel ?? payload.spoilerLevel ?? "spoiler-free", 40);
-    const title = trim(edits.title ?? payload.reviewTitle, 80);
+    const title = trim(edits.title ?? payload.reviewTitle, 80) || "Listener review";
     const body = trim(edits.body ?? payload.reviewText ?? payload.review, 4000);
     const authorName = trim(edits.authorName ?? payload.alias, 120) || "Anonymous listener";
     const categorySource = Object.hasOwn(edits, "categoryScores")
@@ -155,7 +153,6 @@ function createPublishedListenerReviewService({
     if (submission.status !== "accepted") throw createValidationError("Accept the listener review before publishing it.");
     const existing = store.getBySubmissionId(submissionId);
     const values = buildValues(submission, edits, existing);
-    values.categoryScores = normalizeCategoryScores(values.categoryScores, { requireComplete: true });
     return store.upsert({ ...values, publish: true });
   }
 

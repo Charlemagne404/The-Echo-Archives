@@ -1,88 +1,39 @@
 export const listenerReviewModeConfig = {
-    heroDescription:
-      "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
-    cardTitle: "Submit a listener review",
-    cardDescription: "Share your take to help other listeners discover.",
-    cardIcon: "mode-review",
-    introTitle: "Listener review",
-    introDescription: "Tell other listeners what to expect and why this show matters.",
-    introIcon: "review",
-    submitLabel: "Send listener review",
-    footerNote: "Listener reviews may be summarized or quoted, but archive ratings stay editorially independent.",
-    steps: [
-      {
-        title: "You submit",
-        body: "Send us your review using the form below.",
-      },
-      {
-        title: "We review",
-        body: "Our team reads and edits for clarity and respect.",
-      },
-      {
-        title: "It enters the archive",
-        body: "If accepted, it can inform future community context on the relevant archive entry.",
-      },
-    ],
-    railCards: [
-      {
-        title: "Review guidelines",
-        icon: "star-badge",
-        accent: true,
-        description: "Help keep the archive useful and respectful.",
-        items: [
-          {
-            title: "Keep it spoiler-tagged",
-            description: "Choose the right spoiler level and do not drop untagged major reveals.",
-            icon: "tag",
-            accent: true,
-          },
-          {
-            title: "Stay respectful",
-            description: "Be kind to creators and other listeners. No harassment or hate.",
-            icon: "team",
-          },
-          {
-            title: "Focus on what listeners should know",
-            description: "Highlight tone, themes, strengths, and who this show is for.",
-            icon: "review",
-            accent: true,
-          },
-          {
-            title: "Edits may be made for clarity",
-            description: "We may edit for length, grammar, and consistency.",
-            icon: "pencil",
-          },
-        ],
-      },
-      {
-        title: "How reviews are used",
-        icon: "info",
-        description: "Listener reviews help others decide what to listen to next.",
-        items: [
-          {
-            title: "Community voice",
-            description: "Reviews reflect real listener experiences and perspectives.",
-            icon: "team",
-          },
-          {
-            title: "Discovery support",
-            description: "Accepted reviews can inform future show-page community context without replacing archive notes.",
-            icon: "spark",
-          },
-          {
-            title: "Editorial independence",
-            description: "Reviews inform discovery, but our ratings remain editorially independent.",
-            icon: "archive",
-          },
-        ],
-      },
-      {
-        title: "Questions?",
-        icon: "question",
-        accent: true,
-        description: "Visit our help center or reach out to the Archivist.",
-        buttonLabel: "Ask the Archivist",
-        footer: "We're here to help.",
-      },
-    ],
+  heroDescription: "Choose the right path to help keep the archive accurate, useful, and easy to discover.",
+  cardTitle: "Submit a listener review",
+  cardDescription: "Share your take with other listeners.",
+  cardIcon: "mode-review",
+  introTitle: "Listener review",
+  introDescription: "Share a useful, respectful review. Detailed category ratings are optional.",
+  introIcon: "review",
+  submitLabel: "Submit listener review",
+  footerNote: "Next: moderation before any publication decision.",
+  steps: [
+    { title: "Submit", body: "Share your rating, spoiler level, and review." },
+    { title: "Moderate", body: "We review and may edit for clarity, length, and respect." },
+    { title: "Publish", body: "Accepted reviews require a separate publication action." },
+  ],
+  railCards: [
+    {
+      title: "After you submit",
+      icon: "clock",
+      accent: true,
+      items: [
+        { title: "Moderate", description: "We read submissions and may edit for clarity or length.", icon: "review", accent: true },
+        { title: "Publish", description: "Accepted reviews still require an explicit publication action.", icon: "check" },
+        { title: "Aggregate", description: "Only published scores affect public category averages.", icon: "team" },
+      ],
+    },
+    {
+      title: "Review guidelines",
+      icon: "star-badge",
+      description: "Help another listener decide whether this show is for them.",
+      items: [
+        { title: "Tag spoilers accurately", description: "Do not leave major reveals unmarked.", icon: "tag", accent: true },
+        { title: "Stay respectful", description: "Critique the work without harassing creators or listeners.", icon: "team" },
+        { title: "Archive ratings stay editorial", description: "Listener reviews add community context, not editorial control.", icon: "archive" },
+      ],
+      buttonLabel: "Ask the Archivist",
+    },
+  ],
 };

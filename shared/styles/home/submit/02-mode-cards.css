@@ -116,7 +116,7 @@
 }
 
 .submit-field-helper {
-  color: rgba(247, 247, 243, 0.48);
+  color: rgba(247, 247, 243, 0.7);
   font-size: 0.85rem;
   line-height: 1.45;
 }
@@ -162,15 +162,15 @@
 
 .submit-page .submit-remake-form input::placeholder,
 .submit-page .submit-remake-form textarea::placeholder {
-  color: rgba(247, 247, 243, 0.38);
+  color: rgba(247, 247, 243, 0.62);
 }
 
 .submit-page .submit-remake-form input:focus,
 .submit-page .submit-remake-form textarea:focus,
 .submit-page .submit-remake-form select:focus {
   outline: none;
-  border-color: rgba(229, 72, 56, 0.52);
-  box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.14);
+  border-color: rgba(255, 113, 96, 0.9);
+  box-shadow: 0 0 0 3px rgba(229, 72, 56, 0.28);
 }
 
 .submit-page .submit-remake-form input[aria-invalid="true"]:not([type="checkbox"]):not([type="radio"]),
@@ -198,7 +198,7 @@
   position: absolute;
   right: 14px;
   bottom: 12px;
-  color: rgba(247, 247, 243, 0.42);
+  color: rgba(247, 247, 243, 0.68);
   font-size: 0.78rem;
   font-weight: 500;
   line-height: 1;
@@ -266,7 +266,7 @@
 }
 
 .submit-tag-input::placeholder {
-  color: rgba(247, 247, 243, 0.38);
+  color: rgba(247, 247, 243, 0.62);
 }
 
 .submit-tag-input:disabled {

@@ -8,7 +8,7 @@ const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createSubmissionService } = require("../lib/services/submission-service");
 
-function createTempSubmissionService({ knownShowIds = null } = {}) {
+function createTempSubmissionService({ knownShowIds = null, knownShows = null } = {}) {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-submissions-"));
   const dbPath = path.join(tempDir, "community.sqlite");
   const db = openDatabase(dbPath);
@@ -16,6 +16,7 @@ function createTempSubmissionService({ knownShowIds = null } = {}) {
   const service = createSubmissionService({
     store,
     knownShowIds,
+    knownShows,
   });
 
   return { tempDir, db, service };
@@ -33,10 +34,11 @@ function submit(context, rawBody, requestContext = {}) {
   });
 }
 
-test("show submissions store the expanded structured intake payload", () => {
+test("show submissions accept the v2 minimal contract and preserve optional context", () => {
   const context = createTempSubmissionService();
 
   const result = submit(context, {
+    intakeVersion: 2,
     submissionType: "show",
     showTitle: "Test Show",
     creatorName: "Example Studio",
@@ -51,9 +53,8 @@ test("show submissions store the expanded structured intake payload", () => {
     selectedTags: ["Horror", "Sci-fi", "Full-cast"],
     completionStatus: "ongoing",
     shortDescription: "A spoiler-free description of the show.",
-    archiveFitNote: "A strong archive fit with a clear audience.",
     verificationNotes: "Press kit is available on the official site.",
-    notes: "A strong archive fit with a clear audience.",
+    notes: "Press kit is available on the official site.",
     website: "",
   });
 
@@ -63,9 +64,10 @@ test("show submissions store the expanded structured intake payload", () => {
   assert.equal(result.submission.submission_type, "show");
   assert.equal(result.submission.show_title, "Test Show");
   assert.equal(result.submission.contact_email, "hello@example.com");
-  assert.equal(result.submission.rss_or_listen_link, "https://open.spotify.com/show/test");
+  assert.equal(result.submission.rss_or_listen_link, "https://example.com/feed");
   assert.equal(result.submission.genres, "Horror, Sci-fi, Full-cast");
   assert.deepEqual(result.submission.payload_json, {
+    intakeVersion: 2,
     listenLinks: [
       { label: "Spotify", url: "https://open.spotify.com/show/test" },
       { label: "RSS Feed", url: "https://example.com/feed" },
@@ -73,11 +75,65 @@ test("show submissions store the expanded structured intake payload", () => {
     selectedTags: ["Horror", "Sci-fi", "Full-cast"],
     completionStatus: "ongoing",
     shortDescription: "A spoiler-free description of the show.",
-    archiveFitNote: "A strong archive fit with a clear audience.",
     verificationNotes: "Press kit is available on the official site.",
   });
 
   cleanupTempService(context);
+});
+
+test("minimal new-show intake needs only a title and one reliable URL", () => {
+  const context = createTempSubmissionService();
+  try {
+    const result = submit(context, {
+      intakeVersion: 2,
+      submissionType: "show",
+      showTitle: "Minimal Show",
+      listenLinks: [{ label: "Official Website", url: "https://minimal.example/show" }],
+      website: "",
+    });
+    assert.equal(result.submission.creator_name, "");
+    assert.equal(result.submission.contact_email, "");
+    assert.equal(result.submission.official_site, "https://minimal.example/show");
+    assert.equal(result.submission.rss_or_listen_link, "");
+    assert.equal(result.submission.payload_json.completionStatus, "unknown");
+    assert.throws(
+      () => submit(context, { intakeVersion: 2, submissionType: "show", showTitle: "No source", website: "" }),
+      /official or listen link/i,
+    );
+    assert.throws(
+      () => submit(context, {
+        intakeVersion: 2,
+        submissionType: "show",
+        showTitle: "",
+        listenLinks: [{ label: "RSS Feed", url: "https://minimal.example/feed" }],
+        website: "",
+      }),
+      /show title is required/i,
+    );
+    assert.throws(
+      () => submit(context, {
+        intakeVersion: 2,
+        submissionType: "show",
+        showTitle: "Malformed optional details",
+        contactEmail: "not-an-email",
+        listenLinks: [{ label: "RSS Feed", url: "https://minimal.example/feed" }],
+        website: "",
+      }),
+      /contact email must be valid/i,
+    );
+    assert.throws(
+      () => submit(context, {
+        intakeVersion: 2,
+        submissionType: "show",
+        showTitle: "Malformed source",
+        listenLinks: [{ label: "RSS Feed", url: "ftp://minimal.example/feed" }],
+        website: "",
+      }),
+      /valid http or https/i,
+    );
+  } finally {
+    cleanupTempService(context);
+  }
 });
 
 test("honeypot submissions are accepted without creating queue entries", () => {
@@ -221,6 +277,127 @@ test("correction submissions require a known archive entry, allow optional email
   cleanupTempService(context);
 });
 
+test("v2 corrections validate only the active subtype and store structured details", () => {
+  const context = createTempSubmissionService({ knownShowIds: new Set(["impact-winter"]) });
+  const base = {
+    intakeVersion: 2,
+    submissionType: "correction",
+    existingShowId: "impact-winter",
+    showTitle: "Forged title",
+    website: "",
+  };
+  try {
+    const broken = submit(context, {
+      ...base,
+      correctionType: "broken-link",
+      correctionDetails: {
+        action: "replace",
+        affectedUrl: "https://old.example/show",
+        replacementUrl: "https://new.example/show",
+        proposedValue: "stale hidden value",
+      },
+      sourceLinks: [],
+    });
+    assert.deepEqual(broken.submission.payload_json.correctionDetails, {
+      action: "replace",
+      affectedUrl: "https://old.example/show",
+      replacementUrl: "https://new.example/show",
+    });
+
+    const removed = submit(context, {
+      ...base,
+      correctionType: "broken-link",
+      correctionDetails: {
+        action: "remove",
+        affectedUrl: "https://old.example/remove-me",
+        replacementUrl: "not-a-valid-hidden-url",
+      },
+      sourceLinks: [],
+    }, { sourceIp: "127.0.0.20" });
+    assert.deepEqual(removed.submission.payload_json.correctionDetails, {
+      action: "remove",
+      affectedUrl: "https://old.example/remove-me",
+    });
+
+    const metadata = submit(context, {
+      ...base,
+      correctionType: "metadata",
+      correctionDetails: { field: "creator", proposedValue: "Updated Studio" },
+      sourceLinks: ["https://official.example/about"],
+    }, { sourceIp: "127.0.0.11" });
+    assert.equal(metadata.submission.payload_json.intakeVersion, 2);
+    assert.deepEqual(metadata.submission.payload_json.correctionDetails, {
+      field: "creator",
+      proposedValue: "Updated Studio",
+    });
+
+    const status = submit(context, {
+      ...base,
+      correctionType: "status",
+      correctionDetails: { proposedStatus: "completed", effectiveDateOrNote: "Finale published in June." },
+      sourceLinks: ["https://official.example/status"],
+    }, { sourceIp: "127.0.0.21" });
+    assert.deepEqual(status.submission.payload_json.correctionDetails, {
+      proposedStatus: "completed",
+      effectiveDateOrNote: "Finale published in June.",
+    });
+
+    const credits = submit(context, {
+      ...base,
+      correctionType: "credits",
+      correctionDetails: { action: "update", name: "Avery Example", role: "Writer" },
+      sourceLinks: ["https://official.example/credits"],
+    }, { sourceIp: "127.0.0.22" });
+    assert.deepEqual(credits.submission.payload_json.correctionDetails, {
+      action: "update",
+      name: "Avery Example",
+      role: "Writer",
+    });
+
+    const artwork = submit(context, {
+      ...base,
+      correctionType: "artwork",
+      correctionDetails: { artworkUrl: "https://official.example/artwork.jpg", credit: "Example Studio" },
+      sourceLinks: [],
+    }, { sourceIp: "127.0.0.23" });
+    assert.deepEqual(artwork.submission.payload_json.correctionDetails, {
+      artworkUrl: "https://official.example/artwork.jpg",
+      credit: "Example Studio",
+    });
+
+    const other = submit(context, {
+      ...base,
+      correctionType: "other",
+      correctionDetails: { issue: "The language is incorrect.", proposedValue: "English and Swedish." },
+      sourceLinks: [],
+    }, { sourceIp: "127.0.0.24" });
+    assert.deepEqual(other.submission.payload_json.correctionDetails, {
+      issue: "The language is incorrect.",
+      proposedValue: "English and Swedish.",
+    });
+
+    assert.throws(
+      () => submit(context, {
+        ...base,
+        correctionType: "credits",
+        correctionDetails: { action: "add", name: "Avery", role: "Writer" },
+        sourceLinks: [],
+      }, { sourceIp: "127.0.0.12" }),
+      /official source/i,
+    );
+    assert.throws(
+      () => submit(context, {
+        ...base,
+        correctionType: "broken-link",
+        correctionDetails: { action: "remove", affectedUrl: "not-a-url" },
+      }, { sourceIp: "127.0.0.13" }),
+      /affected link/i,
+    );
+  } finally {
+    cleanupTempService(context);
+  }
+});
+
 test("listener review submissions normalize 5 stars into the 10-point score and keep optional fields", () => {
   const context = createTempSubmissionService({
     knownShowIds: new Set(["impact-winter"]),
@@ -285,7 +462,7 @@ test("listener review submissions normalize 5 stars into the 10-point score and 
   cleanupTempService(context);
 });
 
-test("listener review submissions reject incomplete or out-of-range category scores", () => {
+test("listener review submissions accept sparse detailed ratings and reject invalid supplied scores", () => {
   const context = createTempSubmissionService({ knownShowIds: new Set(["impact-winter"]) });
   const baseReview = {
     submissionType: "listener-review",
@@ -299,16 +476,24 @@ test("listener review submissions reject incomplete or out-of-range category sco
   };
 
   try {
-    assert.throws(
-      () => submit(context, { ...baseReview, categoryScores: { voiceActing: 8, soundDesign: 7, story: 8, characters: 8, ads: 7 } }),
-      /Rate every category/i,
-    );
+    const sparse = submit(context, { ...baseReview, intakeVersion: 2, categoryScores: { voiceActing: 8, soundDesign: 7 } });
+    assert.deepEqual(sparse.submission.payload_json.categoryScores, { voiceActing: 8, soundDesign: 7 });
+    const empty = submit(context, { ...baseReview, intakeVersion: 2, showTitle: "", categoryScores: {} }, { sourceIp: "127.0.0.9" });
+    assert.deepEqual(empty.submission.payload_json.categoryScores, {});
     assert.throws(
       () => submit(context, {
         ...baseReview,
         categoryScores: { voiceActing: 8, soundDesign: 7, story: 11, characters: 8, ads: 7, length: 8 },
       }),
-      /Rate every category/i,
+      /whole numbers from 1 to 10/i,
+    );
+    assert.throws(
+      () => submit(context, { ...baseReview, categoryScores: { madeUp: 8 } }, { sourceIp: "127.0.0.10" }),
+      /unknown detailed rating category/i,
+    );
+    assert.throws(
+      () => submit(context, { ...baseReview, categoryScores: { ads: 7.5 } }, { sourceIp: "127.0.0.11" }),
+      /whole numbers from 1 to 10/i,
     );
   } finally {
     cleanupTempService(context);
@@ -387,4 +572,111 @@ test("creator verification submissions persist structured provenance without req
   );
 
   cleanupTempService(context);
+});
+
+test("v2 verification evidence follows the selected method", () => {
+  const knownShows = [{
+    id: "impact-winter",
+    title: "Impact Winter",
+    creators: ["Example Studio"],
+    completionStatus: "ongoing",
+    officialDescription: { text: "Official description." },
+    listenLinks: { apple: "https://podcasts.apple.com/show/impact" },
+    officialLinks: { website: "https://impact.example" },
+  }];
+  const context = createTempSubmissionService({ knownShows });
+  const base = {
+    intakeVersion: 2,
+    submissionType: "creator-verification",
+    existingShowId: "impact-winter",
+    showTitle: "Not the canonical title",
+    creatorName: "Example Studio",
+    role: "creator",
+    requestedUpdates: "Confirm the creator association.",
+    website: "",
+  };
+  try {
+    const emailResult = submit(context, {
+      ...base,
+      contactEmail: "creator@impact.example",
+      verificationEvidence: { method: "official-domain-email", email: "creator@impact.example" },
+    });
+    assert.equal(emailResult.submission.show_title, "Impact Winter");
+    assert.equal(emailResult.submission.contact_email, "creator@impact.example");
+    assert.deepEqual(emailResult.submission.payload_json.verificationEvidence, {
+      method: "official-domain-email",
+      email: "creator@impact.example",
+    });
+
+    const websiteResult = submit(context, {
+      ...base,
+      contactEmail: "stale@example.org",
+      verificationEvidence: {
+        method: "website",
+        email: "stale@example.org",
+        url: "https://impact.example/about",
+        description: "Stale evidence from another method.",
+      },
+    }, { sourceIp: "127.0.0.14" });
+    assert.equal(websiteResult.submission.payload_json.officialLinks.length, 0);
+    assert.deepEqual(websiteResult.submission.payload_json.verificationEvidence, {
+      method: "website",
+      url: "https://impact.example/about",
+    });
+    assert.equal(websiteResult.submission.contact_email, "");
+
+    for (const [method, sourceIp] of [["social-account", "127.0.0.17"], ["press-kit", "127.0.0.18"]]) {
+      const result = submit(context, {
+        ...base,
+        verificationEvidence: { method, url: `https://impact.example/${method}` },
+      }, { sourceIp });
+      assert.deepEqual(result.submission.payload_json.verificationEvidence, {
+        method,
+        url: `https://impact.example/${method}`,
+      });
+    }
+
+    const otherResult = submit(context, {
+      ...base,
+      contactEmail: "creator@impact.example",
+      verificationEvidence: {
+        method: "other",
+        email: "creator@impact.example",
+        description: "Confirm through the production contact listed in the press materials.",
+      },
+    }, { sourceIp: "127.0.0.19" });
+    assert.deepEqual(otherResult.submission.payload_json.verificationEvidence, {
+      method: "other",
+      email: "creator@impact.example",
+      description: "Confirm through the production contact listed in the press materials.",
+    });
+
+    assert.throws(
+      () => submit(context, {
+        ...base,
+        verificationEvidence: { method: "official-domain-email" },
+      }, { sourceIp: "127.0.0.15" }),
+      /official-domain email/i,
+    );
+    assert.throws(
+      () => submit(context, {
+        ...base,
+        verificationEvidence: { method: "other", description: "Known through another channel." },
+      }, { sourceIp: "127.0.0.16" }),
+      /either a proof URL or contact email/i,
+    );
+
+    assert.deepEqual(context.service.getShowContext("impact-winter"), {
+      id: "impact-winter",
+      title: "Impact Winter",
+      creators: ["Example Studio"],
+      completionStatus: "ongoing",
+      officialDescription: "Official description.",
+      listenLinks: [{ label: "Apple Podcasts", url: "https://podcasts.apple.com/show/impact" }],
+      officialLinks: [{ label: "Official Website", url: "https://impact.example" }],
+    });
+    assert.throws(() => context.service.getShowContext("missing"), /show not found/i);
+  } finally {
+    cleanupTempService(context);
+  }
 });

@@ -253,6 +253,33 @@ test("search index responses use cache-friendly headers for versioned and unvers
   }
 });
 
+test("submission show context exposes only public objective fields", async () => {
+  const context = await startPublicRouteServer();
+  const [knownShow] = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
+  try {
+    const response = await fetch(`${context.baseUrl}/api/submissions/shows/${knownShow.id}/context`);
+    assert.equal(response.status, 200);
+    const payload = await response.json();
+    assert.equal(payload.show.id, knownShow.id);
+    assert.equal(payload.show.title, knownShow.title);
+    assert.ok(Array.isArray(payload.show.creators));
+    assert.ok(Array.isArray(payload.show.listenLinks));
+    assert.ok(Array.isArray(payload.show.officialLinks));
+    assert.deepEqual(Object.keys(payload.show).sort(), [
+      "completionStatus",
+      "creators",
+      "id",
+      "listenLinks",
+      "officialDescription",
+      "officialLinks",
+      "title",
+    ]);
+    assert.equal((await fetch(`${context.baseUrl}/api/submissions/shows/not-a-real-show/context`)).status, 404);
+  } finally {
+    await stopPublicRouteServer(context);
+  }
+});
+
 test("public 500s return branded HTML while API 500s stay JSON", async () => {
   const context = await startPublicRouteServer();
 

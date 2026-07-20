@@ -12,8 +12,8 @@ const CATEGORY_ORDER = [
   ["soundDesign", "Sound design"],
   ["story", "Story"],
   ["characters", "Characters"],
-  ["ads", "Ads"],
-  ["length", "Length"],
+  ["ads", "Ad experience"],
+  ["length", "Episode length & pacing"],
 ];
 
 export function renderOfficialSummarySection(show) {

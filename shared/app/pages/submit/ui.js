@@ -17,6 +17,10 @@ export function createSubmitUiController({ state, elements }) {
     updateSearchResults,
     syncHiddenInputs,
     syncQueryState,
+    setPending,
+    showSuccess,
+    showForm,
+    focusFirstField,
   };
 
   function renderAll() {
@@ -47,17 +51,6 @@ export function createSubmitUiController({ state, elements }) {
       <p>${escapeHtml(config.introDescription)}</p>
     `;
 
-    elements.stepsPanel.innerHTML = config.steps.map((step, index) => `
-      <div class="submit-step-item">
-        <span class="submit-step-number" aria-hidden="true">${index + 1}</span>
-        <span class="submit-step-copy">
-          <strong>${escapeHtml(step.title)}</strong>
-          <span>${escapeHtml(step.body)}</span>
-        </span>
-      </div>
-      ${index < config.steps.length - 1 ? `<span class="submit-step-arrow" aria-hidden="true">${iconMarkup("arrow-right")}</span>` : ""}
-    `).join("");
-
     elements.dynamicFields.innerHTML = renderModeFields(mode, draft, {
       tagFieldOptions: state.tagFieldOptions,
       activeTagField: state.activeTagField,
@@ -70,6 +63,9 @@ export function createSubmitUiController({ state, elements }) {
       lookupStatus: state.lookupStatus,
       lookupMessage: state.lookupMessage,
       showHighlightIndex: state.showHighlightIndex,
+      showContext: selectedShow ? state.showContexts.get(selectedShow.id) || null : null,
+      showContextStatus: selectedShow ? state.showContextStatuses.get(selectedShow.id) || "idle" : "idle",
+      showContextMessage: selectedShow ? state.showContextMessages.get(selectedShow.id) || "" : "",
     });
 
     elements.sideRail.innerHTML = config.railCards.map((card) => renderRailCard(card)).join("");
@@ -123,6 +119,40 @@ export function createSubmitUiController({ state, elements }) {
     delete elements.submitStatus.dataset.state;
     elements.submitStatus.setAttribute("role", "status");
     elements.submitStatus.setAttribute("aria-live", "polite");
+  }
+
+  function setPending(isPending, mode = state.activeMode, pendingLabel = "Submitting…") {
+    const config = MODE_CONFIG[mode];
+    elements.form.setAttribute("aria-busy", String(isPending));
+    elements.submitButton.disabled = isPending || (MODES_WITH_EXISTING_SHOW.has(mode) && state.lookupStatus !== "ready");
+    elements.submitButtonText.textContent = isPending ? pendingLabel : config.submitLabel;
+  }
+
+  function showSuccess(message) {
+    elements.form.hidden = true;
+    elements.resultPanel.hidden = false;
+    elements.resultPanel.innerHTML = `
+      <div class="submit-result-icon" aria-hidden="true">${iconMarkup("check")}</div>
+      <p class="submit-result-kicker">Submission received</p>
+      <h2 tabindex="-1">${escapeHtml(message)}</h2>
+      <button type="button" class="submit-primary-button submit-result-action" data-submit-another>Submit another</button>
+    `;
+    window.requestAnimationFrame(() => elements.resultPanel.querySelector("h2")?.focus());
+  }
+
+  function showForm() {
+    elements.resultPanel.hidden = true;
+    elements.resultPanel.innerHTML = "";
+    elements.form.hidden = false;
+    setStatus("");
+    renderAll();
+  }
+
+  function focusFirstField() {
+    window.requestAnimationFrame(() => {
+      const target = elements.dynamicFields.querySelector("input:not([type='hidden']), textarea, select, button, summary");
+      if (target instanceof HTMLElement) target.focus();
+    });
   }
 
   function clearValidationErrors() {

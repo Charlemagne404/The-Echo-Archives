@@ -639,8 +639,8 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
     ["soundDesign", "Sound design"],
     ["story", "Story"],
     ["characters", "Characters"],
-    ["ads", "Ads"],
-    ["length", "Length"],
+    ["ads", "Ad experience"],
+    ["length", "Episode length & pacing"],
   ];
   const isFullReview = show.reviewStatus === "full-review";
   const visibleCategories = categories.filter(([key]) => {

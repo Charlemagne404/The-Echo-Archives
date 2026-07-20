@@ -82,7 +82,7 @@ export function pickPrimaryListenLink(rows) {
 }
 
 export function findPrimaryOfficialSite(rows) {
-  const primary = rows.find((row) => row.label.toLowerCase() === "website") || rows[0];
+  const primary = rows.find((row) => row.label.toLowerCase().includes("website"));
   return primary?.url || "";
 }
 

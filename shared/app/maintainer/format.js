@@ -82,14 +82,16 @@ export function summarizeCounts(counts = {}, total = 0) {
 
 export function buildSubmissionPreview(submission) {
   const payload = submission?.payload || {};
+  const correctionDetails = payload.correctionDetails || {};
+  const verificationEvidence = payload.verificationEvidence || {};
 
   switch (submission?.submissionType) {
     case "correction":
-      return payload.issueDescription || payload.correctedInformation || submission.notes || "Correction awaiting review.";
+      return correctionDetails.issue || correctionDetails.proposedValue || correctionDetails.replacementUrl || correctionDetails.affectedUrl || payload.issueDescription || payload.correctedInformation || submission.notes || "Correction awaiting review.";
     case "listener-review":
       return payload.reviewTitle || payload.review || payload.whoWouldLikeThis || "Listener review awaiting moderation.";
     case "creator-verification":
-      return payload.requestedUpdates || payload.preferredDescription || submission.notes || "Verification request awaiting review.";
+      return payload.requestedUpdates || verificationEvidence.description || payload.preferredDescription || submission.notes || "Verification request awaiting review.";
     default:
       return payload.shortDescription || payload.archiveFitNote || submission.notes || "Show submission awaiting review.";
   }
@@ -123,6 +125,8 @@ export function renderLabeledLink(label, href) {
 export function getDetailSections(submission) {
   const payload = submission?.payload || {};
   const provenance = submission?.provenance || {};
+  const correctionDetails = payload.correctionDetails || {};
+  const verificationEvidence = payload.verificationEvidence || provenance.verificationEvidence || {};
 
   switch (submission?.submissionType) {
     case "correction":
@@ -131,7 +135,17 @@ export function getDetailSections(submission) {
           title: "Correction detail",
           rows: [
             ["Type", toDisplayTag(payload.correctionType || "metadata")],
-            ["Issue", payload.issueDescription || ""],
+            ["Action", toDisplayTag(correctionDetails.action || "")],
+            ["Affected link", correctionDetails.affectedUrl || ""],
+            ["Replacement link", correctionDetails.replacementUrl || ""],
+            ["Metadata field", toDisplayTag(correctionDetails.field || "")],
+            ["Proposed value", correctionDetails.proposedValue || ""],
+            ["Proposed status", toDisplayTag(correctionDetails.proposedStatus || "")],
+            ["Effective date or context", correctionDetails.effectiveDateOrNote || ""],
+            ["Credit name", correctionDetails.name || ""],
+            ["Credit role", correctionDetails.role || ""],
+            ["Artwork credit", correctionDetails.credit || ""],
+            ["Issue", correctionDetails.issue || payload.issueDescription || ""],
             ["Corrected information", payload.correctedInformation || ""],
             ["Optional notes", payload.notes || submission.notes || ""],
           ],
@@ -141,7 +155,7 @@ export function getDetailSections(submission) {
           links: (payload.sourceLinks || provenance.sourceLinks || []).map((href) => ({
             label: "Source",
             href,
-          })),
+          })).concat(correctionDetails.artworkUrl ? [{ label: "Official artwork", href: correctionDetails.artworkUrl }] : []),
         },
       ];
     case "listener-review":
@@ -168,13 +182,15 @@ export function getDetailSections(submission) {
           rows: [
             ["Creator or network", submission.creatorName || ""],
             ["Role", toDisplayTag(payload.role || "")],
-            ["Verification method", toDisplayTag(payload.verificationMethod || "")],
+            ["Verification method", toDisplayTag(verificationEvidence.method || payload.verificationMethod || "")],
+            ["Evidence email", verificationEvidence.email || submission.contactEmail || ""],
+            ["Evidence description", verificationEvidence.description || ""],
             ["Requested updates", payload.requestedUpdates || ""],
             ["Preferred description", payload.preferredDescription || ""],
             ["Optional notes", payload.notes || submission.notes || ""],
           ],
           links: [
-            ...(payload.proofUrl ? [{ label: "Proof URL", href: payload.proofUrl }] : []),
+            ...(verificationEvidence.url || payload.proofUrl ? [{ label: "Proof URL", href: verificationEvidence.url || payload.proofUrl }] : []),
             ...((payload.officialLinks || provenance.officialLinks || []).map((link) => ({
               label: link.label || "Official link",
               href: link.url,
@@ -191,8 +207,7 @@ export function getDetailSections(submission) {
             ["Tags", formatListLabel((payload.selectedTags || submission.genres.split(",")).map((value) => String(value || "").trim()))],
             ["Completion", toDisplayTag(payload.completionStatus || "unknown")],
             ["Short description", payload.shortDescription || ""],
-            ["Archive fit note", payload.archiveFitNote || submission.notes || ""],
-            ["Verification notes", payload.verificationNotes || ""],
+            ["Additional notes", payload.verificationNotes || payload.archiveFitNote || submission.notes || ""],
           ],
           links: [
             ...(submission.officialSite ? [{ label: "Official site", href: submission.officialSite }] : []),

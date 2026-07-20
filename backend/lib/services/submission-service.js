@@ -7,6 +7,24 @@ const OPEN_MODERATION_STATUSES = ["new", "in-review", "needs-follow-up"];
 const PRIORITIES = ["high", "normal", "low"];
 const PRIORITY_SET = new Set(PRIORITIES);
 const LISTENER_REVIEW_CATEGORY_KEYS = ["voiceActing", "soundDesign", "story", "characters", "ads", "length"];
+const CORRECTION_TYPES = new Set(["broken-link", "metadata", "status", "credits", "artwork", "other"]);
+const CORRECTION_LINK_ACTIONS = new Set(["replace", "remove"]);
+const CORRECTION_CREDIT_ACTIONS = new Set(["add", "update", "remove"]);
+const CORRECTION_METADATA_FIELDS = new Set(["creator", "description", "release-date", "runtime", "language", "other"]);
+const CORRECTION_STATUSES = new Set(["ongoing", "completed", "hiatus", "returning", "anthology", "unknown"]);
+const VERIFICATION_METHODS = new Set(["official-domain-email", "website", "social-account", "press-kit", "other"]);
+const LINK_LABELS = {
+  apple: "Apple Podcasts",
+  rss: "RSS Feed",
+  spotify: "Spotify",
+  website: "Official Website",
+  youtube: "YouTube",
+  patreon: "Patreon",
+  instagram: "Instagram",
+  facebook: "Facebook",
+  tiktok: "TikTok",
+  x: "X (Twitter)",
+};
 
 function trimString(value, maxLength = 2000) {
   return String(value || "").trim().slice(0, maxLength);
@@ -77,7 +95,11 @@ function normalizeUrlRows(value, { maxRows = 12 } = {}) {
 }
 
 function parseIntegerInRange(value, minimum, maximum) {
-  const numericValue = Number.parseInt(String(value || "").trim(), 10);
+  const normalizedValue = String(value ?? "").trim();
+  if (!/^\d+$/.test(normalizedValue)) {
+    return null;
+  }
+  const numericValue = Number(normalizedValue);
   if (!Number.isInteger(numericValue) || numericValue < minimum || numericValue > maximum) {
     return null;
   }
@@ -86,21 +108,181 @@ function parseIntegerInRange(value, minimum, maximum) {
 }
 
 function normalizeListenerReviewCategoryScores(value) {
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    const error = new Error("Rate every category from 1 to 10 before submitting a listener review.");
+  if (value === undefined || value === null || value === "") {
+    return {};
+  }
+  if (typeof value !== "object" || Array.isArray(value)) {
+    const error = new Error("Detailed ratings must use category scores from 1 to 10.");
     error.statusCode = 400;
     throw error;
   }
 
-  return Object.fromEntries(LISTENER_REVIEW_CATEGORY_KEYS.map((key) => {
-    const score = parseIntegerInRange(value[key], 1, 10);
+  const unknownKeys = Object.keys(value).filter((key) => !LISTENER_REVIEW_CATEGORY_KEYS.includes(key));
+  if (unknownKeys.length > 0) {
+    const error = new Error("Unknown detailed rating category.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  return Object.fromEntries(LISTENER_REVIEW_CATEGORY_KEYS.flatMap((key) => {
+    const rawScore = value[key];
+    if (rawScore === undefined || rawScore === null || rawScore === "") {
+      return [];
+    }
+    const score = parseIntegerInRange(rawScore, 1, 10);
     if (!score) {
-      const error = new Error("Rate every category from 1 to 10 before submitting a listener review.");
+      const error = new Error("Detailed ratings must be whole numbers from 1 to 10.");
       error.statusCode = 400;
       throw error;
     }
-    return [key, score];
+    return [[key, score]];
   }));
+}
+
+function normalizeIntakeVersion(rawBody = {}) {
+  return Number.parseInt(String(rawBody?.intakeVersion || ""), 10) === 2 ? 2 : 1;
+}
+
+function requireText(value, message, maxLength = 1000) {
+  const normalized = trimString(value, maxLength);
+  if (!normalized) {
+    const error = new Error(message);
+    error.statusCode = 400;
+    throw error;
+  }
+  return normalized;
+}
+
+function requireUrl(value, message) {
+  const normalized = requireText(value, message, 500);
+  if (!isValidUrl(normalized)) {
+    const error = new Error(message);
+    error.statusCode = 400;
+    throw error;
+  }
+  return normalized;
+}
+
+function normalizeCorrectionDetails(correctionType, rawDetails = {}, sourceLinks = []) {
+  const details = rawDetails && typeof rawDetails === "object" && !Array.isArray(rawDetails) ? rawDetails : {};
+
+  switch (correctionType) {
+    case "broken-link": {
+      const action = CORRECTION_LINK_ACTIONS.has(details.action) ? details.action : "replace";
+      const affectedUrl = requireUrl(details.affectedUrl, "Choose or enter the affected link.");
+      const replacementUrl = action === "replace"
+        ? requireUrl(details.replacementUrl, "A valid replacement link is required.")
+        : "";
+      return { action, affectedUrl, ...(replacementUrl ? { replacementUrl } : {}) };
+    }
+    case "metadata": {
+      const field = CORRECTION_METADATA_FIELDS.has(details.field) ? details.field : "";
+      if (!field) {
+        const error = new Error("Choose the metadata field to correct.");
+        error.statusCode = 400;
+        throw error;
+      }
+      if (sourceLinks.length === 0) {
+        const error = new Error("Add an official source for this metadata correction.");
+        error.statusCode = 400;
+        throw error;
+      }
+      return {
+        field,
+        proposedValue: requireText(details.proposedValue, "Enter the corrected metadata.", 1000),
+      };
+    }
+    case "status": {
+      const proposedStatus = CORRECTION_STATUSES.has(details.proposedStatus) ? details.proposedStatus : "";
+      if (!proposedStatus) {
+        const error = new Error("Choose the proposed show status.");
+        error.statusCode = 400;
+        throw error;
+      }
+      if (sourceLinks.length === 0) {
+        const error = new Error("Add an official source for this status update.");
+        error.statusCode = 400;
+        throw error;
+      }
+      const effectiveDateOrNote = trimString(details.effectiveDateOrNote, 500);
+      return { proposedStatus, ...(effectiveDateOrNote ? { effectiveDateOrNote } : {}) };
+    }
+    case "credits": {
+      const action = CORRECTION_CREDIT_ACTIONS.has(details.action) ? details.action : "";
+      if (!action) {
+        const error = new Error("Choose how the credit should change.");
+        error.statusCode = 400;
+        throw error;
+      }
+      if (sourceLinks.length === 0) {
+        const error = new Error("Add an official source for this credit correction.");
+        error.statusCode = 400;
+        throw error;
+      }
+      return {
+        action,
+        name: requireText(details.name, "Enter the credited person or organization.", 200),
+        role: requireText(details.role, "Enter the credit role.", 160),
+      };
+    }
+    case "artwork": {
+      const credit = trimString(details.credit, 300);
+      return {
+        artworkUrl: requireUrl(details.artworkUrl, "A valid official artwork URL is required."),
+        ...(credit ? { credit } : {}),
+      };
+    }
+    case "other":
+      return {
+        issue: requireText(details.issue, "Describe the factual issue.", 1000),
+        proposedValue: requireText(details.proposedValue, "Describe the proposed correction.", 1000),
+      };
+    default: {
+      const error = new Error("Choose a valid correction type.");
+      error.statusCode = 400;
+      throw error;
+    }
+  }
+}
+
+function objectLinksToRows(value = {}) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return [];
+  }
+  return Object.entries(value).flatMap(([key, url]) => {
+    const normalizedUrl = trimString(url, 500);
+    return normalizedUrl && isValidUrl(normalizedUrl)
+      ? [{ label: LINK_LABELS[key] || key.replace(/[-_]/g, " ").replace(/^./, (character) => character.toUpperCase()), url: normalizedUrl }]
+      : [];
+  });
+}
+
+function buildShowContext(show) {
+  if (!show) {
+    return null;
+  }
+  const dedupeLinks = (rows) => {
+    const seenUrls = new Set();
+    return rows.filter((row) => {
+      if (seenUrls.has(row.url)) return false;
+      seenUrls.add(row.url);
+      return true;
+    });
+  };
+  const listenLinks = dedupeLinks(objectLinksToRows(show.listenLinks));
+  const officialLinks = dedupeLinks(objectLinksToRows(show.officialLinks));
+  return {
+    id: show.id,
+    title: show.title,
+    creators: trimStringArray(show.creators, { maxItems: 20, maxItemLength: 160 }),
+    completionStatus: trimString(show.completionStatus || show.releaseStatus || "unknown", 80),
+    officialDescription: trimString(
+      typeof show.officialDescription === "string" ? show.officialDescription : show.officialDescription?.text,
+      4000,
+    ),
+    listenLinks,
+    officialLinks,
+  };
 }
 
 function ensureKnownShowId(knownShowIds, submissionType, showId) {
@@ -186,6 +368,7 @@ function normalizeCommonFields(rawBody = {}, requestContext = {}) {
   const honeypot = trimString(rawBody?.website, 200);
 
   return {
+    intakeVersion: normalizeIntakeVersion(rawBody),
     submissionType,
     existingShowId,
     creatorName,
@@ -205,13 +388,7 @@ function normalizeCommonFields(rawBody = {}, requestContext = {}) {
 }
 
 function validateCommonSubmissionFields(common) {
-  if (common.submissionType === "show") {
-    if (!common.contactEmail || !isValidEmail(common.contactEmail)) {
-      const error = new Error("A valid contact email is required.");
-      error.statusCode = 400;
-      throw error;
-    }
-  } else if (common.contactEmail && !isValidEmail(common.contactEmail)) {
+  if (common.contactEmail && !isValidEmail(common.contactEmail)) {
     const error = new Error("Contact email must be valid if provided.");
     error.statusCode = 400;
     throw error;
@@ -342,44 +519,36 @@ function createShowSubmissionHandler({ store }) {
     }
 
     const completionStatus = trimString(rawBody?.completionStatus, 80) || "unknown";
-    const shortDescription = trimString(rawBody?.shortDescription || common.notes, 1000);
-    const archiveFitNote = trimString(rawBody?.archiveFitNote || common.notes, 4000);
-    const verificationNotes = trimString(rawBody?.verificationNotes, 1000);
-    const primaryListenLink = common.rssOrListenLink || listenLinks[0]?.url || "";
+    const shortDescription = trimString(rawBody?.shortDescription, 1000);
+    const verificationNotes = trimString(rawBody?.verificationNotes || common.notes, 1000);
+    const derivedOfficialSite = common.officialSite || listenLinks.find((row) => /website/i.test(row.label))?.url || "";
+    const primaryListenLink = common.rssOrListenLink ||
+      listenLinks.find((row) => /rss/i.test(row.label))?.url ||
+      listenLinks.find((row) => !/website/i.test(row.label))?.url ||
+      "";
 
     ensureValidUrls(
-      [common.officialSite, primaryListenLink, ...listenLinks.map((row) => row.url)].filter(Boolean),
+      [derivedOfficialSite, primaryListenLink, ...listenLinks.map((row) => row.url)].filter(Boolean),
       "Show submission links must be valid http or https URLs.",
     );
 
-    if (!common.creatorName) {
-      const error = new Error("Creator or network is required.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (!common.officialSite && listenLinks.length === 0 && !primaryListenLink) {
+    if (!derivedOfficialSite && listenLinks.length === 0 && !primaryListenLink) {
       const error = new Error("Provide at least one official or listen link.");
       error.statusCode = 400;
       throw error;
     }
 
-    if (!shortDescription) {
-      const error = new Error("Short spoiler-free description is required.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (!archiveFitNote) {
-      const error = new Error("Why it belongs in the archive is required.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (selectedTags.length === 0) {
-      const error = new Error("At least one genre or tag is required.");
-      error.statusCode = 400;
-      throw error;
+    const payload = {
+      ...(common.intakeVersion === 2 ? { intakeVersion: 2 } : {}),
+      listenLinks,
+      selectedTags,
+      completionStatus,
+      shortDescription,
+      verificationNotes,
+    };
+    if (common.intakeVersion !== 2) {
+      const archiveFitNote = trimString(rawBody?.archiveFitNote || common.notes, 4000);
+      if (archiveFitNote) payload.archiveFitNote = archiveFitNote;
     }
 
     return createAcceptedResult(
@@ -390,19 +559,14 @@ function createShowSubmissionHandler({ store }) {
         showTitle: common.showTitle,
         creatorName: common.creatorName,
         contactEmail: common.contactEmail,
-        officialSite: common.officialSite,
+        officialSite: derivedOfficialSite,
         rssOrListenLink: primaryListenLink,
         genres: selectedTags.join(", "),
-        notes: archiveFitNote,
-        payload: {
-          listenLinks,
-          selectedTags,
-          completionStatus,
-          shortDescription,
-          archiveFitNote,
-          verificationNotes,
+        notes: verificationNotes,
+        payload,
+        provenance: {
+          sourceLinks: [...new Set([derivedOfficialSite, primaryListenLink, ...listenLinks.map((row) => row.url)].filter(Boolean))],
         },
-        provenance: {},
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -413,8 +577,6 @@ function createShowSubmissionHandler({ store }) {
 function createCorrectionSubmissionHandler({ store }) {
   return ({ rawBody, common }) => {
     const correctionType = trimString(rawBody?.correctionType, 80) || "metadata";
-    const issueDescription = trimString(rawBody?.issueDescription || common.notes, 1000);
-    const correctedInformation = trimString(rawBody?.correctedInformation, 1000);
     const sourceLinks = [
       ...normalizeUrlRows(rawBody?.sourceLinks).map((row) => row.url),
       ...common.verificationSources,
@@ -423,22 +585,49 @@ function createCorrectionSubmissionHandler({ store }) {
 
     ensureValidUrls(sourceLinks, "Source links must be valid http or https URLs.");
 
-    if (!issueDescription) {
-      const error = new Error("Correction details are required.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (!correctedInformation) {
-      const error = new Error("Correct information is required.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (sourceLinks.length === 0) {
-      const error = new Error("At least one correction source link is required.");
-      error.statusCode = 400;
-      throw error;
+    let payload;
+    let summary;
+    if (common.intakeVersion === 2) {
+      if (!CORRECTION_TYPES.has(correctionType)) {
+        const error = new Error("Choose a valid correction type.");
+        error.statusCode = 400;
+        throw error;
+      }
+      const correctionDetails = normalizeCorrectionDetails(correctionType, rawBody?.correctionDetails, sourceLinks);
+      payload = {
+        intakeVersion: 2,
+        correctionType,
+        correctionDetails,
+        sourceLinks,
+        notes: optionalNotes,
+      };
+      summary = correctionType === "broken-link"
+        ? `${correctionDetails.action === "remove" ? "Remove" : "Replace"} ${correctionDetails.affectedUrl}`
+        : correctionType === "metadata"
+          ? `${correctionDetails.field}: ${correctionDetails.proposedValue}`
+          : correctionType === "status"
+            ? `Status: ${correctionDetails.proposedStatus}`
+            : correctionType === "credits"
+              ? `${correctionDetails.action} ${correctionDetails.name} — ${correctionDetails.role}`
+              : correctionType === "artwork"
+                ? `Artwork: ${correctionDetails.artworkUrl}`
+                : correctionDetails.issue;
+    } else {
+      const issueDescription = requireText(rawBody?.issueDescription || common.notes, "Correction details are required.", 1000);
+      const correctedInformation = requireText(rawBody?.correctedInformation, "Correct information is required.", 1000);
+      if (sourceLinks.length === 0) {
+        const error = new Error("At least one correction source link is required.");
+        error.statusCode = 400;
+        throw error;
+      }
+      payload = {
+        correctionType,
+        issueDescription,
+        correctedInformation,
+        sourceLinks,
+        notes: optionalNotes,
+      };
+      summary = issueDescription;
     }
 
     return createAcceptedResult(
@@ -452,14 +641,8 @@ function createCorrectionSubmissionHandler({ store }) {
         officialSite: "",
         rssOrListenLink: "",
         genres: "",
-        notes: optionalNotes || issueDescription,
-        payload: {
-          correctionType,
-          issueDescription,
-          correctedInformation,
-          sourceLinks,
-          notes: optionalNotes,
-        },
+        notes: optionalNotes || summary,
+        payload,
         provenance: {
           sourceLinks,
         },
@@ -511,6 +694,7 @@ function createListenerReviewSubmissionHandler({ store }) {
         genres: "",
         notes: common.notes,
         payload: {
+          ...(common.intakeVersion === 2 ? { intakeVersion: 2 } : {}),
           ratingStars,
           rating,
           categoryScores,
@@ -535,8 +719,16 @@ function createListenerReviewSubmissionHandler({ store }) {
 function createCreatorVerificationSubmissionHandler({ store }) {
   return ({ rawBody, common }) => {
     const role = trimString(rawBody?.role, 80);
-    const verificationMethod = trimString(rawBody?.verificationMethod, 80);
-    const proofUrl = trimString(rawBody?.proofUrl, 500);
+    const rawEvidence = rawBody?.verificationEvidence && typeof rawBody.verificationEvidence === "object" && !Array.isArray(rawBody.verificationEvidence)
+      ? rawBody.verificationEvidence
+      : {};
+    const verificationMethod = trimString(rawEvidence.method || rawBody?.verificationMethod, 80);
+    const submittedEvidenceEmail = trimString(rawEvidence.email || common.contactEmail, 160).toLowerCase();
+    const submittedProofUrl = trimString(rawEvidence.url || rawBody?.proofUrl, 500);
+    const submittedEvidenceDescription = trimString(rawEvidence.description || rawBody?.evidenceDescription, 1000);
+    const evidenceEmail = ["official-domain-email", "other"].includes(verificationMethod) ? submittedEvidenceEmail : "";
+    const proofUrl = ["website", "social-account", "press-kit", "other"].includes(verificationMethod) ? submittedProofUrl : "";
+    const evidenceDescription = verificationMethod === "other" ? submittedEvidenceDescription : "";
     const requestedUpdates = trimString(rawBody?.requestedUpdates || common.provenanceNotes, 4000);
     const preferredDescription = trimString(rawBody?.preferredDescription, 1000);
     const officialLinks = normalizeNamedLinks(rawBody?.officialLinks, { fallbackLabel: "Official link" });
@@ -564,14 +756,8 @@ function createCreatorVerificationSubmissionHandler({ store }) {
       throw error;
     }
 
-    if (!verificationMethod) {
+    if (!VERIFICATION_METHODS.has(verificationMethod)) {
       const error = new Error("Verification method is required.");
-      error.statusCode = 400;
-      throw error;
-    }
-
-    if (!proofUrl) {
-      const error = new Error("A proof link or profile URL is required.");
       error.statusCode = 400;
       throw error;
     }
@@ -582,11 +768,56 @@ function createCreatorVerificationSubmissionHandler({ store }) {
       throw error;
     }
 
-    if (effectiveOfficialLinks.length === 0) {
-      const error = new Error("At least one official link is required.");
+    if (evidenceEmail && !isValidEmail(evidenceEmail)) {
+      const error = new Error("Verification email must be valid if provided.");
       error.statusCode = 400;
       throw error;
     }
+
+    if (verificationMethod === "official-domain-email" && !evidenceEmail) {
+      const error = new Error("An official-domain email is required for this verification method.");
+      error.statusCode = 400;
+      throw error;
+    }
+    if (["website", "social-account", "press-kit"].includes(verificationMethod) && !proofUrl) {
+      const error = new Error("An official proof URL is required for this verification method.");
+      error.statusCode = 400;
+      throw error;
+    }
+    if (verificationMethod === "other" && (!evidenceDescription || (!proofUrl && !evidenceEmail))) {
+      const error = new Error("Describe the evidence and provide either a proof URL or contact email.");
+      error.statusCode = 400;
+      throw error;
+    }
+
+    const verificationEvidence = {
+      method: verificationMethod,
+      ...(evidenceEmail ? { email: evidenceEmail } : {}),
+      ...(proofUrl ? { url: proofUrl } : {}),
+      ...(evidenceDescription ? { description: evidenceDescription } : {}),
+    };
+    const payload = common.intakeVersion === 2
+      ? {
+          intakeVersion: 2,
+          role,
+          verificationEvidence,
+          requestedUpdates,
+          preferredDescription,
+          officialLinks: effectiveOfficialLinks,
+          notes: common.notes,
+        }
+      : {
+          role,
+          verificationMethod,
+          proofUrl,
+          requestedUpdates,
+          preferredDescription,
+          officialLinks: effectiveOfficialLinks,
+          notes: common.notes,
+        };
+    const provenance = common.intakeVersion === 2
+      ? { verificationEvidence, officialLinks: effectiveOfficialLinks }
+      : { proofUrl, officialLinks: effectiveOfficialLinks };
 
     return createAcceptedResult(
       store.createShowSubmission({
@@ -595,24 +826,13 @@ function createCreatorVerificationSubmissionHandler({ store }) {
         existingShowId: common.existingShowId,
         showTitle: common.showTitle,
         creatorName: common.creatorName,
-        contactEmail: common.contactEmail,
+        contactEmail: evidenceEmail,
         officialSite: effectiveOfficialSite,
         rssOrListenLink: "",
         genres: "",
         notes: common.notes,
-        payload: {
-          role,
-          verificationMethod,
-          proofUrl,
-          requestedUpdates,
-          preferredDescription,
-          officialLinks: effectiveOfficialLinks,
-          notes: common.notes,
-        },
-        provenance: {
-          proofUrl,
-          officialLinks: effectiveOfficialLinks,
-        },
+        payload,
+        provenance,
         sourceIp: common.sourceIp,
         userAgent: common.userAgent,
       }),
@@ -623,9 +843,19 @@ function createCreatorVerificationSubmissionHandler({ store }) {
 function createSubmissionService({
   store,
   knownShowIds = null,
+  knownShows = null,
   rateLimiter = null,
 }) {
-  let effectiveKnownShowIds = knownShowIds;
+  let effectiveKnownShows = new Map(
+    Array.isArray(knownShows)
+      ? knownShows.filter((show) => show?.id).map((show) => [show.id, show])
+      : knownShows instanceof Map
+        ? knownShows
+        : [],
+  );
+  let effectiveKnownShowIds = knownShowIds instanceof Set
+    ? new Set(knownShowIds)
+    : new Set(effectiveKnownShows.keys());
   const modeHandlers = {
     show: createShowSubmissionHandler({ store }),
     correction: createCorrectionSubmissionHandler({ store }),
@@ -645,6 +875,10 @@ function createSubmissionService({
 
     if (common.submissionType !== "show") {
       ensureKnownShowId(effectiveKnownShowIds, common.submissionType, common.existingShowId);
+      const knownShow = effectiveKnownShows.get(common.existingShowId);
+      if (knownShow?.title) {
+        common.showTitle = trimString(knownShow.title, 160);
+      }
     }
 
     return modeHandlers[common.submissionType]({
@@ -699,14 +933,39 @@ function createSubmissionService({
     return toMaintainerSubmission(submission);
   }
 
+  function getShowContext(showId = "") {
+    const normalizedId = trimString(showId, 120);
+    const context = buildShowContext(effectiveKnownShows.get(normalizedId));
+    if (!context) {
+      const error = new Error("Show not found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    return context;
+  }
+
   return {
     submit,
     submitShow,
+    getShowContext,
     listForMaintainer,
     getForMaintainer,
     reviewForMaintainer,
     setKnownShowIds(nextKnownShowIds) {
-      effectiveKnownShowIds = nextKnownShowIds;
+      effectiveKnownShowIds = new Set(nextKnownShowIds || []);
+      effectiveKnownShows = new Map(
+        [...effectiveKnownShows.entries()].filter(([showId]) => effectiveKnownShowIds.has(showId)),
+      );
+    },
+    setKnownShows(nextKnownShows) {
+      effectiveKnownShows = new Map(
+        Array.isArray(nextKnownShows)
+          ? nextKnownShows.filter((show) => show?.id).map((show) => [show.id, show])
+          : nextKnownShows instanceof Map
+            ? nextKnownShows
+            : [],
+      );
+      effectiveKnownShowIds = new Set(effectiveKnownShows.keys());
     },
   };
 }

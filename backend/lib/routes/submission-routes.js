@@ -3,6 +3,16 @@ const express = require("express");
 function createSubmissionRouter({ submissionService }) {
   const router = express.Router();
 
+  router.get("/shows/:showId/context", (req, res, next) => {
+    try {
+      return res.json({
+        show: submissionService.getShowContext(req.params.showId),
+      });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
   router.post("/shows", (req, res, next) => {
     try {
       const result = submissionService.submit(req.body || {}, {

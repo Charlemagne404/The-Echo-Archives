@@ -49,7 +49,7 @@ function escapeCssIdentifier(value = "") {
   return String(value).replace(/["\\]/g, "\\$&");
 }
 
-export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup }) {
+export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup, ensureShowContext }) {
   function activateMode(nextMode, { focus = false } = {}) {
     if (!nextMode || nextMode === state.activeMode || !Object.prototype.hasOwnProperty.call(MODE_CONFIG, nextMode)) {
       return;
@@ -59,7 +59,13 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup 
     state.activeMode = nextMode;
     resetModeUiState(state);
     ui.clearValidationErrors();
-    ui.setStatus("Nothing submitted yet.");
+    if (elements.submitStatus.dataset.state === "error") {
+      ui.setStatus("");
+    }
+    ui.setStatus("");
+    elements.resultPanel.hidden = true;
+    elements.resultPanel.innerHTML = "";
+    elements.form.hidden = false;
     ui.renderAll();
 
     if (focus) {
@@ -250,6 +256,22 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup 
       return;
     }
 
+    const clearCategoryScore = target.closest("[data-clear-category-score]");
+    if (clearCategoryScore) {
+      event.preventDefault();
+      captureCurrentDraft(state, elements);
+      const key = clearCategoryScore.getAttribute("data-clear-category-score");
+      if (key) {
+        const draft = getActiveDraft(state);
+        const nextScores = { ...(draft.categoryScores || {}) };
+        delete nextScores[key];
+        draft.categoryScores = nextScores;
+        ui.renderAll();
+        focusAfterRender(`[data-category-score="${escapeCssIdentifier(key)}"][data-category-score-value="1"]`);
+      }
+      return;
+    }
+
     const addLinkOption = target.closest("[data-add-link-option]");
     if (addLinkOption) {
       event.preventDefault();
@@ -336,6 +358,8 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup 
       ui.syncHiddenInputs();
       ui.syncQueryState();
       ui.renderAll();
+      void ensureShowContext(show.id);
+      ui.focusExistingShowSearch(draft.showSearch.length);
       return;
     }
 

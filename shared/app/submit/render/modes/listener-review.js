@@ -17,7 +17,9 @@ export function renderListenerReviewMode(draft, context) {
       highlightIndex: context.showHighlightIndex,
     }),
     renderRatingField(draft.ratingStars),
-    renderCategoryRatingFields(draft.categoryScores, LISTENER_REVIEW_CATEGORIES),
+    renderCategoryRatingFields(draft.categoryScores, LISTENER_REVIEW_CATEGORIES, {
+      open: draft.detailedRatingsOpen,
+    }),
     renderSegmentedField({
       fieldName: "spoilerLevel",
       label: "Spoiler level",
@@ -28,8 +30,7 @@ export function renderListenerReviewMode(draft, context) {
     }),
     renderTextInputField({
       id: "submitReviewTitle",
-      label: "Review title",
-      required: true,
+      label: "Review title (optional)",
       value: draft.reviewTitle,
       maxLength: 80,
       placeholder: "A short, descriptive title for your review.",

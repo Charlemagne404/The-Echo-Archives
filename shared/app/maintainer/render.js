@@ -120,8 +120,8 @@ function renderPublishedListenerReviewEditor(submission, publicReview = null) {
     ["soundDesign", "Sound design"],
     ["story", "Story"],
     ["characters", "Characters"],
-    ["ads", "Ads"],
-    ["length", "Length"],
+    ["ads", "Ad experience"],
+    ["length", "Episode length & pacing"],
   ];
   return `
     <form id="maintainerListenerReviewForm" class="maintainer-review-form" data-submission-id="${escapeHtml(submission.id)}">

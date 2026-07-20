@@ -15,135 +15,97 @@ function getInvalidLinkFieldId(fieldName, rows, plain) {
     const url = String(row?.url || "").trim();
     return url && !isValidHttpUrl(url);
   });
-
-  if (invalidIndex < 0) {
-    return buildSubmitControlId(fieldName);
-  }
-
-  return `${buildSubmitControlId(fieldName)}Url${invalidIndex}`;
+  return invalidIndex < 0 ? buildSubmitControlId(fieldName) : `${buildSubmitControlId(fieldName)}Url${invalidIndex}`;
 }
 
-export function validateDraft(mode, draft, showMap) {
-  const selectedShow = draft.existingShowId ? showMap.get(draft.existingShowId) || null : null;
+function validateOptionalEmail(value) {
+  return !value || isValidEmail(value);
+}
 
-  if (mode === "show") {
-    if (!draft.showTitle) {
-      return createValidationError("submitShowTitle", "Show title is required.");
-    }
-    if (!draft.creatorName) {
-      return createValidationError("submitCreatorName", "Creator or network is required.");
-    }
-    if (!isValidEmail(draft.contactEmail)) {
-      return createValidationError("submitContactEmail", "A valid contact email is required.");
-    }
-    const listenLinks = normalizeLinkRows(draft.listenLinks, false);
-    if (listenLinks.length === 0) {
-      return createValidationError(buildSubmitControlId("listenLinks"), "Add at least one listen link.");
-    }
-    if (listenLinks.some((row) => !isValidHttpUrl(row.url))) {
-      return createValidationError(
-        getInvalidLinkFieldId("listenLinks", draft.listenLinks, false),
-        "Listen links must use valid http or https URLs.",
-        buildSubmitControlId("listenLinks"),
-      );
-    }
-    if (draft.officialSite && !isValidHttpUrl(draft.officialSite)) {
-      return createValidationError("submitOfficialSite", "Official website must use a valid http or https URL.");
-    }
-    if (!Array.isArray(draft.selectedTags) || draft.selectedTags.length === 0) {
-      return createValidationError(buildSubmitControlId("selectedTags"), "Choose at least one genre or tag.");
-    }
-    if (!draft.completionStatus) {
-      return createValidationError("submitCompletionStatus", "Completion status is required.");
-    }
-    if (!draft.shortDescription) {
-      return createValidationError("submitShortDescription", "Short spoiler-free description is required.");
-    }
-    if (!draft.archiveFitNote) {
-      return createValidationError("submitArchiveFitNote", "Why it belongs in the archive is required.");
-    }
-    return null;
+function validateCorrection(draft) {
+  const sourceLinks = normalizeLinkRows(draft.sourceLinks, true);
+  if (sourceLinks.some((row) => !isValidHttpUrl(row.url))) {
+    return createValidationError(
+      getInvalidLinkFieldId("sourceLinks", draft.sourceLinks, true),
+      "Source links must use valid http or https URLs.",
+      buildSubmitControlId("sourceLinks"),
+    );
+  }
+  const sourceRequired = ["metadata", "status", "credits"].includes(draft.correctionType);
+  if (sourceRequired && sourceLinks.length === 0) {
+    return createValidationError(buildSubmitControlId("sourceLinks"), "Add at least one official source.");
   }
 
-  if (!selectedShow) {
-    return createValidationError("submitExistingShowSearch", "Choose the existing archive entry for this submission.");
-  }
-
-  if (mode === "correction") {
-    if (!draft.correctionType) {
-      return createValidationError("submitCorrectionType", "Correction type is required.");
-    }
-    if (!draft.issueDescription) {
-      return createValidationError("submitIssueDescription", "Describe what is wrong.");
-    }
-    if (!draft.correctedInformation) {
-      return createValidationError("submitCorrectedInformation", "Correct information is required.");
-    }
-    const sourceLinks = normalizeLinkRows(draft.sourceLinks, true);
-    if (sourceLinks.length === 0) {
-      return createValidationError(buildSubmitControlId("sourceLinks"), "Add at least one source link.");
-    }
-    if (sourceLinks.some((row) => !isValidHttpUrl(row.url))) {
-      return createValidationError(
-        getInvalidLinkFieldId("sourceLinks", draft.sourceLinks, true),
-        "Source links must use valid http or https URLs.",
-        buildSubmitControlId("sourceLinks"),
-      );
-    }
-    if (draft.contactEmail && !isValidEmail(draft.contactEmail)) {
-      return createValidationError("submitContactEmail", "Contact email must be valid if provided.");
-    }
-    return null;
-  }
-
-  if (mode === "listener-review") {
-    if (!Number.isInteger(draft.ratingStars) || draft.ratingStars < 1 || draft.ratingStars > 5) {
-      return createValidationError("submitRatingStars", "Listener reviews require a 1 to 5 star rating.");
-    }
-    const categoryKeys = ["voiceActing", "soundDesign", "story", "characters", "ads", "length"];
-    for (const key of categoryKeys) {
-      const rating = Number(draft.categoryScores?.[key]);
-      if (!Number.isInteger(rating) || rating < 1 || rating > 10) {
-        return createValidationError(`submitCategory${key[0].toUpperCase()}${key.slice(1)}`, "Rate every category from 1 to 10.");
+  switch (draft.correctionType) {
+    case "broken-link":
+      if (!isValidHttpUrl(draft.affectedUrl)) {
+        return createValidationError("submitAffectedUrl", "Enter the affected http or https URL.");
       }
-    }
-    if (!draft.reviewTitle) {
-      return createValidationError("submitReviewTitle", "Review title is required.");
-    }
-    if (!draft.reviewText) {
-      return createValidationError("submitReviewText", "Review text is required.");
-    }
-    if (!draft.spoilerLevel) {
-      return createValidationError(buildSubmitControlId("spoilerLevel"), "Spoiler level is required.");
-    }
-    if (draft.contactEmail && !isValidEmail(draft.contactEmail)) {
-      return createValidationError("submitContactEmail", "Contact email must be valid if provided.");
-    }
-    return null;
+      if (draft.linkAction === "replace" && !isValidHttpUrl(draft.replacementUrl)) {
+        return createValidationError("submitReplacementUrl", "Enter a valid replacement URL.");
+      }
+      break;
+    case "metadata":
+      if (!draft.metadataField) return createValidationError("submitMetadataField", "Choose the metadata field.");
+      if (!draft.proposedMetadataValue) return createValidationError("submitProposedMetadataValue", "Enter the corrected information.");
+      break;
+    case "status":
+      if (!draft.proposedStatus) return createValidationError("submitProposedStatus", "Choose the proposed status.");
+      break;
+    case "credits":
+      if (!draft.creditAction) return createValidationError("submitCreditAction", "Choose how the credit should change.");
+      if (!draft.creditName) return createValidationError("submitCreditName", "Enter the person or organization.");
+      if (!draft.creditRole) return createValidationError("submitCreditRole", "Enter the credit role.");
+      break;
+    case "artwork":
+      if (!isValidHttpUrl(draft.artworkUrl)) return createValidationError("submitArtworkUrl", "Enter a valid official artwork URL.");
+      break;
+    case "other":
+      if (!draft.otherIssue) return createValidationError("submitOtherIssue", "Describe the factual issue.");
+      if (!draft.otherProposedValue) return createValidationError("submitOtherProposedValue", "Describe the proposed correction.");
+      break;
+    default:
+      return createValidationError("submitCorrectionType", "Choose a valid correction type.");
   }
 
-  if (!draft.creatorName) {
-    return createValidationError("submitCreatorName", "Creator or network is required.");
+  if (!validateOptionalEmail(draft.contactEmail)) {
+    return createValidationError("submitContactEmail", "Contact email must be valid if provided.");
   }
-  if (!draft.role) {
-    return createValidationError("submitRole", "Your role is required.");
-  }
-  if (draft.officialSite && !isValidHttpUrl(draft.officialSite)) {
-    return createValidationError("submitOfficialSite", "Official website must use a valid http or https URL.");
-  }
+  return null;
+}
+
+function validateVerification(draft) {
+  if (!draft.creatorName) return createValidationError("submitCreatorName", "Creator or network is required.");
+  if (!draft.role) return createValidationError("submitRole", "Your role is required.");
   if (!draft.verificationMethod) {
     return createValidationError(buildSubmitControlId("verificationMethod"), "Verification method is required.");
   }
-  if (!isValidHttpUrl(draft.proofUrl)) {
-    return createValidationError("submitProofUrl", "Proof link or profile URL must use a valid http or https URL.");
+  if (!draft.requestedUpdates) return createValidationError("submitRequestedUpdates", "Describe the facts to confirm or update.");
+
+  if (draft.verificationMethod === "official-domain-email") {
+    if (!isValidEmail(draft.contactEmail)) {
+      return createValidationError("submitContactEmail", "Enter a valid official-domain email.");
+    }
+  } else if (["website", "social-account", "press-kit"].includes(draft.verificationMethod)) {
+    if (!isValidHttpUrl(draft.proofUrl)) {
+      return createValidationError("submitProofUrl", "Enter a valid official proof URL.");
+    }
+  } else if (draft.verificationMethod === "other") {
+    if (!draft.evidenceDescription) {
+      return createValidationError("submitEvidenceDescription", "Describe how we can verify your association.");
+    }
+    if (!draft.proofUrl && !draft.contactEmail) {
+      return createValidationError("submitProofUrl", "Provide an evidence URL or contact email.");
+    }
+    if (draft.proofUrl && !isValidHttpUrl(draft.proofUrl)) {
+      return createValidationError("submitProofUrl", "Evidence URL must use http or https.");
+    }
+    if (!validateOptionalEmail(draft.contactEmail)) {
+      return createValidationError("submitContactEmail", "Contact email must be valid if provided.");
+    }
   }
-  if (!draft.requestedUpdates) {
-    return createValidationError("submitRequestedUpdates", "Requested updates are required.");
-  }
+
   const officialLinks = normalizeLinkRows(draft.officialLinks, false);
-  if (officialLinks.length === 0) {
-    return createValidationError(buildSubmitControlId("officialLinks"), "Add at least one official link.");
-  }
   if (officialLinks.some((row) => !isValidHttpUrl(row.url))) {
     return createValidationError(
       getInvalidLinkFieldId("officialLinks", draft.officialLinks, false),
@@ -152,4 +114,52 @@ export function validateDraft(mode, draft, showMap) {
     );
   }
   return null;
+}
+
+export function validateDraft(mode, draft, showMap) {
+  if (mode === "show") {
+    if (!draft.showTitle) return createValidationError("submitShowTitle", "Show title is required.");
+    const listenLinks = normalizeLinkRows(draft.listenLinks, false);
+    if (listenLinks.length === 0) {
+      return createValidationError(buildSubmitControlId("listenLinks"), "Add at least one official or listening link.");
+    }
+    if (listenLinks.some((row) => !isValidHttpUrl(row.url))) {
+      return createValidationError(
+        getInvalidLinkFieldId("listenLinks", draft.listenLinks, false),
+        "Links must use valid http or https URLs.",
+        buildSubmitControlId("listenLinks"),
+      );
+    }
+    if (!validateOptionalEmail(draft.contactEmail)) {
+      return createValidationError("submitContactEmail", "Contact email must be valid if provided.");
+    }
+    return null;
+  }
+
+  const selectedShow = draft.existingShowId ? showMap.get(draft.existingShowId) || null : null;
+  if (!selectedShow) {
+    return createValidationError("submitExistingShowSearch", "Choose the existing archive entry for this submission.");
+  }
+
+  if (mode === "correction") return validateCorrection(draft);
+
+  if (mode === "listener-review") {
+    if (!Number.isInteger(draft.ratingStars) || draft.ratingStars < 1 || draft.ratingStars > 5) {
+      return createValidationError("submitRatingStars", "Choose an overall rating from 1 to 5 stars.");
+    }
+    for (const [key, rawRating] of Object.entries(draft.categoryScores || {})) {
+      const rating = Number(rawRating);
+      if (!Number.isInteger(rating) || rating < 1 || rating > 10) {
+        return createValidationError(`submitCategory${key[0].toUpperCase()}${key.slice(1)}`, "Detailed ratings must be from 1 to 10.");
+      }
+    }
+    if (!draft.reviewText) return createValidationError("submitReviewText", "Review text is required.");
+    if (!draft.spoilerLevel) return createValidationError(buildSubmitControlId("spoilerLevel"), "Spoiler level is required.");
+    if (!validateOptionalEmail(draft.contactEmail)) {
+      return createValidationError("submitContactEmail", "Contact email must be valid if provided.");
+    }
+    return null;
+  }
+
+  return validateVerification(draft);
 }

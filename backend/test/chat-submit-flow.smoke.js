@@ -116,15 +116,13 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     );
     let accessibilityState = await page.evaluate(() => {
       const titleInput = document.getElementById("submitShowTitle");
-      const tagInput = document.getElementById("submitSelectedTagsInput");
-      const tagLabelId = tagInput?.getAttribute("aria-labelledby") || "";
+      const sourceGroup = document.getElementById("submitListenLinks");
       return {
         titleLabel: document.querySelector('label[for="submitShowTitle"]')?.textContent?.trim() || "",
         titleError: document.getElementById("submitShowTitleError")?.textContent?.trim() || "",
         titleInvalid: titleInput?.getAttribute("aria-invalid") || "",
         activeElementId: document.activeElement?.id || "",
-        tagLabelText: tagLabelId ? document.getElementById(tagLabelId)?.textContent?.trim() || "" : "",
-        tagErrorId: tagInput?.getAttribute("aria-errormessage") || "",
+        sourceRequired: sourceGroup?.getAttribute("aria-required") || "",
         statusRole: document.getElementById("submitStatus")?.getAttribute("role") || "",
         statusText: document.getElementById("submitStatus")?.textContent?.trim() || "",
       };
@@ -133,12 +131,13 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(accessibilityState.titleInvalid, "true");
     assert.equal(accessibilityState.activeElementId, "submitShowTitle");
     assert.equal(accessibilityState.titleError, "Show title is required.");
-    assert.match(accessibilityState.tagLabelText, /Genres or tags/);
-    assert.equal(accessibilityState.tagErrorId, "submitSelectedTagsError");
+    assert.equal(accessibilityState.sourceRequired, "true");
     assert.equal(accessibilityState.statusRole, "alert");
     assert.equal(accessibilityState.statusText, "Show title is required.");
 
     await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    assert.equal(await page.locator("#submitStatus").innerText(), "");
+    await page.locator("#submitHelpfulDetails > summary").click();
 
     let tagAndLinkState = await page.evaluate(() => ({
       tagMenuOpen: !document.querySelector(".submit-tag-picker-menu")?.hasAttribute("hidden"),
@@ -262,27 +261,59 @@ test("Ask the Archivist and the remade submit page interactions work across mode
       submissionType: document.getElementById("submissionType")?.value || "",
       reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
       proofFieldVisible: Boolean(document.getElementById("submitProofUrl")),
+      reviewTitleRequired: document.getElementById("submitReviewTitle")?.required || false,
+      detailedRatingsOpen: document.getElementById("submitDetailedRatings")?.hasAttribute("open") || false,
+      detailedRatingsSummary: document.querySelector("#submitDetailedRatings summary")?.textContent?.trim() || "",
     }));
     assert.equal(formState.submissionType, "listener-review");
     assert.equal(formState.reviewFieldVisible, true);
     assert.equal(formState.proofFieldVisible, false);
+    assert.equal(formState.reviewTitleRequired, false);
+    assert.equal(formState.detailedRatingsOpen, false);
+    assert.match(formState.detailedRatingsSummary, /0 of 6 rated/);
+
+    await page.locator("#submitDetailedRatings > summary").click();
+    await page.locator('[data-category-score="ads"][data-category-score-value="8"]').click();
+    formState = await page.evaluate(() => ({
+      summary: document.querySelector("#submitDetailedRatings summary")?.textContent?.trim() || "",
+      selected: document.querySelector('[data-category-score="ads"][aria-checked="true"]')?.textContent?.trim() || "",
+      adLabel: document.querySelector('[data-category-score-group="ads"] .submit-category-rating-label')?.textContent?.trim() || "",
+      lengthHelp: document.querySelector('[data-category-score-group="length"] .submit-category-rating-help')?.textContent?.trim() || "",
+    }));
+    assert.match(formState.summary, /1 of 6 rated/);
+    assert.equal(formState.selected, "8");
+    assert.equal(formState.adLabel, "Ad experience");
+    assert.match(formState.lengthHelp, /feels right for the show/i);
+    await page.locator('[data-clear-category-score="ads"]').click();
+    assert.match(await page.locator("#submitDetailedRatings > summary").innerText(), /0 of 6 rated/);
 
     await page.locator('[data-submission-mode="creator-verification"]').click();
-    await page.locator("#submitProofUrl").waitFor();
+    await page.locator("#submitContactEmail").waitFor();
     formState = await page.evaluate(() => ({
       submissionType: document.getElementById("submissionType")?.value || "",
       reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
       proofFieldVisible: Boolean(document.getElementById("submitProofUrl")),
+      contactEmailVisible: Boolean(document.getElementById("submitContactEmail")),
       officialLinkRows: document.querySelectorAll('[data-link-list="officialLinks"][data-link-part="url"]').length,
       officialLinkButtons: document.querySelectorAll('[data-add-link-option="officialLinks"]').length,
       emptyStateVisible: Boolean(document.querySelector(".submit-link-list-empty")),
     }));
     assert.equal(formState.submissionType, "creator-verification");
     assert.equal(formState.reviewFieldVisible, false);
-    assert.equal(formState.proofFieldVisible, true);
+    assert.equal(formState.proofFieldVisible, false);
+    assert.equal(formState.contactEmailVisible, true);
     assert.equal(formState.officialLinkRows, 0);
     assert.equal(formState.officialLinkButtons, 8);
     assert.equal(formState.emptyStateVisible, true);
+
+    await page.locator('[data-segment-field="verificationMethod"][data-segment-value="official-domain-email"]').press("ArrowRight");
+    await page.locator("#submitProofUrl").waitFor();
+    assert.equal(await page.locator("#submitContactEmail").count(), 0);
+    assert.equal(
+      await page.locator('[data-segment-field="verificationMethod"][data-segment-value="website"]').getAttribute("aria-checked"),
+      "true",
+    );
+    await page.locator("#submitAdditionalVerification > summary").click();
 
     await page.locator('[data-add-link-option="officialLinks"][data-add-link-value="Website"]').click();
     formState = await page.evaluate(() => ({
@@ -310,18 +341,21 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.locator("#submitExistingShowSearch").press("Enter");
     await page.waitForFunction(
       () => document.getElementById("existingShowId")?.value === "impact-winter" &&
-        document.getElementById("submitExistingShowSearch")?.value === "Impact Winter",
+        document.getElementById("submitExistingShowSearch")?.value === "Impact Winter" &&
+        document.querySelector(".submit-current-show h3")?.textContent?.trim() === "Impact Winter",
       undefined,
-      { timeout: 5_000 },
+      { timeout: 15_000 },
     );
     formState = await page.evaluate(() => ({
       submissionType: document.getElementById("submissionType")?.value || "",
       existingShowId: document.getElementById("existingShowId")?.value || "",
       showSearch: document.getElementById("submitExistingShowSearch")?.value || "",
+      currentShowTitle: document.querySelector(".submit-current-show h3")?.textContent?.trim() || "",
     }));
     assert.equal(formState.submissionType, "correction");
     assert.equal(formState.existingShowId, "impact-winter");
     assert.equal(formState.showSearch, "Impact Winter");
+    assert.equal(formState.currentShowTitle, "Impact Winter");
 
     await page.goto(`${baseUrl}/submit?submissionType=listener-review&showId=impact-winter`, {
       waitUntil: "networkidle",
@@ -407,43 +441,108 @@ test("submit defers archive lookup and keeps the new-show intake usable when loo
   }
 });
 
-test("submit success and failure flows surface inline status and toast feedback", async () => {
+test("show context failures stay non-blocking and stale responses cannot replace a newer selection", async () => {
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
+  const contextPattern = "**/api/submissions/shows/*/context";
+
+  try {
+    await page.route(contextPattern, async (route) => {
+      await route.fulfill({ status: 503, contentType: "application/json", body: '{"error":"unavailable"}' });
+    });
+    await page.goto(`${baseUrl}/submit?submissionType=correction&showId=impact-winter`, { waitUntil: "networkidle" });
+    await page.locator('.submit-current-show[data-state="error"]').waitFor({ timeout: 10_000 });
+    assert.equal(await page.locator("#existingShowId").inputValue(), "impact-winter");
+    assert.match(await page.locator(".submit-current-show").innerText(), /still submit/i);
+
+    await page.unroute(contextPattern);
+    await page.route(contextPattern, async (route) => {
+      const showId = new URL(route.request().url()).pathname.split("/").at(-2);
+      if (showId === "impact-winter") {
+        await new Promise((resolve) => setTimeout(resolve, 400));
+      }
+      const show = showId === "solar"
+        ? { id: "solar", title: "Solar", creators: ["CurtCo Media"], completionStatus: "completed" }
+        : { id: "impact-winter", title: "Impact Winter", creators: ["Travis Beacham"], completionStatus: "ongoing" };
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ show: { ...show, officialDescription: "", listenLinks: [], officialLinks: [] } }),
+      });
+    });
+
+    await page.goto(`${baseUrl}/submit?submissionType=correction`, { waitUntil: "networkidle" });
+    await page.locator("#submitExistingShowSearch").fill("Impact");
+    await page.locator("#submitExistingShowSearch").press("ArrowDown");
+    await page.locator("#submitExistingShowSearch").press("Enter");
+    await page.locator("#submitExistingShowSearch").fill("Solar");
+    await page.locator("#submitExistingShowSearch").press("ArrowDown");
+    await page.locator("#submitExistingShowSearch").press("Enter");
+    await page.waitForFunction(
+      () => document.getElementById("existingShowId")?.value === "solar" &&
+        document.querySelector(".submit-current-show h3")?.textContent?.trim() === "Solar",
+      undefined,
+      { timeout: 10_000 },
+    );
+    await page.waitForTimeout(500);
+    assert.equal(await page.locator("#existingShowId").inputValue(), "solar");
+    assert.equal(await page.locator(".submit-current-show h3").innerText(), "Solar");
+  } finally {
+    await context.close();
+  }
+});
+
+test("submit success and failure flows use one persistent result surface and preserve retry data", async () => {
   const page = await browser.newPage();
 
   async function fillValidShowSubmission() {
     await page.locator("#submitShowTitle").fill("Launch Test Show");
-    await page.locator("#submitCreatorName").fill("Launch Test Network");
-    await page.locator("#submitContactEmail").fill("listener@example.org");
-    await page.locator("#submitOfficialSite").fill("https://example.org/show");
     await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="Apple Podcasts"]').click();
     await page.locator('[data-link-list="listenLinks"][data-link-part="url"]').fill("https://podcasts.apple.com/us/podcast/launch-test-show/id123456789");
-    await page.locator('[data-tag-input="selectedTags"]').fill("Sci-fi");
-    await page.locator('[data-tag-input="selectedTags"]').press("Enter");
-    await page.selectOption("#submitCompletionStatus", { index: 1 });
-    await page.locator("#submitShortDescription").fill("A spoiler-free test description for launch verification.");
-    await page.locator("#submitArchiveFitNote").fill("This verifies the launch submission feedback flow.");
   }
 
   try {
     await page.goto(`${baseUrl}/submit`, { waitUntil: "networkidle" });
+    await page.route("**/api/submissions/shows", async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      await route.fulfill({
+        status: 202,
+        contentType: "application/json",
+        body: JSON.stringify({ accepted: true, submissionId: "smoke-submission" }),
+      });
+    });
     await fillValidShowSubmission();
     await page.locator('button[type="submit"]').click();
+    const pendingState = await page.evaluate(() => ({
+      busy: document.getElementById("showSubmitForm")?.getAttribute("aria-busy") || "",
+      disabled: document.getElementById("submitPrimaryButton")?.hasAttribute("disabled") || false,
+      label: document.getElementById("submitPrimaryButtonText")?.textContent?.trim() || "",
+    }));
+    assert.deepEqual(pendingState, { busy: "true", disabled: true, label: "Submitting new show…" });
     await page.waitForFunction(
-      () => document.getElementById("submitStatus")?.textContent?.includes("Submission received."),
+      () => !document.getElementById("submitResultPanel")?.hasAttribute("hidden"),
       undefined,
       { timeout: 5_000 },
     );
-    await page.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
+    await page.waitForFunction(
+      () => document.activeElement?.matches("#submitResultPanel h2"),
+      undefined,
+      { timeout: 5_000 },
+    );
 
     const successState = await page.evaluate(() => ({
-      status: document.getElementById("submitStatus")?.textContent?.trim() || "",
-      toast: document.querySelector(".archive-toast-message")?.textContent?.trim() || "",
-      toastTone: document.querySelector(".archive-toast")?.getAttribute("data-tone") || "",
+      result: document.getElementById("submitResultPanel")?.textContent?.trim() || "",
+      formHidden: document.getElementById("showSubmitForm")?.hasAttribute("hidden") || false,
+      activeTag: document.activeElement?.tagName || "",
+      toastCount: document.querySelectorAll(".archive-toast-message").length,
     }));
-    assert.match(successState.status, /Submission received\./);
-    assert.equal(successState.toast, "Submission received. It is now in the manual archive review queue.");
-    assert.equal(successState.toastTone, "success");
+    assert.match(successState.result, /New show received for archive screening\./);
+    assert.match(successState.result, /Submit another/);
+    assert.equal(successState.formHidden, true);
+    assert.equal(successState.activeTag, "H2");
+    assert.equal(successState.toastCount, 0);
 
+    await page.unroute("**/api/submissions/shows");
     await page.route("**/api/submissions/shows", async (route) => {
       await route.fulfill({
         status: 500,
@@ -452,23 +551,52 @@ test("submit success and failure flows surface inline status and toast feedback"
       });
     });
 
+    await page.locator("[data-submit-another]").click();
     await fillValidShowSubmission();
     await page.locator('button[type="submit"]').click();
     await page.waitForFunction(
-      () => document.getElementById("submitStatus")?.textContent?.includes("Submission failed with 500"),
+      () => document.getElementById("submitStatus")?.textContent?.includes("Your entries are still here"),
       undefined,
       { timeout: 5_000 },
     );
-    await page.locator(".archive-toast-message").waitFor({ timeout: 5_000 });
 
     const failureState = await page.evaluate(() => ({
       status: document.getElementById("submitStatus")?.textContent?.trim() || "",
-      toast: document.querySelector(".archive-toast-message")?.textContent?.trim() || "",
-      toastTone: document.querySelector(".archive-toast")?.getAttribute("data-tone") || "",
+      activeElementId: document.activeElement?.id || "",
+      showTitle: document.getElementById("submitShowTitle")?.value || "",
+      toastCount: document.querySelectorAll(".archive-toast-message").length,
     }));
-    assert.equal(failureState.status, "Submission failed with 500");
-    assert.equal(failureState.toast, "Submission failed with 500");
-    assert.equal(failureState.toastTone, "error");
+    assert.equal(failureState.status, "Submission failed with 500. Your entries are still here; try again.");
+    assert.equal(failureState.activeElementId, "submitStatus");
+    assert.equal(failureState.showTitle, "Launch Test Show");
+    assert.equal(failureState.toastCount, 0);
+
+    await page.unroute("**/api/submissions/shows");
+    await page.route("**/api/submissions/shows", async (route) => {
+      await route.fulfill({
+        status: 429,
+        headers: { "Retry-After": "45" },
+        contentType: "application/json",
+        body: JSON.stringify({ error: "Too many submissions" }),
+      });
+    });
+    await page.locator('button[type="submit"]').click();
+    await page.waitForFunction(
+      () => document.getElementById("submitStatus")?.textContent?.includes("Try again in 45 seconds"),
+      undefined,
+      { timeout: 5_000 },
+    );
+    assert.match(await page.locator("#submitStatus").innerText(), /Too many submissions.*45 seconds/);
+
+    await page.unroute("**/api/submissions/shows");
+    await page.route("**/api/submissions/shows", async (route) => route.abort("failed"));
+    await page.locator('button[type="submit"]').click();
+    await page.waitForFunction(
+      () => document.getElementById("submitStatus")?.textContent?.includes("Check your connection"),
+      undefined,
+      { timeout: 5_000 },
+    );
+    assert.equal(await page.locator("#submitShowTitle").inputValue(), "Launch Test Show");
   } finally {
     await page.close();
   }

@@ -307,7 +307,7 @@ test("mobile discovery, collection, and submit controls meet input and touch siz
       await readControlMetrics(page, [
         { selector: "#submitShowTitle", requireFontSize: true },
         { selector: "#submitModeCards .submit-mode-card" },
-        { selector: ".submit-tag-picker-toggle" },
+        { selector: '[data-add-link-option="listenLinks"]' },
         { selector: "#submitPrimaryButton" },
       ]),
       "Submit",

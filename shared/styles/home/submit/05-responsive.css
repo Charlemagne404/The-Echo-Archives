@@ -23,10 +23,6 @@
     border-radius: 20px;
   }
 
-  .submit-hero-trust {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .submit-surface-card,
   .submit-rail-card,
   .submit-form-surface {
@@ -34,25 +30,59 @@
     border-radius: 18px;
   }
 
+  .submit-mode-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .submit-mode-heading h2 {
+    font-size: 1.75rem;
+  }
+
   .submit-mode-card {
-    min-height: 0;
-    padding: 14px 16px;
+    min-height: 134px;
+    padding: 12px;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-content: start;
   }
 
   .submit-mode-card-icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
   }
 
-  .submit-trust-pill {
-    min-height: 58px;
-    padding: 9px 12px;
-    font-size: 0.94rem;
+  .submit-mode-card-icon svg {
+    width: 32px;
+    height: 32px;
   }
 
-  .submit-steps-shell {
+  .submit-mode-card-copy {
+    gap: 4px;
+  }
+
+  .submit-mode-card-title {
+    padding-right: 12px;
+    font-size: 0.9rem;
+  }
+
+  .submit-mode-card-description {
+    font-size: 0.78rem;
+    line-height: 1.32;
+  }
+
+  .submit-mode-card-check {
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .submit-disclosure-content,
+  .submit-detailed-ratings .submit-category-ratings,
+  .submit-conditional-fields {
     padding: 14px;
-    border-radius: 16px;
   }
 
   .submit-tag-picker-input,
@@ -61,11 +91,5 @@
   .submit-page .submit-remake-form select {
     padding-left: 14px;
     padding-right: 14px;
-  }
-}
-
-@media (max-width: 360px) {
-  .submit-hero-trust {
-    grid-template-columns: 1fr;
   }
 }

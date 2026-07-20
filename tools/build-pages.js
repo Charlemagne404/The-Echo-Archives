@@ -1024,20 +1024,13 @@ async function loadSubmitPrerender() {
     lookupStatus: "idle",
     lookupMessage: "Archive lookup loads only when this submission path needs it.",
     showHighlightIndex: -1,
+    showContext: null,
+    showContextStatus: "idle",
+    showContextMessage: "",
   };
 
   return {
     submitModeCards: renderModule.renderModeCardsMarkup("show"),
-    submitStepsPanel: config.steps.map((step, index) => `
-      <div class="submit-step-item">
-        <span class="submit-step-number" aria-hidden="true">${index + 1}</span>
-        <span class="submit-step-copy">
-          <strong>${utilsModule.escapeHtml(step.title)}</strong>
-          <span>${utilsModule.escapeHtml(step.body)}</span>
-        </span>
-      </div>
-      ${index < config.steps.length - 1 ? `<span class="submit-step-arrow" aria-hidden="true">${utilsModule.iconMarkup("arrow-right")}</span>` : ""}
-    `).join(""),
     submitFormIntro: `
       <div class="submit-form-intro-meta">
         <span class="submit-form-icon" aria-hidden="true">${utilsModule.iconMarkup(config.introIcon)}</span>

@@ -1,66 +1,35 @@
 import { COMPLETION_STATUS_OPTIONS, LISTEN_LINK_OPTIONS } from "../../config.js";
-import { renderChipGroupField, renderSegmentedField } from "../choice-fields.js";
+import { renderChipGroupField } from "../choice-fields.js";
 import { renderFormRow, renderSelectField, renderTextInputField, renderTextareaField } from "../base-fields.js";
 import { renderLinkListField } from "../link-fields.js";
+import { renderOptionalDisclosure } from "../supporting.js";
 
 export function renderShowMode(draft, context) {
-  return [
+  const optionalFields = [
     renderFormRow([
       renderTextInputField({
-        id: "submitShowTitle",
-        label: "Show title",
-        required: true,
-        value: draft.showTitle,
-        maxLength: 160,
-        placeholder: "e.g., The White Vault",
-      }),
-      renderTextInputField({
         id: "submitCreatorName",
-        label: "Creator or network",
-        required: true,
+        label: "Creator or network (optional)",
         value: draft.creatorName,
         maxLength: 160,
         placeholder: "e.g., Fool & Scholar",
       }),
-    ]),
-    renderFormRow([
       renderTextInputField({
         id: "submitContactEmail",
-        label: "Contact email",
-        required: true,
+        label: "Contact email (optional)",
         type: "email",
         value: draft.contactEmail,
         maxLength: 160,
         placeholder: "you@example.com",
         autocomplete: "email",
-      }),
-      renderTextInputField({
-        id: "submitOfficialSite",
-        label: "Official website",
-        type: "url",
-        value: draft.officialSite,
-        maxLength: 500,
-        placeholder: "https://example.com",
+        helper: "Used only if the review team needs clarification.",
       }),
     ]),
-    renderLinkListField({
-      fieldName: "listenLinks",
-      label: "Listen links (add at least one)",
-      helper: "Click a listener link type to add it, then paste the official destination URL.",
-      required: true,
-      rows: draft.listenLinks,
-      options: LISTEN_LINK_OPTIONS,
-      plain: false,
-      chooseBeforeAdd: true,
-      emptyMessage: "No listener links added yet.",
-      addOptionsAriaLabel: "Add a listener link",
-    }),
     renderFormRow([
       renderChipGroupField({
         fieldName: "selectedTags",
-        label: "Genres or tags",
-        helper: "Choose up to eight tags that help listeners find the show.",
-        required: true,
+        label: "Genres or tags (optional)",
+        helper: "Choose up to eight only when you know they are accurate.",
         values: draft.selectedTags,
         options: context.tagFieldOptions.selectedTags,
         activeField: context.activeTagField,
@@ -73,44 +42,61 @@ export function renderShowMode(draft, context) {
       }),
       renderSelectField({
         id: "submitCompletionStatus",
-        label: "Completion status",
-        required: true,
+        label: "Completion status (optional)",
         value: draft.completionStatus,
         options: COMPLETION_STATUS_OPTIONS,
-        helper: "Select the current state of the show.",
+        helper: "Leave this as Unknown when you are unsure.",
       }),
     ]),
     renderTextareaField({
       id: "submitShortDescription",
-      label: "Short spoiler-free description",
-      required: true,
+      label: "Short factual description (optional)",
       value: draft.shortDescription,
       maxLength: 1000,
       rows: 5,
-      helper: "Who is it for and what can listeners expect?",
-      placeholder: "Give a concise, spoiler-safe description of the show.",
-      short: true,
-    }),
-    renderTextareaField({
-      id: "submitArchiveFitNote",
-      label: "Why it belongs in the archive",
-      required: true,
-      value: draft.archiveFitNote,
-      maxLength: 500,
-      rows: 4,
-      helper: "Tell us why this show should be preserved and discoverable.",
-      placeholder: "Explain why this show fits the archive.",
+      helper: "Keep it spoiler-safe and factual; the importer may replace it with an official description.",
+      placeholder: "A concise description, if you have one.",
       short: true,
     }),
     renderTextareaField({
       id: "submitVerificationNotes",
-      label: "Optional notes or verification sources",
+      label: "Additional notes (optional)",
       value: draft.verificationNotes,
       maxLength: 1000,
       rows: 4,
-      helper: "Share press kits, creator pages, IMDb links, or anything else that helps review.",
-      placeholder: "Anything else the archive should know.",
+      helper: "Share anything that helps identify or review the show without guessing at facts.",
+      placeholder: "Press kit, creator page, alternate title, or other useful context.",
       short: true,
+    }),
+  ].join("");
+
+  return [
+    renderTextInputField({
+      id: "submitShowTitle",
+      label: "Show title",
+      required: true,
+      value: draft.showTitle,
+      maxLength: 160,
+      placeholder: "e.g., The White Vault",
+    }),
+    renderLinkListField({
+      fieldName: "listenLinks",
+      label: "Official or listening link",
+      helper: "Add at least one reliable destination. RSS feeds and official websites are especially useful.",
+      required: true,
+      rows: draft.listenLinks,
+      options: LISTEN_LINK_OPTIONS,
+      plain: false,
+      chooseBeforeAdd: true,
+      emptyMessage: "No source link added yet.",
+      addOptionsAriaLabel: "Add an official or listening link",
+    }),
+    renderOptionalDisclosure({
+      id: "submitHelpfulDetails",
+      title: "Add helpful details (optional)",
+      summary: "Creator, contact, tags, status, description, and notes",
+      open: draft.helpfulDetailsOpen,
+      content: optionalFields,
     }),
   ].join("");
 }

@@ -122,13 +122,13 @@
 
 .submit-side-rail {
   display: grid;
-  gap: 18px;
+  gap: 14px;
 }
 
 .submit-rail-card {
   display: grid;
-  gap: 18px;
-  padding: 20px 18px;
+  gap: 14px;
+  padding: 17px 16px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
@@ -172,7 +172,7 @@
 
 .submit-rail-list {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .submit-rail-list-item {
@@ -211,8 +211,74 @@
 
 .submit-rail-list-item-copy span {
   color: var(--text-secondary);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
+.submit-result-panel {
+  position: relative;
+  z-index: 1;
+  min-height: 360px;
+  padding: 44px 24px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.submit-result-panel[hidden] {
+  display: none;
+}
+
+.submit-result-icon {
+  width: 58px;
+  height: 58px;
+  padding: 14px;
+  border: 1px solid rgba(118, 214, 90, 0.34);
+  border-radius: 999px;
+  background: rgba(118, 214, 90, 0.09);
+  color: rgba(170, 235, 150, 0.98);
+}
+
+.submit-result-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.submit-result-kicker {
+  margin: 2px 0 0;
+  color: rgba(170, 235, 150, 0.92);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.submit-result-panel h2 {
+  margin: 0;
+  max-width: 25ch;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  line-height: 1.12;
+}
+
+.submit-result-panel > p:not(.submit-result-kicker) {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.submit-result-action {
+  margin-top: 10px;
+}
+
+@media (min-width: 901px) and (min-height: 700px) {
+  .submit-side-rail {
+    position: sticky;
+    top: 18px;
+    align-self: start;
+  }
 }
 
 .submit-rail-help {
@@ -269,7 +335,7 @@
   }
 
   .submit-side-rail {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -300,7 +366,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .submit-mode-grid,
   .submit-side-rail {
     grid-template-columns: 1fr;
   }

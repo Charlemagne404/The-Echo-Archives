@@ -411,6 +411,7 @@ Public intake currently lives on:
 
 - `/submit`
 - `POST /api/submissions/shows`
+- `GET /api/submissions/shows/:showId/context` for the public objective facts used by correction and verification forms
 
 Supported `submissionType` values:
 
@@ -420,6 +421,7 @@ Supported `submissionType` values:
 - `creator-verification`
 
 Everything enters the same SQLite-backed review queue. Nothing auto-publishes.
+New clients send `intakeVersion: 2`; unversioned queue records remain readable through the legacy normalization and maintainer-formatting paths.
 
 Maintainer review has protected internal surfaces:
 
@@ -534,32 +536,42 @@ Use a small predictable vocabulary:
 
 `show`:
 
-- requires a contact email
-- requires at least one of `officialSite` or `rssOrListenLink`
-- stores show-focused context in `payload_json`
+- requires a show title and at least one typed official, RSS, or listening URL
+- accepts creator/network, contact email, tags, completion status, description, and notes as optional enrichment hints
+- defaults an omitted completion status to `unknown`
+- derives importer handoff fields from typed link labels, then keeps importer enrichment and publication as separate protected approvals
 
 `correction`:
 
 - requires a known `existing_show_id`
 - accepts optional contact email
-- requires factual correction details in `notes`
+- stores v2 fields in `payload.correctionDetails`
+- `broken-link` requires the affected URL and a Replace/Remove action; Replace also requires a replacement URL
+- `metadata` requires the metadata field, proposed value, and supporting source
+- `status` requires the proposed status and supporting source; effective-date context is optional
+- `credits` requires an Add/Update/Remove action, person or organization, role, and supporting source
+- `artwork` requires an official artwork URL; credit is optional
+- `other` requires the issue and proposed correction; a source is optional
 - should not be used for editorial disagreement
 
 `listener-review`:
 
 - requires a known `existing_show_id`
 - accepts optional contact email
-- requires a 1 to 10 rating
-- requires review text
-- stores rating, spoiler level, and review text in `payload_json`
+- requires a 1 to 5 overall rating, spoiler level, and review text
+- accepts an optional review title and zero, some, or all supported 1 to 10 category scores
+- validates each supplied category independently and rejects unknown category keys
+- published category aggregates continue to use each category's own qualifying ratings and visibility threshold
 
 `creator-verification`:
 
 - requires a known `existing_show_id`
-- accepts optional contact email
-- requires at least one verification source link
-- requires factual notes describing what should be verified or corrected
-- stores source links in both `payload_json` and `provenance_json`
+- requires creator/network, role, requested factual updates, and a verification method
+- official-domain email requires a valid contact email
+- website, social-account, and press-kit methods require the corresponding official URL
+- `other` requires an evidence description plus either a URL or contact email
+- stores v2 method evidence in `payload.verificationEvidence` and retains source links in `provenance_json`
+- treats domain matching and official-source evidence as maintainer signals, never automatic approval
 
 ## Moderation Rules
 

@@ -105,7 +105,11 @@ test("default new-show submission is present before hydration", () => {
 
   assert.match(html, /id="submitModeCards"[\s\S]*data-submission-mode="show"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitShowTitle"/);
+  assert.match(html, /id="submitDynamicFields"[\s\S]*id="submitListenLinks"/);
   assert.match(html, /id="submitDynamicFields"[\s\S]*data-tag-input="selectedTags"/);
+  assert.match(html, /id="submitCompletionStatus"[\s\S]*option value="unknown" selected>Unknown/);
+  assert.doesNotMatch(html, /submitArchiveFitNote/);
+  assert.doesNotMatch(html, /Nothing submitted yet/);
 });
 
 test("legacy redirect manifest matches redirect shim files", () => {

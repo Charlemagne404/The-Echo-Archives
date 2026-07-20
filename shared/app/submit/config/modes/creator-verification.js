@@ -1,104 +1,39 @@
 export const creatorVerificationModeConfig = {
-    heroDescription:
-      "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
-    cardTitle: "Creator verification",
-    cardDescription: "Verify your show or update official details.",
-    cardIcon: "mode-creator",
-    introTitle: "Creator or official update",
-    introDescription: "Provide accurate, verifiable information to confirm or update official details.",
-    introIcon: "shield",
-    submitLabel: "Send creator update",
-    footerNote: "Verification helps confirm factual details. It does not affect archive ratings or recommendations.",
-    steps: [
-      {
-        title: "You submit",
-        body: "Send us the details using the form below.",
-      },
-      {
-        title: "We review",
-        body: "Our team verifies and adds context as needed.",
-      },
-      {
-        title: "It enters the archive",
-        body: "If accepted, it becomes part of the curated collection.",
-      },
-    ],
-    railCards: [
-      {
-        title: "Verification guidelines",
-        icon: "clipboard",
-        accent: true,
-        items: [
-          {
-            title: "Use official channels",
-            description: "Submit from your official email domain, website, or verified social account.",
-            icon: "check",
-            accent: true,
-          },
-          {
-            title: "Provide proof of association",
-            description: "Include a link or documentation that confirms your role.",
-            icon: "check",
-            accent: true,
-          },
-          {
-            title: "Factual updates only",
-            description: "We update verifiable details like links, bios, status, artwork, and metadata.",
-            icon: "check",
-            accent: true,
-          },
-          {
-            title: "Response may require follow-up",
-            description: "Our team may reach out for clarification before changes are applied.",
-            icon: "check",
-            accent: true,
-          },
-        ],
-      },
-      {
-        title: "What verification changes",
-        icon: "shield",
-        description: "",
-        items: [
-          {
-            title: "Confirms official links",
-            description: "We update websites, RSS feeds, and streaming links.",
-            icon: "link",
-          },
-          {
-            title: "Updates bios and descriptions",
-            description: "Official descriptions and creator details are refreshed.",
-            icon: "document",
-          },
-          {
-            title: "Confirms show status",
-            description: "We verify ongoing, paused, completed, or relaunch information.",
-            icon: "clock",
-          },
-          {
-            title: "Updates artwork",
-            description: "Official cover art and banners may be updated.",
-            icon: "image",
-          },
-          {
-            title: "Updates official metadata",
-            description: "Release dates, networks, and other factual details are confirmed.",
-            icon: "spark",
-          },
-          {
-            title: "Does not change ratings",
-            description: "Audience ratings and rankings remain untouched by verification.",
-            icon: "archive",
-          },
-        ],
-      },
-      {
-        title: "Questions?",
-        icon: "question",
-        accent: true,
-        description: "Visit our help center or reach out to the Archivist.",
-        buttonLabel: "Ask the Archivist",
-        footer: "We're here to help.",
-      },
-    ],
+  heroDescription: "Choose the right path to help keep the archive accurate, useful, and easy to discover.",
+  cardTitle: "Creator verification",
+  cardDescription: "Confirm association or official facts.",
+  cardIcon: "mode-creator",
+  introTitle: "Creator verification",
+  introDescription: "Choose the strongest proof path and describe the factual details to confirm or update.",
+  introIcon: "shield",
+  submitLabel: "Request creator verification",
+  footerNote: "Next: association evidence is checked; follow-up may be needed.",
+  steps: [
+    { title: "Request", body: "Select the show, your role, and a proof method." },
+    { title: "Verify", body: "We check association and may follow up for clarification." },
+    { title: "Update", body: "Accepted factual metadata is updated manually." },
+  ],
+  railCards: [
+    {
+      title: "After you submit",
+      icon: "clock",
+      accent: true,
+      items: [
+        { title: "Verify", description: "We check your association using the selected proof method.", icon: "shield", accent: true },
+        { title: "Follow up", description: "We may contact you if the evidence needs clarification.", icon: "team" },
+        { title: "Update", description: "Accepted factual metadata is applied manually.", icon: "document" },
+      ],
+    },
+    {
+      title: "Verification boundaries",
+      icon: "info",
+      description: "Verification means factual association was checked.",
+      items: [
+        { title: "Use the strongest official channel", description: "Official-domain email, websites, profiles, and press kits are preferred.", icon: "link", accent: true },
+        { title: "Official links are optional", description: "Add them only when they should be confirmed or updated.", icon: "check" },
+        { title: "Ratings stay independent", description: "Verification does not imply endorsement or editorial control.", icon: "archive" },
+      ],
+      buttonLabel: "Ask the Archivist",
+    },
+  ],
 };

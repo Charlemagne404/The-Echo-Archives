@@ -6,7 +6,6 @@ export function getSubmitElements() {
     heroDescription: document.getElementById("submitHeroDescription"),
     loadStatus: document.getElementById("submitLoadStatus"),
     modeCards: document.getElementById("submitModeCards"),
-    stepsPanel: document.getElementById("submitStepsPanel"),
     formIntro: document.getElementById("submitFormIntro"),
     dynamicFields: document.getElementById("submitDynamicFields"),
     sideRail: document.getElementById("submitSideRail"),
@@ -14,6 +13,7 @@ export function getSubmitElements() {
     submitButtonText: document.getElementById("submitPrimaryButtonText"),
     submitFooterNote: document.getElementById("submitFooterNote"),
     submitStatus: document.getElementById("submitStatus"),
+    resultPanel: document.getElementById("submitResultPanel"),
   };
 
   if (
@@ -23,14 +23,14 @@ export function getSubmitElements() {
     !(elements.heroDescription instanceof HTMLElement) ||
     !(elements.loadStatus instanceof HTMLElement) ||
     !elements.modeCards ||
-    !elements.stepsPanel ||
     !elements.formIntro ||
     !elements.dynamicFields ||
     !elements.sideRail ||
     !(elements.submitButton instanceof HTMLButtonElement) ||
     !elements.submitButtonText ||
     !elements.submitFooterNote ||
-    !elements.submitStatus
+    !elements.submitStatus ||
+    !(elements.resultPanel instanceof HTMLElement)
   ) {
     return null;
   }

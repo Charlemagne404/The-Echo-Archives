@@ -7,7 +7,7 @@ const { openDatabase } = require("../lib/store/database");
 const { createSubmissionStore } = require("../lib/store/submission-store");
 const { createPublishedListenerReviewStore } = require("../lib/store/published-listener-review-store");
 const { createCommunityStore } = require("../lib/store/community-store");
-const { createPublishedListenerReviewService } = require("../lib/services/published-listener-review-service");
+const { createPublishedListenerReviewService, normalizeCategoryScores } = require("../lib/services/published-listener-review-service");
 
 const categoryScores = {
   voiceActing: 9,
@@ -17,6 +17,13 @@ const categoryScores = {
   ads: 6,
   length: 7,
 };
+
+test("published category normalization keeps sparse scores strict", () => {
+  assert.equal(normalizeCategoryScores({ ads: 7 }).ads, 7);
+  assert.equal(normalizeCategoryScores({ ads: 7 }).story, null);
+  assert.throws(() => normalizeCategoryScores({ ads: 7.5 }), /whole number from 1 to 10/i);
+  assert.throws(() => normalizeCategoryScores({ madeUp: 8 }), /unknown detailed rating category/i);
+});
 
 function createContext() {
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-public-review-"));
@@ -72,7 +79,7 @@ test("database migration adds nullable checked category columns and keeps legacy
   }
 });
 
-test("public listener reviews require acceptance, category scores to publish, and never expose private submission data", () => {
+test("public listener reviews require acceptance, allow sparse category scores, and never expose private submission data", () => {
   const context = createContext();
   try {
     const submission = createSubmission(context);
@@ -98,10 +105,10 @@ test("public listener reviews require acceptance, category scores to publish, an
     assert.deepEqual(legacy.categoryScores, {
       voiceActing: null, soundDesign: null, story: null, characters: null, ads: null, length: null,
     });
-    assert.throws(
-      () => context.service.publishForMaintainer(legacySubmission.id, { body: "Re-published without genuine scores." }),
-      /all six category scores/i,
-    );
+    const republishedLegacy = context.service.publishForMaintainer(legacySubmission.id, { body: "Re-published without genuine scores." });
+    assert.deepEqual(republishedLegacy.categoryScores, {
+      voiceActing: null, soundDesign: null, story: null, characters: null, ads: null, length: null,
+    });
 
     const unpublished = context.service.unpublishForMaintainer(submission.id);
     assert.equal(unpublished.published, false);
@@ -136,6 +143,23 @@ test("category summaries exclude legacy reviews and reveal their averages only a
     context.service.publishForMaintainer(third.id, {});
     page = context.service.getPublicReviewPage("impact-winter");
     assert.deepEqual(page.scoreSummary.voiceActing, { averageRating: 9, ratingCount: 3, isPublic: true });
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("published listener reviews aggregate each supplied category independently", () => {
+  const context = createContext();
+  try {
+    const submission = createSubmission(context, { scores: { voiceActing: 9, ads: 4 } });
+    const published = context.service.publishForMaintainer(submission.id, {});
+    assert.equal(published.categoryScores.voiceActing, 9);
+    assert.equal(published.categoryScores.ads, 4);
+    assert.equal(published.categoryScores.story, null);
+    const summary = context.service.getPublicReviewPage("impact-winter").scoreSummary;
+    assert.equal(summary.voiceActing.ratingCount, 1);
+    assert.equal(summary.ads.ratingCount, 1);
+    assert.equal(summary.story.ratingCount, 0);
   } finally {
     cleanup(context);
   }

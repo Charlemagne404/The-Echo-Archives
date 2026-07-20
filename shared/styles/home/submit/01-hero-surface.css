@@ -10,8 +10,8 @@
 }
 
 .submit-hero-panel {
-  min-height: 280px;
-  justify-content: space-between;
+  min-height: 220px;
+  justify-content: center;
   padding: 34px 28px 26px;
   border-color: rgba(255, 255, 255, 0.14);
 }

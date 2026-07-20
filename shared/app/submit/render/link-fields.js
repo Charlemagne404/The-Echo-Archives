@@ -104,6 +104,9 @@ export function renderLinkListField({
       <div
         id="${fieldId}"
         class="submit-link-list"
+        role="group"
+        aria-labelledby="${labelId}"
+        aria-required="${String(required)}"
         aria-describedby="${[helper ? helperId : "", errorId].filter(Boolean).join(" ")}"
       >
         ${!plain && chooseBeforeAdd && normalizedRows.length === 0 && emptyMessage
