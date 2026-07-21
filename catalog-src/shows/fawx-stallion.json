@@ -1,0 +1,497 @@
+{
+  "id": "fawx-stallion",
+  "title": "Fawx & Stallion",
+  "subtitle": "",
+  "description": "In 1889 London, the overlooked detectives across the street from Sherlock Holmes and Dr John Watson get their own chance at a case. Fawx & Stallion is a comedy mystery about rivalry, friendship, fame, and occasional detective work.",
+  "cover": "images/covers/fawx-stallion.jpg",
+  "coverAlt": "Fawx & Stallion cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/0Nr2cr6Jgz1sM6eVkhpmXE?si=01d46691ff0b4c16",
+    "apple": "https://podcasts.apple.com/gb/podcast/fawx-stallion/id1644173428",
+    "website": "https://www.224bbaker.com/",
+    "rss": "https://feeds.megaphone.fm/fawxandstallion",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "Full cast",
+    "Serialized"
+  ],
+  "tags": [
+    "Comedy mystery",
+    "Detective fiction",
+    "Sherlock Holmes"
+  ],
+  "aliases": [
+    "Fawx & Stallion"
+  ],
+  "themes": [
+    "Mystery",
+    "Friendship"
+  ],
+  "contentNotes": [
+    "Adult language",
+    "Sexual innuendo"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 25 full episodes • 42 min median",
+    "seasons": 2,
+    "episodes": 25,
+    "avgEpisodeMinutes": 41,
+    "medianEpisodeMinutes": 42,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 96,
+    "totalObservedHours": 17.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 25,
+      "bonus": 12,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-09-19",
+    "latest": "2026-06-23",
+    "latestFeedItem": "2026-06-23",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.224bbaker.com/",
+    "patreon": "https://www.patreon.com/cw/224bbaker",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Rambling Absurdities",
+    "ownerName": "Rambling Absurdities",
+    "network": "Fawx and Stallion"
+  },
+  "creators": [
+    "Rambling Absurdities"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://www.224bbaker.com/transcripts; https://www.224bbaker.com/listen; https://www.224bbaker.com/cast-crew-1; https://www.224bbaker.com/; https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4; https://feeds.megaphone.fm/fawxandstallion; https://www.224bbaker.com/press",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.224bbaker.com/transcripts",
+      "https://www.224bbaker.com/listen",
+      "https://www.224bbaker.com/cast-crew-1",
+      "https://www.224bbaker.com/",
+      "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4",
+      "https://feeds.megaphone.fm/fawxandstallion",
+      "https://www.224bbaker.com/press"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Comedy mystery",
+      "Detective fiction",
+      "Sherlock Holmes"
+    ],
+    "importOfficialSummary": "In 1889 London, the overlooked detectives across the street from Sherlock Holmes and Dr John Watson get their own chance at a case. Fawx & Stallion is a comedy mystery about rivalry, friendship, fame, and occasional detective work.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/fawxandstallion",
+        "appleCollectionId": "1644173428",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.224bbaker.com/transcripts",
+          "fetchedAt": "2026-07-21T13:54:03.301Z",
+          "payloadHash": "15a474b1538e0e1dedf96d2a4d5c85ef80b89e51426f49ba3c0eddcdc6071d39"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.224bbaker.com/listen",
+          "fetchedAt": "2026-07-21T13:55:31.918Z",
+          "payloadHash": "135c7eb6f8478a0b0104dfbbd159f6e651f133a4dd8ac7247c4bb20e0ab0b9e3"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.224bbaker.com/cast-crew-1",
+          "fetchedAt": "2026-07-21T13:54:03.292Z",
+          "payloadHash": "3f76017d4ce44f800647b7994613f5929f25280409bf0c2399a27cfdd8849926"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.224bbaker.com/",
+          "fetchedAt": "2026-07-21T13:54:03.280Z",
+          "payloadHash": "9f98775a49ae2c62f9e0e55c15e7aa263454b6ded6a3c5240f4f1bc2125b4ddf"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4",
+          "fetchedAt": "2026-07-21T13:53:31.361Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/fawxandstallion",
+          "fetchedAt": "2026-07-21T13:53:32.827Z",
+          "payloadHash": "e9fdc91abb1122f0c99e9bec720a6ba087bc37b9a748c954052bdbec73ab2bf3"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.224bbaker.com/press",
+          "https://www.224bbaker.com/cast-crew-1",
+          "https://www.224bbaker.com/transcripts"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://www.224bbaker.com/press",
+            "https://www.224bbaker.com/cast-crew-1",
+            "https://www.224bbaker.com/transcripts"
+          ],
+          "websiteUrl": [
+            "https://www.224bbaker.com/"
+          ]
+        },
+        "notes": "Official press kit, credits, and transcript pages reviewed.",
+        "uncertainFields": [
+          "exact episode count"
+        ],
+        "reviewedAt": "2026-07-21T13:59:07.873Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/cast-crew-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/transcripts"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/cast-crew-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/transcripts"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/cast-crew-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.224bbaker.com/transcripts"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T13:59:07.875Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "1b7a8d44c5eeb4ac25d399785ec59dea8fb517a727d2aa39cab6953b886b4180",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "fc78d1186d58492d4d81800e9088d999bd8d08b9d8f91de8f0de3ad97624aa8d",
+        "cover": "26f071ce7b882620b4d506b1d9d95b8ab46cf7b0b0a977431a974fc78cdab00a",
+        "coverAlt": "36e889fa154813040d9ae7c71c56924c50f9add19b3dba9ad3044176c062d4b3",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "828f25be38b99a58e86c22fec0933fc6e132c5c339d8f37a83fc2d8858a1ed3d",
+        "officialLinks": "136f2bf446d0b8d32b4cb25b4822e1fe353225dc8b5b660457649ef11a82577d",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "e5fe0f52b6405eac3d32373fcdea720309bed65add624cc3382bc25aeb12748f",
+        "formats": "9875099bbfe3f679318b2a4acf24822f71d0f5f34e95aa1ce324e885db975b1b",
+        "aliases": "6d52e3d9868f5a9993130140436920880f119704141bdd1a0155d828b31ac24c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "02b4859b4f70f8c69323c6cffab0604c3a8c67eb98fee57196588b65724a562c",
+        "releaseDates": "55c2d38e3000a437936b919e6801fb642b441db84b5b8e896fe070d003551b97",
+        "credits": "a1e5300845a5dc951cecde577e68b43efc572482a7ef3bb3d8bb0ad45d8427c2",
+        "creators": "3fbab383191ed1c36ab79aa3539d6ca207b86b31f8bbc46a38f4b5ab39d2123a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e40a832f33f2fbe3816479594cc369ea039d6e44ad3198e163fb1c2eb364dced"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "rambling-absurdities",
+  "networkId": "fawx-and-stallion"
+}

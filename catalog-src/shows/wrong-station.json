@@ -1,0 +1,419 @@
+{
+  "id": "wrong-station",
+  "title": "Wrong Station",
+  "subtitle": "",
+  "description": "An anthology of original horror and weird fiction, drawing on The Twilight Zone and classic radio serials to visit appalling new worlds in each episode.",
+  "cover": "images/covers/wrong-station.jpg",
+  "coverAlt": "Wrong Station cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
+    "website": "https://www.wrongstation.com/",
+    "rss": "https://feeds.megaphone.fm/TWRS4873563754",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "anthology",
+    "episodic"
+  ],
+  "tags": [
+    "Horror fiction",
+    "Weird fiction",
+    "Anthology"
+  ],
+  "aliases": [
+    "Wrong Station"
+  ],
+  "themes": [
+    "Horror",
+    "Speculative fiction"
+  ],
+  "contentNotes": [
+    "Mature themes",
+    "Disturbing imagery"
+  ],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "10 seasons observed • at least 173 full episodes • 33 min median",
+    "seasons": 10,
+    "episodes": 173,
+    "avgEpisodeMinutes": 33,
+    "medianEpisodeMinutes": 33,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 55,
+    "totalObservedHours": 95.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 173,
+      "bonus": 80,
+      "trailer": 8
+    }
+  },
+  "releaseDates": {
+    "first": "2017-01-12",
+    "latest": "2026-06-01",
+    "latestFeedItem": "2026-06-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.wrongstation.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Wrong Station",
+    "ownerName": "Wrong Station"
+  },
+  "creators": [
+    "The Wrong Station"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4; https://feeds.megaphone.fm/TWRS4873563754; https://www.wrongstation.com/; https://www.wrongstation.com/content-warnings",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
+      "https://feeds.megaphone.fm/TWRS4873563754",
+      "https://www.wrongstation.com/",
+      "https://www.wrongstation.com/content-warnings"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror fiction",
+      "Weird fiction",
+      "Anthology"
+    ],
+    "importOfficialSummary": "An anthology of original horror and weird fiction, drawing on The Twilight Zone and classic radio serials to visit appalling new worlds in each episode.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/TWRS4873563754",
+        "appleCollectionId": "1190625755",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
+          "fetchedAt": "2026-07-21T13:52:25.659Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/TWRS4873563754",
+          "fetchedAt": "2026-07-21T13:52:27.032Z",
+          "payloadHash": "1aedce43fef66447a78f9380aea9f78cfc1211b63759229f0a522dcf46db8da0"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://www.wrongstation.com/",
+          "https://www.wrongstation.com/content-warnings"
+        ],
+        "fieldSources": {
+          "description": [
+            "https://www.wrongstation.com/",
+            "https://www.wrongstation.com/content-warnings"
+          ],
+          "websiteUrl": [
+            "https://www.wrongstation.com/"
+          ]
+        },
+        "notes": "Official show and content-warning pages reviewed.",
+        "uncertainFields": [
+          "exact episode count"
+        ],
+        "reviewedAt": "2026-07-21T13:59:07.888Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T13:59:07.889Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "13ca797936dcc4ca70a85631e6b8867cf3c691bf2ef93b909089dc10dfc45453",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "ecdc5cc164771d27ce7e980634b1be2627bb34bf83e4f97d6e6b7118b51447a7",
+        "cover": "37fee3d6a6da839ad16d1f79557903dd8e6d73e6a43195896a85f32927edb4f0",
+        "coverAlt": "73ca131cf3c616bf18b7fa549a757f36900c54d8cdbe8d8539a5f8cf44a7d507",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "f96c43eeee57e22605c792385511b824e09665acdf79b9bc465fb40c40bd07ea",
+        "officialLinks": "843ac85f7c4929c70b0ae6f0fb1f0bd9a9db0c569d80c8933bef8f638b2d861d",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "e71de6bca4f8558ebff9b06e4af8031c96188000b05c75b90fe6be15b3720f9f",
+        "formats": "d21e85ecd5b329a34040fe82726c6979a2363d3aa00b60853ae7141dd0c82d7a",
+        "aliases": "d1c6f0227e719e9db449bb8355006e986f2756e48f371401cc6db8379406601e",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "112c3569f34daf5e0c46bceaebc7c76f9e24a9c6c4cf501f2fed18523cc8a845",
+        "releaseDates": "5a8b221eddd82e024419c2875f1029576428ae7347cd0bd6e93683a84bc8419f",
+        "credits": "d434694acda25e89df4e4158d63be18a57f79e18d2458b2d2cb7894ccee7078e",
+        "creators": "3ace716fa803457a52a6a271641076598c6c8bad5171775585cfcce27cf9016c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b114b3f67810a676d10500b0fa99471e3a63ccdc23179a1839c8379d0000dbfa"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "the-wrong-station"
+}

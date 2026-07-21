@@ -24635,5 +24635,5684 @@
         "width": 320
       }
     ]
+  },
+  {
+    "id": "fawx-stallion",
+    "title": "Fawx & Stallion",
+    "subtitle": "",
+    "description": "In 1889 London, the overlooked detectives across the street from Sherlock Holmes and Dr John Watson get their own chance at a case. Fawx & Stallion is a comedy mystery about rivalry, friendship, fame, and occasional detective work.",
+    "cover": "images/covers/fawx-stallion.jpg",
+    "coverAlt": "Fawx & Stallion cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/0Nr2cr6Jgz1sM6eVkhpmXE?si=01d46691ff0b4c16",
+      "apple": "https://podcasts.apple.com/gb/podcast/fawx-stallion/id1644173428",
+      "website": "https://www.224bbaker.com/",
+      "rss": "https://feeds.megaphone.fm/fawxandstallion"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "Full cast",
+      "Serialized"
+    ],
+    "tags": [
+      "Comedy mystery",
+      "Detective fiction",
+      "Sherlock Holmes"
+    ],
+    "aliases": [
+      "Fawx & Stallion"
+    ],
+    "themes": [
+      "Mystery",
+      "Friendship"
+    ],
+    "contentNotes": [
+      "Adult language",
+      "Sexual innuendo"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 25 full episodes • 42 min median",
+      "seasons": 2,
+      "episodes": 25,
+      "avgEpisodeMinutes": 41,
+      "medianEpisodeMinutes": 42,
+      "minEpisodeMinutes": 4,
+      "maxEpisodeMinutes": 96,
+      "totalObservedHours": 17.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 25,
+        "bonus": 12,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2022-09-19",
+      "latest": "2026-06-23",
+      "latestFeedItem": "2026-06-23"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.224bbaker.com/",
+      "patreon": "https://www.patreon.com/cw/224bbaker"
+    },
+    "credits": {
+      "creatorName": "Rambling Absurdities",
+      "ownerName": "Rambling Absurdities",
+      "network": "Fawx and Stallion"
+    },
+    "creators": [
+      "Rambling Absurdities"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://www.224bbaker.com/transcripts; https://www.224bbaker.com/listen; https://www.224bbaker.com/cast-crew-1; https://www.224bbaker.com/; https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4; https://feeds.megaphone.fm/fawxandstallion; https://www.224bbaker.com/press",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.224bbaker.com/transcripts",
+        "https://www.224bbaker.com/listen",
+        "https://www.224bbaker.com/cast-crew-1",
+        "https://www.224bbaker.com/",
+        "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4",
+        "https://feeds.megaphone.fm/fawxandstallion",
+        "https://www.224bbaker.com/press"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction"
+      ],
+      "sourceTags": [
+        "Comedy mystery",
+        "Detective fiction",
+        "Sherlock Holmes"
+      ],
+      "importOfficialSummary": "In 1889 London, the overlooked detectives across the street from Sherlock Holmes and Dr John Watson get their own chance at a case. Fawx & Stallion is a comedy mystery about rivalry, friendship, fame, and occasional detective work.",
+      "schedule": {
+        "label": "biweekly",
+        "method": "maintainer-verified"
+      },
+      "podcast": {
+        "explicit": "Explicit",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/fawxandstallion",
+          "appleCollectionId": "1644173428"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.224bbaker.com/transcripts",
+            "fetchedAt": "2026-07-21T13:54:03.301Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.224bbaker.com/listen",
+            "fetchedAt": "2026-07-21T13:55:31.918Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.224bbaker.com/cast-crew-1",
+            "fetchedAt": "2026-07-21T13:54:03.292Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.224bbaker.com/",
+            "fetchedAt": "2026-07-21T13:54:03.280Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4",
+            "fetchedAt": "2026-07-21T13:53:31.361Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/fawxandstallion",
+            "fetchedAt": "2026-07-21T13:53:32.827Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/cast-crew-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/transcripts"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fawx-stallion/id1644173428?uo=4"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/cast-crew-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/transcripts"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/cast-crew-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.224bbaker.com/transcripts"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-07-21T13:59:07.875Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "rambling-absurdities",
+    "networkId": "fawx-and-stallion",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/fawx-stallion",
+    "hasPage": true,
+    "image": "images/covers/fawx-stallion.jpg",
+    "imageAlt": "Fawx & Stallion cover art",
+    "summary": "In 1889 London, the overlooked detectives across the street from Sherlock Holmes and Dr John Watson get their own chance at a case. Fawx & Stallion is a comedy mystery about rivalry, friendship, fame, and occasional detective work.",
+    "finalRating": null,
+    "searchText": "fawx and stallion in 1889 london the overlooked detectives across the street from sherlock holmes and dr john watson get their own chance at a case fawx and stallion is a comedy mystery about rivalry friendship fame and occasional detective work comedy mystery detective fiction sherlock holmes drama comedy full cast serialized fawx and stallion mystery friendship adult language sexual innuendo rambling absurdities english ongoing indexed only rambling absurdities rambling absurdities fawx and stallion unknown unknown 0",
+    "tagTokens": [
+      "comedy-mystery",
+      "detective-fiction",
+      "sherlock-holmes"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/fawx-stallion-5e27e2a120-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "mayfair-watchers-society",
+    "title": "Mayfair Watchers Society",
+    "subtitle": "",
+    "description": "Trevor Henderson’s creatures come to life in Mayfair, a town of tidy lawns and book clubs with a secret lurking along its bus routes, wooded roads, and dark edges. A Bloody FM original fiction series.",
+    "cover": "images/covers/mayfair-watchers-society.jpg",
+    "coverAlt": "Mayfair Watchers Society cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4",
+      "website": "https://mayfairwatchers.com/",
+      "rss": "https://feeds.simplecast.com/Wau1uL34"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "anthology",
+      "episodic"
+    ],
+    "tags": [
+      "Horror fiction",
+      "Supernatural horror",
+      "Anthology"
+    ],
+    "aliases": [
+      "Mayfair Watchers Society"
+    ],
+    "themes": [
+      "Small-town secrets",
+      "Urban legends"
+    ],
+    "contentNotes": [
+      "Horror"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 71 full episodes • 32 min median",
+      "episodes": 71,
+      "avgEpisodeMinutes": 32,
+      "medianEpisodeMinutes": 32,
+      "minEpisodeMinutes": 17,
+      "maxEpisodeMinutes": 58,
+      "totalObservedHours": 38.3,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 71,
+        "bonus": 7,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2022-10-10",
+      "latest": "2026-07-09",
+      "latestFeedItem": "2026-07-09"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://mayfairwatchers.com/"
+    },
+    "credits": {
+      "creatorName": "Bloody FM",
+      "ownerName": "Trevor Henderson & Pacific Obadiah"
+    },
+    "creators": [
+      "Bloody FM"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4; https://feeds.simplecast.com/Wau1uL34; https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626; https://mayfairwatchers.com/",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4",
+        "https://feeds.simplecast.com/Wau1uL34",
+        "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626",
+        "https://mayfairwatchers.com/"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "sourceTags": [
+        "Horror fiction",
+        "Supernatural horror",
+        "Anthology"
+      ],
+      "importOfficialSummary": "Trevor Henderson’s creatures come to life in Mayfair, a town of tidy lawns and book clubs with a secret lurking along its bus routes, wooded roads, and dark edges. A Bloody FM original fiction series.",
+      "schedule": {
+        "label": "biweekly",
+        "method": "maintainer-verified"
+      },
+      "podcast": {
+        "copyright": "Bloody FM",
+        "explicit": "Clean",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.simplecast.com/Wau1uL34",
+          "appleCollectionId": "1646154626"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4",
+            "fetchedAt": "2026-07-21T13:53:31.382Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.simplecast.com/Wau1uL34",
+            "fetchedAt": "2026-07-21T13:53:33.071Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mayfair-watchers-society/id1646154626?uo=4"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords"
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-07-21T13:59:07.882Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "bloody-fm",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/mayfair-watchers-society",
+    "hasPage": true,
+    "image": "images/covers/mayfair-watchers-society.jpg",
+    "imageAlt": "Mayfair Watchers Society cover art",
+    "summary": "Trevor Henderson’s creatures come to life in Mayfair, a town of tidy lawns and book clubs with a secret lurking along its bus routes, wooded roads, and dark edges. A Bloody FM original fiction series.",
+    "finalRating": null,
+    "searchText": "mayfair watchers society trevor henderson s creatures come to life in mayfair a town of tidy lawns and book clubs with a secret lurking along its bus routes wooded roads and dark edges a bloody fm original fiction series horror fiction supernatural horror anthology drama full cast anthology episodic mayfair watchers society small town secrets urban legends horror bloody fm english ongoing indexed only bloody fm trevor henderson and pacific obadiah unknown unknown 0",
+    "tagTokens": [
+      "horror-fiction",
+      "supernatural-horror",
+      "anthology"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mayfair-watchers-society-80e68bad91-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "wrong-station",
+    "title": "Wrong Station",
+    "subtitle": "",
+    "description": "An anthology of original horror and weird fiction, drawing on The Twilight Zone and classic radio serials to visit appalling new worlds in each episode.",
+    "cover": "images/covers/wrong-station.jpg",
+    "coverAlt": "Wrong Station cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
+      "website": "https://www.wrongstation.com/",
+      "rss": "https://feeds.megaphone.fm/TWRS4873563754"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "full-cast",
+      "anthology",
+      "episodic"
+    ],
+    "tags": [
+      "Horror fiction",
+      "Weird fiction",
+      "Anthology"
+    ],
+    "aliases": [
+      "Wrong Station"
+    ],
+    "themes": [
+      "Horror",
+      "Speculative fiction"
+    ],
+    "contentNotes": [
+      "Mature themes",
+      "Disturbing imagery"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "10 seasons observed • at least 173 full episodes • 33 min median",
+      "seasons": 10,
+      "episodes": 173,
+      "avgEpisodeMinutes": 33,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 3,
+      "maxEpisodeMinutes": 55,
+      "totalObservedHours": 95.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 173,
+        "bonus": 80,
+        "trailer": 8
+      }
+    },
+    "releaseDates": {
+      "first": "2017-01-12",
+      "latest": "2026-06-01",
+      "latestFeedItem": "2026-06-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.wrongstation.com/"
+    },
+    "credits": {
+      "creatorName": "The Wrong Station",
+      "ownerName": "Wrong Station"
+    },
+    "creators": [
+      "The Wrong Station"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4; https://feeds.megaphone.fm/TWRS4873563754; https://www.wrongstation.com/; https://www.wrongstation.com/content-warnings",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
+        "https://feeds.megaphone.fm/TWRS4873563754",
+        "https://www.wrongstation.com/",
+        "https://www.wrongstation.com/content-warnings"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "sourceTags": [
+        "Horror fiction",
+        "Weird fiction",
+        "Anthology"
+      ],
+      "importOfficialSummary": "An anthology of original horror and weird fiction, drawing on The Twilight Zone and classic radio serials to visit appalling new worlds in each episode.",
+      "schedule": {
+        "label": "biweekly",
+        "method": "maintainer-verified"
+      },
+      "podcast": {
+        "explicit": "Explicit",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/TWRS4873563754",
+          "appleCollectionId": "1190625755"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4",
+            "fetchedAt": "2026-07-21T13:52:25.659Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/TWRS4873563754",
+            "fetchedAt": "2026-07-21T13:52:27.032Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wrong-station/id1190625755?uo=4"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords"
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-07-21T13:59:07.889Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "the-wrong-station",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/wrong-station",
+    "hasPage": true,
+    "image": "images/covers/wrong-station.jpg",
+    "imageAlt": "Wrong Station cover art",
+    "summary": "An anthology of original horror and weird fiction, drawing on The Twilight Zone and classic radio serials to visit appalling new worlds in each episode.",
+    "finalRating": null,
+    "searchText": "wrong station an anthology of original horror and weird fiction drawing on the twilight zone and classic radio serials to visit appalling new worlds in each episode horror fiction weird fiction anthology drama full cast anthology episodic wrong station horror speculative fiction mature themes disturbing imagery the wrong station english ongoing indexed only the wrong station wrong station unknown unknown 0",
+    "tagTokens": [
+      "horror-fiction",
+      "weird-fiction",
+      "anthology"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/wrong-station-8a2b0c31f9-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "not-quite-dead",
+    "title": "Not Quite Dead",
+    "subtitle": "A show about vampires.",
+    "description": "Alfie, an A&E nurse, is nearly killed by a walking corpse and saved by Casper, a vampire investigating the dead roaming Alfie’s hometown. This gory horror-romance audio drama explores identity, sexuality, and death.",
+    "cover": "images/covers/not-quite-dead.png",
+    "coverAlt": "Not Quite Dead cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4",
+      "website": "https://hangingslothstudios.com/not-quite-dead/",
+      "rss": "https://feeds.acast.com/public/shows/6351f3269698910012d11162"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "Narrated",
+      "Serialized"
+    ],
+    "tags": [
+      "Horror romance",
+      "Vampire fiction",
+      "Queer fiction"
+    ],
+    "aliases": [
+      "Not Quite Dead",
+      "Not Quite Dead Transcripts"
+    ],
+    "themes": [
+      "Identity",
+      "Sexuality",
+      "Vampires"
+    ],
+    "contentNotes": [
+      "Blood",
+      "Sexual content",
+      "Horror"
+    ],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "5 seasons observed • at least 66 full episodes • 28 min median",
+      "seasons": 5,
+      "episodes": 66,
+      "avgEpisodeMinutes": 27,
+      "medianEpisodeMinutes": 28,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 66,
+      "totalObservedHours": 30.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 66,
+        "bonus": 3,
+        "trailer": 5
+      }
+    },
+    "releaseDates": {
+      "first": "2022-10-31",
+      "latest": "2026-04-07",
+      "latestFeedItem": "2026-04-14"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://hangingslothstudios.com/not-quite-dead/",
+      "patreon": "https://www.patreon.com/hangingslothstudios",
+      "koFi": "https://ko-fi.com/hangingsloths"
+    },
+    "credits": {
+      "creatorName": "Eira Major's Hanging Sloth",
+      "ownerName": "Eira Major",
+      "network": "Hanging Sloth"
+    },
+    "creators": [
+      "Eira Major's Hanging Sloth"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://hangingslothstudios.com/remnants-transcripts/; https://hangingslothstudios.com/nqd-transcripts/; https://hangingslothstudios.com/clockwork-bird-transcripts/; https://hangingslothstudios.com/transcripts/; https://hangingslothstudios.com/not-quite-dead/; https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4; https://feeds.acast.com/public/shows/6351f3269698910012d11162",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://hangingslothstudios.com/remnants-transcripts/",
+        "https://hangingslothstudios.com/nqd-transcripts/",
+        "https://hangingslothstudios.com/clockwork-bird-transcripts/",
+        "https://hangingslothstudios.com/transcripts/",
+        "https://hangingslothstudios.com/not-quite-dead/",
+        "https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4",
+        "https://feeds.acast.com/public/shows/6351f3269698910012d11162"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "sourceTags": [
+        "Horror romance",
+        "Vampire fiction",
+        "Queer fiction"
+      ],
+      "importOfficialSummary": "Alfie, an A&E nurse, is nearly killed by a walking corpse and saved by Casper, a vampire investigating the dead roaming Alfie’s hometown. This gory horror-romance audio drama explores identity, sexuality, and death.",
+      "schedule": {
+        "label": "monthly",
+        "method": "maintainer-verified"
+      },
+      "podcast": {
+        "copyright": "Eira Major",
+        "explicit": "Explicit",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/6351f3269698910012d11162",
+          "appleCollectionId": "1651280902",
+          "feedRedirects": [
+            "https://hangingslothstudios.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hangingslothstudios.com/remnants-transcripts/",
+            "fetchedAt": "2026-07-21T13:53:46.673Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hangingslothstudios.com/nqd-transcripts/",
+            "fetchedAt": "2026-07-21T13:53:46.670Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hangingslothstudios.com/clockwork-bird-transcripts/",
+            "fetchedAt": "2026-07-21T13:53:46.665Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hangingslothstudios.com/transcripts/",
+            "fetchedAt": "2026-07-21T13:53:46.662Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hangingslothstudios.com/not-quite-dead/",
+            "fetchedAt": "2026-07-21T13:53:46.657Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4",
+            "fetchedAt": "2026-07-21T13:53:31.867Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6351f3269698910012d11162",
+            "fetchedAt": "2026-07-21T13:53:33.315Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.66,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/clockwork-bird-transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/nqd-transcripts/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/not-quite-dead/id1651280902?uo=4"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/not-quite-dead/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/clockwork-bird-transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/nqd-transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/remnants-transcripts/"
+              }
+            ]
+          },
+          "koFiUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/not-quite-dead/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/clockwork-bird-transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/nqd-transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hangingslothstudios.com/remnants-transcripts/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-07-21T13:59:07.909Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "eira-majors-hanging-sloth",
+    "networkId": "hanging-sloth",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/not-quite-dead",
+    "hasPage": true,
+    "image": "images/covers/not-quite-dead.png",
+    "imageAlt": "Not Quite Dead cover art",
+    "summary": "Alfie, an A&E nurse, is nearly killed by a walking corpse and saved by Casper, a vampire investigating the dead roaming Alfie’s hometown. This gory horror-romance audio drama explores identity, sexuality, and death.",
+    "finalRating": null,
+    "searchText": "not quite dead a show about vampires alfie an a and e nurse is nearly killed by a walking corpse and saved by casper a vampire investigating the dead roaming alfie s hometown this gory horror romance audio drama explores identity sexuality and death horror romance vampire fiction queer fiction drama narrated serialized not quite dead not quite dead transcripts identity sexuality vampires blood sexual content horror eira major s hanging sloth english ongoing indexed only eira major s hanging sloth eira major hanging sloth unknown unknown 0",
+    "tagTokens": [
+      "horror-romance",
+      "vampire-fiction",
+      "queer-fiction"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/not-quite-dead-6ed34c82e2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/not-quite-dead-6ed34c82e2-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "hi-nay",
+    "title": "Hi Nay",
+    "subtitle": "",
+    "description": "Hi Nay, literally translated to “Hi Mom”, is a supernatural horror fictional podcast about Filipina immigrant Mari Datuin, whose babaylan (shaman) family background accidentally gets her involved in stopping dangerous supernatural events in Toronto. Written, directed, produced, and created by Motzie Dapul and co-created by Reg Geli. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/hi-nay.jpg",
+    "coverAlt": "Hi Nay cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/76tW1cP0LYqXQzYOxfyS9f",
+      "apple": "https://itunes.apple.com/us/podcast/id1549371727?mt=2",
+      "website": "https://shows.acast.com/hi-nay",
+      "rss": "https://feeds.acast.com/public/shows/hi-nay",
+      "amazonMusic": "https://music.amazon.com/podcasts/1be3bd4a-dab8-46fd-816f-090e54fdf126"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [
+      "Arts",
+      "Performing Arts",
+      "Drama",
+      "Horror",
+      "Supernatural",
+      "Audio Fiction",
+      "Audio Drama",
+      "Toronto",
+      "Shaman",
+      "Mystery",
+      "Philippines",
+      "Filipino"
+    ],
+    "aliases": [
+      "Hi Nay"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 196 full episodes • 29 min median",
+      "seasons": 1,
+      "episodes": 196,
+      "avgEpisodeMinutes": 33,
+      "medianEpisodeMinutes": 29,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 137,
+      "totalObservedHours": 106.3,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 196,
+        "bonus": 7,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2020-09-26",
+      "latest": "2026-07-19",
+      "latestFeedItem": "2026-07-19"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/hi-nay",
+      "patreon": "https://www.patreon.com/hinaypod",
+      "youtube": "https://www.youtube.com/HiNayPod",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved"
+    },
+    "credits": {
+      "creatorName": "Motzie Dapul",
+      "ownerName": "Motzie Dapul"
+    },
+    "creators": [
+      "Motzie Dapul"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://shows.acast.com/hi-nay/episodes/the-queer-identities-of-hi-nay-characters-part-2; https://shows.acast.com/hi-nay/episodes/becks-end-trailer-important-hi-nay-announcement-for-july; https://shows.acast.com/hi-nay/episodes; https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved; https://shows.acast.com/hi-nay; https://feeds.acast.com/public/shows/hi-nay; https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/hi-nay/episodes/the-queer-identities-of-hi-nay-characters-part-2",
+        "https://shows.acast.com/hi-nay/episodes/becks-end-trailer-important-hi-nay-announcement-for-july",
+        "https://shows.acast.com/hi-nay/episodes",
+        "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved",
+        "https://shows.acast.com/hi-nay",
+        "https://feeds.acast.com/public/shows/hi-nay",
+        "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Arts",
+        "Performing Arts",
+        "Drama"
+      ],
+      "sourceKeywords": [
+        "Horror",
+        "Supernatural",
+        "Audio Fiction",
+        "Audio Drama",
+        "Toronto",
+        "Shaman",
+        "Mystery",
+        "Philippines",
+        "Filipino"
+      ],
+      "sourceTags": [
+        "Arts",
+        "Performing Arts",
+        "Drama",
+        "Horror",
+        "Supernatural",
+        "Audio Fiction",
+        "Audio Drama",
+        "Toronto",
+        "Shaman",
+        "Mystery",
+        "Philippines",
+        "Filipino"
+      ],
+      "importOfficialSummary": "Hi Nay, literally translated to “Hi Mom”, is a supernatural horror fictional podcast about Filipina immigrant Mari Datuin, whose babaylan (shaman) family background accidentally gets her involved in stopping dangerous supernatural events in Toronto. Written, directed, produced, and created by Motzie Dapul and co-created by Reg Geli. Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved&via=acast&text=Hi%20Nay",
+        "https://www.instagram.com/HiNayPod",
+        "https://www.x.com/HiNayPod",
+        "https://www.facebook.com/HiNayPod"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Motzie Dapul",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/hi-nay",
+          "appleCollectionId": "1549371727"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/hi-nay/episodes/the-queer-identities-of-hi-nay-characters-part-2",
+            "fetchedAt": "2026-07-21T13:55:20.190Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/hi-nay/episodes/becks-end-trailer-important-hi-nay-announcement-for-july",
+            "fetchedAt": "2026-07-21T13:55:20.188Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/hi-nay/episodes",
+            "fetchedAt": "2026-07-21T13:55:20.187Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved",
+            "fetchedAt": "2026-07-21T13:55:20.185Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/hi-nay",
+            "fetchedAt": "2026-07-21T13:55:20.182Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay",
+            "fetchedAt": "2026-07-21T13:55:15.483Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4",
+            "fetchedAt": "2026-07-21T13:55:14.461Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/becks-end-trailer-important-hi-nay-announcement-for-july"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/the-queer-identities-of-hi-nay-characters-part-2"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hi-nay/id1549371727?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/becks-end-trailer-important-hi-nay-announcement-for-july"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/the-queer-identities-of-hi-nay-characters-part-2"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/becks-end-trailer-important-hi-nay-announcement-for-july"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/the-queer-identities-of-hi-nay-characters-part-2"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/hi-nay/episodes/episode-88-nasagip-saved"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "tags": {
+            "confidence": 0.95,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/hi-nay"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-07-21T13:55:20.746Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "motzie-dapul",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/hi-nay",
+    "hasPage": true,
+    "image": "images/covers/hi-nay.jpg",
+    "imageAlt": "Hi Nay cover art",
+    "summary": "Hi Nay, literally translated to “Hi Mom”, is a supernatural horror fictional podcast about Filipina immigrant Mari Datuin, whose babaylan (shaman) family background accidentally gets her involved in stopping dangerous supernatural events in Toronto. Written, directed, produced, and created by Motzie Dapul and co-created by Reg Geli. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "hi nay hi nay literally translated to hi mom is a supernatural horror fictional podcast about filipina immigrant mari datuin whose babaylan shaman family background accidentally gets her involved in stopping dangerous supernatural events in toronto written directed produced and created by motzie dapul and co created by reg geli hosted on acast see acast com privacy for more information arts performing arts drama horror supernatural audio fiction audio drama toronto shaman mystery philippines filipino drama episodic hi nay motzie dapul english ongoing indexed only motzie dapul motzie dapul unknown unknown 0",
+    "tagTokens": [
+      "arts",
+      "performing-arts",
+      "drama",
+      "horror",
+      "supernatural",
+      "audio-fiction",
+      "audio-drama",
+      "toronto",
+      "shaman",
+      "mystery",
+      "philippines",
+      "filipino"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/hi-nay-70125d769d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/hi-nay-70125d769d-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "super-suits",
+    "title": "Super Suits",
+    "subtitle": "",
+    "description": "In a world full of superpowers, where superheroes and supervillains take to the courts as often as they take to the rooftops, Harper Hallo is the newest associate at the biggest law firm in Megalopolis! They work with colorful characters like Malcolm Aria, the vampire lawyer bitten by a radioactive mosquito, and L.O.I.S., a.k.a. Law Office Integrated Systems, the AI who runs the office. They're mentored by Bonnie Firestein and Cole Castillo, who have lived and worked together for years but are just friends (as far as they've noticed). And while Harper handles the legal troubles of heroes and villains alike, their twin Hazel Hallo takes to the rooftops as a super themself! SUPER SUITS is brought to you by the Faustian Nonsense network. Check out our other shows at faustiannonsense.com and support our Patreon at patreon.com/faustiannonsense .",
+    "cover": "images/covers/super-suits.jpg",
+    "coverAlt": "Super Suits cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4",
+      "website": "https://www.faustiannonsense.com/super-suits",
+      "rss": "https://feeds.captivate.fm/super-suits/"
+    },
+    "genres": [
+      "drama",
+      "comedy",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Comedy Fiction",
+      "Science Fiction",
+      "Comedy"
+    ],
+    "aliases": [
+      "Super Suits",
+      "Super Suits | Faustian Nonsense"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 17 full episodes • 34 min median",
+      "seasons": 1,
+      "episodes": 17,
+      "avgEpisodeMinutes": 35,
+      "medianEpisodeMinutes": 34,
+      "minEpisodeMinutes": 27,
+      "maxEpisodeMinutes": 44,
+      "totalObservedHours": 9.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 17,
+        "bonus": 4,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2023-02-06",
+      "latest": "2024-12-16",
+      "latestFeedItem": "2025-10-22"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.faustiannonsense.com/super-suits",
+      "patreon": "https://www.patreon.com/faustiannonsense",
+      "discord": "https://discord.gg/XhSW9bpm5g",
+      "youtube": "https://www.youtube.com/@Mornal",
+      "social": "https://twitter.com/SuperSuitsPod"
+    },
+    "credits": {
+      "creatorName": "Faustian Nonsense",
+      "ownerName": "Faustian Nonsense",
+      "network": "Faustian Nonsense"
+    },
+    "creators": [
+      "Faustian Nonsense"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://www.faustiannonsense.com/about-us; https://www.faustiannonsense.com/super-suits; https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4; https://feeds.captivate.fm/super-suits/",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "20 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.87,
+      "transcriptFormats": [
+        "text/html"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.faustiannonsense.com/about-us",
+        "https://www.faustiannonsense.com/super-suits",
+        "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4",
+        "https://feeds.captivate.fm/super-suits/"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Science Fiction",
+        "Comedy"
+      ],
+      "sourceTags": [
+        "Comedy Fiction",
+        "Science Fiction",
+        "Comedy"
+      ],
+      "importOfficialSummary": "In a world full of superpowers, where superheroes and supervillains take to the courts as often as they take to the rooftops, Harper Hallo is the newest associate at the biggest law firm in Megalopolis! They work with colorful characters like Malcolm Aria, the vampire lawyer bitten by a radioactive mosquito, and L.O.I.S., a.k.a. Law Office Integrated Systems, the AI who runs the office. They're mentored by Bonnie Firestein and Cole Castillo, who have lived and worked together for years but are just friends (as far as they've noticed). And while Harper handles the legal troubles of heroes and villains alike, their twin Hazel Hallo takes to the rooftops as a super themself! SUPER SUITS is brought to you by the Faustian Nonsense network. Check out our other shows at faustiannonsense.com and support our Patreon at patreon.com/faustiannonsense .",
+      "socialUrls": [
+        "https://twitter.com/SuperSuitsPod",
+        "https://twitter.com/FaustNonsense",
+        "https://www.instagram.com/faustiannonsense/",
+        "https://www.facebook.com/Faustian-Nonsense-100792038828624"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Copyright 2025 Faustian Nonsense",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "e0aa579e-dcb6-5252-9bee-82d881fb678c",
+          "rssUrl": "https://feeds.captivate.fm/super-suits/",
+          "appleCollectionId": "1667318810"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.faustiannonsense.com/about-us",
+            "fetchedAt": "2026-07-21T13:53:35.148Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.faustiannonsense.com/super-suits",
+            "fetchedAt": "2026-07-21T13:53:35.125Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4",
+            "fetchedAt": "2026-07-21T13:53:30.986Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/super-suits/",
+            "fetchedAt": "2026-07-21T13:53:32.582Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              },
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              },
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              },
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/about-us"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/super-suits/id1667318810?uo=4"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.63,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/about-us"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/about-us"
+              }
+            ]
+          },
+          "discordUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/about-us"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.faustiannonsense.com/super-suits"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "tags": {
+            "confidence": 0.95,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/super-suits/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-07-21T13:55:15.796Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "faustian-nonsense",
+    "networkId": "faustian-nonsense",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/super-suits",
+    "hasPage": true,
+    "image": "images/covers/super-suits.jpg",
+    "imageAlt": "Super Suits cover art",
+    "summary": "In a world full of superpowers, where superheroes and supervillains take to the courts as often as they take to the rooftops, Harper Hallo is the newest associate at the biggest law firm in Megalopolis! They work with colorful characters like Malcolm Aria, the vampire lawyer bitten by a radioactive mosquito, and L.O.I.S., a.k.a. Law Office Integrated Systems, the AI who runs the office. They're mentored by Bonnie Firestein and Cole Castillo, who have lived and worked together for years but are just friends (as far as they've noticed). And while Harper handles the legal troubles of heroes and villains alike, their twin Hazel Hallo takes to the rooftops as a super themself! SUPER SUITS is brought to you by the Faustian Nonsense network. Check out our other shows at faustiannonsense.com and support our Patreon at patreon.com/faustiannonsense .",
+    "finalRating": null,
+    "searchText": "super suits in a world full of superpowers where superheroes and supervillains take to the courts as often as they take to the rooftops harper hallo is the newest associate at the biggest law firm in megalopolis they work with colorful characters like malcolm aria the vampire lawyer bitten by a radioactive mosquito and l o i s a k a law office integrated systems the ai who runs the office they re mentored by bonnie firestein and cole castillo who have lived and worked together for years but are just friends as far as they ve noticed and while harper handles the legal troubles of heroes and villains alike their twin hazel hallo takes to the rooftops as a super themself super suits is brought to you by the faustian nonsense network check out our other shows at faustiannonsense com and support our patreon at patreon com faustiannonsense comedy fiction science fiction comedy drama comedy sci fi serialized super suits super suits faustian nonsense faustian nonsense english unclear indexed only faustian nonsense faustian nonsense faustian nonsense 20 observed episodes unknown 0 87 text html",
+    "tagTokens": [
+      "comedy-fiction",
+      "science-fiction",
+      "comedy"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/super-suits-a3cfe8b7b3-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/super-suits-a3cfe8b7b3-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "wake-of-corrosion",
+    "title": "Wake Of Corrosion",
+    "subtitle": "An apocalyptic eldritch thriller",
+    "description": "A UK based audio drama set in a nightmare ridden, apocalyptic world. An unknown horror grips the country, forcing most of the remaining population into shelter. Tune into the broadcasts from Bunker A:12 and join Professor Ryan as he endeavours to find answers in the wreckage. [Explicit content/Discretion advised] For credits and content warnings visit: wakeofcorrosion.com Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/wake-of-corrosion.jpg",
+    "coverAlt": "Wake Of Corrosion cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4",
+      "website": "http://wakeofcorrosion.com/",
+      "rss": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Drama",
+      "Science Fiction",
+      "audio drama",
+      "horror",
+      "thriller",
+      "sci-fi"
+    ],
+    "aliases": [
+      "Wake Of Corrosion"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "4 seasons observed • at least 56 full episodes • 26 min median",
+      "seasons": 4,
+      "episodes": 56,
+      "avgEpisodeMinutes": 26,
+      "medianEpisodeMinutes": 26,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 95,
+      "totalObservedHours": 23.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 56,
+        "bonus": 17,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2021-05-20",
+      "latest": "2025-12-26",
+      "latestFeedItem": "2025-12-26"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "http://wakeofcorrosion.com/"
+    },
+    "credits": {
+      "creatorName": "Shadow & Static Productions",
+      "ownerName": "Shaun Pellington"
+    },
+    "creators": [
+      "Shadow & Static Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2; https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2",
+        "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "audio drama",
+        "science fiction",
+        "horror",
+        "fiction",
+        "thriller",
+        "sci-fi"
+      ],
+      "sourceTags": [
+        "Drama",
+        "Science Fiction",
+        "audio drama",
+        "horror",
+        "thriller",
+        "sci-fi"
+      ],
+      "importOfficialSummary": "A UK based audio drama set in a nightmare ridden, apocalyptic world. An unknown horror grips the country, forcing most of the remaining population into shelter. Tune into the broadcasts from Bunker A:12 and join Professor Ryan as he endeavours to find answers in the wreckage. [Explicit content/Discretion advised] For credits and content warnings visit: wakeofcorrosion.com Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "copyright": "© 2022 Shadow & Static Productions",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2",
+          "appleCollectionId": "1566786218"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2",
+            "fetchedAt": "2026-07-21T13:52:50.904Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4",
+            "fetchedAt": "2026-07-21T13:52:48.556Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/wake-of-corrosion/id1566786218?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "tags": {
+            "confidence": 0.95,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/63213152f8ec070013e1c1c2"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-07-21T13:53:09.147Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "shadow-static-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/wake-of-corrosion",
+    "hasPage": true,
+    "image": "images/covers/wake-of-corrosion.jpg",
+    "imageAlt": "Wake Of Corrosion cover art",
+    "summary": "A UK based audio drama set in a nightmare ridden, apocalyptic world. An unknown horror grips the country, forcing most of the remaining population into shelter. Tune into the broadcasts from Bunker A:12 and join Professor Ryan as he endeavours to find answers in the wreckage. [Explicit content/Discretion advised] For credits and content warnings visit: wakeofcorrosion.com Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "wake of corrosion an apocalyptic eldritch thriller a uk based audio drama set in a nightmare ridden apocalyptic world an unknown horror grips the country forcing most of the remaining population into shelter tune into the broadcasts from bunker a 12 and join professor ryan as he endeavours to find answers in the wreckage explicit content discretion advised for credits and content warnings visit wakeofcorrosion com hosted on acast see acast com privacy for more information drama science fiction audio drama horror thriller sci fi drama sci fi serialized wake of corrosion shadow and static productions english unclear indexed only shadow and static productions shaun pellington unknown unknown 0",
+    "tagTokens": [
+      "drama",
+      "science-fiction",
+      "audio-drama",
+      "horror",
+      "thriller",
+      "sci-fi"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/wake-of-corrosion-751f116599-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "the-secret-of-st-kilda",
+    "title": "The Secret of St Kilda",
+    "subtitle": "The Secret of St Kilda follows charismatic spiritualist Lockie Macgregor trying to escape the ghost of his past, only to arrive on the Scottish island of St Kilda where the supernatural is all too real.",
+    "description": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
+    "cover": "images/covers/the-secret-of-st-kilda.avif",
+    "coverAlt": "The Secret of St Kilda cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/61gX06GCGZZHKqUkHJXdLs",
+      "apple": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805",
+      "website": "https://thesecretofstkilda.carrd.co/",
+      "rss": "https://feeds.megaphone.fm/thekilda",
+      "pocketCasts": "https://pca.st/emcnpapw"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Secret of St Kilda"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 10 full episodes • 33 min median",
+      "seasons": 1,
+      "episodes": 10,
+      "avgEpisodeMinutes": 35,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 31,
+      "maxEpisodeMinutes": 42,
+      "totalObservedHours": 5.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 5,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-12-28",
+      "latest": "2022-03-01",
+      "latestFeedItem": "2024-07-07"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://thesecretofstkilda.carrd.co/",
+      "koFi": "https://ko-fi.com/thekilda",
+      "youtube": "https://youtube.com/channel/UCmePYFvSQJOZXXoj9Ple8FA",
+      "social": "https://www.instagram.com/thekilda/"
+    },
+    "credits": {
+      "creatorName": "Michael Ireland & Naomi Clarke",
+      "ownerName": "Michael Ireland & Naomi Clarke",
+      "network": "The Secret of St Kilda"
+    },
+    "creators": [
+      "Michael Ireland & Naomi Clarke"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://thesecretofstkilda.carrd.co/; https://feeds.megaphone.fm/thekilda; https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://thesecretofstkilda.carrd.co/",
+        "https://feeds.megaphone.fm/thekilda",
+        "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
+      "socialUrls": [
+        "https://www.instagram.com/thekilda/",
+        "https://www.facebook.com/TheKilda",
+        "https://www.tiktok.com/@thekilda?lang=en",
+        "https://twitter.com/shogomiyakita/",
+        "https://twitter.com/aminAKActs",
+        "https://twitter.com/TheKilda/status/1423050800352350214?s=20",
+        "https://twitter.com/michellicopter",
+        "https://twitter.com/Monstrous_Pod",
+        "https://twitter.com/Delayed_Melody",
+        "https://twitter.com/AnnoyedBread",
+        "https://twitter.com/kalgalen",
+        "https://twitter.com/Backwards_Chic",
+        "https://twitter.com/rottnblossom",
+        "https://twitter.com/toomuchgri",
+        "https://www.instagram.com/thefool.nm/"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Michael Ireland & Naomi Clarke",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/thekilda",
+          "appleCollectionId": "1600585805"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://thesecretofstkilda.carrd.co/",
+            "fetchedAt": "2026-07-21T13:52:29.502Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/thekilda",
+            "fetchedAt": "2026-07-21T13:52:26.988Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4",
+            "fetchedAt": "2026-07-21T13:52:25.907Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-secret-of-st-kilda/id1600585805?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "pocketCastsUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "koFiUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thesecretofstkilda.carrd.co/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thekilda"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-07-21T13:52:30.681Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "michael-ireland-naomi-clarke",
+    "networkId": "the-secret-of-st-kilda",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-secret-of-st-kilda",
+    "hasPage": true,
+    "image": "images/covers/the-secret-of-st-kilda.avif",
+    "imageAlt": "The Secret of St Kilda cover art",
+    "summary": "In this supernatural thriller series, listeners will follow Lockie, a charismatic con man who escapes to St Kilda with the promise that this time he’ll change his ways. Unfortunately, the island and its unusual inhabitants have other ideas. He seeks redemption and they seek a saviour, but you know what they say - no change without sacrifice.",
+    "finalRating": null,
+    "searchText": "the secret of st kilda the secret of st kilda follows charismatic spiritualist lockie macgregor trying to escape the ghost of his past only to arrive on the scottish island of st kilda where the supernatural is all too real in this supernatural thriller series listeners will follow lockie a charismatic con man who escapes to st kilda with the promise that this time he ll change his ways unfortunately the island and its unusual inhabitants have other ideas he seeks redemption and they seek a saviour but you know what they say no change without sacrifice drama serialized the secret of st kilda michael ireland and naomi clarke english unclear indexed only michael ireland and naomi clarke michael ireland and naomi clarke the secret of st kilda unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-secret-of-st-kilda-434555f8ae-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-secret-of-st-kilda-434555f8ae-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "death-by-dying",
+    "title": "Death by Dying",
+    "subtitle": "",
+    "description": "The Obituary Writer of Crestfall, Idaho finds himself deeply in over his head as he investigates a series of strange and mysterious deaths… when he is supposed to simply be writing obituaries. Along the way he encounters murderous farmers, man-eating cats, haunted bicycles, and a healthy dose of ominous shadows. Support us on Patreon: https://www.patreon.com/deathbydyingpod",
+    "cover": "images/covers/death-by-dying.avif",
+    "coverAlt": "Death by Dying cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/3dNSBLyPAo5qM5sxnT1sxA?si=33d8bf99c11248ce",
+      "apple": "https://podcasts.apple.com/us/podcast/death-by-dying/",
+      "website": "https://deathbydyingpod.com/",
+      "rss": "https://feeds.megaphone.fm/deathbydying"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Comedy Fiction",
+      "Drama"
+    ],
+    "aliases": [
+      "Death by Dying",
+      "Death By Dying Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 9 full episodes • 33 min median",
+      "seasons": 2,
+      "episodes": 9,
+      "avgEpisodeMinutes": 39,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 28,
+      "maxEpisodeMinutes": 52,
+      "totalObservedHours": 5.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 9,
+        "bonus": 16,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2018-10-01",
+      "latest": "2026-04-27",
+      "latestFeedItem": "2026-04-27"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://deathbydyingpod.com/",
+      "patreon": "https://www.patreon.com/deathbydyingpod",
+      "youtube": "https://www.youtube.com/channel/UC5ncVw3YyWnSJlpP8GIqtJg/videos?sort=da&view=0&flow=grid",
+      "social": "https://www.facebook.com/DeathbyDyingPod/"
+    },
+    "credits": {
+      "creatorName": "Evening Post Productions",
+      "ownerName": "Evening Post Productions",
+      "network": "Death By Dying Podcast"
+    },
+    "creators": [
+      "Evening Post Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://deathbydyingpod.com/transcripts; https://deathbydyingpod.com/episodes; https://deathbydyingpod.com/about; https://deathbydyingpod.com/; https://feeds.megaphone.fm/deathbydying; https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://deathbydyingpod.com/transcripts",
+        "https://deathbydyingpod.com/episodes",
+        "https://deathbydyingpod.com/about",
+        "https://deathbydyingpod.com/",
+        "https://feeds.megaphone.fm/deathbydying",
+        "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Drama"
+      ],
+      "sourceTags": [
+        "Comedy Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "The Obituary Writer of Crestfall, Idaho finds himself deeply in over his head as he investigates a series of strange and mysterious deaths… when he is supposed to simply be writing obituaries. Along the way he encounters murderous farmers, man-eating cats, haunted bicycles, and a healthy dose of ominous shadows. Support us on Patreon: https://www.patreon.com/deathbydyingpod",
+      "socialUrls": [
+        "https://www.facebook.com/DeathbyDyingPod/",
+        "https://www.instagram.com/deathbydyingpod/",
+        "https://www.x.com/deathbydyingpod"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 8,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "© 2018 Evening Post Productions",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/deathbydying",
+          "appleCollectionId": "1437812269"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://deathbydyingpod.com/transcripts",
+            "fetchedAt": "2026-07-21T13:57:03.676Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://deathbydyingpod.com/episodes",
+            "fetchedAt": "2026-07-21T13:57:03.673Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://deathbydyingpod.com/about",
+            "fetchedAt": "2026-07-21T13:57:03.670Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://deathbydyingpod.com/",
+            "fetchedAt": "2026-07-21T13:57:03.665Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/deathbydying",
+            "fetchedAt": "2026-07-21T13:57:01.492Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4",
+            "fetchedAt": "2026-07-21T13:56:58.838Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.69,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/transcripts"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/transcripts"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/transcripts"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deathbydyingpod.com/transcripts"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "tags": {
+            "confidence": 0.95,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/deathbydying"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-07-21T13:57:08.565Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "evening-post-productions",
+    "networkId": "death-by-dying-podcast",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/death-by-dying",
+    "hasPage": true,
+    "image": "images/covers/death-by-dying.avif",
+    "imageAlt": "Death by Dying cover art",
+    "summary": "The Obituary Writer of Crestfall, Idaho finds himself deeply in over his head as he investigates a series of strange and mysterious deaths… when he is supposed to simply be writing obituaries. Along the way he encounters murderous farmers, man-eating cats, haunted bicycles, and a healthy dose of ominous shadows. Support us on Patreon: https://www.patreon.com/deathbydyingpod",
+    "finalRating": null,
+    "searchText": "death by dying the obituary writer of crestfall idaho finds himself deeply in over his head as he investigates a series of strange and mysterious deaths when he is supposed to simply be writing obituaries along the way he encounters murderous farmers man eating cats haunted bicycles and a healthy dose of ominous shadows support us on patreon https www patreon com deathbydyingpod comedy fiction drama drama comedy serialized death by dying death by dying podcast evening post productions english ongoing indexed only evening post productions evening post productions death by dying podcast unknown unknown 0",
+    "tagTokens": [
+      "comedy-fiction",
+      "drama"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/death-by-dying-180dd96641-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/death-by-dying-180dd96641-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-wyrd-side",
+    "title": "The Wyrd Side",
+    "subtitle": "",
+    "description": "The Wyrd Side is a New Weird / Folk Horror podcast that follows the paranormal investigations of Aiden Summers and Katherine Moore as they uncover the dangerous truth lurking behind the myths and legends of the islands of Britain and Ireland. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/the-wyrd-side.jpg",
+    "coverAlt": "The Wyrd Side cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4",
+      "website": "https://feeds.acast.com/public/shows/the-wyrd-side",
+      "rss": "https://feeds.acast.com/public/shows/the-wyrd-side"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [
+      "Drama",
+      "Science Fiction",
+      "New Weird",
+      "Folk Horror",
+      "audiodrama"
+    ],
+    "aliases": [
+      "The Wyrd Side"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 15 full episodes • 40 min median",
+      "seasons": 1,
+      "episodes": 15,
+      "avgEpisodeMinutes": 38,
+      "medianEpisodeMinutes": 40,
+      "minEpisodeMinutes": 14,
+      "maxEpisodeMinutes": 66,
+      "totalObservedHours": 9.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 15,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2023-06-21",
+      "latest": "2024-10-30",
+      "latestFeedItem": "2024-10-30"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://feeds.acast.com/public/shows/the-wyrd-side"
+    },
+    "credits": {
+      "creatorName": "Alexandra M. Barrow and Finn Cresswell",
+      "ownerName": "Alexandra M. Barrow and Finn Cresswell"
+    },
+    "creators": [
+      "Alexandra M. Barrow and Finn Cresswell"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-07-21",
+      "source": "https://feeds.acast.com/public/shows/the-wyrd-side; https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/the-wyrd-side",
+        "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "New Weird",
+        "Folk Horror",
+        "audiodrama"
+      ],
+      "sourceTags": [
+        "Drama",
+        "Science Fiction",
+        "New Weird",
+        "Folk Horror",
+        "audiodrama"
+      ],
+      "importOfficialSummary": "The Wyrd Side is a New Weird / Folk Horror podcast that follows the paranormal investigations of Aiden Summers and Katherine Moore as they uncover the dangerous truth lurking behind the myths and legends of the islands of Britain and Ireland. Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 21,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Alexandra Barrow and Finn Cresswell",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/the-wyrd-side",
+          "appleCollectionId": "1693650685"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side",
+            "fetchedAt": "2026-07-21T13:58:01.174Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4",
+            "fetchedAt": "2026-07-21T13:57:59.168Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wyrd-side/id1693650685?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "tags": {
+            "confidence": 0.95,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/the-wyrd-side"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-07-21T13:58:03.845Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-07-21",
+    "updatedAt": "2026-07-21",
+    "creatorId": "alexandra-m-barrow-and-finn-cresswell",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-wyrd-side",
+    "hasPage": true,
+    "image": "images/covers/the-wyrd-side.jpg",
+    "imageAlt": "The Wyrd Side cover art",
+    "summary": "The Wyrd Side is a New Weird / Folk Horror podcast that follows the paranormal investigations of Aiden Summers and Katherine Moore as they uncover the dangerous truth lurking behind the myths and legends of the islands of Britain and Ireland. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "the wyrd side the wyrd side is a new weird folk horror podcast that follows the paranormal investigations of aiden summers and katherine moore as they uncover the dangerous truth lurking behind the myths and legends of the islands of britain and ireland hosted on acast see acast com privacy for more information drama science fiction new weird folk horror audiodrama drama sci fi serialized the wyrd side alexandra m barrow and finn cresswell english unclear indexed only alexandra m barrow and finn cresswell alexandra m barrow and finn cresswell unknown unknown 0",
+    "tagTokens": [
+      "drama",
+      "science-fiction",
+      "new-weird",
+      "folk-horror",
+      "audiodrama"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-wyrd-side-d17270cf3f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-wyrd-side-d17270cf3f-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]
