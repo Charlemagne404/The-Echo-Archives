@@ -1,5 +1,5 @@
 export const creatorVerificationModeConfig = {
-  heroDescription: "Choose the right path to help keep the archive accurate, useful, and easy to discover.",
+  heroDescription: "Listeners and creators help keep The Echo Archives accurate and complete. Submit shows, suggest corrections, share listener reviews, or request creator verification.",
   cardTitle: "Creator verification",
   cardDescription: "Confirm association or official facts.",
   cardIcon: "mode-creator",

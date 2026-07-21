@@ -180,7 +180,7 @@ export function iconMarkup(name) {
     case "magnify":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.75 18.5a7.75 7.75 0 1 1 5.48-2.27l3.02 3.02" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>`;
     case "check":
-      return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 12.75 4 4 8-8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></svg>`;
+      return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5.75 12.25 4.25 4.25 8.5-8.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9"/></svg>`;
     case "close":
       return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8"/></svg>`;
     case "plus":

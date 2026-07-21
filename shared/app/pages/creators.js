@@ -34,25 +34,12 @@ function applyCreatorStats(stats) {
   setText("creatorsCreatorCount", formatInteger(stats.creatorCount));
   setText("creatorsShowCount", formatInteger(stats.showCount));
   setText("creatorsMetadataCount", formatInteger(stats.metadataCheckedCount));
-  setText("creatorsMetadataContext", buildMetadataContext(stats));
   setText("creatorsReviewCount", formatInteger(stats.fullReviewCount));
   setText("creatorsLastUpdated", stats.latestUpdatedAt ? formatDate(stats.latestUpdatedAt) : "Unknown");
 }
 
 function formatInteger(value) {
   return new Intl.NumberFormat("en-US").format(value);
-}
-
-function buildMetadataContext(stats) {
-  if (stats.showCount === 0) {
-    return "No published records yet.";
-  }
-
-  if (stats.metadataCheckedCount === stats.showCount) {
-    return "All published records currently have sourced metadata.";
-  }
-
-  return `${formatInteger(stats.metadataCheckedCount)} of ${formatInteger(stats.showCount)} published records currently have sourced metadata.`;
 }
 
 function initializeCreatorFaq() {

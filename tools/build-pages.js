@@ -400,18 +400,6 @@ function formatLongDate(value) {
   }).format(date);
 }
 
-function getMetadataCoverageContext(stats) {
-  const showCount = Number(stats?.showCount) || 0;
-  const metadataCheckedCount = Number(stats?.metadataCheckedCount) || 0;
-  if (showCount === 0) {
-    return "No published records yet.";
-  }
-  if (metadataCheckedCount === showCount) {
-    return "All published records currently have sourced metadata.";
-  }
-  return `${metadataCheckedCount.toLocaleString("en-US")} of ${showCount.toLocaleString("en-US")} published records currently have sourced metadata.`;
-}
-
 function prerenderArchiveStats(pageBody, entry, archiveStats) {
   const stats = archiveStats && typeof archiveStats === "object" ? archiveStats : {};
   if (!Number.isFinite(Number(stats.showCount))) {
@@ -428,7 +416,6 @@ function prerenderArchiveStats(pageBody, entry, archiveStats) {
       creatorsCreatorCount: Number(stats.creatorCount) || 0,
       creatorsShowCount: Number(stats.showCount) || 0,
       creatorsMetadataCount: Number(stats.metadataCheckedCount) || 0,
-      creatorsMetadataContext: getMetadataCoverageContext(stats),
       creatorsReviewCount: Number(stats.fullReviewCount) || 0,
       creatorsLastUpdated: formatLongDate(stats.latestUpdatedAt),
     },

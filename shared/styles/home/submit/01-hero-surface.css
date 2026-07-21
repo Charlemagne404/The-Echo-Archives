@@ -285,10 +285,10 @@
   width: 9px;
   height: 5px;
   border-radius: 0;
-  border-right: 2px solid #fff;
+  border-left: 2px solid #fff;
   border-bottom: 2px solid #fff;
   background: transparent;
-  transform: rotate(45deg) translate(-1px, -1px);
+  transform: rotate(-45deg) translate(1px, -1px);
 }
 
 .submit-steps-shell {
