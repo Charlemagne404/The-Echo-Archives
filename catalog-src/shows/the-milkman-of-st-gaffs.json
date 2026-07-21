@@ -1,0 +1,411 @@
+{
+  "id": "the-milkman-of-st-gaffs",
+  "title": "The Milkman of St. Gaff's",
+  "subtitle": "The Milkman of St. Gaff's hosted by Christopher Scott McClure",
+  "description": "The Milkman of St. Gaff's",
+  "cover": "images/covers/the-milkman-of-st-gaffs.jpg",
+  "coverAlt": "The Milkman of St. Gaff's cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4",
+    "website": "https://www.patreon.com/cw/howiemilkman",
+    "rss": "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Milkman of St. Gaff's"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 53 full episodes • 27 min median",
+    "episodes": 53,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 41,
+    "totalObservedHours": 22.9,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 53,
+      "bonus": 1,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-08-10",
+    "latest": "2026-06-15",
+    "latestFeedItem": "2026-06-15",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.patreon.com/cw/howiemilkman",
+    "patreon": "https://www.patreon.com/cdn-cgi/content?id=VtqbRQEhdt47Y0HMr3CAWSx5.Z8KwQXTq6lmE4KoQuQ-1784636556.3692062-1.2.1.1-muo2cq8DHX1beir_kYCikkt0KUa44WS500rTSOCWO2o",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/patreon",
+    "social": "https://www.twitter.com/patreon",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Christopher Scott McClure",
+    "ownerName": "Christopher Scott McClure",
+    "network": "Patreon"
+  },
+  "creators": [
+    "Christopher Scott McClure"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://www.patreon.com/cw/howiemilkman; https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4; https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.patreon.com/cw/howiemilkman",
+      "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4",
+      "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3"
+    ],
+    "sourceCategories": [],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Milkman of St. Gaff's",
+    "socialUrls": [
+      "https://www.twitter.com/patreon",
+      "https://www.facebook.com/patreon",
+      "https://www.instagram.com/patreon"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 13,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2021 The Milkman of St. Gaff's",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3",
+        "appleCollectionId": "1526124070",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.patreon.com/cw/howiemilkman",
+          "fetchedAt": "2026-07-21T12:21:56.120Z",
+          "payloadHash": "23cc116fe407567ce5500d5eba4e249804852465e7a903dc219580d1fbb6c945"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4",
+          "fetchedAt": "2026-07-21T12:21:54.923Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3",
+          "fetchedAt": "2026-07-21T12:20:20.783Z",
+          "payloadHash": "03fd959c12ed52f6f3ad347393fa68e7bc91ec4fb01d4e318b2c7c8ca876e3be"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.7,
+          "method": "deterministic-feed-type",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:37.393Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "2c21df3dfbf2ab0480b3a3a731190c3138077c4da9cad2f4b44dcc62c1169c2d",
+        "subtitle": "3efc22130b627483fb837caf1248873d3f1e1bfe0b4673ad1d69eb71774fb447",
+        "description": "2c21df3dfbf2ab0480b3a3a731190c3138077c4da9cad2f4b44dcc62c1169c2d",
+        "cover": "04c805b56a0f3a3ce3aad398502ff2557bf0fb0f09f74388f6eb844dd35d83e6",
+        "coverAlt": "972ccd53d2d37afb02ddc2a8240e85493c4a271a3ec7d402dfba5f42d7116cc0",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "f7ccf50d95c1992c8851ddc1b17e022471331db6fdcbf9201a3d21e70a6c5a58",
+        "officialLinks": "a08e0e721cc3010a3014507c58106d18f423150e3e52ffcac37199c1a7e076c0",
+        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "7158f47fbd5ea9fac091de4d191a0a3e3f3b1017f8bf02f779a3fa808dc58743",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "acc4b94302e3d1245322d27304d79bcb65599a9efd64bcc5cf1d172e59920030",
+        "releaseDates": "8ea91d79a546aec931914badcd9b056170390a9271d6fad3bb2cbbb54e623995",
+        "credits": "44b3de99848e0cff47933a67dfa84351c998aa3d283d3370df8519122bfb7498",
+        "creators": "472d5f074df7e6471184e2c347ac3e1e42626a56fd064681ed8feea64ff60eab",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "dc68a7006c788f69bcf922f6f84b84f34b98a128d8a83c643351908a8c63afd8"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "christopher-scott-mcclure",
+  "networkId": "patreon"
+}

@@ -119,9 +119,16 @@ function peopleByRole(objective = {}) {
 }
 
 function aliasTitles(candidate, title) {
+  const canonicalTitle = slugify(title);
   return mergeUniqueStrings(
     [title],
-    (candidate.fieldEvidence || []).filter((item) => item.fieldName === "title").map((item) => item.value),
+    (candidate.fieldEvidence || [])
+      .filter((item) => item.fieldName === "title")
+      .map((item) => item.value)
+      .filter((value) => {
+        const normalized = slugify(value);
+        return normalized && (normalized === canonicalTitle || normalized.startsWith(`${canonicalTitle}-`));
+      }),
   ).slice(0, 10);
 }
 

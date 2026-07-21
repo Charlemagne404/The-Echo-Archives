@@ -1,0 +1,654 @@
+{
+  "id": "where-the-stars-fell",
+  "title": "Where the Stars Fell",
+  "subtitle": "",
+  "description": "Dr. Edison Tucker is having a very weird life. Not being able to die tends to color things that way. Lucille Kensington is the literary scene’s biggest enigma. That’s just the way she likes it. When the pair find themselves sharing a cabin in the strangest town in America— Jerusalem, OR— they’re prepared for a housemate situation from hell. What they’re not expecting is tidings of a stranger sort: Ed is the antichrist, Lucy her guardian angel, and if they can’t find a way to work together soon, the rapture is set to take first the town, then the world… but neither of them know that yet. Welcome to Jerusalem, OR, where what doesn’t kill you is just another mystery.",
+  "cover": "images/covers/where-the-stars-fell.avif",
+  "coverAlt": "Where the Stars Fell cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2uVEYhl3D07BIT25Kk3tvg?si=Q4T8ObMeSRy3u-Nf4kXVug",
+    "apple": "https://podcasts.apple.com/us/podcast/where-the-stars-fell/id1548010420",
+    "website": "https://wherethestarsfell.com/",
+    "rss": "https://feeds.megaphone.fm/wherethestarsfell",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Where the Stars Fell"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 27 full episodes • 26 min median",
+    "seasons": 3,
+    "episodes": 27,
+    "avgEpisodeMinutes": 28,
+    "medianEpisodeMinutes": 26,
+    "minEpisodeMinutes": 22,
+    "maxEpisodeMinutes": 52,
+    "totalObservedHours": 12.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 27,
+      "bonus": 25,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2021-01-20",
+    "latest": "2023-09-01",
+    "latestFeedItem": "2026-07-09",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://wherethestarsfell.com/",
+    "patreon": "https://www.patreon.com/wherethestarsfell",
+    "koFi": "https://ko-fi.com/newtschott",
+    "discord": "",
+    "youtube": "http://youtube.com/briandavidgilbert",
+    "social": "https://www.instagram.com/starsfellradio/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Caldera Studios",
+    "ownerName": "Caldera Studios",
+    "network": "Where The Stars Fell"
+  },
+  "creators": [
+    "Caldera Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://wherethestarsfell.com/; https://feeds.megaphone.fm/wherethestarsfell",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://wherethestarsfell.com/",
+      "https://feeds.megaphone.fm/wherethestarsfell"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Dr. Edison Tucker is having a very weird life. Not being able to die tends to color things that way. Lucille Kensington is the literary scene’s biggest enigma. That’s just the way she likes it. When the pair find themselves sharing a cabin in the strangest town in America— Jerusalem, OR— they’re prepared for a housemate situation from hell. What they’re not expecting is tidings of a stranger sort: Ed is the antichrist, Lucy her guardian angel, and if they can’t find a way to work together soon, the rapture is set to take first the town, then the world… but neither of them know that yet. Welcome to Jerusalem, OR, where what doesn’t kill you is just another mystery.",
+    "socialUrls": [
+      "https://www.instagram.com/starsfellradio/",
+      "https://bsky.app/profile/starsfellradio.bsky.social",
+      "https://twitter.com/KingSpriteful",
+      "https://twitter.com/xiabro"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2022  Caldera Studios",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/wherethestarsfell",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://wherethestarsfell.com/",
+          "fetchedAt": "2026-07-21T12:20:21.814Z",
+          "payloadHash": "aabe570258f5487ba663b60351977716e05a1718918595a024bd5c3f6e28fb75"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell",
+          "fetchedAt": "2026-07-21T12:20:20.752Z",
+          "payloadHash": "d2396baea9ea88e8ce5304e110c6cc05ed6749cab41e5df98f8ef09e0d011d41"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://wherethestarsfell.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/wherethestarsfell"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-07-21T12:20:22.360Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d6a5042ce92951ed667d6bf8960b3162daa6e4ebaa6cc59b734689131d7d032f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "a647fb8c12276415528cf7579165a9935f904f3f260b588fbb8640a1697e8b0c",
+        "cover": "18bcea058a266044448cc951e9c4bc313f5e9f94e928ceabc2a1d4cf6874c21e",
+        "coverAlt": "75a17e4da31dc1601a4b29d8fd5fdfca5b0c08d770bf9fa3fcefa1b1891860b0",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "46d4ee3c8eafa70a8b0f1220685e486a111de20b16e09020e1111cc34de0c381",
+        "officialLinks": "f00d184b5bd28a5f447dddbd2bb84ecf71f4008ead585418a6e9f3834227c209",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "cf5a6c742f7d435a5c75ee03a6763d40207de43e66362462b557319182b6f08c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "97e57e5cfb8a2a7109a15216cc46aff4b70d9e4942121cb1c83d8daed186933a",
+        "releaseDates": "8e13d01b4315a56a29e27af55895f7c4a3a02fbfb22366a9f14537a8945919fb",
+        "credits": "bc57ea7ec6b548ebe38a9338643620780cf91b7ea0ee03ac97a33c374c02bdfd",
+        "creators": "1b792f4d34c056b076c84ad638a3b7676055da8dc9e21fccfb38677901eb8251",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "f043af194baebd536e5846f29b48c5caa88822c4e45c00d5e992025f5709ec3f"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "caldera-studios",
+  "networkId": "where-the-stars-fell"
+}

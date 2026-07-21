@@ -1,0 +1,459 @@
+{
+  "id": "the-antique-shop",
+  "title": "The Antique Shop",
+  "subtitle": "",
+  "description": "The Antique Shop",
+  "cover": "images/covers/the-antique-shop.jpg",
+  "coverAlt": "The Antique Shop cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
+    "website": "https://ghostlythistle.com/blog/",
+    "rss": "https://rss.buzzsprout.com/1164719.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Antique Shop"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 53 full episodes • 26 min median",
+    "seasons": 1,
+    "episodes": 53,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 26,
+    "minEpisodeMinutes": 12,
+    "maxEpisodeMinutes": 72,
+    "totalObservedHours": 24.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 53,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-02-03",
+    "latest": "2022-12-15",
+    "latestFeedItem": "2022-12-15",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://ghostlythistle.com/blog/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://ko-fi.com/ghostlythistle"
+  },
+  "credits": {
+    "creatorName": "Ghostly Thistle",
+    "ownerName": "Ghostly Thistle",
+    "network": "Ghostly Thistle"
+  },
+  "creators": [
+    "Ghostly Thistle"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://ghostlythistle.com/2021/07/15/episode-3-2/; https://ghostlythistle.com/2019/11/21/episode-2-2/; https://ghostlythistle.com/2019/10/25/episode-1-2/; https://ghostlythistle.com/about/; https://ghostlythistle.com/blog/; https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4; https://rss.buzzsprout.com/1164719.rss",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://ghostlythistle.com/2021/07/15/episode-3-2/",
+      "https://ghostlythistle.com/2019/11/21/episode-2-2/",
+      "https://ghostlythistle.com/2019/10/25/episode-1-2/",
+      "https://ghostlythistle.com/about/",
+      "https://ghostlythistle.com/blog/",
+      "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
+      "https://rss.buzzsprout.com/1164719.rss"
+    ],
+    "sourceCategories": [],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Antique Shop",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://ko-fi.com/ghostlythistle",
+        "label": "Support this Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 The Antique Shop",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "9fcf0b51-3046-51b7-b204-6bfb437d2aad",
+        "rssUrl": "https://rss.buzzsprout.com/1164719.rss",
+        "appleCollectionId": "1497341367",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ghostlythistle.com/2021/07/15/episode-3-2/",
+          "fetchedAt": "2026-07-21T12:22:41.745Z",
+          "payloadHash": "0050e598d5130e8daa39ceb2f33df237a60f99f56bceb82aa7afe9e417d74cb0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ghostlythistle.com/2019/11/21/episode-2-2/",
+          "fetchedAt": "2026-07-21T12:22:41.742Z",
+          "payloadHash": "702f596bcfa90db4a87e0cf43334e8f55bdb25d2afa93fae59920a4d758bb15c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ghostlythistle.com/2019/10/25/episode-1-2/",
+          "fetchedAt": "2026-07-21T12:22:41.738Z",
+          "payloadHash": "157f6c28437eabf6a0a4188893ed53520c2927631bd037455dfdc2090d48278f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ghostlythistle.com/about/",
+          "fetchedAt": "2026-07-21T12:22:41.736Z",
+          "payloadHash": "6ae5395df18edb9260ad102e19df310325a146c82afe5f06fa6fd09ef6dcfc42"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ghostlythistle.com/blog/",
+          "fetchedAt": "2026-07-21T12:22:41.719Z",
+          "payloadHash": "6b0766c4e41d43dcf5d0c4bbcecaae9e7fd7bf0c999a2bb2b8e259c437714a7c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
+          "fetchedAt": "2026-07-21T12:22:41.357Z",
+          "payloadHash": "d744725bb4b677f9a5171a0d3ad3cade510cb5b03de4c0e9ab20c64adee5d99f"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/1164719.rss",
+          "fetchedAt": "2026-07-21T12:22:18.753Z",
+          "payloadHash": "93af7dd38814dd89cd2f2bb881054f176a8c074da42474d50f733cd9fd7f9394"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/blog/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2019/10/25/episode-1-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2019/11/21/episode-2-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2021/07/15/episode-3-2/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/blog/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2019/10/25/episode-1-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2019/11/21/episode-2-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2021/07/15/episode-3-2/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/blog/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/blog/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2019/10/25/episode-1-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2019/11/21/episode-2-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/2021/07/15/episode-3-2/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.7,
+          "method": "deterministic-feed-type",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:59.988Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "49f351ab961664e20b58c2337eafd12a575459ab106a074838cbfb391847e35a",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "49f351ab961664e20b58c2337eafd12a575459ab106a074838cbfb391847e35a",
+        "cover": "b854c4820124fff382c935100651f047a8bdde29140454fbd43afef94ef8ec1e",
+        "coverAlt": "c32ac3f0de81d80d6992df775ec6c916d6b0f6beb75b0e714574785b64e1bb2d",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "27eb0cc6b9327755b5fd800ea9bf7beea3f7a2d1fffa8b3cf4832e7731c30b9c",
+        "officialLinks": "4e06e6711c09f9bdcf221643c31227abd546fa491534fdec95498c7d55fc91f7",
+        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "80a9a59288ed81d5a997a0a23dc560fe3488313280f6f37c7e8f342e0bd923c4",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "4198035cdc9e692350f5bad3b575729a97dd6fa71cd25e3dc4064d8451cf1d06",
+        "releaseDates": "8f6c677bd93647fd3f854201117359f19764880314aecf3379669d6c57f6e07d",
+        "credits": "612dbae931ec600438763cd41c2feabd9ff218cc4cbe3aa5b32ccf3012fa6c47",
+        "creators": "59df8563006d4d89452a11f2144953b2c17102daf42f81f626aaffc72e95b6e7",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e603c54ed0b95045dee68f0daa9a3d4aa6583636c88efad39d38ffe25580b605"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "ghostly-thistle",
+  "networkId": "ghostly-thistle"
+}

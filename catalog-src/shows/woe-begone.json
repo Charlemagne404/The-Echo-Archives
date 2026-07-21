@@ -1,0 +1,725 @@
+{
+  "id": "woe-begone",
+  "title": "WOE.BEGONE",
+  "subtitle": "",
+  "description": "Mike Walters discovers a mysterious and violent online game named WOE.BEGONE. What begins as an exploration of an alternate reality game with real-life consequences quickly becomes a search for the technology that makes the game possible. New soundtrack every episode. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/woe-begone.jpg",
+  "coverAlt": "WOE.BEGONE cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/woe-begone/id1542792309",
+    "website": "https://woebegonepod.com/",
+    "rss": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "https://pca.st/vsbgrohj"
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [
+    "Science Fiction"
+  ],
+  "aliases": [
+    "WOE.BEGONE"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "22 seasons observed • at least 312 full episodes • 29 min median",
+    "seasons": 22,
+    "episodes": 312,
+    "avgEpisodeMinutes": 32,
+    "medianEpisodeMinutes": 29,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 137,
+    "totalObservedHours": 164.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      22,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 312,
+      "bonus": 33,
+      "trailer": 5
+    }
+  },
+  "releaseDates": {
+    "first": "2020-12-01",
+    "latest": "2026-07-15",
+    "latestFeedItem": "2026-07-15",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://woebegonepod.com/",
+    "patreon": "http://patreon.com/woe_begone",
+    "koFi": "https://ko-fi.com/woebegonepod",
+    "discord": "https://discord.gg/cbb38xkjmM",
+    "youtube": "",
+    "social": "http://twitter.com/woebegonepod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "WOE.BEGONE Industries LLC",
+    "ownerName": "WOE.BEGONE Industries LLC",
+    "network": "WOE.BEGONE"
+  },
+  "creators": [
+    "WOE.BEGONE Industries LLC"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://woebegonepod.com/episodes/; https://woebegonepod.com/; https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://woebegonepod.com/episodes/",
+      "https://woebegonepod.com/",
+      "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction"
+    ],
+    "importOfficialSummary": "Mike Walters discovers a mysterious and violent online game named WOE.BEGONE. What begins as an exploration of an alternate reality game with real-life consequences quickly becomes a search for the technology that makes the game possible. New soundtrack every episode. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [
+      "http://twitter.com/woebegonepod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "WOE.BEGONE Industries LLC",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://woebegonepod.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://woebegonepod.com/episodes/",
+          "fetchedAt": "2026-07-21T12:20:21.199Z",
+          "payloadHash": "c56417a610cfb472d6f2fb6be45b06eae1f5525c8ec85af8a9ba1edfb5a4dd30"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://woebegonepod.com/",
+          "fetchedAt": "2026-07-21T12:20:21.195Z",
+          "payloadHash": "d0026ef62c4b574b31754fc891f58364ab55bfe356f62368999074fbc713765c"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf",
+          "fetchedAt": "2026-07-21T12:20:20.881Z",
+          "payloadHash": "5e087b7842472bc8ca1367b04eed49842ad070e99231e146122bdc7842aa22b7"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/episodes/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/episodes/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.63,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/episodes/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/episodes/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://woebegonepod.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "source-categories-and-keywords",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/62691a3e6e58660013eed3cf"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-07-21T12:20:21.280Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "14722ed654a9be128ed2a453e8093d1f9859e97818162277f24b92646906e78d",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3d6bcb823dc7f09d6c9833c84cde058d8f51597d66c42d6413eeeb11dcb8c277",
+        "cover": "5957d1100c19ec6e741885c7784429b8c8cc9289940084bfbb01f80c3e392869",
+        "coverAlt": "9cad842071332c4a2a268065d806830ce68b37245af0c3b18eed30ca289068ad",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "8756afd2a42ba5a038770b2c441a3de00bf7bbbbebd05ad72edd977d36403b72",
+        "officialLinks": "c9f0e4bb9d7d39e4090447ac669d8773806687b137d55c99b36044b0313f60e0",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "89f6b21e153a289f454839f1bcc32acfb2d85989aeff9c8b1c5c4a4c9a67bf18",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "7eff6489592ce7dc71f85e295331fa7ede51699b61abcfc310c42e41818c2a72",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "f8e41eeee4e99bbec3bbfa80c42eba3721a5605712bbf31e90e1e315070b8b1c",
+        "releaseDates": "8f04be0dad8a34f66445352dd8e73a85c3e81e785f162ab6ae9c078d42f9d2a9",
+        "credits": "bc8b96c8a31d5b14caa54e5ebc5e183cba6b48d63f8d391f978b456f76a4a466",
+        "creators": "af553614e29b72e9cd8dae26e8fcb3abfce62346a9dd2cb4dd09388531ae04c2",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "63a2d0eef5de2a4b2ea0c77747a3be11e62cb4401d2e6d137ed97c7f35dfd93b"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "woe-begone-industries-llc",
+  "networkId": "woe-begone"
+}

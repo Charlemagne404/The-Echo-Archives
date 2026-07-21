@@ -1,0 +1,444 @@
+{
+  "id": "the-town-whispers",
+  "title": "The Town Whispers",
+  "subtitle": "Where Folk Horror and Eldritch Terror Meet",
+  "description": "The Town Whispers",
+  "cover": "images/covers/the-town-whispers.jpg",
+  "coverAlt": "The Town Whispers cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4",
+    "website": "https://www.patreon.com/pulpaudio",
+    "rss": "https://feeds.acast.com/public/shows/60deee787939850012ac92ed",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Town Whispers"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 95 full episodes • 23 min median",
+    "seasons": 2,
+    "episodes": 95,
+    "avgEpisodeMinutes": 23,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 8,
+    "maxEpisodeMinutes": 39,
+    "totalObservedHours": 36.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 95,
+      "bonus": 11,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-10-20",
+    "latest": "2022-12-08",
+    "latestFeedItem": "2022-09-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.patreon.com/pulpaudio",
+    "patreon": "https://www.patreon.com/cdn-cgi/content?id=daQbmk8mj5khNir34t2HverWEM141QES33ciWjJ5A64-1784636557.7980247-1.2.1.1-luLQS_M54uo5nE_8r1GeRe9gsc8UFYQxoTOEfUD5drk",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/patreon",
+    "social": "https://www.twitter.com/patreon",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Cole Weavers",
+    "ownerName": "Cole Weavers",
+    "network": "Patreon"
+  },
+  "creators": [
+    "Cole Weavers"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://www.patreon.com/pulpaudio/about; https://www.patreon.com/pulpaudio; https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4; https://feeds.acast.com/public/shows/60deee787939850012ac92ed",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.patreon.com/pulpaudio/about",
+      "https://www.patreon.com/pulpaudio",
+      "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4",
+      "https://feeds.acast.com/public/shows/60deee787939850012ac92ed"
+    ],
+    "sourceCategories": [],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Town Whispers",
+    "socialUrls": [
+      "https://www.twitter.com/patreon",
+      "https://www.facebook.com/patreon",
+      "https://www.instagram.com/patreon"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 5,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright © Cole Weavers 2020. All Rights Reserved",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/60deee787939850012ac92ed",
+        "appleCollectionId": "1528922538",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.patreon.com/pulpaudio/about",
+          "fetchedAt": "2026-07-21T12:21:58.374Z",
+          "payloadHash": "13a6e3578103ba5bd193858f2fb5e7f64f278ae387061dda90833e31f4655e2b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.patreon.com/pulpaudio",
+          "fetchedAt": "2026-07-21T12:21:58.359Z",
+          "payloadHash": "0aa43771e6f6c87ae39963cb9cf6ba2b367bfe455a67fb9335b23aaff8829e3f"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4",
+          "fetchedAt": "2026-07-21T12:21:57.410Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/60deee787939850012ac92ed",
+          "fetchedAt": "2026-07-21T12:19:54.471Z",
+          "payloadHash": "695a2c17b62148709720dd0636c0a2718f86a28937f03c691a61873b93ef6da7"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/60deee787939850012ac92ed"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio/about"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio/about"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio/about"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio/about"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.patreon.com/pulpaudio/about"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.7,
+          "method": "deterministic-feed-type",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:39.130Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "64d572439c703bbe7ca1ad41c2451688a3460a380b37a6948ab3e1df2f86e6fe",
+        "subtitle": "29429e739b3401d981014aa723e6f59252e0afcdc9239e1455ed72ee892bce1b",
+        "description": "64d572439c703bbe7ca1ad41c2451688a3460a380b37a6948ab3e1df2f86e6fe",
+        "cover": "02f355a43a5f567f1ada512caa17d434c37e0ccf864f3e78092a0be9fd172d33",
+        "coverAlt": "92432b7d14e008f1b30ac1eddd85340b1c2c88ba26c72e3ca8d3384050f4ec3a",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "97ab213ed962c130897363f9e4e7680cb55b21b5cd9b1d5f7cf98b927259c727",
+        "officialLinks": "ed5bae16b39d7a2fba0d13d4bb8a67a93121f17078d67f2ec3242ad69cb68ee9",
+        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "049486f85e7db35d220b3fd31f8f8b17eb2c90b2aa5103337fb99c1015dd2454",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "686fa00a179a6963f9df2e028b1fa151a023fae23cba26c6eaa64fb95196b941",
+        "releaseDates": "06ee8fdafaa2a2a7cf95d377bc5d0d43c2cf2272429164bdbda339bda8008ec2",
+        "credits": "993f262ba5c2d7720afc8ac30f5292ded04ff6130b5f0f4e64fdd354d3df85b1",
+        "creators": "679e15e6c81fe1647c607c11c947b9ed0b3616da890019e9d82a35dcf28d24da",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "f6e53fbb1969f994a85a2f1bf755fa84a980d78dfd298d8e604f4fc05f346fec"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "cole-weavers",
+  "networkId": "patreon"
+}

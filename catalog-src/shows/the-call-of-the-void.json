@@ -1,0 +1,695 @@
+{
+  "id": "the-call-of-the-void",
+  "title": "The Call of the Void",
+  "subtitle": "",
+  "description": "In the bustling streets of New Orleans, a tour guide and a palm-reading outcast team up to unravel the mystery behind cases of sudden insanity besetting the city. The Call of the Void is an indie science-fiction podcast produced by Acorn Arts & Entertainment.",
+  "cover": "images/covers/the-call-of-the-void.jpg",
+  "coverAlt": "The Call of the Void cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1h4LqqNmUvrD2yarYKxtVy",
+    "apple": "https://podcasts.apple.com/us/podcast/the-call-of-the-void/id1493247879?fbclid=IwAR3ajLYQinKF92rC5FGQWTdmbVjBd0c40jrv1wdHQcGQwuNsC_e9xy2Vg3U",
+    "website": "https://www.acornartsandentertainment.com/thevoid",
+    "rss": "https://anchor.fm/s/1210e5d4/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [
+    "Science Fiction"
+  ],
+  "aliases": [
+    "The Call of the Void",
+    "The Call of the Void | Acorn Arts & Entertainment"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 29 full episodes • 26 min median",
+    "seasons": 3,
+    "episodes": 29,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 26,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 40,
+    "totalObservedHours": 12.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 29,
+      "bonus": 3,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-01-09",
+    "latest": "2022-06-23",
+    "latestFeedItem": "2025-12-05",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.acornartsandentertainment.com/thevoid",
+    "patreon": "https://www.patreon.com/acornartsandentertainment/",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.facebook.com/CalloftheVoidPodcast/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Acorn Arts and Entertainment",
+    "ownerName": "Acorn Arts and Entertainment",
+    "network": "Acorn A&E"
+  },
+  "creators": [
+    "Acorn Arts and Entertainment"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://www.acornartsandentertainment.com/about-5; https://www.acornartsandentertainment.com/cotv-cast; https://www.acornartsandentertainment.com/cotv-episodes; https://www.acornartsandentertainment.com/thevoid; https://anchor.fm/s/1210e5d4/podcast/rss",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.acornartsandentertainment.com/about-5",
+      "https://www.acornartsandentertainment.com/cotv-cast",
+      "https://www.acornartsandentertainment.com/cotv-episodes",
+      "https://www.acornartsandentertainment.com/thevoid",
+      "https://anchor.fm/s/1210e5d4/podcast/rss"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction"
+    ],
+    "importOfficialSummary": "In the bustling streets of New Orleans, a tour guide and a palm-reading outcast team up to unravel the mystery behind cases of sudden insanity besetting the city. The Call of the Void is an indie science-fiction podcast produced by Acorn Arts & Entertainment.",
+    "socialUrls": [
+      "https://www.facebook.com/CalloftheVoidPodcast/",
+      "https://twitter.com/CallOfTheVoidP",
+      "https://www.instagram.com/thecallofthevoidpodcast/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "0",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/1210e5d4/podcast/rss",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.acornartsandentertainment.com/about-5",
+          "fetchedAt": "2026-07-21T12:19:48.388Z",
+          "payloadHash": "4cde4ed244453f7a743d77ce982983116412fa9e9bc466b0a1cfaa5b4e5de4d7"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.acornartsandentertainment.com/cotv-cast",
+          "fetchedAt": "2026-07-21T12:19:48.371Z",
+          "payloadHash": "2c86cfac03f09d0a40af1e5de890ef163ffd9220ed58b3501956a361eaeec866"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.acornartsandentertainment.com/cotv-episodes",
+          "fetchedAt": "2026-07-21T12:19:48.358Z",
+          "payloadHash": "447c072cccfaa73159f5766ff1586cc17d3f591dd452235b2b0230a21d7e26f3"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.acornartsandentertainment.com/thevoid",
+          "fetchedAt": "2026-07-21T12:19:48.340Z",
+          "payloadHash": "f86ac5a0458851eefd91d4001856717ea3fa1bf2f9ea79ccedb794aedc59f815"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss",
+          "fetchedAt": "2026-07-21T12:19:47.335Z",
+          "payloadHash": "2580544fbda4a629f6784366bf31d0f2338bf0c74ebb70d96210e2bfcffdf847"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/cotv-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/cotv-cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/about-5"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.69,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/cotv-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/cotv-cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/about-5"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.acornartsandentertainment.com/thevoid"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "source-categories-and-keywords",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/1210e5d4/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-07-21T12:19:48.776Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b833ea2790d447ec6ec1273753453c00827985a040456ecd9627f193064f614a",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3694a759c7d6f50c5bb46ec5fc044b08592228e7d4bc450f83cc70ecbb643898",
+        "cover": "7907b394f85825237c40205fb9700cda705b8711380325a33aec36ba841e0ba8",
+        "coverAlt": "93fe97926b109f11b9f8cbaaf684927f416f2b808178bcb0c64e9c7caf64a6e4",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "3fce178c16c5271298f00e4f96f0c3f094856ce140388bb9f1a7ced6d2032244",
+        "officialLinks": "5503463fc1dc2b0a532a5ce03b92ddfbab9381ce6cf4b3ac96d9875781545052",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "89f6b21e153a289f454839f1bcc32acfb2d85989aeff9c8b1c5c4a4c9a67bf18",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "548306f08b5a979450ba3410eb790de066de998ec18bdf50c04cfef384a50e6e",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "27ab931ac050791a2aa36fcbf10028553171683d6f4c3e9352c5fd61333e5c84",
+        "releaseDates": "7c8c5d104cb8b2fc728a9ff8c1aae4b03ac9635911996862d89aa9c4fd61edef",
+        "credits": "80eb8974b7e056c717deb8d074969c818d7c5c2840be4099559f2b1dd8330d08",
+        "creators": "75b28aa1eade959397690b42c700c54bf29cb1a2732fcdd6c880e583eac0f2b1",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "77f3d58668bbab635afd9c77ba023a62e0a49244557ca81a9333ed4bca5a69d0"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "acorn-arts-and-entertainment",
+  "networkId": "acorn-a-e"
+}

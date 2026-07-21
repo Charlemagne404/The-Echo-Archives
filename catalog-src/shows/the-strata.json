@@ -1,0 +1,464 @@
+{
+  "id": "the-strata",
+  "title": "The Strata",
+  "subtitle": "In a dystopian city, an ageing courier is forced to go into business with an underworld ganglord in order to pay for the treatment that keeps him alive.",
+  "description": "The Strata",
+  "cover": "images/covers/the-strata.jpg",
+  "coverAlt": "The Strata cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/74SrzrrxgGhSZMiSldMXSK",
+    "apple": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449",
+    "website": "https://www.thestratapodcast.com/",
+    "rss": "https://feeds.megaphone.fm/thestrata",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Strata",
+    "The Strata Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "13 seasons observed • at least 121 full episodes • 27 min median",
+    "seasons": 13,
+    "episodes": 121,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 40,
+    "totalObservedHours": 50.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      13,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 121,
+      "bonus": 25,
+      "trailer": 6
+    }
+  },
+  "releaseDates": {
+    "first": "2021-07-20",
+    "latest": "2026-05-12",
+    "latestFeedItem": "2026-05-12",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.thestratapodcast.com/",
+    "patreon": "http://patreon.com/beyondthedark",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UC8DjvYRwy_Z1CgvlYaCOPWQ",
+    "social": "http://www.facebook.com/beyondthedarkpodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Mark R. Healy",
+    "ownerName": "Mark R. Healy",
+    "network": "The Strata Podcast"
+  },
+  "creators": [
+    "Mark R. Healy"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://www.thestratapodcast.com/about-3; https://www.thestratapodcast.com/; https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4; https://feeds.megaphone.fm/thestrata",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.thestratapodcast.com/about-3",
+      "https://www.thestratapodcast.com/",
+      "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4",
+      "https://feeds.megaphone.fm/thestrata"
+    ],
+    "sourceCategories": [],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Strata",
+    "socialUrls": [
+      "http://www.facebook.com/beyondthedarkpodcast",
+      "http://www.twitter.com/thestratapod",
+      "http://www.twitter.com/gobeyondthedark"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2021 All rights reserved.",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/thestrata",
+        "appleCollectionId": "1575320449",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thestratapodcast.com/about-3",
+          "fetchedAt": "2026-07-21T12:21:55.374Z",
+          "payloadHash": "284e1d84509d81127613e8ed2988051a6544d8038e27cbac422fd2fd970300ea"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thestratapodcast.com/",
+          "fetchedAt": "2026-07-21T12:21:55.364Z",
+          "payloadHash": "83e1db85b59e5db82dc215c237513fc88becca3cf6d01068bcdbc9f462543cc8"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4",
+          "fetchedAt": "2026-07-21T12:21:55.004Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/thestrata",
+          "fetchedAt": "2026-07-21T12:19:47.414Z",
+          "payloadHash": "5571b34f8b76cadbcc80e8755d4565c3318f08f157b3b3544817821a3e3c5895"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/thestrata"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/about-3"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/about-3"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/about-3"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/about-3"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/about-3"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.7,
+          "method": "deterministic-feed-type",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:39.949Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e2c6eec08e282f68457aa5d758c79c6256ec6975270c881473634fabe03239a2",
+        "subtitle": "80bb012fea24e4b2990ebd628a48c2e292e34cfb2bcc47f0ca30ad80c314f54b",
+        "description": "e2c6eec08e282f68457aa5d758c79c6256ec6975270c881473634fabe03239a2",
+        "cover": "48183900ab30e4e802908c262445fda269ba4fc585198849dd91c15c1d1f1c8f",
+        "coverAlt": "d3ec313a2b3f949fcd1e347b8353ede714d61ea4af52c0a00306017c03f158cd",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "03c02f6bfdec01911709cfff38e208d12969b9d6ce1c6ef315ba384700180ee6",
+        "officialLinks": "a01f1ed5e690322ef540bc38296d7d8e5d7f26c6c20d97c66f02ae1cb275fa3d",
+        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "e7bb5cef20c888cdb330ef21dc8dd1b43225c417dbadffdade6c11264df5023f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "afb5f29e63b50df3ce11895e3061993d2ae15a5ed3cbb31784578ecf4348e73b",
+        "releaseDates": "4f7111b827fe09408ecae38e881a3552ebd4e4b0bceb01971030bc773b500429",
+        "credits": "07031fe666ddcaab4fb9bb56a3511f3e03c1d5eb2962af8abd11cfe7eba37251",
+        "creators": "9d9754e517ca1e2efcb747603f583876d7db5b39f20c313803052325b26e1c99",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "4d9fdccc74656f769f38635b506a056c1e94eb3e47900015ce1063a57b841cea"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "mark-r-healy",
+  "networkId": "the-strata-podcast"
+}

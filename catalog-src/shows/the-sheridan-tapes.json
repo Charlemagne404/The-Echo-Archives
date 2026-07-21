@@ -1,0 +1,749 @@
+{
+  "id": "the-sheridan-tapes",
+  "title": "The Sheridan Tapes",
+  "subtitle": "A weekly horror/mystery podcast about love, loss, and legacy",
+  "description": "In 2018, famed horror writer Anna Sheridan disappeared, leaving behind only a box of mysterious cassette tapes. Detective Sam Bailey is tasked with piecing together what happened to Anna Sheridan from the seemingly impossible encounters she recorded, but as the scattered pieces of the puzzle come together, Bailey discovers that the picture is even stranger – and more dangerous – than it seemed.",
+  "cover": "images/covers/the-sheridan-tapes.jpg",
+  "coverAlt": "The Sheridan Tapes cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/7qVJDgoA2iOJc4vXcO0YpM?si=4s52lYIQQnGQY6_h6z46xw",
+    "apple": "https://podcasts.apple.com/us/podcast/the-sheridan-tapes/id1508614133",
+    "website": "https://homesteadonthecorner.com/sheridantapes/",
+    "rss": "https://feeds.megaphone.fm/SBP3023603464",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [
+    "Drama"
+  ],
+  "aliases": [
+    "The Sheridan Tapes"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 100 full episodes • 34 min median",
+    "seasons": 4,
+    "episodes": 100,
+    "avgEpisodeMinutes": 35,
+    "medianEpisodeMinutes": 34,
+    "minEpisodeMinutes": 21,
+    "maxEpisodeMinutes": 60,
+    "totalObservedHours": 58.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 100,
+      "bonus": 64,
+      "trailer": 7
+    }
+  },
+  "releaseDates": {
+    "first": "2020-04-25",
+    "latest": "2024-03-29",
+    "latestFeedItem": "2026-07-18",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://homesteadonthecorner.com/sheridantapes/",
+    "patreon": "https://www.patreon.com/homesteadcorner",
+    "koFi": "https://ko-fi.com/homesteadcorner",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Homestead on the Corner | Realm",
+    "ownerName": "Homestead on the Corner",
+    "network": "Homestead on the Corner"
+  },
+  "creators": [
+    "Homestead on the Corner | Realm"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://homesteadonthecorner.com/episode-list-4/; https://homesteadonthecorner.com/episode-list-2/; https://homesteadonthecorner.com/tstepisodes/; https://homesteadonthecorner.com/episode-list/; https://homesteadonthecorner.com/sheridantapes/; https://feeds.megaphone.fm/SBP3023603464",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://homesteadonthecorner.com/episode-list-4/",
+      "https://homesteadonthecorner.com/episode-list-2/",
+      "https://homesteadonthecorner.com/tstepisodes/",
+      "https://homesteadonthecorner.com/episode-list/",
+      "https://homesteadonthecorner.com/sheridantapes/",
+      "https://feeds.megaphone.fm/SBP3023603464"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Drama"
+    ],
+    "importOfficialSummary": "In 2018, famed horror writer Anna Sheridan disappeared, leaving behind only a box of mysterious cassette tapes. Detective Sam Bailey is tasked with piecing together what happened to Anna Sheridan from the seemingly impossible encounters she recorded, but as the scattered pieces of the puzzle come together, Bailey discovers that the picture is even stranger – and more dangerous – than it seemed.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2024 Homestead on the Corner",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP3023603464",
+        "appleCollectionId": "",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://homesteadonthecorner.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://homesteadonthecorner.com/episode-list-4/",
+          "fetchedAt": "2026-07-21T12:19:55.536Z",
+          "payloadHash": "4f7ab5cacfd9e82872bd5804969063e63fe71e22d3bb4dc0bdd1d863f8444c0b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://homesteadonthecorner.com/episode-list-2/",
+          "fetchedAt": "2026-07-21T12:19:55.529Z",
+          "payloadHash": "e679e9e050775d34d5f9a2d64bf4eff607e75bf37be240c31ff6efba0248a50d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://homesteadonthecorner.com/tstepisodes/",
+          "fetchedAt": "2026-07-21T12:19:55.524Z",
+          "payloadHash": "f22e6c09b9dfe9b283e0e6c47a03c1add23b2460499cc80848121edb7f9a7459"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://homesteadonthecorner.com/episode-list/",
+          "fetchedAt": "2026-07-21T12:19:55.517Z",
+          "payloadHash": "8a75336152f1a9f12e2b31a2b87e1b188024f3a8819ae637e1b18d877eff52d9"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/",
+          "fetchedAt": "2026-07-21T12:19:55.512Z",
+          "payloadHash": "8b4089db4a8c57880bc1a53a7c7428b2ffe622d7d6bbbef37724c15b8860aa77"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464",
+          "fetchedAt": "2026-07-21T12:19:54.930Z",
+          "payloadHash": "9e772c911b4fa89870178bb4697aea044a6d483002514c90a447e3c4d98d8207"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/tstepisodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-4/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/tstepisodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-4/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/tstepisodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-4/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/sheridantapes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/tstepisodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-2/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://homesteadonthecorner.com/episode-list-4/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 0.95,
+          "method": "source-categories-and-keywords",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP3023603464"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-07-21T12:19:55.680Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a6ccd83c00c03fa762c8167626d7a5974d93e512ab1ce25ec2915d2582aecde0",
+        "subtitle": "9123f3f57f8d64b12156cac7f51e1fe622f93b92099221281c0581394397d337",
+        "description": "c4833987728c180b19f0f63d6089205726322bcfad1a7dd9db53707c2bc18ee0",
+        "cover": "71346c73401f7d059912b6d0d32fd387642a15bfe6738549eaab52f4a1ae5678",
+        "coverAlt": "d945483561b49ad8e8c3bf39543759fabb2250cec349768a4dbf6ff35302f50e",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "c4ed6d0cf28a5fb8d73c3a832e81f86003f5651e2ea7ad0d8b540d83f01c41b4",
+        "officialLinks": "7a821f0c378f0745b765151be0c5a6faa05307d8ebe70b6c63094cbad648048b",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "795d5e223a3ca23aca4e4218e0eb089c83108eeea9d12eaed76c03665ac4dd8a",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "f0345caada41dfb5598e46894f3aa797ae4caa042f98d7024698b5d293d6456f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "8c7706b8c875beb933f7cd7047fb15cbe6fa1dbe0a46984258a3782662f08516",
+        "releaseDates": "873ee23a975ba21a4b10a02e1bb7a8237bd9c0a7b6f7d0a08e2592b60cbda75b",
+        "credits": "f40ab9032140d4d647cb974ac0ae98162b376d07a65e7175ec4cb0e9ef64dcae",
+        "creators": "e75e18b02a40cc5d79ece8836d896d683d07a9706eeec5b5d02af41a71413322",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "24031fd951b5d517a7b8a4f4bea94ce61eb25024a10fc7f362a3ed2265c417e7"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "homestead-on-the-corner-realm",
+  "networkId": "homestead-on-the-corner"
+}

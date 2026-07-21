@@ -1,0 +1,593 @@
+{
+  "id": "the-pasithea-powder",
+  "title": "The Pasithea Powder",
+  "subtitle": "The Pasithea Powder is a monthly audio drama from…",
+  "description": "The Pasithea Powder is a monthly audio drama from Bad Wine Productions. On a faraway world, Captain Sophie Green is recovering from a war that ripped her planet apart and left her personal relationships for dead. Among the many atrocities committed on both sides was the invention of Pasithea Powder, a drug with memory altering properties. Thankfully, the drug has been eradicated and only a handful of scientists—now political prisoners—know how to recreate it. When Sophie sees one of those scientists walking free, she has no choice but to turn to an estranged friend for help.",
+  "cover": "images/covers/the-pasithea-powder.jpg",
+  "coverAlt": "The Pasithea Powder cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4",
+    "website": "https://bsky.app/profile/pasitheapowder.bsky.social",
+    "rss": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [],
+  "tags": [],
+  "aliases": [
+    "The Pasithea Powder",
+    "The Pasithea Powder (@pasitheapowder.bsky.social)"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 48 full episodes • 35 min median",
+    "episodes": 48,
+    "avgEpisodeMinutes": 34,
+    "medianEpisodeMinutes": 35,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 112,
+    "totalObservedHours": 27.2,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 48,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2019-10-21",
+    "latest": "2025-02-19",
+    "latestFeedItem": "2025-02-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://bsky.app/profile/pasitheapowder.bsky.social",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Bad Wine Productions",
+    "ownerName": "The Pasithea Powder",
+    "network": "Bluesky Social"
+  },
+  "creators": [
+    "Bad Wine Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://bsky.app/profile/pasitheapowder.bsky.social; https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss; https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://bsky.app/profile/pasitheapowder.bsky.social",
+      "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
+      "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Pasithea Powder is a monthly audio drama from Bad Wine Productions. On a faraway world, Captain Sophie Green is recovering from a war that ripped her planet apart and left her personal relationships for dead. Among the many atrocities committed on both sides was the invention of Pasithea Powder, a drug with memory altering properties. Thankfully, the drug has been eradicated and only a handful of scientists—now political prisoners—know how to recreate it. When Sophie sees one of those scientists walking free, she has no choice but to turn to an estranged friend for help.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 28,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
+        "appleCollectionId": "1376895621",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.soundcloud.com/users/soundcloud:users:302978164/sounds.rss",
+          "https://bsky.app/profile/did:plc:3knszmrhgjzfktglxq7mxfms/rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://bsky.app/profile/pasitheapowder.bsky.social",
+          "fetchedAt": "2026-07-21T12:20:27.434Z",
+          "payloadHash": "430075e43868422730f025d12436bdf0c4ffb2a73c9e93b57e4ee2c3d3054897"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
+          "fetchedAt": "2026-07-21T12:20:26.671Z",
+          "payloadHash": "574afc3741c62ada2b6e7439074e8a4028eea9dbc761f47c18057c136c9ffb1d"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4",
+          "fetchedAt": "2026-07-21T12:20:26.683Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://bsky.app/profile/pasitheapowder.bsky.social"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://bsky.app/profile/pasitheapowder.bsky.social"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:03.126Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b0d7ac92680817eeb2a43da774e99068b2cb3fad1e567950395d19f468545580",
+        "subtitle": "4045d5c5936536fbeeb2530d3e9abdd2377a45ac57bf10e640f4dc12353187ef",
+        "description": "eee0e863873dd8e9ad94eb7432e7b53f6627ee7612de164e6f35d24699ac1e14",
+        "cover": "3869e353a87dda0c4873459ff60ae1b9ceb1e32319320c88642d0a5a63358c67",
+        "coverAlt": "9ee4ef5443a6c023344e77f5d00dfe1dfb0b4f515b52c9fcd4ee2dfb4971dcb3",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "77f662309c406a12ff566ad1c4fe518e7a20ff39b3ad05930d7bc76270f66e3a",
+        "officialLinks": "fe605d68198a1ddf1bc099673a07ac5df556f2d7734aed210cdc67e6057796c5",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "aliases": "cd770ff0dacc4ddad9760ae11cb8a755656365115718628b6a1af341a3527721",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "e40ded86c4323334e8b62581b43b8f7cc865e20ec51b69277f257a714b85bae4",
+        "releaseDates": "cc913964a1ef745f45dfb8d1b69af644a83efe9e8f1fce406d6981ca03128627",
+        "credits": "2057d817ab0916179f97ea582fb4a02c2d90225f621a5ccbfb12cd6e6f71b5d2",
+        "creators": "bcc316aceac3c385299bc4034c3ce32053cd9ba84eb8ef3620089e9fa47ae940",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "0d72c840fafa4855dcabdd405e3f8693c4d21628447a245011e1ea83524a2a46"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "bad-wine-productions",
+  "networkId": "bluesky-social"
+}

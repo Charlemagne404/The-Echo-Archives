@@ -1,0 +1,510 @@
+{
+  "id": "the-burned-photo",
+  "title": "The Burned Photo",
+  "subtitle": "The Burned Photo",
+  "description": "The Burned Photo",
+  "cover": "images/covers/the-burned-photo.jpg",
+  "coverAlt": "The Burned Photo cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3NJbt2dlKfrL7VbWbrw2jq?si=t-NFubVFTBagjW9LpaABzA&nd=1",
+    "apple": "https://podcasts.apple.com/us/channel/qcode/id6442456136?hasPaidContent=true",
+    "website": "https://qcodemedia.com/",
+    "rss": "https://feeds.megaphone.fm/QCD4145050405",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/70ebc653-938e-4ae6-90a2-deb550515cd1/The-Edge-of-Sleep",
+    "pocketCasts": ""
+  },
+  "genres": [],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Burned Photo"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 14 full episodes • 40 min median",
+    "seasons": 2,
+    "episodes": 14,
+    "avgEpisodeMinutes": 40,
+    "medianEpisodeMinutes": 40,
+    "minEpisodeMinutes": 32,
+    "maxEpisodeMinutes": 51,
+    "totalObservedHours": 9.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 14,
+      "bonus": 0,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2021-09-30",
+    "latest": "2022-08-23",
+    "latestFeedItem": "2022-04-25",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://qcodemedia.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/@qcode4132",
+    "social": "https://www.instagram.com/qcodemedia",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "QCODE",
+    "ownerName": "QCODE Media",
+    "network": "QCODE Media"
+  },
+  "creators": [
+    "QCODE"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://qcodemedia.com/sightings; https://qcodemedia.com/theedgeofsleep; https://qcodemedia.com/about; https://qcodemedia.com/; https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4; https://feeds.megaphone.fm/QCD4145050405",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://qcodemedia.com/sightings",
+      "https://qcodemedia.com/theedgeofsleep",
+      "https://qcodemedia.com/about",
+      "https://qcodemedia.com/",
+      "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4",
+      "https://feeds.megaphone.fm/QCD4145050405"
+    ],
+    "sourceCategories": [],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Burned Photo",
+    "socialUrls": [
+      "https://www.instagram.com/qcodemedia",
+      "https://www.tiktok.com/@qcodemedia"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "QCODE Media, 2021",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/QCD4145050405",
+        "appleCollectionId": "1587021539",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://qcodemedia.com/sightings",
+          "fetchedAt": "2026-07-21T12:21:58.656Z",
+          "payloadHash": "7046674b52c14fe70f0a8f00ecaaf4e193dd0f08f47117353f548a6d6af82fad"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://qcodemedia.com/theedgeofsleep",
+          "fetchedAt": "2026-07-21T12:21:58.653Z",
+          "payloadHash": "55ce27055ca6111d1d94a6d55e20ed25f40f31a67339e7a5b73ca3caba88ccc0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://qcodemedia.com/about",
+          "fetchedAt": "2026-07-21T12:21:58.649Z",
+          "payloadHash": "3a2da63eb3b8a74b6ae2ab31319e4a493983c25febd5d258855db494fc63beb2"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://qcodemedia.com/",
+          "fetchedAt": "2026-07-21T12:21:58.644Z",
+          "payloadHash": "c53d10ff10bf076ad180ce6823a0af7d3886dd0435fd2627f06ab4a5094b19e9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4",
+          "fetchedAt": "2026-07-21T12:21:57.869Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/QCD4145050405",
+          "fetchedAt": "2026-07-21T12:19:47.292Z",
+          "payloadHash": "227a44fbefec6a853a86ca7144a7da25933b0d5305814d2fd5a1012bce420e22"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/QCD4145050405"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/about"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/sightings"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/sightings"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/sightings"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/sightings"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/sightings"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.7,
+          "method": "deterministic-feed-type",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:41.032Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "abc84765b55b285f457918e7edde75beb71fbc74690026760a52693ca7d7a2de",
+        "subtitle": "abc84765b55b285f457918e7edde75beb71fbc74690026760a52693ca7d7a2de",
+        "description": "abc84765b55b285f457918e7edde75beb71fbc74690026760a52693ca7d7a2de",
+        "cover": "13d5e6bdd265bcab42ca4d322d26545055c5c8c97ab54648b909a90834285f5e",
+        "coverAlt": "0c2f17b6bee02c51cb14724fad389f2a7ccbc62ada1d5fc914b7e26240416e80",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "9bd9096be8672c2699ae1ae8776e9bed5dd71ff2e4f2296b98215f9bd4e89a90",
+        "officialLinks": "f28e9fe914c94b6c76821b8c90398ab2aea5435326c539d3d9c7bbd6e24356b7",
+        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "fc93468d61afc7386711b6a59164f0e7886392240bbd0bfa76604c99acbbd0e1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "79fa1918e29da68ae1cd27a28fd54341ac7c9d4ef556dbb23d3610522819c69a",
+        "releaseDates": "d0c895156985c7a5cc74162f287ae0d9fef4f73c6ff6f1bf25815131511dc1ed",
+        "credits": "389801c367ae9eeaebf0a72817fcc39ef60a1fa976e9a6a11aaaa823dd5732b6",
+        "creators": "bdbd2d4f1ed90192e66d8f79eea1c91a1d088ca4f30f89e6c4f858db8a94876f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "bcfffc88f3bfa37e08d1995bf9556411eb6ae01f6de46580a807f99d0df5a35a"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "qcode",
+  "networkId": "qcode-media"
+}

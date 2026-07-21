@@ -1,0 +1,432 @@
+{
+  "id": "the-imperfection",
+  "title": "The Imperfection",
+  "subtitle": "",
+  "description": "The Imperfection",
+  "cover": "images/covers/the-imperfection.jpg",
+  "coverAlt": "The Imperfection cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4",
+    "website": "https://www.wlfdr.com/shows",
+    "rss": "https://feeds.megaphone.fm/SBP5382128338",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Imperfection"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 11 full episodes • 27 min median",
+    "seasons": 1,
+    "episodes": 11,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 4.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 11,
+      "bonus": 6,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-06-11",
+    "latest": "2025-03-08",
+    "latestFeedItem": "2026-06-08",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.wlfdr.com/shows",
+    "patreon": "https://patreon.com/WATDStudios",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/watdstudios/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Wolf at the Door Studios, Alexander Kemp",
+    "ownerName": "Wolf at the Door Studos",
+    "network": "Wolf at the Door Studios"
+  },
+  "creators": [
+    "Wolf at the Door Studios, Alexander Kemp"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-21",
+    "source": "https://www.wlfdr.com/about; https://www.wlfdr.com/shows; https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4; https://feeds.megaphone.fm/SBP5382128338",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.wlfdr.com/about",
+      "https://www.wlfdr.com/shows",
+      "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4",
+      "https://feeds.megaphone.fm/SBP5382128338"
+    ],
+    "sourceCategories": [],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Imperfection",
+    "socialUrls": [
+      "https://www.instagram.com/watdstudios/",
+      "https://twitter.com/WATDstudios"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP5382128338",
+        "appleCollectionId": "1621232187",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.wlfdr.com/about",
+          "fetchedAt": "2026-07-21T12:21:55.287Z",
+          "payloadHash": "bea948cc58fe1ed0ef80d7bba3ddd5fd8c576e8a5c756d02f0fd9c07ccaf2b56"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.wlfdr.com/shows",
+          "fetchedAt": "2026-07-21T12:21:55.279Z",
+          "payloadHash": "6323b64122ae1457df124e81bf2f491758f73508ee8593983b0c71ec55e571d9"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4",
+          "fetchedAt": "2026-07-21T12:21:54.877Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP5382128338",
+          "fetchedAt": "2026-07-21T12:20:26.448Z",
+          "payloadHash": "4de74ce5245f81beea6a8ffbe62e9914e13bc0ee5ea414ac52aca6718b5200b7"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/SBP5382128338"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/shows"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/about"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/shows"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/about"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/shows"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/shows"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/about"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/shows"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/about"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/shows"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.wlfdr.com/about"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.7,
+          "method": "deterministic-feed-type",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-07-21T12:22:35.971Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a4b21f7ba12543363dc940a1f334a38ed68dfc49910099050632ccb22259e78d",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "a4b21f7ba12543363dc940a1f334a38ed68dfc49910099050632ccb22259e78d",
+        "cover": "e69578e7bece7d347945fd8aef8092ca9df0c399e67a5cc5844179f8587fdcc8",
+        "coverAlt": "b87556587a0547aaa1f09d1903402d79111596ac7925653b6fde7e1e8c579d1c",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "943d7a0850092f9327f00ad1d7030be8de0f58bc6f0d9b4cdfdb8094c992e46a",
+        "officialLinks": "ad4187cce30abdad146fb2e164869622d32b51fbe115b17a3b55687cdee03890",
+        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "7371a7e1e136c058991db6ced1d5aecbfbc58a2017a7a2000e086b240c9a574f",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "ce93614fee41566d9376b3cc55e8ef57c1792510a63ab94464f588998fd68aad",
+        "releaseDates": "b7fa87439d57b46099bb6c941aa517b89fa59b09907c8d306e8932d08f5abdcb",
+        "credits": "c0ad2d24c75081c13cfeee056bca45f24528bc6f032903750eabed9d0c422713",
+        "creators": "0dab35d22b93c88b86a4de5aad334419f2869734c7a3f02648af77801af99084",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "2413a5f182d17eec84095881a421500a5ca1880e8ddeb0fe71fd0259ef571184"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-21",
+  "updatedAt": "2026-07-21",
+  "creatorId": "wolf-at-the-door-studios-alexander-kemp",
+  "networkId": "wolf-at-the-door-studios"
+}

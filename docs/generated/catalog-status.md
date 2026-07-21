@@ -1,30 +1,30 @@
 # Catalog Status
 
-Latest catalog update: `2026-07-18`
+Latest catalog update: `2026-07-21`
 
 ## Snapshot
 
 | Metric | Value |
 | --- | ---: |
-| Total shows | 70 |
-| Published shows | 70 |
+| Total shows | 90 |
+| Published shows | 90 |
 | Draft shows | 0 |
 | Full reviews | 7 |
 | Spotlight reviews | 0 |
-| Indexed-only shows | 63 |
+| Indexed-only shows | 83 |
 | Planned reviews | 0 |
 | Collections | 29 |
 | Review companions | 7 |
 | Creator-verified shows | 0 |
-| Shows with RSS | 67 |
+| Shows with RSS | 87 |
 | Shows missing metadata.objectiveSources | 0 |
 | Shows with metadata.researchGaps | 9 |
 
 ## Discovery Gaps
 
 - Shows missing similarReasons: 0
-- Shows with out-of-range similar links: 0
-- Shows with fewer than 2 collection memberships: 0
+- Shows with out-of-range similar links: 20
+- Shows with fewer than 2 collection memberships: 20
 - Anchor shows with fewer than 3 collection memberships: 0
 - Route collections missing showReasons: 0
 
