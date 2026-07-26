@@ -129,6 +129,30 @@ export function initializeHomePreviewController({ archiveGrid, archiveSection })
   };
 
   const handleKeyDown = (event) => {
+    if (event.key === "Tab" && state.activeShell && isWithinPreview(event.target)) {
+      const sourceCard = state.activeShell.querySelector(".podcast-card-primary");
+      const closeButton = state.activeShell.querySelector(".preview-close-button");
+      const openLink = state.activeShell.querySelector(".preview-open-link");
+
+      if (!event.shiftKey && document.activeElement === sourceCard && closeButton instanceof HTMLElement) {
+        event.preventDefault();
+        closeButton.focus();
+        return;
+      }
+
+      if (!event.shiftKey && document.activeElement === closeButton && openLink instanceof HTMLElement) {
+        event.preventDefault();
+        openLink.focus();
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === openLink && closeButton instanceof HTMLElement) {
+        event.preventDefault();
+        closeButton.focus();
+        return;
+      }
+    }
+
     if (event.key !== "Escape") {
       return;
     }

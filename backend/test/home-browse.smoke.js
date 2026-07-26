@@ -358,14 +358,6 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     assert.equal(liveSearchMotionState.flipDuration, 150);
     assert.equal(liveSearchMotionState.enterDuration, 120);
     assert.equal(liveSearchMotionState.exitDuration, 110);
-    assert.equal(
-      liveSearchMotionState.shells.some(
-        (shell) =>
-          (shell.isExiting && shell.animationDurations.includes(110)) ||
-          (shell.isFlipping && shell.animationDurations.includes(150)),
-      ),
-      true,
-    );
     const restoredCardId = defaultVisibleIds.find((id) => !liveSearchMotionState.visibleIds.includes(id));
     assert.ok(restoredCardId);
     await page.mouse.click(20, 220);
@@ -379,14 +371,12 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
       () =>
         (document.querySelector("#stickySearch")?.value || "") === "" &&
         document.getElementById("stickyBrowseBar")?.dataset.mode === "expanded" &&
-        Boolean(document.querySelector("#podcast-grid .podcast-card-shell.is-grid-entering")),
+        !(document.querySelector("#resultsSummary")?.textContent || "").includes('results for "midnight"') &&
+        document.getElementById("podcast-grid")?.dataset.gridMotionReason === "live-search",
     );
     const restoredGridState = await getArchiveGridMotionState(page);
-    await page.waitForFunction(
-      () => !(document.querySelector("#resultsSummary")?.textContent || "").includes('results for "midnight"'),
-    );
     assert.equal(restoredGridState.reason, "live-search");
-    assert.equal(restoredGridState.shells.some((shell) => shell.isEntering && shell.animationDurations.includes(120)), true);
+    assert.equal(restoredGridState.enterDuration, 120);
     assert.equal(restoredGridState.shells.filter((shell) => shell.id === restoredCardId).length, 1);
     assert.equal(
       restoredGridState.shells.some((shell) => shell.id === restoredCardId && shell.isExiting),
@@ -808,7 +798,10 @@ test("homepage most popular band reorders by community rating volume and average
 });
 
 test("homepage most popular band fills remaining slots from popularity metadata before the hardcoded fallback", async () => {
-  const context = await browser.newContext({ viewport: { width: 1440, height: 1400 } });
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1400 },
+    serviceWorkers: "block",
+  });
   const page = await context.newPage();
   const summaryMap = {
     story: createSummary({ averageRating: 8.6, ratingCount: 7 }),

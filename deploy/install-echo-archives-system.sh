@@ -13,6 +13,10 @@ DISCOVERY_SERVICE_SOURCE="${REPO_ROOT}/deploy/echo-archives-discovery.service"
 DISCOVERY_TIMER_SOURCE="${REPO_ROOT}/deploy/echo-archives-discovery.timer"
 DISCOVERY_SERVICE_DEST="/etc/systemd/system/echo-archives-discovery.service"
 DISCOVERY_TIMER_DEST="/etc/systemd/system/echo-archives-discovery.timer"
+BACKUP_SERVICE_SOURCE="${REPO_ROOT}/deploy/echo-archives-backup.service"
+BACKUP_TIMER_SOURCE="${REPO_ROOT}/deploy/echo-archives-backup.timer"
+BACKUP_SERVICE_DEST="/etc/systemd/system/echo-archives-backup.service"
+BACKUP_TIMER_DEST="/etc/systemd/system/echo-archives-backup.timer"
 CADDY_SNIPPET="${REPO_ROOT}/deploy/Caddyfile.echo"
 CADDYFILE="/etc/caddy/Caddyfile"
 TIMESTAMP="$(date +%Y%m%d%H%M%S)"
@@ -30,6 +34,11 @@ fi
 
 if [[ ! -f "${DISCOVERY_SERVICE_SOURCE}" || ! -f "${DISCOVERY_TIMER_SOURCE}" ]]; then
   echo "Missing discovery service templates."
+  exit 1
+fi
+
+if [[ ! -f "${BACKUP_SERVICE_SOURCE}" || ! -f "${BACKUP_TIMER_SOURCE}" ]]; then
+  echo "Missing backup service templates."
   exit 1
 fi
 
@@ -97,15 +106,19 @@ printf "\n" >> "${TMP_CADDYFILE}"
 caddy validate --config "${TMP_CADDYFILE}" --adapter caddyfile
 
 cp "${CADDYFILE}" "${CADDYFILE}.bak.${TIMESTAMP}"
-if [[ -f "${SERVICE_DEST}" ]]; then
-  cp "${SERVICE_DEST}" "${SERVICE_DEST}.bak.${TIMESTAMP}"
-fi
+for unit_path in "${SERVICE_DEST}" "${DISCOVERY_SERVICE_DEST}" "${DISCOVERY_TIMER_DEST}" "${BACKUP_SERVICE_DEST}" "${BACKUP_TIMER_DEST}"; do
+  if [[ -f "${unit_path}" ]]; then
+    cp "${unit_path}" "${unit_path}.bak.${TIMESTAMP}"
+  fi
+done
 
 install -m 0644 "${TMP_CADDYFILE}" "${CADDYFILE}"
 
 install -m 0644 "${SERVICE_SOURCE}" "${SERVICE_DEST}"
 install -m 0644 "${DISCOVERY_SERVICE_SOURCE}" "${DISCOVERY_SERVICE_DEST}"
 install -m 0644 "${DISCOVERY_TIMER_SOURCE}" "${DISCOVERY_TIMER_DEST}"
+install -m 0644 "${BACKUP_SERVICE_SOURCE}" "${BACKUP_SERVICE_DEST}"
+install -m 0644 "${BACKUP_TIMER_SOURCE}" "${BACKUP_TIMER_DEST}"
 
 systemctl daemon-reload
 systemctl enable echo-archives.service
@@ -127,6 +140,7 @@ for attempt in {1..20}; do
   sleep 2
 done
 
+systemctl enable --now echo-archives-backup.timer
 systemctl reload caddy
 
 echo
@@ -136,6 +150,11 @@ systemctl --no-pager --full status echo-archives.service | sed -n '1,40p'
 echo
 echo "Local health check:"
 curl -fsS --max-time 5 http://127.0.0.1:3010/api/health
+
+echo
+echo
+echo "Scheduled maintenance timers:"
+systemctl list-timers echo-archives-backup.timer echo-archives-discovery.timer --no-pager
 
 echo
 echo

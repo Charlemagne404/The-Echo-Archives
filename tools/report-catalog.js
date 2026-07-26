@@ -3,6 +3,7 @@ const path = require("node:path");
 const { loadArchiveContext } = require("../backend/lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../backend/lib/catalog");
 const { buildDiscoveryGapReport } = require("../backend/lib/discovery-gaps");
+const { applyGeneratedCoverVariants } = require("../backend/lib/responsive-images");
 const {
   buildCatalogSnapshot,
   buildCatalogStatusMarkdown,
@@ -37,6 +38,7 @@ async function main() {
   ensureSplitCatalogSource(siteRoot);
 
   const catalog = await loadCatalog(siteRoot);
+  applyGeneratedCoverVariants(siteRoot, catalog);
   const sourceData = readCatalogSource(siteRoot);
   const collections = loadCollections(siteRoot, new Set(catalog.map((show) => show.id)), { sourceData });
   const archiveContext = await loadArchiveContext(siteRoot, catalog, collections);

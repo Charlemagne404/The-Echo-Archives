@@ -2,7 +2,7 @@
 
 ## Data Cleanup
 
-- 2026-07-05: `npm run report:catalog` reports 10 published shows missing RSS links. Add verified RSS URLs where available for `crystal-blue`, `impact-winter`, `how-i-died`, `homecoming`, `oz-9`, `solar`, `derelict`, `the-deca-tapes`, `red-valley`, and `earth-eclipsed`.
+- 2026-07-21: `npm run report:catalog` reports 3 published shows missing RSS links. Add verified RSS URLs where available for `earth-eclipsed`, `impact-winter`, and `homecoming`.
 
 Use:
 

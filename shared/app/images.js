@@ -34,7 +34,7 @@ export function getPreferredCoverSource(show, preferredWidth = 320) {
 export function getResponsiveImageSource(show, sizes = "(max-width: 560px) 50vw, 320px") {
   const variants = getCoverVariants(show);
   return {
-    src: show?.imageSrc || resolveImageSrc(show?.cover),
+    src: variants[0]?.src || show?.imageSrc || resolveImageSrc(show?.cover),
     srcset: variants.map((variant) => `${variant.src} ${variant.width}w`).join(", "),
     sizes: variants.length > 0 ? sizes : "",
   };
@@ -47,7 +47,6 @@ export function configureShowImageElement(image, show, options = {}) {
 
   const { sizes, ...imageOptions } = options;
   const source = getResponsiveImageSource(show, sizes);
-  image.src = source.src;
   if (source.srcset) {
     image.srcset = source.srcset;
     image.sizes = source.sizes;
@@ -55,6 +54,7 @@ export function configureShowImageElement(image, show, options = {}) {
     image.removeAttribute("srcset");
     image.removeAttribute("sizes");
   }
+  image.src = source.src;
 
   return configureImageElement(image, imageOptions);
 }

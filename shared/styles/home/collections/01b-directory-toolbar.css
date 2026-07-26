@@ -64,6 +64,7 @@
 }
 
 .collections-sort-field select {
+  height: 44px;
   min-height: 44px;
   border: 0;
   background: transparent;

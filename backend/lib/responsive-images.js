@@ -76,6 +76,7 @@ function applyGeneratedCoverVariants(siteRoot, catalog) {
       .map((show) => [show.id, show.coverVariants]),
   );
   (Array.isArray(catalog) ? catalog : []).forEach((show) => {
+    delete show.coverVariants;
     const variants = variantsById.get(show?.id);
     if (variants?.length) {
       show.coverVariants = variants;
@@ -121,6 +122,7 @@ async function generateCoverVariants(siteRoot, catalog, { sharpModule = null } =
   const sharp = sharpModule || require("sharp");
   const outputDirectory = path.join(siteRoot, COVER_OUTPUT_DIRECTORY);
   const expectedPaths = [];
+  const variantsBySourceDigest = new Map();
 
   for (const show of Array.isArray(catalog) ? catalog : []) {
     delete show.coverVariants;
@@ -142,7 +144,15 @@ async function generateCoverVariants(siteRoot, catalog, { sharpModule = null } =
       continue;
     }
 
-    const sourceHash = crypto.createHash("sha1").update(fs.readFileSync(sourcePath)).digest("hex").slice(0, 10);
+    const sourceDigest = crypto.createHash("sha1").update(fs.readFileSync(sourcePath)).digest("hex");
+    const cachedVariants = variantsBySourceDigest.get(sourceDigest);
+    if (cachedVariants) {
+      if (cachedVariants.length > 0) {
+        show.coverVariants = cachedVariants.map((variant) => ({ ...variant }));
+      }
+      continue;
+    }
+    const sourceHash = sourceDigest.slice(0, 10);
 
     const variants = [];
     for (const target of COVER_TARGETS) {
@@ -168,6 +178,7 @@ async function generateCoverVariants(siteRoot, catalog, { sharpModule = null } =
     if (variants.length > 0) {
       show.coverVariants = variants;
     }
+    variantsBySourceDigest.set(sourceDigest, variants.map((variant) => ({ ...variant })));
   }
 
   fs.mkdirSync(outputDirectory, { recursive: true });

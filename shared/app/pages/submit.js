@@ -94,6 +94,14 @@ export async function initializeSubmitPage() {
     ui.renderAll();
     if (!activeId && !activeSelector) return;
     window.requestAnimationFrame(() => {
+      const currentActiveElement = document.activeElement;
+      if (
+        currentActiveElement &&
+        currentActiveElement !== document.body &&
+        currentActiveElement !== document.documentElement
+      ) {
+        return;
+      }
       const nextActiveElement = activeId ? document.getElementById(activeId) : document.querySelector(activeSelector);
       if (!(nextActiveElement instanceof HTMLElement)) return;
       nextActiveElement.focus();
@@ -125,7 +133,7 @@ export async function initializeSubmitPage() {
     state.lookupMessage = "Loading the archive show index…";
     state.searchOpen = false;
     state.showHighlightIndex = -1;
-    ui.renderAll();
+    renderPreservingFocus();
 
     state.lookupPromise = loadSearchIndex()
       .then((records) => {
@@ -137,7 +145,7 @@ export async function initializeSubmitPage() {
         state.lookupMessage = "";
         seedStateFromParams(state);
         state.requestedShowId = "";
-        ui.renderAll();
+        renderPreservingFocus({ capture: false });
         if (focusSearch && MODES_WITH_EXISTING_SHOW.has(state.activeMode)) {
           ui.focusExistingShowSearch(getActiveDraft(state).showSearch.length);
         }
@@ -146,7 +154,7 @@ export async function initializeSubmitPage() {
       .catch((error) => {
         state.lookupStatus = "error";
         state.lookupMessage = "Archive lookup is temporarily unavailable. Retry here, or use the new-show path now.";
-        ui.renderAll();
+        renderPreservingFocus();
         throw error;
       })
       .finally(() => {
@@ -291,78 +299,6 @@ export async function initializeSubmitPage() {
 
   elements.form.addEventListener("keydown", (event) => {
     const target = event.target;
-    if (target instanceof HTMLButtonElement && target.matches("[data-segment-field]")) {
-      const field = target.getAttribute("data-segment-field");
-      const group = target.closest('[role="radiogroup"]');
-      const buttons = field && group ? Array.from(group.querySelectorAll(`[data-segment-field="${field}"]`)) : [];
-      const currentIndex = buttons.indexOf(target);
-      const keyMoves = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
-      let nextIndex = currentIndex;
-      if (Object.prototype.hasOwnProperty.call(keyMoves, event.key)) {
-        nextIndex = (currentIndex + keyMoves[event.key] + buttons.length) % buttons.length;
-      } else if (event.key === "Home") {
-        nextIndex = 0;
-      } else if (event.key === "End") {
-        nextIndex = buttons.length - 1;
-      } else {
-        return;
-      }
-
-      if (!field || currentIndex < 0 || nextIndex < 0) return;
-      event.preventDefault();
-      captureCurrentDraft(state, elements);
-      const value = buttons[nextIndex].getAttribute("data-segment-value");
-      if (!value) return;
-      getActiveDraft(state)[field] = value;
-      ui.renderAll();
-      window.requestAnimationFrame(() => document.querySelector(`[data-segment-field="${field}"][data-segment-value="${value}"]`)?.focus());
-      return;
-    }
-
-    if (target instanceof HTMLButtonElement && target.matches("[data-rating-stars], [data-category-score]")) {
-      const isStarRating = target.hasAttribute("data-rating-stars");
-      const group = target.closest('[role="radiogroup"]');
-      const selector = isStarRating ? "[data-rating-stars]" : "[data-category-score]";
-      const buttons = group ? Array.from(group.querySelectorAll(selector)) : [];
-      const currentIndex = buttons.indexOf(target);
-      const keyMoves = {
-        ArrowRight: 1,
-        ArrowDown: 1,
-        ArrowLeft: -1,
-        ArrowUp: -1,
-      };
-      let nextIndex = currentIndex;
-      if (Object.prototype.hasOwnProperty.call(keyMoves, event.key)) {
-        nextIndex = (currentIndex + keyMoves[event.key] + buttons.length) % buttons.length;
-      } else if (event.key === "Home") {
-        nextIndex = 0;
-      } else if (event.key === "End") {
-        nextIndex = buttons.length - 1;
-      } else {
-        return;
-      }
-
-      if (currentIndex < 0 || nextIndex < 0) return;
-      event.preventDefault();
-      captureCurrentDraft(state, elements);
-      const nextButton = buttons[nextIndex];
-      if (isStarRating) {
-        const value = Number.parseInt(nextButton.getAttribute("data-rating-stars") || "", 10);
-        getActiveDraft(state).ratingStars = value;
-        ui.renderAll();
-        window.requestAnimationFrame(() => document.querySelector(`[data-rating-stars="${value}"]`)?.focus());
-      } else {
-        const key = nextButton.getAttribute("data-category-score");
-        const value = Number.parseInt(nextButton.getAttribute("data-category-score-value") || "", 10);
-        if (!key) return;
-        const draft = getActiveDraft(state);
-        draft.categoryScores = { ...(draft.categoryScores || {}), [key]: value };
-        ui.renderAll();
-        window.requestAnimationFrame(() => document.querySelector(`[data-category-score="${key}"][data-category-score-value="${value}"]`)?.focus());
-      }
-      return;
-    }
-
     if (!(target instanceof HTMLInputElement)) {
       return;
     }

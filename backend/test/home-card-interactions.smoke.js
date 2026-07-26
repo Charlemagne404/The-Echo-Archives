@@ -275,7 +275,21 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
       undefined,
       { timeout: 2_000 },
     );
-    await page.waitForTimeout(220);
+    await page.waitForFunction(
+      () => {
+        const shell = document.querySelectorAll("#podcast-grid .podcast-card-shell")[1];
+        const copyBody = shell?.querySelector(".home-card-preview-copy-body");
+        const footer = shell?.querySelector(".home-card-preview-footer");
+        return (
+          copyBody &&
+          footer &&
+          Number.parseFloat(window.getComputedStyle(copyBody).opacity) > 0.95 &&
+          Number.parseFloat(window.getComputedStyle(footer).opacity) > 0.95
+        );
+      },
+      undefined,
+      { timeout: 2_000 },
+    );
     const middleMetrics = await getOverlayMetrics(page, 1, 7);
     assert.equal(middleMetrics.overlayOpen, true);
     assert.equal(middleMetrics.sourceActive, true);
@@ -508,10 +522,27 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
 
     const firstShell = touchLinkPage.locator("#podcast-grid .podcast-card-shell").nth(0);
     const firstCard = firstShell.locator(".podcast-card-primary");
-    await firstCard.scrollIntoViewIfNeeded();
+    await firstCard.evaluate((node) => node.scrollIntoView({ block: "start" }));
+    await touchLinkPage.waitForTimeout(300);
     await firstCard.tap();
-    await touchLinkPage.waitForTimeout(200);
-    await firstShell.locator(".preview-open-link").tap();
+    await touchLinkPage.waitForFunction(
+      () => {
+        const shell = document.querySelector("#podcast-grid .podcast-card-shell");
+        const link = shell?.querySelector(".preview-open-link");
+        const layer = shell?.querySelector(".home-card-preview-layer");
+        if (!(link instanceof HTMLElement) || layer?.hidden || !shell?.classList.contains("is-preview-expanded")) return false;
+        const rect = link.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && rect.top >= 0 && rect.bottom <= window.innerHeight;
+      },
+      undefined,
+      { timeout: 2_000 },
+    );
+    const openLinkBox = await firstShell.locator(".preview-open-link").boundingBox();
+    assert.ok(openLinkBox);
+    await touchLinkPage.touchscreen.tap(
+      openLinkBox.x + openLinkBox.width / 2,
+      openLinkBox.y + openLinkBox.height / 2,
+    );
     await touchLinkPage.waitForURL(`${baseUrl}/shows/*`, { timeout: 5_000 });
   } finally {
     await touchLinkPage.close();

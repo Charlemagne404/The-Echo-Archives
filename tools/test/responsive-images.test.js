@@ -23,12 +23,16 @@ test("server catalog records receive optional generated cover variants without a
     },
   ]));
 
-  const catalog = [{ id: "fixture", cover: "images/covers/fixture.png" }];
+  const catalog = [
+    { id: "fixture", cover: "images/covers/fixture.png" },
+    { id: "without-variants", cover: "images/covers/small.png", coverVariants: [] },
+  ];
   applyGeneratedCoverVariants(siteRoot, catalog);
   assert.equal(catalog[0].cover, "images/covers/fixture.png");
   assert.deepEqual(catalog[0].coverVariants, [
     { src: "/images/generated/covers/fixture-hash-320.webp", width: 320 },
   ]);
+  assert.equal(Object.hasOwn(catalog[1], "coverVariants"), false);
 });
 
 test("search runtime records carry generated cover variants for hydrated collection imagery", () => {
@@ -73,6 +77,32 @@ test("responsive image generation preserves authored covers and enforces determi
   fs.writeFileSync(path.join(siteRoot, "images/generated/covers/orphan.webp"), "orphan");
   await generateCoverVariants(siteRoot, catalog);
   assert.equal(fs.existsSync(path.join(siteRoot, "images/generated/covers/orphan.webp")), false);
+});
+
+test("responsive image generation reuses one encoded variant set for identical source bytes", async (t) => {
+  const siteRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-responsive-dedup-"));
+  t.after(() => fs.rmSync(siteRoot, { recursive: true, force: true }));
+
+  const coversDirectory = path.join(siteRoot, "images", "covers");
+  fs.mkdirSync(coversDirectory, { recursive: true });
+  await sharp({
+    create: {
+      width: 1000,
+      height: 1000,
+      channels: 3,
+      background: { r: 26, g: 54, b: 80 },
+    },
+  }).png().toFile(path.join(coversDirectory, "shared.png"));
+
+  const catalog = [
+    { id: "fixture-one", cover: "images/covers/shared.png" },
+    { id: "fixture-two", cover: "images/covers/shared.png" },
+  ];
+  const result = await generateCoverVariants(siteRoot, catalog);
+
+  assert.equal(result.generated, 2);
+  assert.deepEqual(catalog[1].coverVariants, catalog[0].coverVariants);
+  assert.match(catalog[1].coverVariants[0].src, /fixture-one-[a-f0-9]{10}-320\.webp$/);
 });
 
 test("responsive image generation reuses existing generated outputs when they already satisfy the budget", async (t) => {

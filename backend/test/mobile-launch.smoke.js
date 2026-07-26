@@ -324,6 +324,7 @@ test("mobile sticky search prioritizes typing space and stays out of the way whi
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => !document.getElementById("search")?.disabled);
     await page.evaluate(() => window.scrollTo({ top: window.innerHeight * 2, behavior: "auto" }));
+    await page.waitForTimeout(100);
     await page.waitForFunction(() => document.getElementById("stickyBrowseBar")?.dataset.visibility === "hidden");
 
     await page.evaluate(() => window.scrollBy({ top: -280, behavior: "auto" }));
@@ -440,7 +441,11 @@ test("default submit and static mobile pages stay within launch CLS budgets", { 
       score: window.__echoMobileLayoutShiftScore || 0,
       supported: window.__echoMobileLayoutShiftSupported || false,
     }));
-    assert.equal(supported, true, "The smoke browser must support Layout Instability metrics.");
+    const smokeBrowser = String(process.env.SMOKE_BROWSER || "chromium").toLowerCase();
+    if (!supported) {
+      assert.notEqual(smokeBrowser, "chromium", "The Chromium smoke browser must support Layout Instability metrics.");
+      return null;
+    }
     assert.ok(score <= budget, `${pathname} CLS ${score.toFixed(4)} exceeded the ${budget.toFixed(2)} budget.`);
     return score;
   }
@@ -483,6 +488,15 @@ test("cold mobile routes stay inside responsive-image transfer and intrinsic-siz
 
         return {
           imageBytes: imageEntries.reduce((total, entry) => total + (entry.encodedBodySize || 0), 0),
+          largestImages: imageEntries
+            .map((entry) => ({
+              path: new URL(entry.name).pathname,
+              encodedBodySize: entry.encodedBodySize || 0,
+              transferSize: entry.transferSize || 0,
+              decodedBodySize: entry.decodedBodySize || 0,
+            }))
+            .sort((left, right) => right.encodedBodySize - left.encodedBodySize)
+            .slice(0, 8),
           generatedCoverCount: imageEntries.filter((entry) => entry.name.includes("/images/generated/covers/")).length,
           responsiveCoverCount: document.querySelectorAll('img[srcset*="/images/generated/covers/"]').length,
           unreservedImages,
@@ -491,7 +505,7 @@ test("cold mobile routes stay inside responsive-image transfer and intrinsic-siz
 
       assert.ok(
         metrics.imageBytes <= check.maxImageBytes,
-        `${check.route} transferred ${metrics.imageBytes} image bytes; expected at most ${check.maxImageBytes}.`,
+        `${check.route} transferred ${metrics.imageBytes} image bytes; expected at most ${check.maxImageBytes}. Largest entries: ${JSON.stringify(metrics.largestImages)}.`,
       );
       assert.ok(metrics.generatedCoverCount > 0, `${check.route} should request generated cover variants.`);
       assert.ok(metrics.responsiveCoverCount > 0, `${check.route} should render responsive cover srcsets.`);

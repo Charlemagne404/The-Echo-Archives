@@ -47,9 +47,32 @@ test.after(async () => {
 });
 
 test("Ask the Archivist and the remade submit page interactions work across modes", async () => {
-  const page = await browser.newPage();
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
 
   try {
+    await page.route("**/api/submissions/shows/*/context", async (route) => {
+      const showId = new URL(route.request().url()).pathname.split("/").at(-2);
+      const show = showFixtures.find((entry) => entry.id === showId);
+      await route.fulfill({
+        status: show ? 200 : 404,
+        contentType: "application/json",
+        body: JSON.stringify(show
+          ? {
+              show: {
+                id: show.id,
+                title: show.title,
+                creators: show.creators || [],
+                completionStatus: show.completionStatus || "unknown",
+                officialDescription: "",
+                listenLinks: [],
+                officialLinks: [],
+              },
+            }
+          : { error: "Show not found." }),
+      });
+    });
+
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
     await page.locator("#chat-toggle").click();
     await page.locator("#chat-container.is-open").waitFor();
@@ -257,6 +280,10 @@ test("Ask the Archivist and the remade submit page interactions work across mode
 
     await page.locator('[data-submission-mode="listener-review"]').click();
     await page.locator("#submitReviewText").waitFor();
+    await page.locator('.submit-lookup-status[data-state="ready"]').waitFor({
+      state: "attached",
+      timeout: 15_000,
+    });
     let formState = await page.evaluate(() => ({
       submissionType: document.getElementById("submissionType")?.value || "",
       reviewFieldVisible: Boolean(document.getElementById("submitReviewText")),
@@ -306,8 +333,16 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(formState.officialLinkButtons, 8);
     assert.equal(formState.emptyStateVisible, true);
 
-    await page.locator('[data-segment-field="verificationMethod"][data-segment-value="official-domain-email"]').press("ArrowRight");
-    await page.locator("#submitProofUrl").waitFor();
+    await page.locator('[data-segment-field="verificationMethod"][data-segment-value="official-domain-email"]').focus();
+    await page.keyboard.press("ArrowRight");
+    await page.waitForFunction(
+      () =>
+        document.querySelector('[data-segment-field="verificationMethod"][data-segment-value="website"]')
+          ?.getAttribute("aria-checked") === "true" &&
+        Boolean(document.getElementById("submitProofUrl")),
+      undefined,
+      { timeout: 5_000 },
+    );
     assert.equal(await page.locator("#submitContactEmail").count(), 0);
     assert.equal(
       await page.locator('[data-segment-field="verificationMethod"][data-segment-value="website"]').getAttribute("aria-checked"),
@@ -338,7 +373,16 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     await page.locator("#submitExistingShowSearch").press("ArrowDown");
     const activeDescendant = await page.locator("#submitExistingShowSearch").getAttribute("aria-activedescendant");
     assert.match(activeDescendant || "", /submitExistingShowSearchResultsOption\d+/);
+    assert.equal(
+      await page.locator(`#${activeDescendant} .submit-search-result-title`).innerText(),
+      "Impact Winter",
+    );
+    const showContextResponse = page.waitForResponse(
+      (response) => new URL(response.url()).pathname === "/api/submissions/shows/impact-winter/context",
+      { timeout: 15_000 },
+    );
     await page.locator("#submitExistingShowSearch").press("Enter");
+    assert.equal((await showContextResponse).status(), 200);
     await page.waitForFunction(
       () => document.getElementById("existingShowId")?.value === "impact-winter" &&
         document.getElementById("submitExistingShowSearch")?.value === "Impact Winter" &&
@@ -406,7 +450,7 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     }));
     assert.ok(chatState.actionHrefs.includes("/submit"));
   } finally {
-    await page.close();
+    await context.close();
   }
 });
 
@@ -493,7 +537,8 @@ test("show context failures stay non-blocking and stale responses cannot replace
 });
 
 test("submit success and failure flows use one persistent result surface and preserve retry data", async () => {
-  const page = await browser.newPage();
+  const context = await browser.newContext({ serviceWorkers: "block" });
+  const page = await context.newPage();
 
   async function fillValidShowSubmission() {
     await page.locator("#submitShowTitle").fill("Launch Test Show");
@@ -598,6 +643,6 @@ test("submit success and failure flows use one persistent result surface and pre
     );
     assert.equal(await page.locator("#submitShowTitle").inputValue(), "Launch Test Show");
   } finally {
-    await page.close();
+    await context.close();
   }
 });

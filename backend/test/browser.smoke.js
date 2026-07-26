@@ -16,6 +16,8 @@ const {
   legacyRedirectManifest,
   scoreCatalog,
   setupSmoke,
+  startSmokeServer,
+  stopSmokeServer,
   teardownSmoke,
   waitForMostPopularBandIds,
 } = require("./helpers/browser-smoke");
@@ -471,6 +473,7 @@ test("show and collection share actions trigger native share or copy feedback", 
 test("service worker supports cached public pages offline and falls back for uncached routes", async () => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 720 } });
   const page = await context.newPage();
+  let serverStopped = false;
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
@@ -480,9 +483,8 @@ test("service worker supports cached public pages offline and falls back for unc
     await page.waitForFunction(() => navigator.serviceWorker.controller !== null, undefined, { timeout: 10_000 });
     await page.waitForFunction(() => document.body.dataset.offlineReady === "true", undefined, { timeout: 10_000 });
 
-    await context.route("**/*", async (route) => {
-      await route.abort();
-    });
+    await stopSmokeServer();
+    serverStopped = true;
     await page.goto(`${baseUrl}/`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "The Echo Archives — Audio Drama Discovery");
     await page.waitForFunction(() => document.body.dataset.homeReady === "true", undefined, { timeout: 10_000 });
@@ -492,6 +494,9 @@ test("service worker supports cached public pages offline and falls back for unc
     await page.goto(`${baseUrl}/this-route-should-fallback-offline`, { waitUntil: "domcontentloaded" });
     assert.equal(await page.title(), "Offline - The Echo Archives");
   } finally {
+    if (serverStopped) {
+      await startSmokeServer();
+    }
     await context.close();
   }
 });
@@ -658,7 +663,7 @@ test("mobile chat launcher stays out of the first viewport until the user starts
   }
 });
 
-test("public mobile route families stay stacked and avoid horizontal overflow at 320px", async () => {
+test("public mobile route families preserve compact layouts and avoid horizontal overflow at 320px", async () => {
   const page = await browser.newPage({ viewport: { width: 320, height: 844 } });
 
   try {
@@ -701,7 +706,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         }),
         assert(result) {
           assert.ok(result.scrollWidth <= result.viewport + 1);
-          assert.equal(result.statsColumns, 1);
+          assert.equal(result.statsColumns, 2);
           assert.equal(result.directoryColumns, 1);
         },
       },
@@ -774,7 +779,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         }),
         async afterLoad() {
           await page.locator('[data-submission-mode="creator-verification"]').click();
-          await page.locator("#submitProofUrl").waitFor();
+          await page.locator("#submitCreatorName").waitFor();
           await page.locator('[data-submission-mode="correction"]').click();
           await page.locator("#submitExistingShowSearch").waitFor();
           const modeState = await page.evaluate(() => ({
@@ -787,7 +792,7 @@ test("public mobile route families stay stacked and avoid horizontal overflow at
         assert(result) {
           assert.ok(result.scrollWidth <= result.viewport + 1);
           assert.equal(result.contentColumns, 1);
-          assert.equal(result.modeColumns, 1);
+          assert.equal(result.modeColumns, 2);
         },
       },
       {

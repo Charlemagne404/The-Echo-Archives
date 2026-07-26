@@ -300,40 +300,43 @@ test("detail hero anchors focus their destination and verified start links are p
 
 test("show-page genre breadcrumb returns to the archive with that genre filter active", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const genre = showFixtures.find((show) => show.id === "were-alive")?.genres?.[0] || "";
+  const genreLabel = genre.replace(/(^|[-\s])\S/g, (character) => character.toUpperCase());
+  assert.ok(genre, "Were Alive should expose a primary genre breadcrumb.");
 
   try {
     await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
-    await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
-    await page.waitForURL(`${baseUrl}/?genre=thriller#archive`);
+    await page.locator(`.detail-breadcrumbs a[href*="genre=${genre}"]`).click();
+    await page.waitForURL(`${baseUrl}/?genre=${genre}#archive`);
     await openFilterBucket(page, "storyType");
     await page.waitForFunction(
-      () =>
-        document.querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')?.classList.contains("is-active") &&
+      ({ genre: activeGenre, genreLabel: activeGenreLabel }) =>
+        document.querySelector(`.filter-option[data-filter-group="genres"][data-filter-value="${activeGenre}"]`)?.classList.contains("is-active") &&
         document.getElementById("filterCount")?.textContent === "1" &&
-        document.querySelector('#activeBrowseState:not([hidden]) .active-browse-chip')?.textContent?.includes("Genre: Thriller") &&
-        document.querySelector("#resultsSummary")?.textContent?.includes("Genre: Thriller") &&
+        document.querySelector('#activeBrowseState:not([hidden]) .active-browse-chip')?.textContent?.includes(`Genre: ${activeGenreLabel}`) &&
+        document.querySelector("#resultsSummary")?.textContent?.includes(`Genre: ${activeGenreLabel}`) &&
         document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0,
-      undefined,
+      { genre, genreLabel },
       { timeout: 5_000 },
     );
 
-    const state = await page.evaluate(() => ({
+    const state = await page.evaluate((activeGenre) => ({
       filterCount: document.getElementById("filterCount")?.textContent?.trim() || "",
       genreActive:
         document
-          .querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')
+          .querySelector(`.filter-option[data-filter-group="genres"][data-filter-value="${activeGenre}"]`)
           ?.classList.contains("is-active") || false,
       activeChipText: document.querySelector("#activeBrowseState .active-browse-chip")?.textContent?.trim() || "",
       summary: document.querySelector("#resultsSummary")?.textContent?.trim() || "",
       cardIds: Array.from(document.querySelectorAll("#podcast-grid .podcast-card-shell"))
         .map((node) => node.getAttribute("data-podcast-id") || "")
         .filter(Boolean),
-    }));
+    }), genre);
 
     assert.equal(state.filterCount, "1");
     assert.equal(state.genreActive, true);
-    assert.match(state.activeChipText, /Genre:\s*Thriller/i);
-    assert.match(state.summary, /Genre:\s*Thriller/i);
+    assert.match(state.activeChipText, new RegExp(`Genre:\\s*${genreLabel}`, "i"));
+    assert.match(state.summary, new RegExp(`Genre:\\s*${genreLabel}`, "i"));
     assert.ok(state.cardIds.length > 0);
     assert.ok(state.cardIds.includes("were-alive"));
   } finally {
@@ -343,12 +346,14 @@ test("show-page genre breadcrumb returns to the archive with that genre filter a
 
 test("clearing a breadcrumb-driven genre filter also clears it from the URL after refresh", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const genre = showFixtures.find((show) => show.id === "were-alive")?.genres?.[0] || "";
+  assert.ok(genre, "Were Alive should expose a primary genre breadcrumb.");
 
   try {
     await page.goto(`${baseUrl}/shows/were-alive`, { waitUntil: "networkidle" });
-    await page.locator('.detail-breadcrumbs a[href*="genre=thriller"]').click();
-    await page.waitForURL(`${baseUrl}/?genre=thriller#archive`);
-    await page.locator('#activeBrowseState .active-browse-chip[data-active-browse-id="genres:thriller"]').click();
+    await page.locator(`.detail-breadcrumbs a[href*="genre=${genre}"]`).click();
+    await page.waitForURL(`${baseUrl}/?genre=${genre}#archive`);
+    await page.locator(`#activeBrowseState .active-browse-chip[data-active-browse-id="genres:${genre}"]`).click();
     await page.waitForFunction(
       () =>
         !window.location.search.includes("genre=") &&
@@ -361,20 +366,20 @@ test("clearing a breadcrumb-driven genre filter also clears it from the URL afte
     await page.reload({ waitUntil: "networkidle" });
     await openFilterBucket(page, "storyType");
 
-    const state = await page.evaluate(() => ({
+    const state = await page.evaluate((activeGenre) => ({
       search: window.location.search,
       filterCountHidden: document.getElementById("filterCount")?.hidden ?? false,
       activeBrowseHidden: document.getElementById("activeBrowseState")?.hidden ?? false,
-      thrillerActive:
+      genreActive:
         document
-          .querySelector('.filter-option[data-filter-group="genres"][data-filter-value="thriller"]')
+          .querySelector(`.filter-option[data-filter-group="genres"][data-filter-value="${activeGenre}"]`)
           ?.classList.contains("is-active") || false,
-    }));
+    }), genre);
 
     assert.equal(state.search.includes("genre="), false);
     assert.equal(state.filterCountHidden, true);
     assert.equal(state.activeBrowseHidden, true);
-    assert.equal(state.thrillerActive, false);
+    assert.equal(state.genreActive, false);
   } finally {
     await page.close();
   }

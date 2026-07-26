@@ -4,8 +4,9 @@ const net = require("node:net");
 const path = require("node:path");
 const { spawn } = require("node:child_process");
 
-const { chromium } = require("playwright");
+const { chromium, firefox, webkit } = require("playwright");
 const { loadCatalog, loadCollections, scoreCatalog } = require("../../lib/catalog");
+const { applyGeneratedCoverVariants } = require("../../lib/responsive-images");
 
 const projectRoot = path.resolve(__dirname, "../..");
 const siteRoot = path.resolve(projectRoot, "..");
@@ -14,10 +15,16 @@ const legacyRedirectManifest = JSON.parse(
 );
 let baseUrl;
 const homeMostPopularIds = ["midnight-burger", "were-alive", "red-valley", "derelict"];
+const smokeBrowserName = String(process.env.SMOKE_BROWSER || "chromium").trim().toLowerCase();
+const smokeBrowserType = { chromium, firefox, webkit }[smokeBrowserName];
+if (!smokeBrowserType) {
+  throw new Error(`Unsupported SMOKE_BROWSER "${smokeBrowserName}". Use chromium, firefox, or webkit.`);
+}
 
 let browser;
 let serverProcess;
 let tempDir;
+let smokeDbPath;
 let showFixtures;
 let collectionFixtures;
 let firstCollectionId;
@@ -396,10 +403,10 @@ async function waitForMostPopularBandIds(page, expectedIds) {
 
 async function setupSmoke() {
   tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "echo-archives-smoke-"));
-  const dbPath = path.join(tempDir, "community.sqlite");
+  smokeDbPath = path.join(tempDir, "community.sqlite");
   const basePort = await findFreePort();
   baseUrl = `http://127.0.0.1:${basePort}`;
-  showFixtures = await loadCatalog(siteRoot);
+  showFixtures = applyGeneratedCoverVariants(siteRoot, await loadCatalog(siteRoot));
   collectionFixtures = loadCollections(siteRoot, new Set(showFixtures.map((show) => show.id)));
   firstCollectionId = collectionFixtures[0].id;
   firstShowId = showFixtures[0].id;
@@ -407,14 +414,23 @@ async function setupSmoke() {
     (id) => showFixtures.find((show) => show.id === id)?.title || id,
   );
 
+  await startSmokeServer();
+  browser = await smokeBrowserType.launch();
+}
+
+async function startSmokeServer() {
+  if (serverProcess && serverProcess.exitCode === null) {
+    return;
+  }
+
   serverProcess = spawn(process.execPath, ["server.js"], {
     cwd: projectRoot,
     env: {
       ...process.env,
-      PORT: String(basePort),
+      PORT: new URL(baseUrl).port,
       SITE_URL: baseUrl,
       SERVE_STATIC: "true",
-      DB_PATH: dbPath,
+      DB_PATH: smokeDbPath,
       COMMUNITY_RATING_WRITES_ENABLED: "false",
       HOME_CARD_HOVER_EXPAND_ENABLED: "true",
       MAINTAINER_REVIEW_PASSPHRASE: "smoke-maintainer",
@@ -426,16 +442,25 @@ async function setupSmoke() {
   });
 
   await waitForServer(`${baseUrl}/api/health`);
-  browser = await chromium.launch();
+}
+
+async function stopSmokeServer() {
+  const processToStop = serverProcess;
+  if (!processToStop || processToStop.exitCode !== null) {
+    serverProcess = null;
+    return;
+  }
+
+  processToStop.kill("SIGTERM");
+  await new Promise((resolve) => processToStop.once("exit", resolve));
+  if (serverProcess === processToStop) {
+    serverProcess = null;
+  }
 }
 
 async function teardownSmoke() {
   await browser?.close();
-
-  if (serverProcess && !serverProcess.killed) {
-    serverProcess.kill("SIGTERM");
-    await new Promise((resolve) => serverProcess.once("exit", resolve));
-  }
+  await stopSmokeServer();
 
   if (tempDir) {
     fs.rmSync(tempDir, { recursive: true, force: true });
@@ -473,6 +498,9 @@ module.exports = {
   legacyRedirectManifest,
   scoreCatalog,
   setupSmoke,
+  smokeBrowserName,
+  startSmokeServer,
+  stopSmokeServer,
   teardownSmoke,
   waitForMostPopularBandIds,
 };

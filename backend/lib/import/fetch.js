@@ -8,6 +8,35 @@ function createFetchLimitError(label, detail, properties = {}) {
   return error;
 }
 
+function mappedIpv4Address(address = "") {
+  let value = String(address || "").toLowerCase().split("%")[0];
+  const dottedSuffix = value.match(/^(.*:)(\d+\.\d+\.\d+\.\d+)$/);
+  if (dottedSuffix && net.isIPv4(dottedSuffix[2])) {
+    const octets = dottedSuffix[2].split(".").map(Number);
+    value = `${dottedSuffix[1]}${((octets[0] << 8) | octets[1]).toString(16)}:${((octets[2] << 8) | octets[3]).toString(16)}`;
+  }
+  if (!net.isIPv6(value)) return "";
+
+  const halves = value.split("::");
+  if (halves.length > 2) return "";
+  const left = halves[0] ? halves[0].split(":") : [];
+  const right = halves.length === 2 && halves[1] ? halves[1].split(":") : [];
+  const omitted = halves.length === 2 ? 8 - left.length - right.length : 0;
+  const parts = [
+    ...left,
+    ...Array.from({ length: Math.max(0, omitted) }, () => "0"),
+    ...right,
+  ].map((part) => Number.parseInt(part || "0", 16));
+  if (
+    parts.length !== 8 ||
+    parts.slice(0, 5).some((part) => part !== 0) ||
+    parts[5] !== 0xffff
+  ) {
+    return "";
+  }
+  return `${parts[6] >> 8}.${parts[6] & 0xff}.${parts[7] >> 8}.${parts[7] & 0xff}`;
+}
+
 function isPrivateIpAddress(address = "") {
   const value = String(address || "").toLowerCase().split("%")[0];
   if (net.isIPv4(value)) {
@@ -22,7 +51,15 @@ function isPrivateIpAddress(address = "") {
     );
   }
   if (net.isIPv6(value)) {
-    return value === "::" || value === "::1" || value.startsWith("fc") || value.startsWith("fd") || value.startsWith("fe8") || value.startsWith("fe9") || value.startsWith("fea") || value.startsWith("feb") || value.startsWith("::ffff:127.") || value.startsWith("::ffff:10.") || value.startsWith("::ffff:192.168.");
+    const mappedIpv4 = mappedIpv4Address(value);
+    return (
+      (mappedIpv4 && isPrivateIpAddress(mappedIpv4)) ||
+      value === "::" || value === "::1" ||
+      value.startsWith("fc") || value.startsWith("fd") ||
+      value.startsWith("fe8") || value.startsWith("fe9") || value.startsWith("fea") || value.startsWith("feb") ||
+      value.startsWith("fec") || value.startsWith("fed") || value.startsWith("fee") || value.startsWith("fef") ||
+      value.startsWith("ff")
+    );
   }
   return false;
 }

@@ -75,7 +75,10 @@ export function initializeMobileNav() {
       return;
     }
 
-    returnFocusTarget = document.activeElement instanceof HTMLElement ? document.activeElement : toggle;
+    // Safari does not consistently focus buttons when they are clicked, so the
+    // active element may still be <body>. Opening always originates from this
+    // toggle; restore focus there when the drawer closes.
+    returnFocusTarget = toggle;
     isOpen = true;
     syncInteractiveState();
 

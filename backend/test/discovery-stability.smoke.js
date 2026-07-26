@@ -369,7 +369,7 @@ test("show and collection pages expose honest empty states and working copy-link
 
   try {
     await page.goto(`${baseUrl}/shows/solar`, { waitUntil: "networkidle" });
-    await page.waitForFunction(() => Boolean(document.querySelector(".detail-review-section")));
+    await page.waitForFunction(() => Boolean(document.querySelector(".detail-first-review-card")));
     await page.evaluate(() => {
       Object.defineProperty(navigator, "clipboard", {
         configurable: true,
@@ -385,17 +385,23 @@ test("show and collection pages expose honest empty states and working copy-link
 
     const showState = await page.evaluate(() => ({
       copiedValue: window.__copiedValue || "",
-      emptyCopy: document.querySelector(".detail-reviews-empty-state")?.textContent || "",
-      reviewHref: document.querySelector('.detail-reviews-empty-state a[href*="submissionType=listener-review"]')?.getAttribute("href") || "",
+      emptyCopy: document.querySelector(".detail-first-review-card")?.textContent || "",
+      reviewHref: document.querySelector('.detail-first-review-card a[href*="submissionType=listener-review"]')?.getAttribute("href") || "",
+      hasReviewSection: Boolean(document.querySelector(".detail-review-section")),
     }));
     assert.equal(showState.copiedValue, `${baseUrl}/shows/solar`);
-    assert.match(showState.emptyCopy, /No reviews are published/i);
+    assert.match(showState.emptyCopy, /Add your take to help listeners find their next show/i);
+    assert.match(showState.emptyCopy, /Be the first to review/i);
     assert.equal(showState.reviewHref, "/submit?submissionType=listener-review&showId=solar");
+    assert.equal(showState.hasReviewSection, false);
 
     await page.goto(`${baseUrl}/collections/${encodeURIComponent(firstCollectionId)}`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => Boolean(document.getElementById("collectionCopyLink")));
     await page.evaluate(() => {
-      delete navigator.clipboard;
+      Object.defineProperty(navigator, "clipboard", {
+        configurable: true,
+        value: undefined,
+      });
       Object.defineProperty(document, "execCommand", {
         configurable: true,
         value: (command) => {
@@ -469,7 +475,9 @@ test("similarity collection pages render anchor context in the overview panel", 
     assert.match(state.metaLine, /route/i);
     assert.ok(state.overviewSignals.length > 0);
     assert.ok(anchorShow?.cover);
-    assert.ok(state.heroLeadSrc.endsWith(anchorShow.cover));
+    const expectedHeroSources = (anchorShow.coverVariants || []).map((variant) => variant.src);
+    expectedHeroSources.push(anchorShow.cover);
+    assert.ok(expectedHeroSources.some((source) => state.heroLeadSrc.endsWith(source)));
     assert.ok(state.relatedAnchors.length > 0);
     state.relatedAnchors.forEach(({ collectionId, anchorShowId }) => {
       const relatedCollection = collectionFixtures.find((collection) => collection.id === collectionId);

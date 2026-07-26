@@ -35,6 +35,10 @@ function getRadioMoveIndex(currentIndex, key, count) {
 
 function focusAfterRender(selector) {
   window.requestAnimationFrame(() => {
+    const activeElement = document.activeElement;
+    if (activeElement && activeElement !== document.body && activeElement !== document.documentElement) {
+      return;
+    }
     const target = document.querySelector(selector);
     if (target instanceof HTMLElement) {
       target.focus();

@@ -5,9 +5,9 @@ import { initializeAccordionList } from "./accordion.js";
 
 export async function initializeForCreatorsPage() {
   updateDocumentMetadata({
-    title: "For Creators - The Echo Archives",
+    title: "For Audio Drama Creators | The Echo Archives",
     description:
-      "How creators can submit shows, correct metadata, request verification, and understand the standards behind The Echo Archives.",
+      "Audio drama and fiction podcast creators can submit shows, correct factual metadata, add official links, and request creator verification.",
     path: "/for-creators",
     image: DEFAULT_SOCIAL_IMAGE,
   });

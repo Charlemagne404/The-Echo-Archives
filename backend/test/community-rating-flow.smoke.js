@@ -194,7 +194,11 @@ test("full-review detail page promotes community, trims the rail, and preserves 
 });
 
 test("detail community rating renders Turnstile and sends the verification token when enabled", async () => {
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1400 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
   const ratingRequests = [];
 
   try {
@@ -226,6 +230,14 @@ test("detail community rating renders Turnstile and sends the verification token
             siteKey: "test-site-key",
           },
         }),
+      });
+    });
+
+    await page.route("**/api/community/profiles/anonymous", async (route) => {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ profileId: "00000000-0000-4000-8000-000000000007" }),
       });
     });
 
@@ -270,12 +282,16 @@ test("detail community rating renders Turnstile and sends the verification token
     assert.equal(ratingRequests[0].rating, 7);
     assert.equal(ratingRequests[0].turnstileToken, "browser-turnstile-token");
   } finally {
-    await page.close();
+    await context.close();
   }
 });
 
 test("review carousel keeps the server-rendered archive first, supports accessible navigation, and recovers from later-page failures", { timeout: 60_000 }, async () => {
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1200 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
   let failedPage = 0;
   const helpfulRequests = [];
 
@@ -371,7 +387,11 @@ test("review carousel keeps the server-rendered archive first, supports accessib
       node.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, clientX: 320 }));
       node.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, clientX: 80 }));
     });
-    await page.waitForFunction(() => document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 3"));
+    await page.waitForFunction(
+      () =>
+        document.querySelector("[data-review-carousel-slide]")?.textContent?.includes("Listener page 3") &&
+        document.querySelector("[data-review-carousel]")?.getAttribute("data-current-index") === "3",
+    );
     const dotState = await carousel.evaluate((node) => ({
       dots: node.querySelectorAll("[data-review-carousel-dot]").length,
       hasEllipsis: Boolean(node.querySelector(".detail-review-carousel-ellipsis")),
@@ -400,7 +420,7 @@ test("review carousel keeps the server-rendered archive first, supports accessib
     assert.ok(mobile.previousWidth >= 40);
     assert.ok(mobile.nextWidth >= 40);
   } finally {
-    await page.close();
+    await context.close();
   }
 });
 
@@ -436,7 +456,11 @@ test("listener review category controls start optional, collapsed, and expose si
 });
 
 test("homepage community badges stay truthful across empty, offline, and stale async summary updates", async () => {
-  const page = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+  const context = await browser.newContext({
+    viewport: { width: 1440, height: 1200 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
   const emptyShowId = "impact-winter";
   const delayedShowId = "impact-winter";
   const activeShowId = "midnight-burger";
@@ -568,6 +592,6 @@ test("homepage community badges stay truthful across empty, offline, and stale a
     assert.equal(staleState.delayedValue, "--/10");
     assert.equal(staleState.activeValue, "6.5/10");
   } finally {
-    await page.close();
+    await context.close();
   }
 });

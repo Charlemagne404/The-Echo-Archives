@@ -104,7 +104,11 @@ function listPayload(candidates) {
 }
 
 test("maintainer import workspace handles progress, batch preparation, blockers, evidence, retry, review, and approval", async () => {
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
   const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0, lastReviewPayload: null };
   const candidates = [
     createCandidate(),
@@ -240,6 +244,11 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     assert.equal(calls.retry, 1);
 
     await page.locator('[data-import-candidate-id="ready-1"]').click();
+    await page.waitForFunction(
+      () =>
+        document.querySelector("#maintainerImportReviewForm")?.getAttribute("data-import-candidate-id") === "ready-1" &&
+        document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Ready"),
+    );
     await page.locator("[data-import-verification-response]").fill(JSON.stringify({
       verified: { title: "Signal Test", tags: ["Science Fiction", "Space"] },
       enrichment: {
@@ -252,8 +261,12 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       field_sources: { formats: ["https://example.com/about"] },
     }));
     await page.getByRole("button", { name: "Preview verified fields" }).click();
-    await page.getByText("Catalog enrichment ready:").waitFor();
-    await page.getByRole("button", { name: "Apply verified fields to editor" }).click();
+    const applyVerifiedFields = page.getByRole("button", { name: "Apply verified fields to editor" });
+    await page.waitForFunction(
+      () => !document.querySelector("[data-import-verification-apply]")?.hasAttribute("disabled"),
+    );
+    assert.match(await page.locator("[data-import-verification-preview-result]").innerText(), /Catalog enrichment ready:/);
+    await applyVerifiedFields.click();
     assert.equal(await page.locator('input[name="formats"]').inputValue(), "Serialized, Full cast");
     assert.equal(await page.locator('input[name="cadenceLabel"]').inputValue(), "Weekly");
     assert.equal(await page.locator('textarea[name="credits"]').inputValue(), "Alex Writer — writer");
@@ -285,6 +298,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.unroute("**/api/maintainer/imports**", failImportQueue);
     await page.getByRole("button", { name: "Retry" }).click();
     await page.locator("#maintainerAppShell").waitFor({ state: "visible" });
+    await page.getByRole("button", { name: "Refresh queue" }).waitFor({ state: "visible" });
 
     const expireSession = (route) => route.fulfill({
       status: 401,
@@ -293,21 +307,22 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     });
     await page.unroute("**/api/maintainer/imports**");
     await page.route("**/api/maintainer/imports**", expireSession);
-    await Promise.all([
-      page.waitForResponse((response) => new URL(response.url()).pathname === "/api/maintainer/imports" && response.status() === 401),
-      page.getByRole("button", { name: "Refresh queue" }).click(),
-    ]);
+    await page.getByRole("button", { name: "Refresh queue" }).click();
     await page.locator("#maintainerAuthPanel").waitFor({ state: "visible" });
     await page.waitForFunction(() => document.body.dataset.maintainerState === "authRequired");
     assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "authRequired");
     assert.match(await page.locator("#maintainerAuthStatus").innerText(), /session expired/i);
   } finally {
-    await page.close();
+    await context.close();
   }
 });
 
 test("maintainer reports expose focused, overflow-safe ready states on mobile", async () => {
-  const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    serviceWorkers: "block",
+  });
+  const page = await context.newPage();
   const emptyReport = {
     items: [],
     total: 0,
@@ -316,8 +331,8 @@ test("maintainer reports expose focused, overflow-safe ready states on mobile", 
     counts: { status: {} },
   };
 
-  await page.route("**/api/maintainer/imports**", (route) => {
-    const authenticated = route.request().headers().cookie?.includes("echo-maintainer-session=");
+  await page.route("**/api/maintainer/imports**", async (route) => {
+    const authenticated = (await context.cookies()).some((cookie) => cookie.name === "echo-maintainer-session");
     return route.fulfill({
       status: authenticated ? 200 : 401,
       contentType: "application/json",
@@ -345,6 +360,6 @@ test("maintainer reports expose focused, overflow-safe ready states on mobile", 
     assert.equal(await page.locator("body").getAttribute("data-maintainer-state"), "ready");
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), true);
   } finally {
-    await page.close();
+    await context.close();
   }
 });

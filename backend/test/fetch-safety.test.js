@@ -53,7 +53,17 @@ test("bounded import fetches reject oversized and timed-out responses", async ()
 });
 
 test("import fetch safety rejects private-network and credentialed URLs before fetching", async () => {
-  for (const url of ["http://127.0.0.1/feed", "http://[::1]/feed", "http://169.254.169.254/latest", "https://user:pass@example.com/feed", "file:///tmp/feed.xml"]) {
+  for (const url of [
+    "http://127.0.0.1/feed",
+    "http://[::1]/feed",
+    "http://169.254.169.254/latest",
+    "http://[::ffff:127.0.0.1]/feed",
+    "http://[::ffff:169.254.169.254]/latest",
+    "http://[0:0:0:0:0:ffff:ac10:1]/feed",
+    "http://[::ffff:6440:1]/feed",
+    "https://user:pass@example.com/feed",
+    "file:///tmp/feed.xml",
+  ]) {
     await assert.rejects(() => assertSafeRemoteUrl(url, { resolveDns: false }), /unsafe|private-network/i);
   }
   await assert.doesNotReject(() => assertSafeRemoteUrl("https://example.com/feed.xml", { resolveDns: false }));

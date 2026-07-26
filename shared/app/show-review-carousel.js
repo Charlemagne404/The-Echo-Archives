@@ -62,6 +62,7 @@ function initializeCarousel(carousel) {
   let pointerStartX = null;
   let busy = false;
   let statusMessage = "";
+  let pendingSlideRequest = null;
 
   const totalSlides = () => listenerTotal + (hasArchive ? 1 : 0);
   const listenerPageForIndex = (index) => index - (hasArchive ? 0 : -1);
@@ -135,23 +136,51 @@ function initializeCarousel(carousel) {
     } finally {
       busy = false;
       renderNavigation();
+      runPendingSlideRequest();
     }
+  }
+
+  function runPendingSlideRequest() {
+    const request = pendingSlideRequest;
+    pendingSlideRequest = null;
+    if (!request) return;
+    const index = request.type === "relative" ? currentIndex + request.offset : request.index;
+    void renderSlide(index);
+  }
+
+  function requestRelativeSlide(offset) {
+    const normalizedOffset = Math.sign(Number(offset) || 0);
+    if (!normalizedOffset) return Promise.resolve();
+    if (busy) {
+      pendingSlideRequest = { type: "relative", offset: normalizedOffset };
+      return Promise.resolve();
+    }
+    return renderSlide(currentIndex + normalizedOffset);
+  }
+
+  function requestAbsoluteSlide(index) {
+    if (!Number.isInteger(index)) return Promise.resolve();
+    if (busy) {
+      pendingSlideRequest = { type: "absolute", index };
+      return Promise.resolve();
+    }
+    return renderSlide(index);
   }
 
   carousel.addEventListener("click", async (event) => {
     const target = event.target instanceof Element ? event.target : null;
     if (!target) return;
     if (target.closest("[data-review-carousel-previous]")) {
-      await renderSlide(currentIndex - 1);
+      await requestRelativeSlide(-1);
       return;
     }
     if (target.closest("[data-review-carousel-next]")) {
-      await renderSlide(currentIndex + 1);
+      await requestRelativeSlide(1);
       return;
     }
     const dot = target.closest("[data-review-carousel-dot]");
     if (dot) {
-      await renderSlide(Number.parseInt(dot.getAttribute("data-review-carousel-dot") || "", 10));
+      await requestAbsoluteSlide(Number.parseInt(dot.getAttribute("data-review-carousel-dot") || "", 10));
       return;
     }
     const helpful = target.closest("[data-review-helpful]");
@@ -171,16 +200,17 @@ function initializeCarousel(carousel) {
     } finally {
       busy = false;
       renderNavigation();
+      runPendingSlideRequest();
     }
   });
 
   viewport.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
       event.preventDefault();
-      void renderSlide(currentIndex - 1);
+      void requestRelativeSlide(-1);
     } else if (event.key === "ArrowRight") {
       event.preventDefault();
-      void renderSlide(currentIndex + 1);
+      void requestRelativeSlide(1);
     }
   });
   viewport.addEventListener("pointerdown", (event) => { pointerStartX = event.clientX; });
@@ -188,7 +218,7 @@ function initializeCarousel(carousel) {
     if (pointerStartX === null) return;
     const distance = event.clientX - pointerStartX;
     pointerStartX = null;
-    if (Math.abs(distance) >= 44) void renderSlide(distance < 0 ? currentIndex + 1 : currentIndex - 1);
+    if (Math.abs(distance) >= 44) void requestRelativeSlide(distance < 0 ? 1 : -1);
   });
   viewport.addEventListener("pointercancel", () => { pointerStartX = null; });
 

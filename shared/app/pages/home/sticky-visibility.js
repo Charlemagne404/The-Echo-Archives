@@ -11,6 +11,14 @@ export function createStickyBrowseVisibilityController({
   let syncFrame = 0;
   let observer = null;
 
+  const updateScrollDirection = () => {
+    const nextScrollY = window.scrollY;
+    if (Math.abs(nextScrollY - lastScrollY) >= 4) {
+      scrollDirection = nextScrollY < lastScrollY ? "up" : "down";
+      lastScrollY = nextScrollY;
+    }
+  };
+
   const sync = () => {
     const shouldKeepVisible =
       state.query ||
@@ -34,17 +42,13 @@ export function createStickyBrowseVisibilityController({
   };
 
   const handleScroll = () => {
+    updateScrollDirection();
     if (scrollFrame) {
       return;
     }
 
     scrollFrame = window.requestAnimationFrame(() => {
       scrollFrame = 0;
-      const nextScrollY = window.scrollY;
-      if (Math.abs(nextScrollY - lastScrollY) >= 4) {
-        scrollDirection = nextScrollY < lastScrollY ? "up" : "down";
-        lastScrollY = nextScrollY;
-      }
       sync();
     });
   };
@@ -90,6 +94,7 @@ export function createStickyBrowseVisibilityController({
 
       observer = new IntersectionObserver(
         ([entry]) => {
+          updateScrollDirection();
           isBrowseHeroPast = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
           sync();
         },

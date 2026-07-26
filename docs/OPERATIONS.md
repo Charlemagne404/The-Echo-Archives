@@ -123,6 +123,19 @@ If `npm run verify` fails, do not publish.
 - runs backend tests
 - runs Playwright smoke coverage
 
+The default smoke browser is Chromium. Before a public release, install the additional Playwright engines and repeat the serial browser suite in Firefox and WebKit:
+
+```bash
+npm --prefix backend run test:setup:browser -- firefox webkit
+SMOKE_BROWSER=firefox npm --prefix backend run test:smoke:serial
+SMOKE_BROWSER=webkit npm --prefix backend run test:smoke:serial
+```
+
+The service-worker smoke test stops the local test server after the public shell
+is cached, verifies cached navigation and the uncached offline fallback, and then
+restarts the server. The same real network-failure path runs in Chromium,
+Firefox, and WebKit.
+
 The working tree should stay clean after verification. If `npm run build:pages` or `npm run verify` changes generated root HTML, review the diff and commit it instead of hand-editing the public page files.
 
 Do not install production dependencies or restart the live service until the release commit passes the complete workstation preflight, including Playwright. The production server update intentionally runs the non-browser subset after installing only production dependencies.
@@ -146,10 +159,11 @@ sudo ./deploy/install-echo-archives-system.sh
 The installer:
 
 - composes and validates the complete Caddyfile before replacing the live file
-- keeps timestamped backups of the prior Caddyfile and service unit
+- keeps timestamped backups of the prior Caddyfile and installed systemd units
 - installs and restarts `echo-archives.service`
+- installs the discovery and verified-backup units, enabling both timers
 - waits for the local health endpoint before reloading Caddy
-- prints service status and the health response
+- prints service status, the health response, and both timer schedules
 
 It does not configure DNS, create secrets, or modify a live database.
 
@@ -227,13 +241,9 @@ npm run backup:database -- --source /absolute/path/community.sqlite --destinatio
 
 ### Daily local backup timer
 
-The checked-in `echo-archives-backup.service` runs the same verified backup command each day at approximately 03:15 local time, with a randomized delay of up to 15 minutes. Install and start it on the production host:
+The checked-in `echo-archives-backup.service` runs the same verified backup command each day at approximately 03:15 local time, with a randomized delay of up to 15 minutes. The main system installer installs and enables this timer after the application passes its local health check. Verify it on the production host:
 
 ```bash
-sudo install -m 0644 deploy/echo-archives-backup.service /etc/systemd/system/echo-archives-backup.service
-sudo install -m 0644 deploy/echo-archives-backup.timer /etc/systemd/system/echo-archives-backup.timer
-sudo systemctl daemon-reload
-sudo systemctl enable --now echo-archives-backup.timer
 systemctl list-timers echo-archives-backup.timer
 ```
 
@@ -243,13 +253,9 @@ Before trusting the backup process for launch, copy one backup to a temporary lo
 
 ### Scheduled show discovery
 
-The checked-in discovery timer runs the protected `import:discover` command every 30 minutes. It does nothing until a maintainer configures and enables a focused source in **Catalog imports**; each source still observes its own configured cadence.
+The checked-in discovery timer runs the protected `import:discover` command every 30 minutes. The main system installer installs and enables it. It does nothing until a maintainer configures and enables a focused source in **Catalog imports**; each source still observes its own configured cadence.
 
 ```bash
-sudo install -m 0644 deploy/echo-archives-discovery.service /etc/systemd/system/echo-archives-discovery.service
-sudo install -m 0644 deploy/echo-archives-discovery.timer /etc/systemd/system/echo-archives-discovery.timer
-sudo systemctl daemon-reload
-sudo systemctl enable --now echo-archives-discovery.timer
 systemctl list-timers echo-archives-discovery.timer
 ```
 

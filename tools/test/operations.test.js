@@ -92,9 +92,13 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assertOrdered(installScript, [
     'caddy validate --config "${TMP_CADDYFILE}" --adapter caddyfile',
     'install -m 0644 "${TMP_CADDYFILE}" "${CADDYFILE}"',
+    'install -m 0644 "${BACKUP_SERVICE_SOURCE}" "${BACKUP_SERVICE_DEST}"',
+    'install -m 0644 "${BACKUP_TIMER_SOURCE}" "${BACKUP_TIMER_DEST}"',
     "systemctl restart echo-archives.service",
+    "systemctl enable --now echo-archives-backup.timer",
     "systemctl reload caddy",
   ]);
+  assert.match(installScript, /systemctl list-timers echo-archives-backup\.timer echo-archives-discovery\.timer/);
 
   const migrationScript = read("deploy/migrate-echoarchives-domain.sh");
   assert.match(migrationScript, /SITE_URL="https:\/\/echoarchives\.net"/);
@@ -130,6 +134,13 @@ test("checked-in service and proxy retain production hardening", () => {
   assert.match(caddy, /reverse_proxy 127\.0\.0\.1:3010/);
   assert.doesNotMatch(caddy, /Cache-Control/, "Express should own status-aware cache policy.");
   assert.match(service, /Environment=SITE_URL=https:\/\/echoarchives\.net/);
+
+  const backupService = read("deploy/echo-archives-backup.service");
+  const backupTimer = read("deploy/echo-archives-backup.timer");
+  assert.match(backupService, /ExecStart=\/usr\/bin\/node .*tools\/backup-database\.js/);
+  assert.match(backupService, /UMask=0077/);
+  assert.match(backupTimer, /Persistent=true/);
+  assert.match(backupTimer, /Unit=echo-archives-backup\.service/);
 
   const rootPackage = JSON.parse(read("package.json"));
   assert.match(rootPackage.scripts.verify, /npm run test:tools/);
