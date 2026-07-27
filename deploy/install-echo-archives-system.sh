@@ -71,7 +71,7 @@ awk '
     skipping = 0
     depth = 0
   }
-  /^(echo\.continental-hub\.com|echoarchives\.net)[[:space:]]*\{/ {
+  /^(echo\.continental-hub\.com|www\.echoarchives\.net|echoarchives\.net)[[:space:]]*\{/ {
     skipping = 1
     line = $0
     opens = gsub(/\{/, "{", line)
@@ -158,6 +158,6 @@ systemctl list-timers echo-archives-backup.timer echo-archives-discovery.timer -
 
 echo
 echo
-echo "Caddy is configured for echoarchives.net and redirects echo.continental-hub.com permanently."
-echo "Public DNS for both hosts must point at this server while the redirect is retained."
+echo "Caddy is configured for echoarchives.net and redirects www.echoarchives.net and echo.continental-hub.com permanently."
+echo "Public DNS for all three hosts must point at this server while the redirects are retained."
 echo "Expected records should match the other live subdomains on this host instead of GitHub Pages."

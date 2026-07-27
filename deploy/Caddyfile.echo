@@ -11,6 +11,15 @@ echoarchives.net {
 	}
 }
 
+www.echoarchives.net {
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+	}
+
+	redir https://echoarchives.net{uri} permanent
+}
+
 echo.continental-hub.com {
 	header {
 		-Server
