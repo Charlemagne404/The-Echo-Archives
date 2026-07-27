@@ -179,8 +179,9 @@ iptables_rule_count() {
   local file="$1"
   local protocol="$2"
   local port="$3"
-  awk -v protocol="${protocol}" -v port="${port}" '
-    $1 == "-A" && $2 == "ufw-user-input" {
+  local chain="$4"
+  awk -v protocol="${protocol}" -v port="${port}" -v chain="${chain}" '
+    $1 == "-A" && $2 == chain {
       found_protocol = found_port = found_accept = 0
       for (i = 3; i <= NF; i += 1) {
         if ($i == "-p" && $(i + 1) == protocol) found_protocol = 1
@@ -195,25 +196,27 @@ iptables_rule_count() {
 
 assert_nft_backed_rules() {
   local prefix="$1"
-  local family actual protocol port rule save_file
+  local family actual protocol port rule save_file chain
   grep -q 'nf_tables' < <(iptables-save --version) ||
     die "iptables is not using the nftables backend."
 
   for family in ipv4 ipv6; do
     if [[ "${family}" == "ipv4" ]]; then
       save_file="${BACKUP_DIR}/${prefix}-iptables-save.txt"
+      chain="ufw-user-input"
     else
       save_file="${BACKUP_DIR}/${prefix}-ip6tables-save.txt"
+      chain="ufw6-user-input"
     fi
     for rule in "tcp 22" "tcp 80" "tcp 443" "udp 443" "tcp 8080"; do
       IFS=' ' read -r protocol port <<<"${rule}"
-      actual="$(iptables_rule_count "${save_file}" "${protocol}" "${port}")"
+      actual="$(iptables_rule_count "${save_file}" "${protocol}" "${port}" "${chain}")"
       [[ "${actual}" == "1" ]] ||
         die "${family} nft-backed UFW rule count is ${actual} for ${protocol}/${port}; expected 1."
     done
     for rule in "udp 80" "udp 8080" "tcp 8804" "tcp 25565" "tcp 25566"; do
       IFS=' ' read -r protocol port <<<"${rule}"
-      actual="$(iptables_rule_count "${save_file}" "${protocol}" "${port}")"
+      actual="$(iptables_rule_count "${save_file}" "${protocol}" "${port}" "${chain}")"
       [[ "${actual}" == "0" ]] ||
         die "Obsolete ${family} rule remains for ${protocol}/${port}."
     done

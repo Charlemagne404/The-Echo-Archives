@@ -206,6 +206,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(localReadiness, /nft -j list ruleset/);
   assert.match(localReadiness, /iptables-save/);
   assert.match(localReadiness, /ip6tables-save/);
+  assert.match(localReadiness, /ufw6-user-input/);
   assert.match(localReadiness, /Obsolete .* rule remains/);
   assert.match(localReadiness, /10-mongodb-readiness\.conf/);
   assert.match(localReadiness, /mongosh --quiet --host 127\.0\.0\.1/);
