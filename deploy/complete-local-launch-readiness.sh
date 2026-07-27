@@ -182,10 +182,10 @@ iptables_rule_count() {
   awk -v protocol="${protocol}" -v port="${port}" '
     $1 == "-A" && $2 == "ufw-user-input" {
       found_protocol = found_port = found_accept = 0
-      for (index = 3; index <= NF; index += 1) {
-        if ($index == "-p" && $(index + 1) == protocol) found_protocol = 1
-        if ($index == "--dport" && $(index + 1) == port) found_port = 1
-        if ($index == "-j" && $(index + 1) == "ACCEPT") found_accept = 1
+      for (i = 3; i <= NF; i += 1) {
+        if ($i == "-p" && $(i + 1) == protocol) found_protocol = 1
+        if ($i == "--dport" && $(i + 1) == port) found_port = 1
+        if ($i == "-j" && $(i + 1) == "ACCEPT") found_accept = 1
       }
       if (found_protocol && found_port && found_accept) count += 1
     }
@@ -225,7 +225,7 @@ assert_ufw_public_rules() {
   local public_interface target expected actual
   declare -A counts=()
   public_interface="$(ip -4 route show default | awk 'NR == 1 {
-    for (index = 1; index <= NF; index += 1) if ($index == "dev") print $(index + 1)
+    for (i = 1; i <= NF; i += 1) if ($i == "dev") print $(i + 1)
   }')"
   [[ -n "${public_interface}" ]] || die "Could not identify the public interface."
   grep -qi '^Status: active' "${status_file}" || die "UFW is not active."

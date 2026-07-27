@@ -214,6 +214,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.doesNotMatch(localReadiness, /ufw (?:allow|delete|reset|disable)/);
   assert.doesNotMatch(localReadiness, /nft (?:add|delete|flush)/);
   assert.doesNotMatch(localReadiness, /ip6?tables\s+-[AIDF]/);
+  assert.doesNotMatch(localReadiness, /for \(index\s*=/);
   assert.doesNotMatch(localReadiness, /systemctl (?:reboot|poweroff)|shutdown\s+-r/);
 });
 
