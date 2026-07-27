@@ -1,0 +1,17 @@
+[Unit]
+Description=Local production checks for The Echo Archives
+After=network-online.target echo-archives.service caddy.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=charlie
+Group=charlie
+WorkingDirectory=/home/charlie/The-Echo-Archives
+EnvironmentFile=-/etc/echo-archives/monitoring.env
+ExecStart=/home/charlie/The-Echo-Archives/deploy/check-echo-archives-production.sh
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=read-only
+ProtectSystem=full

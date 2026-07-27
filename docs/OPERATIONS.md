@@ -170,14 +170,16 @@ It does not configure DNS, create secrets, or modify a live database.
 ## Production Domain Migration
 
 The canonical public origin is `https://echoarchives.net`. The checked-in Caddy
-configuration serves that host and sends `https://echo.continental-hub.com` to
-the same path and query on the new origin with a permanent redirect.
+configuration serves that host and sends `https://www.echoarchives.net` and
+`https://echo.continental-hub.com` to the same path and query on the canonical
+origin with permanent redirects.
 
 Before installing the migration on the production server:
 
-1. Point the apex `echoarchives.net` A/AAAA records at the Caddy host. Keep the
-   existing `echo.continental-hub.com` records pointed there too; Caddy must be
-   able to serve HTTPS before it can return the redirect.
+1. Point the apex `echoarchives.net` and `www.echoarchives.net` A/AAAA records
+   at the Caddy host. Keep the existing `echo.continental-hub.com` records
+   pointed there too; Caddy must be able to serve HTTPS before it can return
+   either redirect.
 2. In the production `backend/.env`, set `SITE_URL=https://echoarchives.net`.
    That file overrides the value in the systemd unit.
 3. Pull the release, install production dependencies, run the production
@@ -215,6 +217,24 @@ The update script deliberately stops before restart unless all of these succeed:
 6. An online SQLite backup completes and passes `PRAGMA integrity_check`.
 
 It then restarts the service and polls `/api/health`. A failed health check prints systemd status and the last 80 journal entries and exits nonzero. It does not automatically roll back code or data; inspect the failure before choosing a revision or restoring a database.
+
+## Post-Reboot Local Launch Completion
+
+After the reviewed host-maintenance pass and reboot, run the guarded local
+completion once from the production checkout:
+
+```bash
+sudo /home/charlie/The-Echo-Archives/deploy/complete-local-launch-readiness.sh --apply
+```
+
+The script captures the exact UFW, nftables, iptables, and ip6tables state under
+`/var/backups/echo-archives-local-readiness/`; requires the reviewed public
+allows and rejects the obsolete rules; installs a user-service drop-in that
+waits for a successful MongoDB ping before starting Continental ID auth; keeps
+the obsolete root auth service disabled; restarts and verifies the intended
+user service; and runs firewall, listener, Caddy, Echo, auth, and local-monitor
+postflight checks. It rolls back the auth drop-in if a post-change check fails
+and never reboots the host.
 
 The following optional shell variables are available for nonstandard installations:
 

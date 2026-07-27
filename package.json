@@ -7,6 +7,7 @@
     "dev": "node tools/run-backend.js --watch",
     "check:config": "node tools/run-backend.js --check-config",
     "backup:database": "node tools/backup-database.js",
+    "check:backup": "node tools/check-database-backup.js",
     "report:catalog": "node tools/report-catalog.js",
     "catalog:new:show": "node tools/scaffold-catalog.js show",
     "catalog:new:collection": "node tools/scaffold-catalog.js collection",
