@@ -132,7 +132,7 @@ export function renderFieldShell({ fieldId = "", labelId = "", helperId = "", er
       </${labelTag}>
       ${controlHtml}
       ${helper ? `<p id="${helperId}" class="submit-field-helper">${escapeHtml(helper)}</p>` : ""}
-      ${errorId ? `<p id="${errorId}" class="submit-field-error" hidden></p>` : ""}
+      ${errorId ? `<p id="${errorId}" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>` : ""}
     </div>
   `;
 }

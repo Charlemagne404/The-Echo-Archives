@@ -1,18 +1,23 @@
 [Unit]
-Description=Encrypted off-site backup for The Echo Archives
-Requires=echo-archives-backup.service
-After=network-online.target echo-archives-backup.service
-Wants=network-online.target
-ConditionPathExists=/etc/echo-archives/offsite-backup.env
+Description=Encrypted Raspberry Pi backup for The Echo Archives
+Wants=network-online.target tailscaled.service
+After=network-online.target tailscaled.service echo-archives-backup.service
 
 [Service]
 Type=oneshot
 Environment=HOME=/root
-Environment=RESTIC_CACHE_DIR=/var/cache/echo-archives-restic
-EnvironmentFile=/etc/echo-archives/offsite-backup.env
+Environment=RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
+Environment=MAX_LOCAL_BACKUP_AGE_HOURS=6
+EnvironmentFile=/etc/echo-archives/pi-restic.env
+ExecStartPre=/usr/bin/test -r /etc/echo-archives/pi-restic.env
+ExecStartPre=/usr/bin/test -r /etc/echo-archives/pi-restic-password
+ExecStartPre=/usr/bin/test -r /root/.ssh/echo-archives-pi-backup
+ExecStartPre=/usr/bin/tailscale ping --c=1 --timeout=20s --until-direct=false 100.102.113.86
+ExecStartPre=/usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=20 echo-backup-pi /usr/bin/true
 ExecStart=/home/charlie/The-Echo-Archives/deploy/echo-archives-offsite-backup.sh
 UMask=0077
-CacheDirectory=echo-archives-restic
+TimeoutStartSec=3h
+CacheDirectory=echo-archives-pi-restic
 CacheDirectoryMode=0700
 StateDirectory=echo-archives-monitoring
 StateDirectoryMode=0755
@@ -20,4 +25,10 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectHome=read-only
 ProtectSystem=strict
-ReadWritePaths=/var/cache/echo-archives-restic /var/lib/echo-archives-monitoring
+PrivateDevices=true
+ProtectControlGroups=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/cache/echo-archives-pi-restic /var/lib/echo-archives-monitoring

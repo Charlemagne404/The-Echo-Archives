@@ -143,6 +143,9 @@ test("Ask the Archivist and the remade submit page interactions work across mode
       return {
         titleLabel: document.querySelector('label[for="submitShowTitle"]')?.textContent?.trim() || "",
         titleError: document.getElementById("submitShowTitleError")?.textContent?.trim() || "",
+        titleErrorRole: document.getElementById("submitShowTitleError")?.getAttribute("role") || "",
+        titleErrorLive: document.getElementById("submitShowTitleError")?.getAttribute("aria-live") || "",
+        titleErrorHidden: document.getElementById("submitShowTitleError")?.hidden ?? true,
         titleInvalid: titleInput?.getAttribute("aria-invalid") || "",
         activeElementId: document.activeElement?.id || "",
         sourceRequired: sourceGroup?.getAttribute("aria-required") || "",
@@ -154,7 +157,10 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(accessibilityState.titleInvalid, "true");
     assert.equal(accessibilityState.activeElementId, "submitShowTitle");
     assert.equal(accessibilityState.titleError, "Show title is required.");
-    assert.equal(accessibilityState.sourceRequired, "true");
+    assert.equal(accessibilityState.titleErrorRole, "alert");
+    assert.equal(accessibilityState.titleErrorLive, "assertive");
+    assert.equal(accessibilityState.titleErrorHidden, false);
+    assert.equal(accessibilityState.sourceRequired, "");
     assert.equal(accessibilityState.statusRole, "alert");
     assert.equal(accessibilityState.statusText, "Show title is required.");
 

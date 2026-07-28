@@ -200,6 +200,8 @@ test("detail community rating renders Turnstile and sends the verification token
   });
   const page = await context.newPage();
   const ratingRequests = [];
+  const summaryProfileIds = [];
+  let profileRequests = 0;
 
   try {
     await page.addInitScript(() => {
@@ -233,7 +235,31 @@ test("detail community rating renders Turnstile and sends the verification token
       });
     });
 
+    await page.route("**/api/community/ratings/summary?*", async (route) => {
+      const profileId = route.request().headers()["x-echo-profile-id"] || null;
+      summaryProfileIds.push(profileId);
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          profileId,
+          summaries: {
+            "impact-winter": createSummary({
+              averageRating: profileId ? 7 : null,
+              ratingCount: profileId ? 1 : 0,
+              myRating: profileId ? 7 : null,
+              distribution: {
+                ...createEmptyDistribution(),
+                ...(profileId ? { 7: 1 } : {}),
+              },
+            }),
+          },
+        }),
+      });
+    });
+
     await page.route("**/api/community/profiles/anonymous", async (route) => {
+      profileRequests += 1;
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -261,6 +287,12 @@ test("detail community rating renders Turnstile and sends the verification token
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
     await page.locator(".community-review-panel .community-turnstile-shell").waitFor({ state: "visible" });
     await page.waitForFunction(() => /complete/i.test(document.querySelector(".community-turnstile-status")?.textContent || ""));
+    assert.equal(profileRequests, 0);
+    assert.deepEqual(summaryProfileIds, [null]);
+    assert.equal(
+      await page.evaluate(() => window.localStorage.getItem("echo-community-profile-id")),
+      null,
+    );
 
     const turnstilePlacement = await page.evaluate(() => {
       const body = document.querySelector(".community-review-body");
@@ -278,9 +310,22 @@ test("detail community rating renders Turnstile and sends the verification token
     await page.locator(".community-review-button").nth(6).click();
     await page.waitForFunction(() => window.__echoTurnstileReset === "test-widget-id");
 
+    assert.equal(profileRequests, 1);
     assert.equal(ratingRequests.length, 1);
     assert.equal(ratingRequests[0].rating, 7);
     assert.equal(ratingRequests[0].turnstileToken, "browser-turnstile-token");
+    assert.equal(
+      await page.evaluate(() => window.localStorage.getItem("echo-community-profile-id")),
+      "00000000-0000-4000-8000-000000000007",
+    );
+
+    await page.reload({ waitUntil: "networkidle" });
+    await page.locator(".community-review-button.is-active").waitFor();
+
+    assert.equal(profileRequests, 1);
+    assert.equal(summaryProfileIds.at(-1), "00000000-0000-4000-8000-000000000007");
+    assert.equal(await page.locator(".community-review-button.is-active").textContent(), "7");
+    assert.equal(await page.locator(".community-review-clear").isVisible(), true);
   } finally {
     await context.close();
   }

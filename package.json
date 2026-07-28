@@ -17,6 +17,6 @@
     "verify": "npm run build:catalog && npm run build:pages && npm run check:structure && npm run test:tools && npm --prefix backend run verify"
   },
   "engines": {
-    "node": ">=20.12"
+    "node": ">=22.12"
   }
 }

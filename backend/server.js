@@ -4,6 +4,7 @@ const crypto = require("node:crypto");
 const express = require("express");
 
 const config = require("./lib/config");
+const { createAccessObservability } = require("./lib/access-observability");
 const { loadArchiveContext } = require("./lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("./lib/catalog");
 const { createMaintainerAuth } = require("./lib/maintainer-auth");
@@ -334,6 +335,12 @@ async function startServer() {
     res.set("X-Request-ID", req.requestId);
     next();
   });
+  app.use(
+    createAccessObservability({
+      enabled: config.ACCESS_LOG_ENABLED,
+      secret: config.ACCESS_LOG_HMAC_SECRET,
+    }),
+  );
   app.use(applySecurityHeaders);
   app.use((_req, res, next) => {
     res.set("Cache-Control", "no-cache");
@@ -357,6 +364,7 @@ async function startServer() {
         features: {
           communityRatingWrites: Boolean(config.COMMUNITY_RATING_WRITES_ENABLED),
           maintainerReview: maintainerAuth.enabled,
+          accessLogs: Boolean(config.ACCESS_LOG_ENABLED),
         },
       });
     } catch (_error) {

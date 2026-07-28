@@ -1,18 +1,8 @@
-import { formatRating } from "../utils.js";
+import { formatRating, normalizeArchiveRating } from "../utils.js";
 
 export function createArchiveScoreElement(show, { showLabel = true, treatZeroAsUnrated = false } = {}) {
-  const rawRating = show?.finalRating;
-  const numericRating =
-    rawRating === null || rawRating === undefined || (typeof rawRating === "string" && !rawRating.trim())
-      ? null
-      : Number(rawRating);
-  const archiveScore =
-    Number.isFinite(numericRating) &&
-    numericRating >= 0 &&
-    numericRating <= 10 &&
-    (!treatZeroAsUnrated || numericRating > 0)
-      ? numericRating
-      : null;
+  const numericRating = normalizeArchiveRating(show?.finalRating);
+  const archiveScore = treatZeroAsUnrated && numericRating === 0 ? null : numericRating;
   const archiveValue = archiveScore === null ? "Unrated" : `${formatRating(archiveScore)}/10`;
   const archiveRating = document.createElement("div");
   archiveRating.className = "archive-inline-score";

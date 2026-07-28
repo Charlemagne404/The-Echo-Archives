@@ -1,4 +1,10 @@
-import { clearCommunityRating, ensureCommunityProfile, fetchCommunityConfig, fetchRatingSummaries, submitCommunityRating } from "./api.js";
+import {
+  clearCommunityRating,
+  fetchCommunityConfig,
+  fetchRatingSummaries,
+  getExistingCommunityProfileId,
+  submitCommunityRating,
+} from "./api.js";
 import {
   EMPTY_COMMUNITY_SCORE_TEXT,
   formatDetailCommunitySummary,
@@ -26,7 +32,7 @@ export async function initializeDetailRatingPage(show) {
     const config = await fetchCommunityConfig();
     widget.writesEnabled = Boolean(config.ratings?.writeEnabled);
     widget.verificationPromise = widget.writesEnabled ? configureRatingVerification(widget) : Promise.resolve();
-    const profileId = widget.writesEnabled ? await ensureCommunityProfile() : null;
+    const profileId = getExistingCommunityProfileId();
     const summaries = await fetchRatingSummaries([show.id], profileId);
     if (isActiveSummaryRequest(widget, requestId)) {
       syncDetailRatingWidget(widget, summaries[show.id]);

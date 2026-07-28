@@ -112,6 +112,31 @@ test("default new-show submission is present before hydration", () => {
   assert.doesNotMatch(html, /Nothing submitted yet/);
 });
 
+test("privacy and storage pages disclose current passive and edge storage behavior", () => {
+  const cookies = fs.readFileSync(path.join(siteRoot, "cookies.html"), "utf8");
+  const privacy = fs.readFileSync(path.join(siteRoot, "privacy.html"), "utf8");
+
+  for (const storageName of ["echo-scroll:…", "cf_clearance"]) {
+    assert.match(cookies, new RegExp(storageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(privacy, new RegExp(storageName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+
+  assert.match(cookies, /passive show-page browsing does not create a profile/i);
+  assert.match(privacy, /Passive show-page browsing does not create an anonymous rating profile/i);
+  assert.doesNotMatch(cookies, /rating widget initializes[^<]*anonymous profile/i);
+  assert.match(privacy, /Charlie Arnerstål/);
+  assert.match(privacy, /mailto:privacy@echoarchives\.net/);
+  assert.match(privacy, /established in Sweden/i);
+  assert.match(privacy, /not specifically directed at children under 13/i);
+  assert.match(privacy, /authorization from a parent or guardian/i);
+  assert.match(privacy, /Integritetsskyddsmyndigheten \(IMY\)/);
+  assert.match(privacy, /weekly rotating keyed pseudonym/i);
+  assert.match(privacy, /retained for 14 days/i);
+  assert.match(privacy, /aggregate traffic, latency, and error metrics may be retained for up to 90 days/i);
+  assert.match(cookies, /Charlie Arnerstål/);
+  assert.match(cookies, /mailto:privacy@echoarchives\.net/);
+});
+
 test("legacy redirect manifest matches redirect shim files", () => {
   assert.ok(Array.isArray(legacyRedirects));
   assert.ok(legacyRedirects.length > 0);

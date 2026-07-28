@@ -1,6 +1,6 @@
 import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { configureShowImageElement } from "../images.js";
-import { toDisplayTag } from "../utils.js";
+import { normalizeArchiveRating, toDisplayTag } from "../utils.js";
 
 export function createMostPopularCard(show) {
   const card = document.createElement("a");
@@ -83,7 +83,8 @@ function createMostPopularStatusChip({ label, tone = "default" }) {
 function getMostPopularCardStatusLabels(show) {
   const labels = [];
 
-  if ((show.finalRating || 0) >= 9) {
+  const archiveRating = normalizeArchiveRating(show.finalRating);
+  if (archiveRating !== null && archiveRating >= 9) {
     labels.push({ label: "Top rated", tone: "accent" });
   }
 

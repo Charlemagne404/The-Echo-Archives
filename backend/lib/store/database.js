@@ -2,6 +2,18 @@ const fs = require("node:fs");
 const path = require("node:path");
 const Database = require("better-sqlite3");
 
+const DEFAULT_SYNCHRONOUS_MODE = "FULL";
+const SUPPORTED_SYNCHRONOUS_MODES = new Set(["FULL", "NORMAL"]);
+
+function resolveSynchronousMode(value) {
+  const mode = String(value || DEFAULT_SYNCHRONOUS_MODE).trim().toUpperCase();
+  if (!SUPPORTED_SYNCHRONOUS_MODES.has(mode)) {
+    throw new Error("SQLITE_SYNCHRONOUS must be FULL or NORMAL.");
+  }
+
+  return mode;
+}
+
 function ensureColumn(db, tableName, columnName, definition) {
   const columns = db.prepare(`PRAGMA table_info(${tableName})`).all();
   const hasColumn = columns.some((column) => column.name === columnName);
@@ -606,12 +618,13 @@ function migrate(db) {
   });
 }
 
-function openDatabase(dbPath) {
+function openDatabase(dbPath, { synchronous = process.env.SQLITE_SYNCHRONOUS } = {}) {
+  const synchronousMode = resolveSynchronousMode(synchronous);
   fs.mkdirSync(path.dirname(dbPath), { recursive: true });
   const db = new Database(dbPath);
   db.pragma("journal_mode = WAL");
   db.pragma("foreign_keys = ON");
-  db.pragma("synchronous = NORMAL");
+  db.pragma(`synchronous = ${synchronousMode}`);
   db.pragma("busy_timeout = 5000");
   migrate(db);
   return db;

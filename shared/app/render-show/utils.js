@@ -5,11 +5,21 @@ import {
   formatDate,
   formatRating,
   getRuntimeLabel,
+  normalizeArchiveRating,
   toDisplayTag,
   toLabel,
 } from "../utils.js";
 
-export { escapeHtml, formatCompactDate, formatDate, formatRating, getRuntimeLabel, toDisplayTag, toLabel };
+export {
+  escapeHtml,
+  formatCompactDate,
+  formatDate,
+  formatRating,
+  getRuntimeLabel,
+  normalizeArchiveRating,
+  toDisplayTag,
+  toLabel,
+};
 
 export function renderParagraphMarkup(paragraphs, fallbackText) {
   const normalized = normalizeReviewParagraphs(paragraphs);

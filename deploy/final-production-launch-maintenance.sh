@@ -27,17 +27,18 @@ LOCAL_MONITOR_SERVICE_DEST="/etc/systemd/system/echo-archives-local-monitor.serv
 LOCAL_MONITOR_TIMER_DEST="/etc/systemd/system/echo-archives-local-monitor.timer"
 OFFSITE_BACKUP_SERVICE_DEST="/etc/systemd/system/echo-archives-offsite-backup.service"
 OFFSITE_BACKUP_TIMER_DEST="/etc/systemd/system/echo-archives-offsite-backup.timer"
+PI_RESTIC_ENV_DEST="/etc/echo-archives/pi-restic.env"
 MONITOR_ENV_DEST="/etc/echo-archives/monitoring.env"
 
-EXPECTED_BACKEND_PACKAGE_SHA="8058043170b0936023435ebd03d556de916eb1c1528b3b411456d02b84627fea"
-EXPECTED_BACKEND_LOCK_SHA="4b6fb301cf0b33a343e604f28e1939136959be325a546af5a4abad4285d03240"
-EXPECTED_PRODUCTION_CHECK_SHA="e7ba7b4a46378687a87ea5becf1654299a5306993984cdbc4e5b4cd22aa2715e"
+EXPECTED_BACKEND_PACKAGE_SHA="8d5a1281ba5991add4cd186a3387ab7925c2d7fe029e36e8201f2d9f793f3878"
+EXPECTED_BACKEND_LOCK_SHA="f371f953991fecc3969d97e9c15d5c84999764f77c4f288247422362d450d35a"
+EXPECTED_PRODUCTION_CHECK_SHA="bd8c5944838e5ce03356651f52a1a87a5664bad5077513602376380cc5da1094"
 EXPECTED_LOCAL_MONITOR_SERVICE_SHA="c6c0e07eab6f2d7d60ddd74bdc3f36b3a4174929efc9d92ce43a14496d0e4804"
 EXPECTED_LOCAL_MONITOR_TIMER_SHA="09fd9b666484787feddcb608305cab012fb51f822ae5a35af08c2e049e155aff"
-EXPECTED_OFFSITE_BACKUP_SCRIPT_SHA="7de9392c3111f76eb9e26e40e310c239db0cdcdf1310832deb9d0a2da55890db"
-EXPECTED_OFFSITE_BACKUP_SERVICE_SHA="c481b7b6103765ffe11d47b3a62337f77ed149592e68ff88bd3f258593703013"
-EXPECTED_OFFSITE_BACKUP_TIMER_SHA="893540a82122b2678cb3f4d99691feeb7e3328aa7451825f9fac7cb35601fd46"
-EXPECTED_MONITOR_ENV_SHA="5c1785f8a2d0138558439c96124d60957fd2e86424ed3bd6c6bfd8430f8b65d5"
+EXPECTED_OFFSITE_BACKUP_SCRIPT_SHA="9149c2918f5922bee273f27db5e48fbeaefeaac1fd7a86b9c9b128164e1d51e4"
+EXPECTED_OFFSITE_BACKUP_SERVICE_SHA="55a9c2f2c10022deb43d16ec412784e5f303ad4dccf6e8db893725d5e144cd68"
+EXPECTED_OFFSITE_BACKUP_TIMER_SHA="ab6a81dff007c030bbaac19ce58b0a9c5b29d795afbc0d191fe8b5f9e682dca0"
+EXPECTED_MONITOR_ENV_SHA="f15b9bb0ba2fdd514c2250680436eb715bfcec58c3e09d7e501098636bfffe4c"
 EXPECTED_BACKUP_CHECK_SHA="a33e24ae19d16537c251522313a1eb172f1f3a5a7c242172f2df16278d54aef3"
 
 REVIEWED_UPDATE_PACKAGES=(
@@ -570,13 +571,13 @@ deploy_local_operations_units() {
   [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]] ||
     die "The first local monitoring run did not succeed."
 
-  if [[ -e /etc/echo-archives/offsite-backup.env ]]; then
-    log "Off-site credentials already exist; the off-site timer state was preserved."
+  if [[ -e "${PI_RESTIC_ENV_DEST}" ]]; then
+    log "Pi Restic configuration already exists; the off-site timer state was preserved."
   else
     if systemctl is-enabled --quiet echo-archives-offsite-backup.timer; then
-      die "Off-site timer is enabled without its credential environment file."
+      die "Off-site timer is enabled without its Pi Restic environment file."
     fi
-    log "Off-site units are installed but not enabled; credentials and a restore drill are still required."
+    log "Off-site units are installed but not enabled; Pi configuration and a restore drill are still required."
   fi
 }
 

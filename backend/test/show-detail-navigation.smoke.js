@@ -275,7 +275,10 @@ test("detail hero anchors focus their destination and verified start links are p
     await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");
     const startLink = page.locator(".detail-listen-action");
     assert.equal(await startLink.textContent(), "Start listening");
-    assert.equal(await startLink.getAttribute("href"), "https://www.spectrepod.com/1-1-a-way-out/");
+    assert.equal(
+      await startLink.getAttribute("href"),
+      "https://podcasts.apple.com/ca/podcast/1-01-a-way-out/id1593110598?i=1000563131302",
+    );
 
     await page.goto(`${baseUrl}/shows/impact-winter`, { waitUntil: "networkidle" });
     await page.waitForFunction(() => document.getElementById("showRoot")?.dataset.detailMotionReady === "true");

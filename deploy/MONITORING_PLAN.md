@@ -1,20 +1,30 @@
 # Production Monitoring Plan
 
-## External checks
+## Better Stack external checks
 
-Configure an account-backed monitoring provider only after choosing the provider and alert recipients.
+Better Stack is the selected external provider. The account-side checklist,
+credential handling, exact monitor settings, and prepared backup-heartbeat
+drop-in are documented in `deploy/BETTER_STACK_SETUP.md`.
 
-Run from at least two regions:
+Keep Better Stack's normal multi-location coverage enabled (`us`, `eu`, `as`,
+and `au`). Its documented default checks from at least four locations and
+requires a multi-location failure quorum before opening an incident.
 
 | Check | Interval | Success condition |
 | --- | ---: | --- |
-| Apex health | 1 minute | `GET https://echoarchives.net/api/health` returns 200, JSON `ok: true`, `catalogCount > 0`, and `collectionCount > 0` |
+| API health | 1 minute | `GET https://echoarchives.net/api/health` returns 2xx and contains `"ok":true` |
 | Homepage identity | 5 minutes | `GET https://echoarchives.net/` returns 200 and contains `The Echo Archives` |
-| `www` redirect | 5 minutes | Permanent redirect to the same path/query on `https://echoarchives.net` |
-| Legacy redirect | 15 minutes | Permanent redirect to the same path/query on `https://echoarchives.net` |
-| TLS expiry | Daily | More than 21 days remain for apex, `www`, and legacy hostnames |
 
-Alert after two consecutive one-minute failures. Send recovery notifications as well as failure notifications.
+Route outage and automatic recovery notifications to
+`alerts@echoarchives.net`, with Better Stack mobile push enabled for the actual
+on-call owner where the account and device support it. Use 60-second
+confirmation/recovery periods for API health and 300-second periods for the
+homepage to avoid single-sample alerts.
+
+The root-owned local monitor continues to enforce the deeper health contract:
+`catalogCount > 0`, `collectionCount > 0`, expected production feature flags,
+redirect behavior, and TLS lifetime. Better Stack is the independent observer
+for public API and homepage availability.
 
 ## Host checks
 
@@ -39,6 +49,14 @@ Credential-neutral local preparation is checked in as:
 - `deploy/echo-archives-local-monitor.service`;
 - `deploy/echo-archives-local-monitor.timer`.
 
+Better Stack-specific repository preparation is checked in as:
+
+- `deploy/BETTER_STACK_SETUP.md`;
+- `deploy/better-stack-account.env.example`;
+- `deploy/better-stack-heartbeat.env.example`;
+- `deploy/notify-better-stack-heartbeat.js`;
+- `deploy/echo-archives-offsite-backup-heartbeat.conf`.
+
 The check validates systemd state, local and public health semantics, apex identity, the `www` redirect, public TLS lifetime, local backup freshness/integrity, and disk thresholds. It warns about a pending reboot. Off-site freshness becomes mandatory only when `REQUIRE_OFFSITE_BACKUP=true` is placed in the root-owned monitoring environment file.
 
 `deploy/final-production-launch-maintenance.sh` installs these files, creates the credential-neutral root-owned settings file, enables the timer, and requires its first run to pass. Local journald checks are useful evidence but do not replace an external observer or alert delivery.
@@ -50,7 +68,22 @@ The signal must be emitted only after both of these succeed:
 1. the local online SQLite backup passes `integrity_check`;
 2. the encrypted remote snapshot completes and is visible in the remote repository.
 
-Use either a provider heartbeat URL or a local metric containing the Unix timestamp of the last successful remote snapshot. Never put provider tokens in the repository, process arguments, or public health response.
+Create the Better Stack heartbeat with a 24-hour period and six-hour grace.
+Install its URL only in `/etc/echo-archives/better-stack.env`, owned by root
+with mode `0600`. Never put Better Stack API tokens or heartbeat URLs in the
+repository, process arguments, public health response, or routine logs.
+
+The prepared drop-in sends:
+
+- success from `ExecStartPost`, which can run only after the existing backup
+  script has completed backup freshness/integrity verification, encrypted
+  upload, snapshot visibility, retention, `restic check`, and success-marker
+  publication;
+- explicit failure from `ExecStopPost` via Better Stack's documented `/fail`
+  endpoint whenever systemd exposes a non-successful `SERVICE_RESULT`.
+
+Do not install or enable the drop-in until its secret environment file exists,
+the account resources are configured, and a maintenance window is approved.
 
 ## Logging and retention
 

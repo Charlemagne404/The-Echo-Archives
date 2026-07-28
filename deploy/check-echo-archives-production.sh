@@ -14,6 +14,9 @@ MAX_BACKUP_AGE_HOURS="${MAX_BACKUP_AGE_HOURS:-30}"
 MIN_FREE_GIB="${MIN_FREE_GIB:-10}"
 MAX_DISK_PERCENT="${MAX_DISK_PERCENT:-80}"
 TLS_MINIMUM_SECONDS="${TLS_MINIMUM_SECONDS:-1814400}"
+EXPECTED_COMMUNITY_RATING_WRITES="${EXPECTED_COMMUNITY_RATING_WRITES:-true}"
+EXPECTED_MAINTAINER_REVIEW="${EXPECTED_MAINTAINER_REVIEW:-true}"
+EXPECTED_ACCESS_LOGS="${EXPECTED_ACCESS_LOGS:-true}"
 
 TEMP_DIR=""
 
@@ -58,10 +61,25 @@ validate_health_json() {
   node -e '
     const fs = require("node:fs");
     const health = JSON.parse(fs.readFileSync(process.argv[1]));
+    const parseExpected = (value, label) => {
+      if (value !== "true" && value !== "false") {
+        throw new Error(`${label} must be true or false`);
+      }
+      return value === "true";
+    };
     if (health.ok !== true || !(health.catalogCount > 0) || !(health.collectionCount > 0)) {
       process.exit(1);
     }
-  ' "${file}"
+    if (health.features?.communityRatingWrites !== parseExpected(process.argv[2], "EXPECTED_COMMUNITY_RATING_WRITES")) {
+      process.exit(1);
+    }
+    if (health.features?.maintainerReview !== parseExpected(process.argv[3], "EXPECTED_MAINTAINER_REVIEW")) {
+      process.exit(1);
+    }
+    if (health.features?.accessLogs !== parseExpected(process.argv[4], "EXPECTED_ACCESS_LOGS")) {
+      process.exit(1);
+    }
+  ' "${file}" "${EXPECTED_COMMUNITY_RATING_WRITES}" "${EXPECTED_MAINTAINER_REVIEW}" "${EXPECTED_ACCESS_LOGS}"
 }
 
 curl --fail --silent --show-error --max-time 10 \

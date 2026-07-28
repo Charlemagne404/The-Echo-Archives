@@ -3,6 +3,7 @@ import {
   escapeHtml,
   formatRating,
   getSummaryDescriptor,
+  normalizeArchiveRating,
   renderParagraphMarkup,
   toLabel,
 } from "./utils.js";
@@ -40,7 +41,8 @@ function renderArchiveReviewCard(show) {
   const isFullReview = show.reviewStatus === "full-review";
   const reviewCopy = renderParagraphMarkup(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
   const reactionCopy = renderParagraphMarkup(show.thoughtsParagraphs, show.thoughts);
-  const rating = Number.isFinite(Number(show.finalRating)) ? `${formatRating(show.finalRating)}/10` : "Unrated";
+  const archiveRating = normalizeArchiveRating(show.finalRating);
+  const rating = archiveRating === null ? "Unrated" : `${formatRating(archiveRating)}/10`;
   return `
     <article class="detail-authored-review detail-archive-review">
       <header class="detail-authored-review-header"><div><span class="detail-review-kind">${isFullReview ? "Archive review" : "Archive note"}</span><h3>The Echo Archives</h3></div><span class="detail-review-rating">${rating}</span></header>

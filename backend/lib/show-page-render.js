@@ -24,6 +24,14 @@ function formatRating(value) {
   return Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(1);
 }
 
+function normalizeArchiveRating(value) {
+  if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 10) {
+    return null;
+  }
+
+  return value;
+}
+
 function getShowImageSrc(show) {
   const imageSrc = String(show?.imageSrc || "").trim();
   if (imageSrc) {
@@ -201,15 +209,16 @@ function getArchiveTarget(show) {
 function renderDetailHero(show) {
   const coverSrc = getShowImageSrc(show);
   const coverBackground = getShowCoverVariantSrc(show, 640);
-  const hasArchiveRating = Number.isFinite(Number(show.finalRating));
-  const archiveRatingValue = hasArchiveRating ? `${formatRating(show.finalRating)}/10` : "Unrated";
+  const archiveRating = normalizeArchiveRating(show.finalRating);
+  const hasArchiveRating = archiveRating !== null;
+  const archiveRatingValue = hasArchiveRating ? `${formatRating(archiveRating)}/10` : "Unrated";
   const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
   const primaryLink = getPrimaryListenLink(show);
   const archiveTarget = getArchiveTarget(show);
   const firstTag = Array.isArray(show.tags) ? show.tags[0] : "";
   const firstGenre = Array.isArray(show.genres) ? show.genres[0] : "";
   const statusChips = [
-    Number(show.finalRating || 0) >= 9 ? '<span class="detail-status-chip is-accent">Top rated</span>' : "",
+    archiveRating !== null && archiveRating >= 9 ? '<span class="detail-status-chip is-accent">Top rated</span>' : "",
     show.reviewStatus ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>` : "",
     firstTag ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(firstTag))}</span>` : "",
   ].filter(Boolean).join("");
@@ -367,7 +376,8 @@ function renderArchiveReviewCard(show) {
   const isFullReview = show.reviewStatus === "full-review";
   const reviewCopy = renderParagraphs(show.spoilerFreeReviewParagraphs, show.spoilerFreeReview);
   const reactionCopy = renderParagraphs(show.thoughtsParagraphs, show.thoughts);
-  const rating = Number.isFinite(Number(show.finalRating)) ? `${formatRating(show.finalRating)}/10` : "Unrated";
+  const archiveRating = normalizeArchiveRating(show.finalRating);
+  const rating = archiveRating === null ? "Unrated" : `${formatRating(archiveRating)}/10`;
   return `
     <article class="detail-authored-review detail-archive-review">
       <header class="detail-authored-review-header">

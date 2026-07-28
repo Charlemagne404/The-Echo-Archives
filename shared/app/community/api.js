@@ -21,6 +21,10 @@ function writeStoredProfileId(profileId) {
   }
 }
 
+function getExistingCommunityProfileId() {
+  return communityState.profileId || readStoredProfileId() || null;
+}
+
 async function ensureCommunityProfile() {
   if (communityState.profileId) {
     return communityState.profileId;
@@ -192,6 +196,7 @@ export {
   ensureCommunityProfile,
   fetchCommunityConfig,
   fetchRatingSummaries,
+  getExistingCommunityProfileId,
   loadCommunitySummaries,
   submitCommunityRating,
 };

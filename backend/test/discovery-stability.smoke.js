@@ -187,6 +187,148 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
   }
 });
 
+test("browse empty states match their results on desktop and mobile", async () => {
+  const viewports = [
+    { label: "desktop", width: 1440, height: 1200 },
+    { label: "mobile", width: 390, height: 844 },
+  ];
+
+  for (const viewport of viewports) {
+    const page = await browser.newPage({ viewport });
+
+    try {
+      await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+      await page.waitForFunction(() => document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0);
+
+      const initialState = await page.evaluate(() => {
+        const noResults = document.getElementById("noResultsMsg");
+        const recentlyAddedEmpty = document.getElementById("recentlyAddedEmptyState");
+        return {
+          resultCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+          noResultsHidden: noResults?.hidden ?? false,
+          noResultsDisplay: noResults ? window.getComputedStyle(noResults).display : "",
+          noResultsHeight: noResults?.getBoundingClientRect().height || 0,
+          recentlyAddedEmptyHidden: recentlyAddedEmpty?.hidden ?? false,
+          recentlyAddedEmptyDisplay: recentlyAddedEmpty ? window.getComputedStyle(recentlyAddedEmpty).display : "",
+        };
+      });
+      assert.ok(initialState.resultCount > 0, `${viewport.label}: initial browse should contain shows`);
+      assert.equal(initialState.noResultsHidden, true, `${viewport.label}: initial no-results state should be hidden`);
+      assert.equal(initialState.noResultsDisplay, "none", `${viewport.label}: hidden no-results state should not render`);
+      assert.equal(initialState.noResultsHeight, 0, `${viewport.label}: hidden no-results state should not occupy space`);
+      assert.equal(initialState.recentlyAddedEmptyHidden, true, `${viewport.label}: recently-added empty state should remain hidden`);
+      assert.equal(
+        initialState.recentlyAddedEmptyDisplay,
+        "none",
+        `${viewport.label}: hidden recently-added empty state should not render`,
+      );
+
+      await page.locator("#search").fill("space station");
+      await page.waitForFunction(
+        () =>
+          (document.getElementById("resultsSummary")?.textContent || "").includes('results for "space station"') &&
+          document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0,
+      );
+      await page.locator("#noResultsMsg").waitFor({ state: "hidden" });
+
+      const matchingState = await page.evaluate(() => {
+        const noResults = document.getElementById("noResultsMsg");
+        return {
+          resultCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+          noResultsHidden: noResults?.hidden ?? false,
+          noResultsDisplay: noResults ? window.getComputedStyle(noResults).display : "",
+          noResultsHeight: noResults?.getBoundingClientRect().height || 0,
+        };
+      });
+      assert.ok(matchingState.resultCount > 0, `${viewport.label}: "space station" should return shows`);
+      assert.equal(matchingState.noResultsHidden, true, `${viewport.label}: matching search should hide no-results state`);
+      assert.equal(matchingState.noResultsDisplay, "none", `${viewport.label}: matching search should not render no-results state`);
+      assert.equal(matchingState.noResultsHeight, 0, `${viewport.label}: matching search should not reserve no-results space`);
+
+      await page.locator("#search").fill("no-such-echo-archive-show-9f65d2");
+      await page.waitForFunction(
+        () =>
+          (document.getElementById("resultsSummary")?.textContent || "").startsWith("0 results") &&
+          document.querySelectorAll("#podcast-grid .podcast-card-shell").length === 0,
+      );
+      await page.locator("#noResultsMsg").waitFor({ state: "visible" });
+
+      const emptyState = await page.evaluate(() => {
+        const noResults = document.getElementById("noResultsMsg");
+        return {
+          hidden: noResults?.hidden ?? true,
+          display: noResults ? window.getComputedStyle(noResults).display : "",
+          height: noResults?.getBoundingClientRect().height || 0,
+        };
+      });
+      assert.equal(emptyState.hidden, false, `${viewport.label}: empty search should expose no-results state`);
+      assert.equal(emptyState.display, "grid", `${viewport.label}: empty search should render no-results state`);
+      assert.ok(emptyState.height > 0, `${viewport.label}: empty search should give no-results state a visible height`);
+
+      await page.locator("#clearResultsState").click();
+      await page.waitForFunction(
+        () =>
+          (document.getElementById("search")?.value || "") === "" &&
+          document.querySelectorAll("#podcast-grid .podcast-card-shell").length > 0,
+      );
+      await page.locator("#noResultsMsg").waitFor({ state: "hidden" });
+
+      const clearedState = await page.evaluate(() => {
+        const noResults = document.getElementById("noResultsMsg");
+        return {
+          resultCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
+          hidden: noResults?.hidden ?? false,
+          display: noResults ? window.getComputedStyle(noResults).display : "",
+          height: noResults?.getBoundingClientRect().height || 0,
+        };
+      });
+      assert.ok(clearedState.resultCount > 0, `${viewport.label}: clearing should restore shows`);
+      assert.equal(clearedState.hidden, true, `${viewport.label}: clearing should hide no-results state`);
+      assert.equal(clearedState.display, "none", `${viewport.label}: cleared no-results state should not render`);
+      assert.equal(clearedState.height, 0, `${viewport.label}: cleared no-results state should not occupy space`);
+
+      await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
+      await page.waitForFunction(() => document.querySelectorAll("#collectionsDirectory .collections-directory-card").length > 0);
+      await page.locator("#collectionsSearch").fill("no-such-collection-9f65d2");
+      await page.waitForFunction(
+        () =>
+          document.querySelectorAll("#collectionsDirectory .collections-directory-card").length === 0 &&
+          (document.getElementById("collectionsDirectorySummary")?.textContent || "").startsWith("0 listening paths"),
+      );
+      await page.locator("#collectionsEmptyState").waitFor({ state: "visible" });
+
+      const collectionEmptyState = await page.evaluate(() => {
+        const emptyState = document.getElementById("collectionsEmptyState");
+        return {
+          hidden: emptyState?.hidden ?? true,
+          display: emptyState ? window.getComputedStyle(emptyState).display : "",
+          height: emptyState?.getBoundingClientRect().height || 0,
+        };
+      });
+      assert.equal(collectionEmptyState.hidden, false, `${viewport.label}: empty collection search should expose its empty state`);
+      assert.equal(collectionEmptyState.display, "grid", `${viewport.label}: collection empty state should render`);
+      assert.ok(collectionEmptyState.height > 0, `${viewport.label}: collection empty state should have a visible height`);
+
+      await page.locator("#collectionsClearSearch").click();
+      await page.waitForFunction(() => document.querySelectorAll("#collectionsDirectory .collections-directory-card").length > 0);
+      await page.locator("#collectionsEmptyState").waitFor({ state: "hidden" });
+      const clearedCollectionState = await page.evaluate(() => {
+        const emptyState = document.getElementById("collectionsEmptyState");
+        return {
+          hidden: emptyState?.hidden ?? false,
+          display: emptyState ? window.getComputedStyle(emptyState).display : "",
+          height: emptyState?.getBoundingClientRect().height || 0,
+        };
+      });
+      assert.equal(clearedCollectionState.hidden, true, `${viewport.label}: clearing collection search should hide its empty state`);
+      assert.equal(clearedCollectionState.display, "none", `${viewport.label}: cleared collection empty state should not render`);
+      assert.equal(clearedCollectionState.height, 0, `${viewport.label}: cleared collection empty state should not occupy space`);
+    } finally {
+      await page.close();
+    }
+  }
+});
+
 test("collections page supports newest, rating, and popularity sorting", async () => {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1400 } });
   const expectedNewestOrder = getExpectedCollectionOrder("newest", collectionFixtures, showFixtures).slice(0, 6);

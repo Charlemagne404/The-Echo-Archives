@@ -2870,6 +2870,10 @@ img.is-image-fallback {
   box-shadow: var(--shadow-md);
 }
 
+.empty-state-card[hidden] {
+  display: none;
+}
+
 .empty-state-card p {
   color: var(--text-secondary);
   line-height: 1.6;

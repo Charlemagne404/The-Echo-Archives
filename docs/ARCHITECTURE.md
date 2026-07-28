@@ -344,7 +344,7 @@ Operational deployment details live in `deploy/`.
 
 Current assumptions:
 
-- Node 20+
+- Node 22.12+ (CI and production currently use 22.23.1)
 - Express serves API and static files
 - optional Ollama service at `127.0.0.1:11434`
 - SQLite database at `backend/data/community.sqlite` by default

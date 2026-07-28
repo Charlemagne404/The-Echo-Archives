@@ -18,6 +18,8 @@ function runConfig(envOverrides = {}, source = "const c=require('./lib/config');
     COMMUNITY_VOTER_HASH_SECRET: "",
     MAINTAINER_REVIEW_PASSPHRASE: "",
     MAINTAINER_REVIEW_COOKIE_SECRET: "",
+    ACCESS_LOG_ENABLED: "false",
+    ACCESS_LOG_HMAC_SECRET: "",
     ...envOverrides,
   };
   Object.keys(env).forEach((key) => {
@@ -72,4 +74,16 @@ test("production config warnings identify a missing maintainer review path", () 
   );
   assert.equal(result.status, 0, result.stderr);
   assert.match(result.stdout, /submissions cannot be reviewed/i);
+});
+
+test("access observability requires a private HMAC secret when enabled", () => {
+  const missing = runConfig({ ACCESS_LOG_ENABLED: "true" });
+  assert.equal(missing.status, 1);
+  assert.match(missing.stderr, /ACCESS_LOG_HMAC_SECRET/);
+
+  const valid = runConfig({
+    ACCESS_LOG_ENABLED: "true",
+    ACCESS_LOG_HMAC_SECRET: "test-production-log-secret-value-123456789",
+  });
+  assert.equal(valid.status, 0, valid.stderr);
 });

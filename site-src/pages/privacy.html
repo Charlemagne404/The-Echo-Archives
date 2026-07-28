@@ -8,9 +8,9 @@
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-07-05">July 5, 2026</time>
-            <span>Operator</span>
-            <strong>The Echo Archives, a Continental project</strong>
+            <time datetime="2026-07-28">July 28, 2026</time>
+            <span>Controller</span>
+            <strong>Charlie Arnerstål</strong>
           </p>
           <div class="page-hero-actions">
             <a class="about-cta about-cta-secondary" href="/" data-history-back data-fallback-label="Back to Browse">
@@ -83,6 +83,7 @@
           <a href="#privacy-collected">What data is collected</a>
           <a href="#privacy-legal-basis">Why it is collected</a>
           <a href="#privacy-retention">Retention</a>
+          <a href="#privacy-children">Children</a>
           <a href="#privacy-rights">Your rights</a>
           <a href="#privacy-third-parties">Third parties and links</a>
         </nav>
@@ -93,8 +94,8 @@
         <article class="page-card info-section-card" id="privacy-operator">
           <span class="page-card-kicker">Operator and contact</span>
           <h2>Who handles privacy questions</h2>
-          <p>The Echo Archives is operated as a Continental project.</p>
-          <p>For privacy, legal, or copyright requests, use the public contact route at <a href="https://contact.continental-hub.com/" target="_blank" rel="noreferrer">contact.continental-hub.com</a>. For factual archive corrections, the faster route is usually <a href="/submit">Submit or correct</a>.</p>
+          <p>The data controller is Charlie Arnerstål, operating The Echo Archives as a Continental project. The controller is established in Sweden and handles personal data under applicable Swedish and European Union law.</p>
+          <p>For privacy and data-protection requests, email <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>. For factual archive corrections that do not involve a privacy request, the faster route is usually <a href="/submit">Submit or correct</a>.</p>
         </article>
 
         <article class="page-card info-section-card" id="privacy-collected">
@@ -103,11 +104,11 @@
           <ul class="info-detail-list">
             <li>
               <strong>Browsing and Ask the Archivist</strong>
-              <p>General page requests reach the site like any normal web request. Ask the Archivist sends the chat messages you submit to the same-origin chat API, and recent conversation history is also stored in browser session storage under <code>echo-archives-chat-v3</code>.</p>
+              <p>General page requests reach the site through Cloudflare and the archive like any normal web request. Cloudflare may set <code>cf_clearance</code> after browser or challenge checks. Ask the Archivist sends the chat messages you submit to the same-origin chat API, and recent conversation history is stored in session storage under <code>echo-archives-chat-v3</code>. Route-specific <code>echo-scroll:…</code> session-storage keys remember scroll position.</p>
             </li>
             <li>
               <strong>Community ratings</strong>
-              <p>Show pages can create an anonymous rating profile using the HTTP-only voter cookie <code>echo-community-voter</code> plus the linked localStorage key <code>echo-community-profile-id</code>. Rating actions can also send the rating value and a Cloudflare Turnstile token when that protection is enabled.</p>
+              <p>Passive show-page browsing does not create an anonymous rating profile. Submitting or clearing a rating can create one using the HTTP-only voter cookie <code>echo-community-voter</code> plus the linked localStorage key <code>echo-community-profile-id</code>. Rating actions also send the rating value and can send a Cloudflare Turnstile token when that protection is enabled.</p>
             </li>
             <li>
               <strong>Submissions and contact details</strong>
@@ -115,7 +116,7 @@
             </li>
             <li>
               <strong>Technical and moderation data</strong>
-              <p>The site receives IP address and user-agent data with requests. Community rating flows use hashed abuse signals for rate limiting and bot defense, and submission records currently store source IP and user agent for moderation follow-up. The live public site can also send privacy-focused Plausible pageview events without cross-site advertising cookies.</p>
+              <p>The site receives IP address and user-agent data with requests. Community rating flows use hashed abuse signals for rate limiting and bot defense, and submission records currently store source IP and user agent for moderation follow-up. Detailed operational request logs do not retain raw client addresses, headers, bodies, or query strings: they record a weekly rotating keyed pseudonym, route template, status, latency, and request id. The live public site can also send privacy-focused Plausible pageview events without cross-site advertising cookies.</p>
             </li>
           </ul>
         </article>
@@ -149,7 +150,11 @@
           <ul class="info-detail-list">
             <li>
               <strong>Ask the Archivist session history</strong>
-              <p>Browser session storage lasts until the browser session ends or you clear site data. The public site does not provide saved account-based chat history.</p>
+              <p>Browser session storage for chat history and scroll restoration lasts until the browser session ends or you clear site data. The public site does not provide saved account-based chat history.</p>
+            </li>
+            <li>
+              <strong>Cloudflare challenge clearance</strong>
+              <p>The <code>cf_clearance</code> lifetime follows the Cloudflare zone’s Challenge Passage setting and can be refreshed as security checks continue. Cloudflare’s default Challenge Passage is 30 minutes.</p>
             </li>
             <li>
               <strong>Community rating identifiers</strong>
@@ -158,6 +163,10 @@
             <li>
               <strong>Abuse-prevention signals</strong>
               <p>Community rating abuse hashes are retained on a rolling window that defaults to 30 days in the current backend configuration.</p>
+            </li>
+            <li>
+              <strong>Operational request telemetry</strong>
+              <p>Detailed pseudonymized request telemetry is retained for 14 days. Non-identifying aggregate traffic, latency, and error metrics may be retained for up to 90 days. The client pseudonym uses a private keyed HMAC scope that rotates at least weekly and is not intended to identify a person across rotation periods.</p>
             </li>
             <li>
               <strong>Submission records and contact details</strong>
@@ -171,6 +180,13 @@
           <p>See the <a href="/cookies">cookies and browser storage page</a> for the storage-by-storage list.</p>
         </article>
 
+        <article class="page-card info-section-card" id="privacy-children">
+          <span class="page-card-kicker">Children</span>
+          <h2>General-audience service</h2>
+          <p>The Echo Archives is a general-audience audio-drama discovery service and is not specifically directed at children under 13.</p>
+          <p>Children under 13 should not submit personal information without authorization from a parent or guardian. If the archive identifies personal information submitted by a child under 13 without that authorization, it will remove the information.</p>
+        </article>
+
         <article class="page-card info-section-card" id="privacy-rights">
           <span class="page-card-kicker">Your rights</span>
           <h2>What you can ask for</h2>
@@ -179,14 +195,14 @@
           <ul>
             <li>You can clear browser session storage, localStorage, and cookies through your own browser controls at any time.</li>
             <li>You can ask for a submission-related contact detail or moderation record to be corrected or deleted when it is no longer needed.</li>
-            <li>If Swedish or EU data-protection law applies, you may also complain to the Swedish Authority for Privacy Protection, Integritetsskyddsmyndigheten (IMY).</li>
+            <li>You may complain to the Swedish supervisory authority, Integritetsskyddsmyndigheten (IMY), or another competent supervisory authority where applicable.</li>
           </ul>
         </article>
 
         <article class="page-card info-section-card" id="privacy-third-parties">
           <span class="page-card-kicker">Third parties and links</span>
           <h2>Services outside the archive</h2>
-          <p>Community rating requests may use Cloudflare Turnstile when that protection is enabled, which means the browser can contact Cloudflare for human-verification checks during rating actions.</p>
+          <p>Cloudflare provides the site’s edge security and can perform browser or challenge checks on visits, including use of the <code>cf_clearance</code> cookie. Community rating requests may also use Cloudflare Turnstile when that protection is enabled, which means the browser can contact Cloudflare for human-verification checks during rating actions.</p>
           <p>The site also links out to official show sites, listening platforms, Patreon, GitHub, and the external Continental contact route. If you open those destinations, your browser connects to them directly and their own terms and privacy rules apply.</p>
           <p>The live public site can use Plausible for privacy-focused pageview analytics. It does not use advertising trackers or cross-site marketing cookies. If additional processors such as newsletters or other named vendors are introduced later, this page should be updated to match the live behavior.</p>
         </article>

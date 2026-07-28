@@ -16,6 +16,7 @@
     "validate:data": "node scripts/validate-data.js",
     "report:discovery-gaps": "node scripts/discovery-gap-report.js",
     "check:links": "node scripts/check-links.js",
+    "check:external-links": "node scripts/check-external-links.js",
     "review:new": "node scripts/review-new.js",
     "review:publish": "node scripts/review-publish.js",
     "review:report": "node scripts/review-report.js",
@@ -31,7 +32,7 @@
     "verify": "npm run validate:data && npm run check:links && npm test && npm run test:smoke"
   },
   "engines": {
-    "node": ">=20.12"
+    "node": ">=22.12"
   },
   "dependencies": {
     "better-sqlite3": "^12.10.0",

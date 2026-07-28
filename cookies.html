@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
-<link rel="stylesheet" href="/style.css?v=b61fd3cacf" />
+<link rel="stylesheet" href="/style.css?v=74cd54fb1a" />
 <link rel="stylesheet" href="/info.css?v=236c1db4ca" />
 <link rel="stylesheet" href="/public-heroes.css?v=fe0218257a" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -31,7 +31,7 @@
 
 <script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://echoarchives.net/cookies#webpage","url":"https://echoarchives.net/cookies","name":"Cookies - The Echo Archives","description":"Cookie and browser storage information for The Echo Archives.","isPartOf":{"@id":"https://echoarchives.net/#website"},"breadcrumb":{"@id":"https://echoarchives.net/cookies#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://echoarchives.net/cookies#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"The Echo Archives — Audio Drama Discovery","item":"https://echoarchives.net/"},{"@type":"ListItem","position":2,"name":"Cookies - The Echo Archives","item":"https://echoarchives.net/cookies"}]}]}</script>
 </head>
-<body class="home-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="c4782f1c1c" data-collections-version="4cbf26bf12" data-search-index-version="1ce97b3f2d">
+<body class="home-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="63b383859c" data-collections-version="4cbf26bf12" data-search-index-version="1ce97b3f2d">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -93,9 +93,9 @@
           </p>
           <p class="info-policy-meta">
             <span>Last updated</span>
-            <time datetime="2026-07-04">July 4, 2026</time>
-            <span>Operator</span>
-            <strong>The Echo Archives, a Continental project</strong>
+            <time datetime="2026-07-28">July 28, 2026</time>
+            <span>Controller</span>
+            <strong>Charlie Arnerstål</strong>
           </p>
           <div class="page-hero-actions">
             <a class="about-cta about-cta-secondary" href="/" data-history-back data-fallback-label="Back to Browse">
@@ -176,7 +176,7 @@
         <article class="page-card info-section-card" id="cookies-operator">
           <span class="page-card-kicker">Operator and scope</span>
           <h2>What this page covers</h2>
-          <p>The Echo Archives is operated as a Continental project.</p>
+          <p>The data controller is Charlie Arnerstål, operating The Echo Archives as a Continental project and established in Sweden. Privacy questions can be sent to <a href="mailto:privacy@echoarchives.net">privacy@echoarchives.net</a>.</p>
           <p>This page covers first-party cookies, sessionStorage, localStorage, and the small number of related server-side identifiers that matter for the current community-rating flow. For broader personal-data handling, see <a href="/privacy">Privacy</a>.</p>
         </article>
 
@@ -203,18 +203,32 @@
                   <td>After Ask the Archivist saves conversation history.</td>
                 </tr>
                 <tr>
+                  <td><code>echo-scroll:…</code></td>
+                  <td><code>sessionStorage</code></td>
+                  <td>Remembers the current page’s scroll position so returning from a show or collection restores the browse position.</td>
+                  <td>Until the browser session ends or site data is cleared.</td>
+                  <td>While you scroll a page; the suffix identifies the route and active query or filter state.</td>
+                </tr>
+                <tr>
                   <td><code>echo-community-profile-id</code></td>
                   <td><code>localStorage</code></td>
                   <td>Stores the linked anonymous community profile id used by the frontend to fetch and update your rating state.</td>
                   <td>Until you clear site data or remove it manually.</td>
-                  <td>When the community rating feature initializes on a show page or when a rating action refreshes that profile.</td>
+                  <td>After you submit or clear a community rating; passive show-page browsing does not create a profile.</td>
                 </tr>
                 <tr>
                   <td><code>echo-community-voter</code></td>
                   <td>HTTP-only cookie</td>
                   <td>Stores an anonymous device token used by the server to keep one device tied to one community-rating profile without a public account.</td>
                   <td>Up to about 400 days after it is set, unless the browser clears it first.</td>
-                  <td>When the show-page community rating feature bootstraps an anonymous profile or when a rating request needs a voter token.</td>
+                  <td>After you submit or clear a community rating and the server needs a voter token; passive show-page browsing does not set it.</td>
+                </tr>
+                <tr>
+                  <td><code>cf_clearance</code></td>
+                  <td>Cloudflare security cookie</td>
+                  <td>Stores proof that Cloudflare’s browser or challenge checks were passed so the visitor is not repeatedly challenged.</td>
+                  <td>For the zone’s configured Challenge Passage period and any security-driven refresh; Cloudflare’s default is 30 minutes.</td>
+                  <td>Cloudflare may set or refresh it when its challenge or JavaScript-detection protections evaluate a visit.</td>
                 </tr>
                 <tr>
                   <td><code>echo-maintainer-reviewed-by</code></td>
@@ -245,14 +259,14 @@
         <article class="page-card info-section-card" id="cookies-essential">
           <span class="page-card-kicker">Essential and optional use</span>
           <h2>What kind of storage this is</h2>
-          <p>The current storage items are functional or security-related. They support chat continuity, anonymous ratings, and maintainer authentication.</p>
+          <p>The current storage items are functional or security-related. They support chat and scroll continuity, anonymous ratings, Cloudflare challenge protection, and maintainer authentication.</p>
           <p>The live public site can send cookieless Plausible pageview analytics, but it does not currently use optional advertising cookies, analytics cookies, or cross-site marketing cookies. No separate preference-cookie layer is implemented today.</p>
         </article>
 
         <article class="page-card info-section-card" id="cookies-ratings">
           <span class="page-card-kicker">Community ratings</span>
           <h2>What happens on show pages</h2>
-          <p>The current implementation can set the anonymous rating identifiers when the show-page community rating widget initializes, not only after you click a score. That means the rating cookie is tied to use of the rating feature itself, even before a vote is submitted.</p>
+          <p>Opening a show page reads the public rating summary and can read an existing rating profile, but it does not create a profile or set the archive’s voter cookie. The anonymous rating identifiers are created only when you submit or clear a score.</p>
           <p>In practical terms, the rating system currently uses both the HTTP-only voter cookie and the linked local profile id. The cookie is not readable from frontend JavaScript, while the local profile id is used by the browser-side rating UI.</p>
         </article>
 
@@ -358,6 +372,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=530bd26fa2"></script>
+  <script type="module" src="/script.js?v=1abb3ba5cc"></script>
 </body>
 </html>

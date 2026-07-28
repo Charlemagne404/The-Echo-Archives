@@ -173,3 +173,74 @@ test("Derelict's primary listen handoff uses its verified Apple show page", () =
   assert.match(markup, /href="https:\/\/podcasts\.apple\.com\/us\/podcast\/derelict\/id1473460202"[^>]*>Start listening<\/a>/);
   assert.doesNotMatch(markup, /derelictpodcast\.com\/season-one/);
 });
+
+test("server-rendered show pages never coerce missing or invalid archive ratings to zero", () => {
+  const baseShow = showMap.get("impact-winter");
+  const unratedValues = [null, undefined, "", "   ", "not rated", "8.5", Number.NaN];
+
+  unratedValues.forEach((finalRating) => {
+    const show = { ...baseShow, finalRating };
+    const markup = createShowPageMarkup(show, new Map([[show.id, show]]), []);
+
+    assert.match(markup, /<strong class="detail-hero-score-value">Unrated<\/strong>/);
+    assert.match(markup, /<span class="detail-meta-note">No archive rating yet<\/span>/);
+    assert.match(markup, /<span class="detail-review-rating">Unrated<\/span>/);
+    assert.doesNotMatch(markup, /\b0(?:\.0)?\/10\b/);
+    assert.doesNotMatch(markup, /Echo score/);
+    assert.doesNotMatch(markup, />Top rated<\/span>/);
+  });
+});
+
+test("server-rendered show pages preserve genuine numeric archive ratings", () => {
+  const baseShow = showMap.get("impact-winter");
+  const show = { ...baseShow, finalRating: 8.5 };
+  const markup = createShowPageMarkup(show, new Map([[show.id, show]]), []);
+
+  assert.equal((markup.match(/>8\.5\/10</g) || []).length, 2);
+  assert.match(markup, /<span class="detail-meta-note">Echo score<\/span>/);
+  assert.doesNotMatch(markup, /No archive rating yet/);
+  assert.doesNotMatch(markup, />Top rated<\/span>/);
+});
+
+test("client-rendered show pages use the same strict archive-rating behavior", async () => {
+  global.document = {
+    body: { dataset: {} },
+    getElementById() {
+      return null;
+    },
+    querySelector() {
+      return null;
+    },
+  };
+  global.EchoArchiveSearch = {};
+  global.EchoArchiveRecord = require("../../shared/archive-record.js");
+
+  try {
+    const { createShowPageMarkup: createClientShowPageMarkup } = await import("../../shared/app/render-show.js");
+    const baseShow = showMap.get("impact-winter");
+    const unratedValues = [null, undefined, "", "   ", "not rated", "8.5", Number.NaN];
+
+    unratedValues.forEach((finalRating) => {
+      const show = { ...baseShow, finalRating };
+      const markup = createClientShowPageMarkup(show, new Map([[show.id, show]]), []);
+
+      assert.match(markup, /<strong class="detail-hero-score-value">Unrated<\/strong>/);
+      assert.match(markup, /<span class="detail-meta-note">No archive rating yet<\/span>/);
+      assert.match(markup, /<span class="detail-review-rating">Unrated<\/span>/);
+      assert.doesNotMatch(markup, /\b0(?:\.0)?\/10\b/);
+      assert.doesNotMatch(markup, /Echo score/);
+      assert.doesNotMatch(markup, />Top rated<\/span>/);
+    });
+
+    const ratedShow = { ...baseShow, finalRating: 8.5 };
+    const ratedMarkup = createClientShowPageMarkup(ratedShow, new Map([[ratedShow.id, ratedShow]]), []);
+
+    assert.equal((ratedMarkup.match(/>8\.5\/10</g) || []).length, 2);
+    assert.match(ratedMarkup, /<span class="detail-meta-note">Echo score<\/span>/);
+    assert.doesNotMatch(ratedMarkup, /No archive rating yet/);
+  } finally {
+    delete global.document;
+    delete global.EchoArchiveSearch;
+    delete global.EchoArchiveRecord;
+  }
+});

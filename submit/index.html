@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
-<link rel="stylesheet" href="/style.css?v=b61fd3cacf" />
+<link rel="stylesheet" href="/style.css?v=74cd54fb1a" />
 <link rel="stylesheet" href="/submit.css?v=48b066eb09" />
 <link rel="stylesheet" href="/public-heroes.css?v=fe0218257a" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -31,7 +31,7 @@
 
 <script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://echoarchives.net/submit#webpage","url":"https://echoarchives.net/submit","name":"Submit a Show - The Echo Archives","description":"Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives.","isPartOf":{"@id":"https://echoarchives.net/#website"},"breadcrumb":{"@id":"https://echoarchives.net/submit#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://echoarchives.net/submit#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"The Echo Archives — Audio Drama Discovery","item":"https://echoarchives.net/"},{"@type":"ListItem","position":2,"name":"Submit a Show - The Echo Archives","item":"https://echoarchives.net/submit"}]}]}</script>
 </head>
-<body class="home-page submit-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="c4782f1c1c" data-collections-version="4cbf26bf12" data-search-index-version="1ce97b3f2d">
+<body class="home-page submit-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="63b383859c" data-collections-version="4cbf26bf12" data-search-index-version="1ce97b3f2d">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -250,7 +250,7 @@
       />
 
 
-      <p id="submitShowTitleError" class="submit-field-error" hidden></p>
+      <p id="submitShowTitleError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
 
     <div class="submit-field" data-field-shell="submitListenLinks">
@@ -265,7 +265,6 @@
         class="submit-link-list"
         role="group"
         aria-labelledby="submitListenLinksLabel"
-        aria-required="true"
         aria-describedby="submitListenLinksHelp submitListenLinksError"
       >
         <p class="submit-link-list-empty">No source link added yet.</p>
@@ -344,7 +343,7 @@
       </div>
 
       <p id="submitListenLinksHelp" class="submit-field-helper">Add at least one reliable destination. RSS feeds and official websites are especially useful.</p>
-      <p id="submitListenLinksError" class="submit-field-error" hidden></p>
+      <p id="submitListenLinksError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
 
     <details id="submitHelpfulDetails" class="submit-disclosure" data-draft-disclosure="submitHelpfulDetails" >
@@ -378,7 +377,7 @@
       />
 
 
-      <p id="submitCreatorNameError" class="submit-field-error" hidden></p>
+      <p id="submitCreatorNameError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
 
     <div class="submit-field" data-field-shell="submitContactEmail">
@@ -403,7 +402,7 @@
       />
 
       <p id="submitContactEmailHelp" class="submit-field-helper">Used only if the review team needs clarification.</p>
-      <p id="submitContactEmailError" class="submit-field-error" hidden></p>
+      <p id="submitContactEmailError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
   </div><div class="submit-form-row ">
     <div class="submit-field" data-field-shell="submitSelectedTags">
@@ -626,7 +625,7 @@
       </div>
 
       <p id="submitSelectedTagsHelp" class="submit-field-helper">Choose up to eight only when you know they are accurate.</p>
-      <p id="submitSelectedTagsError" class="submit-field-error" hidden></p>
+      <p id="submitSelectedTagsError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
 
     <div class="submit-field" data-field-shell="submitCompletionStatus">
@@ -648,7 +647,7 @@
       </select>
 
       <p id="submitCompletionStatusHelp" class="submit-field-helper">Leave this as Unknown when you are unsure.</p>
-      <p id="submitCompletionStatusError" class="submit-field-error" hidden></p>
+      <p id="submitCompletionStatusError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
   </div>
     <div class="submit-field" data-field-shell="submitShortDescription">
@@ -675,7 +674,7 @@
       </div>
 
       <p id="submitShortDescriptionHelp" class="submit-field-helper">Keep it spoiler-safe and factual; the importer may replace it with an official description.</p>
-      <p id="submitShortDescriptionError" class="submit-field-error" hidden></p>
+      <p id="submitShortDescriptionError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
 
     <div class="submit-field" data-field-shell="submitVerificationNotes">
@@ -702,7 +701,7 @@
       </div>
 
       <p id="submitVerificationNotesHelp" class="submit-field-helper">Share anything that helps identify or review the show without guessing at facts.</p>
-      <p id="submitVerificationNotesError" class="submit-field-error" hidden></p>
+      <p id="submitVerificationNotesError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
   </div>
     </details>
@@ -884,6 +883,6 @@
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=530bd26fa2"></script>
+  <script type="module" src="/script.js?v=1abb3ba5cc"></script>
 </body>
 </html>

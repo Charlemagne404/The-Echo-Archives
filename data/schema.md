@@ -159,6 +159,12 @@ Internal machine-ingest workflow state lives separately in SQLite under the impo
 
 The import lane prepares entirely in SQLite. Only explicit maintainer approval writes a factual published `indexed-only` record into the authored show source, then regenerates `data/` once.
 
+Staged cover bytes live under `backend/data/import-staging/`. This directory is
+ignored by Git but is durable, private operational state: its paths are referenced
+from the import database and it must travel with that database in complete-service
+backups. Cleanup is not part of deployment and must never infer deletability from
+Git status alone.
+
 ## Internal Import Candidate Shape
 
 The import subsystem normalizes external source data into an internal candidate record with:

@@ -87,4 +87,15 @@ CLI commands are `import:seed`, `import:discover`, `import:hydrate`, `import:dra
 
 ## Recovery
 
-If a worker stops, restart the service; expired leases are reclaimed. For a source failure, inspect source health and use retry after correcting credentials or remote availability. For a conflict, select the supported evidence in the maintainer workspace; that selection is confidence `1.0` and locked. For a failed publication, inspect `lastError`; authored files and cover bytes have already been restored, so correct the blocker and retry approval. Database backup/restore follows the main operations runbook.
+If a worker stops, restart the service; expired leases are reclaimed. For a source failure, inspect source health and use retry after correcting credentials or remote availability. For a conflict, select the supported evidence in the maintainer workspace; that selection is confidence `1.0` and locked. For a failed publication, inspect `lastError`; authored files and cover bytes have already been restored, so correct the blocker and retry approval.
+
+`backend/data/import-staging/` is durable operational state, not source code. It is
+ignored by Git so normal imports do not dirty the deployment checkout, but it must
+be included in the private recovery inventory together with the SQLite database.
+Do not remove a staged cover merely because it is untracked or because its
+candidate is not currently `ready`: candidates in other recoverable workflow
+states may still reference it. Orphan cleanup must be a separate, dry-run-first
+maintenance action performed only after a verified off-host recovery snapshot,
+using an owner-approved retention period.
+
+Database and complete recovery backup/restore follow the main operations runbook.

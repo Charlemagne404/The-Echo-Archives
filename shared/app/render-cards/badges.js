@@ -1,12 +1,14 @@
 import { TOP_RATED_BADGE_ASSET_URL } from "../constants.js";
 import { configureImageElement } from "../images.js";
+import { normalizeArchiveRating } from "../utils.js";
 
 function createEditorialBadges(show) {
   const badges = document.createElement("div");
   badges.className = "editorial-badges";
   badges.setAttribute("aria-hidden", "true");
 
-  if ((show.finalRating || 0) >= 9) {
+  const archiveRating = normalizeArchiveRating(show.finalRating);
+  if (archiveRating !== null && archiveRating >= 9) {
     const topRatedBadge = document.createElement("span");
     topRatedBadge.className = "editorial-badge editorial-badge-corner";
     const topRatedArtwork = document.createElement("img");

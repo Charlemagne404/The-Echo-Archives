@@ -25,6 +25,7 @@ const communityTurnstileEnabled = parseBoolean(
   Boolean(communityTurnstileSecretKey),
 );
 const communityRatingWritesEnabled = parseBoolean(process.env.COMMUNITY_RATING_WRITES_ENABLED, !IS_PRODUCTION);
+const accessLogEnabled = parseBoolean(process.env.ACCESS_LOG_ENABLED, false);
 
 const config = {
   NODE_ENV: process.env.NODE_ENV || "development",
@@ -39,6 +40,8 @@ const config = {
   STATIC_ROOT: path.resolve(PROJECT_ROOT, process.env.STATIC_ROOT || ".."),
   DB_PATH: process.env.DB_PATH || path.join(DATA_ROOT, "community.sqlite"),
   SITE_URL: process.env.SITE_URL || "https://echoarchives.net",
+  ACCESS_LOG_ENABLED: accessLogEnabled,
+  ACCESS_LOG_HMAC_SECRET: process.env.ACCESS_LOG_HMAC_SECRET || "",
   CHAT_RATE_LIMIT_WINDOW_MS: parseInteger(process.env.CHAT_RATE_LIMIT_WINDOW_MS, 600000),
   CHAT_RATE_LIMIT_MAX: parseInteger(process.env.CHAT_RATE_LIMIT_MAX, 40),
   CHAT_MESSAGE_MAX_LENGTH: parseInteger(process.env.CHAT_MESSAGE_MAX_LENGTH, 2000),
@@ -196,6 +199,13 @@ function validateConfig(candidate = config) {
     if (String(candidate.COMMUNITY_VOTER_HASH_SECRET || "").length < 32) {
       errors.push("COMMUNITY_VOTER_HASH_SECRET must be at least 32 characters when community rating writes are enabled.");
     }
+  }
+
+  if (
+    candidate.ACCESS_LOG_ENABLED &&
+    String(candidate.ACCESS_LOG_HMAC_SECRET || "").length < 32
+  ) {
+    errors.push("ACCESS_LOG_HMAC_SECRET must be at least 32 characters when access logging is enabled.");
   }
 
   if (errors.length > 0) {

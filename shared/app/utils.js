@@ -66,6 +66,14 @@ export function formatRating(value) {
   return Number.isInteger(numeric) ? String(numeric) : numeric.toFixed(1);
 }
 
+export function normalizeArchiveRating(value) {
+  if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 10) {
+    return null;
+  }
+
+  return value;
+}
+
 function parseDisplayDate(value) {
   const text = String(value || "").trim();
   const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(text);

@@ -54,7 +54,7 @@ Legacy HTML and query-string detail routes remain compatibility entry points and
 
 - Static HTML, CSS, and vanilla JavaScript
 - Shared frontend modules in `shared/app/`
-- Node 20.12+
+- Node 22.12+ (CI and production currently use 22.23.1)
 - Express
 - SQLite for ratings and submission workflow storage
 - Optional Ollama integration for Ask the Archivist responses

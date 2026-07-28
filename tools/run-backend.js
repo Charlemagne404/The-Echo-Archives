@@ -12,7 +12,7 @@ function loadBackendEnvironment() {
   }
 
   if (typeof process.loadEnvFile !== "function") {
-    throw new Error("Loading backend/.env requires Node 20.12 or newer.");
+    throw new Error("Loading backend/.env requires Node 22.12 or newer.");
   }
 
   process.loadEnvFile(ENV_PATH);

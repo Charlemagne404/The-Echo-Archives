@@ -7,8 +7,8 @@ StartLimitBurst=5
 
 [Service]
 Type=simple
-User=charlie
-Group=charlie
+User=echo-archives
+Group=echo-archives
 WorkingDirectory=/home/charlie/The-Echo-Archives/backend
 Environment=NODE_ENV=production
 Environment=HOST=127.0.0.1
@@ -16,11 +16,10 @@ Environment=PORT=3010
 Environment=STATIC_ROOT=/home/charlie/The-Echo-Archives
 Environment=SERVE_STATIC=true
 Environment=SITE_URL=https://echoarchives.net
-Environment=DB_PATH=/home/charlie/The-Echo-Archives/backend/data/community.sqlite
+Environment=DB_PATH=/var/lib/echo-archives/community.sqlite
 Environment=OLLAMA_URL=http://127.0.0.1:11434/api/generate
 Environment=OLLAMA_MODEL=mistral
 Environment=REQUEST_TIMEOUT_MS=30000
-Environment=COMMUNITY_RATING_WRITES_ENABLED=false
 EnvironmentFile=-/home/charlie/The-Echo-Archives/backend/.env
 ExecStartPre=/usr/bin/node /home/charlie/The-Echo-Archives/backend/scripts/check-config.js
 ExecStart=/usr/bin/node /home/charlie/The-Echo-Archives/backend/server.js
@@ -32,6 +31,40 @@ KillSignal=SIGTERM
 UMask=0027
 NoNewPrivileges=true
 PrivateTmp=true
+PrivateDevices=true
+ProtectHome=read-only
+ProtectSystem=strict
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+CapabilityBoundingSet=
+LockPersonality=true
+ProtectProc=invisible
+ProcSubset=pid
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+StateDirectory=echo-archives
+StateDirectoryMode=0750
+ReadOnlyPaths=/home/charlie/The-Echo-Archives
+ReadWritePaths=/var/lib/echo-archives
+ReadWritePaths=/home/charlie/The-Echo-Archives/backend/data/import-staging
+ReadWritePaths=/home/charlie/The-Echo-Archives/catalog-src/shows
+ReadWritePaths=/home/charlie/The-Echo-Archives/images/covers
+ReadWritePaths=/home/charlie/The-Echo-Archives/images/generated/covers
+ReadWritePaths=/home/charlie/The-Echo-Archives/data/reviews
+ReadWritePaths=/home/charlie/The-Echo-Archives/data/shows.json
+ReadWritePaths=/home/charlie/The-Echo-Archives/data/collections.json
+ReadWritePaths=/home/charlie/The-Echo-Archives/data/search-index.json
+ReadWritePaths=/home/charlie/The-Echo-Archives/data/archive-stats.json
+ReadWritePaths=/home/charlie/The-Echo-Archives/docs/generated/catalog-status.json
+ReadWritePaths=/home/charlie/The-Echo-Archives/docs/generated/catalog-status.md
+LogNamespace=echo-archives
 StandardOutput=journal
 StandardError=journal
 

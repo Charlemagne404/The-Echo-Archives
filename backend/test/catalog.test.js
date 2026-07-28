@@ -69,6 +69,68 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
+test("confirmed broken external destinations are not reintroduced", async () => {
+  const catalog = await loadCatalog(siteRoot);
+  const byId = new Map(catalog.map((show) => [show.id, show]));
+  const urls = catalog.flatMap((show) => [
+    ...Object.values(show.listenLinks || {}),
+    ...Object.values(show.officialLinks || {}),
+    ...(show.metadata?.socialUrls || []),
+  ]);
+  const retiredUrls = [
+    "https://podcasts.apple.com/us/podcast/death-by-dying/",
+    "https://desertskiespodcast.com/merch/",
+    "https://www.planetm.io/eos10/",
+    "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
+    "https://www.youtube.com/@weopenatsix",
+    "https://www.martletradio.com/",
+    "https://www.redvalleypod.com/shop.html",
+    "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1478571412",
+    "https://redcircle.com/shows/the-penumbra-podcast",
+    "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807225",
+    "https://www.youtube.com/@FoolandScholar",
+    "https://www.werealive.com/shop/",
+    "http://twitter.com/@CopperheartPod",
+    "http://twitter.com/woebegonepod",
+    "https://open.spotify.com/show/0RRSDPSo4fDJI5g7iHbJTy",
+    "https://open.spotify.com/show/1Jx1PpUmJrZgM68re3zMjJ",
+    "https://open.spotify.com/show/6S8iYyZ3eg9vP1Dcg9E0I3",
+    "https://open.spotify.com/show/6zCjlwfTyQ8grdlLIW4EAq",
+    "https://thestoragepapers.com/",
+    "https://www.thestoragepapers.com/",
+    "https://www.malevolent.ca/",
+    "https://www.patreon.com/cdn-cgi/content?id=daQbmk8mj5khNir34t2HverWEM141QES33ciWjJ5A64-1784636557.7980247-1.2.1.1-luLQS_M54uo5nE_8r1GeRe9gsc8UFYQxoTOEfUD5drk",
+    "https://www.patreon.com/cdn-cgi/content?id=VtqbRQEhdt47Y0HMr3CAWSx5.Z8KwQXTq6lmE4KoQuQ-1784636556.3692062-1.2.1.1-muo2cq8DHX1beir_kYCikkt0KUa44WS500rTSOCWO2o",
+    "https://www.spectrepod.com/1-1-a-way-out/",
+  ];
+
+  for (const retiredUrl of retiredUrls) {
+    assert.ok(!urls.includes(retiredUrl), `retired external destination returned: ${retiredUrl}`);
+  }
+
+  assert.equal(byId.get("death-by-dying").listenLinks.apple, "https://podcasts.apple.com/us/podcast/death-by-dying/id1437812269");
+  assert.equal(byId.get("desert-skies").officialLinks.merch, "https://desertskiespodcast.com/shop/");
+  assert.equal(byId.get("the-deca-tapes").listenLinks.apple, "https://podcasts.apple.com/us/podcast/the-deca-tapes/id1455127076");
+  assert.equal(byId.get("the-penumbra-podcast").officialLinks.website, "https://www.thepenumbrapodcast.com/");
+  assert.equal(byId.get("the-phenomenon").listenLinks.apple, "https://podcasts.apple.com/us/podcast/the-phenomenon/id1291807221");
+  assert.equal(byId.get("the-white-vault").officialLinks.youtube, "https://www.youtube.com/channel/UCPaOxWK6Wau96cfG0cCwxQA");
+  assert.equal(byId.get("copperheart-a-riggstories-audio-drama").officialLinks.social, "https://x.com/CopperheartPod");
+  assert.equal(byId.get("woe-begone").officialLinks.social, "https://x.com/woebegonepod");
+  assert.equal(byId.get("derelict").listenLinks.spotify, "https://open.spotify.com/show/0RRsd7061dikIOv6WbhmDS");
+  assert.equal(byId.get("from-now").listenLinks.spotify, "https://open.spotify.com/show/1t2hGRFzuVraNXtwdPAYNS");
+  assert.equal(byId.get("the-deca-tapes").listenLinks.spotify, "https://open.spotify.com/show/6S8iYgJibdA6xkVQnVVo7b");
+  assert.equal(byId.get("ars-paradoxica").listenLinks.spotify, "https://open.spotify.com/show/6pRM9esVLZ1gIFZYPzdMDh");
+  assert.equal(byId.get("the-storage-papers").listenLinks.website, undefined);
+  assert.equal(byId.get("the-storage-papers").officialLinks.website, undefined);
+  assert.equal(byId.get("malevolent").listenLinks.website, "https://shows.acast.com/malevolent");
+  assert.equal(byId.get("the-town-whispers").officialLinks.patreon, "https://www.patreon.com/pulpaudio");
+  assert.equal(byId.get("the-milkman-of-st-gaffs").officialLinks.patreon, "https://www.patreon.com/cw/howiemilkman");
+  assert.equal(
+    byId.get("spectre").listenLinks.start,
+    "https://podcasts.apple.com/ca/podcast/1-01-a-way-out/id1593110598?i=1000563131302",
+  );
+});
+
 test("optional start-listening links accept absolute URLs and reject invalid values", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");

@@ -19,20 +19,41 @@ Use it as the source of truth for:
 
 The supported production shape is:
 
-- Node.js `20.12` or newer
+- Node.js `22.12` or newer; CI and production currently pin `22.23.1`
 - the Express service bound to `127.0.0.1:3010` through Caddy
 - Caddy terminating HTTPS for `https://echoarchives.net`
-- systemd running the app as the unprivileged `charlie` user
-- SQLite at `/home/charlie/The-Echo-Archives/backend/data/community.sqlite`
+- systemd running the app as the dedicated `echo-archives` account
+- SQLite at `/var/lib/echo-archives/community.sqlite`
 - runtime secrets and overrides in `/home/charlie/The-Echo-Archives/backend/.env`
 
-The checked-in service unit sets the public origin, static root, database path, production mode, and a read-only default for community ratings. `backend/.env` is loaded after those defaults and may intentionally override them. Keep that file owned by the application user, mode `0600`, and outside git.
+The checked-in service unit sets the public origin, static root, database path,
+and production mode. It applies device, kernel, capability, address-family,
+personality, realtime, and setuid/setgid isolation that is compatible with the
+current importer and publication paths. `backend/.env` supplies feature state
+and secrets; before migration, keep it owned by `charlie`, mode `0600`, and
+outside Git. The migration preserves that owner and adds only a named read ACL
+for the runtime account. Because the ACL mask occupies the numeric group-mode
+bits, verify the effective entries with `getfacl backend/.env` rather than
+assuming a post-migration numeric mode of `0600`.
+
+The checkout remains owned and deployed by `charlie`. The runtime account can
+read it but cannot write application code or `.git`. It can write only the
+dedicated SQLite state directory and the importer staging/publication paths
+listed in the dedicated-account procedure below.
 
 The service runs a configuration preflight before every start. Invalid production configuration prevents startup instead of silently using a development fallback.
 
 ## Production Environment
 
 Copy [`backend/.env.example`](../backend/.env.example) to `backend/.env`, then replace or remove example values. Do not put `NODE_ENV` in the environment file; systemd sets it to `production`.
+
+`backend/.env` is the single production source for application feature flags.
+The systemd unit sets runtime location and process values but does not duplicate
+feature flags. The local production monitor independently declares the expected
+public state through `EXPECTED_COMMUNITY_RATING_WRITES` and
+`EXPECTED_MAINTAINER_REVIEW`, and `EXPECTED_ACCESS_LOGS` in
+`/etc/echo-archives/monitoring.env`; a mismatch between either local/public
+health response and those expectations fails the gate.
 
 Required launch decisions:
 
@@ -61,6 +82,24 @@ COMMUNITY_VOTER_HASH_SECRET=<at-least-32-random-characters>
 ```
 
 The preflight rejects writes-on production configuration without complete Turnstile keys and a strong, explicit voter secret. Test the widget from a private browser session before enabling public writes.
+
+Launch production with bounded access observability enabled:
+
+```dotenv
+ACCESS_LOG_ENABLED=true
+ACCESS_LOG_HMAC_SECRET=<at-least-32-random-characters>
+```
+
+The application emits structured request metadata without raw client IPs,
+query strings, bodies, cookies, or user-agent strings. Client addresses become
+16-character HMAC pseudonyms whose derived key rotates each UTC week. Keep the
+master secret private and stable; changing it deliberately breaks correlation.
+If those keys are not already present, the guarded helper can generate and
+append them without printing the secret:
+
+```bash
+node backend/scripts/configure-access-observability.js --env backend/.env
+```
 
 Operational limits have conservative defaults and normally do not need overrides:
 
@@ -153,6 +192,7 @@ Configure `/home/charlie/The-Echo-Archives/backend/.env`, validate it, then inst
 
 ```bash
 NODE_ENV=production npm run check:config
+sudo ./deploy/migrate-echo-archives-runtime-account.sh --apply
 sudo ./deploy/install-echo-archives-system.sh
 ```
 
@@ -160,12 +200,65 @@ The installer:
 
 - composes and validates the complete Caddyfile before replacing the live file
 - keeps timestamped backups of the prior Caddyfile and installed systemd units
+- requires and rechecks the completed dedicated-account migration
+- installs the isolated 14-day Echo Archives journal configuration
 - installs and restarts `echo-archives.service`
 - installs the discovery and verified-backup units, enabling both timers
 - waits for the local health endpoint before reloading Caddy
 - prints service status, the health response, and both timer schedules
 
 It does not configure DNS, create secrets, or modify a live database.
+
+### Dedicated runtime-account migration
+
+The guarded migration moves the live database out of the deploy checkout,
+creates the system account with a non-login shell, installs the hardened
+service, and adds a hardened discovery-service drop-in. Run it once from the
+canonical clean production checkout as `charlie`:
+
+```bash
+sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --apply
+sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --check
+```
+
+The migration stops only Echo Archives application, discovery, monitoring, and
+backup units while it takes an integrity-checked SQLite copy. It does not
+delete the legacy database. Protected rollback material is recorded under
+`/var/backups/echo-archives-runtime-account/`, and the successful backup path is
+recorded in `/var/lib/echo-archives-runtime-account/readiness`.
+
+The runtime account receives write access only to:
+
+- `/var/lib/echo-archives`
+- `backend/data/import-staging`
+- `catalog-src/shows`
+- `images/covers`
+- `images/generated/covers`
+- `data/reviews`
+- the six generated catalog/status files declared in the service unit
+
+Those checkout exceptions are required because approved importer publication
+currently writes authored and generated artifacts in place. Publication can
+therefore make the production checkout dirty. Review, validate, commit, and
+push those artifacts as `charlie` before the next canonical deployment. The
+migration uses targeted ACLs; it does not recursively transfer checkout
+ownership or add the service account to `charlie`'s group.
+
+The migration checks runtime database writes, checkout protection, importer
+write paths, static serving, loopback Ollama access, discovery identity, a
+structured access event in the isolated journal, and a normal verified local
+backup. Roll back to the recorded migration backup, or name a specific
+protected backup, with:
+
+```bash
+sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --rollback
+sudo /home/charlie/The-Echo-Archives/deploy/migrate-echo-archives-runtime-account.sh --rollback /var/backups/echo-archives-runtime-account/<timestamp>
+```
+
+Rollback first captures the newest dedicated-account database into the legacy
+location, restores prior units, environment, ACLs, and active timer state, and
+keeps the dedicated account, state directory, and rollback bundle for
+inspection. It does not delete production data.
 
 ## Production Domain Migration
 
@@ -181,7 +274,8 @@ Before installing the migration on the production server:
    pointed there too; Caddy must be able to serve HTTPS before it can return
    either redirect.
 2. In the production `backend/.env`, set `SITE_URL=https://echoarchives.net`.
-   That file overrides the value in the systemd unit.
+   The environment file is authoritative for application feature flags; the
+   unit supplies only the fixed runtime defaults documented above.
 3. Pull the release, install production dependencies, run the production
    configuration check, then run `sudo ./deploy/install-echo-archives-system.sh`.
 
@@ -206,6 +300,11 @@ Run routine updates as the `charlie` application user, not root:
 cd /home/charlie/The-Echo-Archives
 ./deploy/update-echo-archives.sh
 ```
+
+`deploy/update-echo-archives.sh` is the only supported deployment
+implementation. The repository-root `update-echo-archives.sh` exists only as a
+compatibility wrapper and immediately delegates to the canonical script;
+automation and runbooks should use the `deploy/` path directly.
 
 The update script deliberately stops before restart unless all of these succeed:
 
@@ -271,6 +370,81 @@ The timer creates local recovery copies only. Configure an encrypted off-host de
 
 Before trusting the backup process for launch, copy one backup to a temporary location, open it with `sqlite3`, and confirm expected table counts. Perform a restore drill on a non-production copy.
 
+### Encrypted Raspberry Pi backup
+
+The production off-host destination is the dedicated Restic SFTP repository on
+the Raspberry Pi. The root-only configuration is intentionally kept outside the
+checkout:
+
+- `/etc/echo-archives/pi-restic.env`
+- `/etc/echo-archives/pi-restic-password`
+- `/root/.ssh/echo-archives-pi-backup`
+- `/usr/local/sbin/echo-archives-pi-backup`
+
+The root-owned manual script is retained for supervised diagnostics but is not
+referenced by automatic units because it creates a redundant fresh local backup.
+
+`echo-archives-offsite-backup.timer` is the only canonical automatic Pi backup
+timer. It runs at approximately 04:00 local time, after the local SQLite timer's
+03:15–03:30 window. Its oneshot service waits for `network-online.target` and
+`tailscaled.service`, proves Tailscale and root SSH reachability, selects the
+newest completed local `.sqlite` backup, and verifies a protected byte-for-byte
+staging copy in its writable cache. A backup older than six hours is rejected,
+so a failed local-backup run cannot silently upload yesterday's database. The
+job builds a stable encrypted recovery inventory from that copy, importer cover
+staging, the production environment, the active Caddyfile, Echo systemd units,
+and the private monitor configuration. It uploads only that cache copy, applies
+the reviewed Restic retention policy, requires `restic check` to succeed, and
+only then refreshes the off-site success marker. It never opens the live
+database or creates a second local database backup.
+
+The Restic password and SSH identity are bootstrap credentials and must have a
+separately tested owner-controlled recovery copy; storing them only inside the
+repository they unlock is not recovery.
+
+Retention groups snapshots by host and `echo-archives` tag rather than by
+source path, because timestamped local backup filenames change every day.
+
+`ProtectHome=read-only` is intentional. Do not add the live database or backup
+directory to `ReadWritePaths`: only the normal `echo-archives-backup.service`
+runs as `charlie` and writes completed backups. The off-site service receives
+write access only to its Restic cache and monitoring state.
+
+The guarded first-time completion and repeat restore-drill procedure is:
+
+```bash
+sudo /home/charlie/The-Echo-Archives/deploy/complete-pi-backup-setup.sh --apply
+```
+
+If the restore drill has already passed and only the automatic service needs
+repair, use the repair-only mode. It validates the recorded successful restore
+and does not repeat it:
+
+```bash
+sudo /home/charlie/The-Echo-Archives/deploy/complete-pi-backup-setup.sh --repair-automation
+```
+
+It does not initialize a repository or restore over production. It selects the
+newest Echo-tagged snapshot at run time, restores it beneath a unique `/var/tmp`
+directory, validates SQLite integrity, foreign keys, and required non-empty
+tables, then starts an isolated application as `charlie` on loopback port 3911
+against that restored copy. The drill requires healthy application state,
+matching catalog counts, and a representative rendered show page before
+removing only the temporary restore. It installs the canonical unit pair, runs
+the service, requires a new snapshot, checks retention and repository
+integrity, enables the timer, rejects competing Echo Archives Pi automation,
+and requires zero failed systemd units. The last successful result is recorded
+without credentials or content at
+`/var/lib/echo-archives-monitoring/pi-backup-readiness`.
+
+Routine checks:
+
+```bash
+systemctl list-timers echo-archives-offsite-backup.timer --all
+systemctl status echo-archives-offsite-backup.service
+journalctl -u echo-archives-offsite-backup.service --since today
+```
+
 ### Scheduled show discovery
 
 The checked-in discovery timer runs the protected `import:discover` command every 30 minutes. The main system installer installs and enables it. It does nothing until a maintainer configures and enables a focused source in **Catalog imports**; each source still observes its own configured cadence.
@@ -286,7 +460,8 @@ Restore is a manual maintenance operation. Confirm every path before running it:
 1. Put the site into a maintenance window and stop `echo-archives.service`.
 2. Verify the selected backup with `sqlite3 <backup> 'PRAGMA integrity_check;'`; the only result should be `ok`.
 3. Move the current database and any `-wal`/`-shm` sidecars to a timestamped recovery location. Do not delete them.
-4. Install the backup at the configured `DB_PATH` with owner/group `charlie` and mode `0600`.
+4. Install the backup at the configured `DB_PATH` with owner/group
+   `echo-archives:echo-archives` and mode `0640`.
 5. Start the service, check `/api/health`, then inspect the maintainer queues and community summaries.
 6. Retain the pre-restore database until the restored state has been reviewed.
 
@@ -304,11 +479,18 @@ Service status and recent logs:
 
 ```bash
 sudo systemctl --no-pager --full status echo-archives.service
-sudo journalctl --unit echo-archives.service --lines 100 --no-pager
-sudo journalctl --unit echo-archives.service --since '15 minutes ago' --no-pager
+sudo systemctl --no-pager --full status systemd-journald@echo-archives.service
+sudo journalctl --namespace=echo-archives --unit echo-archives.service --lines 100 --no-pager
+sudo journalctl --namespace=echo-archives --unit echo-archives.service --since '15 minutes ago' --no-pager
 ```
 
-The service uses request IDs for backend diagnostics. When investigating a public 5xx response, correlate its response request ID with the journal without copying submission bodies, contact details, cookies, or secrets into tickets.
+The namespaced journal is persistent, compressed, bounded to 256 MiB while
+leaving at least 1 GiB free, and expires entries after 14 days. The service uses
+request IDs for backend diagnostics. When investigating a public 5xx response,
+correlate its response request ID with the journal without copying submission
+bodies, contact details, cookies, or secrets into tickets. The production
+monitor requires health to report `features.accessLogs=true` when
+`EXPECTED_ACCESS_LOGS=true`.
 
 If startup fails, run the production preflight as the application user before changing the unit:
 

@@ -12,17 +12,40 @@ Keep the verified local SQLite backup workflow as the first recovery layer, then
    - an equivalent encrypted backup product with documented restore commands.
 2. Create dedicated least-privilege credentials that can access only the Echo Archives backup repository.
 3. Store the repository password and provider credentials in a root-owned mode-`0600` environment file outside the repository.
-4. Back up only completed `backend/data/backups/*.sqlite` files. Exclude `*.sqlite-wal`, `*.sqlite-shm`, import staging, `node_modules`, and the live database.
+4. Stage the newest completed `backend/data/backups/*.sqlite` file together
+   with importer cover staging and the private runtime configuration required to
+   reproduce the service. Exclude `*.sqlite-wal`, `*.sqlite-shm`,
+   `node_modules`, and the live database.
 5. Run the off-host copy after `echo-archives-backup.service` succeeds. A separate oneshot service and timer should report failure independently rather than hiding a local-backup failure.
 
-Credential-neutral preparation is checked in:
+The credential-neutral foundation remains checked in:
 
 - `tools/check-database-backup.js` validates freshness, private permissions, SQLite integrity, foreign keys, required tables, and table counts.
-- `deploy/echo-archives-offsite-backup.sh` verifies the newest local backup before sending only that completed file to restic.
-- `deploy/echo-archives-offsite-backup.service` and `.timer` run after a successful local backup and maintain a read-only freshness marker without credentials or database content.
+- `deploy/echo-archives-offsite-backup.sh` is the canonical Pi upload workflow.
+  It selects the newest completed local backup, verifies a byte-identical copy
+  in the protected cache, stages the complete recovery inventory there, uploads
+  only that stable inventory, applies retention, and checks the repository.
+- `deploy/echo-archives-offsite-backup.service` and `.timer` are the single canonical Raspberry Pi automation pair. The service keeps the home tree read-only, waits for Tailscale and root SSH, and maintains a freshness marker without storing credentials or database content in the unit.
 - `deploy/offsite-backup.env.example` documents the required variable names without containing credentials.
+- `deploy/complete-pi-backup-setup.sh` performs the guarded restore drill, installs and manually verifies the unit pair, enables its timer, and rejects duplicate Pi backup automation.
 
-The off-site unit has a `ConditionPathExists` guard and cannot run until `/etc/echo-archives/offsite-backup.env` is deliberately created. `deploy/final-production-launch-maintenance.sh` installs restic and the reviewed unit files, but deliberately leaves the timer disabled until credentials exist and the first backup and restore drill are supervised.
+The Pi credentials, repository password, SSH identity, and operational script
+remain root-owned outside the checkout. The timer must not be enabled until
+`deploy/complete-pi-backup-setup.sh --apply` completes its supervised restore
+and service verification.
+
+The encrypted inventory currently contains:
+
+- the verified SQLite backup, never the live database or WAL files;
+- `backend/data/import-staging/`, when present;
+- the production `backend/.env`;
+- the active shared Caddyfile;
+- the active Echo systemd unit/timer files;
+- the private local-monitor environment.
+
+The Restic repository password and SSH recovery identity cannot be recovered
+from the repository they unlock. Their separately held recovery location,
+custodian, and emergency access test remain a private owner-controlled record.
 
 ## Initial retention
 
@@ -32,6 +55,15 @@ The off-site unit has a `ConditionPathExists` guard and cannot run until `/etc/e
 - At least 2 annual snapshots once the service has operated that long
 
 Apply retention with the backup tool's snapshot-aware prune command. Never use a filename-age deletion loop against the live database or the only remote copy.
+Group Restic retention by host and tag, not by source path; each completed local
+backup has a timestamped filename and default path grouping would otherwise
+create a new retention group every day.
+
+Local completed SQLite backups use the owner-approved 30-day policy with a
+minimum floor of seven copies. Cleanup runs only after the same job has uploaded
+the complete recovery inventory and passed snapshot listing, remote retention,
+and `restic check`. A failed or unreachable off-site repository therefore
+retains all local recovery copies.
 
 ## Acceptance test
 
@@ -54,8 +86,11 @@ Apply retention with the backup tool's snapshot-aware prune command. Never use a
 - Review storage growth and retention quarterly.
 - Rotate credentials at least annually and immediately after any suspected exposure.
 
-## Current blocker
+## Legacy backup note
 
 The existing Deja Dup Microsoft configuration is not an acceptable substitute: it has no verified recent backup, its discovered chain is stale/empty, and it was invoked without encryption. Do not remove it until a replacement has passed the acceptance test.
 
-No remote repository or credentials have been selected. After the final host-maintenance script installs restic and the unit files, credential creation, repository initialization, timer enablement, and the first restore drill remain manual launch requirements.
+The selected replacement is the encrypted Raspberry Pi Restic repository. Its
+initialization and first snapshot are already complete; never reinitialize it.
+The remaining activation gate is a successful guarded restore drill and
+automatic-service verification.

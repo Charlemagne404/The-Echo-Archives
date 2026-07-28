@@ -166,6 +166,15 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.equal(showBreadcrumbs.itemListElement.at(-1).item, `${context.baseUrl}/shows/impact-winter`);
     assert.ok(podcastSeries.creator.every((creator) => typeof creator === "string"));
 
+    const unratedShowResponse = await fetch(`${context.baseUrl}/shows/marsfall`);
+    assert.equal(unratedShowResponse.status, 200);
+    const unratedShowHtml = await unratedShowResponse.text();
+    assert.match(unratedShowHtml, /<h1>Marsfall<\/h1>/);
+    assert.match(unratedShowHtml, /<strong class="detail-hero-score-value">Unrated<\/strong>/);
+    assert.match(unratedShowHtml, /<span class="detail-meta-note">No archive rating yet<\/span>/);
+    assert.doesNotMatch(unratedShowHtml, /\b0(?:\.0)?\/10\b/);
+    assert.doesNotMatch(unratedShowHtml, /Echo score/);
+
     const collectionResponse = await fetch(`${context.baseUrl}/collections/best-for-long-walks`);
     assert.equal(collectionResponse.status, 200);
     const collectionHtml = await collectionResponse.text();

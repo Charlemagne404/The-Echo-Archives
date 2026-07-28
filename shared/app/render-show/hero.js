@@ -7,6 +7,7 @@ import {
   getHeroFormatNote,
   getHeroFormatValue,
   getHeroRuntimeValue,
+  normalizeArchiveRating,
   getReleaseNote,
   toDisplayTag,
 } from "./utils.js";
@@ -24,11 +25,12 @@ const HERO_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
 export function renderDetailHero(show) {
   const coverSource = getResponsiveImageSource(show, "(max-width: 959px) 84vw, 320px");
   const coverBackground = getPreferredCoverSource(show, 640);
-  const hasArchiveRating = Number.isFinite(Number(show.finalRating));
-  const archiveRatingValue = hasArchiveRating ? `${formatRating(show.finalRating)}/10` : "Unrated";
+  const archiveRating = normalizeArchiveRating(show.finalRating);
+  const hasArchiveRating = archiveRating !== null;
+  const archiveRatingValue = hasArchiveRating ? `${formatRating(archiveRating)}/10` : "Unrated";
   const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
   const statusChips = [];
-  if ((show.finalRating || 0) >= 9) {
+  if (archiveRating !== null && archiveRating >= 9) {
     statusChips.push('<span class="detail-status-chip is-accent">Top rated</span>');
   }
   if (show.reviewStatus === "full-review") {
