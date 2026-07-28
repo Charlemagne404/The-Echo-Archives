@@ -356,11 +356,24 @@ async function startServer() {
     res.set("Cache-Control", "no-store");
     try {
       database.prepare("SELECT 1 AS ready").get();
+      const journalMode = String(database.pragma("journal_mode", { simple: true }) || "").toUpperCase();
+      const synchronousCode = Number(database.pragma("synchronous", { simple: true }));
+      const synchronous =
+        {
+          0: "OFF",
+          1: "NORMAL",
+          2: "FULL",
+          3: "EXTRA",
+        }[synchronousCode] || `UNKNOWN(${synchronousCode})`;
       return res.json({
         ok: true,
         service: "echo-archives",
         catalogCount: state.publicCatalog.length,
         collectionCount: state.collections.length,
+        durability: {
+          journalMode,
+          synchronous,
+        },
         features: {
           communityRatingWrites: Boolean(config.COMMUNITY_RATING_WRITES_ENABLED),
           maintainerReview: maintainerAuth.enabled,

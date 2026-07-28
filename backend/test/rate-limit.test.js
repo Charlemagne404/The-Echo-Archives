@@ -145,6 +145,10 @@ test("chat, community, and submission writes return 429 with Retry-After and rec
     assert.equal(Object.hasOwn(health, "databasePath"), false);
     assert.equal(Object.hasOwn(health, "model"), false);
     assert.equal(typeof health.features.communityRatingWrites, "boolean");
+    assert.deepEqual(health.durability, {
+      journalMode: "WAL",
+      synchronous: "FULL",
+    });
 
     const chatBody = { message: "Find me a completed sci-fi show.", history: [] };
     assert.equal((await postJson(`${context.baseUrl}/api/chat`, chatBody)).status, 200);

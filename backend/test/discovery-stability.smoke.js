@@ -109,12 +109,28 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
     assert.equal(homeSurfaceState.recentlyAddedEmptyHidden, true);
     assert.equal(homeSurfaceState.skeletonCount, 0);
 
+    await page.waitForFunction(
+      () =>
+        document.getElementById("filterToggle")?.disabled === false &&
+        Array.from(document.querySelectorAll("#podcast-grid img")).some(
+          (image) =>
+            image instanceof HTMLImageElement &&
+            image.dataset.imageFallbackBound === "true" &&
+            !image.src.includes("/images/TEA-Logo-S.png"),
+        ),
+    );
     const fallbackState = await page.evaluate(() => {
-      const image = document.querySelector("#recentlyAddedGrid img") || document.querySelector("#podcast-grid img");
+      const image = Array.from(document.querySelectorAll("#podcast-grid img")).find(
+        (candidate) =>
+          candidate instanceof HTMLImageElement &&
+          candidate.dataset.imageFallbackBound === "true" &&
+          !candidate.src.includes("/images/TEA-Logo-S.png"),
+      );
       if (!(image instanceof HTMLImageElement)) {
         return null;
       }
 
+      image.removeAttribute("srcset");
       image.src = "/images/missing-cover.png";
       image.dispatchEvent(new Event("error"));
       return {

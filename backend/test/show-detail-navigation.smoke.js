@@ -153,7 +153,16 @@ test("indexed-only detail page shows truthful canonical metadata without narrow 
     const secondFrame = firstRoute.locator('.collection-cover-frame[data-cover-index="2"]');
     const beforeHover = await secondFrame.evaluate((node) => window.getComputedStyle(node).transform);
     await firstRoute.hover();
-    await page.waitForTimeout(300);
+    await page.waitForFunction(
+      ({ selector, before }) => {
+        const node = document.querySelector(selector);
+        return node && window.getComputedStyle(node).transform !== before;
+      },
+      {
+        selector: '.detail-collection-route:first-of-type .collection-cover-frame[data-cover-index="2"]',
+        before: beforeHover,
+      },
+    );
     const afterHover = await secondFrame.evaluate((node) => window.getComputedStyle(node).transform);
     assert.notEqual(afterHover, beforeHover);
   } finally {

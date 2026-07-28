@@ -82,17 +82,58 @@ server-side code changes still require the controlled application restart.
 apply/restore/upgrade steps remain pending. The live direct-origin and
 spoofed-header baseline still returns HTTP 200.
 
+The reviewed remediation commit
+`3eec7daeaf4f4b72674a8fa77dd72f6f2944bc22` was pushed to `origin/main`.
+GitHub Actions Verify run `30364199822` completed successfully, including the
+full repository verification and stale-generated-output gate.
+
+Follow-up repository preparation adds a single controlled privileged
+orchestrator and runbook:
+
+- `deploy/complete-launch-maintenance.sh`
+- `deploy/COMPLETE_LAUNCH_MAINTENANCE.md`
+- `deploy/verify-deployment-rollback-invariants.sh`
+
+The orchestrator requires the exact clean `origin/main` commit, validates all
+prerequisites before mutation, creates a fresh verified backup, separates the
+Caddy origin change/Caddy upgrade/runtime migration/backup restore/Ollama
+upgrade into fail-fast stages, preserves exact rollback inputs, automatically
+rolls back only the current stage, and concludes with local/public,
+origin/spoof, TLS, shared-host, firewall-read, service, and log checks. It
+installs the Better Stack integration only when the root-owned secret file is
+already present and valid. The newest Restic restore and all live production
+gates remain unverified until the privileged script actually runs.
+
+Follow-up review also made the encrypted recovery inventory fail closed on
+symlinked importer/configuration state, added every runtime-writable
+publication path, verifies the complete staged-path manifest against the newly
+created remote snapshot, gives the protected backup service its exact
+retention write path, and restores failed-unit state plus the local monitor
+during current-stage rollback. The canonical deploy now grants the runtime
+account access to candidate dependencies, verifies module resolution before
+restart, and retains the previous dependency tree until semantic health
+validation succeeds.
+
+Official upgrade and fallback artifacts were downloaded outside the repository
+into the private rollback directory. Caddy 2.11.4 and 2.10.2 matched their
+official SHA-512 manifests; Ollama 0.32.5 and 0.6.7 matched their official
+SHA-256 manifests. The staged Caddy 2.11.4 binary and archive contents were
+validated. No package was installed.
+
 ### Repository verification evidence
 
 The final post-fix `npm run verify` completed successfully:
 
 - generated 100 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `26/26`;
+- operations/tool tests: `31/31`;
 - backend tests: `228/228`;
-- browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
+- Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive
   profile behavior, and repaired start-link navigation;
+- Firefox serial browser smoke tests: `60/60`;
+- WebKit serial browser smoke tests: `60/60`, after making readiness and
+  transition assertions observe client state instead of fixed timing windows;
 - production configuration check passed with ratings, maintainer review, and
   access observability configured in the private environment;
 - `npm audit --omit=dev` reported zero vulnerabilities;
@@ -147,6 +188,9 @@ Deployment, recovery, and monitoring work:
   echo-archives-offsite-backup-heartbeat.conf}`;
 - `deploy/{COMPONENT_UPGRADE_RUNBOOK.md,MONITORING_PLAN.md,
   OFF_HOST_BACKUP_PLAN.md}` and corresponding `tools/test/*.test.js` files.
+- `deploy/{complete-launch-maintenance.sh,COMPLETE_LAUNCH_MAINTENANCE.md,
+  verify-deployment-rollback-invariants.sh}` and
+  `tools/test/complete-launch-maintenance.test.js`.
 
 Configuration/documentation work:
 
@@ -326,9 +370,9 @@ An attacker can bypass Cloudflare-side filtering, traffic controls, and any WAF 
 - [ ] Certificate issuance/renewal still works.
 - [ ] Health monitoring checks the intended path.
 
-### BLOCKER-05 — The canonical production deployment cannot currently run
+### BLOCKER-05 — The canonical production deployment could not run
 
-- **Status:** In progress
+- **Status:** Ready for verification
 - **Area:** Deployment, rollback, importer storage
 - **Severity:** Launch blocker
 
@@ -371,9 +415,12 @@ The duplicate uses `npm install`, omits generation checks, tests, backup, and pr
 - [ ] Generated output stays clean.
 - [ ] The supported rollback path has been tested.
 
-The local branch has not been pushed. The canonical upstream-based deployment
-must not run until the reviewed commit is pushed, remote CI passes, and the
-controlled deployment/rollback window begins.
+The remediation commit is now on `origin/main`, its remote Verify workflow
+passed, importer staging is preserved and ignored, and the duplicate root
+entry point is a compatibility wrapper. The complete maintenance script adds a
+safe disposable failure/rollback invariant drill. The canonical deployment's
+pre-restart and real production rollback behavior remain unchecked until the
+controlled maintenance window.
 
 ### BLOCKER-06 — No proven external outage alerting
 
@@ -413,7 +460,7 @@ The documented external monitoring provider and recipients have not been configu
 
 ### HIGH-01 — Ollama is outdated and affected by a high-severity advisory
 
-- **Status:** In progress
+- **Status:** Ready for verification
 - **Installed version:** `0.6.7`
 - **Current version during audit:** `0.32.5`
 - **Binding:** Loopback, `127.0.0.1:11434`
@@ -433,6 +480,13 @@ Required work:
 - [ ] Confirm loopback-only binding after upgrade.
 - [ ] Retest Ask the Archivist success, timeout, and fallback behavior.
 - [ ] Confirm no unintended Ollama routes are exposed through Caddy or Echo.
+
+The official 0.32.5 upgrade and 0.6.7 fallback archives are privately staged
+and checksum-verified. The orchestrator preserves the actual installed
+binary/library/unit, upgrades with current-stage rollback, checks the bind,
+model, direct generation and public non-exposure, then tests Archivist success
+and fallback in isolated restored applications. Production execution is
+pending.
 
 ### HIGH-02 — Caddy is behind current security-bearing releases
 
@@ -455,7 +509,7 @@ Required work:
 
 ### HIGH-03 — Echo runs as an interactive user with weak systemd isolation
 
-- **Status:** In progress
+- **Status:** Ready for verification
 - **Area:** Host security, blast radius
 
 Echo runs as `charlie`, which also owns the repository, database, environment file, and unrelated personal/shared files. `systemd-analyze security` rated the unit `8.7 EXPOSED`.
@@ -477,7 +531,7 @@ Required work:
 
 ### HIGH-04 — Exact firewall exposure could not be verified
 
-- **Status:** Unverified
+- **Status:** Ready for verification
 
 Positive evidence:
 
@@ -502,7 +556,7 @@ Required work:
 
 ### HIGH-05 — No Echo-specific access logs or request observability
 
-- **Status:** In progress
+- **Status:** Ready for verification
 
 Application and Caddy logs contain startup and application errors but no bounded Echo access log. There is no reliable way to investigate:
 
@@ -532,7 +586,7 @@ does not emit the new namespaced structured request events.
 
 ### HIGH-06 — Backup scope does not reproduce the complete service
 
-- **Status:** In progress
+- **Status:** Ready for verification
 
 Positive evidence:
 
@@ -557,9 +611,29 @@ The off-host process covers the newest SQLite backup but not all non-reconstruct
 Required work:
 
 - [x] Define the complete recovery inventory.
-- [ ] Back up or securely reconstruct each required item.
+- [x] Add each host-held required item to the encrypted recovery inventory,
+  excluding only the separate repository unlock material.
 - [ ] Exclude secrets only when there is a separately tested secret-recovery process.
 - [ ] Document encryption keys, ownership, and emergency access privately.
+
+The canonical job now stages importer state, the verified database, every
+runtime-writable catalog/cover/review/generated publication path, production
+environment, Caddyfile, application/backup/discovery/monitoring units, local
+monitoring and Restic environments, Better Stack environment/drop-in, journal
+retention, runtime-account readiness/drop-in, and Ollama unit. It rejects
+symlinked durable state, checks every staged inventory path exists in the new
+remote snapshot, and never stages the Restic password or SSH private key. The
+expanded inventory and assertions are locally tested but have not yet
+completed a production encrypted upload and restore.
+
+Changed/verified files:
+
+- `deploy/echo-archives-offsite-backup.sh`
+- `deploy/echo-archives-offsite-backup.service`
+- `deploy/complete-pi-backup-setup.sh`
+- `deploy/verify-restored-application.sh`
+- `deploy/OFF_HOST_BACKUP_PLAN.md`
+- `tools/test/operations.test.js`
 
 ### HIGH-07 — A current restore has not been independently verified
 
@@ -623,11 +697,11 @@ Required work:
 - [ ] Implement cleanup only after confirming off-host retention and restore behavior.
 - [ ] Monitor backup-directory size.
 
-### HIGH-10 — Deployment has no automatic rollback
+### HIGH-10 — Deployment automatic rollback was not defined
 
 - **Status:** Ready for verification
 
-The canonical deployment:
+The original canonical deployment:
 
 - checks for a clean tree;
 - fast-forwards from the upstream;
@@ -638,11 +712,13 @@ The canonical deployment:
 - restarts the service;
 - retries health.
 
-If health fails, it reports status and logs but does not restore the prior application revision.
-
-Evidence:
-
-- `deploy/update-echo-archives.sh:40-94`
+The canonical script now validates a disposable candidate, records the prior
+revision and dependency tree, preserves the database, and automatically
+restores the previous application/dependencies if post-restart health fails.
+`deploy/verify-deployment-rollback-invariants.sh` exercises failure detection,
+prior-revision compatibility, and no-data-rollback on a disposable database
+and worktree. A real systemd-backed failed deployment is still required before
+this finding can be marked Verified.
 
 Required work:
 
@@ -940,17 +1016,31 @@ The CSP is otherwise strong but permits `style-src 'unsafe-inline'`.
 
 ### IMPROVEMENT-07 — Browser coverage
 
-- **Status:** Open
+- **Status:** In progress
 
-Chromium coverage is extensive. Firefox and WebKit browser binaries were not installed during the audit.
+Chromium coverage is extensive. Firefox and WebKit browser binaries were not installed during the original audit.
 
-- [ ] Add Firefox smoke coverage.
-- [ ] Add WebKit/Safari smoke coverage.
+- [x] Add Firefox smoke coverage.
+- [x] Add WebKit coverage.
 - [ ] Test at least one real iOS and Android device.
+
+Verification evidence: all 60 serial smoke tests passed locally in Firefox and
+all 60 passed in WebKit. Tests cover desktop/mobile layout, hydration,
+generated and client-rendered states, reduced motion, focus/dialog behavior,
+offline handling, and maintainer/submission surfaces. A real Safari/iOS device
+and a real Android browser remain external manual checks.
+
+Changed/verified files:
+
+- `backend/test/browser.smoke.js`
+- `backend/test/discovery-stability.smoke.js`
+- `backend/test/home-browse.smoke.js`
+- `backend/test/home-card-interactions.smoke.js`
+- `backend/test/show-detail-navigation.smoke.js`
 
 ### IMPROVEMENT-08 — Journal retention
 
-- **Status:** In progress
+- **Status:** Ready for verification
 
 Journald was using approximately 3.9 GB with default limits and no Echo-specific retention policy.
 
@@ -1112,7 +1202,6 @@ remediation:
   and received failure/recovery/stale-heartbeat drills
 - Applied Caddy, systemd, Ollama, restore, and rollback maintenance (repository
   preparation is complete or in progress; elevation is unavailable in-session)
-- Latest GitHub Actions run status
 - Exact UFW rules
 - SMART/NVMe health
 - SMART/NVMe follow-up and a later UPS recommendation/purchase
@@ -1311,9 +1400,11 @@ Run Axe and keyboard-only testing at:
 
 Browsers:
 
-- [ ] Chromium
-- [ ] Firefox
-- [ ] WebKit/Safari
+- [x] Chromium automated suite
+- [x] Firefox automated suite
+- [x] WebKit automated suite
+- [ ] Safari on a real iOS/macOS device
+- [ ] Chrome on a real Android device
 
 Manual checks:
 

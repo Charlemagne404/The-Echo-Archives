@@ -1004,7 +1004,10 @@ test("maintainer public shells stay usable on mobile and tablet breakpoints befo
     for (const route of mobileRoutes) {
       await mobilePage.goto(route, { waitUntil: "networkidle" });
       await mobilePage.waitForFunction(
-        () => document.querySelector(".maintainer-hero-panel") && document.querySelector("#maintainerAuthPanel"),
+        () =>
+          document.body.dataset.maintainerState === "authRequired" &&
+          document.querySelector(".maintainer-hero-panel") &&
+          document.querySelector("#maintainerAuthPanel:not([hidden])"),
         undefined,
         { timeout: 5_000 },
       );
@@ -1028,7 +1031,10 @@ test("maintainer public shells stay usable on mobile and tablet breakpoints befo
 
     await tabletPage.goto(`${baseUrl}/maintainer/imports.html`, { waitUntil: "networkidle" });
     await tabletPage.waitForFunction(
-      () => document.querySelector(".maintainer-hero-panel") && document.querySelector("#maintainerAuthPanel"),
+      () =>
+        document.body.dataset.maintainerState === "authRequired" &&
+        document.querySelector(".maintainer-hero-panel") &&
+        document.querySelector("#maintainerAuthPanel:not([hidden])"),
       undefined,
       { timeout: 5_000 },
     );

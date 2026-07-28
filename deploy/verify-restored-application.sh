@@ -8,6 +8,8 @@ REPO_ROOT="/home/charlie/The-Echo-Archives"
 PORT="${RESTORE_TEST_PORT:-3911}"
 DATABASE_PATH="${1:-}"
 EXPECTED_PODCASTS="${2:-}"
+OLLAMA_URL_OVERRIDE="${OLLAMA_URL_OVERRIDE:-http://127.0.0.1:11434/api/generate}"
+VERIFY_ARCHIVIST_EXPECTED_SOURCE="${VERIFY_ARCHIVIST_EXPECTED_SOURCE:-}"
 APP_PID=""
 TEMP_DIR=""
 
@@ -38,6 +40,11 @@ fail() {
   fail "restored database is missing, not regular, or a symlink"
 [[ "${EXPECTED_PODCASTS}" =~ ^[1-9][0-9]*$ ]] ||
   fail "expected podcast count must be a positive integer"
+if [[ -n "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" ]]; then
+  [[ "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" == "ollama" ||
+    "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" == "fallback" ]] ||
+    fail "VERIFY_ARCHIVIST_EXPECTED_SOURCE must be ollama, fallback, or blank"
+fi
 [[ "${PORT}" =~ ^[1-9][0-9]*$ && "${PORT}" -le 65535 ]] ||
   fail "RESTORE_TEST_PORT must be between 1 and 65535"
 
@@ -77,6 +84,7 @@ app_log="${TEMP_DIR}/application.log"
 health_json="${TEMP_DIR}/health.json"
 catalog_json="${TEMP_DIR}/catalog.json"
 show_html="${TEMP_DIR}/show.html"
+chat_json="${TEMP_DIR}/chat.json"
 
 runuser -u "${APP_USER}" -- env -i \
   HOME="${TEMP_DIR}" \
@@ -88,6 +96,8 @@ runuser -u "${APP_USER}" -- env -i \
   SERVE_STATIC=true \
   SITE_URL=https://echoarchives.net \
   DB_PATH="${DATABASE_PATH}" \
+  OLLAMA_URL="${OLLAMA_URL_OVERRIDE}" \
+  REQUEST_TIMEOUT_MS=30000 \
   COMMUNITY_RATING_WRITES_ENABLED=false \
   COMMUNITY_TURNSTILE_ENABLED=false \
   IMPORT_AUTO_WORKER=false \
@@ -125,6 +135,8 @@ if (
   health.ok !== true ||
   health.service !== "echo-archives" ||
   health.catalogCount !== expected ||
+  health.durability?.journalMode !== "WAL" ||
+  health.durability?.synchronous !== "FULL" ||
   !Array.isArray(catalog) ||
   catalog.length !== expected ||
   typeof catalog[0]?.id !== "string"
@@ -137,6 +149,25 @@ curl --fail --silent --show-error --max-time 5 \
   --output "${show_html}" "http://127.0.0.1:${PORT}/shows/${first_show_id}"
 grep -Fq "<title>" "${show_html}" ||
   fail "representative restored show page did not render HTML"
+
+if [[ -n "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" ]]; then
+  curl --fail --silent --show-error --max-time 45 \
+    --header "Content-Type: application/json" \
+    --data '{"message":"Recommend one completed science-fiction audio drama.","history":[]}' \
+    --output "${chat_json}" "http://127.0.0.1:${PORT}/api/chat"
+  node - "${chat_json}" "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" <<'NODE'
+const fs = require("node:fs");
+const [chatPath, expectedSource] = process.argv.slice(2);
+const result = JSON.parse(fs.readFileSync(chatPath, "utf8"));
+if (
+  result.source !== expectedSource ||
+  typeof result.answer !== "string" ||
+  result.answer.trim().length === 0 ||
+  !Array.isArray(result.recommendations)
+) process.exit(1);
+NODE
+  echo "Ask the Archivist verified with ${VERIFY_ARCHIVIST_EXPECTED_SOURCE} response behavior."
+fi
 
 kill -TERM "${APP_PID}"
 wait "${APP_PID}" || {

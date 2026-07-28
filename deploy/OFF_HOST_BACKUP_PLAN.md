@@ -38,10 +38,22 @@ The encrypted inventory currently contains:
 
 - the verified SQLite backup, never the live database or WAL files;
 - `backend/data/import-staging/`, when present;
+- every runtime-writable publication directory and generated catalog/status
+  file, including authored show records, covers, review companions, and
+  generated public data;
 - the production `backend/.env`;
 - the active shared Caddyfile;
 - the active Echo systemd unit/timer files;
-- the private local-monitor environment.
+- the private local-monitor environment;
+- the Better Stack heartbeat and Restic environment files (not the Restic
+  password or SSH private key);
+- the namespaced journal retention file, runtime-account discovery drop-in,
+  Better Stack systemd drop-in, runtime migration readiness record, and Ollama
+  unit when present.
+
+Each job builds a manifest of every staged recovery path and compares it with
+`restic ls --json` for the newly created snapshot before retention, repository
+checking, local pruning, success-marker publication, or heartbeat success.
 
 The Restic repository password and SSH recovery identity cannot be recovered
 from the repository they unlock. Their separately held recovery location,

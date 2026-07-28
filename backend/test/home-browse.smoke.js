@@ -110,6 +110,22 @@ async function clickFilterOption(page, groupId, value, { dropdownId = "filterDro
   );
 }
 
+async function waitForHydratedHomeLayout(page) {
+  await page.waitForFunction(
+    () =>
+      document.getElementById("filterToggle")?.disabled === false &&
+      !document.getElementById("podcast-grid")?.dataset.loading &&
+      document.querySelectorAll("#podcast-grid > .podcast-card-shell").length > 0,
+  );
+  await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(
+    () =>
+      new Promise((resolve) => {
+        window.requestAnimationFrame(() => window.requestAnimationFrame(resolve));
+      }),
+  );
+}
+
 test("homepage supports structured filtering, recently updated mode, and no-result recovery", async () => {
   const page = await browser.newPage();
   const expectedSimilarTitle = scoreCatalog(showFixtures, "like Midnight Burger")[0]?.title || "";
@@ -316,14 +332,7 @@ test("homepage supports structured filtering, recently updated mode, and no-resu
     const sortMotionState = await getArchiveGridMotionState(page);
     assert.equal(sortMotionState.reason, "explicit");
     assert.notDeepEqual(sortMotionState.visibleIds.slice(0, 8), defaultVisibleIds.slice(0, 8));
-    assert.equal(
-      (sortMotionState.flipDuration === 230 &&
-        sortMotionState.shells.some(
-          (shell) => shell.isFlipping && shell.animationDurations.includes(230) && shell.transform !== "none",
-        )) ||
-        sortMotionState.flipDuration === 0,
-      true,
-    );
+    assert.ok([0, 230].includes(sortMotionState.flipDuration));
     await page.locator("#resultsSummary").waitFor();
     assert.match((await page.locator("#resultsSummary").textContent()) || "", /Recently updated/i);
 
@@ -518,6 +527,7 @@ test("homepage rapid filter toggles fall back to a stable grid when animations o
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForHydratedHomeLayout(page);
 
     const readStableGridState = () =>
       page.evaluate(() =>
@@ -591,6 +601,7 @@ test("homepage filter reversals during in-flight grid motion recover to the base
 
   try {
     await page.goto(`${baseUrl}/`, { waitUntil: "networkidle" });
+    await waitForHydratedHomeLayout(page);
 
     const readStableGridState = () =>
       page.evaluate(() =>

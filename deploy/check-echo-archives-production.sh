@@ -79,6 +79,12 @@ validate_health_json() {
     if (health.features?.accessLogs !== parseExpected(process.argv[4], "EXPECTED_ACCESS_LOGS")) {
       process.exit(1);
     }
+    if (
+      health.durability?.journalMode !== "WAL" ||
+      health.durability?.synchronous !== "FULL"
+    ) {
+      process.exit(1);
+    }
   ' "${file}" "${EXPECTED_COMMUNITY_RATING_WRITES}" "${EXPECTED_MAINTAINER_REVIEW}" "${EXPECTED_ACCESS_LOGS}"
 }
 

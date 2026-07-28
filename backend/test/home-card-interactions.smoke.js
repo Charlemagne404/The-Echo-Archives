@@ -53,44 +53,49 @@ async function clickCollectionArrow(page, selector) {
 }
 
 async function waitForCenteredCollection(page, expectedCollectionId, { maxDistance = 16 } = {}) {
-  await page.waitForFunction(
-    ({ currentExpectedCollectionId, currentMaxDistance }) => {
-      const viewport = document.getElementById("collectionViewport");
-      const carousel = document.getElementById("collectionCarousel");
-      if (!viewport) {
-        return false;
-      }
+  const waitForStableCenter = () =>
+    page.waitForFunction(
+      ({ currentExpectedCollectionId, currentMaxDistance }) => {
+        const viewport = document.getElementById("collectionViewport");
+        const carousel = document.getElementById("collectionCarousel");
+        if (!viewport) {
+          return false;
+        }
 
-      const viewportRect = viewport.getBoundingClientRect();
-      const viewportCenter = viewportRect.left + viewportRect.width / 2;
-      const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
-        const rect = card.getBoundingClientRect();
-        return rect.right > viewportRect.left && rect.left < viewportRect.right;
-      });
-
-      if (visibleCards.length === 0) {
-        return false;
-      }
-
-      const centeredCard = visibleCards
-        .map((card) => {
+        const viewportRect = viewport.getBoundingClientRect();
+        const viewportCenter = viewportRect.left + viewportRect.width / 2;
+        const visibleCards = Array.from(document.querySelectorAll("#collectionGrid .collection-card")).filter((card) => {
           const rect = card.getBoundingClientRect();
-          return {
-            collectionId: card.dataset.collectionId || "",
-            distanceFromCenter: Math.abs(rect.left + rect.width / 2 - viewportCenter),
-          };
-        })
-        .sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
+          return rect.right > viewportRect.left && rect.left < viewportRect.right;
+        });
 
-      return (
-        centeredCard.collectionId === currentExpectedCollectionId &&
-        centeredCard.distanceFromCenter < currentMaxDistance &&
-        !(carousel?.dataset.collectionInteraction || "")
-      );
-    },
-    { currentExpectedCollectionId: expectedCollectionId, currentMaxDistance: maxDistance },
-    { timeout: 3_000 },
-  );
+        if (visibleCards.length === 0) {
+          return false;
+        }
+
+        const centeredCard = visibleCards
+          .map((card) => {
+            const rect = card.getBoundingClientRect();
+            return {
+              collectionId: card.dataset.collectionId || "",
+              distanceFromCenter: Math.abs(rect.left + rect.width / 2 - viewportCenter),
+            };
+          })
+          .sort((left, right) => left.distanceFromCenter - right.distanceFromCenter)[0];
+
+        return (
+          centeredCard.collectionId === currentExpectedCollectionId &&
+          centeredCard.distanceFromCenter < currentMaxDistance &&
+          !(carousel?.dataset.collectionInteraction || "")
+        );
+      },
+      { currentExpectedCollectionId: expectedCollectionId, currentMaxDistance: maxDistance },
+      { timeout: 3_000 },
+    );
+
+  await waitForStableCenter();
+  await page.waitForTimeout(200);
+  await waitForStableCenter();
 }
 
 async function waitForPreviewClosed(page, sourceIndex) {

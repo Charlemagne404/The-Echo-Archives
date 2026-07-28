@@ -4,8 +4,9 @@ IFS=$'\n\t'
 umask 0077
 export LC_ALL=C
 
-APP_USER="charlie"
-APP_GROUP="charlie"
+OPERATOR_USER="charlie"
+APP_USER="echo-archives"
+APP_GROUP="echo-archives"
 REPO_ROOT="/home/charlie/The-Echo-Archives"
 SERVICE_NAME="echo-archives-offsite-backup.service"
 TIMER_NAME="echo-archives-offsite-backup.timer"
@@ -151,7 +152,7 @@ assert_no_competing_automation() {
     done < <(
       grep -RIl --fixed-strings "${automation_script}" \
         /etc/systemd/system \
-        "/home/${APP_USER}/.config/systemd/user" \
+        "/home/${OPERATOR_USER}/.config/systemd/user" \
         2>/dev/null || true
     )
   done
@@ -170,7 +171,7 @@ assert_no_competing_automation() {
     2>/dev/null | grep -q .; then
     die "A cron entry also references the Pi backup configuration."
   fi
-  for cron_user in root "${APP_USER}"; do
+  for cron_user in root "${OPERATOR_USER}" "${APP_USER}"; do
     if /usr/bin/crontab -u "${cron_user}" -l 2>/dev/null |
       grep -Fq \
         -e "${MANUAL_SCRIPT}" \
@@ -209,10 +210,12 @@ case "${1}" in
     exit 1
     ;;
 esac
-[[ "${SUDO_USER:-}" == "${APP_USER}" ]] ||
-  die "Run this exact script with sudo from the ${APP_USER} account."
-[[ "$(id -u "${APP_USER}")" == "1000" ]] ||
-  die "The expected application account UID changed."
+[[ "${SUDO_USER:-}" == "${OPERATOR_USER}" ]] ||
+  die "Run this exact script with sudo from the ${OPERATOR_USER} account."
+[[ "$(id -u "${OPERATOR_USER}")" == "1000" ]] ||
+  die "The expected operator account UID changed."
+id "${APP_USER}" >/dev/null 2>&1 ||
+  die "The dedicated ${APP_USER} runtime account must exist before the restore drill."
 
 for command_path in \
   /usr/bin/find \

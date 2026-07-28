@@ -32,3 +32,4 @@ ProtectKernelModules=true
 ProtectKernelTunables=true
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 ReadWritePaths=/var/cache/echo-archives-pi-restic /var/lib/echo-archives-monitoring
+ReadWritePaths=/home/charlie/The-Echo-Archives/backend/data/backups

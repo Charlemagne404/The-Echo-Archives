@@ -14,6 +14,10 @@ and requires all candidate builds and tests to leave committed output clean.
 Immediately before activation it creates and verifies an online SQLite backup.
 Activation is a fast-forward of the clean live branch plus a same-filesystem
 dependency-tree swap, followed by one Echo service restart. Caddy is not touched.
+Candidate dependencies receive a read/traverse ACL for the dedicated
+`echo-archives` runtime account before activation. After the swap and before
+the restart, the deployment runs a dependency-resolution probe as that account;
+a failure enters the same automatic rollback path.
 
 ## Automatic rollback boundary
 

@@ -110,6 +110,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   for (const relativePath of [
     "deploy/check-echo-archives-production.sh",
     "deploy/check-cloudflare-proxy-ranges.sh",
+    "deploy/complete-launch-maintenance.sh",
     "deploy/complete-local-launch-readiness.sh",
     "deploy/complete-pi-backup-setup.sh",
     "deploy/echo-archives-offsite-backup.sh",
@@ -119,6 +120,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "deploy/migrate-echoarchives-domain.sh",
     "deploy/production-host-maintenance.sh",
     "deploy/update-echo-archives.sh",
+    "deploy/verify-deployment-rollback-invariants.sh",
     "deploy/verify-restored-application.sh",
     "update-echo-archives.sh",
   ]) {
@@ -132,6 +134,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "git fetch --prune",
     'git worktree add --detach "${CANDIDATE_WORKTREE}" "${TARGET_REVISION}"',
     'npm --prefix "${CANDIDATE_WORKTREE}/backend" ci --omit=dev',
+    'grant_runtime_dependency_read_access "${CANDIDATE_WORKTREE}/backend/node_modules"',
     "NODE_ENV=production npm run check:config",
     "npm run test:tools",
     "npm run backup:database",
@@ -147,6 +150,20 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     /sudo systemctl restart "\$\{SERVICE_NAME\}"[\s\S]*if ! wait_for_health/,
   );
   assert.match(updateScript, /journalctl --namespace=echo-archives/);
+  assert.match(
+    updateScript,
+    /mv "\$\{CANDIDATE_WORKTREE\}\/backend\/node_modules" "\$\{REPO_ROOT\}\/backend\/node_modules"[\s\S]*verify_runtime_dependency_access[\s\S]*sudo systemctl restart/,
+  );
+  assert.match(
+    updateScript,
+    /PREVIOUS_DEPENDENCIES="\$\{CANDIDATE_PARENT\}\/node_modules\.previous"[\s\S]*git merge --ff-only "\$\{TARGET_REVISION\}"[\s\S]*DEPLOYMENT_APPLIED=true[\s\S]*mv "\$\{REPO_ROOT\}\/backend\/node_modules"/,
+  );
+  assert.match(
+    updateScript,
+    /HEALTH_SUMMARY="\$\([\s\S]*health\.service !== "echo-archives"[\s\S]*DEPLOYMENT_APPLIED=false[\s\S]*cleanup_tree "\$\{PREVIOUS_DEPENDENCIES\}"/,
+  );
+  assert.match(updateScript, /setfacl -m "u:\$\{RUNTIME_USER\}:r-x,d:u:\$\{RUNTIME_USER\}:r-x"/);
+  assert.match(updateScript, /sudo -u "\$\{RUNTIME_USER\}" -- \/usr\/bin\/node/);
 
   const compatibilityUpdateScript = read("update-echo-archives.sh");
   assert.match(compatibilityUpdateScript, /CANONICAL_UPDATE=.*deploy\/update-echo-archives\.sh/);
@@ -243,11 +260,38 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(offsiteBackup, /cp --preserve=mode,timestamps/);
   assert.match(offsiteBackup, /cmp --silent/);
   assert.match(offsiteBackup, /MAX_LOCAL_BACKUP_AGE_HOURS/);
+  assert.match(offsiteBackup, /\.retention-write-probe\.\*/);
+  assert.match(offsiteBackup, /service sandbox can apply retention/);
   assert.match(offsiteBackup, /cp --archive --no-dereference/);
   assert.match(offsiteBackup, /backend\/data\/import-staging/);
-  assert.match(offsiteBackup, /configuration\/backend\.env/);
-  assert.match(offsiteBackup, /configuration\/Caddyfile/);
-  assert.match(offsiteBackup, /configuration\/monitoring\.env/);
+  assert.match(
+    offsiteBackup,
+    /Importer staging root must not be a symbolic link/,
+  );
+  assert.match(
+    offsiteBackup,
+    /Importer staging contains a symbolic link/,
+  );
+  assert.match(offsiteBackup, /stage_publication_directory/);
+  assert.match(offsiteBackup, /catalog-src\/shows/);
+  assert.match(offsiteBackup, /images\/generated\/covers/);
+  assert.match(offsiteBackup, /data\/reviews/);
+  assert.match(offsiteBackup, /docs\/generated\/catalog-status\.md/);
+  assert.match(offsiteBackup, /REQUIRED_PATHS/);
+  assert.match(offsiteBackup, /restic ls --json "\$\{snapshot_id\}"/);
+  assert.match(offsiteBackup, /Remote recovery inventory contains all/);
+  assert.match(offsiteBackup, /stage_private_configuration "\$\{BACKEND_ENV\}" "backend\.env"/);
+  assert.match(offsiteBackup, /stage_private_configuration "\/etc\/caddy\/Caddyfile" "Caddyfile"/);
+  assert.match(offsiteBackup, /stage_private_configuration "\/etc\/echo-archives\/monitoring\.env" "monitoring\.env"/);
+  assert.match(offsiteBackup, /"\/etc\/echo-archives\/better-stack\.env" "better-stack\.env"/);
+  assert.match(offsiteBackup, /"\/etc\/echo-archives\/pi-restic\.env" "pi-restic\.env"/);
+  assert.match(offsiteBackup, /"echo-archives-journald\.conf"/);
+  assert.match(offsiteBackup, /"echo-archives-discovery-runtime-account\.conf"/);
+  assert.match(offsiteBackup, /"echo-archives-offsite-backup-heartbeat\.conf"/);
+  assert.match(offsiteBackup, /"echo-archives-runtime-account-readiness"/);
+  assert.match(offsiteBackup, /"\/etc\/systemd\/system\/ollama\.service" "ollama\.service"/);
+  assert.doesNotMatch(offsiteBackup, /configuration\/pi-restic-password/);
+  assert.doesNotMatch(offsiteBackup, /configuration\/echo-archives-pi-backup/);
   assert.match(offsiteBackup, /restic backup --json --tag echo-archives/);
   assert.match(offsiteBackup, /--keep-daily 7/);
   assert.match(offsiteBackup, /--group-by host,tags/);
@@ -261,6 +305,8 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(piBackupCompletion, /restic snapshots --json --tag echo-archives/);
   assert.match(piBackupCompletion, /restic restore --verify --target "\$\{RESTORE_DIR\}"/);
   assert.match(piBackupCompletion, /APPLICATION_CHECK/);
+  assert.match(piBackupCompletion, /OPERATOR_USER="charlie"/);
+  assert.match(piBackupCompletion, /APP_USER="echo-archives"/);
   assert.match(piBackupCompletion, /find "\$\{RESTORE_DIR\}" -xdev -depth -delete/);
   assert.match(piBackupCompletion, /systemctl start "\$\{SERVICE_NAME\}"/);
   assert.match(piBackupCompletion, /--repair-automation/);
@@ -280,6 +326,8 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(restoredApplicationCheck, /\/api\/health/);
   assert.match(restoredApplicationCheck, /\/data\/shows\.json/);
   assert.match(restoredApplicationCheck, /\/shows\/\$\{first_show_id\}/);
+  assert.match(restoredApplicationCheck, /VERIFY_ARCHIVIST_EXPECTED_SOURCE/);
+  assert.match(restoredApplicationCheck, /health\.durability\?\.synchronous !== "FULL"/);
 
   const finalMaintenance = read("deploy/final-production-launch-maintenance.sh");
   assert.match(finalMaintenance, /ufw delete allow "\$\{target\}"/);
@@ -440,7 +488,14 @@ test("checked-in service and proxy retain production hardening", () => {
   assert.match(offsiteService, /After=network-online\.target tailscaled\.service echo-archives-backup\.service/);
   assert.match(offsiteService, /ProtectSystem=strict/);
   assert.match(offsiteService, /ProtectHome=read-only/);
-  assert.doesNotMatch(offsiteService, /ReadWritePaths=.*\/home\/charlie/);
+  assert.match(
+    offsiteService,
+    /^ReadWritePaths=\/home\/charlie\/The-Echo-Archives\/backend\/data\/backups$/m,
+  );
+  assert.doesNotMatch(
+    offsiteService,
+    /^ReadWritePaths=\/home\/charlie(?:\/The-Echo-Archives)?$/m,
+  );
   assert.match(offsiteService, /EnvironmentFile=\/etc\/echo-archives\/pi-restic\.env/);
   assert.match(offsiteService, /Environment=MAX_LOCAL_BACKUP_AGE_HOURS=6/);
   assert.match(offsiteService, /ExecStart=\/home\/charlie\/The-Echo-Archives\/deploy\/echo-archives-offsite-backup\.sh/);

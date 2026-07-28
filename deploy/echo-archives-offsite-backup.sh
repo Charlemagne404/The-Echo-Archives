@@ -13,14 +13,27 @@ MAX_LOCAL_BACKUP_AGE_HOURS="${MAX_LOCAL_BACKUP_AGE_HOURS:-6}"
 RESULT_FILE=""
 MARKER_TEMP=""
 VERIFY_DIR=""
+BACKUP_WRITE_PROBE=""
+REMOTE_LIST_FILE=""
 
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
 }
 
 cleanup() {
+  if [[ -n "${BACKUP_WRITE_PROBE}" &&
+    "${BACKUP_WRITE_PROBE}" == "${BACKUP_DIR}"/.retention-write-probe.* &&
+    -f "${BACKUP_WRITE_PROBE}" &&
+    ! -L "${BACKUP_WRITE_PROBE}" ]]; then
+    rm -f -- "${BACKUP_WRITE_PROBE}"
+  fi
+  BACKUP_WRITE_PROBE=""
   if [[ -n "${RESULT_FILE}" && "${RESULT_FILE}" == /var/lib/echo-archives-monitoring/restic-result.* ]]; then
     rm -f -- "${RESULT_FILE}"
+  fi
+  if [[ -n "${REMOTE_LIST_FILE}" &&
+    "${REMOTE_LIST_FILE}" == /var/lib/echo-archives-monitoring/restic-inventory.* ]]; then
+    rm -f -- "${REMOTE_LIST_FILE}"
   fi
   if [[ -n "${MARKER_TEMP}" && "${MARKER_TEMP}" == /var/lib/echo-archives-monitoring/offsite-backup-success.* ]]; then
     rm -f -- "${MARKER_TEMP}"
@@ -38,11 +51,45 @@ fail() {
   exit 1
 }
 
+stage_private_configuration() {
+  local source="$1"
+  local destination_name="$2"
+  [[ ! -L "${source}" ]] ||
+    fail "Recovery configuration source is not a safe regular file: ${source}"
+  [[ -e "${source}" ]] || return
+  [[ -f "${source}" ]] ||
+    fail "Recovery configuration source is not a safe regular file: ${source}"
+  install -m 0600 -- "${source}" \
+    "${recovery_root}/configuration/${destination_name}"
+}
+
+stage_publication_directory() {
+  local relative_path="$1"
+  local source="${REPO_ROOT}/${relative_path}"
+  local destination_parent="${recovery_root}/publication/$(dirname -- "${relative_path}")"
+  [[ -d "${source}" && ! -L "${source}" ]] ||
+    fail "Runtime publication directory is missing or unsafe: ${source}"
+  if find "${source}" -xdev -type l -print -quit | grep -q .; then
+    fail "Runtime publication directory contains a symbolic link: ${source}"
+  fi
+  install -d -m 0700 "${destination_parent}"
+  cp --archive --no-dereference -- "${source}" "${destination_parent}/"
+}
+
+stage_publication_file() {
+  local relative_path="$1"
+  local source="${REPO_ROOT}/${relative_path}"
+  local destination="${recovery_root}/publication/${relative_path}"
+  [[ -f "${source}" && ! -L "${source}" ]] ||
+    fail "Runtime publication file is missing or unsafe: ${source}"
+  install -D -m 0600 -- "${source}" "${destination}"
+}
+
 trap cleanup EXIT
 
 [[ "${EUID}" -eq 0 ]] || fail "Run this job through its root-owned systemd service."
 
-for command_name in basename cmp cp cut date find install mktemp node restic rm sed sort stat; do
+for command_name in basename cmp cp cut date dirname find grep install mktemp node restic rm sed sort stat; do
   command -v "${command_name}" >/dev/null 2>&1 || fail "Required command is missing: ${command_name}"
 done
 
@@ -61,6 +108,15 @@ export RESTIC_CACHE_DIR="${CACHE_DIR}"
   fail "RESTIC_PASSWORD_FILE must be owned by root:root."
 [[ "$(stat -c '%a' "${RESTIC_PASSWORD_FILE}")" == "600" ]] ||
   fail "RESTIC_PASSWORD_FILE must have mode 0600."
+
+BACKUP_WRITE_PROBE="$(mktemp "${BACKUP_DIR}/.retention-write-probe.XXXXXX")"
+[[ "${BACKUP_WRITE_PROBE}" == "${BACKUP_DIR}"/.retention-write-probe.* &&
+  -f "${BACKUP_WRITE_PROBE}" &&
+  ! -L "${BACKUP_WRITE_PROBE}" ]] ||
+  fail "Completed-backup retention write probe returned an unsafe path."
+rm -f -- "${BACKUP_WRITE_PROBE}"
+BACKUP_WRITE_PROBE=""
+log "Verified the service sandbox can apply retention only in the completed-backup directory."
 
 latest_backup="$(
   find "${BACKUP_DIR}" -maxdepth 1 -type f -name '*.sqlite' -printf '%T@ %p\n' |
@@ -85,21 +141,53 @@ node "${REPO_ROOT}/tools/check-database-backup.js" \
 cmp --silent -- "${latest_backup}" "${staged_backup}" ||
   fail "The verified staging copy differs from the selected local backup."
 
+if [[ -L "${IMPORT_STAGING_DIR}" ]]; then
+  fail "Importer staging root must not be a symbolic link: ${IMPORT_STAGING_DIR}"
+fi
 if [[ -d "${IMPORT_STAGING_DIR}" ]]; then
+  if find "${IMPORT_STAGING_DIR}" -type l -print -quit | grep -q .; then
+    fail "Importer staging contains a symbolic link: ${IMPORT_STAGING_DIR}"
+  fi
   log "Staging importer cover state in the protected recovery inventory."
-  cp --archive --no-dereference -- "${IMPORT_STAGING_DIR}" "${recovery_root}/import-staging"
+  cp --archive -- "${IMPORT_STAGING_DIR}" "${recovery_root}/import-staging"
 fi
 
-if [[ -f "${BACKEND_ENV}" ]]; then
-  install -m 0600 -- "${BACKEND_ENV}" "${recovery_root}/configuration/backend.env"
-fi
-if [[ -f /etc/caddy/Caddyfile ]]; then
-  install -m 0600 -- /etc/caddy/Caddyfile "${recovery_root}/configuration/Caddyfile"
-fi
-if [[ -f /etc/echo-archives/monitoring.env ]]; then
-  install -m 0600 -- /etc/echo-archives/monitoring.env \
-    "${recovery_root}/configuration/monitoring.env"
-fi
+log "Staging every runtime-writable publication path in the protected recovery inventory."
+for relative_path in \
+  catalog-src/shows \
+  images/covers \
+  images/generated/covers \
+  data/reviews; do
+  stage_publication_directory "${relative_path}"
+done
+for relative_path in \
+  data/shows.json \
+  data/collections.json \
+  data/search-index.json \
+  data/archive-stats.json \
+  docs/generated/catalog-status.json \
+  docs/generated/catalog-status.md; do
+  stage_publication_file "${relative_path}"
+done
+
+stage_private_configuration "${BACKEND_ENV}" "backend.env"
+stage_private_configuration "/etc/caddy/Caddyfile" "Caddyfile"
+stage_private_configuration "/etc/echo-archives/monitoring.env" "monitoring.env"
+stage_private_configuration "/etc/echo-archives/better-stack.env" "better-stack.env"
+stage_private_configuration "/etc/echo-archives/pi-restic.env" "pi-restic.env"
+stage_private_configuration \
+  "/etc/systemd/journald@echo-archives.conf.d/retention.conf" \
+  "echo-archives-journald.conf"
+stage_private_configuration \
+  "/etc/systemd/system/echo-archives-discovery.service.d/10-runtime-account.conf" \
+  "echo-archives-discovery-runtime-account.conf"
+stage_private_configuration \
+  "/etc/systemd/system/echo-archives-offsite-backup.service.d/better-stack-heartbeat.conf" \
+  "echo-archives-offsite-backup-heartbeat.conf"
+stage_private_configuration \
+  "/var/lib/echo-archives-runtime-account/readiness" \
+  "echo-archives-runtime-account-readiness"
+stage_private_configuration "/etc/systemd/system/ollama.service" "ollama.service"
 
 for unit_name in \
   echo-archives.service \
@@ -117,6 +205,14 @@ for unit_name in \
       "${recovery_root}/configuration/${unit_name}"
   fi
 done
+
+required_paths="${recovery_root}/REQUIRED_PATHS"
+find "${recovery_root}" -xdev -mindepth 1 \
+  ! -path "${required_paths}" -printf '%P\n' |
+  sort > "${required_paths}"
+printf '%s\n' "REQUIRED_PATHS" >> "${required_paths}"
+[[ -s "${required_paths}" ]] ||
+  fail "Recovery inventory manifest is unexpectedly empty."
 
 RESULT_FILE="$(mktemp /var/lib/echo-archives-monitoring/restic-result.XXXXXX)"
 
@@ -150,6 +246,30 @@ restic snapshots --json "${snapshot_id}" |
     });
   ' "${snapshot_id}" ||
   fail "The new off-site snapshot could not be listed."
+
+REMOTE_LIST_FILE="$(mktemp /var/lib/echo-archives-monitoring/restic-inventory.XXXXXX)"
+restic ls --json "${snapshot_id}" > "${REMOTE_LIST_FILE}"
+node - "${required_paths}" "${REMOTE_LIST_FILE}" <<'NODE'
+const fs = require("node:fs");
+const [manifestPath, remotePath] = process.argv.slice(2);
+const required = fs.readFileSync(manifestPath, "utf8").trim().split(/\n+/);
+const remote = new Set();
+for (const line of fs.readFileSync(remotePath, "utf8").trim().split(/\n+/)) {
+  const entry = JSON.parse(line);
+  if (entry.struct_type !== "node" || typeof entry.path !== "string") continue;
+  const marker = "/recovery/";
+  const markerIndex = entry.path.lastIndexOf(marker);
+  if (markerIndex >= 0) remote.add(entry.path.slice(markerIndex + marker.length));
+}
+const missing = required.filter((relativePath) => !remote.has(relativePath));
+if (missing.length > 0) {
+  console.error(`Remote recovery inventory is incomplete (${missing.length} missing path(s)).`);
+  process.exit(1);
+}
+process.stdout.write(`Remote recovery inventory contains all ${required.length} staged paths.\n`);
+NODE
+rm -f -- "${REMOTE_LIST_FILE}"
+REMOTE_LIST_FILE=""
 
 log "Applying reviewed retention to Echo Archives-tagged restic snapshots."
 restic forget \

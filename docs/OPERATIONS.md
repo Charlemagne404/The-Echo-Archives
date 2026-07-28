@@ -41,6 +41,12 @@ read it but cannot write application code or `.git`. It can write only the
 dedicated SQLite state directory and the importer staging/publication paths
 listed in the dedicated-account procedure below.
 
+The canonical deployment installs dependencies as `charlie`, then applies
+read/traverse ACLs to the immutable candidate `node_modules` tree and verifies
+module resolution as `echo-archives` before restarting. Do not replace that
+step with a recursive ownership change; deployment and runtime ownership remain
+separate.
+
 The service runs a configuration preflight before every start. Invalid production configuration prevents startup instead of silently using a development fallback.
 
 ## Production Environment
@@ -61,7 +67,10 @@ Required launch decisions:
 - `DB_PATH` must be absolute in production.
 - `MAINTAINER_REVIEW_PASSPHRASE` and `MAINTAINER_REVIEW_COOKIE_SECRET` must either both be absent or both be configured. For launch they should be configured because the public site advertises moderated submissions.
 - The maintainer passphrase must be at least 12 characters. The cookie secret must be distinct and at least 32 characters.
-- `COMMUNITY_RATING_WRITES_ENABLED` is `false` by default in production. Leaving it false is a supported read-only launch mode.
+- `COMMUNITY_RATING_WRITES_ENABLED` is `false` by default in production. The
+  owner-selected launch state is `true`, but only after the complete production
+  flow, permissions, Turnstile, and rate limits pass verification. The
+  read-only state remains the safe fallback if that gate fails.
 
 Generate secrets with a system cryptographic tool, for example:
 
@@ -178,6 +187,22 @@ Firefox, and WebKit.
 The working tree should stay clean after verification. If `npm run build:pages` or `npm run verify` changes generated root HTML, review the diff and commit it instead of hand-editing the public page files.
 
 Do not install production dependencies or restart the live service until the release commit passes the complete workstation preflight, including Playwright. The production server update intentionally runs the non-browser subset after installing only production dependencies.
+
+## 2026 launch maintenance
+
+For the current launch remediation, use only
+[`deploy/complete-launch-maintenance.sh`](../deploy/complete-launch-maintenance.sh)
+and its
+[`COMPLETE_LAUNCH_MAINTENANCE.md`](../deploy/COMPLETE_LAUNCH_MAINTENANCE.md)
+runbook. The orchestrator pins the exact clean commit, coordinates the reviewed
+Caddy/runtime-account/backup/Ollama changes, validates every shared Caddy host,
+and stops with current-stage rollback on failure. It has unprivileged
+`--repository-check`, privileged non-applying `--check`, and privileged
+`--apply` modes.
+
+Do not combine that session with the older broad local/host readiness scripts.
+They cover unrelated co-hosted services or predate the Cloudflare-only origin
+gate.
 
 ## First Server Install
 
@@ -393,6 +418,7 @@ staging copy in its writable cache. A backup older than six hours is rejected,
 so a failed local-backup run cannot silently upload yesterday's database. The
 job builds a stable encrypted recovery inventory from that copy, importer cover
 staging, the production environment, the active Caddyfile, Echo systemd units,
+all runtime-writable publication directories and generated catalog/status files,
 and the private monitor configuration. It uploads only that cache copy, applies
 the reviewed Restic retention policy, requires `restic check` to succeed, and
 only then refreshes the off-site success marker. It never opens the live
@@ -405,10 +431,11 @@ repository they unlock is not recovery.
 Retention groups snapshots by host and `echo-archives` tag rather than by
 source path, because timestamped local backup filenames change every day.
 
-`ProtectHome=read-only` is intentional. Do not add the live database or backup
-directory to `ReadWritePaths`: only the normal `echo-archives-backup.service`
-runs as `charlie` and writes completed backups. The off-site service receives
-write access only to its Restic cache and monitoring state.
+`ProtectHome=read-only` is intentional. Do not add the live database or any
+broad home/repository path to `ReadWritePaths`. The off-site service receives
+write access only to its Restic cache, monitoring state, and the exact completed
+backup directory because it applies the owner-approved 30-day retention only
+after upload and remote verification. It never writes the live database.
 
 The guarded first-time completion and repeat restore-drill procedure is:
 
@@ -427,7 +454,7 @@ sudo /home/charlie/The-Echo-Archives/deploy/complete-pi-backup-setup.sh --repair
 It does not initialize a repository or restore over production. It selects the
 newest Echo-tagged snapshot at run time, restores it beneath a unique `/var/tmp`
 directory, validates SQLite integrity, foreign keys, and required non-empty
-tables, then starts an isolated application as `charlie` on loopback port 3911
+tables, then starts an isolated application as `echo-archives` on loopback port 3911
 against that restored copy. The drill requires healthy application state,
 matching catalog counts, and a representative rendered show page before
 removing only the temporary restore. It installs the canonical unit pair, runs

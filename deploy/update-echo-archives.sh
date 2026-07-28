@@ -17,6 +17,8 @@ TARGET_REVISION=""
 CURRENT_BRANCH=""
 DEPLOYMENT_APPLIED=false
 ROLLBACK_SUCCEEDED=false
+RUNTIME_USER="${RUNTIME_USER:-echo-archives}"
+HEALTH_SUMMARY=""
 
 cleanup_tree() {
   local target="$1"
@@ -49,6 +51,28 @@ fail() {
   exit 1
 }
 
+grant_runtime_dependency_read_access() {
+  local dependency_root="$1"
+  [[ -d "${dependency_root}" && ! -L "${dependency_root}" ]] ||
+    fail "candidate dependency tree is missing or unsafe"
+  find "${dependency_root}" -xdev -type d -exec \
+    setfacl -m "u:${RUNTIME_USER}:r-x,d:u:${RUNTIME_USER}:r-x" {} +
+  find "${dependency_root}" -xdev -type f -exec \
+    setfacl -m "u:${RUNTIME_USER}:r--" {} +
+}
+
+verify_runtime_dependency_access() {
+  sudo -u "${RUNTIME_USER}" -- /usr/bin/node - <<'NODE'
+const fs = require("node:fs");
+const backend = "/home/charlie/The-Echo-Archives/backend";
+fs.accessSync(`${backend}/server.js`, fs.constants.R_OK);
+for (const moduleName of ["better-sqlite3", "express"]) {
+  const resolved = require.resolve(moduleName, { paths: [backend] });
+  fs.accessSync(resolved, fs.constants.R_OK);
+}
+NODE
+}
+
 wait_for_health() {
   local attempt
   for ((attempt = 1; attempt <= HEALTH_ATTEMPTS; attempt += 1)); do
@@ -74,10 +98,10 @@ rollback_application() {
   # fast-forward performed below can be discarded here.
   git reset --hard "${PREVIOUS_REVISION}" || return 1
 
-  if [[ -d "${REPO_ROOT}/backend/node_modules" ]]; then
-    mv "${REPO_ROOT}/backend/node_modules" "${CANDIDATE_PARENT}/node_modules.failed" || return 1
-  fi
   if [[ -d "${PREVIOUS_DEPENDENCIES}" ]]; then
+    if [[ -d "${REPO_ROOT}/backend/node_modules" ]]; then
+      mv "${REPO_ROOT}/backend/node_modules" "${CANDIDATE_PARENT}/node_modules.failed" || return 1
+    fi
     mv "${PREVIOUS_DEPENDENCIES}" "${REPO_ROOT}/backend/node_modules" || return 1
   fi
 
@@ -109,10 +133,12 @@ if [[ "${EUID}" -eq 0 ]]; then
   fail "run this script as the deployment user, not root; it uses sudo only for systemd"
 fi
 
-for command_name in curl find git ln mktemp mv node npm sleep sudo unlink; do
+for command_name in curl find getent git ln mktemp mv node npm setfacl sleep sudo unlink; do
   command -v "${command_name}" >/dev/null 2>&1 ||
     fail "required command is missing: ${command_name}"
 done
+getent passwd "${RUNTIME_USER}" >/dev/null ||
+  fail "dedicated runtime account ${RUNTIME_USER} is missing"
 
 [[ -x /usr/bin/node ]] || fail "the systemd Node runtime is missing at /usr/bin/node"
 /usr/bin/node -e '
@@ -149,6 +175,7 @@ ln -s "${REPO_ROOT}/backend/.env" "${CANDIDATE_WORKTREE}/backend/.env"
 
 echo "Installing locked dependencies in the disposable candidate..."
 npm --prefix "${CANDIDATE_WORKTREE}/backend" ci --omit=dev
+grant_runtime_dependency_read_access "${CANDIDATE_WORKTREE}/backend/node_modules"
 
 echo "Validating the exact candidate revision before activation..."
 (
@@ -171,14 +198,15 @@ fi
 echo "Creating a verified online SQLite backup immediately before activation..."
 npm run backup:database
 
-echo "Activating ${TARGET_REVISION}..."
-git merge --ff-only "${TARGET_REVISION}"
-PREVIOUS_DEPENDENCIES="${CANDIDATE_PARENT}/node_modules.previous"
 [[ -d "${REPO_ROOT}/backend/node_modules" ]] ||
   fail "live backend/node_modules is missing"
+PREVIOUS_DEPENDENCIES="${CANDIDATE_PARENT}/node_modules.previous"
+echo "Activating ${TARGET_REVISION}..."
+git merge --ff-only "${TARGET_REVISION}"
+DEPLOYMENT_APPLIED=true
 mv "${REPO_ROOT}/backend/node_modules" "${PREVIOUS_DEPENDENCIES}"
 mv "${CANDIDATE_WORKTREE}/backend/node_modules" "${REPO_ROOT}/backend/node_modules"
-DEPLOYMENT_APPLIED=true
+verify_runtime_dependency_access
 
 sudo systemctl restart "${SERVICE_NAME}"
 if ! wait_for_health; then
@@ -194,20 +222,33 @@ if [[ -n "$(git status --porcelain)" ]]; then
   fail "the activated checkout is unexpectedly dirty"
 fi
 
+HEALTH_SUMMARY="$(
+  node -e '
+    const fs = require("node:fs");
+    const health = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+    if (
+      health.ok !== true ||
+      health.service !== "echo-archives" ||
+      !(health.catalogCount > 0) ||
+      !(health.collectionCount > 0)
+    ) process.exit(1);
+    process.stdout.write(JSON.stringify({
+      ok: health.ok,
+      service: health.service,
+      catalogCount: health.catalogCount,
+      collectionCount: health.collectionCount,
+      durability: health.durability,
+      features: health.features,
+    }));
+  ' "${HEALTH_OUTPUT}"
+)" || fail "post-deployment health response was incomplete"
+
+# Health, runtime dependency access, and checkout cleanliness have passed.
+# Disable rollback before removing its dependency tree.
+DEPLOYMENT_APPLIED=false
 cleanup_tree "${PREVIOUS_DEPENDENCIES}" "${CANDIDATE_PARENT}/node_modules.previous"
 PREVIOUS_DEPENDENCIES=""
 
 echo "Health check passed:"
-node -e '
-  const fs = require("node:fs");
-  const health = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
-  process.stdout.write(JSON.stringify({
-    ok: health.ok,
-    service: health.service,
-    catalogCount: health.catalogCount,
-    collectionCount: health.collectionCount,
-    features: health.features,
-  }));
-' "${HEALTH_OUTPUT}"
-echo
+printf '%s\n' "${HEALTH_SUMMARY}"
 echo "Deployment completed on ${CURRENT_BRANCH}: ${PREVIOUS_REVISION} -> ${TARGET_REVISION}"
