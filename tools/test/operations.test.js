@@ -248,6 +248,14 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(runtimeMigration, /health\?\.features\?\.accessLogs === true/);
   assert.match(runtimeMigration, /journalctl --namespace=echo-archives/);
   assert.match(runtimeMigration, /"event":"http_request"/);
+  assert.match(
+    runtimeMigration,
+    /--output "\$\{health_output\}" "\$\{LOCAL_HOME_URL\}"/,
+  );
+  assert.doesNotMatch(
+    runtimeMigration,
+    /"\$\{LOCAL_HOME_URL\}"\s*\|\s*grep\s+-[A-Za-z]*q/,
+  );
   assert.match(runtimeMigration, /rollback-current-\$\{TIMESTAMP\}\.sqlite/);
   assert.match(runtimeMigration, /pre-rollback-\$\{TIMESTAMP\}/);
   assert.match(runtimeMigration, /transfer_runtime_publication_ownership/);

@@ -525,6 +525,7 @@ caddy_gate_is_installed() {
 
 verify_public_echo() {
   local health="${TEMP_ROOT}/public-health.json"
+  local homepage="${TEMP_ROOT}/public-homepage.html"
   curl --fail --silent --show-error --max-time 20 \
     --output "${health}" https://echoarchives.net/api/health
   node - "${health}" <<'NODE'
@@ -533,8 +534,8 @@ const health = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (health.ok !== true || health.service !== "echo-archives") process.exit(1);
 NODE
   curl --fail --silent --show-error --max-time 20 \
-    https://echoarchives.net/ |
-    grep -Fq "The Echo Archives"
+    --output "${homepage}" https://echoarchives.net/
+  grep -Fq "The Echo Archives" "${homepage}"
 }
 
 expect_direct_origin_blocked() {

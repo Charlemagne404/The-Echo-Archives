@@ -125,6 +125,11 @@ work when strict `pipefail` exposed an early-exit archive-listing assertion.
 The validator now consumes the complete Ollama listing while checking both
 `bin/ollama` and `lib/ollama/`; the archive itself and its official checksum
 were unchanged. The successful rerun is recorded with the follow-up commit.
+A final safety review found the same early-consumer risk in the public-homepage
+checks used by the privileged orchestrator and runtime-account migration. Both
+checks now download the complete response before inspecting it, so a successful
+large response cannot be mistaken for a network failure under `pipefail`.
+Regression assertions cover both call sites.
 
 ### Repository verification evidence
 

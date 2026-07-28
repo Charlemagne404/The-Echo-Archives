@@ -95,6 +95,14 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   );
   assert.match(script, /rollback_ollama_upgrade/);
   assert.match(script, /Caddyfile\.before-upgrade/);
+  assert.match(
+    script,
+    /--output "\$\{homepage\}" https:\/\/echoarchives\.net\//,
+  );
+  assert.doesNotMatch(
+    script,
+    /https:\/\/echoarchives\.net\/\s*\|\s*grep\s+-[A-Za-z]*q/,
+  );
 });
 
 test("complete launch maintenance does not mutate UFW or expose monitoring secrets", () => {

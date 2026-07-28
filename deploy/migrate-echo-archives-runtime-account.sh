@@ -524,10 +524,17 @@ run_runtime_checks() {
     die "No structured HTTP access event reached the isolated journal."
   fi
   rm -f -- "${health_output}"
-  curl --fail --silent --show-error --max-time 10 \
-    "${LOCAL_HOME_URL}" |
-    grep -q 'The Echo Archives' ||
+  health_output="$(mktemp /run/echo-archives-runtime-home.XXXXXX)"
+  if ! curl --fail --silent --show-error --max-time 10 \
+    --output "${health_output}" "${LOCAL_HOME_URL}"; then
+    rm -f -- "${health_output}"
     die "Static homepage serving failed under the dedicated account."
+  fi
+  if ! grep -Fq 'The Echo Archives' "${health_output}"; then
+    rm -f -- "${health_output}"
+    die "Static homepage serving failed under the dedicated account."
+  fi
+  rm -f -- "${health_output}"
 
   systemd-analyze verify "${SERVICE_DEST}"
 }
