@@ -120,6 +120,12 @@ official SHA-512 manifests; Ollama 0.32.5 and 0.6.7 matched their official
 SHA-256 manifests. The staged Caddy 2.11.4 binary and archive contents were
 validated. No package was installed.
 
+The first exact-commit repository-check run correctly stopped before privileged
+work when strict `pipefail` exposed an early-exit archive-listing assertion.
+The validator now consumes the complete Ollama listing while checking both
+`bin/ollama` and `lib/ollama/`; the archive itself and its official checksum
+were unchanged. The successful rerun is recorded with the follow-up commit.
+
 ### Repository verification evidence
 
 The final post-fix `npm run verify` completed successfully:

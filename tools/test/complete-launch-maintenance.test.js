@@ -74,6 +74,11 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   ]) {
     assert.match(script, new RegExp(value));
   }
+  assert.match(script, /has_binary && has_library/);
+  assert.doesNotMatch(
+    script,
+    /tar --zstd --list[\s\S]{0,120}\|\s*grep\s+-[A-Za-z]*q/,
+  );
   assert.match(script, /cp -a -- \/usr\/local\/bin\/ollama/);
   assert.match(script, /cp -a -- \/usr\/local\/lib\/ollama/);
   assert.match(script, /ollama-lib\.pre-upgrade/);

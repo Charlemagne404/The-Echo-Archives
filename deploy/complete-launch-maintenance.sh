@@ -198,11 +198,12 @@ validate_artifacts() {
   "${CADDY_STAGED_BIN}" version | grep -Fq "v2.11.4" ||
     fail "staged Caddy binary does not report v2.11.4"
   tar --zstd --list --file "${OLLAMA_NEW_ARCHIVE}" |
-    grep -Fxq "bin/ollama" ||
-    fail "Ollama upgrade archive lacks bin/ollama"
-  tar --zstd --list --file "${OLLAMA_NEW_ARCHIVE}" |
-    grep -q '^lib/ollama/' ||
-    fail "Ollama upgrade archive lacks lib/ollama"
+    awk '
+      $0 == "bin/ollama" { has_binary = 1 }
+      /^lib\/ollama\// { has_library = 1 }
+      END { exit !(has_binary && has_library) }
+    ' ||
+    fail "Ollama upgrade archive lacks its binary or library tree"
 }
 
 validate_repository_files() {
