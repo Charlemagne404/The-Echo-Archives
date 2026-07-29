@@ -7,7 +7,7 @@
 - **Production URL:** `https://echoarchives.net`
 - **Repository:** `/home/charlie/The-Echo-Archives`
 - **Audit basis:** Current repository, live website, production configuration, running services, database, logs, DNS, TLS, network state, backups, and hosting machine
-- **Last updated:** July 28, 2026
+- **Last updated:** July 29, 2026
 
 This is the working launch-readiness record for resolving the issues discovered during the July 28 audit. Update item status and add verification evidence as fixes land. Do not mark the site launch-ready until every blocker is closed or explicitly accepted by the owner with a documented mitigation.
 
@@ -130,6 +130,17 @@ checks used by the privileged orchestrator and runtime-account migration. Both
 checks now download the complete response before inspecting it, so a successful
 large response cannot be mistaken for a network failure under `pipefail`.
 Regression assertions cover both call sites.
+
+The first privileged preflight on July 29 stopped before mutation because the
+new off-site backup script's retention write probe had run under the still-live
+older systemd sandbox, which made the backup directory read-only. The local
+monitor then failed because it correctly observed that failed unit. The
+orchestrator now permits only this exact allowlisted transition after matching
+both journal signatures, preserves and validates the unit change after the
+fresh database backup, and clears the two failure states only after the new
+application health contract passes. Unrelated failed units remain fatal. This
+transition is ready for another privileged preflight; it is not production
+verified.
 
 ### Repository verification evidence
 

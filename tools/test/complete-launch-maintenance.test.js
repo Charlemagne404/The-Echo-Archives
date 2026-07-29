@@ -44,6 +44,7 @@ test("complete launch maintenance is fail-fast, locked, pinned, and staged", () 
   const orderedStages = [
     "run_stage preserve-baseline",
     "run_stage fresh-database-backup",
+    "run_stage backup-unit-transition",
     "run_stage caddy-origin-gate",
     "run_stage caddy-upgrade",
     "run_stage runtime-account",
@@ -95,6 +96,24 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   );
   assert.match(script, /rollback_ollama_upgrade/);
   assert.match(script, /Caddyfile\.before-upgrade/);
+  assert.match(script, /classify_backup_unit_transition/);
+  assert.match(script, /BACKUP_UNIT_NEEDS_INSTALL="yes"/);
+  assert.match(script, /already reconciled; preserving it idempotently/);
+  assert.match(
+    script,
+    /\$1 != "echo-archives-offsite-backup\.service" &&\s*\$1 != "echo-archives-local-monitor\.service"/,
+  );
+  assert.match(script, /\.retention-write-probe\./);
+  assert.match(script, /failure does not match the reviewed sandbox transition/);
+  assert.match(script, /rollback_backup_unit_transition/);
+  assert.match(
+    script,
+    /run_stage backup-unit-transition stage_backup_unit_transition/,
+  );
+  assert.match(
+    script,
+    /systemctl reset-failed \\\s*echo-archives-offsite-backup\.service \\\s*echo-archives-local-monitor\.service/,
+  );
   assert.match(
     script,
     /--output "\$\{homepage\}" https:\/\/echoarchives\.net\//,

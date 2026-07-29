@@ -15,50 +15,58 @@ In `--apply` mode the script performs these fail-fast stages in order:
    and a response-code baseline for every non-Echo site in the shared
    Caddyfile.
 2. Creates and validates a fresh online SQLite backup.
-3. Builds or recognizes the reviewed Cloudflare-only Echo origin gate, validates
+3. Reconciles the reviewed off-site backup unit when the checked-in backup
+   script has reached production before its matching systemd write path. Only
+   the exact off-site read-only probe failure and its local-monitor cascade are
+   accepted; any unrelated failed unit remains fatal. The original unit is
+   already preserved, the corrected unit is validated before daemon reload,
+   and no off-site backup is started at this stage.
+4. Builds or recognizes the reviewed Cloudflare-only Echo origin gate, validates
    it with both installed and staged Caddy, reloads Caddy, and verifies that
    spoofed direct-origin requests fail while public Cloudflare requests and all
    unrelated shared hosts retain their baseline status.
-4. Upgrades only the Caddy package from 2.10.2 to 2.11.4, retaining the
+5. Upgrades only the Caddy package from 2.10.2 to 2.11.4, retaining the
    conffile, then repeats configuration, shared-host, public, and origin checks.
-5. Runs the guarded `echo-archives` service-account migration. Application code
+6. Runs the guarded `echo-archives` service-account migration. Application code
    remains owned by `charlie`; the runtime account receives read access to
    deployed files and targeted write access only to the database, staging,
    generated catalog, covers, reviews, and other declared runtime paths. The
    stage applies the hardened unit and 14-day namespaced journal configuration.
-6. Verifies the restarted application is using the expected feature flags,
+7. Verifies the restarted application is using the expected feature flags,
    `WAL` and `synchronous=FULL`, the new server code, the dedicated account,
-   loopback binding, and correct unrated output locally and publicly.
-7. Installs the Better Stack heartbeat drop-in only if the protected heartbeat
+   loopback binding, and correct unrated output locally and publicly. At this
+   point it clears only the accepted transition failures and proves the local
+   monitor is healthy again.
+8. Installs the Better Stack heartbeat drop-in only if the protected heartbeat
    environment already exists and passes strict owner, mode, name, hostname,
    scheme, path, and single-value checks. Absence is a logged skip, not an
    excuse to create a dummy value.
-8. Restores the newest tagged Restic snapshot into a guarded temporary
+9. Restores the newest tagged Restic snapshot into a guarded temporary
    directory, verifies SQLite integrity and foreign keys, starts an isolated
    loopback-only restored application, removes it, installs/verifies the
    canonical off-site timer, runs a new backup, checks remote visibility,
    applies existing off-site retention, runs `restic check`, and only then
    publishes backup success. The Better Stack success heartbeat therefore
    cannot precede those checks.
-9. Upgrades Ollama from 0.6.7 to 0.32.5 without moving or re-pulling models,
+10. Upgrades Ollama from 0.6.7 to 0.32.5 without moving or re-pulling models,
    then verifies the exact version, loopback-only listener, existing `mistral`
    model, a short generation, and lack of public Ollama exposure.
-10. Starts two more isolated restored applications to verify Ask the Archivist
+11. Starts two more isolated restored applications to verify Ask the Archivist
     uses Ollama when it is available and returns the bounded catalog fallback
     when it is unreachable.
-11. Records root-only UFW, nftables, iptables (when installed), and listener
+12. Records root-only UFW, nftables, iptables (when installed), and listener
     evidence. It requires active UFW, default-deny incoming policy, and
     loopback-only Echo/Ollama binds; it never edits a firewall rule.
-12. Records root-only SMART health/attribute evidence for every discovered
+13. Records root-only SMART health/attribute evidence for every discovered
     physical disk and stops if overall health or NVMe critical-warning checks
     fail.
-13. Runs a disposable failed-candidate rollback drill. The drill deliberately
+14. Runs a disposable failed-candidate rollback drill. The drill deliberately
     breaks only a temporary Git worktree, verifies failure detection, runs the
     prior revision against a disposable post-activation database copy, proves a
     representative write survived, and confirms the production checkout was
     untouched. This is not falsely reported as a full production deployment
     rollback.
-14. Repeats local/public health, direct-origin/header-spoofing, TLS, service,
+15. Repeats local/public health, direct-origin/header-spoofing, TLS, service,
     structured-log, and all shared-host checks.
 
 Each changing component has a stage-specific rollback. A failure stops the
@@ -71,8 +79,10 @@ a later risky stage. Previously completed and verified stages remain applied.
   `/home/charlie/The-Echo-Archives` checkout, as `charlie` through `sudo`.
 - `main`, `HEAD`, and `origin/main` must be the same explicitly supplied
   40-character commit and the checkout must be clean.
-- Caddy, Echo, and Ollama must be healthy before starting, with no failed system
-  units.
+- Caddy, Echo, and Ollama must be healthy before starting. Failed system units
+  remain fatal except for the exact reviewed off-site backup sandbox transition
+  described above; the preflight matches its unit allowlist and journal
+  signatures rather than ignoring failed state.
 - At least 20 GiB must be free.
 - The reviewed Restic environment, password file, root SSH identity, Pi SSH
   alias, Tailscale path, local backup tooling, Node dependencies, and production
@@ -206,6 +216,8 @@ sudo ls -1t /var/log/echo-archives/complete-launch-maintenance-*.log | head -1
 
 The script first attempts the matching current-stage rollback:
 
+- Backup-unit transition: restores the exact preserved off-site service unit
+  and reloads systemd without starting a backup.
 - Origin configuration: restores the run’s `Caddyfile.before`, validates it,
   and reloads Caddy, or starts it if it became inactive.
 - Caddy package: reinstalls the pinned 2.10.2 package and restores the

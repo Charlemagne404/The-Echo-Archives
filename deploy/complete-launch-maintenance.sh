@@ -41,6 +41,8 @@ CADDY_UPGRADED="no"
 OLLAMA_UPGRADED="no"
 BACKUP_DRILL_COMPLETED="no"
 ROLLBACK_DRILL_COMPLETED="no"
+BACKUP_UNIT_TRANSITION="no"
+BACKUP_UNIT_NEEDS_INSTALL="no"
 STAGE_RESULTS=()
 
 usage() {
@@ -279,6 +281,59 @@ validate_restic_prerequisites() {
     echo-backup-pi /usr/bin/true
 }
 
+classify_backup_unit_transition() {
+  local failed_units="${TEMP_ROOT}/failed-units.txt"
+  local unexpected_units="${TEMP_ROOT}/unexpected-failed-units.txt"
+  local installed_unit="${TEMP_ROOT}/offsite-unit.installed"
+  local offsite_journal="${TEMP_ROOT}/offsite-unit.journal"
+  local monitor_journal="${TEMP_ROOT}/local-monitor.journal"
+
+  systemctl --failed --no-legend --plain |
+    awk '{print $1}' |
+    sort -u > "${failed_units}"
+  systemctl cat echo-archives-offsite-backup.service \
+    > "${installed_unit}"
+
+  grep -Fq \
+    "ReadWritePaths=${REPO_ROOT}/backend/data/backups" \
+    "${REPO_ROOT}/deploy/echo-archives-offsite-backup.service" ||
+    fail "reviewed off-site unit does not contain the required backup write path"
+
+  if ! grep -Fq \
+    "ReadWritePaths=${REPO_ROOT}/backend/data/backups" \
+    "${installed_unit}"; then
+    BACKUP_UNIT_NEEDS_INSTALL="yes"
+  fi
+
+  awk '
+    $1 != "echo-archives-offsite-backup.service" &&
+    $1 != "echo-archives-local-monitor.service" { print }
+  ' "${failed_units}" > "${unexpected_units}"
+  [[ ! -s "${unexpected_units}" ]] ||
+    fail "an unrelated system unit is already failed"
+
+  if [[ -s "${failed_units}" ]]; then
+    journalctl --unit echo-archives-offsite-backup.service \
+      --lines 80 --output cat --no-pager > "${offsite_journal}"
+    grep -Fq ".retention-write-probe." "${offsite_journal}" &&
+      grep -Fq "Read-only file system" "${offsite_journal}" ||
+      fail "off-site backup failure does not match the reviewed sandbox transition"
+
+    if grep -Fxq "echo-archives-local-monitor.service" "${failed_units}"; then
+      journalctl --unit echo-archives-local-monitor.service \
+        --lines 80 --output cat --no-pager > "${monitor_journal}"
+      grep -Fq "FAIL: One or more systemd units are failed." \
+        "${monitor_journal}" ||
+        fail "local monitor failure does not match the reviewed backup cascade"
+    fi
+  elif [[ "${BACKUP_UNIT_NEEDS_INSTALL}" != "yes" ]]; then
+    return
+  fi
+
+  BACKUP_UNIT_TRANSITION="yes"
+  log "Accepted only the reviewed off-site sandbox transition; unrelated failed units remain fatal."
+}
+
 require_root_identity() {
   [[ "${EUID}" -eq 0 ]] || fail "run --${MODE} through sudo"
   [[ "${SUDO_USER:-}" == "${OPERATOR_USER}" ]] ||
@@ -314,8 +369,7 @@ require_root_context() {
   /usr/local/bin/ollama --version 2>&1 |
     grep -Eq '0\.(6\.7|32\.5)([[:space:]]|$)' ||
     fail "installed Ollama is neither reviewed version 0.6.7 nor 0.32.5"
-  [[ -z "$(systemctl --failed --no-legend --plain)" ]] ||
-    fail "one or more system units are already failed"
+  classify_backup_unit_transition
   validate_repository_files
   "${REPO_ROOT}/deploy/check-cloudflare-proxy-ranges.sh" --confirm-network
   caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
@@ -476,6 +530,44 @@ if (
 ) process.exit(1);
 NODE
   log "Fresh online SQLite backup passed integrity, foreign-key, freshness, and catalog checks."
+}
+
+rollback_backup_unit_transition() {
+  restore_optional_file \
+    /etc/systemd/system/echo-archives-offsite-backup.service \
+    offsite.service.before 0644
+  systemctl daemon-reload
+  systemd-analyze verify \
+    /etc/systemd/system/echo-archives-offsite-backup.service \
+    /etc/systemd/system/echo-archives-offsite-backup.timer
+}
+
+stage_backup_unit_transition() {
+  if [[ "${BACKUP_UNIT_TRANSITION}" != "yes" ]]; then
+    log "Installed off-site service already has the reviewed backup write path."
+    return
+  fi
+
+  if [[ "${BACKUP_UNIT_NEEDS_INSTALL}" == "yes" ]]; then
+    CURRENT_ROLLBACK=rollback_backup_unit_transition
+    install -m 0644 -o root -g root \
+      "${REPO_ROOT}/deploy/echo-archives-offsite-backup.service" \
+      /etc/systemd/system/echo-archives-offsite-backup.service
+  else
+    log "Reviewed off-site unit was already reconciled; preserving it idempotently."
+  fi
+  systemd-analyze verify \
+    /etc/systemd/system/echo-archives-offsite-backup.service \
+    /etc/systemd/system/echo-archives-offsite-backup.timer
+  systemctl daemon-reload
+  systemctl cat echo-archives-offsite-backup.service \
+    > "${TEMP_ROOT}/offsite-unit.reconciled"
+  grep -Fq \
+    "ReadWritePaths=${REPO_ROOT}/backend/data/backups" \
+    "${TEMP_ROOT}/offsite-unit.reconciled" ||
+    fail "installed off-site service still lacks the required backup write path"
+  CURRENT_ROLLBACK=""
+  log "Reconciled the staged backup script with its reviewed systemd write path; no backup was started."
 }
 
 rollback_caddy_configuration() {
@@ -712,7 +804,19 @@ stage_application_verification() {
   ' || fail "Echo is not bound only to loopback"
   verify_null_rating_output "http://127.0.0.1:3010" "${TEMP_ROOT}/marsfall-local.html"
   verify_null_rating_output "https://echoarchives.net" "${TEMP_ROOT}/marsfall-public.html"
+  if [[ "${BACKUP_UNIT_TRANSITION}" == "yes" ]]; then
+    systemctl reset-failed \
+      echo-archives-offsite-backup.service \
+      echo-archives-local-monitor.service
+  fi
   "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
+  if [[ "${BACKUP_UNIT_TRANSITION}" == "yes" ]]; then
+    systemctl start echo-archives-local-monitor.service
+    [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]] ||
+      fail "local monitor did not recover after the reviewed backup transition"
+    [[ -z "$(systemctl --failed --no-legend --plain)" ]] ||
+      fail "failed unit state remained after the reviewed backup transition"
+  fi
   log "Live server fixes, feature flags, WAL/FULL durability, and null rating output verified."
 }
 
@@ -1119,6 +1223,7 @@ run_apply() {
 
   run_stage preserve-baseline stage_preserve_baseline
   run_stage fresh-database-backup stage_fresh_database_backup
+  run_stage backup-unit-transition stage_backup_unit_transition
   run_stage caddy-origin-gate stage_caddy_origin_gate
   run_stage caddy-upgrade stage_caddy_upgrade
   run_stage runtime-account stage_runtime_migration
@@ -1143,6 +1248,7 @@ run_apply() {
     printf 'backup_drill_completed=%s\n' "${BACKUP_DRILL_COMPLETED}"
     printf 'ollama_upgraded=%s\n' "${OLLAMA_UPGRADED}"
     printf 'rollback_invariant_drill_completed=%s\n' "${ROLLBACK_DRILL_COMPLETED}"
+    printf 'backup_unit_transition_reconciled=%s\n' "${BACKUP_UNIT_TRANSITION}"
     printf 'result=PASS\n'
   } > "${RUN_DIR}/SUMMARY"
   chmod 0600 "${RUN_DIR}/SUMMARY"
