@@ -341,6 +341,9 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - `firstRelease`, `firstReleasedAt`, `latestRelease`, `lastReleasedAt`, `releaseDates.first`, `releaseDates.latest`, and `verification.verifiedAt` must be valid dates when present.
 - `creatorId` and `networkId` must use slug ids when present.
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
+- Published shows must have at least two specific discovery tags.
+- Use `Sci-fi` as the only science-fiction tag spelling; variants such as `Science Fiction`, `SciFi`, and `sci fi` are rejected.
+- Do not use redundant show-type or directory tags such as `Drama`, `Audio drama`, `Fiction`, `Podcast`, `Arts`, or `Performing Arts`.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
 - `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.
