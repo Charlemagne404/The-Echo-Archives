@@ -2,7 +2,7 @@
   "id": "re-dracula",
   "title": "Re: Dracula",
   "subtitle": "",
-  "description": "Re: Dracula",
+  "description": "Re: Dracula takes the famous horror tale, breaks it up chronologically (every entry of this epistolary novel has a date), and sends the story directly to your podcatcher as it happens. Every time something happens to the characters, Re: Dracula will publish an episode, in real time. Some entries will be brief, and others will be long and intense.",
   "cover": "images/covers/re-dracula.jpg",
   "coverAlt": "Re: Dracula cover art",
   "status": "published",
@@ -19,7 +19,9 @@
     "amazonMusic": "",
     "pocketCasts": "https://pca.st/dracula"
   },
-  "genres": [],
+  "genres": [
+    "horror"
+  ],
   "tones": [],
   "formats": [
     "serialized"
@@ -197,12 +199,12 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/re-dracula/id1679833472?uo=4"
+              "sourceType": "website",
+              "sourceUrl": "https://redracula.live/"
             }
           ]
         },
@@ -390,6 +392,16 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://redracula.live/"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:23:35.732Z",
@@ -412,14 +424,14 @@
       "managedFingerprints": {
         "title": "2c727644483e92e9cdfe8301f75a106cf0a362aeae19f046f7029caddb55453d",
         "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
-        "description": "2c727644483e92e9cdfe8301f75a106cf0a362aeae19f046f7029caddb55453d",
+        "description": "cd749bcd6723be14030d7c170ce60ac4a0f94ba912fcbbadd0b2c2e60eeefd0c",
         "cover": "731a90300fba73d179662f15b6ae5e9c7e93ca371ad1e32ec774c869c13ac3d0",
         "coverAlt": "09c5f2c7f864da457f979ab49c49d686a72087b9f0b7ce220198bd5b4eda503d",
         "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
         "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
         "listenLinks": "18db72b83acf3a9d83d19409f3d88e25e8310fcc21fded20528027d37128b28c",
         "officialLinks": "2fd7ec55441beb4f11c0aafa69cc9272f92b1543481224fe0302477a1fd535ed",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "genres": "2c275825a9a917fed1d156338d3cb13a8fa1799f71d028af94d65070c4eba144",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "e9fe3b5892b8da35887fcf29fd9074e2c8bfd37300231318407fe24f3a2e254e",

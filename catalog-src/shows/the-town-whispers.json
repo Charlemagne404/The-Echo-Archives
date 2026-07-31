@@ -2,7 +2,7 @@
   "id": "the-town-whispers",
   "title": "The Town Whispers",
   "subtitle": "Where Folk Horror and Eldritch Terror Meet",
-  "description": "The Town Whispers",
+  "description": "The Town Whispers is a narrative horror podcast, that will tell the many stories hidden behind the fog and the trees and the rain of a town called The Fort - Where Eldritch Terror and Folk Horrors meet. If you’ve found yourself here, you should have taken a left, instead of a right, or looked up, when shadows crept from wells that stretch deep down into the underground of our town. For business inquiries please email: thetownwhispers@gmail.com Hosted on Acast. See acast.com/privacy for more information.",
   "cover": "images/covers/the-town-whispers.jpg",
   "coverAlt": "The Town Whispers cover art",
   "status": "published",
@@ -13,13 +13,16 @@
     "start": "",
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4",
-    "website": "https://www.patreon.com/pulpaudio",
+    "website": "https://shows.acast.com/thetownwhispers",
     "rss": "https://feeds.acast.com/public/shows/60deee787939850012ac92ed",
     "youtubeMusic": "",
     "amazonMusic": "",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "horror",
+    "supernatural"
+  ],
   "tones": [],
   "formats": [
     "serialized"
@@ -78,7 +81,7 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://www.patreon.com/pulpaudio",
+    "website": "https://shows.acast.com/thetownwhispers",
     "patreon": "https://www.patreon.com/pulpaudio",
     "koFi": "",
     "discord": "",
@@ -114,7 +117,9 @@
       "https://www.patreon.com/pulpaudio/about",
       "https://www.patreon.com/pulpaudio",
       "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4",
-      "https://feeds.acast.com/public/shows/60deee787939850012ac92ed"
+      "https://feeds.acast.com/public/shows/60deee787939850012ac92ed",
+      "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538",
+      "https://shows.acast.com/thetownwhispers"
     ],
     "sourceCategories": [],
     "sourceKeywords": [],
@@ -206,12 +211,16 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/thetownwhispers"
             }
           ]
         },
@@ -314,12 +323,12 @@
           ]
         },
         "websiteUrl": {
-          "confidence": 0.95,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "website",
-              "sourceUrl": "https://www.patreon.com/pulpaudio"
+              "sourceUrl": "https://shows.acast.com/thetownwhispers"
             }
           ]
         },
@@ -389,6 +398,20 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-town-whispers/id1528922538"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/thetownwhispers"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:39.130Z",
@@ -411,14 +434,14 @@
       "managedFingerprints": {
         "title": "64d572439c703bbe7ca1ad41c2451688a3460a380b37a6948ab3e1df2f86e6fe",
         "subtitle": "29429e739b3401d981014aa723e6f59252e0afcdc9239e1455ed72ee892bce1b",
-        "description": "64d572439c703bbe7ca1ad41c2451688a3460a380b37a6948ab3e1df2f86e6fe",
+        "description": "77ebe0ca2b248954837d63b36a713aef965b84e953f19735ae5cd87156c7e076",
         "cover": "02f355a43a5f567f1ada512caa17d434c37e0ccf864f3e78092a0be9fd172d33",
         "coverAlt": "92432b7d14e008f1b30ac1eddd85340b1c2c88ba26c72e3ca8d3384050f4ec3a",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
-        "listenLinks": "97ab213ed962c130897363f9e4e7680cb55b21b5cd9b1d5f7cf98b927259c727",
-        "officialLinks": "ed5bae16b39d7a2fba0d13d4bb8a67a93121f17078d67f2ec3242ad69cb68ee9",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "listenLinks": "8a3cd5145ec0ff345730430f59ef40da124ce019e6101d71770c46fce613536f",
+        "officialLinks": "c1db273f883382c0e89b4d07cfe4a52d6887f5879e5bf6c3a155f502b121ad44",
+        "genres": "c3ed09368cae65b6d81ab460fddfe324f953633e6b88386820f2ae6e9d18bc11",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "049486f85e7db35d220b3fd31f8f8b17eb2c90b2aa5103337fb99c1015dd2454",

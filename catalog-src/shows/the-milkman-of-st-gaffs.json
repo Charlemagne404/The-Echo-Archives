@@ -2,7 +2,7 @@
   "id": "the-milkman-of-st-gaffs",
   "title": "The Milkman of St. Gaff's",
   "subtitle": "The Milkman of St. Gaff's hosted by Christopher Scott McClure",
-  "description": "The Milkman of St. Gaff's",
+  "description": "Lovecraft meets Kafka in this serialized fantasy/horror podcast about Howie, a troubled young man who joins the milkmen on the island of St.Gaff’s, only to discover that the milkmen harbor a dark and dangerous secret.",
   "cover": "images/covers/the-milkman-of-st-gaffs.jpg",
   "coverAlt": "The Milkman of St. Gaff's cover art",
   "status": "published",
@@ -13,13 +13,17 @@
     "start": "",
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4",
-    "website": "https://www.patreon.com/cw/howiemilkman",
+    "website": "https://www.howiemilkman.com/",
     "rss": "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3",
     "youtubeMusic": "",
     "amazonMusic": "",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "horror",
+    "fantasy",
+    "mystery"
+  ],
   "tones": [],
   "formats": [
     "serialized"
@@ -73,7 +77,7 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://www.patreon.com/cw/howiemilkman",
+    "website": "https://www.howiemilkman.com/",
     "patreon": "https://www.patreon.com/cw/howiemilkman",
     "koFi": "",
     "discord": "",
@@ -108,7 +112,9 @@
     "objectiveSources": [
       "https://www.patreon.com/cw/howiemilkman",
       "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4",
-      "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3"
+      "https://feeds.acast.com/public/shows/7ca305e2-07cd-5eef-a25e-a27157882df3",
+      "https://www.howiemilkman.com/",
+      "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070"
     ],
     "sourceCategories": [],
     "sourceKeywords": [],
@@ -194,12 +200,16 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
+              "sourceType": "website",
+              "sourceUrl": "https://www.howiemilkman.com/"
+            },
+            {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070"
             }
           ]
         },
@@ -294,12 +304,12 @@
           ]
         },
         "websiteUrl": {
-          "confidence": 0.95,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "website",
-              "sourceUrl": "https://www.patreon.com/cw/howiemilkman"
+              "sourceUrl": "https://www.howiemilkman.com/"
             }
           ]
         },
@@ -357,6 +367,20 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.howiemilkman.com/"
+            },
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-milkman-of-st-gaffs/id1526124070"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:37.393Z",
@@ -379,14 +403,14 @@
       "managedFingerprints": {
         "title": "2c21df3dfbf2ab0480b3a3a731190c3138077c4da9cad2f4b44dcc62c1169c2d",
         "subtitle": "3efc22130b627483fb837caf1248873d3f1e1bfe0b4673ad1d69eb71774fb447",
-        "description": "2c21df3dfbf2ab0480b3a3a731190c3138077c4da9cad2f4b44dcc62c1169c2d",
+        "description": "813bb802170337a25d4419b24a1d964f984bd65eb0de71a60a08b61a8166000d",
         "cover": "04c805b56a0f3a3ce3aad398502ff2557bf0fb0f09f74388f6eb844dd35d83e6",
         "coverAlt": "972ccd53d2d37afb02ddc2a8240e85493c4a271a3ec7d402dfba5f42d7116cc0",
         "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
         "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
-        "listenLinks": "f7ccf50d95c1992c8851ddc1b17e022471331db6fdcbf9201a3d21e70a6c5a58",
-        "officialLinks": "a08e0e721cc3010a3014507c58106d18f423150e3e52ffcac37199c1a7e076c0",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "listenLinks": "055edfbc80da2d911b4f0c4e59c58b1a4e72c47872ff8a4852493bb869b757f7",
+        "officialLinks": "8382d91f4b9b5ff7042a955096317b31ed50b76d9509ba6484391ba6da3ecfaa",
+        "genres": "2a203bbc7e588f85700a0bb84c962d49e641651caec1893eccb85d36f78f3cf9",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "7158f47fbd5ea9fac091de4d191a0a3e3f3b1017f8bf02f779a3fa808dc58743",

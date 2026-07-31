@@ -2,7 +2,7 @@
   "id": "the-burned-photo",
   "title": "The Burned Photo",
   "subtitle": "The Burned Photo",
-  "description": "The Burned Photo",
+  "description": "The hit horror show, The Burned Photo is back. This suspense-filled thriller tells the story of Felicia (Charmaine Bingwa, THE GOOD FIGHT) and Kira (Kat McNamara, SHADOWHUNTERS), two women, whose lives become intertwined when they discover they are being terrorized by the same multi-generational curse that is determined to end their family lineages. In Season 2 of The Burned Photo, Felicia and Kira dig deeper into the curse, discovering its connection to the mysterious 18th century sorcerer, Doctor Joachim and realizing the curse’s origin is more horrifying than they could ever imagine. Will they be able to face the Tanmitadore on their own terms or will the curse succeed in ending Felicia and Kira’s lives? Produced by QCODE and Vertigo Entertainment (IT, THE DEPARTED). Starring Charmaine Bingwa and Katherine McNamara. Season 2 Created by Nicole Exposito. Written by Jeremy Novick & Kwynn Perry. Directed by Jeremy Novick & Kwynn Perry.",
   "cover": "images/covers/the-burned-photo.jpg",
   "coverAlt": "The Burned Photo cover art",
   "status": "published",
@@ -11,15 +11,18 @@
   "completionStatus": "unclear",
   "listenLinks": {
     "start": "",
-    "spotify": "https://open.spotify.com/show/3NJbt2dlKfrL7VbWbrw2jq?si=t-NFubVFTBagjW9LpaABzA&nd=1",
-    "apple": "https://podcasts.apple.com/us/channel/qcode/id6442456136?hasPaidContent=true",
+    "spotify": "https://open.spotify.com/show/35qAlh89ViwpeVJiRtnoiI",
+    "apple": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539",
     "website": "https://qcodemedia.com/",
     "rss": "https://feeds.megaphone.fm/QCD4145050405",
     "youtubeMusic": "",
-    "amazonMusic": "https://music.amazon.com/podcasts/70ebc653-938e-4ae6-90a2-deb550515cd1/The-Edge-of-Sleep",
+    "amazonMusic": "https://music.amazon.com/podcasts/a98a6c7e-593f-4aa3-b101-5a9a01cea36c/the-burned-photo",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "horror",
+    "thriller"
+  ],
   "tones": [],
   "formats": [
     "serialized"
@@ -116,7 +119,10 @@
       "https://qcodemedia.com/about",
       "https://qcodemedia.com/",
       "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4",
-      "https://feeds.megaphone.fm/QCD4145050405"
+      "https://feeds.megaphone.fm/QCD4145050405",
+      "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539",
+      "https://open.spotify.com/show/35qAlh89ViwpeVJiRtnoiI",
+      "https://music.amazon.com/podcasts/a98a6c7e-593f-4aa3-b101-5a9a01cea36c/the-burned-photo"
     ],
     "sourceCategories": [],
     "sourceKeywords": [],
@@ -219,12 +225,12 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539"
             }
           ]
         },
@@ -239,26 +245,22 @@
           ]
         },
         "appleUrl": {
-          "confidence": 0.98,
-          "method": "source-agreement",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://qcodemedia.com/"
-            },
-            {
-              "sourceType": "website",
-              "sourceUrl": "https://qcodemedia.com/about"
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539"
             }
           ]
         },
         "appleCollectionId": {
-          "confidence": 0.9,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539"
             }
           ]
         },
@@ -423,22 +425,22 @@
           ]
         },
         "spotifyUrl": {
-          "confidence": 0.95,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+              "sourceType": "spotify",
+              "sourceUrl": "https://open.spotify.com/show/35qAlh89ViwpeVJiRtnoiI"
             }
           ]
         },
         "amazonMusicUrl": {
-          "confidence": 0.95,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "website",
-              "sourceUrl": "https://qcodemedia.com/theedgeofsleep"
+              "sourceType": "amazon",
+              "sourceUrl": "https://music.amazon.com/podcasts/a98a6c7e-593f-4aa3-b101-5a9a01cea36c/the-burned-photo"
             }
           ]
         },
@@ -456,6 +458,16 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-burned-photo/id1587021539"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:41.032Z",
@@ -478,14 +490,14 @@
       "managedFingerprints": {
         "title": "abc84765b55b285f457918e7edde75beb71fbc74690026760a52693ca7d7a2de",
         "subtitle": "abc84765b55b285f457918e7edde75beb71fbc74690026760a52693ca7d7a2de",
-        "description": "abc84765b55b285f457918e7edde75beb71fbc74690026760a52693ca7d7a2de",
+        "description": "ac3486fc6bc42b11059d5e11b2028491b423af1c13d764667db711b8d8ab4df8",
         "cover": "13d5e6bdd265bcab42ca4d322d26545055c5c8c97ab54648b909a90834285f5e",
         "coverAlt": "0c2f17b6bee02c51cb14724fad389f2a7ccbc62ada1d5fc914b7e26240416e80",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
-        "listenLinks": "9bd9096be8672c2699ae1ae8776e9bed5dd71ff2e4f2296b98215f9bd4e89a90",
+        "listenLinks": "2c59912838d2549d15f07344ee44102ed786b9e562a7edc3e629c04206fa6b65",
         "officialLinks": "f28e9fe914c94b6c76821b8c90398ab2aea5435326c539d3d9c7bbd6e24356b7",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "genres": "488d6229e6213f3e1b8c49980390df8769c77c1155cdea9258827f67f5579b6c",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "fc93468d61afc7386711b6a59164f0e7886392240bbd0bfa76604c99acbbd0e1",

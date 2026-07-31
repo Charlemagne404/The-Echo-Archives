@@ -2,7 +2,7 @@
   "id": "the-antique-shop",
   "title": "The Antique Shop",
   "subtitle": "",
-  "description": "The Antique Shop",
+  "description": "In desperate need of a job, Maya finds work in an old antique shop owned by a mysterious woman. The more time she spends in the shop the further the real world becomes, and Maya soon begins to realise that nothing is as it seems.",
   "cover": "images/covers/the-antique-shop.jpg",
   "coverAlt": "The Antique Shop cover art",
   "status": "published",
@@ -19,7 +19,10 @@
     "amazonMusic": "",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "fantasy",
+    "supernatural"
+  ],
   "tones": [],
   "formats": [
     "episodic"
@@ -116,7 +119,8 @@
       "https://ghostlythistle.com/about/",
       "https://ghostlythistle.com/blog/",
       "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4",
-      "https://rss.buzzsprout.com/1164719.rss"
+      "https://rss.buzzsprout.com/1164719.rss",
+      "https://ghostlythistle.com/the-antique-shop/"
     ],
     "sourceCategories": [],
     "sourceKeywords": [],
@@ -223,12 +227,12 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-antique-shop/id1497341367?uo=4"
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/the-antique-shop/"
             }
           ]
         },
@@ -404,6 +408,16 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ghostlythistle.com/the-antique-shop/"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:59.988Z",
@@ -426,14 +440,14 @@
       "managedFingerprints": {
         "title": "49f351ab961664e20b58c2337eafd12a575459ab106a074838cbfb391847e35a",
         "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
-        "description": "49f351ab961664e20b58c2337eafd12a575459ab106a074838cbfb391847e35a",
+        "description": "18833ab2e5b57ac498ee0edd551661431d78f94a108cb245b415bc69ac97727c",
         "cover": "b854c4820124fff382c935100651f047a8bdde29140454fbd43afef94ef8ec1e",
         "coverAlt": "c32ac3f0de81d80d6992df775ec6c916d6b0f6beb75b0e714574785b64e1bb2d",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
         "listenLinks": "27eb0cc6b9327755b5fd800ea9bf7beea3f7a2d1fffa8b3cf4832e7731c30b9c",
         "officialLinks": "4e06e6711c09f9bdcf221643c31227abd546fa491534fdec95498c7d55fc91f7",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "genres": "a68b6169bfd5b0f96e4333f8ef98405d4591f1727885e7da672ca935acdcd6c6",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
         "aliases": "80a9a59288ed81d5a997a0a23dc560fe3488313280f6f37c7e8f342e0bd923c4",

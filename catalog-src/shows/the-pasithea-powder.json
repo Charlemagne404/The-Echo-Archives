@@ -12,8 +12,8 @@
   "listenLinks": {
     "start": "",
     "spotify": "",
-    "apple": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4",
-    "website": "https://bsky.app/profile/pasitheapowder.bsky.social",
+    "apple": "https://podcasts.apple.com/us/podcast/the-pasithea-powder/id1488563598",
+    "website": "https://www.pasitheapowder.com/",
     "rss": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
     "youtubeMusic": "",
     "amazonMusic": "",
@@ -23,7 +23,9 @@
     "drama"
   ],
   "tones": [],
-  "formats": [],
+  "formats": [
+    "serialized"
+  ],
   "tags": [
     "Sci-fi",
     "Memory alteration",
@@ -74,7 +76,7 @@
     "attribution": ""
   },
   "officialLinks": {
-    "website": "https://bsky.app/profile/pasitheapowder.bsky.social",
+    "website": "https://www.pasitheapowder.com/",
     "patreon": "",
     "koFi": "",
     "discord": "",
@@ -109,7 +111,9 @@
     "objectiveSources": [
       "https://bsky.app/profile/pasitheapowder.bsky.social",
       "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
-      "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+      "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4",
+      "https://www.pasitheapowder.com/",
+      "https://podcasts.apple.com/us/podcast/the-pasithea-powder/id1488563598"
     ],
     "sourceCategories": [
       "Fiction"
@@ -143,7 +147,7 @@
       "identifiers": {
         "podcastGuid": "",
         "rssUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss",
-        "appleCollectionId": "1376895621",
+        "appleCollectionId": "1488563598",
         "podcastIndexFeedId": "",
         "feedRedirects": [
           "https://feeds.soundcloud.com/users/soundcloud:users:302978164/sounds.rss",
@@ -216,22 +220,22 @@
           ]
         },
         "appleUrl": {
-          "confidence": 0.9,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-pasithea-powder/id1488563598"
             }
           ]
         },
         "appleCollectionId": {
-          "confidence": 0.9,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/http-feeds-soundcloud-com-users-soundcloud-users-302978164/id1376895621?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-pasithea-powder/id1488563598"
             }
           ]
         },
@@ -306,16 +310,12 @@
           ]
         },
         "websiteUrl": {
-          "confidence": 0.98,
-          "method": "source-agreement",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "rss",
-              "sourceUrl": "https://feeds.soundcloud.com/users/soundcloud:users:720575566/sounds.rss"
-            },
-            {
               "sourceType": "website",
-              "sourceUrl": "https://bsky.app/profile/pasitheapowder.bsky.social"
+              "sourceUrl": "https://www.pasitheapowder.com/"
             }
           ]
         },
@@ -538,6 +538,20 @@
           "confidence": 0,
           "method": "unknown",
           "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.pasitheapowder.com/"
+            },
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-pasithea-powder/id1488563598"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:03.126Z",
@@ -565,11 +579,11 @@
         "coverAlt": "9ee4ef5443a6c023344e77f5d00dfe1dfb0b4f515b52c9fcd4ee2dfb4971dcb3",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
-        "listenLinks": "77f662309c406a12ff566ad1c4fe518e7a20ff39b3ad05930d7bc76270f66e3a",
-        "officialLinks": "fe605d68198a1ddf1bc099673a07ac5df556f2d7734aed210cdc67e6057796c5",
+        "listenLinks": "f92bee5367c89158094eb885bc5037d3abea3b526032ab240605a6f4ac6e16df",
+        "officialLinks": "0e736382688f0366085bf3f374318c82500b5110272c304946734c3c366e7182",
         "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-        "formats": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "cd770ff0dacc4ddad9760ae11cb8a755656365115718628b6a1af341a3527721",
         "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
         "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",

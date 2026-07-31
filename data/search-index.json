@@ -406,7 +406,7 @@
       "Locked-room mystery",
       "Assigned roles",
       "Found tapes",
-      "Dystopia"
+      "Dystopian"
     ],
     "aliases": [
       "The Deca Tapes",
@@ -521,7 +521,7 @@
       "Neuroscience",
       "Utopia",
       "Kidnapping",
-      "Dystopia"
+      "Dystopian"
     ],
     "aliases": [
       "Earth Eclipsed",
@@ -882,7 +882,7 @@
     "tags": [
       "Floating city",
       "Class conflict",
-      "Dystopia",
+      "Dystopian",
       "Political intrigue"
     ],
     "aliases": [
@@ -4968,7 +4968,7 @@
     ],
     "tags": [
       "Detective comedy",
-      "Alt-history",
+      "Alternate history",
       "Victorian"
     ],
     "aliases": [],
@@ -5729,7 +5729,7 @@
     "tags": [
       "Sci-fi",
       "Climate",
-      "Dystopia",
+      "Dystopian",
       "Environmental collapse"
     ],
     "aliases": [],
@@ -7437,11 +7437,10 @@
     "tags": [
       "Sci-fi",
       "Comedy",
-      "Thirst",
-      "Penumbra",
-      "Juno Steel",
-      "Horror",
-      "Second Citadel"
+      "Private investigator",
+      "Mars",
+      "Fantasy",
+      "Queer"
     ],
     "aliases": [
       "The Penumbra Podcast"
@@ -7506,15 +7505,12 @@
       "serialized"
     ],
     "tags": [
-      "Sci-fi",
-      "horror",
-      "folk horror",
-      "i am in eskew",
-      "the silt verses",
-      "eskew",
-      "ligotti",
-      "junji ito",
-      "horror fiction"
+      "Horror",
+      "Folk horror",
+      "Pilgrimage",
+      "Cults",
+      "Rural",
+      "Weird fiction"
     ],
     "aliases": [
       "The Silt Verses"
@@ -7581,11 +7577,11 @@
     ],
     "tags": [
       "Sci-fi",
-      "horror",
-      "appalachia",
-      "anthology",
-      "eldritch",
-      "folk horror"
+      "Horror",
+      "Appalachia",
+      "Anthology",
+      "Eldritch",
+      "Folk horror"
     ],
     "aliases": [
       "Old Gods of Appalachia"
@@ -7754,7 +7750,7 @@
     "id": "the-strata",
     "title": "The Strata",
     "subtitle": "In a dystopian city, an ageing courier is forced to go into business with an underworld ganglord in order to pay for the treatment that keeps him alive.",
-    "description": "The Strata",
+    "description": "In a dystopian city, an ageing courier is forced to go into business with an underworld ganglord in order to pay for the treatment that keeps him alive. Set in a sprawling dystopian metropolis called 'The Strata' and featuring an ensemble cast, this podcast interweaves a collection of stories into a single overarching narrative.",
     "cover": "images/covers/the-strata.jpg",
     "coverVariants": [
       {
@@ -7774,7 +7770,10 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
-    "genres": [],
+    "genres": [
+      "sci-fi",
+      "thriller"
+    ],
     "tones": [],
     "formats": [
       "serialized"
@@ -7889,7 +7888,7 @@
     "id": "the-burned-photo",
     "title": "The Burned Photo",
     "subtitle": "The Burned Photo",
-    "description": "The Burned Photo",
+    "description": "The hit horror show, The Burned Photo is back. This suspense-filled thriller tells the story of Felicia (Charmaine Bingwa, THE GOOD FIGHT) and Kira (Kat McNamara, SHADOWHUNTERS), two women, whose lives become intertwined when they discover they are being terrorized by the same multi-generational curse that is determined to end their family lineages. In Season 2 of The Burned Photo, Felicia and Kira dig deeper into the curse, discovering its connection to the mysterious 18th century sorcerer, Doctor Joachim and realizing the curse’s origin is more horrifying than they could ever imagine. Will they be able to face the Tanmitadore on their own terms or will the curse succeed in ending Felicia and Kira’s lives? Produced by QCODE and Vertigo Entertainment (IT, THE DEPARTED). Starring Charmaine Bingwa and Katherine McNamara. Season 2 Created by Nicole Exposito. Written by Jeremy Novick & Kwynn Perry. Directed by Jeremy Novick & Kwynn Perry.",
     "cover": "images/covers/the-burned-photo.jpg",
     "coverVariants": [
       {
@@ -7905,7 +7904,10 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
-    "genres": [],
+    "genres": [
+      "horror",
+      "thriller"
+    ],
     "tones": [],
     "formats": [
       "serialized"
@@ -8084,7 +8086,7 @@
     "id": "the-mistholme-museum-of-mystery-morbidity-and-mortality",
     "title": "The Mistholme Museum of Mystery, Morbidity, and Mortality",
     "subtitle": "Hello, and welcome to the Mistholme Museum of Mystery, Morbidity, and Mortality, where all the world's strangest exhibits wind up- one way or another.",
-    "description": "The Mistholme Museum of Mystery, Morbidity, and Mortality",
+    "description": "Hello, and welcome to the Mistholme Museum of Mystery, Morbidity, and Mortality. The Audio Tour Guide will be your window into the history of the museum and its exhibits today. Please note, that if you notice your version of the Audio Tour Guide behaving oddly, kindly ensure that you dispose of your Audio Device in the nearest incinerator at the earliest convenience. Support this show http://supporter.acast.com/the-mistholme-museum-of-mystery-morbidity-and-mortality. Hosted on Acast. See acast.com/privacy for more information.",
     "cover": "images/covers/the-mistholme-museum-of-mystery-morbidity-and-mortality.webp",
     "coverVariants": [
       {
@@ -8104,7 +8106,11 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
-    "genres": [],
+    "genres": [
+      "sci-fi",
+      "fantasy",
+      "horror"
+    ],
     "tones": [],
     "formats": [
       "serialized"
@@ -8150,7 +8156,7 @@
     "id": "the-town-whispers",
     "title": "The Town Whispers",
     "subtitle": "Where Folk Horror and Eldritch Terror Meet",
-    "description": "The Town Whispers",
+    "description": "The Town Whispers is a narrative horror podcast, that will tell the many stories hidden behind the fog and the trees and the rain of a town called The Fort - Where Eldritch Terror and Folk Horrors meet. If you’ve found yourself here, you should have taken a left, instead of a right, or looked up, when shadows crept from wells that stretch deep down into the underground of our town. For business inquiries please email: thetownwhispers@gmail.com Hosted on Acast. See acast.com/privacy for more information.",
     "cover": "images/covers/the-town-whispers.jpg",
     "coverVariants": [
       {
@@ -8166,7 +8172,10 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
-    "genres": [],
+    "genres": [
+      "horror",
+      "supernatural"
+    ],
     "tones": [],
     "formats": [
       "serialized"
@@ -8240,11 +8249,11 @@
     ],
     "tags": [
       "Horror",
-      "foundaudio",
-      "unfiction",
-      "haunted house",
-      "scary stories",
-      "analogue horror"
+      "Found audio",
+      "Unfiction",
+      "Haunted house",
+      "Scary stories",
+      "Analog horror"
     ],
     "aliases": [
       "The Cellar Letters"
@@ -8348,7 +8357,7 @@
     "id": "the-milkman-of-st-gaffs",
     "title": "The Milkman of St. Gaff's",
     "subtitle": "The Milkman of St. Gaff's hosted by Christopher Scott McClure",
-    "description": "The Milkman of St. Gaff's",
+    "description": "Lovecraft meets Kafka in this serialized fantasy/horror podcast about Howie, a troubled young man who joins the milkmen on the island of St.Gaff’s, only to discover that the milkmen harbor a dark and dangerous secret.",
     "cover": "images/covers/the-milkman-of-st-gaffs.jpg",
     "coverVariants": [
       {
@@ -8364,7 +8373,11 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
-    "genres": [],
+    "genres": [
+      "horror",
+      "fantasy",
+      "mystery"
+    ],
     "tones": [],
     "formats": [
       "serialized"
@@ -8500,7 +8513,9 @@
       "drama"
     ],
     "tones": [],
-    "formats": [],
+    "formats": [
+      "serialized"
+    ],
     "tags": [
       "Sci-fi",
       "Memory alteration",
@@ -8542,7 +8557,7 @@
     "id": "the-antique-shop",
     "title": "The Antique Shop",
     "subtitle": "",
-    "description": "The Antique Shop",
+    "description": "In desperate need of a job, Maya finds work in an old antique shop owned by a mysterious woman. The more time she spends in the shop the further the real world becomes, and Maya soon begins to realise that nothing is as it seems.",
     "cover": "images/covers/the-antique-shop.jpg",
     "coverVariants": [
       {
@@ -8558,7 +8573,10 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
-    "genres": [],
+    "genres": [
+      "fantasy",
+      "supernatural"
+    ],
     "tones": [],
     "formats": [
       "episodic"
@@ -8603,7 +8621,7 @@
     "id": "re-dracula",
     "title": "Re: Dracula",
     "subtitle": "",
-    "description": "Re: Dracula",
+    "description": "Re: Dracula takes the famous horror tale, breaks it up chronologically (every entry of this epistolary novel has a date), and sends the story directly to your podcatcher as it happens. Every time something happens to the characters, Re: Dracula will publish an episode, in real time. Some entries will be brief, and others will be long and intense.",
     "cover": "images/covers/re-dracula.jpg",
     "coverVariants": [
       {
@@ -8619,7 +8637,9 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "active",
     "completionStatus": "ongoing",
-    "genres": [],
+    "genres": [
+      "horror"
+    ],
     "tones": [],
     "formats": [
       "serialized"
@@ -8664,7 +8684,7 @@
     "id": "the-imperfection",
     "title": "The Imperfection",
     "subtitle": "",
-    "description": "The Imperfection",
+    "description": "Charlie and Amber suffer from a disorder that causes a constant stream of hallucinations. When they discover that their psychiatrist is missing, they rally together with the other patients to search for him. Along the way, they encounter secret societies, half-human half-spider centaurs, and a hidden borough of New York under the East River. But how can you find the truth when you can’t tell what’s real?",
     "cover": "images/covers/the-imperfection.jpg",
     "coverVariants": [
       {
@@ -8680,7 +8700,11 @@
     "reviewStatus": "indexed-only",
     "releaseStatus": "unknown",
     "completionStatus": "unclear",
-    "genres": [],
+    "genres": [
+      "sci-fi",
+      "mystery",
+      "comedy"
+    ],
     "tones": [],
     "formats": [
       "episodic"
@@ -9045,7 +9069,6 @@
       "Toronto",
       "Shaman",
       "Mystery",
-      "Philippines",
       "Filipino"
     ],
     "aliases": [
@@ -9181,8 +9204,8 @@
     ],
     "tags": [
       "Sci-fi",
-      "horror",
-      "thriller"
+      "Horror",
+      "Thriller"
     ],
     "aliases": [
       "Wake Of Corrosion"
@@ -9385,7 +9408,7 @@
     "tags": [
       "Sci-fi",
       "New Weird",
-      "Folk Horror"
+      "Folk horror"
     ],
     "aliases": [
       "The Wyrd Side"
@@ -10560,14 +10583,12 @@
       "limited-series"
     ],
     "tags": [
-      "video games",
-      "mystery",
-      "documentary",
-      "'80s",
-      "arcade",
-      "culture",
-      "Sci-fi",
-      "conspiracy"
+      "Video games",
+      "Mystery",
+      "Documentary framing",
+      "1980s",
+      "Arcade",
+      "Conspiracy"
     ],
     "aliases": [
       "The Polybius Conspiracy"

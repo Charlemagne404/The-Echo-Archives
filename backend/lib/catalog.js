@@ -22,11 +22,21 @@ const {
   SHOW_STATUSES,
 } = require("../../tools/lib/catalog-schema");
 const {
-  CANONICAL_SCI_FI_TAG,
+  MAX_DISCOVERY_TAG_LENGTH,
+  MAX_PUBLISHED_DISCOVERY_TAGS,
+  MIN_DISCOVERY_TAG_LENGTH,
   MIN_PUBLISHED_DISCOVERY_TAGS,
-  SCI_FI_TAG_PATTERN,
+  canonicalizeDiscoveryTag,
   isRedundantDiscoveryTag,
 } = require("../../shared/archive-tags");
+const {
+  CANONICAL_GENRES,
+  MIN_PUBLISHED_DESCRIPTION_LENGTH,
+  appleCollectionIdFromUrl,
+  comparableText,
+  isNonWebsiteUrl,
+  isPlaceholderDescription,
+} = require("../../shared/archive-quality");
 const {
   readCatalogSource,
   writeCatalogSource,
@@ -183,15 +193,62 @@ function validateDiscoveryTags(record) {
     throw new Error(`Show "${record.id}" must have at least ${MIN_PUBLISHED_DISCOVERY_TAGS} discovery tags before publication.`);
   }
 
+  if (record.status === "published" && tags.length > MAX_PUBLISHED_DISCOVERY_TAGS) {
+    throw new Error(`Show "${record.id}" must have no more than ${MAX_PUBLISHED_DISCOVERY_TAGS} discovery tags.`);
+  }
+
   tags.forEach((tag) => {
-    if (SCI_FI_TAG_PATTERN.test(String(tag || "").trim()) && tag !== CANONICAL_SCI_FI_TAG) {
-      throw new Error(`Show "${record.id}" must use the canonical "${CANONICAL_SCI_FI_TAG}" discovery tag instead of "${tag}".`);
+    if (typeof tag !== "string") {
+      throw new Error(`Show "${record.id}" has a non-string discovery tag.`);
+    }
+
+    if (tag.length < MIN_DISCOVERY_TAG_LENGTH || tag.length > MAX_DISCOVERY_TAG_LENGTH) {
+      throw new Error(`Show "${record.id}" has discovery tag "${tag}" outside the ${MIN_DISCOVERY_TAG_LENGTH}-${MAX_DISCOVERY_TAG_LENGTH} character limit.`);
+    }
+
+    const canonicalTag = canonicalizeDiscoveryTag(tag);
+    if (tag !== canonicalTag) {
+      throw new Error(`Show "${record.id}" must use canonical discovery tag "${canonicalTag}" instead of "${tag}".`);
     }
 
     if (isRedundantDiscoveryTag(tag)) {
       throw new Error(`Show "${record.id}" uses redundant discovery tag "${tag}".`);
     }
+
+    if (comparableText(tag) === comparableText(record.title)) {
+      throw new Error(`Show "${record.id}" cannot use its own title as a discovery tag.`);
+    }
   });
+}
+
+function validatePublishedDiscoveryMetadata(record) {
+  if (record.status !== "published") return;
+
+  if (isPlaceholderDescription(record.title, record.description)) {
+    throw new Error(`Show "${record.id}" needs a source-backed description of at least ${MIN_PUBLISHED_DESCRIPTION_LENGTH} characters before publication.`);
+  }
+
+  if (!Array.isArray(record.genres) || record.genres.length === 0) {
+    throw new Error(`Show "${record.id}" needs at least one canonical genre before publication.`);
+  }
+
+  record.genres.forEach((genre) => {
+    if (typeof genre !== "string" || !CANONICAL_GENRES.has(genre)) {
+      throw new Error(`Show "${record.id}" has unsupported genre "${genre}".`);
+    }
+  });
+
+  [record.listenLinks?.website, record.officialLinks?.website].filter(Boolean).forEach((websiteUrl) => {
+    if (isNonWebsiteUrl(websiteUrl)) {
+      throw new Error(`Show "${record.id}" cannot use a social or support profile as a website URL.`);
+    }
+  });
+
+  const expectedAppleId = String(record.metadata?.import?.identifiers?.appleCollectionId || "").trim();
+  const linkedAppleId = appleCollectionIdFromUrl(record.listenLinks?.apple);
+  if (expectedAppleId && record.listenLinks?.apple && linkedAppleId !== expectedAppleId) {
+    throw new Error(`Show "${record.id}" Apple listen link does not match imported collection id "${expectedAppleId}".`);
+  }
 }
 
 function validateShowRecord(record, seenIds) {
@@ -238,6 +295,7 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" has invalid completionStatus "${record.completionStatus}".`);
   }
 
+  validatePublishedDiscoveryMetadata(record);
   validateDiscoveryTags(record);
   assertUniqueNormalized(record.tags, "tags", record.id);
   assertUniqueNormalized(record.genres, "genres", record.id);

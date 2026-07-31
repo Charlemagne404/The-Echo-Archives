@@ -23,7 +23,7 @@ function createShowRecord(overrides = {}) {
   return {
     id: "demo-show",
     title: "Demo Show",
-    description: "A demo archive description.",
+    description: "A source-backed demo description with enough detail to support trustworthy archive discovery and validation.",
     cover: "images/Logo.png",
     coverAlt: "Demo Show cover art",
     status: "published",
@@ -166,7 +166,53 @@ test("published catalog records require at least two useful canonical discovery 
   await assert.rejects(loadCatalog(tempRoot), /redundant discovery tag "Drama"/i);
 
   writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Science Fiction", "Space"] })]);
-  await assert.rejects(loadCatalog(tempRoot), /canonical "Sci-fi" discovery tag/i);
+  await assert.rejects(loadCatalog(tempRoot), /canonical discovery tag "Sci-fi"/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("published catalog records reject noisy or noncanonical discovery tags", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["One", "Two", "Three", "Four", "Five", "Six", "Seven"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /no more than 6 discovery tags/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["time travel", "Space"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /canonical discovery tag "Time travel"/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Demo Show", "Space"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /own title as a discovery tag/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Audio dramas", "Space"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /redundant discovery tag "Audio dramas"/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("published catalog records require complete objective discovery metadata", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ description: "Demo Show" })]);
+  await assert.rejects(loadCatalog(tempRoot), /source-backed description of at least 40 characters/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ genres: [] })]);
+  await assert.rejects(loadCatalog(tempRoot), /at least one canonical genre/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ genres: ["Science Fiction"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /unsupported genre "Science Fiction"/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ listenLinks: { website: "https://patreon.com/demo" } })]);
+  await assert.rejects(loadCatalog(tempRoot), /social or support profile as a website/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({
+    listenLinks: { apple: "https://podcasts.apple.com/us/podcast/demo/id222222" },
+    metadata: { import: { identifiers: { appleCollectionId: "111111" } } },
+  })]);
+  await assert.rejects(loadCatalog(tempRoot), /Apple listen link does not match imported collection id/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });

@@ -76,7 +76,7 @@ function createShowRecord(overrides = {}) {
   return {
     id: "demo-show",
     title: "Demo Show",
-    description: "A demo archive description.",
+    description: "A source-backed demo description with enough detail to support trustworthy archive discovery and validation.",
     cover: "",
     coverAlt: "",
     status: "published",

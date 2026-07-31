@@ -341,9 +341,13 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - `firstRelease`, `firstReleasedAt`, `latestRelease`, `lastReleasedAt`, `releaseDates.first`, `releaseDates.latest`, and `verification.verifiedAt` must be valid dates when present.
 - `creatorId` and `networkId` must use slug ids when present.
 - `bestFor`, `tags`, `genres`, `tones`, and `formats` must not contain duplicates after lowercase normalization.
-- Published shows must have at least two specific discovery tags.
+- Published shows must have two to six specific discovery tags, each 2-48 characters long.
 - Use `Sci-fi` as the only science-fiction tag spelling; variants such as `Science Fiction`, `SciFi`, and `sci fi` are rejected.
-- Do not use redundant show-type or directory tags such as `Drama`, `Audio drama`, `Fiction`, `Podcast`, `Arts`, or `Performing Arts`.
+- Discovery tags must use canonical sentence casing and aliases such as `Analog horror`, `Alternate history`, `Found audio`, `Full cast`, and `Folk horror`.
+- Do not use redundant show-type or directory tags, including plural variants, such as `Drama`, `Audio drama`, `Fiction`, `Podcast`, `Arts`, or `Performing Arts`.
+- A show title cannot also be used as one of its own discovery tags.
+- Published shows require a source-backed description of at least 40 characters and at least one canonical genre. Optional factual fields may remain blank when the sources do not expose them.
+- Website fields cannot point to social/support profiles, and imported Apple links must match their stored Apple collection id.
 - `aliases`, `themes`, `contentNotes`, `languages`, `transcriptLanguages`, `cast`, and `creators` should not contain duplicates after lowercase normalization.
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
 - `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.

@@ -2,7 +2,7 @@
   "id": "the-imperfection",
   "title": "The Imperfection",
   "subtitle": "",
-  "description": "The Imperfection",
+  "description": "Charlie and Amber suffer from a disorder that causes a constant stream of hallucinations. When they discover that their psychiatrist is missing, they rally together with the other patients to search for him. Along the way, they encounter secret societies, half-human half-spider centaurs, and a hidden borough of New York under the East River. But how can you find the truth when you can’t tell what’s real?",
   "cover": "images/covers/the-imperfection.jpg",
   "coverAlt": "The Imperfection cover art",
   "status": "published",
@@ -19,7 +19,11 @@
     "amazonMusic": "",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "sci-fi",
+    "mystery",
+    "comedy"
+  ],
   "tones": [],
   "formats": [
     "episodic"
@@ -113,7 +117,8 @@
       "https://www.wlfdr.com/about",
       "https://www.wlfdr.com/shows",
       "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4",
-      "https://feeds.megaphone.fm/SBP5382128338"
+      "https://feeds.megaphone.fm/SBP5382128338",
+      "https://theimperfectionpodcast.com/about"
     ],
     "sourceCategories": [],
     "sourceKeywords": [],
@@ -204,12 +209,12 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-imperfection/id1621232187?uo=4"
+              "sourceType": "website",
+              "sourceUrl": "https://theimperfectionpodcast.com/about"
             }
           ]
         },
@@ -377,6 +382,16 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://theimperfectionpodcast.com/about"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:35.971Z",
@@ -399,14 +414,14 @@
       "managedFingerprints": {
         "title": "a4b21f7ba12543363dc940a1f334a38ed68dfc49910099050632ccb22259e78d",
         "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
-        "description": "a4b21f7ba12543363dc940a1f334a38ed68dfc49910099050632ccb22259e78d",
+        "description": "d5ee5837448f0ef3dc54b3666888be0ed084fb0aebc857cd75ef497106568999",
         "cover": "e69578e7bece7d347945fd8aef8092ca9df0c399e67a5cc5844179f8587fdcc8",
         "coverAlt": "b87556587a0547aaa1f09d1903402d79111596ac7925653b6fde7e1e8c579d1c",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
         "listenLinks": "943d7a0850092f9327f00ad1d7030be8de0f58bc6f0d9b4cdfdb8094c992e46a",
         "officialLinks": "ad4187cce30abdad146fb2e164869622d32b51fbe115b17a3b55687cdee03890",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "genres": "ec3afbd33ec1cfc6c118add6ffdeca78d8f1bf92558110ce1cc139315a820e7e",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
         "aliases": "7371a7e1e136c058991db6ced1d5aecbfbc58a2017a7a2000e086b240c9a574f",

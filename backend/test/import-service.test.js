@@ -286,7 +286,7 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.deepEqual(candidate.preparedRecord.tones, []);
     assert.deepEqual(candidate.preparedRecord.similarTo, []);
     assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
-    assert.deepEqual(candidate.preparedRecord.tags, ["mystery", "deep space", "abandoned station", "Sci-fi"]);
+    assert.deepEqual(candidate.preparedRecord.tags, ["Mystery", "Deep space", "Abandoned station", "Sci-fi"]);
     assert.equal(candidate.preparedRecord.metadata.import.fields.tags.method, "source-categories-and-keywords");
     assert.equal(candidate.preparedRecord.length.episodes, 1);
     assert.equal(candidate.preparedRecord.length.episodeCounts.bonus, 1);
@@ -403,7 +403,7 @@ test("catalog update candidates preserve legacy and human-owned fields", async (
     id: "signal-lost",
     title: "Signal Lost",
     subtitle: "Human subtitle",
-    description: "Human-polished factual description.",
+    description: "Human-polished factual description with enough detail for reliable archive discovery.",
     cover: "images/covers/archive-81.jpg",
     coverAlt: "Signal Lost art",
     status: "published",

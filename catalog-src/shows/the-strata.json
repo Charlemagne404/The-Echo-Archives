@@ -2,7 +2,7 @@
   "id": "the-strata",
   "title": "The Strata",
   "subtitle": "In a dystopian city, an ageing courier is forced to go into business with an underworld ganglord in order to pay for the treatment that keeps him alive.",
-  "description": "The Strata",
+  "description": "In a dystopian city, an ageing courier is forced to go into business with an underworld ganglord in order to pay for the treatment that keeps him alive. Set in a sprawling dystopian metropolis called 'The Strata' and featuring an ensemble cast, this podcast interweaves a collection of stories into a single overarching narrative.",
   "cover": "images/covers/the-strata.jpg",
   "coverAlt": "The Strata cover art",
   "status": "published",
@@ -19,7 +19,10 @@
     "amazonMusic": "",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "sci-fi",
+    "thriller"
+  ],
   "tones": [],
   "formats": [
     "serialized"
@@ -218,12 +221,12 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
-              "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-strata/id1575320449?uo=4"
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
             }
           ]
         },
@@ -411,6 +414,16 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thestratapodcast.com/"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:22:39.949Z",
@@ -433,14 +446,14 @@
       "managedFingerprints": {
         "title": "e2c6eec08e282f68457aa5d758c79c6256ec6975270c881473634fabe03239a2",
         "subtitle": "80bb012fea24e4b2990ebd628a48c2e292e34cfb2bcc47f0ca30ad80c314f54b",
-        "description": "e2c6eec08e282f68457aa5d758c79c6256ec6975270c881473634fabe03239a2",
+        "description": "063f69cf1047738f41d8718926265c967e51e0851d5cebeac855970732c58345",
         "cover": "48183900ab30e4e802908c262445fda269ba4fc585198849dd91c15c1d1f1c8f",
         "coverAlt": "d3ec313a2b3f949fcd1e347b8353ede714d61ea4af52c0a00306017c03f158cd",
         "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
         "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
         "listenLinks": "03c02f6bfdec01911709cfff38e208d12969b9d6ce1c6ef315ba384700180ee6",
         "officialLinks": "a01f1ed5e690322ef540bc38296d7d8e5d7f26c6c20d97c66f02ae1cb275fa3d",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "genres": "9fba276113a8ac772b0739e3d60744ee5e9669dad68dc69751030a4ce715676e",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "e7bb5cef20c888cdb330ef21dc8dd1b43225c417dbadffdade6c11264df5023f",

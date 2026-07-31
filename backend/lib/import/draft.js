@@ -9,9 +9,14 @@ const {
   trimText,
 } = require("./utils");
 const {
+  MAX_PUBLISHED_DISCOVERY_TAGS,
   MIN_PUBLISHED_DISCOVERY_TAGS,
   normalizeDiscoveryTags,
 } = require("../../../shared/archive-tags");
+const {
+  isNonWebsiteUrl,
+  isPlaceholderDescription,
+} = require("../../../shared/archive-quality");
 
 const HUMAN_OWNED_FIELDS = [
   "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "tones", "bestFor",
@@ -150,7 +155,7 @@ function sourceTags(objective = {}) {
   ))
     .map((value) => trimText(value, 80))
     .filter((value) => value.length >= 2)
-    .slice(0, 12);
+    .slice(0, MAX_PUBLISHED_DISCOVERY_TAGS);
 }
 
 function sourceTagProvenance(candidate, tags) {
@@ -352,7 +357,10 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (!stableIdentity) blockers.push({ code: "missing-identity", field: "identity", message: "No stable RSS, Podcast GUID, Apple, or Podcast Index identity was resolved." });
   if (!preparedRecord.title || (fields.title?.confidence || 0) < 0.75) blockers.push({ code: "weak-title", field: "title", message: "A title with at least 0.75 confidence is required." });
   if (!preparedRecord.description || (fields.description?.confidence || 0) < 0.75) blockers.push({ code: "weak-description", field: "description", message: "A trustworthy official description with at least 0.75 confidence is required." });
+  else if (isPlaceholderDescription(preparedRecord.title, preparedRecord.description)) blockers.push({ code: "placeholder-description", field: "description", message: "The official description is too short or only repeats the show title." });
   if ((preparedRecord.tags || []).length < MIN_PUBLISHED_DISCOVERY_TAGS) blockers.push({ code: "insufficient-tags", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_TAGS} source-supported discovery tags are required.` });
+  if ((preparedRecord.genres || []).length === 0) blockers.push({ code: "missing-genre", field: "genres", message: "At least one canonical source-supported genre is required." });
+  if ([preparedRecord.listenLinks?.website, preparedRecord.officialLinks?.website].filter(Boolean).some(isNonWebsiteUrl)) blockers.push({ code: "invalid-website", field: "websiteUrl", message: "A social or support profile cannot be used as the official website." });
   if (!candidate.coverStage?.ready || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover of at least 600px must be staged." });
   if (listenValues.length === 0) blockers.push({ code: "missing-listen-link", field: "listenLinks", message: "At least one listen link is required." });
   else if (!workingListenLink) blockers.push({ code: "unverified-listen-link", field: "listenLinks", message: "No listen link was confirmed by a successful source fetch." });

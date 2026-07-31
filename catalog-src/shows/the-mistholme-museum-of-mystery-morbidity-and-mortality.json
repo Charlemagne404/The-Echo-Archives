@@ -2,7 +2,7 @@
   "id": "the-mistholme-museum-of-mystery-morbidity-and-mortality",
   "title": "The Mistholme Museum of Mystery, Morbidity, and Mortality",
   "subtitle": "Hello, and welcome to the Mistholme Museum of Mystery, Morbidity, and Mortality, where all the world's strangest exhibits wind up- one way or another.",
-  "description": "The Mistholme Museum of Mystery, Morbidity, and Mortality",
+  "description": "Hello, and welcome to the Mistholme Museum of Mystery, Morbidity, and Mortality. The Audio Tour Guide will be your window into the history of the museum and its exhibits today. Please note, that if you notice your version of the Audio Tour Guide behaving oddly, kindly ensure that you dispose of your Audio Device in the nearest incinerator at the earliest convenience. Support this show http://supporter.acast.com/the-mistholme-museum-of-mystery-morbidity-and-mortality. Hosted on Acast. See acast.com/privacy for more information.",
   "cover": "images/covers/the-mistholme-museum-of-mystery-morbidity-and-mortality.webp",
   "coverAlt": "The Mistholme Museum of Mystery, Morbidity, and Mortality cover art",
   "status": "published",
@@ -19,7 +19,11 @@
     "amazonMusic": "",
     "pocketCasts": ""
   },
-  "genres": [],
+  "genres": [
+    "sci-fi",
+    "fantasy",
+    "horror"
+  ],
   "tones": [],
   "formats": [
     "serialized"
@@ -122,7 +126,8 @@
       "https://thatsnotcanon.com/cast-party-a-dungeons-dragons-podcast",
       "https://thatsnotcanon.com/themistholmemuseum/",
       "https://podcasts.apple.com/us/podcast/the-mistholme-museum-of-mystery-morbidity-and-mortality/id1506017781?uo=4",
-      "https://feeds.acast.com/public/shows/ac50d7ff-1f46-5778-8eef-5d2f92b5ce7d"
+      "https://feeds.acast.com/public/shows/ac50d7ff-1f46-5778-8eef-5d2f92b5ce7d",
+      "https://podcasts.apple.com/us/podcast/the-mistholme-museum-of-mystery-morbidity-and-mortality/id1506017781"
     ],
     "sourceCategories": [],
     "sourceKeywords": [],
@@ -232,12 +237,12 @@
           ]
         },
         "description": {
-          "confidence": 0.75,
-          "method": "direct",
+          "confidence": 1,
+          "method": "maintainer-verified",
           "sources": [
             {
               "sourceType": "apple",
-              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mistholme-museum-of-mystery-morbidity-and-mortality/id1506017781?uo=4"
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mistholme-museum-of-mystery-morbidity-and-mortality/id1506017781"
             }
           ]
         },
@@ -435,6 +440,16 @@
           "confidence": 0.7,
           "method": "deterministic-feed-type",
           "sources": []
+        },
+        "genres": {
+          "confidence": 1,
+          "method": "maintainer-verified",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-mistholme-museum-of-mystery-morbidity-and-mortality/id1506017781"
+            }
+          ]
         }
       },
       "importedAt": "2026-07-21T12:21:56.936Z",
@@ -457,14 +472,14 @@
       "managedFingerprints": {
         "title": "22ce4c8ef9dfe5acdf82bed79d8c5f7cda5d7a3792237dd5bc04ee088d88d68f",
         "subtitle": "397114f8103b6da8d33f7b9e5cc373fd95453bbf449a9f48b14a751de1903abd",
-        "description": "22ce4c8ef9dfe5acdf82bed79d8c5f7cda5d7a3792237dd5bc04ee088d88d68f",
+        "description": "74b715b9a6a88962787082a95ad7bdd83db368f7b2e882506f2f20d175f8cffe",
         "cover": "6f1f7bff3035f09770e4faee61c7b8b5da25a7b4aa2e45fe28376c35712768c3",
         "coverAlt": "4c74fe9093c26bd5ddbdd61720d9cadcc97df7c296c7a64220ff991ae97d544b",
         "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
         "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
         "listenLinks": "660da31404988b078cd62ca30ce91ebaf117393462d686569830ff02ceced502",
         "officialLinks": "3c21e7034dd2311b42f7b47f58d4fab114a0ae8c8398734c0ad6e700e106e70a",
-        "genres": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "genres": "699c8c7f0f0f91c5972e8e063d7af38a23a646e11f43bcbd9faf7780c60bffd2",
         "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
         "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
         "aliases": "96c90ff07c8a672da5bda8a96bb75ecd3e34d08ee0df61af921dc552a9115b5d",
