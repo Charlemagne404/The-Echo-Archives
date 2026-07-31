@@ -13,7 +13,7 @@ function runBackupTransitionFixture({
   installedUnitIsReviewed = true,
   offsiteJournal = "",
   monitorJournal = "",
-  marker = "file",
+  marker = "stale",
 }) {
   const fixture = fs.mkdtempSync("/tmp/echo-maintenance-transition-test.");
   try {
@@ -33,8 +33,15 @@ function runBackupTransitionFixture({
       path.join(fixture, "historical-monitor-journal"),
       "FAIL: Off-site backup success marker is 999h old.\n",
     );
-    if (marker === "file") {
+    if (marker === "stale" || marker === "fresh" || marker === "future") {
       fs.writeFileSync(path.join(fixture, "marker"), "fixture\n");
+      if (marker === "stale") {
+        const staleTime = new Date(Date.now() - 48 * 60 * 60 * 1000);
+        fs.utimesSync(path.join(fixture, "marker"), staleTime, staleTime);
+      } else if (marker === "future") {
+        const futureTime = new Date(Date.now() + 48 * 60 * 60 * 1000);
+        fs.utimesSync(path.join(fixture, "marker"), futureTime, futureTime);
+      }
     } else if (marker === "symlink") {
       fs.symlinkSync(path.join(fixture, "historical-monitor-journal"), path.join(fixture, "marker"));
     }
@@ -244,6 +251,8 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     script,
     /local monitor did not pass after the verified off-site backup/,
   );
+  assert.match(script, /off-site backup service did not finish successfully/);
+  assert.match(script, /off-site backup service retained a nonzero exit status/);
   assert.match(
     script,
     /local monitor remains pending because this failed stage did not publish a fresh off-site success marker/,
@@ -285,8 +294,12 @@ test("backup transition rejects unsafe or inconsistent stale-marker states", () 
       marker,
     });
     assert.notEqual(unsafeMarker.status, 0);
-    assert.match(unsafeMarker.stderr, /marker is missing, unsafe, or not a regular file/);
+    assert.match(unsafeMarker.stderr, /marker is missing, unsafe, or inconsistent/);
   }
+
+  const futureMarker = runBackupTransitionFixture({ marker: "future" });
+  assert.notEqual(futureMarker.status, 0);
+  assert.match(futureMarker.stderr, /timestamp is invalid or in the future/);
 
   const cascadeWithoutBackup = runBackupTransitionFixture({
     failedUnits: ["echo-archives-local-monitor.service"],
@@ -316,9 +329,15 @@ test("backup transition rejects unsafe or inconsistent stale-marker states", () 
 });
 
 test("no current failed unit does not inherit stale service result state", () => {
-  const clean = runBackupTransitionFixture({});
+  const clean = runBackupTransitionFixture({ marker: "fresh" });
   assert.equal(clean.status, 0, clean.stderr);
   assert.match(clean.stdout, /transition=no deferred=no install=no/);
+});
+
+test("a stale marker remains resumable after failed-unit rollback", () => {
+  const staleAfterReset = runBackupTransitionFixture({});
+  assert.equal(staleAfterReset.status, 0, staleAfterReset.stderr);
+  assert.match(staleAfterReset.stdout, /transition=yes deferred=yes install=no/);
 });
 
 test("complete launch maintenance does not mutate UFW or expose monitoring secrets", () => {

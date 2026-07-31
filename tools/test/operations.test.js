@@ -106,6 +106,66 @@ test("database backup checker enforces integrity, schema, privacy, and freshness
   }
 });
 
+test("off-site backup handles optional recovery configurations safely", () => {
+  const offsiteBackup = read("deploy/echo-archives-offsite-backup.sh");
+  const functionSource = offsiteBackup.match(
+    /^stage_private_configuration\(\) \{\n[\s\S]*?^\}/m,
+  );
+  assert.ok(functionSource, "stage_private_configuration function was not found");
+
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-optional-config-test-"));
+  try {
+    const runFixture = (mode) => spawnSync(
+      "bash",
+      [
+        "-c",
+        `set -Eeuo pipefail
+fixture_root="$1/$2"
+recovery_root="$fixture_root/recovery"
+mkdir -p "$recovery_root/configuration"
+log() { :; }
+fail() { exit 97; }
+${functionSource[0]}
+case "$2" in
+  absent)
+    stage_private_configuration "$fixture_root/absent.env" "absent.env"
+    test ! -e "$recovery_root/configuration/absent.env"
+    ;;
+  regular)
+    printf 'fixture\n' > "$fixture_root/source.env"
+    stage_private_configuration "$fixture_root/source.env" "copied.env"
+    cmp "$fixture_root/source.env" "$recovery_root/configuration/copied.env"
+    test "$(stat -c %a "$recovery_root/configuration/copied.env")" = 600
+    ;;
+  symlink)
+    ln -s "$fixture_root/missing-target" "$fixture_root/source.env"
+    stage_private_configuration "$fixture_root/source.env" "copied.env"
+    ;;
+  directory)
+    mkdir "$fixture_root/source.env"
+    stage_private_configuration "$fixture_root/source.env" "copied.env"
+    ;;
+esac
+`,
+        "bash",
+        tempRoot,
+        mode,
+      ],
+      { cwd: ROOT, encoding: "utf8" },
+    );
+    for (const mode of ["absent", "regular"]) {
+      const result = runFixture(mode);
+      assert.equal(result.status, 0, `${mode}: ${result.stderr}`);
+    }
+    for (const mode of ["symlink", "directory"]) {
+      const result = runFixture(mode);
+      assert.equal(result.status, 97, `${mode}: ${result.stderr}`);
+    }
+  } finally {
+    fs.rmSync(tempRoot, { force: true, recursive: true });
+  }
+});
+
 test("deployment shell scripts parse and preserve the required safety order", () => {
   for (const relativePath of [
     "deploy/check-echo-archives-production.sh",
@@ -264,6 +324,16 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.doesNotMatch(runtimeMigration, /rm\s+-rf\b/);
 
   const offsiteBackup = read("deploy/echo-archives-offsite-backup.sh");
+  assert.match(
+    offsiteBackup,
+    /Optional recovery configuration is absent: \$\{destination_name\}[\s\S]*return 0/,
+  );
+  assert.match(offsiteBackup, /trap 'on_error "\$\{LINENO\}"' ERR/);
+  assertOrdered(offsiteBackup, [
+    "Staging every runtime-writable publication path",
+    'stage_private_configuration "/etc/echo-archives/better-stack.env" "better-stack.env"',
+    "Sending the protected recovery inventory to the encrypted restic repository",
+  ]);
   assert.match(offsiteBackup, /check-database-backup\.js/);
   assert.match(offsiteBackup, /cp --preserve=mode,timestamps/);
   assert.match(offsiteBackup, /cmp --silent/);

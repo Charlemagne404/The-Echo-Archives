@@ -20,11 +20,13 @@ In `--apply` mode the script performs these fail-fast stages in order:
    the exact current off-site read-only probe failure and its current
    local-monitor cascade are accepted. On a resumed run, the exact current
    local-monitor failure caused by an expired off-site success marker is also
-   accepted only after the corrected unit is installed; any unrelated failed
-   unit remains fatal. Current systemd invocation IDs prevent old journal
-   entries from authorizing a transition. The original unit is already
-   preserved, the corrected unit is validated before daemon reload, and no
-   off-site backup is started at this stage.
+   accepted only after the corrected unit is installed. The same regular,
+   objectively stale marker is recognized when a successful stage rollback has
+   temporarily cleared the service's failed flag; any unrelated failed unit
+   remains fatal. Current systemd invocation IDs prevent old journal entries
+   from authorizing a transition. The original unit is already preserved, the
+   corrected unit is validated before daemon reload, and no off-site backup is
+   started at this stage.
 4. Builds or recognizes the reviewed Cloudflare-only Echo origin gate, validates
    it with both installed and staged Caddy, and inspects the adapted JSON to
    prove each peer abort precedes its proxy or redirect. It then reloads Caddy
@@ -58,7 +60,9 @@ In `--apply` mode the script performs these fail-fast stages in order:
    applies existing off-site retention, runs `restic check`, and only then
    publishes backup success. It then requires the local systemd monitor to pass
    and requires zero failed units. The Better Stack success heartbeat therefore
-   cannot precede those checks.
+   cannot precede those checks. Recovery configuration that is genuinely
+   optional and absent is logged and skipped successfully; required Restic and
+   application inputs remain fail-fast prerequisites.
 10. Upgrades Ollama from 0.6.7 to 0.32.5 without moving or re-pulling models,
    then verifies the exact version, loopback-only listener, existing `mistral`
    model, a short generation, and lack of public Ollama exposure.

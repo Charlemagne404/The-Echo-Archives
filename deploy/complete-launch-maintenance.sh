@@ -24,6 +24,7 @@ OLLAMA_NEW_SHA256="f7d6bdbcf71b83aa8670c4e7dc4b6936c0952fcf8b114eaf6a11cbadb9684
 OLLAMA_FALLBACK_SHA256="42b6bc1237c6932d36694606bf3d56d99fbd03b570b6002364773e00f56fa4cf"
 OFFSITE_SUCCESS_MARKER="/var/lib/echo-archives-monitoring/offsite-backup-success"
 OFFSITE_BACKUP_UNIT_CANDIDATE="${REPO_ROOT}/deploy/echo-archives-offsite-backup.service"
+MAX_OFFSITE_MARKER_AGE_HOURS=30
 
 LOCK_FILE="/run/lock/echo-archives-complete-launch-maintenance.lock"
 LOG_ROOT="/var/log/echo-archives"
@@ -330,6 +331,22 @@ capture_current_unit_journal() {
     fail "the current failed invocation for ${unit} has no journal evidence"
 }
 
+offsite_success_marker_is_stale() {
+  local marker_time
+  local now
+
+  [[ -f "${OFFSITE_SUCCESS_MARKER}" &&
+    ! -L "${OFFSITE_SUCCESS_MARKER}" ]] || return 1
+  marker_time="$(stat -c %Y "${OFFSITE_SUCCESS_MARKER}")"
+  now="$(date +%s)"
+  [[ "${marker_time}" =~ ^[0-9]+$ && "${now}" =~ ^[0-9]+$ ]] || return 2
+  (( marker_time <= now )) || return 2
+  if (( now - marker_time > MAX_OFFSITE_MARKER_AGE_HOURS * 3600 )); then
+    return 0
+  fi
+  return 1
+}
+
 classify_backup_unit_transition() {
   local failed_units="${TEMP_ROOT}/failed-units.txt"
   local unexpected_units="${TEMP_ROOT}/unexpected-failed-units.txt"
@@ -338,6 +355,8 @@ classify_backup_unit_transition() {
   local monitor_journal="${TEMP_ROOT}/local-monitor.journal"
   local offsite_failed="no"
   local monitor_failed="no"
+  local marker_stale="no"
+  local marker_status=0
 
   systemctl --failed --no-legend --plain |
     awk '{print $1}' |
@@ -363,6 +382,18 @@ classify_backup_unit_transition() {
   [[ ! -s "${unexpected_units}" ]] ||
     fail "an unrelated system unit is already failed"
 
+  offsite_success_marker_is_stale || marker_status="$?"
+  case "${marker_status}" in
+    0)
+      marker_stale="yes"
+      ;;
+    1)
+      ;;
+    *)
+      fail "off-site backup success marker timestamp is invalid or in the future"
+      ;;
+  esac
+
   if grep -Fxq "echo-archives-offsite-backup.service" "${failed_units}"; then
     offsite_failed="yes"
     capture_current_unit_journal \
@@ -387,17 +418,23 @@ classify_backup_unit_transition() {
         fail "local monitor freshness failure is mixed with a failed backup unit"
       [[ "${BACKUP_UNIT_NEEDS_INSTALL}" == "no" ]] ||
         fail "local monitor freshness failed before the reviewed backup unit was installed"
-      [[ -f "${OFFSITE_SUCCESS_MARKER}" &&
-        ! -L "${OFFSITE_SUCCESS_MARKER}" ]] ||
-        fail "off-site backup success marker is missing, unsafe, or not a regular file"
+      [[ "${marker_stale}" == "yes" ]] ||
+        fail "off-site backup success marker is missing, unsafe, or inconsistent with the current freshness failure"
       BACKUP_MONITOR_FRESHNESS_DEFERRED="yes"
     else
       fail "local monitor failure is neither the reviewed backup cascade nor stale backup freshness"
     fi
   fi
 
+  if [[ "${marker_stale}" == "yes" && "${offsite_failed}" == "no" &&
+    "${monitor_failed}" == "no" ]]; then
+    [[ "${BACKUP_UNIT_NEEDS_INSTALL}" == "no" ]] ||
+      fail "stale off-site freshness cannot be deferred before the reviewed backup unit is installed"
+    BACKUP_MONITOR_FRESHNESS_DEFERRED="yes"
+  fi
+
   if [[ "${offsite_failed}" == "no" && "${monitor_failed}" == "no" &&
-    "${BACKUP_UNIT_NEEDS_INSTALL}" != "yes" ]]; then
+    "${BACKUP_UNIT_NEEDS_INSTALL}" != "yes" && "${marker_stale}" != "yes" ]]; then
     return
   fi
 
@@ -1022,6 +1059,10 @@ stage_backup_restore() {
   CURRENT_ROLLBACK=rollback_backup_automation
   SUDO_USER="${OPERATOR_USER}" \
     "${REPO_ROOT}/deploy/complete-pi-backup-setup.sh" --apply
+  [[ "$(systemctl show echo-archives-offsite-backup.service -p Result --value)" == "success" ]] ||
+    fail "off-site backup service did not finish successfully"
+  [[ "$(systemctl show echo-archives-offsite-backup.service -p ExecMainStatus --value)" == "0" ]] ||
+    fail "off-site backup service retained a nonzero exit status"
   systemctl is-enabled --quiet echo-archives-offsite-backup.timer
   systemctl is-active --quiet echo-archives-offsite-backup.timer
   [[ -f /var/lib/echo-archives-monitoring/pi-backup-readiness ]] ||

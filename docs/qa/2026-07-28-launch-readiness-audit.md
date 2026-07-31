@@ -164,13 +164,33 @@ stage restores its unit/timer state without pretending that the pre-existing
 stale marker was repaired. This repository fix is not production-verified
 until a new privileged run reaches and passes that stage.
 
+The next July 31 apply at
+`f3b6cf6a2174225a3289e576be5ea946a4e00b5f` passed every stage through the
+live application and Better Stack heartbeat stage, then stopped inside
+off-site recovery inventory staging. Systemd evidence shows the job validated
+the new 100,204,544-byte local database backup and staged importer data, but
+exited before sending a Restic snapshot. The current-stage rollback restored
+the backup unit/timer state, resumed both timers, and initially left no failed
+unit. The local timer subsequently reasserted the truthful stale-marker
+failure; the off-site freshness marker remains stale and Ollama was not
+upgraded.
+
+The cause was an absent optional configuration path executing bare `return`
+after a failed `[[ -e ... ]]` test. Under `set -e` that returned status 1 and
+silently terminated the job. The branch now logs the absent configuration and
+returns 0 explicitly, while a new ERR trap records line and status for any
+future unwrapped failure. Regression tests also prove a stale marker remains a
+recognized resumable state after successful rollback clears systemd's failed
+unit flag. The off-site restore/backup remains unverified until the corrected
+job completes in production.
+
 ### Repository verification evidence
 
 The final post-fix `npm run verify` completed successfully:
 
 - generated 100 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `35/35`;
+- operations/tool tests: `37/37`;
 - backend tests: `228/228`;
 - Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive

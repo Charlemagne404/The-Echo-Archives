@@ -51,12 +51,23 @@ fail() {
   exit 1
 }
 
+on_error() {
+  local status="$?"
+  local line="$1"
+  trap - ERR
+  log "ERROR: Off-site backup stopped at line ${line} with status ${status}."
+  exit "${status}"
+}
+
 stage_private_configuration() {
   local source="$1"
   local destination_name="$2"
   [[ ! -L "${source}" ]] ||
     fail "Recovery configuration source is not a safe regular file: ${source}"
-  [[ -e "${source}" ]] || return
+  if [[ ! -e "${source}" ]]; then
+    log "Optional recovery configuration is absent: ${destination_name}."
+    return 0
+  fi
   [[ -f "${source}" ]] ||
     fail "Recovery configuration source is not a safe regular file: ${source}"
   install -m 0600 -- "${source}" \
@@ -86,6 +97,7 @@ stage_publication_file() {
 }
 
 trap cleanup EXIT
+trap 'on_error "${LINENO}"' ERR
 
 [[ "${EUID}" -eq 0 ]] || fail "Run this job through its root-owned systemd service."
 
