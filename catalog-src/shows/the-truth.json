@@ -1,0 +1,457 @@
+{
+  "id": "the-truth",
+  "title": "The Truth",
+  "subtitle": "Movies without pictures.",
+  "description": "The Truth makes short, cinematic stories meant to be listened to closely, like short films for your ears. Each episode is a brand new story with a new cast of characters and a whole new world to explore. Some are suspenseful, others funny, shocking, or uplifting.",
+  "cover": "images/covers/the-truth.webp",
+  "coverAlt": "The Truth cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+    "website": "http://www.thetruthpodcast.com/",
+    "rss": "https://feeds.megaphone.fm/SBP9327453320",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "anthology",
+    "episodic"
+  ],
+  "tags": [
+    "Anthology",
+    "Cinematic",
+    "Full cast"
+  ],
+  "aliases": [
+    "The Truth",
+    "The Truth Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 190 full episodes • 25 min median",
+    "episodes": 190,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 25,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 50,
+    "totalObservedHours": 80,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 190,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2012-02-11",
+    "latest": "2026-07-30",
+    "latestFeedItem": "2026-07-30",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://www.thetruthpodcast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/thetruthfiction/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Truth",
+    "ownerName": "The Truth",
+    "network": "The Truth"
+  },
+  "creators": [
+    "The Truth"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "http://www.thetruthpodcast.com/about; http://www.thetruthpodcast.com/; https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4; https://feeds.megaphone.fm/SBP9327453320",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "http://www.thetruthpodcast.com/about",
+      "http://www.thetruthpodcast.com/",
+      "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+      "https://feeds.megaphone.fm/SBP9327453320"
+    ],
+    "sourceCategories": [
+      "Drama",
+      "Comedy"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Drama",
+      "Comedy"
+    ],
+    "importOfficialSummary": "The Truth makes short, cinematic stories meant to be listened to closely, like short films for your ears. Each episode is a brand new story with a new cast of characters and a whole new world to explore. Some are suspenseful, others funny, shocking, or uplifting.",
+    "socialUrls": [
+      "https://www.instagram.com/thetruthfiction/",
+      "https://www.facebook.com/thetruthpodcast",
+      "https://twitter.com/TheTruthFiction"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "The Truth Podcast",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP9327453320",
+        "appleCollectionId": "502304410",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thetruthpodcast.com/about",
+          "fetchedAt": "2026-07-31T18:31:36.413Z",
+          "payloadHash": "93f510e0fc2315a3b03a4efbaba0d40196a4bcf202a16497d520b69e5f596904"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://www.thetruthpodcast.com/",
+          "fetchedAt": "2026-07-31T18:31:36.410Z",
+          "payloadHash": "763d9e5d097037c544a3a4297c921937c326496d1500c3eba5512edb00406a55"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+          "fetchedAt": "2026-07-31T18:31:35.114Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP9327453320",
+          "fetchedAt": "2026-07-31T18:31:35.365Z",
+          "payloadHash": "eef4344bb33c3a3c553d83fcfbbab122ff26ae0bb5f97ecc927460b15d06bacd"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+          "https://feeds.megaphone.fm/SBP9327453320",
+          "http://www.thetruthpodcast.com/",
+          "http://www.thetruthpodcast.com/about"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+            "https://feeds.megaphone.fm/SBP9327453320",
+            "http://www.thetruthpodcast.com/",
+            "http://www.thetruthpodcast.com/about"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+            "https://feeds.megaphone.fm/SBP9327453320",
+            "http://www.thetruthpodcast.com/",
+            "http://www.thetruthpodcast.com/about"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+            "https://feeds.megaphone.fm/SBP9327453320",
+            "http://www.thetruthpodcast.com/",
+            "http://www.thetruthpodcast.com/about"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+            "https://feeds.megaphone.fm/SBP9327453320",
+            "http://www.thetruthpodcast.com/",
+            "http://www.thetruthpodcast.com/about"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:38:13.352Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thetruthpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thetruthpodcast.com/about"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://www.thetruthpodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-truth/id502304410?uo=4",
+            "https://feeds.megaphone.fm/SBP9327453320",
+            "http://www.thetruthpodcast.com/",
+            "http://www.thetruthpodcast.com/about"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:38:13.353Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b83c029ad676728bfe963b099fac761812fd360e4b73745a5321daac024e61d5",
+        "subtitle": "483a704026aab9add221786d4076603c5f4f577803b7fb3f88a6aa178a761f18",
+        "description": "b83c029ad676728bfe963b099fac761812fd360e4b73745a5321daac024e61d5",
+        "cover": "9f9da82390703c7625036855b77e50b0d9b438259c6bf0b9e91df3e58b5e1c5f",
+        "coverAlt": "d0726af0a7b629c13257e8e99dc235c5993cbb53ba67fc3a41b4463a66e489d1",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "541651591a8064cf48641b714169fcbd4c3d48561d548785a070d247b7af999f",
+        "officialLinks": "2778a5120f02fd17a69320634e9880c0c910649a1e2816113f400cea893fcfae",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "3618577e5e19a291722128f066d1af9bbb342cd7543ce844a511beccad2dfc46",
+        "formats": "0495d857cb416b7c9f96760d81949f377da54368447a985f4fae5d96d67ec3df",
+        "aliases": "01e581a4e87c12724a02ac9ed89146af2657b7762c521bad677a24dd206eb3cc",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "4acd780f01b632bc237b02875b8eb40b2153437664070f6bb696fdc39cebb409",
+        "releaseDates": "ded64d4ca8ef1d64c88b75cf205e49df874bac267549a3ce03ad743391cc4fe6",
+        "credits": "f8e2f89a3ffce98502f5fd2e731dc431f1608a57850e6d647a5047b740c9adef",
+        "creators": "461dd480f2126feedfaa8e74cc6ea7dadbc7ccf0e84cea5eaee8f862444f883f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "c69203091429242671d0b6b00a17b3fc20d497dae8778b8b7774f0e01eb7a417"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "the-truth",
+  "networkId": "the-truth"
+}

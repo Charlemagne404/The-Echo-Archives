@@ -1,0 +1,508 @@
+{
+  "id": "give-me-away",
+  "title": "Give Me Away",
+  "subtitle": "Welcome to radical hospitality. There's no turning back.",
+  "description": "From the writer of The Message, Life/After, and Steal the Stars. They call the crashed spaceship “The Ghosthouse” because it screams—the screams of thousands of extraterrestrial political prisoners trapped in its horrific mainframe. The only way to free them is to transfer them into humans willing to share their minds with a second consciousness forever.",
+  "cover": "images/covers/give-me-away.jpg",
+  "coverAlt": "Give Me Away cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1QSUYe7x2jLTasi3bCeNux",
+    "apple": "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580",
+    "website": "https://www.gideon-media.com/give-me-away",
+    "rss": "https://feeds.megaphone.fm/givemeaway",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "https://pca.st/g3lzg2lk"
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Alien contact",
+    "Mind sharing"
+  ],
+  "aliases": [
+    "Give Me Away"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 47 full episodes • 36 min median",
+    "seasons": 3,
+    "episodes": 47,
+    "avgEpisodeMinutes": 30,
+    "medianEpisodeMinutes": 36,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 47,
+    "totalObservedHours": 23.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 47,
+      "bonus": 5,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2021-07-16",
+    "latest": "2026-05-14",
+    "latestFeedItem": "2026-06-05",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.gideon-media.com/give-me-away",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/watch?v=UyOGevVQNWY",
+    "social": "https://twitter.com/mediagideon",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Gideon Media",
+    "ownerName": "Gideon Media",
+    "network": "Gideon Media"
+  },
+  "creators": [
+    "Gideon Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.gideon-media.com/transcripts; https://www.gideon-media.com/about; https://www.gideon-media.com/give-me-away; https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4; https://feeds.megaphone.fm/givemeaway; https://podcasts.apple.com/us/podcast/give-me-away/id1575422580",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.gideon-media.com/transcripts",
+      "https://www.gideon-media.com/about",
+      "https://www.gideon-media.com/give-me-away",
+      "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+      "https://feeds.megaphone.fm/givemeaway",
+      "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "importOfficialSummary": "From the writer of The Message, Life/After, and Steal the Stars. They call the crashed spaceship “The Ghosthouse” because it screams—the screams of thousands of extraterrestrial political prisoners trapped in its horrific mainframe. The only way to free them is to transfer them into humans willing to share their minds with a second consciousness forever.",
+    "socialUrls": [
+      "https://twitter.com/mediagideon",
+      "https://www.facebook.com/GideonAudio",
+      "https://www.instagram.com/gideonaudio"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Gideon Media, 2021",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/givemeaway",
+        "appleCollectionId": "1575422580",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.gideon-media.com/transcripts",
+          "fetchedAt": "2026-07-31T18:32:10.709Z",
+          "payloadHash": "4b4923234a5769218a9aeb48b3f8da597c4b6db9c6c47d32da1cb2a1bea5e2a7"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.gideon-media.com/about",
+          "fetchedAt": "2026-07-31T18:32:10.705Z",
+          "payloadHash": "d5323b70d572f6ae48eec106160d6a67fc34679791faef16f11c7785552d385b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.gideon-media.com/give-me-away",
+          "fetchedAt": "2026-07-31T18:32:10.701Z",
+          "payloadHash": "dfd6a72bb2858b6580a4c69ccafcfd23c3d2b88708a8bebf2b0ae48622742e76"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+          "fetchedAt": "2026-07-31T18:32:08.894Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/givemeaway",
+          "fetchedAt": "2026-07-31T18:32:09.469Z",
+          "payloadHash": "8c1a90b69cf4f2607650b4d61a423ee19da2c516f9e34e1b5396995d2a60dc9a"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+          "https://feeds.megaphone.fm/givemeaway",
+          "https://www.gideon-media.com/give-me-away",
+          "https://www.gideon-media.com/about",
+          "https://www.gideon-media.com/transcripts",
+          "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+            "https://feeds.megaphone.fm/givemeaway",
+            "https://www.gideon-media.com/give-me-away",
+            "https://www.gideon-media.com/about",
+            "https://www.gideon-media.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+            "https://feeds.megaphone.fm/givemeaway",
+            "https://www.gideon-media.com/give-me-away",
+            "https://www.gideon-media.com/about",
+            "https://www.gideon-media.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+            "https://feeds.megaphone.fm/givemeaway",
+            "https://www.gideon-media.com/give-me-away",
+            "https://www.gideon-media.com/about",
+            "https://www.gideon-media.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+            "https://feeds.megaphone.fm/givemeaway",
+            "https://www.gideon-media.com/give-me-away",
+            "https://www.gideon-media.com/about",
+            "https://www.gideon-media.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:38:13.366Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/give-me-away"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/transcripts"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/give-me-away"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/transcripts"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.gideon-media.com/transcripts"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580?uo=4",
+            "https://feeds.megaphone.fm/givemeaway",
+            "https://www.gideon-media.com/give-me-away",
+            "https://www.gideon-media.com/about",
+            "https://www.gideon-media.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/give-me-away/id1575422580"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:38:13.366Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b6347d7d35c184ae6e7a31f59ddd649dad47082d496873fdecff9e8d685f80bb",
+        "subtitle": "9da27d9b8c40d550931417c23868b4f082818a33e692674a2e37eee8e37b7072",
+        "description": "b6347d7d35c184ae6e7a31f59ddd649dad47082d496873fdecff9e8d685f80bb",
+        "cover": "f16bfeb112e60bda15843b9455e3a71a0477e8cb6b650c481c2794229fc81f2a",
+        "coverAlt": "ad0985694cf11711c0454a22d0e0b0c774096986d70469241b8d450c83c47064",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "1c22c6e7ba9b1402c739e942afc49e1a92c3f2c5292146e2f63093fefc155efc",
+        "officialLinks": "95197ffd08723d5dce002055a724ea3990f15ccff3e13ee6c1352317595306e5",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "ddaf74b42a95426b98327b348a4811a33b64c9fd4ead35cb2aeeaa2d51279e56",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "0730ba996e29ff403c458d9e4d2f9561fbcd73b51919e03a0bccdf13ed4662c5",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "915a63b8a54522585d8619ab98f8d235834533533a7d8c75edc11a0e71461009",
+        "releaseDates": "03b3393a57d1a6f7d62340f9113a0ae14450b401eab696db57107e46e2fe050f",
+        "credits": "4a39fe6b976e8fb3fe0e107fc09e37285fd23d9af9cdf61e392c2e9461173567",
+        "creators": "81cc9b9a439fc4f3bae2300804dcc6320de17ef18631118bf723a1374b4122e1",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "92fcd01372f9ca79cf7fc91d526b3000496d38121f544d6f2a08a579acdb3911"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "gideon-media",
+  "networkId": "gideon-media"
+}

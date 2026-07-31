@@ -1,0 +1,502 @@
+{
+  "id": "the-orphans",
+  "title": "The Orphans",
+  "subtitle": "",
+  "description": "The Orphans is a cinematic sci-fi audio drama about survival in a harsh universe: castaways on a hostile world, A.I.s with unprecedented emotions, strangers who share faces, love and loss in a far-flung future. Each season explores a new vantage point in an ever-expanding and interconnected galaxy.",
+  "cover": "images/covers/the-orphans.jpg",
+  "coverAlt": "The Orphans cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+    "website": "https://www.realmspod.com/",
+    "rss": "https://feeds.megaphone.fm/FAFO6828665740",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Survival",
+    "Space opera"
+  ],
+  "aliases": [
+    "The Orphans"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "5 seasons observed • at least 37 full episodes • 21 min median",
+    "seasons": 5,
+    "episodes": 37,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 7,
+    "maxEpisodeMinutes": 102,
+    "totalObservedHours": 16.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 37,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2016-05-23",
+    "latest": "2025-10-27",
+    "latestFeedItem": "2025-10-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.realmspod.com/",
+    "patreon": "https://www.patreon.com/LightandTragic",
+    "koFi": "",
+    "discord": "https://discord.gg/T2uW8KnbcQ",
+    "youtube": "https://www.youtube.com/watch?v=UIH8mvzLYlA",
+    "social": "https://instagram.com/squarespace",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Light and Tragic Company",
+    "ownerName": "The Light & Tragic Company",
+    "network": "Realms of Peril & Glory"
+  },
+  "creators": [
+    "The Light and Tragic Company"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.realmspod.com/about; https://www.realmspod.com/; https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4; https://feeds.megaphone.fm/FAFO6828665740",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.realmspod.com/about",
+      "https://www.realmspod.com/",
+      "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+      "https://feeds.megaphone.fm/FAFO6828665740"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction",
+      "Drama"
+    ],
+    "importOfficialSummary": "The Orphans is a cinematic sci-fi audio drama about survival in a harsh universe: castaways on a hostile world, A.I.s with unprecedented emotions, strangers who share faces, love and loss in a far-flung future. Each season explores a new vantage point in an ever-expanding and interconnected galaxy.",
+    "socialUrls": [
+      "https://instagram.com/squarespace",
+      "https://tiktok.com/RealmsPod",
+      "https://twitter.com/squarespace"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© The Light & Tragic Company",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/FAFO6828665740",
+        "appleCollectionId": "1155883792",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.realmspod.com/about",
+          "fetchedAt": "2026-07-31T18:30:13.364Z",
+          "payloadHash": "98992e96f52e2190bdae98621e6ea700bcf24624427b00c567914cf6510bbd47"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.realmspod.com/",
+          "fetchedAt": "2026-07-31T18:30:13.355Z",
+          "payloadHash": "c9b688bdb739f2c313a3599b10f49df206ff2d6ce68a0c7111d806b97d768371"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+          "fetchedAt": "2026-07-31T18:30:10.103Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/FAFO6828665740",
+          "fetchedAt": "2026-07-31T18:30:10.692Z",
+          "payloadHash": "abab8b296aead9dcbf53b74d89b36cc61fae51d1a6961c591f8ce0fd9636addb"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+          "https://feeds.megaphone.fm/FAFO6828665740",
+          "https://www.realmspod.com/",
+          "https://www.realmspod.com/about"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+            "https://feeds.megaphone.fm/FAFO6828665740",
+            "https://www.realmspod.com/",
+            "https://www.realmspod.com/about"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+            "https://feeds.megaphone.fm/FAFO6828665740",
+            "https://www.realmspod.com/",
+            "https://www.realmspod.com/about"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+            "https://feeds.megaphone.fm/FAFO6828665740",
+            "https://www.realmspod.com/",
+            "https://www.realmspod.com/about"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+            "https://feeds.megaphone.fm/FAFO6828665740",
+            "https://www.realmspod.com/",
+            "https://www.realmspod.com/about"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:38:13.331Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/about"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/about"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/about"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.realmspod.com/about"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-orphans/id1155883792?uo=4",
+            "https://feeds.megaphone.fm/FAFO6828665740",
+            "https://www.realmspod.com/",
+            "https://www.realmspod.com/about"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:38:13.331Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "132d0cac3420f441d468c911213ec41a4cd82dd7408745d3eb3344a4e58ba789",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "132d0cac3420f441d468c911213ec41a4cd82dd7408745d3eb3344a4e58ba789",
+        "cover": "3bbb2456c1f71e139d0d8a3b88029fee9b797fc12a22fd4b6854516ed10e4ca2",
+        "coverAlt": "0cb29407bebc3475e7478b7b9a50e953b603247fc756894b0d5755f17479b726",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f825113cb882d196e1a208bf3fa56032723fddced64d55a91d97edb9ceac0d97",
+        "officialLinks": "c2dc14e333c2c43fa471c82ae4c556f81993df2102781fa697ff9a6e43fbd9ba",
+        "genres": "5e1c8ac5a5bc529da25aefa615e90136fc2dcade7fbb07655c917b5ba23cf206",
+        "tags": "ddaf74b42a95426b98327b348a4811a33b64c9fd4ead35cb2aeeaa2d51279e56",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "1e852e21db3f1bdc6bb99aaee2a6033217838aa091d3b526c82ab1f99a3b698a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "555f62054642f1bc8bfa78d29d865a2f235f988d575ff09d04616b2e100f30d4",
+        "releaseDates": "c24547ef8b858706579a2e401a6a43cbf587a8a791aed7961685d1ae2a08eb77",
+        "credits": "c3aed83ae4155366f99e24902c40bcca6dffdf1b6f4b4a046adfc36e87d83100",
+        "creators": "c9ad1e3221cc4483c84ea568631c1f5bdf66795d410bbbdbe8ff4023f11c313b",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "44b56e927ccdbbc6b4ae9f17ed53144e33d37abe0ba11466950a8dd9337dc67f"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "the-light-and-tragic-company",
+  "networkId": "realms-of-peril-glory"
+}

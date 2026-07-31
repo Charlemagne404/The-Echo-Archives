@@ -22,6 +22,12 @@ const {
   SHOW_STATUSES,
 } = require("../../tools/lib/catalog-schema");
 const {
+  CANONICAL_SCI_FI_TAG,
+  MIN_PUBLISHED_DISCOVERY_TAGS,
+  SCI_FI_TAG_PATTERN,
+  isRedundantDiscoveryTag,
+} = require("../../shared/archive-tags");
+const {
   readCatalogSource,
   writeCatalogSource,
 } = require("../../tools/lib/catalog-source");
@@ -170,6 +176,24 @@ function validateDeprecatedShowFields(record) {
   });
 }
 
+function validateDiscoveryTags(record) {
+  const tags = Array.isArray(record.tags) ? record.tags : [];
+
+  if (record.status === "published" && tags.length < MIN_PUBLISHED_DISCOVERY_TAGS) {
+    throw new Error(`Show "${record.id}" must have at least ${MIN_PUBLISHED_DISCOVERY_TAGS} discovery tags before publication.`);
+  }
+
+  tags.forEach((tag) => {
+    if (SCI_FI_TAG_PATTERN.test(String(tag || "").trim()) && tag !== CANONICAL_SCI_FI_TAG) {
+      throw new Error(`Show "${record.id}" must use the canonical "${CANONICAL_SCI_FI_TAG}" discovery tag instead of "${tag}".`);
+    }
+
+    if (isRedundantDiscoveryTag(tag)) {
+      throw new Error(`Show "${record.id}" uses redundant discovery tag "${tag}".`);
+    }
+  });
+}
+
 function validateShowRecord(record, seenIds) {
   if (!record || typeof record !== "object") {
     throw new Error("Every show record must be an object.");
@@ -214,6 +238,7 @@ function validateShowRecord(record, seenIds) {
     throw new Error(`Show "${record.id}" has invalid completionStatus "${record.completionStatus}".`);
   }
 
+  validateDiscoveryTags(record);
   assertUniqueNormalized(record.tags, "tags", record.id);
   assertUniqueNormalized(record.genres, "genres", record.id);
   assertUniqueNormalized(record.tones, "tones", record.id);

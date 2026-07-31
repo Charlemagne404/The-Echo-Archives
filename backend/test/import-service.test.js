@@ -72,7 +72,7 @@ function rssDocument({ title = "Signal Lost", website = "https://example.com/", 
         <itunes:image href="https://example.com/cover.jpg" />
         <language>en</language>
         <itunes:category text="Fiction"><itunes:category text="Drama" /></itunes:category>
-        <itunes:keywords>mystery, deep space, abandoned station</itunes:keywords>
+        <itunes:keywords>mystery, deep space, abandoned station, Science Fiction</itunes:keywords>
         <itunes:type>serial</itunes:type>
         ${complete ? "<podcast:complete>true</podcast:complete>" : ""}
         <podcast:guid>4c4d1ac2-1ab3-42ad-8898-123456789abc</podcast:guid>
@@ -286,7 +286,7 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.deepEqual(candidate.preparedRecord.tones, []);
     assert.deepEqual(candidate.preparedRecord.similarTo, []);
     assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
-    assert.deepEqual(candidate.preparedRecord.tags, ["Drama", "mystery", "deep space", "abandoned station"]);
+    assert.deepEqual(candidate.preparedRecord.tags, ["mystery", "deep space", "abandoned station", "Sci-fi"]);
     assert.equal(candidate.preparedRecord.metadata.import.fields.tags.method, "source-categories-and-keywords");
     assert.equal(candidate.preparedRecord.length.episodes, 1);
     assert.equal(candidate.preparedRecord.length.episodeCounts.bonus, 1);
@@ -411,7 +411,7 @@ test("catalog update candidates preserve legacy and human-owned fields", async (
     releaseStatus: "unknown",
     completionStatus: "unclear",
     listenLinks: { rss: "https://example.com/feed.xml" },
-    genres: ["sci-fi"], tones: ["dark"], formats: ["serialized"], tags: ["Curated"],
+    genres: ["sci-fi"], tones: ["dark"], formats: ["serialized"], tags: ["Curated", "Sci-fi"],
     ratings: { archive: 9 }, bestFor: ["late-night"], similarTo: [], similarReasons: {},
     archiveTake: "Human archive take.", spoilerFreeReview: "", thoughts: "", quote: { text: "", attribution: "" },
     officialLinks: {}, credits: {}, availability: {}, content: {}, metadata: {}, featured: true,
@@ -497,7 +497,7 @@ test("batch publication requires individual review and performs one catalog buil
     if (feedMatch) {
       const number = feedMatch[1] === "one" ? "One" : "Two";
       const guid = feedMatch[1] === "one" ? "11111111-1111-4111-8111-111111111111" : "22222222-2222-4222-8222-222222222222";
-      return new Response(`<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0"><channel><title>Signal ${number}</title><link>https://${feedMatch[1]}.example.com/</link><description>A fiction audio drama for batch publication.</description><language>en</language><itunes:category text="Fiction"/><itunes:image href="https://${feedMatch[1]}.example.com/cover.jpg"/><podcast:guid>${guid}</podcast:guid><item><title>Episode</title><pubDate>2026-06-01T00:00:00Z</pubDate></item></channel></rss>`, {
+      return new Response(`<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0"><channel><title>Signal ${number}</title><link>https://${feedMatch[1]}.example.com/</link><description>A fiction audio drama for batch publication.</description><language>en</language><itunes:category text="Fiction"/><itunes:keywords>mystery, space</itunes:keywords><itunes:image href="https://${feedMatch[1]}.example.com/cover.jpg"/><podcast:guid>${guid}</podcast:guid><item><title>Episode</title><pubDate>2026-06-01T00:00:00Z</pubDate></item></channel></rss>`, {
         status: 200, headers: { "content-type": "application/rss+xml" },
       });
     }

@@ -8,6 +8,10 @@ const {
   toDateStamp,
   trimText,
 } = require("./utils");
+const {
+  MIN_PUBLISHED_DISCOVERY_TAGS,
+  normalizeDiscoveryTags,
+} = require("../../../shared/archive-tags");
 
 const HUMAN_OWNED_FIELDS = [
   "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "tones", "bestFor",
@@ -140,12 +144,12 @@ function selectedSources(candidate) {
 }
 
 function sourceTags(objective = {}) {
-  return mergeUniqueStrings(
+  return normalizeDiscoveryTags(mergeUniqueStrings(
     objective.categories || [],
     objective.keywords || [],
-  )
+  ))
     .map((value) => trimText(value, 80))
-    .filter((value) => value.length >= 2 && value.toLowerCase() !== "fiction")
+    .filter((value) => value.length >= 2)
     .slice(0, 12);
 }
 
@@ -171,7 +175,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const state = releaseState(objective);
   const categories = mergeUniqueStrings(objective.categories || []);
   const genres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
-  const tags = mergeUniqueStrings(objective.manualTags?.length ? objective.manualTags : sourceTags(objective));
+  const tags = normalizeDiscoveryTags(objective.manualTags?.length ? objective.manualTags : sourceTags(objective));
   const tagProvenance = sourceTagProvenance(candidate, tags);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
@@ -348,6 +352,7 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (!stableIdentity) blockers.push({ code: "missing-identity", field: "identity", message: "No stable RSS, Podcast GUID, Apple, or Podcast Index identity was resolved." });
   if (!preparedRecord.title || (fields.title?.confidence || 0) < 0.75) blockers.push({ code: "weak-title", field: "title", message: "A title with at least 0.75 confidence is required." });
   if (!preparedRecord.description || (fields.description?.confidence || 0) < 0.75) blockers.push({ code: "weak-description", field: "description", message: "A trustworthy official description with at least 0.75 confidence is required." });
+  if ((preparedRecord.tags || []).length < MIN_PUBLISHED_DISCOVERY_TAGS) blockers.push({ code: "insufficient-tags", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_TAGS} source-supported discovery tags are required.` });
   if (!candidate.coverStage?.ready || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover of at least 600px must be staged." });
   if (listenValues.length === 0) blockers.push({ code: "missing-listen-link", field: "listenLinks", message: "At least one listen link is required." });
   else if (!workingListenLink) blockers.push({ code: "unverified-listen-link", field: "listenLinks", message: "No listen link was confirmed by a successful source fetch." });

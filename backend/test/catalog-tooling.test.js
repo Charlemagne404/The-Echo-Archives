@@ -42,7 +42,7 @@ function createShowRecord(overrides = {}) {
     genres: ["sci-fi"],
     tones: ["dark"],
     formats: ["full-cast"],
-    tags: ["Time travel"],
+    tags: ["Time travel", "Sci-fi"],
     aliases: [],
     themes: [],
     contentNotes: [],

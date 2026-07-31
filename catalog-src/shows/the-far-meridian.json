@@ -1,0 +1,534 @@
+{
+  "id": "the-far-meridian",
+  "title": "The Far Meridian",
+  "subtitle": "Peri is an agoraphobic young woman whose home starts to show up in a new location every day, as she searches for her missing brother.",
+  "description": "Peri is an agoraphobic young woman whose home starts to show up in a new location every day, as she searches for her missing brother.",
+  "cover": "images/covers/the-far-meridian.jpg",
+  "coverAlt": "The Far Meridian cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1wkAZVLhKOFqVGMh55wcmw",
+    "apple": "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2",
+    "website": "https://www.whisperforge.org/thefarmeridian",
+    "rss": "https://feeds.megaphone.fm/thefarmeridian",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "fantasy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Sci-fi",
+    "Fantasy"
+  ],
+  "aliases": [
+    "The Far Meridian"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 28 full episodes • 17 min median",
+    "seasons": 2,
+    "episodes": 28,
+    "avgEpisodeMinutes": 18,
+    "medianEpisodeMinutes": 17,
+    "minEpisodeMinutes": 12,
+    "maxEpisodeMinutes": 27,
+    "totalObservedHours": 8.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 28,
+      "bonus": 15,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2017-06-05",
+    "latest": "2022-08-18",
+    "latestFeedItem": "2022-08-18",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.whisperforge.org/thefarmeridian",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/watch?v=F9u2t65BTNY",
+    "social": "https://www.facebook.com/ShotzLosAngeles/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Whisperforge",
+    "ownerName": "The Whisperforge",
+    "network": "The Whisperforge"
+  },
+  "creators": [
+    "The Whisperforge"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.whisperforge.org/caravan/cast; https://www.whisperforge.org/caravan/season-1; https://www.whisperforge.org/thefarmeridian/cast; https://www.whisperforge.org/remarkableprovidences/about; https://www.whisperforge.org/thefarmeridian; https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4; https://feeds.megaphone.fm/thefarmeridian; https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.whisperforge.org/caravan/cast",
+      "https://www.whisperforge.org/caravan/season-1",
+      "https://www.whisperforge.org/thefarmeridian/cast",
+      "https://www.whisperforge.org/remarkableprovidences/about",
+      "https://www.whisperforge.org/thefarmeridian",
+      "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+      "https://feeds.megaphone.fm/thefarmeridian",
+      "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Fantasy",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction",
+      "Fantasy",
+      "Drama"
+    ],
+    "importOfficialSummary": "Peri is an agoraphobic young woman whose home starts to show up in a new location every day, as she searches for her missing brother.",
+    "socialUrls": [
+      "https://www.facebook.com/ShotzLosAngeles/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "(C) 2016 Eli Barraza/The Whisperforge",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/thefarmeridian",
+        "appleCollectionId": "1241361067",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.whisperforge.org/thefarmeridian?format=rss",
+          "https://www.whisperforge.org/remarkableprovidences/about?format=rss",
+          "https://www.whisperforge.org/thefarmeridian/cast?format=rss",
+          "https://www.whisperforge.org/caravan/season-1?format=rss",
+          "https://www.whisperforge.org/caravan/cast?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.whisperforge.org/caravan/cast",
+          "fetchedAt": "2026-07-31T18:31:31.451Z",
+          "payloadHash": "a4213fbe214a8aa31358112dc107ebaeff65b5a8ba95571ceb73ca544f1e7e52"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.whisperforge.org/caravan/season-1",
+          "fetchedAt": "2026-07-31T18:31:31.448Z",
+          "payloadHash": "75a9db720bde750e14d8c242968f8ecad1bc8bd537b44af88d5e8ca49598fd02"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.whisperforge.org/thefarmeridian/cast",
+          "fetchedAt": "2026-07-31T18:31:31.444Z",
+          "payloadHash": "571c3b9d44c96b6baed7686bb0c8740405c3f12468daf149a236c648b044b78e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.whisperforge.org/remarkableprovidences/about",
+          "fetchedAt": "2026-07-31T18:31:31.442Z",
+          "payloadHash": "d64ab1348486001a0914981ae04bcfdd9643163b4902b28eb5a4c4870b1b237f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.whisperforge.org/thefarmeridian",
+          "fetchedAt": "2026-07-31T18:31:31.436Z",
+          "payloadHash": "91b22a08291f721e5ae38b91821b63e802d72a6e576c52263bc6cfe843310c02"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+          "fetchedAt": "2026-07-31T18:31:28.939Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/thefarmeridian",
+          "fetchedAt": "2026-07-31T18:31:29.534Z",
+          "payloadHash": "1208e0076eeccfec8db051cc7e2e210827405de22c8c94cff1c52e39c8a98920"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+          "https://feeds.megaphone.fm/thefarmeridian",
+          "https://www.whisperforge.org/thefarmeridian",
+          "https://www.whisperforge.org/remarkableprovidences/about",
+          "https://www.whisperforge.org/thefarmeridian/cast",
+          "https://www.whisperforge.org/caravan/season-1",
+          "https://www.whisperforge.org/caravan/cast",
+          "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+            "https://feeds.megaphone.fm/thefarmeridian",
+            "https://www.whisperforge.org/thefarmeridian",
+            "https://www.whisperforge.org/remarkableprovidences/about",
+            "https://www.whisperforge.org/thefarmeridian/cast",
+            "https://www.whisperforge.org/caravan/season-1",
+            "https://www.whisperforge.org/caravan/cast",
+            "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+            "https://feeds.megaphone.fm/thefarmeridian",
+            "https://www.whisperforge.org/thefarmeridian",
+            "https://www.whisperforge.org/remarkableprovidences/about",
+            "https://www.whisperforge.org/thefarmeridian/cast",
+            "https://www.whisperforge.org/caravan/season-1",
+            "https://www.whisperforge.org/caravan/cast",
+            "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+            "https://feeds.megaphone.fm/thefarmeridian",
+            "https://www.whisperforge.org/thefarmeridian",
+            "https://www.whisperforge.org/remarkableprovidences/about",
+            "https://www.whisperforge.org/thefarmeridian/cast",
+            "https://www.whisperforge.org/caravan/season-1",
+            "https://www.whisperforge.org/caravan/cast",
+            "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+            "https://feeds.megaphone.fm/thefarmeridian",
+            "https://www.whisperforge.org/thefarmeridian",
+            "https://www.whisperforge.org/remarkableprovidences/about",
+            "https://www.whisperforge.org/thefarmeridian/cast",
+            "https://www.whisperforge.org/caravan/season-1",
+            "https://www.whisperforge.org/caravan/cast",
+            "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:38:13.375Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/thefarmeridian"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/remarkableprovidences/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/thefarmeridian/cast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/caravan/season-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/caravan/cast"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/thefarmeridian"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.whisperforge.org/thefarmeridian/cast"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-far-meridian/id1241361067?uo=4",
+            "https://feeds.megaphone.fm/thefarmeridian",
+            "https://www.whisperforge.org/thefarmeridian",
+            "https://www.whisperforge.org/remarkableprovidences/about",
+            "https://www.whisperforge.org/thefarmeridian/cast",
+            "https://www.whisperforge.org/caravan/season-1",
+            "https://www.whisperforge.org/caravan/cast",
+            "https://itunes.apple.com/us/podcast/the-far-meridian/id1241361067?mt=2"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:38:13.375Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "ed7c9cf2c5c90fdb5618a9905f701439bf1566ce55dbffcb6f4f7eee1a888a0f",
+        "subtitle": "df13acbcb809b1366139eb9a873839c1957819f6e59fdc8eed9c15b56a898c34",
+        "description": "ed7c9cf2c5c90fdb5618a9905f701439bf1566ce55dbffcb6f4f7eee1a888a0f",
+        "cover": "99d79662e3c13ace050ac9e44dde9c512797dcd0e16b590f1f05fa5c8bc061e0",
+        "coverAlt": "dfdcc768926fe13cf1279411160e086f715ee26982b52ec7fa99face8c827f10",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "5a14295041f75d633d69aaa8012d9ed7c96f6b885af3933d03d13e66db077c10",
+        "officialLinks": "111029f5711bd1e787b7852835e070c9da1575a3e4b9d4382f5b128752eceae3",
+        "genres": "40ea99ce94ecdb13d3ea515f18f1288e1db85e04c474f8f8fc6bd6480dca15c3",
+        "tags": "8022a23ac880001f16bb2a76f870b72e422812d6c1641c649a1c1ea912cfbf11",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "3851f294e773d7d39934b1d45c7cc338ea85fb938e54ad38c3b44fd5ec753105",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "8159d38811053ac89b6050001cfbb7a96101d41e3e4185835320a1bde3ab8b4e",
+        "releaseDates": "90c4b8fe097b901bdc921288d671e7eea1ce055b5aaaebe4385d239378005a62",
+        "credits": "15b5ca9167acb0f9d9fa98bbb9e28b0118852774a4ce18974f6de22f4c4890d8",
+        "creators": "f37e2a499707558bb2ca5ad748aca54a582f9ec6eb71d95ea80cb8363a4d513d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "104dbd7a2bc5d204a8c9b4e45eb164b301b8d613907f75176efd69d764534ccb"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "the-whisperforge",
+  "networkId": "the-whisperforge"
+}

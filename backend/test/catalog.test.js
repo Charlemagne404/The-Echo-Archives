@@ -36,7 +36,7 @@ function createShowRecord(overrides = {}) {
     genres: ["sci-fi"],
     tones: ["dark"],
     formats: ["full-cast"],
-    tags: ["Time travel"],
+    tags: ["Time travel", "Sci-fi"],
     ratings: {
       archive: 8,
     },
@@ -150,6 +150,23 @@ test("optional start-listening links accept absolute URLs and reject invalid val
     listenLinks: { website: "https://example.com", start: "not-an-absolute-url" },
   })]);
   await assert.rejects(loadCatalog(tempRoot), /invalid listenLinks\.start URL/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("published catalog records require at least two useful canonical discovery tags", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Time travel"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /at least 2 discovery tags/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Drama", "Mystery"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /redundant discovery tag "Drama"/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Science Fiction", "Space"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /canonical "Sci-fi" discovery tag/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
