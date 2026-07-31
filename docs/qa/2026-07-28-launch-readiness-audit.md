@@ -55,7 +55,8 @@ Repository remediation has since:
   changed the canonical deployment to disposable-candidate validation with
   previous-revision/dependency rollback and no database rollback;
 - prepared Better Stack HTTP monitors and a success/failure backup heartbeat;
-- expanded encrypted backup scope, selected the newest snapshot for restore,
+- expanded encrypted backup scope, selected the marker-pinned last successful
+  snapshot for restore,
   added an isolated restored-app test, and added off-site-gated 30-day local
   retention;
 - aligned CI/runtime Node requirements, consolidated feature flags, deferred
@@ -198,28 +199,41 @@ visible temporary files. The immutable uploaded snapshot was correctly left in
 the repository for the next reviewed retention run. The freshness marker
 therefore remains stale and Ollama remains 0.6.7.
 
-The replacement verifier now derives the sole guarded source root from the
-exact snapshot metadata, accepts absolute and root-relative Restic JSON formats
-with or without a leading slash, discovers the exact snapshot-internal manifest
-node used by `restic dump`, rejects traversal, duplicate manifests, wrong snapshot IDs, and
-same-name paths outside the source root, and reports counts without disclosing
-private filenames. A real disposable Restic repository integration test backs
-up a recovery tree, consumes actual `restic ls --json` output, and proves the
-production verifier. Privileged preflight now also checks the newest same-host
-production snapshot's real listing and manifest before any changing stage;
-legacy pre-inventory snapshots are classified explicitly rather than creating
-a migration catch-22.
+The first replacement preflight at
+`43f68465f0160770cf5ba52b2f42736260053fca` stopped without changing production
+at 23:22. It selected the newest tagged snapshot and then could not find the
+expected root manifest. That snapshot was the unverified orphan committed by
+the failed 21:12 job; it was created after the still-current 04:08 success
+marker and never passed inventory, retention, repository-integrity, cleanup, or
+marker publication. Treating "newest tagged" as "last successful" was therefore
+incorrect. The protected check log is
+`/var/log/echo-archives/complete-launch-maintenance-20260731T212151Z.log`.
+
+The corrected protocol now anchors restore selection to successful evidence.
+The transitional one-line marker selects the newest exact-host/tag snapshot no
+later than its completion time, excluding every newer failed-run orphan. Future
+atomic markers record both completion time and the full successful snapshot ID
+and are published only after all backup checks and cleanup pass. Both preflight
+and the backup job use `restic restore --verify` in guarded root-only staging,
+then compare the exact restored filesystem with `REQUIRED_PATHS`. The verifier
+rejects missing/extra/duplicate/unsafe paths, nested manifests, symlinks,
+invalid UTF-8, unsupported entries, and non-canonical roots while reporting
+counts rather than private filenames. A real disposable Restic backup and
+verified restore exercises this exact flow. Production-only status remains
+Ready for verification until the new privileged check/apply succeeds.
 
 Because repeated runs had exposed production-only assumptions one at a time,
 the maintenance safety review was expanded across every remaining stage. The
 prepared script now copies and re-hashes artifacts into root-owned per-run
 staging, fully extracts Ollama during privileged preflight, polls Ollama server
-and API readiness, fully verifies an Ollama rollback, pauses backup automation
+and API readiness, keeps rollback armed through both isolated Echo integration
+paths, fully verifies an Ollama rollback, pauses backup automation
 before Restic work, requires new backup/monitor invocation IDs, handles
 `INT`/`TERM`/`HUP`, prevents conditional `errexit` from masking rollback
 failures, enforces loopback binds for all isolated processes, explicitly
-deletes unencrypted recovery/rollback copies before success, selects snapshots
-by exact host and valid time, checks TLS 1.2/1.3, correlates the final public
+deletes and verifies removal of unencrypted recovery/rollback copies, selects
+the last successful snapshot by its atomic marker, checks TLS 1.2/1.3,
+correlates the final public
 access event by request ID, and requires a safe fresh off-site marker in final
 verification. The privileged `--check` now exercises every non-destructive
 production check used by the remaining stages, including current Ollama and
@@ -233,8 +247,8 @@ The final post-fix `npm run verify` completed successfully:
 
 - generated 125 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `43/43`;
-- backend tests: `229/229`;
+- operations/tool tests: `49/49`;
+- backend tests: `231/231`;
 - Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive
   profile behavior, and repaired start-link navigation;
@@ -311,8 +325,8 @@ Deployment, recovery, and monitoring work:
 - `deploy/{echo-archives-offsite-backup.sh,echo-archives-offsite-backup.service,
   echo-archives-offsite-backup.timer,verify-restored-application.sh,
   complete-pi-backup-setup.sh}`,
-  `tools/verify-restic-recovery-inventory.js`, and
-  `tools/test/restic-recovery-inventory.test.js`;
+  `tools/verify-restic-recovery-inventory.js`,
+  `tools/select-restic-success-snapshot.js`, and their Restic regression tests;
 - `deploy/{BETTER_STACK_SETUP.md,better-stack-account.env.example,
   better-stack-heartbeat.env.example,notify-better-stack-heartbeat.js,
   echo-archives-offsite-backup-heartbeat.conf}`;
@@ -801,7 +815,8 @@ The readiness tooling reports a previous successful restore, but the protected l
 
 Required work:
 
-- [ ] Restore the newest remote snapshot into a temporary directory.
+- [ ] Restore the marker-pinned last successful remote snapshot into a
+      temporary directory.
 - [ ] Run SQLite integrity and foreign-key checks.
 - [ ] Start an isolated application against the restored database.
 - [ ] Verify health and representative reads.
@@ -1584,7 +1599,8 @@ Manual checks:
 
 ### Recovery and alerting gate
 
-- [ ] Restore newest encrypted remote snapshot to a temporary path.
+- [ ] Restore marker-pinned last successful encrypted remote snapshot to a
+      temporary path.
 - [ ] Run SQLite integrity check.
 - [ ] Run foreign-key check.
 - [ ] Start isolated app against restored data.

@@ -77,20 +77,29 @@ fail() {
 
 safe_remove_temp() {
   local path="$1"
-  if [[ -n "${path}" &&
-    "${path}" == /var/tmp/echo-launch-maintenance.* &&
-    -d "${path}" &&
-    ! -L "${path}" ]]; then
-    find "${path}" -xdev -depth -delete
-  fi
+  [[ -z "${path}" ]] && return 0
+  [[ "${path}" == /var/tmp/echo-launch-maintenance.* ]] || return 1
+  [[ ! -L "${path}" ]] || return 1
+  [[ ! -e "${path}" ]] && return 0
+  [[ -d "${path}" ]] || return 1
+  find "${path}" -xdev -depth -delete || return 1
+  [[ ! -e "${path}" && ! -L "${path}" ]]
+}
+
+safe_remove_archivist_temp() {
+  local path="$1"
+  [[ -z "${path}" ]] && return 0
+  [[ "${path}" == /var/tmp/echo-archives-pi-restore.archivist.* ]] || return 1
+  [[ ! -L "${path}" ]] || return 1
+  [[ ! -e "${path}" ]] && return 0
+  [[ -d "${path}" ]] || return 1
+  find "${path}" -xdev -depth -delete || return 1
+  [[ ! -e "${path}" && ! -L "${path}" ]]
 }
 
 cleanup() {
-  if [[ -n "${ARCHIVIST_RESTORE_ROOT}" &&
-    "${ARCHIVIST_RESTORE_ROOT}" == /var/tmp/echo-archives-pi-restore.archivist.* &&
-    -d "${ARCHIVIST_RESTORE_ROOT}" &&
-    ! -L "${ARCHIVIST_RESTORE_ROOT}" ]]; then
-    find "${ARCHIVIST_RESTORE_ROOT}" -xdev -depth -delete
+  if ! safe_remove_archivist_temp "${ARCHIVIST_RESTORE_ROOT}"; then
+    log "CLEANUP FAILED: guarded Archivist restore data remains at ${ARCHIVIST_RESTORE_ROOT}."
   fi
   ARCHIVIST_RESTORE_ROOT=""
   if [[ "${LOCAL_MONITOR_TIMER_PAUSED}" == "yes" ]]; then
@@ -98,7 +107,9 @@ cleanup() {
       log "CLEANUP FAILED: restart echo-archives-local-monitor.timer before leaving maintenance."
     fi
   fi
-  safe_remove_temp "${TEMP_ROOT}" || true
+  if ! safe_remove_temp "${TEMP_ROOT}"; then
+    log "CLEANUP FAILED: guarded maintenance temporary data remains at ${TEMP_ROOT}."
+  fi
   TEMP_ROOT=""
 }
 
@@ -335,6 +346,7 @@ validate_repository_files() {
     bash -n "${REPO_ROOT}/${script}"
   done
   node --check "${REPO_ROOT}/tools/verify-restic-recovery-inventory.js"
+  node --check "${REPO_ROOT}/tools/select-restic-success-snapshot.js"
   node --check "${REPO_ROOT}/deploy/notify-better-stack-heartbeat.js"
   node --check "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js"
   systemd-analyze verify \
@@ -402,13 +414,39 @@ validate_restic_prerequisites() {
     echo-backup-pi /usr/bin/true
 }
 
-verify_latest_remote_inventory() {
+restore_and_verify_snapshot_inventory() {
+  local snapshot_id="$1"
+  local source_root="$2"
+  local restore_target="${TEMP_ROOT}/successful-restic-restore"
+  local restored_recovery_root
+
+  [[ "${source_root}" == /var/cache/echo-archives-pi-restic/verify.*/recovery ]] ||
+    fail "selected successful snapshot has an unsafe expanded source root"
+  [[ ! -e "${restore_target}" && ! -L "${restore_target}" ]] ||
+    fail "successful-snapshot restore target already exists"
+  install -d -m 0700 -o root -g root "${restore_target}"
+  (
+    set -a
+    source /etc/echo-archives/pi-restic.env
+    set +a
+    export HOME=/root
+    export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
+    restic restore --verify --target "${restore_target}" "${snapshot_id}"
+  )
+  restored_recovery_root="${restore_target}${source_root}"
+  node "${REPO_ROOT}/tools/verify-restic-recovery-inventory.js" \
+    --recovery-root "${restored_recovery_root}"
+  find "${restore_target}" -xdev -depth -delete
+  [[ ! -e "${restore_target}" && ! -L "${restore_target}" ]] ||
+    fail "successful-snapshot restore was not removed after verification"
+}
+
+verify_last_successful_remote_inventory() {
   local snapshots="${TEMP_ROOT}/restic-preflight-snapshots.json"
-  local listing="${TEMP_ROOT}/restic-preflight-listing.jsonl"
-  local manifest="${TEMP_ROOT}/restic-preflight-required-paths"
+  local selection="${TEMP_ROOT}/restic-success-selection.json"
   local snapshot_id
-  local snapshot_root
-  local manifest_node
+  local source_root
+  local inventory_format
 
   (
     set -a
@@ -419,90 +457,32 @@ verify_latest_remote_inventory() {
     export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
     restic snapshots --json --tag echo-archives > "${snapshots}"
   )
-  snapshot_id="$(
-    node - "${snapshots}" "${EXPECTED_HOST}" <<'NODE'
-const fs = require("node:fs");
-const [snapshotPath, expectedHost] = process.argv.slice(2);
-const now = Date.now();
-const snapshots = JSON.parse(fs.readFileSync(snapshotPath, "utf8"));
-const eligible = Array.isArray(snapshots)
-  ? snapshots.filter((snapshot) => {
-      const timestamp = Date.parse(snapshot.time);
-      return snapshot.hostname === expectedHost && Number.isFinite(timestamp) && timestamp <= now;
-    })
-  : [];
-eligible.sort((left, right) => Date.parse(right.time) - Date.parse(left.time));
-if (!/^[0-9a-f]{64}$/.test(eligible[0]?.id ?? "")) process.exit(1);
-process.stdout.write(eligible[0].id);
-NODE
-  )" || fail "could not identify the latest same-host Echo Archives Restic snapshot"
-  (
-    set -a
-    source /etc/echo-archives/pi-restic.env
-    set +a
-    export HOME=/root
-    export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
-    restic ls --json "${snapshot_id}" > "${listing}"
-  )
-  local root_status=0
-  snapshot_root="$(
-    node - "${listing}" "${snapshot_id}" <<'NODE'
-const path = require("node:path");
-const fs = require("node:fs");
-const [listingPath, expectedId] = process.argv.slice(2);
-const entries = fs.readFileSync(listingPath, "utf8").trim().split(/\n+/).map(JSON.parse);
-const snapshots = entries.filter((entry) => entry.struct_type === "snapshot");
-if (
-  snapshots.length !== 1 ||
-  snapshots[0].id !== expectedId
-) process.exit(1);
-if (
-  !Array.isArray(snapshots[0].paths) ||
-  snapshots[0].paths.length !== 1 ||
-  typeof snapshots[0].paths[0] !== "string" ||
-  path.posix.basename(path.posix.normalize(snapshots[0].paths[0])) !== "recovery"
-) process.exit(2);
-process.stdout.write(snapshots[0].paths[0]);
-NODE
-  )" || root_status="$?"
-  if [[ "${root_status}" -eq 2 ]]; then
-    log "Latest same-host Restic snapshot uses the legacy pre-inventory format; exact expanded-inventory verification is deferred to the new snapshot in this run."
+  node "${REPO_ROOT}/tools/select-restic-success-snapshot.js" \
+    --snapshots "${snapshots}" \
+    --marker "${OFFSITE_SUCCESS_MARKER}" \
+    --host "${EXPECTED_HOST}" > "${selection}"
+  snapshot_id="$(node -e '
+    const value = JSON.parse(require("node:fs").readFileSync(process.argv[1], "utf8"));
+    if (!/^[0-9a-f]{64}$/.test(value.snapshotId ?? "")) process.exit(1);
+    process.stdout.write(value.snapshotId);
+  ' "${selection}")" || fail "successful Restic selection did not return a full snapshot ID"
+  source_root="$(node -e '
+    const value = JSON.parse(require("node:fs").readFileSync(process.argv[1], "utf8"));
+    if (typeof value.sourceRoot !== "string") process.exit(1);
+    process.stdout.write(value.sourceRoot);
+  ' "${selection}")" || fail "successful Restic selection did not return a source root"
+  inventory_format="$(node -e '
+    const value = JSON.parse(require("node:fs").readFileSync(process.argv[1], "utf8"));
+    if (!["legacy-database", "expanded"].includes(value.inventoryFormat)) process.exit(1);
+    process.stdout.write(value.inventoryFormat);
+  ' "${selection}")" || fail "successful Restic selection returned an unknown inventory format"
+
+  if [[ "${inventory_format}" == "legacy-database" ]]; then
+    log "The atomic success marker selects the reviewed legacy database snapshot; expanded recovery verification will be established by the new backup in this run."
     return 0
   fi
-  [[ "${root_status}" -eq 0 ]] ||
-    fail "latest Restic listing metadata is malformed or inconsistent"
-  manifest_node="$(
-    node - "${listing}" <<'NODE'
-const path = require("node:path");
-const fs = require("node:fs");
-const entries = fs.readFileSync(process.argv[2], "utf8").trim().split(/\n+/).map(JSON.parse);
-const candidates = entries.filter((entry) =>
-  entry?.struct_type === "node" &&
-  entry.type === "file" &&
-  typeof entry.path === "string" &&
-  !entry.path.includes("\\") &&
-  !entry.path.split("/").includes("..") &&
-  path.posix.basename(path.posix.normalize(entry.path)) === "REQUIRED_PATHS"
-);
-if (candidates.length !== 1 || /[\r\n\0]/.test(candidates[0].path)) process.exit(1);
-process.stdout.write(candidates[0].path);
-NODE
-  )" || fail "latest Restic snapshot does not contain exactly one safe recovery manifest"
-  (
-    set -a
-    source /etc/echo-archives/pi-restic.env
-    set +a
-    export HOME=/root
-    export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
-    # Use the exact snapshot-internal path emitted by this Restic version;
-    # metadata source paths are not necessarily valid paths for `restic dump`.
-    restic dump "${snapshot_id}" "${manifest_node}" > "${manifest}"
-  )
-  node "${REPO_ROOT}/tools/verify-restic-recovery-inventory.js" \
-    --manifest "${manifest}" \
-    --listing "${listing}" \
-    --snapshot-id "${snapshot_id}"
-  log "Verified the production Restic path format and complete latest recovery inventory without changing the repository."
+  restore_and_verify_snapshot_inventory "${snapshot_id}" "${source_root}"
+  log "Restored and exactly verified the snapshot pinned by the last successful off-site marker without changing the repository."
 }
 
 capture_current_unit_journal() {
@@ -694,7 +674,7 @@ require_root_context() {
     "$(stat -c %a "${OLLAMA_FALLBACK_ARCHIVE}")" == "600" ]] ||
     fail "staged artifacts must remain mode 0600"
   validate_restic_prerequisites
-  verify_latest_remote_inventory
+  verify_last_successful_remote_inventory
   local better_status=0
   validate_better_stack_secret || better_status="$?"
   [[ "${better_status}" -eq 0 || "${better_status}" -eq 2 ]] ||
@@ -1466,8 +1446,9 @@ stage_ollama_upgrade() {
     OLLAMA_UPGRADED="yes"
   fi
   verify_ollama_runtime "0.32.5"
+  stage_archivist_paths
   CURRENT_ROLLBACK=""
-  log "Ollama 0.32.5, loopback bind, installed model, generation, and non-exposure verified."
+  log "Ollama 0.32.5, loopback bind, installed model, generation, non-exposure, and Echo success/fallback integration verified."
 }
 
 latest_local_backup() {
@@ -1778,7 +1759,6 @@ run_apply() {
   run_stage better-stack-heartbeat stage_better_stack
   run_stage offsite-restore-and-backup stage_backup_restore
   run_stage ollama-upgrade stage_ollama_upgrade
-  run_stage archivist-success-and-fallback stage_archivist_paths
   run_stage firewall-evidence stage_firewall_evidence
   run_stage storage-evidence stage_storage_evidence
   run_stage deployment-rollback-invariant stage_rollback_drill

@@ -172,7 +172,6 @@ test("complete launch maintenance is fail-fast, locked, pinned, and staged", () 
     "run_stage better-stack-heartbeat",
     "run_stage offsite-restore-and-backup",
     "run_stage ollama-upgrade",
-    "run_stage archivist-success-and-fallback",
     "run_stage firewall-evidence",
     "run_stage storage-evidence",
     "run_stage deployment-rollback-invariant",
@@ -218,6 +217,14 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     /systemctl start echo-archives-local-monitor\.service/,
   );
   assert.match(script, /rollback_ollama_upgrade/);
+  assert.match(
+    script,
+    /stage_ollama_upgrade\(\)[\s\S]*verify_ollama_runtime "0\.32\.5"[\s\S]*stage_archivist_paths[\s\S]*CURRENT_ROLLBACK=""/,
+  );
+  assert.doesNotMatch(script, /run_stage archivist-success-and-fallback/);
+  assert.match(script, /safe_remove_temp[\s\S]*! -e "\$\{path\}" && ! -L "\$\{path\}"/);
+  assert.match(script, /safe_remove_archivist_temp[\s\S]*! -e "\$\{path\}" && ! -L "\$\{path\}"/);
+  assert.match(script, /CLEANUP FAILED: guarded maintenance temporary data remains/);
   assert.match(script, /Caddyfile\.before-upgrade/);
   assert.match(script, /classify_backup_unit_transition/);
   assert.match(script, /capture_current_unit_journal/);
@@ -266,9 +273,12 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   );
   assert.match(script, /off-site backup service did not finish successfully/);
   assert.match(script, /off-site backup service retained a nonzero exit status/);
-  assert.match(script, /latest Restic snapshot does not contain exactly one safe recovery manifest/);
-  assert.match(script, /restic dump "\$\{snapshot_id\}" "\$\{manifest_node\}"/);
-  assert.doesNotMatch(script, /restic dump "\$\{snapshot_id\}" "\$\{snapshot_root\}\/REQUIRED_PATHS"/);
+  assert.match(script, /select-restic-success-snapshot\.js/);
+  assert.match(script, /--marker "\$\{OFFSITE_SUCCESS_MARKER\}"/);
+  assert.match(script, /restore_and_verify_snapshot_inventory/);
+  assert.match(script, /restic restore --verify --target "\$\{restore_target\}"/);
+  assert.match(script, /expanded recovery verification will be established by the new backup/);
+  assert.doesNotMatch(script, /restic (?:ls|dump)/);
   assert.match(script, /preserving the healthy running Echo process idempotently/);
   assert.doesNotMatch(
     script.slice(script.indexOf("stage_runtime_migration()"), script.indexOf("validate_live_health_file()")),
@@ -400,6 +410,57 @@ cat "$FIXTURE/calls"
     assert.doesNotMatch(result.stdout, /masked/);
   } finally {
     fs.rmSync(fixture, { recursive: true, force: true });
+  }
+});
+
+test("guarded maintenance cleanup removes only verified temporary roots", () => {
+  const maintenanceRoot = fs.mkdtempSync("/var/tmp/echo-launch-maintenance.test-");
+  const archivistRoot = fs.mkdtempSync("/var/tmp/echo-archives-pi-restore.archivist.test-");
+  const victim = fs.mkdtempSync("/var/tmp/echo-maintenance-cleanup-victim.");
+  const unsafeLink = `${maintenanceRoot}.link`;
+  try {
+    fs.mkdirSync(path.join(maintenanceRoot, "restored", "nested"), { recursive: true });
+    fs.writeFileSync(path.join(maintenanceRoot, "restored", "nested", "private.env"), "fixture");
+    fs.writeFileSync(path.join(archivistRoot, "archivist.sqlite"), "fixture");
+    fs.writeFileSync(path.join(victim, "keep"), "fixture");
+    fs.symlinkSync(victim, unsafeLink);
+
+    const result = spawnSync(
+      "bash",
+      [
+        "-c",
+        String.raw`
+source "$SCRIPT_PATH"
+safe_remove_temp "$MAINTENANCE_ROOT"
+safe_remove_archivist_temp "$ARCHIVIST_ROOT"
+safe_remove_temp "$MAINTENANCE_ROOT"
+safe_remove_archivist_temp "$ARCHIVIST_ROOT"
+if safe_remove_temp "$UNSAFE_LINK"; then
+  exit 9
+fi
+`,
+      ],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          ARCHIVIST_ROOT: archivistRoot,
+          MAINTENANCE_ROOT: maintenanceRoot,
+          SCRIPT_PATH,
+          UNSAFE_LINK: unsafeLink,
+        },
+      },
+    );
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(fs.existsSync(maintenanceRoot), false);
+    assert.equal(fs.existsSync(archivistRoot), false);
+    assert.equal(fs.readFileSync(path.join(victim, "keep"), "utf8"), "fixture");
+  } finally {
+    fs.rmSync(maintenanceRoot, { recursive: true, force: true });
+    fs.rmSync(archivistRoot, { recursive: true, force: true });
+    fs.rmSync(unsafeLink, { force: true });
+    fs.rmSync(victim, { recursive: true, force: true });
   }
 });
 

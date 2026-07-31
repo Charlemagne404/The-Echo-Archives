@@ -3,6 +3,12 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
+const { TextDecoder } = require("node:util");
+
+const MAX_MANIFEST_BYTES = 16 * 1024 * 1024;
+const MAX_ENTRIES = 1_000_000;
+const MAX_PATH_BYTES = 4096;
+const utf8 = new TextDecoder("utf-8", { fatal: true });
 
 function fail(message) {
   console.error(`Restic recovery inventory verification failed: ${message}`);
@@ -10,44 +16,28 @@ function fail(message) {
 }
 
 function parseArguments(argv) {
-  const values = new Map();
-  for (let index = 0; index < argv.length; index += 2) {
-    const name = argv[index];
-    const value = argv[index + 1];
-    if (!name?.startsWith("--") || !value || values.has(name)) {
-      fail("use --manifest FILE --listing FILE --snapshot-id ID");
-    }
-    values.set(name, value);
+  if (argv.length !== 2 || argv[0] !== "--recovery-root" || !argv[1]) {
+    fail("use --recovery-root DIRECTORY");
   }
-  for (const name of ["--manifest", "--listing", "--snapshot-id"]) {
-    if (!values.has(name)) fail(`missing required argument ${name}`);
-  }
-  if (values.size !== 3) fail("an unsupported argument was provided");
-  return {
-    manifestPath: values.get("--manifest"),
-    listingPath: values.get("--listing"),
-    snapshotId: values.get("--snapshot-id"),
-  };
+  return argv[1];
 }
 
-function readLines(filePath, description) {
-  let contents;
+function decodeUtf8(buffer, description) {
   try {
-    contents = fs.readFileSync(filePath, "utf8");
+    return utf8.decode(buffer);
   } catch {
-    fail(`${description} could not be read`);
+    fail(`${description} is not valid UTF-8`);
   }
-  const lines = contents.split(/\r?\n/).filter((line) => line.length > 0);
-  if (lines.length === 0) fail(`${description} is empty`);
-  return lines;
 }
 
 function validateRelativePath(value, description) {
   if (
     typeof value !== "string" ||
     value.length === 0 ||
+    Buffer.byteLength(value) > MAX_PATH_BYTES ||
     value.startsWith("/") ||
     value.includes("\\") ||
+    /[\u0000-\u001f\u007f]/.test(value) ||
     value.split("/").some((part) => part === "" || part === "." || part === "..")
   ) {
     fail(`${description} contains an unsafe path`);
@@ -55,99 +45,97 @@ function validateRelativePath(value, description) {
   return value;
 }
 
-function normalizeSnapshotRoot(value) {
-  if (typeof value !== "string" || value.length === 0 || value.includes("\\")) {
-    fail("snapshot metadata contains an invalid source root");
+function readManifest(manifestPath) {
+  const stat = fs.lstatSync(manifestPath);
+  if (!stat.isFile() || stat.isSymbolicLink()) fail("root manifest is not a safe regular file");
+  if (stat.size <= 0 || stat.size > MAX_MANIFEST_BYTES) {
+    fail("root manifest size is outside the reviewed bounds");
   }
-  const normalized = path.posix.normalize(value);
-  if (
-    normalized === "." ||
-    normalized === "/" ||
-    normalized.split("/").includes("..") ||
-    path.posix.basename(normalized) !== "recovery"
-  ) {
-    fail("snapshot metadata does not identify the guarded recovery root");
+  const contents = decodeUtf8(fs.readFileSync(manifestPath), "root manifest");
+  if (!contents.endsWith("\n") || contents.includes("\r")) {
+    fail("root manifest must use newline-terminated LF records");
   }
-  return normalized.replace(/\/$/, "");
+  const entries = contents.slice(0, -1).split("\n").map((entry) =>
+    validateRelativePath(entry, "root manifest"),
+  );
+  if (entries.length === 0 || entries.length > MAX_ENTRIES) {
+    fail("root manifest entry count is outside the reviewed bounds");
+  }
+  if (new Set(entries).size !== entries.length) fail("root manifest contains duplicate paths");
+  if (entries.filter((entry) => entry === "REQUIRED_PATHS").length !== 1) {
+    fail("root manifest must contain its own path exactly once");
+  }
+  return new Set(entries);
 }
 
-function parseListing(lines, expectedSnapshotId) {
-  const entries = lines.map((line) => {
-    try {
-      return JSON.parse(line);
-    } catch {
-      fail("restic listing contains invalid JSON");
-    }
-  });
-  const snapshots = entries.filter((entry) => entry?.struct_type === "snapshot");
-  if (snapshots.length !== 1 || snapshots[0].id !== expectedSnapshotId) {
-    fail("restic listing does not describe exactly the expected snapshot");
-  }
-  if (!Array.isArray(snapshots[0].paths) || snapshots[0].paths.length !== 1) {
-    fail("snapshot metadata does not contain exactly one recovery source root");
-  }
-  return {
-    root: normalizeSnapshotRoot(snapshots[0].paths[0]),
-    nodePaths: entries
-      .filter((entry) => entry?.struct_type === "node" && typeof entry.path === "string")
-      .map((entry) => entry.path),
-  };
-}
+function scanRestoredTree(root) {
+  const entries = new Set();
+  let manifestCount = 0;
 
-function relativeNodePath(nodePath, snapshotRoot) {
-  if (nodePath.includes("\\") || nodePath.split("/").includes("..")) {
-    fail("restic listing contains an unsafe node path");
-  }
-  const normalized = path.posix.normalize(nodePath);
-  const rootWithoutSlash = snapshotRoot.replace(/^\//, "");
-  const rootName = path.posix.basename(snapshotRoot);
-  const prefixes = [snapshotRoot, rootWithoutSlash, rootName, `/${rootName}`];
-
-  for (const prefix of prefixes) {
-    if (normalized === prefix) return "";
-    if (normalized.startsWith(`${prefix}/`)) {
-      return normalized.slice(prefix.length + 1);
+  function walk(absoluteDirectory, relativeDirectory) {
+    const names = fs.readdirSync(absoluteDirectory, { encoding: "buffer" });
+    for (const nameBuffer of names) {
+      const name = decodeUtf8(nameBuffer, "restored path name");
+      const relativePath = validateRelativePath(
+        relativeDirectory ? `${relativeDirectory}/${name}` : name,
+        "restored inventory",
+      );
+      const absolutePath = path.join(absoluteDirectory, name);
+      const stat = fs.lstatSync(absolutePath);
+      if (stat.isSymbolicLink()) fail("restored inventory contains a symbolic link");
+      if (!stat.isDirectory() && !stat.isFile()) {
+        fail("restored inventory contains an unsupported filesystem entry");
+      }
+      entries.add(relativePath);
+      if (path.posix.basename(relativePath) === "REQUIRED_PATHS") manifestCount += 1;
+      if (entries.size > MAX_ENTRIES) fail("restored inventory exceeds the reviewed entry bound");
+      if (stat.isDirectory()) walk(absolutePath, relativePath);
     }
   }
 
-  // Restic versions differ here: paths can be root-relative with or without
-  // the leading slash. The snapshot metadata above proves there is one source
-  // root, so an unmatched leading slash is the snapshot root, not a second
-  // filesystem root.
-  return normalized.replace(/^\/?\.\//, "").replace(/^\//, "");
+  walk(root, "");
+  if (manifestCount !== 1) {
+    fail(`restored inventory contains ${manifestCount} manifest-named entries; expected one`);
+  }
+  return entries;
 }
 
 function main() {
-  const { manifestPath, listingPath, snapshotId } = parseArguments(process.argv.slice(2));
-  if (!/^[0-9a-f]{64}$/.test(snapshotId)) fail("snapshot ID is not a full Restic ID");
-
-  const required = readLines(manifestPath, "recovery manifest").map((entry) =>
-    validateRelativePath(entry, "recovery manifest"),
-  );
-  if (new Set(required).size !== required.length) {
-    fail("recovery manifest contains duplicate paths");
+  const requestedRoot = parseArguments(process.argv.slice(2));
+  const resolvedRoot = path.resolve(requestedRoot);
+  let canonicalRoot;
+  let rootStat;
+  try {
+    canonicalRoot = fs.realpathSync(requestedRoot);
+    rootStat = fs.lstatSync(requestedRoot);
+  } catch {
+    fail("restored recovery root is missing or unreadable");
+  }
+  if (
+    canonicalRoot !== resolvedRoot ||
+    !rootStat.isDirectory() ||
+    rootStat.isSymbolicLink() ||
+    path.basename(canonicalRoot) !== "recovery"
+  ) {
+    fail("restored recovery root is not a canonical guarded directory");
   }
 
-  const listing = parseListing(readLines(listingPath, "restic listing"), snapshotId);
-  const remote = new Set();
-  for (const nodePath of listing.nodePaths) {
-    const relativePath = relativeNodePath(nodePath, listing.root);
-    if (relativePath) remote.add(relativePath);
-  }
-
-  const missingCount = required.reduce(
-    (count, relativePath) => count + (remote.has(relativePath) ? 0 : 1),
-    0,
-  );
-  if (missingCount > 0) {
+  const manifestPath = path.join(canonicalRoot, "REQUIRED_PATHS");
+  const required = readManifest(manifestPath);
+  const restored = scanRestoredTree(canonicalRoot);
+  let missing = 0;
+  let extra = 0;
+  for (const entry of required) if (!restored.has(entry)) missing += 1;
+  for (const entry of restored) if (!required.has(entry)) extra += 1;
+  if (missing > 0 || extra > 0 || required.size !== restored.size) {
     fail(
-      `remote snapshot is missing ${missingCount} of ${required.length} staged paths ` +
-        `(recognized ${remote.size} recovery-relative nodes)`,
+      `restored inventory differs from its manifest ` +
+        `(${missing} missing, ${extra} extra, ${required.size} required, ${restored.size} restored)`,
     );
   }
 
   process.stdout.write(
-    `Remote recovery inventory contains all ${required.length} staged paths.\n`,
+    `Restored recovery inventory exactly matches all ${required.size} staged paths.\n`,
   );
 }
 

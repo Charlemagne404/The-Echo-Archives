@@ -51,9 +51,12 @@ The encrypted inventory currently contains:
   Better Stack systemd drop-in, runtime migration readiness record, and Ollama
   unit when present.
 
-Each job builds a manifest of every staged recovery path and compares it with
-`restic ls --json` for the newly created snapshot before retention, repository
-checking, local pruning, success-marker publication, or heartbeat success.
+Each job builds a manifest of every staged recovery path, restores the exact
+new snapshot with Restic byte verification into root-only staging, and compares
+the restored filesystem with that manifest before retention, repository
+checking, local pruning, success-marker publication, or heartbeat success. The
+atomic marker records the full verified snapshot ID, so a later failed-run
+orphan cannot become recovery evidence.
 
 The Restic repository password and SSH recovery identity cannot be recovered
 from the repository they unlock. Their separately held recovery location,
@@ -73,9 +76,9 @@ create a new retention group every day.
 
 Local completed SQLite backups use the owner-approved 30-day policy with a
 minimum floor of seven copies. Cleanup runs only after the same job has uploaded
-the complete recovery inventory and passed snapshot listing, remote retention,
-and `restic check`. A failed or unreachable off-site repository therefore
-retains all local recovery copies.
+the complete recovery inventory and passed exact restore verification, remote
+retention, and `restic check`. A failed or unreachable off-site repository
+therefore retains all local recovery copies.
 
 ## Acceptance test
 

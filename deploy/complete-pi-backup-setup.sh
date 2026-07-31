@@ -28,6 +28,8 @@ DRILL_SNAPSHOT=""
 PASSED_SETUP_LOG="/var/log/echo-archives/pi-backup-setup-20260727T190634Z.log"
 BACKUP_CHECK="${REPO_ROOT}/tools/check-database-backup.js"
 APPLICATION_CHECK="${REPO_ROOT}/deploy/verify-restored-application.sh"
+SUCCESS_SELECTOR="${REPO_ROOT}/tools/select-restic-success-snapshot.js"
+OFFSITE_SUCCESS_MARKER="/var/lib/echo-archives-monitoring/offsite-backup-success"
 RESTORE_PREFIX="/var/tmp/echo-archives-pi-restore."
 RESULT_DIR="/var/lib/echo-archives-monitoring"
 RESULT_FILE="${RESULT_DIR}/pi-backup-readiness"
@@ -152,6 +154,21 @@ latest_snapshot_id() {
         process.stdout.write(eligible[0].id);
       });
     ' "${EXPECTED_HOST}"
+}
+
+last_successful_snapshot_id() {
+  local snapshots_file="${BACKUP_DIR}/successful-snapshot-candidates.json"
+  local selection_file="${BACKUP_DIR}/successful-snapshot-selection.json"
+  /usr/bin/restic snapshots --json --tag echo-archives > "${snapshots_file}"
+  /usr/bin/node "${SUCCESS_SELECTOR}" \
+    --snapshots "${snapshots_file}" \
+    --marker "${OFFSITE_SUCCESS_MARKER}" \
+    --host "${EXPECTED_HOST}" > "${selection_file}"
+  /usr/bin/node -e '
+    const value = JSON.parse(require("node:fs").readFileSync(process.argv[1], "utf8"));
+    if (!/^[0-9a-f]{64}$/.test(value.snapshotId ?? "")) process.exit(1);
+    process.stdout.write(value.snapshotId);
+  ' "${selection_file}"
 }
 
 same_host_snapshot_ids() {
@@ -309,6 +326,8 @@ log "No repository initialization, reboot, or live-database restore will be perf
 [[ -x "${CANONICAL_SCRIPT}" ]] || die "Canonical off-site backup script is missing or not executable."
 [[ -f "${BACKUP_CHECK}" ]] || die "Backup verifier is missing."
 [[ -x "${APPLICATION_CHECK}" ]] || die "Isolated application verifier is missing or not executable."
+[[ -f "${SUCCESS_SELECTOR}" && ! -L "${SUCCESS_SELECTOR}" ]] ||
+  die "Successful Restic snapshot selector is missing or unsafe."
 bash -n "${CANONICAL_SCRIPT}"
 bash -n "${MANUAL_SCRIPT}"
 
@@ -393,8 +412,8 @@ HOME=/root /usr/bin/ssh \
 log "Audit: Tailscale and root SSH access to the dedicated Pi account succeeded."
 
 if [[ "${MODE}" == "full" ]]; then
-  DRILL_SNAPSHOT="$(latest_snapshot_id)" ||
-    die "No current Echo Archives snapshot is available for the restore drill."
+  DRILL_SNAPSHOT="$(last_successful_snapshot_id)" ||
+    die "No marker-pinned successful Echo Archives snapshot is available for the restore drill."
   log "Starting real restore drill from encrypted snapshot ${DRILL_SNAPSHOT}."
   RESTORE_DIR="$(mktemp -d "${RESTORE_PREFIX}XXXXXX")"
   chmod 0700 "${RESTORE_DIR}"

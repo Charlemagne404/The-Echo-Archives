@@ -356,8 +356,11 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(offsiteBackup, /data\/reviews/);
   assert.match(offsiteBackup, /docs\/generated\/catalog-status\.md/);
   assert.match(offsiteBackup, /REQUIRED_PATHS/);
-  assert.match(offsiteBackup, /restic ls --json "\$\{snapshot_id\}"/);
+  assert.match(offsiteBackup, /restic restore --verify --target "\$\{REMOTE_RESTORE_DIR\}"/);
   assert.match(offsiteBackup, /verify-restic-recovery-inventory\.js/);
+  assert.match(offsiteBackup, /snapshot_id=%s/);
+  assert.match(offsiteBackup, /remove_remote_restore/);
+  assert.doesNotMatch(offsiteBackup, /restic ls --json/);
   assert.doesNotMatch(offsiteBackup, /lastIndexOf\(marker\)/);
   assert.match(offsiteBackup, /remove_recovery_inventory/);
   assert.match(offsiteBackup, /Unencrypted recovery inventory remained/);
@@ -389,7 +392,11 @@ test("deployment shell scripts parse and preserve the required safety order", ()
 
   const piBackupCompletion = read("deploy/complete-pi-backup-setup.sh");
   assert.match(piBackupCompletion, /DRILL_SNAPSHOT=""/);
-  assert.match(piBackupCompletion, /DRILL_SNAPSHOT="\$\(latest_snapshot_id\)"/);
+  assert.match(piBackupCompletion, /DRILL_SNAPSHOT="\$\(last_successful_snapshot_id\)"/);
+  assert.match(piBackupCompletion, /select-restic-success-snapshot\.js/);
+  assert.match(piBackupCompletion, /--marker "\$\{OFFSITE_SUCCESS_MARKER\}"/);
+  assert.match(offsiteBackup, /mv -Tf -- "\$\{MARKER_TEMP\}" "\$\{SUCCESS_MARKER\}"/);
+  assert.doesNotMatch(offsiteBackup, /install .*MARKER_TEMP.*SUCCESS_MARKER/);
   assert.match(piBackupCompletion, /restic snapshots --json --tag echo-archives/);
   assert.match(piBackupCompletion, /restic restore --verify --target "\$\{RESTORE_DIR\}"/);
   assert.match(piBackupCompletion, /APPLICATION_CHECK/);

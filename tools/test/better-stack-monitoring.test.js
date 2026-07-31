@@ -165,8 +165,9 @@ test("prepared Better Stack files contain no credentials and preserve backup ord
   assert.ok(backupScript.indexOf("check-database-backup.js") < backupScript.indexOf("restic check"));
   assert.ok(
     backupScript.indexOf("restic check") <
-      backupScript.indexOf('install -m 0644 -o root -g root "${MARKER_TEMP}" "${SUCCESS_MARKER}"'),
+      backupScript.indexOf('mv -Tf -- "${MARKER_TEMP}" "${SUCCESS_MARKER}"'),
   );
+  assert.doesNotMatch(backupScript, /install .*MARKER_TEMP.*SUCCESS_MARKER/);
   assert.match(plan, /alerts@echoarchives\.net/);
   assert.match(plan, /normal multi-location/i);
 });

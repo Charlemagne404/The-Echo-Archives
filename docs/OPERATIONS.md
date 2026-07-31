@@ -419,10 +419,12 @@ so a failed local-backup run cannot silently upload yesterday's database. The
 job builds a stable encrypted recovery inventory from that copy, importer cover
 staging, the production environment, the active Caddyfile, Echo systemd units,
 all runtime-writable publication directories and generated catalog/status files,
-and the private monitor configuration. It uploads only that cache copy, applies
-the reviewed Restic retention policy, requires `restic check` to succeed, and
-only then refreshes the off-site success marker. It never opens the live
-database or creates a second local database backup.
+and the private monitor configuration. It uploads only that cache copy, restores
+and byte-verifies the exact new snapshot, compares the exact restored tree with
+its manifest, applies the reviewed Restic retention policy, requires `restic
+check` to succeed, removes all unencrypted staging, and only then atomically
+publishes a success marker containing the full snapshot ID. It never opens the
+live database or creates a second local database backup.
 
 The Restic password and SSH identity are bootstrap credentials and must have a
 separately tested owner-controlled recovery copy; storing them only inside the
@@ -452,7 +454,8 @@ sudo /home/charlie/The-Echo-Archives/deploy/complete-pi-backup-setup.sh --repair
 ```
 
 It does not initialize a repository or restore over production. It selects the
-newest Echo-tagged snapshot at run time, restores it beneath a unique `/var/tmp`
+last successful Echo-tagged snapshot pinned by the success marker, ignoring
+newer failed-run orphans, and restores it beneath a unique `/var/tmp`
 directory, validates SQLite integrity, foreign keys, and required non-empty
 tables, then starts an isolated application as `echo-archives` on loopback port 3911
 against that restored copy. The drill requires healthy application state,

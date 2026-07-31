@@ -7,130 +7,119 @@ const test = require("node:test");
 
 const ROOT = path.resolve(__dirname, "../..");
 const VERIFIER = path.join(ROOT, "tools", "verify-restic-recovery-inventory.js");
-const SNAPSHOT_ID = "a".repeat(64);
 
-function runVerifier(manifestPath, listingPath, snapshotId = SNAPSHOT_ID) {
-  return spawnSync(
-    process.execPath,
-    [
-      VERIFIER,
-      "--manifest",
-      manifestPath,
-      "--listing",
-      listingPath,
-      "--snapshot-id",
-      snapshotId,
-    ],
-    { cwd: ROOT, encoding: "utf8" },
+function writeRecoveryTree(parent) {
+  const recoveryRoot = path.join(parent, "recovery");
+  fs.mkdirSync(path.join(recoveryRoot, "database"), { recursive: true });
+  fs.writeFileSync(path.join(recoveryRoot, "database", "archive.sqlite"), "fixture");
+  fs.writeFileSync(
+    path.join(recoveryRoot, "REQUIRED_PATHS"),
+    "database\ndatabase/archive.sqlite\nREQUIRED_PATHS\n",
   );
+  return recoveryRoot;
 }
 
-function writeFixture(tempRoot, nodePaths, manifest = ["database", "database/archive.sqlite", "REQUIRED_PATHS"]) {
-  const manifestPath = path.join(tempRoot, "REQUIRED_PATHS");
-  const listingPath = path.join(tempRoot, "listing.jsonl");
-  fs.writeFileSync(manifestPath, `${manifest.join("\n")}\n`);
-  const entries = [
-    {
-      id: SNAPSHOT_ID,
-      paths: ["/var/cache/echo-archives-pi-restic/verify.fixture/recovery"],
-      struct_type: "snapshot",
-    },
-    ...nodePaths.map((nodePath) => ({
-      path: nodePath,
-      type: nodePath.endsWith(".sqlite") || nodePath.endsWith("REQUIRED_PATHS") ? "file" : "dir",
-      struct_type: "node",
-    })),
-  ];
-  fs.writeFileSync(listingPath, `${entries.map((entry) => JSON.stringify(entry)).join("\n")}\n`);
-  return { manifestPath, listingPath };
+function runVerifier(recoveryRoot) {
+  return spawnSync(process.execPath, [VERIFIER, "--recovery-root", recoveryRoot], {
+    cwd: ROOT,
+    encoding: "utf8",
+  });
 }
 
-test("Restic inventory verifier accepts absolute and root-relative listing formats", () => {
-  const variants = [
-    [
-      "/var/cache/echo-archives-pi-restic/verify.fixture/recovery/database",
-      "/var/cache/echo-archives-pi-restic/verify.fixture/recovery/database/archive.sqlite",
-      "/var/cache/echo-archives-pi-restic/verify.fixture/recovery/REQUIRED_PATHS",
-    ],
-    ["recovery/database", "recovery/database/archive.sqlite", "recovery/REQUIRED_PATHS"],
-    ["database", "database/archive.sqlite", "REQUIRED_PATHS"],
-    ["/database", "/database/archive.sqlite", "/REQUIRED_PATHS"],
-    ["/recovery/database", "/recovery/database/archive.sqlite", "/recovery/REQUIRED_PATHS"],
-  ];
+test("restored recovery inventory accepts an exact safe tree", () => {
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restored-exact-"));
+  try {
+    const result = runVerifier(writeRecoveryTree(tempRoot));
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /exactly matches all 3 staged paths/);
+  } finally {
+    fs.rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
 
-  for (const [index, nodePaths] of variants.entries()) {
-    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), `echo-restic-format-${index}-`));
+test("restored recovery inventory rejects missing, extra, and duplicate records", () => {
+  for (const scenario of ["missing", "extra", "duplicate"]) {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), `echo-restored-${scenario}-`));
     try {
-      const fixture = writeFixture(tempRoot, nodePaths);
-      const result = runVerifier(fixture.manifestPath, fixture.listingPath);
-      assert.equal(result.status, 0, result.stderr);
-      assert.match(result.stdout, /contains all 3 staged paths/);
+      const recoveryRoot = writeRecoveryTree(tempRoot);
+      const manifestPath = path.join(recoveryRoot, "REQUIRED_PATHS");
+      if (scenario === "missing") {
+        fs.appendFileSync(manifestPath, "database/missing.sqlite\n");
+      } else if (scenario === "extra") {
+        fs.writeFileSync(manifestPath, "database\nREQUIRED_PATHS\n");
+      } else {
+        fs.appendFileSync(manifestPath, "database/archive.sqlite\n");
+      }
+      const result = runVerifier(recoveryRoot);
+      assert.notEqual(result.status, 0);
+      assert.doesNotMatch(result.stderr, /archive\.sqlite|missing\.sqlite/);
     } finally {
       fs.rmSync(tempRoot, { recursive: true, force: true });
     }
   }
 });
 
-test("Restic inventory verifier rejects missing paths and same-name root collisions", () => {
-  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restic-missing-"));
-  try {
-    const fixture = writeFixture(tempRoot, [
-      "/different/tree/recovery/database",
-      "/different/tree/recovery/database/archive.sqlite",
-      "/different/tree/recovery/REQUIRED_PATHS",
-    ]);
-    const result = runVerifier(fixture.manifestPath, fixture.listingPath);
-    assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /missing 3 of 3 staged paths/);
-    assert.doesNotMatch(result.stderr, /archive\.sqlite/);
-  } finally {
-    fs.rmSync(tempRoot, { recursive: true, force: true });
+test("restored recovery inventory rejects nested manifests and symlinks", () => {
+  for (const scenario of ["nested-manifest", "symlink"]) {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), `echo-restored-${scenario}-`));
+    try {
+      const recoveryRoot = writeRecoveryTree(tempRoot);
+      if (scenario === "nested-manifest") {
+        fs.writeFileSync(path.join(recoveryRoot, "database", "REQUIRED_PATHS"), "fixture\n");
+        fs.appendFileSync(
+          path.join(recoveryRoot, "REQUIRED_PATHS"),
+          "database/REQUIRED_PATHS\n",
+        );
+      } else {
+        fs.symlinkSync("archive.sqlite", path.join(recoveryRoot, "database", "alias.sqlite"));
+        fs.appendFileSync(path.join(recoveryRoot, "REQUIRED_PATHS"), "database/alias.sqlite\n");
+      }
+      const result = runVerifier(recoveryRoot);
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /manifest-named|symbolic link/);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
   }
 });
 
-test("Restic inventory verifier rejects unsafe or inconsistent metadata", () => {
-  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restic-unsafe-"));
+test("restored recovery inventory rejects unsafe manifest paths and invalid UTF-8 names", () => {
+  const unsafeRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restored-unsafe-"));
   try {
-    const fixture = writeFixture(
-      tempRoot,
-      ["database", "database/archive.sqlite", "REQUIRED_PATHS"],
-      ["database", "../private.env", "REQUIRED_PATHS"],
-    );
-    const unsafe = runVerifier(fixture.manifestPath, fixture.listingPath);
+    const recoveryRoot = writeRecoveryTree(unsafeRoot);
+    fs.appendFileSync(path.join(recoveryRoot, "REQUIRED_PATHS"), "../private.env\n");
+    const unsafe = runVerifier(recoveryRoot);
     assert.notEqual(unsafe.status, 0);
     assert.match(unsafe.stderr, /unsafe path/);
-
-    const listing = fs
-      .readFileSync(fixture.listingPath, "utf8")
-      .replace(SNAPSHOT_ID, "b".repeat(64));
-    fs.writeFileSync(fixture.listingPath, listing);
-    fs.writeFileSync(fixture.manifestPath, "database\nREQUIRED_PATHS\n");
-    const wrongSnapshot = runVerifier(fixture.manifestPath, fixture.listingPath);
-    assert.notEqual(wrongSnapshot.status, 0);
-    assert.match(wrongSnapshot.stderr, /expected snapshot/);
   } finally {
-    fs.rmSync(tempRoot, { recursive: true, force: true });
+    fs.rmSync(unsafeRoot, { recursive: true, force: true });
+  }
+
+  const utf8Root = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restored-utf8-"));
+  try {
+    const recoveryRoot = writeRecoveryTree(utf8Root);
+    fs.writeFileSync(Buffer.concat([Buffer.from(`${recoveryRoot}/`), Buffer.from([0xff])]), "x");
+    const invalid = runVerifier(recoveryRoot);
+    assert.notEqual(invalid.status, 0);
+    assert.match(invalid.stderr, /not valid UTF-8/);
+  } finally {
+    fs.rmSync(utf8Root, { recursive: true, force: true });
   }
 });
 
-test("Restic inventory verifier consumes a real disposable Restic listing", (context) => {
+test("restored recovery inventory consumes a real verified Restic restore", (context) => {
   const version = spawnSync("restic", ["version"], { encoding: "utf8" });
   if (version.status !== 0) {
     context.skip("restic is not installed in this test environment");
     return;
   }
 
-  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restic-integration-"));
+  const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "echo-restored-integration-"));
   const repository = path.join(tempRoot, "repository");
-  const recoveryRoot = path.join(tempRoot, "input", "recovery");
-  const manifestPath = path.join(recoveryRoot, "REQUIRED_PATHS");
-  const listingPath = path.join(tempRoot, "listing.jsonl");
+  const recoveryRoot = writeRecoveryTree(path.join(tempRoot, "input"));
+  const restoreTarget = path.join(tempRoot, "restored");
   const environment = { ...process.env, RESTIC_PASSWORD: "disposable-test-password" };
   try {
-    fs.mkdirSync(path.join(recoveryRoot, "database"), { recursive: true });
-    fs.writeFileSync(path.join(recoveryRoot, "database", "archive.sqlite"), "fixture");
-    fs.writeFileSync(manifestPath, "database\ndatabase/archive.sqlite\nREQUIRED_PATHS\n");
-
     const initialize = spawnSync("restic", ["init", "--repo", repository], {
       encoding: "utf8",
       env: environment,
@@ -148,18 +137,15 @@ test("Restic inventory verifier consumes a real disposable Restic listing", (con
       .map((line) => JSON.parse(line))
       .findLast((entry) => entry.message_type === "summary");
     assert.match(summary?.snapshot_id, /^[0-9a-f]{64}$/);
-
-    const listing = spawnSync(
+    const restore = spawnSync(
       "restic",
-      ["ls", "--json", "--repo", repository, summary.snapshot_id],
+      ["restore", "--verify", "--target", restoreTarget, "--repo", repository, summary.snapshot_id],
       { encoding: "utf8", env: environment },
     );
-    assert.equal(listing.status, 0, listing.stderr);
-    fs.writeFileSync(listingPath, listing.stdout);
-
-    const result = runVerifier(manifestPath, listingPath, summary.snapshot_id);
-    assert.equal(result.status, 0, result.stderr);
-    assert.match(result.stdout, /contains all 3 staged paths/);
+    assert.equal(restore.status, 0, restore.stderr);
+    const restoredRoot = path.join(restoreTarget, recoveryRoot);
+    const verified = runVerifier(restoredRoot);
+    assert.equal(verified.status, 0, verified.stderr);
   } finally {
     fs.rmSync(tempRoot, { recursive: true, force: true });
   }

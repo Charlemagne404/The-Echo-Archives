@@ -56,14 +56,18 @@ In `--apply` mode the script performs these fail-fast stages in order:
    scheme, path, and single-value checks. Absence is a logged skip, not an
    excuse to create a dummy value.
 9. Pauses the off-site timer and refuses to overlap an already-running backup,
-   then restores the newest non-future same-host tagged Restic snapshot into a guarded temporary
-   directory, verifies SQLite integrity and foreign keys, starts an isolated
+   then restores the snapshot selected by the last atomic success marker into a
+   guarded temporary directory, verifies SQLite integrity and foreign keys, starts an isolated
    loopback-only restored application, removes it, installs/verifies the
-   canonical off-site timer, runs a new backup, checks every staged path in the
-   exact new snapshot across Restic's absolute and root-relative listing formats,
-   applies existing off-site retention, runs `restic check`, and only then
+   canonical off-site timer, and runs a new backup. The new snapshot is restored
+   with Restic's byte verification into root-only staging and its exact restored
+   filesystem is compared with the staged manifest, without trusting JSON path
+   rendering.
+   It then applies existing off-site retention, runs `restic check`, and only then
    removes and verifies deletion of the unencrypted staging inventory and
-   publishes backup success. It requires new systemd invocation IDs for both
+   publishes backup success with the exact verified snapshot ID. Later failed-run
+   orphan snapshots cannot replace that success evidence. It requires new
+   systemd invocation IDs for both
    the backup and subsequent local monitor, then requires zero failed units.
    When configured, the Better Stack success heartbeat follows the backup,
    remote-inventory, retention, repository-integrity, cleanup, and freshness
@@ -73,25 +77,25 @@ In `--apply` mode the script performs these fail-fast stages in order:
 10. Upgrades Ollama from 0.6.7 to 0.32.5 without moving or re-pulling models,
    uses a bounded readiness poll for the server version/API, then verifies the
    loopback-only listener, existing `mistral` model, a short generation, and
-   lack of public Ollama exposure. Rollback verifies the captured binary and
-   library tree plus the restored runtime, model, generation, and bind state.
-11. Starts two more isolated restored applications to verify Ask the Archivist
-    uses Ollama when it is available and returns the bounded catalog fallback
-    when it is unreachable.
-12. Records root-only UFW, nftables, iptables (when installed), and listener
+   lack of public Ollama exposure. Before disarming rollback, it starts two more
+   isolated restored applications to verify Ask the Archivist uses Ollama when
+   available and returns the bounded catalog fallback when unreachable.
+   Rollback verifies the captured binary and library tree plus the restored
+   runtime, model, generation, and bind state.
+11. Records root-only UFW, nftables, iptables (when installed), and listener
     evidence. It requires active UFW, default-deny incoming policy, and
     loopback-only Echo/Ollama binds; it never edits a firewall rule.
-13. Records root-only SMART health/attribute evidence for every discovered
+12. Records root-only SMART health/attribute evidence for every discovered
     physical disk and stops if overall health or NVMe critical-warning checks
     fail.
-14. Runs a disposable failed-candidate rollback drill. The drill deliberately
+13. Runs a disposable failed-candidate rollback drill. The drill deliberately
     breaks only a temporary Git worktree, verifies failure detection, runs the
     prior revision against a disposable post-activation database copy, proves a
     representative write survived, confirms loopback-only binding and semantic
     health, removes the worktree/database explicitly, and confirms the
     production checkout was untouched within the 15-minute target. This is not
     falsely reported as a full production deployment rollback.
-15. Repeats local/public health, direct-origin/header-spoofing, TLS, service,
+14. Repeats local/public health, direct-origin/header-spoofing, TLS, service,
     structured-log, and all shared-host checks. TLS 1.2 and TLS 1.3 hostname
     verification are explicit, the public access event is correlated by its
     returned request ID, and the final production check requires a safe, fresh
@@ -100,9 +104,10 @@ In `--apply` mode the script performs these fail-fast stages in order:
 Each changing component has a stage-specific rollback. A failure stops the
 session, rolls back only the current stage where safe, and never continues into
 a later risky stage. Previously completed and verified stages remain applied.
-`INT`, `TERM`, and `HUP` use the same rollback and guarded-cleanup path; isolated
-applications run in dedicated process groups so their children cannot be left
-listening after interruption.
+`INT`, `TERM`, and `HUP` use the same rollback and guarded-cleanup path; failed
+temporary deletion is explicitly reported and every guarded root is checked
+for disappearance. Isolated applications run in dedicated process groups so
+their children cannot be left listening after interruption.
 On a resumed run, the new preservation baseline is the already-applied live
 state from that run (for example, Caddy 2.11.4 and the dedicated runtime
 account), not the pre-first-run state. An already-verified runtime-account stage

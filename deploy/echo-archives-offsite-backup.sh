@@ -14,7 +14,7 @@ RESULT_FILE=""
 MARKER_TEMP=""
 VERIFY_DIR=""
 BACKUP_WRITE_PROBE=""
-REMOTE_LIST_FILE=""
+REMOTE_RESTORE_DIR=""
 INVENTORY_VERIFIER="${REPO_ROOT}/tools/verify-restic-recovery-inventory.js"
 
 log() {
@@ -32,10 +32,13 @@ cleanup() {
   if [[ -n "${RESULT_FILE}" && "${RESULT_FILE}" == /var/lib/echo-archives-monitoring/restic-result.* ]]; then
     rm -f -- "${RESULT_FILE}"
   fi
-  if [[ -n "${REMOTE_LIST_FILE}" &&
-    "${REMOTE_LIST_FILE}" == /var/lib/echo-archives-monitoring/restic-inventory.* ]]; then
-    rm -f -- "${REMOTE_LIST_FILE}"
+  if [[ -n "${REMOTE_RESTORE_DIR}" &&
+    "${REMOTE_RESTORE_DIR}" == "${CACHE_DIR}"/remote-restore.* &&
+    -d "${REMOTE_RESTORE_DIR}" &&
+    ! -L "${REMOTE_RESTORE_DIR}" ]]; then
+    find "${REMOTE_RESTORE_DIR}" -xdev -depth -delete
   fi
+  REMOTE_RESTORE_DIR=""
   if [[ -n "${MARKER_TEMP}" && "${MARKER_TEMP}" == /var/lib/echo-archives-monitoring/offsite-backup-success.* ]]; then
     rm -f -- "${MARKER_TEMP}"
   fi
@@ -59,6 +62,20 @@ remove_recovery_inventory() {
     fail "Unencrypted recovery inventory remained after verified upload."
   VERIFY_DIR=""
   log "Removed and verified cleanup of the unencrypted recovery inventory."
+}
+
+remove_remote_restore() {
+  local path_to_remove="${REMOTE_RESTORE_DIR}"
+  [[ -n "${path_to_remove}" &&
+    "${path_to_remove}" == "${CACHE_DIR}"/remote-restore.* &&
+    -d "${path_to_remove}" &&
+    ! -L "${path_to_remove}" ]] ||
+    fail "Remote restore cleanup path is unsafe."
+  find "${path_to_remove}" -xdev -depth -delete
+  [[ ! -e "${path_to_remove}" && ! -L "${path_to_remove}" ]] ||
+    fail "Verified remote restore remained on local storage."
+  REMOTE_RESTORE_DIR=""
+  log "Removed and verified cleanup of the restored remote inventory."
 }
 
 fail() {
@@ -131,7 +148,7 @@ trap 'on_signal HUP 129' HUP
 [[ -f "${INVENTORY_VERIFIER}" && ! -L "${INVENTORY_VERIFIER}" ]] ||
   fail "Restic recovery inventory verifier is missing or unsafe."
 
-for command_name in basename cmp cp cut date dirname find grep install mktemp node restic rm sed sort stat; do
+for command_name in basename chmod chown cmp cp cut date dirname find grep install mktemp mv node restic rm sed sort stat; do
   command -v "${command_name}" >/dev/null 2>&1 || fail "Required command is missing: ${command_name}"
 done
 
@@ -291,14 +308,14 @@ restic snapshots --json "${snapshot_id}" |
   ' "${snapshot_id}" ||
   fail "The new off-site snapshot could not be listed."
 
-REMOTE_LIST_FILE="$(mktemp /var/lib/echo-archives-monitoring/restic-inventory.XXXXXX)"
-restic ls --json "${snapshot_id}" > "${REMOTE_LIST_FILE}"
+REMOTE_RESTORE_DIR="$(mktemp -d "${CACHE_DIR}/remote-restore.XXXXXX")"
+chmod 0700 "${REMOTE_RESTORE_DIR}"
+log "Restoring and byte-verifying the exact new snapshot before publishing success."
+restic restore --verify --target "${REMOTE_RESTORE_DIR}" "${snapshot_id}"
+restored_recovery_root="${REMOTE_RESTORE_DIR}${recovery_root}"
 node "${INVENTORY_VERIFIER}" \
-  --manifest "${required_paths}" \
-  --listing "${REMOTE_LIST_FILE}" \
-  --snapshot-id "${snapshot_id}"
-rm -f -- "${REMOTE_LIST_FILE}"
-REMOTE_LIST_FILE=""
+  --recovery-root "${restored_recovery_root}"
+remove_remote_restore
 
 log "Applying reviewed retention to Echo Archives-tagged restic snapshots."
 restic forget \
@@ -324,9 +341,14 @@ node "${REPO_ROOT}/tools/prune-local-backups.js" \
   --offsite-verified
 
 MARKER_TEMP="$(mktemp /var/lib/echo-archives-monitoring/offsite-backup-success.XXXXXX)"
-printf '%s\n' "$(date -u --iso-8601=seconds)" > "${MARKER_TEMP}"
-install -m 0644 -o root -g root "${MARKER_TEMP}" "${SUCCESS_MARKER}"
-rm -f -- "${MARKER_TEMP}"
+completed_at="$(date -u --iso-8601=seconds)"
+{
+  printf 'completed_at=%s\n' "${completed_at}"
+  printf 'snapshot_id=%s\n' "${snapshot_id}"
+} > "${MARKER_TEMP}"
+chmod 0644 "${MARKER_TEMP}"
+chown root:root "${MARKER_TEMP}"
+mv -Tf -- "${MARKER_TEMP}" "${SUCCESS_MARKER}"
 MARKER_TEMP=""
 
 log "Off-site backup, retention, and repository check completed successfully."
