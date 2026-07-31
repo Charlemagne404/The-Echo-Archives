@@ -23,6 +23,7 @@ CADDY_OLD_SHA512="e3d6909253b12dc723393fb1f0ace74e2c9bd8d64273fca6727adcf7c7882e
 OLLAMA_NEW_SHA256="f7d6bdbcf71b83aa8670c4e7dc4b6936c0952fcf8b114eaf6a11cbadb9684214"
 OLLAMA_FALLBACK_SHA256="42b6bc1237c6932d36694606bf3d56d99fbd03b570b6002364773e00f56fa4cf"
 OFFSITE_SUCCESS_MARKER="/var/lib/echo-archives-monitoring/offsite-backup-success"
+OFFSITE_BACKUP_UNIT_CANDIDATE="${REPO_ROOT}/deploy/echo-archives-offsite-backup.service"
 
 LOCK_FILE="/run/lock/echo-archives-complete-launch-maintenance.lock"
 LOG_ROOT="/var/log/echo-archives"
@@ -346,7 +347,7 @@ classify_backup_unit_transition() {
 
   grep -Fq \
     "ReadWritePaths=${REPO_ROOT}/backend/data/backups" \
-    "${REPO_ROOT}/deploy/echo-archives-offsite-backup.service" ||
+    "${OFFSITE_BACKUP_UNIT_CANDIDATE}" ||
     fail "reviewed off-site unit does not contain the required backup write path"
 
   if ! grep -Fq \

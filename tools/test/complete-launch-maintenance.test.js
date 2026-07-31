@@ -24,7 +24,7 @@ function runBackupTransitionFixture({
     fs.writeFileSync(
       path.join(fixture, "installed-unit"),
       installedUnitIsReviewed
-        ? `ReadWritePaths=${ROOT}/backend/data/backups\n`
+        ? "ReadWritePaths=/home/charlie/The-Echo-Archives/backend/data/backups\n"
         : "ReadWritePaths=/unreviewed/path\n",
     );
     fs.writeFileSync(path.join(fixture, "offsite-journal"), offsiteJournal);
@@ -45,7 +45,7 @@ function runBackupTransitionFixture({
         "-c",
         String.raw`
 source "$SCRIPT_PATH"
-REPO_ROOT="$TEST_REPO_ROOT"
+OFFSITE_BACKUP_UNIT_CANDIDATE="$TEST_REPO_ROOT/deploy/echo-archives-offsite-backup.service"
 TEMP_ROOT="$FIXTURE"
 OFFSITE_SUCCESS_MARKER="$FIXTURE/marker"
 systemctl() {
