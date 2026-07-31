@@ -183,6 +183,13 @@ The final post-fix `npm run verify` completed successfully:
 - `npm audit --omit=dev` reported zero vulnerabilities;
 - `git diff --check`, shell parsing, and offline systemd verification passed.
 
+The resumed-maintenance regression initially exposed two checkout-path
+assumptions only in GitHub's `/home/runner` workspace. The fixture now keeps the
+fixed production root assertion while independently locating its checked-in
+candidate. GitHub Actions Verify run `30656424109` passed for
+`c9c8d7b7156c28519120a957a233f4804cf0863a`, including the complete repository
+suite and stale-generated-output gate.
+
 The opt-in real-network external-link scan ended with 395 healthy destinations,
 zero confirmed HTTP failures, four TLS failures, twelve provider bot blocks,
 and one inconclusive response. The non-healthy uncertain destinations remain
@@ -816,7 +823,7 @@ Required work:
 
 ### HIGH-11 — CI runs an EOL Node version and does not match production
 
-- **Status:** Ready for verification
+- **Status:** Verified
 
 GitHub Actions uses Node 20:
 
@@ -832,7 +839,11 @@ Required work:
 
 - [x] Move CI to Node 22 or Node 24.
 - [x] Prefer matching production or test both current production LTS and the intended next LTS.
-- [ ] Confirm the latest remote CI run passes.
+- [x] Confirm the latest remote CI run passes.
+
+GitHub Actions Verify run `30656424109` passed on Node 22 for the July 31
+resumed-maintenance fix, including all 35 tooling tests and the full backend and
+browser suite.
 
 ### HIGH-12 — Production feature configuration is ambiguous
 
