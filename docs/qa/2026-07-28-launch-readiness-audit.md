@@ -148,7 +148,7 @@ The final post-fix `npm run verify` completed successfully:
 
 - generated 100 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `31/31`;
+- operations/tool tests: `32/32`;
 - backend tests: `228/228`;
 - Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive
@@ -166,10 +166,22 @@ zero confirmed HTTP failures, four TLS failures, twelve provider bot blocks,
 and one inconclusive response. The non-healthy uncertain destinations remain
 manual follow-up; they are not reported as verified.
 
-The new Caddy candidate validated with installed Caddy `2.10.2` and staged
-Caddy `2.11.4`. Its 22 Cloudflare ranges matched the current official lists.
-Both downloaded Caddy packages matched the reviewed SHA-512 values. Nothing was
-installed or reloaded.
+The initial Caddy candidate passed syntax validation with installed Caddy
+`2.10.2` and staged Caddy `2.11.4`, but its adapted handler order placed the
+unconditional proxy before the separate abort. The first July 31 apply detected
+that direct loopback access still succeeded, stopped at the origin-gate stage,
+and restored and reloaded the exact original Caddyfile. Caddy remains `2.10.2`
+and the origin gate remains unapplied. The corrected snippet keeps abort and
+proxy/redirect inside one literal-order route. A new validator inspects adapted
+JSON and rejects the original ordering; the regenerated private candidate
+passes with both Caddy versions. Its 22 Cloudflare ranges still match the
+official lists, and both packages retain their reviewed SHA-512 values.
+
+That apply completed only preservation, a new 100,204,544-byte verified local
+database backup, and the reviewed off-site systemd write-path reconciliation
+before the Caddy failure. No Caddy upgrade, runtime-account migration, Echo
+restart, Restic restore, Ollama upgrade, or later stage ran. The backup and
+systemd reconciliation remain completed; the Caddy stage rollback passed.
 
 The fresh local backup was 99,332,096 bytes with SQLite integrity `ok`, zero
 foreign-key violations, 100 podcasts, 27 profiles, 126 import candidates, and
@@ -196,7 +208,8 @@ Core application and regression work:
 Deployment, recovery, and monitoring work:
 
 - `deploy/{Caddyfile.echo,Caddyfile.global.echo,CADDY_ORIGIN_RUNBOOK.md}`,
-  `deploy/{prepare-caddy-origin-candidate,check-cloudflare-proxy-ranges}.sh`;
+  `deploy/{prepare-caddy-origin-candidate,check-cloudflare-proxy-ranges}.sh`,
+  and `deploy/validate-caddy-origin-semantics.js`;
 - `deploy/{echo-archives.service,echo-archives-journald.conf}`,
   `deploy/migrate-echo-archives-runtime-account.sh`,
   `deploy/install-echo-archives-system.sh`;

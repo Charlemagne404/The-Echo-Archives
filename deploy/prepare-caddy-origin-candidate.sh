@@ -43,7 +43,7 @@ first_token="$(
 [[ "${first_token}" != "{" ]] ||
   fail "the shared Caddyfile already has global options; merge and review the Echo global snippet manually"
 
-for command_name in awk caddy find install mktemp; do
+for command_name in awk caddy find install mktemp node; do
   command -v "${command_name}" >/dev/null 2>&1 ||
     fail "required command is missing: ${command_name}"
 done
@@ -89,6 +89,8 @@ awk '
 } > "${candidate_config}"
 
 caddy validate --config "${candidate_config}" --adapter caddyfile
+node "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js" \
+  "${candidate_config}" "$(command -v caddy)"
 install -m 0600 "${candidate_config}" "${OUTPUT_CONFIG}"
 
 echo "Validated shared-host Caddy candidate: ${OUTPUT_CONFIG}"

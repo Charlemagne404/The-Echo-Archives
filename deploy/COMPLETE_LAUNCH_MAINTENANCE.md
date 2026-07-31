@@ -22,9 +22,11 @@ In `--apply` mode the script performs these fail-fast stages in order:
    already preserved, the corrected unit is validated before daemon reload,
    and no off-site backup is started at this stage.
 4. Builds or recognizes the reviewed Cloudflare-only Echo origin gate, validates
-   it with both installed and staged Caddy, reloads Caddy, and verifies that
-   spoofed direct-origin requests fail while public Cloudflare requests and all
-   unrelated shared hosts retain their baseline status.
+   it with both installed and staged Caddy, and inspects the adapted JSON to
+   prove each peer abort precedes its proxy or redirect. It then reloads Caddy
+   and verifies that spoofed direct-origin requests fail while public
+   Cloudflare requests and all unrelated shared hosts retain their baseline
+   status.
 5. Upgrades only the Caddy package from 2.10.2 to 2.11.4, retaining the
    conffile, then repeats configuration, shared-host, public, and origin checks.
 6. Runs the guarded `echo-archives` service-account migration. Application code

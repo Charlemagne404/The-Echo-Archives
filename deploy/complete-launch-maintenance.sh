@@ -223,6 +223,7 @@ validate_repository_files() {
     bash -n "${REPO_ROOT}/${script}"
   done
   node --check "${REPO_ROOT}/deploy/notify-better-stack-heartbeat.js"
+  node --check "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js"
   systemd-analyze verify \
     "${REPO_ROOT}/deploy/echo-archives.service" \
     "${REPO_ROOT}/deploy/echo-archives-offsite-backup.service" \
@@ -235,6 +236,8 @@ validate_repository_files() {
     fail "preserved full shared-host Caddy candidate is missing"
   "${CADDY_STAGED_BIN}" validate \
     --config "${preserved_candidate}" --adapter caddyfile
+  node "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js" \
+    "${preserved_candidate}" "${CADDY_STAGED_BIN}"
   log "Repository scripts, staged units, upgrade artifacts, and Caddy candidate validated."
 }
 
@@ -678,6 +681,8 @@ stage_caddy_origin_gate() {
   fi
   caddy validate --config "${candidate}" --adapter caddyfile
   "${CADDY_STAGED_BIN}" validate --config "${candidate}" --adapter caddyfile
+  node "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js" \
+    "${candidate}" "${CADDY_STAGED_BIN}"
   systemctl is-active --quiet caddy.service
   capture_shared_routes /etc/caddy/Caddyfile "${RUN_DIR}/shared-routes.after-origin-gate"
   compare_shared_routes \

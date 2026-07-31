@@ -18,7 +18,18 @@ redirect remains directly reachable. It does not alter unrelated site blocks.
 3. Review the full diff. The only intended changes are:
    - the one leading global options block from `Caddyfile.global.echo`;
    - replacement of the three Echo site blocks from `Caddyfile.echo`.
-4. Run `caddy validate` and `caddy adapt --pretty` against the candidate.
+4. Run syntax and adapted-handler semantic validation against the candidate:
+
+   ```bash
+   caddy validate --config /path/to/Caddyfile.candidate --adapter caddyfile
+   node ./deploy/validate-caddy-origin-semantics.js \
+     /path/to/Caddyfile.candidate "$(command -v caddy)"
+   ```
+
+   The semantic check requires each negated `remote_ip` abort to precede its
+   reverse-proxy or redirect handler after Caddy adapts the file. Keeping those
+   handlers inside one `route` block prevents normal directive sorting from
+   moving the terminal handler ahead of the origin gate.
 5. Confirm the checked-in Cloudflare networks still match the official
    `ips-v4` and `ips-v6` lists using:
 

@@ -85,6 +85,7 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   assert.match(script, /ollama-lib\.pre-upgrade/);
   assert.match(script, /rollback_caddy_configuration/);
   assert.match(script, /rollback_caddy_upgrade/);
+  assert.match(script, /validate-caddy-origin-semantics\.js/);
   assert.match(script, /rollback_backup_automation/);
   assert.match(
     script,
