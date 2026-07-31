@@ -45,6 +45,7 @@ function runBackupTransitionFixture({
         "-c",
         String.raw`
 source "$SCRIPT_PATH"
+REPO_ROOT="$TEST_REPO_ROOT"
 TEMP_ROOT="$FIXTURE"
 OFFSITE_SUCCESS_MARKER="$FIXTURE/marker"
 systemctl() {
@@ -100,6 +101,7 @@ printf 'transition=%s deferred=%s install=%s\n' \
           ...process.env,
           FIXTURE: fixture,
           SCRIPT_PATH,
+          TEST_REPO_ROOT: ROOT,
         },
       },
     );
