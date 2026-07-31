@@ -1,0 +1,470 @@
+{
+  "id": "the-leviathan-chronicles",
+  "title": "The Leviathan Chronicles",
+  "subtitle": "",
+  "description": "The Leviathan Chronicles is the flagship series of Leviathan Audio Productions and the foundation of a universe of interconnected audio dramas. From the deepest trenches of Earth’s oceans to the farthest reaches of outer space, the Leviathan Universe blends epic science fiction, covert espionage, and secret histories into one immersive, evolving saga.",
+  "cover": "images/covers/the-leviathan-chronicles.jpg",
+  "coverAlt": "The Leviathan Chronicles cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704",
+    "website": "https://leviathanaudioproductions.com/",
+    "rss": "https://feeds.megaphone.fm/SBP5252339511",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "thriller",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized",
+    "long-running"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Thriller",
+    "Drama"
+  ],
+  "aliases": [
+    "The Leviathan Chronicles"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "7 seasons observed • at least 95 full episodes • 39 min median",
+    "seasons": 7,
+    "episodes": 95,
+    "avgEpisodeMinutes": 40,
+    "medianEpisodeMinutes": 39,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 109,
+    "totalObservedHours": 64,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 95,
+      "bonus": 23,
+      "trailer": 3
+    }
+  },
+  "releaseDates": {
+    "first": "2008-04-21",
+    "latest": "2026-04-14",
+    "latestFeedItem": "2026-04-14",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://leviathanaudioproductions.com/",
+    "patreon": "https://www.patreon.com/leviathanchronicles",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://facebook.com/theleviathanchronicles",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Leviathan Audio Productions",
+    "ownerName": "Leviathan Audio Productions",
+    "network": "Leviathan Audio Productions"
+  },
+  "creators": [
+    "Leviathan Audio Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://leviathanaudioproductions.com/; https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4; https://feeds.megaphone.fm/SBP5252339511; https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://leviathanaudioproductions.com/",
+      "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+      "https://feeds.megaphone.fm/SBP5252339511",
+      "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Thriller",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction",
+      "Thriller",
+      "Drama"
+    ],
+    "importOfficialSummary": "The Leviathan Chronicles is the flagship series of Leviathan Audio Productions and the foundation of a universe of interconnected audio dramas. From the deepest trenches of Earth’s oceans to the farthest reaches of outer space, the Leviathan Universe blends epic science fiction, covert espionage, and secret histories into one immersive, evolving saga.",
+    "socialUrls": [
+      "https://facebook.com/theleviathanchronicles",
+      "https://twitter.com/LeviathanChrons",
+      "https://www.instagram.com/leviathanaudio/",
+      "https://x.com/LeviathanChrons"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2020 and beyond. All rights reserved,",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
+        "appleCollectionId": "304481704",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://leviathanaudioproductions.com/",
+          "fetchedAt": "2026-07-31T18:31:34.862Z",
+          "payloadHash": "165e951297111d9d8adffcbeef7dd6fd61b57dc4e9437255ee666e5fa1a1fd52"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+          "fetchedAt": "2026-07-31T18:31:32.597Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/SBP5252339511",
+          "fetchedAt": "2026-07-31T18:31:33.076Z",
+          "payloadHash": "7392726b938a8c0edb01e6572ce7368a3b74c921dc4e06f496f7b3c816c9e7ee"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+          "https://feeds.megaphone.fm/SBP5252339511",
+          "https://leviathanaudioproductions.com/",
+          "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+            "https://feeds.megaphone.fm/SBP5252339511",
+            "https://leviathanaudioproductions.com/",
+            "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+            "https://feeds.megaphone.fm/SBP5252339511",
+            "https://leviathanaudioproductions.com/",
+            "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+            "https://feeds.megaphone.fm/SBP5252339511",
+            "https://leviathanaudioproductions.com/",
+            "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+            "https://feeds.megaphone.fm/SBP5252339511",
+            "https://leviathanaudioproductions.com/",
+            "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:38:13.384Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://leviathanaudioproductions.com/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://leviathanaudioproductions.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://leviathanaudioproductions.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+            "https://feeds.megaphone.fm/SBP5252339511",
+            "https://leviathanaudioproductions.com/",
+            "https://itunes.apple.com/podcast/the-leviathan-chronicles/id304481704"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:38:13.385Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "4756ca7be5cd6b91627f71b29bc08f0d15bd1e9d127fb414eb10a6477e43a094",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "4756ca7be5cd6b91627f71b29bc08f0d15bd1e9d127fb414eb10a6477e43a094",
+        "cover": "cc884d6c4afdc1f2d75a79c5aaa8b051e213ec27cf931c1e0adca1f66a398f99",
+        "coverAlt": "d31d8b3d9c5a5416de8bf02087b8cd1459805d08cb605a1deb18e8f0f4fb26f9",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "80529c47f10a44d08a211dc3e907d4d583dd805c61e1553ce14c2e4be0b6d893",
+        "officialLinks": "8a79be5a6afa07ae91e6557851c9390f211e37e3206db115977fd26f3fad0bd9",
+        "genres": "73bc998bdcfd6140bd6f64811c19189bb197f3f0b58307e21ac9201fa21c32a7",
+        "tags": "13f380d60b931a00abdd6e5ddb620e1e35777385569dc1defd59b21746119976",
+        "formats": "be93b844505028e4c28bfafa1645e86897b49aba62a68114024d39c59d46b1b0",
+        "aliases": "8ec404a3b976776c6ee94ca73ae31d4e7131591de9a6e1f997096230525c8a0a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "fe408591284f5138edfcbd68d8ff7f0de1cc2f909f941419cededde20c0895a0",
+        "releaseDates": "ec53a1670081f1a488c4634403ab63a4022ea752b6107abae967bb8e108da3bf",
+        "credits": "5a26d6597e818d6acbaf4aa9a79c227928dfdcbb9dbd5fa62001b97b621b48bf",
+        "creators": "59379c9f92eb6d63cd8531a48b8ff57eb0373076f9db7c87e159ef40a61bc28f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ce6155caf4734f07d955d58334ccb77eea3609c7d55adecb175ea6c2ccfe7854"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "leviathan-audio-productions",
+  "networkId": "leviathan-audio-productions"
+}

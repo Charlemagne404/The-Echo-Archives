@@ -1,0 +1,684 @@
+{
+  "id": "syntax",
+  "title": "Syntax",
+  "subtitle": "Know the Depths, Wish for More.",
+  "description": "A science fiction, horror audio drama podcast that follows Silas Caldwell, a linguist, who finds himself employed by VINCULA, a biotech company with an unearthly set of artifacts in their possession. Alongside a team of scientists and explorers, Silas plunges into the world beyond the Breach, and is touched by terrors beyond his wildest dreams. This show is a full cast audio drama, and has adult themes and horror settings. Made by Twin Strangers Productions. Hosted by Pinecast",
+  "cover": "images/covers/syntax.webp",
+  "coverAlt": "Syntax cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1MqJV8uZ81mjgHn1glJfk9",
+    "apple": "https://podcasts.apple.com/podcast/syntax/id1613894378",
+    "website": "https://syntaxpodcast.org/",
+    "rss": "https://pinecast.com/feed/syntax",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/9af83a1d-3e39-426b-8a49-be9e7f1b7361/syntax",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "sci-fi",
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Drama",
+    "Science Fiction"
+  ],
+  "aliases": [
+    "Syntax",
+    "Syntax Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "5 seasons observed • at least 53 full episodes • 56 min median",
+    "seasons": 5,
+    "episodes": 53,
+    "avgEpisodeMinutes": 55,
+    "medianEpisodeMinutes": 56,
+    "minEpisodeMinutes": 16,
+    "maxEpisodeMinutes": 208,
+    "totalObservedHours": 48.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 53,
+      "bonus": 9,
+      "trailer": 8
+    }
+  },
+  "releaseDates": {
+    "first": "2022-03-17",
+    "latest": "2026-07-23",
+    "latestFeedItem": "2026-07-23",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://syntaxpodcast.org/",
+    "patreon": "https://www.patreon.com/saphthesomething/posts",
+    "koFi": "https://ko-fi.com/saphthesomething/shop",
+    "discord": "https://discord.gg/3Y7uss62Rs",
+    "youtube": "",
+    "social": "https://x.com/AsherATVA",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Twin Strangers Productions",
+    "ownerName": "Twin Strangers Productions",
+    "network": "Syntax Podcast"
+  },
+  "creators": [
+    "Twin Strangers Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://syntaxpodcast.org/; https://pinecast.com/feed/syntax; https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4; https://podcasts.apple.com/podcast/syntax/id1613894378",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://syntaxpodcast.org/",
+      "https://pinecast.com/feed/syntax",
+      "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+      "https://podcasts.apple.com/podcast/syntax/id1613894378"
+    ],
+    "sourceCategories": [
+      "Science Fiction",
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Drama",
+      "Science Fiction"
+    ],
+    "importOfficialSummary": "A science fiction, horror audio drama podcast that follows Silas Caldwell, a linguist, who finds himself employed by VINCULA, a biotech company with an unearthly set of artifacts in their possession. Alongside a team of scientists and explorers, Silas plunges into the world beyond the Breach, and is touched by terrors beyond his wildest dreams. This show is a full cast audio drama, and has adult themes and horror settings. Made by Twin Strangers Productions. Hosted by Pinecast",
+    "socialUrls": [
+      "https://x.com/AsherATVA",
+      "https://bsky.app/profile/syntaxpod.bsky.social",
+      "https://www.tiktok.com/@syntaxpod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Twin Strangers Productions",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/syntax",
+        "appleCollectionId": "1613894378",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://syntaxpodcast.org/",
+          "fetchedAt": "2026-07-31T18:29:54.985Z",
+          "payloadHash": "631d9bd414b8671ecc4ad81bc09db7bfa06a29ed5b52b2431ecf9a7da184cf8d"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/syntax",
+          "fetchedAt": "2026-07-31T18:29:53.867Z",
+          "payloadHash": "e75d58538cf6eb9094db486ddcc2699c75b56002907cfbd5dd4f9f6523111570"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+          "fetchedAt": "2026-07-31T18:29:53.707Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+          "https://pinecast.com/feed/syntax",
+          "https://syntaxpodcast.org/",
+          "https://podcasts.apple.com/podcast/syntax/id1613894378"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+            "https://pinecast.com/feed/syntax",
+            "https://syntaxpodcast.org/",
+            "https://podcasts.apple.com/podcast/syntax/id1613894378"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+            "https://pinecast.com/feed/syntax",
+            "https://syntaxpodcast.org/",
+            "https://podcasts.apple.com/podcast/syntax/id1613894378"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+            "https://pinecast.com/feed/syntax",
+            "https://syntaxpodcast.org/",
+            "https://podcasts.apple.com/podcast/syntax/id1613894378"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+            "https://pinecast.com/feed/syntax",
+            "https://syntaxpodcast.org/",
+            "https://podcasts.apple.com/podcast/syntax/id1613894378"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:37:47.474Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/syntax"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://syntaxpodcast.org/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://syntaxpodcast.org/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://syntaxpodcast.org/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://syntaxpodcast.org/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://syntaxpodcast.org/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/syntax/id1613894378?uo=4",
+            "https://pinecast.com/feed/syntax",
+            "https://syntaxpodcast.org/",
+            "https://podcasts.apple.com/podcast/syntax/id1613894378"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:37:47.512Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "5ba6b884bb1ce7827f774bf2c1fd60e27600c204042e3e1ecd980f0c8dd5ae6d",
+        "subtitle": "030550d140d21d9c67a7d73616f0c63c50109b74c453f869b7c42e1576819da3",
+        "description": "e54250545af41626c67210234b48b3d192e06bd843819b905bca61753571879f",
+        "cover": "f64a15838fc7e16c47305ac55e2668d568fc6f36efbfd8c9803e5e149eb87fbd",
+        "coverAlt": "8e90a89a5eda1817d5365da37d43e9822f72826c2eaa062905cb3b00070b56e0",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "1a4b653652937c9d552cf8cb79cd17b547b4991630089a775b2f656d2cd774ce",
+        "officialLinks": "5d1723ea127057e101ba9b2e033cce53fe14fb9eac30d1035b317935ca99659c",
+        "genres": "18b986ed60b24970c67619447569c795d170fe6d18fc01ba4a0e91f890606fcb",
+        "tags": "4609bc4922a0628a6ad43bd36bbaaa1fa248f6501c5e82944d5e868b84ab0cb3",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "8d35d6f9e5b1f89c4b7dab0c067051c4725bf537c900fc8791ec83d828850ac9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "2311504b627f9176e11ae56f410929b2e2eedeae2041d5d7fd69fed4c8554a10",
+        "releaseDates": "2569789cbcd9507f31dfe6f62acedd4ea4f8f6bd340f5663d549f5f2e64aa780",
+        "credits": "9da8bb5014963274bec0f1bc8f3776745e1a5603fa830ced837fadfebdf82c4f",
+        "creators": "5418beae084c91e7205fc8db0aabb586ef3510bbbb26bb9abcebab8d243a5916",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "50c56a531398bf6f9d743a06a88a81e1f00f52802147bfa6441e4f00d6113574"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "twin-strangers-productions",
+  "networkId": "syntax-podcast"
+}

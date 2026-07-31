@@ -1,0 +1,663 @@
+{
+  "id": "the-night-post",
+  "title": "The Night Post",
+  "subtitle": "",
+  "description": "In Gilt City, conscripted couriers are both respected and shunned. They inhabit the borderlands between a growing industrial society and the untamed, arcane frontier that surrounds it. The Night Post is a weekly supernatural audio drama about survival, tradition, and the vast unknown. https://nightpostpod.com/",
+  "cover": "images/covers/the-night-post.jpg",
+  "coverAlt": "The Night Post cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3RAhIplPWLZQEiuFzy8oNF",
+    "apple": "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813",
+    "website": "https://nightpostpod.com/",
+    "rss": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "fantasy",
+    "mystery",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Science Fiction"
+  ],
+  "aliases": [
+    "The Night Post"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 45 full episodes • 21 min median",
+    "seasons": 3,
+    "episodes": 45,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 28,
+    "totalObservedHours": 15.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 45,
+      "bonus": 12,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-01-27",
+    "latest": "2023-02-22",
+    "latestFeedItem": "2025-02-28",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://nightpostpod.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/nightpostpod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Station 103",
+    "ownerName": "Station 103"
+  },
+  "creators": [
+    "Station 103"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://nightpostpod.com/episodes; https://nightpostpod.com/about; https://nightpostpod.com/; https://rss.libsyn.com/shows/319283/destinations/2579474.xml; https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4; https://podcasts.apple.com/us/podcast/the-night-post/id1549882813",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://nightpostpod.com/episodes",
+      "https://nightpostpod.com/about",
+      "https://nightpostpod.com/",
+      "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+      "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+      "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Fantasy",
+      "Mystery",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction"
+    ],
+    "importOfficialSummary": "In Gilt City, conscripted couriers are both respected and shunned. They inhabit the borderlands between a growing industrial society and the untamed, arcane frontier that surrounds it. The Night Post is a weekly supernatural audio drama about survival, tradition, and the vast unknown. https://nightpostpod.com/",
+    "socialUrls": [
+      "https://twitter.com/nightpostpod",
+      "https://www.instagram.com/nightpostpod/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+        "appleCollectionId": "1549882813",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nightpostpod.com/episodes",
+          "fetchedAt": "2026-07-31T18:30:05.188Z",
+          "payloadHash": "0345cd76e9a6faa94d530ff1df7abd301058708a8e7e9865e3c46d8a8beb212d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nightpostpod.com/about",
+          "fetchedAt": "2026-07-31T18:30:05.188Z",
+          "payloadHash": "299fea42f3f0122bb78791340bf6879a1662483ed787a3b6d95ccadb5922559f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nightpostpod.com/",
+          "fetchedAt": "2026-07-31T18:30:05.187Z",
+          "payloadHash": "4eb7753c9912f921c0990a074d1f2695fe7635413bccf50fdd6cd25f2d7371af"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+          "fetchedAt": "2026-07-31T18:30:03.320Z",
+          "payloadHash": "49007b53c373314508062fab49b0e9be7d37416e9192fd1bd8a4a8ea0c9f3ab2"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+          "fetchedAt": "2026-07-31T18:30:01.511Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+          "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+          "https://nightpostpod.com/",
+          "https://nightpostpod.com/about",
+          "https://nightpostpod.com/episodes",
+          "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+            "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+            "https://nightpostpod.com/",
+            "https://nightpostpod.com/about",
+            "https://nightpostpod.com/episodes",
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+            "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+            "https://nightpostpod.com/",
+            "https://nightpostpod.com/about",
+            "https://nightpostpod.com/episodes",
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+            "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+            "https://nightpostpod.com/",
+            "https://nightpostpod.com/about",
+            "https://nightpostpod.com/episodes",
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+            "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+            "https://nightpostpod.com/",
+            "https://nightpostpod.com/about",
+            "https://nightpostpod.com/episodes",
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:37:47.524Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/319283/destinations/2579474.xml"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nightpostpod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nightpostpod.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nightpostpod.com/episodes"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813?uo=4",
+            "https://rss.libsyn.com/shows/319283/destinations/2579474.xml",
+            "https://nightpostpod.com/",
+            "https://nightpostpod.com/about",
+            "https://nightpostpod.com/episodes",
+            "https://podcasts.apple.com/us/podcast/the-night-post/id1549882813"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:37:47.525Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "21de7de17081dfada2822960eea9782215d910d26ce9997213760ac8a7cbea10",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "974c10eff205178582881e603cfde6f1f2edca2d172bf84e95f63b2b8790b93d",
+        "cover": "046a9fc554cf720c78a8d002f022c6a502ffe6e3fa1eb8a8e736150a1ffe8408",
+        "coverAlt": "51d49267ba4a6770cf0000ee1e9d9db4b46b64b9df63c10fd00dd4f3e176f1c8",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "d34db67569f57a12981d1199c0403edf5352e6283e000b3f3610e65d62f36694",
+        "officialLinks": "27b32554569c12fd9f5f4871ea5c47b8e6995c21edbb38f4f2f7897fad2821c8",
+        "genres": "a4e7fcc07bfd893b0e53705bac1736461260e422e8c95ac8b96bdd54789b1437",
+        "tags": "89f6b21e153a289f454839f1bcc32acfb2d85989aeff9c8b1c5c4a4c9a67bf18",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "21df3747ad511545e5ad19514e82b8a954455c3e8856955b7d81b4af833ce2f7",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "618ca84022c3ad37f30914d8852e3232820bf928aea0e9e7313e42d4f6afe55e",
+        "releaseDates": "19c94639cb1fced84fd20f3ea6fc4e86cc8a8d4411c6ad3abea5cffa4b7d0c1c",
+        "credits": "399ce8ca74a788091ede06e80380b53b9ea841bfb160e20e46fbdd0675424e2c",
+        "creators": "e265f9e03c0452a7720494c201c1bcf609947e9f88075b6c154d4c6fe936e940",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "08bf3f4d504171853904fc340578b4fa3ab2a6e595d8890daea1f6d0633f8e6e"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "station-103"
+}

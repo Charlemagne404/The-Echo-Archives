@@ -1,0 +1,499 @@
+{
+  "id": "hello-from-the-hallowoods",
+  "title": "Hello From The Hallowoods",
+  "subtitle": "",
+  "description": "Come walk between the black pines! In this award-winning queer horror podcast, a cosmic narrator follows the increasingly connected residents of the forest at the end of the world. It’s a bittersweet story that explores queer identity, horror genre tropes, and finding hope in humanity’s last moments.",
+  "cover": "images/covers/hello-from-the-hallowoods.jpg",
+  "coverAlt": "Hello From The Hallowoods cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/05dIxkX1HboIVEiWCa6ShR",
+    "apple": "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051",
+    "website": "https://www.hellofromthehallowoods.com/",
+    "rss": "https://rss.buzzsprout.com/2022026.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "fantasy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "narrated",
+    "serialized"
+  ],
+  "tags": [
+    "Horror",
+    "Fantasy",
+    "Drama"
+  ],
+  "aliases": [
+    "Hello From The Hallowoods"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "6 seasons observed • at least 212 full episodes • 40 min median",
+    "seasons": 6,
+    "episodes": 212,
+    "avgEpisodeMinutes": 38,
+    "medianEpisodeMinutes": 40,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 68,
+    "totalObservedHours": 135.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 212,
+      "bonus": 18,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-10-31",
+    "latest": "2026-05-21",
+    "latestFeedItem": "2026-06-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.hellofromthehallowoods.com/",
+    "patreon": "https://patreon.com/hallowoods",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCh9ZfCa4uilETXwaEMjXWZw",
+    "social": "http://www.facebook.com/thehallowoods",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "William A. Wellman",
+    "ownerName": "William A. Wellman",
+    "network": "HFTH Podcast"
+  },
+  "creators": [
+    "William A. Wellman"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.hellofromthehallowoods.com/transcripts; https://www.hellofromthehallowoods.com/; https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4; https://rss.buzzsprout.com/2022026.rss; https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.hellofromthehallowoods.com/transcripts",
+      "https://www.hellofromthehallowoods.com/",
+      "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+      "https://rss.buzzsprout.com/2022026.rss",
+      "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Fantasy",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror",
+      "Fantasy",
+      "Drama"
+    ],
+    "importOfficialSummary": "Come walk between the black pines! In this award-winning queer horror podcast, a cosmic narrator follows the increasingly connected residents of the forest at the end of the world. It’s a bittersweet story that explores queer identity, horror genre tropes, and finding hope in humanity’s last moments.",
+    "socialUrls": [
+      "http://www.facebook.com/thehallowoods",
+      "https://www.instagram.com/thehallowoods/",
+      "https://twitter.com/TheHallowoods"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Hello From The Hallowoods",
+      "explicit": "Clean",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "67673f94-3576-5597-a978-e3735254c6e8",
+        "rssUrl": "https://rss.buzzsprout.com/2022026.rss",
+        "appleCollectionId": "1538248051",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.hellofromthehallowoods.com/blog-feed.xml"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.hellofromthehallowoods.com/transcripts",
+          "fetchedAt": "2026-07-31T18:30:06.645Z",
+          "payloadHash": "516c8bc6e5376bc044774cfd098307f02f278b00ed8434e06d2c44abea6275c8"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.hellofromthehallowoods.com/",
+          "fetchedAt": "2026-07-31T18:30:06.627Z",
+          "payloadHash": "808159543a714b3467f6422998b80251b6994b7b79fe55a8e43c147d894ec862"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+          "fetchedAt": "2026-07-31T18:30:04.925Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/2022026.rss",
+          "fetchedAt": "2026-07-31T18:30:05.150Z",
+          "payloadHash": "ad2c88b87fd0e76b36b0aa4c5e8f79834cc4f8891d1703b1ca0213cacfde79f7"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+          "https://rss.buzzsprout.com/2022026.rss",
+          "https://www.hellofromthehallowoods.com/",
+          "https://www.hellofromthehallowoods.com/transcripts",
+          "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+            "https://rss.buzzsprout.com/2022026.rss",
+            "https://www.hellofromthehallowoods.com/",
+            "https://www.hellofromthehallowoods.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+            "https://rss.buzzsprout.com/2022026.rss",
+            "https://www.hellofromthehallowoods.com/",
+            "https://www.hellofromthehallowoods.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+            "https://rss.buzzsprout.com/2022026.rss",
+            "https://www.hellofromthehallowoods.com/",
+            "https://www.hellofromthehallowoods.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+            "https://rss.buzzsprout.com/2022026.rss",
+            "https://www.hellofromthehallowoods.com/",
+            "https://www.hellofromthehallowoods.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:37:47.677Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hellofromthehallowoods.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hellofromthehallowoods.com/transcripts"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hellofromthehallowoods.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hellofromthehallowoods.com/transcripts"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hellofromthehallowoods.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hellofromthehallowoods.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051?uo=4",
+            "https://rss.buzzsprout.com/2022026.rss",
+            "https://www.hellofromthehallowoods.com/",
+            "https://www.hellofromthehallowoods.com/transcripts",
+            "https://podcasts.apple.com/us/podcast/hello-from-the-hallowoods/id1538248051"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:37:47.677Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "422356c64737cf4686e440b4f49a120f1c2ef439fa9c9a06e795643add0b0d4a",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "422356c64737cf4686e440b4f49a120f1c2ef439fa9c9a06e795643add0b0d4a",
+        "cover": "0072f0538cb15b0427f8e798b59c93ca3005687bb161aef62266d3ea7b277c59",
+        "coverAlt": "25b8b8d7cee9d277218b6ed11f0ab9f79d9d47f27aea8dafb4ee3791d7166590",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "b363f37bfc7ab40f7d68e72c755d1f40b4524beeec20788d22f44ada3098d248",
+        "officialLinks": "1414436248aab7cf0e9392b6143b7c0048152e58008c02ccb4129359e082f820",
+        "genres": "d3c48fb43cf4f4fac68e54cc94d62fbd1b0c2d08f8e0b66ca126c7d910dfc535",
+        "tags": "7980ef774749fa628ea085e56e3ae34918d8adb527825440753abb6334633d67",
+        "formats": "6b0e7ba9a1e0e2c5506b7f7d34a072af70323e1d7a3a4ffeb7e2ab2e94795708",
+        "aliases": "bed150a8394d08937b84931d121c71e23ab62c8df6c2fd9ac7512e31e751384a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "687907a54adace27d745171346c045a4993852bb8a20959657a6ed744cc9f9e7",
+        "releaseDates": "b238ec5a87c596804813b2368bd481b2a50aec1d6cf74db444be9800b7f835d1",
+        "credits": "cdd7bd3ef7dfc86c7c92ae4ccb6b3955053604ab9a7ec9ae170865ba25e23d50",
+        "creators": "5e5ef873fc1437a6ecf966cb27f2cd338e06dd8464536da2566522fb93ccf3eb",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "524b7f98854d568dee023770732ee3156ce9fcc2318fb7514a11f1ee7bbf0ad7"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "william-a-wellman",
+  "networkId": "hfth-podcast"
+}

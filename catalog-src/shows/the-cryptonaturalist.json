@@ -1,0 +1,770 @@
+{
+  "id": "the-cryptonaturalist",
+  "title": "The Cryptonaturalist",
+  "subtitle": "Strange Nature for Strange People",
+  "description": "The CryptoNaturalist is a scripted fiction podcast all about real love for imaginary nature. It’s about cryptids and other weird and wild topics. Featuring poetry and field reports to make our world a richer, stranger place. New episodes 1st/15th.",
+  "cover": "images/covers/the-cryptonaturalist.jpg",
+  "coverAlt": "The Cryptonaturalist cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2",
+    "website": "https://www.cryptonaturalist.com/",
+    "rss": "https://www.cryptonaturalist.com/?format=rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "fantasy",
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "narrated",
+    "episodic"
+  ],
+  "tags": [
+    "Science Fiction",
+    "Arts",
+    "Performing Arts",
+    "Comedy Fiction"
+  ],
+  "aliases": [
+    "The Cryptonaturalist"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 69 full episodes • 16 min median",
+    "episodes": 69,
+    "avgEpisodeMinutes": 17,
+    "medianEpisodeMinutes": 16,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 22,
+    "totalObservedHours": 18.3,
+    "durationCoverage": 0.957,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 69,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2018-05-04",
+    "latest": "2025-08-06",
+    "latestFeedItem": "2025-08-06",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.cryptonaturalist.com/",
+    "patreon": "https://www.patreon.com/cryptonaturalist",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCBXHP2Yy5cJwg0tR9VfP8Xw",
+    "social": "https://www.instagram.com/cryptonaturalist/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Jarod K. Anderson",
+    "ownerName": "Jarod K. Anderson",
+    "network": "The CryptoNaturalist",
+    "writers": [
+      "Jarod Anderson"
+    ],
+    "people": [
+      {
+        "name": "Jarod Anderson",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Jarod K. Anderson",
+    "Jarod Anderson"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines; https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals; https://www.cryptonaturalist.com/transcripts; https://www.cryptonaturalist.com/about; https://www.cryptonaturalist.com/; https://www.cryptonaturalist.com/?format=rss; https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4; https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+      "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+      "https://www.cryptonaturalist.com/transcripts",
+      "https://www.cryptonaturalist.com/about",
+      "https://www.cryptonaturalist.com/",
+      "https://www.cryptonaturalist.com/?format=rss",
+      "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+      "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+    ],
+    "sourceCategories": [
+      "Fantasy",
+      "Comedy",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction",
+      "Arts",
+      "Performing Arts",
+      "Comedy Fiction"
+    ],
+    "importOfficialSummary": "The CryptoNaturalist is a scripted fiction podcast all about real love for imaginary nature. It’s about cryptids and other weird and wild topics. Featuring poetry and field reports to make our world a richer, stranger place. New episodes 1st/15th.",
+    "socialUrls": [
+      "https://www.instagram.com/cryptonaturalist/",
+      "https://twitter.com/CryptoNature",
+      "https://www.facebook.com/Cryptonaturalist",
+      "https://www.threads.net/@cryptonaturalist"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Jarod K. Anderson",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.cryptonaturalist.com/?format=rss",
+        "appleCollectionId": "1380538707",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.cryptonaturalist.com/blog?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+          "fetchedAt": "2026-07-31T18:32:10.276Z",
+          "payloadHash": "75d0cec758418c9d30c621ec24465043c5f2d0bf22700ce8611e50d61b005753"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+          "fetchedAt": "2026-07-31T18:32:10.273Z",
+          "payloadHash": "e546142c320614499db62c8d60347a4de138f23daa1c4ca696a142fd6a73150b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.cryptonaturalist.com/transcripts",
+          "fetchedAt": "2026-07-31T18:32:10.269Z",
+          "payloadHash": "9bbc70d81d181c274ce0d112b42e229d649f8cae149458acab834981b2e1fcac"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.cryptonaturalist.com/about",
+          "fetchedAt": "2026-07-31T18:32:10.265Z",
+          "payloadHash": "1c513146840e55737ddcba5ddcfb0b4d94adc69d9dc781d762aafaa547ca1876"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.cryptonaturalist.com/",
+          "fetchedAt": "2026-07-31T18:32:10.259Z",
+          "payloadHash": "430dceb51a86589d955154a96f314f9c0e30a2f3315a0e28f63d79ae748403d0"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.cryptonaturalist.com/?format=rss",
+          "fetchedAt": "2026-07-31T18:32:09.299Z",
+          "payloadHash": "a3ee06976a500d35764628bfbd461e0a7d2623b3e2e55099eaa6cb2ee625b74f"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+          "fetchedAt": "2026-07-31T18:32:08.627Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+          "https://www.cryptonaturalist.com/?format=rss",
+          "https://www.cryptonaturalist.com/",
+          "https://www.cryptonaturalist.com/about",
+          "https://www.cryptonaturalist.com/transcripts",
+          "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+          "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+          "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+            "https://www.cryptonaturalist.com/?format=rss",
+            "https://www.cryptonaturalist.com/",
+            "https://www.cryptonaturalist.com/about",
+            "https://www.cryptonaturalist.com/transcripts",
+            "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+            "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+            "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+            "https://www.cryptonaturalist.com/?format=rss",
+            "https://www.cryptonaturalist.com/",
+            "https://www.cryptonaturalist.com/about",
+            "https://www.cryptonaturalist.com/transcripts",
+            "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+            "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+            "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+            "https://www.cryptonaturalist.com/?format=rss",
+            "https://www.cryptonaturalist.com/",
+            "https://www.cryptonaturalist.com/about",
+            "https://www.cryptonaturalist.com/transcripts",
+            "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+            "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+            "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+            "https://www.cryptonaturalist.com/?format=rss",
+            "https://www.cryptonaturalist.com/",
+            "https://www.cryptonaturalist.com/about",
+            "https://www.cryptonaturalist.com/transcripts",
+            "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+            "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+            "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:37:47.559Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.cryptonaturalist.com/?format=rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-cryptonaturalist/id1380538707?uo=4",
+            "https://www.cryptonaturalist.com/?format=rss",
+            "https://www.cryptonaturalist.com/",
+            "https://www.cryptonaturalist.com/about",
+            "https://www.cryptonaturalist.com/transcripts",
+            "https://www.cryptonaturalist.com/blog/2025/8/6/episode-67-strange-animals",
+            "https://www.cryptonaturalist.com/blog/2024/11/15/episode-66-the-counting-pines",
+            "https://itunes.apple.com/us/podcast/the-cryptonaturalist/id1380538707?mt=2"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:37:47.559Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "331687cb7f2194e92f03d3aa453b5e711462ba898e9135341554213789161f05",
+        "subtitle": "65b09d78a7fac3dea1b8f5d311ef1f086a6eeb61509c218a2886a8177d785d61",
+        "description": "3258fdf3d82d33ef913d8352b5b79ce8390ebefeec8899e811871a4d706dbb83",
+        "cover": "3bf1d9dcb67e0607a488f27853247789506d5ca0134591bb1a811458bba18cb0",
+        "coverAlt": "da71dcf58e964185e2ad11b7aad9ee58bf916dc5b53da34421942bab3f9e5844",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "55598c3bf3037727eea04ba295fac788097939098aedc28d2edc37cc9e5a1078",
+        "officialLinks": "46c1191faea574f92449efa86e633524b9e95d6128d93d3917ab2d6e64bb2b1f",
+        "genres": "78922a2d1c6a7d9ac73e8635839bffcc2f2b5a2bdaa922e027dad84b6dbef0bf",
+        "tags": "1ced31cb8ea5784112547e7154802f0860a9cbe8ab713bee3271d1cc1c8456a6",
+        "formats": "0bd0e2246c6374507125dc35ff98d592cfbd236f338584e7dbccdaf513bb32b0",
+        "aliases": "fa2ebd8a02cf0f94f8596c864baa9f77b1f5c0e1972ea2dcc93e8c2d9a1eab8d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "e4c6549eae06829a57d130a9ef8794e5868c2777743ee9603615bb3cca115493",
+        "releaseDates": "9d2857d09806200716e308eb101a784b688ada06dae0f523b013836b492d4dfe",
+        "credits": "913e2f61ebc10da215f5c09f860009e2d38fb880f62511d2ccf7c3b4810ad3ce",
+        "creators": "7c75a2379354c3444ac137d89ce635f0a271d3efd6c43dc538ace26736f2586a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "f7b5d4e9edd98805ebf7d21383b264824d3361c298070f8853f9ac0c54b2644f"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "jarod-k-anderson",
+  "networkId": "the-cryptonaturalist"
+}

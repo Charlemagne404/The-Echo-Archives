@@ -1,0 +1,680 @@
+{
+  "id": "uncanny-valley",
+  "title": "Uncanny Valley",
+  "subtitle": "",
+  "description": "When anyone asks Audrey why she moved to&nbsp;Alaska, she tells them for a fresh start. But a lot of the people in Alaska&nbsp;are hiding from something. And Audrey is no different. When she journeyed to Alaska, she found something even more dangerous. Maybe we feel the uncanny valley because long ago, we had to fear something that pretended to be human.&nbsp;",
+  "cover": "images/covers/uncanny-valley.jpg",
+  "coverAlt": "Uncanny Valley cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3zXqgYCQbKPaasEuz9FBZa",
+    "apple": "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015",
+    "website": "https://www.daytonwritersmovement.com/uncannyvalley",
+    "rss": "https://feeds.megaphone.fm/uncannyvalley",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/7ef1c851-bffa-4479-b650-b51315f5ff22/uncanny-valley",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Drama",
+    "Science Fiction"
+  ],
+  "aliases": [
+    "Uncanny Valley",
+    "Uncanny Valley | DWM Presents"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 37 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 38,
+    "medianEpisodeMinutes": 37,
+    "minEpisodeMinutes": 30,
+    "maxEpisodeMinutes": 47,
+    "totalObservedHours": 5.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 1,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2023-12-28",
+    "latest": "2024-04-18",
+    "latestFeedItem": "2025-08-13",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.daytonwritersmovement.com/uncannyvalley",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCJ5nwKRySZz0P5-twOZu2DA",
+    "social": "https://www.facebook.com/hiddenpeoplepodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "DWM | Realm",
+    "ownerName": "Dayton Writers Movement",
+    "network": "DWM Presents"
+  },
+  "creators": [
+    "DWM | Realm"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.daytonwritersmovement.com/about; https://www.daytonwritersmovement.com/uncannyvalley; https://feeds.megaphone.fm/uncannyvalley; https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4; https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.daytonwritersmovement.com/about",
+      "https://www.daytonwritersmovement.com/uncannyvalley",
+      "https://feeds.megaphone.fm/uncannyvalley",
+      "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+      "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Drama",
+      "Science Fiction"
+    ],
+    "importOfficialSummary": "When anyone asks Audrey why she moved to&nbsp;Alaska, she tells them for a fresh start. But a lot of the people in Alaska&nbsp;are hiding from something. And Audrey is no different. When she journeyed to Alaska, she found something even more dangerous. Maybe we feel the uncanny valley because long ago, we had to fear something that pretended to be human.&nbsp;",
+    "socialUrls": [
+      "https://www.facebook.com/hiddenpeoplepodcast",
+      "https://twitter.com/dwmPresents",
+      "https://www.instagram.com/dwmpresents/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Dayton Writers Movement LTD - All Rights Reserved.",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/uncannyvalley",
+        "appleCollectionId": "1720050015",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.daytonwritersmovement.com/about",
+          "fetchedAt": "2026-07-31T18:31:35.143Z",
+          "payloadHash": "f677a2144d816333f923d9fd9432f93b6b70c63943111c7942722af00727ce97"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.daytonwritersmovement.com/uncannyvalley",
+          "fetchedAt": "2026-07-31T18:31:35.115Z",
+          "payloadHash": "2726247a090ba2d0ce64a26f1d1fa140c6597bb21cf28808ecd62b14b0b47e77"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley",
+          "fetchedAt": "2026-07-31T18:31:33.220Z",
+          "payloadHash": "6511891997f2e454bdc7c491551d8ecc42522553cfdabcca13d7ac544674c503"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+          "fetchedAt": "2026-07-31T18:31:32.730Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+          "https://feeds.megaphone.fm/uncannyvalley",
+          "https://www.daytonwritersmovement.com/uncannyvalley",
+          "https://www.daytonwritersmovement.com/about",
+          "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+            "https://feeds.megaphone.fm/uncannyvalley",
+            "https://www.daytonwritersmovement.com/uncannyvalley",
+            "https://www.daytonwritersmovement.com/about",
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+            "https://feeds.megaphone.fm/uncannyvalley",
+            "https://www.daytonwritersmovement.com/uncannyvalley",
+            "https://www.daytonwritersmovement.com/about",
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+            "https://feeds.megaphone.fm/uncannyvalley",
+            "https://www.daytonwritersmovement.com/uncannyvalley",
+            "https://www.daytonwritersmovement.com/about",
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+            "https://feeds.megaphone.fm/uncannyvalley",
+            "https://www.daytonwritersmovement.com/uncannyvalley",
+            "https://www.daytonwritersmovement.com/about",
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:37:47.632Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/uncannyvalley"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.daytonwritersmovement.com/uncannyvalley"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.daytonwritersmovement.com/uncannyvalley"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.daytonwritersmovement.com/about"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.daytonwritersmovement.com/uncannyvalley"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.daytonwritersmovement.com/about"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015?uo=4",
+            "https://feeds.megaphone.fm/uncannyvalley",
+            "https://www.daytonwritersmovement.com/uncannyvalley",
+            "https://www.daytonwritersmovement.com/about",
+            "https://podcasts.apple.com/us/podcast/uncanny-valley/id1720050015"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:37:47.632Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e281c22f10addbc417a65eab92818b5ca2dd215e9ae308b8b217b9cdede2d6e3",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "7e411e8389f4e12904d4d41a1708c6b6f2fab1e4a7fa0e8f18c42949ad97e1e2",
+        "cover": "d354ffa4891e338166899c7998e6b6cfcbd52ebbbd0e4c2b65042184e3aec2a8",
+        "coverAlt": "d04ddd9a74e867e1d6c128a0a7b313384bb150fbe7cb198b1fce18505b9db4d8",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "6ad147e9212c28d3c827fdebc1a196d5e60cc8686ffd313e339a95b60165ba4e",
+        "officialLinks": "a652e023ba3bda6af5600a4569cd289f22ac77c50b53a67e4737b157f1e58899",
+        "genres": "ca708709556b9533a5207d1a5f1af748835a0f93996ba8b4fe0b9c9068152c6b",
+        "tags": "4609bc4922a0628a6ad43bd36bbaaa1fa248f6501c5e82944d5e868b84ab0cb3",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "c9936aa28761bb92d6fbe00063df3143dd73164354ac631f88f9d91074759087",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "bbf96db2262a0441693af843eab58a7fa188e6a6962a95597a63908a5508a7e9",
+        "releaseDates": "8725bd9950ad35a7302f06b58128f81a1bca7964b380a62a263cc916fc4cb2d2",
+        "credits": "ae45e8aa57ee8432275e92c8570c7b0c9d541bfe9e9cdc5cfb6419b5f9400ea4",
+        "creators": "0b3415e20bff889c5948ceaaa7f2bcc155148db45c4389fd8c3d56b238950bfb",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "30e4dc827161278224b5966cc8f80e873a55e40b248f5628861cce26bb30c1d1"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "dwm-realm",
+  "networkId": "dwm-presents"
+}

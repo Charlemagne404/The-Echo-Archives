@@ -1,0 +1,552 @@
+{
+  "id": "the-nosleep-podcast",
+  "title": "The NoSleep Podcast",
+  "subtitle": "",
+  "description": "The NoSleep Podcast is a multi-award winning anthology series of original horror stories, with rich atmospheric music to enhance the frightening tales.",
+  "cover": "images/covers/the-nosleep-podcast.jpg",
+  "coverAlt": "The NoSleep Podcast cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093",
+    "website": "https://www.thenosleeppodcast.com/",
+    "rss": "https://audioboom.com/channels/5101646.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "narrated",
+    "anthology",
+    "episodic"
+  ],
+  "tags": [
+    "Horror",
+    "Drama"
+  ],
+  "aliases": [
+    "The NoSleep Podcast",
+    "The NoSleep Podcast - For the dark hours when you dare not close your eyes. Brace yourself…"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "24 seasons observed • at least 722 full episodes • 70 min median",
+    "seasons": 24,
+    "episodes": 722,
+    "avgEpisodeMinutes": 75,
+    "medianEpisodeMinutes": 70,
+    "minEpisodeMinutes": 7,
+    "maxEpisodeMinutes": 208,
+    "totalObservedHours": 898.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      24,
+      23,
+      22,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16,
+      9
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 722,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2011-06-13",
+    "latest": "2026-07-26",
+    "latestFeedItem": "2026-07-26",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.thenosleeppodcast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/c/TheNoSleepPodcastOfficial",
+    "social": "https://twitter.com/NosleepPodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Creative Reason Media Inc.",
+    "network": "The NoSleep Podcast"
+  },
+  "creators": [
+    "Creative Reason Media Inc."
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "https://www.thenosleeppodcast.com/about/nosleep-in-the-media; https://www.thenosleeppodcast.com/about/sponsors; https://www.thenosleeppodcast.com/about/contributors; https://www.thenosleeppodcast.com/about; https://www.thenosleeppodcast.com/; https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4; https://audioboom.com/channels/5101646.rss; https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+      "https://www.thenosleeppodcast.com/about/sponsors",
+      "https://www.thenosleeppodcast.com/about/contributors",
+      "https://www.thenosleeppodcast.com/about",
+      "https://www.thenosleeppodcast.com/",
+      "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+      "https://audioboom.com/channels/5101646.rss",
+      "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+    ],
+    "sourceCategories": [
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Horror",
+      "Drama"
+    ],
+    "importOfficialSummary": "The NoSleep Podcast is a multi-award winning anthology series of original horror stories, with rich atmospheric music to enhance the frightening tales.",
+    "socialUrls": [
+      "https://twitter.com/NosleepPodcast",
+      "https://www.facebook.com/NosleepPodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Creative Reason Media Inc.",
+      "explicit": "Explicit",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "cb62f69e-e5f0-5212-81c3-faa829d042db",
+        "rssUrl": "https://audioboom.com/channels/5101646.rss",
+        "appleCollectionId": "444083093",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+          "fetchedAt": "2026-07-31T18:30:08.996Z",
+          "payloadHash": "95bb574246abfe88d489755829a5c6aeb5c9cf65b86b25567e852e2f626a7088"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thenosleeppodcast.com/about/sponsors",
+          "fetchedAt": "2026-07-31T18:30:08.992Z",
+          "payloadHash": "bcb2d522adc638f954d53f1f02dafc429543cfb09c3d27de60d4d9fc947f6b5d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thenosleeppodcast.com/about/contributors",
+          "fetchedAt": "2026-07-31T18:30:08.987Z",
+          "payloadHash": "e0e4842c3a55cd9c73b0e5e6f16fd6edd179252a29c958c26f44b9700731ef7a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thenosleeppodcast.com/about",
+          "fetchedAt": "2026-07-31T18:30:08.982Z",
+          "payloadHash": "087361d5514af07583f72b9e2ece87afdfe6f9b9309721b90bf7b767a8d27a57"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.thenosleeppodcast.com/",
+          "fetchedAt": "2026-07-31T18:30:08.976Z",
+          "payloadHash": "0af51927c7b18cc6d6abe2141cc4f9aaa452692e02e0ffa903fbc95d275906c5"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+          "fetchedAt": "2026-07-31T18:30:05.732Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://audioboom.com/channels/5101646.rss",
+          "fetchedAt": "2026-07-31T18:30:06.286Z",
+          "payloadHash": "1a734457e6cb918233eef88b4e5fdae009c7deb95f8e8f205cd1c7866cb2972f"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+          "https://audioboom.com/channels/5101646.rss",
+          "https://www.thenosleeppodcast.com/",
+          "https://www.thenosleeppodcast.com/about",
+          "https://www.thenosleeppodcast.com/about/contributors",
+          "https://www.thenosleeppodcast.com/about/sponsors",
+          "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+          "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+            "https://audioboom.com/channels/5101646.rss",
+            "https://www.thenosleeppodcast.com/",
+            "https://www.thenosleeppodcast.com/about",
+            "https://www.thenosleeppodcast.com/about/contributors",
+            "https://www.thenosleeppodcast.com/about/sponsors",
+            "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+            "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+            "https://audioboom.com/channels/5101646.rss",
+            "https://www.thenosleeppodcast.com/",
+            "https://www.thenosleeppodcast.com/about",
+            "https://www.thenosleeppodcast.com/about/contributors",
+            "https://www.thenosleeppodcast.com/about/sponsors",
+            "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+            "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+            "https://audioboom.com/channels/5101646.rss",
+            "https://www.thenosleeppodcast.com/",
+            "https://www.thenosleeppodcast.com/about",
+            "https://www.thenosleeppodcast.com/about/contributors",
+            "https://www.thenosleeppodcast.com/about/sponsors",
+            "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+            "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+            "https://audioboom.com/channels/5101646.rss",
+            "https://www.thenosleeppodcast.com/",
+            "https://www.thenosleeppodcast.com/about",
+            "https://www.thenosleeppodcast.com/about/contributors",
+            "https://www.thenosleeppodcast.com/about/sponsors",
+            "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+            "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:38:13.270Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about/contributors"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about/sponsors"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about/nosleep-in-the-media"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about/contributors"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about/sponsors"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.thenosleeppodcast.com/about/nosleep-in-the-media"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/the-nosleep-podcast/id444083093?uo=4",
+            "https://audioboom.com/channels/5101646.rss",
+            "https://www.thenosleeppodcast.com/",
+            "https://www.thenosleeppodcast.com/about",
+            "https://www.thenosleeppodcast.com/about/contributors",
+            "https://www.thenosleeppodcast.com/about/sponsors",
+            "https://www.thenosleeppodcast.com/about/nosleep-in-the-media",
+            "https://itunes.apple.com/podcast/the-nosleep-podcast/id444083093"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:38:13.309Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "8557f9546e7f34f6eac8920cbfa250276292843740ea264765039d52251adb2b",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8557f9546e7f34f6eac8920cbfa250276292843740ea264765039d52251adb2b",
+        "cover": "ba4a98c3c0083acd73e975a57f282d05b364eb6fe018c1a1683e181c1cc218a9",
+        "coverAlt": "4136d625c01c0ce585ecd97857a31a3c94f7881151f3633935e01e376be33d8b",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "a12ea8a2b1ad207473b16a43387f4c21ca7d530d0dfda162435549c543454d81",
+        "officialLinks": "7ec934beb184c3302208776cd56c58c1ed74e6660d63e056b68fdde6ecb47a9d",
+        "genres": "ca708709556b9533a5207d1a5f1af748835a0f93996ba8b4fe0b9c9068152c6b",
+        "tags": "15e67bf44297e4e7deb472ea653e998383b6a59eb7973b1cd0ccc2915bd487a2",
+        "formats": "0d11cc356795daa1be55b0b96c12ede32107a619bb1072ac2319688f36861b97",
+        "aliases": "6e8a52024713737f081a1821703111f588042cf1b3dd9987b04485a3fc9b9cec",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "9256560e6b00ba00369941686a7c17bb67493c109bb880365b0f6573ed423846",
+        "releaseDates": "8f3ba3a2111387c7fc2bebe6a819e10f6074821f104eff2ba114cc0698254408",
+        "credits": "779d52e13b254cc13fa4cf2a16ad933cef0f55d529e87c5cc47014c77972f7ad",
+        "creators": "16028ca3e9166a580a00182882468aa8abb8617522ac731c8e85d4fd0efb8c7d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e935df494823fd12a1925f49f2572d348d28804241b79344afe83e6b81d2b1c8"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "creative-reason-media-inc",
+  "networkId": "the-nosleep-podcast"
+}

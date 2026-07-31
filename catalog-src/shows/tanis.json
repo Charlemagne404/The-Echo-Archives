@@ -1,0 +1,675 @@
+{
+  "id": "tanis",
+  "title": "TANIS",
+  "subtitle": "",
+  "description": "Tanis is a bi-weekly podcast from the Public Radio Alliance, and is hosted by Nic Silver. Tanis is a serialized docudrama about a fascinating and surprising mystery: the myth of Tanis. Tanis is an exploration of the nature of truth, conspiracy, and information. Tanis is what happens when the lines of science and fiction start to blur... S",
+  "cover": "images/covers/tanis.jpg",
+  "coverAlt": "TANIS cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/20bYGRH6GLgtAs5WSDO5DR",
+    "apple": "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2",
+    "website": "http://tanispodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "mystery",
+    "horror",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "full-cast",
+    "serialized"
+  ],
+  "tags": [
+    "Science Fiction"
+  ],
+  "aliases": [
+    "TANIS"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "5 seasons observed • at least 60 full episodes • 39 min median",
+    "seasons": 5,
+    "episodes": 60,
+    "avgEpisodeMinutes": 40,
+    "medianEpisodeMinutes": 39,
+    "minEpisodeMinutes": 33,
+    "maxEpisodeMinutes": 52,
+    "totalObservedHours": 39.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 60,
+      "bonus": 4,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2015-10-14",
+    "latest": "2020-11-18",
+    "latestFeedItem": "2023-10-03",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://tanispodcast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.facebook.com/tanispodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Public Radio Alliance",
+    "ownerName": "Public Radio Alliance",
+    "network": "TANIS"
+  },
+  "creators": [
+    "Public Radio Alliance"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-07-31",
+    "source": "http://tanispodcast.com/about; http://tanispodcast.com/how-to-listen; http://tanispodcast.com/; https://rss.libsyn.com/shows/73178/destinations/316385.xml; https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4; https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "http://tanispodcast.com/about",
+      "http://tanispodcast.com/how-to-listen",
+      "http://tanispodcast.com/",
+      "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+      "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+      "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+    ],
+    "sourceCategories": [
+      "Mystery",
+      "Horror",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [
+      "Science Fiction"
+    ],
+    "importOfficialSummary": "Tanis is a bi-weekly podcast from the Public Radio Alliance, and is hosted by Nic Silver. Tanis is a serialized docudrama about a fascinating and surprising mystery: the myth of Tanis. Tanis is an exploration of the nature of truth, conspiracy, and information. Tanis is what happens when the lines of science and fiction start to blur... S",
+    "socialUrls": [
+      "http://www.facebook.com/tanispodcast",
+      "http://instagram.com/tanispodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "method": "maintainer-verified"
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2022 Public Radio Alliance",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+        "appleCollectionId": "1049183167",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://tanispodcast.com/about",
+          "fetchedAt": "2026-07-31T18:31:30.003Z",
+          "payloadHash": "c788d3dbf9a5e511ff0e8d5e47e0b15d69c77f3b0bacc5513c409f67169e7e05"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://tanispodcast.com/how-to-listen",
+          "fetchedAt": "2026-07-31T18:31:30.000Z",
+          "payloadHash": "6ac9a5c9ff85db954ee67a29b0adcd75cdbc510cdf4f2cd6c8577bee8b9b7f12"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "http://tanispodcast.com/",
+          "fetchedAt": "2026-07-31T18:31:29.995Z",
+          "payloadHash": "9c68c72398c3b98c2bcdcfe9d73a3c0a7fadb97c5b5af5a57908fd692ad1edd3"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+          "fetchedAt": "2026-07-31T18:31:29.395Z",
+          "payloadHash": "100121c7a18f1209dbc55181855b85142ec01eec5509662adfebe7512583bf91"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+          "fetchedAt": "2026-07-31T18:31:28.875Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [
+          "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+          "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+          "http://tanispodcast.com/",
+          "http://tanispodcast.com/how-to-listen",
+          "http://tanispodcast.com/about",
+          "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+        ],
+        "fieldSources": {
+          "title": [
+            "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+            "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+            "http://tanispodcast.com/",
+            "http://tanispodcast.com/how-to-listen",
+            "http://tanispodcast.com/about",
+            "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+          ],
+          "description": [
+            "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+            "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+            "http://tanispodcast.com/",
+            "http://tanispodcast.com/how-to-listen",
+            "http://tanispodcast.com/about",
+            "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+          ],
+          "categories": [
+            "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+            "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+            "http://tanispodcast.com/",
+            "http://tanispodcast.com/how-to-listen",
+            "http://tanispodcast.com/about",
+            "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+          ],
+          "formats": [
+            "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+            "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+            "http://tanispodcast.com/",
+            "http://tanispodcast.com/how-to-listen",
+            "http://tanispodcast.com/about",
+            "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+          ]
+        },
+        "notes": "Exact identity, official description, current feed metadata, factual genre classification, and production format reviewed against publisher sources on 2026-07-31.",
+        "uncertainFields": [
+          "completion status where the publisher does not state it explicitly"
+        ],
+        "reviewedAt": "2026-07-31T18:37:47.613Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/73178/destinations/316385.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://tanispodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://tanispodcast.com/how-to-listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "http://tanispodcast.com/about"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": []
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": [
+            "https://podcasts.apple.com/us/podcast/tanis/id1049183167?uo=4",
+            "https://rss.libsyn.com/shows/73178/destinations/316385.xml",
+            "http://tanispodcast.com/",
+            "http://tanispodcast.com/how-to-listen",
+            "http://tanispodcast.com/about",
+            "https://itunes.apple.com/us/podcast/tanis/id1049183167?mt=2"
+          ]
+        }
+      },
+      "importedAt": "2026-07-31T18:37:47.613Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "8cca5a051d6d4668dd5a769c317bf2aa64223f0f9bee2bde097fabc9916fc781",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "75d205c2c66ecf1e677bdf3c00bafc0f91db0791ca999912e9f4be4ced74546f",
+        "cover": "7f1bd9710c72f675a8e4c678c8613926ab9fa4cb574a87d9462dfb42f1343ae3",
+        "coverAlt": "5270cef2d86b5b7db983936ed3437e7ac7323661b4c34e963e4c39b655eccbe2",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "a4e81f1783063723ead1a669123b353062725bb0b9b9fdd7e72dfaf9ff6f68b9",
+        "officialLinks": "8b844d1f11749101bb14794fa6be5245bb12fd88eebb567bd189551a8e771679",
+        "genres": "6d56cb721951125f89b7558ff9ce4e5cb983562b0ebe26b7a4fb917da19a4808",
+        "tags": "89f6b21e153a289f454839f1bcc32acfb2d85989aeff9c8b1c5c4a4c9a67bf18",
+        "formats": "cac7054adac8479df74d007699fab6e2e2bbf2534320b56671e91d4b4e5b2d55",
+        "aliases": "c36324c2dd19e93234df09be9e74abb800ecbede6a1feafb3da4c3e675d8e3cf",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "725296786d8100dda786a20c533caeb6ab19dd289226021378e5f46ae62464b6",
+        "releaseDates": "99ac80ab873848a403bd8b94539d9b9667be31efe33397d41de871672820c391",
+        "credits": "4d840358008fe4362f91f8ec796b05c1a9302cb43e2d704cca2c016c2e855774",
+        "creators": "881e60efd8d488bbf766881fe07a1357f5c09359d5b76d42c96d9733e56376b7",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "4ae0136cbd5febbe811f1e53f978a673785d166f344e9d524326e4f806fac4b8"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-07-31",
+  "updatedAt": "2026-07-31",
+  "creatorId": "public-radio-alliance",
+  "networkId": "tanis"
+}
