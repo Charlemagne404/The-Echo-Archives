@@ -17,10 +17,14 @@ In `--apply` mode the script performs these fail-fast stages in order:
 2. Creates and validates a fresh online SQLite backup.
 3. Reconciles the reviewed off-site backup unit when the checked-in backup
    script has reached production before its matching systemd write path. Only
-   the exact off-site read-only probe failure and its local-monitor cascade are
-   accepted; any unrelated failed unit remains fatal. The original unit is
-   already preserved, the corrected unit is validated before daemon reload,
-   and no off-site backup is started at this stage.
+   the exact current off-site read-only probe failure and its current
+   local-monitor cascade are accepted. On a resumed run, the exact current
+   local-monitor failure caused by an expired off-site success marker is also
+   accepted only after the corrected unit is installed; any unrelated failed
+   unit remains fatal. Current systemd invocation IDs prevent old journal
+   entries from authorizing a transition. The original unit is already
+   preserved, the corrected unit is validated before daemon reload, and no
+   off-site backup is started at this stage.
 4. Builds or recognizes the reviewed Cloudflare-only Echo origin gate, validates
    it with both installed and staged Caddy, and inspects the adapted JSON to
    prove each peer abort precedes its proxy or redirect. It then reloads Caddy
@@ -36,9 +40,13 @@ In `--apply` mode the script performs these fail-fast stages in order:
    stage applies the hardened unit and 14-day namespaced journal configuration.
 7. Verifies the restarted application is using the expected feature flags,
    `WAL` and `synchronous=FULL`, the new server code, the dedicated account,
-   loopback binding, and correct unrated output locally and publicly. At this
-   point it clears only the accepted transition failures and proves the local
-   monitor is healthy again.
+   loopback binding, and correct unrated output locally and publicly. It clears
+   only the accepted transition failures for this backup-independent check.
+   The systemd monitor's off-site freshness gate is deliberately deferred to
+   stage 9, which can satisfy it with a real verified Restic backup. During
+   that narrow window the script pauses the enabled five-minute local-monitor
+   timer so it cannot recreate the accepted failure between stages; a cleanup
+   trap restores the timer if any intervening stage stops the session.
 8. Installs the Better Stack heartbeat drop-in only if the protected heartbeat
    environment already exists and passes strict owner, mode, name, hostname,
    scheme, path, and single-value checks. Absence is a logged skip, not an
@@ -48,7 +56,8 @@ In `--apply` mode the script performs these fail-fast stages in order:
    loopback-only restored application, removes it, installs/verifies the
    canonical off-site timer, runs a new backup, checks remote visibility,
    applies existing off-site retention, runs `restic check`, and only then
-   publishes backup success. The Better Stack success heartbeat therefore
+   publishes backup success. It then requires the local systemd monitor to pass
+   and requires zero failed units. The Better Stack success heartbeat therefore
    cannot precede those checks.
 10. Upgrades Ollama from 0.6.7 to 0.32.5 without moving or re-pulling models,
    then verifies the exact version, loopback-only listener, existing `mistral`
@@ -74,6 +83,9 @@ In `--apply` mode the script performs these fail-fast stages in order:
 Each changing component has a stage-specific rollback. A failure stops the
 session, rolls back only the current stage where safe, and never continues into
 a later risky stage. Previously completed and verified stages remain applied.
+On a resumed run, the new preservation baseline is the already-applied live
+state from that run (for example, Caddy 2.11.4 and the dedicated runtime
+account), not the pre-first-run state.
 
 ## Prerequisites
 
@@ -83,8 +95,9 @@ a later risky stage. Previously completed and verified stages remain applied.
   40-character commit and the checkout must be clean.
 - Caddy, Echo, and Ollama must be healthy before starting. Failed system units
   remain fatal except for the exact reviewed off-site backup sandbox transition
-  described above; the preflight matches its unit allowlist and journal
-  signatures rather than ignoring failed state.
+  or resumed-run stale-marker state described above; the preflight matches its
+  unit allowlist and current-invocation journal signatures rather than ignoring
+  failed state.
 - At least 20 GiB must be free.
 - The reviewed Restic environment, password file, root SSH identity, Pi SSH
   alias, Tailscale path, local backup tooling, Node dependencies, and production

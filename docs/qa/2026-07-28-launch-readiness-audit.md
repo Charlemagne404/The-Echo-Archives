@@ -7,7 +7,7 @@
 - **Production URL:** `https://echoarchives.net`
 - **Repository:** `/home/charlie/The-Echo-Archives`
 - **Audit basis:** Current repository, live website, production configuration, running services, database, logs, DNS, TLS, network state, backups, and hosting machine
-- **Last updated:** July 29, 2026
+- **Last updated:** July 31, 2026
 
 This is the working launch-readiness record for resolving the issues discovered during the July 28 audit. Update item status and add verification evidence as fixes land. Do not mark the site launch-ready until every blocker is closed or explicitly accepted by the owner with a documented mitigation.
 
@@ -24,13 +24,13 @@ Suggested status values:
 
 The public site is online, fast, crawlable, and backed by a generally solid
 application foundation. The code defects that produced false `0/10` ratings
-and contradictory browse results are fixed and verified locally. Launch remains
-blocked by production changes and external evidence that cannot be completed
-inside the unprivileged repository session: applying and verifying the
-Cloudflare-only origin/client-IP configuration, moving the service to its
-dedicated account, upgrading Caddy and Ollama, configuring and drilling Better
-Stack, proving the newest off-host restore, and completing a real deployment
-rollback drill.
+and contradictory browse results are fixed. The Cloudflare origin gate, Caddy
+2.11.4, dedicated runtime account, hardened Echo unit, production feature
+flags, access telemetry, and WAL/`synchronous=FULL` are now active and passed
+their corresponding live maintenance stages. Launch remains blocked by the
+still-stale off-site backup, Ollama 0.6.7, unconfigured/proven external alerts,
+external two-network rate-limit evidence, and the remaining restore and
+rollback drills.
 
 There are additional high-priority security, recovery, legal, accessibility, data-quality, and operational issues that should be addressed before launch.
 
@@ -74,13 +74,13 @@ Repository remediation has since:
   into a temporary directory, started an isolated loopback-only application,
   verified health/catalog/detail reads, and removed the process and directory.
 
-No Caddy reload, application/systemd restart, firewall change, or package
-upgrade has occurred. The production service reads static files from this
-checkout, so regenerated public HTML/CSS/JavaScript may be served immediately;
-server-side code changes still require the controlled application restart.
-`sudo -n` requires an interactive password in this session, so root-owned
-apply/restore/upgrade steps remain pending. The live direct-origin and
-spoofed-header baseline still returns HTTP 200.
+The July 31 maintenance runs have now reloaded Caddy, upgraded it to 2.11.4,
+installed the Cloudflare-only origin gate, migrated Echo to the dedicated
+`echo-archives` account, applied its hardened/namespaced systemd configuration,
+and restarted the application. No firewall rule, DNS, Cloudflare account, or
+unrelated hosted-service configuration was changed. Direct loopback origin and
+header-spoof checks passed inside the origin-gate stage. External second-network
+and account-side checks remain open.
 
 The reviewed remediation commit
 `3eec7daeaf4f4b72674a8fa77dd72f6f2944bc22` was pushed to `origin/main`.
@@ -101,24 +101,24 @@ upgrade into fail-fast stages, preserves exact rollback inputs, automatically
 rolls back only the current stage, and concludes with local/public,
 origin/spoof, TLS, shared-host, firewall-read, service, and log checks. It
 installs the Better Stack integration only when the root-owned secret file is
-already present and valid. The newest Restic restore and all live production
-gates remain unverified until the privileged script actually runs.
+already present and valid. The newest Restic restore, Ollama, rollback, and
+final live-production stages remain unverified.
 
 Follow-up review also made the encrypted recovery inventory fail closed on
 symlinked importer/configuration state, added every runtime-writable
 publication path, verifies the complete staged-path manifest against the newly
 created remote snapshot, gives the protected backup service its exact
-retention write path, and restores failed-unit state plus the local monitor
-during current-stage rollback. The canonical deploy now grants the runtime
-account access to candidate dependencies, verifies module resolution before
-restart, and retains the previous dependency tree until semantic health
-validation succeeds.
+retention write path, and restores backup unit/timer state during current-stage
+rollback without claiming stale freshness was repaired. The canonical deploy
+now grants the runtime account access to candidate dependencies, verifies
+module resolution before restart, and retains the previous dependency tree
+until semantic health validation succeeds.
 
 Official upgrade and fallback artifacts were downloaded outside the repository
 into the private rollback directory. Caddy 2.11.4 and 2.10.2 matched their
 official SHA-512 manifests; Ollama 0.32.5 and 0.6.7 matched their official
 SHA-256 manifests. The staged Caddy 2.11.4 binary and archive contents were
-validated. No package was installed.
+validated before the maintenance window.
 
 The first exact-commit repository-check run correctly stopped before privileged
 work when strict `pipefail` exposed an early-exit archive-listing assertion.
@@ -138,9 +138,31 @@ monitor then failed because it correctly observed that failed unit. The
 orchestrator now permits only this exact allowlisted transition after matching
 both journal signatures, preserves and validates the unit change after the
 fresh database backup, and clears the two failure states only after the new
-application health contract passes. Unrelated failed units remain fatal. This
-transition is ready for another privileged preflight; it is not production
-verified.
+application health contract passes. Unrelated failed units remain fatal. At
+that point this transition was ready for another privileged preflight but was
+not yet production-verified.
+
+The resumed July 31 apply at
+`765437d77b3906b500b1b5d9b6cc4489a46edcd0` completed preservation, a new
+100,204,544-byte integrity/foreign-key-checked database backup, the backup-unit
+transition, the corrected Caddy origin gate, the Caddy 2.11.4 upgrade, and the
+runtime-account migration. The live application then passed local and public
+health with 100 shows, 29 collections, ratings/maintainer review/access logs
+enabled, WAL, and `synchronous=FULL`; it runs as `echo-archives` and binds only
+to loopback. The run stopped before Better Stack, Restic restore/backup, Ollama,
+firewall/storage evidence, rollback, and final verification because the
+live-application stage incorrectly started the local monitor before the later
+backup stage could replace its 88-hour-old off-site success marker.
+
+That sequencing defect is now covered by a regression: preflight classifies
+only the current systemd invocation, accepts this exact resumed-run stale-marker
+state only after the corrected backup unit is installed, performs the
+backup-independent application checks, and defers the monitor freshness gate
+to the Restic stage. The Restic stage must publish a fresh success marker,
+start the monitor successfully, and leave zero failed units. A failed Restic
+stage restores its unit/timer state without pretending that the pre-existing
+stale marker was repaired. This repository fix is not production-verified
+until a new privileged run reaches and passes that stage.
 
 ### Repository verification evidence
 
@@ -148,7 +170,7 @@ The final post-fix `npm run verify` completed successfully:
 
 - generated 100 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `32/32`;
+- operations/tool tests: `35/35`;
 - backend tests: `228/228`;
 - Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive
@@ -170,12 +192,13 @@ The initial Caddy candidate passed syntax validation with installed Caddy
 `2.10.2` and staged Caddy `2.11.4`, but its adapted handler order placed the
 unconditional proxy before the separate abort. The first July 31 apply detected
 that direct loopback access still succeeded, stopped at the origin-gate stage,
-and restored and reloaded the exact original Caddyfile. Caddy remains `2.10.2`
-and the origin gate remains unapplied. The corrected snippet keeps abort and
-proxy/redirect inside one literal-order route. A new validator inspects adapted
-JSON and rejects the original ordering; the regenerated private candidate
-passes with both Caddy versions. Its 22 Cloudflare ranges still match the
-official lists, and both packages retain their reviewed SHA-512 values.
+and restored and reloaded the exact original Caddyfile. After that first
+attempt, Caddy remained `2.10.2` and the origin gate remained unapplied. The
+corrected snippet keeps abort and proxy/redirect inside one literal-order
+route. A new validator inspects adapted JSON and rejects the original ordering;
+the regenerated private candidate passes with both Caddy versions. Its 22
+Cloudflare ranges still match the official lists, and both packages retain
+their reviewed SHA-512 values.
 
 That apply completed only preservation, a new 100,204,544-byte verified local
 database backup, and the reviewed off-site systemd write-path reconciliation
@@ -372,9 +395,15 @@ The community widget calls `POST /api/community/profiles/anonymous` during show-
 
 - [ ] Two external clients produce distinct anonymized rate-limit identities.
 - [ ] One client cannot consume another client's rate limit.
-- [ ] A direct-origin request cannot spoof a Cloudflare client-IP header.
+- [x] A direct-origin request cannot spoof a Cloudflare client-IP header.
 - [ ] Ratings, submissions, chat, and maintainer rate limits still enforce correctly.
 - [x] Cloudflare range updates have an owned maintenance process.
+
+The July 31 origin-gate stage applied strict trusted Cloudflare ranges and
+`CF-Connecting-IP` forwarding, then proved that direct loopback requests with
+spoofed forwarding/client-IP headers and mismatched Host/SNI could not reach
+Echo. Distinct-client and full interactive-flow evidence still requires two
+external connections.
 
 ### BLOCKER-04 — Cloudflare can be bypassed through the origin
 
@@ -399,9 +428,9 @@ An attacker can bypass Cloudflare-side filtering, traffic controls, and any WAF 
 
 #### Verification
 
-- [ ] Cloudflare-proxied requests continue to work.
-- [ ] Direct requests to the origin for `echoarchives.net` fail.
-- [ ] Spoofed `Host`, SNI, `X-Forwarded-For`, and Cloudflare client-IP headers do not bypass the restriction.
+- [x] Cloudflare-proxied requests continue to work.
+- [x] Direct requests to the origin for `echoarchives.net` fail.
+- [x] Spoofed `Host`, SNI, `X-Forwarded-For`, and Cloudflare client-IP headers do not bypass the restriction.
 - [ ] Certificate issuance/renewal still works.
 - [ ] Health monitoring checks the intended path.
 
@@ -465,7 +494,12 @@ controlled maintenance window.
 
 #### Finding
 
-The local monitor runs every five minutes and currently passes. It runs on the same physical host as the application and therefore cannot alert when the host, power, network connection, or Caddy instance is unavailable.
+The local monitor runs every five minutes. It currently fails truthfully because
+the off-site backup success marker is stale; the next maintenance run must
+refresh the marker through a fully verified Restic job before the monitor can
+pass. The monitor runs on the same physical host as the application and
+therefore cannot alert when the host, power, network connection, or Caddy
+instance is unavailable.
 
 The documented external monitoring provider and recipients have not been configured. The existing Continental status service does not monitor Echo Archives.
 
@@ -473,7 +507,8 @@ The documented external monitoring provider and recipients have not been configu
 
 - `deploy/MONITORING_PLAN.md:3-18`
 - `deploy/MONITORING_PLAN.md:62-70`
-- `echo-archives-local-monitor.timer` is enabled and healthy
+- `echo-archives-local-monitor.timer` is enabled; its service currently reports
+  the stale off-site backup marker
 - No Echo check exists on the inspected external status surface
 
 #### Required fix
@@ -525,8 +560,8 @@ pending.
 
 ### HIGH-02 — Caddy is behind current security-bearing releases
 
-- **Status:** Ready for verification
-- **Installed version:** `2.10.2`
+- **Status:** Verified
+- **Installed version:** `2.11.4`
 - **Current version during audit:** `2.11.4`
 
 Intervening Caddy releases include security and security-adjacent patches.
@@ -537,17 +572,24 @@ Reference:
 
 Required work:
 
-- [ ] Review compatibility and release notes.
-- [ ] Upgrade Caddy.
-- [ ] Validate the full shared-host Caddyfile.
-- [ ] Retest every co-hosted service and Echo redirect/TLS path.
+- [x] Review compatibility and release notes.
+- [x] Upgrade Caddy.
+- [x] Validate the full shared-host Caddyfile.
+- [x] Retest every co-hosted service and Echo redirect/TLS path.
+
+The July 31 Caddy upgrade stage installed the checksum-pinned 2.11.4 package,
+validated the complete live configuration, retained the shared Caddyfile,
+rechecked every co-hosted baseline, and passed Echo public, direct-origin,
+redirect, and TLS checks. The service remains active on 2.11.4.
 
 ### HIGH-03 — Echo runs as an interactive user with weak systemd isolation
 
-- **Status:** Ready for verification
+- **Status:** Verified
 - **Area:** Host security, blast radius
 
-Echo runs as `charlie`, which also owns the repository, database, environment file, and unrelated personal/shared files. `systemd-analyze security` rated the unit `8.7 EXPOSED`.
+At audit time Echo ran as `charlie`, which also owns the repository, database,
+environment file, and unrelated personal/shared files. `systemd-analyze
+security` rated that unit `8.7 EXPOSED`.
 
 Current protections include:
 
@@ -559,10 +601,17 @@ Missing or limited protections include a dedicated service user and stronger fil
 
 Required work:
 
-- [ ] Create a dedicated Echo service account.
-- [ ] Give it access only to required runtime files.
-- [ ] Add compatible `ProtectSystem`, `ProtectHome`, `PrivateDevices`, kernel, and address-family restrictions.
-- [ ] Retest database writes, static serving, Ollama access, backup operation, and deployment.
+- [x] Create a dedicated Echo service account.
+- [x] Give it access only to required runtime files.
+- [x] Add compatible `ProtectSystem`, `ProtectHome`, `PrivateDevices`, kernel, and address-family restrictions.
+- [x] Retest database writes, static serving, Ollama access, backup operation, and deployment.
+
+The July 31 runtime migration and resumed idempotent check passed under the
+dedicated `echo-archives` account. Repository ownership remains with `charlie`;
+runtime writes are limited to the declared database/publication/staging paths.
+The hardened unit passed systemd validation plus live database-write, static,
+Ollama-loopback, local-backup, importer/publication, protected-checkout,
+namespaced-journal, structured-log, restart, and health checks.
 
 ### HIGH-04 — Exact firewall exposure could not be verified
 
@@ -615,9 +664,11 @@ Required work:
 - [x] Set bounded retention and disk limits.
 - [x] Add basic 4xx/5xx, latency, and rate-limit visibility.
 
-Repository implementation is tested. Production verification is pending the
-dedicated-account migration and service restart; until then the running process
-does not emit the new namespaced structured request events.
+Repository implementation is tested. The dedicated-account migration verified
+that the running production process emits structured access events into the
+14-day Echo journal namespace, and the live health response reports access
+logging enabled. The final maintenance stage's strict production event-schema
+check remains pending.
 
 ### HIGH-06 — Backup scope does not reproduce the complete service
 
@@ -686,9 +737,9 @@ Required work:
 
 ### HIGH-08 — SQLite durability may not meet the desired RPO
 
-- **Status:** Ready for verification
+- **Status:** Verified
 
-The production database uses:
+At audit time the production database used:
 
 ```sql
 PRAGMA journal_mode = WAL;
@@ -717,8 +768,9 @@ Decision/evidence: use WAL plus `synchronous=FULL`. A repeatable temporary-DB
 mixed-write benchmark measured `NORMAL` at 0.38 ms mean/0.76 ms p95 and `FULL`
 at 20.20 ms mean/25.80 ms p95. The owner accepted no UPS for initial launch and
 a maximum 24-hour catastrophic-host-loss RPO; the measured durability cost is
-insignificant for the expected interactive workload. Production activation is
-still pending the service restart.
+insignificant for the expected interactive workload. The July 31 live local
+and public health responses both reported WAL and `synchronous=FULL` after the
+dedicated-account restart.
 
 ### HIGH-09 — Local backup retention is unbounded
 
@@ -1224,7 +1276,7 @@ remediation:
 - Cloudflare account settings and ownership
 - Cloudflare WAF and rate-limit rules
 - Cloudflare SSL mode
-- Applied origin restrictions and their account-side interaction
+- Cloudflare account-side confirmation of the applied origin restriction
 - Turnstile account behavior beyond the public integration
 - Plausible ownership and intended enablement
 - Podcast Index account/credentials
@@ -1235,8 +1287,9 @@ remediation:
 
 - Better Stack account creation, heartbeat secret, recipients, mobile device,
   and received failure/recovery/stale-heartbeat drills
-- Applied Caddy, systemd, Ollama, restore, and rollback maintenance (repository
-  preparation is complete or in progress; elevation is unavailable in-session)
+- Remaining Ollama, Restic restore/backup, firewall/storage evidence, rollback,
+  and final-verification stages; Caddy 2.11.4 and the dedicated Echo systemd
+  runtime migration are applied
 - Exact UFW rules
 - SMART/NVMe health
 - SMART/NVMe follow-up and a later UPS recommendation/purchase

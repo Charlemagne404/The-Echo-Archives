@@ -8,6 +8,106 @@ const ROOT = path.resolve(__dirname, "../..");
 const SCRIPT_PATH = path.join(ROOT, "deploy/complete-launch-maintenance.sh");
 const script = fs.readFileSync(SCRIPT_PATH, "utf8");
 
+function runBackupTransitionFixture({
+  failedUnits = [],
+  installedUnitIsReviewed = true,
+  offsiteJournal = "",
+  monitorJournal = "",
+  marker = "file",
+}) {
+  const fixture = fs.mkdtempSync("/tmp/echo-maintenance-transition-test.");
+  try {
+    fs.writeFileSync(
+      path.join(fixture, "failed-units"),
+      failedUnits.map((unit) => `${unit} loaded failed failed fixture\n`).join(""),
+    );
+    fs.writeFileSync(
+      path.join(fixture, "installed-unit"),
+      installedUnitIsReviewed
+        ? `ReadWritePaths=${ROOT}/backend/data/backups\n`
+        : "ReadWritePaths=/unreviewed/path\n",
+    );
+    fs.writeFileSync(path.join(fixture, "offsite-journal"), offsiteJournal);
+    fs.writeFileSync(path.join(fixture, "monitor-journal"), monitorJournal);
+    fs.writeFileSync(
+      path.join(fixture, "historical-monitor-journal"),
+      "FAIL: Off-site backup success marker is 999h old.\n",
+    );
+    if (marker === "file") {
+      fs.writeFileSync(path.join(fixture, "marker"), "fixture\n");
+    } else if (marker === "symlink") {
+      fs.symlinkSync(path.join(fixture, "historical-monitor-journal"), path.join(fixture, "marker"));
+    }
+
+    return spawnSync(
+      "bash",
+      [
+        "-c",
+        String.raw`
+source "$SCRIPT_PATH"
+TEMP_ROOT="$FIXTURE"
+OFFSITE_SUCCESS_MARKER="$FIXTURE/marker"
+systemctl() {
+  case "$1" in
+    --failed)
+      cat "$FIXTURE/failed-units"
+      ;;
+    cat)
+      cat "$FIXTURE/installed-unit"
+      ;;
+    show)
+      case "$2" in
+        echo-archives-offsite-backup.service)
+          printf '%s\n' aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          ;;
+        echo-archives-local-monitor.service)
+          printf '%s\n' bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+          ;;
+        *)
+          return 1
+          ;;
+      esac
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+journalctl() {
+  case "$1" in
+    _SYSTEMD_INVOCATION_ID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa)
+      cat "$FIXTURE/offsite-journal"
+      ;;
+    _SYSTEMD_INVOCATION_ID=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb)
+      cat "$FIXTURE/monitor-journal"
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+classify_backup_unit_transition
+printf 'transition=%s deferred=%s install=%s\n' \
+  "$BACKUP_UNIT_TRANSITION" \
+  "$BACKUP_MONITOR_FRESHNESS_DEFERRED" \
+  "$BACKUP_UNIT_NEEDS_INSTALL"
+`,
+      ],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          FIXTURE: fixture,
+          SCRIPT_PATH,
+        },
+      },
+    );
+  } finally {
+    fs.rmSync(fixture, { recursive: true, force: true });
+  }
+}
+
 test("complete launch maintenance exposes guarded check and apply modes", () => {
   const help = spawnSync("bash", [SCRIPT_PATH, "--help"], {
     cwd: ROOT,
@@ -98,7 +198,14 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   assert.match(script, /rollback_ollama_upgrade/);
   assert.match(script, /Caddyfile\.before-upgrade/);
   assert.match(script, /classify_backup_unit_transition/);
+  assert.match(script, /capture_current_unit_journal/);
+  assert.match(script, /_SYSTEMD_INVOCATION_ID=\$\{invocation\}/);
   assert.match(script, /BACKUP_UNIT_NEEDS_INSTALL="yes"/);
+  assert.match(script, /BACKUP_MONITOR_FRESHNESS_DEFERRED="yes"/);
+  assert.match(
+    script,
+    /Off-site backup success marker is \[0-9\]\+h old/,
+  );
   assert.match(script, /already reconciled; preserving it idempotently/);
   assert.match(
     script,
@@ -117,12 +224,99 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   );
   assert.match(
     script,
+    /Deferring the systemd monitor freshness check until the off-site stage/,
+  );
+  assert.match(
+    script,
+    /REQUIRE_OFFSITE_BACKUP=false \\\s*"\$\{REPO_ROOT\}\/deploy\/check-echo-archives-production\.sh"/,
+  );
+  assert.match(script, /pause_local_monitor_timer/);
+  assert.match(script, /resume_local_monitor_timer/);
+  assert.match(script, /systemctl stop echo-archives-local-monitor\.timer/);
+  assert.match(script, /systemctl start echo-archives-local-monitor\.timer/);
+  assert.match(
+    script,
+    /if \[\[ "\$\{BACKUP_MONITOR_FRESHNESS_DEFERRED\}" == "yes" \]\]; then\s*BACKUP_MONITOR_FRESHNESS_RECOVERED="yes"/,
+  );
+  assert.match(
+    script,
+    /local monitor did not pass after the verified off-site backup/,
+  );
+  assert.match(
+    script,
+    /local monitor remains pending because this failed stage did not publish a fresh off-site success marker/,
+  );
+  assert.match(
+    script,
     /--output "\$\{homepage\}" https:\/\/echoarchives\.net\//,
   );
   assert.doesNotMatch(
     script,
     /https:\/\/echoarchives\.net\/\s*\|\s*grep\s+-[A-Za-z]*q/,
   );
+});
+
+test("backup transition accepts only the current stale-marker invocation", () => {
+  const accepted = runBackupTransitionFixture({
+    failedUnits: ["echo-archives-local-monitor.service"],
+    monitorJournal: "FAIL: Off-site backup success marker is 88h old.\n",
+  });
+  assert.equal(accepted.status, 0, accepted.stderr);
+  assert.match(accepted.stdout, /transition=yes deferred=yes install=no/);
+
+  const historicalOnly = runBackupTransitionFixture({
+    failedUnits: ["echo-archives-local-monitor.service"],
+    monitorJournal: "current invocation failed for an unrelated reason\n",
+  });
+  assert.notEqual(historicalOnly.status, 0);
+  assert.match(
+    historicalOnly.stderr,
+    /neither the reviewed backup cascade nor stale backup freshness/,
+  );
+});
+
+test("backup transition rejects unsafe or inconsistent stale-marker states", () => {
+  for (const marker of ["missing", "symlink"]) {
+    const unsafeMarker = runBackupTransitionFixture({
+      failedUnits: ["echo-archives-local-monitor.service"],
+      monitorJournal: "FAIL: Off-site backup success marker is 88h old.\n",
+      marker,
+    });
+    assert.notEqual(unsafeMarker.status, 0);
+    assert.match(unsafeMarker.stderr, /marker is missing, unsafe, or not a regular file/);
+  }
+
+  const cascadeWithoutBackup = runBackupTransitionFixture({
+    failedUnits: ["echo-archives-local-monitor.service"],
+    monitorJournal: "FAIL: One or more systemd units are failed.\n",
+  });
+  assert.notEqual(cascadeWithoutBackup.status, 0);
+  assert.match(cascadeWithoutBackup.stderr, /cascade without a failed backup unit/);
+
+  const mixedFailures = runBackupTransitionFixture({
+    failedUnits: [
+      "echo-archives-offsite-backup.service",
+      "echo-archives-local-monitor.service",
+    ],
+    offsiteJournal: ".retention-write-probe.fixture: Read-only file system\n",
+    monitorJournal: "FAIL: Off-site backup success marker is 88h old.\n",
+  });
+  assert.notEqual(mixedFailures.status, 0);
+  assert.match(mixedFailures.stderr, /freshness failure is mixed with a failed backup unit/);
+
+  const unreviewedUnit = runBackupTransitionFixture({
+    failedUnits: ["echo-archives-local-monitor.service"],
+    installedUnitIsReviewed: false,
+    monitorJournal: "FAIL: Off-site backup success marker is 88h old.\n",
+  });
+  assert.notEqual(unreviewedUnit.status, 0);
+  assert.match(unreviewedUnit.stderr, /before the reviewed backup unit was installed/);
+});
+
+test("no current failed unit does not inherit stale service result state", () => {
+  const clean = runBackupTransitionFixture({});
+  assert.equal(clean.status, 0, clean.stderr);
+  assert.match(clean.stdout, /transition=no deferred=no install=no/);
 });
 
 test("complete launch maintenance does not mutate UFW or expose monitoring secrets", () => {

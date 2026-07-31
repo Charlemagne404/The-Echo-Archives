@@ -22,6 +22,7 @@ CADDY_NEW_SHA512="1c6f5404f3622e46d401d81f4af59677d46b886229c6694d60fd936b87c72d
 CADDY_OLD_SHA512="e3d6909253b12dc723393fb1f0ace74e2c9bd8d64273fca6727adcf7c7882ebcb9611b6ab42223b20e93fc702f7c0f25bff1c12a88223202a069bb770d95990d"
 OLLAMA_NEW_SHA256="f7d6bdbcf71b83aa8670c4e7dc4b6936c0952fcf8b114eaf6a11cbadb9684214"
 OLLAMA_FALLBACK_SHA256="42b6bc1237c6932d36694606bf3d56d99fbd03b570b6002364773e00f56fa4cf"
+OFFSITE_SUCCESS_MARKER="/var/lib/echo-archives-monitoring/offsite-backup-success"
 
 LOCK_FILE="/run/lock/echo-archives-complete-launch-maintenance.lock"
 LOG_ROOT="/var/log/echo-archives"
@@ -43,6 +44,9 @@ BACKUP_DRILL_COMPLETED="no"
 ROLLBACK_DRILL_COMPLETED="no"
 BACKUP_UNIT_TRANSITION="no"
 BACKUP_UNIT_NEEDS_INSTALL="no"
+BACKUP_MONITOR_FRESHNESS_DEFERRED="no"
+BACKUP_MONITOR_FRESHNESS_RECOVERED="no"
+LOCAL_MONITOR_TIMER_PAUSED="no"
 STAGE_RESULTS=()
 
 usage() {
@@ -85,8 +89,35 @@ cleanup() {
     find "${ARCHIVIST_RESTORE_ROOT}" -xdev -depth -delete
   fi
   ARCHIVIST_RESTORE_ROOT=""
+  if [[ "${LOCAL_MONITOR_TIMER_PAUSED}" == "yes" ]]; then
+    if ! resume_local_monitor_timer; then
+      log "CLEANUP FAILED: restart echo-archives-local-monitor.timer before leaving maintenance."
+    fi
+  fi
   safe_remove_temp "${TEMP_ROOT}" || true
   TEMP_ROOT=""
+}
+
+pause_local_monitor_timer() {
+  systemctl is-enabled --quiet echo-archives-local-monitor.timer ||
+    fail "local monitor timer must remain enabled during maintenance"
+  systemctl is-active --quiet echo-archives-local-monitor.timer ||
+    fail "local monitor timer was not active before the freshness deferral"
+  LOCAL_MONITOR_TIMER_PAUSED="yes"
+  systemctl stop echo-archives-local-monitor.timer
+  if systemctl is-active --quiet echo-archives-local-monitor.timer; then
+    fail "local monitor timer did not pause for the verified backup window"
+    return 1
+  fi
+  return 0
+}
+
+resume_local_monitor_timer() {
+  [[ "${LOCAL_MONITOR_TIMER_PAUSED}" == "yes" ]] || return 0
+  systemctl start echo-archives-local-monitor.timer
+  systemctl is-active --quiet echo-archives-local-monitor.timer ||
+    fail "local monitor timer did not resume after the backup window"
+  LOCAL_MONITOR_TIMER_PAUSED="no"
 }
 
 on_error() {
@@ -284,12 +315,28 @@ validate_restic_prerequisites() {
     echo-backup-pi /usr/bin/true
 }
 
+capture_current_unit_journal() {
+  local unit="$1"
+  local output="$2"
+  local invocation
+
+  invocation="$(systemctl show "${unit}" -p InvocationID --value)"
+  [[ "${invocation}" =~ ^[0-9a-f]{32}$ ]] ||
+    fail "could not identify the current failed invocation for ${unit}"
+  journalctl "_SYSTEMD_INVOCATION_ID=${invocation}" \
+    --output cat --no-pager > "${output}"
+  [[ -s "${output}" ]] ||
+    fail "the current failed invocation for ${unit} has no journal evidence"
+}
+
 classify_backup_unit_transition() {
   local failed_units="${TEMP_ROOT}/failed-units.txt"
   local unexpected_units="${TEMP_ROOT}/unexpected-failed-units.txt"
   local installed_unit="${TEMP_ROOT}/offsite-unit.installed"
   local offsite_journal="${TEMP_ROOT}/offsite-unit.journal"
   local monitor_journal="${TEMP_ROOT}/local-monitor.journal"
+  local offsite_failed="no"
+  local monitor_failed="no"
 
   systemctl --failed --no-legend --plain |
     awk '{print $1}' |
@@ -315,26 +362,50 @@ classify_backup_unit_transition() {
   [[ ! -s "${unexpected_units}" ]] ||
     fail "an unrelated system unit is already failed"
 
-  if [[ -s "${failed_units}" ]]; then
-    journalctl --unit echo-archives-offsite-backup.service \
-      --lines 80 --output cat --no-pager > "${offsite_journal}"
+  if grep -Fxq "echo-archives-offsite-backup.service" "${failed_units}"; then
+    offsite_failed="yes"
+    capture_current_unit_journal \
+      echo-archives-offsite-backup.service "${offsite_journal}"
     grep -Fq ".retention-write-probe." "${offsite_journal}" &&
       grep -Fq "Read-only file system" "${offsite_journal}" ||
       fail "off-site backup failure does not match the reviewed sandbox transition"
+  fi
 
-    if grep -Fxq "echo-archives-local-monitor.service" "${failed_units}"; then
-      journalctl --unit echo-archives-local-monitor.service \
-        --lines 80 --output cat --no-pager > "${monitor_journal}"
-      grep -Fq "FAIL: One or more systemd units are failed." \
-        "${monitor_journal}" ||
-        fail "local monitor failure does not match the reviewed backup cascade"
+  if grep -Fxq "echo-archives-local-monitor.service" "${failed_units}"; then
+    monitor_failed="yes"
+    capture_current_unit_journal \
+      echo-archives-local-monitor.service "${monitor_journal}"
+    if grep -Fq "FAIL: One or more systemd units are failed." \
+      "${monitor_journal}"; then
+      [[ "${offsite_failed}" == "yes" ]] ||
+        fail "local monitor reports a backup cascade without a failed backup unit"
+    elif grep -Eq \
+      'FAIL: Off-site backup success marker is [0-9]+h old\.' \
+      "${monitor_journal}"; then
+      [[ "${offsite_failed}" == "no" ]] ||
+        fail "local monitor freshness failure is mixed with a failed backup unit"
+      [[ "${BACKUP_UNIT_NEEDS_INSTALL}" == "no" ]] ||
+        fail "local monitor freshness failed before the reviewed backup unit was installed"
+      [[ -f "${OFFSITE_SUCCESS_MARKER}" &&
+        ! -L "${OFFSITE_SUCCESS_MARKER}" ]] ||
+        fail "off-site backup success marker is missing, unsafe, or not a regular file"
+      BACKUP_MONITOR_FRESHNESS_DEFERRED="yes"
+    else
+      fail "local monitor failure is neither the reviewed backup cascade nor stale backup freshness"
     fi
-  elif [[ "${BACKUP_UNIT_NEEDS_INSTALL}" != "yes" ]]; then
+  fi
+
+  if [[ "${offsite_failed}" == "no" && "${monitor_failed}" == "no" &&
+    "${BACKUP_UNIT_NEEDS_INSTALL}" != "yes" ]]; then
     return
   fi
 
   BACKUP_UNIT_TRANSITION="yes"
-  log "Accepted only the reviewed off-site sandbox transition; unrelated failed units remain fatal."
+  if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
+    log "Accepted the current stale off-site freshness marker; monitor recovery is deferred until the verified Restic backup stage."
+  else
+    log "Accepted only the reviewed off-site sandbox transition; unrelated failed units remain fatal."
+  fi
 }
 
 require_root_identity() {
@@ -809,13 +880,19 @@ stage_application_verification() {
   ' || fail "Echo is not bound only to loopback"
   verify_null_rating_output "http://127.0.0.1:3010" "${TEMP_ROOT}/marsfall-local.html"
   verify_null_rating_output "https://echoarchives.net" "${TEMP_ROOT}/marsfall-public.html"
+  if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
+    pause_local_monitor_timer
+  fi
   if [[ "${BACKUP_UNIT_TRANSITION}" == "yes" ]]; then
     systemctl reset-failed \
       echo-archives-offsite-backup.service \
       echo-archives-local-monitor.service
   fi
-  "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
-  if [[ "${BACKUP_UNIT_TRANSITION}" == "yes" ]]; then
+  REQUIRE_OFFSITE_BACKUP=false \
+    "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
+  if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
+    log "Deferring the systemd monitor freshness check until the off-site stage completes a verified Restic backup."
+  elif [[ "${BACKUP_UNIT_TRANSITION}" == "yes" ]]; then
     systemctl start echo-archives-local-monitor.service
     [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]] ||
       fail "local monitor did not recover after the reviewed backup transition"
@@ -917,9 +994,14 @@ rollback_backup_automation() {
   systemctl reset-failed \
     echo-archives-offsite-backup.service \
     echo-archives-local-monitor.service
-  systemctl start echo-archives-local-monitor.service
-  [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]]
-  [[ -z "$(systemctl --failed --no-legend --plain)" ]]
+  if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
+    log "Restored backup automation; local monitor remains pending because this failed stage did not publish a fresh off-site success marker."
+  else
+    systemctl start echo-archives-local-monitor.service
+    [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]]
+    [[ -z "$(systemctl --failed --no-legend --plain)" ]]
+  fi
+  resume_local_monitor_timer
 }
 
 stage_backup_restore() {
@@ -947,9 +1029,17 @@ stage_backup_restore() {
     /var/lib/echo-archives-monitoring/pi-backup-readiness
   grep -Fxq "restore_foreign_key_violations=0" \
     /var/lib/echo-archives-monitoring/pi-backup-readiness
+  [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]] ||
+    fail "local monitor did not pass after the verified off-site backup"
+  [[ -z "$(systemctl --failed --no-legend --plain)" ]] ||
+    fail "failed unit state remained after the verified off-site backup"
+  resume_local_monitor_timer
   BACKUP_DRILL_COMPLETED="yes"
+  if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
+    BACKUP_MONITOR_FRESHNESS_RECOVERED="yes"
+  fi
   CURRENT_ROLLBACK=""
-  log "Newest Restic restore, isolated app, fresh encrypted backup, retention, restic check, and timer passed."
+  log "Newest Restic restore, isolated app, fresh encrypted backup, retention, restic check, timer, and local monitor passed."
 }
 
 rollback_ollama_upgrade() {
@@ -1254,6 +1344,8 @@ run_apply() {
     printf 'ollama_upgraded=%s\n' "${OLLAMA_UPGRADED}"
     printf 'rollback_invariant_drill_completed=%s\n' "${ROLLBACK_DRILL_COMPLETED}"
     printf 'backup_unit_transition_reconciled=%s\n' "${BACKUP_UNIT_TRANSITION}"
+    printf 'backup_monitor_freshness_deferred=%s\n' "${BACKUP_MONITOR_FRESHNESS_DEFERRED}"
+    printf 'backup_monitor_freshness_recovered=%s\n' "${BACKUP_MONITOR_FRESHNESS_RECOVERED}"
     printf 'result=PASS\n'
   } > "${RUN_DIR}/SUMMARY"
   chmod 0600 "${RUN_DIR}/SUMMARY"
@@ -1282,4 +1374,6 @@ main() {
   esac
 }
 
-main "$@"
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+  main "$@"
+fi
