@@ -152,8 +152,14 @@ minimum_bytes=$((MIN_FREE_GIB * 1024 * 1024 * 1024))
   fail "Production filesystem has less than ${MIN_FREE_GIB} GiB free."
 
 if [[ "${REQUIRE_OFFSITE_BACKUP}" == "true" ]]; then
-  [[ -f "${OFFSITE_SUCCESS_MARKER}" ]] || fail "Off-site backup success marker is missing."
-  marker_age_hours=$(( ($(date +%s) - $(stat -c %Y "${OFFSITE_SUCCESS_MARKER}")) / 3600 ))
+  [[ -f "${OFFSITE_SUCCESS_MARKER}" && ! -L "${OFFSITE_SUCCESS_MARKER}" ]] ||
+    fail "Off-site backup success marker is missing or unsafe."
+  marker_time="$(stat -c %Y "${OFFSITE_SUCCESS_MARKER}")"
+  now="$(date +%s)"
+  [[ "${marker_time}" =~ ^[0-9]+$ && "${now}" =~ ^[0-9]+$ &&
+    "${marker_time}" -le "${now}" ]] ||
+    fail "Off-site backup success marker timestamp is invalid or in the future."
+  marker_age_hours=$(( (now - marker_time) / 3600 ))
   (( marker_age_hours <= MAX_BACKUP_AGE_HOURS )) ||
     fail "Off-site backup success marker is ${marker_age_hours}h old."
 else

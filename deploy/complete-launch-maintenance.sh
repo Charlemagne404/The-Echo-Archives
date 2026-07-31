@@ -18,6 +18,7 @@ CADDY_OLD_PACKAGE="${ARTIFACT_ROOT}/caddy_2.10.2_linux_amd64.deb"
 CADDY_STAGED_BIN="${ARTIFACT_ROOT}/caddy-2.11.4-stage/usr/bin/caddy"
 OLLAMA_NEW_ARCHIVE="${ARTIFACT_ROOT}/ollama-linux-amd64-v0.32.5.tar.zst"
 OLLAMA_FALLBACK_ARCHIVE="${ARTIFACT_ROOT}/ollama-linux-amd64-v0.6.7.tgz"
+OLLAMA_BIN="/usr/local/bin/ollama"
 CADDY_NEW_SHA512="1c6f5404f3622e46d401d81f4af59677d46b886229c6694d60fd936b87c72d3bb5d1fcf42b55c8d555769fa75acf434ab618fc7e0df2c79cf8512ee580d38d06"
 CADDY_OLD_SHA512="e3d6909253b12dc723393fb1f0ace74e2c9bd8d64273fca6727adcf7c7882ebcb9611b6ab42223b20e93fc702f7c0f25bff1c12a88223202a069bb770d95990d"
 OLLAMA_NEW_SHA256="f7d6bdbcf71b83aa8670c4e7dc4b6936c0952fcf8b114eaf6a11cbadb9684214"
@@ -37,6 +38,7 @@ LOG_FILE=""
 CURRENT_STAGE="preflight"
 CURRENT_ROLLBACK=""
 ROLLBACK_RUNNING=0
+ROLLBACK_STATUS=0
 BETTER_STACK_INSTALLED="no"
 RUNTIME_MIGRATION_APPLIED="no"
 CADDY_CONFIG_CHANGED="no"
@@ -116,10 +118,35 @@ pause_local_monitor_timer() {
 
 resume_local_monitor_timer() {
   [[ "${LOCAL_MONITOR_TIMER_PAUSED}" == "yes" ]] || return 0
-  systemctl start echo-archives-local-monitor.timer
-  systemctl is-active --quiet echo-archives-local-monitor.timer ||
+  systemctl start echo-archives-local-monitor.timer || return 1
+  systemctl is-active --quiet echo-archives-local-monitor.timer || {
     fail "local monitor timer did not resume after the backup window"
+    return 1
+  }
   LOCAL_MONITOR_TIMER_PAUSED="no"
+}
+
+execute_current_rollback() {
+  set +e
+  (
+    set -Eeuo pipefail
+    "${CURRENT_ROLLBACK}"
+  )
+  ROLLBACK_STATUS="$?"
+  set -e
+}
+
+report_and_run_current_rollback() {
+  if [[ -n "${CURRENT_ROLLBACK}" && "${ROLLBACK_RUNNING}" -eq 0 ]]; then
+    ROLLBACK_RUNNING=1
+    log "Attempting rollback for the current stage only: ${CURRENT_STAGE}."
+    execute_current_rollback
+    if [[ "${ROLLBACK_STATUS}" -eq 0 ]]; then
+      log "Current-stage rollback completed."
+    else
+      log "ROLLBACK FAILED. Do not continue; use the recovery commands in COMPLETE_LAUNCH_MAINTENANCE.md."
+    fi
+  fi
 }
 
 on_error() {
@@ -127,17 +154,22 @@ on_error() {
   local line="$1"
   trap - ERR
   log "Maintenance stopped at line ${line} with exit status ${status}."
-  if [[ -n "${CURRENT_ROLLBACK}" && "${ROLLBACK_RUNNING}" -eq 0 ]]; then
-    ROLLBACK_RUNNING=1
-    log "Attempting rollback for the current stage only: ${CURRENT_STAGE}."
-    if "${CURRENT_ROLLBACK}"; then
-      log "Current-stage rollback completed."
-    else
-      log "ROLLBACK FAILED. Do not continue; use the recovery commands in COMPLETE_LAUNCH_MAINTENANCE.md."
-    fi
-  fi
+  report_and_run_current_rollback
   log "FAIL summary: completed stages: ${STAGE_RESULTS[*]:-none}; failed stage: ${CURRENT_STAGE}."
   [[ -z "${LOG_FILE}" ]] || log "Protected log: ${LOG_FILE}"
+  exit "${status}"
+}
+
+on_signal() {
+  local signal="$1"
+  local status="$2"
+  trap - ERR INT TERM HUP
+  log "Maintenance interrupted by ${signal}."
+  report_and_run_current_rollback
+  cleanup || log "CLEANUP FAILED after ${signal}."
+  log "FAIL summary: completed stages: ${STAGE_RESULTS[*]:-none}; interrupted stage: ${CURRENT_STAGE}."
+  [[ -z "${LOG_FILE}" ]] || log "Protected log: ${LOG_FILE}"
+  trap - EXIT
   exit "${status}"
 }
 
@@ -223,6 +255,53 @@ assert_file_hash() {
     fail "checksum mismatch for $(basename -- "${path}")"
 }
 
+stage_root_owned_artifacts() {
+  local source_caddy_new="${CADDY_NEW_PACKAGE}"
+  local source_caddy_old="${CADDY_OLD_PACKAGE}"
+  local source_ollama_new="${OLLAMA_NEW_ARCHIVE}"
+  local source_ollama_fallback="${OLLAMA_FALLBACK_ARCHIVE}"
+  local protected_root="${TEMP_ROOT}/verified-artifacts"
+  local source
+
+  for source in \
+    "${source_caddy_new}" \
+    "${source_caddy_old}" \
+    "${source_ollama_new}" \
+    "${source_ollama_fallback}"; do
+    [[ -f "${source}" && ! -L "${source}" ]] ||
+      fail "artifact source is missing or unsafe: ${source}"
+  done
+
+  install -d -m 0700 -o root -g root "${protected_root}"
+  install -m 0600 -o root -g root -- "${source_caddy_new}" \
+    "${protected_root}/caddy-new.deb"
+  install -m 0600 -o root -g root -- "${source_caddy_old}" \
+    "${protected_root}/caddy-old.deb"
+  install -m 0600 -o root -g root -- "${source_ollama_new}" \
+    "${protected_root}/ollama-new.tar.zst"
+  install -m 0600 -o root -g root -- "${source_ollama_fallback}" \
+    "${protected_root}/ollama-fallback.tgz"
+
+  CADDY_NEW_PACKAGE="${protected_root}/caddy-new.deb"
+  CADDY_OLD_PACKAGE="${protected_root}/caddy-old.deb"
+  OLLAMA_NEW_ARCHIVE="${protected_root}/ollama-new.tar.zst"
+  OLLAMA_FALLBACK_ARCHIVE="${protected_root}/ollama-fallback.tgz"
+
+  assert_file_hash sha512 "${CADDY_NEW_SHA512}" "${CADDY_NEW_PACKAGE}"
+  assert_file_hash sha512 "${CADDY_OLD_SHA512}" "${CADDY_OLD_PACKAGE}"
+  assert_file_hash sha256 "${OLLAMA_NEW_SHA256}" "${OLLAMA_NEW_ARCHIVE}"
+  assert_file_hash sha256 "${OLLAMA_FALLBACK_SHA256}" "${OLLAMA_FALLBACK_ARCHIVE}"
+
+  install -d -m 0700 -o root -g root "${protected_root}/caddy-extracted"
+  dpkg-deb --extract "${CADDY_NEW_PACKAGE}" "${protected_root}/caddy-extracted"
+  CADDY_STAGED_BIN="${protected_root}/caddy-extracted/usr/bin/caddy"
+  [[ -x "${CADDY_STAGED_BIN}" && ! -L "${CADDY_STAGED_BIN}" ]] ||
+    fail "verified Caddy package did not extract the expected binary"
+  [[ "$(stat -c '%U:%G' "${CADDY_STAGED_BIN}")" == "root:root" ]] ||
+    fail "verified Caddy binary is not root-owned"
+  log "Copied and re-hashed all upgrade and rollback artifacts in protected root-owned staging."
+}
+
 validate_artifacts() {
   assert_file_hash sha512 "${CADDY_NEW_SHA512}" "${CADDY_NEW_PACKAGE}"
   assert_file_hash sha512 "${CADDY_OLD_SHA512}" "${CADDY_OLD_PACKAGE}"
@@ -255,6 +334,7 @@ validate_repository_files() {
     deploy/verify-deployment-rollback-invariants.sh; do
     bash -n "${REPO_ROOT}/${script}"
   done
+  node --check "${REPO_ROOT}/tools/verify-restic-recovery-inventory.js"
   node --check "${REPO_ROOT}/deploy/notify-better-stack-heartbeat.js"
   node --check "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js"
   systemd-analyze verify \
@@ -267,6 +347,11 @@ validate_repository_files() {
     preserved_candidate="${ARTIFACT_ROOT}/Caddyfile.candidate"
   [[ -f "${preserved_candidate}" && ! -L "${preserved_candidate}" ]] ||
     fail "preserved full shared-host Caddy candidate is missing"
+  if [[ "${EUID}" -eq 0 ]]; then
+    install -m 0600 -o root -g root -- "${preserved_candidate}" \
+      "${TEMP_ROOT}/preserved-caddy-candidate"
+    preserved_candidate="${TEMP_ROOT}/preserved-caddy-candidate"
+  fi
   "${CADDY_STAGED_BIN}" validate \
     --config "${preserved_candidate}" --adapter caddyfile
   node "${REPO_ROOT}/deploy/validate-caddy-origin-semantics.js" \
@@ -315,6 +400,109 @@ validate_restic_prerequisites() {
   tailscale ping --c=1 --timeout=20s --until-direct=false 100.102.113.86 >/dev/null
   HOME=/root ssh -o BatchMode=yes -o ConnectTimeout=20 \
     echo-backup-pi /usr/bin/true
+}
+
+verify_latest_remote_inventory() {
+  local snapshots="${TEMP_ROOT}/restic-preflight-snapshots.json"
+  local listing="${TEMP_ROOT}/restic-preflight-listing.jsonl"
+  local manifest="${TEMP_ROOT}/restic-preflight-required-paths"
+  local snapshot_id
+  local snapshot_root
+  local manifest_node
+
+  (
+    set -a
+    # Root-owned, mode-0600 operational configuration; never print it.
+    source /etc/echo-archives/pi-restic.env
+    set +a
+    export HOME=/root
+    export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
+    restic snapshots --json --tag echo-archives > "${snapshots}"
+  )
+  snapshot_id="$(
+    node - "${snapshots}" "${EXPECTED_HOST}" <<'NODE'
+const fs = require("node:fs");
+const [snapshotPath, expectedHost] = process.argv.slice(2);
+const now = Date.now();
+const snapshots = JSON.parse(fs.readFileSync(snapshotPath, "utf8"));
+const eligible = Array.isArray(snapshots)
+  ? snapshots.filter((snapshot) => {
+      const timestamp = Date.parse(snapshot.time);
+      return snapshot.hostname === expectedHost && Number.isFinite(timestamp) && timestamp <= now;
+    })
+  : [];
+eligible.sort((left, right) => Date.parse(right.time) - Date.parse(left.time));
+if (!/^[0-9a-f]{64}$/.test(eligible[0]?.id ?? "")) process.exit(1);
+process.stdout.write(eligible[0].id);
+NODE
+  )" || fail "could not identify the latest same-host Echo Archives Restic snapshot"
+  (
+    set -a
+    source /etc/echo-archives/pi-restic.env
+    set +a
+    export HOME=/root
+    export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
+    restic ls --json "${snapshot_id}" > "${listing}"
+  )
+  local root_status=0
+  snapshot_root="$(
+    node - "${listing}" "${snapshot_id}" <<'NODE'
+const path = require("node:path");
+const fs = require("node:fs");
+const [listingPath, expectedId] = process.argv.slice(2);
+const entries = fs.readFileSync(listingPath, "utf8").trim().split(/\n+/).map(JSON.parse);
+const snapshots = entries.filter((entry) => entry.struct_type === "snapshot");
+if (
+  snapshots.length !== 1 ||
+  snapshots[0].id !== expectedId
+) process.exit(1);
+if (
+  !Array.isArray(snapshots[0].paths) ||
+  snapshots[0].paths.length !== 1 ||
+  typeof snapshots[0].paths[0] !== "string" ||
+  path.posix.basename(path.posix.normalize(snapshots[0].paths[0])) !== "recovery"
+) process.exit(2);
+process.stdout.write(snapshots[0].paths[0]);
+NODE
+  )" || root_status="$?"
+  if [[ "${root_status}" -eq 2 ]]; then
+    log "Latest same-host Restic snapshot uses the legacy pre-inventory format; exact expanded-inventory verification is deferred to the new snapshot in this run."
+    return 0
+  fi
+  [[ "${root_status}" -eq 0 ]] ||
+    fail "latest Restic listing metadata is malformed or inconsistent"
+  manifest_node="$(
+    node - "${listing}" <<'NODE'
+const path = require("node:path");
+const fs = require("node:fs");
+const entries = fs.readFileSync(process.argv[2], "utf8").trim().split(/\n+/).map(JSON.parse);
+const candidates = entries.filter((entry) =>
+  entry?.struct_type === "node" &&
+  entry.type === "file" &&
+  typeof entry.path === "string" &&
+  !entry.path.includes("\\") &&
+  !entry.path.split("/").includes("..") &&
+  path.posix.basename(path.posix.normalize(entry.path)) === "REQUIRED_PATHS"
+);
+if (candidates.length !== 1 || /[\r\n\0]/.test(candidates[0].path)) process.exit(1);
+process.stdout.write(candidates[0].path);
+NODE
+  )" || fail "latest Restic snapshot does not contain exactly one safe recovery manifest"
+  (
+    set -a
+    source /etc/echo-archives/pi-restic.env
+    set +a
+    export HOME=/root
+    export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
+    # Use the exact snapshot-internal path emitted by this Restic version;
+    # metadata source paths are not necessarily valid paths for `restic dump`.
+    restic dump "${snapshot_id}" "${manifest_node}" > "${manifest}"
+  )
+  node "${REPO_ROOT}/tools/verify-restic-recovery-inventory.js" \
+    --manifest "${manifest}" \
+    --listing "${listing}" \
+    --snapshot-id "${snapshot_id}"
+  log "Verified the production Restic path format and complete latest recovery inventory without changing the repository."
 }
 
 capture_current_unit_journal() {
@@ -458,8 +646,10 @@ require_root_identity() {
 require_root_context() {
   require_root_identity
   local command_name
+  local capacity_path
+  local available_bytes
   for command_name in \
-    awk basename bash caddy chmod chown cmp cp curl date df diff dpkg dpkg-query env \
+    awk basename bash caddy chmod chown cmp cp curl date df diff dpkg dpkg-deb dpkg-query env \
     find flock getent git grep hostname id install ip jq journalctl lsblk mktemp mv \
     nft node npm openssl readlink restic rm runuser sed sha256sum sha512sum sleep \
     smartctl sort ssh ss stat systemctl systemd-analyze tail tailscale tar tee \
@@ -467,6 +657,17 @@ require_root_context() {
     command -v "${command_name}" >/dev/null 2>&1 ||
       fail "required command is missing: ${command_name}"
   done
+  for capacity_path in \
+    "${REPO_ROOT}" \
+    "${ARTIFACT_ROOT}" \
+    /var/tmp \
+    "${BACKUP_ROOT}" \
+    /usr/local; do
+    available_bytes="$(df --output=avail -B1 "${capacity_path}" | tail -n 1 | tr -d ' ')"
+    [[ "${available_bytes}" =~ ^[0-9]+$ && "${available_bytes}" -ge 21474836480 ]] ||
+      fail "at least 20 GiB free space is required on the filesystem containing ${capacity_path}"
+  done
+  stage_root_owned_artifacts
   [[ -f /etc/caddy/Caddyfile && ! -L /etc/caddy/Caddyfile ]] ||
     fail "live Caddyfile is missing or a symlink"
   [[ -f "${REPO_ROOT}/backend/.env" && ! -L "${REPO_ROOT}/backend/.env" ]] ||
@@ -478,7 +679,7 @@ require_root_context() {
   caddy version 2>&1 |
     grep -Eq 'v2\.(10\.2|11\.4)([[:space:]]|$)' ||
     fail "installed Caddy is neither reviewed version 2.10.2 nor 2.11.4"
-  /usr/local/bin/ollama --version 2>&1 |
+  "${OLLAMA_BIN}" --version 2>&1 |
     grep -Eq '0\.(6\.7|32\.5)([[:space:]]|$)' ||
     fail "installed Ollama is neither reviewed version 0.6.7 nor 0.32.5"
   classify_backup_unit_transition
@@ -492,9 +693,8 @@ require_root_context() {
     "$(stat -c %a "${OLLAMA_NEW_ARCHIVE}")" == "600" &&
     "$(stat -c %a "${OLLAMA_FALLBACK_ARCHIVE}")" == "600" ]] ||
     fail "staged artifacts must remain mode 0600"
-  [[ "$(df --output=avail -B1 "${REPO_ROOT}" | tail -n 1 | tr -d ' ')" -ge 21474836480 ]] ||
-    fail "at least 20 GiB free space is required"
   validate_restic_prerequisites
+  verify_latest_remote_inventory
   local better_status=0
   validate_better_stack_secret || better_status="$?"
   [[ "${better_status}" -eq 0 || "${better_status}" -eq 2 ]] ||
@@ -550,8 +750,8 @@ capture_shared_routes() {
   local output="$2"
   local adapted="${TEMP_ROOT}/caddy-adapted.json"
   local hosts="${TEMP_ROOT}/caddy-hosts.txt"
-  caddy adapt --config "${config}" --adapter caddyfile > "${adapted}"
-  node - "${adapted}" > "${hosts}" <<'NODE'
+  caddy adapt --config "${config}" --adapter caddyfile > "${adapted}" || return 1
+  node - "${adapted}" > "${hosts}" <<'NODE' || return 1
 const fs = require("node:fs");
 const config = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 const hosts = new Set();
@@ -571,7 +771,10 @@ function walk(value) {
 walk(config);
 for (const host of [...hosts].sort()) process.stdout.write(`${host}\n`);
 NODE
-  [[ -s "${hosts}" ]] || fail "no unrelated shared Caddy hosts were discovered"
+  [[ -s "${hosts}" ]] || {
+    fail "no unrelated shared Caddy hosts were discovered"
+    return 1
+  }
   : > "${output}"
   local host
   local status
@@ -581,9 +784,14 @@ NODE
         --resolve "${host}:443:127.0.0.1" \
         --output /dev/null --write-out '%{http_code}' \
         "https://${host}/"
-    )" || fail "shared-host origin request failed for ${host}"
-    [[ "${status}" =~ ^[1-5][0-9][0-9]$ ]] ||
+    )" || {
+      fail "shared-host origin request failed for ${host}"
+      return 1
+    }
+    [[ "${status}" =~ ^[1-5][0-9][0-9]$ ]] || {
       fail "shared-host origin returned an invalid status for ${host}"
+      return 1
+    }
     printf '%s\t%s\n' "${host}" "${status}" >> "${output}"
   done < "${hosts}"
 }
@@ -605,9 +813,9 @@ stage_preserve_baseline() {
     /etc/systemd/system/ollama.service \
     ollama.service.before
   caddy version > "${RUN_DIR}/caddy.version.before" 2>&1
-  /usr/local/bin/ollama --version > "${RUN_DIR}/ollama.version.before" 2>&1
+  "${OLLAMA_BIN}" --version > "${RUN_DIR}/ollama.version.before" 2>&1
   dpkg-query -W -f='${Package}\t${Version}\n' caddy > "${RUN_DIR}/caddy.package.before"
-  cp -a -- /usr/local/bin/ollama "${RUN_DIR}/ollama.binary.before"
+  cp -a -- "${OLLAMA_BIN}" "${RUN_DIR}/ollama.binary.before"
   [[ -d /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] ||
     fail "installed Ollama library tree is missing or unsafe"
   cp -a -- /usr/local/lib/ollama "${RUN_DIR}/ollama-lib.before"
@@ -647,11 +855,11 @@ NODE
 rollback_backup_unit_transition() {
   restore_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.service \
-    offsite.service.before 0644
-  systemctl daemon-reload
+    offsite.service.before 0644 || return 1
+  systemctl daemon-reload || return 1
   systemd-analyze verify \
     /etc/systemd/system/echo-archives-offsite-backup.service \
-    /etc/systemd/system/echo-archives-offsite-backup.timer
+    /etc/systemd/system/echo-archives-offsite-backup.timer || return 1
 }
 
 stage_backup_unit_transition() {
@@ -683,27 +891,27 @@ stage_backup_unit_transition() {
 }
 
 rollback_caddy_configuration() {
-  caddy validate --config "${RUN_DIR}/Caddyfile.before" --adapter caddyfile &&
-    install -m 0644 -o root -g root \
-      "${RUN_DIR}/Caddyfile.before" /etc/caddy/Caddyfile &&
-    activate_caddy &&
-    capture_shared_routes \
-      /etc/caddy/Caddyfile "${RUN_DIR}/shared-routes.rollback-origin" &&
-    compare_shared_routes \
-      "${RUN_DIR}/shared-routes.before" \
-      "${RUN_DIR}/shared-routes.rollback-origin" &&
-    verify_public_echo
+  caddy validate --config "${RUN_DIR}/Caddyfile.before" --adapter caddyfile || return 1
+  install -m 0644 -o root -g root \
+    "${RUN_DIR}/Caddyfile.before" /etc/caddy/Caddyfile || return 1
+  activate_caddy || return 1
+  capture_shared_routes \
+    /etc/caddy/Caddyfile "${RUN_DIR}/shared-routes.rollback-origin" || return 1
+  compare_shared_routes \
+    "${RUN_DIR}/shared-routes.before" \
+    "${RUN_DIR}/shared-routes.rollback-origin" || return 1
+  verify_public_echo || return 1
 }
 
 activate_caddy() {
   caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile ||
     return 1
   if systemctl is-active --quiet caddy.service; then
-    systemctl reload caddy.service
+    systemctl reload caddy.service || return 1
   else
-    systemctl start caddy.service
+    systemctl start caddy.service || return 1
   fi
-  systemctl is-active --quiet caddy.service
+  systemctl is-active --quiet caddy.service || return 1
 }
 
 caddy_gate_is_installed() {
@@ -731,15 +939,15 @@ verify_public_echo() {
   local health="${TEMP_ROOT}/public-health.json"
   local homepage="${TEMP_ROOT}/public-homepage.html"
   curl --fail --silent --show-error --max-time 20 \
-    --output "${health}" https://echoarchives.net/api/health
-  node - "${health}" <<'NODE'
+    --output "${health}" https://echoarchives.net/api/health || return 1
+  node - "${health}" <<'NODE' || return 1
 const fs = require("node:fs");
 const health = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (health.ok !== true || health.service !== "echo-archives") process.exit(1);
 NODE
   curl --fail --silent --show-error --max-time 20 \
-    --output "${homepage}" https://echoarchives.net/
-  grep -Fq "The Echo Archives" "${homepage}"
+    --output "${homepage}" https://echoarchives.net/ || return 1
+  grep -Fq "The Echo Archives" "${homepage}" || return 1
 }
 
 expect_direct_origin_blocked() {
@@ -752,12 +960,14 @@ expect_direct_origin_blocked() {
     --header "${headers[0]}" --header "${headers[1]}" \
     --output /dev/null https://echoarchives.net/api/health; then
     fail "direct loopback origin request with spoofed proxy headers was not blocked"
+    return 1
   fi
   if curl --silent --show-error --insecure --max-time 10 \
     --resolve "www.echoarchives.net:443:127.0.0.1" \
     --header "${headers[0]}" --header "${headers[1]}" \
     --output /dev/null https://www.echoarchives.net/; then
     fail "direct www origin request with spoofed proxy headers was not blocked"
+    return 1
   fi
   local mismatched_status
   mismatched_status="$(
@@ -768,8 +978,10 @@ expect_direct_origin_blocked() {
       --output /dev/null --write-out '%{http_code}' \
       https://continental-hub.com/api/health
   )" || mismatched_status="000"
-  [[ "${mismatched_status}" != "200" ]] ||
+  [[ "${mismatched_status}" != "200" ]] || {
     fail "mismatched SNI/Host plus spoofed proxy headers reached Echo"
+    return 1
+  }
 }
 
 stage_caddy_origin_gate() {
@@ -809,17 +1021,17 @@ rollback_caddy_upgrade() {
     rollback_package="${CADDY_NEW_PACKAGE}"
   fi
   env DEBIAN_FRONTEND=noninteractive \
-    dpkg --force-confold --install "${rollback_package}" &&
-    install -m 0644 -o root -g root \
-      "${RUN_DIR}/Caddyfile.before-upgrade" /etc/caddy/Caddyfile &&
-    activate_caddy &&
-    capture_shared_routes \
-      /etc/caddy/Caddyfile "${RUN_DIR}/shared-routes.rollback-upgrade" &&
-    compare_shared_routes \
-      "${RUN_DIR}/shared-routes.before" \
-      "${RUN_DIR}/shared-routes.rollback-upgrade" &&
-    verify_public_echo &&
-    expect_direct_origin_blocked
+    dpkg --force-confold --install "${rollback_package}" || return 1
+  install -m 0644 -o root -g root \
+    "${RUN_DIR}/Caddyfile.before-upgrade" /etc/caddy/Caddyfile || return 1
+  activate_caddy || return 1
+  capture_shared_routes \
+    /etc/caddy/Caddyfile "${RUN_DIR}/shared-routes.rollback-upgrade" || return 1
+  compare_shared_routes \
+    "${RUN_DIR}/shared-routes.before" \
+    "${RUN_DIR}/shared-routes.rollback-upgrade" || return 1
+  verify_public_echo || return 1
+  expect_direct_origin_blocked || return 1
 }
 
 stage_caddy_upgrade() {
@@ -851,18 +1063,11 @@ stage_caddy_upgrade() {
 
 stage_runtime_migration() {
   if "${REPO_ROOT}/deploy/migrate-echo-archives-runtime-account.sh" --check; then
-    log "Dedicated runtime account already passed; restarting Echo to load the exact pinned checkout."
-    systemctl restart echo-archives.service
-    local attempt
-    for attempt in {1..20}; do
-      if curl --fail --silent --show-error --max-time 5 \
-        http://127.0.0.1:3010/api/health >/dev/null; then
-        break
-      fi
-      [[ "${attempt}" -lt 20 ]] ||
-        fail "Echo did not recover after the controlled runtime-account restart"
-      sleep 2
-    done
+    # A prior maintenance attempt already completed and verified the migration.
+    # Do not introduce another production restart merely to make this stage look
+    # active: the deep preflight and live-application stage verify the currently
+    # running process and the exact production behavior used by this run.
+    log "Dedicated runtime account already passed; preserving the healthy running Echo process idempotently."
   else
     SUDO_USER="${OPERATOR_USER}" \
       "${REPO_ROOT}/deploy/migrate-echo-archives-runtime-account.sh" --apply
@@ -965,11 +1170,11 @@ NODE
 rollback_better_stack() {
   restore_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.service.d/better-stack-heartbeat.conf \
-    better-stack-dropin.before 0644
-  systemctl daemon-reload
+    better-stack-dropin.before 0644 || return 1
+  systemctl daemon-reload || return 1
   systemd-analyze verify \
     /etc/systemd/system/echo-archives-offsite-backup.service \
-    /etc/systemd/system/echo-archives-offsite-backup.timer
+    /etc/systemd/system/echo-archives-offsite-backup.timer || return 1
 }
 
 stage_better_stack() {
@@ -1009,40 +1214,53 @@ rollback_backup_automation() {
   if [[ "${BETTER_STACK_INSTALLED}" == "yes" ]]; then
     heartbeat_backup="better-stack-dropin.before"
   fi
+  systemctl stop echo-archives-offsite-backup.timer || return 1
+  if systemctl is-active --quiet echo-archives-offsite-backup.service; then
+    systemctl stop echo-archives-offsite-backup.service || return 1
+  fi
+  if systemctl is-active --quiet echo-archives-offsite-backup.service; then
+    log "Could not quiesce the off-site service before restoring its automation."
+    return 1
+  fi
   restore_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.service \
-    offsite.service.pre-backup 0644
+    offsite.service.pre-backup 0644 || return 1
   restore_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.timer \
-    offsite.timer.pre-backup 0644
+    offsite.timer.pre-backup 0644 || return 1
   restore_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.service.d/better-stack-heartbeat.conf \
-    "${heartbeat_backup}" 0644
-  systemctl daemon-reload
+    "${heartbeat_backup}" 0644 || return 1
+  systemctl daemon-reload || return 1
   if grep -Fxq "enabled" "${RUN_DIR}/offsite-timer.enabled"; then
-    systemctl enable echo-archives-offsite-backup.timer >/dev/null
+    systemctl enable echo-archives-offsite-backup.timer >/dev/null || return 1
   else
-    systemctl disable echo-archives-offsite-backup.timer >/dev/null 2>&1 || true
+    systemctl disable echo-archives-offsite-backup.timer >/dev/null 2>&1 || return 1
   fi
   if grep -Fxq "active" "${RUN_DIR}/offsite-timer.active"; then
-    systemctl start echo-archives-offsite-backup.timer
+    systemctl start echo-archives-offsite-backup.timer || return 1
   else
-    systemctl stop echo-archives-offsite-backup.timer >/dev/null 2>&1 || true
+    systemctl stop echo-archives-offsite-backup.timer >/dev/null 2>&1 || return 1
   fi
   systemctl reset-failed \
     echo-archives-offsite-backup.service \
-    echo-archives-local-monitor.service
+    echo-archives-local-monitor.service || return 1
   if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
     log "Restored backup automation; local monitor remains pending because this failed stage did not publish a fresh off-site success marker."
   else
-    systemctl start echo-archives-local-monitor.service
-    [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]]
-    [[ -z "$(systemctl --failed --no-legend --plain)" ]]
+    systemctl start echo-archives-local-monitor.service || return 1
+    [[ "$(systemctl show echo-archives-local-monitor.service -p Result --value)" == "success" ]] ||
+      return 1
+    [[ -z "$(systemctl --failed --no-legend --plain)" ]] || return 1
   fi
-  resume_local_monitor_timer
+  resume_local_monitor_timer || return 1
 }
 
 stage_backup_restore() {
+  local offsite_invocation_before
+  local offsite_invocation_after
+  local monitor_invocation_before
+  local monitor_invocation_after
   preserve_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.service \
     offsite.service.pre-backup
@@ -1057,8 +1275,33 @@ stage_backup_restore() {
   systemctl is-active echo-archives-offsite-backup.timer \
     > "${RUN_DIR}/offsite-timer.active" 2>/dev/null || true
   CURRENT_ROLLBACK=rollback_backup_automation
+  systemctl stop echo-archives-offsite-backup.timer
+  if systemctl is-active --quiet echo-archives-offsite-backup.timer; then
+    fail "off-site backup timer did not pause before the restore and backup drill"
+  fi
+  if systemctl is-active --quiet echo-archives-offsite-backup.service; then
+    fail "off-site backup service is already active; refusing concurrent Restic work"
+  fi
+  offsite_invocation_before="$(
+    systemctl show echo-archives-offsite-backup.service -p InvocationID --value
+  )"
+  monitor_invocation_before="$(
+    systemctl show echo-archives-local-monitor.service -p InvocationID --value
+  )"
   SUDO_USER="${OPERATOR_USER}" \
     "${REPO_ROOT}/deploy/complete-pi-backup-setup.sh" --apply
+  offsite_invocation_after="$(
+    systemctl show echo-archives-offsite-backup.service -p InvocationID --value
+  )"
+  monitor_invocation_after="$(
+    systemctl show echo-archives-local-monitor.service -p InvocationID --value
+  )"
+  [[ "${offsite_invocation_after}" =~ ^[0-9a-f]{32}$ &&
+    "${offsite_invocation_after}" != "${offsite_invocation_before}" ]] ||
+    fail "off-site backup did not record a new verified service invocation"
+  [[ "${monitor_invocation_after}" =~ ^[0-9a-f]{32}$ &&
+    "${monitor_invocation_after}" != "${monitor_invocation_before}" ]] ||
+    fail "local monitor did not record a new post-backup invocation"
   [[ "$(systemctl show echo-archives-offsite-backup.service -p Result --value)" == "success" ]] ||
     fail "off-site backup service did not finish successfully"
   [[ "$(systemctl show echo-archives-offsite-backup.service -p ExecMainStatus --value)" == "0" ]] ||
@@ -1085,33 +1328,88 @@ stage_backup_restore() {
 }
 
 rollback_ollama_upgrade() {
-  systemctl stop ollama.service || true
-  if [[ -d /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]]; then
-    mv -- /usr/local/lib/ollama "${RUN_DIR}/ollama-lib.failed-${TIMESTAMP}" || true
+  local baseline_version="0.6.7"
+  if grep -Fq "0.32.5" "${RUN_DIR}/ollama.version.before"; then
+    baseline_version="0.32.5"
   fi
+  systemctl stop ollama.service || return 1
+  if systemctl is-active --quiet ollama.service; then
+    log "Ollama rollback could not stop the service."
+    return 1
+  fi
+  if [[ -d /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]]; then
+    mv -- /usr/local/lib/ollama "${RUN_DIR}/ollama-lib.failed-${TIMESTAMP}" || return 1
+  elif [[ -e /usr/local/lib/ollama || -L /usr/local/lib/ollama ]]; then
+    log "Ollama rollback found an unsafe installed library path."
+    return 1
+  fi
+  [[ ! -e /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] || return 1
   install -m 0755 -o root -g root \
-      "${RUN_DIR}/ollama.binary.before" /usr/local/bin/ollama &&
-    cp -a -- "${RUN_DIR}/ollama-lib.before" /usr/local/lib/ollama &&
-    restore_optional_file \
-      /etc/systemd/system/ollama.service ollama.service.before 0644 &&
-    systemctl daemon-reload &&
-    systemctl start ollama.service &&
-    systemctl is-active --quiet ollama.service
+    "${RUN_DIR}/ollama.binary.before" "${OLLAMA_BIN}" || return 1
+  cp -a -- "${RUN_DIR}/ollama-lib.before" /usr/local/lib/ollama || return 1
+  cmp --silent -- "${RUN_DIR}/ollama.binary.before" "${OLLAMA_BIN}" || return 1
+  diff --recursive --brief \
+    "${RUN_DIR}/ollama-lib.before" /usr/local/lib/ollama >/dev/null || return 1
+  restore_optional_file \
+    /etc/systemd/system/ollama.service ollama.service.before 0644 || return 1
+  systemctl daemon-reload || return 1
+  systemctl start ollama.service || return 1
+  verify_ollama_runtime "${baseline_version}" || return 1
+  log "Ollama rollback restored and fully verified version ${baseline_version}."
 }
 
-verify_ollama_runtime() {
-  systemctl is-active --quiet ollama.service
-  /usr/local/bin/ollama --version 2>&1 | grep -Fq "0.32.5" ||
-    fail "Ollama does not report 0.32.5"
+ollama_listener_is_private() {
   ss -H -ltn | awk '
     $4 ~ /:11434$/ && $4 != "127.0.0.1:11434" { bad = 1 }
     $4 == "127.0.0.1:11434" { found = 1 }
     END { exit(found && !bad ? 0 : 1) }
-  ' || fail "Ollama is not listening only on 127.0.0.1:11434"
+  '
+}
+
+wait_for_ollama_ready() {
+  local expected_version="$1"
+  local attempt
+  for attempt in {1..30}; do
+    if systemctl is-active --quiet ollama.service &&
+      "${OLLAMA_BIN}" --version 2>&1 | grep -Fq "${expected_version}" &&
+      ollama_listener_is_private &&
+      curl --fail --silent --show-error --max-time 5 \
+        --output "${TEMP_ROOT}/ollama-version.json" \
+        http://127.0.0.1:11434/api/version &&
+      node - "${TEMP_ROOT}/ollama-version.json" "${expected_version}" <<'NODE' &&
+const fs = require("node:fs");
+const [versionPath, expectedVersion] = process.argv.slice(2);
+const result = JSON.parse(fs.readFileSync(versionPath, "utf8"));
+if (result.version !== expectedVersion) process.exit(1);
+NODE
+      curl --fail --silent --show-error --max-time 5 \
+        --output "${TEMP_ROOT}/ollama-tags.json" \
+        http://127.0.0.1:11434/api/tags &&
+      node - "${TEMP_ROOT}/ollama-tags.json" <<'NODE'
+const fs = require("node:fs");
+const result = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+if (!Array.isArray(result.models) || !result.models.some((model) => /^mistral(?::|$)/.test(model.name))) {
+  process.exit(1);
+}
+NODE
+    then
+      return 0
+    fi
+    sleep 1
+  done
+  return 1
+}
+
+verify_ollama_runtime() {
+  local expected_version="${1:-0.32.5}"
+  wait_for_ollama_ready "${expected_version}" || {
+    fail "Ollama ${expected_version} did not become ready on its private listener"
+    return 1
+  }
   curl --fail --silent --show-error --max-time 20 \
     --output "${TEMP_ROOT}/ollama-tags.json" \
-    http://127.0.0.1:11434/api/tags
-  node - "${TEMP_ROOT}/ollama-tags.json" <<'NODE'
+    http://127.0.0.1:11434/api/tags || return 1
+  node - "${TEMP_ROOT}/ollama-tags.json" <<'NODE' || return 1
 const fs = require("node:fs");
 const result = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (!Array.isArray(result.models) || !result.models.some((model) => /^mistral(?::|$)/.test(model.name))) {
@@ -1122,25 +1420,29 @@ NODE
     --header "Content-Type: application/json" \
     --data '{"model":"mistral","prompt":"Reply with only OK.","stream":false,"options":{"num_predict":8}}' \
     --output "${TEMP_ROOT}/ollama-generate.json" \
-    http://127.0.0.1:11434/api/generate
-  node - "${TEMP_ROOT}/ollama-generate.json" <<'NODE'
+    http://127.0.0.1:11434/api/generate || return 1
+  node - "${TEMP_ROOT}/ollama-generate.json" <<'NODE' || return 1
 const fs = require("node:fs");
 const result = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
 if (typeof result.response !== "string" || result.response.trim().length === 0) process.exit(1);
 NODE
+  local endpoint
   local public_status
-  public_status="$(
-    curl --silent --show-error --max-time 20 \
-      --output /dev/null --write-out '%{http_code}' \
-      https://echoarchives.net/api/tags
-  )"
-  [[ "${public_status}" != "200" ]] ||
-    fail "the public Echo site unexpectedly exposes the Ollama tags endpoint"
+  for endpoint in /api/tags /api/version /api/ps; do
+    public_status="$(
+      curl --silent --show-error --max-time 20 \
+        --output /dev/null --write-out '%{http_code}' \
+        "https://echoarchives.net${endpoint}"
+    )" || public_status="000"
+    [[ "${public_status}" != "200" ]] || {
+      fail "the public Echo site unexpectedly exposes Ollama endpoint ${endpoint}"
+      return 1
+    }
+  done
 }
 
 stage_ollama_upgrade() {
-  CURRENT_ROLLBACK=rollback_ollama_upgrade
-  if /usr/local/bin/ollama --version 2>&1 | grep -Fq "0.32.5"; then
+  if "${OLLAMA_BIN}" --version 2>&1 | grep -Fq "0.32.5"; then
     log "Ollama already reports 0.32.5; verifying idempotently."
   else
     local stage="${TEMP_ROOT}/ollama-stage"
@@ -1148,14 +1450,22 @@ stage_ollama_upgrade() {
     tar --zstd --extract --file "${OLLAMA_NEW_ARCHIVE}" --directory "${stage}"
     [[ -x "${stage}/bin/ollama" && -d "${stage}/lib/ollama" ]] ||
       fail "extracted Ollama archive is incomplete"
+    CURRENT_ROLLBACK=rollback_ollama_upgrade
     systemctl stop ollama.service
+    if systemctl is-active --quiet ollama.service; then
+      fail "Ollama remained active after the controlled stop"
+    fi
+    [[ -d /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] ||
+      fail "installed Ollama library tree became unsafe before upgrade"
     mv -- /usr/local/lib/ollama "${RUN_DIR}/ollama-lib.pre-upgrade"
-    install -m 0755 -o root -g root "${stage}/bin/ollama" /usr/local/bin/ollama
+    [[ ! -e /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] ||
+      fail "installed Ollama library path remained after preservation"
+    install -m 0755 -o root -g root "${stage}/bin/ollama" "${OLLAMA_BIN}"
     cp -a -- "${stage}/lib/ollama" /usr/local/lib/ollama
     systemctl start ollama.service
     OLLAMA_UPGRADED="yes"
   fi
-  verify_ollama_runtime
+  verify_ollama_runtime "0.32.5"
   CURRENT_ROLLBACK=""
   log "Ollama 0.32.5, loopback bind, installed model, generation, and non-exposure verified."
 }
@@ -1212,7 +1522,8 @@ stage_archivist_paths() {
 }
 
 stage_firewall_evidence() {
-  local evidence="${RUN_DIR}/firewall-evidence"
+  local evidence_root="${1:-${RUN_DIR}}"
+  local evidence="${evidence_root}/firewall-evidence"
   install -d -m 0700 -o root -g root "${evidence}"
   ufw status verbose > "${evidence}/ufw-verbose.txt"
   ufw status numbered > "${evidence}/ufw-numbered.txt"
@@ -1237,7 +1548,8 @@ stage_firewall_evidence() {
 }
 
 stage_storage_evidence() {
-  local evidence="${RUN_DIR}/storage-evidence"
+  local evidence_root="${1:-${RUN_DIR}}"
+  local evidence="${evidence_root}/storage-evidence"
   local device
   local output
   local status
@@ -1268,17 +1580,21 @@ stage_storage_evidence() {
 
 verify_access_log_event() {
   local since="$1"
+  local expected_request_id="$2"
   local output="${TEMP_ROOT}/echo-access-events.jsonl"
   journalctl --namespace=echo-archives --unit echo-archives.service \
     --since "${since}" --output cat --no-pager |
     grep -F '"event":"http_request"' > "${output}"
   [[ -s "${output}" ]] || fail "no structured access event was recorded"
-  node - "${output}" <<'NODE'
+  node - "${output}" "${expected_request_id}" <<'NODE'
 const fs = require("node:fs");
+const [eventPath, expectedRequestId] = process.argv.slice(2);
 const required = ["level", "event", "requestId", "method", "route", "status", "durationMs", "client"];
 const forbidden = ["cookie", "authorization", "turnstile", "passphrase", "requestBody", "body", "ip"];
-const events = fs.readFileSync(process.argv[2], "utf8").trim().split(/\n+/).map(JSON.parse);
-const event = events.at(-1);
+const events = fs.readFileSync(eventPath, "utf8").trim().split(/\n+/).map(JSON.parse);
+const matching = events.filter((event) => event.requestId === expectedRequestId);
+if (matching.length !== 1) process.exit(1);
+const event = matching[0];
 if (
   event.event !== "http_request" ||
   !required.every((key) => Object.hasOwn(event, key)) ||
@@ -1289,15 +1605,99 @@ if (
 NODE
 }
 
+verify_public_tls() {
+  local protocol
+  local output
+  for protocol in tls1_2 tls1_3; do
+    output="${TEMP_ROOT}/openssl-${protocol}.txt"
+    timeout 20 openssl s_client \
+      -connect echoarchives.net:443 \
+      -servername echoarchives.net \
+      -verify_hostname echoarchives.net \
+      -verify_return_error \
+      -"${protocol}" \
+      -brief < /dev/null > "${output}" 2>&1
+    grep -Fq "Verification: OK" "${output}" ||
+      fail "public certificate hostname verification failed for ${protocol}"
+    case "${protocol}" in
+      tls1_2)
+        grep -Fq "Protocol version: TLSv1.2" "${output}" ||
+          fail "public endpoint did not negotiate TLS 1.2"
+        ;;
+      tls1_3)
+        grep -Fq "Protocol version: TLSv1.3" "${output}" ||
+          fail "public endpoint did not negotiate TLS 1.3"
+        ;;
+    esac
+  done
+}
+
+run_remaining_stage_preflight() {
+  local evidence_root="${RUN_DIR}/preflight"
+  local ollama_extract="${TEMP_ROOT}/ollama-extract-preflight"
+  local local_health="${TEMP_ROOT}/preflight-local-health.json"
+  local public_health="${TEMP_ROOT}/preflight-public-health.json"
+  local current_ollama_version="0.6.7"
+
+  install -d -m 0700 -o root -g root "${evidence_root}"
+  install -d -m 0700 -o root -g root "${ollama_extract}"
+  tar --zstd --extract --file "${OLLAMA_NEW_ARCHIVE}" --directory "${ollama_extract}"
+  [[ -x "${ollama_extract}/bin/ollama" &&
+    -d "${ollama_extract}/lib/ollama" &&
+    ! -L "${ollama_extract}/bin/ollama" &&
+    ! -L "${ollama_extract}/lib/ollama" ]] ||
+    fail "full Ollama preflight extraction did not produce the reviewed layout"
+  OLLAMA_HOST=http://127.0.0.1:1 \
+    "${ollama_extract}/bin/ollama" --version 2>&1 |
+    grep -Fq "client version is 0.32.5" ||
+    fail "preflight-extracted Ollama binary does not report client version 0.32.5"
+  curl --fail --silent --show-error --max-time 10 \
+    --output "${local_health}" http://127.0.0.1:3010/api/health
+  curl --fail --silent --show-error --max-time 20 \
+    --output "${public_health}" https://echoarchives.net/api/health
+  validate_live_health_file "${local_health}"
+  validate_live_health_file "${public_health}"
+  verify_null_rating_output \
+    "http://127.0.0.1:3010" "${TEMP_ROOT}/preflight-marsfall-local.html"
+  verify_null_rating_output \
+    "https://echoarchives.net" "${TEMP_ROOT}/preflight-marsfall-public.html"
+  verify_public_echo
+  expect_direct_origin_blocked
+  verify_public_tls
+
+  if "${OLLAMA_BIN}" --version 2>&1 | grep -Fq "0.32.5"; then
+    current_ollama_version="0.32.5"
+  fi
+  verify_ollama_runtime "${current_ollama_version}"
+  stage_archivist_paths
+  stage_firewall_evidence "${evidence_root}"
+  stage_storage_evidence "${evidence_root}"
+  stage_rollback_drill
+  log "Deep preflight passed every non-destructive production check used by the remaining stages."
+}
+
 stage_final_verification() {
   local since
+  local response_headers="${TEMP_ROOT}/public-access-response.headers"
+  local request_id
   since="$(date --iso-8601=seconds)"
   verify_public_echo
   expect_direct_origin_blocked
   curl --fail --silent --show-error --max-time 10 \
     http://127.0.0.1:3010/api/health >/dev/null
+  curl --fail --silent --show-error --max-time 20 \
+    --dump-header "${response_headers}" --output /dev/null \
+    https://echoarchives.net/api/health
+  request_id="$(
+    awk 'BEGIN { IGNORECASE = 1 }
+      $1 == "x-request-id:" { gsub(/\r/, "", $2); print $2; exit }' \
+      "${response_headers}"
+  )"
+  [[ "${request_id}" =~ ^[0-9a-f-]{36}$ ]] ||
+    fail "public health response did not return a valid request ID"
   sleep 1
-  verify_access_log_event "${since}"
+  verify_access_log_event "${since}" "${request_id}"
+  verify_public_tls
   caddy validate --config /etc/caddy/Caddyfile --adapter caddyfile
   capture_shared_routes /etc/caddy/Caddyfile "${RUN_DIR}/shared-routes.final"
   compare_shared_routes \
@@ -1307,7 +1707,8 @@ stage_final_verification() {
   systemctl is-active --quiet ollama.service
   [[ -z "$(systemctl --failed --no-legend --plain)" ]] ||
     fail "one or more system units failed during maintenance"
-  "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
+  REQUIRE_OFFSITE_BACKUP=true \
+    "${REPO_ROOT}/deploy/check-echo-archives-production.sh"
   log "Final local/public health, origin/spoof, TLS, shared-host, service, and structured-log checks passed."
 }
 
@@ -1344,7 +1745,12 @@ run_check() {
   flock -n 9 || fail "another launch-maintenance run is active"
   prepare_root_run
   trap cleanup EXIT
+  trap 'on_error "${LINENO}"' ERR
+  trap 'on_signal INT 130' INT
+  trap 'on_signal TERM 143' TERM
+  trap 'on_signal HUP 129' HUP
   require_root_context
+  run_remaining_stage_preflight
   log "PASS: privileged check completed without applying production configuration."
   log "Protected check log: ${LOG_FILE}"
 }
@@ -1356,7 +1762,11 @@ run_apply() {
   prepare_root_run
   trap cleanup EXIT
   trap 'on_error "${LINENO}"' ERR
+  trap 'on_signal INT 130' INT
+  trap 'on_signal TERM 143' TERM
+  trap 'on_signal HUP 129' HUP
   require_root_context
+  run_remaining_stage_preflight
 
   run_stage preserve-baseline stage_preserve_baseline
   run_stage fresh-database-backup stage_fresh_database_backup

@@ -11,14 +11,16 @@ EXPECTED_PODCASTS="${2:-}"
 OLLAMA_URL_OVERRIDE="${OLLAMA_URL_OVERRIDE:-http://127.0.0.1:11434/api/generate}"
 VERIFY_ARCHIVIST_EXPECTED_SOURCE="${VERIFY_ARCHIVIST_EXPECTED_SOURCE:-}"
 APP_PID=""
+APP_PGID=""
 TEMP_DIR=""
 
 cleanup() {
-  if [[ -n "${APP_PID}" ]] && kill -0 "${APP_PID}" 2>/dev/null; then
-    kill -TERM "${APP_PID}" 2>/dev/null || true
+  if [[ "${APP_PGID}" =~ ^[1-9][0-9]*$ ]] && kill -0 -- "-${APP_PGID}" 2>/dev/null; then
+    kill -TERM -- "-${APP_PGID}" 2>/dev/null || true
     wait "${APP_PID}" 2>/dev/null || true
   fi
   APP_PID=""
+  APP_PGID=""
   if [[ -n "${TEMP_DIR}" &&
     "${TEMP_DIR}" == /var/tmp/echo-archives-restore-app.* &&
     -d "${TEMP_DIR}" &&
@@ -27,6 +29,18 @@ cleanup() {
   fi
 }
 trap cleanup EXIT
+
+on_signal() {
+  local signal="$1"
+  local status="$2"
+  trap - EXIT INT TERM HUP
+  echo "Restored application verification interrupted by ${signal}." >&2
+  cleanup
+  exit "${status}"
+}
+trap 'on_signal INT 130' INT
+trap 'on_signal TERM 143' TERM
+trap 'on_signal HUP 129' HUP
 
 fail() {
   echo "Restored application verification failed: $*" >&2
@@ -48,7 +62,7 @@ fi
 [[ "${PORT}" =~ ^[1-9][0-9]*$ && "${PORT}" -le 65535 ]] ||
   fail "RESTORE_TEST_PORT must be between 1 and 65535"
 
-for command_name in chown chmod curl find grep kill mktemp node runuser sed sleep ss; do
+for command_name in chown chmod curl find grep kill mktemp node realpath runuser sed setsid sleep ss; do
   command -v "${command_name}" >/dev/null 2>&1 ||
     fail "required command is missing: ${command_name}"
 done
@@ -64,6 +78,11 @@ restore_root="/var/tmp/${restore_component}"
 [[ "${restore_root}" == /var/tmp/echo-archives-pi-restore.* &&
   "${DATABASE_PATH}" == "${restore_root}/"* ]] ||
   fail "could not resolve the guarded restore root"
+canonical_restore_root="$(realpath -e -- "${restore_root}")"
+canonical_database_path="$(realpath -e -- "${DATABASE_PATH}")"
+[[ "${canonical_restore_root}" == "${restore_root}" &&
+  "${canonical_database_path}" == "${canonical_restore_root}/"* ]] ||
+  fail "restored database path resolves outside the guarded restore root"
 
 current_parent="${database_dir}"
 while [[ "${current_parent}" != "${restore_root}" ]]; do
@@ -86,7 +105,7 @@ catalog_json="${TEMP_DIR}/catalog.json"
 show_html="${TEMP_DIR}/show.html"
 chat_json="${TEMP_DIR}/chat.json"
 
-runuser -u "${APP_USER}" -- env -i \
+setsid runuser -u "${APP_USER}" -- env -i \
   HOME="${TEMP_DIR}" \
   PATH=/usr/bin:/bin \
   NODE_ENV=development \
@@ -104,6 +123,7 @@ runuser -u "${APP_USER}" -- env -i \
   IMPORT_AUTO_DISCOVERY=false \
   /usr/bin/node "${REPO_ROOT}/backend/server.js" > "${app_log}" 2>&1 &
 APP_PID="$!"
+APP_PGID="${APP_PID}"
 
 for attempt in {1..30}; do
   if curl --fail --silent --show-error --max-time 2 \
@@ -120,6 +140,12 @@ for attempt in {1..30}; do
   fi
   sleep 1
 done
+
+ss -H -ltn | awk -v port=":${PORT}" '
+  index($4, port) && $4 != "127.0.0.1" port { bad = 1 }
+  $4 == "127.0.0.1" port { found = 1 }
+  END { exit(found && !bad ? 0 : 1) }
+' || fail "isolated application is not listening only on 127.0.0.1:${PORT}"
 
 curl --fail --silent --show-error --max-time 5 \
   --output "${catalog_json}" "http://127.0.0.1:${PORT}/data/shows.json"
@@ -169,12 +195,16 @@ NODE
   echo "Ask the Archivist verified with ${VERIFY_ARCHIVIST_EXPECTED_SOURCE} response behavior."
 fi
 
-kill -TERM "${APP_PID}"
+kill -TERM -- "-${APP_PGID}"
 wait "${APP_PID}" || {
   status="$?"
-  [[ "${status}" -eq 143 ]] ||
+  [[ "${status}" -eq 0 || "${status}" -eq 143 ]] ||
     fail "isolated application exited with unexpected status ${status}"
 }
+if ss -H -ltn "sport = :${PORT}" | grep -q .; then
+  fail "isolated application listener remained after shutdown"
+fi
 APP_PID=""
+APP_PGID=""
 
 echo "Isolated restored application verified: health, ${EXPECTED_PODCASTS} catalog records, and show HTML."

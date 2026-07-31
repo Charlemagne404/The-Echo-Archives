@@ -15,6 +15,7 @@ MARKER_TEMP=""
 VERIFY_DIR=""
 BACKUP_WRITE_PROBE=""
 REMOTE_LIST_FILE=""
+INVENTORY_VERIFIER="${REPO_ROOT}/tools/verify-restic-recovery-inventory.js"
 
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
@@ -44,6 +45,20 @@ cleanup() {
     ! -L "${VERIFY_DIR}" ]]; then
     find "${VERIFY_DIR}" -xdev -depth -delete
   fi
+}
+
+remove_recovery_inventory() {
+  local path_to_remove="${VERIFY_DIR}"
+  [[ -n "${path_to_remove}" &&
+    "${path_to_remove}" == "${CACHE_DIR}"/verify.* &&
+    -d "${path_to_remove}" &&
+    ! -L "${path_to_remove}" ]] ||
+    fail "Recovery inventory cleanup path is unsafe."
+  find "${path_to_remove}" -xdev -depth -delete
+  [[ ! -e "${path_to_remove}" && ! -L "${path_to_remove}" ]] ||
+    fail "Unencrypted recovery inventory remained after verified upload."
+  VERIFY_DIR=""
+  log "Removed and verified cleanup of the unencrypted recovery inventory."
 }
 
 fail() {
@@ -84,7 +99,8 @@ stage_publication_directory() {
     fail "Runtime publication directory contains a symbolic link: ${source}"
   fi
   install -d -m 0700 "${destination_parent}"
-  cp --archive --no-dereference -- "${source}" "${destination_parent}/"
+  cp --archive --no-dereference --one-file-system -- \
+    "${source}" "${destination_parent}/"
 }
 
 stage_publication_file() {
@@ -99,7 +115,21 @@ stage_publication_file() {
 trap cleanup EXIT
 trap 'on_error "${LINENO}"' ERR
 
+on_signal() {
+  local signal="$1"
+  local status="$2"
+  trap - EXIT ERR INT TERM HUP
+  log "ERROR: Off-site backup interrupted by ${signal}."
+  cleanup || log "ERROR: Temporary backup cleanup also failed."
+  exit "${status}"
+}
+trap 'on_signal INT 130' INT
+trap 'on_signal TERM 143' TERM
+trap 'on_signal HUP 129' HUP
+
 [[ "${EUID}" -eq 0 ]] || fail "Run this job through its root-owned systemd service."
+[[ -f "${INVENTORY_VERIFIER}" && ! -L "${INVENTORY_VERIFIER}" ]] ||
+  fail "Restic recovery inventory verifier is missing or unsafe."
 
 for command_name in basename cmp cp cut date dirname find grep install mktemp node restic rm sed sort stat; do
   command -v "${command_name}" >/dev/null 2>&1 || fail "Required command is missing: ${command_name}"
@@ -212,6 +242,8 @@ for unit_name in \
   echo-archives-offsite-backup.service \
   echo-archives-offsite-backup.timer; do
   unit_path="/etc/systemd/system/${unit_name}"
+  [[ ! -L "${unit_path}" ]] ||
+    fail "Systemd recovery configuration is a symbolic link: ${unit_path}"
   if [[ -f "${unit_path}" ]]; then
     install -m 0600 -- "${unit_path}" \
       "${recovery_root}/configuration/${unit_name}"
@@ -261,25 +293,10 @@ restic snapshots --json "${snapshot_id}" |
 
 REMOTE_LIST_FILE="$(mktemp /var/lib/echo-archives-monitoring/restic-inventory.XXXXXX)"
 restic ls --json "${snapshot_id}" > "${REMOTE_LIST_FILE}"
-node - "${required_paths}" "${REMOTE_LIST_FILE}" <<'NODE'
-const fs = require("node:fs");
-const [manifestPath, remotePath] = process.argv.slice(2);
-const required = fs.readFileSync(manifestPath, "utf8").trim().split(/\n+/);
-const remote = new Set();
-for (const line of fs.readFileSync(remotePath, "utf8").trim().split(/\n+/)) {
-  const entry = JSON.parse(line);
-  if (entry.struct_type !== "node" || typeof entry.path !== "string") continue;
-  const marker = "/recovery/";
-  const markerIndex = entry.path.lastIndexOf(marker);
-  if (markerIndex >= 0) remote.add(entry.path.slice(markerIndex + marker.length));
-}
-const missing = required.filter((relativePath) => !remote.has(relativePath));
-if (missing.length > 0) {
-  console.error(`Remote recovery inventory is incomplete (${missing.length} missing path(s)).`);
-  process.exit(1);
-}
-process.stdout.write(`Remote recovery inventory contains all ${required.length} staged paths.\n`);
-NODE
+node "${INVENTORY_VERIFIER}" \
+  --manifest "${required_paths}" \
+  --listing "${REMOTE_LIST_FILE}" \
+  --snapshot-id "${snapshot_id}"
 rm -f -- "${REMOTE_LIST_FILE}"
 REMOTE_LIST_FILE=""
 
@@ -295,6 +312,8 @@ restic forget \
 
 log "Checking repository integrity after backup and retention."
 restic check
+
+remove_recovery_inventory
 
 log "Applying owner-approved 30-day local retention after verified off-site recovery."
 node "${REPO_ROOT}/tools/prune-local-backups.js" \

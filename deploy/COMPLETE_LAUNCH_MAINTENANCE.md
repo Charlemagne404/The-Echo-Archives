@@ -13,7 +13,9 @@ In `--apply` mode the script performs these fail-fast stages in order:
 1. Preserves the live Caddyfile, Echo/Ollama units, installed versions, the
    actual Ollama binary and library tree, off-site backup units, listener state,
    and a response-code baseline for every non-Echo site in the shared
-   Caddyfile.
+   Caddyfile. Before any package is executed or installed, all four pinned
+   artifacts are copied into protected root-owned temporary staging and their
+   digests are checked again; later stages use only those immutable copies.
 2. Creates and validates a fresh online SQLite backup.
 3. Reconciles the reviewed off-site backup unit when the checked-in backup
    script has reached production before its matching systemd write path. Only
@@ -53,19 +55,26 @@ In `--apply` mode the script performs these fail-fast stages in order:
    environment already exists and passes strict owner, mode, name, hostname,
    scheme, path, and single-value checks. Absence is a logged skip, not an
    excuse to create a dummy value.
-9. Restores the newest tagged Restic snapshot into a guarded temporary
+9. Pauses the off-site timer and refuses to overlap an already-running backup,
+   then restores the newest non-future same-host tagged Restic snapshot into a guarded temporary
    directory, verifies SQLite integrity and foreign keys, starts an isolated
    loopback-only restored application, removes it, installs/verifies the
-   canonical off-site timer, runs a new backup, checks remote visibility,
+   canonical off-site timer, runs a new backup, checks every staged path in the
+   exact new snapshot across Restic's absolute and root-relative listing formats,
    applies existing off-site retention, runs `restic check`, and only then
-   publishes backup success. It then requires the local systemd monitor to pass
-   and requires zero failed units. The Better Stack success heartbeat therefore
-   cannot precede those checks. Recovery configuration that is genuinely
+   removes and verifies deletion of the unencrypted staging inventory and
+   publishes backup success. It requires new systemd invocation IDs for both
+   the backup and subsequent local monitor, then requires zero failed units.
+   When configured, the Better Stack success heartbeat follows the backup,
+   remote-inventory, retention, repository-integrity, cleanup, and freshness
+   checks; the local monitor runs immediately afterward. Recovery configuration that is genuinely
    optional and absent is logged and skipped successfully; required Restic and
    application inputs remain fail-fast prerequisites.
 10. Upgrades Ollama from 0.6.7 to 0.32.5 without moving or re-pulling models,
-   then verifies the exact version, loopback-only listener, existing `mistral`
-   model, a short generation, and lack of public Ollama exposure.
+   uses a bounded readiness poll for the server version/API, then verifies the
+   loopback-only listener, existing `mistral` model, a short generation, and
+   lack of public Ollama exposure. Rollback verifies the captured binary and
+   library tree plus the restored runtime, model, generation, and bind state.
 11. Starts two more isolated restored applications to verify Ask the Archivist
     uses Ollama when it is available and returns the bounded catalog fallback
     when it is unreachable.
@@ -78,18 +87,27 @@ In `--apply` mode the script performs these fail-fast stages in order:
 14. Runs a disposable failed-candidate rollback drill. The drill deliberately
     breaks only a temporary Git worktree, verifies failure detection, runs the
     prior revision against a disposable post-activation database copy, proves a
-    representative write survived, and confirms the production checkout was
-    untouched. This is not falsely reported as a full production deployment
-    rollback.
+    representative write survived, confirms loopback-only binding and semantic
+    health, removes the worktree/database explicitly, and confirms the
+    production checkout was untouched within the 15-minute target. This is not
+    falsely reported as a full production deployment rollback.
 15. Repeats local/public health, direct-origin/header-spoofing, TLS, service,
-    structured-log, and all shared-host checks.
+    structured-log, and all shared-host checks. TLS 1.2 and TLS 1.3 hostname
+    verification are explicit, the public access event is correlated by its
+    returned request ID, and the final production check requires a safe, fresh
+    off-site marker.
 
 Each changing component has a stage-specific rollback. A failure stops the
 session, rolls back only the current stage where safe, and never continues into
 a later risky stage. Previously completed and verified stages remain applied.
+`INT`, `TERM`, and `HUP` use the same rollback and guarded-cleanup path; isolated
+applications run in dedicated process groups so their children cannot be left
+listening after interruption.
 On a resumed run, the new preservation baseline is the already-applied live
 state from that run (for example, Caddy 2.11.4 and the dedicated runtime
-account), not the pre-first-run state.
+account), not the pre-first-run state. An already-verified runtime-account stage
+does not restart a healthy Echo process again; the deep preflight and following
+live-application stage verify its production behavior without extra downtime.
 
 ## Prerequisites
 
@@ -113,9 +131,10 @@ account), not the pre-first-run state.
   ```
 
   It contains checked upgrade and rollback packages for Caddy 2.11.4/2.10.2
-  and Ollama 0.32.5/0.6.7. The script pins and rechecks all four digests before
-  applying anything. The actual installed Ollama tree is still captured as the
-  primary rollback source.
+  and Ollama 0.32.5/0.6.7. The script pins and rechecks all four digests, copies
+  them to root-owned per-run staging, performs a full Ollama extraction in the
+  privileged preflight, and uses only those copies afterward. The actual
+  installed Ollama tree is still captured as the primary rollback source.
 
 Do not run `deploy/final-production-launch-maintenance.sh`,
 `deploy/complete-local-launch-readiness.sh`, or
@@ -167,10 +186,14 @@ cd /home/charlie/The-Echo-Archives
   --expected-commit "$(git rev-parse HEAD)"
 ```
 
-The privileged check adds host identity, service, dependency, free-space,
-Restic prerequisite, Cloudflare-range, and root-only file checks. It creates
-only a protected check log/evidence directory; it does not apply production
-configuration:
+The privileged check adds host identity, service, per-filesystem free-space,
+Restic prerequisite and real snapshot-format checks, Cloudflare-range, and
+root-only file checks. It also performs full Ollama artifact extraction,
+current Ollama generation, Archivist success/fallback, loopback-only isolated
+applications, TLS 1.2/1.3, UFW/nftables/listener capture, disk SMART checks,
+and the disposable rollback invariant drill. It creates protected temporary
+and evidence directories and processes but does not apply production
+configuration; guarded cleanup removes its temporary copies:
 
 ```bash
 cd /home/charlie/The-Echo-Archives
@@ -239,7 +262,8 @@ The script first attempts the matching current-stage rollback:
   and reloads systemd without starting a backup.
 - Origin configuration: restores the run’s `Caddyfile.before`, validates it,
   and reloads Caddy, or starts it if it became inactive.
-- Caddy package: reinstalls the pinned 2.10.2 package and restores the
+- Caddy package: reinstalls the exact pinned version captured at the start of
+  this run (2.10.2 on the first run or 2.11.4 on a resumed run) and restores the
   post-origin `Caddyfile.before-upgrade`.
 - Runtime account: the migration helper rolls back automatically on its own
   apply failure. After a later operator-requested rollback, use the exact
@@ -248,8 +272,10 @@ The script first attempts the matching current-stage rollback:
   database writes.
 - Better Stack or off-site units: restores the exact unit/drop-in files and
   enabled/active timer state captured immediately before that stage.
-- Ollama: stops Ollama, moves the failed new library tree into the protected run
-  directory, restores the exact captured binary/library/unit, and starts it.
+- Ollama: requires the service to stop, moves the failed new library tree into
+  the protected run directory, restores and byte-checks the captured
+  binary/library/unit, starts it, then repeats version/API/listener/model,
+  generation, and public non-exposure verification.
 
 If the log says `ROLLBACK FAILED`, stop. Do not delete database files, restore a
 production SQLite snapshot, reset the production Git checkout, or continue

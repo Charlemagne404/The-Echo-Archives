@@ -8,6 +8,15 @@ const ROOT = path.resolve(__dirname, "../..");
 const SCRIPT_PATH = path.join(ROOT, "deploy/complete-launch-maintenance.sh");
 const script = fs.readFileSync(SCRIPT_PATH, "utf8");
 
+function assertOrdered(contents, fragments) {
+  let previous = -1;
+  for (const fragment of fragments) {
+    const index = contents.indexOf(fragment, previous + 1);
+    assert.ok(index > previous, `${fragment} must follow the previous fragment`);
+    previous = index;
+  }
+}
+
 function runBackupTransitionFixture({
   failedUnits = [],
   installedUnitIsReviewed = true,
@@ -148,7 +157,9 @@ test("complete launch maintenance is fail-fast, locked, pinned, and staged", () 
   assert.match(script, /status --porcelain --untracked-files=normal/);
   assert.match(script, /refs\/remotes\/origin\/\$\{EXPECTED_BRANCH\}/);
   assert.match(script, /trap 'on_error "\$\{LINENO\}"' ERR/);
+  assert.match(script, /trap 'on_signal TERM 143' TERM/);
   assert.match(script, /CURRENT_ROLLBACK/);
+  assert.match(script, /execute_current_rollback/);
 
   const orderedStages = [
     "run_stage preserve-baseline",
@@ -189,8 +200,10 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     script,
     /tar --zstd --list[\s\S]{0,120}\|\s*grep\s+-[A-Za-z]*q/,
   );
-  assert.match(script, /cp -a -- \/usr\/local\/bin\/ollama/);
+  assert.match(script, /cp -a -- "\$\{OLLAMA_BIN\}"/);
   assert.match(script, /cp -a -- \/usr\/local\/lib\/ollama/);
+  assert.match(script, /stage_root_owned_artifacts/);
+  assert.match(script, /Copied and re-hashed all upgrade and rollback artifacts/);
   assert.match(script, /ollama-lib\.pre-upgrade/);
   assert.match(script, /rollback_caddy_configuration/);
   assert.match(script, /rollback_caddy_upgrade/);
@@ -253,6 +266,21 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   );
   assert.match(script, /off-site backup service did not finish successfully/);
   assert.match(script, /off-site backup service retained a nonzero exit status/);
+  assert.match(script, /latest Restic snapshot does not contain exactly one safe recovery manifest/);
+  assert.match(script, /restic dump "\$\{snapshot_id\}" "\$\{manifest_node\}"/);
+  assert.doesNotMatch(script, /restic dump "\$\{snapshot_id\}" "\$\{snapshot_root\}\/REQUIRED_PATHS"/);
+  assert.match(script, /preserving the healthy running Echo process idempotently/);
+  assert.doesNotMatch(
+    script.slice(script.indexOf("stage_runtime_migration()"), script.indexOf("validate_live_health_file()")),
+    /systemctl restart echo-archives\.service/,
+  );
+  assertOrdered(script.slice(script.indexOf("stage_backup_restore()")), [
+    "systemctl stop echo-archives-offsite-backup.timer",
+    "off-site backup service is already active",
+    'complete-pi-backup-setup.sh" --apply',
+    "off-site backup did not record a new verified service invocation",
+    "local monitor did not record a new post-backup invocation",
+  ]);
   assert.match(
     script,
     /local monitor remains pending because this failed stage did not publish a fresh off-site success marker/,
@@ -340,6 +368,92 @@ test("a stale marker remains resumable after failed-unit rollback", () => {
   assert.match(staleAfterReset.stdout, /transition=yes deferred=yes install=no/);
 });
 
+test("strict rollback execution cannot mask an early rollback failure", () => {
+  const fixture = fs.mkdtempSync("/tmp/echo-maintenance-rollback-test.");
+  try {
+    const result = spawnSync(
+      "bash",
+      [
+        "-c",
+        String.raw`
+source "$SCRIPT_PATH"
+CURRENT_ROLLBACK=fixture_rollback
+fixture_rollback() {
+  printf 'before\n' >> "$FIXTURE/calls"
+  false
+  printf 'masked\n' >> "$FIXTURE/calls"
+}
+execute_current_rollback
+printf 'status=%s\n' "$ROLLBACK_STATUS"
+cat "$FIXTURE/calls"
+`,
+      ],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+        env: { ...process.env, FIXTURE: fixture, SCRIPT_PATH },
+      },
+    );
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /status=1/);
+    assert.match(result.stdout, /before/);
+    assert.doesNotMatch(result.stdout, /masked/);
+  } finally {
+    fs.rmSync(fixture, { recursive: true, force: true });
+  }
+});
+
+test("Ollama readiness tolerates delayed startup and rejects exhaustion", () => {
+  const fixture = fs.mkdtempSync("/tmp/echo-ollama-readiness-test.");
+  const fakeOllama = path.join(fixture, "ollama");
+  fs.writeFileSync(fakeOllama, "#!/usr/bin/env bash\nprintf 'ollama version is 0.6.7\\n'\n");
+  fs.chmodSync(fakeOllama, 0o700);
+  try {
+    const result = spawnSync(
+      "bash",
+      [
+        "-c",
+        String.raw`
+source "$SCRIPT_PATH"
+TEMP_ROOT="$FIXTURE"
+OLLAMA_BIN="$FAKE_OLLAMA"
+attempts=0
+systemctl() {
+  attempts=$((attempts + 1))
+  (( attempts >= 3 ))
+}
+ss() { printf 'LISTEN 0 4096 127.0.0.1:11434 0.0.0.0:*\n'; }
+curl() { :; }
+node() { :; }
+sleep() { :; }
+wait_for_ollama_ready 0.6.7
+printf 'delayed_attempts=%s\n' "$attempts"
+systemctl() { return 1; }
+if wait_for_ollama_ready 0.6.7; then
+  exit 91
+fi
+printf 'exhaustion=rejected\n'
+`,
+      ],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          FAKE_OLLAMA: fakeOllama,
+          FIXTURE: fixture,
+          SCRIPT_PATH,
+        },
+      },
+    );
+    assert.equal(result.status, 0, result.stderr);
+    assert.match(result.stdout, /delayed_attempts=3/);
+    assert.match(result.stdout, /exhaustion=rejected/);
+  } finally {
+    fs.rmSync(fixture, { recursive: true, force: true });
+  }
+});
+
 test("complete launch maintenance does not mutate UFW or expose monitoring secrets", () => {
   assert.match(script, /ufw status verbose/);
   assert.match(script, /ufw status numbered/);
@@ -352,6 +466,11 @@ test("complete launch maintenance does not mutate UFW or expose monitoring secre
   assert.match(script, /parseHeartbeatUrl/);
   assert.match(script, /secret is absent; no drop-in was installed/);
   assert.match(script, /No DNS, Cloudflare account, TLS policy, UFW rule/);
+  assert.match(script, /run_remaining_stage_preflight/);
+  assert.match(script, /Protocol version: TLSv1\.2/);
+  assert.match(script, /Protocol version: TLSv1\.3/);
+  assert.match(script, /REQUIRE_OFFSITE_BACKUP=true/);
+  assert.match(script, /public access event is correlated|expected_request_id/);
 });
 
 test("rollback invariant drill stays disposable and never targets production data", () => {

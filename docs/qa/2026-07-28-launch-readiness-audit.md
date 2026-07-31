@@ -184,14 +184,57 @@ recognized resumable state after successful rollback clears systemd's failed
 unit flag. The off-site restore/backup remains unverified until the corrected
 job completes in production.
 
+The corrected apply at
+`908747d687e81a770df4f13d07ad780e75bcaf7e` again passed preservation, fresh
+database backup, backup-unit reconciliation, the origin gate, Caddy, runtime
+account, live application, and Better Stack stages. At 21:12 it successfully
+uploaded a new encrypted Restic snapshot, listed that exact snapshot, and then
+stopped because the remote-inventory verifier treated all 516 staged paths as
+missing. The hard-coded parser only recognized paths containing the literal
+substring `/recovery/`; production Restic emitted a different valid path form.
+Retention, `restic check`, local pruning, readiness, and the freshness marker
+did not run. Current-stage rollback restored the timer/unit state and cleaned
+visible temporary files. The immutable uploaded snapshot was correctly left in
+the repository for the next reviewed retention run. The freshness marker
+therefore remains stale and Ollama remains 0.6.7.
+
+The replacement verifier now derives the sole guarded source root from the
+exact snapshot metadata, accepts absolute and root-relative Restic JSON formats
+with or without a leading slash, discovers the exact snapshot-internal manifest
+node used by `restic dump`, rejects traversal, duplicate manifests, wrong snapshot IDs, and
+same-name paths outside the source root, and reports counts without disclosing
+private filenames. A real disposable Restic repository integration test backs
+up a recovery tree, consumes actual `restic ls --json` output, and proves the
+production verifier. Privileged preflight now also checks the newest same-host
+production snapshot's real listing and manifest before any changing stage;
+legacy pre-inventory snapshots are classified explicitly rather than creating
+a migration catch-22.
+
+Because repeated runs had exposed production-only assumptions one at a time,
+the maintenance safety review was expanded across every remaining stage. The
+prepared script now copies and re-hashes artifacts into root-owned per-run
+staging, fully extracts Ollama during privileged preflight, polls Ollama server
+and API readiness, fully verifies an Ollama rollback, pauses backup automation
+before Restic work, requires new backup/monitor invocation IDs, handles
+`INT`/`TERM`/`HUP`, prevents conditional `errexit` from masking rollback
+failures, enforces loopback binds for all isolated processes, explicitly
+deletes unencrypted recovery/rollback copies before success, selects snapshots
+by exact host and valid time, checks TLS 1.2/1.3, correlates the final public
+access event by request ID, and requires a safe fresh off-site marker in final
+verification. The privileged `--check` now exercises every non-destructive
+production check used by the remaining stages, including current Ollama and
+Archivist flows, UFW/nftables, SMART, and the disposable rollback invariant.
+None of these production-only gates is `Verified` until the corresponding
+privileged check/apply evidence passes.
+
 ### Repository verification evidence
 
 The final post-fix `npm run verify` completed successfully:
 
-- generated 100 shows, 29 collections, and seven review companions;
+- generated 125 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `37/37`;
-- backend tests: `228/228`;
+- operations/tool tests: `43/43`;
+- backend tests: `229/229`;
 - Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive
   profile behavior, and repaired start-link navigation;
@@ -267,7 +310,9 @@ Deployment, recovery, and monitoring work:
   `update-echo-archives.sh` compatibility wrapper;
 - `deploy/{echo-archives-offsite-backup.sh,echo-archives-offsite-backup.service,
   echo-archives-offsite-backup.timer,verify-restored-application.sh,
-  complete-pi-backup-setup.sh}`;
+  complete-pi-backup-setup.sh}`,
+  `tools/verify-restic-recovery-inventory.js`, and
+  `tools/test/restic-recovery-inventory.test.js`;
 - `deploy/{BETTER_STACK_SETUP.md,better-stack-account.env.example,
   better-stack-heartbeat.env.example,notify-better-stack-heartbeat.js,
   echo-archives-offsite-backup-heartbeat.conf}`;

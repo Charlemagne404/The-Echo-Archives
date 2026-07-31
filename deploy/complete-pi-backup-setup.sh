@@ -22,6 +22,7 @@ PASSWORD_FILE="/etc/echo-archives/pi-restic-password"
 SSH_IDENTITY="/root/.ssh/echo-archives-pi-backup"
 SSH_ALIAS="echo-backup-pi"
 PI_TAILSCALE_IP="100.102.113.86"
+EXPECTED_HOST="charlie-Legion-T530-28ICB"
 EXPECTED_REPOSITORY="sftp:echo-backup-pi:/home/echo-backup/echo-archives-restic"
 DRILL_SNAPSHOT=""
 PASSED_SETUP_LOG="/var/log/echo-archives/pi-backup-setup-20260727T190634Z.log"
@@ -40,6 +41,7 @@ RESTORE_REMOVED="no"
 RESTORE_COUNTS=""
 NEW_SNAPSHOT=""
 SSH_EFFECTIVE=""
+RESULT_TEMP=""
 
 log() {
   printf '[%s] %s\n' "$(date --iso-8601=seconds)" "$*"
@@ -75,6 +77,13 @@ cleanup() {
     rm -f -- "${SSH_EFFECTIVE}"
   fi
   SSH_EFFECTIVE=""
+  if [[ -n "${RESULT_TEMP}" &&
+    "${RESULT_TEMP}" == "${RESULT_DIR}"/pi-backup-readiness.* &&
+    -f "${RESULT_TEMP}" &&
+    ! -L "${RESULT_TEMP}" ]]; then
+    rm -f -- "${RESULT_TEMP}"
+  fi
+  RESULT_TEMP=""
   cleanup_restore
 }
 
@@ -84,6 +93,16 @@ on_error() {
   trap - ERR
   log "ERROR: Pi backup completion stopped at line ${line} with exit status ${status}."
   cleanup || true
+  log "Review the protected log: ${LOG_FILE}"
+  exit "${status}"
+}
+
+on_signal() {
+  local signal="$1"
+  local status="$2"
+  trap - ERR EXIT INT TERM HUP
+  log "ERROR: Pi backup completion interrupted by ${signal}."
+  cleanup || log "ERROR: Temporary restore cleanup also failed."
   log "Review the protected log: ${LOG_FILE}"
   exit "${status}"
 }
@@ -117,14 +136,46 @@ latest_snapshot_id() {
       process.stdin.on("data", (chunk) => { input += chunk; });
       process.stdin.on("end", () => {
         const snapshots = JSON.parse(input);
-        if (!Array.isArray(snapshots) || snapshots.length === 0) {
+        const expectedHost = process.argv[1];
+        const now = Date.now();
+        const eligible = Array.isArray(snapshots)
+          ? snapshots.filter((snapshot) => {
+              const timestamp = Date.parse(snapshot.time);
+              return snapshot.hostname === expectedHost && Number.isFinite(timestamp) && timestamp <= now;
+            })
+          : [];
+        if (eligible.length === 0) {
           process.exit(1);
         }
-        snapshots.sort((left, right) => Date.parse(right.time) - Date.parse(left.time));
-        if (!snapshots[0]?.id) process.exit(1);
-        process.stdout.write(snapshots[0].id);
+        eligible.sort((left, right) => Date.parse(right.time) - Date.parse(left.time));
+        if (!/^[0-9a-f]{64}$/.test(eligible[0]?.id ?? "")) process.exit(1);
+        process.stdout.write(eligible[0].id);
       });
-    '
+    ' "${EXPECTED_HOST}"
+}
+
+same_host_snapshot_ids() {
+  /usr/bin/restic snapshots --json --tag echo-archives |
+    /usr/bin/node -e '
+      let input = "";
+      process.stdin.on("data", (chunk) => { input += chunk; });
+      process.stdin.on("end", () => {
+        const expectedHost = process.argv[1];
+        const now = Date.now();
+        const snapshots = JSON.parse(input);
+        const ids = Array.isArray(snapshots)
+          ? snapshots
+              .filter((snapshot) => {
+                const timestamp = Date.parse(snapshot.time);
+                return snapshot.hostname === expectedHost &&
+                  Number.isFinite(timestamp) && timestamp <= now &&
+                  /^[0-9a-f]{64}$/.test(snapshot.id ?? "");
+              })
+              .map((snapshot) => snapshot.id)
+          : [];
+        process.stdout.write(`${[...new Set(ids)].sort().join("\n")}\n`);
+      });
+    ' "${EXPECTED_HOST}"
 }
 
 reset_failed_unit() {
@@ -220,6 +271,7 @@ id "${APP_USER}" >/dev/null 2>&1 ||
 for command_path in \
   /usr/bin/find \
   /usr/bin/flock \
+  /usr/bin/comm \
   /usr/bin/crontab \
   /usr/bin/grep \
   /usr/bin/install \
@@ -245,6 +297,9 @@ chmod 0600 "${LOG_FILE}"
 exec > >(tee -a "${LOG_FILE}") 2>&1
 trap 'on_error "${LINENO}"' ERR
 trap cleanup EXIT
+trap 'on_signal INT 130' INT
+trap 'on_signal TERM 143' TERM
+trap 'on_signal HUP 129' HUP
 
 log "Beginning guarded Raspberry Pi backup completion."
 log "No repository initialization, reboot, or live-database restore will be performed."
@@ -389,7 +444,8 @@ if [[ "${MODE}" == "full" ]]; then
       process.stdout.write(String(result.counts.podcasts));
     ' "${restore_json}"
   )"
-  "${APPLICATION_CHECK}" "${restored_databases[0]}" "${restored_podcast_count}"
+  APP_USER="${APP_USER}" \
+    "${APPLICATION_CHECK}" "${restored_databases[0]}" "${restored_podcast_count}"
   log "Isolated application verified against the newest restored database."
   cleanup_restore
 else
@@ -414,13 +470,28 @@ reset_failed_unit "${SERVICE_NAME}"
 reset_failed_unit "${MONITOR_SERVICE}"
 assert_no_competing_automation
 
-before_snapshot="$(latest_snapshot_id)"
+snapshots_before="${BACKUP_DIR}/snapshot-ids.before"
+snapshots_after="${BACKUP_DIR}/snapshot-ids.after"
+same_host_snapshot_ids > "${snapshots_before}"
+before_service_invocation="$(
+  /usr/bin/systemctl show "${SERVICE_NAME}" -p InvocationID --value
+)"
 run_since="$(date --iso-8601=seconds)"
 log "Running the canonical Pi backup service manually."
 /usr/bin/systemctl start "${SERVICE_NAME}"
-NEW_SNAPSHOT="$(latest_snapshot_id)"
-[[ -n "${NEW_SNAPSHOT}" && "${NEW_SNAPSHOT}" != "${before_snapshot}" ]] ||
-  die "The service did not create a new Restic snapshot."
+after_service_invocation="$(
+  /usr/bin/systemctl show "${SERVICE_NAME}" -p InvocationID --value
+)"
+[[ "${after_service_invocation}" =~ ^[0-9a-f]{32}$ &&
+  "${after_service_invocation}" != "${before_service_invocation}" ]] ||
+  die "The Pi backup service did not record a new invocation."
+same_host_snapshot_ids > "${snapshots_after}"
+mapfile -t new_snapshot_ids < <(/usr/bin/comm -13 "${snapshots_before}" "${snapshots_after}")
+(( ${#new_snapshot_ids[@]} == 1 )) ||
+  die "The service did not create exactly one new same-host Restic snapshot."
+NEW_SNAPSHOT="${new_snapshot_ids[0]}"
+[[ "${NEW_SNAPSHOT}" == "$(latest_snapshot_id)" ]] ||
+  die "The newly created Restic snapshot is not the latest valid same-host snapshot."
 [[ "$(/usr/bin/systemctl show "${SERVICE_NAME}" -p Result --value)" == "success" ]] ||
   die "The Pi backup service result is not success."
 [[ "$(/usr/bin/systemctl show "${SERVICE_NAME}" -p ExecMainStatus --value)" == "0" ]] ||
@@ -450,7 +521,16 @@ next_run="$(
 
 assert_no_competing_automation
 log "Rerunning the local monitor after clearing the dependent failure state."
+before_monitor_invocation="$(
+  /usr/bin/systemctl show "${MONITOR_SERVICE}" -p InvocationID --value
+)"
 /usr/bin/systemctl start "${MONITOR_SERVICE}"
+after_monitor_invocation="$(
+  /usr/bin/systemctl show "${MONITOR_SERVICE}" -p InvocationID --value
+)"
+[[ "${after_monitor_invocation}" =~ ^[0-9a-f]{32}$ &&
+  "${after_monitor_invocation}" != "${before_monitor_invocation}" ]] ||
+  die "The local monitor did not record a new post-backup invocation."
 [[ "$(/usr/bin/systemctl show "${MONITOR_SERVICE}" -p Result --value)" == "success" ]] ||
   die "The local production monitor did not recover after the Pi backup succeeded."
 failed_units="$(/usr/bin/systemctl --failed --no-legend --plain)"
@@ -466,7 +546,7 @@ log "Canonical timer schedule:"
 log "Failed units:"
 /usr/bin/systemctl --failed --no-pager
 
-result_temp="$(mktemp "${RESULT_DIR}/pi-backup-readiness.XXXXXX")"
+RESULT_TEMP="$(mktemp "${RESULT_DIR}/pi-backup-readiness.XXXXXX")"
 {
   printf 'completed_at=%s\n' "$(date -u --iso-8601=seconds)"
   if [[ "${MODE}" == "full" ]]; then
@@ -487,9 +567,10 @@ result_temp="$(mktemp "${RESULT_DIR}/pi-backup-readiness.XXXXXX")"
   printf 'timer_next=%s\n' "${next_run}"
   printf 'failed_units=0\n'
   printf 'log=%s\n' "${LOG_FILE}"
-} > "${result_temp}"
-install -m 0644 -o root -g root "${result_temp}" "${RESULT_FILE}"
-rm -f -- "${result_temp}"
+} > "${RESULT_TEMP}"
+install -m 0644 -o root -g root "${RESULT_TEMP}" "${RESULT_FILE}"
+rm -f -- "${RESULT_TEMP}"
+RESULT_TEMP=""
 
 log "Pi backup completion succeeded."
 if [[ "${MODE}" == "full" ]]; then

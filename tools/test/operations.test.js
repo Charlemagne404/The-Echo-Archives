@@ -357,7 +357,17 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(offsiteBackup, /docs\/generated\/catalog-status\.md/);
   assert.match(offsiteBackup, /REQUIRED_PATHS/);
   assert.match(offsiteBackup, /restic ls --json "\$\{snapshot_id\}"/);
-  assert.match(offsiteBackup, /Remote recovery inventory contains all/);
+  assert.match(offsiteBackup, /verify-restic-recovery-inventory\.js/);
+  assert.doesNotMatch(offsiteBackup, /lastIndexOf\(marker\)/);
+  assert.match(offsiteBackup, /remove_recovery_inventory/);
+  assert.match(offsiteBackup, /Unencrypted recovery inventory remained/);
+  assert.match(offsiteBackup, /--one-file-system/);
+
+  const restoredApplication = read("deploy/verify-restored-application.sh");
+  assert.match(restoredApplication, /setsid runuser/);
+  assert.match(restoredApplication, /kill -TERM -- "-\$\{APP_PGID\}"/);
+  assert.match(restoredApplication, /not listening only on 127\.0\.0\.1/);
+  assert.match(restoredApplication, /listener remained after shutdown/);
   assert.match(offsiteBackup, /stage_private_configuration "\$\{BACKEND_ENV\}" "backend\.env"/);
   assert.match(offsiteBackup, /stage_private_configuration "\/etc\/caddy\/Caddyfile" "Caddyfile"/);
   assert.match(offsiteBackup, /stage_private_configuration "\/etc\/echo-archives\/monitoring\.env" "monitoring\.env"/);
@@ -385,6 +395,10 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(piBackupCompletion, /APPLICATION_CHECK/);
   assert.match(piBackupCompletion, /OPERATOR_USER="charlie"/);
   assert.match(piBackupCompletion, /APP_USER="echo-archives"/);
+  assert.match(
+    piBackupCompletion,
+    /APP_USER="\$\{APP_USER\}" \\\s*"\$\{APPLICATION_CHECK\}"/,
+  );
   assert.match(piBackupCompletion, /find "\$\{RESTORE_DIR\}" -xdev -depth -delete/);
   assert.match(piBackupCompletion, /systemctl start "\$\{SERVICE_NAME\}"/);
   assert.match(piBackupCompletion, /--repair-automation/);
