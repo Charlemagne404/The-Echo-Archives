@@ -1,0 +1,743 @@
+{
+  "id": "the-magnus-protocol",
+  "title": "The Magnus Protocol",
+  "subtitle": "A weekly horror fiction podcast featuring short stories, serial plots, full soundscapes, guest actors and more.",
+  "description": "The Magnus Archives 2: The Magnus Protocol is the prequel/sequel/”sidequel” to the internationally renowned Magnus Archives podcast. The Magnus Institute was an organisation dedicated to academic research into the esoteric and the paranormal, based out of Manchester, England. It burned to the ground in 1999. There were no survivors. Now, almost 25 years later, Alice and Sam, a pair of low-level civil service workers at the underfunded Office of Incident Assessment and Response, have stumbled across its legacy. A legacy that will put them in grave danger.",
+  "cover": "images/covers/the-magnus-protocol.jpg",
+  "coverAlt": "The Magnus Protocol cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "https://rustyquill.com/show/the-magnus-protocol/",
+    "spotify": "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
+    "apple": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637",
+    "website": "https://rustyquill.com/show/the-magnus-protocol/",
+    "rss": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "horror",
+    "mystery",
+    "supernatural"
+  ],
+  "tones": [],
+  "formats": [
+    "Serialized",
+    "full-cast"
+  ],
+  "tags": [
+    "Horror",
+    "Paranormal",
+    "Mystery"
+  ],
+  "aliases": [
+    "The Magnus Protocol",
+    "The Magnus Protocol Transcripts - Rusty Quill",
+    "The Magnus Protocol - Rusty Quill"
+  ],
+  "themes": [
+    "Paranormal investigation",
+    "Office of Incident Assessment and Response"
+  ],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 383 full episodes • 24 min median",
+    "seasons": 2,
+    "episodes": 383,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 94,
+    "totalObservedHours": 155.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      8,
+      7,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 383,
+      "bonus": 4,
+      "trailer": 11
+    }
+  },
+  "releaseDates": {
+    "first": "2024-01-18",
+    "latest": "2026-07-30",
+    "latestFeedItem": "2026-07-30",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://rustyquill.com/show/the-magnus-protocol/",
+    "patreon": "https://www.patreon.com/rustyquill",
+    "koFi": "",
+    "discord": "",
+    "youtube": "http://youtube.com/channel/UCAfn5ahWLpQmCIN7D0E1YQg/",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Jonathan Sims and Alexander J Newall",
+    "ownerName": "Rusty Quill",
+    "network": "Rusty Quill",
+    "writers": [
+      "Jonathan Sims",
+      "Alexander J Newall"
+    ],
+    "directors": [
+      "Alexander J Newall"
+    ],
+    "producers": [
+      "April Sumner"
+    ],
+    "people": [
+      {
+        "name": "Jonathan Sims",
+        "role": "writer"
+      },
+      {
+        "name": "Alexander J Newall",
+        "role": "writer"
+      },
+      {
+        "name": "Alexander J Newall",
+        "role": "director"
+      },
+      {
+        "name": "April Sumner",
+        "role": "executive producer"
+      },
+      {
+        "name": "Sam Jones",
+        "role": "composer"
+      }
+    ]
+  },
+  "creators": [
+    "Jonathan Sims and Alexander J Newall",
+    "Jonathan Sims",
+    "Alexander J Newall"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "partially-source-reviewed",
+    "verifiedAt": "2026-08-03",
+    "source": "https://rustyquill.com/transcripts/the-magnus-protocol/; https://rustyquill.com/about/; https://rustyquill.com/show/the-magnus-protocol/; https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8; https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rustyquill.com/transcripts/the-magnus-protocol/",
+      "https://rustyquill.com/about/",
+      "https://rustyquill.com/show/the-magnus-protocol/",
+      "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+      "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+    ],
+    "sourceCategories": [
+      "horror",
+      "mystery",
+      "supernatural"
+    ],
+    "sourceKeywords": [
+      "horror podcast",
+      "anthology podcast",
+      "horror fiction",
+      "fiction podcast",
+      "rusty quill",
+      "Alexander J. Newall",
+      "Jonathan Sims",
+      "Audiodrama",
+      "Audio Fiction",
+      "Science Fiction",
+      "horror",
+      "unfiction",
+      "found footage",
+      "jonny sims",
+      "cosmic horror"
+    ],
+    "sourceTags": [
+      "Horror",
+      "Paranormal",
+      "Mystery"
+    ],
+    "importOfficialSummary": "The Magnus Archives 2: The Magnus Protocol is the prequel/sequel/”sidequel” to the internationally renowned Magnus Archives podcast. The Magnus Institute was an organisation dedicated to academic research into the esoteric and the paranormal, based out of Manchester, England. It burned to the ground in 1999. There were no survivors. Now, almost 25 years later, Alice and Sam, a pair of low-level civil service workers at the underfunded Office of Incident Assessment and Response, have stumbled across its legacy. A legacy that will put them in grave danger.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Rusty Quill",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+        "appleCollectionId": "1095138637",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/",
+          "fetchedAt": "2026-08-03T15:16:51.636Z",
+          "payloadHash": "1b55a6a0b12bda3e2d119401bc10f7e4eed5e4d6867bf817542a33cf794b23e4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rustyquill.com/about/",
+          "fetchedAt": "2026-08-03T15:16:51.634Z",
+          "payloadHash": "db1f50800619fba0b028ab7bb022f75603495d05518b18da3a9508c7d320399a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/",
+          "fetchedAt": "2026-08-03T15:16:51.620Z",
+          "payloadHash": "c33cec6d2f93345cbcad2ec4b064e85705241a901d3073557bd19e7ec7999da7"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+          "fetchedAt": "2026-08-03T15:16:50.898Z",
+          "payloadHash": "c584713cc0c2ee5eeded6790e132e27b0e493600578a20ab7a39b86b4791f2cd"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4",
+          "fetchedAt": "2026-08-03T15:16:50.565Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "externalResearch": {
+        "sourceUrls": [],
+        "fieldSources": {},
+        "notes": "The Magnus Protocol intentionally uses the existing Magnus Archives public RSS and Apple listing. The official site states season 2 act 3 returns July 2026.",
+        "uncertainFields": [],
+        "reviewedAt": "2026-08-03T15:25:31.424Z"
+      },
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "description": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "rssUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "spotify",
+              "sourceUrl": "https://open.spotify.com/episode/2mYUlKBLAFTj5eKrjQ8tg3"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "language": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "spotifyUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/"
+            }
+          ]
+        },
+        "tags": {
+          "confidence": 1,
+          "method": "source-categories-and-keywords",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+            }
+          ]
+        },
+        "startUrl": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualReleaseState": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "manualEnrichment": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "releaseStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 1,
+          "method": "maintainer-edit",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 1,
+          "method": "maintainer-verified-research",
+          "sources": []
+        }
+      },
+      "importedAt": "2026-08-03T15:25:31.424Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "ca86473c92c4b03549fd0095f5d8f5af8c6240d4f40ec56f646b09ba14fb51fe",
+        "subtitle": "9818b3e731549d9fd162cefbd4911a4f7428427b0c4d87636ba8210f4fc96f09",
+        "description": "023e7086539323e7b63ec2918bdb2c9c57b6ba63dfd9e0a18237161236ecb038",
+        "cover": "b5d9fa49f3f2f9017cf4829f747c63ff4836cf676478254925f98f05079ea75c",
+        "coverAlt": "3590f4726d568e7ef24619e81d57283ffa147fa29cf8cae21a2d1d856e403796",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "56925b0f5aea0f43366f160e385c927ddc45e9ab0f4ab1bb51aa637dc99449f1",
+        "officialLinks": "40ccd18bfffea7cda64e1543ac06b536c9feedf03ed3254a9ff4f5e615cd0814",
+        "genres": "7bab8ed95a04f869165bd81addad7e3d88ba1e2cc78ce342a041a38ac43d419b",
+        "tags": "84f7bb3eb185a50a6e5da599c1cb0ea066f73e522e6a5adf43adf7cbd4b5b58f",
+        "formats": "61f22e77e0910165d0c66f0139746d99f1c87d0bb93c00dfa7f8f1b699c8e203",
+        "aliases": "0429b6f9a0f259abf94cc6ecbabe0397f5410b0982aa69305e3b826c5cb6f215",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "200de2ec0ee09a178bca317878ee016c4cd4c7093e67e917f297f11c20e5f1c4",
+        "releaseDates": "c7a8098e2f0db3fb7825aa41cae4e0a93c698fe770c1416913c6fc9818459cf6",
+        "credits": "f234f8af728ec0faa09369b4136a1faa2d82dc82977070024ab6ddacae15adee",
+        "creators": "dea40788e6fcce96dab50f965e4848ebbc30b67c49f5d169cebf892aad8d6cdc",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "eb1282c6af425bc2bc78864d8b2dd58bc0efef54b28e6685740e6df9062e20c4"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed."
+      ]
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-03",
+  "updatedAt": "2026-08-03",
+  "creatorId": "jonathan-sims-and-alexander-j-newall",
+  "networkId": "rusty-quill"
+}

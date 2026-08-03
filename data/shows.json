@@ -2696,9 +2696,10 @@
     "coverAlt": "Red Valley cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "active",
-    "completionStatus": "ongoing",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
     "listenLinks": {
+      "start": "https://www.redvalleypod.com/episodes.html",
       "apple": "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
       "website": "https://www.redvalleypod.com/",
       "rss": "https://feeds.megaphone.fm/redvalley"
@@ -2724,13 +2725,31 @@
       "Memory"
     ],
     "length": {
-      "label": "4 released seasons / 25 main-story episodes; final Season 5 announced for 2026",
+      "label": "4 observed seasons • 25 full feed episodes • 22 bonus entries • 1 trailer • 25 min median",
       "seasons": 4,
       "episodes": 25,
       "avgEpisodeMinutes": 26,
       "totalHours": 10.9,
+      "medianEpisodeMinutes": 25,
+      "minEpisodeMinutes": 14,
+      "maxEpisodeMinutes": 44,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "countQualifier": "observed",
+      "episodeCounts": {
+        "full": 25,
+        "bonus": 22,
+        "trailer": 1,
+        "totalObserved": 48,
+        "exact": false
+      },
       "feedEntries": 48,
-      "upcomingSeasons": 1
+      "upcomingSeasons": 0
     },
     "ratings": {
       "archive": 7
@@ -2761,12 +2780,13 @@
       "hex": "#92605d",
       "rgb": "146, 96, 93"
     },
-    "updatedAt": "2026-07-18",
+    "updatedAt": "2026-08-03",
     "releaseDates": {
       "first": "2020-03-22",
-      "latest": "2025-02-09",
-      "note": "The publisher RSS contains 25 main-story episodes across Seasons 1-4. Bonus shows, trailers, and cross-promotions account for the remaining feed entries. Final Season 5 is announced for 2026 but is not counted as released.",
-      "upcoming": "Season 5 / final season announced for 2026"
+      "latest": "2025-12-14",
+      "latestFullEpisode": "2025-02-09",
+      "latestFeedItem": "2026-01-27",
+      "note": "The publisher RSS contains 25 entries marked as full episodes across Seasons 1-4, 22 bonus entries, and one trailer. The latest original Red Valley release in the feed is the second part of the fourth mini-series (2025-12-14); the 2026-01-27 item introduces another show. No official completion or next-release date is stated."
     },
     "officialLinks": {
       "website": "https://www.redvalleypod.com/"
@@ -2781,15 +2801,18 @@
       "director": "Alan Mandel",
       "producer": "Alan Mandel",
       "composer": "Richard Campbell",
-      "soundDesign": "Richard Campbell",
+      "soundDesign": "Richard Campbell; Alexander Broad",
       "network": "Fable & Folly",
-      "cast": "Not verified",
-      "coverArt": "Not verified"
+      "studio": "Orpheus Studio, London",
+      "creativeConsultant": "Carol Pestridge"
     },
     "availability": {
-      "transcripts": "not verified",
+      "transcripts": "Official PDF transcripts and content warnings linked from the episode guide",
       "captions": "not applicable",
-      "regionNotes": "Official site says available on all podcast platforms."
+      "regionNotes": "Official site says available on all podcast platforms.",
+      "transcriptFormats": [
+        "application/pdf"
+      ]
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -2802,20 +2825,34 @@
         "https://www.redvalleypod.com/",
         "https://www.redvalleypod.com/about.html",
         "https://www.redvalleypod.com/cast--crew.html",
+        "https://www.redvalleypod.com/episodes.html",
         "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
         "https://feeds.megaphone.fm/redvalley"
       ],
-      "objectiveNote": "Official site verifies premise, Fable & Folly association, listed season/mini-series structure, writer, director/producer, post-production/music, and recording studio context. The publisher RSS verifies 25 main-story episodes and separates them from 23 bonus/trailer entries.",
-      "objectiveVerifiedAt": "2026-07-18",
-      "reviewFile": "reviews/red-valley.json",
-      "researchGaps": [
-        "final Season 5 release date"
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
       ],
+      "podcast": {
+        "medium": "podcast",
+        "ownerName": "Kontinue Productions",
+        "copyright": "Copyright 2024 All rights reserved.",
+        "explicit": "yes",
+        "feedType": "serial",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
       },
-      "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+      "objectiveNote": "Official site and live RSS feed verify the premise, canonical start page, credits, recording studio, Fable & Folly association, four observed seasons, feed composition, regular-release and feed-item dates, historical cadence, transcript access, content warnings, language, format, and explicit flag. Feed counts are observed rather than claimed complete.",
+      "objectiveVerifiedAt": "2026-08-03",
+      "reviewFile": "reviews/red-valley.json",
+      "researchGaps": [
+        "No official completion or next-release statement was located."
+      ],
+      "auditPass": "Expanded factual source review on 2026-08-03. Existing archive ratings and editorial copy were preserved."
     },
     "verification": {
       "status": "source-verified-with-upcoming-note",
@@ -2828,21 +2865,36 @@
       "Red Valley Podcast"
     ],
     "themes": [
-      "sci-fi",
-      "future",
-      "mystery"
+      "cryonics",
+      "experimental science",
+      "corporate research",
+      "memory"
     ],
     "contentNotes": [
-      "content notes not verified beyond public premise"
+      "explicit language",
+      "medical procedures",
+      "violence",
+      "self-harm",
+      "abuse"
     ],
     "languages": [
       "English"
     ],
     "transcriptLanguages": [],
     "creators": [
-      "Jonathan Williams and Alan Mandel"
+      "Jonathan Williams",
+      "Alan Mandel"
     ],
-    "cast": [],
+    "cast": [
+      "Jonathan Williams — Warren Godby",
+      "Alan Mandel — Gordon Porlock",
+      "Tash Reith-Banks — Dr Aubrey Wood",
+      "May Cunningham — Bryony Halbech / Karen Godby",
+      "Alexander Broad — Clive Schill",
+      "Carol Pestridge — Francesca Jones",
+      "Rachel Fowler — Pamela Jennings",
+      "Daon Broni — Degracious Mele"
+    ],
     "createdAt": "2026-06-01",
     "creatorId": "jonathan-williams-and-alan-mandel",
     "networkId": "red-valley-fable-and-folly",
@@ -2860,7 +2912,7 @@
     "imageAlt": "Red Valley cover art",
     "summary": "A mystery drama about the limits of experimental science, confronting your own past, present & future, & trying to remember the level select cheat from Sonic 2.",
     "finalRating": 7,
-    "searchText": "red valley a science heavy mystery with enough conceptual weirdness to stick a mystery drama about the limits of experimental science confronting your own past present and future and trying to remember the level select cheat from sonic 2 a good neighboring pick once ars paradoxica leaves you wanting more controlled weirdness cryonics experimental science corporate conspiracy memory sci fi mystery drama weird tense dark full cast serialized late night serious sci fi red valley red valley podcast sci fi future mystery content notes not verified beyond public premise jonathan williams and alan mandel english ars paradoxica the deca tapes case 63 ongoing indexed only indexed entry unknown unknown red valley jonathan williams alan mandel jonathan williams alan mandel alan mandel richard campbell richard campbell fable and folly not verified not verified not verified not applicable official site says available on all podcast platforms original fiction red valley research station cryonics mystery multi character medium official site verifies premise fable and folly association listed season mini series structure writer director producer post production music and recording studio context the publisher rss verifies 25 main story episodes and separates them from 23 bonus trailer entries",
+    "searchText": "red valley a science heavy mystery with enough conceptual weirdness to stick a mystery drama about the limits of experimental science confronting your own past present and future and trying to remember the level select cheat from sonic 2 a good neighboring pick once ars paradoxica leaves you wanting more controlled weirdness cryonics experimental science corporate conspiracy memory sci fi mystery drama weird tense dark full cast serialized late night serious sci fi red valley red valley podcast cryonics experimental science corporate research memory explicit language medical procedures violence self harm abuse jonathan williams alan mandel jonathan williams warren godby alan mandel gordon porlock tash reith banks dr aubrey wood may cunningham bryony halbech karen godby alexander broad clive schill carol pestridge francesca jones rachel fowler pamela jennings daon broni degracious mele english ars paradoxica the deca tapes case 63 unclear indexed only indexed entry unknown unknown red valley jonathan williams alan mandel jonathan williams alan mandel alan mandel richard campbell richard campbell alexander broad fable and folly orpheus studio london carol pestridge official pdf transcripts and content warnings linked from the episode guide not applicable official site says available on all podcast platforms application pdf original fiction red valley research station cryonics mystery multi character medium official site and live rss feed verify the premise canonical start page credits recording studio fable and folly association four observed seasons feed composition regular release and feed item dates historical cadence transcript access content warnings language format and explicit flag feed counts are observed rather than claimed complete",
     "tagTokens": [
       "cryonics",
       "experimental-science",
@@ -6631,6 +6683,8 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
+      "start": "https://www.malevolent.ca/part-1-the-dark-world/",
+      "spotify": "https://open.spotify.com/show/7Dd5CTKuEN9AAFkYzjbsvK",
       "apple": "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
       "website": "https://shows.acast.com/malevolent",
       "rss": "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c"
@@ -6662,21 +6716,51 @@
       "occult investigation"
     ],
     "contentNotes": [
+      "mature themes",
+      "explicit language",
       "body horror",
-      "violence"
+      "violence",
+      "otherworldly terror",
+      "death"
     ],
     "languages": [
       "English"
     ],
-    "transcriptLanguages": [],
+    "transcriptLanguages": [
+      "English"
+    ],
     "length": {
-      "label": "86 current feed entries in the active serialized run.",
-      "episodes": 86,
-      "avgEpisodeMinutes": 33
+      "label": "7 observed seasons • 81 feed entries marked full • 6 bonus entries • 49 min median",
+      "seasons": 7,
+      "episodes": 81,
+      "avgEpisodeMinutes": 50,
+      "medianEpisodeMinutes": 49,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 104,
+      "totalHours": 67.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "countQualifier": "observed",
+      "episodeCounts": {
+        "full": 81,
+        "bonus": 6,
+        "trailer": 0,
+        "totalObserved": 87,
+        "exact": false
+      }
     },
     "releaseDates": {
       "first": "2020-07-27",
-      "latest": "2026-07-01"
+      "latest": "2026-08-01",
+      "latestFeedItem": "2026-08-01"
     },
     "bestFor": [
       "late-night",
@@ -6697,7 +6781,8 @@
       "attribution": ""
     },
     "officialLinks": {
-      "website": "https://shows.acast.com/malevolent"
+      "website": "https://shows.acast.com/malevolent",
+      "patreon": "https://www.patreon.com/TheINVICTUSStream"
     },
     "verification": {
       "status": "source-verified",
@@ -6710,7 +6795,7 @@
     ],
     "cast": [],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18",
+    "updatedAt": "2026-08-03",
     "similarReasons": {
       "the-white-vault": "Keeps the dread intense while turning the threat colder and more environmental.",
       "tower-4": "A quieter paranoia branch if the voice-driven unease is the part you want to keep.",
@@ -6718,9 +6803,16 @@
       "archive-81": "A stranger signal-horror branch once you want the mystery to become more structurally weird."
     },
     "availability": {
-      "transcripts": "not verified",
+      "transcripts": "Full transcripts for every episode",
       "captions": "not applicable",
-      "regionNotes": "Available through the official feed and major podcast platforms."
+      "regionNotes": "Available through the official feed and major podcast platforms.",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "text/html"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -6731,13 +6823,45 @@
     "metadata": {
       "objectiveSources": [
         "https://www.malevolent.ca/",
+        "https://www.malevolent.ca/episodes/",
+        "https://www.malevolent.ca/part-1-the-dark-world/",
+        "https://www.malevolent.ca/blog/",
         "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
         "https://feeds.acast.com/public/shows/62691b95c9c07f0012550c9c",
         "https://www.malevolent.ca/for-your-consideration/"
       ],
-      "objectiveVerifiedAt": "2026-07-18",
-      "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
-      "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "sourceKeywords": [
+        "Horror",
+        "Lovecraft",
+        "adventure",
+        "audiodrama",
+        "cthulhu",
+        "malevolent",
+        "mystery",
+        "protagonist"
+      ],
+      "podcast": {
+        "medium": "podcast",
+        "ownerName": "Harlan Guthrie",
+        "copyright": "Harlan Guthrie",
+        "explicit": "yes",
+        "feedType": "serial",
+        "distribution": "Acast",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "schedule": {
+        "label": "monthly",
+        "method": "observed-feed-history",
+        "note": "The most recent full feed entries followed a monthly pattern; this is historical cadence, not a future-release promise."
+      },
+      "objectiveVerifiedAt": "2026-08-03",
+      "objectiveNote": "Official site and live RSS feed verify the canonical start link, current feed count, seven observed seasons, latest release, historical cadence, transcripts, platform links, content warnings, language, format, and explicit flag. Feed counts are observed rather than claimed complete.",
+      "auditPass": "Expanded factual source review on 2026-08-03. Existing archive ratings and editorial copy were preserved."
     },
     "credits": {
       "creatorName": "Harlan Guthrie",
@@ -6746,7 +6870,9 @@
       "producer": "Harlan Guthrie",
       "performer": "Harlan Guthrie",
       "soundDesign": "Harlan Guthrie",
-      "composer": "Harlan Guthrie"
+      "composer": "Harlan Guthrie",
+      "ownerName": "Harlan Guthrie",
+      "network": "Rusty Quill Ltd"
     },
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
@@ -6759,7 +6885,7 @@
     "imageAlt": "Malevolent cover art",
     "summary": "Do not fear the dark, fear what darkness brings... Arkham Private Investigator Arthur Lester wakes up with no memory of who he is or what has happened, only a nameless, eerie voice guiding him through the darkness. Blind, terrified, and confused, his journey will lead him towards a series of mysteries in the hopes of understanding the truth of what has transpired. As cosmic horrors seep into the world around, Arthur must ask himself whether this entity truly seeks to help him, or are its intentions more… Malevolent Malevolent is produced, written, edited, performed, scored & created by Harlan Guthrie. This podcast contains mature themes, explicit language, bodily horror, violence, otherworldly terror and death. Listener discretion is advised. Full transcripts of every episode are available here . Hosted on Acast. See acast.com/privacy for more information.",
     "finalRating": null,
-    "searchText": "malevolent cosmic horror mystery with enough momentum to make the darkness feel athletic do not fear the dark fear what darkness brings arkham private investigator arthur lester wakes up with no memory of who he is or what has happened only a nameless eerie voice guiding him through the darkness blind terrified and confused his journey will lead him towards a series of mysteries in the hopes of understanding the truth of what has transpired as cosmic horrors seep into the world around arthur must ask himself whether this entity truly seeks to help him or are its intentions more malevolent malevolent is produced written edited performed scored and created by harlan guthrie this podcast contains mature themes explicit language bodily horror violence otherworldly terror and death listener discretion is advised full transcripts of every episode are available here hosted on acast see acast com privacy for more information a strong escalation pick when the listener wants more occult intensity without losing narrative drive cosmic horror amnesia private investigator 1930s horror mystery thriller dark tense cinematic narrated serialized late night headphones on cold isolation horror memory possession occult investigation body horror violence harlan guthrie english the white vault tower 4 impact winter archive 81 ongoing indexed only harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie not verified not applicable available through the official feed and major podcast platforms original fiction 1930s lovecraftian horror across shifting locations arthur lester and the entity sharing his body high official site apple podcasts and current feed metadata verify core show identity link targets and current feed activity",
+    "searchText": "malevolent cosmic horror mystery with enough momentum to make the darkness feel athletic do not fear the dark fear what darkness brings arkham private investigator arthur lester wakes up with no memory of who he is or what has happened only a nameless eerie voice guiding him through the darkness blind terrified and confused his journey will lead him towards a series of mysteries in the hopes of understanding the truth of what has transpired as cosmic horrors seep into the world around arthur must ask himself whether this entity truly seeks to help him or are its intentions more malevolent malevolent is produced written edited performed scored and created by harlan guthrie this podcast contains mature themes explicit language bodily horror violence otherworldly terror and death listener discretion is advised full transcripts of every episode are available here hosted on acast see acast com privacy for more information a strong escalation pick when the listener wants more occult intensity without losing narrative drive cosmic horror amnesia private investigator 1930s horror mystery thriller dark tense cinematic narrated serialized late night headphones on cold isolation horror memory possession occult investigation mature themes explicit language body horror violence otherworldly terror death harlan guthrie english english the white vault tower 4 impact winter archive 81 ongoing indexed only harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie harlan guthrie rusty quill ltd full transcripts for every episode not applicable available through the official feed and major podcast platforms 1 text html english original fiction 1930s lovecraftian horror across shifting locations arthur lester and the entity sharing his body high official site and live rss feed verify the canonical start link current feed count seven observed seasons latest release historical cadence transcripts platform links content warnings language format and explicit flag feed counts are observed rather than claimed complete",
     "tagTokens": [
       "cosmic-horror",
       "amnesia",
@@ -8328,9 +8454,10 @@
     "coverAlt": "Victoriocity cover art",
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "active",
-    "completionStatus": "ongoing",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
     "listenLinks": {
+      "start": "https://www.victoriocity.com/episode-1",
       "apple": "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4",
       "website": "https://www.victoriocity.com/",
       "rss": "https://rss.libsyn.com/shows/107749/destinations/584552.xml"
@@ -8366,16 +8493,38 @@
     "languages": [
       "English"
     ],
-    "transcriptLanguages": [],
+    "transcriptLanguages": [
+      "English"
+    ],
     "length": {
-      "label": "35 current feed episodes in the active serialized run.",
-      "episodes": 35,
-      "avgEpisodeMinutes": 31,
-      "totalHours": 18.1
+      "label": "3 observed seasons • 20 full feed episodes • 15 bonus or promotional entries • 42 min median",
+      "seasons": 3,
+      "episodes": 20,
+      "avgEpisodeMinutes": 45,
+      "medianEpisodeMinutes": 42,
+      "minEpisodeMinutes": 32,
+      "maxEpisodeMinutes": 65,
+      "totalHours": 15,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1,
+        2,
+        3
+      ],
+      "countQualifier": "observed",
+      "episodeCounts": {
+        "full": 20,
+        "bonus": 15,
+        "trailer": 0,
+        "totalObserved": 35,
+        "exact": false
+      }
     },
     "releaseDates": {
       "first": "2017-10-19",
-      "latest": "2025-05-20"
+      "latest": "2024-04-09",
+      "latestFeedItem": "2025-05-20",
+      "note": "The newest feed item is a 2025 live-show promotion; the latest feed entry marked as a full episode is Season 3, Episode 7 on 2024-04-09. The feed does not state a completion or next-release date."
     },
     "facts": {},
     "bestFor": [
@@ -8403,10 +8552,20 @@
       "attribution": ""
     },
     "officialLinks": {
-      "website": "https://www.victoriocity.com/"
+      "website": "https://www.victoriocity.com/",
+      "support": "https://www.victoriocity.com/support"
     },
     "credits": {
-      "creatorName": "Victoriocity"
+      "creatorName": [
+        "Chris Sugden",
+        "Jen Sugden"
+      ],
+      "writer": "Chris Sugden; Jen Sugden",
+      "director": "Nathan Peter Grassi",
+      "producer": "Dominic Hargreaves",
+      "productionManager": "Fiona Sinclair",
+      "composer": "Jon Ouin",
+      "coverArt": "Vince Haig"
     },
     "verification": {
       "status": "source-verified",
@@ -8415,8 +8574,11 @@
       "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
     },
     "availability": {
-      "transcripts": "unknown",
-      "captions": "n/a"
+      "transcripts": "Official PDF transcripts (password-protected)",
+      "captions": "unknown",
+      "transcriptFormats": [
+        "application/pdf"
+      ]
     },
     "content": {
       "setting": "alternate 1887 London",
@@ -8428,7 +8590,31 @@
       "objectiveSources": [
         "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4",
         "https://www.victoriocity.com/",
+        "https://www.victoriocity.com/listen",
+        "https://www.victoriocity.com/castcrew",
+        "https://www.victoriocity.com/episode-1",
         "https://rss.libsyn.com/shows/107749/destinations/584552.xml"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Comedy"
+      ],
+      "podcast": {
+        "medium": "podcast",
+        "ownerName": "Victoriocity",
+        "explicit": "no",
+        "feedType": "serial",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "schedule": {
+        "label": "weekly",
+        "method": "observed-feed-history",
+        "note": "The nine most recent full feed episodes were released on a weekly pattern; this is historical cadence, not a future-release promise."
+      },
+      "researchGaps": [
+        "No official completion or next-release statement was located."
       ],
       "importCandidateId": "7f8e29db-93c6-4be7-ba61-c87f786aa76d",
       "importStatus": "published",
@@ -8436,20 +8622,29 @@
         "appleCollectionId": "1293184351"
       },
       "objectiveImportedAt": "2026-07-01T14:07:09.995Z",
-      "objectiveVerifiedAt": "2026-07-18",
-      "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
-      "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+      "objectiveVerifiedAt": "2026-08-03",
+      "objectiveNote": "Official site and live RSS feed verify the premise, start link, credits, transcript access, feed composition, regular-release dates, historical cadence, language, format, and explicit flag. Feed counts are observed rather than claimed complete.",
+      "auditPass": "Expanded factual source review on 2026-08-03. Existing archive ratings and editorial copy were preserved."
     },
     "featured": false,
     "createdAt": "2026-07-01",
     "creatorId": "victoriocity",
-    "updatedAt": "2026-07-18",
+    "updatedAt": "2026-08-03",
     "creators": [
-      "Victoriocity"
+      "Chris Sugden",
+      "Jen Sugden"
+    ],
+    "cast": [
+      "Tom Crowley — Inspector Archibald Fleet",
+      "Layla Katib — Clara Entwhistle",
+      "Peter Rae — Narrator",
+      "Gemma Arrowsmith — Augusta Bell",
+      "Richard Soames — Dr Salik / Sandringham",
+      "Chris Sugden — Chief Inspector Keller",
+      "Jen Sugden — Mrs Pomligan"
     ],
     "spoilerFreeReviewParagraphs": [],
     "thoughtsParagraphs": [],
-    "cast": [],
     "popularity": {},
     "ratings": {},
     "href": "/shows/victoriocity",
@@ -8458,7 +8653,7 @@
     "imageAlt": "Victoriocity cover art",
     "summary": "A detective comedy drama || Even Greater London, 1887. In this vast metropolis, Inspector Archibald Fleet and journalist Clara Entwhistle investigate a murder, only to find themselves at the centre of a conspiracy of impossible proportions.",
     "finalRating": null,
-    "searchText": "victoriocity alternate victorian detective comedy with real momentum under the jokes a detective comedy drama even greater london 1887 in this vast metropolis inspector archibald fleet and journalist clara entwhistle investigate a murder only to find themselves at the centre of a conspiracy of impossible proportions useful when someone wants a comedy route that still moves like a real mystery instead of sketching in place detective comedy alternate history victorian comedy mystery drama funny weird warm full cast serialized easy entry warm weird long walks conspiracy journalism civic absurdity violence victoriocity english wooden overcoats welcome to night vale eos 10 midnight burger ongoing indexed only victoriocity unknown n a alternate 1887 london detective and journalist duo original fiction medium imported candidate was promoted after archive review and metadata cleanup using current official apple and feed sources",
+    "searchText": "victoriocity alternate victorian detective comedy with real momentum under the jokes a detective comedy drama even greater london 1887 in this vast metropolis inspector archibald fleet and journalist clara entwhistle investigate a murder only to find themselves at the centre of a conspiracy of impossible proportions useful when someone wants a comedy route that still moves like a real mystery instead of sketching in place detective comedy alternate history victorian comedy mystery drama funny weird warm full cast serialized easy entry warm weird long walks conspiracy journalism civic absurdity violence chris sugden jen sugden tom crowley inspector archibald fleet layla katib clara entwhistle peter rae narrator gemma arrowsmith augusta bell richard soames dr salik sandringham chris sugden chief inspector keller jen sugden mrs pomligan english english wooden overcoats welcome to night vale eos 10 midnight burger unclear indexed only chris sugden jen sugden chris sugden jen sugden nathan peter grassi dominic hargreaves fiona sinclair jon ouin vince haig official pdf transcripts password protected unknown application pdf alternate 1887 london detective and journalist duo original fiction medium official site and live rss feed verify the premise start link credits transcript access feed composition regular release dates historical cadence language format and explicit flag feed counts are observed rather than claimed complete",
     "tagTokens": [
       "detective-comedy",
       "alternate-history",
@@ -43183,6 +43378,2340 @@
       {
         "src": "/images/generated/covers/the-last-movie-bf34a0e3cf-320.webp",
         "width": 320
+      }
+    ]
+  },
+  {
+    "id": "the-magnus-archives",
+    "title": "The Magnus Archives",
+    "subtitle": "A weekly horror fiction podcast featuring short stories, serial plots, full soundscapes, guest actors and more.",
+    "description": "The Magnus Archives is a weekly horror fiction anthology podcast examining what lurks in the archives of the Magnus Institute, an organisation dedicated to researching the esoteric and the weird. Join new head archivist Jonathan Sims as he attempts to bring a seemingly neglected collection of supernatural statements up to date, converting them to audio and supplementing them with follow-up work from his small but dedicated team. Individually, they are unsettling. Together they begin to form a picture that is truly horrifying because as they look into the depths of the archives, something starts to look back…",
+    "cover": "images/covers/the-magnus-archives.jpg",
+    "coverAlt": "The Magnus Archives cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "listenLinks": {
+      "start": "https://rustyquill.com/show/the-magnus-archives/",
+      "spotify": "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
+      "apple": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637",
+      "website": "https://rustyquill.com/show/the-magnus-archives/",
+      "rss": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "supernatural"
+    ],
+    "tones": [],
+    "formats": [
+      "Anthology",
+      "Serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Horror",
+      "Anthology",
+      "Supernatural",
+      "Serialized"
+    ],
+    "aliases": [
+      "The Magnus Archives"
+    ],
+    "themes": [
+      "Paranormal investigation",
+      "Supernatural statements"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "5 seasons observed • at least 383 full episodes • 24 min median",
+      "seasons": 5,
+      "episodes": 383,
+      "avgEpisodeMinutes": 24,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 94,
+      "totalObservedHours": 155.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        8,
+        7,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 383,
+        "bonus": 4,
+        "trailer": 11
+      }
+    },
+    "releaseDates": {
+      "first": "2016-03-24",
+      "latest": "2021-03-25",
+      "latestFeedItem": "2026-07-30"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rustyquill.com/show/the-magnus-archives/",
+      "patreon": "https://www.patreon.com/rustyquill",
+      "youtube": "http://youtube.com/channel/UCAfn5ahWLpQmCIN7D0E1YQg/"
+    },
+    "credits": {
+      "creatorName": "Jonathan Sims",
+      "ownerName": "Rusty Quill",
+      "network": "Rusty Quill",
+      "writers": [
+        "Jonathan Sims"
+      ],
+      "directors": [
+        "Alexander J Newall"
+      ],
+      "producers": [
+        "Alexander J Newall",
+        "Lowri Ann Davies"
+      ],
+      "people": [
+        {
+          "name": "Jonathan Sims",
+          "role": "writer"
+        },
+        {
+          "name": "Jonathan Sims",
+          "role": "cast"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "director"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "executive producer"
+        },
+        {
+          "name": "Lowri Ann Davies",
+          "role": "producer"
+        }
+      ]
+    },
+    "creators": [
+      "Jonathan Sims"
+    ],
+    "cast": [
+      "Jonathan Sims"
+    ],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-08-03",
+      "source": "https://rustyquill.com/event/; https://rustyquill.com/show/neon-inkwell/; https://rustyquill.com/show/the-magnus-protocol/; https://rustyquill.com/about/; https://rustyquill.com/; https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8; https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rustyquill.com/event/",
+        "https://rustyquill.com/show/neon-inkwell/",
+        "https://rustyquill.com/show/the-magnus-protocol/",
+        "https://rustyquill.com/about/",
+        "https://rustyquill.com/",
+        "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+        "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+      ],
+      "sourceCategories": [
+        "horror",
+        "mystery",
+        "supernatural"
+      ],
+      "sourceKeywords": [
+        "horror podcast",
+        "anthology podcast",
+        "horror fiction",
+        "fiction podcast",
+        "rusty quill",
+        "Alexander J. Newall",
+        "Jonathan Sims",
+        "Audiodrama",
+        "Audio Fiction",
+        "Science Fiction",
+        "horror",
+        "unfiction",
+        "found footage",
+        "jonny sims",
+        "cosmic horror"
+      ],
+      "sourceTags": [
+        "Horror",
+        "Anthology",
+        "Supernatural",
+        "Serialized"
+      ],
+      "importOfficialSummary": "The Magnus Archives is a weekly horror fiction anthology podcast examining what lurks in the archives of the Magnus Institute, an organisation dedicated to researching the esoteric and the weird. Join new head archivist Jonathan Sims as he attempts to bring a seemingly neglected collection of supernatural statements up to date, converting them to audio and supplementing them with follow-up work from his small but dedicated team. Individually, they are unsettling. Together they begin to form a picture that is truly horrifying because as they look into the depths of the archives, something starts to look back…",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Rusty Quill",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+          "appleCollectionId": "1095138637"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/event/",
+            "fetchedAt": "2026-07-31T18:30:02.678Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/show/neon-inkwell/",
+            "fetchedAt": "2026-07-31T18:30:02.672Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/",
+            "fetchedAt": "2026-07-31T18:30:02.661Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/about/",
+            "fetchedAt": "2026-07-31T18:30:02.660Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/",
+            "fetchedAt": "2026-07-31T18:30:02.655Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+            "fetchedAt": "2026-07-31T18:30:01.688Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4",
+            "fetchedAt": "2026-07-31T18:30:01.385Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/neon-inkwell/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/event/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/neon-inkwell/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/event/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/event/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "completionStatus": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-08-03T15:25:31.377Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03",
+    "creatorId": "jonathan-sims",
+    "networkId": "rusty-quill",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-magnus-archives",
+    "hasPage": true,
+    "image": "images/covers/the-magnus-archives.jpg",
+    "imageAlt": "The Magnus Archives cover art",
+    "summary": "The Magnus Archives is a weekly horror fiction anthology podcast examining what lurks in the archives of the Magnus Institute, an organisation dedicated to researching the esoteric and the weird. Join new head archivist Jonathan Sims as he attempts to bring a seemingly neglected collection of supernatural statements up to date, converting them to audio and supplementing them with follow-up work from his small but dedicated team. Individually, they are unsettling. Together they begin to form a picture that is truly horrifying because as they look into the depths of the archives, something starts to look back…",
+    "finalRating": null,
+    "searchText": "the magnus archives a weekly horror fiction podcast featuring short stories serial plots full soundscapes guest actors and more the magnus archives is a weekly horror fiction anthology podcast examining what lurks in the archives of the magnus institute an organisation dedicated to researching the esoteric and the weird join new head archivist jonathan sims as he attempts to bring a seemingly neglected collection of supernatural statements up to date converting them to audio and supplementing them with follow up work from his small but dedicated team individually they are unsettling together they begin to form a picture that is truly horrifying because as they look into the depths of the archives something starts to look back horror anthology supernatural serialized horror mystery supernatural anthology serialized full cast the magnus archives paranormal investigation supernatural statements jonathan sims jonathan sims english finished indexed only jonathan sims rusty quill rusty quill jonathan sims alexander j newall alexander j newall lowri ann davies jonathan sims writer jonathan sims cast alexander j newall director alexander j newall executive producer lowri ann davies producer unknown unknown 0",
+    "tagTokens": [
+      "horror",
+      "anthology",
+      "supernatural",
+      "serialized"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-magnus-archives-81e69984f6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-magnus-archives-81e69984f6-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-magnus-protocol",
+    "title": "The Magnus Protocol",
+    "subtitle": "A weekly horror fiction podcast featuring short stories, serial plots, full soundscapes, guest actors and more.",
+    "description": "The Magnus Archives 2: The Magnus Protocol is the prequel/sequel/”sidequel” to the internationally renowned Magnus Archives podcast. The Magnus Institute was an organisation dedicated to academic research into the esoteric and the paranormal, based out of Manchester, England. It burned to the ground in 1999. There were no survivors. Now, almost 25 years later, Alice and Sam, a pair of low-level civil service workers at the underfunded Office of Incident Assessment and Response, have stumbled across its legacy. A legacy that will put them in grave danger.",
+    "cover": "images/covers/the-magnus-protocol.jpg",
+    "coverAlt": "The Magnus Protocol cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "start": "https://rustyquill.com/show/the-magnus-protocol/",
+      "spotify": "https://open.spotify.com/show/5pwBAjuJJAOt7cED5Lkjnk",
+      "apple": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637",
+      "website": "https://rustyquill.com/show/the-magnus-protocol/",
+      "rss": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+    },
+    "genres": [
+      "horror",
+      "mystery",
+      "supernatural"
+    ],
+    "tones": [],
+    "formats": [
+      "Serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Horror",
+      "Paranormal",
+      "Mystery"
+    ],
+    "aliases": [
+      "The Magnus Protocol",
+      "The Magnus Protocol Transcripts - Rusty Quill",
+      "The Magnus Protocol - Rusty Quill"
+    ],
+    "themes": [
+      "Paranormal investigation",
+      "Office of Incident Assessment and Response"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 383 full episodes • 24 min median",
+      "seasons": 2,
+      "episodes": 383,
+      "avgEpisodeMinutes": 24,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 1,
+      "maxEpisodeMinutes": 94,
+      "totalObservedHours": 155.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        8,
+        7,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 383,
+        "bonus": 4,
+        "trailer": 11
+      }
+    },
+    "releaseDates": {
+      "first": "2024-01-18",
+      "latest": "2026-07-30",
+      "latestFeedItem": "2026-07-30"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rustyquill.com/show/the-magnus-protocol/",
+      "patreon": "https://www.patreon.com/rustyquill",
+      "youtube": "http://youtube.com/channel/UCAfn5ahWLpQmCIN7D0E1YQg/"
+    },
+    "credits": {
+      "creatorName": "Jonathan Sims and Alexander J Newall",
+      "ownerName": "Rusty Quill",
+      "network": "Rusty Quill",
+      "writers": [
+        "Jonathan Sims",
+        "Alexander J Newall"
+      ],
+      "directors": [
+        "Alexander J Newall"
+      ],
+      "producers": [
+        "April Sumner"
+      ],
+      "people": [
+        {
+          "name": "Jonathan Sims",
+          "role": "writer"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "writer"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "director"
+        },
+        {
+          "name": "April Sumner",
+          "role": "executive producer"
+        },
+        {
+          "name": "Sam Jones",
+          "role": "composer"
+        }
+      ]
+    },
+    "creators": [
+      "Jonathan Sims and Alexander J Newall",
+      "Jonathan Sims",
+      "Alexander J Newall"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-08-03",
+      "source": "https://rustyquill.com/transcripts/the-magnus-protocol/; https://rustyquill.com/about/; https://rustyquill.com/show/the-magnus-protocol/; https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8; https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rustyquill.com/transcripts/the-magnus-protocol/",
+        "https://rustyquill.com/about/",
+        "https://rustyquill.com/show/the-magnus-protocol/",
+        "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+        "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+      ],
+      "sourceCategories": [
+        "horror",
+        "mystery",
+        "supernatural"
+      ],
+      "sourceKeywords": [
+        "horror podcast",
+        "anthology podcast",
+        "horror fiction",
+        "fiction podcast",
+        "rusty quill",
+        "Alexander J. Newall",
+        "Jonathan Sims",
+        "Audiodrama",
+        "Audio Fiction",
+        "Science Fiction",
+        "horror",
+        "unfiction",
+        "found footage",
+        "jonny sims",
+        "cosmic horror"
+      ],
+      "sourceTags": [
+        "Horror",
+        "Paranormal",
+        "Mystery"
+      ],
+      "importOfficialSummary": "The Magnus Archives 2: The Magnus Protocol is the prequel/sequel/”sidequel” to the internationally renowned Magnus Archives podcast. The Magnus Institute was an organisation dedicated to academic research into the esoteric and the paranormal, based out of Manchester, England. It burned to the ground in 1999. There were no survivors. Now, almost 25 years later, Alice and Sam, a pair of low-level civil service workers at the underfunded Office of Incident Assessment and Response, have stumbled across its legacy. A legacy that will put them in grave danger.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Rusty Quill",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+          "appleCollectionId": "1095138637"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/",
+            "fetchedAt": "2026-08-03T15:16:51.636Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/about/",
+            "fetchedAt": "2026-08-03T15:16:51.634Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/",
+            "fetchedAt": "2026-08-03T15:16:51.620Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8",
+            "fetchedAt": "2026-08-03T15:16:50.898Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4",
+            "fetchedAt": "2026-08-03T15:16:50.565Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "spotify",
+                "sourceUrl": "https://open.spotify.com/episode/2mYUlKBLAFTj5eKrjQ8tg3"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-magnus-archives/id1095138637?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/the-magnus-protocol/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/transcripts/the-magnus-protocol/"
+              }
+            ]
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/b6085bcd-3542-4a43-b6a8-021e3fd251b8"
+              }
+            ]
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "completionStatus": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-08-03T15:25:31.424Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03",
+    "creatorId": "jonathan-sims-and-alexander-j-newall",
+    "networkId": "rusty-quill",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-magnus-protocol",
+    "hasPage": true,
+    "image": "images/covers/the-magnus-protocol.jpg",
+    "imageAlt": "The Magnus Protocol cover art",
+    "summary": "The Magnus Archives 2: The Magnus Protocol is the prequel/sequel/”sidequel” to the internationally renowned Magnus Archives podcast. The Magnus Institute was an organisation dedicated to academic research into the esoteric and the paranormal, based out of Manchester, England. It burned to the ground in 1999. There were no survivors. Now, almost 25 years later, Alice and Sam, a pair of low-level civil service workers at the underfunded Office of Incident Assessment and Response, have stumbled across its legacy. A legacy that will put them in grave danger.",
+    "finalRating": null,
+    "searchText": "the magnus protocol a weekly horror fiction podcast featuring short stories serial plots full soundscapes guest actors and more the magnus archives 2 the magnus protocol is the prequel sequel sidequel to the internationally renowned magnus archives podcast the magnus institute was an organisation dedicated to academic research into the esoteric and the paranormal based out of manchester england it burned to the ground in 1999 there were no survivors now almost 25 years later alice and sam a pair of low level civil service workers at the underfunded office of incident assessment and response have stumbled across its legacy a legacy that will put them in grave danger horror paranormal mystery horror mystery supernatural serialized full cast the magnus protocol the magnus protocol transcripts rusty quill the magnus protocol rusty quill paranormal investigation office of incident assessment and response jonathan sims and alexander j newall jonathan sims alexander j newall english ongoing indexed only jonathan sims and alexander j newall rusty quill rusty quill jonathan sims alexander j newall alexander j newall april sumner jonathan sims writer alexander j newall writer alexander j newall director april sumner executive producer sam jones composer unknown unknown 0",
+    "tagTokens": [
+      "horror",
+      "paranormal",
+      "mystery"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-magnus-protocol-67237aa558-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-magnus-protocol-67237aa558-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-rapscallion-agency",
+    "title": "The Rapscallion Agency",
+    "subtitle": "After the Robopocalypse, an emotional robot tries to win the approval of his D.A.D. by saving the family human extermination business.",
+    "description": "Set shortly after the events of the award-winning podcast The Leviathan Chronicles, this spinoff series continues the adventures of its two youngest characters, Lisette Mainsabiles and Paul Kim (aka Cluracan) as they use their unique skills to start a business, navigate young love, and lovingly care for a cybernetic rat. Having been raised by an immortal thief, Lisette’s experience as a cat burglar makes her confident she can handle any physical threat the pair might face. But as a computational savant and former underground hacker, Cluracan knows that analytical thinking can be better than acting impulsively. Sharing a misfit love for each other, they leave behind their lives in the U.S. to start a fledgling cybersecurity agency in Paris, France. After converting a bakery van into their mobile hi-tech headquarters, Lisette and Cluaracan explore Paris by calling upon old acquaintances to help them find work for their new agency, But during a professional ‘audition’, Lisette and Cluracan are double-crossed, but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate, VeyTech Pharmaceutical. As they try to decode the mystery in their possession, they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape France. Will Lisette and Cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom?!",
+    "cover": "images/covers/the-rapscallion-agency.jpg",
+    "coverAlt": "The Rapscallion Agency cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "start": "https://rapscallionagency.com/episodes/",
+      "apple": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+      "website": "https://rapscallionagency.com/",
+      "rss": "https://feeds.megaphone.fm/SBP5252339511"
+    },
+    "genres": [
+      "sci-fi",
+      "thriller",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "Serialized",
+      "episodic"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Cybersecurity",
+      "Paris",
+      "Serialized"
+    ],
+    "aliases": [
+      "The Rapscallion Agency"
+    ],
+    "themes": [
+      "Cybersecurity",
+      "Conspiracy"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 11 full episodes • 35 min median",
+      "seasons": 1,
+      "episodes": 11,
+      "medianEpisodeMinutes": 35,
+      "minEpisodeMinutes": 21,
+      "maxEpisodeMinutes": 45,
+      "totalObservedHours": 6.3,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 11,
+        "bonus": 8,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "latestFeedItem": "2024-05-17",
+      "first": "",
+      "latest": ""
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rapscallionagency.com/",
+      "patreon": "https://www.patreon.com/leviathanchronicles"
+    },
+    "credits": {
+      "creatorName": "Christof Laputka",
+      "ownerName": "Human-B-Gon",
+      "network": "Leviathan Audio Productions",
+      "writers": [
+        "Christof Laputka"
+      ],
+      "people": [
+        {
+          "name": "Christof Laputka",
+          "role": "writer"
+        }
+      ]
+    },
+    "creators": [
+      "Christof Laputka"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-08-03",
+      "source": "https://rapscallionagency.com/episodes/; https://rapscallionagency.com/cast/; https://rapscallionagency.com/about/; https://feeds.megaphone.fm/humanbgon; https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rapscallionagency.com/episodes/",
+        "https://rapscallionagency.com/cast/",
+        "https://rapscallionagency.com/about/",
+        "https://feeds.megaphone.fm/humanbgon",
+        "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4"
+      ],
+      "sourceCategories": [
+        "sci-fi",
+        "thriller",
+        "drama"
+      ],
+      "sourceTags": [
+        "Sci-fi",
+        "Cybersecurity",
+        "Paris",
+        "Serialized"
+      ],
+      "importOfficialSummary": "Set shortly after the events of the award-winning podcast The Leviathan Chronicles, this spinoff series continues the adventures of its two youngest characters, Lisette Mainsabiles and Paul Kim (aka Cluracan) as they use their unique skills to start a business, navigate young love, and lovingly care for a cybernetic rat. Having been raised by an immortal thief, Lisette’s experience as a cat burglar makes her confident she can handle any physical threat the pair might face. But as a computational savant and former underground hacker, Cluracan knows that analytical thinking can be better than acting impulsively. Sharing a misfit love for each other, they leave behind their lives in the U.S. to start a fledgling cybersecurity agency in Paris, France. After converting a bakery van into their mobile hi-tech headquarters, Lisette and Cluaracan explore Paris by calling upon old acquaintances to help them find work for their new agency, But during a professional ‘audition’, Lisette and Cluracan are double-crossed, but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate, VeyTech Pharmaceutical. As they try to decode the mystery in their possession, they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape France. Will Lisette and Cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom?!",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2019 Human-B-Gon Productions",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
+          "appleCollectionId": "304481704",
+          "feedRedirects": [
+            "https://rapscallionagency.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rapscallionagency.com/episodes/",
+            "fetchedAt": "2026-08-03T15:16:52.549Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rapscallionagency.com/cast/",
+            "fetchedAt": "2026-08-03T15:16:52.547Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rapscallionagency.com/about/",
+            "fetchedAt": "2026-08-03T15:16:52.545Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/humanbgon",
+            "fetchedAt": "2026-08-03T15:16:51.573Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4",
+            "fetchedAt": "2026-08-03T15:16:50.803Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "spotify",
+                "sourceUrl": "https://open.spotify.com/episode/5YvKo44Pwl2oaedmrEqOOv"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/humanbgon"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rapscallionagency.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rapscallionagency.com/cast/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rapscallionagency.com/episodes/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rapscallionagency.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rapscallionagency.com/cast/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rapscallionagency.com/episodes/"
+              }
+            ]
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-08-03T15:26:56.904Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03",
+    "creatorId": "christof-laputka",
+    "networkId": "leviathan-audio-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-rapscallion-agency",
+    "hasPage": true,
+    "image": "images/covers/the-rapscallion-agency.jpg",
+    "imageAlt": "The Rapscallion Agency cover art",
+    "summary": "Set shortly after the events of the award-winning podcast The Leviathan Chronicles, this spinoff series continues the adventures of its two youngest characters, Lisette Mainsabiles and Paul Kim (aka Cluracan) as they use their unique skills to start a business, navigate young love, and lovingly care for a cybernetic rat. Having been raised by an immortal thief, Lisette’s experience as a cat burglar makes her confident she can handle any physical threat the pair might face. But as a computational savant and former underground hacker, Cluracan knows that analytical thinking can be better than acting impulsively. Sharing a misfit love for each other, they leave behind their lives in the U.S. to start a fledgling cybersecurity agency in Paris, France. After converting a bakery van into their mobile hi-tech headquarters, Lisette and Cluaracan explore Paris by calling upon old acquaintances to help them find work for their new agency, But during a professional ‘audition’, Lisette and Cluracan are double-crossed, but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate, VeyTech Pharmaceutical. As they try to decode the mystery in their possession, they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape France. Will Lisette and Cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom?!",
+    "finalRating": null,
+    "searchText": "the rapscallion agency after the robopocalypse an emotional robot tries to win the approval of his d a d by saving the family human extermination business set shortly after the events of the award winning podcast the leviathan chronicles this spinoff series continues the adventures of its two youngest characters lisette mainsabiles and paul kim aka cluracan as they use their unique skills to start a business navigate young love and lovingly care for a cybernetic rat having been raised by an immortal thief lisette s experience as a cat burglar makes her confident she can handle any physical threat the pair might face but as a computational savant and former underground hacker cluracan knows that analytical thinking can be better than acting impulsively sharing a misfit love for each other they leave behind their lives in the u s to start a fledgling cybersecurity agency in paris france after converting a bakery van into their mobile hi tech headquarters lisette and cluaracan explore paris by calling upon old acquaintances to help them find work for their new agency but during a professional audition lisette and cluracan are double crossed but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate veytech pharmaceutical as they try to decode the mystery in their possession they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape france will lisette and cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom sci fi cybersecurity paris serialized sci fi thriller drama serialized episodic the rapscallion agency cybersecurity conspiracy christof laputka english unclear indexed only christof laputka human b gon leviathan audio productions christof laputka christof laputka writer unknown unknown 0",
+    "tagTokens": [
+      "sci-fi",
+      "cybersecurity",
+      "paris",
+      "serialized"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-rapscallion-agency-78308f77a5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-rapscallion-agency-78308f77a5-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-invenios-expeditions",
+    "title": "The Invenios Expeditions",
+    "subtitle": "",
+    "description": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
+    "cover": "images/covers/the-invenios-expeditions.jpg",
+    "coverAlt": "The Invenios Expeditions cover art",
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "start": "https://theinveniosexpeditions.com/episodes/",
+      "apple": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+      "website": "https://theinveniosexpeditions.com/",
+      "rss": "https://feeds.megaphone.fm/SBP5252339511"
+    },
+    "genres": [
+      "sci-fi",
+      "adventure",
+      "thriller"
+    ],
+    "tones": [],
+    "formats": [
+      "Serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Adventure",
+      "Ocean",
+      "Serialized"
+    ],
+    "aliases": [
+      "The Invenios Expeditions"
+    ],
+    "themes": [
+      "Treasure hunting",
+      "Ocean exploration"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 15 full episodes",
+      "seasons": 1,
+      "episodes": 15,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 0,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-10-22",
+      "latest": "2025-10-22"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://theinveniosexpeditions.com/",
+      "patreon": "https://www.patreon.com/leviathanchronicles"
+    },
+    "credits": {
+      "creatorName": "Christof Laputka",
+      "network": "Leviathan Audio Productions",
+      "writers": [
+        "Christof Laputka"
+      ],
+      "people": [
+        {
+          "name": "Christof Laputka",
+          "role": "writer"
+        }
+      ]
+    },
+    "creators": [
+      "Christof Laputka"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "partially-source-reviewed",
+      "verifiedAt": "2026-08-03",
+      "source": "https://theinveniosexpeditions.com/episodes/; https://theinveniosexpeditions.com/cast/; https://theinveniosexpeditions.com/about/; https://theinveniosexpeditions.com/",
+      "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://theinveniosexpeditions.com/episodes/",
+        "https://theinveniosexpeditions.com/cast/",
+        "https://theinveniosexpeditions.com/about/",
+        "https://theinveniosexpeditions.com/"
+      ],
+      "sourceCategories": [
+        "sci-fi",
+        "adventure",
+        "thriller"
+      ],
+      "sourceTags": [
+        "Sci-fi",
+        "Adventure",
+        "Ocean",
+        "Serialized"
+      ],
+      "importOfficialSummary": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
+      "schedule": {
+        "label": "unknown"
+      },
+      "podcast": {
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
+          "appleCollectionId": "304481704"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theinveniosexpeditions.com/episodes/",
+            "fetchedAt": "2026-08-03T15:16:52.234Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theinveniosexpeditions.com/cast/",
+            "fetchedAt": "2026-08-03T15:16:52.232Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theinveniosexpeditions.com/about/",
+            "fetchedAt": "2026-08-03T15:16:52.230Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://theinveniosexpeditions.com/",
+            "fetchedAt": "2026-08-03T15:16:52.228Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "networkName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "description": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "rssUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "appleUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "websiteUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "spotify",
+                "sourceUrl": "https://open.spotify.com/episode/0SKMQxgmYypCC8N3vUrEru"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/cast/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/episodes/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/cast/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://theinveniosexpeditions.com/episodes/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "creatorName": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "categories": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "tags": {
+            "confidence": 1,
+            "method": "source-categories-and-keywords"
+          },
+          "spotifyUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "startUrl": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "episodeCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "seasonCount": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "firstPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "latestPublicationDate": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualReleaseState": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "subtitle": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "manualEnrichment": {
+            "confidence": 1,
+            "method": "maintainer-edit"
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 1,
+            "method": "maintainer-verified-research"
+          }
+        },
+        "importedAt": "2026-08-03T15:26:56.924Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ]
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03",
+    "creatorId": "christof-laputka",
+    "networkId": "leviathan-audio-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-invenios-expeditions",
+    "hasPage": true,
+    "image": "images/covers/the-invenios-expeditions.jpg",
+    "imageAlt": "The Invenios Expeditions cover art",
+    "summary": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
+    "finalRating": null,
+    "searchText": "the invenios expeditions the invenios expeditions is a swashbuckling audio drama that takes listeners on a globe trotting adventure with captain jeffery tulley and his loyal first mate oberlin st claire after finding the fabled elando cortez shipwreck at the end of the leviathan chronicles tulley and oberlin build the world s most advanced treasure hunting vessel the invenios sci fi adventure ocean serialized sci fi adventure thriller serialized the invenios expeditions treasure hunting ocean exploration christof laputka english unclear indexed only christof laputka leviathan audio productions christof laputka christof laputka writer unknown unknown 0",
+    "tagTokens": [
+      "sci-fi",
+      "adventure",
+      "ocean",
+      "serialized"
+    ],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-invenios-expeditions-738300b52e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-invenios-expeditions-738300b52e-640.webp",
+        "width": 640
       }
     ]
   }

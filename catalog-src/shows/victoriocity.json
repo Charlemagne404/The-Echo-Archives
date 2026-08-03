@@ -13,9 +13,10 @@
   "coverAlt": "Victoriocity cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "active",
-  "completionStatus": "ongoing",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
   "listenLinks": {
+    "start": "https://www.victoriocity.com/episode-1",
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4",
     "website": "https://www.victoriocity.com/",
@@ -52,16 +53,38 @@
   "languages": [
     "English"
   ],
-  "transcriptLanguages": [],
+  "transcriptLanguages": [
+    "English"
+  ],
   "length": {
-    "label": "35 current feed episodes in the active serialized run.",
-    "episodes": 35,
-    "avgEpisodeMinutes": 31,
-    "totalHours": 18.1
+    "label": "3 observed seasons • 20 full feed episodes • 15 bonus or promotional entries • 42 min median",
+    "seasons": 3,
+    "episodes": 20,
+    "avgEpisodeMinutes": 45,
+    "medianEpisodeMinutes": 42,
+    "minEpisodeMinutes": 32,
+    "maxEpisodeMinutes": 65,
+    "totalHours": 15,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2,
+      3
+    ],
+    "countQualifier": "observed",
+    "episodeCounts": {
+      "full": 20,
+      "bonus": 15,
+      "trailer": 0,
+      "totalObserved": 35,
+      "exact": false
+    }
   },
   "releaseDates": {
     "first": "2017-10-19",
-    "latest": "2025-05-20"
+    "latest": "2024-04-09",
+    "latestFeedItem": "2025-05-20",
+    "note": "The newest feed item is a 2025 live-show promotion; the latest feed entry marked as a full episode is Season 3, Episode 7 on 2024-04-09. The feed does not state a completion or next-release date."
   },
   "facts": {},
   "bestFor": [
@@ -90,12 +113,21 @@
   },
   "officialLinks": {
     "website": "https://www.victoriocity.com/",
-    "patreon": "",
+    "support": "https://www.victoriocity.com/support",
     "discord": "",
     "youtube": ""
   },
   "credits": {
-    "creatorName": "Victoriocity"
+    "creatorName": [
+      "Chris Sugden",
+      "Jen Sugden"
+    ],
+    "writer": "Chris Sugden; Jen Sugden",
+    "director": "Nathan Peter Grassi",
+    "producer": "Dominic Hargreaves",
+    "productionManager": "Fiona Sinclair",
+    "composer": "Jon Ouin",
+    "coverArt": "Vince Haig"
   },
   "verification": {
     "status": "source-verified",
@@ -104,8 +136,11 @@
     "note": "Verification covers factual metadata only. Ratings, recommendations, and review text remain editorial."
   },
   "availability": {
-    "transcripts": "unknown",
-    "captions": "n/a"
+    "transcripts": "Official PDF transcripts (password-protected)",
+    "captions": "unknown",
+    "transcriptFormats": [
+      "application/pdf"
+    ]
   },
   "content": {
     "setting": "alternate 1887 London",
@@ -117,9 +152,34 @@
     "objectiveSources": [
       "https://podcasts.apple.com/us/podcast/victoriocity/id1293184351?uo=4",
       "https://www.victoriocity.com/",
+      "https://www.victoriocity.com/listen",
+      "https://www.victoriocity.com/castcrew",
+      "https://www.victoriocity.com/episode-1",
       "https://rss.libsyn.com/shows/107749/destinations/584552.xml"
     ],
-    "researchGaps": [],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Comedy"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "podcast": {
+      "medium": "podcast",
+      "ownerName": "Victoriocity",
+      "explicit": "no",
+      "feedType": "serial",
+      "sourceFormat": "rss",
+      "directoryMarkedDead": false
+    },
+    "schedule": {
+      "label": "weekly",
+      "method": "observed-feed-history",
+      "note": "The nine most recent full feed episodes were released on a weekly pattern; this is historical cadence, not a future-release promise."
+    },
+    "researchGaps": [
+      "No official completion or next-release statement was located."
+    ],
     "importCandidateId": "7f8e29db-93c6-4be7-ba61-c87f786aa76d",
     "importStatus": "published",
     "importIdentifiers": {
@@ -128,15 +188,25 @@
       "podcastIndexGuid": ""
     },
     "objectiveImportedAt": "2026-07-01T14:07:09.995Z",
-    "objectiveVerifiedAt": "2026-07-18",
-    "objectiveNote": "Imported candidate was promoted after archive review and metadata cleanup using current official, Apple, and feed sources.",
-    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+    "objectiveVerifiedAt": "2026-08-03",
+    "objectiveNote": "Official site and live RSS feed verify the premise, start link, credits, transcript access, feed composition, regular-release dates, historical cadence, language, format, and explicit flag. Feed counts are observed rather than claimed complete.",
+    "auditPass": "Expanded factual source review on 2026-08-03. Existing archive ratings and editorial copy were preserved."
   },
   "featured": false,
   "createdAt": "2026-07-01",
   "creatorId": "victoriocity",
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-08-03",
   "creators": [
-    "Victoriocity"
+    "Chris Sugden",
+    "Jen Sugden"
+  ],
+  "cast": [
+    "Tom Crowley — Inspector Archibald Fleet",
+    "Layla Katib — Clara Entwhistle",
+    "Peter Rae — Narrator",
+    "Gemma Arrowsmith — Augusta Bell",
+    "Richard Soames — Dr Salik / Sandringham",
+    "Chris Sugden — Chief Inspector Keller",
+    "Jen Sugden — Mrs Pomligan"
   ]
 }

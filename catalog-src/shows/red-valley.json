@@ -13,9 +13,10 @@
   "coverAlt": "Red Valley cover art",
   "status": "published",
   "reviewStatus": "indexed-only",
-  "releaseStatus": "active",
-  "completionStatus": "ongoing",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
   "listenLinks": {
+    "start": "https://www.redvalleypod.com/episodes.html",
     "spotify": "",
     "apple": "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
     "website": "https://www.redvalleypod.com/",
@@ -42,13 +43,31 @@
     "Memory"
   ],
   "length": {
-    "label": "4 released seasons / 25 main-story episodes; final Season 5 announced for 2026",
+    "label": "4 observed seasons • 25 full feed episodes • 22 bonus entries • 1 trailer • 25 min median",
     "seasons": 4,
     "episodes": 25,
     "avgEpisodeMinutes": 26,
     "totalHours": 10.9,
+    "medianEpisodeMinutes": 25,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 44,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "countQualifier": "observed",
+    "episodeCounts": {
+      "full": 25,
+      "bonus": 22,
+      "trailer": 1,
+      "totalObserved": 48,
+      "exact": false
+    },
     "feedEntries": 48,
-    "upcomingSeasons": 1
+    "upcomingSeasons": 0
   },
   "ratings": {
     "archive": 7
@@ -81,12 +100,13 @@
     "hex": "#92605d",
     "rgb": "146, 96, 93"
   },
-  "updatedAt": "2026-07-18",
+  "updatedAt": "2026-08-03",
   "releaseDates": {
     "first": "2020-03-22",
-    "latest": "2025-02-09",
-    "note": "The publisher RSS contains 25 main-story episodes across Seasons 1-4. Bonus shows, trailers, and cross-promotions account for the remaining feed entries. Final Season 5 is announced for 2026 but is not counted as released.",
-    "upcoming": "Season 5 / final season announced for 2026"
+    "latest": "2025-12-14",
+    "latestFullEpisode": "2025-02-09",
+    "latestFeedItem": "2026-01-27",
+    "note": "The publisher RSS contains 25 entries marked as full episodes across Seasons 1-4, 22 bonus entries, and one trailer. The latest original Red Valley release in the feed is the second part of the fourth mini-series (2025-12-14); the 2026-01-27 item introduces another show. No official completion or next-release date is stated."
   },
   "officialLinks": {
     "website": "https://www.redvalleypod.com/",
@@ -107,15 +127,18 @@
     "director": "Alan Mandel",
     "producer": "Alan Mandel",
     "composer": "Richard Campbell",
-    "soundDesign": "Richard Campbell",
+    "soundDesign": "Richard Campbell; Alexander Broad",
     "network": "Fable & Folly",
-    "cast": "Not verified",
-    "coverArt": "Not verified"
+    "studio": "Orpheus Studio, London",
+    "creativeConsultant": "Carol Pestridge"
   },
   "availability": {
-    "transcripts": "not verified",
+    "transcripts": "Official PDF transcripts and content warnings linked from the episode guide",
     "captions": "not applicable",
-    "regionNotes": "Official site says available on all podcast platforms."
+    "regionNotes": "Official site says available on all podcast platforms.",
+    "transcriptFormats": [
+      "application/pdf"
+    ]
   },
   "content": {
     "sourceMaterial": "original fiction",
@@ -128,21 +151,42 @@
       "https://www.redvalleypod.com/",
       "https://www.redvalleypod.com/about.html",
       "https://www.redvalleypod.com/cast--crew.html",
+      "https://www.redvalleypod.com/episodes.html",
       "https://podcasts.apple.com/us/podcast/red-valley/id1502771083",
       "https://feeds.megaphone.fm/redvalley"
     ],
-    "objectiveNote": "Official site verifies premise, Fable & Folly association, listed season/mini-series structure, writer, director/producer, post-production/music, and recording studio context. The publisher RSS verifies 25 main-story episodes and separates them from 23 bonus/trailer entries.",
-    "objectiveVerifiedAt": "2026-07-18",
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "podcast": {
+      "medium": "podcast",
+      "ownerName": "Kontinue Productions",
+      "copyright": "Copyright 2024 All rights reserved.",
+      "explicit": "yes",
+      "feedType": "serial",
+      "sourceFormat": "rss",
+      "directoryMarkedDead": false
+    },
+    "schedule": {
+      "label": "biweekly",
+      "method": "observed-feed-history",
+      "note": "The most recent full feed episodes followed a biweekly pattern; this is historical cadence, not a future-release promise."
+    },
+    "objectiveNote": "Official site and live RSS feed verify the premise, canonical start page, credits, recording studio, Fable & Folly association, four observed seasons, feed composition, regular-release and feed-item dates, historical cadence, transcript access, content warnings, language, format, and explicit flag. Feed counts are observed rather than claimed complete.",
+    "objectiveVerifiedAt": "2026-08-03",
     "reviewFile": "reviews/red-valley.json",
     "researchGaps": [
-      "final Season 5 release date"
+      "No official completion or next-release statement was located."
     ],
     "awards": [],
     "schedule": {
       "cadence": "unknown",
       "note": "Schedule/cadence not fully verified."
     },
-    "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
+    "auditPass": "Expanded factual source review on 2026-08-03. Existing archive ratings and editorial copy were preserved."
   },
   "verification": {
     "status": "source-verified-with-upcoming-note",
@@ -155,21 +199,36 @@
     "Red Valley Podcast"
   ],
   "themes": [
-    "sci-fi",
-    "future",
-    "mystery"
+    "cryonics",
+    "experimental science",
+    "corporate research",
+    "memory"
   ],
   "contentNotes": [
-    "content notes not verified beyond public premise"
+    "explicit language",
+    "medical procedures",
+    "violence",
+    "self-harm",
+    "abuse"
   ],
   "languages": [
     "English"
   ],
   "transcriptLanguages": [],
   "creators": [
-    "Jonathan Williams and Alan Mandel"
+    "Jonathan Williams",
+    "Alan Mandel"
   ],
-  "cast": [],
+  "cast": [
+    "Jonathan Williams — Warren Godby",
+    "Alan Mandel — Gordon Porlock",
+    "Tash Reith-Banks — Dr Aubrey Wood",
+    "May Cunningham — Bryony Halbech / Karen Godby",
+    "Alexander Broad — Clive Schill",
+    "Carol Pestridge — Francesca Jones",
+    "Rachel Fowler — Pamela Jennings",
+    "Daon Broni — Degracious Mele"
+  ],
   "createdAt": "2026-06-01",
   "creatorId": "jonathan-williams-and-alan-mandel",
   "networkId": "red-valley-fable-and-folly",

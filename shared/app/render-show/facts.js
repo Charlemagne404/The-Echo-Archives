@@ -25,6 +25,14 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
   const seasonsEpisodes = getSeasonsEpisodesLabel(show);
   const firstRelease = getKnownDateLabel(getShowDateValue(show, "first"));
   const latestRelease = getKnownDateLabel(getShowDateValue(show, "latest"));
+  const nextRelease = show.releaseDates?.next ? formatDate(show.releaseDates.next) : "";
+  const cadence = String(show.metadata?.schedule?.label || "").trim();
+  const transcriptCoverage = Number(show.availability?.transcriptCoverage || 0);
+  const transcriptDetails = [
+    Array.isArray(show.availability?.transcriptLanguages) ? show.availability.transcriptLanguages.join(" • ") : "",
+    Array.isArray(show.availability?.transcriptFormats) ? show.availability.transcriptFormats.join(" • ") : "",
+  ].filter(Boolean).join(" • ");
+  const transcripts = String(show.availability?.transcripts || "").trim();
 
   return `
     <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links" tabindex="-1">
@@ -40,6 +48,9 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
         ${renderFactRow("Seasons / episodes", seasonsEpisodes.text, { isEmpty: seasonsEpisodes.isEmpty })}
         ${renderFactRow("First release", firstRelease.text, { isEmpty: firstRelease.isEmpty })}
         ${renderFactRow("Latest release", latestRelease.text, { isEmpty: latestRelease.isEmpty })}
+        ${nextRelease ? renderFactRow("Next release", nextRelease) : ""}
+        ${cadence && cadence !== "unknown" ? renderFactRow("Release cadence", toDisplayTag(cadence)) : ""}
+        ${transcripts && transcripts !== "unknown" ? renderFactRow("Transcripts", `${transcripts}${transcriptDetails ? ` · ${transcriptDetails}` : ""}${transcriptCoverage > 0 ? ` · ${Math.round(transcriptCoverage * 100)}% observed coverage` : ""}`, { wide: true }) : ""}
         ${show.length?.label ? renderFactRow("Runtime note", show.length.label, { wide: true }) : ""}
       </dl>
     </section>

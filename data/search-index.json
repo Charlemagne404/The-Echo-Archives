@@ -1623,7 +1623,8 @@
     ],
     "coverAlt": "Red Valley cover art",
     "creators": [
-      "Jonathan Williams and Alan Mandel"
+      "Jonathan Williams",
+      "Alan Mandel"
     ],
     "accent": {
       "hex": "#92605d",
@@ -1631,8 +1632,8 @@
     },
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "active",
-    "completionStatus": "ongoing",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
     "genres": [
       "sci-fi",
       "mystery",
@@ -1658,12 +1659,17 @@
       "Red Valley Podcast"
     ],
     "themes": [
-      "sci-fi",
-      "future",
-      "mystery"
+      "cryonics",
+      "experimental science",
+      "corporate research",
+      "memory"
     ],
     "contentNotes": [
-      "content notes not verified beyond public premise"
+      "explicit language",
+      "medical procedures",
+      "violence",
+      "self-harm",
+      "abuse"
     ],
     "languages": [
       "English"
@@ -1699,15 +1705,18 @@
       "director": "Alan Mandel",
       "producer": "Alan Mandel",
       "composer": "Richard Campbell",
-      "soundDesign": "Richard Campbell",
+      "soundDesign": "Richard Campbell; Alexander Broad",
       "network": "Fable & Folly",
-      "cast": "Not verified",
-      "coverArt": "Not verified"
+      "studio": "Orpheus Studio, London",
+      "creativeConsultant": "Carol Pestridge"
     },
     "availability": {
-      "transcripts": "not verified",
+      "transcripts": "Official PDF transcripts and content warnings linked from the episode guide",
       "captions": "not applicable",
-      "regionNotes": "Official site says available on all podcast platforms."
+      "regionNotes": "Official site says available on all podcast platforms.",
+      "transcriptFormats": [
+        "application/pdf"
+      ]
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -1721,7 +1730,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-06-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-03"
   },
   {
     "id": "the-white-vault",
@@ -3989,13 +3998,19 @@
       "occult investigation"
     ],
     "contentNotes": [
+      "mature themes",
+      "explicit language",
       "body horror",
-      "violence"
+      "violence",
+      "otherworldly terror",
+      "death"
     ],
     "languages": [
       "English"
     ],
-    "transcriptLanguages": [],
+    "transcriptLanguages": [
+      "English"
+    ],
     "bestFor": [
       "late-night",
       "headphones-on",
@@ -4022,12 +4037,21 @@
       "producer": "Harlan Guthrie",
       "performer": "Harlan Guthrie",
       "soundDesign": "Harlan Guthrie",
-      "composer": "Harlan Guthrie"
+      "composer": "Harlan Guthrie",
+      "ownerName": "Harlan Guthrie",
+      "network": "Rusty Quill Ltd"
     },
     "availability": {
-      "transcripts": "not verified",
+      "transcripts": "Full transcripts for every episode",
       "captions": "not applicable",
-      "regionNotes": "Available through the official feed and major podcast platforms."
+      "regionNotes": "Available through the official feed and major podcast platforms.",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "text/html"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -4038,7 +4062,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-03"
   },
   {
     "id": "case-63",
@@ -4946,12 +4970,13 @@
     ],
     "coverAlt": "Victoriocity cover art",
     "creators": [
-      "Victoriocity"
+      "Chris Sugden",
+      "Jen Sugden"
     ],
     "status": "published",
     "reviewStatus": "indexed-only",
-    "releaseStatus": "active",
-    "completionStatus": "ongoing",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
     "genres": [
       "comedy",
       "mystery",
@@ -4983,7 +5008,9 @@
     "languages": [
       "English"
     ],
-    "transcriptLanguages": [],
+    "transcriptLanguages": [
+      "English"
+    ],
     "bestFor": [
       "easy-entry",
       "warm-weird",
@@ -5004,11 +5031,23 @@
     "archiveTake": "Useful when someone wants a comedy route that still moves like a real mystery instead of sketching in place.",
     "facts": {},
     "credits": {
-      "creatorName": "Victoriocity"
+      "creatorName": [
+        "Chris Sugden",
+        "Jen Sugden"
+      ],
+      "writer": "Chris Sugden; Jen Sugden",
+      "director": "Nathan Peter Grassi",
+      "producer": "Dominic Hargreaves",
+      "productionManager": "Fiona Sinclair",
+      "composer": "Jon Ouin",
+      "coverArt": "Vince Haig"
     },
     "availability": {
-      "transcripts": "unknown",
-      "captions": "n/a"
+      "transcripts": "Official PDF transcripts (password-protected)",
+      "captions": "unknown",
+      "transcriptFormats": [
+        "application/pdf"
+      ]
     },
     "content": {
       "setting": "alternate 1887 London",
@@ -5020,7 +5059,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-07-01",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-03"
   },
   {
     "id": "startripper",
@@ -11230,5 +11269,385 @@
     "featured": false,
     "createdAt": "2026-07-31",
     "updatedAt": "2026-07-31"
+  },
+  {
+    "id": "the-magnus-archives",
+    "title": "The Magnus Archives",
+    "subtitle": "A weekly horror fiction podcast featuring short stories, serial plots, full soundscapes, guest actors and more.",
+    "description": "The Magnus Archives is a weekly horror fiction anthology podcast examining what lurks in the archives of the Magnus Institute, an organisation dedicated to researching the esoteric and the weird. Join new head archivist Jonathan Sims as he attempts to bring a seemingly neglected collection of supernatural statements up to date, converting them to audio and supplementing them with follow-up work from his small but dedicated team. Individually, they are unsettling. Together they begin to form a picture that is truly horrifying because as they look into the depths of the archives, something starts to look back…",
+    "cover": "images/covers/the-magnus-archives.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-magnus-archives-81e69984f6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-magnus-archives-81e69984f6-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Magnus Archives cover art",
+    "creators": [
+      "Jonathan Sims"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "genres": [
+      "horror",
+      "mystery",
+      "supernatural"
+    ],
+    "tones": [],
+    "formats": [
+      "Anthology",
+      "Serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Horror",
+      "Anthology",
+      "Supernatural",
+      "Serialized"
+    ],
+    "aliases": [
+      "The Magnus Archives"
+    ],
+    "themes": [
+      "Paranormal investigation",
+      "Supernatural statements"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Jonathan Sims",
+      "ownerName": "Rusty Quill",
+      "network": "Rusty Quill",
+      "writers": [
+        "Jonathan Sims"
+      ],
+      "directors": [
+        "Alexander J Newall"
+      ],
+      "producers": [
+        "Alexander J Newall",
+        "Lowri Ann Davies"
+      ],
+      "people": [
+        {
+          "name": "Jonathan Sims",
+          "role": "writer"
+        },
+        {
+          "name": "Jonathan Sims",
+          "role": "cast"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "director"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "executive producer"
+        },
+        {
+          "name": "Lowri Ann Davies",
+          "role": "producer"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03"
+  },
+  {
+    "id": "the-magnus-protocol",
+    "title": "The Magnus Protocol",
+    "subtitle": "A weekly horror fiction podcast featuring short stories, serial plots, full soundscapes, guest actors and more.",
+    "description": "The Magnus Archives 2: The Magnus Protocol is the prequel/sequel/”sidequel” to the internationally renowned Magnus Archives podcast. The Magnus Institute was an organisation dedicated to academic research into the esoteric and the paranormal, based out of Manchester, England. It burned to the ground in 1999. There were no survivors. Now, almost 25 years later, Alice and Sam, a pair of low-level civil service workers at the underfunded Office of Incident Assessment and Response, have stumbled across its legacy. A legacy that will put them in grave danger.",
+    "cover": "images/covers/the-magnus-protocol.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-magnus-protocol-67237aa558-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-magnus-protocol-67237aa558-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Magnus Protocol cover art",
+    "creators": [
+      "Jonathan Sims and Alexander J Newall",
+      "Jonathan Sims",
+      "Alexander J Newall"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "genres": [
+      "horror",
+      "mystery",
+      "supernatural"
+    ],
+    "tones": [],
+    "formats": [
+      "Serialized",
+      "full-cast"
+    ],
+    "tags": [
+      "Horror",
+      "Paranormal",
+      "Mystery"
+    ],
+    "aliases": [
+      "The Magnus Protocol",
+      "The Magnus Protocol Transcripts - Rusty Quill",
+      "The Magnus Protocol - Rusty Quill"
+    ],
+    "themes": [
+      "Paranormal investigation",
+      "Office of Incident Assessment and Response"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Jonathan Sims and Alexander J Newall",
+      "ownerName": "Rusty Quill",
+      "network": "Rusty Quill",
+      "writers": [
+        "Jonathan Sims",
+        "Alexander J Newall"
+      ],
+      "directors": [
+        "Alexander J Newall"
+      ],
+      "producers": [
+        "April Sumner"
+      ],
+      "people": [
+        {
+          "name": "Jonathan Sims",
+          "role": "writer"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "writer"
+        },
+        {
+          "name": "Alexander J Newall",
+          "role": "director"
+        },
+        {
+          "name": "April Sumner",
+          "role": "executive producer"
+        },
+        {
+          "name": "Sam Jones",
+          "role": "composer"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03"
+  },
+  {
+    "id": "the-rapscallion-agency",
+    "title": "The Rapscallion Agency",
+    "subtitle": "After the Robopocalypse, an emotional robot tries to win the approval of his D.A.D. by saving the family human extermination business.",
+    "description": "Set shortly after the events of the award-winning podcast The Leviathan Chronicles, this spinoff series continues the adventures of its two youngest characters, Lisette Mainsabiles and Paul Kim (aka Cluracan) as they use their unique skills to start a business, navigate young love, and lovingly care for a cybernetic rat. Having been raised by an immortal thief, Lisette’s experience as a cat burglar makes her confident she can handle any physical threat the pair might face. But as a computational savant and former underground hacker, Cluracan knows that analytical thinking can be better than acting impulsively. Sharing a misfit love for each other, they leave behind their lives in the U.S. to start a fledgling cybersecurity agency in Paris, France. After converting a bakery van into their mobile hi-tech headquarters, Lisette and Cluaracan explore Paris by calling upon old acquaintances to help them find work for their new agency, But during a professional ‘audition’, Lisette and Cluracan are double-crossed, but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate, VeyTech Pharmaceutical. As they try to decode the mystery in their possession, they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape France. Will Lisette and Cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom?!",
+    "cover": "images/covers/the-rapscallion-agency.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-rapscallion-agency-78308f77a5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-rapscallion-agency-78308f77a5-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Rapscallion Agency cover art",
+    "creators": [
+      "Christof Laputka"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "thriller",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "Serialized",
+      "episodic"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Cybersecurity",
+      "Paris",
+      "Serialized"
+    ],
+    "aliases": [
+      "The Rapscallion Agency"
+    ],
+    "themes": [
+      "Cybersecurity",
+      "Conspiracy"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Christof Laputka",
+      "ownerName": "Human-B-Gon",
+      "network": "Leviathan Audio Productions",
+      "writers": [
+        "Christof Laputka"
+      ],
+      "people": [
+        {
+          "name": "Christof Laputka",
+          "role": "writer"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03"
+  },
+  {
+    "id": "the-invenios-expeditions",
+    "title": "The Invenios Expeditions",
+    "subtitle": "",
+    "description": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
+    "cover": "images/covers/the-invenios-expeditions.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-invenios-expeditions-738300b52e-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-invenios-expeditions-738300b52e-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Invenios Expeditions cover art",
+    "creators": [
+      "Christof Laputka"
+    ],
+    "status": "published",
+    "reviewStatus": "indexed-only",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "sci-fi",
+      "adventure",
+      "thriller"
+    ],
+    "tones": [],
+    "formats": [
+      "Serialized"
+    ],
+    "tags": [
+      "Sci-fi",
+      "Adventure",
+      "Ocean",
+      "Serialized"
+    ],
+    "aliases": [
+      "The Invenios Expeditions"
+    ],
+    "themes": [
+      "Treasure hunting",
+      "Ocean exploration"
+    ],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Christof Laputka",
+      "network": "Leviathan Audio Productions",
+      "writers": [
+        "Christof Laputka"
+      ],
+      "people": [
+        {
+          "name": "Christof Laputka",
+          "role": "writer"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-03",
+    "updatedAt": "2026-08-03"
   }
 ]
