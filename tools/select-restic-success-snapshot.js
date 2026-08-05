@@ -74,7 +74,9 @@ function classifySource(snapshot, markerFormat) {
     fail("selected snapshot source path is unsafe");
   }
   const normalized = path.posix.normalize(source);
-  if (/^\/var\/cache\/echo-archives-pi-restic\/verify\.[A-Za-z0-9]+\/recovery$/.test(normalized)) {
+  if (
+    /^\/var\/lib\/echo-archives-monitoring\/recovery-staging\.[A-Za-z0-9]+\/recovery$/.test(normalized)
+  ) {
     return { sourceRoot: normalized, inventoryFormat: "expanded" };
   }
   if (

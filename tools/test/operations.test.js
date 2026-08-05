@@ -356,7 +356,11 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(offsiteBackup, /data\/reviews/);
   assert.match(offsiteBackup, /docs\/generated\/catalog-status\.md/);
   assert.match(offsiteBackup, /REQUIRED_PATHS/);
-  assert.match(offsiteBackup, /restic restore --verify --target "\$\{REMOTE_RESTORE_DIR\}"/);
+  assert.match(offsiteBackup, /restic restore --verify --target "\$\{REMOTE_RESTORE_DIR\}\/recovery"/);
+  assert.match(offsiteBackup, /"\$\{snapshot_id\}:\$\{recovery_root\}"/);
+  assert.doesNotMatch(offsiteBackup, /\$\{REMOTE_RESTORE_DIR\}\$\{recovery_root\}/);
+  assert.match(offsiteBackup, /total_files_processed/);
+  assert.match(offsiteBackup, /total_bytes_processed/);
   assert.match(offsiteBackup, /verify-restic-recovery-inventory\.js/);
   assert.match(offsiteBackup, /snapshot_id=%s/);
   assert.match(offsiteBackup, /remove_remote_restore/);
@@ -364,6 +368,12 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.doesNotMatch(offsiteBackup, /lastIndexOf\(marker\)/);
   assert.match(offsiteBackup, /remove_recovery_inventory/);
   assert.match(offsiteBackup, /Unencrypted recovery inventory remained/);
+  assert.match(offsiteBackup, /STATE_DIR="\/var\/lib\/echo-archives-monitoring"/);
+  assert.match(offsiteBackup, /recovery-staging\.XXXXXX/);
+  assert.match(offsiteBackup, /Recovery staging and the Restic cache must be separate directory trees/);
+  assert.match(offsiteBackup, /remote-restore\.XXXXXX/);
+  assert.doesNotMatch(offsiteBackup, /mktemp -d "\$\{CACHE_DIR\}\/verify\.XXXXXX"/);
+  assert.doesNotMatch(offsiteBackup, /mktemp -d "\$\{CACHE_DIR\}\/remote-restore\.XXXXXX"/);
   assert.match(offsiteBackup, /--one-file-system/);
 
   const restoredApplication = read("deploy/verify-restored-application.sh");

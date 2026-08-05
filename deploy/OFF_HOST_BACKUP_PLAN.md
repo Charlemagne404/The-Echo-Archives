@@ -23,8 +23,10 @@ The credential-neutral foundation remains checked in:
 - `tools/check-database-backup.js` validates freshness, private permissions, SQLite integrity, foreign keys, required tables, and table counts.
 - `deploy/echo-archives-offsite-backup.sh` is the canonical Pi upload workflow.
   It selects the newest completed local backup, verifies a byte-identical copy
-  in the protected cache, stages the complete recovery inventory there, uploads
-  only that stable inventory, applies retention, and checks the repository.
+  in protected service state outside Restic's active cache tree, stages the
+  complete recovery inventory there, uploads only that stable inventory,
+  applies retention, and checks the repository. A fail-closed realpath check
+  prevents the state and cache trees from overlapping.
 - `deploy/echo-archives-offsite-backup.service` and `.timer` are the single canonical Raspberry Pi automation pair. The service keeps the home tree read-only, waits for Tailscale and root SSH, and maintains a freshness marker without storing credentials or database content in the unit.
 - `deploy/offsite-backup.env.example` documents the required variable names without containing credentials.
 - `deploy/complete-pi-backup-setup.sh` performs the guarded restore drill, installs and manually verifies the unit pair, enables its timer, and rejects duplicate Pi backup automation.
@@ -51,8 +53,10 @@ The encrypted inventory currently contains:
   Better Stack systemd drop-in, runtime migration readiness record, and Ollama
   unit when present.
 
-Each job builds a manifest of every staged recovery path, restores the exact
-new snapshot with Restic byte verification into root-only staging, and compares
+Each job builds a manifest of every staged recovery path, requires Restic's
+backup summary and snapshot metadata to prove that source was uploaded,
+restores the exact recovery subfolder from the new snapshot with Restic byte
+verification into root-only staging, and compares
 the restored filesystem with that manifest before retention, repository
 checking, local pruning, success-marker publication, or heartbeat success. The
 atomic marker records the full verified snapshot ID, so a later failed-run

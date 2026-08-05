@@ -241,7 +241,7 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     /\$1 != "echo-archives-offsite-backup\.service" &&\s*\$1 != "echo-archives-local-monitor\.service"/,
   );
   assert.match(script, /\.retention-write-probe\./);
-  assert.match(script, /failure does not match the reviewed sandbox transition/);
+  assert.match(script, /failure does not match a reviewed recovery transition/);
   assert.match(script, /rollback_backup_unit_transition/);
   assert.match(
     script,
@@ -276,7 +276,8 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   assert.match(script, /select-restic-success-snapshot\.js/);
   assert.match(script, /--marker "\$\{OFFSITE_SUCCESS_MARKER\}"/);
   assert.match(script, /restore_and_verify_snapshot_inventory/);
-  assert.match(script, /restic restore --verify --target "\$\{restore_target\}"/);
+  assert.match(script, /"\$\{snapshot_id\}:\$\{source_root\}"/);
+  assert.doesNotMatch(script, /\$\{restore_target\}\$\{source_root\}/);
   assert.match(script, /expanded recovery verification will be established by the new backup/);
   assert.doesNotMatch(script, /restic (?:ls|dump)/);
   assert.match(script, /preserving the healthy running Echo process idempotently/);
@@ -322,6 +323,39 @@ test("backup transition accepts only the current stale-marker invocation", () =>
     historicalOnly.stderr,
     /neither the reviewed backup cascade nor stale backup freshness/,
   );
+});
+
+test("backup transition accepts only the complete current Restic cache-source failure", () => {
+  const cacheSourceFailure = [
+    "Sending the protected recovery inventory to the encrypted restic repository.",
+    "restoring <Snapshot fixture of [/var/cache/echo-archives-pi-restic/verify.fixture/recovery]>",
+    "Summary: Restored 4 files/dirs (0 B) in 0:00",
+    "finished verifying 0 files",
+    "Restic recovery inventory verification failed: restored recovery root is missing or unreadable",
+  ].join("\n");
+  const accepted = runBackupTransitionFixture({
+    failedUnits: [
+      "echo-archives-offsite-backup.service",
+      "echo-archives-local-monitor.service",
+    ],
+    offsiteJournal: `${cacheSourceFailure}\n`,
+    monitorJournal: "FAIL: One or more systemd units are failed.\n",
+  });
+  assert.equal(accepted.status, 0, accepted.stderr);
+  assert.match(accepted.stdout, /transition=yes deferred=no install=no/);
+
+  for (const missingLine of cacheSourceFailure.split("\n")) {
+    const incomplete = cacheSourceFailure
+      .split("\n")
+      .filter((line) => line !== missingLine)
+      .join("\n");
+    const rejected = runBackupTransitionFixture({
+      failedUnits: ["echo-archives-offsite-backup.service"],
+      offsiteJournal: `${incomplete}\n`,
+    });
+    assert.notEqual(rejected.status, 0);
+    assert.match(rejected.stderr, /does not match a reviewed recovery transition/);
+  }
 });
 
 test("backup transition rejects unsafe or inconsistent stale-marker states", () => {

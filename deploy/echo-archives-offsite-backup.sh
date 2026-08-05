@@ -8,6 +8,7 @@ BACKUP_DIR="${REPO_ROOT}/backend/data/backups"
 IMPORT_STAGING_DIR="${REPO_ROOT}/backend/data/import-staging"
 BACKEND_ENV="${REPO_ROOT}/backend/.env"
 SUCCESS_MARKER="/var/lib/echo-archives-monitoring/offsite-backup-success"
+STATE_DIR="/var/lib/echo-archives-monitoring"
 CACHE_DIR="${RESTIC_CACHE_DIR:-/var/cache/echo-archives-pi-restic}"
 MAX_LOCAL_BACKUP_AGE_HOURS="${MAX_LOCAL_BACKUP_AGE_HOURS:-6}"
 RESULT_FILE=""
@@ -33,7 +34,7 @@ cleanup() {
     rm -f -- "${RESULT_FILE}"
   fi
   if [[ -n "${REMOTE_RESTORE_DIR}" &&
-    "${REMOTE_RESTORE_DIR}" == "${CACHE_DIR}"/remote-restore.* &&
+    "${REMOTE_RESTORE_DIR}" == "${STATE_DIR}"/remote-restore.* &&
     -d "${REMOTE_RESTORE_DIR}" &&
     ! -L "${REMOTE_RESTORE_DIR}" ]]; then
     find "${REMOTE_RESTORE_DIR}" -xdev -depth -delete
@@ -43,7 +44,7 @@ cleanup() {
     rm -f -- "${MARKER_TEMP}"
   fi
   if [[ -n "${VERIFY_DIR}" &&
-    "${VERIFY_DIR}" == "${CACHE_DIR}"/verify.* &&
+    "${VERIFY_DIR}" == "${STATE_DIR}"/recovery-staging.* &&
     -d "${VERIFY_DIR}" &&
     ! -L "${VERIFY_DIR}" ]]; then
     find "${VERIFY_DIR}" -xdev -depth -delete
@@ -53,7 +54,7 @@ cleanup() {
 remove_recovery_inventory() {
   local path_to_remove="${VERIFY_DIR}"
   [[ -n "${path_to_remove}" &&
-    "${path_to_remove}" == "${CACHE_DIR}"/verify.* &&
+    "${path_to_remove}" == "${STATE_DIR}"/recovery-staging.* &&
     -d "${path_to_remove}" &&
     ! -L "${path_to_remove}" ]] ||
     fail "Recovery inventory cleanup path is unsafe."
@@ -67,7 +68,7 @@ remove_recovery_inventory() {
 remove_remote_restore() {
   local path_to_remove="${REMOTE_RESTORE_DIR}"
   [[ -n "${path_to_remove}" &&
-    "${path_to_remove}" == "${CACHE_DIR}"/remote-restore.* &&
+    "${path_to_remove}" == "${STATE_DIR}"/remote-restore.* &&
     -d "${path_to_remove}" &&
     ! -L "${path_to_remove}" ]] ||
     fail "Remote restore cleanup path is unsafe."
@@ -148,7 +149,7 @@ trap 'on_signal HUP 129' HUP
 [[ -f "${INVENTORY_VERIFIER}" && ! -L "${INVENTORY_VERIFIER}" ]] ||
   fail "Restic recovery inventory verifier is missing or unsafe."
 
-for command_name in basename chmod chown cmp cp cut date dirname find grep install mktemp mv node restic rm sed sort stat; do
+for command_name in basename chmod chown cmp cp cut date dirname find grep hostname install mktemp mv node realpath restic rm sed sort stat; do
   command -v "${command_name}" >/dev/null 2>&1 || fail "Required command is missing: ${command_name}"
 done
 
@@ -161,6 +162,14 @@ done
 [[ "${CACHE_DIR}" == "/var/cache/echo-archives-pi-restic" ]] ||
   fail "RESTIC_CACHE_DIR must be the reviewed Pi cache directory."
 export RESTIC_CACHE_DIR="${CACHE_DIR}"
+state_real="$(realpath -e -- "${STATE_DIR}")" ||
+  fail "Backup state directory cannot be resolved safely."
+cache_real="$(realpath -e -- "${CACHE_DIR}")" ||
+  fail "Restic cache directory cannot be resolved safely."
+[[ "${state_real}" != "${cache_real}" &&
+  "${state_real}" != "${cache_real}"/* &&
+  "${cache_real}" != "${state_real}"/* ]] ||
+  fail "Recovery staging and the Restic cache must be separate directory trees."
 [[ "${RESTIC_PASSWORD_FILE}" == /* ]] || fail "RESTIC_PASSWORD_FILE must be an absolute path."
 [[ -f "${RESTIC_PASSWORD_FILE}" ]] || fail "RESTIC_PASSWORD_FILE does not exist."
 [[ "$(stat -c '%U:%G' "${RESTIC_PASSWORD_FILE}")" == "root:root" ]] ||
@@ -185,9 +194,12 @@ latest_backup="$(
 )"
 [[ -n "${latest_backup}" ]] || fail "No completed local SQLite backup was found."
 
-install -d -m 0755 -o root -g root /var/lib/echo-archives-monitoring
+install -d -m 0755 -o root -g root "${STATE_DIR}"
 install -d -m 0700 -o root -g root "${CACHE_DIR}"
-VERIFY_DIR="$(mktemp -d "${CACHE_DIR}/verify.XXXXXX")"
+# Restic deliberately excludes its own cache tree when that tree is supplied
+# as a backup source. Keep the unencrypted, root-only recovery inventory in
+# persistent service state instead; the EXIT trap removes it on every outcome.
+VERIFY_DIR="$(mktemp -d "${STATE_DIR}/recovery-staging.XXXXXX")"
 recovery_root="${VERIFY_DIR}/recovery"
 staged_backup="${recovery_root}/database/$(basename -- "${latest_backup}")"
 install -d -m 0700 "${recovery_root}/database" "${recovery_root}/configuration"
@@ -287,10 +299,17 @@ snapshot_id="$(
     const lines = fs.readFileSync(process.argv[1], "utf8").trim().split(/\n+/);
     const messages = lines.map((line) => JSON.parse(line));
     const summary = messages.findLast((message) => message.message_type === "summary");
-    if (!summary?.snapshot_id) process.exit(1);
+    const minimumBytes = Number(process.argv[2]);
+    if (
+      !/^[0-9a-f]{64}$/.test(summary?.snapshot_id ?? "") ||
+      !Number.isSafeInteger(summary?.total_files_processed) ||
+      summary.total_files_processed < 2 ||
+      !Number.isSafeInteger(summary?.total_bytes_processed) ||
+      summary.total_bytes_processed < minimumBytes
+    ) process.exit(1);
     process.stdout.write(summary.snapshot_id);
-  ' "${RESULT_FILE}"
-)" || fail "Restic completed without returning a snapshot ID."
+  ' "${RESULT_FILE}" "$(stat -c '%s' "${staged_backup}")"
+)" || fail "Restic summary did not prove the staged database and manifest were uploaded."
 
 restic snapshots --json "${snapshot_id}" |
   node -e '
@@ -299,20 +318,30 @@ restic snapshots --json "${snapshot_id}" |
     process.stdin.on("end", () => {
       const snapshots = JSON.parse(input);
       const expected = process.argv[1];
+      const expectedPath = process.argv[2];
+      const expectedHost = process.argv[3];
       if (
         !Array.isArray(snapshots) ||
         snapshots.length !== 1 ||
-        snapshots[0].id !== expected
+        snapshots[0].id !== expected ||
+        snapshots[0].hostname !== expectedHost ||
+        !Array.isArray(snapshots[0].tags) ||
+        !snapshots[0].tags.includes("echo-archives") ||
+        !Array.isArray(snapshots[0].paths) ||
+        snapshots[0].paths.length !== 1 ||
+        snapshots[0].paths[0] !== expectedPath
       ) process.exit(1);
     });
-  ' "${snapshot_id}" ||
-  fail "The new off-site snapshot could not be listed."
+  ' "${snapshot_id}" "${recovery_root}" "$(hostname)" ||
+  fail "The new off-site snapshot metadata does not match the staged recovery inventory."
 
-REMOTE_RESTORE_DIR="$(mktemp -d "${CACHE_DIR}/remote-restore.XXXXXX")"
+REMOTE_RESTORE_DIR="$(mktemp -d "${STATE_DIR}/remote-restore.XXXXXX")"
 chmod 0700 "${REMOTE_RESTORE_DIR}"
+install -d -m 0700 "${REMOTE_RESTORE_DIR}/recovery"
 log "Restoring and byte-verifying the exact new snapshot before publishing success."
-restic restore --verify --target "${REMOTE_RESTORE_DIR}" "${snapshot_id}"
-restored_recovery_root="${REMOTE_RESTORE_DIR}${recovery_root}"
+restic restore --verify --target "${REMOTE_RESTORE_DIR}/recovery" \
+  "${snapshot_id}:${recovery_root}"
+restored_recovery_root="${REMOTE_RESTORE_DIR}/recovery"
 node "${INVENTORY_VERIFIER}" \
   --recovery-root "${restored_recovery_root}"
 remove_remote_restore

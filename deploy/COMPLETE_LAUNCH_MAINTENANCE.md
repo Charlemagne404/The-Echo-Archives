@@ -20,7 +20,10 @@ In `--apply` mode the script performs these fail-fast stages in order:
 3. Reconciles the reviewed off-site backup unit when the checked-in backup
    script has reached production before its matching systemd write path. Only
    the exact current off-site read-only probe failure and its current
-   local-monitor cascade are accepted. On a resumed run, the exact current
+   local-monitor cascade are accepted. It also recognizes only the complete
+   current-invocation signature of the August 4/5 Restic failure that uploaded
+   zero files because recovery staging was below Restic's active cache; the
+   corrected job stages in separate protected service state. On a resumed run, the exact current
    local-monitor failure caused by an expired off-site success marker is also
    accepted only after the corrected unit is installed. The same regular,
    objectively stale marker is recognized when a successful stage rollback has
@@ -60,7 +63,8 @@ In `--apply` mode the script performs these fail-fast stages in order:
    guarded temporary directory, verifies SQLite integrity and foreign keys, starts an isolated
    loopback-only restored application, removes it, installs/verifies the
    canonical off-site timer, and runs a new backup. The new snapshot is restored
-   with Restic's byte verification into root-only staging and its exact restored
+   with Restic's byte verification by selecting its exact recovery subfolder
+   into root-only staging and its exact restored
    filesystem is compared with the staged manifest, without trusting JSON path
    rendering.
    It then applies existing off-site retention, runs `restic check`, and only then
@@ -121,8 +125,8 @@ live-application stage verify its production behavior without extra downtime.
 - `main`, `HEAD`, and `origin/main` must be the same explicitly supplied
   40-character commit and the checkout must be clean.
 - Caddy, Echo, and Ollama must be healthy before starting. Failed system units
-  remain fatal except for the exact reviewed off-site backup sandbox transition
-  or resumed-run stale-marker state described above; the preflight matches its
+  remain fatal except for the exact reviewed off-site backup sandbox/cache-source
+  transitions or resumed-run stale-marker state described above; the preflight matches its
   unit allowlist and current-invocation journal signatures rather than ignoring
   failed state.
 - At least 20 GiB must be free.

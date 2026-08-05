@@ -7,7 +7,7 @@
 - **Production URL:** `https://echoarchives.net`
 - **Repository:** `/home/charlie/The-Echo-Archives`
 - **Audit basis:** Current repository, live website, production configuration, running services, database, logs, DNS, TLS, network state, backups, and hosting machine
-- **Last updated:** July 31, 2026
+- **Last updated:** August 5, 2026
 
 This is the working launch-readiness record for resolving the issues discovered during the July 28 audit. Update item status and add verification evidence as fixes land. Do not mark the site launch-ready until every blocker is closed or explicitly accepted by the owner with a documented mitigation.
 
@@ -222,6 +222,34 @@ counts rather than private filenames. A real disposable Restic backup and
 verified restore exercises this exact flow. Production-only status remains
 Ready for verification until the new privileged check/apply succeeds.
 
+The scheduled off-site jobs on August 4 and 5 exposed a separate Restic source
+topology defect. Invocation `b9d338e782ce43fb911df139d1e1fe65`
+successfully selected and verified
+`community-2026-08-05T01-29-42-022Z.sqlite` (101,560,320 bytes, integrity
+`ok`, zero foreign-key violations, 129 podcasts, 31 profiles, 130 import
+candidates, and two discovery sources), staged the expanded inventory, and
+created snapshot `4b7423fd`. Restic then restored only four ancestor
+directories and zero bytes and verified zero files, so the inventory verifier
+failed and no success marker, retention, local pruning, or success heartbeat
+was published. Snapshot `2c4daaef` from August 4 has the same failed-run
+pattern. Both remain unpinned orphan snapshots and are not recovery evidence.
+
+The cause is deterministic Restic 0.16.4 behavior: it always excludes paths
+beneath its active `RESTIC_CACHE_DIR`, independently of `--exclude-caches`.
+The job had incorrectly placed its backup source under that cache. The prepared
+correction puts both protected recovery staging and restore scratch space in
+the already sandbox-writable systemd state directory, rejects overlapping
+state/cache realpaths, requires the backup summary to include files and at
+least the staged database bytes, validates exact host/tag/source snapshot
+metadata, and restores the exact recovery subfolder before manifest
+verification. A disposable real-Restic regression reproduces the zero-byte
+cache-nested failure and proves the separated topology restores every staged
+path. Preflight now accepts only the complete current-invocation signature of
+this known failure so the corrected job can replace it; unrelated failed units
+remain fatal. This correction is repository-tested but remains **Ready for
+verification**, and the July 28 success marker remains stale until a production
+job passes completely.
+
 Because repeated runs had exposed production-only assumptions one at a time,
 the maintenance safety review was expanded across every remaining stage. The
 prepared script now copies and re-hashes artifacts into root-owned per-run
@@ -243,11 +271,12 @@ privileged check/apply evidence passes.
 
 ### Repository verification evidence
 
-The final post-fix `npm run verify` completed successfully:
+The August 5 post-fix `npm run verify` completed successfully:
 
-- generated 125 shows, 29 collections, and seven review companions;
+- generated 129 shows, 29 collections, and seven review companions;
 - structure and local-link validation passed;
-- operations/tool tests: `49/49`;
+- operations/tool tests: `52/52`, including the real Restic cache-topology
+  failure reproduction, separated staging restore, and exact transition checks;
 - backend tests: `231/231`;
 - Chromium browser smoke tests: `60/60`, including generated/raw HTML, client-rendered
   null ratings, desktop/mobile browse states, submission accessibility, passive
@@ -763,7 +792,8 @@ check remains pending.
 Positive evidence:
 
 - Daily online SQLite backups pass integrity and foreign-key checks.
-- Encrypted Restic off-host backup is working.
+- A legacy encrypted Restic off-host snapshot and repository baseline exist;
+  the current expanded job is failing closed and its success marker is stale.
 - Off-host retention is configured.
 - The latest inspected repository integrity check passed.
 - Off-host freshness is currently enforced by the local monitor.
@@ -788,14 +818,15 @@ Required work:
 - [ ] Exclude secrets only when there is a separately tested secret-recovery process.
 - [ ] Document encryption keys, ownership, and emergency access privately.
 
-The canonical job now stages importer state, the verified database, every
+The canonical job now stages importer state outside Restic's active cache, the verified database, every
 runtime-writable catalog/cover/review/generated publication path, production
 environment, Caddyfile, application/backup/discovery/monitoring units, local
 monitoring and Restic environments, Better Stack environment/drop-in, journal
 retention, runtime-account readiness/drop-in, and Ollama unit. It rejects
 symlinked durable state, checks every staged inventory path exists in the new
-remote snapshot, and never stages the Restic password or SSH private key. The
-expanded inventory and assertions are locally tested but have not yet
+remote snapshot, and never stages the Restic password or SSH private key. It
+also rejects overlapping cache/staging paths and zero-file or undersized Restic
+summaries before success publication. The expanded inventory and assertions are locally tested but have not yet
 completed a production encrypted upload and restore.
 
 Changed/verified files:

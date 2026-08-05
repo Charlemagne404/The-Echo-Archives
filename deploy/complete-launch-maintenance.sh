@@ -420,20 +420,22 @@ restore_and_verify_snapshot_inventory() {
   local restore_target="${TEMP_ROOT}/successful-restic-restore"
   local restored_recovery_root
 
-  [[ "${source_root}" == /var/cache/echo-archives-pi-restic/verify.*/recovery ]] ||
+  [[ "${source_root}" == /var/lib/echo-archives-monitoring/recovery-staging.*/recovery ]] ||
     fail "selected successful snapshot has an unsafe expanded source root"
   [[ ! -e "${restore_target}" && ! -L "${restore_target}" ]] ||
     fail "successful-snapshot restore target already exists"
   install -d -m 0700 -o root -g root "${restore_target}"
+  install -d -m 0700 -o root -g root "${restore_target}/recovery"
   (
     set -a
     source /etc/echo-archives/pi-restic.env
     set +a
     export HOME=/root
     export RESTIC_CACHE_DIR=/var/cache/echo-archives-pi-restic
-    restic restore --verify --target "${restore_target}" "${snapshot_id}"
+    restic restore --verify --target "${restore_target}/recovery" \
+      "${snapshot_id}:${source_root}"
   )
-  restored_recovery_root="${restore_target}${source_root}"
+  restored_recovery_root="${restore_target}/recovery"
   node "${REPO_ROOT}/tools/verify-restic-recovery-inventory.js" \
     --recovery-root "${restored_recovery_root}"
   find "${restore_target}" -xdev -depth -delete
@@ -497,6 +499,26 @@ capture_current_unit_journal() {
     --output cat --no-pager > "${output}"
   [[ -s "${output}" ]] ||
     fail "the current failed invocation for ${unit} has no journal evidence"
+}
+
+offsite_failure_is_reviewed_transition() {
+  local journal="$1"
+
+  if grep -Fq ".retention-write-probe." "${journal}" &&
+    grep -Fq "Read-only file system" "${journal}"; then
+    return 0
+  fi
+
+  # Restic 0.16 excludes a source nested below RESTIC_CACHE_DIR. The affected
+  # job uploaded only the source's ancestor directories, restored zero bytes,
+  # failed the inventory verifier, and deliberately did not publish success.
+  # Require the complete current-invocation signature so unrelated failures
+  # and historical journal entries remain fatal.
+  grep -Fq "Sending the protected recovery inventory to the encrypted restic repository." "${journal}" &&
+    grep -Fq "/var/cache/echo-archives-pi-restic/verify." "${journal}" &&
+    grep -Eq 'Summary: Restored [0-9]+ files/dirs \(0 B\)' "${journal}" &&
+    grep -Fq "finished verifying 0 files" "${journal}" &&
+    grep -Fq "Restic recovery inventory verification failed: restored recovery root is missing or unreadable" "${journal}"
 }
 
 offsite_success_marker_is_stale() {
@@ -566,9 +588,8 @@ classify_backup_unit_transition() {
     offsite_failed="yes"
     capture_current_unit_journal \
       echo-archives-offsite-backup.service "${offsite_journal}"
-    grep -Fq ".retention-write-probe." "${offsite_journal}" &&
-      grep -Fq "Read-only file system" "${offsite_journal}" ||
-      fail "off-site backup failure does not match the reviewed sandbox transition"
+    offsite_failure_is_reviewed_transition "${offsite_journal}" ||
+      fail "off-site backup failure does not match a reviewed recovery transition"
   fi
 
   if grep -Fxq "echo-archives-local-monitor.service" "${failed_units}"; then
@@ -610,7 +631,7 @@ classify_backup_unit_transition() {
   if [[ "${BACKUP_MONITOR_FRESHNESS_DEFERRED}" == "yes" ]]; then
     log "Accepted the current stale off-site freshness marker; monitor recovery is deferred until the verified Restic backup stage."
   else
-    log "Accepted only the reviewed off-site sandbox transition; unrelated failed units remain fatal."
+    log "Accepted only the reviewed off-site recovery transition; unrelated failed units remain fatal."
   fi
 }
 

@@ -414,13 +414,15 @@ timer. It runs at approximately 04:00 local time, after the local SQLite timer's
 03:15–03:30 window. Its oneshot service waits for `network-online.target` and
 `tailscaled.service`, proves Tailscale and root SSH reachability, selects the
 newest completed local `.sqlite` backup, and verifies a protected byte-for-byte
-staging copy in its writable cache. A backup older than six hours is rejected,
+staging copy in its systemd-managed state directory, outside Restic's active
+cache tree. A backup older than six hours is rejected,
 so a failed local-backup run cannot silently upload yesterday's database. The
 job builds a stable encrypted recovery inventory from that copy, importer cover
 staging, the production environment, the active Caddyfile, Echo systemd units,
 all runtime-writable publication directories and generated catalog/status files,
-and the private monitor configuration. It uploads only that cache copy, restores
-and byte-verifies the exact new snapshot, compares the exact restored tree with
+and the private monitor configuration. It uploads only that stable state copy,
+requires the backup summary and snapshot metadata to match it, restores and
+byte-verifies the exact recovery subfolder, compares the exact restored tree with
 its manifest, applies the reviewed Restic retention policy, requires `restic
 check` to succeed, removes all unencrypted staging, and only then atomically
 publishes a success marker containing the full snapshot ID. It never opens the
