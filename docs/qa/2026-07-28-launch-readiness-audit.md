@@ -289,6 +289,11 @@ The August 5 post-fix `npm run verify` completed successfully:
 - `npm audit --omit=dev` reported zero vulnerabilities;
 - `git diff --check`, shell parsing, and offline systemd verification passed.
 
+The Restic cache-topology correction commit
+`18eae883041704e918a37ea2f193688e321d5da3` was pushed to
+`origin/main`. GitHub Actions Verify run `31029933047` passed in 4m21s,
+including the full repository verification and stale-generated-output gate.
+
 The resumed-maintenance regression initially exposed two checkout-path
 assumptions only in GitHub's `/home/runner` workspace. The fixture now keeps the
 fixed production root assertion while independently locating its checked-in
