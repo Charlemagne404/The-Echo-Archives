@@ -226,6 +226,9 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   assert.match(script, /cp -a -- \/usr\/local\/lib\/ollama/);
   assert.match(script, /install_ollama_library_tree\(\)/);
   assert.match(script, /cp -a --no-dereference -- "\$\{source_tree\}\/." \/usr\/local\/lib\/ollama\//);
+  assert.match(script, /chown -R root:root \/usr\/local\/lib\/ollama/);
+  assert.match(script, /find \/usr\/local\/lib\/ollama -type d -exec chmod 0755 \{\} \+/);
+  assert.match(script, /runuser -u ollama -- test -x \/usr\/local\/lib\/ollama\/llama-server/);
   assert.match(script, /lib\/ollama\/llama-server/);
   assert.match(script, /installed Ollama runner is missing or unsafe/);
   assert.match(script, /stage_root_owned_artifacts/);

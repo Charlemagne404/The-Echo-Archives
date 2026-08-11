@@ -83,6 +83,10 @@ sudo mv /usr/local/lib/ollama /path/to/rollback/ollama-lib.previous
 sudo install -m 0755 /path/to/stage/bin/ollama /usr/local/bin/ollama
 sudo install -d -m 0755 /usr/local/lib/ollama
 sudo cp --archive --no-dereference /path/to/stage/lib/ollama/. /usr/local/lib/ollama/
+sudo chown -R root:root /usr/local/lib/ollama
+sudo find /usr/local/lib/ollama -type d -exec chmod 0755 {} +
+sudo find /usr/local/lib/ollama -type f -perm /111 -exec chmod 0755 {} +
+sudo -u ollama test -x /usr/local/lib/ollama/llama-server
 sudo test -x /usr/local/lib/ollama/llama-server
 sudo systemctl start ollama.service
 ```

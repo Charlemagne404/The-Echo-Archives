@@ -1353,8 +1353,12 @@ install_ollama_library_tree() {
   [[ ! -e /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] || return 1
   install -d -m 0755 -o root -g root /usr/local/lib/ollama || return 1
   cp -a --no-dereference -- "${source_tree}/." /usr/local/lib/ollama/ || return 1
+  chown -R root:root /usr/local/lib/ollama || return 1
+  find /usr/local/lib/ollama -type d -exec chmod 0755 {} + || return 1
+  find /usr/local/lib/ollama -type f -perm /111 -exec chmod 0755 {} + || return 1
   diff --recursive --brief \
     "${source_tree}" /usr/local/lib/ollama >/dev/null || return 1
+  runuser -u ollama -- test -x /usr/local/lib/ollama/llama-server || return 1
 }
 
 ollama_listener_is_private() {
