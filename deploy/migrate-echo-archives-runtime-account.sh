@@ -55,6 +55,11 @@ WRITABLE_FILES=(
   "${REPO_ROOT}/docs/generated/catalog-status.md"
 )
 
+WRITABLE_FILE_PARENT_DIRECTORIES=(
+  "${REPO_ROOT}/data"
+  "${REPO_ROOT}/docs/generated"
+)
+
 QUIESCED_UNITS=(
   "${DISCOVERY_TIMER}"
   "${BACKUP_TIMER}"
@@ -72,7 +77,7 @@ die() {
 }
 
 usage() {
-  printf 'Usage: sudo %s --apply|--check|--rollback [backup-directory]\n' \
+  printf 'Usage: sudo %s --apply|--check|--repair-access|--rollback [backup-directory]\n' \
     "${REPO_ROOT}/deploy/migrate-echo-archives-runtime-account.sh"
 }
 
@@ -309,6 +314,12 @@ grant_runtime_write_access() {
     [[ -f "${file}" && ! -L "${file}" ]] ||
       die "Required generated publication file is missing or unsafe: ${file}"
     setfacl -m "u:${APP_USER}:rw-,u:${DEPLOY_USER}:rw-" "${file}"
+  done
+
+  for directory in "${WRITABLE_FILE_PARENT_DIRECTORIES[@]}"; do
+    [[ -d "${directory}" && ! -L "${directory}" ]] ||
+      die "Generated publication directory is missing or unsafe: ${directory}"
+    setfacl -m "d:u:${APP_USER}:rw-,d:u:${DEPLOY_USER}:rw-" "${directory}"
   done
 }
 
@@ -714,6 +725,17 @@ check_migration() {
   log "Dedicated runtime-account checks passed."
 }
 
+repair_runtime_access() {
+  require_operator
+  assert_checkout_clean
+  [[ -f "${READINESS_FILE}" && ! -L "${READINESS_FILE}" ]] ||
+    die "Dedicated runtime-account readiness record is missing."
+  grant_runtime_read_access
+  grant_runtime_write_access
+  run_runtime_checks
+  log "Dedicated runtime-account access controls were repaired and verified."
+}
+
 main() {
   require_root
   require_commands
@@ -738,6 +760,13 @@ main() {
         exit 1
       }
       check_migration
+      ;;
+    --repair-access)
+      [[ "$#" -eq 1 ]] || {
+        usage >&2
+        exit 1
+      }
+      repair_runtime_access
       ;;
     --rollback)
       [[ "$#" -le 2 ]] || {

@@ -1071,8 +1071,8 @@ stage_runtime_migration() {
     log "Dedicated runtime account already passed; preserving the healthy running Echo process idempotently."
   else
     SUDO_USER="${OPERATOR_USER}" \
-      "${REPO_ROOT}/deploy/migrate-echo-archives-runtime-account.sh" --apply
-    RUNTIME_MIGRATION_APPLIED="yes"
+      "${REPO_ROOT}/deploy/migrate-echo-archives-runtime-account.sh" --repair-access
+    log "Dedicated runtime account ACL drift was repaired without rerunning its completed migration."
   fi
   "${REPO_ROOT}/deploy/migrate-echo-archives-runtime-account.sh" --check
   log "Dedicated account, targeted writes, hardened units, import/publication write paths, backup access, and Ollama access verified."

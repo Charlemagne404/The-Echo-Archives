@@ -301,6 +301,9 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(runtimeMigration, /backup-database\.js/);
   assert.match(runtimeMigration, /check-database-backup\.js/);
   assert.match(runtimeMigration, /setfacl/);
+  assert.match(runtimeMigration, /--repair-access/);
+  assert.match(runtimeMigration, /d:u:\$\{APP_USER\}:rw-/);
+  assert.match(runtimeMigration, /Dedicated runtime-account access controls were repaired and verified/);
   assert.match(runtimeMigration, /-path "\$\{REPO_ROOT\}\/\.git" -prune/);
   assert.match(runtimeMigration, /-path "\$\{REPO_ROOT\}\/backend\/data\/backups" -prune/);
   assert.match(runtimeMigration, /10-runtime-account\.conf/);
@@ -449,6 +452,10 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   );
   assert.match(restoredApplicationCheck, /Ask the Archivist behavior mismatch/);
   assert.match(restoredApplicationCheck, /health\.durability\?\.synchronous !== "FULL"/);
+
+  const completeMaintenance = read("deploy/complete-launch-maintenance.sh");
+  assert.match(completeMaintenance, /migrate-echo-archives-runtime-account\.sh" --repair-access/);
+  assert.match(completeMaintenance, /ACL drift was repaired without rerunning/);
 
   const finalMaintenance = read("deploy/final-production-launch-maintenance.sh");
   assert.match(finalMaintenance, /ufw delete allow "\$\{target\}"/);
