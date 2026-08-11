@@ -173,6 +173,7 @@ test("deployment shell scripts parse and preserve the required safety order", ()
     "deploy/complete-launch-maintenance.sh",
     "deploy/complete-local-launch-readiness.sh",
     "deploy/complete-pi-backup-setup.sh",
+    "deploy/diagnose-restored-database-access.sh",
     "deploy/echo-archives-offsite-backup.sh",
     "deploy/final-production-launch-maintenance.sh",
     "deploy/install-echo-archives-system.sh",
@@ -437,6 +438,9 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(restoredApplicationCheck, /\/shows\/\$\{first_show_id\}/);
   assert.match(restoredApplicationCheck, /runtime account cannot read the restored database/);
   assert.match(restoredApplicationCheck, /runtime account cannot write beside the restored database/);
+  assert.match(restoredApplicationCheck, /restored SQLite sidecar is unsafe/);
+  assert.match(restoredApplicationCheck, /\$\{DATABASE_PATH\}-shm/);
+  assert.match(restoredApplicationCheck, /\$\{DATABASE_PATH\}-wal/);
   assert.match(restoredApplicationCheck, /VERIFY_ARCHIVIST_EXPECTED_SOURCE/);
   assert.match(restoredApplicationCheck, /What should I listen to next\?/);
   assert.doesNotMatch(

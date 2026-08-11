@@ -92,9 +92,20 @@ while [[ "${current_parent}" != "${restore_root}" ]]; do
 done
 chown root:"${APP_USER}" "${restore_root}"
 chmod 0710 "${restore_root}"
-chown "${APP_USER}:${APP_USER}" "${database_dir}" "${DATABASE_PATH}"
+for database_file in \
+  "${DATABASE_PATH}" \
+  "${DATABASE_PATH}-journal" \
+  "${DATABASE_PATH}-shm" \
+  "${DATABASE_PATH}-wal"; do
+  if [[ -e "${database_file}" || -L "${database_file}" ]]; then
+    [[ -f "${database_file}" && ! -L "${database_file}" ]] ||
+      fail "restored SQLite sidecar is unsafe: ${database_file}"
+    chown "${APP_USER}:${APP_USER}" "${database_file}"
+    chmod 0600 "${database_file}"
+  fi
+done
+chown "${APP_USER}:${APP_USER}" "${database_dir}"
 chmod 0700 "${database_dir}"
-chmod 0600 "${DATABASE_PATH}"
 runuser -u "${APP_USER}" -- test -r "${DATABASE_PATH}" ||
   fail "runtime account cannot read the restored database"
 runuser -u "${APP_USER}" -- test -w "${database_dir}" ||
