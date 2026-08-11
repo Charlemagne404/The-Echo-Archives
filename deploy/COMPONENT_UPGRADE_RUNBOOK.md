@@ -81,7 +81,9 @@ the staged tree contains `bin/ollama` and `lib/ollama/`. Then:
 sudo systemctl stop ollama.service
 sudo mv /usr/local/lib/ollama /path/to/rollback/ollama-lib.previous
 sudo install -m 0755 /path/to/stage/bin/ollama /usr/local/bin/ollama
-sudo cp --archive --no-dereference /path/to/stage/lib/ollama /usr/local/lib/ollama
+sudo install -d -m 0755 /usr/local/lib/ollama
+sudo cp --archive --no-dereference /path/to/stage/lib/ollama/. /usr/local/lib/ollama/
+sudo test -x /usr/local/lib/ollama/llama-server
 sudo systemctl start ollama.service
 ```
 

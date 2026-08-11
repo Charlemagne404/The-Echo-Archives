@@ -1337,16 +1337,24 @@ rollback_ollama_upgrade() {
   [[ ! -e /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] || return 1
   install -m 0755 -o root -g root \
     "${RUN_DIR}/ollama.binary.before" "${OLLAMA_BIN}" || return 1
-  cp -a -- "${RUN_DIR}/ollama-lib.before" /usr/local/lib/ollama || return 1
+  install_ollama_library_tree "${RUN_DIR}/ollama-lib.before" || return 1
   cmp --silent -- "${RUN_DIR}/ollama.binary.before" "${OLLAMA_BIN}" || return 1
-  diff --recursive --brief \
-    "${RUN_DIR}/ollama-lib.before" /usr/local/lib/ollama >/dev/null || return 1
   restore_optional_file \
     /etc/systemd/system/ollama.service ollama.service.before 0644 || return 1
   systemctl daemon-reload || return 1
   systemctl start ollama.service || return 1
   verify_ollama_runtime "${baseline_version}" || return 1
   log "Ollama rollback restored and fully verified version ${baseline_version}."
+}
+
+install_ollama_library_tree() {
+  local source_tree="$1"
+  [[ -d "${source_tree}" && ! -L "${source_tree}" ]] || return 1
+  [[ ! -e /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] || return 1
+  install -d -m 0755 -o root -g root /usr/local/lib/ollama || return 1
+  cp -a --no-dereference -- "${source_tree}/." /usr/local/lib/ollama/ || return 1
+  diff --recursive --brief \
+    "${source_tree}" /usr/local/lib/ollama >/dev/null || return 1
 }
 
 ollama_listener_is_private() {
@@ -1439,7 +1447,9 @@ stage_ollama_upgrade() {
     local stage="${TEMP_ROOT}/ollama-stage"
     install -d -m 0700 -o root -g root "${stage}"
     tar --zstd --extract --file "${OLLAMA_NEW_ARCHIVE}" --directory "${stage}"
-    [[ -x "${stage}/bin/ollama" && -d "${stage}/lib/ollama" ]] ||
+    [[ -x "${stage}/bin/ollama" && -d "${stage}/lib/ollama" &&
+      -x "${stage}/lib/ollama/llama-server" &&
+      ! -L "${stage}/lib/ollama/llama-server" ]] ||
       fail "extracted Ollama archive is incomplete"
     CURRENT_ROLLBACK=rollback_ollama_upgrade
     systemctl stop ollama.service
@@ -1452,7 +1462,11 @@ stage_ollama_upgrade() {
     [[ ! -e /usr/local/lib/ollama && ! -L /usr/local/lib/ollama ]] ||
       fail "installed Ollama library path remained after preservation"
     install -m 0755 -o root -g root "${stage}/bin/ollama" "${OLLAMA_BIN}"
-    cp -a -- "${stage}/lib/ollama" /usr/local/lib/ollama
+    install_ollama_library_tree "${stage}/lib/ollama" ||
+      fail "could not install the exact staged Ollama library tree"
+    [[ -x /usr/local/lib/ollama/llama-server &&
+      ! -L /usr/local/lib/ollama/llama-server ]] ||
+      fail "installed Ollama runner is missing or unsafe"
     systemctl start ollama.service
     OLLAMA_UPGRADED="yes"
   fi
@@ -1654,8 +1668,10 @@ run_remaining_stage_preflight() {
   tar --zstd --extract --file "${OLLAMA_NEW_ARCHIVE}" --directory "${ollama_extract}"
   [[ -x "${ollama_extract}/bin/ollama" &&
     -d "${ollama_extract}/lib/ollama" &&
+    -x "${ollama_extract}/lib/ollama/llama-server" &&
     ! -L "${ollama_extract}/bin/ollama" &&
-    ! -L "${ollama_extract}/lib/ollama" ]] ||
+    ! -L "${ollama_extract}/lib/ollama" &&
+    ! -L "${ollama_extract}/lib/ollama/llama-server" ]] ||
     fail "full Ollama preflight extraction did not produce the reviewed layout"
   OLLAMA_HOST=http://127.0.0.1:1 \
     "${ollama_extract}/bin/ollama" --version 2>&1 |

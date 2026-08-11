@@ -224,6 +224,10 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
   );
   assert.match(script, /cp -a -- "\$\{OLLAMA_BIN\}"/);
   assert.match(script, /cp -a -- \/usr\/local\/lib\/ollama/);
+  assert.match(script, /install_ollama_library_tree\(\)/);
+  assert.match(script, /cp -a --no-dereference -- "\$\{source_tree\}\/." \/usr\/local\/lib\/ollama\//);
+  assert.match(script, /lib\/ollama\/llama-server/);
+  assert.match(script, /installed Ollama runner is missing or unsafe/);
   assert.match(script, /stage_root_owned_artifacts/);
   assert.match(script, /Copied and re-hashed all upgrade and rollback artifacts/);
   assert.match(script, /ollama-lib\.pre-upgrade/);
