@@ -7,7 +7,7 @@
 - **Production URL:** `https://echoarchives.net`
 - **Repository:** `/home/charlie/The-Echo-Archives`
 - **Audit basis:** Current repository, live website, production configuration, running services, database, logs, DNS, TLS, network state, backups, and hosting machine
-- **Last updated:** August 5, 2026
+- **Last updated:** August 11, 2026
 
 This is the working launch-readiness record for resolving the issues discovered during the July 28 audit. Update item status and add verification evidence as fixes land. Do not mark the site launch-ready until every blocker is closed or explicitly accepted by the owner with a documented mitigation.
 
@@ -27,10 +27,11 @@ application foundation. The code defects that produced false `0/10` ratings
 and contradictory browse results are fixed. The Cloudflare origin gate, Caddy
 2.11.4, dedicated runtime account, hardened Echo unit, production feature
 flags, access telemetry, and WAL/`synchronous=FULL` are now active and passed
-their corresponding live maintenance stages. Launch remains blocked by the
-still-stale off-site backup, Ollama 0.6.7, unconfigured/proven external alerts,
-external two-network rate-limit evidence, and the remaining restore and
-rollback drills.
+their corresponding live maintenance stages. The expanded encrypted off-site
+backup is now fresh and has passed exact remote restore, manifest, retention,
+and repository checks. Launch remains blocked by Ollama 0.6.7,
+unconfigured/proven external alerts, external two-network rate-limit evidence,
+and the remaining isolated restore and rollback drills.
 
 There are additional high-priority security, recovery, legal, accessibility, data-quality, and operational issues that should be addressed before launch.
 
@@ -250,6 +251,31 @@ remain fatal. This correction is repository-tested but remains **Ready for
 verification**, and the July 28 success marker remains stale until a production
 job passes completely.
 
+The corrected scheduled job has since passed on six consecutive days. On
+August 11 invocation `3000296510b046b1b6bcfc5ac8d30cc1` verified the newest
+101,568,512-byte SQLite backup (integrity `ok`, zero foreign-key violations),
+uploaded snapshot `8b5c515e`, restored 628 files/directories and 164.643 MiB
+with Restic byte verification, verified all 628 manifest paths exactly, applied
+retention, pruned the expired August 4 orphan, passed `restic check`, removed
+both unencrypted temporary trees, applied local retention, and atomically
+published the full snapshot ID. The success marker is fresh at August 11
+04:01 CEST, and both off-site backup and local monitor services report success.
+This verifies the expanded upload/remote-inventory path in production; the
+separate marker-pinned isolated-application restore drill remains open.
+
+The August 11 privileged preflight then stopped at the isolated Archivist
+success-path assertion. Ollama 0.6.7 was healthy, loopback-only, held the
+`mistral` model, and returned HTTP 200, but the test prompt requested a
+completed science-fiction drama. Application policy intentionally returns the
+grounded catalog fallback for constrained recommendations, so expecting
+`source: "ollama"` from that prompt was impossible. A live low-volume check
+confirmed the old prompt returns `fallback` and the replacement unconstrained
+prompt, “What should I listen to next?”, returns a non-empty `ollama` answer
+with recommendations. The prepared test correction uses that eligible prompt,
+retains the unreachable-Ollama fallback check, and emits an explicit
+expected/actual source diagnostic. Production-only status remains Ready for
+verification until the corrected privileged preflight passes.
+
 Because repeated runs had exposed production-only assumptions one at a time,
 the maintenance safety review was expanded across every remaining stage. The
 prepared script now copies and re-hashes artifacts into root-owned per-run
@@ -293,6 +319,12 @@ The Restic cache-topology correction commit
 `18eae883041704e918a37ea2f193688e321d5da3` was pushed to
 `origin/main`. GitHub Actions Verify run `31029933047` passed in 4m21s,
 including the full repository verification and stale-generated-output gate.
+
+The August 11 Archivist-probe correction also passed the complete local
+verification suite: `52/52` operations/tool tests, `233/233` backend tests, and
+all `60/60` browser smoke checks. The regression proves the replacement prompt
+has catalog matches without hard constraints and that the retired prompt is
+constrained and therefore intentionally uses the grounded fallback.
 
 The resumed-maintenance regression initially exposed two checkout-path
 assumptions only in GitHub's `/home/runner` workspace. The fixture now keeps the
@@ -797,15 +829,16 @@ check remains pending.
 Positive evidence:
 
 - Daily online SQLite backups pass integrity and foreign-key checks.
-- A legacy encrypted Restic off-host snapshot and repository baseline exist;
-  the current expanded job is failing closed and its success marker is stale.
+- The expanded encrypted Restic job has passed six consecutive production
+  runs; its August 11 exact remote restore matched all 628 staged paths.
 - Off-host retention is configured.
 - The latest inspected repository integrity check passed.
 - Off-host freshness is currently enforced by the local monitor.
 
-Gap:
+Original audit gap:
 
-The off-host process covers the newest SQLite backup but not all non-reconstructible production state, including:
+At audit time the off-host process covered the newest SQLite backup but not all
+non-reconstructible production state, including:
 
 - dirty/uncommitted repository changes;
 - importer cover staging;
@@ -831,8 +864,10 @@ retention, runtime-account readiness/drop-in, and Ollama unit. It rejects
 symlinked durable state, checks every staged inventory path exists in the new
 remote snapshot, and never stages the Restic password or SSH private key. It
 also rejects overlapping cache/staging paths and zero-file or undersized Restic
-summaries before success publication. The expanded inventory and assertions are locally tested but have not yet
-completed a production encrypted upload and restore.
+summaries before success publication. The expanded inventory completed a
+production encrypted upload and exact byte-verified restore on August 11. This
+item remains Ready for verification only because the separately held unlock
+material ownership and emergency-access test are still owner-controlled work.
 
 Changed/verified files:
 

@@ -179,7 +179,7 @@ grep -Fq "<title>" "${show_html}" ||
 if [[ -n "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" ]]; then
   curl --fail --silent --show-error --max-time 45 \
     --header "Content-Type: application/json" \
-    --data '{"message":"Recommend one completed science-fiction audio drama.","history":[]}' \
+    --data '{"message":"What should I listen to next?","history":[]}' \
     --output "${chat_json}" "http://127.0.0.1:${PORT}/api/chat"
   node - "${chat_json}" "${VERIFY_ARCHIVIST_EXPECTED_SOURCE}" <<'NODE'
 const fs = require("node:fs");
@@ -190,7 +190,13 @@ if (
   typeof result.answer !== "string" ||
   result.answer.trim().length === 0 ||
   !Array.isArray(result.recommendations)
-) process.exit(1);
+) {
+  const actualSource = typeof result.source === "string" ? result.source : "missing";
+  console.error(
+    `Ask the Archivist behavior mismatch: expected source ${expectedSource}, got ${actualSource}.`,
+  );
+  process.exit(1);
+}
 NODE
   echo "Ask the Archivist verified with ${VERIFY_ARCHIVIST_EXPECTED_SOURCE} response behavior."
 fi
