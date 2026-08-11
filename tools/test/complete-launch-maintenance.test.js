@@ -240,6 +240,7 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     /systemctl start echo-archives-local-monitor\.service/,
   );
   assert.match(script, /rollback_ollama_upgrade/);
+  assert.match(script, /runtime-db/);
   assert.match(
     script,
     /stage_ollama_upgrade\(\)[\s\S]*verify_ollama_runtime "0\.32\.5"[\s\S]*stage_archivist_paths[\s\S]*CURRENT_ROLLBACK=""/,

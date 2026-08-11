@@ -95,6 +95,10 @@ chmod 0710 "${restore_root}"
 chown "${APP_USER}:${APP_USER}" "${database_dir}" "${DATABASE_PATH}"
 chmod 0700 "${database_dir}"
 chmod 0600 "${DATABASE_PATH}"
+runuser -u "${APP_USER}" -- test -r "${DATABASE_PATH}" ||
+  fail "runtime account cannot read the restored database"
+runuser -u "${APP_USER}" -- test -w "${database_dir}" ||
+  fail "runtime account cannot write beside the restored database"
 
 TEMP_DIR="$(mktemp -d /var/tmp/echo-archives-restore-app.XXXXXX)"
 chown "${APP_USER}:${APP_USER}" "${TEMP_DIR}"

@@ -435,6 +435,8 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   assert.match(restoredApplicationCheck, /\/api\/health/);
   assert.match(restoredApplicationCheck, /\/data\/shows\.json/);
   assert.match(restoredApplicationCheck, /\/shows\/\$\{first_show_id\}/);
+  assert.match(restoredApplicationCheck, /runtime account cannot read the restored database/);
+  assert.match(restoredApplicationCheck, /runtime account cannot write beside the restored database/);
   assert.match(restoredApplicationCheck, /VERIFY_ARCHIVIST_EXPECTED_SOURCE/);
   assert.match(restoredApplicationCheck, /What should I listen to next\?/);
   assert.doesNotMatch(

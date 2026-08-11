@@ -1492,6 +1492,7 @@ find_available_restore_test_port() {
 
 stage_archivist_paths() {
   local source
+  local runtime_db_dir
   local restored_db
   local verification_json
   local podcasts
@@ -1504,7 +1505,9 @@ stage_archivist_paths() {
     mktemp -d /var/tmp/echo-archives-pi-restore.archivist.XXXXXX
   )"
   chmod 0700 "${ARCHIVIST_RESTORE_ROOT}"
-  restored_db="${ARCHIVIST_RESTORE_ROOT}/archivist.sqlite"
+  runtime_db_dir="${ARCHIVIST_RESTORE_ROOT}/runtime-db"
+  install -d -m 0700 -o root -g root "${runtime_db_dir}"
+  restored_db="${runtime_db_dir}/archivist.sqlite"
   cp --preserve=mode,timestamps -- "${source}" "${restored_db}"
   verification_json="$(
     node "${REPO_ROOT}/tools/check-database-backup.js" \
