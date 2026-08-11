@@ -1479,11 +1479,24 @@ latest_local_backup() {
     sed -n '1s/^[^ ]* //p'
 }
 
+find_available_restore_test_port() {
+  local port
+  for port in {3912..3921}; do
+    if ! ss -H -ltn "sport = :${port}" | grep -q .; then
+      printf '%s' "${port}"
+      return 0
+    fi
+  done
+  fail "no loopback port is available for isolated Archivist verification"
+}
+
 stage_archivist_paths() {
   local source
   local restored_db
   local verification_json
   local podcasts
+  local ollama_port
+  local fallback_port
   source="$(latest_local_backup)"
   [[ -n "${source}" && -f "${source}" && ! -L "${source}" ]] ||
     fail "no completed local backup is available for Archivist verification"
@@ -1504,13 +1517,15 @@ stage_archivist_paths() {
       process.stdout.write(String(result.counts.podcasts));
     ' "${verification_json}"
   )"
+  ollama_port="$(find_available_restore_test_port)"
   APP_USER="${RUNTIME_USER}" \
-    RESTORE_TEST_PORT=3912 \
+    RESTORE_TEST_PORT="${ollama_port}" \
     VERIFY_ARCHIVIST_EXPECTED_SOURCE=ollama \
     "${REPO_ROOT}/deploy/verify-restored-application.sh" \
       "${restored_db}" "${podcasts}"
+  fallback_port="$(find_available_restore_test_port)"
   APP_USER="${RUNTIME_USER}" \
-    RESTORE_TEST_PORT=3913 \
+    RESTORE_TEST_PORT="${fallback_port}" \
     OLLAMA_URL_OVERRIDE=http://127.0.0.1:1/api/generate \
     VERIFY_ARCHIVIST_EXPECTED_SOURCE=fallback \
     "${REPO_ROOT}/deploy/verify-restored-application.sh" \

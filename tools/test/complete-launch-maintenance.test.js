@@ -145,6 +145,29 @@ test("complete launch maintenance exposes guarded check and apply modes", () => 
   assert.equal(invalid.status, 2);
 });
 
+test("complete launch maintenance selects an unused Archivist verification port", () => {
+  const result = spawnSync(
+    "bash",
+    [
+      "-c",
+      String.raw`
+source "$SCRIPT_PATH"
+ss() {
+  [[ "$*" == *":3912"* ]] && printf 'LISTEN 0 511 127.0.0.1:3912 0.0.0.0:*\n'
+}
+find_available_restore_test_port
+`,
+    ],
+    {
+      cwd: ROOT,
+      encoding: "utf8",
+      env: { ...process.env, SCRIPT_PATH },
+    },
+  );
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(result.stdout, "3913");
+});
+
 test("complete launch maintenance is fail-fast, locked, pinned, and staged", () => {
   assert.match(script, /^set -Eeuo pipefail$/m);
   assert.match(script, /^umask 0077$/m);
