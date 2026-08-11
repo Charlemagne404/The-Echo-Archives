@@ -46,6 +46,7 @@ export function createDraft(mode) {
         contactEmail: "",
         listenLinks: [],
         selectedTags: [],
+        suggestedDescriptors: "",
         completionStatus: "unknown",
         shortDescription: "",
         verificationNotes: "",
@@ -165,7 +166,7 @@ export function toggleArrayValue(draft, field, value) {
   const current = new Set(Array.isArray(draft[field]) ? draft[field] : []);
   if (current.has(value)) {
     current.delete(value);
-  } else if (current.size < 8 || field !== "selectedTags") {
+  } else if (current.size < 4 || field !== "selectedTags") {
     current.add(value);
   }
   draft[field] = [...current];

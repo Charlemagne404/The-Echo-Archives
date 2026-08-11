@@ -62,6 +62,7 @@ export function createStickyBrowseController({ elements, state, stickyFilterDrop
 
   const setStickyBrowseVisibility = (isVisible) => {
     const nextVisibility = isVisible ? "visible" : "hidden";
+    elements.stickyBrowseBar.inert = !isVisible;
     if (elements.stickyBrowseBar.dataset.visibility === nextVisibility) {
       return;
     }

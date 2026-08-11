@@ -1,4 +1,5 @@
 import { buildSiteAbsoluteUrl } from "./utils.js";
+import { archiveRecord } from "./constants.js";
 import { BRAND_DESCRIPTOR, buildCollectionSeoDescription, buildCollectionSeoTitle, buildShowSeoDescription, buildShowSeoTitle } from "./seo.js";
 import { createCollectionHref, createShowHref } from "./urls.js";
 
@@ -97,6 +98,7 @@ export function buildShowStructuredData(show) {
 
   const pageUrl = buildSiteAbsoluteUrl(createShowHref(show?.id || ""));
   const homeUrl = buildSiteAbsoluteUrl("/");
+  const pageDates = archiveRecord.getWebPageDates(show);
   const podcast = compactObject({
     "@type": "PodcastSeries",
     "@id": `${pageUrl}#podcast`,
@@ -107,7 +109,6 @@ export function buildShowStructuredData(show) {
     genre: uniqueTextValues(show?.genres),
     creator: creators,
     inLanguage: uniqueTextValues(show?.languages),
-    dateModified: cleanText(show?.updatedAt),
     sameAs,
   });
   return {
@@ -123,7 +124,8 @@ export function buildShowStructuredData(show) {
         breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
         mainEntity: { "@id": `${pageUrl}#podcast` },
         ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: buildSiteAbsoluteUrl(image) } } : {}),
-        ...(show?.updatedAt ? { dateModified: show.updatedAt } : {}),
+        ...(pageDates.datePublished ? { datePublished: pageDates.datePublished } : {}),
+        ...(pageDates.dateModified ? { dateModified: pageDates.dateModified } : {}),
       },
       podcast,
       {

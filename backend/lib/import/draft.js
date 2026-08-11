@@ -10,7 +10,8 @@ const {
 } = require("./utils");
 const {
   MAX_PUBLISHED_DISCOVERY_TAGS,
-  MIN_PUBLISHED_DISCOVERY_TAGS,
+  MIN_PUBLISHED_DISCOVERY_SIGNALS,
+  isApprovedDiscoveryTag,
   normalizeDiscoveryTags,
 } = require("../../../shared/archive-tags");
 const {
@@ -148,11 +149,8 @@ function selectedSources(candidate) {
   ])).values()];
 }
 
-function sourceTags(objective = {}) {
-  return normalizeDiscoveryTags(mergeUniqueStrings(
-    objective.categories || [],
-    objective.keywords || [],
-  ))
+function reviewedDiscoveryTags(objective = {}) {
+  return normalizeDiscoveryTags(objective.manualTags || [])
     .map((value) => trimText(value, 80))
     .filter((value) => value.length >= 2)
     .slice(0, MAX_PUBLISHED_DISCOVERY_TAGS);
@@ -163,11 +161,12 @@ function sourceTagProvenance(candidate, tags) {
   const sourceFields = ["categories", "keywords"]
     .map((field) => candidate.provenance?.fields?.[field])
     .filter(Boolean);
+  const reviewedSources = candidate.objective?.externalResearch?.fieldSources?.tags || [];
 
   return {
-    confidence: sourceFields.length ? Math.max(...sourceFields.map((field) => Number(field.confidence) || 0)) : 0.7,
-    method: "source-categories-and-keywords",
-    sources: sourceFields.flatMap((field) => field.sources || []),
+    confidence: reviewedSources.length ? 0.95 : sourceFields.length ? Math.max(...sourceFields.map((field) => Number(field.confidence) || 0)) : 0.7,
+    method: reviewedSources.length ? "reviewed-taxonomy-selection" : "maintainer-taxonomy-selection",
+    sources: reviewedSources.length ? reviewedSources.map((sourceUrl) => ({ sourceType: "external-research", sourceUrl })) : sourceFields.flatMap((field) => field.sources || []),
   };
 }
 
@@ -180,7 +179,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
   const state = releaseState(objective);
   const categories = mergeUniqueStrings(objective.categories || []);
   const genres = mergeUniqueStrings(categories.map(mapCategoryToGenre).filter(Boolean));
-  const tags = normalizeDiscoveryTags(objective.manualTags?.length ? objective.manualTags : sourceTags(objective));
+  const tags = reviewedDiscoveryTags(objective);
   const tagProvenance = sourceTagProvenance(candidate, tags);
   const language = formatLanguage(objective.language);
   const transcriptLanguages = mergeUniqueStrings((objective.transcripts?.languages || []).map(formatLanguage).filter(Boolean));
@@ -358,7 +357,14 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (!preparedRecord.title || (fields.title?.confidence || 0) < 0.75) blockers.push({ code: "weak-title", field: "title", message: "A title with at least 0.75 confidence is required." });
   if (!preparedRecord.description || (fields.description?.confidence || 0) < 0.75) blockers.push({ code: "weak-description", field: "description", message: "A trustworthy official description with at least 0.75 confidence is required." });
   else if (isPlaceholderDescription(preparedRecord.title, preparedRecord.description)) blockers.push({ code: "placeholder-description", field: "description", message: "The official description is too short or only repeats the show title." });
-  if ((preparedRecord.tags || []).length < MIN_PUBLISHED_DISCOVERY_TAGS) blockers.push({ code: "insufficient-tags", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_TAGS} source-supported discovery tags are required.` });
+  const unapprovedTags = (preparedRecord.tags || []).filter((tag) => !isApprovedDiscoveryTag(tag));
+  if (unapprovedTags.length) blockers.push({ code: "unapproved-tags", field: "tags", message: `Unapproved discovery tags require taxonomy review: ${unapprovedTags.join(", ")}.` });
+  const discoverySignals = new Set([
+    ...(preparedRecord.genres || []).map((value) => `genre:${value}`),
+    ...(preparedRecord.formats || []).map((value) => `format:${value}`),
+    ...(preparedRecord.tags || []).filter(isApprovedDiscoveryTag).map((value) => `tag:${value}`),
+  ]);
+  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS) blockers.push({ code: "insufficient-discovery-signals", field: "tags", message: `At least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags are required.` });
   if ((preparedRecord.genres || []).length === 0) blockers.push({ code: "missing-genre", field: "genres", message: "At least one canonical source-supported genre is required." });
   if ([preparedRecord.listenLinks?.website, preparedRecord.officialLinks?.website].filter(Boolean).some(isNonWebsiteUrl)) blockers.push({ code: "invalid-website", field: "websiteUrl", message: "A social or support profile cannot be used as the official website." });
   if (!candidate.coverStage?.ready || !preparedRecord.cover) blockers.push({ code: "cover-not-ready", field: "cover", message: "A valid square local cover of at least 600px must be staged." });
@@ -394,5 +400,5 @@ module.exports = {
   ensureUniqueShowId,
   evaluateReadiness,
   managedFingerprints,
-  sourceTags,
+  reviewedDiscoveryTags,
 };

@@ -4,6 +4,8 @@ import {
   formatDate,
   getCreatorNetworkLabel,
   getKnownDateLabel,
+  getPublicStatus,
+  getPublicVerificationLabel,
   getSeasonsEpisodesLabel,
   getShowDateValue,
   toDisplayTag,
@@ -34,6 +36,21 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
   ].filter(Boolean).join(" • ");
   const transcripts = String(show.availability?.transcripts || "").trim();
 
+  const rows = [
+    !creatorNetwork.isEmpty ? renderFactRow("Creator / network", creatorNetwork.text) : "",
+    renderVerificationRow(show),
+    hasListenLinks(show) ? renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true, wide: true }) : "",
+    getPublicStatus(show) ? renderFactRow("Status", renderStatusPills(show), { html: true, wide: true }) : "",
+    !seasonsEpisodes.isEmpty ? renderFactRow("Seasons / episodes", seasonsEpisodes.text) : "",
+    !firstRelease.isEmpty ? renderFactRow("First release", firstRelease.text) : "",
+    !latestRelease.isEmpty ? renderFactRow("Latest release", latestRelease.text) : "",
+    nextRelease ? renderFactRow("Next release", nextRelease) : "",
+    cadence && cadence !== "unknown" ? renderFactRow("Release cadence", toDisplayTag(cadence)) : "",
+    transcripts && transcripts !== "unknown" ? renderFactRow("Transcripts", `${transcripts}${transcriptDetails ? ` · ${transcriptDetails}` : ""}${transcriptCoverage > 0 ? ` · ${Math.round(transcriptCoverage * 100)}% observed coverage` : ""}`, { wide: true }) : "",
+    show.length?.label ? renderFactRow("Runtime note", show.length.label, { wide: true }) : "",
+  ].filter(Boolean);
+  if (rows.length === 0) return "";
+
   return `
     <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links" tabindex="-1">
       <div class="detail-side-card-header">
@@ -41,17 +58,7 @@ export function renderFactsLinksCard(show, { inline = false } = {}) {
       </div>
 
       <dl class="detail-fact-list">
-        ${renderFactRow("Creator / network", creatorNetwork.text, { isEmpty: creatorNetwork.isEmpty })}
-        ${renderVerificationRow(show)}
-        ${renderFactRow("Official / listen links", renderListenLinkCluster(show), { html: true, wide: true })}
-        ${renderFactRow("Status", renderStatusPills(show), { html: true, wide: true })}
-        ${renderFactRow("Seasons / episodes", seasonsEpisodes.text, { isEmpty: seasonsEpisodes.isEmpty })}
-        ${renderFactRow("First release", firstRelease.text, { isEmpty: firstRelease.isEmpty })}
-        ${renderFactRow("Latest release", latestRelease.text, { isEmpty: latestRelease.isEmpty })}
-        ${nextRelease ? renderFactRow("Next release", nextRelease) : ""}
-        ${cadence && cadence !== "unknown" ? renderFactRow("Release cadence", toDisplayTag(cadence)) : ""}
-        ${transcripts && transcripts !== "unknown" ? renderFactRow("Transcripts", `${transcripts}${transcriptDetails ? ` · ${transcriptDetails}` : ""}${transcriptCoverage > 0 ? ` · ${Math.round(transcriptCoverage * 100)}% observed coverage` : ""}`, { wide: true }) : ""}
-        ${show.length?.label ? renderFactRow("Runtime note", show.length.label, { wide: true }) : ""}
+        ${rows.join("")}
       </dl>
     </section>
   `;
@@ -90,7 +97,8 @@ function renderVerificationRow(show) {
     return "";
   }
 
-  const status = toDisplayTag(verification.status);
+  const status = getPublicVerificationLabel(show);
+  if (!status) return "";
   const verifiedAt = verification.verifiedAt ? `Checked ${formatDate(verification.verifiedAt)}` : "";
   const note = "Factual metadata only";
 
@@ -120,21 +128,15 @@ function renderFactRow(label, value, { html = false, isEmpty = false, wide = fal
 }
 
 function renderStatusPills(show) {
-  const chips = [
-    { label: toDisplayTag(show.reviewStatus || "unknown"), accent: show.reviewStatus === "full-review" },
-    { label: toDisplayTag(show.releaseStatus || "unknown") },
-    { label: toDisplayTag(show.completionStatus || "unclear") },
-  ];
-
   return `
     <div class="detail-fact-pill-row">
-      ${chips
-        .map(
-          (chip) => `<span class="detail-fact-pill${chip.accent ? " is-accent" : ""}">${escapeHtml(chip.label)}</span>`,
-        )
-        .join("")}
+      <span class="detail-fact-pill">${escapeHtml(getPublicStatus(show))}</span>
     </div>
   `;
+}
+
+function hasListenLinks(show) {
+  return Object.values(show?.listenLinks || {}).some((href) => String(href || "").trim());
 }
 
 function renderListenLinkCluster(show) {

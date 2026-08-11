@@ -90,6 +90,95 @@
     return value.map((entry) => String(entry || "").trim()).filter(Boolean);
   }
 
+  function uniqueDisplayValues(value) {
+    const seen = new Set();
+    return (Array.isArray(value) ? value : typeof value === "string" ? [value] : [])
+      .map((entry) => String(entry || "").trim())
+      .filter((entry) => {
+        const key = entry.toLocaleLowerCase();
+        if (!key || seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+  }
+
+  function formatCount(value, singular, plural = `${singular}s`) {
+    const count = Number(value);
+    if (!Number.isFinite(count)) return "";
+    return `${count} ${Math.abs(count) === 1 ? singular : plural}`;
+  }
+
+  function formatRouteExpansion(value) {
+    const count = Number(value);
+    if (!Number.isFinite(count) || count < 1) return "Show all routes";
+    return `Show ${count} more`;
+  }
+
+  function toPublicLabel(value) {
+    const normalized = String(value || "").trim();
+    const key = normalized.toLowerCase().replace(/[\s_]+/g, "-");
+    const labels = {
+      ai: "AI",
+      "sci-fi": "Sci-Fi",
+      "science-fiction": "Sci-Fi",
+      indie: "Independent",
+      independent: "Independent",
+    };
+    if (labels[key]) return labels[key];
+    return normalized
+      .split(/[-\s]+/)
+      .filter(Boolean)
+      .map((part) => (/^[A-Z0-9]{2,}$/.test(part) ? part : part.charAt(0).toUpperCase() + part.slice(1).toLowerCase()))
+      .join(" ");
+  }
+
+  function derivePublicStatus(show = {}) {
+    const release = String(show.releaseStatus || "").trim().toLowerCase();
+    const completion = String(show.completionStatus || "").trim().toLowerCase();
+    if (completion === "finished" || release === "completed") return "Completed";
+    if (completion === "cancelled") return "Cancelled";
+    if (release === "hiatus") return "On hiatus";
+    if (completion === "ongoing" || release === "active") return "Ongoing";
+    if (release === "inactive") return "Inactive";
+    return release || completion ? "Status not confirmed" : "";
+  }
+
+  function getPublicVerificationLabel(verification = {}) {
+    const rawStatus = String(verification?.status || "").trim().toLowerCase().replace(/[\s_]+/g, "-");
+    if (rawStatus.includes("draft") || rawStatus.includes("needs-review")) return "Needs review";
+    if (rawStatus.includes("creator") && rawStatus.includes("verified")) return "Creator verified";
+    if (rawStatus.includes("partial")) return "Partially checked";
+    if (rawStatus.includes("verified") || rawStatus.includes("checked") || rawStatus.includes("source")) return "Source checked";
+    if (rawStatus && !/^(unknown|unclear|none|not-verified)$/.test(rawStatus)) return "Needs review";
+    return "";
+  }
+
+  function hasArchiveReviewContent(show = {}) {
+    return [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((value) => String(value || "").trim());
+  }
+
+  function hasPublicRecommendations(show = {}) {
+    const ids = Array.isArray(show.similarTo) ? show.similarTo : [];
+    const reasons = show.similarReasons && typeof show.similarReasons === "object" ? show.similarReasons : {};
+    return ids.some((id) => String(reasons[id] || "").trim());
+  }
+
+  function getPublicContentProfile(show = {}) {
+    const reviewed = show.reviewStatus === "full-review" && hasArchiveReviewContent(show);
+    const recommendations = hasPublicRecommendations(show);
+    return { reviewed, recommendations, sparse: !reviewed && !recommendations };
+  }
+
+  function getWebPageDates(show = {}) {
+    const datePublished = String(show.createdAt || "").trim();
+    const dateModified = String(show.updatedAt || datePublished || "").trim();
+    return { datePublished, dateModified };
+  }
+
+  function getCatalogPublicationDate(show = {}) {
+    return String(show.createdAt || show.metadata?.import?.importedAt || "").trim();
+  }
+
   function normalizeKeyedTextMap(value) {
     if (!value || typeof value !== "object" || Array.isArray(value)) {
       return {};
@@ -272,7 +361,7 @@
     const languages = normalizeStringArray(source.languages);
     const transcriptLanguages = normalizeStringArray(source.transcriptLanguages);
     const cast = normalizeStringArray(source.cast);
-    const creators = normalizeStringArray(source.creators);
+    const creators = uniqueDisplayValues(source.creators);
     const similarReasons = normalizeKeyedTextMap(source.similarReasons);
     const listenLinks = normalizeUrlMap(source.listenLinks);
     const officialLinks = normalizeUrlMap(source.officialLinks);
@@ -375,6 +464,15 @@
     normalizeReviewParagraphs,
     normalizeShowRecord,
     normalizeStringArray,
+    uniqueDisplayValues,
+    formatCount,
+    formatRouteExpansion,
+    toPublicLabel,
+    derivePublicStatus,
+    getPublicVerificationLabel,
+    getPublicContentProfile,
+    getWebPageDates,
+    getCatalogPublicationDate,
     normalizeStructuredObject,
     normalizeTagValue,
     normalizeUrlMap,

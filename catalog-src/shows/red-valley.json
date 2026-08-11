@@ -39,7 +39,7 @@
   "tags": [
     "Cryonics",
     "Experimental science",
-    "Corporate conspiracy",
+    "Conspiracy",
     "Memory"
   ],
   "length": {
@@ -171,9 +171,8 @@
       "directoryMarkedDead": false
     },
     "schedule": {
-      "label": "biweekly",
-      "method": "observed-feed-history",
-      "note": "The most recent full feed episodes followed a biweekly pattern; this is historical cadence, not a future-release promise."
+      "cadence": "unknown",
+      "note": "Schedule/cadence not fully verified."
     },
     "objectiveNote": "Official site and live RSS feed verify the premise, canonical start page, credits, recording studio, Fable & Folly association, four observed seasons, feed composition, regular-release and feed-item dates, historical cadence, transcript access, content warnings, language, format, and explicit flag. Feed counts are observed rather than claimed complete.",
     "objectiveVerifiedAt": "2026-08-03",
@@ -182,10 +181,6 @@
       "No official completion or next-release statement was located."
     ],
     "awards": [],
-    "schedule": {
-      "cadence": "unknown",
-      "note": "Schedule/cadence not fully verified."
-    },
     "auditPass": "Expanded factual source review on 2026-08-03. Existing archive ratings and editorial copy were preserved."
   },
   "verification": {

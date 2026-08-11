@@ -509,14 +509,10 @@ function normalizeReviewUpdates(rawUpdates = {}) {
 function createShowSubmissionHandler({ store }) {
   return ({ rawBody, common }) => {
     const listenLinks = normalizeNamedLinks(rawBody?.listenLinks, { fallbackLabel: "Listen link" });
-    const selectedTags = trimStringArray(rawBody?.selectedTags, { maxItems: 12, maxItemLength: 80 });
-    if (selectedTags.length === 0 && common.genres) {
-      selectedTags.push(...trimStringArray(common.genres, {
-        maxItems: 12,
-        maxItemLength: 80,
-        splitPattern: /\s*,\s*/,
-      }));
-    }
+    const { isApprovedDiscoveryTag, canonicalizeDiscoveryTag } = require("../../../shared/archive-tags");
+    const submittedTags = trimStringArray(rawBody?.selectedTags, { maxItems: 4, maxItemLength: 80 });
+    const selectedTags = submittedTags.map(canonicalizeDiscoveryTag).filter(isApprovedDiscoveryTag);
+    const suggestedDescriptors = trimString(rawBody?.suggestedDescriptors, 500);
 
     const completionStatus = trimString(rawBody?.completionStatus, 80) || "unknown";
     const shortDescription = trimString(rawBody?.shortDescription, 1000);
@@ -542,6 +538,7 @@ function createShowSubmissionHandler({ store }) {
       ...(common.intakeVersion === 2 ? { intakeVersion: 2 } : {}),
       listenLinks,
       selectedTags,
+      ...(suggestedDescriptors ? { suggestedDescriptors } : {}),
       completionStatus,
       shortDescription,
       verificationNotes,
@@ -561,7 +558,6 @@ function createShowSubmissionHandler({ store }) {
         contactEmail: common.contactEmail,
         officialSite: derivedOfficialSite,
         rssOrListenLink: primaryListenLink,
-        genres: selectedTags.join(", "),
         notes: verificationNotes,
         payload,
         provenance: {

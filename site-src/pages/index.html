@@ -209,25 +209,10 @@
         </div>
 
         <div id="recentlyAddedGrid" class="podcast-card-grid recently-added-grid"></div>
-        <div id="recentlyAddedEmptyState" class="empty-state-card" hidden>
-          <p>No newly indexed shows are published in this snapshot yet. The next archive additions will surface here once they are live.</p>
-          <div class="empty-state-actions">
-            <a class="collection-action" href="/collections">Browse collections</a>
-            <a class="collection-action" href="/submit">Submit or correct a show</a>
-          </div>
-        </div>
       </section>
 
       <div id="podcast-grid"></div>
-      <div id="noResultsMsg" class="empty-state-card" hidden>
-        <p>No matches yet. Try a tone, format, completion status, or a route like "Midnight Burger like".</p>
-        <div class="empty-state-actions">
-          <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
-          <a class="collection-action" href="/collections">Browse collections</a>
-          <button id="openArchivistAction" class="quick-filter" type="button" data-open-chat data-chat-initial-prompt="Help me find something finished or easy to jump into.">Ask the Archivist</button>
-          <a class="collection-action" href="/submit">Submit or correct a show</a>
-        </div>
-      </div>
+      <div id="noResultsMount"></div>
     </section>
 
     <section class="collection-band" id="favoriteRoutes" aria-labelledby="favoriteRoutesTitle">

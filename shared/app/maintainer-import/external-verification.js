@@ -183,7 +183,7 @@ Check the editable show details and catalog enrichment below against reliable so
 
 The \"description\" field has a strict rule: it must be the complete official show description from the current official RSS feed or official show website. Copy that source text faithfully, only normalizing whitespace or stripping source HTML. Never write, shorten, expand, summarize, paraphrase, combine, or infer a description. If you cannot find a current official description, omit \"description\" and add it to \"uncertain_fields\". Include the official description page or feed URL in \"field_sources.description\".
 
-Genre and tag rules: return one or more source-supported values in \"categories\" using only the archive's normalized genre vocabulary: \"sci-fi\" (never \"science fiction\", \"science-fiction\", or \"sci fi\"), \"fantasy\", \"horror\", \"mystery\", \"thriller\", \"comedy\", \"drama\", \"adventure\", \"science\", or \"supernatural\". Separately, always return 2 to 6 distinct source-supported values in \"tags\". Tags are concise listener discovery labels in title case, such as \"Sci-fi\", \"Space\", \"Time travel\", \"Found footage\", \"Survival\", \"Post-apocalyptic\", \"Dystopian\", \"Anthology\", \"Full cast\", \"Serialized\", \"Narrated\", \"Historical\", or \"Queer\". You may add a new concise tag when none of these captures a clearly supported discovery trait. Do not use duplicate synonyms, vague labels, ratings, quality claims, or unverified plot assumptions. Never use \"Science Fiction\" as a tag; use \"Sci-fi\" instead.
+Genre and tag rules: return one or more source-supported values in \"categories\" using only the archive's normalized genre vocabulary: \"sci-fi\" (never \"science fiction\", \"science-fiction\", or \"sci fi\"), \"fantasy\", \"horror\", \"mystery\", \"thriller\", \"comedy\", \"drama\", \"adventure\", \"science\", or \"supernatural\". \"Drama\" means a source-supported content genre only; never apply it merely because the work is an audio drama. Separately, return only existing approved archive discovery tags in \"tags\". Never create, combine, or infer a new tag. Publisher keywords are evidence, not public taxonomy. Omit tags when no approved term is supported and name the gap in \"uncertain_fields\". Do not use duplicate synonyms, format labels already represented by \"formats\", vague labels, occupations, props, named places, ratings, quality claims, or unverified plot assumptions. Never use \"Science Fiction\" as a tag; use \"Sci-fi\" instead.
 
 Also prepare the \"enrichment\" object where sources support it. These are catalog facts and discovery labels, not editorial judgment: formats (for example Serialized, Anthology, Full cast, Narrated), tones, themes, content notes, credited people with a role, official Patreon/Ko-fi/Discord/YouTube links, official social URLs, and a stated release cadence. Use a concise label only when the wording is supported by an official source; omit the field rather than making a plausible interpretation. Content notes must be explicit source-backed advisories, never warnings inferred from genre. Return no more than 8 values per enrichment list and no more than 20 credited people. Every enrichment field needs a corresponding URL in \"field_sources\".
 
@@ -197,7 +197,7 @@ Return exactly one JSON object, with no Markdown fences or commentary, in this s
     "networkName": "",
     "description": "Complete official description copied from the official RSS feed or show website only",
     "categories": ["Normalized archive genre values, such as sci-fi or horror"],
-    "tags": ["At least two source-supported, title-case discovery tags, such as Sci-fi and Space"],
+    "tags": ["Optional approved, source-supported archive discovery tags only"],
     "language": "",
     "rssUrl": "",
     "websiteUrl": "",
@@ -373,10 +373,6 @@ export function parseExternalVerificationResponse(text) {
   if (Object.keys(details).length === 0) {
     throw new Error("No usable verified show details were found. Fields with null, empty, or invalid values are left unchanged.");
   }
-  if (!details.tags || details.tags.split(", ").length < 2) {
-    throw new Error("The verification response needs at least two source-supported discovery tags in verified.tags.");
-  }
-
   return {
     details,
     enrichment,

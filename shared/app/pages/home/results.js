@@ -3,7 +3,7 @@ import { syncShowCardPresentation } from "../../render-cards.js";
 import { syncBrowseUrlState } from "./url-state.js";
 import { formatResultsSummaryPrefix, matchesSelectedFilters, renderActiveBrowseState, syncHomeControls } from "./filters.js";
 import { patchArchiveGrid, sortVisibleShows } from "./layout.js";
-import { syncResultsSummary, syncResultsSurfaceVisibility } from "./results-motion.js";
+import { syncResultsSummary } from "./results-motion.js";
 
 export function createHomeResultsController({
   archiveCardShellsById,
@@ -22,6 +22,29 @@ export function createHomeResultsController({
   let pendingRenderReason = "";
   let renderFrame = 0;
   let hasRenderedHomeResults = false;
+
+  function syncNoResultsState(isActive) {
+    const mount = elements.noResultsMount;
+    if (!(mount instanceof HTMLElement)) return;
+    const existing = mount.querySelector("#noResultsMsg");
+    if (!isActive) {
+      existing?.remove();
+      return;
+    }
+    if (existing) return;
+    const state = document.createElement("div");
+    state.id = "noResultsMsg";
+    state.className = "empty-state-card";
+    state.innerHTML = `
+      <p>No matches yet. Try a tone, format, completion status, or a route like "Midnight Burger like".</p>
+      <div class="empty-state-actions">
+        <button id="clearResultsState" class="quick-filter" type="button">Clear filters</button>
+        <a class="collection-action" href="/collections">Browse collections</a>
+        <button class="quick-filter" type="button" data-open-chat data-chat-initial-prompt="Help me find something finished or easy to jump into.">Ask the Archivist</button>
+        <a class="collection-action" href="/submit">Submit or correct a show</a>
+      </div>`;
+    mount.appendChild(state);
+  }
 
   function getVisibleShows(selectedCollection) {
     const selectedCollectionShowIds = searchPerformanceCache.getCollectionShowIdSet(selectedCollection);
@@ -84,11 +107,7 @@ export function createHomeResultsController({
       `${browsePrefix}${modePrefix}${searchPrefix} • ${fullReviewCount} ${suffix}`,
       { skipAnimation: !hasRenderedHomeResults || changeReason === "initial" },
     );
-    syncResultsSurfaceVisibility(elements.noResultsMsg, visibleShows.length === 0, {
-      openDurationMs: 220,
-      closeDurationMs: 160,
-      enterOffsetY: 12,
-    });
+    syncNoResultsState(visibleShows.length === 0);
     syncHomeControls({
       quickFiltersRoot: elements.quickFiltersRoot,
       browseModesRoot: elements.browseModesRoot,

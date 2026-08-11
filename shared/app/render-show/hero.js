@@ -3,10 +3,10 @@ import { getPreferredCoverSource, getResponsiveImageSource } from "../images.js"
 import {
   escapeHtml,
   formatRating,
-  getCompletionNote,
   getHeroFormatNote,
   getHeroFormatValue,
   getHeroRuntimeValue,
+  getPublicStatus,
   normalizeArchiveRating,
   getReleaseNote,
   toDisplayTag,
@@ -42,6 +42,7 @@ export function renderDetailHero(show) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.tags[0]))}</span>`);
   }
   const primaryLink = getHeroPrimaryListenLink(show);
+  const hasListenLinks = Object.values(show.listenLinks || {}).some((href) => String(href || "").trim());
   const archiveTarget = getArchiveTarget(show);
 
   return `
@@ -68,16 +69,7 @@ export function renderDetailHero(show) {
               <div class="detail-meta-grid">
                 ${renderHeroMetaCard("Runtime", escapeHtml(getHeroRuntimeValue(show)))}
                 ${renderHeroMetaCard("Format", escapeHtml(getHeroFormatValue(show)), escapeHtml(getHeroFormatNote(show)))}
-                ${renderHeroMetaCard(
-                  "Completion",
-                  escapeHtml(toDisplayTag(show.completionStatus || "unclear")),
-                  escapeHtml(getCompletionNote(show)),
-                )}
-                ${renderHeroMetaCard(
-                  "Release status",
-                  escapeHtml(toDisplayTag(show.releaseStatus || "unknown")),
-                  escapeHtml(getReleaseNote(show)),
-                )}
+                ${getPublicStatus(show) ? renderHeroMetaCard("Status", escapeHtml(getPublicStatus(show)), escapeHtml(getReleaseNote(show))) : ""}
               </div>
 
             </div>
@@ -86,10 +78,10 @@ export function renderDetailHero(show) {
               ${
                 primaryLink
                   ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
-                  : '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>'
+                  : hasListenLinks ? '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>' : ""
               }
               ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
-              <a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>
+              ${hasListenLinks ? '<a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>' : ""}
               <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>

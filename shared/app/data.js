@@ -179,6 +179,7 @@ export function applyArchiveStats(prefix, stats) {
 
 export function getVisibleFilterTags(shows) {
   const counts = new Map();
+  const minimumFilterCount = 2;
 
   (Array.isArray(shows) ? shows : []).forEach((show) => {
     (Array.isArray(show.tags) ? show.tags : []).forEach((tag) => {
@@ -197,13 +198,15 @@ export function getVisibleFilterTags(shows) {
     });
   });
 
-  return Array.from(counts.values()).sort((left, right) => {
+  return Array.from(counts.values())
+    .filter((entry) => entry.count >= minimumFilterCount)
+    .sort((left, right) => {
     if (right.count !== left.count) {
       return right.count - left.count;
     }
 
     return left.label.localeCompare(right.label);
-  });
+    });
 }
 
 export function getQuickFilters(filterTags) {

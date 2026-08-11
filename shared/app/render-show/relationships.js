@@ -1,7 +1,7 @@
 import { getShowCollectionMemberships } from "../render-collections.js";
 import { getResponsiveImageSource } from "../images.js";
 import { createCollectionHref } from "../urls.js";
-import { escapeHtml, getSimilarReason } from "./utils.js";
+import { escapeHtml, formatRouteExpansion, getSimilarReason } from "./utils.js";
 
 export function renderCollectionsSection(show, collections = [], showMap = new Map()) {
   const memberships = getShowCollectionMemberships(show.id, collections);
@@ -20,7 +20,7 @@ export function renderCollectionsSection(show, collections = [], showMap = new M
         </div>
       </div>
       <div class="detail-collection-route-list">${visibleMemberships.map((collection) => renderCollectionRoute(collection, showMap)).join("")}</div>
-      ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>Show all routes <span>${hiddenMemberships.length}</span></summary><div class="detail-route-overflow-grid">${hiddenMemberships.map((collection) => renderCollectionRoute(collection, showMap)).join("")}</div></details>` : ""}
+      ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>${formatRouteExpansion(hiddenMemberships.length)}</summary><div class="detail-route-overflow-grid">${hiddenMemberships.map((collection) => renderCollectionRoute(collection, showMap)).join("")}</div></details>` : ""}
     </section>
   `;
 }

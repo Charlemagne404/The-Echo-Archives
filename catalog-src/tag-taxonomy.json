@@ -1,0 +1,1036 @@
+{
+  "version": 1,
+  "description": "Controlled public discovery vocabulary. Publisher keywords are evidence and must not be added here automatically.",
+  "facets": [
+    {
+      "id": "genre",
+      "label": "Genre"
+    },
+    {
+      "id": "setting",
+      "label": "Setting"
+    },
+    {
+      "id": "hook",
+      "label": "Story hook"
+    },
+    {
+      "id": "framing",
+      "label": "Narrative framing"
+    },
+    {
+      "id": "tone",
+      "label": "Tone and style"
+    },
+    {
+      "id": "era",
+      "label": "Era"
+    },
+    {
+      "id": "representation",
+      "label": "Representation"
+    }
+  ],
+  "aliases": {
+    "science fiction": "Sci-fi",
+    "science-fiction": "Sci-fi",
+    "sci fi": "Sci-fi",
+    "scifi": "Sci-fi",
+    "found audio": "Found media",
+    "found documents": "Found media",
+    "found footage": "Found media",
+    "found tapes": "Found media"
+  },
+  "tags": [
+    {
+      "id": "1930s",
+      "label": "1930s",
+      "facet": "era",
+      "status": "approved"
+    },
+    {
+      "id": "1980s",
+      "label": "1980s",
+      "facet": "era",
+      "status": "approved"
+    },
+    {
+      "id": "1990s",
+      "label": "1990s",
+      "facet": "era",
+      "status": "approved"
+    },
+    {
+      "id": "action",
+      "label": "Action",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "adventure",
+      "label": "Adventure",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "afterlife",
+      "label": "Afterlife",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "ai",
+      "label": "AI",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "alaska",
+      "label": "Alaska",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "alien-contact",
+      "label": "Alien contact",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "alien-invasion",
+      "label": "Alien invasion",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "alternate-history",
+      "label": "Alternate history",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "alternate-reality-game",
+      "label": "Alternate reality game",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "amnesia",
+      "label": "Amnesia",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "analog-horror",
+      "label": "Analog horror",
+      "facet": "framing",
+      "status": "approved"
+    },
+    {
+      "id": "ancient-artifact",
+      "label": "Ancient artifact",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "angels-and-demons",
+      "label": "Angels and demons",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "antarctica",
+      "label": "Antarctica",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "apocalypse",
+      "label": "Apocalypse",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "appalachia",
+      "label": "Appalachia",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "archival-horror",
+      "label": "Archival horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "arctic-horror",
+      "label": "Arctic horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "biotech",
+      "label": "Biotech",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "black-comedy",
+      "label": "Black comedy",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "bunker",
+      "label": "Bunker",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "call-in-radio",
+      "label": "Call-in radio",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "character-driven",
+      "label": "Character-driven",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "class-conflict",
+      "label": "Class conflict",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "classic-radio",
+      "label": "Classic radio",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "climate",
+      "label": "Climate",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "colony-ship",
+      "label": "Colony ship",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "comedy",
+      "label": "Comedy",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "community-radio",
+      "label": "Community radio",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "conspiracy",
+      "label": "Conspiracy",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "corporate",
+      "label": "Corporate",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "corporate-secrecy",
+      "label": "Corporate secrecy",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "cosmic-horror",
+      "label": "Cosmic horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "creature-horror",
+      "label": "Creature horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "crime",
+      "label": "Crime",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "cryonics",
+      "label": "Cryonics",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "cryptids",
+      "label": "Cryptids",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "cults",
+      "label": "Cults",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "cyberpunk",
+      "label": "Cyberpunk",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "cybersecurity",
+      "label": "Cybersecurity",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "daily-release",
+      "label": "Daily release",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "dark-comedy",
+      "label": "Dark comedy",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "demons",
+      "label": "Demons",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "detective",
+      "label": "Detective",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "detective-fiction",
+      "label": "Detective fiction",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "dystopian",
+      "label": "Dystopian",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "eldritch",
+      "label": "Eldritch",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "ensemble",
+      "label": "Ensemble",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "environmental-collapse",
+      "label": "Environmental collapse",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "epistolary",
+      "label": "Epistolary",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "espionage",
+      "label": "Espionage",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "experimental-science",
+      "label": "Experimental science",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "exploration",
+      "label": "Exploration",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "family",
+      "label": "Family",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "family-curse",
+      "label": "Family curse",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "family-secret",
+      "label": "Family secret",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "fantasy",
+      "label": "Fantasy",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "filipino",
+      "label": "Filipino",
+      "facet": "representation",
+      "status": "approved"
+    },
+    {
+      "id": "floating-city",
+      "label": "Floating city",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "folk-horror",
+      "label": "Folk horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "forensics",
+      "label": "Forensics",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "found-family",
+      "label": "Found family",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "found-media",
+      "label": "Found media",
+      "facet": "framing",
+      "status": "approved"
+    },
+    {
+      "id": "frontier",
+      "label": "Frontier",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "generational-horror",
+      "label": "Generational horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "genre-anthology",
+      "label": "Genre anthology",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "ghosts",
+      "label": "Ghosts",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "gothic",
+      "label": "Gothic",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "haunted-house",
+      "label": "Haunted house",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "historical",
+      "label": "Historical",
+      "facet": "era",
+      "status": "approved"
+    },
+    {
+      "id": "horror",
+      "label": "Horror",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "identity",
+      "label": "Identity",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "immortality",
+      "label": "Immortality",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "investigation",
+      "label": "Investigation",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "island-mystery",
+      "label": "Island mystery",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "isolation",
+      "label": "Isolation",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "kidnapping",
+      "label": "Kidnapping",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "late-night-radio",
+      "label": "Late-night radio",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "locked-room-mystery",
+      "label": "Locked-room mystery",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "lost-spaceship",
+      "label": "Lost spaceship",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "lovecraftian",
+      "label": "Lovecraftian",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "magical-artifacts",
+      "label": "Magical artifacts",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "magical-objects",
+      "label": "Magical objects",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "magical-realism",
+      "label": "Magical realism",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "mars-colony",
+      "label": "Mars colony",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "media-horror",
+      "label": "Media horror",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "medical",
+      "label": "Medical",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "memory",
+      "label": "Memory",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "memory-alteration",
+      "label": "Memory alteration",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "metaphysical",
+      "label": "Metaphysical",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "military",
+      "label": "Military",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "military-outcasts",
+      "label": "Military outcasts",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "mind-sharing",
+      "label": "Mind sharing",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "mini-series",
+      "label": "Mini-series",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "missing-person",
+      "label": "Missing person",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "missing-plane",
+      "label": "Missing plane",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "missing-town",
+      "label": "Missing town",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "mock-documentary",
+      "label": "Mock documentary",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "murder",
+      "label": "Murder",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "mystery",
+      "label": "Mystery",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "necromancy",
+      "label": "Necromancy",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "neuroscience",
+      "label": "Neuroscience",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "new-weird",
+      "label": "New Weird",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "nuclear-winter",
+      "label": "Nuclear winter",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "occult",
+      "label": "Occult",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "ocean",
+      "label": "Ocean",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "paradoxes",
+      "label": "Paradoxes",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "paranormal",
+      "label": "Paranormal",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "political-intrigue",
+      "label": "Political intrigue",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "portal-worlds",
+      "label": "Portal worlds",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "post-apocalyptic",
+      "label": "Post-apocalyptic",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "private-investigator",
+      "label": "Private investigator",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "psychological",
+      "label": "Psychological",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "pulp-adventure",
+      "label": "Pulp adventure",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "punk",
+      "label": "Punk",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "queer",
+      "label": "Queer",
+      "facet": "representation",
+      "status": "approved"
+    },
+    {
+      "id": "radio",
+      "label": "Radio",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "remote-colony",
+      "label": "Remote colony",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "retro-futurism",
+      "label": "Retro-futurism",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "rivalry",
+      "label": "Rivalry",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "road-trip",
+      "label": "Road trip",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "romance",
+      "label": "Romance",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "satire",
+      "label": "Satire",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "sci-fi",
+      "label": "Sci-fi",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "science-fantasy",
+      "label": "Science fantasy",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "seasonal-anthology",
+      "label": "Seasonal anthology",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "secret-agency",
+      "label": "Secret agency",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "secret-government",
+      "label": "Secret government",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "sherlock-holmes",
+      "label": "Sherlock Holmes",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "sitcom",
+      "label": "Sitcom",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "sleeper-ship",
+      "label": "Sleeper ship",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "small-town",
+      "label": "Small town",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "space",
+      "label": "Space",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "space-opera",
+      "label": "Space opera",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "space-station",
+      "label": "Space station",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "space-travel",
+      "label": "Space travel",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "spacecraft-disaster",
+      "label": "Spacecraft disaster",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "supernatural",
+      "label": "Supernatural",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "superpowers",
+      "label": "Superpowers",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "survival",
+      "label": "Survival",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "swashbuckling",
+      "label": "Swashbuckling",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "technology",
+      "label": "Technology",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "therapy",
+      "label": "Therapy",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "thriller",
+      "label": "Thriller",
+      "facet": "genre",
+      "status": "approved"
+    },
+    {
+      "id": "time-displacement",
+      "label": "Time displacement",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "time-travel",
+      "label": "Time travel",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "twins",
+      "label": "Twins",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "underwater",
+      "label": "Underwater",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "urban-fantasy",
+      "label": "Urban fantasy",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "utopia",
+      "label": "Utopia",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "vampires",
+      "label": "Vampires",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "victorian",
+      "label": "Victorian",
+      "facet": "era",
+      "status": "approved"
+    },
+    {
+      "id": "video-games",
+      "label": "Video games",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "war",
+      "label": "War",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "weird-fiction",
+      "label": "Weird fiction",
+      "facet": "tone",
+      "status": "approved"
+    },
+    {
+      "id": "western",
+      "label": "Western",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "wilderness",
+      "label": "Wilderness",
+      "facet": "setting",
+      "status": "approved"
+    },
+    {
+      "id": "workplace",
+      "label": "Workplace",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "wormholes",
+      "label": "Wormholes",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "xenoarchaeology",
+      "label": "Xenoarchaeology",
+      "facet": "hook",
+      "status": "approved"
+    },
+    {
+      "id": "zombie-apocalypse",
+      "label": "Zombie apocalypse",
+      "facet": "hook",
+      "status": "approved"
+    }
+  ]
+}

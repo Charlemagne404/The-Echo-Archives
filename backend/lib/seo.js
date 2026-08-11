@@ -4,6 +4,7 @@ const DEFAULT_DESCRIPTION =
   "Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.";
 const COLLECTION_MIN_INDEXABLE_SHOWS = 4;
 const COLLECTION_MIN_DESCRIPTION_LENGTH = 60;
+const { getPublicContentProfile } = require("../../shared/archive-record");
 
 function normalizeSiteUrl(siteUrl = "") {
   return String(siteUrl || "").replace(/\/+$/, "");
@@ -62,9 +63,10 @@ function uniqueText(values = []) {
 
 function buildShowSeoTitle(show = {}) {
   const title = cleanText(show.title) || "Audio drama";
-  return show.reviewStatus === "full-review"
-    ? `${title} Review & Similar Podcasts | ${BRAND_NAME}`
-    : `${title}: Similar Audio Dramas | ${BRAND_NAME}`;
+  const profile = getPublicContentProfile(show);
+  if (profile.reviewed) return `${title} Review, Rating & Similar Shows | ${BRAND_NAME}`;
+  if (profile.recommendations) return `${title} — Similar Audio Dramas | ${BRAND_NAME}`;
+  return `${title} — Episodes, Links & Details | ${BRAND_NAME}`;
 }
 
 function buildShowSeoDescription(show = {}) {
@@ -72,7 +74,7 @@ function buildShowSeoDescription(show = {}) {
   const genres = uniqueText(show.genres).slice(0, 2).map(toDisplayTag);
   const genrePhrase = genres.length > 0 ? `${genres.join(" and ")} ` : "";
   const editorialText = cleanText(show.subtitle || show.description);
-  const action = show.reviewStatus === "full-review"
+  const action = getPublicContentProfile(show).reviewed
     ? "Read the human-curated review and find similar fiction podcasts."
     : "Explore the archive guide and find similar fiction podcasts.";
   return truncateDescription(`Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);

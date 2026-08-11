@@ -204,7 +204,7 @@ function buildCatalogStatusMarkdown(snapshot) {
   ].join("\n");
 }
 
-function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, gapReport, archiveContext }) {
+function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, gapReport, archiveContext, tagTaxonomy }) {
   const runtimeCatalog = catalog.filter((show) => show.status === "published").map(serializeRuntimeShow);
   const runtimeSearchIndex = catalog
     .filter((show) => show.status === "published")
@@ -227,6 +227,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   });
   writeJsonFile(path.join(siteRoot, SEARCH_INDEX_PATH), runtimeSearchIndex);
   writeJsonFile(path.join(siteRoot, "data", "archive-stats.json"), archiveStats);
+  writeJsonFile(path.join(siteRoot, "data", "tag-taxonomy.json"), tagTaxonomy || {});
   writeJsonFile(path.join(siteRoot, "docs", "generated", "catalog-status.json"), snapshot.metrics);
   fs.mkdirSync(path.dirname(path.join(siteRoot, GENERATED_STATUS_PATH)), { recursive: true });
   fs.writeFileSync(path.join(siteRoot, GENERATED_STATUS_PATH), `${statusMarkdown}\n`);

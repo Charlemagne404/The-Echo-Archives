@@ -22,9 +22,8 @@ export function getHomeElements() {
     popularGrid: document.getElementById("popularGrid"),
     recentlyAddedSection: document.getElementById("recentlyAdded"),
     recentlyAddedGrid: document.getElementById("recentlyAddedGrid"),
-    recentlyAddedEmptyState: document.getElementById("recentlyAddedEmptyState"),
     archiveGrid: document.getElementById("podcast-grid"),
-    noResultsMsg: document.getElementById("noResultsMsg"),
+    noResultsMount: document.getElementById("noResultsMount"),
     resultsSummary: document.getElementById("resultsSummary"),
     quickFiltersRoot: document.getElementById("quickFilters"),
     favoriteRoutesSection: document.getElementById("favoriteRoutes"),
@@ -59,7 +58,6 @@ export function getHomeElements() {
     !elements.popularGrid ||
     !elements.recentlyAddedSection ||
     !elements.recentlyAddedGrid ||
-    !elements.recentlyAddedEmptyState ||
     !elements.filterOptionGrid ||
     !elements.stickyFilterOptionGrid ||
     !elements.quickFiltersRoot ||
@@ -77,6 +75,7 @@ export function getHomeElements() {
     !elements.collectionNext ||
     !elements.browseModesRoot ||
     !elements.resultsSummary ||
+    !elements.noResultsMount ||
     !(elements.filterToggle instanceof HTMLButtonElement) ||
     !(elements.stickyFilterToggle instanceof HTMLButtonElement)
   ) {

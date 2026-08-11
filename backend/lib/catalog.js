@@ -25,8 +25,9 @@ const {
   MAX_DISCOVERY_TAG_LENGTH,
   MAX_PUBLISHED_DISCOVERY_TAGS,
   MIN_DISCOVERY_TAG_LENGTH,
-  MIN_PUBLISHED_DISCOVERY_TAGS,
+  MIN_PUBLISHED_DISCOVERY_SIGNALS,
   canonicalizeDiscoveryTag,
+  isApprovedDiscoveryTag,
   isRedundantDiscoveryTag,
 } = require("../../shared/archive-tags");
 const {
@@ -189,10 +190,6 @@ function validateDeprecatedShowFields(record) {
 function validateDiscoveryTags(record) {
   const tags = Array.isArray(record.tags) ? record.tags : [];
 
-  if (record.status === "published" && tags.length < MIN_PUBLISHED_DISCOVERY_TAGS) {
-    throw new Error(`Show "${record.id}" must have at least ${MIN_PUBLISHED_DISCOVERY_TAGS} discovery tags before publication.`);
-  }
-
   if (record.status === "published" && tags.length > MAX_PUBLISHED_DISCOVERY_TAGS) {
     throw new Error(`Show "${record.id}" must have no more than ${MAX_PUBLISHED_DISCOVERY_TAGS} discovery tags.`);
   }
@@ -218,6 +215,10 @@ function validateDiscoveryTags(record) {
     if (comparableText(tag) === comparableText(record.title)) {
       throw new Error(`Show "${record.id}" cannot use its own title as a discovery tag.`);
     }
+
+    if (!isApprovedDiscoveryTag(tag)) {
+      throw new Error(`Show "${record.id}" uses unapproved discovery tag "${tag}".`);
+    }
   });
 }
 
@@ -237,6 +238,15 @@ function validatePublishedDiscoveryMetadata(record) {
       throw new Error(`Show "${record.id}" has unsupported genre "${genre}".`);
     }
   });
+
+  const discoverySignals = new Set([
+    ...(record.genres || []).map((value) => `genre:${value}`),
+    ...(record.formats || []).map((value) => `format:${value}`),
+    ...(record.tags || []).map((value) => `tag:${value}`),
+  ]);
+  if (discoverySignals.size < MIN_PUBLISHED_DISCOVERY_SIGNALS) {
+    throw new Error(`Show "${record.id}" needs at least ${MIN_PUBLISHED_DISCOVERY_SIGNALS} approved discovery signals across genres, formats, or tags before publication.`);
+  }
 
   [record.listenLinks?.website, record.officialLinks?.website].filter(Boolean).forEach((websiteUrl) => {
     if (isNonWebsiteUrl(websiteUrl)) {
@@ -375,6 +385,15 @@ function validateShowRecord(record, seenIds) {
 
   if (record.reviewStatus === "full-review" && !hasRichReviewContent(record)) {
     throw new Error(`Show "${record.id}" is marked full-review without richer review content.`);
+  }
+
+  if (record.status === "published" && Array.isArray(record.similarTo)) {
+    record.similarTo.forEach((showId) => {
+      const reason = String(record.similarReasons?.[showId] || "").trim();
+      if (!reason) {
+        throw new Error(`Show "${record.id}" cannot publish a similar-show recommendation for "${showId}" without a reason.`);
+      }
+    });
   }
 }
 

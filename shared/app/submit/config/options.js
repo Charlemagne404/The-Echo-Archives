@@ -8,12 +8,13 @@ export const FALLBACK_TAG_OPTIONS = [
   "Fantasy",
   "Comedy",
   "Thriller",
-  "Drama",
   "Adventure",
-  "Anthology",
-  "Full-cast",
-  "Serialized",
   "Character-driven",
+  "Found media",
+  "Isolation",
+  "Space",
+  "Survival",
+  "Time travel",
 ];
 
 export const LISTEN_LINK_OPTIONS = ["Spotify", "Apple Podcasts", "RSS Feed", "Official Website", "YouTube", "Other"];

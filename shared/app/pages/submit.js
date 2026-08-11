@@ -398,7 +398,7 @@ export async function initializeSubmitPage() {
         return;
       }
 
-      addArrayValue(draft, tagField, nextTag, tagField === "selectedTags" ? 8 : Number.POSITIVE_INFINITY);
+        addArrayValue(draft, tagField, nextTag, tagField === "selectedTags" ? 4 : Number.POSITIVE_INFINITY);
       state.tagPickerPinned = false;
       state.tagPickerOpen = false;
       ui.updateTagSuggestionState(tagField, "", { highlightIndex: -1 });

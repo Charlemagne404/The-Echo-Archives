@@ -146,7 +146,7 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     const showResponse = await fetch(`${context.baseUrl}/shows/impact-winter`);
     assert.equal(showResponse.status, 200);
     const showHtml = await showResponse.text();
-    assert.match(showHtml, /<title>Impact Winter Review &amp; Similar Podcasts \| The Echo Archives<\/title>/);
+    assert.match(showHtml, /<title>Impact Winter Review, Rating &amp; Similar Shows \| The Echo Archives<\/title>/);
     assert.match(showHtml, new RegExp(`<link rel="canonical" href="${context.baseUrl}/shows/impact-winter" \\/>`));
     assert.match(showHtml, new RegExp(`<meta property="og:image" content="${context.baseUrl}/`));
     assert.match(showHtml, /<main\b[^>]*id="showRoot"[^>]*>\s*<section class="detail-main podcast-detail detail-main--full">/);
@@ -163,6 +163,9 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.equal(podcastSeries.url, `${context.baseUrl}/shows/impact-winter`);
     assert.equal(showWebPage.url, `${context.baseUrl}/shows/impact-winter`);
     assert.equal(showWebPage.mainEntity["@id"], podcastSeries["@id"]);
+    assert.ok(showWebPage.datePublished);
+    assert.ok(showWebPage.dateModified);
+    assert.equal(podcastSeries.datePublished, undefined);
     assert.equal(showBreadcrumbs.itemListElement.at(-1).item, `${context.baseUrl}/shows/impact-winter`);
     assert.ok(podcastSeries.creator.every((creator) => typeof creator === "string"));
 

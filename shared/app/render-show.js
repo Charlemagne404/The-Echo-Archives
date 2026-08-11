@@ -31,7 +31,7 @@ export function createShowPageMarkup(show, showMap, collections = [], reviewData
         </div>
         ${renderCommunityFallback()}
 
-        ${isFullReview ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
+        ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
 
         ${renderSimilarSection(show, showMap)}
         ${renderCollectionsSection(show, collections, showMap)}

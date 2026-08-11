@@ -154,19 +154,22 @@ test("optional start-listening links accept absolute URLs and reject invalid val
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 
-test("published catalog records require at least two useful canonical discovery tags", async () => {
+test("published catalog records require approved discovery signals instead of filler tags", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
   writeJson(path.join(dataRoot, "collections.json"), []);
 
-  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Time travel"] })]);
-  await assert.rejects(loadCatalog(tempRoot), /at least 2 discovery tags/i);
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ formats: [], tags: [] })]);
+  await assert.rejects(loadCatalog(tempRoot), /at least 2 approved discovery signals/i);
 
   writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Drama", "Mystery"] })]);
   await assert.rejects(loadCatalog(tempRoot), /redundant discovery tag "Drama"/i);
 
   writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Science Fiction", "Space"] })]);
   await assert.rejects(loadCatalog(tempRoot), /canonical discovery tag "Sci-fi"/i);
+
+  writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["Funeral directors", "Space"] })]);
+  await assert.rejects(loadCatalog(tempRoot), /unapproved discovery tag "Funeral directors"/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
@@ -177,7 +180,7 @@ test("published catalog records reject noisy or noncanonical discovery tags", as
   writeJson(path.join(dataRoot, "collections.json"), []);
 
   writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["One", "Two", "Three", "Four", "Five", "Six", "Seven"] })]);
-  await assert.rejects(loadCatalog(tempRoot), /no more than 6 discovery tags/i);
+  await assert.rejects(loadCatalog(tempRoot), /no more than 4 discovery tags/i);
 
   writeJson(path.join(dataRoot, "shows.json"), [createShowRecord({ tags: ["time travel", "Space"] })]);
   await assert.rejects(loadCatalog(tempRoot), /canonical discovery tag "Time travel"/i);
@@ -588,6 +591,19 @@ test("indexed-only factual records can publish without editorial discovery field
   writeJson(authoredShowPath, authoredShow);
   await assert.rejects(validateSiteData(tempRoot), /Gate B validation failed/i);
 
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("published similar-show links require a public recommendation reason", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  writeJson(path.join(dataRoot, "shows.json"), [
+    createShowRecord({ id: "first-show", similarTo: ["second-show"], similarReasons: {} }),
+    createShowRecord({ id: "second-show" }),
+  ]);
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  await assert.rejects(loadCatalog(tempRoot), /without a reason/i);
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });
 

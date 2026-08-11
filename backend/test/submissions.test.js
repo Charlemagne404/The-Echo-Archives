@@ -65,14 +65,14 @@ test("show submissions accept the v2 minimal contract and preserve optional cont
   assert.equal(result.submission.show_title, "Test Show");
   assert.equal(result.submission.contact_email, "hello@example.com");
   assert.equal(result.submission.rss_or_listen_link, "https://example.com/feed");
-  assert.equal(result.submission.genres, "Horror, Sci-fi, Full-cast");
+  assert.equal(result.submission.genres, "");
   assert.deepEqual(result.submission.payload_json, {
     intakeVersion: 2,
     listenLinks: [
       { label: "Spotify", url: "https://open.spotify.com/show/test" },
       { label: "RSS Feed", url: "https://example.com/feed" },
     ],
-    selectedTags: ["Horror", "Sci-fi", "Full-cast"],
+    selectedTags: ["Horror", "Sci-fi"],
     completionStatus: "ongoing",
     shortDescription: "A spoiler-free description of the show.",
     verificationNotes: "Press kit is available on the official site.",

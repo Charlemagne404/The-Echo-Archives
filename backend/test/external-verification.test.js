@@ -27,7 +27,7 @@ test("external verification brief includes the editable record and known sources
   assert.match(brief, /weak-description/);
   assert.match(brief, /complete official show description/i);
   assert.match(brief, /Never write, shorten, expand, summarize, paraphrase, combine, or infer a description/i);
-  assert.match(brief, /always return 2 to 6 distinct source-supported values in "tags"/i);
+  assert.match(brief, /only existing approved archive discovery tags/i);
   assert.match(brief, /"sci-fi" \(never "science fiction"/i);
   assert.match(brief, /Never use "Science Fiction" as a tag; use "Sci-fi" instead/i);
   assert.match(brief, /catalog enrichment/i);
@@ -69,12 +69,10 @@ test("external verification parser accepts fenced JSON and ignores unsafe values
   assert.deepEqual(response.uncertainFields, ["Average runtime"]);
 });
 
-test("external verification parser requires two normalized discovery tags", async () => {
+test("external verification parser permits an evidence-backed response without tags", async () => {
   const { parseExternalVerificationResponse } = await loadVerificationWorkflow();
-  assert.throws(
-    () => parseExternalVerificationResponse(JSON.stringify({ verified: { title: "Signal Lost", tags: ["Science Fiction"] } })),
-    /at least two source-supported discovery tags/i,
-  );
+  const response = parseExternalVerificationResponse(JSON.stringify({ verified: { title: "Signal Lost" } }));
+  assert.deepEqual(response.details, { title: "Signal Lost" });
 });
 
 test("external verification parser carries source-backed catalog enrichment into the editor", async () => {

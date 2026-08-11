@@ -25,9 +25,10 @@ function truncateDescription(value, maxLength = 160) {
 
 export function buildShowSeoTitle(show = {}) {
   const title = cleanText(show.title) || "Audio drama";
-  return show.reviewStatus === "full-review"
-    ? `${title} Review & Similar Podcasts | ${BRAND_NAME}`
-    : `${title}: Similar Audio Dramas | ${BRAND_NAME}`;
+  const profile = archiveRecord.getPublicContentProfile(show);
+  if (profile.reviewed) return `${title} Review, Rating & Similar Shows | ${BRAND_NAME}`;
+  if (profile.recommendations) return `${title} — Similar Audio Dramas | ${BRAND_NAME}`;
+  return `${title} — Episodes, Links & Details | ${BRAND_NAME}`;
 }
 
 export function buildShowSeoDescription(show = {}) {
@@ -35,7 +36,7 @@ export function buildShowSeoDescription(show = {}) {
   const genres = [...new Set((show.genres || []).map(cleanText).filter(Boolean))].slice(0, 2).map(toDisplayTag);
   const genrePhrase = genres.length > 0 ? `${genres.join(" and ")} ` : "";
   const editorialText = cleanText(show.subtitle || show.description);
-  const action = show.reviewStatus === "full-review"
+  const action = archiveRecord.getPublicContentProfile(show).reviewed
     ? "Read the human-curated review and find similar fiction podcasts."
     : "Explore the archive guide and find similar fiction podcasts.";
   return truncateDescription(`Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);
@@ -52,3 +53,4 @@ export function buildCollectionSeoDescription(collection = {}, shows = []) {
     `${truncateDescription(cleanText(collection.description), 72)} Human-curated audio drama and fiction podcast recommendations.${examples}`,
   );
 }
+import { archiveRecord } from "./constants.js";

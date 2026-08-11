@@ -26,6 +26,7 @@ const {
   buildShowSeoTitle,
 } = require("./seo");
 const { renderCollectionShowCard } = require("../../tools/lib/home-page-prerender");
+const { getWebPageDates } = require("../../shared/archive-record");
 
 function replaceNamedMeta(html, name, content) {
   const escapedName = escapeRegExp(name);
@@ -209,6 +210,7 @@ function buildShowStructuredData({ siteUrl, show }) {
     .map((entry) => String(entry || "").trim())
     .filter(Boolean);
   const sameAs = collectHttpUrls(show.officialLinks, show.listenLinks);
+  const pageDates = getWebPageDates(show);
 
   if (genres.length > 0) {
     const seenGenres = new Set();
@@ -221,7 +223,6 @@ function buildShowStructuredData({ siteUrl, show }) {
   }
   if (creators.length > 0) podcast.creator = creators;
   if (languages.length > 0) podcast.inLanguage = languages;
-  if (show.updatedAt) podcast.dateModified = show.updatedAt;
   if (sameAs.length > 0) podcast.sameAs = sameAs;
   return {
     "@context": "https://schema.org",
@@ -236,7 +237,8 @@ function buildShowStructuredData({ siteUrl, show }) {
         breadcrumb: { "@id": breadcrumbId },
         mainEntity: { "@id": podcastId },
         primaryImageOfPage: { "@type": "ImageObject", url: metadata.imageUrl },
-        ...(show.updatedAt ? { dateModified: show.updatedAt } : {}),
+        ...(pageDates.datePublished ? { datePublished: pageDates.datePublished } : {}),
+        ...(pageDates.dateModified ? { dateModified: pageDates.dateModified } : {}),
       },
       podcast,
       {

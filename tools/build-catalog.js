@@ -6,6 +6,7 @@ const { buildDiscoveryGapReport, getGateBCriticalValidationErrors } = require(".
 const { generateCoverVariants } = require("../backend/lib/responsive-images");
 const { writeCatalogArtifacts } = require("./lib/catalog-artifacts");
 const { ensureSplitCatalogSource, readCatalogSource } = require("./lib/catalog-source");
+const { getDiscoveryTaxonomy } = require("../shared/archive-tags");
 
 function resolveSiteRoot() {
   return path.resolve(__dirname, "..");
@@ -33,6 +34,7 @@ async function buildCatalog(siteRoot = resolveSiteRoot()) {
     reviewsById: sourceData.reviewsById,
     gapReport,
     archiveContext,
+    tagTaxonomy: getDiscoveryTaxonomy(),
   });
 
   return {

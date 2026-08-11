@@ -138,11 +138,33 @@ test("official descriptions and route expansion retain source attribution and ea
   assert.match(markup, /From Official show site/);
   assert.match(markup, /View source/);
   assert.match(markup, /<details class="detail-route-overflow">/);
-  assert.match(markup, /Show all routes <span>1<\/span>/);
+  assert.match(markup, /Show 1 more/);
   assert.equal(markup.split("detail-collection-route-title").length - 1, 4);
   assert.equal(markup.split("detail-collection-route-art").length - 1, 4);
   assert.equal(markup.split("collection-cover-frame").length - 1, 4);
   assert.equal(markup.split('alt="" width="168"').length - 1, 4);
+});
+
+test("public detail facts use singular counts and one listener-friendly status", () => {
+  const markup = createShowPageMarkup({
+    ...showMap.get("were-alive"),
+    length: { seasons: 1, episodes: 1 },
+    releaseStatus: "completed",
+    completionStatus: "finished",
+    verification: { status: "source-verified-with-feed-note" },
+  }, showMap, collections);
+
+  assert.match(markup, /1 season • 1 episode/);
+  assert.match(markup, /<span class="detail-fact-pill">Completed<\/span>/);
+  assert.match(markup, /Source checked/);
+  assert.doesNotMatch(markup, /Completed<\/span><span[^>]*>Finished/);
+  assert.doesNotMatch(markup, /Source Verified With Feed Note/);
+
+  const unknownStatusMarkup = createShowPageMarkup({
+    ...showMap.get("were-alive"), releaseStatus: "unknown", completionStatus: "unclear",
+  }, showMap, collections);
+  assert.match(unknownStatusMarkup, /Status not confirmed/);
+  assert.doesNotMatch(unknownStatusMarkup, /Unknown<\/span><span[^>]*>Unclear/);
 });
 
 test("verified start links become the primary handoff without changing provider fallback", () => {

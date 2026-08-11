@@ -1,12 +1,20 @@
-import { DEFAULT_SOCIAL_IMAGE } from "./constants.js";
+import { DEFAULT_SOCIAL_IMAGE, archiveRecord } from "./constants.js";
 
 export function getRuntimeLabel(show) {
   return show.length?.label || "Runtime still being filled in";
 }
 
+export function formatCount(value, singular, plural) {
+  return archiveRecord.formatCount(value, singular, plural);
+}
+
+export function formatRouteExpansion(value) {
+  return archiveRecord.formatRouteExpansion(value);
+}
+
 export function getFormatLabel(show) {
   if (typeof show.length?.seasons === "number" && show.length.seasons > 0) {
-    return `${show.length.seasons} seasons`;
+    return formatCount(show.length.seasons, "season");
   }
 
   if (show.formats.length > 0) {
@@ -17,21 +25,7 @@ export function getFormatLabel(show) {
 }
 
 export function toDisplayTag(value = "") {
-  return String(value)
-    .split(/[-\s]+/)
-    .filter(Boolean)
-    .map((part) => {
-      if (/^[A-Z0-9]+$/.test(part)) {
-        return part;
-      }
-
-      if (part.length <= 3 && part === part.toUpperCase()) {
-        return part;
-      }
-
-      return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-    })
-    .join(" ");
+  return archiveRecord.toPublicLabel(value);
 }
 
 export function toLabel(value = "") {

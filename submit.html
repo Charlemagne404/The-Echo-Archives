@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content" />
+<meta name="color-scheme" content="dark" />
 <title>Submit a Show - The Echo Archives</title>
 <meta name="description" content="Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives." />
 <link rel="canonical" href="https://echoarchives.net/submit" />
@@ -22,7 +23,7 @@
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
-<link rel="stylesheet" href="/style.css?v=74cd54fb1a" />
+<link rel="stylesheet" href="/style.css?v=3ead1522de" />
 <link rel="stylesheet" href="/submit.css?v=48b066eb09" />
 <link rel="stylesheet" href="/public-heroes.css?v=fe0218257a" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -31,7 +32,7 @@
 
 <script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://echoarchives.net/submit#webpage","url":"https://echoarchives.net/submit","name":"Submit a Show - The Echo Archives","description":"Submit a show, send a correction, share a listener review, or verify facts for The Echo Archives.","isPartOf":{"@id":"https://echoarchives.net/#website"},"breadcrumb":{"@id":"https://echoarchives.net/submit#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://echoarchives.net/submit#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"The Echo Archives — Audio Drama Discovery","item":"https://echoarchives.net/"},{"@type":"ListItem","position":2,"name":"Submit a Show - The Echo Archives","item":"https://echoarchives.net/submit"}]}]}</script>
 </head>
-<body class="home-page submit-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="304f49a242" data-collections-version="4cbf26bf12" data-search-index-version="f7cfa2ed63">
+<body class="home-page submit-page info-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="545d2b980b" data-collections-version="4cbf26bf12" data-search-index-version="4b0e890d04">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -408,7 +409,7 @@
     <div class="submit-field" data-field-shell="submitSelectedTags">
       <span class="submit-field-label"  id="submitSelectedTagsLabel">
         <span class="submit-field-label-main">
-          Genres or tags (optional)
+          Archive discovery tags (optional)
         </span>
       </span>
 
@@ -429,11 +430,11 @@
               role="combobox"
               value=""
               maxlength="48"
-              placeholder="Select up to 8 tags."
+              placeholder="Choose up to 4 established tags."
               autocomplete="off"
               aria-labelledby="submitSelectedTagsLabel"
               aria-describedby="submitSelectedTagsHelp submitSelectedTagsError"
-              aria-label="Type a genre or tag"
+              aria-label="Choose an archive discovery tag"
               aria-autocomplete="list"
               aria-controls="submitSelectedTagsMenu"
               aria-expanded="false"
@@ -452,14 +453,14 @@
             aria-expanded="false"
             aria-controls="submitSelectedTagsMenu"
             aria-haspopup="listbox"
-            aria-label="Choose genres or tags"
+            aria-label="Choose archive discovery tags"
 
           >
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5.25 7.5 4.75 5 4.75-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg>
           </button>
         </div>
         <div id="submitSelectedTagsMenu" class="submit-tag-picker-menu" role="listbox" aria-labelledby="submitSelectedTagsLabel" hidden>
-          <div class="submit-tag-picker-meta">Choose an existing tag or type your own and press Enter.</div>
+          <div class="submit-tag-picker-meta">Choose one or more options from the archive list.</div>
 
           <div class="submit-chip-group submit-chip-group--menu">
 
@@ -545,19 +546,6 @@
                 id="submitSelectedTagsMenuOption6"
                 type="button"
                 class="submit-chip "
-                data-tag-suggestion="Drama"
-                data-tag-field="selectedTags"
-                aria-pressed="false"
-                role="option"
-                aria-selected="false"
-              >
-                <span>Drama</span>
-              </button>
-
-              <button
-                id="submitSelectedTagsMenuOption7"
-                type="button"
-                class="submit-chip "
                 data-tag-suggestion="Adventure"
                 data-tag-field="selectedTags"
                 aria-pressed="false"
@@ -568,46 +556,7 @@
               </button>
 
               <button
-                id="submitSelectedTagsMenuOption8"
-                type="button"
-                class="submit-chip "
-                data-tag-suggestion="Anthology"
-                data-tag-field="selectedTags"
-                aria-pressed="false"
-                role="option"
-                aria-selected="false"
-              >
-                <span>Anthology</span>
-              </button>
-
-              <button
-                id="submitSelectedTagsMenuOption9"
-                type="button"
-                class="submit-chip "
-                data-tag-suggestion="Full-cast"
-                data-tag-field="selectedTags"
-                aria-pressed="false"
-                role="option"
-                aria-selected="false"
-              >
-                <span>Full-cast</span>
-              </button>
-
-              <button
-                id="submitSelectedTagsMenuOption10"
-                type="button"
-                class="submit-chip "
-                data-tag-suggestion="Serialized"
-                data-tag-field="selectedTags"
-                aria-pressed="false"
-                role="option"
-                aria-selected="false"
-              >
-                <span>Serialized</span>
-              </button>
-
-              <button
-                id="submitSelectedTagsMenuOption11"
+                id="submitSelectedTagsMenuOption7"
                 type="button"
                 class="submit-chip "
                 data-tag-suggestion="Character-driven"
@@ -619,12 +568,77 @@
                 <span>Character-driven</span>
               </button>
 
+              <button
+                id="submitSelectedTagsMenuOption8"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Found media"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Found media</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption9"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Isolation"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Isolation</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption10"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Space"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Space</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption11"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Survival"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Survival</span>
+              </button>
+
+              <button
+                id="submitSelectedTagsMenuOption12"
+                type="button"
+                class="submit-chip "
+                data-tag-suggestion="Time travel"
+                data-tag-field="selectedTags"
+                aria-pressed="false"
+                role="option"
+                aria-selected="false"
+              >
+                <span>Time travel</span>
+              </button>
+
           </div>
         </div>
 
       </div>
 
-      <p id="submitSelectedTagsHelp" class="submit-field-helper">Choose up to eight only when you know they are accurate.</p>
+      <p id="submitSelectedTagsHelp" class="submit-field-helper">Choose established archive terms only. They are review hints, not publication-ready tags.</p>
       <p id="submitSelectedTagsError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
 
@@ -650,6 +664,33 @@
       <p id="submitCompletionStatusError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
     </div>
   </div>
+    <div class="submit-field" data-field-shell="submitSuggestedDescriptors">
+      <label class="submit-field-label" for="submitSuggestedDescriptors" id="submitSuggestedDescriptorsLabel">
+        <span class="submit-field-label-main">
+          Helpful themes or subjects (optional)
+        </span>
+      </label>
+
+      <div class="submit-textarea-shell">
+        <textarea
+          id="submitSuggestedDescriptors"
+          name="submitSuggestedDescriptors"
+          rows="3"
+          maxlength="500"
+          placeholder="Anything a reviewer should verify from the official sources."
+          class="submit-short-textarea"
+          aria-labelledby="submitSuggestedDescriptorsLabel"
+          aria-describedby="submitSuggestedDescriptorsHelp submitSuggestedDescriptorsCount"
+          aria-errormessage="submitSuggestedDescriptorsError"
+
+        ></textarea>
+        <span id="submitSuggestedDescriptorsCount" class="submit-textarea-counter" data-counter-target="submitSuggestedDescriptors">0/500</span>
+      </div>
+
+      <p id="submitSuggestedDescriptorsHelp" class="submit-field-helper">Free text is stored as an untrusted review note. It never creates an archive tag automatically.</p>
+      <p id="submitSuggestedDescriptorsError" class="submit-field-error" role="alert" aria-live="assertive" hidden></p>
+    </div>
+
     <div class="submit-field" data-field-shell="submitShortDescription">
       <label class="submit-field-label" for="submitShortDescription" id="submitShortDescriptionLabel">
         <span class="submit-field-label-main">
@@ -879,10 +920,10 @@
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=5036495c44"></script>
+  <script src="/shared/archive-record.js?v=001e8e99a5"></script>
 
   <script src="/shared/archive-search.js?v=f9204f6b58"></script>
 
-  <script type="module" src="/script.js?v=1c096f3cfe"></script>
+  <script type="module" src="/script.js?v=f3e29a3cc0"></script>
 </body>
 </html>

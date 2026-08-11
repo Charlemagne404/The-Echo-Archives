@@ -1,6 +1,7 @@
 import { createSubmissionHref } from "../urls.js";
 import {
   escapeHtml,
+  formatCount,
   formatRating,
   getSummaryDescriptor,
   normalizeArchiveRating,
@@ -174,7 +175,7 @@ export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
           const isPublic = Boolean(summary.isPublic) && Number.isFinite(average);
           const remaining = Math.max(0, 3 - ratingCount);
           const display = isPublic ? `${average.toFixed(1)}/10` : "Building";
-          const subline = isPublic ? `${ratingCount} ${ratingCount === 1 ? "rating" : "ratings"}` : remaining > 0 ? `${ratingCount} recorded · ${remaining} more to reveal` : `${ratingCount} recorded`;
+          const subline = isPublic ? formatCount(ratingCount, "rating") : remaining > 0 ? `${ratingCount} recorded · ${remaining} more to reveal` : `${ratingCount} recorded`;
           return `<article class="detail-rating-card detail-community-rating-card"><div class="detail-rating-topline"><span>${escapeHtml(label)}</span><span>${display}</span></div><div class="detail-rating-bar"><div class="detail-rating-fill" style="width: ${isPublic ? Math.max(0, Math.min(100, average * 10)) : 0}%"></div></div><p>${escapeHtml(subline)}</p></article>`;
         }).join("")}
       </div>
@@ -184,9 +185,9 @@ export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
 
 export function renderCommunityFallback() {
   return `
-    <section class="detail-section detail-community-slot detail-community-fallback" aria-labelledby="community-rating-title">
-      <div class="detail-section-header"><div><h2 id="community-rating-title">Listener rating</h2><p>Community ratings stay separate from archive scores and written listener reviews.</p></div></div>
-      <p class="detail-community-fallback-copy">The rating control becomes available when this page finishes loading.</p>
+    <section class="detail-section detail-community-slot detail-community-fallback" aria-busy="true" aria-live="polite">
+      <div class="detail-section-header"><div><h2>Listener rating</h2><p>Community ratings stay separate from archive scores and written listener reviews.</p></div></div>
+      <p class="detail-community-fallback-copy">Loading listener rating…</p>
     </section>
   `;
 }

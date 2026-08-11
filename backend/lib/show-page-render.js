@@ -1,3 +1,11 @@
+const {
+  derivePublicStatus,
+  formatCount,
+  formatRouteExpansion,
+  getPublicVerificationLabel,
+  toPublicLabel,
+} = require("../../shared/archive-record");
+
 function escapeHtml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -8,11 +16,7 @@ function escapeHtml(value = "") {
 }
 
 function toDisplayTag(value = "") {
-  return String(value)
-    .split(/[-\s]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join(" ");
+  return toPublicLabel(value);
 }
 
 function formatRating(value) {
@@ -172,7 +176,8 @@ function getCreatorNetworkLabel(show) {
   const creatorValues = creators.length ? creators : normalizeEntityNames(show?.credits?.creatorName);
   const creator = creatorValues.length ? creatorValues : [toEntityLabelFromId(show?.creatorId)].filter(Boolean);
   const network = normalizeEntityNames(show?.credits?.network)[0] || toEntityLabelFromId(show?.networkId);
-  const text = [...creator, network].filter(Boolean).join(" • ");
+  const values = [...creator, network].filter(Boolean);
+  const text = [...new Map(values.map((value) => [value.toLocaleLowerCase(), value])).values()].join(" • ");
   return { text: text || "Not cataloged yet", isEmpty: !text };
 }
 
@@ -181,7 +186,7 @@ function getHeroRuntimeValue(show) {
     return `${formatRating(show.length.totalHours)} ${show.length.totalHours === 1 ? "hour" : "hours"}`;
   }
   if (typeof show.length?.episodes === "number" && show.length.episodes > 0) {
-    return `${show.length.episodes} episodes`;
+    return formatCount(show.length.episodes, "episode");
   }
   return show.length?.label || "Runtime being cataloged";
 }
@@ -214,6 +219,7 @@ function renderDetailHero(show) {
   const archiveRatingValue = hasArchiveRating ? `${formatRating(archiveRating)}/10` : "Unrated";
   const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
   const primaryLink = getPrimaryListenLink(show);
+  const hasListenLinks = Object.values(show.listenLinks || {}).some((href) => String(href || "").trim());
   const archiveTarget = getArchiveTarget(show);
   const firstTag = Array.isArray(show.tags) ? show.tags[0] : "";
   const firstGenre = Array.isArray(show.genres) ? show.genres[0] : "";
@@ -254,18 +260,17 @@ function renderDetailHero(show) {
               <div class="detail-meta-grid">
                 <article class="detail-meta-card"><span class="detail-meta-label">Runtime</span><span class="detail-meta-value">${escapeHtml(getHeroRuntimeValue(show))}</span></article>
                 <article class="detail-meta-card"><span class="detail-meta-label">Format</span><span class="detail-meta-value">${escapeHtml(toDisplayTag(show.formats?.[0] || "Not cataloged"))}</span></article>
-                <article class="detail-meta-card"><span class="detail-meta-label">Completion</span><span class="detail-meta-value">${escapeHtml(toDisplayTag(show.completionStatus || "unclear"))}</span></article>
-                <article class="detail-meta-card"><span class="detail-meta-label">Release status</span><span class="detail-meta-value">${escapeHtml(toDisplayTag(show.releaseStatus || "unknown"))}</span></article>
+                ${derivePublicStatus(show) ? `<article class="detail-meta-card"><span class="detail-meta-label">Status</span><span class="detail-meta-value">${escapeHtml(derivePublicStatus(show))}</span></article>` : ""}
               </div>
             </div>
             <div class="detail-actions">
               ${
                 primaryLink
                   ? `<a class="detail-primary-action detail-listen-action" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>`
-                  : '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>'
+                  : hasListenLinks ? '<a class="detail-primary-action detail-listen-action" href="#facts-links" data-detail-anchor>Find listen links</a>' : ""
               }
               ${archiveTarget ? `<a class="detail-secondary-action" href="${archiveTarget}" data-detail-anchor>${show.reviewStatus === "full-review" ? "Archive review" : "Archive note"}</a>` : ""}
-              <a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>
+              ${hasListenLinks ? '<a class="detail-secondary-action" href="#facts-links" data-detail-anchor>Facts &amp; links</a>' : ""}
               <button class="detail-secondary-action detail-copy-link-button" data-share-action data-copy-link type="button">Share</button>
             </div>
             <p class="detail-copy-status" data-copy-link-status aria-live="polite"></p>
@@ -497,9 +502,9 @@ function renderOverviewSection(show) {
 
 function renderCommunityFallback() {
   return `
-    <section class="detail-section detail-community-slot detail-community-fallback" aria-labelledby="community-rating-title">
-      <div class="detail-section-header"><div><h2 id="community-rating-title">Listener rating</h2><p>Community ratings stay separate from archive scores and written listener reviews.</p></div></div>
-      <p class="detail-community-fallback-copy">The rating control becomes available when this page finishes loading.</p>
+    <section class="detail-section detail-community-slot detail-community-fallback" aria-busy="true" aria-live="polite">
+      <div class="detail-section-header"><div><h2>Listener rating</h2><p>Community ratings stay separate from archive scores and written listener reviews.</p></div></div>
+      <p class="detail-community-fallback-copy">Loading listener rating…</p>
     </section>
   `;
 }
@@ -509,11 +514,13 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   const primaryLink = getPrimaryListenLink(show);
   const links = show.listenLinks || {};
   const seasonsEpisodes = [
-    typeof show.length?.seasons === "number" && show.length.seasons > 0 ? `${show.length.seasons} seasons` : "",
-    typeof show.length?.episodes === "number" && show.length.episodes > 0 ? `${show.length.episodes} episodes` : "",
-  ].filter(Boolean).join(" • ") || "Not cataloged yet";
-  const factCheck = show.verification?.status
-    ? `<div class="detail-fact-row"><dt>Fact check</dt><dd class="detail-fact-value"><div class="detail-verification-value"><span>${escapeHtml(toDisplayTag(show.verification.status))}</span><small>Factual metadata only</small></div></dd></div>`
+    typeof show.length?.seasons === "number" && show.length.seasons > 0 ? formatCount(show.length.seasons, "season") : "",
+    typeof show.length?.episodes === "number" && show.length.episodes > 0 ? formatCount(show.length.episodes, "episode") : "",
+  ].filter(Boolean).join(" • ");
+  const creatorNetwork = getCreatorNetworkLabel(show);
+  const verificationLabel = getPublicVerificationLabel(show.verification);
+  const factCheck = verificationLabel
+    ? `<div class="detail-fact-row"><dt>Fact check</dt><dd class="detail-fact-value"><div class="detail-verification-value"><span>${escapeHtml(verificationLabel)}</span><small>Factual metadata only</small></div></dd></div>`
     : "";
   const linkLabels = { start: "Start listening", website: "Website", apple: "Apple", spotify: "Spotify", rss: "RSS" };
   const linkChips = ["start", "website", "apple", "spotify", "rss"]
@@ -531,21 +538,27 @@ function renderFactsLinksCard(show, { inline = false } = {}) {
   const transcriptRow = show.availability?.transcripts && show.availability.transcripts !== "unknown"
     ? `<div class="detail-fact-row is-wide"><dt>Transcripts</dt><dd class="detail-fact-value">${escapeHtml(show.availability.transcripts)}${transcriptDetails ? `<small> · ${escapeHtml(transcriptDetails)}</small>` : ""}${transcriptCount > 0 ? `<small> · ${escapeHtml(`${Math.round(transcriptCount * 100)}% observed coverage`)}</small>` : ""}</dd></div>`
     : "";
+  const hasLinks = Object.values(links).some((href) => String(href || "").trim());
+  const status = derivePublicStatus(show);
+  const rows = [
+    !creatorNetwork.isEmpty ? `<div class="detail-fact-row"><dt>Creator / network</dt><dd class="detail-fact-value">${escapeHtml(creatorNetwork.text)}</dd></div>` : "",
+    factCheck,
+    hasLinks ? `<div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value"><div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div></dd></div>` : "",
+    status ? `<div class="detail-fact-row is-wide"><dt>Status</dt><dd class="detail-fact-value"><div class="detail-fact-pill-row"><span class="detail-fact-pill">${escapeHtml(status)}</span></div></dd></div>` : "",
+    seasonsEpisodes ? `<div class="detail-fact-row"><dt>Seasons / episodes</dt><dd class="detail-fact-value">${escapeHtml(seasonsEpisodes)}</dd></div>` : "",
+    show.releaseDates?.first ? `<div class="detail-fact-row"><dt>First release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates.first))}</dd></div>` : "",
+    show.releaseDates?.latest ? `<div class="detail-fact-row"><dt>Latest release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates.latest))}</dd></div>` : "",
+    nextRelease,
+    cadenceRow,
+    transcriptRow,
+    show.length?.label ? `<div class="detail-fact-row is-wide"><dt>Runtime note</dt><dd class="detail-fact-value">${escapeHtml(show.length.label)}</dd></div>` : "",
+  ].filter(Boolean);
+  if (rows.length === 0) return "";
   return `
     <section class="${inline ? "detail-section detail-facts-links-card detail-facts-links-card--inline" : "detail-side-card detail-facts-links-card"}" id="facts-links" tabindex="-1">
       <div class="detail-side-card-header"><h2>Facts &amp; links</h2></div>
       <dl class="detail-fact-list">
-        <div class="detail-fact-row"><dt>Creator / network</dt><dd class="detail-fact-value${getCreatorNetworkLabel(show).isEmpty ? " is-empty" : ""}">${escapeHtml(getCreatorNetworkLabel(show).text)}</dd></div>
-        ${factCheck}
-        <div class="detail-fact-row is-wide"><dt>Official / listen links</dt><dd class="detail-fact-value">${primaryLink ? `<div class="detail-link-cluster"><a class="detail-link-primary" href="${escapeHtml(primaryLink.href)}" target="_blank" rel="noreferrer">${primaryLink.key === "start" ? "Start listening" : `Open ${escapeHtml(primaryLink.label)}`}</a>${linkChips ? `<div class="detail-link-chip-row">${linkChips}</div>` : ""}</div>` : '<p class="detail-link-status is-empty">Links being verified</p>'}</dd></div>
-        <div class="detail-fact-row is-wide"><dt>Status</dt><dd class="detail-fact-value"><div class="detail-fact-pill-row"><span class="detail-fact-pill${show.reviewStatus === "full-review" ? " is-accent" : ""}">${escapeHtml(toDisplayTag(show.reviewStatus || "unknown"))}</span><span class="detail-fact-pill">${escapeHtml(toDisplayTag(show.releaseStatus || "unknown"))}</span><span class="detail-fact-pill">${escapeHtml(toDisplayTag(show.completionStatus || "unclear"))}</span></div></dd></div>
-        <div class="detail-fact-row"><dt>Seasons / episodes</dt><dd class="detail-fact-value">${escapeHtml(seasonsEpisodes)}</dd></div>
-        <div class="detail-fact-row"><dt>First release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates?.first))}</dd></div>
-        <div class="detail-fact-row"><dt>Latest release</dt><dd class="detail-fact-value">${escapeHtml(formatDate(show.releaseDates?.latest))}</dd></div>
-        ${nextRelease}
-        ${cadenceRow}
-        ${transcriptRow}
-        ${show.length?.label ? `<div class="detail-fact-row is-wide"><dt>Runtime note</dt><dd class="detail-fact-value">${escapeHtml(show.length.label)}</dd></div>` : ""}
+        ${rows.join("")}
       </dl>
     </section>
   `;
@@ -599,7 +612,7 @@ function renderCollectionsSection(show, collections = [], showMap = new Map()) {
     <section class="detail-section detail-collections-section">
       <div class="detail-section-header"><div><h2>Discovery routes</h2><p>Curated listening paths already connected to this show in the archive.</p></div></div>
       <div class="detail-collection-route-list">${visibleMemberships.map(renderRoute).join("")}</div>
-      ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>Show all routes <span>${hiddenMemberships.length}</span></summary><div class="detail-route-overflow-grid">${hiddenMemberships.map(renderRoute).join("")}</div></details>` : ""}
+      ${hiddenMemberships.length ? `<details class="detail-route-overflow"><summary>${formatRouteExpansion(hiddenMemberships.length)}</summary><div class="detail-route-overflow-grid">${hiddenMemberships.map(renderRoute).join("")}</div></details>` : ""}
     </section>
   `;
 }
@@ -670,7 +683,7 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
           const isPublic = Boolean(summary.isPublic) && Number.isFinite(average);
           const remaining = Math.max(0, 3 - ratingCount);
           const display = isPublic ? `${average.toFixed(1)}/10` : "Building";
-          const subline = isPublic ? `${ratingCount} ${ratingCount === 1 ? "rating" : "ratings"}` : remaining > 0 ? `${ratingCount} recorded · ${remaining} more to reveal` : `${ratingCount} recorded`;
+          const subline = isPublic ? formatCount(ratingCount, "rating") : remaining > 0 ? `${ratingCount} recorded · ${remaining} more to reveal` : `${ratingCount} recorded`;
           return `<article class="detail-rating-card detail-community-rating-card"><div class="detail-rating-topline"><span>${escapeHtml(label)}</span><span>${display}</span></div><div class="detail-rating-bar"><div class="detail-rating-fill" style="width: ${isPublic ? Math.max(0, Math.min(100, average * 10)) : 0}%"></div></div><p>${escapeHtml(subline)}</p></article>`;
         }).join("")}
       </div>
@@ -689,7 +702,7 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) 
           <div class="detail-main-column">${renderOverviewSection(show)}${renderIndexedArchiveNote(show)}${renderReviewSection(show, reviewData)}${renderFirstReviewCta(show, reviewData)}${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}${isFullReview ? "" : facts}</div>
         </div>
         ${renderCommunityFallback()}
-        ${isFullReview ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
+        ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}
         ${renderSimilarSection(show, showMap)}
         ${renderCollectionsSection(show, collections, showMap)}
         ${renderCorrectionSection(show)}

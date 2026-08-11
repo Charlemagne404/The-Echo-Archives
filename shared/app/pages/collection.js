@@ -22,7 +22,7 @@ import { bindShareButton } from "../share.js";
 import { buildCollectionSeoDescription, buildCollectionSeoTitle } from "../seo.js";
 import { buildCollectionStructuredData } from "../structured-data.js";
 import { createArchiveCollectionHref, createCollectionHref, getCollectionIdFromLocation } from "../urls.js";
-import { formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
+import { formatCount, formatDate, setTextContent, toDisplayTag, updateDocumentMetadata } from "../utils.js";
 
 function createCollectionLoadingCard() {
   const shell = document.createElement("article");
@@ -76,7 +76,7 @@ function getCollectionShowsSummary(collection, collectionShows, anchorShow) {
     return `${showCount} nearby ${showCount === 1 ? "pick" : "picks"} starting from ${anchorShow.title}.`;
   }
 
-  return `${showCount} ${showCount === 1 ? "show" : "shows"} selected for this route.`;
+  return `${formatCount(showCount, "show")} selected for this route.`;
 }
 
 function createSignalChip(label, className = "") {
@@ -166,7 +166,7 @@ function populateOverviewMetaLine(container, { showCount, routeTypeLabel, update
   }
 
   container.textContent = "";
-  appendOverviewMetaText(container, `${showCount} ${showCount === 1 ? "show" : "shows"}`);
+  appendOverviewMetaText(container, formatCount(showCount, "show"));
   appendOverviewMetaSeparator(container);
   appendOverviewMetaText(container, routeTypeLabel);
 
@@ -361,6 +361,7 @@ export async function initializeCollectionPage() {
       overviewChips.appendChild(createSignalChip(text, className));
     });
   }
+  root.hidden = false;
 
   grid.textContent = "";
   collectionShows.forEach((show) => {
@@ -370,7 +371,6 @@ export async function initializeCollectionPage() {
 
   const relatedCollections = getRelatedCollections(collection, collections);
   const relatedGrid = document.getElementById("collectionRelatedGrid");
-  const relatedEmpty = document.getElementById("collectionRelatedEmpty");
   const relatedSummary = document.getElementById("collectionRelatedSummary");
   if (relatedGrid) {
     relatedGrid.textContent = "";
@@ -383,14 +383,10 @@ export async function initializeCollectionPage() {
       );
     });
   }
-  if (relatedEmpty) {
-    relatedEmpty.hidden = relatedCollections.length > 0;
-  }
+  relatedSection.hidden = relatedCollections.length === 0;
   if (relatedSummary) {
     relatedSummary.textContent =
-      relatedCollections.length > 0
-        ? "Neighboring routes in the archive."
-        : "No nearby routes are strong enough to surface here yet.";
+      "Neighboring routes in the archive.";
   }
 }
 

@@ -1,6 +1,9 @@
 import { normalizeReviewParagraphs } from "../data.js";
+import { archiveRecord } from "../constants.js";
 import {
   escapeHtml,
+  formatCount,
+  formatRouteExpansion,
   formatCompactDate,
   formatDate,
   formatRating,
@@ -12,6 +15,8 @@ import {
 
 export {
   escapeHtml,
+  formatCount,
+  formatRouteExpansion,
   formatCompactDate,
   formatDate,
   formatRating,
@@ -100,7 +105,13 @@ function isSuppressedCatalogValue(value = "") {
 
 function normalizeEntityNames(value) {
   const values = Array.isArray(value) ? value : typeof value === "string" ? [value] : [];
-  return values.map((entry) => String(entry || "").trim()).filter((entry) => entry && !isSuppressedCatalogValue(entry));
+  const seen = new Set();
+  return values.map((entry) => String(entry || "").trim()).filter((entry) => {
+    const key = entry.toLocaleLowerCase();
+    if (!entry || isSuppressedCatalogValue(entry) || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function toEntityLabelFromId(value = "") {
@@ -135,7 +146,7 @@ export function getHeroRuntimeValue(show) {
   }
 
   if (typeof show.length?.episodes === "number" && show.length.episodes > 0) {
-    return `${show.length.episodes} episodes`;
+    return formatCount(show.length.episodes, "episode");
   }
 
   return getRuntimeLabel(show);
@@ -171,7 +182,7 @@ export function getHeroRuntimeNote(show) {
   }
 
   if (typeof show.length?.episodes === "number") {
-    return `${show.length.episodes} episodes total`;
+    return `${formatCount(show.length.episodes, "episode")} total`;
   }
 
   if (show.length?.label) {
@@ -201,8 +212,8 @@ export function getHeroFormatNote(show) {
 }
 
 export function getCompletionNote(show) {
-  const seasonsLabel = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? `${show.length.seasons} seasons` : "";
-  const episodesLabel = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? `${show.length.episodes} episodes` : "";
+  const seasonsLabel = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? formatCount(show.length.seasons, "season") : "";
+  const episodesLabel = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? formatCount(show.length.episodes, "episode") : "";
   return [seasonsLabel, episodesLabel].filter(Boolean).join(" • ") || "Archive completion";
 }
 
@@ -215,8 +226,17 @@ export function getReleaseNote(show) {
   return "Catalog state";
 }
 
+export function getPublicStatus(show) {
+  return archiveRecord.derivePublicStatus(show);
+}
+
+export function getPublicVerificationLabel(show) {
+  return archiveRecord.getPublicVerificationLabel(show?.verification);
+}
+
 export function getCreatorNetworkLabel(show) {
-  const text = [...getCreatorNames(show), getNetworkLabel(show)].filter(Boolean).join(" • ");
+  const values = [...getCreatorNames(show), getNetworkLabel(show)].filter(Boolean);
+  const text = [...new Map(values.map((value) => [value.toLocaleLowerCase(), value])).values()].join(" • ");
 
   if (!text) {
     return { text: "Not cataloged yet", isEmpty: true };
@@ -226,8 +246,8 @@ export function getCreatorNetworkLabel(show) {
 }
 
 export function getSeasonsEpisodesLabel(show) {
-  const seasons = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? `${show.length.seasons} seasons` : "";
-  const episodes = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? `${show.length.episodes} episodes` : "";
+  const seasons = typeof show.length?.seasons === "number" && show.length.seasons > 0 ? formatCount(show.length.seasons, "season") : "";
+  const episodes = typeof show.length?.episodes === "number" && show.length.episodes > 0 ? formatCount(show.length.episodes, "episode") : "";
   const text = [seasons, episodes].filter(Boolean).join(" • ");
 
   if (!text) {

@@ -10,7 +10,7 @@ const {
   buildShowStructuredData,
 } = require("../lib/public-page-render");
 const { buildSitemapEntries } = require("../lib/sitemap");
-const { buildCollectionPath, buildShowPath, isIndexableCollection } = require("../lib/seo");
+const { buildCollectionPath, buildShowPath, buildShowSeoTitle, isIndexableCollection } = require("../lib/seo");
 
 const siteRoot = path.resolve(__dirname, "../..");
 const siteUrl = "https://seo.example.test";
@@ -19,6 +19,21 @@ const placeholderPattern = /(?:loading|placeholder|untitled|description unavaila
 function graphNode(data, type) {
   return data["@graph"].find((node) => node["@type"] === type);
 }
+
+test("show titles only promise reviews or recommendations backed by public content", () => {
+  assert.equal(
+    buildShowSeoTitle({ title: "Reviewed", reviewStatus: "full-review", archiveTake: "A complete archive verdict." }),
+    "Reviewed Review, Rating & Similar Shows | The Echo Archives",
+  );
+  assert.equal(
+    buildShowSeoTitle({ title: "Connected", similarTo: ["neighbor"], similarReasons: { neighbor: "Shared tone and form." } }),
+    "Connected — Similar Audio Dramas | The Echo Archives",
+  );
+  assert.equal(
+    buildShowSeoTitle({ title: "Sparse", reviewStatus: "full-review", similarTo: ["neighbor"], similarReasons: {} }),
+    "Sparse — Episodes, Links & Details | The Echo Archives",
+  );
+});
 
 test("every published show has unique canonical metadata and connected JSON-LD", async () => {
   const catalog = (await loadCatalog(siteRoot)).filter((show) => show.status === "published");
@@ -32,7 +47,7 @@ test("every published show has unique canonical metadata and connected JSON-LD",
     const breadcrumbs = graphNode(structuredData, "BreadcrumbList");
 
     assert.equal(metadata.canonicalUrl, `${siteUrl}${buildShowPath(show.id)}`, show.id);
-    assert.match(metadata.title, /(?:Review & Similar Podcasts|Similar Audio Dramas) \| The Echo Archives$/);
+    assert.match(metadata.title, /(?:Review, Rating & Similar Shows|Similar Audio Dramas|Episodes, Links & Details) \| The Echo Archives$/);
     assert.match(metadata.description, /audio drama/i);
     assert.doesNotMatch(metadata.title, placeholderPattern);
     assert.doesNotMatch(metadata.description, placeholderPattern);
@@ -41,6 +56,9 @@ test("every published show has unique canonical metadata and connected JSON-LD",
     assert.equal(podcastSeries.url, metadata.canonicalUrl);
     assert.equal(breadcrumbs.itemListElement.at(-1).item, metadata.canonicalUrl);
     assert.equal(webPage.primaryImageOfPage.url, metadata.imageUrl);
+    assert.equal(webPage.datePublished, show.createdAt, show.id);
+    assert.equal(webPage.dateModified, show.updatedAt || show.createdAt, show.id);
+    assert.equal(podcastSeries.datePublished, undefined);
     canonicals.push(metadata.canonicalUrl);
   }
 

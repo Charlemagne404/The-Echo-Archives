@@ -170,7 +170,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
       const field = tagSuggestion.getAttribute("data-tag-field");
       const value = tagSuggestion.getAttribute("data-tag-suggestion");
       if (field && value) {
-        addArrayValue(getActiveDraft(state), field, value, field === "selectedTags" ? 8 : Number.POSITIVE_INFINITY);
+        addArrayValue(getActiveDraft(state), field, value, field === "selectedTags" ? 4 : Number.POSITIVE_INFINITY);
         state.tagPickerPinned = false;
         state.tagPickerOpen = false;
         ui.updateTagSuggestionState(field, "", { highlightIndex: -1 });
@@ -187,7 +187,7 @@ export function bindSubmitPageClickHandlers({ state, elements, ui, ensureLookup,
       const field = createTag.getAttribute("data-tag-field");
       const value = normalizeCustomTag(createTag.getAttribute("data-create-tag"));
       if (field && value) {
-        addArrayValue(getActiveDraft(state), field, value, field === "selectedTags" ? 8 : Number.POSITIVE_INFINITY);
+        addArrayValue(getActiveDraft(state), field, value, field === "selectedTags" ? 4 : Number.POSITIVE_INFINITY);
         state.tagPickerPinned = false;
         state.tagPickerOpen = false;
         ui.updateTagSuggestionState(field, "", { highlightIndex: -1 });

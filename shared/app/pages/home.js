@@ -32,7 +32,7 @@ import { createStickyBrowseController } from "./home/sticky-search.js";
 import { createStickyBrowseVisibilityController } from "./home/sticky-visibility.js";
 import { seedHomeStateFromParams } from "./home/url-state.js";
 
-const SHOW_HOME_RECENTLY_ADDED_BAND = false;
+const SHOW_HOME_RECENTLY_ADDED_BAND = true;
 
 export async function initializeHomePage() {
   const elements = getHomeElements();
@@ -93,7 +93,6 @@ export async function initializeHomePage() {
     publishedShows,
     recentlyAddedSection: elements.recentlyAddedSection,
     recentlyAddedGrid: elements.recentlyAddedGrid,
-    recentlyAddedEmptyState: elements.recentlyAddedEmptyState,
   });
   const mostPopularController = createMostPopularController({
     showMap,
@@ -322,7 +321,9 @@ export async function initializeHomePage() {
 
   elements.filterClear?.addEventListener("click", clearAllFilters);
   elements.stickyFilterClear?.addEventListener("click", clearAllFilters);
-  elements.clearResultsState?.addEventListener("click", clearAllFilters);
+  elements.noResultsMount?.addEventListener("click", (event) => {
+    if (event.target.closest("#clearResultsState")) clearAllFilters();
+  });
   elements.activeBrowseClear?.addEventListener("click", clearAllFilters);
   stickyBrowseVisibilityController.observe();
 
