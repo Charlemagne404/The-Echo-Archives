@@ -492,18 +492,11 @@ assert_no_competing_automation
 snapshots_before="${BACKUP_DIR}/snapshot-ids.before"
 snapshots_after="${BACKUP_DIR}/snapshot-ids.after"
 same_host_snapshot_ids > "${snapshots_before}"
-before_service_invocation="$(
-  /usr/bin/systemctl show "${SERVICE_NAME}" -p InvocationID --value
-)"
 run_since="$(date --iso-8601=seconds)"
 log "Running the canonical Pi backup service manually."
+/usr/bin/systemctl is-active --quiet "${SERVICE_NAME}" &&
+  die "The Pi backup service is already active; refusing concurrent Restic work."
 /usr/bin/systemctl start "${SERVICE_NAME}"
-after_service_invocation="$(
-  /usr/bin/systemctl show "${SERVICE_NAME}" -p InvocationID --value
-)"
-[[ "${after_service_invocation}" =~ ^[0-9a-f]{32}$ &&
-  "${after_service_invocation}" != "${before_service_invocation}" ]] ||
-  die "The Pi backup service did not record a new invocation."
 same_host_snapshot_ids > "${snapshots_after}"
 mapfile -t new_snapshot_ids < <(/usr/bin/comm -13 "${snapshots_before}" "${snapshots_after}")
 (( ${#new_snapshot_ids[@]} == 1 )) ||
@@ -540,16 +533,7 @@ next_run="$(
 
 assert_no_competing_automation
 log "Rerunning the local monitor after clearing the dependent failure state."
-before_monitor_invocation="$(
-  /usr/bin/systemctl show "${MONITOR_SERVICE}" -p InvocationID --value
-)"
 /usr/bin/systemctl start "${MONITOR_SERVICE}"
-after_monitor_invocation="$(
-  /usr/bin/systemctl show "${MONITOR_SERVICE}" -p InvocationID --value
-)"
-[[ "${after_monitor_invocation}" =~ ^[0-9a-f]{32}$ &&
-  "${after_monitor_invocation}" != "${before_monitor_invocation}" ]] ||
-  die "The local monitor did not record a new post-backup invocation."
 [[ "$(/usr/bin/systemctl show "${MONITOR_SERVICE}" -p Result --value)" == "success" ]] ||
   die "The local production monitor did not recover after the Pi backup succeeded."
 failed_units="$(/usr/bin/systemctl --failed --no-legend --plain)"

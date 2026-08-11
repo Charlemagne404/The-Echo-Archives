@@ -313,8 +313,8 @@ test("complete launch maintenance validates artifacts and preserves rollback sou
     "systemctl stop echo-archives-offsite-backup.timer",
     "off-site backup service is already active",
     'complete-pi-backup-setup.sh" --apply',
-    "off-site backup did not record a new verified service invocation",
-    "local monitor did not record a new post-backup invocation",
+    "Pi backup readiness record was not refreshed by the verified backup",
+    "service_result=success",
   ]);
   assert.match(
     script,

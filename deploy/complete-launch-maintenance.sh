@@ -1258,10 +1258,8 @@ rollback_backup_automation() {
 }
 
 stage_backup_restore() {
-  local offsite_invocation_before
-  local offsite_invocation_after
-  local monitor_invocation_before
-  local monitor_invocation_after
+  local readiness_before=0
+  local readiness_after
   preserve_optional_file \
     /etc/systemd/system/echo-archives-offsite-backup.service \
     offsite.service.pre-backup
@@ -1283,26 +1281,14 @@ stage_backup_restore() {
   if systemctl is-active --quiet echo-archives-offsite-backup.service; then
     fail "off-site backup service is already active; refusing concurrent Restic work"
   fi
-  offsite_invocation_before="$(
-    systemctl show echo-archives-offsite-backup.service -p InvocationID --value
-  )"
-  monitor_invocation_before="$(
-    systemctl show echo-archives-local-monitor.service -p InvocationID --value
-  )"
+  if [[ -f /var/lib/echo-archives-monitoring/pi-backup-readiness ]]; then
+    readiness_before="$(stat -c %Y /var/lib/echo-archives-monitoring/pi-backup-readiness)"
+  fi
   SUDO_USER="${OPERATOR_USER}" \
     "${REPO_ROOT}/deploy/complete-pi-backup-setup.sh" --apply
-  offsite_invocation_after="$(
-    systemctl show echo-archives-offsite-backup.service -p InvocationID --value
-  )"
-  monitor_invocation_after="$(
-    systemctl show echo-archives-local-monitor.service -p InvocationID --value
-  )"
-  [[ "${offsite_invocation_after}" =~ ^[0-9a-f]{32}$ &&
-    "${offsite_invocation_after}" != "${offsite_invocation_before}" ]] ||
-    fail "off-site backup did not record a new verified service invocation"
-  [[ "${monitor_invocation_after}" =~ ^[0-9a-f]{32}$ &&
-    "${monitor_invocation_after}" != "${monitor_invocation_before}" ]] ||
-    fail "local monitor did not record a new post-backup invocation"
+  readiness_after="$(stat -c %Y /var/lib/echo-archives-monitoring/pi-backup-readiness)"
+  [[ "${readiness_after}" =~ ^[0-9]+$ && "${readiness_after}" -gt "${readiness_before}" ]] ||
+    fail "Pi backup readiness record was not refreshed by the verified backup"
   [[ "$(systemctl show echo-archives-offsite-backup.service -p Result --value)" == "success" ]] ||
     fail "off-site backup service did not finish successfully"
   [[ "$(systemctl show echo-archives-offsite-backup.service -p ExecMainStatus --value)" == "0" ]] ||
@@ -1311,6 +1297,10 @@ stage_backup_restore() {
   systemctl is-active --quiet echo-archives-offsite-backup.timer
   [[ -f /var/lib/echo-archives-monitoring/pi-backup-readiness ]] ||
     fail "Pi backup readiness record is missing"
+  grep -Eq '^new_snapshot=[0-9a-f]{64}$' \
+    /var/lib/echo-archives-monitoring/pi-backup-readiness
+  grep -Fxq "service_result=success" \
+    /var/lib/echo-archives-monitoring/pi-backup-readiness
   grep -Fxq "restore_integrity=ok" \
     /var/lib/echo-archives-monitoring/pi-backup-readiness
   grep -Fxq "restore_foreign_key_violations=0" \

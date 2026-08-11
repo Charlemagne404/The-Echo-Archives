@@ -422,6 +422,8 @@ test("deployment shell scripts parse and preserve the required safety order", ()
   );
   assert.match(piBackupCompletion, /find "\$\{RESTORE_DIR\}" -xdev -depth -delete/);
   assert.match(piBackupCompletion, /systemctl start "\$\{SERVICE_NAME\}"/);
+  assert.match(piBackupCompletion, /Pi backup service is already active; refusing concurrent Restic work/);
+  assert.doesNotMatch(piBackupCompletion, /did not record a new invocation/);
   assert.match(piBackupCompletion, /--repair-automation/);
   assert.match(piBackupCompletion, /reset_failed_unit "\$\{SERVICE_NAME\}"/);
   assert.match(piBackupCompletion, /reset_failed_unit "\$\{MONITOR_SERVICE\}"/);
