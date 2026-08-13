@@ -12,9 +12,9 @@
   "listenLinks": {
     "start": "https://theinveniosexpeditions.com/episodes/",
     "spotify": "",
-    "apple": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+    "apple": "",
     "website": "https://theinveniosexpeditions.com/",
-    "rss": "https://feeds.megaphone.fm/SBP5252339511",
+    "rss": "",
     "youtubeMusic": "",
     "amazonMusic": "",
     "pocketCasts": ""
@@ -46,7 +46,7 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed • at least 15 full episodes",
+    "label": "1 season observed • at least 15 full episodes; runtime duration unverified",
     "seasons": 1,
     "episodes": 15,
     "countQualifier": "at-least",
@@ -102,7 +102,7 @@
   "cast": [],
   "verification": {
     "status": "partially-source-reviewed",
-    "verifiedAt": "2026-08-03",
+    "verifiedAt": "2026-08-14",
     "source": "https://theinveniosexpeditions.com/episodes/; https://theinveniosexpeditions.com/cast/; https://theinveniosexpeditions.com/about/; https://theinveniosexpeditions.com/",
     "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
@@ -133,6 +133,9 @@
       "Ocean",
       "Serialized"
     ],
+    "researchGaps": [
+      "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan shows, so runtime duration remains unknown."
+    ],
     "importOfficialSummary": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
     "socialUrls": [],
     "funding": [],
@@ -154,8 +157,8 @@
       "pipelineVersion": "2.0",
       "identifiers": {
         "podcastGuid": "",
-        "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
-        "appleCollectionId": "304481704",
+        "rssUrl": "",
+        "appleCollectionId": "",
         "podcastIndexFeedId": "",
         "feedRedirects": []
       },
@@ -188,9 +191,9 @@
       "externalResearch": {
         "sourceUrls": [],
         "fieldSources": {},
-        "notes": "The official publisher identifies this as the second Leviathan Chronicles spin-off. The public listening feed and Apple listing are shared with the Leviathan productions.",
+        "notes": "The official publisher identifies this as the second Leviathan Chronicles spin-off. The previously attached RSS and Apple identifiers resolve to other shows and are not used as current provenance.",
         "uncertainFields": [],
-        "reviewedAt": "2026-08-03T15:25:31.444Z"
+        "reviewedAt": "2026-08-14T00:00:00.000Z"
       },
       "fields": {
         "title": {
@@ -413,7 +416,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-03",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-14",
   "creatorId": "christof-laputka",
   "networkId": "leviathan-audio-productions"
 }

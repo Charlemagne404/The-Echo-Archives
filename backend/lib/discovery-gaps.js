@@ -241,6 +241,200 @@ function getGateBCriticalValidationErrors(catalog = [], collections = []) {
   return errors;
 }
 
+function hasUsableListenLink(show = {}) {
+  return Object.values(show.listenLinks || {}).some((value) => normalizeText(value));
+}
+
+function hasDetailedLength(show = {}) {
+  return Boolean(show.length && typeof show.length === "object" && Object.keys(show.length).length > 1);
+}
+
+function hasRuntimeDuration(show = {}) {
+  const length = show.length && typeof show.length === "object" ? show.length : {};
+  return ["avgEpisodeMinutes", "medianEpisodeMinutes", "totalHours", "totalObservedHours"].some(
+    (fieldName) => Number.isFinite(Number(length[fieldName])) && Number(length[fieldName]) > 0,
+  );
+}
+
+function hasDocumentedResearchGap(show = {}, pattern) {
+  const gaps = Array.isArray(show.metadata?.researchGaps) ? show.metadata.researchGaps : [];
+  return gaps.some((gap) => pattern.test(String(gap)));
+}
+
+function buildPhase2Readiness(catalog = [], collections = [], { reviewsById = {}, tagTaxonomy = {} } = {}) {
+  const publishedShows = getPublishedShows(catalog);
+  const editorialShows = publishedShows.filter((show) => ["full-review", "spotlight"].includes(show.reviewStatus));
+  const gapReport = buildDiscoveryGapReport(catalog, collections);
+  const numericTargets = {
+    publishedShows: { actual: publishedShows.length, target: 129, pass: publishedShows.length >= 129 },
+    fullReviews: {
+      actual: publishedShows.filter((show) => show.reviewStatus === "full-review").length,
+      target: 7,
+      pass: publishedShows.filter((show) => show.reviewStatus === "full-review").length >= 7,
+    },
+    collections: { actual: Array.isArray(collections) ? collections.length : 0, target: 29, pass: collections.length >= 29 },
+  };
+
+  const factualGaps = [];
+  publishedShows.forEach((show) => {
+    const missing = [];
+    if (!normalizeText(show.title)) missing.push("title");
+    if ((!Array.isArray(show.creators) || show.creators.length === 0) && !normalizeText(show.credits?.creatorName)) missing.push("creator");
+    if (!normalizeText(show.description)) missing.push("description");
+    if (!Array.isArray(show.genres) || show.genres.length === 0) missing.push("primary genre");
+    if (!normalizeText(show.status)) missing.push("lifecycle/status");
+    if (!hasUsableListenLink(show)) missing.push("listen link");
+    if (missing.length > 0) factualGaps.push({ id: show.id, title: show.title, missing });
+  });
+
+  const missingObjectiveSources = publishedShows
+    .filter((show) => !Array.isArray(show.metadata?.objectiveSources) || show.metadata.objectiveSources.length === 0)
+    .map((show) => ({ id: show.id, title: show.title }));
+  const missingRss = publishedShows.filter((show) => !normalizeText(show.listenLinks?.rss));
+  const documentedMissingRss = missingRss.filter((show) => hasDocumentedResearchGap(show, /rss|feed/i));
+  const actionableMissingRss = missingRss.filter((show) => !documentedMissingRss.includes(show));
+  const missingRuntime = publishedShows.filter((show) => !hasDetailedLength(show));
+  const undocumentedRuntimeGaps = publishedShows.filter((show) => !hasRuntimeDuration(show) && !hasDocumentedResearchGap(show, /runtime|duration/i));
+  const documentedRuntimeUnknowns = publishedShows.filter((show) => !hasRuntimeDuration(show) && hasDocumentedResearchGap(show, /runtime|duration/i));
+  const documentedResearchGaps = publishedShows
+    .filter((show) => Array.isArray(show.metadata?.researchGaps) && show.metadata.researchGaps.length > 0)
+    .map((show) => ({ id: show.id, title: show.title, gaps: show.metadata.researchGaps }));
+  const sparseIndexedOnlyShows = publishedShows.filter(
+    (show) => show.reviewStatus === "indexed-only" && !show.tones?.length && !show.bestFor?.length && !show.similarTo?.length,
+  );
+  const sparseIndexedOnlyIds = new Set(sparseIndexedOnlyShows.map((show) => show.id));
+  const sparseEditorialViolations = sparseIndexedOnlyShows.filter(
+    (show) => show.ratings?.archive !== undefined || normalizeText(show.archiveTake) || show.spoilerFreeReviewParagraphs?.length || show.thoughts?.length,
+  );
+
+  const editorialGaps = [];
+  editorialShows.forEach((show) => {
+    const review = reviewsById[show.id];
+    const missing = [];
+    if (!review || typeof review !== "object") missing.push("review companion");
+    if (!normalizeText(show.archiveTake) && !normalizeText(review?.archiveTake)) missing.push("archive take");
+    if (!(Array.isArray(show.spoilerFreeReviewParagraphs) && show.spoilerFreeReviewParagraphs.length > 0) && !(Array.isArray(review?.spoilerFreeReview) && review.spoilerFreeReview.length > 0)) {
+      missing.push("spoiler-safe review");
+    }
+    if (!Array.isArray(show.tones) || show.tones.length === 0) missing.push("tones");
+    if (!Array.isArray(show.formats) || show.formats.length === 0) missing.push("formats");
+    if (!Array.isArray(show.bestFor) || show.bestFor.length === 0) missing.push("best-for signals");
+    if (!hasDetailedLength(show)) missing.push("detailed length");
+    if (missing.length > 0) editorialGaps.push({ id: show.id, title: show.title, missing });
+  });
+
+  const approvedTags = new Map(
+    (Array.isArray(tagTaxonomy.tags) ? tagTaxonomy.tags : [])
+      .map((entry) => [normalizeText(entry.label).toLowerCase(), entry]),
+  );
+  const taxonomyUnknownTags = [];
+  const taxonomyDeprecatedTags = [];
+  publishedShows.forEach((show) => {
+    (Array.isArray(show.tags) ? show.tags : []).forEach((tag) => {
+      const entry = approvedTags.get(normalizeText(tag).toLowerCase());
+      if (!entry) taxonomyUnknownTags.push({ id: show.id, tag });
+      else if (entry.status !== "approved") taxonomyDeprecatedTags.push({ id: show.id, tag, status: entry.status });
+    });
+  });
+
+  const outOfScopePublished = publishedShows.filter((show) => {
+    const languageValues = Array.isArray(show.languages) ? show.languages : [];
+    const hasNonEnglishLanguage = languageValues.some((language) => !/^(english|en(?:-|$))/i.test(String(language).trim()));
+    const text = [show.title, show.description, ...(show.genres || []), ...(show.formats || []), ...(show.tags || [])].join(" ");
+    return hasNonEnglishLanguage || /(actual play|roleplaying|role-playing|ttrpg|tabletop)/i.test(text);
+  });
+
+  const factualBlockingErrors = [
+    ...factualGaps.map((gap) => `Factual metadata missing for "${gap.id}": ${gap.missing.join(", ")}.`),
+    ...missingObjectiveSources.map((show) => `Published show "${show.id}" is missing objective source/provenance metadata.`),
+    ...actionableMissingRss.map((show) => `Published show "${show.id}" is missing an RSS link without a documented research gap.`),
+    ...missingRuntime.map((show) => `Published show "${show.id}" is missing detailed length metadata.`),
+    ...undocumentedRuntimeGaps.map((show) => `Published show "${show.id}" has no verified runtime duration and no documented research gap.`),
+    ...sparseEditorialViolations.map((show) => `Sparse indexed-only show "${show.id}" contains unsupported editorial claims.`),
+  ];
+  const taxonomyBlockingErrors = [
+    ...(Array.isArray(tagTaxonomy.tags) && tagTaxonomy.tags.length !== 165
+      ? [`Controlled taxonomy has ${tagTaxonomy.tags.length} labels; Phase 2 requires the stable 165-label vocabulary.`]
+      : []),
+    ...taxonomyUnknownTags.map((entry) => `Published show "${entry.id}" uses unknown or unapproved public tag "${entry.tag}".`),
+    ...taxonomyDeprecatedTags.map((entry) => `Published show "${entry.id}" uses deprecated public tag "${entry.tag}".`),
+  ];
+  const scopeBlockingErrors = outOfScopePublished.map((show) => `Published show "${show.id}" falls outside the locked English fiction/audio-drama scope.`);
+  const editorialBlockingErrors = [
+    ...getGateBCriticalValidationErrors(catalog, collections),
+    ...editorialGaps.map((gap) => `Editorial show "${gap.id}" is missing: ${gap.missing.join(", ")}.`),
+  ];
+  const numericBlockingErrors = Object.entries(numericTargets)
+    .filter(([, target]) => !target.pass)
+    .map(([name, target]) => `Phase 2 numeric target "${name}" is ${target.actual}; required floor is ${target.target}.`);
+  const blockingErrors = [
+    ...numericBlockingErrors,
+    ...factualBlockingErrors,
+    ...editorialBlockingErrors,
+    ...taxonomyBlockingErrors,
+    ...scopeBlockingErrors,
+  ];
+
+  return {
+    policy: {
+      fullReviewFloor: 7,
+      publicationScope: "English-language fiction/audio drama; actual play/TTRPG and non-English imports remain out of scope.",
+      sparseIndexedOnly: "Published factual-only records remain indexed without unsupported editorial claims.",
+      unverifiableFacts: "Explicit unknowns and metadata.researchGaps are acceptable when sources cannot verify a field.",
+    },
+    numericTargets,
+    factual: {
+      coreMetadataGaps: factualGaps,
+      missingObjectiveSources,
+      missingRss: missingRss.map((show) => show.id),
+      documentedMissingRss: documentedMissingRss.map((show) => show.id),
+      actionableMissingRss: actionableMissingRss.map((show) => show.id),
+      missingRuntime: missingRuntime.map((show) => show.id),
+      documentedRuntimeUnknowns: documentedRuntimeUnknowns.map((show) => show.id),
+      documentedResearchGaps,
+      sparseEditorialViolations: sparseEditorialViolations.map((show) => show.id),
+      blockingErrors: factualBlockingErrors,
+    },
+    editorial: {
+      eligibleShows: editorialShows.map((show) => show.id),
+      gaps: editorialGaps,
+      blockingErrors: editorialBlockingErrors,
+    },
+    collections: {
+      routeCollectionCount: gapReport.summary.routeCollectionCount,
+      routeCollectionsMissingShowReasons: gapReport.routeCollectionsMissingShowReasons,
+      anchorShowsWithTooFewCollectionMemberships: gapReport.anchorShowsWithTooFewCollectionMemberships,
+      sparseIndexedOnlyShows: gapReport.publishedShowsWithTooFewCollectionMemberships.filter((entry) => {
+        return sparseIndexedOnlyIds.has(entry.id);
+      }).map((entry) => entry.id),
+      blockingErrors: [
+        ...gapReport.routeCollectionsMissingShowReasons.map((entry) => `Route collection "${entry.id}" is missing showReasons.`),
+        ...gapReport.anchorShowsWithTooFewCollectionMemberships.map((entry) => `Anchor show "${entry.id}" has only ${entry.count} collection memberships.`),
+      ],
+    },
+    taxonomy: {
+      controlledLabelCount: Array.isArray(tagTaxonomy.tags) ? tagTaxonomy.tags.length : 0,
+      expectedControlledLabelCount: 165,
+      unknownTags: taxonomyUnknownTags,
+      deprecatedTags: taxonomyDeprecatedTags,
+      blockingErrors: taxonomyBlockingErrors,
+    },
+    scope: {
+      outOfScopePublished: outOfScopePublished.map((show) => show.id),
+      blockingErrors: scopeBlockingErrors,
+    },
+    sparseIndexedOnly: {
+      count: sparseIndexedOnlyShows.length,
+      outOfRangeSimilarLinks: gapReport.publishedShowsWithOutOfRangeSimilarLinks.filter((entry) => sparseIndexedOnlyIds.has(entry.id)).length,
+      fewerThanTwoCollections: gapReport.publishedShowsWithTooFewCollectionMemberships.filter((entry) => sparseIndexedOnlyIds.has(entry.id)).length,
+      editorialViolations: sparseEditorialViolations.map((show) => show.id),
+      informationalOnly: true,
+    },
+    blockingErrors,
+    complete: blockingErrors.length === 0,
+  };
+}
+
 module.exports = {
   ANCHOR_SHOW_IDS,
   buildDiscoveryGapReport,
@@ -253,5 +447,6 @@ module.exports = {
   getGateBCriticalValidationErrors,
   getPublishedShows,
   getCollectionMembershipCounts,
+  buildPhase2Readiness,
   isShowsLikeCollection,
 };

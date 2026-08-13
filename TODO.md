@@ -2,7 +2,7 @@
 
 ## Data Cleanup
 
-- 2026-07-21: `npm run report:catalog` reports 3 published shows missing RSS links. Add verified RSS URLs where available for `earth-eclipsed`, `impact-winter`, and `homecoming`.
+- 2026-08-14: Phase 2 RSS audit completed. Verified feeds were added for `impact-winter` and `homecoming`; `earth-eclipsed` retains an explicit research gap because the official feed reference currently returns 404. Two unrelated shared-feed identity conflicts were also removed from `the-rapscallion-agency` and `the-invenios-expeditions`; no actionable Phase 2 RSS/runtime blocker remains.
 
 Use:
 

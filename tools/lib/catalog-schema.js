@@ -1,5 +1,5 @@
 const SHOW_STATUSES = ["published", "draft"];
-const REVIEW_STATUSES = ["full-review", "spotlight", "indexed-only", "planned"];
+const REVIEW_STATUSES = ["full-review", "spotlight", "indexed-only", "imported", "planned"];
 const RELEASE_STATUSES = ["active", "completed", "hiatus", "inactive", "unknown"];
 const COMPLETION_STATUSES = ["ongoing", "finished", "cancelled", "unclear"];
 

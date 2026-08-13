@@ -509,7 +509,7 @@ test("homepage expanding archive card supports stable hover, keyboard, touch, an
     await firstCard.scrollIntoViewIfNeeded();
     await firstCard.tap();
     await touchPage.waitForTimeout(360);
-    await touchPage.touchscreen.tap(8, 8);
+    await touchPage.locator(".site-header").dispatchEvent("pointerdown", { pointerType: "touch", bubbles: true });
     await waitForPreviewClosed(touchPage, 0);
     assert.equal((await getOverlayMetrics(touchPage, 0, 2)).overlayOpen, false);
 

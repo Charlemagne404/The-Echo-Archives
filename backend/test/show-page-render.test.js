@@ -31,6 +31,53 @@ test("empty indexed entries move editorial context out of Reviews and invite the
   assert.doesNotMatch(markup, /detail-quote/);
 });
 
+test("Imported show pages disclose automation, preserve community routes, and omit archive editorial claims", async () => {
+  const base = showMap.get("solar");
+  const show = {
+    ...base,
+    id: "imported-solar",
+    title: "Imported Solar",
+    reviewStatus: "imported",
+    finalRating: null,
+    ratings: {},
+    tones: [],
+    themes: [],
+    bestFor: [],
+    similarTo: [],
+    similarReasons: {},
+    archiveTake: "",
+    spoilerFreeReview: "",
+    spoilerFreeReviewParagraphs: [],
+    thoughts: "",
+    thoughtsParagraphs: [],
+    verification: { status: "automated-source-checked" },
+  };
+  const map = new Map([[show.id, show]]);
+  const serverMarkup = createShowPageMarkup(show, map, [], { reviews: [], pagination: { totalReviews: 0 }, scoreSummary: {} });
+  assert.match(serverMarkup, /detail-status-chip is-imported">Imported/);
+  assert.match(serverMarkup, /Imported · source checked by automation/);
+  assert.match(serverMarkup, /has not yet been individually checked/);
+  assert.match(serverMarkup, /Be the first to review/);
+  assert.doesNotMatch(serverMarkup, /Archive verdict|detail-archive-review/);
+  assert.match(serverMarkup, /Listener Review Score/);
+  assert.match(serverMarkup, />--\/10</);
+
+  global.document = { body: { dataset: {} }, getElementById: () => null, querySelector: () => null };
+  global.EchoArchiveSearch = {};
+  global.EchoArchiveRecord = require("../../shared/archive-record.js");
+  try {
+    const { createShowPageMarkup: createClientShowPageMarkup } = await import("../../shared/app/render-show.js");
+    const clientMarkup = createClientShowPageMarkup(show, map, [], { reviews: [], pagination: { totalReviews: 0 }, scoreSummary: {} });
+    ["detail-status-chip is-imported", "Imported · source checked by automation", "Listener Review Score"].forEach((fragment) => {
+      assert.match(clientMarkup, new RegExp(fragment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    });
+  } finally {
+    delete global.document;
+    delete global.EchoArchiveSearch;
+    delete global.EchoArchiveRecord;
+  }
+});
+
 test("full reviews server-render archive first and reserve later listener pages for the carousel", () => {
   const show = showMap.get("impact-winter");
   const markup = createShowPageMarkup(show, showMap, collections, {
@@ -43,6 +90,7 @@ test("full reviews server-render archive first and reserve later listener pages 
       voiceActing: { averageRating: 8.5, ratingCount: 3, isPublic: true },
       soundDesign: { averageRating: null, ratingCount: 0, isPublic: false },
     },
+    listenerReviewScore: { averageRating: 8.25, reviewCount: 6 },
   });
   const uniqueSpoilerFreeLine = show.spoilerFreeReviewParagraphs[0];
 
@@ -54,12 +102,15 @@ test("full reviews server-render archive first and reserve later listener pages 
   assert.match(markup, /data-has-archive="true"/);
   assert.match(markup, /data-listener-total="1"/);
   assert.match(markup, /Review 1 of 2/);
-  assert.match(markup, /Community score breakdown/);
+  assert.match(markup, /Written review score breakdown/);
   assert.match(markup, /8\.5\/10/);
+  assert.match(markup, /Listener Review Score/);
+  assert.match(markup, />8\.3\/10</);
+  assert.match(markup, /from 6 reviews/);
   assert.doesNotMatch(markup, /Listener42/);
   assert.doesNotMatch(markup, /You make the choices you can live with/);
   assert.match(markup, /detail-side-rail/);
-  assert.match(markup, /Listener rating/);
+  assert.match(markup, /Community Rating/);
   assert.equal(markup.split(uniqueSpoilerFreeLine).length - 1, 1);
   assert.doesNotMatch(markup, /<h2>Listener reviews<\/h2>/);
   assert.doesNotMatch(markup, /<h2>Archive take<\/h2>/);
@@ -107,12 +158,12 @@ test("indexed listener reviews and public category scores appear only when they 
   assert.match(listenerMarkup, /Reveal spoilers/);
   assert.match(listenerMarkup, /data-review-helpful="listener-1"/);
   assert.doesNotMatch(listenerMarkup, /The Echo Archives/);
-  assert.doesNotMatch(listenerMarkup, /Community score breakdown/);
+  assert.doesNotMatch(listenerMarkup, /Written review score breakdown/);
   assert.match(emptyMarkup, /detail-first-review-card/);
   assert.match(emptyMarkup, /Be the first to review/);
   assert.doesNotMatch(emptyMarkup, /<h2>Reviews<\/h2>/);
-  assert.doesNotMatch(emptyMarkup, /Community score breakdown/);
-  assert.match(publicScoresMarkup, /Community score breakdown/);
+  assert.doesNotMatch(emptyMarkup, /Written review score breakdown/);
+  assert.match(publicScoresMarkup, /Written review score breakdown/);
   assert.match(publicScoresMarkup, /Voice acting/);
   assert.doesNotMatch(publicScoresMarkup, /Building/);
   assert.equal((publicScoresMarkup.match(/detail-community-rating-card/g) || []).length, 1);
@@ -204,10 +255,11 @@ test("server-rendered show pages never coerce missing or invalid archive ratings
     const show = { ...baseShow, finalRating };
     const markup = createShowPageMarkup(show, new Map([[show.id, show]]), []);
 
-    assert.match(markup, /<strong class="detail-hero-score-value">Unrated<\/strong>/);
-    assert.match(markup, /<span class="detail-meta-note">No archive rating yet<\/span>/);
+    assert.match(markup, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
+    assert.match(markup, /No published listener reviews yet/);
     assert.match(markup, /<span class="detail-review-rating">Unrated<\/span>/);
     assert.doesNotMatch(markup, /\b0(?:\.0)?\/10\b/);
+    assert.doesNotMatch(markup, /detail-score-card-archive/);
     assert.doesNotMatch(markup, /Echo score/);
     assert.doesNotMatch(markup, />Top rated<\/span>/);
   });
@@ -246,10 +298,11 @@ test("client-rendered show pages use the same strict archive-rating behavior", a
       const show = { ...baseShow, finalRating };
       const markup = createClientShowPageMarkup(show, new Map([[show.id, show]]), []);
 
-      assert.match(markup, /<strong class="detail-hero-score-value">Unrated<\/strong>/);
-      assert.match(markup, /<span class="detail-meta-note">No archive rating yet<\/span>/);
+      assert.match(markup, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
+      assert.match(markup, /No published listener reviews yet/);
       assert.match(markup, /<span class="detail-review-rating">Unrated<\/span>/);
       assert.doesNotMatch(markup, /\b0(?:\.0)?\/10\b/);
+      assert.doesNotMatch(markup, /detail-score-card-archive/);
       assert.doesNotMatch(markup, /Echo score/);
       assert.doesNotMatch(markup, />Top rated<\/span>/);
     });

@@ -12,9 +12,9 @@
   "listenLinks": {
     "start": "https://rapscallionagency.com/episodes/",
     "spotify": "",
-    "apple": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
+    "apple": "",
     "website": "https://rapscallionagency.com/",
-    "rss": "https://feeds.megaphone.fm/SBP5252339511",
+    "rss": "",
     "youtubeMusic": "",
     "amazonMusic": "",
     "pocketCasts": ""
@@ -46,14 +46,9 @@
   ],
   "transcriptLanguages": [],
   "length": {
-    "label": "1 season observed • at least 11 full episodes • 35 min median",
+    "label": "1 season observed • at least 11 full episodes; runtime duration unverified",
     "seasons": 1,
     "episodes": 11,
-    "medianEpisodeMinutes": 35,
-    "minEpisodeMinutes": 21,
-    "maxEpisodeMinutes": 45,
-    "totalObservedHours": 6.3,
-    "durationCoverage": 1,
     "observedSeasons": [
       1
     ],
@@ -111,8 +106,8 @@
   "cast": [],
   "verification": {
     "status": "partially-source-reviewed",
-    "verifiedAt": "2026-08-03",
-    "source": "https://rapscallionagency.com/episodes/; https://rapscallionagency.com/cast/; https://rapscallionagency.com/about/; https://feeds.megaphone.fm/humanbgon; https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4",
+    "verifiedAt": "2026-08-14",
+    "source": "https://rapscallionagency.com/episodes/; https://rapscallionagency.com/cast/; https://rapscallionagency.com/about/",
     "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
   },
   "availability": {
@@ -127,9 +122,7 @@
     "objectiveSources": [
       "https://rapscallionagency.com/episodes/",
       "https://rapscallionagency.com/cast/",
-      "https://rapscallionagency.com/about/",
-      "https://feeds.megaphone.fm/humanbgon",
-      "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4"
+      "https://rapscallionagency.com/about/"
     ],
     "sourceCategories": [
       "sci-fi",
@@ -142,6 +135,9 @@
       "Cybersecurity",
       "Paris",
       "Serialized"
+    ],
+    "researchGaps": [
+      "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan/Human-B-Gon shows, so runtime duration remains unknown."
     ],
     "importOfficialSummary": "Set shortly after the events of the award-winning podcast The Leviathan Chronicles, this spinoff series continues the adventures of its two youngest characters, Lisette Mainsabiles and Paul Kim (aka Cluracan) as they use their unique skills to start a business, navigate young love, and lovingly care for a cybernetic rat. Having been raised by an immortal thief, Lisette’s experience as a cat burglar makes her confident she can handle any physical threat the pair might face. But as a computational savant and former underground hacker, Cluracan knows that analytical thinking can be better than acting impulsively. Sharing a misfit love for each other, they leave behind their lives in the U.S. to start a fledgling cybersecurity agency in Paris, France. After converting a bakery van into their mobile hi-tech headquarters, Lisette and Cluaracan explore Paris by calling upon old acquaintances to help them find work for their new agency, But during a professional ‘audition’, Lisette and Cluracan are double-crossed, but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate, VeyTech Pharmaceutical. As they try to decode the mystery in their possession, they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape France. Will Lisette and Cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom?!",
     "socialUrls": [],
@@ -161,7 +157,7 @@
       },
       "productionLocation": "",
       "country": "USA",
-      "sourceFormat": "rss",
+      "sourceFormat": "website",
       "contentType": "",
       "directoryMarkedDead": false
     },
@@ -169,8 +165,8 @@
       "pipelineVersion": "2.0",
       "identifiers": {
         "podcastGuid": "",
-        "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
-        "appleCollectionId": "304481704",
+        "rssUrl": "",
+        "appleCollectionId": "",
         "podcastIndexFeedId": "",
         "feedRedirects": [
           "https://rapscallionagency.com/feed/"
@@ -194,26 +190,14 @@
           "sourceUrl": "https://rapscallionagency.com/about/",
           "fetchedAt": "2026-08-03T15:16:52.545Z",
           "payloadHash": "068ab5b950f73f4e692e33d670c3bbdad82eac7accf41f3b070a4bc943ee9f6f"
-        },
-        {
-          "sourceType": "rss",
-          "sourceUrl": "https://feeds.megaphone.fm/humanbgon",
-          "fetchedAt": "2026-08-03T15:16:51.573Z",
-          "payloadHash": "bdb4f2cfc83efad59fc1b75e5730d6fe2c91952ba1e369513e55250d63255c3b"
-        },
-        {
-          "sourceType": "apple",
-          "sourceUrl": "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4",
-          "fetchedAt": "2026-08-03T15:16:50.803Z",
-          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ],
       "externalResearch": {
         "sourceUrls": [],
         "fieldSources": {},
-        "notes": "The publisher presents this as a Leviathan Chronicles spin-off. Its public listening feed and Apple listing are shared with the Leviathan productions.",
+        "notes": "The publisher presents this as a Leviathan Chronicles spin-off. The previously attached RSS and Apple identifiers resolve to other shows and are not used as current provenance.",
         "uncertainFields": [],
-        "reviewedAt": "2026-08-03T15:25:31.439Z"
+        "reviewedAt": "2026-08-14T00:00:00.000Z"
       },
       "fields": {
         "title": {
@@ -648,7 +632,7 @@
   },
   "featured": false,
   "createdAt": "2026-08-03",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-08-14",
   "creatorId": "christof-laputka",
   "networkId": "leviathan-audio-productions"
 }

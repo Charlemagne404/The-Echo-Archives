@@ -95,6 +95,9 @@ function hydrateCandidate(row) {
     reviewNotes: row.review_notes,
     reviewedBy: row.reviewed_by,
     reviewedAt: row.reviewed_at,
+    factsReviewedBy: row.facts_reviewed_by || "",
+    factsReviewedAt: row.facts_reviewed_at || null,
+    factsReviewedRevision: row.facts_reviewed_revision === null ? null : Number(row.facts_reviewed_revision),
     draftedShowId: row.drafted_show_id,
     publishedShowId: row.published_show_id,
     duplicateOfShowId: row.duplicate_of_show_id,
@@ -360,7 +363,8 @@ function createImportStore({ db }) {
         provenance_json, dedupe_json, prepared_record_json, readiness_json,
         conflicts_json, source_health_json, locked_fields_json, cover_stage_json,
         pipeline_version, input_revision, last_run_id, last_error, review_notes,
-        reviewed_by, reviewed_at, drafted_show_id, published_show_id,
+        reviewed_by, reviewed_at, facts_reviewed_by, facts_reviewed_at,
+        facts_reviewed_revision, drafted_show_id, published_show_id,
         duplicate_of_show_id, duplicate_of_candidate_id, discovery_source_id, discovery_run_id
       ) VALUES (
         @id, @status, @mode, @existingShowId, @scopeStatus, @hasDuplicateMatch,
@@ -369,7 +373,8 @@ function createImportStore({ db }) {
         @provenanceJson, @dedupeJson, @preparedRecordJson, @readinessJson,
         @conflictsJson, @sourceHealthJson, @lockedFieldsJson, @coverStageJson,
         @pipelineVersion, @inputRevision, @lastRunId, @lastError, @reviewNotes,
-        @reviewedBy, @reviewedAt, @draftedShowId, @publishedShowId,
+        @reviewedBy, @reviewedAt, @factsReviewedBy, @factsReviewedAt,
+        @factsReviewedRevision, @draftedShowId, @publishedShowId,
         @duplicateOfShowId, @duplicateOfCandidateId, @discoverySourceId, @discoveryRunId
       )
     `).run({
@@ -403,6 +408,9 @@ function createImportStore({ db }) {
       reviewNotes: payload.reviewNotes || "",
       reviewedBy: payload.reviewedBy || "",
       reviewedAt: payload.reviewedAt || null,
+      factsReviewedBy: payload.factsReviewedBy || "",
+      factsReviewedAt: payload.factsReviewedAt || null,
+      factsReviewedRevision: payload.factsReviewedRevision ?? null,
       draftedShowId: payload.draftedShowId || "",
       publishedShowId: payload.publishedShowId || "",
       duplicateOfShowId: payload.duplicateOfShowId || "",
@@ -615,6 +623,8 @@ function createImportStore({ db }) {
         pipeline_version=@pipelineVersion, input_revision=@inputRevision,
         last_run_id=@lastRunId, last_error=@lastError,
         review_notes=@reviewNotes, reviewed_by=@reviewedBy, reviewed_at=@reviewedAt,
+        facts_reviewed_by=@factsReviewedBy, facts_reviewed_at=@factsReviewedAt,
+        facts_reviewed_revision=@factsReviewedRevision,
         drafted_show_id=@draftedShowId, published_show_id=@publishedShowId,
         duplicate_of_show_id=@duplicateOfShowId,
         duplicate_of_candidate_id=@duplicateOfCandidateId,
@@ -653,6 +663,9 @@ function createImportStore({ db }) {
       reviewNotes: next.reviewNotes || "",
       reviewedBy: next.reviewedBy || "",
       reviewedAt: next.reviewedAt || null,
+      factsReviewedBy: next.factsReviewedBy || "",
+      factsReviewedAt: next.factsReviewedAt || null,
+      factsReviewedRevision: next.factsReviewedRevision ?? null,
       draftedShowId: next.draftedShowId || "",
       publishedShowId: next.publishedShowId || "",
       duplicateOfShowId: next.duplicateOfShowId || "",

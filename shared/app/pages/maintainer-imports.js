@@ -1,5 +1,7 @@
 import {
   createMaintainerSession,
+  batchPublishMaintainerImports,
+  confirmMaintainerImportFactualReview,
   destroyMaintainerSession,
   draftMaintainerImportCandidate,
   fetchMaintainerImportCandidate,
@@ -8,6 +10,7 @@ import {
   hydrateMaintainerImportCandidate,
   MaintainerAuthError,
   patchMaintainerImportCandidateReview,
+  promoteMaintainerImportCandidate,
   publishMaintainerImportCandidate,
   rerunAllMaintainerImportPreparation,
   retryMaintainerImportCandidate,
@@ -39,16 +42,10 @@ import {
   renderImportSummaryCards,
 } from "../maintainer-import/render.js";
 import { bindDiscoveryWorkspace } from "../maintainer-import/discovery-workspace.js";
+import { bindImportBatchActions } from "../maintainer-import/batch-actions.js";
 import { bindImportCandidateActions } from "../maintainer-import/detail-actions.js";
-import {
-  buildReviewPayload,
-  collectSeedEntries,
-  revealCompactDetail,
-  waitForManagedImportRun,
-} from "../maintainer-import/workflow.js";
-import {
-  bindExternalVerificationWorkspace,
-} from "../maintainer-import/external-verification.js";
+import { buildReviewPayload, collectSeedEntries, revealCompactDetail, waitForManagedImportRun } from "../maintainer-import/workflow.js";
+import { bindExternalVerificationWorkspace } from "../maintainer-import/external-verification.js";
 import { initializeMaintainerImportsReportPage } from "./maintainer-import-report.js";
 
 export async function initializeMaintainerImportsPage() {
@@ -72,6 +69,7 @@ export async function initializeMaintainerImportsPage() {
     detailController: null,
     runController: null,
     searchSequence: 0,
+    selectedBatchIds: new Set(),
   };
 
   const elements = {
@@ -88,6 +86,8 @@ export async function initializeMaintainerImportsPage() {
     previousPage: document.getElementById("maintainerPreviousPage"),
     nextPage: document.getElementById("maintainerNextPage"),
     rerunAllPreparation: document.getElementById("maintainerRerunAllPreparation"),
+    selectImportedEligible: document.getElementById("maintainerSelectImportedEligible"),
+    publishImportedBatch: document.getElementById("maintainerPublishImportedBatch"),
     filterForm: document.getElementById("maintainerFilterForm"),
     refreshButton: document.getElementById("maintainerRefreshButton"),
     reportLink: document.getElementById("maintainerReportLink"),
@@ -124,12 +124,8 @@ export async function initializeMaintainerImportsPage() {
   renderSelectOptions(elements.sourceType, IMPORT_FILTER_OPTIONS.sourceType, state.filters.sourceType);
   renderSelectOptions(elements.duplicateState, IMPORT_FILTER_OPTIONS.duplicateState, state.filters.duplicateState);
   renderSelectOptions(elements.searchSource, [["apple", "Apple"], ["podcast-index", "Podcast Index"], ["all", "All available"]], "apple");
-  if (elements.search instanceof HTMLInputElement) {
-    elements.search.value = state.filters.q;
-  }
-  if (elements.includeClosed instanceof HTMLInputElement) {
-    elements.includeClosed.checked = state.filters.includeClosed;
-  }
+  if (elements.search instanceof HTMLInputElement) elements.search.value = state.filters.q;
+  if (elements.includeClosed instanceof HTMLInputElement) elements.includeClosed.checked = state.filters.includeClosed;
   if (elements.pageSize instanceof HTMLSelectElement) {
     elements.pageSize.value = String(state.filters.pageSize);
   }
@@ -259,6 +255,8 @@ export async function initializeMaintainerImportsPage() {
           retry: retryMaintainerImportCandidate,
           reopen: reopenMaintainerImportCandidate,
           publish: publishMaintainerImportCandidate,
+          factualReview: confirmMaintainerImportFactualReview,
+          promote: promoteMaintainerImportCandidate,
           review: patchMaintainerImportCandidateReview,
           selectEvidence: selectMaintainerImportEvidence,
         },
@@ -299,7 +297,10 @@ export async function initializeMaintainerImportsPage() {
       if (!preserveSelection || !response.items.some((item) => item.id === state.selectedId)) {
         state.selectedId = response.items[0]?.id || "";
       }
-      elements.list.innerHTML = renderImportQueueList({ items: response.items, selectedId: state.selectedId });
+      const visibleIds = new Set(response.items.map((item) => item.id));
+      state.selectedBatchIds = new Set([...state.selectedBatchIds].filter((id) => visibleIds.has(id)));
+      elements.list.innerHTML = renderImportQueueList({ items: response.items, selectedId: state.selectedId, selectedBatchIds: state.selectedBatchIds });
+      if (elements.publishImportedBatch) elements.publishImportedBatch.disabled = state.selectedBatchIds.size === 0;
       const start = response.total === 0 ? 0 : (response.page - 1) * response.pageSize + 1;
       const end = Math.min(response.total, response.page * response.pageSize);
       elements.listStatus.textContent =
@@ -397,6 +398,18 @@ export async function initializeMaintainerImportsPage() {
       },
     });
   });
+  bindImportBatchActions({
+    elements,
+    state,
+    renderQueue: () => {
+      elements.list.innerHTML = renderImportQueueList({ items: state.response?.items || [], selectedId: state.selectedId, selectedBatchIds: state.selectedBatchIds });
+    },
+    runAction: runMaintainerAction,
+    publishBatch: batchPublishMaintainerImports,
+    loadQueue,
+    isAuthError: (error) => error instanceof MaintainerAuthError,
+    showAuthentication,
+  });
   elements.previousPage?.addEventListener("click", async (event) => {
     if (state.filters.page <= 1) {
       return;
@@ -416,7 +429,7 @@ export async function initializeMaintainerImportsPage() {
       return;
     }
     state.selectedId = button.dataset.importCandidateId || "";
-    elements.list.innerHTML = renderImportQueueList({ items: state.response?.items || [], selectedId: state.selectedId });
+    elements.list.innerHTML = renderImportQueueList({ items: state.response?.items || [], selectedId: state.selectedId, selectedBatchIds: state.selectedBatchIds });
     await runMaintainerAction({ control: button, region: elements.detail, action: async () => loadDetail({ focusDetail: true }) });
   });
   elements.backToQueue?.addEventListener("click", () => {

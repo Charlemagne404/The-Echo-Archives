@@ -35,6 +35,13 @@ function createEditorialBadges(show) {
     badges.appendChild(fullReviewBadge);
   }
 
+  if (show.reviewStatus === "imported") {
+    const importedBadge = document.createElement("span");
+    importedBadge.className = "editorial-badge editorial-badge-imported";
+    importedBadge.textContent = "Imported";
+    badges.appendChild(importedBadge);
+  }
+
   return badges;
 }
 

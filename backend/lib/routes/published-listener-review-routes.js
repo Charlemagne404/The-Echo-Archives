@@ -69,6 +69,17 @@ function createPublishedListenerReviewRouter({ reviewService, config }) {
     }
   });
 
+  router.get("/scores/summary", (req, res, next) => {
+    try {
+      res.set("Cache-Control", "no-cache");
+      res.json(reviewService.getListenerReviewScoreSummaries(
+        typeof req.query.showIds === "string" ? req.query.showIds : "",
+      ));
+    } catch (error) {
+      next(error);
+    }
+  });
+
   async function updateHelpful(req, res, next, helpful) {
     try {
       if (!config.COMMUNITY_RATING_WRITES_ENABLED) {

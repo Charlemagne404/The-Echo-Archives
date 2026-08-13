@@ -64,6 +64,20 @@ The archive should serve both deep fans and newcomers without turning into a gen
 - Trust matters more than volume.
 - Community and creator input should improve the archive without overruling editorial ownership.
 
+## Phase 2 Catalog Policy
+
+Phase 2 uses a tier-aware catalog standard. Full-review and spotlight records
+carry archive takes, spoiler-safe editorial content, tones, formats, best-for
+signals, detailed length, and reasoned similarity/collection context. Sparse
+indexed-only records may remain factual-only; they must not receive invented
+ratings, tones, best-for claims, similarities, or other unsupported editorial
+recommendations.
+
+The ordinary automatic publication scope is English-language fiction/audio
+drama. Actual play/TTRPG and non-English candidates are out of scope. When a
+factual field cannot be verified, the record must say `unknown` or retain an
+explicit `metadata.researchGaps` note.
+
 ## What The Product Should Feel Like
 
 - cinematic
@@ -133,6 +147,7 @@ The live repo supports:
 - anonymous community ratings
 - moderated submissions for new shows, corrections, listener reviews, and creator verification
 - a protected maintainer queue and report surface
+- a protected factual importer with explicit Imported/indexed-only publication and promotion controls
 
 The product is past the early migration phase. The current priority is improving discovery quality, catalog depth, trust, and editorial usefulness.
 
@@ -245,6 +260,7 @@ Keep these concepts distinct:
 - Archive rating: editorial perspective
 - Community rating: listener response
 - Creator verified: factual metadata checked by a creator or official source
+- Imported: objective metadata passed strict automated source checks but has not been individually reviewed by a maintainer
 
 Creator verification must never imply creator approval of archive ratings, reviews, or rankings.
 
@@ -259,7 +275,7 @@ Community features remain moderated. Nothing user-submitted should auto-publish 
 - Use `unknown`, blank values, or TODO notes when unsure.
 - Keep objective metadata separate from editorial opinion and community content.
 - Metadata quality beats raw volume.
-- Indexed entries should grow faster than full reviews when needed, but never at the cost of obvious inconsistency.
+- Imported entries can grow the safe factual catalogue in batches; indexed-only and full-review promotions add human confidence without weakening the automation gate.
 
 ## Submissions And Community
 

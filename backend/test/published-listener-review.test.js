@@ -165,6 +165,34 @@ test("published listener reviews aggregate each supplied category independently"
   }
 });
 
+test("Listener Review Score aggregates only published written-review ratings and updates with moderation", () => {
+  const context = createContext();
+  try {
+    const first = createSubmission(context, { alias: "First" });
+    const second = createSubmission(context, { alias: "Second" });
+    const draft = context.service.saveForMaintainer(first.id, { ratingStars: 5 });
+    assert.equal(draft.published, false);
+    assert.deepEqual(context.service.getPublicReviewPage("impact-winter").listenerReviewScore, { averageRating: null, reviewCount: 0 });
+
+    context.service.publishForMaintainer(first.id, { ratingStars: 5 });
+    assert.deepEqual(context.service.getPublicReviewPage("impact-winter").listenerReviewScore, { averageRating: 10, reviewCount: 1 });
+
+    context.service.publishForMaintainer(second.id, { ratingStars: 3 });
+    assert.deepEqual(context.service.getPublicReviewPage("impact-winter").listenerReviewScore, { averageRating: 8, reviewCount: 2 });
+    assert.deepEqual(context.service.getListenerReviewScoreSummaries("impact-winter,unknown-show").summaries, {
+      "impact-winter": { averageRating: 8, reviewCount: 2 },
+    });
+
+    context.service.publishForMaintainer(second.id, { ratingStars: 4 });
+    assert.deepEqual(context.service.getPublicReviewPage("impact-winter").listenerReviewScore, { averageRating: 9, reviewCount: 2 });
+
+    context.service.unpublishForMaintainer(first.id);
+    assert.deepEqual(context.service.getPublicReviewPage("impact-winter").listenerReviewScore, { averageRating: 8, reviewCount: 1 });
+  } finally {
+    cleanup(context);
+  }
+});
+
 test("listener reviews are paginated by helpful votes then publication date and helpful votes toggle once per device", async () => {
   const context = createContext();
   try {

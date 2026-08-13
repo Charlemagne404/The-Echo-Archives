@@ -364,12 +364,13 @@
   }
 
   .results-heading-meta {
+    width: 100%;
     align-items: flex-start;
     justify-content: flex-start;
   }
 
-  .results-rating-note {
-    flex-wrap: wrap;
+  .rating-guide {
+    margin-left: auto;
   }
 
   .active-browse-state {

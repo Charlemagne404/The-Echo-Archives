@@ -286,6 +286,7 @@ async function startServer() {
     voterHashSecret: config.COMMUNITY_VOTER_HASH_SECRET,
     abuseRetentionDays: config.COMMUNITY_ABUSE_RETENTION_DAYS,
     minimumPublicRatings: config.COMMUNITY_MIN_PUBLIC_RATINGS,
+    maxSummaryIds: config.COMMUNITY_SUMMARY_MAX_IDS,
     knownShowIds: new Set(state.publicCatalog.map((show) => show.id)),
   });
   const importService = createImportService({

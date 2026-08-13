@@ -55,7 +55,7 @@ function normalizeCommunitySummary(summary) {
 function formatDetailCommunitySummary(summary) {
   summary = normalizeCommunitySummary(summary);
   if (!summary || summary.ratingCount === 0) {
-    return "No community ratings yet. Listener scores stay separate from the archive rating and only appear once people actually rate the show.";
+    return "No community ratings yet. Listener Review Scores and Archive Ratings stay separate from quick Community Ratings.";
   }
 
   if (summary.averageRating === null) {

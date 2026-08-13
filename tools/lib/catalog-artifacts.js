@@ -7,6 +7,7 @@ const {
   SEARCH_INDEX_PATH,
   writeJsonFile,
 } = require("./catalog-source");
+const { buildPhase2Readiness } = require("../../backend/lib/discovery-gaps");
 
 function serializeRuntimeShow(record) {
   const {
@@ -35,6 +36,13 @@ function serializeRuntimeShow(record) {
         fields: importMetadata.fields,
         importedAt: importMetadata.importedAt,
         optionalGaps: importMetadata.optionalGaps,
+        publication: importMetadata.publication,
+        ...(importMetadata.factualReview ? {
+          factualReview: {
+            reviewedAt: importMetadata.factualReview.reviewedAt,
+            inputRevision: importMetadata.factualReview.inputRevision,
+          },
+        } : {}),
       },
     },
   };
@@ -82,7 +90,7 @@ function createSearchIndexRecord(record) {
   };
 }
 
-function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, archiveContext) {
+function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, archiveContext, reviewsById = {}, tagTaxonomy = {}) {
   const publishedShows = catalog.filter((show) => show.status === "published");
   const latestUpdatedAt = [
     ...publishedShows.map((show) => show.updatedAt),
@@ -105,12 +113,15 @@ function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, arch
     reviewStatusCounts.set(show.reviewStatus, (reviewStatusCounts.get(show.reviewStatus) || 0) + 1);
   });
 
+  const phase2 = buildPhase2Readiness(catalog, collections, { reviewsById, tagTaxonomy });
+
   return {
     catalog,
     collections,
     latestUpdatedAt,
     gapReport,
     archiveContext,
+    phase2,
     metrics: {
       totalShows: catalog.length,
       publishedShows: publishedShows.length,
@@ -118,6 +129,7 @@ function buildCatalogSnapshot(catalog, collections, reviewCount, gapReport, arch
       fullReviews: reviewStatusCounts.get("full-review") || 0,
       spotlightReviews: reviewStatusCounts.get("spotlight") || 0,
       indexedOnly: reviewStatusCounts.get("indexed-only") || 0,
+      imported: reviewStatusCounts.get("imported") || 0,
       plannedReviews: reviewStatusCounts.get("planned") || 0,
       collections: collections.length,
       reviewCompanions: reviewCount,
@@ -162,7 +174,9 @@ function buildArchiveStats(catalog, collections) {
 }
 
 function buildCatalogStatusMarkdown(snapshot) {
-  const { metrics, latestUpdatedAt, gapReport, archiveContext } = snapshot;
+  const { metrics, latestUpdatedAt, gapReport, archiveContext, phase2 } = snapshot;
+  const phase2Status = phase2?.complete ? "complete" : "content-pending";
+  const phase2BlockingErrors = phase2?.blockingErrors || [];
 
   return [
     "# Catalog Status",
@@ -179,6 +193,7 @@ function buildCatalogStatusMarkdown(snapshot) {
     `| Full reviews | ${metrics.fullReviews} |`,
     `| Spotlight reviews | ${metrics.spotlightReviews} |`,
     `| Indexed-only shows | ${metrics.indexedOnly} |`,
+    `| Imported shows | ${metrics.imported} |`,
     `| Planned reviews | ${metrics.plannedReviews} |`,
     `| Collections | ${metrics.collections} |`,
     `| Review companions | ${metrics.reviewCompanions} |`,
@@ -201,6 +216,18 @@ function buildCatalogStatusMarkdown(snapshot) {
     `- Networks: ${archiveContext.networks.length}`,
     `- Changelog entries: ${archiveContext.changelog.length}`,
     "",
+    "## Phase 2 Readiness (Gate B)",
+    "",
+    `- Status: \`${phase2Status}\``,
+    `- Numeric targets: ${phase2?.numericTargets?.publishedShows?.actual || 0} published shows (floor ${phase2?.numericTargets?.publishedShows?.target || 129}), ${phase2?.numericTargets?.fullReviews?.actual || 0} full reviews (floor ${phase2?.numericTargets?.fullReviews?.target || 7}), ${phase2?.numericTargets?.collections?.actual || 0} collections (floor ${phase2?.numericTargets?.collections?.target || 29})`,
+    `- Factual metadata gaps: ${phase2?.factual?.coreMetadataGaps?.length || 0} core, ${phase2?.factual?.missingObjectiveSources?.length || 0} missing provenance, ${phase2?.factual?.actionableMissingRss?.length || 0} actionable RSS, ${phase2?.factual?.missingRuntime?.length || 0} missing detailed runtime`,
+    `- Explicit unknowns/research gaps: ${phase2?.factual?.documentedResearchGaps?.length || 0} records; ${phase2?.factual?.documentedMissingRss?.length || 0} missing RSS and ${phase2?.factual?.documentedRuntimeUnknowns?.length || 0} runtime gaps are documented rather than hidden`,
+    `- Editorial/recommendation gaps: ${phase2?.editorial?.gaps?.length || 0}; collection blockers: ${phase2?.collections?.blockingErrors?.length || 0}`,
+    `- Taxonomy: ${phase2?.taxonomy?.controlledLabelCount || 0} controlled labels; unknown/deprecated public tags: ${(phase2?.taxonomy?.unknownTags?.length || 0) + (phase2?.taxonomy?.deprecatedTags?.length || 0)}`,
+    `- Sparse indexed-only discovery gaps are informational: ${phase2?.sparseIndexedOnly?.count || 0} sparse records; ${phase2?.sparseIndexedOnly?.fewerThanTwoCollections || 0} have fewer than two collections, ${phase2?.sparseIndexedOnly?.outOfRangeSimilarLinks || 0} have no editorial similarity set, and ${phase2?.sparseIndexedOnly?.editorialViolations?.length || 0} contain unsupported editorial claims`,
+    `- Phase 2 blocking errors: ${phase2BlockingErrors.length}`,
+    ...(phase2BlockingErrors.length > 0 ? phase2BlockingErrors.map((error) => `  - ${error}`) : []),
+    "",
   ].join("\n");
 }
 
@@ -209,7 +236,7 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   const runtimeSearchIndex = catalog
     .filter((show) => show.status === "published")
     .map(createSearchIndexRecord);
-  const snapshot = buildCatalogSnapshot(catalog, collections, Object.keys(reviewsById).length, gapReport, archiveContext);
+  const snapshot = buildCatalogSnapshot(catalog, collections, Object.keys(reviewsById).length, gapReport, archiveContext, reviewsById, tagTaxonomy);
   const archiveStats = buildArchiveStats(catalog, collections);
   const statusMarkdown = buildCatalogStatusMarkdown(snapshot);
 
@@ -228,7 +255,10 @@ function writeCatalogArtifacts(siteRoot, { catalog, collections, reviewsById, ga
   writeJsonFile(path.join(siteRoot, SEARCH_INDEX_PATH), runtimeSearchIndex);
   writeJsonFile(path.join(siteRoot, "data", "archive-stats.json"), archiveStats);
   writeJsonFile(path.join(siteRoot, "data", "tag-taxonomy.json"), tagTaxonomy || {});
-  writeJsonFile(path.join(siteRoot, "docs", "generated", "catalog-status.json"), snapshot.metrics);
+  writeJsonFile(path.join(siteRoot, "docs", "generated", "catalog-status.json"), {
+    ...snapshot.metrics,
+    phase2: snapshot.phase2,
+  });
   fs.mkdirSync(path.dirname(path.join(siteRoot, GENERATED_STATUS_PATH)), { recursive: true });
   fs.writeFileSync(path.join(siteRoot, GENERATED_STATUS_PATH), `${statusMarkdown}\n`);
 

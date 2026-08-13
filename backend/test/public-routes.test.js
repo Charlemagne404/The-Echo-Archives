@@ -173,8 +173,8 @@ test("show and collection routes include crawler-visible metadata in the raw HTM
     assert.equal(unratedShowResponse.status, 200);
     const unratedShowHtml = await unratedShowResponse.text();
     assert.match(unratedShowHtml, /<h1>Marsfall<\/h1>/);
-    assert.match(unratedShowHtml, /<strong class="detail-hero-score-value">Unrated<\/strong>/);
-    assert.match(unratedShowHtml, /<span class="detail-meta-note">No archive rating yet<\/span>/);
+    assert.match(unratedShowHtml, /<strong class="detail-hero-score-value">--\/10<\/strong>/);
+    assert.match(unratedShowHtml, /No published listener reviews yet/);
     assert.doesNotMatch(unratedShowHtml, /\b0(?:\.0)?\/10\b/);
     assert.doesNotMatch(unratedShowHtml, /Echo score/);
 

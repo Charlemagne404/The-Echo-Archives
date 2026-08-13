@@ -41,8 +41,9 @@
     "Mini-series"
   ],
   "length": {
-    "label": "56 public feed episodes; anthology mini-series with different fictional tales by season",
-    "episodes": 56
+    "label": "56 public feed episodes; anthology mini-series with different fictional tales by season; 25 min feed-observed average",
+    "episodes": 56,
+    "avgEpisodeMinutes": 25
   },
   "ratings": {
     "archive": 7
@@ -115,7 +116,7 @@
       "https://feeds.simplecast.com/3bWx59ox"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-    "objectiveVerifiedAt": "2026-07-18",
+    "objectiveVerifiedAt": "2026-08-14",
     "reviewFile": "reviews/story.json",
     "researchGaps": [],
     "awards": [],

@@ -5,6 +5,7 @@ import {
   renderCommunityFallback,
   renderCommunityScoreBreakdown,
   renderFirstReviewCta,
+  renderImportedTransparency,
   renderIndexedArchiveNote,
   renderOverviewSection,
   renderReviewSection,
@@ -16,11 +17,12 @@ export function createShowPageMarkup(show, showMap, collections = [], reviewData
 
   return `
     <section class="detail-main podcast-detail detail-main--${isFullReview ? "full" : "indexed"}">
-      ${renderDetailHero(show)}
+      ${renderDetailHero(show, reviewData)}
 
       <div class="detail-content-layout">
         <div class="detail-main-stack">
           <div class="detail-main-column">
+            ${renderImportedTransparency(show)}
             ${renderOverviewSection(show)}
               ${renderIndexedArchiveNote(show)}
               ${renderReviewSection(show, reviewData)}

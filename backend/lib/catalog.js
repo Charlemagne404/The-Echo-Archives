@@ -261,6 +261,36 @@ function validatePublishedDiscoveryMetadata(record) {
   }
 }
 
+function hasPopulatedValue(value) {
+  if (value === undefined || value === null || value === "") return false;
+  if (typeof value === "boolean") return value;
+  if (Array.isArray(value)) return value.length > 0;
+  if (typeof value === "object") return Object.values(value).some(hasPopulatedValue);
+  return true;
+}
+
+function validateImportedRecord(record) {
+  if (record.reviewStatus !== "imported") return;
+
+  const forbiddenEditorialFields = [
+    "ratings", "archiveTake", "spoilerFreeReview", "thoughts", "quote", "tones",
+    "themes", "contentNotes", "bestFor", "similarTo", "similarReasons", "featured",
+    "popularity", "accent",
+  ];
+  const populated = forbiddenEditorialFields.filter((fieldName) => hasPopulatedValue(record[fieldName]));
+  if (populated.length > 0) {
+    throw new Error(`Show "${record.id}" is imported but contains human-owned editorial fields: ${populated.join(", ")}.`);
+  }
+
+  if (!record.metadata?.import || typeof record.metadata.import !== "object") {
+    throw new Error(`Show "${record.id}" is imported without importer provenance.`);
+  }
+
+  if (record.verification?.status !== "automated-source-checked") {
+    throw new Error(`Show "${record.id}" must use automated-source-checked verification while imported.`);
+  }
+}
+
 function validateShowRecord(record, seenIds) {
   if (!record || typeof record !== "object") {
     throw new Error("Every show record must be an object.");
@@ -307,6 +337,7 @@ function validateShowRecord(record, seenIds) {
 
   validatePublishedDiscoveryMetadata(record);
   validateDiscoveryTags(record);
+  validateImportedRecord(record);
   assertUniqueNormalized(record.tags, "tags", record.id);
   assertUniqueNormalized(record.genres, "genres", record.id);
   assertUniqueNormalized(record.tones, "tones", record.id);

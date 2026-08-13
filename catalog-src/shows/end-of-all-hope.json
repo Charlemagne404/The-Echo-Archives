@@ -41,9 +41,10 @@
     "Road trip"
   ],
   "length": {
-    "label": "99 public feed episodes; Apple lists years active 2015-2025",
+    "label": "99 public feed episodes; 28 min feed-observed average; Apple lists years active 2015-2025",
     "seasons": 6,
-    "episodes": 99
+    "episodes": 99,
+    "avgEpisodeMinutes": 28
   },
   "ratings": {
     "archive": 8
@@ -118,7 +119,7 @@
       "https://feeds.simplecast.com/9nWOf4Xi"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-    "objectiveVerifiedAt": "2026-07-18",
+    "objectiveVerifiedAt": "2026-08-14",
     "reviewFile": "reviews/end-of-all-hope.json",
     "researchGaps": [],
     "awards": [],

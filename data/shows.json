@@ -258,8 +258,9 @@
       "Mini-series"
     ],
     "length": {
-      "label": "56 public feed episodes; anthology mini-series with different fictional tales by season",
-      "episodes": 56
+      "label": "56 public feed episodes; anthology mini-series with different fictional tales by season; 25 min feed-observed average",
+      "episodes": 56,
+      "avgEpisodeMinutes": 25
     },
     "ratings": {
       "archive": 7
@@ -324,7 +325,7 @@
         "https://feeds.simplecast.com/3bWx59ox"
       ],
       "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-      "objectiveVerifiedAt": "2026-07-18",
+      "objectiveVerifiedAt": "2026-08-14",
       "reviewFile": "reviews/story.json",
       "schedule": {
         "cadence": "unknown",
@@ -934,6 +935,9 @@
       "objectiveNote": "The official site, press release, and Apple Podcasts listing verify the premise, eight-episode story count, principal creators, production company, director, producers, composers, principal cast, and transcript availability.",
       "objectiveVerifiedAt": "2026-07-18",
       "reviewFile": "reviews/earth-eclipsed.json",
+      "researchGaps": [
+        "No working public RSS feed was found during the 2026-08-14 audit; the official site's feed reference currently returns 404, so RSS remains explicitly unknown."
+      ],
       "schedule": {
         "cadence": "unknown",
         "note": "Schedule/cadence not fully verified."
@@ -2034,7 +2038,8 @@
     "releaseStatus": "inactive",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG"
+      "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
+      "rss": "https://rss.art19.com/impact-winter"
     },
     "genres": [
       "sci-fi",
@@ -2137,7 +2142,7 @@
     "availability": {
       "transcripts": "unknown",
       "captions": "n/a",
-      "regionNotes": "Audible is the canonical current listing; no public publisher RSS feed was located during the 2026-07-18 audit."
+      "regionNotes": "Audible is the canonical current listing; ART19 provides the current public RSS feed."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -2150,10 +2155,11 @@
         "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
         "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
         "https://www.audible.com/pd/Impact-Winter-Season-3-Audiobook/B0D6GQWSBK",
+        "https://art19.com/shows/impact-winter",
         "https://www.audible.com/about/newsroom/announcing-the-premiere-date-and-cast-of-audible-original-impact-winter/1000"
       ],
-      "objectiveNote": "Audible/Apple listings identify official distribution and Travis Beacham/Audible context. Existing opinion review text is preserved.",
-      "objectiveVerifiedAt": "2026-07-18",
+      "objectiveNote": "Audible/Apple listings and the ART19 show page identify official distribution; the ART19 feed is the current verified RSS source. Existing opinion review text is preserved.",
+      "objectiveVerifiedAt": "2026-08-14",
       "reviewFile": "reviews/impact-winter.json",
       "researchGaps": [
         "future season status beyond Season 3"
@@ -2217,7 +2223,7 @@
     "imageAlt": "Impact Winter cover art",
     "summary": "Impact Winter is a post-apocalyptic audio drama set seven years after a comet slammed into Earth, plunging the world into a devastating winter and endless darkness. But that was not the only nightmare unleashed. From the shadows came bloodthirsty monsters. Vampires. The year is 2042. Darci and her younger sister Hope live in a bunker beneath a medieval castle, surviving alongside a small group of others while they wait for the sun to return. But in this brutal new world, nothing is as it seems, including the monsters everyone thinks they understand.",
     "finalRating": 10,
-    "searchText": "impact winter post apocalyptic vampire survival under endless winter impact winter is a post apocalyptic audio drama set seven years after a comet slammed into earth plunging the world into a devastating winter and endless darkness but that was not the only nightmare unleashed from the shadows came bloodthirsty monsters vampires the year is 2042 darci and her younger sister hope live in a bunker beneath a medieval castle surviving alongside a small group of others while they wait for the sun to return but in this brutal new world nothing is as it seems including the monsters everyone thinks they understand season one hits hardest but even when it softens later the production still feels bigger than most of the field impact winter earns its place here on production scale and momentum the sound stays forceful the threat stays legible and the show moves with real confidence when it is at its best it is strongest as a polished aggressive survival listen rather than a subtle character study which makes it an especially easy recommendation for listeners who want big stakes and forward pressure i absolutely loved impact winter it grabs you by the throat and pulls you in season 1 is the high point and it eases off a bit by season 3 but overall it is still an easy recommendation if you want a polished aggressive audio drama impact winter earns its place here on production scale and momentum the sound stays forceful the threat stays legible and the show moves with real confidence when it is at its best it is strongest as a polished aggressive survival listen rather than a subtle character study which makes it an especially easy recommendation for listeners who want big stakes and forward pressure i absolutely loved impact winter it grabs you by the throat and pulls you in season 1 is the high point and it eases off a bit by season 3 but overall it is still an easy recommendation if you want a polished aggressive audio drama survival post apocalyptic vampires sci fi sci fi fantasy dark cinematic tense full cast serialized long walks headphones on serious sci fi impact winter impact winter podcast impact winter audible survival post apocalyptic vampires sci fi fantasy genre violence threat travis beacham english we re alive end of all hope the white vault malevolent ongoing full review alternates between characters yes in universe journal mixed season 1 and 2 yes season 3 no season 1 episodes 4 through 8 true travis beacham skybound entertainment anonymous content audible originals travis beacham travis beacham not verified not verified not verified not verified holliday grainger esm creed miles david gyasi caroline ford sacha dhawan ellie bamber andrew gower not verified unknown n a audible is the canonical current listing no public publisher rss feed was located during the 2026 07 18 audit original fiction post apocalyptic earth under endless winter full cast serialized drama high audible apple listings identify official distribution and travis beacham audible context existing opinion review text is preserved",
+    "searchText": "impact winter post apocalyptic vampire survival under endless winter impact winter is a post apocalyptic audio drama set seven years after a comet slammed into earth plunging the world into a devastating winter and endless darkness but that was not the only nightmare unleashed from the shadows came bloodthirsty monsters vampires the year is 2042 darci and her younger sister hope live in a bunker beneath a medieval castle surviving alongside a small group of others while they wait for the sun to return but in this brutal new world nothing is as it seems including the monsters everyone thinks they understand season one hits hardest but even when it softens later the production still feels bigger than most of the field impact winter earns its place here on production scale and momentum the sound stays forceful the threat stays legible and the show moves with real confidence when it is at its best it is strongest as a polished aggressive survival listen rather than a subtle character study which makes it an especially easy recommendation for listeners who want big stakes and forward pressure i absolutely loved impact winter it grabs you by the throat and pulls you in season 1 is the high point and it eases off a bit by season 3 but overall it is still an easy recommendation if you want a polished aggressive audio drama impact winter earns its place here on production scale and momentum the sound stays forceful the threat stays legible and the show moves with real confidence when it is at its best it is strongest as a polished aggressive survival listen rather than a subtle character study which makes it an especially easy recommendation for listeners who want big stakes and forward pressure i absolutely loved impact winter it grabs you by the throat and pulls you in season 1 is the high point and it eases off a bit by season 3 but overall it is still an easy recommendation if you want a polished aggressive audio drama survival post apocalyptic vampires sci fi sci fi fantasy dark cinematic tense full cast serialized long walks headphones on serious sci fi impact winter impact winter podcast impact winter audible survival post apocalyptic vampires sci fi fantasy genre violence threat travis beacham english we re alive end of all hope the white vault malevolent ongoing full review alternates between characters yes in universe journal mixed season 1 and 2 yes season 3 no season 1 episodes 4 through 8 true travis beacham skybound entertainment anonymous content audible originals travis beacham travis beacham not verified not verified not verified not verified holliday grainger esm creed miles david gyasi caroline ford sacha dhawan ellie bamber andrew gower not verified unknown n a audible is the canonical current listing art19 provides the current public rss feed original fiction post apocalyptic earth under endless winter full cast serialized drama high audible apple listings and the art19 show page identify official distribution the art19 feed is the current verified rss source existing opinion review text is preserved",
     "tagTokens": [
       "survival",
       "post-apocalyptic",
@@ -4551,9 +4557,10 @@
       "Supernatural"
     ],
     "length": {
-      "label": "117 public feed episodes; Apple lists years active 2015-2025",
+      "label": "117 public feed episodes; 19 min feed-observed average; Apple lists years active 2015-2025",
       "seasons": 5,
-      "episodes": 117
+      "episodes": 117,
+      "avgEpisodeMinutes": 19
     },
     "ratings": {
       "archive": 7
@@ -4619,7 +4626,7 @@
         "https://feeds.simplecast.com/hSJNVRL9"
       ],
       "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-      "objectiveVerifiedAt": "2026-07-18",
+      "objectiveVerifiedAt": "2026-08-14",
       "reviewFile": "reviews/paralyzed.json",
       "schedule": {
         "cadence": "unknown",
@@ -5149,9 +5156,10 @@
       "Road trip"
     ],
     "length": {
-      "label": "99 public feed episodes; Apple lists years active 2015-2025",
+      "label": "99 public feed episodes; 28 min feed-observed average; Apple lists years active 2015-2025",
       "seasons": 6,
-      "episodes": 99
+      "episodes": 99,
+      "avgEpisodeMinutes": 28
     },
     "ratings": {
       "archive": 8
@@ -5218,7 +5226,7 @@
         "https://feeds.simplecast.com/9nWOf4Xi"
       ],
       "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-      "objectiveVerifiedAt": "2026-07-18",
+      "objectiveVerifiedAt": "2026-08-14",
       "reviewFile": "reviews/end-of-all-hope.json",
       "schedule": {
         "cadence": "unknown",
@@ -6669,7 +6677,7 @@
     "releaseStatus": "active",
     "completionStatus": "ongoing",
     "listenLinks": {
-      "start": "https://www.malevolent.ca/part-1-the-dark-world/",
+      "start": "https://shows.acast.com/malevolent",
       "spotify": "https://open.spotify.com/show/7Dd5CTKuEN9AAFkYzjbsvK",
       "apple": "https://podcasts.apple.com/us/podcast/malevolent/id1525652021",
       "website": "https://shows.acast.com/malevolent",
@@ -7588,7 +7596,8 @@
     "completionStatus": "finished",
     "listenLinks": {
       "spotify": "https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
-      "apple": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381"
+      "apple": "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
+      "rss": "https://feeds.megaphone.fm/homecoming"
     },
     "genres": [
       "thriller",
@@ -7670,7 +7679,7 @@
       "Amy Sedaris"
     ],
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18",
+    "updatedAt": "2026-08-14",
     "similarReasons": {
       "case-63": "A compact prestige-thriller branch if you want another slickly delivered mystery with speculative edges.",
       "the-deca-tapes": "Keeps the engineered puzzle-box feel alive while changing the emotional texture.",
@@ -7683,7 +7692,7 @@
     "availability": {
       "transcripts": "not verified",
       "captions": "not applicable",
-      "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+      "regionNotes": "Official availability is platform-based; the current Megaphone feed is retained as a verified public RSS source."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -7695,10 +7704,11 @@
       "objectiveSources": [
         "https://podcasts.apple.com/us/podcast/homecoming/id1170934381",
         "https://open.spotify.com/show/2pWaoB1xgi5x6UgMgwRlsV",
-        "https://gimletmedia.com/"
+        "https://gimletmedia.com/",
+        "https://feeds.megaphone.fm/homecoming"
       ],
-      "objectiveVerifiedAt": "2026-07-18",
-      "objectiveNote": "Official site, Apple Podcasts, and current feed metadata verify core show identity, link targets, and current feed activity.",
+      "objectiveVerifiedAt": "2026-08-14",
+      "objectiveNote": "Official site, Apple Podcasts, Spotify, and the current Megaphone feed metadata verify core show identity, link targets, and current feed activity.",
       "auditPass": "Full catalog metadata review on 2026-07-18. Descriptions were replaced with verified publisher wording, discovery taxonomy was checked, and missing factual source links or credits were added where official evidence was available. Archive ratings and long-form editorial reviews were preserved."
     },
     "spoilerFreeReviewParagraphs": [],
@@ -7712,7 +7722,7 @@
     "imageAlt": "Homecoming cover art",
     "summary": "Now a Prime Original TV series. From Spotify Studios, Homecoming centers on a caseworker at an experimental facility, her ambitious supervisor, and a soldier eager to rejoin civilian life — presented in an enigmatic collage of telephone calls, therapy sessions, and overheard conversations. Starring Catherine Keener, Oscar Isaac, David Schwimmer, David Cross, Amy Sedaris, Michael Cera, Mercedes Ruehl, Alia Shawkat, Chris Gethard, and Spike Jonze.",
     "finalRating": null,
-    "searchText": "homecoming a psychological thriller built from calls overheard fragments and deliberate unease now a prime original tv series from spotify studios homecoming centers on a caseworker at an experimental facility her ambitious supervisor and a soldier eager to rejoin civilian life presented in an enigmatic collage of telephone calls therapy sessions and overheard conversations starring catherine keener oscar isaac david schwimmer david cross amy sedaris michael cera mercedes ruehl alia shawkat chris gethard and spike jonze a strong start here option for listeners who want prestige thriller pacing in a compact fiction podcast form psychological thriller military conspiracy thriller mystery drama tense cinematic dark full cast serialized easy entry late night short under five hours institutional control memory recovery war trauma drugging gimlet media catherine keener oscar isaac david schwimmer amy sedaris english case 63 the deca tapes red valley finished indexed only eli horowitz and micah bloomberg gimlet not verified not applicable official availability is platform based no public rss feed was added without a verified publisher url original fiction a secretive reintegration treatment program calls recordings and overheard conversations high official site apple podcasts and current feed metadata verify core show identity link targets and current feed activity",
+    "searchText": "homecoming a psychological thriller built from calls overheard fragments and deliberate unease now a prime original tv series from spotify studios homecoming centers on a caseworker at an experimental facility her ambitious supervisor and a soldier eager to rejoin civilian life presented in an enigmatic collage of telephone calls therapy sessions and overheard conversations starring catherine keener oscar isaac david schwimmer david cross amy sedaris michael cera mercedes ruehl alia shawkat chris gethard and spike jonze a strong start here option for listeners who want prestige thriller pacing in a compact fiction podcast form psychological thriller military conspiracy thriller mystery drama tense cinematic dark full cast serialized easy entry late night short under five hours institutional control memory recovery war trauma drugging gimlet media catherine keener oscar isaac david schwimmer amy sedaris english case 63 the deca tapes red valley finished indexed only eli horowitz and micah bloomberg gimlet not verified not applicable official availability is platform based the current megaphone feed is retained as a verified public rss source original fiction a secretive reintegration treatment program calls recordings and overheard conversations high official site apple podcasts spotify and the current megaphone feed metadata verify core show identity link targets and current feed activity",
     "tagTokens": [
       "psychological",
       "thriller",
@@ -44724,9 +44734,7 @@
     "completionStatus": "unclear",
     "listenLinks": {
       "start": "https://rapscallionagency.com/episodes/",
-      "apple": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
-      "website": "https://rapscallionagency.com/",
-      "rss": "https://feeds.megaphone.fm/SBP5252339511"
+      "website": "https://rapscallionagency.com/"
     },
     "genres": [
       "sci-fi",
@@ -44755,14 +44763,9 @@
     ],
     "transcriptLanguages": [],
     "length": {
-      "label": "1 season observed • at least 11 full episodes • 35 min median",
+      "label": "1 season observed • at least 11 full episodes; runtime duration unverified",
       "seasons": 1,
       "episodes": 11,
-      "medianEpisodeMinutes": 35,
-      "minEpisodeMinutes": 21,
-      "maxEpisodeMinutes": 45,
-      "totalObservedHours": 6.3,
-      "durationCoverage": 1,
       "observedSeasons": [
         1
       ],
@@ -44814,8 +44817,8 @@
     "cast": [],
     "verification": {
       "status": "partially-source-reviewed",
-      "verifiedAt": "2026-08-03",
-      "source": "https://rapscallionagency.com/episodes/; https://rapscallionagency.com/cast/; https://rapscallionagency.com/about/; https://feeds.megaphone.fm/humanbgon; https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4",
+      "verifiedAt": "2026-08-14",
+      "source": "https://rapscallionagency.com/episodes/; https://rapscallionagency.com/cast/; https://rapscallionagency.com/about/",
       "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
     "availability": {
@@ -44828,9 +44831,7 @@
       "objectiveSources": [
         "https://rapscallionagency.com/episodes/",
         "https://rapscallionagency.com/cast/",
-        "https://rapscallionagency.com/about/",
-        "https://feeds.megaphone.fm/humanbgon",
-        "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4"
+        "https://rapscallionagency.com/about/"
       ],
       "sourceCategories": [
         "sci-fi",
@@ -44843,6 +44844,9 @@
         "Paris",
         "Serialized"
       ],
+      "researchGaps": [
+        "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan/Human-B-Gon shows, so runtime duration remains unknown."
+      ],
       "importOfficialSummary": "Set shortly after the events of the award-winning podcast The Leviathan Chronicles, this spinoff series continues the adventures of its two youngest characters, Lisette Mainsabiles and Paul Kim (aka Cluracan) as they use their unique skills to start a business, navigate young love, and lovingly care for a cybernetic rat. Having been raised by an immortal thief, Lisette’s experience as a cat burglar makes her confident she can handle any physical threat the pair might face. But as a computational savant and former underground hacker, Cluracan knows that analytical thinking can be better than acting impulsively. Sharing a misfit love for each other, they leave behind their lives in the U.S. to start a fledgling cybersecurity agency in Paris, France. After converting a bakery van into their mobile hi-tech headquarters, Lisette and Cluaracan explore Paris by calling upon old acquaintances to help them find work for their new agency, But during a professional ‘audition’, Lisette and Cluracan are double-crossed, but manage to escape with a priceless research asset that makes them a target of a powerful international conglomerate, VeyTech Pharmaceutical. As they try to decode the mystery in their possession, they have to stay alive as they are ruthlessly hunted by an assassin with a metal arm while figuring out who they can really trust to help them escape France. Will Lisette and Cluracan end up as unfortunate pawns in a dangerous conspiracy or will they be able to turn the tables on their foes and win back their freedom?!",
       "schedule": {
         "label": "biweekly",
@@ -44853,14 +44857,12 @@
         "copyright": "© 2019 Human-B-Gon Productions",
         "explicit": "no",
         "country": "USA",
-        "sourceFormat": "rss",
+        "sourceFormat": "website",
         "directoryMarkedDead": false
       },
       "import": {
         "pipelineVersion": "2.0",
         "identifiers": {
-          "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
-          "appleCollectionId": "304481704",
           "feedRedirects": [
             "https://rapscallionagency.com/feed/"
           ]
@@ -44880,16 +44882,6 @@
             "sourceType": "website",
             "sourceUrl": "https://rapscallionagency.com/about/",
             "fetchedAt": "2026-08-03T15:16:52.545Z"
-          },
-          {
-            "sourceType": "rss",
-            "sourceUrl": "https://feeds.megaphone.fm/humanbgon",
-            "fetchedAt": "2026-08-03T15:16:51.573Z"
-          },
-          {
-            "sourceType": "apple",
-            "sourceUrl": "https://podcasts.apple.com/us/podcast/human-b-gon/id1621946962?uo=4",
-            "fetchedAt": "2026-08-03T15:16:50.803Z"
           }
         ],
         "fields": {
@@ -45262,7 +45254,7 @@
     },
     "featured": false,
     "createdAt": "2026-08-03",
-    "updatedAt": "2026-08-03",
+    "updatedAt": "2026-08-14",
     "creatorId": "christof-laputka",
     "networkId": "leviathan-audio-productions",
     "spoilerFreeReviewParagraphs": [],
@@ -45310,9 +45302,7 @@
     "completionStatus": "unclear",
     "listenLinks": {
       "start": "https://theinveniosexpeditions.com/episodes/",
-      "apple": "https://podcasts.apple.com/us/podcast/the-leviathan-chronicles/id304481704?uo=4",
-      "website": "https://theinveniosexpeditions.com/",
-      "rss": "https://feeds.megaphone.fm/SBP5252339511"
+      "website": "https://theinveniosexpeditions.com/"
     },
     "genres": [
       "sci-fi",
@@ -45341,7 +45331,7 @@
     ],
     "transcriptLanguages": [],
     "length": {
-      "label": "1 season observed • at least 15 full episodes",
+      "label": "1 season observed • at least 15 full episodes; runtime duration unverified",
       "seasons": 1,
       "episodes": 15,
       "countQualifier": "at-least",
@@ -45390,7 +45380,7 @@
     "cast": [],
     "verification": {
       "status": "partially-source-reviewed",
-      "verifiedAt": "2026-08-03",
+      "verifiedAt": "2026-08-14",
       "source": "https://theinveniosexpeditions.com/episodes/; https://theinveniosexpeditions.com/cast/; https://theinveniosexpeditions.com/about/; https://theinveniosexpeditions.com/",
       "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
     },
@@ -45418,6 +45408,9 @@
         "Ocean",
         "Serialized"
       ],
+      "researchGaps": [
+        "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan shows, so runtime duration remains unknown."
+      ],
       "importOfficialSummary": "The Invenios Expeditions is a swashbuckling audio drama that takes listeners on a globe-trotting adventure with Captain Jeffery Tulley and his loyal first mate, Oberlin St. Claire. After finding the fabled Elando Cortez shipwreck at the end of The Leviathan Chronicles, Tulley and Oberlin build the world’s most advanced treasure-hunting vessel, The Invenios.",
       "schedule": {
         "label": "unknown"
@@ -45427,10 +45420,6 @@
       },
       "import": {
         "pipelineVersion": "2.0",
-        "identifiers": {
-          "rssUrl": "https://feeds.megaphone.fm/SBP5252339511",
-          "appleCollectionId": "304481704"
-        },
         "selectedSources": [
           {
             "sourceType": "website",
@@ -45611,7 +45600,7 @@
     },
     "featured": false,
     "createdAt": "2026-08-03",
-    "updatedAt": "2026-08-03",
+    "updatedAt": "2026-08-14",
     "creatorId": "christof-laputka",
     "networkId": "leviathan-audio-productions",
     "spoilerFreeReviewParagraphs": [],

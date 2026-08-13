@@ -1,6 +1,7 @@
 import { formatDateTime, renderBadge, renderLabeledLink } from "../maintainer/format.js";
 import { renderQuickDetailsEditor } from "./details-editor.js";
 import { renderExternalVerificationWorkspace } from "./external-verification.js";
+import { renderImportReadiness } from "./readiness.js";
 import {
   buildImportPreview,
   escapeHtml,
@@ -42,10 +43,15 @@ function renderRows(rows = []) {
     </dl>
   `;
 }
-function renderListItem(candidate, isSelected) {
+function renderListItem(candidate, isSelected, isBatchSelected = false) {
   const preview = buildImportPreview(candidate);
+  const importedEligible = Boolean(candidate.status === "ready" && candidate.readiness?.publicationEligibility?.imported?.eligible);
+  const importedExclusion = candidate.status === "ready" && !importedEligible
+    ? candidate.readiness?.publicationEligibility?.imported?.blockers?.[0]?.message || "Imported eligibility checks are incomplete."
+    : "";
   return `
     <article class="maintainer-list-item ${isSelected ? "is-selected" : ""}">
+      ${importedEligible ? `<label class="maintainer-import-batch-check"><input type="checkbox" data-import-batch-select="${escapeHtml(candidate.id)}" ${isBatchSelected ? "checked" : ""} /><span>Select for Imported batch</span></label>` : ""}
       <button
         type="button"
         class="maintainer-list-item-select"
@@ -58,13 +64,15 @@ function renderListItem(candidate, isSelected) {
             ${renderBadge(formatStatus(candidate.status), getImportStatusTone(candidate.status))}
             ${renderBadge(formatScopeStatus(candidate.scopeStatus), getScopeTone(candidate.scopeStatus))}
             ${candidate.hasDuplicateMatch ? renderBadge("Duplicate match", "muted") : ""}
+            ${importedEligible ? renderBadge("Imported eligible", "good") : ""}
+            ${importedExclusion ? renderBadge("Imported excluded", "warning") : ""}
           </span>
         </span>
         <span class="maintainer-list-item-meta">
           <span>${escapeHtml(formatSourceType(candidate.primarySourceType || "title"))}</span>
           <span>${escapeHtml(formatDateTime(candidate.updatedAt || candidate.createdAt))}</span>
         </span>
-        <span class="maintainer-list-item-preview">${escapeHtml(preview)}</span>
+        <span class="maintainer-list-item-preview">${escapeHtml(preview)}${importedExclusion ? `<br /><strong>Batch exclusion:</strong> ${escapeHtml(importedExclusion)}` : ""}</span>
       </button>
     </article>
   `;
@@ -145,7 +153,7 @@ function renderObjectiveSection(candidate) {
     ["Language", objective.languageDisplay || objective.language],
     ["Categories", (objective.categories || []).join(" • ")],
     ["Publisher keywords", (objective.keywords || []).join(" • ")],
-    ["Automatic source tags", (candidate.preparedRecord?.tags || []).join(" • ")],
+    ["Approved discovery tags", (candidate.preparedRecord?.tags || []).join(" • ")],
     ["RSS", objective.rssUrl],
     ["Apple", objective.appleUrl],
     ["Spotify", objective.spotifyUrl],
@@ -176,33 +184,6 @@ function renderObjectiveSection(candidate) {
         ${objective.discordUrl ? renderLabeledLink("Open Discord", objective.discordUrl) : ""}
         ${objective.youtubeUrl ? renderLabeledLink("Open YouTube", objective.youtubeUrl) : ""}
       </div>
-    </section>
-  `;
-}
-
-function renderReadiness(candidate) {
-  const readiness = candidate.readiness || {};
-  const blockers = readiness.blockers || [];
-  const warnings = readiness.warnings || [];
-  const cover = candidate.coverStage || {};
-  return `
-    <section class="maintainer-detail-section import-readiness-card">
-      <div class="import-source-card-top">
-        <div>
-          <h3>${readiness.ready ? "Review and publish" : "Preparation blockers"}</h3>
-          <p>${readiness.ready ? "All factual publication checks passed. Inspect the prepared record, then approve it." : "The importer has named every issue that still prevents publication."}</p>
-        </div>
-        ${renderBadge(readiness.ready ? "Ready" : `${blockers.length} blockers`, readiness.ready ? "good" : "warning")}
-      </div>
-      ${blockers.length ? `<ul>${blockers.map((item) => `<li><strong>${escapeHtml(toDisplayTag(item.field || item.code))}:</strong> ${escapeHtml(item.message)}</li>`).join("")}</ul>` : ""}
-      ${warnings.length ? `<details><summary>${warnings.length} optional gaps</summary><ul>${warnings.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></details>` : ""}
-      ${cover.sourceUrl ? `
-        <div class="import-cover-preview">
-          <img src="${escapeHtml(cover.sourceUrl)}" alt="Staged cover preview" width="112" height="112" loading="lazy" decoding="async" />
-          <p>${escapeHtml(`${cover.width || "?"} x ${cover.height || "?"} · ${cover.contentType || "unknown format"} · ${cover.byteSize || 0} bytes`)}</p>
-          <p>${cover.appleQuality ? "Meets Apple cover quality target." : "Echo-publishable; Apple quality target is reported as a warning."}</p>
-        </div>
-      ` : ""}
     </section>
   `;
 }
@@ -272,7 +253,7 @@ function renderPreparedRecord(candidate) {
         ["Mode", candidate.mode],
         ["Show ID", record.id],
         ["Review state", record.reviewStatus],
-        ["Automatic source tags", (record.tags || []).join(" • ")],
+        ["Approved discovery tags", (record.tags || []).join(" • ")],
         ["Release / completion", `${record.releaseStatus} / ${record.completionStatus}`],
         ["Listen links", Object.values(record.listenLinks || {}).filter(Boolean).length],
         ["Update changes", candidate.readiness?.updateDiff?.length || ""],
@@ -287,7 +268,7 @@ export function renderImportSummaryCards(counts = {}, total = 0) {
   return summarizeImportCounts(counts, total).map(renderSummaryCard).join("");
 }
 
-export function renderImportQueueList({ items = [], selectedId = "" }) {
+export function renderImportQueueList({ items = [], selectedId = "", selectedBatchIds = new Set() }) {
   if (items.length === 0) {
     return `
       <div class="maintainer-empty-state">
@@ -297,7 +278,7 @@ export function renderImportQueueList({ items = [], selectedId = "" }) {
     `;
   }
 
-  return items.map((candidate) => renderListItem(candidate, candidate.id === selectedId)).join("");
+  return items.map((candidate) => renderListItem(candidate, candidate.id === selectedId, selectedBatchIds.has(candidate.id))).join("");
 }
 
 export function renderImportSearchResults(results = []) {
@@ -353,6 +334,10 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
 
   const reviewedBy = candidate.reviewedBy || storedReviewer || "";
   const preview = buildImportPreview(candidate);
+  const importedEligible = Boolean(candidate.readiness?.publicationEligibility?.imported?.eligible);
+  const indexedEligible = Boolean(candidate.readiness?.publicationEligibility?.indexedOnly?.eligible);
+  const factsCurrent = Boolean(candidate.factsReviewedAt && Number(candidate.factsReviewedRevision) === Number(candidate.inputRevision));
+  const isPublishedImported = candidate.status === "published" && candidate.preparedRecord?.reviewStatus === "imported";
 
   return `
     <div class="maintainer-detail-stack">
@@ -377,7 +362,10 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
             <button type="button" class="maintainer-ghost-button" data-import-action="reject">Reject</button>
             <button type="button" class="maintainer-ghost-button" data-import-action="duplicate">Mark duplicate</button>
           `}
-        ${candidate.status === "ready" && candidate.readiness?.ready ? '<button type="button" class="maintainer-primary-button" data-import-action="publish">Approve and publish</button>' : ""}
+        ${candidate.status === "ready" && importedEligible ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-imported">Publish as Imported</button>' : ""}
+        ${candidate.status === "ready" && indexedEligible ? '<button type="button" class="maintainer-primary-button" data-import-action="publish-indexed">Publish as indexed-only</button>' : ""}
+        ${["ready", "published"].includes(candidate.status) && !factsCurrent ? '<button type="button" class="maintainer-ghost-button" data-import-action="facts-review">Confirm factual review</button>' : ""}
+        ${isPublishedImported && factsCurrent ? '<button type="button" class="maintainer-primary-button" data-import-action="promote">Promote to indexed-only</button>' : ""}
       </div>
 
       ${renderRows([
@@ -391,6 +379,7 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
         ["Discovery run", candidate.discoveryRunId],
         ["Existing show ID", candidate.existingShowId],
         ["Published show ID", candidate.publishedShowId],
+        ["Factual review", factsCurrent ? `Current revision · ${formatDateTime(candidate.factsReviewedAt)}` : "Not confirmed for this revision"],
       ])}
 
       <form id="maintainerImportReviewForm" class="maintainer-review-form" data-import-candidate-id="${escapeHtml(candidate.id)}">
@@ -446,7 +435,7 @@ export function renderImportDetailPane({ candidate = null, storedReviewer = "" }
         </div>
       </form>
 
-      ${renderReadiness(candidate)}
+      ${renderImportReadiness(candidate)}
       ${renderPreparedRecord(candidate)}
       ${renderObjectiveSection(candidate)}
       ${renderDedupeMatches(candidate)}

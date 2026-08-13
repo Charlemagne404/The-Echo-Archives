@@ -147,6 +147,7 @@
     const rawStatus = String(verification?.status || "").trim().toLowerCase().replace(/[\s_]+/g, "-");
     if (rawStatus.includes("draft") || rawStatus.includes("needs-review")) return "Needs review";
     if (rawStatus.includes("creator") && rawStatus.includes("verified")) return "Creator verified";
+    if (rawStatus.includes("automated") && rawStatus.includes("source")) return "Automatically source checked";
     if (rawStatus.includes("partial")) return "Partially checked";
     if (rawStatus.includes("verified") || rawStatus.includes("checked") || rawStatus.includes("source")) return "Source checked";
     if (rawStatus && !/^(unknown|unclear|none|not-verified)$/.test(rawStatus)) return "Needs review";
@@ -166,7 +167,19 @@
   function getPublicContentProfile(show = {}) {
     const reviewed = show.reviewStatus === "full-review" && hasArchiveReviewContent(show);
     const recommendations = hasPublicRecommendations(show);
-    return { reviewed, recommendations, sparse: !reviewed && !recommendations };
+    const imported = show.reviewStatus === "imported";
+    return { imported, reviewed, recommendations, sparse: !reviewed && !recommendations };
+  }
+
+  function getReviewStatusLabel(value = "") {
+    switch (String(value || "").trim()) {
+      case "full-review": return "Full review";
+      case "indexed-only": return "Indexed entry";
+      case "imported": return "Imported";
+      case "planned": return "Review planned";
+      case "spotlight": return "Spotlight";
+      default: return toPublicLabel(value);
+    }
   }
 
   function getWebPageDates(show = {}) {
@@ -471,6 +484,7 @@
     derivePublicStatus,
     getPublicVerificationLabel,
     getPublicContentProfile,
+    getReviewStatusLabel,
     getWebPageDates,
     getCatalogPublicationDate,
     normalizeStructuredObject,

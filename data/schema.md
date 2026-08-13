@@ -157,7 +157,7 @@ The schema is intentionally allowed to be richer than the current UI. If structu
 
 Internal machine-ingest workflow state lives separately in SQLite under the import tables managed by `backend/`. Those operational records include asynchronous runs, leased jobs, identity mappings, cached/retained source data, field evidence, staged-cover metadata, prepared records, conflicts, and readiness reports. They are not a public or editorial source of truth.
 
-The import lane prepares entirely in SQLite. Only explicit maintainer approval writes a factual published `indexed-only` record into the authored show source, then regenerates `data/` once.
+The import lane prepares entirely in SQLite. Only explicit maintainer approval writes a factual published record into the authored show source, then regenerates `data/` once. New automation-first records publish as `imported`; `indexed-only` publication requires a current factual-review stamp. Existing importer-origin indexed-only records are not reclassified.
 
 Staged cover bytes live under `backend/data/import-staging/`. This directory is
 ignored by Git but is durable, private operational state: its paths are referenced
@@ -173,14 +173,14 @@ The import subsystem normalizes external source data into an internal candidate 
 - scope status: `in-scope`, `borderline`, or `out-of-scope`
 - normalized objective fields such as title, creator, feed URL, Apple URL, website URL, artwork, categories, language, and episode count
 - prepared factual record, readiness report, conflicts, source health, cover quality, mode, existing show id, pipeline version, and input revision
-- field-level evidence, deterministic confidence, selected source method, and reviewer locks
+- field-level evidence, deterministic confidence, selected source method, reviewer locks, and factual-review revision state
 - retained gzip-compressed source snapshots and conditional source cache entries for RSS, Apple, Podcast Index, or official-site fetches
 - dedupe matches against existing catalog entries and existing candidates
 - persistent leased jobs, run progress, retry state, and indexed identity mappings
 
 Prepared records do not apply subjective AI suggestions. This internal candidate shape is intentionally non-canonical and may evolve without changing the public show schema. See `docs/IMPORTER.md` for the complete contract.
 
-For factual imports, publisher-provided RSS/iTunes categories and keywords populate `tags` automatically. The raw values are retained as `metadata.sourceCategories`, `metadata.sourceKeywords`, and `metadata.sourceTags`; the importer records their provenance separately from editorial tags or recommendations.
+Publisher-provided RSS/iTunes categories and keywords are retained as provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Only deterministic mappings may populate canonical genres or formats. Public discovery tags must come from the approved taxonomy workflow and never copy raw source keywords automatically.
 
 Importer-prepared records may also include factual `releaseDates.latestFeedItem` and `releaseDates.next`, richer observed runtime values under `length`, transcript coverage/language/format values under `availability`, and source/feed details under `metadata`. These are evidence-backed operational facts, not archive editorial judgments.
 
@@ -227,7 +227,10 @@ If no cover can be resolved, catalog load keeps running, logs a warning, and use
 - `full-review`
 - `spotlight`
 - `indexed-only`
+- `imported`
 - `planned`
+
+`imported` is the lowest public confidence tier: strict automation checked objective metadata against structured publisher/directory evidence, but a maintainer has not individually reviewed the entry. It remains public, searchable, indexable, rateable, and eligible for manual collection curation. It cannot contain archive ratings, archive review copy, tones, themes, best-for values, similarity recommendations, featured/popularity state, accents, creator-verification claims, or unsupported lifecycle claims.
 
 ### `releaseStatus`
 
@@ -352,6 +355,7 @@ These fields are optional and may remain partially filled. Prefer truthful parti
 - Collection `showIds`, `coverShowIds`, and `intentTags` must not contain duplicates after lowercase normalization.
 - `kind: "similarity"` collections must include an `anchorShowId` that resolves to a real show.
 - `reviewStatus: full-review` should only be used when richer review fields actually exist.
+- `reviewStatus: imported` requires `verification.status: automated-source-checked`, importer provenance, and no archive-owned editorial fields.
 
 ## Review Companion Shape
 

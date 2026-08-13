@@ -477,6 +477,9 @@ function migrate(db) {
   ensureColumn(db, "catalog_import_candidates", "review_notes", "review_notes TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "catalog_import_candidates", "reviewed_by", "reviewed_by TEXT NOT NULL DEFAULT ''");
   ensureColumn(db, "catalog_import_candidates", "reviewed_at", "reviewed_at TEXT");
+  ensureColumn(db, "catalog_import_candidates", "facts_reviewed_by", "facts_reviewed_by TEXT NOT NULL DEFAULT ''");
+  ensureColumn(db, "catalog_import_candidates", "facts_reviewed_at", "facts_reviewed_at TEXT");
+  ensureColumn(db, "catalog_import_candidates", "facts_reviewed_revision", "facts_reviewed_revision INTEGER");
   ensureColumn(
     db,
     "catalog_import_candidates",

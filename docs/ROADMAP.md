@@ -39,6 +39,7 @@ The repo is no longer in migration mode. The product questions are now about cat
 - Stay JSON-first unless catalog scale or moderation volume proves that model inadequate.
 - Keep the product useful for discovery before adding heavier community systems.
 - Expand indexed entries faster than full reviews when necessary, but never let metadata quality slip.
+- Use the Imported tier for safely expanding factual coverage only when its strict automation gate passes; keep editorial and factual-review promotion separate.
 - Preserve the current visual identity unless a change clearly improves browsing, trust, or mobile behavior.
 - Favor better coverage and cleaner metadata over new feature classes.
 
@@ -56,17 +57,49 @@ Keep these out of scope unless a real bottleneck appears:
 
 ## Current Reality
 
-The archive currently has stronger collection breadth than show breadth.
+The archive currently has strong numeric breadth but uneven depth across indexed-only records.
 
 That means the next meaningful gains are:
 
-- more published shows
-- more full reviews
+- more published shows only where they add useful coverage
+- more full reviews after the Phase 2 floor, as editorial capacity allows
 - richer similarity and recommendation reasoning
 - more complete runtime, status, and creator metadata
 - better confidence in filters that depend on that data
 
 Do not chase raw collection count just because the system makes it easy. New collections should only ship when they add a real discovery path.
+
+## Phase 2 Completion Policy — 2026-08-14
+
+Gate B is a catalog-and-editorial milestone. Production launch readiness is a
+separate decision and is not implied by this gate.
+
+- The active floor is 129 published shows, 7 full reviews, and 29 collections.
+  The archived 8-review target is historical and is not a Phase 2 blocker.
+- Metadata requirements are tier-aware. Full-review and spotlight records must
+  carry the richer editorial and recommendation fields; sparse indexed-only
+  records remain published and factual without invented editorial claims.
+- Phase 2 scope is English-language fiction/audio drama. Actual play/TTRPG and
+  non-English candidates stay out of the ordinary automatic publication lane.
+- A fact that cannot be verified is recorded as `unknown` or in
+  `metadata.researchGaps`; hidden blanks do not count as completed audit work.
+
+The generated catalog report is the executable Gate B checklist. It separates
+numeric targets, factual gaps, editorial/recommendation gaps, collection
+quality, taxonomy, and scope. Its `Phase 2 blocking errors` count must be zero.
+
+## Current Gate Assessment — 2026-08-14
+
+Gate B is `complete`. The generated report records 129 published shows, 7 full
+reviews, 29 collections, zero actionable factual gaps, zero editorial or
+collection blockers, 165 controlled taxonomy labels with zero unknown or
+deprecated public tags, and zero out-of-scope published records.
+
+Three missing RSS links and two runtime-duration gaps are explicitly documented
+as research gaps. The 59 sparse indexed-only records with weak collection or
+similarity coverage are informational under the tier-aware policy, not Gate B
+errors. Creator verification remains a separate trust/launch follow-up; 0 live
+records are creator-verified.
 
 ## Phase Summary
 
@@ -97,11 +130,11 @@ If available editorial time increases, spend it on show coverage, review depth, 
 | Phase end | Published shows | Full reviews | Collections |
 | --- | --- | --- | --- |
 | Current generated snapshot baseline | See `docs/generated/catalog-status.md` | See `docs/generated/catalog-status.md` | See `docs/generated/catalog-status.md` |
-| August 23, 2026 | 40 to 50 | 5 to 7 | 15+ |
-| October 18, 2026 | 55 to 70 | 8 to 10 | 16 to 18 |
-| December 13, 2026 | 70 to 85 | 10 to 14 | 16 to 20 |
-| February 7, 2027 | 85 to 100 | 14 to 18 | 18 to 22 |
-| April 4, 2027 | 100 to 125 | 18 to 24 | 18 to 24 |
+| August 23, 2026 | 129+ | 7+ | 29+ |
+| October 18, 2026 | 129+ | 8 to 10 | 30+ |
+| December 13, 2026 | 129+ | 10 to 14 | 30+ |
+| February 7, 2027 | 129+ | 14 to 18 | 32+ |
+| April 4, 2027 | 129+ | 18 to 24 | 34+ |
 
 These targets are intentionally more conservative on collections than earlier planning. The current gap is not collection count; it is show depth and review density.
 
@@ -119,11 +152,14 @@ Product:
 
 Editorial:
 
-- grow the live catalog toward 40 to 50 published shows
-- publish 2 to 4 additional full reviews
+- maintain at least 129 published shows while correcting source conflicts and
+  factual gaps
+- retain at least 7 full reviews; no additional review is required for Gate B
 - tighten inconsistent descriptions, tags, and status labeling
 - fill in missing runtime, completion, and release metadata where possible
-- improve similar-show links and reasons
+- verify similar-show links, reasons, anchor paths, and route-collection copy
+- keep sparse indexed-only records factual-only rather than backfilling
+  unsupported tones, best-for claims, ratings, or similarities
 
 Platform:
 
@@ -133,9 +169,15 @@ Platform:
 
 Exit criteria:
 
-- the catalog is broader without becoming sloppier
-- more show pages carry useful editorial depth
-- similar-show relationships and key metadata are more trustworthy than they were at the start of the phase
+- numeric targets remain met: 129 published shows, 7 full reviews, and 29
+  collections
+- actionable factual gaps are fixed or explicitly documented as unknown
+- every full-review/spotlight record passes its review-companion, editorial
+  metadata, similarity-reason, and collection checks
+- taxonomy and locked scope checks pass
+- the generated catalog report has zero Phase 2 blocking errors
+- generated outputs, focused QA, and repository validation are clean
+- launch-readiness blockers remain tracked separately from Gate B
 
 ## Phase 3 - Discovery Upgrade
 
@@ -231,7 +273,7 @@ Primary goal:
 Product:
 
 - keep key discovery modes visible within the first screen or two
-- make full reviews, indexed-only entries, community surfaces, and trust signals read cleanly together
+- make full reviews, indexed-only entries, Imported entries, community surfaces, and trust signals read cleanly together
 - keep Ask the Archivist tightly grounded in real catalog data
 
 Editorial:
@@ -257,7 +299,7 @@ Exit criteria:
 | Gate | Target date | Status | Meaning |
 | --- | --- | --- | --- |
 | Gate A - Stable Public Beta | June 28, 2026 | `technical-ready` | The repo has generated-page workflow, moderation plumbing, tests, and trust surfaces in place. Human launch timing and content readiness remain separate decisions. |
-| Gate B - Catalog Depth Ready | August 23, 2026 | `content-pending` | The product surface is already there; the gate depends mostly on more shows, better metadata, and more reviews. |
+| Gate B - Catalog Depth Ready | August 23, 2026 | `complete` | Catalog/editorial completion is verified by the generated Phase 2 readiness report. Production launch readiness remains a separate gate. |
 | Gate C - Discovery Advantage Ready | October 18, 2026 | `content-pending` | Existing search and filters work, but stronger discovery advantage depends on denser, cleaner metadata and recommendation reasoning. |
 | Gate D - Trust And Contribution Ready | December 13, 2026 | `technical-ready` | Intake, provenance, moderation queue, and community safeguards are implemented; long-term trust depends on editorial follow-through. |
 | Gate E - Final-Vision Release Candidate | April 4, 2027 | `content-pending` | The platform groundwork exists, but scale, coverage, and editorial consistency are still the long pole. |
@@ -270,15 +312,13 @@ Status labels:
 
 ## Open Questions
 
-Phase 2:
+Phase 2 decisions are locked:
 
-- Where is the exact inclusion boundary between audio drama, fiction podcast, and adjacent narrative formats?
-- Will actual play remain out of scope, partially in scope, or collection-specific?
-- Will non-English shows stay out of scope for now, or enter through a limited pilot?
-
-Default:
-
-- keep scope tight until the archive has broader coverage with stable metadata quality
+- scope is English-language fiction/audio drama
+- actual play/TTRPG candidates remain out of scope
+- non-English candidates remain out of scope for the ordinary automatic lane
+- sparse indexed-only records remain factual-only until editorial work exists
+- unverifiable facts are explicit unknowns/research gaps
 
 Phase 3:
 

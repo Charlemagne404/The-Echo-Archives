@@ -144,7 +144,9 @@
     "objectiveNote": "The official site, press release, and Apple Podcasts listing verify the premise, eight-episode story count, principal creators, production company, director, producers, composers, principal cast, and transcript availability.",
     "objectiveVerifiedAt": "2026-07-18",
     "reviewFile": "reviews/earth-eclipsed.json",
-    "researchGaps": [],
+    "researchGaps": [
+      "No working public RSS feed was found during the 2026-08-14 audit; the official site's feed reference currently returns 404, so RSS remains explicitly unknown."
+    ],
     "awards": [],
     "schedule": {
       "cadence": "unknown",

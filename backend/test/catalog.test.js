@@ -69,6 +69,13 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
+test("existing importer-origin catalogue entries remain indexed-only", () => {
+  const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
+  const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
+  assert.equal(importerOrigin.length, 61);
+  assert.ok(importerOrigin.every((show) => show.reviewStatus === "indexed-only"));
+});
+
 test("confirmed broken external destinations are not reintroduced", async () => {
   const catalog = await loadCatalog(siteRoot);
   const byId = new Map(catalog.map((show) => [show.id, show]));
@@ -371,6 +378,38 @@ test("scoreCatalog supports structured recommendation constraints", async () => 
   assert.ok(mysteryOutsideHowIDiedLane.every((show) => !["how-i-died", "paralyzed", "the-white-vault"].includes(show.id)));
 });
 
+test("generic discovery slightly prefers human-reviewed peers while exact Imported titles stay dominant", () => {
+  const base = createShowRecord({
+    description: "A mystery signal audio drama with a source-backed publisher description.",
+    genres: ["mystery"],
+    tags: ["Mystery", "Found audio"],
+    formats: ["serialized"],
+    tones: [],
+    ratings: {},
+    bestFor: [],
+    archiveTake: "",
+  });
+  const imported = { ...base, id: "alpha-signal", title: "Alpha Signal", reviewStatus: "imported" };
+  const reviewed = { ...base, id: "bravo-signal", title: "Bravo Signal", reviewStatus: "indexed-only" };
+
+  const generic = scoreCatalog([imported, reviewed], "mystery signal");
+  assert.equal(generic[0].id, "bravo-signal");
+
+  const direct = scoreCatalog([imported, reviewed], "Alpha Signal");
+  assert.equal(direct[0].id, "alpha-signal");
+});
+
+test("Archivist fallback discloses the Imported tier for recommendations", () => {
+  const match = {
+    ...createShowRecord({ reviewStatus: "imported", ratings: {}, archiveTake: "", bestFor: [], tones: [] }),
+    href: "/shows/demo-show",
+    finalRating: null,
+    summary: "A factual publisher summary.",
+    reasons: ["matches mystery"],
+  };
+  assert.match(buildFallbackAnswer("Recommend a mystery", [match]), /Imported entry.*source checked by automation.*not been individually reviewed/i);
+});
+
 test("loadCatalog merges companion review files into the returned show record", async () => {
   const tempRoot = createTempSiteRoot();
   const dataRoot = path.join(tempRoot, "data");
@@ -590,6 +629,39 @@ test("indexed-only factual records can publish without editorial discovery field
   authoredShow.reviewStatus = "spotlight";
   writeJson(authoredShowPath, authoredShow);
   await assert.rejects(validateSiteData(tempRoot), /Gate B validation failed/i);
+
+  fs.rmSync(tempRoot, { recursive: true, force: true });
+});
+
+test("Imported records require automated provenance and reject archive editorial fields", async () => {
+  const tempRoot = createTempSiteRoot();
+  const dataRoot = path.join(tempRoot, "data");
+  const imported = createShowRecord({
+    reviewStatus: "imported",
+    ratings: {},
+    tones: [],
+    themes: [],
+    contentNotes: [],
+    bestFor: [],
+    similarTo: [],
+    similarReasons: {},
+    archiveTake: "",
+    spoilerFreeReview: "",
+    thoughts: "",
+    featured: false,
+    verification: { status: "automated-source-checked", source: "https://example.com/feed.xml" },
+    metadata: { import: { pipelineVersion: "2", identifiers: { rssUrl: "https://example.com/feed.xml" } } },
+  });
+  writeJson(path.join(dataRoot, "shows.json"), [imported]);
+  writeJson(path.join(dataRoot, "collections.json"), []);
+
+  await assert.doesNotReject(validateSiteData(tempRoot));
+
+  const authoredShowPath = path.join(tempRoot, "catalog-src/shows/demo-show.json");
+  const authoredShow = JSON.parse(fs.readFileSync(authoredShowPath, "utf8"));
+  authoredShow.archiveTake = "An automated entry must not carry an archive verdict.";
+  writeJson(authoredShowPath, authoredShow);
+  await assert.rejects(validateSiteData(tempRoot), /imported but contains human-owned editorial fields: archiveTake/i);
 
   fs.rmSync(tempRoot, { recursive: true, force: true });
 });

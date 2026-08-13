@@ -252,3 +252,17 @@ export async function publishMaintainerImportCandidate(id, payload = {}) {
     body: JSON.stringify(payload),
   });
 }
+
+export async function confirmMaintainerImportFactualReview(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/factual-review`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
+export async function promoteMaintainerImportCandidate(id, payload = {}) {
+  return requestJson(`${MAINTAINER_API_ROOT}/imports/${encodeURIComponent(id)}/promote`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}

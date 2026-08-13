@@ -40,9 +40,10 @@
     "Supernatural"
   ],
   "length": {
-    "label": "117 public feed episodes; Apple lists years active 2015-2025",
+    "label": "117 public feed episodes; 19 min feed-observed average; Apple lists years active 2015-2025",
     "seasons": 5,
-    "episodes": 117
+    "episodes": 117,
+    "avgEpisodeMinutes": 19
   },
   "ratings": {
     "archive": 7
@@ -116,7 +117,7 @@
       "https://feeds.simplecast.com/hSJNVRL9"
     ],
     "objectiveNote": "Current feed and platform metadata now cover the previously unresolved archive-modeling questions for this record.",
-    "objectiveVerifiedAt": "2026-07-18",
+    "objectiveVerifiedAt": "2026-08-14",
     "reviewFile": "reviews/paralyzed.json",
     "researchGaps": [],
     "awards": [],

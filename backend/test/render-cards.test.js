@@ -13,6 +13,10 @@ function createMockElement(tagName) {
     append(...nodes) {
       this.children.push(...nodes);
     },
+    appendChild(node) {
+      this.children.push(node);
+      return node;
+    },
     setAttribute(name, value) {
       this.attributes[name] = String(value);
     },
@@ -73,5 +77,37 @@ test("archive score element treats explicit zero as Unrated when requested", asy
 
   assert.match(score.innerHTML, /Unrated/);
 
+  cleanupFrontendGlobals();
+});
+
+test("primary card score preserves Archive Rating and otherwise uses the written-review score", async () => {
+  installFrontendGlobals();
+
+  const { createPrimaryScoreElement } = await import("../../shared/app/render-cards/scores.js");
+  const archiveScore = createPrimaryScoreElement({ finalRating: 8.5, listenerReviewScore: { averageRating: 9.2, reviewCount: 6 } });
+  const listenerScore = createPrimaryScoreElement({ finalRating: null, listenerReviewScore: { averageRating: 8.25, reviewCount: 6 } });
+  const emptyListenerScore = createPrimaryScoreElement({ finalRating: null, listenerReviewScore: { averageRating: null, reviewCount: 0 } });
+
+  assert.match(archiveScore.className, /archive-inline-score/);
+  assert.match(archiveScore.innerHTML, />8\.5\/10</);
+  assert.match(listenerScore.className, /listener-review-inline-score/);
+  assert.match(listenerScore.innerHTML, /listener-review-score-icon/);
+  assert.match(listenerScore.innerHTML, /Listener Review Score/);
+  assert.match(listenerScore.innerHTML, />8\.3\/10</);
+  assert.equal(listenerScore.attributes["aria-label"], "Listener Review Score 8.3/10 from 6 reviews.");
+  assert.match(emptyListenerScore.innerHTML, /--\/10/);
+  assert.equal(emptyListenerScore.attributes["aria-label"], "Listener Review Score --/10. No published listener reviews yet.");
+
+  cleanupFrontendGlobals();
+});
+
+test("client card badges distinguish Imported entries from full reviews", async () => {
+  installFrontendGlobals();
+  const { createEditorialBadges } = await import("../../shared/app/render-cards/badges.js");
+  const badges = createEditorialBadges({ reviewStatus: "imported", finalRating: null });
+
+  assert.equal(badges.children.length, 1);
+  assert.match(badges.children[0].className, /editorial-badge-imported/);
+  assert.equal(badges.children[0].textContent, "Imported");
   cleanupFrontendGlobals();
 });

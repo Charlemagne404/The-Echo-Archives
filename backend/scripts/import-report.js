@@ -31,9 +31,21 @@ function main() {
     console.log(`Duplicate state: ${summarizeCounts(report.counts.duplicateState)}`);
 
     printSection(
-      "Candidates needing draft or publish follow-through",
-      report.items.filter((candidate) => ["hydrated", "needs-review", "drafted"].includes(candidate.status)),
-      (candidate) => `${candidate.id} :: ${candidate.title || candidate.seedQuery} [${candidate.status}]`,
+      "Ready for Imported publication",
+      report.items.filter((candidate) => candidate.status === "ready" && candidate.readiness?.publicationEligibility?.imported?.eligible),
+      (candidate) => `${candidate.id} :: ${candidate.title || candidate.seedQuery}`,
+    );
+
+    printSection(
+      "Ready for indexed-only publication",
+      report.items.filter((candidate) => candidate.status === "ready" && candidate.readiness?.publicationEligibility?.indexedOnly?.eligible),
+      (candidate) => `${candidate.id} :: ${candidate.title || candidate.seedQuery} [facts revision ${candidate.factsReviewedRevision}/${candidate.inputRevision}]`,
+    );
+
+    printSection(
+      "Candidates needing review or recovery",
+      report.items.filter((candidate) => ["needs-review", "failed"].includes(candidate.status)),
+      (candidate) => `${candidate.id} :: ${candidate.title || candidate.seedQuery} [${candidate.status}] ${(candidate.readiness?.blockers || []).map((blocker) => blocker.code).join(", ")}`,
     );
 
     printSection(

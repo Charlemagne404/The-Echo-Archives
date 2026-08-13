@@ -386,6 +386,28 @@ test("maintainer import routes enforce auth and allow candidate seeding and revi
     const reviewPayload = await reviewResponse.json();
     assert.equal(reviewPayload.candidate.status, "needs-review");
     assert.equal(reviewPayload.candidate.reviewedBy, "CA");
+
+    const missingTierResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}/publish`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ reviewedBy: "CA" }),
+    });
+    assert.equal(missingTierResponse.status, 400);
+    assert.match((await missingTierResponse.json()).error, /publicationTier must be imported or indexed-only/i);
+
+    const factualReviewResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}/factual-review`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ reviewedBy: "CA" }),
+    });
+    assert.equal(factualReviewResponse.status, 409);
+
+    const promotionResponse = await fetch(`${context.baseUrl}/api/maintainer/imports/${candidateId}/promote`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Cookie: cookie },
+      body: JSON.stringify({ reviewedBy: "CA" }),
+    });
+    assert.equal(promotionResponse.status, 409);
   } finally {
     await stopMaintainerServer(context);
   }

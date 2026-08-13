@@ -1,9 +1,15 @@
 const { formatDate } = require("./site-help-format");
 
+function isCreatorVerified(show = {}) {
+  const status = String(show.verification?.status || "").trim();
+  return Boolean(status) && !["automated-source-checked", "maintainer-source-reviewed", "partially-source-reviewed"].includes(status);
+}
+
 function loadSiteHelpContext({ catalog, collections, archiveContext }) {
   const publishedShows = catalog.filter((show) => show.status === "published");
   const fullReviewShows = publishedShows.filter((show) => show.reviewStatus === "full-review");
-  const creatorVerifiedShows = publishedShows.filter((show) => Boolean(show.verification?.status));
+  const importedShows = publishedShows.filter((show) => show.reviewStatus === "imported");
+  const creatorVerifiedShows = publishedShows.filter(isCreatorVerified);
   const finishedShows = publishedShows.filter((show) => show.completionStatus === "finished");
   const recentShows = [...publishedShows]
     .filter((show) => show.createdAt)
@@ -28,6 +34,7 @@ function loadSiteHelpContext({ catalog, collections, archiveContext }) {
       shows: publishedShows.length,
       collections: collections.length,
       fullReviews: fullReviewShows.length,
+      imported: importedShows.length,
       creatorVerifiedShows: creatorVerifiedShows.length,
       finishedShows: finishedShows.length,
     },
@@ -140,7 +147,7 @@ function buildTopicResponse({ message, topic, page, show, collection, collection
     case "show-summary":
       return buildShowSummaryResponse(show, siteHelpContext);
     case "show-status":
-      return buildShowStatusResponse(show, siteHelpContext);
+      return buildShowStatusResponse(show, siteHelpContext, message);
     case "show-links":
       return buildShowLinksResponse(show, siteHelpContext);
     case "show-runtime":
@@ -677,8 +684,19 @@ function buildCollectionsResponse(collection, siteHelpContext) {
 
 function buildRatingsResponse(show, siteHelpContext, message = "") {
   if (show) {
+    const archiveRating = Number(show.finalRating ?? show.ratings?.archive);
+    if (!Number.isFinite(archiveRating)) {
+      const importedNote = show.reviewStatus === "imported"
+        ? " It is an Imported entry whose factual metadata was source checked by automation but has not been individually reviewed."
+        : "";
+      return {
+        answer: `${show.title} has no Archive Rating yet.${importedNote} Community ratings and moderated listener reviews remain available and separate from archive editorial scoring.`,
+        actions: [{ label: "Open Show", href: show.href, external: false }],
+        suggestedPrompts: ["What does Imported mean?", "Is this show finished?", "Where can I listen?", "Recommend something like this"],
+      };
+    }
     return {
-      answer: `${show.title} currently has an Archive Rating of ${formatNumber(show.finalRating || show.ratings?.archive)}/10. Community rating is separate from that editorial score, and creator verification never means creator approval of the rating or review.`,
+      answer: `${show.title} currently has an Archive Rating of ${formatNumber(archiveRating)}/10. Community rating is separate from that editorial score, and creator verification never means creator approval of the rating or review.`,
       actions: [{ label: "Read About Ratings", href: "/about", external: false }],
       suggestedPrompts: [
         "What does creator verified mean?",
@@ -720,7 +738,7 @@ function buildRatingsResponse(show, siteHelpContext, message = "") {
 function buildCreatorVerificationResponse(show, siteHelpContext) {
   if (show) {
     const verifiedAt = show.verification?.verifiedAt ? ` as of ${formatDate(show.verification.verifiedAt)}` : "";
-    if (show.verification?.status) {
+    if (isCreatorVerified(show)) {
       return {
         answer: `${show.title} is marked creator verified in the archive${verifiedAt}. That only confirms factual metadata and does not imply creator approval of Archive Rating, community feedback, or collection placement.`,
         actions: [siteHelpContext.routes.submit, siteHelpContext.routes.terms],
@@ -822,8 +840,15 @@ function buildShowSummaryResponse(show, siteHelpContext) {
   };
 }
 
-function buildShowStatusResponse(show, siteHelpContext) {
+function buildShowStatusResponse(show, siteHelpContext, message = "") {
   if (!show) {
+    if (/\bimported\b/i.test(message)) {
+      return {
+        answer: "Imported is the archive's lowest-confidence public tier. Objective metadata passed strict automated source checks, but an archive maintainer has not individually checked the entry yet. Imported shows remain searchable, rateable, and open to corrections, while archive scores and editorial recommendations stay absent until human review.",
+        actions: [siteHelpContext.routes.about, siteHelpContext.routes.browse],
+        suggestedPrompts: ["What does indexed only mean?", "How are community ratings different?", "How do I submit a correction?", "Recommend a finished show"],
+      };
+    }
     return {
       answer:
         "I can answer show status questions when the title is already in the archive. Ask about a specific title or open a show page and I can explain whether it is ongoing, finished, or still waiting on a full review.",
@@ -1382,6 +1407,8 @@ function toReadableReviewStatus(value = "") {
       return "a spotlight entry";
     case "indexed-only":
       return "an indexed-only entry";
+    case "imported":
+      return "an Imported entry whose factual metadata was source checked by automation and has not been individually reviewed";
     case "planned":
       return "a planned review entry";
     default:

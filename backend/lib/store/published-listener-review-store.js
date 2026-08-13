@@ -77,6 +77,15 @@ function createPublishedListenerReviewStore({ db }) {
     SELECT COUNT(*) AS count FROM published_listener_reviews
     WHERE show_id = ? AND is_published = 1
   `);
+  const listenerReviewScoreByShow = db.prepare(`
+    SELECT
+      COUNT(*) AS review_count,
+      AVG(rating_stars * 2.0) AS average_rating
+    FROM published_listener_reviews
+    WHERE show_id = ?
+      AND is_published = 1
+      AND rating_stars BETWEEN 1 AND 5
+  `);
   const categorySummaryByShow = db.prepare(`
     SELECT
       COUNT(voice_acting_score) AS voice_acting_count,
@@ -155,6 +164,25 @@ function createPublishedListenerReviewStore({ db }) {
         averageRating: Number.isFinite(average) ? average : null,
       }];
     }));
+  }
+
+  function getListenerReviewScoreForShow(showId) {
+    const row = listenerReviewScoreByShow.get(showId) || {};
+    const reviewCount = Number(row.review_count || 0);
+    const average = Number(row.average_rating);
+    return {
+      reviewCount,
+      averageRating: reviewCount > 0 && Number.isFinite(average) ? Number(average.toFixed(2)) : null,
+    };
+  }
+
+  function listListenerReviewScoreSummaries(showIds) {
+    return Array.from(new Set(Array.isArray(showIds) ? showIds : []))
+      .filter(Boolean)
+      .reduce((summaries, showId) => {
+        summaries[showId] = getListenerReviewScoreForShow(showId);
+        return summaries;
+      }, {});
   }
 
   function upsert({
@@ -252,8 +280,10 @@ function createPublishedListenerReviewStore({ db }) {
   return {
     getBySubmissionId,
     getCategorySummaryForShow,
+    getListenerReviewScoreForShow,
     getPublishedById,
     getPublishedPageForShow,
+    listListenerReviewScoreSummaries,
     listPublishedForShow,
     markHelpful,
     removeHelpful,

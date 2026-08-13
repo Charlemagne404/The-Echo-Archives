@@ -293,6 +293,13 @@ test("published review pages paginate listener reviews and helpful votes use the
     assert.equal(firstPayload.reviews[0].id, context.review.id);
     assert.equal(firstPayload.scoreSummary.voiceActing.isPublic, false);
     assert.equal(firstPayload.scoreSummary.voiceActing.ratingCount, 1);
+    assert.deepEqual(firstPayload.listenerReviewScore, { averageRating: 8, reviewCount: 1 });
+
+    const scoreSummaryResponse = await fetch(`${context.baseUrl}/api/reviews/scores/summary?showIds=impact-winter,unknown-show`);
+    assert.equal(scoreSummaryResponse.status, 200);
+    assert.deepEqual((await scoreSummaryResponse.json()).summaries, {
+      "impact-winter": { averageRating: 8, reviewCount: 1 },
+    });
 
     const profileResponse = await postJson(`${context.baseUrl}/api/community/profiles/anonymous`, {});
     const cookie = getCookieHeader(profileResponse);

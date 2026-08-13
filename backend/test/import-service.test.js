@@ -5,7 +5,7 @@ const os = require("node:os");
 const path = require("node:path");
 
 const { openDatabase } = require("../lib/store/database");
-const { createImportService } = require("../lib/services/import-service");
+const { createImportService, inferScopeStatus } = require("../lib/services/import-service");
 const { createImportStore } = require("../lib/store/import-store");
 const { readShowsFile } = require("../scripts/review-helpers");
 
@@ -50,6 +50,12 @@ function cleanup(context) {
   context.db.close();
   fs.rmSync(context.tempDir, { recursive: true, force: true });
 }
+
+test("ordinary discovery publication scope excludes non-English and actual-play/TTRPG candidates", () => {
+  assert.equal(inferScopeStatus({ title: "La Noche", language: "es", primaryGenre: "fiction" }), "out-of-scope");
+  assert.equal(inferScopeStatus({ title: "Dice & Dragons", language: "en", description: "An actual play tabletop campaign." }), "out-of-scope");
+  assert.equal(inferScopeStatus({ title: "Signal Harbour", language: "en", description: "An English serialized fiction audio drama." }), "in-scope");
+});
 
 function appleEmptyResponse() {
   return new Response(JSON.stringify({ resultCount: 0, results: [] }), {
@@ -282,7 +288,9 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
     assert.equal(candidate.status, "ready");
     assert.equal(candidate.readiness.ready, true);
-    assert.equal(candidate.preparedRecord.reviewStatus, "indexed-only");
+    assert.equal(candidate.preparedRecord.reviewStatus, "imported");
+    assert.equal(candidate.readiness.publicationEligibility.imported.eligible, true);
+    assert.equal(candidate.readiness.publicationEligibility.indexedOnly.eligible, false);
     assert.deepEqual(candidate.preparedRecord.tones, []);
     assert.deepEqual(candidate.preparedRecord.similarTo, []);
     assert.deepEqual(candidate.preparedRecord.formats, ["serialized"]);
@@ -300,15 +308,65 @@ test("a source-rich RSS import becomes review-and-publish ready and publishes wi
     assert.equal(candidate.coverStage.echoPublishable, true);
     assert.ok(candidate.fieldEvidence.some((item) => item.fieldName === "description" && item.confidence === 0.95));
 
-    const published = await context.service.publishForMaintainer(candidate.id, "CA");
+    const published = await context.service.publishForMaintainer(candidate.id, "CA", "imported");
     assert.equal(published.candidate.status, "published");
     assert.equal(published.buildCount, 1);
     const record = readShowsFile(context.siteRoot).find((show) => show.id === published.showId);
     assert.ok(record);
     assert.equal(record.status, "published");
-    assert.match(record.verification.status, /source-reviewed/);
+    assert.equal(record.reviewStatus, "imported");
+    assert.equal(record.verification.status, "automated-source-checked");
     assert.equal(record.ratings.archive, undefined);
     assert.ok(fs.existsSync(path.join(context.siteRoot, record.cover)));
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("indexed-only publication requires a current factual review and re-preparation invalidates it", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidateId = seeded.candidateIds[0];
+    await assert.rejects(
+      context.service.publishForMaintainer(candidateId, "CA", "indexed-only"),
+      /current factual review/i,
+    );
+
+    const reviewed = context.service.markFactsReviewedForMaintainer(candidateId, "CA");
+    assert.equal(reviewed.factsReviewedRevision, reviewed.inputRevision);
+    assert.equal(reviewed.readiness.publicationEligibility.indexedOnly.eligible, true);
+
+    const rerun = context.service.enqueueForMaintainer(candidateId, { actor: "CA", incrementRevision: true });
+    await context.service.processPendingJobs();
+    await context.service.waitForRun(rerun.runId);
+    const stale = context.service.getForMaintainer(candidateId);
+    assert.notEqual(stale.factsReviewedRevision, stale.inputRevision);
+    assert.equal(stale.readiness.publicationEligibility.indexedOnly.eligible, false);
+
+    context.service.markFactsReviewedForMaintainer(candidateId, "CA");
+    const published = await context.service.publishForMaintainer(candidateId, "CA", "indexed-only");
+    const record = readShowsFile(context.siteRoot).find((show) => show.id === published.showId);
+    assert.equal(record.reviewStatus, "indexed-only");
+    assert.equal(record.verification.status, "maintainer-source-reviewed");
+  } finally {
+    cleanup(context);
+  }
+});
+
+test("a factually reviewed Imported entry can be promoted without exposing reviewer identity publicly", async () => {
+  const context = createTempImportContext({ fetchImpl: sourceRichFetch() });
+  try {
+    const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
+    const candidateId = seeded.candidateIds[0];
+    const published = await context.service.publishForMaintainer(candidateId, "CA", "imported");
+    context.service.markFactsReviewedForMaintainer(candidateId, "CA");
+    const result = await context.service.promoteForMaintainer(candidateId, "CA");
+    assert.equal(result.reviewStatus, "indexed-only");
+    const record = readShowsFile(context.siteRoot).find((show) => show.id === published.showId);
+    assert.equal(record.reviewStatus, "indexed-only");
+    assert.equal(record.verification.status, "maintainer-source-reviewed");
+    assert.equal(record.metadata.import.factualReview.reviewedBy, "CA");
   } finally {
     cleanup(context);
   }
@@ -430,7 +488,7 @@ test("catalog update candidates preserve legacy and human-owned fields", async (
     assert.deepEqual(candidate.preparedRecord.ratings, existing.ratings);
     assert.equal(candidate.preparedRecord.archiveTake, existing.archiveTake);
     assert.ok(candidate.lockedFields.includes("description"));
-    await context.service.publishForMaintainer(candidate.id, "CA");
+    await context.service.publishForMaintainer(candidate.id, "CA", "imported");
     const updated = readShowsFile(context.siteRoot).find((show) => show.id === existing.id);
     assert.deepEqual(updated.ratings, existing.ratings);
     assert.equal(updated.archiveTake, existing.archiveTake);
@@ -450,7 +508,7 @@ test("permanent source failures finish with explicit readiness blockers instead 
     assert.equal(candidate.status, "needs-review");
     assert.ok(candidate.sourceHealth.errors.some((error) => error.retryable === false));
     assert.ok(candidate.readiness.blockers.some((blocker) => blocker.code === "weak-description"));
-    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA"), /not ready to publish/i);
+    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA", "imported"), /not ready to publish/i);
   } finally {
     cleanup(context);
   }
@@ -462,7 +520,7 @@ test("failed publication rolls authored and generated catalog data back and leav
     const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
     const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
     context.store.updateCandidate(candidate.id, { preparedRecord: { ...candidate.preparedRecord, title: "" } });
-    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA"), /title/i);
+    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA", "imported"), /title/i);
     assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
     assert.equal(readShowsFile(context.siteRoot).some((show) => show.id === candidate.preparedRecord.id), false);
   } finally {
@@ -480,7 +538,7 @@ test("failed post-build reload rolls publication back before identities are boun
   try {
     const seeded = await context.service.seedCandidates({ entries: ["https://example.com/feed.xml"], autoHydrate: true });
     const candidate = context.service.getForMaintainer(seeded.candidateIds[0]);
-    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA"), /runtime reload failure/i);
+    await assert.rejects(context.service.publishForMaintainer(candidate.id, "CA", "imported"), /runtime reload failure/i);
     assert.equal(context.service.getForMaintainer(candidate.id).status, "ready");
     assert.equal(readShowsFile(context.siteRoot).some((show) => show.id === candidate.preparedRecord.id), false);
     assert.equal(context.store.findIdentity("rss-url", "https://example.com/feed.xml").existingShowId, "");
@@ -489,7 +547,7 @@ test("failed post-build reload rolls publication back before identities are boun
   }
 });
 
-test("batch publication requires individual review and performs one catalog build", async () => {
+test("eligible Imported batch publication skips individual review and performs one catalog build", async () => {
   const fetchImpl = async (url) => {
     const value = String(url);
     if (value.startsWith("https://itunes.apple.com/search")) return appleEmptyResponse();
@@ -513,12 +571,12 @@ test("batch publication requires individual review and performs one catalog buil
     });
     const candidates = seeded.candidateIds.map((id) => context.service.getForMaintainer(id));
     assert.ok(candidates.every((candidate) => candidate.status === "ready"));
-    await assert.rejects(context.service.batchPublishForMaintainer(seeded.candidateIds, "CA"), /individually reviewed/i);
-    seeded.candidateIds.forEach((id) => context.service.reviewForMaintainer(id, { status: "ready", reviewedBy: "CA" }, "CA"));
-    const result = await context.service.batchPublishForMaintainer(seeded.candidateIds, "CA");
+    assert.ok(candidates.every((candidate) => candidate.readiness.publicationEligibility.imported.eligible));
+    const result = await context.service.batchPublishForMaintainer(seeded.candidateIds, "CA", "imported");
     assert.equal(result.buildCount, 1);
     assert.equal(result.showIds.length, 2);
     assert.equal(readShowsFile(context.siteRoot).length, 2);
+    assert.ok(readShowsFile(context.siteRoot).every((show) => show.reviewStatus === "imported"));
   } finally {
     cleanup(context);
   }

@@ -215,6 +215,10 @@ function renderEditorialBadges(show) {
     );
   }
 
+  if (show.reviewStatus === "imported") {
+    badges.push('<span class="editorial-badge editorial-badge-imported">Imported</span>');
+  }
+
   return `<div class="editorial-badges" aria-hidden="true">${badges.join("")}</div>`;
 }
 
@@ -236,11 +240,37 @@ function renderArchiveScore(show, { showLabel = true, treatZeroAsUnrated = false
     <div class="archive-inline-score">
       <span class="inline-score-topline">
         <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">${formatRating(archiveScore)}/10</span>
+        <span class="inline-score-value">${archiveScore === null ? "Unrated" : `${formatRating(archiveScore)}/10`}</span>
       </span>
       ${showLabel ? '<span class="inline-score-label">Archive Rating</span>' : ""}
     </div>
   `.trim();
+}
+
+function renderListenerReviewScore(show, { showLabel = true } = {}) {
+  const reviewCount = Number(show?.listenerReviewScore?.reviewCount);
+  const averageRating = Number(show?.listenerReviewScore?.averageRating);
+  const hasScore = Number.isInteger(reviewCount) && reviewCount > 0 && Number.isFinite(averageRating) && averageRating >= 0 && averageRating <= 10;
+  const value = hasScore ? `${averageRating.toFixed(1)}/10` : "--/10";
+  const ariaLabel = hasScore
+    ? `Listener Review Score ${value} from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}.`
+    : "Listener Review Score --/10. No published listener reviews yet.";
+  return `
+    <div class="listener-review-inline-score" data-podcast-id="${escapeAttribute(show.id || "")}" aria-label="${escapeAttribute(ariaLabel)}">
+      <span class="inline-score-topline">
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">${value}</span>
+      </span>
+      ${showLabel ? '<span class="inline-score-label">Listener Review Score</span>' : ""}
+    </div>
+  `.trim();
+}
+
+function renderPrimaryScore(show, options = {}) {
+  const rawRating = show?.finalRating;
+  const rating = rawRating === null || rawRating === undefined || (typeof rawRating === "string" && !rawRating.trim()) ? Number.NaN : Number(rawRating);
+  const hasArchiveRating = Number.isFinite(rating) && rating >= 0 && rating <= 10 && !(options.treatZeroAsUnrated && rating === 0);
+  return hasArchiveRating ? renderArchiveScore(show, options) : renderListenerReviewScore(show, options);
 }
 
 function renderCommunityScore(show, { showLabel = true } = {}) {
@@ -280,7 +310,7 @@ function renderArchiveCard(show) {
         <h2 data-card-title="true">${title}</h2>
         <p class="tags" data-card-meta="true"${metaText ? "" : " hidden"}>${escapeHtml(metaText)}</p>
         <div class="rating">
-          ${renderArchiveScore(show, { showLabel: false })}
+          ${renderPrimaryScore(show, { showLabel: false })}
           <span class="rating-divider" aria-hidden="true"></span>
           ${renderCommunityScore(show, { showLabel: false })}
         </div>
@@ -314,6 +344,8 @@ function renderMostPopularCard(show) {
   }
   if (show.reviewStatus === "full-review") {
     chips.push('<span class="popular-card-chip is-review">Full review</span>');
+  } else if (show.reviewStatus === "imported") {
+    chips.push('<span class="popular-card-chip is-imported">Imported</span>');
   }
   const accentStyle = show.accent?.rgb ? ` style="--popular-card-accent-rgb: ${escapeAttribute(show.accent.rgb)};"` : "";
   const subtitle = String(show.subtitle || "").trim();
@@ -333,7 +365,7 @@ function renderMostPopularCard(show) {
         <p class="popular-card-copy"${copy ? "" : " hidden"}>${escapeHtml(copy)}</p>
         <div class="popular-card-footer">
           <div class="popular-card-ratings">
-            ${renderArchiveScore(show)}
+            ${renderPrimaryScore(show)}
             <span class="rating-divider" aria-hidden="true"></span>
             ${renderCommunityScore(show)}
           </div>
@@ -553,4 +585,5 @@ module.exports = {
   renderCollectionShowCard,
   renderCollectionsPagePrerender,
   renderHomePagePrerender,
+  renderMostPopularCard,
 };

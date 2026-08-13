@@ -172,7 +172,7 @@ Key editorial principles:
 ## Current Catalog Baseline
 
 The generated snapshot for current counts and metadata coverage lives in `docs/generated/catalog-status.md`.
-The archive supports both `indexed-only` and `full-review` as valid long-term show states.
+The archive supports three public catalogue confidence levels: automation-checked `imported`, maintainer fact-checked `indexed-only`, and editorial `full-review` (with `planned` and `spotlight` retained for the existing review workflow).
 
 ## Backend Role
 
@@ -296,9 +296,11 @@ Boundaries:
 
 - public show intake still lives in the submission queue
 - machine-found show candidates, leased jobs, source cache/snapshots, field evidence, conflicts, staged-cover metadata, and prepared records live in SQLite
-- source-rich candidates become `ready`; authenticated approval atomically writes a factual `indexed-only` published record and rebuilds generated data once
+- source-rich candidates expose separate Imported and indexed-only eligibility; authenticated approval atomically writes the chosen factual tier and rebuilds generated data once
+- Imported publication requires strict structured-source confidence and can be approved safely in batches without per-entry review; indexed-only publication requires a factual-review stamp tied to the current input revision
+- re-preparation invalidates stale factual review; promotion from Imported to indexed-only reuses the same atomic write/build/rollback path
 - editorial discovery requirements apply to richer review states, not to factual indexed publication
-- only fully reviewed records are promoted to `published`
+- only eligible, explicitly approved records are promoted to `published`; nothing auto-publishes
 
 Source strategy:
 

@@ -55,11 +55,11 @@ function mountDetailRatingWidget(detailRoot, podcast) {
 
   const kicker = document.createElement("p");
   kicker.className = "community-review-kicker";
-  kicker.textContent = "Listener rating";
+  kicker.textContent = "Community Rating";
 
   const title = document.createElement("h2");
   title.id = buildCommunityWidgetId(podcast.podcastId, "title");
-  title.textContent = "Community voice";
+  title.textContent = "Quick listener ratings";
 
   const heading = document.createElement("div");
   heading.className = "community-review-heading";

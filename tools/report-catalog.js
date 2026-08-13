@@ -3,6 +3,7 @@ const path = require("node:path");
 const { loadArchiveContext } = require("../backend/lib/ai/archive-context");
 const { loadCatalog, loadCollections } = require("../backend/lib/catalog");
 const { buildDiscoveryGapReport } = require("../backend/lib/discovery-gaps");
+const { getDiscoveryTaxonomy } = require("../shared/archive-tags");
 const { applyGeneratedCoverVariants } = require("../backend/lib/responsive-images");
 const {
   buildCatalogSnapshot,
@@ -49,6 +50,8 @@ async function main() {
     Object.keys(sourceData.reviewsById).length,
     gapReport,
     archiveContext,
+    sourceData.reviewsById,
+    getDiscoveryTaxonomy(),
   );
   const statusMarkdown = buildCatalogStatusMarkdown(snapshot);
   const runtimeCatalog = catalog.filter((show) => show.status === "published").map(serializeRuntimeShow);
@@ -68,9 +71,19 @@ async function main() {
   console.log(`Missing similarReasons: ${gapReport.publishedShowsMissingSimilarReasons.length}`);
   console.log(`Shows with weak collection coverage: ${gapReport.publishedShowsWithTooFewCollectionMemberships.length}`);
   console.log(`Missing RSS links: ${snapshot.metrics.publishedShows - snapshot.metrics.withRss}`);
+  console.log(`Phase 2 / Gate B: ${snapshot.phase2.complete ? "complete" : "content-pending"}`);
+  console.log(`Phase 2 blocking errors: ${snapshot.phase2.blockingErrors.length}`);
+  console.log(`Phase 2 actionable RSS gaps: ${snapshot.phase2.factual.actionableMissingRss.length}`);
+  console.log(`Phase 2 documented research-gap records: ${snapshot.phase2.factual.documentedResearchGaps.length}`);
+  console.log(`Phase 2 editorial gaps: ${snapshot.phase2.editorial.gaps.length}`);
+  console.log(`Phase 2 taxonomy unknown/deprecated tags: ${snapshot.phase2.taxonomy.unknownTags.length + snapshot.phase2.taxonomy.deprecatedTags.length}`);
+  if (snapshot.phase2.blockingErrors.length > 0) {
+    snapshot.phase2.blockingErrors.forEach((error) => console.log(`Phase 2 BLOCKER: ${error}`));
+  }
   console.log(
     `Generated output drift: shows=${drift.shows ? "stale" : "ok"}, collections=${drift.collections ? "stale" : "ok"}, search-index=${drift.searchIndex ? "stale" : "ok"}, catalog-status=${drift.statusDoc ? "stale" : "ok"}`,
   );
+  if (snapshot.phase2.blockingErrors.length > 0) process.exitCode = 1;
 }
 
 main().catch((error) => {

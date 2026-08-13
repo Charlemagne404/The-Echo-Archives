@@ -211,13 +211,16 @@ function getArchiveTarget(show) {
   return [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((value) => String(value || "").trim()) ? "#archive-note" : "";
 }
 
-function renderDetailHero(show) {
+function renderDetailHero(show, reviewData = {}) {
   const coverSrc = getShowImageSrc(show);
   const coverBackground = getShowCoverVariantSrc(show, 640);
   const archiveRating = normalizeArchiveRating(show.finalRating);
   const hasArchiveRating = archiveRating !== null;
   const archiveRatingValue = hasArchiveRating ? `${formatRating(archiveRating)}/10` : "Unrated";
-  const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
+  const archiveRatingNote = hasArchiveRating
+    ? "Echo score"
+    : show.reviewStatus === "imported" ? "No archive score · not individually reviewed" : "No archive rating yet";
+  const listenerReviewScore = getListenerReviewScore(reviewData?.listenerReviewScore);
   const primaryLink = getPrimaryListenLink(show);
   const hasListenLinks = Object.values(show.listenLinks || {}).some((href) => String(href || "").trim());
   const archiveTarget = getArchiveTarget(show);
@@ -225,7 +228,9 @@ function renderDetailHero(show) {
   const firstGenre = Array.isArray(show.genres) ? show.genres[0] : "";
   const statusChips = [
     archiveRating !== null && archiveRating >= 9 ? '<span class="detail-status-chip is-accent">Top rated</span>' : "",
-    show.reviewStatus ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>` : "",
+    show.reviewStatus === "imported"
+      ? '<span class="detail-status-chip is-imported">Imported</span>'
+      : show.reviewStatus ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>` : "",
     firstTag ? `<span class="detail-status-chip">${escapeHtml(toDisplayTag(firstTag))}</span>` : "",
   ].filter(Boolean).join("");
 
@@ -251,11 +256,8 @@ function renderDetailHero(show) {
             </header>
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
-                <article class="detail-hero-score-card detail-score-card-archive">
-                  <span class="detail-meta-label">Archive rating</span>
-                  <strong class="detail-hero-score-value">${archiveRatingValue}</strong>
-                  <span class="detail-meta-note">${archiveRatingNote}</span>
-                </article>
+                ${hasArchiveRating ? `<article class="detail-hero-score-card detail-score-card-archive"><span class="detail-meta-label">Archive Rating</span><strong class="detail-hero-score-value">${archiveRatingValue}</strong><span class="detail-meta-note">${archiveRatingNote}</span></article>` : ""}
+                <article class="detail-hero-score-card detail-score-card-listener"><span class="detail-meta-label">Listener Review Score</span><strong class="detail-hero-score-value">${listenerReviewScore.value}</strong><span class="detail-meta-note">${listenerReviewScore.note}</span></article>
               </div>
               <div class="detail-meta-grid">
                 <article class="detail-meta-card"><span class="detail-meta-label">Runtime</span><span class="detail-meta-value">${escapeHtml(getHeroRuntimeValue(show))}</span></article>
@@ -285,6 +287,18 @@ function renderDetailHero(show) {
       ${renderBestForStrip(show)}
     </section>
   `;
+}
+
+function getListenerReviewScore(summary = {}) {
+  const reviewCount = Number(summary?.reviewCount);
+  const averageRating = Number(summary?.averageRating);
+  if (!Number.isInteger(reviewCount) || reviewCount < 1 || !Number.isFinite(averageRating) || averageRating < 0 || averageRating > 10) {
+    return { value: "--/10", note: "No published listener reviews yet" };
+  }
+  return {
+    value: `${averageRating.toFixed(1)}/10`,
+    note: `from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}`,
+  };
 }
 
 function renderHeroKeyTags(show) {
@@ -472,7 +486,7 @@ function renderReviewSection(show, reviewData = {}) {
   const initialCard = hasArchive ? archiveCard : initialListenerReview ? renderListenerReviewCard(initialListenerReview) : "";
   return `
     <section class="detail-section detail-review-section" id="review-notes" tabindex="-1">
-      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive editorial and moderated listener response, clearly credited.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
+      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published written reviews. Community Rating is a quick wider-community rating.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${totalSlides === 0 ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="0">
           <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" disabled>‹</button>
@@ -500,11 +514,24 @@ function renderOverviewSection(show) {
   return renderOfficialSummarySection(show);
 }
 
+function renderImportedTransparency(show) {
+  if (show.reviewStatus !== "imported") return "";
+  return `
+    <aside class="detail-imported-disclosure" aria-labelledby="imported-disclosure-title">
+      <span class="detail-imported-signal" aria-hidden="true"></span>
+      <div>
+        <p class="detail-summary-kicker" id="imported-disclosure-title">Imported · source checked by automation</p>
+        <p>Factual metadata was assembled from official feeds and directories and has not yet been individually checked by an archive maintainer. Ratings and listener reviews remain separate.</p>
+      </div>
+    </aside>
+  `;
+}
+
 function renderCommunityFallback() {
   return `
     <section class="detail-section detail-community-slot detail-community-fallback" aria-busy="true" aria-live="polite">
-      <div class="detail-section-header"><div><h2>Listener rating</h2><p>Community ratings stay separate from archive scores and written listener reviews.</p></div></div>
-      <p class="detail-community-fallback-copy">Loading listener rating…</p>
+      <div class="detail-section-header"><div><h2>Community Rating</h2><p>Quick ratings from the wider community. Archive Rating and Listener Review Score are separate.</p></div></div>
+      <p class="detail-community-fallback-copy">Loading community rating…</p>
     </section>
   `;
 }
@@ -674,7 +701,7 @@ function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
   if (categoriesToRender.length === 0) return "";
   return `
     <section class="detail-section detail-community-score-section" aria-labelledby="community-score-breakdown-title">
-      <div class="detail-section-header"><div><h2 id="community-score-breakdown-title">Community score breakdown</h2><p>Category averages come only from published listener reviews. Archive ratings stay editorially separate.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Add your scores</a></div>
+      <div class="detail-section-header"><div><h2 id="community-score-breakdown-title">Written review score breakdown</h2><p>Category averages use published listener reviews. They are separate from Archive Rating and quick Community Rating.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Add your scores</a></div>
       <div class="detail-ratings-grid detail-community-ratings-grid">
         ${categoriesToRender.map(([key, label]) => {
           const summary = scoreSummary?.[key] || {};
@@ -696,10 +723,10 @@ function createShowPageMarkup(show, showMap, collections = [], reviewData = {}) 
   const facts = renderFactsLinksCard(show, { inline: !isFullReview });
   return `
     <section class="detail-main podcast-detail detail-main--${isFullReview ? "full" : "indexed"}">
-      ${renderDetailHero(show)}
+      ${renderDetailHero(show, reviewData)}
       <div class="detail-content-layout">
         <div class="detail-main-stack">
-          <div class="detail-main-column">${renderOverviewSection(show)}${renderIndexedArchiveNote(show)}${renderReviewSection(show, reviewData)}${renderFirstReviewCta(show, reviewData)}${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}${isFullReview ? "" : facts}</div>
+          <div class="detail-main-column">${renderImportedTransparency(show)}${renderOverviewSection(show)}${renderIndexedArchiveNote(show)}${renderReviewSection(show, reviewData)}${renderFirstReviewCta(show, reviewData)}${renderCommunityScoreBreakdown(show, reviewData?.scoreSummary)}${isFullReview ? "" : facts}</div>
         </div>
         ${renderCommunityFallback()}
         ${isFullReview && facts ? `<aside class="detail-side-rail">${facts}</aside>` : ""}

@@ -6,6 +6,7 @@ const {
   findPublishedShowsMissingSimilarReasons,
   findPublishedShowsWithOutOfRangeSimilarLinks,
   findPublishedShowsWithTooFewCollectionMemberships,
+  buildPhase2Readiness,
   getGateBCriticalValidationErrors,
 } = require("../lib/discovery-gaps");
 
@@ -116,4 +117,28 @@ test("getGateBCriticalValidationErrors aggregates the new similarity and collect
   assert.ok(errors.some((message) => /at least 2 collections/.test(message)));
   assert.ok(errors.some((message) => /at least 3 collections/.test(message)));
   assert.ok(errors.some((message) => /missing showReasons/.test(message)));
+});
+
+test("Phase 2 readiness keeps sparse indexed-only discovery gaps informational", () => {
+  const sparse = createShowRecord({
+    id: "sparse-show",
+    similarTo: [],
+    similarReasons: {},
+    tones: [],
+    formats: [],
+    bestFor: [],
+  });
+  const readiness = buildPhase2Readiness([sparse], [], {
+    tagTaxonomy: { tags: Array.from({ length: 165 }, (_, index) => ({ label: `Tag ${index}`, status: "approved" })) },
+  });
+
+  assert.deepEqual(readiness.editorial.gaps, []);
+  assert.deepEqual(readiness.sparseIndexedOnly, {
+    count: 1,
+    outOfRangeSimilarLinks: 1,
+    fewerThanTwoCollections: 1,
+    editorialViolations: [],
+    informationalOnly: true,
+  });
+  assert.equal(readiness.blockingErrors.some((message) => /similar links|collection memberships/.test(message)), false);
 });

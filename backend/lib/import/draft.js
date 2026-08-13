@@ -219,7 +219,7 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
       : "",
     coverAlt: `${title} cover art`,
     status: "published",
-    reviewStatus: "indexed-only",
+    reviewStatus: "imported",
     releaseStatus: state.releaseStatus,
     completionStatus: state.completionStatus,
     listenLinks,
@@ -269,10 +269,10 @@ function buildPreparedShowRecord({ candidate, shows = [], today = new Date().toI
     creators: people.creators,
     cast: people.cast,
     verification: {
-      status: optionalGaps.length > 0 ? "partially-source-reviewed" : "source-reviewed",
+      status: "automated-source-checked",
       verifiedAt: today,
       source: mergeUniqueStrings(sourceReferences.map((source) => source.sourceUrl).filter(Boolean), externalSources).join("; "),
-      note: "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.",
+      note: "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review.",
     },
     availability: {
       transcripts: objective.transcripts?.episodeCount ? `${objective.transcripts.episodeCount} observed episodes` : "unknown",
@@ -374,11 +374,64 @@ function evaluateReadiness({ candidate, preparedRecord }) {
   if (candidate.scopeStatus !== "in-scope") blockers.push({ code: "scope-review", field: "scopeStatus", message: `Catalogue scope is ${candidate.scopeStatus}; a maintainer override is required.` });
   (candidate.conflicts || []).filter((conflict) => conflict.blocking).forEach((conflict) => blockers.push({ code: "source-conflict", field: conflict.fieldName, message: conflict.message }));
   if (candidate.hasDuplicateMatch && candidate.mode !== "update") blockers.push({ code: "duplicate-ambiguity", field: "identity", message: "A possible duplicate must be resolved before publication." });
+  const importedBlockers = [...blockers];
+  const trustedCoreFields = ["title", "description"];
+  trustedCoreFields.forEach((fieldName) => {
+    const evidence = fields[fieldName] || {};
+    if ((Number(evidence.confidence) || 0) < 0.9) {
+      importedBlockers.push({ code: "import-confidence", field: fieldName, message: `${fieldName} needs at least 0.90 structured-source confidence for Imported publication.` });
+    }
+    if (/unstructured|maintainer|reviewer|suggestion/i.test(String(evidence.method || ""))) {
+      importedBlockers.push({ code: "import-human-source", field: fieldName, message: `${fieldName} uses human or unstructured evidence and should be published as indexed-only after factual review.` });
+    }
+  });
+  ["tags", "formats"].forEach((fieldName) => {
+    const evidence = preparedRecord.metadata?.import?.fields?.[fieldName];
+    if ((preparedRecord[fieldName] || []).length > 0 && /maintainer|reviewed|manual|suggestion|unstructured/i.test(String(evidence?.method || ""))) {
+      importedBlockers.push({
+        code: "import-curated-discovery",
+        field: fieldName,
+        message: `${fieldName} include a human-curated mapping and require indexed-only factual review.`,
+      });
+    }
+  });
+  const exactIdentityFields = ["rssUrl", "podcastGuid", "appleCollectionId", "podcastIndexFeedId"];
+  const exactIdentity = exactIdentityFields.some((fieldName) => {
+    if (!objective[fieldName]) return false;
+    const evidence = fields[fieldName] || {};
+    return (Number(evidence.confidence) || 0) >= 0.9 && !/unstructured|maintainer|reviewer|suggestion/i.test(String(evidence.method || ""));
+  });
+  if (!exactIdentity) {
+    importedBlockers.push({ code: "import-exact-identity", field: "identity", message: "Imported publication requires an exact identity supported by structured evidence at 0.90 confidence or higher." });
+  }
+  if ((candidate.lockedFields || []).includes("scopeStatus")) {
+    importedBlockers.push({ code: "import-scope-override", field: "scopeStatus", message: "A manually overridden scope decision requires indexed-only factual review." });
+  }
+  const humanOwnedContent = [
+    ...(preparedRecord.tones || []), ...(preparedRecord.themes || []), ...(preparedRecord.contentNotes || []),
+    ...(preparedRecord.bestFor || []), ...(preparedRecord.similarTo || []),
+  ];
+  if (humanOwnedContent.length > 0 || Object.keys(preparedRecord.similarReasons || {}).length > 0) {
+    importedBlockers.push({ code: "import-editorial-content", field: "reviewStatus", message: "Human-owned discovery or editorial fields require indexed-only factual review." });
+  }
+  const factualReviewCurrent = Boolean(
+    candidate.factsReviewedAt &&
+    Number(candidate.factsReviewedRevision) === Number(candidate.inputRevision),
+  );
+  const indexedOnlyBlockers = [...blockers];
+  if (!factualReviewCurrent) {
+    indexedOnlyBlockers.push({ code: "facts-not-reviewed", field: "reviewStatus", message: "A current factual review is required for indexed-only publication." });
+  }
+
   return {
     ready: blockers.length === 0,
     reviewAndPublish: blockers.length === 0,
     blockers,
     warnings,
+    publicationEligibility: {
+      imported: { eligible: importedBlockers.length === 0, blockers: importedBlockers },
+      indexedOnly: { eligible: indexedOnlyBlockers.length === 0, blockers: indexedOnlyBlockers },
+    },
     checks: {
       stableIdentity,
       title: Boolean(preparedRecord.title),

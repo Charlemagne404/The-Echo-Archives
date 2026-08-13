@@ -33,6 +33,19 @@ export function renderOverviewSection(show) {
   return renderOfficialSummarySection(show);
 }
 
+export function renderImportedTransparency(show) {
+  if (show.reviewStatus !== "imported") return "";
+  return `
+    <aside class="detail-imported-disclosure" aria-labelledby="imported-disclosure-title">
+      <span class="detail-imported-signal" aria-hidden="true"></span>
+      <div>
+        <p class="detail-summary-kicker" id="imported-disclosure-title">Imported · source checked by automation</p>
+        <p>Factual metadata was assembled from official feeds and directories and has not yet been individually checked by an archive maintainer. Ratings and listener reviews remain separate.</p>
+      </div>
+    </aside>
+  `;
+}
+
 function hasArchiveReviewContent(show) {
   return [show.archiveTake, show.spoilerFreeReview, show.thoughts].some((value) => String(value || "").trim());
 }
@@ -132,7 +145,7 @@ export function renderReviewSection(show, reviewData = {}) {
   const empty = totalSlides === 0;
   return `
     <section class="detail-section detail-review-section" id="review-notes" tabindex="-1">
-      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive editorial and moderated listener response, clearly credited.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
+      <div class="detail-section-header detail-review-section-header"><div><h2>Reviews</h2><p>Archive Rating is editorial. Listener Review Score averages published written reviews. Community Rating is a quick wider-community rating.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Write a review</a></div>
       ${empty ? `<div class="empty-state-card detail-reviews-empty-state"><p>No reviews are published for this show yet. Listener reviews are moderated before appearing here.</p><div class="empty-state-actions"><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Submit the first review</a></div></div>` : `
         <div class="detail-review-carousel" data-review-carousel data-show-id="${escapeHtml(show.id)}" data-has-archive="${String(hasArchive)}" data-listener-total="${totalListenerReviews}" data-current-index="${initialIndex}">
           <button type="button" class="detail-review-carousel-arrow is-previous" data-review-carousel-previous aria-label="Previous review" ${initialIndex === 0 ? "disabled" : ""}>‹</button>
@@ -166,7 +179,7 @@ export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
   if (categoriesToRender.length === 0) return "";
   return `
     <section class="detail-section detail-community-score-section" aria-labelledby="community-score-breakdown-title">
-      <div class="detail-section-header"><div><h2 id="community-score-breakdown-title">Community score breakdown</h2><p>Category averages come only from published listener reviews. Archive ratings stay editorially separate.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Add your scores</a></div>
+      <div class="detail-section-header"><div><h2 id="community-score-breakdown-title">Written review score breakdown</h2><p>Category averages use published listener reviews. They are separate from Archive Rating and quick Community Rating.</p></div><a class="detail-primary-action detail-primary-action-compact" href="${escapeHtml(createSubmissionHref("listener-review", show.id))}">Add your scores</a></div>
       <div class="detail-ratings-grid detail-community-ratings-grid">
         ${categoriesToRender.map(([key, label]) => {
           const summary = scoreSummary?.[key] || {};
@@ -186,8 +199,8 @@ export function renderCommunityScoreBreakdown(show, scoreSummary = {}) {
 export function renderCommunityFallback() {
   return `
     <section class="detail-section detail-community-slot detail-community-fallback" aria-busy="true" aria-live="polite">
-      <div class="detail-section-header"><div><h2>Listener rating</h2><p>Community ratings stay separate from archive scores and written listener reviews.</p></div></div>
-      <p class="detail-community-fallback-copy">Loading listener rating…</p>
+      <div class="detail-section-header"><div><h2>Community Rating</h2><p>Quick ratings from the wider community. Archive Rating and Listener Review Score are separate.</p></div></div>
+      <p class="detail-community-fallback-copy">Loading community rating…</p>
     </section>
   `;
 }

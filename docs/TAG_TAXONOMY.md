@@ -16,3 +16,10 @@ Only a maintainer may add or change a taxonomy entry. A proposal needs a support
 Published records use only approved labels. Deprecated or unknown labels block publication. Browse filters expose only tags used by at least two published shows; approved low-frequency tags remain searchable in full text until they gain reuse.
 
 Run `rtk node tools/migrate-discovery-tags.js` to inspect the controlled migration, or add `--write` only when intentionally applying its reviewed dispositions.
+
+## Phase 2 Stability Check — 2026-08-14
+
+The 165-label controlled vocabulary is stable for Phase 2. The migration audit
+reported 129 shows, 0 changed records, and 420 `retain` dispositions. The
+generated Phase 2 readiness report also requires zero unknown, deprecated, or
+unapproved public tags. Raw publisher keywords remain provenance only.

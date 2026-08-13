@@ -3,7 +3,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { renderHomePagePrerender } = require("../../tools/lib/home-page-prerender");
+const { renderArchiveCard, renderCollectionShowCard, renderHomePagePrerender, renderMostPopularCard } = require("../../tools/lib/home-page-prerender");
 
 const ROOT = path.resolve(__dirname, "../..");
 const HOME_MOST_POPULAR_IDS = ["midnight-burger", "were-alive", "red-valley", "derelict"];
@@ -32,4 +32,28 @@ test("homepage prerender injects initial discovery content into the build templa
   assert.match(rendered, /<strong id="homeShowCount">\d+<\/strong>/);
   assert.match(rendered, /<strong id="homeReviewCount">\d+<\/strong>/);
   assert.match(rendered, /<strong id="homeCollectionCount">\d+<\/strong>/);
+  assert.match(rendered, /class="rating-guide-trigger"/);
+  assert.match(rendered, /Listener Review Score<\/strong> Average from written listener reviews/);
+});
+
+test("Imported cards, collection cards, and popular cards carry a compact tier signal and intentional unrated state", () => {
+  const show = {
+    id: "imported-show",
+    title: "Imported Show",
+    status: "published",
+    reviewStatus: "imported",
+    finalRating: null,
+    cover: "images/Logo.png",
+    tags: ["Mystery", "Found audio"],
+    bestFor: [],
+    completionStatus: "ongoing",
+  };
+  [renderArchiveCard(show), renderCollectionShowCard(show, "A manually curated route reason.")].forEach((markup) => {
+    assert.match(markup, /editorial-badge-imported">Imported/);
+    assert.match(markup, /listener-review-inline-score/);
+    assert.match(markup, /listener-review-score-icon/);
+    assert.match(markup, /listener-review-inline-score-value">--\/10/);
+    assert.doesNotMatch(markup, /archive-inline-score/);
+  });
+  assert.match(renderMostPopularCard(show), /popular-card-chip is-imported">Imported/);
 });

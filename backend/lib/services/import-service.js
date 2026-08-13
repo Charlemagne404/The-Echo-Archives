@@ -40,6 +40,17 @@ const IDENTITY_FIELDS = [
 const DISCOVERY_SOURCE_TYPES = new Set(["apple-search", "podcast-index-search"]);
 const SUPPRESSED_CANDIDATE_STATUSES = new Set(["duplicate", "rejected"]);
 const BATCH_PREPARATION_STATUSES = ["ready", "needs-review", "failed"];
+const PUBLICATION_TIERS = new Set(["imported", "indexed-only"]);
+
+function ensurePublicationTier(value = "") {
+  const tier = trimText(value, 80);
+  if (!PUBLICATION_TIERS.has(tier)) {
+    const error = new Error("publicationTier must be imported or indexed-only.");
+    error.statusCode = 400;
+    throw error;
+  }
+  return tier;
+}
 
 function ensureValidStatus(value = "") {
   const status = trimText(value, 80);
@@ -1186,10 +1197,12 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
   function reviewForMaintainer(id, rawUpdates = {}, actor = "") {
     const candidate = getCandidate(id);
     const updates = normalizeReviewUpdates(rawUpdates);
+    const nextInputRevision = rawUpdates.details ? candidate.inputRevision + 1 : candidate.inputRevision;
     const locks = new Set(candidate.lockedFields || []);
     if (updates.scopeStatus) locks.add("scopeStatus");
     let updated = store.updateCandidate(id, {
       ...updates,
+      inputRevision: nextInputRevision,
       lockedFields: [...locks],
       reviewedAt: new Date().toISOString(),
       reviewedBy: updates.reviewedBy || actor || candidate.reviewedBy,
@@ -1235,6 +1248,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         objective,
         provenance,
         lockedFields: [...locks],
+        inputRevision: nextInputRevision,
       };
       let preparedRecord = buildPreparedShowRecord({ candidate: nextCandidate, shows: readCatalogRecords() });
       let updateDiff = [];
@@ -1255,6 +1269,7 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         objective,
         provenance,
         lockedFields: nextCandidate.lockedFields,
+        inputRevision: nextInputRevision,
         preparedRecord,
         readiness,
         status: readiness.ready ? "ready" : "needs-review",
@@ -1263,6 +1278,35 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
       });
     }
     store.recordEvent(id, rawUpdates.details ? "details-edited" : "reviewed", actor || updates.reviewedBy || "", updates);
+    return updated;
+  }
+
+  function markFactsReviewedForMaintainer(id, actor = "") {
+    const candidate = getCandidate(id);
+    if (!["ready", "published"].includes(candidate.status)) {
+      const error = new Error("Factual review can only be confirmed for a ready or published candidate.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const reviewer = trimText(actor, 160) || "authenticated-maintainer";
+    const reviewedAt = new Date().toISOString();
+    const reviewed = {
+      ...candidate,
+      factsReviewedBy: reviewer,
+      factsReviewedAt: reviewedAt,
+      factsReviewedRevision: candidate.inputRevision,
+    };
+    const readiness = candidate.preparedRecord?.id
+      ? evaluateReadiness({ candidate: reviewed, preparedRecord: candidate.preparedRecord })
+      : candidate.readiness;
+    readiness.updateDiff = candidate.readiness?.updateDiff || [];
+    const updated = store.updateCandidate(id, {
+      factsReviewedBy: reviewer,
+      factsReviewedAt: reviewedAt,
+      factsReviewedRevision: candidate.inputRevision,
+      readiness,
+    });
+    store.recordEvent(id, "facts-reviewed", reviewer, { inputRevision: candidate.inputRevision });
     return updated;
   }
 
@@ -1292,7 +1336,8 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     return () => fs.rmSync(lockPath, { force: true });
   }
 
-  async function publishCandidates(ids, actor = "", { batch = false } = {}) {
+  async function publishCandidates(ids, actor = "", { batch = false, publicationTier = "" } = {}) {
+    const requestedTier = ensurePublicationTier(publicationTier);
     const candidateIds = mergeUniqueStrings(ids);
     if (candidateIds.length === 0) {
       const error = new Error("At least one ready import candidate is required.");
@@ -1306,8 +1351,14 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         error.statusCode = 400;
         throw error;
       }
-      if (batch && !candidate.reviewedAt) {
-        const error = new Error(`Import candidate ${candidate.id} must be individually reviewed before batch publication.`);
+      const eligibilityTier = candidate.mode === "update"
+        ? candidate.preparedRecord.reviewStatus === "imported" ? "imported" : ""
+        : requestedTier;
+      const eligibilityKey = eligibilityTier === "indexed-only" ? "indexedOnly" : eligibilityTier;
+      const eligibility = eligibilityKey ? candidate.readiness?.publicationEligibility?.[eligibilityKey] : null;
+      if (eligibilityKey && !eligibility?.eligible) {
+        const messages = (eligibility?.blockers || []).map((blocker) => blocker.message).filter(Boolean);
+        const error = new Error(`Import candidate ${candidate.id} is not eligible for ${eligibilityTier} publication: ${messages.join("; ") || "tier checks are incomplete"}.`);
         error.statusCode = 400;
         throw error;
       }
@@ -1319,10 +1370,34 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     try {
       const records = candidates.map((candidate) => {
         const record = JSON.parse(JSON.stringify(candidate.preparedRecord));
-        record.verification = {
-          ...record.verification,
-          status: record.metadata?.import?.optionalGaps?.length ? "partially-source-reviewed" : "source-reviewed",
-          verifiedAt: new Date().toISOString().slice(0, 10),
+        const effectiveTier = candidate.mode === "update" ? record.reviewStatus : requestedTier;
+        record.reviewStatus = effectiveTier;
+        if (candidate.mode !== "update") {
+          record.verification = {
+            ...record.verification,
+            status: effectiveTier === "imported" ? "automated-source-checked" : "maintainer-source-reviewed",
+            verifiedAt: new Date().toISOString().slice(0, 10),
+            note: effectiveTier === "imported"
+              ? "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+              : "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.",
+          };
+        }
+        record.metadata = {
+          ...(record.metadata || {}),
+          import: {
+            ...(record.metadata?.import || {}),
+            publication: {
+              tier: effectiveTier,
+              publishedAt: new Date().toISOString(),
+            },
+            ...(candidate.mode !== "update" && effectiveTier === "indexed-only" ? {
+              factualReview: {
+                reviewedAt: candidate.factsReviewedAt,
+                reviewedBy: candidate.factsReviewedBy || actor || "authenticated-maintainer",
+                inputRevision: candidate.factsReviewedRevision,
+              },
+            } : {}),
+          },
         };
         if (candidate.coverStage?.ready && !candidate.coverStage.existing && record.cover === candidate.preparedRecord.cover) {
           const targetPath = path.join(staticRoot, record.cover);
@@ -1342,8 +1417,9 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
         const updated = store.updateCandidate(candidate.id, {
           status: "published", publishedShowId: showId, reviewedAt: new Date().toISOString(),
           reviewedBy: actor || candidate.reviewedBy || "authenticated-maintainer", lastError: "",
+          preparedRecord: records.find((record) => record.id === showId) || candidate.preparedRecord,
         });
-        store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", { showId, batch });
+        store.recordEvent(candidate.id, "published", actor || "authenticated-maintainer", { showId, batch, publicationTier: requestedTier });
         return updated;
       });
       return { candidates: published, showIds: records.map((record) => record.id), candidate: published[0], showId: records[0]?.id || "", buildCount: 1 };
@@ -1365,12 +1441,78 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     }
   }
 
-  function publishForMaintainer(id, actor = "") {
-    return publishCandidates([id], actor, { batch: false });
+  function publishForMaintainer(id, actor = "", publicationTier = "") {
+    return publishCandidates([id], actor, { batch: false, publicationTier });
   }
 
-  function batchPublishForMaintainer(ids, actor = "") {
-    return publishCandidates(ids, actor, { batch: true });
+  function batchPublishForMaintainer(ids, actor = "", publicationTier = "") {
+    return publishCandidates(ids, actor, { batch: true, publicationTier });
+  }
+
+  async function promoteForMaintainer(id, actor = "") {
+    const candidate = getCandidate(id);
+    if (candidate.status !== "published" || !candidate.publishedShowId) {
+      const error = new Error("Only a published import candidate can be promoted.");
+      error.statusCode = 409;
+      throw error;
+    }
+    if (!candidate.factsReviewedAt || Number(candidate.factsReviewedRevision) !== Number(candidate.inputRevision)) {
+      const error = new Error("A current factual review is required before promotion.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const existing = readCatalogRecords(true).find((show) => show.id === candidate.publishedShowId);
+    if (!existing) {
+      const error = new Error("The published catalogue record could not be found.");
+      error.statusCode = 404;
+      throw error;
+    }
+    if (existing.reviewStatus !== "imported") {
+      const error = new Error("Only Imported entries can be promoted to indexed-only through this action.");
+      error.statusCode = 409;
+      throw error;
+    }
+    const reviewer = trimText(actor, 160) || candidate.factsReviewedBy || "authenticated-maintainer";
+    const promotedAt = new Date().toISOString();
+    const promoted = JSON.parse(JSON.stringify(existing));
+    promoted.reviewStatus = "indexed-only";
+    promoted.updatedAt = promotedAt.slice(0, 10);
+    promoted.verification = {
+      ...(promoted.verification || {}),
+      status: "maintainer-source-reviewed",
+      verifiedAt: promotedAt.slice(0, 10),
+      note: "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations.",
+    };
+    promoted.metadata = {
+      ...(promoted.metadata || {}),
+      import: {
+        ...(promoted.metadata?.import || {}),
+        publication: { ...(promoted.metadata?.import?.publication || {}), tier: "indexed-only" },
+        factualReview: {
+          reviewedAt: candidate.factsReviewedAt,
+          reviewedBy: reviewer,
+          inputRevision: candidate.factsReviewedRevision,
+        },
+      },
+    };
+    const releaseLock = acquirePublishLock();
+    let catalogTransaction = null;
+    try {
+      catalogTransaction = writeShowRecordsAtomically(staticRoot, [promoted]);
+      await validateSiteData(staticRoot);
+      catalogCache = null;
+      if (typeof onPublished === "function") await onPublished();
+      const updated = store.updateCandidate(id, { preparedRecord: promoted, lastError: "" });
+      store.recordEvent(id, "promoted", reviewer, { showId: promoted.id, reviewStatus: "indexed-only" });
+      return { candidate: updated, showId: promoted.id, reviewStatus: promoted.reviewStatus };
+    } catch (error) {
+      catalogTransaction?.rollback();
+      await buildCatalog(staticRoot).catch(() => {});
+      store.updateCandidate(id, { lastError: trimText(error.message || error, 4_000) });
+      throw error;
+    } finally {
+      releaseLock();
+    }
   }
 
   async function auditCatalog({ actor = "" } = {}) {
@@ -1421,9 +1563,11 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
     hydrateForMaintainer,
     listDiscoveryForMaintainer,
     listForMaintainer,
+    markFactsReviewedForMaintainer,
     processPendingDiscoveryJobs,
     processPendingJobs,
     publishForMaintainer,
+    promoteForMaintainer,
     reopenForMaintainer,
     retryForMaintainer,
     retryRunForMaintainer,
@@ -1441,4 +1585,4 @@ function createImportService({ store, staticRoot, config = {}, fetchImpl = globa
   };
 }
 
-module.exports = { PIPELINE_VERSION, createImportService };
+module.exports = { PIPELINE_VERSION, createImportService, inferScopeStatus };

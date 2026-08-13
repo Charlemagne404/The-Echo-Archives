@@ -48,7 +48,7 @@ export function renderHomeErrorState(elements, createErrorSurface, { preserveExi
   if (preserveExistingContent) {
     delete elements.archiveGrid.dataset.loading;
     elements.resultsSummary.textContent = "Showing the build snapshot. Search and filters could not load right now.";
-    elements.noResultsMsg.hidden = true;
+    elements.noResultsMount.replaceChildren();
     elements.activeBrowseState.hidden = true;
     setBrowseControlsDisabled(elements, true);
     return;

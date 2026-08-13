@@ -22,19 +22,24 @@ const HERO_LINK_LABELS = {
 
 const HERO_LINK_ORDER = ["start", "website", "apple", "spotify", "rss"];
 
-export function renderDetailHero(show) {
+export function renderDetailHero(show, reviewData = {}) {
   const coverSource = getResponsiveImageSource(show, "(max-width: 959px) 84vw, 320px");
   const coverBackground = getPreferredCoverSource(show, 640);
   const archiveRating = normalizeArchiveRating(show.finalRating);
   const hasArchiveRating = archiveRating !== null;
   const archiveRatingValue = hasArchiveRating ? `${formatRating(archiveRating)}/10` : "Unrated";
-  const archiveRatingNote = hasArchiveRating ? "Echo score" : "No archive rating yet";
+  const archiveRatingNote = hasArchiveRating
+    ? "Echo score"
+    : show.reviewStatus === "imported" ? "No archive score · not individually reviewed" : "No archive rating yet";
+  const listenerReviewScore = getListenerReviewScore(reviewData?.listenerReviewScore);
   const statusChips = [];
   if (archiveRating !== null && archiveRating >= 9) {
     statusChips.push('<span class="detail-status-chip is-accent">Top rated</span>');
   }
   if (show.reviewStatus === "full-review") {
     statusChips.push('<span class="detail-status-chip">Full review</span>');
+  } else if (show.reviewStatus === "imported") {
+    statusChips.push('<span class="detail-status-chip is-imported">Imported</span>');
   } else if (show.reviewStatus) {
     statusChips.push(`<span class="detail-status-chip">${escapeHtml(toDisplayTag(show.reviewStatus))}</span>`);
   }
@@ -63,7 +68,8 @@ export function renderDetailHero(show) {
 
             <div class="detail-decision-console" aria-label="Quick listening decision">
               <div class="detail-score-cluster">
-                ${renderHeroScoreCard("Archive rating", archiveRatingValue, archiveRatingNote, "archive")}
+                ${hasArchiveRating ? renderHeroScoreCard("Archive Rating", archiveRatingValue, archiveRatingNote, "archive") : ""}
+                ${renderHeroScoreCard("Listener Review Score", listenerReviewScore.value, listenerReviewScore.note, "listener")}
               </div>
 
               <div class="detail-meta-grid">
@@ -108,6 +114,18 @@ export function renderDetailHero(show) {
       ${renderBestForStrip(show)}
     </section>
   `;
+}
+
+function getListenerReviewScore(summary = {}) {
+  const reviewCount = Number(summary?.reviewCount);
+  const averageRating = Number(summary?.averageRating);
+  if (!Number.isInteger(reviewCount) || reviewCount < 1 || !Number.isFinite(averageRating) || averageRating < 0 || averageRating > 10) {
+    return { value: "--/10", note: "No published listener reviews yet" };
+  }
+  return {
+    value: `${averageRating.toFixed(1)}/10`,
+    note: `from ${reviewCount} ${reviewCount === 1 ? "review" : "reviews"}`,
+  };
 }
 
 function renderDetailBreadcrumbs(show) {

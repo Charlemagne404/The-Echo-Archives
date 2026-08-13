@@ -10,7 +10,7 @@ const {
   buildShowStructuredData,
 } = require("../lib/public-page-render");
 const { buildSitemapEntries } = require("../lib/sitemap");
-const { buildCollectionPath, buildShowPath, buildShowSeoTitle, isIndexableCollection } = require("../lib/seo");
+const { buildCollectionPath, buildShowPath, buildShowSeoDescription, buildShowSeoTitle, isIndexableCollection } = require("../lib/seo");
 
 const siteRoot = path.resolve(__dirname, "../..");
 const siteUrl = "https://seo.example.test";
@@ -33,6 +33,30 @@ test("show titles only promise reviews or recommendations backed by public conte
     buildShowSeoTitle({ title: "Sparse", reviewStatus: "full-review", similarTo: ["neighbor"], similarReasons: {} }),
     "Sparse — Episodes, Links & Details | The Echo Archives",
   );
+});
+
+test("Imported show SEO stays factual and structured data omits editorial rating claims", () => {
+  const show = {
+    id: "source-checked",
+    title: "Source Checked",
+    description: "An official publisher description for a serialized science-fiction audio drama.",
+    cover: "images/Logo.png",
+    coverAlt: "Source Checked cover art",
+    reviewStatus: "imported",
+    genres: ["sci-fi"],
+    creators: ["Publisher Studio"],
+    languages: ["English"],
+    listenLinks: { rss: "https://example.com/feed.xml" },
+  };
+  const description = buildShowSeoDescription(show);
+  const structuredData = buildShowStructuredData({ siteUrl, show });
+  const podcast = graphNode(structuredData, "PodcastSeries");
+
+  assert.equal(buildShowSeoTitle(show), "Source Checked — Episodes, Links & Details | The Echo Archives");
+  assert.match(description, /official listening links and factual episode details/i);
+  assert.doesNotMatch(description, /review|rating|verdict/i);
+  assert.equal(podcast.aggregateRating, undefined);
+  assert.equal(podcast.review, undefined);
 });
 
 test("every published show has unique canonical metadata and connected JSON-LD", async () => {

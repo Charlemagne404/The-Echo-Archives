@@ -1,5 +1,12 @@
 # The Echo Archives Market Research and Launch Strategy Report
 
+> Historical strategy research. The catalog counts, launch date, and launch
+> recommendations in this report reflect its original research snapshot and
+> are not the current repository status. For current counts, gaps, and release
+> status, use [`docs/CURRENT_STATE.md`](CURRENT_STATE.md),
+> [`docs/generated/catalog-status.md`](generated/catalog-status.md), and
+> [`docs/ROADMAP.md`](ROADMAP.md).
+
 ## Executive summary
 
 **Blunt verdict:** The Echo Archives is worth launching **only if you treat it as a tightly scoped fiction-audio discovery product, not as a broad podcast platform**. The market problem is real, but narrow. Existing podcast infrastructure is huge, yet fiction-podcast discovery is still fragmented across generic apps, giant search databases, niche directories, newsletters, community threads, and ad hoc creator sites. That fragmentation is the opening. The Echo Archives does not win by being another directory. It wins if it becomes the fastest trustworthy answer to **“what should I listen to next if I liked X, want Y mood, and need Z format or completion status?”** citeturn17view0turn16view0turn16view2turn26view0turn28view0
@@ -216,4 +223,3 @@ A ranked action list, optimized for impact per hour as a solo founder, is below.
 | 8 | Start factual creator-verification outreach on already-listed shows | Improves metadata and can earn low-pressure shares | Low-Medium | High | Pre-launch |
 | 9 | Soft launch into r/audiodrama and adjacent communities with useful pages, not a generic promo post | Cheapest path to first real users and feedback | Low | Medium-High | Launch |
 | 10 | Add a simple supporter page/Patreon only after early traction | Preserves trust while giving a break-even path | Low | Medium | Post-launch |
-

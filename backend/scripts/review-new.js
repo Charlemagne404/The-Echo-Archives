@@ -27,7 +27,7 @@ async function main() {
 
   writeReviewFile(siteRoot, showId, createReviewPayloadFromShow(show));
 
-  if (show.reviewStatus === "indexed-only") {
+  if (["indexed-only", "imported"].includes(show.reviewStatus)) {
     show.reviewStatus = "planned";
   }
   show.updatedAt = todayStamp();

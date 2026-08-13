@@ -19,7 +19,7 @@
     "spotify": "",
     "apple": "",
     "website": "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
-    "rss": ""
+    "rss": "https://rss.art19.com/impact-winter"
   },
   "genres": [
     "sci-fi",
@@ -128,7 +128,7 @@
   "availability": {
     "transcripts": "unknown",
     "captions": "n/a",
-    "regionNotes": "Audible is the canonical current listing; no public publisher RSS feed was located during the 2026-07-18 audit."
+    "regionNotes": "Audible is the canonical current listing; ART19 provides the current public RSS feed."
   },
   "content": {
     "sourceMaterial": "original fiction",
@@ -141,10 +141,11 @@
       "https://www.audible.com/podcast/Impact-Winter/B09PSLLWFG",
       "https://podcasts.apple.com/us/podcast/impact-winter/id1605294203",
       "https://www.audible.com/pd/Impact-Winter-Season-3-Audiobook/B0D6GQWSBK",
+      "https://art19.com/shows/impact-winter",
       "https://www.audible.com/about/newsroom/announcing-the-premiere-date-and-cast-of-audible-original-impact-winter/1000"
     ],
-    "objectiveNote": "Audible/Apple listings identify official distribution and Travis Beacham/Audible context. Existing opinion review text is preserved.",
-    "objectiveVerifiedAt": "2026-07-18",
+    "objectiveNote": "Audible/Apple listings and the ART19 show page identify official distribution; the ART19 feed is the current verified RSS source. Existing opinion review text is preserved.",
+    "objectiveVerifiedAt": "2026-08-14",
     "reviewFile": "reviews/impact-winter.json",
     "researchGaps": [
       "future season status beyond Season 3"

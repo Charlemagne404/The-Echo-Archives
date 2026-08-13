@@ -19,7 +19,7 @@ The live catalog snapshot now lives in [`docs/generated/catalog-status.md`](docs
 | Detail routes | Reusable show pages at `/shows/<show-id>` and collection pages at `/collections/<collection-id>` |
 | Community layer | Anonymous ratings, moderated submissions, corrections, listener reviews, and creator verification intake |
 | Assistant | Ask the Archivist with catalog-grounded chat and site-help responses |
-| Maintainer tools | Passphrase-gated submission queue and report pages |
+| Maintainer tools | Passphrase-gated submission queue, catalog-import queue, report pages, and explicit publication/promotion controls |
 | Delivery model | Generated static pages at repo root, authored sources in `site-src/`, shared runtime in `shared/`, backend in `backend/` |
 
 The current public page set includes:
@@ -29,6 +29,7 @@ The current public page set includes:
 - `/for-creators`
 - `/creator-standards`
 - `/supporters`
+- `/help-center`
 - `/collections`
 - `/collections/<collection-id>`
 - `/shows/<show-id>`
@@ -109,22 +110,28 @@ Useful backend commands:
 | `npm --prefix backend run review:new -- <show-id>` | Scaffolds a review companion and moves a show to `planned` |
 | `npm --prefix backend run review:publish -- <show-id>` | Publishes a completed review companion and promotes the show to `full-review` |
 | `npm --prefix backend run review:report` | Audits review coverage and metadata gaps |
+| `npm --prefix backend run import:seed -- --file <path>` | Adds titles or source URLs to the protected import queue |
+| `npm --prefix backend run import:report` | Reports import readiness, blockers, and publication gaps |
+| `npm --prefix backend run import:publish -- <candidate-id> --tier <imported\|indexed-only>` | Explicitly publishes an eligible factual record |
+| `npm --prefix backend run import:promote -- <candidate-id> --reviewer <name>` | Records factual review and promotes an Imported entry to `indexed-only` |
 
 ## Documentation
 
 Active docs:
 
 - [`docs/PRODUCT.md`](docs/PRODUCT.md)
+- [`docs/CURRENT_STATE.md`](docs/CURRENT_STATE.md)
 - [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 - [`docs/OPERATIONS.md`](docs/OPERATIONS.md)
+- [`docs/IMPORTER.md`](docs/IMPORTER.md)
 - [`docs/SEO.md`](docs/SEO.md)
+- [`docs/TAG_TAXONOMY.md`](docs/TAG_TAXONOMY.md)
 - [`data/schema.md`](data/schema.md)
 - [`backend/README.md`](backend/README.md)
 
 Working project notes:
 
-- [`HANDOFF.md`](HANDOFF.md)
 - [`MEMORY.md`](MEMORY.md)
 - [`TODO.md`](TODO.md)
 

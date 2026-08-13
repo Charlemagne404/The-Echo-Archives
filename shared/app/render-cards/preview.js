@@ -2,7 +2,7 @@ import { HOME_CARD_PREVIEW_ID_PREFIX } from "../constants.js";
 import { configureShowImageElement } from "../images.js";
 import { setHighlightedText, toDisplayTag } from "../utils.js";
 import { createEditorialBadges } from "./badges.js";
-import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
+import { createCommunityScoreElement, createPrimaryScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { formatInlineTagList } from "./shared.js";
 
 export function createShowCard(show, { previewMode = "", archiveScoreOptions = {} } = {}) {
@@ -61,7 +61,7 @@ function createShowCardPrimary(show, { isPreviewTrigger = false, previewId = "",
   rating.className = "rating";
 
   rating.append(
-    createArchiveScoreElement(show, { showLabel: false, ...archiveScoreOptions }),
+    createPrimaryScoreElement(show, { showLabel: false, ...archiveScoreOptions }),
     createRatingDividerElement(),
     createCommunityScoreElement(show, { showLabel: false }),
   );
@@ -203,7 +203,7 @@ function createHomeCardPreviewPanel(show, previewId) {
   const ratings = document.createElement("div");
   ratings.className = "home-card-preview-ratings";
   ratings.append(
-    createArchiveScoreElement(show),
+    createPrimaryScoreElement(show),
     createRatingDividerElement(),
     createCommunityScoreElement(show),
   );

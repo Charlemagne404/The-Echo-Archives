@@ -1,6 +1,6 @@
 # Catalog Status
 
-Latest catalog update: `2026-08-03`
+Latest catalog update: `2026-08-14`
 
 ## Snapshot
 
@@ -12,13 +12,14 @@ Latest catalog update: `2026-08-03`
 | Full reviews | 7 |
 | Spotlight reviews | 0 |
 | Indexed-only shows | 122 |
+| Imported shows | 0 |
 | Planned reviews | 0 |
 | Collections | 29 |
 | Review companions | 7 |
 | Creator-verified shows | 0 |
 | Shows with RSS | 126 |
 | Shows missing metadata.objectiveSources | 0 |
-| Shows with metadata.researchGaps | 10 |
+| Shows with metadata.researchGaps | 13 |
 
 ## Discovery Gaps
 
@@ -33,4 +34,15 @@ Latest catalog update: `2026-08-03`
 - Creators: 0
 - Networks: 0
 - Changelog entries: 0
+
+## Phase 2 Readiness (Gate B)
+
+- Status: `complete`
+- Numeric targets: 129 published shows (floor 129), 7 full reviews (floor 7), 29 collections (floor 29)
+- Factual metadata gaps: 0 core, 0 missing provenance, 0 actionable RSS, 0 missing detailed runtime
+- Explicit unknowns/research gaps: 13 records; 3 missing RSS and 2 runtime gaps are documented rather than hidden
+- Editorial/recommendation gaps: 0; collection blockers: 0
+- Taxonomy: 165 controlled labels; unknown/deprecated public tags: 0
+- Sparse indexed-only discovery gaps are informational: 59 sparse records; 59 have fewer than two collections, 59 have no editorial similarity set, and 0 contain unsupported editorial claims
+- Phase 2 blocking errors: 0
 

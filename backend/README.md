@@ -79,7 +79,7 @@ Protected maintainer submission workflow routes:
 
 The maintainer queue is passphrase-gated, reads from the same SQLite submission store as public intake, and lets you update `status`, `priority`, `review_notes`, and `reviewed_by` without opening the database directly.
 
-The import lane is a separate internal queue for machine-found shows. It stores candidate records, source snapshots, duplicate matches, provenance, and optional AI suggestions in SQLite, then writes approved entries into `../catalog-src/shows/` as `status: "draft"` before regenerating runtime output. Nothing public auto-publishes.
+The import lane is a separate internal queue for machine-found shows. It stores candidate records, source snapshots, duplicate matches, provenance, factual-review revisions, and optional AI suggestions in SQLite, then atomically writes explicitly approved records into `../catalog-src/shows/` and regenerates runtime output. Nothing public auto-publishes.
 
 Useful maintainer commands:
 
@@ -92,14 +92,22 @@ npm run import:seed -- --file ./tmp/import-list.txt
 npm run import:hydrate -- --candidate <candidate-id>
 npm run import:report
 npm run import:draft -- --candidate <candidate-id>
-npm run import:publish -- --candidate <candidate-id>
+npm run import:publish -- <candidate-id> --tier imported
+npm run import:promote -- <candidate-id> --reviewer "Maintainer name"
+npm run import:audit
+npm run import:benchmark
+npm run import:discover -- --all
 ```
 
-- `review:new` creates a review companion file and moves `indexed-only` shows to `planned`
+- `review:new` creates a review companion file and moves `imported` or `indexed-only` shows to `planned`
 - `review:publish` validates the companion review file and promotes the show to `full-review`
 - `review:report` prints a published-show audit for review coverage and metadata gaps
 - `import:seed` creates internal candidates from pasted titles, Apple URLs, RSS URLs, or mixed newline lists
 - `import:hydrate` fetches objective metadata snapshots from Apple, RSS, Podcast Index, and website sources when available
 - `import:report` prints current import queue and gap state
-- `import:draft` writes an approved candidate into the authored show source as a hidden `draft`
-- `import:publish` promotes a fully reviewed draft show to `published` after normal validation succeeds
+- `import:draft` is a compatibility alias for preparing the SQLite candidate record
+- `import:publish` requires an explicit `imported` or `indexed-only` tier; indexed-only also requires a current factual review
+- `import:promote` records a factual review and promotes a published Imported entry to indexed-only
+- `import:audit` queues safe refresh candidates for the current catalog without changing it
+- `import:benchmark` exercises the importer against temporary synthetic workload
+- `import:discover` runs enabled discovery sources and only creates internal candidates

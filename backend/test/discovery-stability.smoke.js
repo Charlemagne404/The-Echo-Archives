@@ -101,12 +101,12 @@ test("home browse keeps shareable state, restores scroll, highlights typo-tolera
     const homeSurfaceState = await page.evaluate(() => ({
       creatorSpotlightExists: Boolean(document.getElementById("homeCreatorSpotlight")),
       recentlyAddedHidden: document.getElementById("recentlyAdded")?.hidden ?? false,
-      recentlyAddedEmptyHidden: document.getElementById("recentlyAddedEmptyState")?.hidden ?? false,
+      recentlyAddedCardCount: document.querySelectorAll("#recentlyAddedGrid .podcast-card-shell").length,
       skeletonCount: document.querySelectorAll("#podcast-grid .archive-skeleton-card").length,
     }));
     assert.equal(homeSurfaceState.creatorSpotlightExists, false);
-    assert.equal(homeSurfaceState.recentlyAddedHidden, true);
-    assert.equal(homeSurfaceState.recentlyAddedEmptyHidden, true);
+    assert.equal(homeSurfaceState.recentlyAddedHidden, false);
+    assert.ok(homeSurfaceState.recentlyAddedCardCount > 0);
     assert.equal(homeSurfaceState.skeletonCount, 0);
 
     await page.waitForFunction(
@@ -218,26 +218,15 @@ test("browse empty states match their results on desktop and mobile", async () =
 
       const initialState = await page.evaluate(() => {
         const noResults = document.getElementById("noResultsMsg");
-        const recentlyAddedEmpty = document.getElementById("recentlyAddedEmptyState");
         return {
           resultCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
-          noResultsHidden: noResults?.hidden ?? false,
-          noResultsDisplay: noResults ? window.getComputedStyle(noResults).display : "",
-          noResultsHeight: noResults?.getBoundingClientRect().height || 0,
-          recentlyAddedEmptyHidden: recentlyAddedEmpty?.hidden ?? false,
-          recentlyAddedEmptyDisplay: recentlyAddedEmpty ? window.getComputedStyle(recentlyAddedEmpty).display : "",
+          noResultsExists: Boolean(noResults),
+          noResultsMountChildCount: document.getElementById("noResultsMount")?.childElementCount ?? -1,
         };
       });
       assert.ok(initialState.resultCount > 0, `${viewport.label}: initial browse should contain shows`);
-      assert.equal(initialState.noResultsHidden, true, `${viewport.label}: initial no-results state should be hidden`);
-      assert.equal(initialState.noResultsDisplay, "none", `${viewport.label}: hidden no-results state should not render`);
-      assert.equal(initialState.noResultsHeight, 0, `${viewport.label}: hidden no-results state should not occupy space`);
-      assert.equal(initialState.recentlyAddedEmptyHidden, true, `${viewport.label}: recently-added empty state should remain hidden`);
-      assert.equal(
-        initialState.recentlyAddedEmptyDisplay,
-        "none",
-        `${viewport.label}: hidden recently-added empty state should not render`,
-      );
+      assert.equal(initialState.noResultsExists, false, `${viewport.label}: initial no-results state should not be mounted`);
+      assert.equal(initialState.noResultsMountChildCount, 0, `${viewport.label}: inactive no-results mount should be empty`);
 
       await page.locator("#search").fill("space station");
       await page.waitForFunction(
@@ -251,15 +240,13 @@ test("browse empty states match their results on desktop and mobile", async () =
         const noResults = document.getElementById("noResultsMsg");
         return {
           resultCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
-          noResultsHidden: noResults?.hidden ?? false,
-          noResultsDisplay: noResults ? window.getComputedStyle(noResults).display : "",
-          noResultsHeight: noResults?.getBoundingClientRect().height || 0,
+          noResultsExists: Boolean(noResults),
+          noResultsMountChildCount: document.getElementById("noResultsMount")?.childElementCount ?? -1,
         };
       });
       assert.ok(matchingState.resultCount > 0, `${viewport.label}: "space station" should return shows`);
-      assert.equal(matchingState.noResultsHidden, true, `${viewport.label}: matching search should hide no-results state`);
-      assert.equal(matchingState.noResultsDisplay, "none", `${viewport.label}: matching search should not render no-results state`);
-      assert.equal(matchingState.noResultsHeight, 0, `${viewport.label}: matching search should not reserve no-results space`);
+      assert.equal(matchingState.noResultsExists, false, `${viewport.label}: matching search should unmount no-results state`);
+      assert.equal(matchingState.noResultsMountChildCount, 0, `${viewport.label}: matching search should leave an empty mount`);
 
       await page.locator("#search").fill("no-such-echo-archive-show-9f65d2");
       await page.waitForFunction(
@@ -293,15 +280,13 @@ test("browse empty states match their results on desktop and mobile", async () =
         const noResults = document.getElementById("noResultsMsg");
         return {
           resultCount: document.querySelectorAll("#podcast-grid .podcast-card-shell").length,
-          hidden: noResults?.hidden ?? false,
-          display: noResults ? window.getComputedStyle(noResults).display : "",
-          height: noResults?.getBoundingClientRect().height || 0,
+          noResultsExists: Boolean(noResults),
+          noResultsMountChildCount: document.getElementById("noResultsMount")?.childElementCount ?? -1,
         };
       });
       assert.ok(clearedState.resultCount > 0, `${viewport.label}: clearing should restore shows`);
-      assert.equal(clearedState.hidden, true, `${viewport.label}: clearing should hide no-results state`);
-      assert.equal(clearedState.display, "none", `${viewport.label}: cleared no-results state should not render`);
-      assert.equal(clearedState.height, 0, `${viewport.label}: cleared no-results state should not occupy space`);
+      assert.equal(clearedState.noResultsExists, false, `${viewport.label}: clearing should unmount no-results state`);
+      assert.equal(clearedState.noResultsMountChildCount, 0, `${viewport.label}: clearing should leave an empty mount`);
 
       await page.goto(`${baseUrl}/collections`, { waitUntil: "networkidle" });
       await page.waitForFunction(() => document.querySelectorAll("#collectionsDirectory .collections-directory-card").length > 0);

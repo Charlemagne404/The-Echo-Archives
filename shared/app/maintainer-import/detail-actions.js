@@ -20,7 +20,10 @@ export function bindImportCandidateActions({
       if (!(button instanceof HTMLButtonElement)) return;
       const action = button.dataset.importAction || "";
       const confirmationCopy = {
-        publish: "Publish this prepared catalog record?",
+        "publish-imported": "Publish this source-checked record as Imported?",
+        "publish-indexed": "Publish this fact-reviewed record as indexed-only?",
+        "facts-review": "Confirm that you reviewed this candidate's identity, description, links, artwork, discovery metadata, lifecycle claims, and remaining gaps?",
+        promote: "Promote this Imported entry to indexed-only?",
         reject: "Reject this import candidate?",
         duplicate: "Mark this import candidate as a duplicate?",
       }[action];
@@ -39,7 +42,10 @@ export function bindImportCandidateActions({
             else if (action === "draft") actionResult = await api.draft(candidateId, { reviewedBy: payload.reviewedBy });
             else if (action === "retry") actionResult = await api.retry(candidateId, { reviewedBy: payload.reviewedBy });
             else if (action === "reopen") actionResult = await api.reopen(candidateId, { reviewedBy: payload.reviewedBy });
-            else if (action === "publish") await api.publish(candidateId, { reviewedBy: payload.reviewedBy });
+            else if (action === "publish-imported") await api.publish(candidateId, { reviewedBy: payload.reviewedBy, publicationTier: "imported" });
+            else if (action === "publish-indexed") await api.publish(candidateId, { reviewedBy: payload.reviewedBy, publicationTier: "indexed-only" });
+            else if (action === "facts-review") await api.factualReview(candidateId, { reviewedBy: payload.reviewedBy });
+            else if (action === "promote") await api.promote(candidateId, { reviewedBy: payload.reviewedBy });
             else if (action === "reject") await api.review(candidateId, { ...payload, status: "rejected" });
             else if (action === "duplicate") await api.review(candidateId, { ...payload, status: "duplicate" });
             if (actionResult?.runId) await waitForRun(actionResult.runId);

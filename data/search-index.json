@@ -1319,7 +1319,7 @@
     "availability": {
       "transcripts": "unknown",
       "captions": "n/a",
-      "regionNotes": "Audible is the canonical current listing; no public publisher RSS feed was located during the 2026-07-18 audit."
+      "regionNotes": "Audible is the canonical current listing; ART19 provides the current public RSS feed."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -4538,7 +4538,7 @@
     "availability": {
       "transcripts": "not verified",
       "captions": "not applicable",
-      "regionNotes": "Official availability is platform-based; no public RSS feed was added without a verified publisher URL."
+      "regionNotes": "Official availability is platform-based; the current Megaphone feed is retained as a verified public RSS source."
     },
     "content": {
       "sourceMaterial": "original fiction",
@@ -4549,7 +4549,7 @@
     "ratings": {},
     "popularity": {},
     "createdAt": "2026-06-30",
-    "updatedAt": "2026-07-18"
+    "updatedAt": "2026-08-14"
   },
   {
     "id": "welcome-to-night-vale",
@@ -11537,7 +11537,7 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-03",
-    "updatedAt": "2026-08-03"
+    "updatedAt": "2026-08-14"
   },
   {
     "id": "the-invenios-expeditions",
@@ -11617,6 +11617,6 @@
     "popularity": {},
     "featured": false,
     "createdAt": "2026-08-03",
-    "updatedAt": "2026-08-03"
+    "updatedAt": "2026-08-14"
   }
 ]

@@ -23,8 +23,8 @@
 <meta name="theme-color" content="#06080b" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 
-<link rel="stylesheet" href="/style.css?v=3ead1522de" />
-<link rel="stylesheet" href="/home.css?v=adecd6fee4" />
+<link rel="stylesheet" href="/style.css?v=4b2bfbc0f8" />
+<link rel="stylesheet" href="/home.css?v=2dc0e46bb3" />
 <link rel="stylesheet" href="/collections.css?v=90f7e715c5" />
 <link rel="stylesheet" href="/public-heroes.css?v=fe0218257a" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -33,7 +33,7 @@
 <link rel="preload" as="image" href="/images/hero-archive-dish.webp" type="image/webp" fetchpriority="high" />
 <script id="pageStructuredData" type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://echoarchives.net/#website","name":"The Echo Archives","alternateName":"The Echo Archives — Audio Drama Discovery","url":"https://echoarchives.net/","description":"Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.","about":[{"@type":"Thing","name":"Audio drama discovery"},{"@type":"Thing","name":"Fiction podcast recommendations"},{"@type":"Thing","name":"Audio drama reviews"}],"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://echoarchives.net/?q={search_term_string}#archive"},"query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://echoarchives.net/#webpage","url":"https://echoarchives.net/","name":"The Echo Archives — Audio Drama Discovery","description":"Human-curated audio drama discovery with fiction podcast recommendations, reviews, listening collections, and similar-show routes.","isPartOf":{"@id":"https://echoarchives.net/#website"}}]}</script>
 </head>
-<body class="home-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="545d2b980b" data-collections-version="4cbf26bf12" data-search-index-version="4b0e890d04">
+<body class="home-page" data-site-url="https://echoarchives.net" data-chat-stylesheet="/chat.css?v=42108e0bb0" data-home-card-hover-expand-enabled="false" data-shows-version="23677d5628" data-collections-version="4cbf26bf12" data-search-index-version="234ed24a36">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="site-header">
@@ -238,7 +238,7 @@
           <p class="archive-trust-item"><strong id="homeShowCount">129</strong> <span>shows indexed</span></p>
           <p class="archive-trust-item"><strong id="homeReviewCount">7</strong> <span>reviews</span></p>
           <p class="archive-trust-item"><strong id="homeCollectionCount">29</strong> <span>collections</span></p>
-          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">Aug 3</strong></p>
+          <p class="archive-trust-item"><span>Updated</span> <strong id="homeLastUpdated">Aug 14</strong></p>
         </section>
       </div>
     </section>
@@ -249,25 +249,18 @@
           <h2>Browse the archive</h2>
         </div>
         <div class="results-heading-meta">
-          <p class="results-rating-note" aria-label="Rating legend">
-            <span class="results-rating-note-item">
-              <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-              <span>= archive rating</span>
-            </span>
-            <span class="results-rating-note-separator" aria-hidden="true">,</span>
-            <span class="results-rating-note-item">
-              <svg viewBox="0 0 28 24" aria-hidden="true" focusable="false">
-                <rect x="1.5" y="9" width="2.5" height="6" rx="1.25" />
-                <rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" />
-                <rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" />
-                <rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" />
-                <rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" />
-                <rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" />
-              </svg>
-              <span>= community rating</span>
-            </span>
-          </p>
           <p id="resultsSummary" class="results-summary">129 results • 7 full reviews</p>
+          <div class="rating-guide">
+            <button class="rating-guide-trigger" type="button" aria-label="What do the ratings mean?" aria-describedby="ratingGuideTooltip">?</button>
+            <div class="rating-guide-tooltip" id="ratingGuideTooltip" role="tooltip">
+              <p class="rating-guide-title">Ratings</p>
+              <ul class="rating-guide-list">
+                <li><span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span><span><strong>Archive Rating</strong> The Echo Archives’ editorial assessment.</span></li>
+                <li><svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg><span><strong>Listener Review Score</strong> Average from written listener reviews.</span></li>
+                <li><svg class="community-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><rect x="1.5" y="9" width="2.5" height="6" rx="1.25" /><rect x="5.75" y="6.5" width="2.5" height="11" rx="1.25" /><rect x="10" y="2.75" width="2.5" height="18.5" rx="1.25" /><rect x="14.25" y="7.75" width="2.5" height="8.5" rx="1.25" /><rect x="18.5" y="1.5" width="2.5" height="21" rx="1.25" /><rect x="22.75" y="6.5" width="2.5" height="11" rx="1.25" /></svg><span><strong>Community Rating</strong> Quick ratings from the wider community.</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1290,10 +1283,10 @@
         <h2 data-card-title="true">The Bright Sessions</h2>
         <p class="tags" data-card-meta="true">Therapy • Superpowers</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-bright-sessions" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1321,10 +1314,10 @@
         <h2 data-card-title="true">Wooden Overcoats</h2>
         <p class="tags" data-card-meta="true">Sitcom • Small Town</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="wooden-overcoats" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1352,10 +1345,10 @@
         <h2 data-card-title="true">Alice Isn&#39;t Dead</h2>
         <p class="tags" data-card-meta="true">Horror • Road Trip</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="alice-isnt-dead" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1383,10 +1376,10 @@
         <h2 data-card-title="true">Mirrors</h2>
         <p class="tags" data-card-meta="true">Horror • Ghosts</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="mirrors" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1414,10 +1407,10 @@
         <h2 data-card-title="true">Unwell</h2>
         <p class="tags" data-card-meta="true">Gothic • Small Town</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="unwell" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1445,10 +1438,10 @@
         <h2 data-card-title="true">Midst</h2>
         <p class="tags" data-card-meta="true">Science Fantasy • Space</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="midst" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1476,10 +1469,10 @@
         <h2 data-card-title="true">The Program audio series</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Dystopian</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-program-audio-series" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1507,10 +1500,10 @@
         <h2 data-card-title="true">Malevolent</h2>
         <p class="tags" data-card-meta="true">Cosmic Horror • Amnesia</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="malevolent" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1538,10 +1531,10 @@
         <h2 data-card-title="true">Case 63</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Time Travel</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="case-63" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1569,10 +1562,10 @@
         <h2 data-card-title="true">Borrasca</h2>
         <p class="tags" data-card-meta="true">Horror • Thriller</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="borrasca" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1600,10 +1593,10 @@
         <h2 data-card-title="true">Mabel</h2>
         <p class="tags" data-card-meta="true">Horror • Ghosts</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="mabel" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1631,10 +1624,10 @@
         <h2 data-card-title="true">Archive 81</h2>
         <p class="tags" data-card-meta="true">Found Media • Archival Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="archive-81" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1662,10 +1655,10 @@
         <h2 data-card-title="true">Homecoming</h2>
         <p class="tags" data-card-meta="true">Psychological • Thriller</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="homecoming" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1693,10 +1686,10 @@
         <h2 data-card-title="true">Welcome to Night Vale</h2>
         <p class="tags" data-card-meta="true">Weird Fiction • Community Radio</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="welcome-to-night-vale" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1724,10 +1717,10 @@
         <h2 data-card-title="true">Marsfall</h2>
         <p class="tags" data-card-meta="true">Mars Colony • Survival</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="marsfall" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1755,10 +1748,10 @@
         <h2 data-card-title="true">The Strange Case of Starship Iris</h2>
         <p class="tags" data-card-meta="true">Space Opera • Found Family</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-strange-case-of-starship-iris" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1786,10 +1779,10 @@
         <h2 data-card-title="true">The Amelia Project</h2>
         <p class="tags" data-card-meta="true">Black Comedy • Secret Agency</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-amelia-project" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1817,10 +1810,10 @@
         <h2 data-card-title="true">Victoriocity</h2>
         <p class="tags" data-card-meta="true">Detective • Comedy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="victoriocity" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1848,10 +1841,10 @@
         <h2 data-card-title="true">StarTripper!!</h2>
         <p class="tags" data-card-meta="true">Road Trip • Space Travel</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="startripper" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1879,10 +1872,10 @@
         <h2 data-card-title="true">The Lovecraft Investigations</h2>
         <p class="tags" data-card-meta="true">Cosmic Horror • Investigation</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-lovecraft-investigations" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1910,10 +1903,10 @@
         <h2 data-card-title="true">Video Palace</h2>
         <p class="tags" data-card-meta="true">Found Media • Occult</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="video-palace" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1941,10 +1934,10 @@
         <h2 data-card-title="true">Limetown</h2>
         <p class="tags" data-card-meta="true">Missing Town • Conspiracy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="limetown" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -1972,10 +1965,10 @@
         <h2 data-card-title="true">The Black Tapes</h2>
         <p class="tags" data-card-meta="true">Horror • Paranormal</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-black-tapes" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2003,10 +1996,10 @@
         <h2 data-card-title="true">Girl in Space</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Space</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="girl-in-space" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2034,10 +2027,10 @@
         <h2 data-card-title="true">Mockery Manor</h2>
         <p class="tags" data-card-meta="true">Murder • Mystery</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="mockery-manor" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2065,10 +2058,10 @@
         <h2 data-card-title="true">Forest 404</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Climate</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="forest-404" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2096,10 +2089,10 @@
         <h2 data-card-title="true">Greater Boston</h2>
         <p class="tags" data-card-meta="true">Ensemble • Magical Realism</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="greater-boston" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2127,10 +2120,10 @@
         <h2 data-card-title="true">Tumanbay</h2>
         <p class="tags" data-card-meta="true">Historical • Political Intrigue</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="tumanbay" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2158,10 +2151,10 @@
         <h2 data-card-title="true">Janus Descending</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="janus-descending" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2189,10 +2182,10 @@
         <h2 data-card-title="true">Spines</h2>
         <p class="tags" data-card-meta="true">Horror • Supernatural</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="spines-podcast" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2220,10 +2213,10 @@
         <h2 data-card-title="true">Caravan</h2>
         <p class="tags" data-card-meta="true">Portal Worlds • Fantasy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="caravan" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2251,10 +2244,10 @@
         <h2 data-card-title="true">Oblivity</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Workplace</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="oblivity" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2282,10 +2275,10 @@
         <h2 data-card-title="true">The Once and Future Nerd</h2>
         <p class="tags" data-card-meta="true">Fantasy • Portal Worlds</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-once-and-future-nerd" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2313,10 +2306,10 @@
         <h2 data-card-title="true">King Falls AM</h2>
         <p class="tags" data-card-meta="true">Small Town • Paranormal</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="king-falls-am" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2344,10 +2337,10 @@
         <h2 data-card-title="true">Brimstone Valley Mall</h2>
         <p class="tags" data-card-meta="true">Demons • 1990s</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="brimstone-valley-mall" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2375,10 +2368,10 @@
         <h2 data-card-title="true">Midnight Radio</h2>
         <p class="tags" data-card-meta="true">Ghosts • Small Town</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="midnight-radio" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2406,10 +2399,10 @@
         <h2 data-card-title="true">Mission Rejected</h2>
         <p class="tags" data-card-meta="true">Espionage • Comedy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="mission-rejected" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2437,10 +2430,10 @@
         <h2 data-card-title="true">We Fix Space Junk</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Road Trip</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="we-fix-space-junk" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2468,10 +2461,10 @@
         <h2 data-card-title="true">Harbor</h2>
         <p class="tags" data-card-meta="true">Small Town • Cryptids</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="harbor" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2499,10 +2492,10 @@
         <h2 data-card-title="true">Passenger List</h2>
         <p class="tags" data-card-meta="true">Missing Plane • Conspiracy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="passenger-list" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2530,10 +2523,10 @@
         <h2 data-card-title="true">Moonbase Theta, Out</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Space</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="moonbase-theta-out" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2561,10 +2554,10 @@
         <h2 data-card-title="true">Flash Gordon and Buck Rogers Radio Adventurers</h2>
         <p class="tags" data-card-meta="true">Classic Radio • Pulp Adventure</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="flash-gordon-and-buck-rogers-radio-adventurers" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2592,10 +2585,10 @@
         <h2 data-card-title="true">COPPERHEART: A RiggStories Audio Drama</h2>
         <p class="tags" data-card-meta="true">Nuclear Winter • Bunker</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="copperheart-a-riggstories-audio-drama" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2623,10 +2616,10 @@
         <h2 data-card-title="true">The Penumbra Podcast</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Private Investigator</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-penumbra-podcast" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2654,10 +2647,10 @@
         <h2 data-card-title="true">The Silt Verses</h2>
         <p class="tags" data-card-meta="true">Horror • Folk Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-silt-verses" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2685,10 +2678,10 @@
         <h2 data-card-title="true">Old Gods of Appalachia</h2>
         <p class="tags" data-card-meta="true">Horror • Appalachia</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="old-gods-of-appalachia" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2716,10 +2709,10 @@
         <h2 data-card-title="true">The Storage Papers</h2>
         <p class="tags" data-card-meta="true">Found Media • Paranormal</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-storage-papers" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2747,10 +2740,10 @@
         <h2 data-card-title="true">Station Blue</h2>
         <p class="tags" data-card-meta="true">Antarctica • Isolation</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="station-blue" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2778,10 +2771,10 @@
         <h2 data-card-title="true">The Strata</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Cyberpunk</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-strata" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2809,10 +2802,10 @@
         <h2 data-card-title="true">The Call of the Void</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Paranormal</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-call-of-the-void" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2840,10 +2833,10 @@
         <h2 data-card-title="true">The Burned Photo</h2>
         <p class="tags" data-card-meta="true">Supernatural • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-burned-photo" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2871,10 +2864,10 @@
         <h2 data-card-title="true">A Voice From Darkness</h2>
         <p class="tags" data-card-meta="true">Supernatural • Call In Radio</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="a-voice-from-darkness" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2902,10 +2895,10 @@
         <h2 data-card-title="true">The Sheridan Tapes</h2>
         <p class="tags" data-card-meta="true">Found Media • Paranormal</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-sheridan-tapes" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2933,10 +2926,10 @@
         <h2 data-card-title="true">The Mistholme Museum of Mystery, Morbidity, and Mortality</h2>
         <p class="tags" data-card-meta="true">Magical Artifacts</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-mistholme-museum-of-mystery-morbidity-and-mortality" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2964,10 +2957,10 @@
         <h2 data-card-title="true">The Town Whispers</h2>
         <p class="tags" data-card-meta="true">Folk Horror • Eldritch</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-town-whispers" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -2995,10 +2988,10 @@
         <h2 data-card-title="true">The Cellar Letters</h2>
         <p class="tags" data-card-meta="true">Horror • Found Media</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-cellar-letters" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3026,10 +3019,10 @@
         <h2 data-card-title="true">WOE.BEGONE</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Alternate Reality Game</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="woe-begone" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3057,10 +3050,10 @@
         <h2 data-card-title="true">The Milkman of St. Gaff&#39;s</h2>
         <p class="tags" data-card-meta="true">Lovecraftian • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-milkman-of-st-gaffs" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3088,10 +3081,10 @@
         <h2 data-card-title="true">Where the Stars Fell</h2>
         <p class="tags" data-card-meta="true">Angels And Demons • Small Town</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="where-the-stars-fell" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3119,10 +3112,10 @@
         <h2 data-card-title="true">The Pasithea Powder</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Memory Alteration</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-pasithea-powder" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3150,10 +3143,10 @@
         <h2 data-card-title="true">The Antique Shop</h2>
         <p class="tags" data-card-meta="true">Supernatural • Magical Objects</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-antique-shop" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3181,10 +3174,10 @@
         <h2 data-card-title="true">Re: Dracula</h2>
         <p class="tags" data-card-meta="true">Gothic • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="re-dracula" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3212,10 +3205,10 @@
         <h2 data-card-title="true">The Imperfection</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Psychological</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-imperfection" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3243,10 +3236,10 @@
         <h2 data-card-title="true">Fawx &amp; Stallion</h2>
         <p class="tags" data-card-meta="true">Comedy • Mystery</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="fawx-stallion" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3274,10 +3267,10 @@
         <h2 data-card-title="true">Mayfair Watchers Society</h2>
         <p class="tags" data-card-meta="true">Horror • Supernatural</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="mayfair-watchers-society" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3305,10 +3298,10 @@
         <h2 data-card-title="true">Wrong Station</h2>
         <p class="tags" data-card-meta="true">Horror • Weird Fiction</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="wrong-station" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3336,10 +3329,10 @@
         <h2 data-card-title="true">Not Quite Dead</h2>
         <p class="tags" data-card-meta="true">Horror • Romance</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="not-quite-dead" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3367,10 +3360,10 @@
         <h2 data-card-title="true">Hi Nay</h2>
         <p class="tags" data-card-meta="true">Horror • Supernatural</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="hi-nay" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3398,10 +3391,10 @@
         <h2 data-card-title="true">Super Suits</h2>
         <p class="tags" data-card-meta="true">Comedy • Sci Fi</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="super-suits" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3429,10 +3422,10 @@
         <h2 data-card-title="true">Wake Of Corrosion</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="wake-of-corrosion" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3460,10 +3453,10 @@
         <h2 data-card-title="true">The Secret of St Kilda</h2>
         <p class="tags" data-card-meta="true">Supernatural • Island Mystery</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-secret-of-st-kilda" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3491,10 +3484,10 @@
         <h2 data-card-title="true">Death by Dying</h2>
         <p class="tags" data-card-meta="true">Dark Comedy • Murder</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="death-by-dying" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3522,10 +3515,10 @@
         <h2 data-card-title="true">The Wyrd Side</h2>
         <p class="tags" data-card-meta="true">Sci Fi • New Weird</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-wyrd-side" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3553,10 +3546,10 @@
         <h2 data-card-title="true">Syntax</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Biotech</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="syntax" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3584,10 +3577,10 @@
         <h2 data-card-title="true">The Night Post</h2>
         <p class="tags" data-card-meta="true">Supernatural • Frontier</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-night-post" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3615,10 +3608,10 @@
         <h2 data-card-title="true">Observable Radio</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Found Media</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="observable-radio" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3646,10 +3639,10 @@
         <h2 data-card-title="true">October&#39;s Children</h2>
         <p class="tags" data-card-meta="true">Paranormal • Small Town</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="octobers-children" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3677,10 +3670,10 @@
         <h2 data-card-title="true">Knifepoint Horror</h2>
         <p class="tags" data-card-meta="true">Supernatural • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="knifepoint-horror" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3708,10 +3701,10 @@
         <h2 data-card-title="true">The Cryptonaturalist</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Comedy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-cryptonaturalist" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3739,10 +3732,10 @@
         <h2 data-card-title="true">Ghost Wax</h2>
         <p class="tags" data-card-meta="true">Supernatural • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="ghost-wax" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3770,10 +3763,10 @@
         <h2 data-card-title="true">The Grey Rooms</h2>
         <p class="tags" data-card-meta="true">Horror • Afterlife</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-grey-rooms" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3801,10 +3794,10 @@
         <h2 data-card-title="true">TANIS</h2>
         <p class="tags" data-card-meta="true">Mystery • Conspiracy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="tanis" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3832,10 +3825,10 @@
         <h2 data-card-title="true">The Patron Saint of Suicides</h2>
         <p class="tags" data-card-meta="true">Crime • Thriller</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-patron-saint-of-suicides" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3863,10 +3856,10 @@
         <h2 data-card-title="true">Uncanny Valley</h2>
         <p class="tags" data-card-meta="true">Alaska • Psychological</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="uncanny-valley" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3894,10 +3887,10 @@
         <h2 data-card-title="true">The Hyacinth Disaster</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Spacecraft Disaster</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-hyacinth-disaster" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3925,10 +3918,10 @@
         <h2 data-card-title="true">The Edge of Sleep</h2>
         <p class="tags" data-card-meta="true">Survival • Apocalypse</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-edge-of-sleep" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3956,10 +3949,10 @@
         <h2 data-card-title="true">The Left Right Game</h2>
         <p class="tags" data-card-meta="true">Paranormal • Road Trip</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-left-right-game" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -3987,10 +3980,10 @@
         <h2 data-card-title="true">Hello From The Hallowoods</h2>
         <p class="tags" data-card-meta="true">Horror • Fantasy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="hello-from-the-hallowoods" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4018,10 +4011,10 @@
         <h2 data-card-title="true">The Polybius Conspiracy</h2>
         <p class="tags" data-card-meta="true">Video Games • Mystery</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-polybius-conspiracy" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4049,10 +4042,10 @@
         <h2 data-card-title="true">The NoSleep Podcast</h2>
         <p class="tags" data-card-meta="true">Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-nosleep-podcast" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4080,10 +4073,10 @@
         <h2 data-card-title="true">The Orphans</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Survival</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-orphans" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4111,10 +4104,10 @@
         <h2 data-card-title="true">Modes of Thought in Anterran Literature</h2>
         <p class="tags" data-card-meta="true">Mystery • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="modes-of-thought-in-anterran-literature" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4142,10 +4135,10 @@
         <h2 data-card-title="true">The Truth</h2>
         <p class="tags" data-card-meta="true" hidden></p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-truth" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4173,10 +4166,10 @@
         <h2 data-card-title="true">Give Me Away</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Alien Contact</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="give-me-away" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4204,10 +4197,10 @@
         <h2 data-card-title="true">The Far Meridian</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Fantasy</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-far-meridian" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4235,10 +4228,10 @@
         <h2 data-card-title="true">The Leviathan Chronicles</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Thriller</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-leviathan-chronicles" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4266,10 +4259,10 @@
         <h2 data-card-title="true">Bridgewater</h2>
         <p class="tags" data-card-meta="true">Mystery • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="bridgewater" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4297,10 +4290,10 @@
         <h2 data-card-title="true">The Last Movie</h2>
         <p class="tags" data-card-meta="true">Mystery • Horror</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-last-movie" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4328,10 +4321,10 @@
         <h2 data-card-title="true">The Magnus Archives</h2>
         <p class="tags" data-card-meta="true">Horror • Supernatural</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-magnus-archives" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4359,10 +4352,10 @@
         <h2 data-card-title="true">The Magnus Protocol</h2>
         <p class="tags" data-card-meta="true">Horror • Paranormal</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-magnus-protocol" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4390,10 +4383,10 @@
         <h2 data-card-title="true">The Rapscallion Agency</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Cybersecurity</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-rapscallion-agency" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4421,10 +4414,10 @@
         <h2 data-card-title="true">The Invenios Expeditions</h2>
         <p class="tags" data-card-meta="true">Sci Fi • Adventure</p>
         <div class="rating">
-          <div class="archive-inline-score">
+          <div class="listener-review-inline-score" data-podcast-id="the-invenios-expeditions" aria-label="Listener Review Score --/10. No published listener reviews yet.">
       <span class="inline-score-topline">
-        <span class="inline-score-icon archive-score-icon" aria-hidden="true">★</span>
-        <span class="inline-score-value">--/10</span>
+        <svg class="listener-review-score-icon" viewBox="0 0 28 24" aria-hidden="true" focusable="false"><path d="M5.5 3.25h17a3.25 3.25 0 0 1 3.25 3.25v9.25A3.25 3.25 0 0 1 22.5 19H13l-5 3 .9-3H5.5a3.25 3.25 0 0 1-3.25-3.25V6.5A3.25 3.25 0 0 1 5.5 3.25Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.75"/><path d="m14 5.7 1.75 3.55 3.93.57-2.85 2.78.67 3.92L14 14.68l-3.5 1.84.67-3.92-2.85-2.78 3.93-.57L14 5.7Z" fill="currentColor"/></svg>
+        <span class="listener-review-inline-score-value">--/10</span>
       </span>
 
     </div>
@@ -4646,10 +4639,10 @@
   </div>
 </footer>
 
-  <script src="/shared/archive-record.js?v=001e8e99a5"></script>
+  <script src="/shared/archive-record.js?v=ad773d906f"></script>
 
-  <script src="/shared/archive-search.js?v=f9204f6b58"></script>
+  <script src="/shared/archive-search.js?v=52b3694190"></script>
 
-  <script type="module" src="/script.js?v=f3e29a3cc0"></script>
+  <script type="module" src="/script.js?v=b2014df27b"></script>
 </body>
 </html>

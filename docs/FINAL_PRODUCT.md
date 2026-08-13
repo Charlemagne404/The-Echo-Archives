@@ -148,7 +148,7 @@ A mature show page should combine:
 - creator verification notes when factual metadata has been checked
 - a correction path for inaccuracies
 
-A show with only indexed coverage should still feel intentional. A full-review show should feel materially richer, not just cosmetically different.
+An Imported or indexed-only show should still feel intentional. A full-review show should feel materially richer, not just cosmetically different.
 
 ## Final Collections Standard
 
@@ -173,6 +173,7 @@ The final product should make several layers of judgment legible without blendin
 
 Those layers are:
 
+- Imported entry: objective metadata passed strict automated source checks, without individual maintainer review
 - Archive rating: editorial position
 - Archive review: editorial reasoning
 - Community rating: listener response

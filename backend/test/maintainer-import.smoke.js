@@ -43,7 +43,7 @@ function createCandidate(overrides = {}) {
       id: "signal-test",
       title: "Signal Test",
       description: "A factual description supplied by the official feed.",
-      reviewStatus: "indexed-only",
+      reviewStatus: "imported",
       releaseStatus: "active",
       completionStatus: "unclear",
       listenLinks: { rss: "https://example.com/feed.xml" },
@@ -53,6 +53,10 @@ function createCandidate(overrides = {}) {
       blockers: [],
       warnings: ["No structured transcript links were exposed by the feed."],
       updateDiff: [],
+      publicationEligibility: {
+        imported: { eligible: true, blockers: [] },
+        indexedOnly: { eligible: false, blockers: [{ code: "facts-not-reviewed", message: "A current factual review is required." }] },
+      },
     },
     coverStage: {
       ready: true,
@@ -109,7 +113,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     serviceWorkers: "block",
   });
   const page = await context.newPage();
-  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0, lastReviewPayload: null };
+  const calls = { evidence: 0, publish: 0, retry: 0, review: 0, seed: 0, rerunAll: 0, lastReviewPayload: null, lastPublishPayload: null };
   const candidates = [
     createCandidate(),
     createCandidate({
@@ -181,6 +185,7 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
       }
       if (method === "POST" && pathname.endsWith("/publish")) {
         calls.publish += 1;
+        calls.lastPublishPayload = JSON.parse(request.postData() || "{}");
         candidates[0].status = "published";
         candidates[0].publishedShowId = "signal-test";
         return respond({ candidate: candidates[0], publishedShowId: "signal-test" });
@@ -214,6 +219,10 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     assert.equal(await page.locator(".import-cover-preview img").count(), 1);
     assert.deepEqual(await page.locator(".import-cover-preview img").evaluate((image) => [image.getAttribute("width"), image.getAttribute("height")]), ["112", "112"]);
     assert.match(await page.locator("#maintainerDetail").innerText(), /Field provenance/);
+    await page.getByRole("button", { name: "Select eligible on page" }).click();
+    assert.equal(await page.locator('[data-import-batch-select="ready-1"]').isChecked(), true);
+    assert.equal(await page.getByRole("button", { name: "Publish selected as Imported" }).isEnabled(), true);
+    await page.locator('[data-import-batch-select="ready-1"]').uncheck();
 
     page.once("dialog", (dialog) => dialog.accept());
     await page.getByRole("button", { name: "Re-run all preparation" }).click();
@@ -279,9 +288,10 @@ test("maintainer import workspace handles progress, batch preparation, blockers,
     await page.getByText("Import review state saved.").waitFor();
     assert.equal(calls.review, 2);
     page.once("dialog", (dialog) => dialog.accept());
-    await page.getByRole("button", { name: "Approve and publish" }).click();
+    await page.getByRole("button", { name: "Publish as Imported" }).click();
     await page.waitForFunction(() => document.querySelector("#maintainerDetailMeta")?.textContent?.includes("Published"));
     assert.equal(calls.publish, 1);
+    assert.equal(calls.lastPublishPayload.publicationTier, "imported");
 
     const failImportQueue = (route) => route.fulfill({
       status: 500,

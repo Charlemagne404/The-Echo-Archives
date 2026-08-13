@@ -13,6 +13,13 @@ function trimList(value, limit = 12) {
   return [...new Set(entries.map((item) => trim(item, 80)).filter(Boolean))].slice(0, limit);
 }
 
+function sanitizeShowIds(value = "") {
+  return String(value || "")
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+}
+
 function createValidationError(message) {
   const error = new Error(message);
   error.statusCode = 400;
@@ -89,6 +96,7 @@ function createPublishedListenerReviewService({
   abuseRetentionDays = 30,
   knownShowIds = new Set(),
   minimumPublicRatings = 3,
+  maxSummaryIds = 100,
 }) {
   let knownIds = new Set(knownShowIds);
   const abuseRetentionMs = Math.max(1, abuseRetentionDays) * 24 * 60 * 60 * 1000;
@@ -186,7 +194,15 @@ function createPublishedListenerReviewService({
       reviews: reviewPage.reviews.map(toPublicReview),
       pagination: reviewPage.pagination,
       scoreSummary,
+      listenerReviewScore: store.getListenerReviewScoreForShow(showId),
     };
+  }
+
+  function getListenerReviewScoreSummaries(showIds) {
+    const ids = Array.from(new Set(Array.isArray(showIds) ? showIds : sanitizeShowIds(showIds)))
+      .filter((showId) => knownIds.has(showId))
+      .slice(0, Math.max(1, maxSummaryIds));
+    return { summaries: store.listListenerReviewScoreSummaries(ids) };
   }
 
   function listPublicForShow(showId) {
@@ -221,6 +237,7 @@ function createPublishedListenerReviewService({
 
   return {
     getForMaintainer,
+    getListenerReviewScoreSummaries,
     getPublicReviewPage,
     listPublicForShow,
     publishForMaintainer,

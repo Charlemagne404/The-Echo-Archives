@@ -85,7 +85,7 @@ async function main() {
       releaseStatus: "unknown",
       completionStatus: "unclear",
       listenLinks: { rss: `https://feeds.example.com/show-${index}.xml` },
-      genres: ["drama"], tones: [], formats: [], tags: [], ratings: {}, bestFor: [], similarTo: [], similarReasons: {},
+      genres: ["drama"], tones: [], formats: ["serialized"], tags: [], ratings: {}, bestFor: [], similarTo: [], similarReasons: {},
       archiveTake: "", spoilerFreeReview: "", thoughts: "", quote: { text: "", attribution: "" },
       updatedAt: "2026-07-14",
     }));

@@ -88,6 +88,7 @@ function buildRecommendationCard(match) {
     rating: match.finalRating,
     summary: match.summary,
     why: buildRecommendationWhy(match),
+    reviewStatus: match.reviewStatus,
   };
 }
 
@@ -127,6 +128,7 @@ function buildMessages({ message, history, matches }) {
     "Keep the answer concise: 2 to 4 short sentences.",
     "If the user is vague, ask for a genre, mood, or theme instead of guessing.",
     "Avoid reusing the same opening sentence across turns when a different phrasing would fit.",
+    "When recommending an Imported entry, say that its factual metadata was source checked by automation and has not been individually reviewed.",
     "Use a natural voice, not bullet points.",
   ].join(" ");
 
@@ -190,6 +192,9 @@ function buildFallbackAnswer(message, matches, options = {}) {
   const firstWhy = buildRecommendationWhy(first);
   const firstSnapshot = buildShowSnapshot(first);
   const firstTake = buildTakeSnippet(first);
+  const importedDisclosure = first.reviewStatus === "imported"
+    ? "This is an Imported entry: its factual metadata was source checked by automation and has not been individually reviewed."
+    : "";
   const wantsRatedAnswer = /\btop rated\b|\bhighest rated\b|\bbest rated\b/i.test(message);
   const wantsAlternates = shouldOfferAlternate(message, matches);
 
@@ -198,6 +203,7 @@ function buildFallbackAnswer(message, matches, options = {}) {
       buildOpeningSentence(first.title, { constraintIntro, repeatedRecommendationTitle }),
       `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
       wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
+      importedDisclosure,
     ]);
   }
 
@@ -205,6 +211,7 @@ function buildFallbackAnswer(message, matches, options = {}) {
     buildOpeningSentence(first.title, { constraintIntro, repeatedRecommendationTitle }),
     `It ${firstWhy}${firstSnapshot ? `, and ${firstSnapshot}` : ""}.`,
     wantsRatedAnswer && Number.isFinite(first.finalRating) ? `Archive Rating is ${first.finalRating}/10.` : firstTake,
+    importedDisclosure,
     wantsAlternates
       ? pickVariant(`${message}|${first.title}|${second.title}`, [
           `If you want a nearby alternative, ${second.title} is the next clean fit.`,

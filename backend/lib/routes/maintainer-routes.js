@@ -318,6 +318,7 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
       return res.json(await importService.batchPublishForMaintainer(
         Array.isArray(req.body?.candidateIds) ? req.body.candidateIds : [],
         req.body?.reviewedBy || "",
+        req.body?.publicationTier || "",
       ));
     } catch (error) {
       return next(error);
@@ -407,7 +408,27 @@ function createMaintainerRouter({ auth, staticRoot, submissionService, published
 
   router.post("/api/maintainer/imports/:id/publish", requireMaintainerSession, async (req, res, next) => {
     try {
-      return res.json(await importService.publishForMaintainer(req.params.id, req.body?.reviewedBy || ""));
+      return res.json(await importService.publishForMaintainer(
+        req.params.id,
+        req.body?.reviewedBy || "",
+        req.body?.publicationTier || "",
+      ));
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/:id/factual-review", requireMaintainerSession, (req, res, next) => {
+    try {
+      return res.json({ candidate: importService.markFactsReviewedForMaintainer(req.params.id, req.body?.reviewedBy || "") });
+    } catch (error) {
+      return next(error);
+    }
+  });
+
+  router.post("/api/maintainer/imports/:id/promote", requireMaintainerSession, async (req, res, next) => {
+    try {
+      return res.json(await importService.promoteForMaintainer(req.params.id, req.body?.reviewedBy || ""));
     } catch (error) {
       return next(error);
     }

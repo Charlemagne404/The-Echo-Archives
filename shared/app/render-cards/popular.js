@@ -1,4 +1,4 @@
-import { createArchiveScoreElement, createCommunityScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
+import { createCommunityScoreElement, createPrimaryScoreElement, createRatingDividerElement, syncInlineScoreGroup } from "./scores.js";
 import { configureShowImageElement } from "../images.js";
 import { normalizeArchiveRating, toDisplayTag } from "../utils.js";
 
@@ -61,7 +61,7 @@ export function createMostPopularCard(show) {
   const ratings = document.createElement("div");
   ratings.className = "popular-card-ratings";
   ratings.append(
-    createArchiveScoreElement(show),
+    createPrimaryScoreElement(show),
     createRatingDividerElement(),
     createCommunityScoreElement(show),
   );
@@ -95,6 +95,8 @@ function getMostPopularCardStatusLabels(show) {
 
   if (show.reviewStatus === "full-review") {
     labels.push({ label: "Full review", tone: "review" });
+  } else if (show.reviewStatus === "imported") {
+    labels.push({ label: "Imported", tone: "imported" });
   }
 
   return labels;

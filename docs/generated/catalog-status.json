@@ -5,11 +5,255 @@
   "fullReviews": 7,
   "spotlightReviews": 0,
   "indexedOnly": 122,
+  "imported": 0,
   "plannedReviews": 0,
   "collections": 29,
   "reviewCompanions": 7,
   "creatorVerified": 0,
   "withRss": 126,
   "missingObjectiveSources": 0,
-  "withResearchGaps": 10
+  "withResearchGaps": 13,
+  "phase2": {
+    "policy": {
+      "fullReviewFloor": 7,
+      "publicationScope": "English-language fiction/audio drama; actual play/TTRPG and non-English imports remain out of scope.",
+      "sparseIndexedOnly": "Published factual-only records remain indexed without unsupported editorial claims.",
+      "unverifiableFacts": "Explicit unknowns and metadata.researchGaps are acceptable when sources cannot verify a field."
+    },
+    "numericTargets": {
+      "publishedShows": {
+        "actual": 129,
+        "target": 129,
+        "pass": true
+      },
+      "fullReviews": {
+        "actual": 7,
+        "target": 7,
+        "pass": true
+      },
+      "collections": {
+        "actual": 29,
+        "target": 29,
+        "pass": true
+      }
+    },
+    "factual": {
+      "coreMetadataGaps": [],
+      "missingObjectiveSources": [],
+      "missingRss": [
+        "earth-eclipsed",
+        "the-rapscallion-agency",
+        "the-invenios-expeditions"
+      ],
+      "documentedMissingRss": [
+        "earth-eclipsed",
+        "the-rapscallion-agency",
+        "the-invenios-expeditions"
+      ],
+      "actionableMissingRss": [],
+      "missingRuntime": [],
+      "documentedRuntimeUnknowns": [
+        "the-rapscallion-agency",
+        "the-invenios-expeditions"
+      ],
+      "documentedResearchGaps": [
+        {
+          "id": "solar",
+          "title": "Solar",
+          "gaps": [
+            "award history"
+          ]
+        },
+        {
+          "id": "the-deca-tapes",
+          "title": "The Deca Tapes",
+          "gaps": [
+            "future season status"
+          ]
+        },
+        {
+          "id": "earth-eclipsed",
+          "title": "Earth Eclipsed",
+          "gaps": [
+            "No working public RSS feed was found during the 2026-08-14 audit; the official site's feed reference currently returns 404, so RSS remains explicitly unknown."
+          ]
+        },
+        {
+          "id": "windfall",
+          "title": "Windfall",
+          "gaps": [
+            "whether to mark series as ongoing after Season 2 finale or inactive until a future story season is announced"
+          ]
+        },
+        {
+          "id": "the-waystation",
+          "title": "The Waystation",
+          "gaps": [
+            "current Season 2 status"
+          ]
+        },
+        {
+          "id": "impact-winter",
+          "title": "Impact Winter",
+          "gaps": [
+            "future season status beyond Season 3"
+          ]
+        },
+        {
+          "id": "red-valley",
+          "title": "Red Valley",
+          "gaps": [
+            "No official completion or next-release statement was located."
+          ]
+        },
+        {
+          "id": "midnight-burger",
+          "title": "Midnight Burger",
+          "gaps": [
+            "exact total runtime from RSS",
+            "exact award list"
+          ]
+        },
+        {
+          "id": "derelict",
+          "title": "Derelict",
+          "gaps": [
+            "Season 3 publication date",
+            "whether archive latestRelease should track main-story episodes or feed updates"
+          ]
+        },
+        {
+          "id": "crystal-blue",
+          "title": "Crystal Blue",
+          "gaps": [
+            "future Season 1 continuation status",
+            "complete cast/crew"
+          ]
+        },
+        {
+          "id": "victoriocity",
+          "title": "Victoriocity",
+          "gaps": [
+            "No official completion or next-release statement was located."
+          ]
+        },
+        {
+          "id": "the-rapscallion-agency",
+          "title": "The Rapscallion Agency",
+          "gaps": [
+            "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan/Human-B-Gon shows, so runtime duration remains unknown."
+          ]
+        },
+        {
+          "id": "the-invenios-expeditions",
+          "title": "The Invenios Expeditions",
+          "gaps": [
+            "No dedicated verified RSS or Apple listing was found; the previously attached identifiers resolve to other Leviathan shows, so runtime duration remains unknown."
+          ]
+        }
+      ],
+      "sparseEditorialViolations": [],
+      "blockingErrors": []
+    },
+    "editorial": {
+      "eligibleShows": [
+        "impact-winter",
+        "oz-9",
+        "ars-paradoxica",
+        "the-white-vault",
+        "midnight-burger",
+        "derelict",
+        "welcome-to-night-vale"
+      ],
+      "gaps": [],
+      "blockingErrors": []
+    },
+    "collections": {
+      "routeCollectionCount": 13,
+      "routeCollectionsMissingShowReasons": [],
+      "anchorShowsWithTooFewCollectionMemberships": [],
+      "sparseIndexedOnlyShows": [
+        "the-penumbra-podcast",
+        "the-silt-verses",
+        "old-gods-of-appalachia",
+        "the-storage-papers",
+        "station-blue",
+        "the-strata",
+        "the-call-of-the-void",
+        "the-burned-photo",
+        "a-voice-from-darkness",
+        "the-sheridan-tapes",
+        "the-mistholme-museum-of-mystery-morbidity-and-mortality",
+        "the-town-whispers",
+        "the-cellar-letters",
+        "woe-begone",
+        "the-milkman-of-st-gaffs",
+        "where-the-stars-fell",
+        "the-pasithea-powder",
+        "the-antique-shop",
+        "re-dracula",
+        "the-imperfection",
+        "fawx-stallion",
+        "mayfair-watchers-society",
+        "wrong-station",
+        "not-quite-dead",
+        "hi-nay",
+        "super-suits",
+        "wake-of-corrosion",
+        "the-secret-of-st-kilda",
+        "death-by-dying",
+        "the-wyrd-side",
+        "syntax",
+        "the-night-post",
+        "observable-radio",
+        "octobers-children",
+        "knifepoint-horror",
+        "the-cryptonaturalist",
+        "ghost-wax",
+        "the-grey-rooms",
+        "tanis",
+        "the-patron-saint-of-suicides",
+        "uncanny-valley",
+        "the-hyacinth-disaster",
+        "the-edge-of-sleep",
+        "the-left-right-game",
+        "hello-from-the-hallowoods",
+        "the-polybius-conspiracy",
+        "the-nosleep-podcast",
+        "the-orphans",
+        "modes-of-thought-in-anterran-literature",
+        "the-truth",
+        "give-me-away",
+        "the-far-meridian",
+        "the-leviathan-chronicles",
+        "bridgewater",
+        "the-last-movie",
+        "the-magnus-archives",
+        "the-magnus-protocol",
+        "the-rapscallion-agency",
+        "the-invenios-expeditions"
+      ],
+      "blockingErrors": []
+    },
+    "taxonomy": {
+      "controlledLabelCount": 165,
+      "expectedControlledLabelCount": 165,
+      "unknownTags": [],
+      "deprecatedTags": [],
+      "blockingErrors": []
+    },
+    "scope": {
+      "outOfScopePublished": [],
+      "blockingErrors": []
+    },
+    "sparseIndexedOnly": {
+      "count": 59,
+      "outOfRangeSimilarLinks": 59,
+      "fewerThanTwoCollections": 59,
+      "editorialViolations": [],
+      "informationalOnly": true
+    },
+    "blockingErrors": [],
+    "complete": true
+  }
 }

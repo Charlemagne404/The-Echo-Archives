@@ -755,43 +755,113 @@ body.filter-sheet-open {
   flex-wrap: wrap;
 }
 
-.results-rating-note {
+.rating-guide {
+  position: relative;
+  z-index: 4;
   display: inline-flex;
   align-items: center;
+}
+
+.rating-guide-trigger {
+  width: 26px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(240, 238, 233, 0.26);
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(240, 238, 233, 0.78);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+}
+
+.rating-guide-trigger:hover,
+.rating-guide-trigger:focus-visible {
+  border-color: rgba(240, 238, 233, 0.52);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.rating-guide-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(20rem, calc(100vw - 32px));
+  padding: 12px 13px;
+  border: 1px solid rgba(240, 238, 233, 0.18);
+  border-radius: 10px;
+  background: rgba(13, 16, 20, 0.98);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: opacity 140ms ease, transform 140ms ease, visibility 140ms ease;
+  visibility: hidden;
+}
+
+.rating-guide:hover .rating-guide-tooltip,
+.rating-guide:focus-within .rating-guide-tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.rating-guide-title {
+  margin: 0 0 8px;
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rating-guide-list {
+  display: grid;
   gap: 8px;
   margin: 0;
-  color: var(--text-muted);
-  font-size: 0.92rem;
-  line-height: 1.2;
-  opacity: 0.82;
+  padding: 0;
+  list-style: none;
 }
 
-.results-rating-note-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  white-space: nowrap;
+.rating-guide-list li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: start;
+  gap: 8px;
 }
 
-.results-rating-note .archive-score-icon,
-.results-rating-note svg {
-  color: currentColor;
-  fill: currentColor;
+.rating-guide-list strong {
+  display: block;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
-.results-rating-note .archive-score-icon {
-  font-size: 1rem;
+.rating-guide-list .archive-score-icon {
+  color: #e54838;
+  font-size: 1.05rem;
   line-height: 1;
+  text-align: center;
 }
 
-.results-rating-note svg {
-  width: 1rem;
-  height: 0.88rem;
-  flex: 0 0 auto;
+.rating-guide-list .listener-review-score-icon {
+  width: 1.3rem;
+  height: 1.12rem;
+  color: #d6a848;
 }
 
-.results-rating-note-separator {
-  opacity: 0.58;
+.rating-guide-list .community-score-icon {
+  width: 1.25rem;
+  height: 1rem;
+  fill: #63d81d;
 }
 
 .active-browse-state {
@@ -1242,6 +1312,12 @@ body.filter-sheet-open {
   color: rgba(154, 214, 172, 0.9);
 }
 
+.home-page .popular-card-chip.is-imported {
+  color: #dfbd98;
+  border-color: rgba(193, 137, 78, 0.42);
+  background: rgba(92, 61, 33, 0.18);
+}
+
 .home-page .popular-card-title {
   margin: 0;
   color: var(--text-primary);
@@ -1296,6 +1372,7 @@ body.filter-sheet-open {
 }
 
 .home-page .popular-card-ratings .archive-inline-score,
+.home-page .popular-card-ratings .listener-review-inline-score,
 .home-page .popular-card-ratings .community-inline-score {
   justify-items: start;
   text-align: left;
@@ -1679,6 +1756,7 @@ body.filter-sheet-open {
 }
 
 .home-page .home-card-preview-ratings .archive-inline-score,
+.home-page .home-card-preview-ratings .listener-review-inline-score,
 .home-page .home-card-preview-ratings .community-inline-score {
   justify-items: start;
   text-align: left;
@@ -2389,12 +2467,13 @@ body.filter-sheet-open {
   }
 
   .results-heading-meta {
+    width: 100%;
     align-items: flex-start;
     justify-content: flex-start;
   }
 
-  .results-rating-note {
-    flex-wrap: wrap;
+  .rating-guide {
+    margin-left: auto;
   }
 
   .active-browse-state {

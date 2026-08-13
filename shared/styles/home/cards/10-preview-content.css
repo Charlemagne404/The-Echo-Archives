@@ -156,6 +156,7 @@
 }
 
 .home-page .home-card-preview-ratings .archive-inline-score,
+.home-page .home-card-preview-ratings .listener-review-inline-score,
 .home-page .home-card-preview-ratings .community-inline-score {
   justify-items: start;
   text-align: left;

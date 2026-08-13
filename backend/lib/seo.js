@@ -74,10 +74,15 @@ function buildShowSeoDescription(show = {}) {
   const genres = uniqueText(show.genres).slice(0, 2).map(toDisplayTag);
   const genrePhrase = genres.length > 0 ? `${genres.join(" and ")} ` : "";
   const editorialText = cleanText(show.subtitle || show.description);
-  const action = getPublicContentProfile(show).reviewed
+  const profile = getPublicContentProfile(show);
+  const action = profile.reviewed
     ? "Read the human-curated review and find similar fiction podcasts."
+    : profile.imported
+      ? "Find official listening links and factual episode details."
     : "Explore the archive guide and find similar fiction podcasts.";
-  return truncateDescription(`Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);
+  return truncateDescription(profile.imported
+    ? `Discover ${title}, a ${genrePhrase}audio drama. ${action} ${editorialText}`
+    : `Discover ${title}, a ${genrePhrase}audio drama. ${editorialText} ${action}`);
 }
 
 function buildCollectionSeoTitle(collection = {}) {

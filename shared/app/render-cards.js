@@ -10,6 +10,8 @@ export {
 export {
   createArchiveScoreElement,
   createCommunityScoreElement,
+  createListenerReviewScoreElement,
+  createPrimaryScoreElement,
   createRatingDividerElement,
   syncInlineScoreGroup,
 } from "./render-cards/scores.js";

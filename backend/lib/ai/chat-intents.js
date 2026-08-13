@@ -332,6 +332,7 @@ const HELP_TOPIC_PATTERNS = [
       /\bstatus\b/i,
       /\bfull review\b/i,
       /\bindexed(?: |-)?only\b/i,
+      /\bimported\b/i,
       /\bplanned\b/i,
     ],
   },
@@ -584,7 +585,7 @@ function inferShowDetailTopic(message = "") {
     return "show-collections";
   }
 
-  if (/\bfinished\b|\bongoing\b|\bcompleted\b|\bon hiatus\b|\bstatus\b|\bfull review\b|\bindexed(?: |-)?only\b|\bplanned\b/i.test(message)) {
+  if (/\bfinished\b|\bongoing\b|\bcompleted\b|\bon hiatus\b|\bstatus\b|\bfull review\b|\bindexed(?: |-)?only\b|\bimported\b|\bplanned\b/i.test(message)) {
     return "show-status";
   }
 

@@ -239,10 +239,11 @@ test("Ask the Archivist and the remade submit page interactions work across mode
     assert.equal(tagAndLinkState.tagMenuOpen, false);
     assert.equal(tagAndLinkState.tagInputValue, "");
 
-    for (const tag of ["Sci-fi", "Full-cast", "Mystery", "Serialized", "Thriller", "Comedy"]) {
+    for (const tag of ["Sci-fi", "Full-cast"]) {
       await page.locator('[data-toggle-tag-picker="selectedTags"]').click();
       await page.locator(".submit-tag-picker-menu:not([hidden])").waitFor();
-      await page.locator(`.submit-tag-picker-menu:not([hidden]) [data-tag-suggestion="${tag}"]`).click();
+      await page.locator('[data-tag-input="selectedTags"]').fill(tag);
+      await page.locator('[data-tag-input="selectedTags"]').press("Enter");
     }
 
     tagAndLinkState = await page.evaluate(() => ({
@@ -254,11 +255,11 @@ test("Ask the Archivist and the remade submit page interactions work across mode
       tagToggleDisabled: Boolean(document.querySelector('[data-toggle-tag-picker="selectedTags"]')?.hasAttribute("disabled")),
       tagLimitMessage: document.querySelector(".submit-tag-limit")?.textContent?.trim() || "",
     }));
-    assert.equal(tagAndLinkState.selectedTags.length, 8);
+    assert.equal(tagAndLinkState.selectedTags.length, 4);
     assert.equal(tagAndLinkState.tagMenuOpen, false);
     assert.equal(tagAndLinkState.tagInputDisabled, true);
     assert.equal(tagAndLinkState.tagToggleDisabled, true);
-    assert.match(tagAndLinkState.tagLimitMessage, /Tag limit reached \(8\/8\)/);
+    assert.match(tagAndLinkState.tagLimitMessage, /Tag limit reached \(4\/4\)/);
 
     await page.locator('[data-add-link-option="listenLinks"][data-add-link-value="Apple Podcasts"]').click();
     tagAndLinkState = await page.evaluate(() => ({

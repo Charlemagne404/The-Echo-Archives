@@ -713,6 +713,8 @@ Protected import APIs:
 - `POST /api/maintainer/imports/:id/reopen`
 - `POST /api/maintainer/imports/:id/evidence`
 - `POST /api/maintainer/imports/:id/publish`
+- `POST /api/maintainer/imports/:id/factual-review`
+- `POST /api/maintainer/imports/:id/promote`
 
 Useful import CLI commands:
 
@@ -722,7 +724,8 @@ npm run import:seed -- --file ./tmp/import-list.txt
 npm run import:hydrate -- --candidate <candidate-id>
 npm run import:report
 npm run import:draft -- --candidate <candidate-id>
-npm run import:publish -- --candidate <candidate-id>
+npm run import:publish -- <candidate-id> --tier imported
+npm run import:promote -- <candidate-id> --reviewer "Maintainer name"
 npm run import:audit
 npm run import:benchmark
 npm run import:discover -- --all
@@ -733,12 +736,14 @@ Import workflow:
 1. Seed titles, Apple URLs, RSS URLs, or mixed newline lists into the internal queue.
 2. Persistent workers enrich, resolve, stage covers, and prepare records automatically.
 3. Inspect `ready` records; resolve only the named blockers on `needs-review` records.
-4. Use **Approve and publish** to write a factual `indexed-only` record and run one catalog build.
-5. Add archive-owned editorial enrichment later through the independent review workflow.
+4. Select Imported-eligible entries and use **Publish selected as Imported** to write one safe batch with one catalogue build. Conflicts, weak confidence, ambiguous identity, scope overrides, unsafe URLs, and human-curated core fields remain excluded.
+5. To publish directly as `indexed-only`, first confirm the factual review for the current input revision. Re-preparation makes that stamp stale.
+6. Promote a published Imported entry after confirming identity, official description, links/artwork, discovery metadata, lifecycle claims, and remaining gaps. Add archive-owned editorial enrichment later through `review:new` and `review:publish`.
 
 Operational rules:
 
 - nothing public auto-publishes
+- every publication request names `publicationTier` explicitly
 - objective metadata is automatically resolved from retained evidence
 - AI output never populates the prepared factual record
 - Podcast Index enrichment is optional and must degrade cleanly when credentials are absent
@@ -846,7 +851,6 @@ Active repo-wide docs:
 
 Supporting records:
 
-- `HANDOFF.md`: current task state and recent handoff notes
 - `MEMORY.md`: stable long-term repo facts worth preserving across tasks
 - `TODO.md`: small discovered follow-ups that are not full roadmap items
 - `docs/qa/`: dated QA reports
@@ -864,8 +868,13 @@ Documentation rules:
 
 ## Current QA Record
 
-The latest recorded mobile QA pass still lives at:
+The current dated QA records have different scopes:
 
-- `docs/qa/2026-06-07-mobile-qa.md`
+- `docs/qa/2026-07-28-launch-readiness-audit.md` is the latest launch-readiness record; it still says **Not ready** and was last updated 2026-08-11.
+- `docs/qa/2026-07-14-show-importer-review-and-publish.md` records importer operation and automated coverage.
+- `docs/qa/2026-06-07-mobile-qa.md` is the latest dedicated manual mobile pass.
 
-If a newer manual QA pass is done, add a new dated report instead of overwriting the old one.
+Do not treat focused local checks in a documentation pass as a replacement for
+the open production, external-service, recovery, and browser gates in the
+launch-readiness audit. Add a newer dated report instead of overwriting an
+existing QA record.

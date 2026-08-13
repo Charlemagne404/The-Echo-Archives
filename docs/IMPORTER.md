@@ -4,13 +4,24 @@
 
 The importer is a factual preparation lane, not an editorial generator. A normal source-rich import progresses through discovery, source enrichment, conflict resolution, cover staging, record preparation, and factual publication validation. It stops at `ready` until an authenticated maintainer explicitly approves publication.
 
-New records publish as `reviewStatus: "indexed-only"`. Ratings, reviews, archive copy, tones, best-for values, similarities, collection membership, featured state, accents, awards, popularity, and creator-verification claims are never generated. Missing optional facts remain absent or are represented as unknown/unclear.
+New records prepare as `reviewStatus: "imported"`, the lowest public confidence tier. Imported means objective metadata passed strict automated source checks but has not received an individual maintainer review. Ratings, reviews, archive copy, tones, themes, best-for values, similarities, collection membership/reasons, featured state, accents, awards, popularity, creator-verification claims, and unsupported completion claims are never generated. Missing optional facts remain absent or are represented as unknown/unclear. Existing records and update candidates preserve their current tier and human-owned fields.
 
 ## Sources And Confidence
 
 RSS and Podcasting 2.0 data are primary for identity, dates, episodes, descriptions, type, structured people, transcripts, funding, GUID, medium, license, and location. An official site is primary for reciprocally linked credits and exact official/support/platform links. Apple and Podcast Index supply identity cross-checks and directory fallbacks.
 
-Publisher-supplied RSS/iTunes categories and keywords automatically populate the factual `tags` field (up to twelve unique values). Their original values remain in `metadata.sourceCategories`, `metadata.sourceKeywords`, and `metadata.sourceTags`, with import provenance marked `source-categories-and-keywords`. These tags are searchable and refresh on later imports unless a maintainer changes them, which locks the managed field. AI/editorial suggestions remain non-binding and never auto-populate the catalog.
+Publisher-supplied RSS/iTunes categories and keywords remain provenance in `metadata.sourceCategories` and `metadata.sourceKeywords`. Deterministic source mappings may populate canonical genres and feed formats. Public discovery tags must use the approved taxonomy and are never copied from raw source keywords automatically. Human taxonomy selection, external research, and AI/editorial suggestions remain non-binding for Imported publication and require factual review when applied.
+
+### Phase 2 scope boundary
+
+The ordinary automatic discovery/publication lane accepts English-language
+fiction and audio drama. Non-English candidates and actual play/TTRPG content
+are marked `out-of-scope`; they are not queued for ordinary automatic
+publication. Borderline candidates require explicit maintainer handling.
+
+This scope rule is enforced by the deterministic classifier in
+`backend/lib/services/import-service.js` and covered by importer tests. It does
+not prevent a future, separately governed scope expansion.
 
 Prepared records also retain high-signal feed facts without expanding the default browse cards: observed runtime coverage and seasons, first/latest/latest-feed/next scheduled release dates, transcript coverage/languages/formats, structured owner and production metadata, feed cadence, licensing, explicit flag, and source format. The show page surfaces only the listener-useful subset—upcoming release, cadence, and transcript availability—in its existing Facts & links card.
 
@@ -40,6 +51,18 @@ All competing values remain in `catalog_import_field_evidence`. A material disag
 - in-scope classification or an explicit maintainer override
 - no blocking source conflict or duplicate ambiguity
 
+Imported publication adds a stricter gate:
+
+- exact stable identity from structured evidence at confidence `0.90` or higher
+- title and description at confidence `0.90` or higher
+- unambiguous in-scope fiction classification without a manual scope override
+- verified listen link and valid staged local cover
+- enough deterministic canonical discovery signals
+- no unstructured, AI-derived, reviewer-selected, or manually curated core/discovery field
+- no duplicate ambiguity, source conflict, unsafe URL, or other readiness blocker
+
+Indexed-only publication uses the base readiness gate plus a factual-review stamp for the current candidate input revision. Any re-preparation increments that revision and makes the earlier stamp stale.
+
 Apple's 1400-3000px JPG/PNG artwork target is reported as a quality warning, not an Echo publication blocker. Credits, RSS, transcripts, extra platforms, status, exact episode totals, and other optional facts may remain absent with explicit warnings.
 
 ## Persistence And Scale
@@ -62,7 +85,9 @@ The checked-in `echo-archives-discovery.timer` invokes the one-shot `import:disc
 
 ## Publication And Update Protection
 
-Prepared records live only in SQLite. Approval acquires a cross-process publish lock, promotes the staged cover, writes only the affected split show files and order manifest, validates/builds once, and then marks candidates published. A failure restores authored files and cover bytes, rebuilds the prior generated state, and leaves the candidate `ready` with an actionable error. Batch publication accepts individually reviewed ready candidates and runs one catalog build.
+Prepared records live only in SQLite. Approval requires an explicit `publicationTier` of `imported` or `indexed-only`, acquires a cross-process publish lock, promotes staged covers, writes only the affected split show files and order manifest, validates/builds once, and then marks candidates published. A failure restores authored files and cover bytes, rebuilds the prior generated state, and leaves candidates `ready` with an actionable error. Imported-eligible entries may be batch selected without per-entry review and publish in one catalogue build. Indexed-only publication requires a current factual review.
+
+Published Imported entries can be promoted to indexed-only after a maintainer confirms identity, official description, links/artwork, discovery metadata, lifecycle claims, and remaining gaps. Imported or indexed-only entries enter planned/full review through the existing companion-review workflow. Publication and promotion events retain the maintainer actor privately; public generated data exposes tier and non-identifying timestamps/revisions only.
 
 Human-owned fields are always preserved. Legacy non-empty factual fields are preserved until explicitly adopted. For importer-managed fields, `metadata.import.managedFingerprints` records the previous imported value. A later human edit changes that fingerprint and automatically locks the field against refresh. Public generated data strips fingerprints and internal workflow identifiers while retaining source references and per-field confidence/method.
 
@@ -74,8 +99,10 @@ Human-owned fields are always preserved. Legacy non-empty factual fields are pre
 - `POST /api/maintainer/imports/:id/hydrate` and `/draft` are compatibility aliases that queue preparation.
 - `POST /api/maintainer/imports/:id/retry` queues a fresh input revision.
 - `POST /api/maintainer/imports/:id/evidence` selects and locks field evidence.
-- `POST /api/maintainer/imports/:id/publish` explicitly approves one ready candidate.
-- `POST /api/maintainer/imports/batch-publish` publishes individually reviewed ready candidates in one build.
+- `POST /api/maintainer/imports/:id/publish` requires `publicationTier` and explicitly approves one eligible candidate.
+- `POST /api/maintainer/imports/batch-publish` requires `publicationTier` and publishes an eligible batch in one build.
+- `POST /api/maintainer/imports/:id/factual-review` stamps the current input revision after maintainer fact checking.
+- `POST /api/maintainer/imports/:id/promote` atomically promotes a fact-checked published Imported entry to indexed-only.
 - `POST /api/maintainer/imports/audit` queues safe refresh candidates for the current catalog without changing it.
 - `GET /api/maintainer/imports/discovery` lists configured sources and recent runs.
 - `POST /api/maintainer/imports/discovery/sources` and `PATCH /api/maintainer/imports/discovery/sources/:sourceId` manage approved source searches.
@@ -83,7 +110,7 @@ Human-owned fields are always preserved. Legacy non-empty factual fields are pre
 - `POST /api/maintainer/imports/:id/reopen` explicitly reopens a rejected or duplicate candidate.
 - `POST /api/maintainer/submissions/:id/import` hands a non-rejected public new-show submission into factual import preparation.
 
-CLI commands are `import:seed`, `import:discover`, `import:hydrate`, `import:draft` (SQLite preparation compatibility alias), `import:publish`, `import:audit`, `import:report`, and `import:benchmark`.
+CLI commands are `import:seed`, `import:discover`, `import:hydrate`, `import:draft` (SQLite preparation compatibility alias), `import:publish -- <candidate-id> --tier <imported|indexed-only>`, `import:promote -- <candidate-id> --reviewer <name>`, `import:audit`, `import:report`, and `import:benchmark`.
 
 ## Recovery
 

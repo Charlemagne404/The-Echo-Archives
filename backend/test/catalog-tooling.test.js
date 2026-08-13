@@ -6,6 +6,7 @@ const path = require("node:path");
 
 const { buildCatalog } = require("../../tools/build-catalog");
 const { scaffoldCatalogEntry } = require("../../tools/scaffold-catalog");
+const { buildCatalogSnapshot, serializeRuntimeShow } = require("../../tools/lib/catalog-artifacts");
 const {
   ensureSplitCatalogSource,
   readCatalogSource,
@@ -90,6 +91,32 @@ function createNeighborRecord(id, title) {
     },
   });
 }
+
+test("public catalogue artifacts retain Imported trust state without maintainer identity", () => {
+  const imported = createShowRecord({
+    reviewStatus: "imported",
+    metadata: {
+      import: {
+        pipelineVersion: "2",
+        publication: { tier: "imported", publishedAt: "2026-08-13T10:00:00.000Z" },
+        factualReview: { reviewedAt: "2026-08-13T11:00:00.000Z", reviewedBy: "Private Maintainer", inputRevision: 2 },
+      },
+    },
+  });
+  const runtime = serializeRuntimeShow(imported);
+  const snapshot = buildCatalogSnapshot([imported], [], 0, {
+    publishedShowsMissingSimilarReasons: [],
+    publishedShowsWithOutOfRangeSimilarLinks: [],
+    publishedShowsWithTooFewCollectionMemberships: [],
+    anchorShowsWithTooFewCollectionMemberships: [],
+    routeCollectionsMissingShowReasons: [],
+  }, { creators: [], networks: [], changelog: [] });
+
+  assert.equal(runtime.reviewStatus, "imported");
+  assert.equal(runtime.metadata.import.publication.tier, "imported");
+  assert.equal(runtime.metadata.import.factualReview.reviewedBy, undefined);
+  assert.equal(snapshot.metrics.imported, 1);
+});
 
 test("buildCatalog bootstraps split catalog source and writes generated artifacts", async () => {
   const tempRoot = createTempSiteRoot();

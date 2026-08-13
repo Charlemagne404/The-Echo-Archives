@@ -1050,6 +1050,12 @@
           score -= avoidancePenalty;
         }
 
+        const hasExactIdentityMatch = searchIndex.title === preparedQuery.normalizedQuery ||
+          (Array.isArray(record.aliases) ? record.aliases : []).some((alias) => normalizeText(alias) === preparedQuery.normalizedQuery);
+        if (record.reviewStatus === "imported" && !hasExactIdentityMatch) {
+          score -= 6;
+        }
+
         const hasFullClauseCoverage =
           requiredClauses.length === 0 || requiredClauses.every((clause) => satisfiesClause(searchIndex.tokenSet, clause));
         const fuzzyMatchedTokenCount = hasFuzzyTokenCoverage(searchIndex, preparedQuery.significantTokens);
