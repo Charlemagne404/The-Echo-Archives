@@ -1,0 +1,867 @@
+{
+  "id": "dispatches-from-the-multiverse",
+  "title": "Dispatches from the Multiverse",
+  "subtitle": "",
+  "description": "A weird, weekly improvised comedy sci-fi podcast",
+  "cover": "images/covers/dispatches-from-the-multiverse.png",
+  "coverAlt": "Dispatches from the Multiverse cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/6kUk2uYhliAI8zD8zAgR2a?si=nzZ89LBRScuGO5f1uxOxpQ",
+    "apple": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580",
+    "website": "https://dispatches.fm/",
+    "rss": "https://dispatches.fm/feed/podcast/",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/a2beefab-e250-4beb-8d84-b21a51d5e442/dispatches-from-the-multiverse",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "comedy",
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Dispatches from the Multiverse"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "at least 300 full episodes • 23 min median",
+    "episodes": 300,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 133,
+    "totalObservedHours": 126.1,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 300,
+      "bonus": 5,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2018-05-22",
+    "latest": "2025-05-20",
+    "latestFeedItem": "2026-05-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://dispatches.fm/",
+    "patreon": "https://www.patreon.com/DispatchesFM",
+    "koFi": "",
+    "discord": "https://discord.gg/b3mPmUkYgA",
+    "youtube": "https://www.youtube.com/channel/UCtgS3o5VIP0Ypx1tpzl1LVg",
+    "social": "",
+    "funding": "https://www.patreon.com/DispatchesFM"
+  },
+  "credits": {
+    "creatorName": "Dispatches from the Multiverse",
+    "ownerName": "Dispatches from the Multiverse",
+    "network": "Dispatches from the Multiverse"
+  },
+  "creators": [
+    "Dispatches from the Multiverse"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://dispatches.fm/special-episode-post-show-q-and-a/; https://dispatches.fm/about/; https://dispatches.fm/episodes/; https://dispatches.fm/; https://dispatches.fm/feed/podcast/; https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.003,
+    "transcriptFormats": [
+      "application/srt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://dispatches.fm/special-episode-post-show-q-and-a/",
+      "https://dispatches.fm/about/",
+      "https://dispatches.fm/episodes/",
+      "https://dispatches.fm/",
+      "https://dispatches.fm/feed/podcast/",
+      "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4"
+    ],
+    "sourceCategories": [
+      "Comedy",
+      "Improv",
+      "Fiction",
+      "Comedy Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A weird, weekly improvised comedy sci-fi podcast",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://www.patreon.com/DispatchesFM",
+        "label": ""
+      }
+    ],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "Seattle, WA, USA",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "474b8541-6a47-5cab-96d2-44a6881c4ff9",
+        "rssUrl": "https://dispatches.fm/feed/podcast/",
+        "appleCollectionId": "1392199580",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/",
+          "fetchedAt": "2026-08-15T20:01:45.443Z",
+          "payloadHash": "2c5ec9dde308f47ee5abf094aa2ab7f3afb347d8d9929fcd7c7172c34c76871a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://dispatches.fm/about/",
+          "fetchedAt": "2026-08-15T20:01:45.441Z",
+          "payloadHash": "66b3de56e9ef5577655dd8f56a064b762d91e30d7acffc8f905cfa6684d8514c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://dispatches.fm/episodes/",
+          "fetchedAt": "2026-08-15T20:01:45.439Z",
+          "payloadHash": "c3bac35d1b0ea8abfd65e8f18652958265a88bec6285da6790fcc86eda66379f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://dispatches.fm/",
+          "fetchedAt": "2026-08-15T20:01:45.437Z",
+          "payloadHash": "bcf655e622e990ad5d1d89a95437cd1b01dd0143fb755b4b93d1c11e4127288c"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://dispatches.fm/feed/podcast/",
+          "fetchedAt": "2026-08-15T20:01:40.068Z",
+          "payloadHash": "73f55a83628a8015a354d474ce0e62f2391b3a9e793edda86768288522de1ca8"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4",
+          "fetchedAt": "2026-08-15T20:01:38.518Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dispatches-from-the-multiverse/id1392199580?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "location": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.69,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dispatches.fm/special-episode-post-show-q-and-a/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://dispatches.fm/feed/podcast/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:01:46.685Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d37c4484d3c67ddae65fe9ef57b2aa11a95b33c3365b32f2070f25c9b703a8e1",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8cfc025c099415be2e7ee337a81e732fbb5aaad1d33997ad4cf1ff8c692c63cf",
+        "cover": "1843170b239c1beac15e44dea1ed2cc3d2c0b1400e5d455903f87434a01ceeb7",
+        "coverAlt": "9fe0662bfeac6fef34a01742998393286922b2aa9fa5bab1f8894f8573ed0d34",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "87ddf800ea79008d2607ccac518b4ef1b274ec7cd04ac8d6965b0793b6bfa0be",
+        "officialLinks": "ec75a58fb2e9d62cafad60b7ca2c2de37c38cec2617936c8b42f986f7d63a3fb",
+        "genres": "7c9154ebfbee9739f2624b82934fb00dd7b2b06051d78161b1311194ff2c839d",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "11634c88d8b60c3cd55f609b509aff1b6757af97afd0974eec91bcf768fe2849",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "2921b915e18f7b5b7a7f5ebfd0edad19a5b30c9f89b4365d90835119a989409b",
+        "releaseDates": "9eb5bc9dd74cda4e2ad6e993eb357a4170dd5f01924ad898d5517e06ade4f131",
+        "credits": "b381dc115638e6ce0523fa0fa6e1caf438548a9e7a0f0bcb18637cf3b9b4f64e",
+        "creators": "11634c88d8b60c3cd55f609b509aff1b6757af97afd0974eec91bcf768fe2849",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "c87deb042be2dbb3e2c501413ea3519257d4a54fc3801a481f3ff91b6f1e7c50",
+        "verification": "3b06dc74eb225e85e8fc89a1d3178b66ceebade4c2d77fee6190278ae8318204"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:03:11.866Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "dispatches-from-the-multiverse",
+  "networkId": "dispatches-from-the-multiverse"
+}

@@ -1,0 +1,669 @@
+{
+  "id": "somewhere-city",
+  "title": "Somewhere City",
+  "subtitle": "When you're here, you're Somewhere!",
+  "description": "The following collection of recordings has been recovered from the Somewhere City Public Information Archive. There is no formal record of Somewhere City. There are no maps, no census data, no evidence at all that it ever existed—except for a selection of media fragments that stubbornly continue to surface in storage lockers, estate sales, and high-class dumpsters (you know the ones). The surviving material is inconsistent at best, yet each carries a trace of the same impossible place, a city where superpowers are just another line item in today’s paperwork. Official sources deny the existence of Somewhere City entirely, and, to date, they have declined to comment on the statistically improbable number of mislabeled tapes currently housed in federal storage. Every recovered file brings new contradictions and new questions; every answer is a door to a deeper mystery. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/somewhere-city.jpg",
+  "coverAlt": "Somewhere City cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4",
+    "website": "https://somewhere.city/",
+    "rss": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Somewhere City"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 3 full episodes • 42 min median",
+    "seasons": 1,
+    "episodes": 3,
+    "avgEpisodeMinutes": 38,
+    "medianEpisodeMinutes": 42,
+    "minEpisodeMinutes": 24,
+    "maxEpisodeMinutes": 47,
+    "totalObservedHours": 1.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 3,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2026-04-20",
+    "latest": "2026-04-20",
+    "latestFeedItem": "2026-04-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://somewhere.city/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Eric Yankus-Franco, Josh Holden, LC Clark, Jenny Isme",
+    "ownerName": "Eric Yankus-Franco, Josh Holden, LC Clark, Jenny Isme"
+  },
+  "creators": [
+    "Eric Yankus-Franco, Josh Holden, LC Clark, Jenny Isme"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://somewhere.city/; https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9; https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://somewhere.city/",
+      "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9",
+      "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [
+      "comedy",
+      "mockumentary",
+      "superheroes",
+      "lowbrow",
+      "scripted",
+      "fiction",
+      "narrative",
+      "somewhere city"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "The following collection of recordings has been recovered from the Somewhere City Public Information Archive. There is no formal record of Somewhere City. There are no maps, no census data, no evidence at all that it ever existed—except for a selection of media fragments that stubbornly continue to surface in storage lockers, estate sales, and high-class dumpsters (you know the ones). The surviving material is inconsistent at best, yet each carries a trace of the same impossible place, a city where superpowers are just another line item in today’s paperwork. Official sources deny the existence of Somewhere City entirely, and, to date, they have declined to comment on the statistically improbable number of mislabeled tapes currently housed in federal storage. Every recovered file brings new contradictions and new questions; every answer is a door to a deeper mystery. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Eric Yankus-Franco, Josh Holden, LC Clark, Jenny Isme",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9",
+        "appleCollectionId": "1894907737",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://somewhere.city/",
+          "fetchedAt": "2026-08-15T20:03:05.626Z",
+          "payloadHash": "9e7e22eadb2ffd4f5d9ae687a3acbfd60419608bafb85501710a787f09f7d3ee"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9",
+          "fetchedAt": "2026-08-15T20:03:05.330Z",
+          "payloadHash": "8e9f06266f831525aeb18a128d3c68341901f676f786bf1159e1ad3d051763b4"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4",
+          "fetchedAt": "2026-08-15T20:03:05.151Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://somewhere.city/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/somewhere-city/id1894907737?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://somewhere.city/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://somewhere.city/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/67a27bc20ef429ce22ab66c9"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:03:06.034Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "fa232860310b8f8b15ad01243b5f88aca224f968ad506582437c1ec7798b036e",
+        "subtitle": "1d01cd7fc3e361ddff779983ba43d0e2383269c83bce70815d55542ab086eac0",
+        "description": "4391663bdc013237549f0c07dcadc26f05d92ca9cc9886ef4903c30f5a3b9bad",
+        "cover": "8939860aec3dbe0abf2ce752c6c5d985e8df7a7ddcbed21df19c447c2639bdaa",
+        "coverAlt": "04aaf737d16f92eab3c079016daf2edfea1d51456bfa3d39ea66492c3b32e405",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "1875db1d9279b0e6fb7a22056ec1b9a5ff97360efb1fd5b6ae12eb7a0e9ecea8",
+        "officialLinks": "ee1251db7d03c453303cef1e3a2d160747ff700bd50b09cc7e6c537099d81d8e",
+        "genres": "54b64656959d327c4ed1684ee817dcd15faa2b613a81ba887f8254860650d9c6",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "7dcba35411d3f81db24d390775ab6126ef49ebc8d72079f123006b0c89af47e6",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c7d665e9d7e76cf0deed0e1fb2db0cd588f6e935a420ef6f36f81dbad6e36400",
+        "releaseDates": "4f7fe265614527d3cdae9ae22534ef18c763627f2e43bf53e9d5c80292d6f007",
+        "credits": "6ee01f5eb8a557bb6ad6a3f0dd0b0a5ae26c18021a2b1075d0c9f25aa8af8b86",
+        "creators": "c0bc0403cdd77607b3f61bde952e25603f69c4b20e52457603819de93a8cab41",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "a836cf1f11502d890c45795a2ee25af39c174b7c1f729d9c6f624ad88a8f9dc1"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:03:11.859Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "eric-yankus-franco-josh-holden-lc-clark-jenny-isme"
+}
