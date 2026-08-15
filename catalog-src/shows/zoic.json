@@ -1,0 +1,638 @@
+{
+  "id": "zoic",
+  "title": "Zoic",
+  "subtitle": "",
+  "description": "Hawley Heights, once semi-famous for its Haunted Taxidermy Trail (until the incident, anyway) is not the place where anyone dreams of returning. But when Robin finds herself back in her hometown (and running a moderately illegal and largely pointless radio tourism show), strange things begin to happen. Power outages. Odd sounds over the radio waves. New/old bones that really shouldn't be in these woods. Plus - why is there a creepy sculpted T-Rex skull with taxidermied rabbit ears in the hardware store? Something's going down in Hawley Heights, and it's up to Robin and a group of intrepid, kinda cracked weirdos to figure it out! Zoic is a slightly surreal and certainly strange comedy/horror podcast from the people behind Academicasaurus. It was created by Mary O'Reilly and Amanda Funk Hilton, and is written and produced by Mary. New episodes, during the season, are posted weekly on Mondays.",
+  "cover": "images/covers/zoic.png",
+  "coverAlt": "Zoic cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4",
+    "website": "https://sites.libsyn.com/591235",
+    "rss": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Zoic"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 26 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 26,
+    "minEpisodeMinutes": 20,
+    "maxEpisodeMinutes": 47,
+    "totalObservedHours": 4.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-09-01",
+    "latest": "2025-11-03",
+    "latestFeedItem": "2025-11-03",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://sites.libsyn.com/591235",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Haunted by Birds",
+    "ownerName": "Mary O'Reilly"
+  },
+  "creators": [
+    "Haunted by Birds"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://sites.libsyn.com/591235; https://rss.libsyn.com/shows/591235/destinations/5135995.xml; https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://sites.libsyn.com/591235",
+      "https://rss.libsyn.com/shows/591235/destinations/5135995.xml",
+      "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Hawley Heights, once semi-famous for its Haunted Taxidermy Trail (until the incident, anyway) is not the place where anyone dreams of returning. But when Robin finds herself back in her hometown (and running a moderately illegal and largely pointless radio tourism show), strange things begin to happen. Power outages. Odd sounds over the radio waves. New/old bones that really shouldn't be in these woods. Plus - why is there a creepy sculpted T-Rex skull with taxidermied rabbit ears in the hardware store? Something's going down in Hawley Heights, and it's up to Robin and a group of intrepid, kinda cracked weirdos to figure it out! Zoic is a slightly surreal and certainly strange comedy/horror podcast from the people behind Academicasaurus. It was created by Mary O'Reilly and Amanda Funk Hilton, and is written and produced by Mary. New episodes, during the season, are posted weekly on Mondays.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2025",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml",
+        "appleCollectionId": "1836273004",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sites.libsyn.com/591235",
+          "fetchedAt": "2026-08-15T19:53:33.070Z",
+          "payloadHash": "e72d764ce84dffe67a45dcd7a28f4e82313d9cdc447ba82eec3a6d8ef043fe4f"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml",
+          "fetchedAt": "2026-08-15T19:53:32.472Z",
+          "payloadHash": "af0f82c6e8b351b645655070bc74eb3f23f79898b7c0c5d2360a66e9779ce834"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4",
+          "fetchedAt": "2026-08-15T19:53:31.961Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sites.libsyn.com/591235"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sites.libsyn.com/591235"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zoic/id1836273004?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sites.libsyn.com/591235"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sites.libsyn.com/591235"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/591235/destinations/5135995.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:53:33.502Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "20d082dd9f6076b68999d89ba09517ce09dd3a6077b793e2312166691d2c2bd4",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "32c86f1e511310f36f01c051ce6f4ab314716a22983fc14e41a73da237c55aee",
+        "cover": "9d031cc84858057ae4831133dd0804d87deb88f9fa8eaa949b8f5ebe6e6bdd42",
+        "coverAlt": "238360a14d45a650c084caee81f6d28ac1d83384056f055475794fa747b56597",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "4c9611702e6ca004317e2de34956e735b2df207bfa4bd624af21b8ba4f297392",
+        "officialLinks": "53b978471020bcdf93c220ac41ab659d087bcfe841cc40fbc38ce7ab4a0be6e2",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "c73b1493c4c4c6e23ec7911ade5f9d38952d27a2975ad3e32625d472e81e6914",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "20493aaa33abc862b66949a713fcfd1f009500a04db15724b3f8349c95a1b2f2",
+        "releaseDates": "1f449b90cd098b941e31d7c29ab4a16c15d172172f3d90d7d5cab4b24fae22cb",
+        "credits": "009666d61041874ca76abb271697a373ad90358abdc1ea83dab0a18f3cd0f087",
+        "creators": "1abf04f3d4254ab1cb36168b80e15551468dcc07f2fe309e04f49c2dbfb1e504",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "161371af07a59d313cd4ec3c8f40fad28c7ed705874dabf76f12b1ccc03c8f6f"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:53:57.083Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "haunted-by-birds"
+}

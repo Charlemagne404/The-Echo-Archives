@@ -489,25 +489,25 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 489,P2,The Scarab Archives,,86e50b6e-d8c3-426a-872d-6599b8d68ab2,needs-review,needs-review,source-conflict,2026-08-15 19:48:28
 490,P2,The Shadowbrook Files,,61b918bb-a4d8-4377-b164-6501c336f814,published,published,,2026-08-15 19:52:00
 491,P2,The Shadowvane Podcast,,50328188-5e12-4ad5-b42d-055d324b071b,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 19:47:59
-492,P2,The Silver Bloodline,,,unattempted,,,
-493,P2,The Strangemen's No Access Radio,,,unattempted,,,
-494,P2,The Switchboard,,,unattempted,,,
-495,P2,The Uncannies,,,unattempted,,,
-496,P2,The Unnatural,,,unattempted,,,
-497,P2,The Veins Below,,,unattempted,,,
-498,P2,The Void,,,unattempted,,,
-499,P2,Things That Go Bump in the Night,,,unattempted,,,
-500,P2,Thorn Creek,,,unattempted,,,
-501,P2,Timm the Vampire,,,unattempted,,,
-502,P2,What Lies in Wait,,,unattempted,,,
-503,P2,Whispers From the Void,,,unattempted,,,
-504,P2,Wrought of Amber,,,unattempted,,,
-505,P2,Zoic,,,unattempted,,,
+492,P2,The Silver Bloodline,,ea91e456-936f-4a35-9c70-46d2bed3daeb,needs-review,needs-review,source-conflict,2026-08-15 19:53:35
+493,P2,The Strangemen's No Access Radio,,844bfb4d-83c6-4f21-aa2b-c3f1682e78fa,needs-review,needs-review,source-conflict,2026-08-15 19:53:56
+494,P2,The Switchboard,,672492fb-3545-4fc4-b3f7-7cba626b89fa,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:53:52
+495,P2,The Uncannies,,259508e7-31af-4129-a1c8-633324630d7b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:52:30
+496,P2,The Unnatural,,7588deaf-a7a6-4ea1-a574-ffce62e549b1,needs-review,needs-review,source-conflict,2026-08-15 19:52:32
+497,P2,The Veins Below,,54c27de1-6d31-41fb-b632-65ca23671a2f,published,published,,2026-08-15 19:53:59
+498,P2,The Void,,22972791-7067-4ce4-847d-fbb77edf92f8,published,published,,2026-08-15 19:53:59
+499,P2,Things That Go Bump in the Night,,9310cbe4-c694-440c-bd7c-7984080008f0,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:52:24
+500,P2,Thorn Creek,,a6303640-174f-4e58-953f-559be8ae987f,needs-review,needs-review,source-conflict,2026-08-15 19:52:23
+501,P2,Timm the Vampire,,6bf98d5a-16f3-4385-8b9a-8631d147b2b0,needs-review,needs-review,insufficient-discovery-signals; scope-review,2026-08-15 19:52:33
+502,P2,What Lies in Wait,,c16c4de5-d38a-4a19-99e0-de4afc2049c9,published,published,,2026-08-15 19:53:59
+503,P2,Whispers From the Void,,82f9ddaa-ae5e-4756-a782-830de001f40c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review; source-conflict,2026-08-15 19:52:38
+504,P2,Wrought of Amber,,1608a898-af75-43ec-8591-08d3602d4659,needs-review,needs-review,source-conflict,2026-08-15 19:53:24
+505,P2,Zoic,,41a38337-c0d2-4f2c-b8cc-5ccec26ddfec,published,published,,2026-08-15 19:53:59
 506,P3,1968 Blackflower Drive,,,unattempted,,,
 507,P3,A Dark Light Shivers,,,unattempted,,,
 508,P3,Battalion-13,,,unattempted,,,
 509,P1,Before The Tone,Knave Of Hearts,1a1b2f74-1171-4835-a75e-11d09f524ce2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:26:22
-510,P2,Brittle Tourniquet,,,unattempted,,,
+510,P2,Brittle Tourniquet,,1695ed6d-e89f-49c4-b198-9b36efb7cfc6,needs-review,needs-review,source-conflict,2026-08-15 19:52:31
 511,P3,Call to the Dark,,,unattempted,,,
 512,P3,Cede Malis,,,unattempted,,,
 513,P3,Ceia's Tiny Terrors,,,unattempted,,,
@@ -521,12 +521,12 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 521,P3,En-Cryptid: The Lost Tapes!,,,unattempted,,,
 522,P3,Forgive Me Father,,,unattempted,,,
 523,P3,From the Depths,,,unattempted,,,
-524,P2,GET TO KNOW YOUR LOCAL DEMON,,,unattempted,,,
+524,P2,GET TO KNOW YOUR LOCAL DEMON,,beef159a-5ca7-4f30-a312-8f0ae8e52316,needs-review,needs-review,invalid-apple-link; scope-review; source-conflict,2026-08-15 19:52:34
 525,P3,God Forsaken Station,,,unattempted,,,
 526,P3,Halcyon: The Book Of Paimon,,,unattempted,,,
-527,P2,Hellhound Country,,,unattempted,,,
+527,P2,Hellhound Country,,9799ca93-f5a3-411e-8f64-d81509f0b07f,published,published,,2026-08-15 19:53:59
 528,P3,Hiker Gothic,,,unattempted,,,
-529,P2,Hollow Disciple,Shadow & Static,,unattempted,,,
+529,P2,Hollow Disciple,Shadow & Static,5d1c829b-bb81-4c5c-b6f6-6d6f40d6ab21,published,published,,2026-08-15 19:53:59
 530,P3,Hollow Head Pete and the Wicked Wish - Origins,,,unattempted,,,
 531,P3,I is for Investigate,,,unattempted,,,
 532,P3,Left Alone Once More,,,unattempted,,,
@@ -538,7 +538,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 538,P3,Mil-Liminal,,,unattempted,,,
 539,P3,Murder Mansion,,,unattempted,,,
 540,P3,Polybius Protocol,,,unattempted,,,
-541,P2,ReWind,,,unattempted,,,
+541,P2,ReWind,,09e9a69d-ec55-460e-ac51-f3d7dc03e47d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:52:32
 542,P3,Rocking Chair; or Settlement,,,unattempted,,,
 543,P3,Smackie's Smile Shack,,,unattempted,,,
 544,P3,Sojourns in Slumberland,,,unattempted,,,
@@ -554,7 +554,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 554,P3,The Keeper,Becca Lidstone,,unattempted,,,
 555,P3,The Nightstar Specters,,,unattempted,,,
 556,P3,The Northwood Project,,,unattempted,,,
-557,P2,The Occurrence in River Oaks,,,unattempted,,,
+557,P2,The Occurrence in River Oaks,,24a8b99c-84b6-4f28-bcbc-a0dda51f0ee8,needs-review,needs-review,source-conflict,2026-08-15 19:52:30
 558,P3,The Override Protocol,,,unattempted,,,
 559,P3,THE REMAINS,,,unattempted,,,
 560,P3,The Rue Papers,,,unattempted,,,
@@ -564,7 +564,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 564,P3,Trouble In Mind,,,unattempted,,,
 565,P3,Twisted Curiosities,,,unattempted,,,
 566,P3,Unusual Happenings At Paradise,,,unattempted,,,
-567,P2,Vault Veritas: SCP Files,,,unattempted,,,
+567,P2,Vault Veritas: SCP Files,,6bf6764f-fcfb-4759-9455-c55bd8327ba0,needs-review,needs-review,source-conflict,2026-08-15 19:52:34
 568,P3,Whispers of Delirium,,,unattempted,,,
 569,P3,Widdershins' Cove,,,unattempted,,,
 570,P3,WitherBurn After School News,,,unattempted,,,
@@ -598,10 +598,10 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 598,P1,Visionaries Audio Drama,Richard Seneque,886d3b08-bfad-42d1-a379-bdd8b6084bd4,needs-review,needs-review,source-conflict,2026-08-15 17:18:37
 599,P1,Westside Fairytales,,1145c2dd-f12b-4bdd-ada9-21de70280701,needs-review,needs-review,source-conflict,2026-08-15 17:18:38
 600,P1,2298,A.R. Olivieri,193d188b-1a00-43c5-b4f7-b7ebb0ce11bb,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:20:07
-601,P2,A World Where,,,unattempted,,,
-602,P2,Am I Old Yet?,Flloyd Kennedy,,unattempted,,,
-603,P2,Anoraks,,,unattempted,,,
-604,P2,Be Not Afraid,Faustian Nonsense,,unattempted,,,
+601,P2,A World Where,,35d8ce87-0eb1-4373-90c7-d0b8e444b227,needs-review,needs-review,source-conflict,2026-08-15 19:53:36
+602,P2,Am I Old Yet?,Flloyd Kennedy,6c45832a-38c1-4ac7-87d4-430600951bc3,needs-review,needs-review,source-conflict,2026-08-15 19:53:54
+603,P2,Anoraks,,1fd05b9b-b22e-4d81-b6da-7236a507b640,published,published,,2026-08-15 19:53:59
+604,P2,Be Not Afraid,Faustian Nonsense,a11f9911-a1a1-46b9-8e8e-308f2b42877d,needs-review,needs-review,source-conflict,2026-08-15 19:52:29
 605,P2,Blood Rage Mode,,,unattempted,,,
 606,P2,Boom: A Serial Drama,Faith McQuinn / Observer Pictures,,unattempted,,,
 607,P2,Burnout: A Cyberpunk Thriller,Alternative Stories,,unattempted,,,
