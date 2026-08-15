@@ -711,33 +711,33 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 711,P3,Bound,,cfa8bc7c-b9f5-4cb5-ab7b-41bbbbef4ac2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:53:15
 712,P3,Cosmic Riff,,bd88415c-5753-43fa-bb5b-ff19bc92e685,published,published,,2026-08-15 20:56:24
 713,P3,Crap Noir,,8adc93c0-1b0e-4100-b3e1-aa5dd75a759d,published,published,,2026-08-15 20:56:24
-714,P3,Crime and Punsishment,,,unattempted,,,
-715,P3,Crown Jewels,,,unattempted,,,
-716,P3,Crumbleflan,,,unattempted,,,
-717,P3,Decameron Tales,,,unattempted,,,
-718,P3,Deconstructive Criticism,,,unattempted,,,
-719,P3,Dos: After You,Faustian Nonsense,,unattempted,,,
-720,P3,Emergence 2028: Darkwards Drifter,,,unattempted,,,
-721,P3,Endgame,,,unattempted,,,
-722,P3,Entombed,,,unattempted,,,
-723,P3,Grandma Guignol,,,unattempted,,,
-724,P3,Hell on the 3rd Floor,,,unattempted,,,
-725,P3,Horsemen,,,unattempted,,,
-726,P3,In The Gloaming,,,unattempted,,,
+714,P3,Crime and Punsishment,,80dcc697-548d-48bf-94e9-360c72bfbe14,needs-review,needs-review,insufficient-discovery-signals; source-conflict,2026-08-15 20:59:03
+715,P3,Crown Jewels,,c2ada1fe-735c-40f8-9017-371f54d97d47,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:57:05
+716,P3,Crumbleflan,,d765984d-c439-48b2-a655-ad15a6147275,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:58:07
+717,P3,Decameron Tales,,93f88d5e-d9bf-4037-a4bb-4aafbd2a88b7,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:57:01
+718,P3,Deconstructive Criticism,,623a555b-06e0-4fed-9396-9d515e190134,published,published,,2026-08-15 21:00:05
+719,P3,Dos: After You,Faustian Nonsense,9b4adb7a-7486-4adf-8456-c12b00b2704e,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:56:58
+720,P3,Emergence 2028: Darkwards Drifter,,d6794a22-b798-46b6-9dc5-ddd2edf50936,needs-review,needs-review,source-conflict,2026-08-15 20:58:04
+721,P3,Endgame,,203b9321-fc71-41e6-9eb3-9eed874e9154,needs-review,needs-review,source-conflict,2026-08-15 20:57:05
+722,P3,Entombed,,b89fe33c-f5d1-4dee-b9b1-381164a9a4e7,needs-review,needs-review,source-conflict,2026-08-15 20:59:03
+723,P3,Grandma Guignol,,07601b69-e218-40c3-9f9e-4084b9ff339a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:58:07
+724,P3,Hell on the 3rd Floor,,188fabf2-7d7f-4ac6-819d-bb5b08080e95,needs-review,needs-review,source-conflict,2026-08-15 20:57:01
+725,P3,Horsemen,,2a6d32ef-2e7c-4e01-81a0-63e2c24dd11a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:59:04
+726,P3,In The Gloaming,,38032d00-0ed3-4695-a235-59efe818d627,published,published,,2026-08-15 21:00:05
 727,P2,Invaded,,a6d364e4-780a-4c86-b5d5-b8ee0d843fb1,published,published,,2026-08-15 20:03:15
-728,P3,Irish Science Fiction,Brian Sexton,,unattempted,,,
-729,P3,Jack and Lou – A Gangster Love Story,,,unattempted,,,
-730,P3,"Jim Nolan, Private Eye",,,unattempted,,,
-731,P3,Joy to the World,Tal Minear,,unattempted,,,
-732,P3,KIND: An LGBTQ+ Mythical Noir Audio Drama,Strangekind Studio,,unattempted,,,
-733,P3,"Milly Foster, Macabre Investigator",,,unattempted,,,
-734,P3,Mondaze,Vol. 92,,unattempted,,,
-735,P3,Monster World,Top Hat Jack Studios,,unattempted,,,
-736,P3,Monsters with Mortimer: Interviews with Creatures of the Night,,,unattempted,,,
-737,P3,Of the Sword,Tal Minear,,unattempted,,,
+728,P3,Irish Science Fiction,Brian Sexton,e5bc565a-bcbb-427c-9f9b-1f045431952f,needs-review,needs-review,scope-review,2026-08-15 21:00:02
+729,P3,Jack and Lou – A Gangster Love Story,,011a656a-a8cf-4234-93a8-2ab694a08fee,published,published,,2026-08-15 21:00:05
+730,P3,"Jim Nolan, Private Eye",,efcc066d-524b-4c0a-ba10-a9f949d74721,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; source-conflict,2026-08-15 20:58:05
+731,P3,Joy to the World,Tal Minear,72812bf5-b8e5-4e54-820d-6d2a7d269bf2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:59:00
+732,P3,KIND: An LGBTQ+ Mythical Noir Audio Drama,Strangekind Studio,c039f94b-dddb-4bc0-adb8-548419f531c3,needs-review,needs-review,source-conflict,2026-08-15 20:59:07
+733,P3,"Milly Foster, Macabre Investigator",,e49db647-76e3-4db3-8236-fdb3a0913f85,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:57:06
+734,P3,Mondaze,Vol. 92,993b312b-7e22-49c1-b43d-06971b3d8bbb,published,published,,2026-08-15 21:00:05
+735,P3,Monster World,Top Hat Jack Studios,2ad9c649-d62e-4ec4-b959-16ff6c566619,needs-review,needs-review,source-conflict,2026-08-15 20:59:08
+736,P3,Monsters with Mortimer: Interviews with Creatures of the Night,,5baca201-d536-4598-8cbf-99d6d9e53c74,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:58:10
+737,P3,Of the Sword,Tal Minear,c4ef7a07-0349-4797-a4e0-5781ffd6d021,published,published,,2026-08-15 21:00:05
 738,P2,Once Upon A Time In Vegas,Pendant Audio,57e1a164-9a46-4fec-b7ef-58c205d16438,needs-review,needs-review,source-conflict,2026-08-15 20:01:39
-739,P3,Remarkable Providences,The Whisperforge,,unattempted,,,
-740,P3,SCARE FIGHTER 3,,,unattempted,,,
+739,P3,Remarkable Providences,The Whisperforge,3c5fc407-00f5-4eb3-9805-ab55f58bc613,needs-review,needs-review,missing-genre; scope-review; source-conflict,2026-08-15 20:57:01
+740,P3,SCARE FIGHTER 3,,3c5e6292-32a5-4905-a766-1a0850909454,needs-review,needs-review,cover-not-ready; source-conflict,2026-08-15 20:57:04
 741,P3,Scarlet Vault Presents,,,unattempted,,,
 742,P3,Sequestered: An Audio Drama,,,unattempted,,,
 743,P2,Somewhere City,,38b97bd6-3dbd-4d4f-afab-e1583149f90e,published,published,,2026-08-15 20:03:15
