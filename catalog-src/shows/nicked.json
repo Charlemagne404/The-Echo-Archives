@@ -1,0 +1,754 @@
+{
+  "id": "nicked",
+  "title": "Nicked",
+  "subtitle": "A Christmas Faerie Tale",
+  "description": "Since childhood, Nicoletta Nowell and Sarah Locke were inseparable. But the start of eighth grade marked Nicoletta’s sudden transformation from best friend to relentless bully with seemingly no cause. Come December, Sarah is resigned to the new state of affairs until she is swept up in a plot to straighten her bully out by Colzsákos—a Christmas faerie of the Holly Court, specializing in reforming naughty children. It seems like a dream come true, but is Col as ‘good’ as he seems, and can his reformation methods be trusted? A little Mean Girls, a little A Christmas Carol, and a little Labyrinth, Nicked is a holiday faerie tale about good kids, bad kids, and best friendship gone cold.",
+  "cover": "images/covers/nicked.jpg",
+  "coverAlt": "Nicked cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/5XS3GIbnYALhijCO8XN59k",
+    "apple": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?itscg=30200&itsct=podcast_box&uo=4",
+    "website": "https://www.nickedpod.com/",
+    "rss": "https://pinecast.com/feed/nicked",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "https://pca.st/ddwrxyr4"
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Nicked"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 19 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 20,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 25,
+    "totalObservedHours": 3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-12-17",
+    "latest": "2020-12-17",
+    "latestFeedItem": "2020-12-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.nickedpod.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/nickedpod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Sword and Spells Productions",
+    "ownerName": "Sword and Spells Productions",
+    "network": "NICKED"
+  },
+  "creators": [
+    "Sword and Spells Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.nickedpod.com/about; https://www.nickedpod.com/about/; https://www.nickedpod.com/listen; https://www.nickedpod.com/; https://pinecast.com/feed/nicked; https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.nickedpod.com/about",
+      "https://www.nickedpod.com/about/",
+      "https://www.nickedpod.com/listen",
+      "https://www.nickedpod.com/",
+      "https://pinecast.com/feed/nicked",
+      "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Kids & Family",
+      "Stories for Kids"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Since childhood, Nicoletta Nowell and Sarah Locke were inseparable. But the start of eighth grade marked Nicoletta’s sudden transformation from best friend to relentless bully with seemingly no cause. Come December, Sarah is resigned to the new state of affairs until she is swept up in a plot to straighten her bully out by Colzsákos—a Christmas faerie of the Holly Court, specializing in reforming naughty children. It seems like a dream come true, but is Col as ‘good’ as he seems, and can his reformation methods be trusted? A little Mean Girls, a little A Christmas Carol, and a little Labyrinth, Nicked is a holiday faerie tale about good kids, bad kids, and best friendship gone cold.",
+    "socialUrls": [
+      "https://twitter.com/nickedpod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/nicked",
+        "appleCollectionId": "1541088907",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.nickedpod.com/about",
+          "fetchedAt": "2026-08-15T21:06:32.722Z",
+          "payloadHash": "a3d70049b9958aca8f4985cfb24cdca34dc1035c850b207ad0b1ed9adde13abd"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.nickedpod.com/about/",
+          "fetchedAt": "2026-08-15T21:06:32.718Z",
+          "payloadHash": "461fd8e9a9e579e67871cab6c9172d206a3f41ef4ccf113f2aef2a5ee3ba92e4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.nickedpod.com/listen",
+          "fetchedAt": "2026-08-15T21:06:32.713Z",
+          "payloadHash": "534d3d7975c1a0b308166725665e54a894c4d1296ece4869fb74e70c824e2bde"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.nickedpod.com/",
+          "fetchedAt": "2026-08-15T21:06:32.709Z",
+          "payloadHash": "466db7fbe8b2976c811d66abcdad97341ebbb95c3855d565b479a02927c50bd8"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/nicked",
+          "fetchedAt": "2026-08-15T21:06:31.841Z",
+          "payloadHash": "cefead224bfd52844ff603d60be8ebe5dba4f1f192d259da4bce1c00495a34f6"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4",
+          "fetchedAt": "2026-08-15T21:06:31.610Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/listen"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nicked/id1541088907?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/about"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/listen"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.nickedpod.com/listen"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/nicked"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:06:33.379Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c3aeaf59eff9715a9caa809e4aa1bb4beef9dc587d7b9586a2c398c828771ed0",
+        "subtitle": "e0486bed4abf46d7b01c934cb0e6fb33be20499f364aaa052c12549aac62b379",
+        "description": "f323e92d708cf06b2de93c01401eded89ea49236bd6e478fd2ebf1c11044bccb",
+        "cover": "b8d2716e20c559ba78990beeeebc315f570364d531a9ca6ff49df449103e3444",
+        "coverAlt": "084fd39e28f4cbdcb6c811b1aaa1ef218f8150da250c8c0dcadbfd1f7e06281f",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f65eaf3dca18c39a94cb7439a8bf7b31323ab7e78ab528cf46f9bdfb4b7e5bb2",
+        "officialLinks": "45ff1fe84499e26c6dd07464e842532b9583ba12b3ba18cc4de34f5c22658709",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "3b71adb862be1ca2f6c21c49a0aa1d1f8d5e7cdeb2a86f156ae031c2fd813bf7",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "ee802adb68f8cd8e71a33f9c9e4977e11dd94a035f6cd81c3dab6dd091437649",
+        "releaseDates": "2540b042f9e78965e5ea4d3a96147b3617f65197daccc693529829b57d92eae6",
+        "credits": "a5723820fe59ec3f61ad874203dddcec7e37de63fe33969cb802a1c75565bd6c",
+        "creators": "7d6f4b2f185bd832aa11bd1d80575dfed892f273c35a5f8f7dc780237afb6da9",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "2a70638333e196c57ebebea7641dd3280f9a2413474c3f636448cb5a8ea1fc6b"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:09:48.566Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "sword-and-spells-productions",
+  "networkId": "nicked"
+}

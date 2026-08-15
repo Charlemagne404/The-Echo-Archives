@@ -955,34 +955,34 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 955,P1,Home Front,BBC Radio 4,2d51aff2-28fa-4f8c-b879-07af1955ced8,needs-review,needs-review,source-conflict,2026-08-15 17:38:45
 956,P2,The Imagine Neighborhood,,3f16ac07-f3fb-419e-9652-edb20d2d1e8d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:18:34
 957,P2,The Adventures of Power Dog in Dogland,Power Dog Adventures,04c3a048-3df6-49a1-a238-2aa94c63edd2,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-website; scope-review; source-conflict,2026-08-15 20:16:42
-958,P3,Set Sail!,,,unattempted,,,
-959,P3,Boss Monster Adventures,,,unattempted,,,
-960,P3,Gertrude Stunt Girl Zombie Killer,,,unattempted,,,
-961,P3,Alex The Rapping Parrot,Abel Studios,,unattempted,,,
-962,P3,Red Rhino,,,unattempted,,,
-963,P3,Mini Medical Mysteries,,,unattempted,,,
-964,P3,Professor Birthday Isn't Famous,,,unattempted,,,
-965,P3,Clean Green Music Machine: Turn It Up!,,,unattempted,,,
-966,P3,"Fairies and Dragons, Ponies and Knights",,,unattempted,,,
-967,P3,The Epic of Fic,,,unattempted,,,
+958,P3,Set Sail!,,4392ce31-fb93-40f4-a7f1-dedbc45e2739,published,published,,2026-08-15 21:09:53
+959,P3,Boss Monster Adventures,,cc2bff98-0bf1-40ea-9b8e-35bfc2c2a550,needs-review,needs-review,scope-review; source-conflict,2026-08-15 21:07:33
+960,P3,Gertrude Stunt Girl Zombie Killer,,256f25fb-9c37-4932-aa7d-ea2b40346334,published,published,,2026-08-15 21:09:53
+961,P3,Alex The Rapping Parrot,Abel Studios,d43002af-14c0-41c8-aa47-699e86a8f099,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:08:35
+962,P3,Red Rhino,,a1e0acce-5a1e-4df6-a587-a839091c29e9,published,published,,2026-08-15 21:09:53
+963,P3,Mini Medical Mysteries,,f89127a8-cd77-49bc-bfac-ef2126ab0368,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:06:36
+964,P3,Professor Birthday Isn't Famous,,6192e0f6-a21b-43f8-87a1-f9b5a27473f1,needs-review,needs-review,source-conflict,2026-08-15 21:08:37
+965,P3,Clean Green Music Machine: Turn It Up!,,df4c8aa2-5183-44c9-a7c9-de1a8f846e9c,published,published,,2026-08-15 21:09:53
+966,P3,"Fairies and Dragons, Ponies and Knights",,f25d7926-3355-49b8-bc8f-fde489f7b7df,published,published,,2026-08-15 21:09:53
+967,P3,The Epic of Fic,,336d675a-20ef-46c9-b878-85b1d3ea8e6b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:07:39
 968,P1,A World Of Trouble,Voyage Media,bb8978c6-3f08-4b27-a66e-69ec70a61d0f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:39:09
-969,P3,Rainbow Surfers,,,unattempted,,,
+969,P3,Rainbow Surfers,,8ea57d6e-8e51-44f9-bbba-2cf00aa7745e,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:08:39
 970,P2,For King and Country,Alexander Hogg,42f67f36-c59a-4bdc-ac21-aca7dea9e3ea,published,published,,2026-08-15 20:18:46
-971,P3,Captain Kayato and the Catsairs,,,unattempted,,,
-972,P3,The Goat American Novel,,,unattempted,,,
+971,P3,Captain Kayato and the Catsairs,,f6072439-ce63-4b60-b78b-6b61a97397fb,published,published,,2026-08-15 21:09:53
+972,P3,The Goat American Novel,,3d547161-3b0f-4f5a-85e2-6c93b6e3df25,needs-review,needs-review,source-conflict,2026-08-15 21:06:37
 973,P2,The Unthinkable Abduction of Albert,,4c7b8ed2-aa6f-46d2-ace6-776c26039798,needs-review,needs-review,invalid-website; scope-review; source-conflict,2026-08-15 20:15:44
-974,P3,The Heron,,,unattempted,,,
-975,P3,I Witness,,,unattempted,,,
-976,P3,Millie Salmon and the Infinite Shop,,,unattempted,,,
-977,P3,Welcome to Hope Springs,,,unattempted,,,
-978,P3,Todd: Big Boy Detective,,,unattempted,,,
-979,P3,The Kringles,,,unattempted,,,
-980,P3,UnTrue: The Underdogs,,,unattempted,,,
-981,P3,Nicked,,,unattempted,,,
-982,P3,Wilder Dreams,,,unattempted,,,
-983,P3,Truthdiggers,,,unattempted,,,
-984,P3,Quaranteen'd,,,unattempted,,,
-985,P3,Supernatural Supermom,,,unattempted,,,
+974,P3,The Heron,,6fdd3317-e74c-4658-8442-f83f3e41cb13,published,published,,2026-08-15 21:09:53
+975,P3,I Witness,,fc80c95e-9ee9-45cd-b70c-0d0e398cf2bf,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:07:37
+976,P3,Millie Salmon and the Infinite Shop,,836ebfa2-b7dc-4ffd-8256-bffeb7b0eda1,needs-review,needs-review,source-conflict,2026-08-15 21:08:35
+977,P3,Welcome to Hope Springs,,ad08c711-29a3-4b68-8c89-7aabafec6b2d,published,published,,2026-08-15 21:09:53
+978,P3,Todd: Big Boy Detective,,d6528685-0296-4efd-a96e-1159c05cda32,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 21:06:34
+979,P3,The Kringles,,3c9b33fb-8135-482f-bef8-7c26f02a4acd,published,published,,2026-08-15 21:09:53
+980,P3,UnTrue: The Underdogs,,21d7a5bf-5d00-439f-b7c2-5a68339b91ee,needs-review,needs-review,scope-review; source-conflict,2026-08-15 21:07:33
+981,P3,Nicked,,999d9919-6b67-4bcf-b551-fa2e6c786e33,published,published,,2026-08-15 21:09:53
+982,P3,Wilder Dreams,,36ff0e71-856c-4c92-b8a4-47d677b10e98,published,published,,2026-08-15 21:09:53
+983,P3,Truthdiggers,,af393cde-fbdd-4bb1-b3bf-711d4516e721,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:06:41
+984,P3,Quaranteen'd,,d90f9647-5896-4241-aed2-8c5701c94ad5,published,published,,2026-08-15 21:09:53
+985,P3,Supernatural Supermom,,8039a857-5321-4800-8412-3801ed28cfd3,needs-review,needs-review,source-conflict,2026-08-15 21:08:32
 986,P2,Flula Makes Five,Flula Borg,bd5f5ded-eb47-4791-a378-ec8614b4f59c,published,published,,2026-08-15 20:18:46
 987,P2,The Mysterious Secrets of Uncle Bertie's Botanarium,,485f7c7b-4d1a-453e-b95e-5920f8a975be,needs-review,needs-review,source-conflict,2026-08-15 20:17:46
 988,P2,Mars' Best Brisket,,78867d5d-6fdf-4048-9c2d-90b8abc3d4c9,published,published,,2026-08-15 20:18:46

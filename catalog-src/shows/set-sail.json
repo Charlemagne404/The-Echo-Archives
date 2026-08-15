@@ -1,0 +1,667 @@
+{
+  "id": "set-sail",
+  "title": "Set Sail!",
+  "subtitle": "",
+  "description": "3 young siblings learn some hard life lessons when they're left to survive on the streets after a mysterious house fire. Now, they've been separated and must find their way back to each other. But life on the high seas isn't for the faint of heart - especially with a crazy bunch of merchant sailors...or are they? Join us on this interactive audio journey, as we navigate the meaning of found family, carve a path in destiny, and free ourselves in wild adventures!",
+  "cover": "images/covers/set-sail.jpg",
+  "coverAlt": "Set Sail! cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4",
+    "website": "https://redcircle.com/shows/set-sail",
+    "rss": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Set Sail!"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "1 season observed • at least 18 full episodes • 19 min median",
+    "seasons": 1,
+    "episodes": 18,
+    "avgEpisodeMinutes": 18,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 28,
+    "totalObservedHours": 5.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 18,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2024-08-01",
+    "latest": "2026-06-26",
+    "latestFeedItem": "2026-06-26",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/set-sail",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://redcircle.com/set-sail/donations"
+  },
+  "credits": {
+    "creatorName": "Iridescent Acorn Productions",
+    "ownerName": "Iridescent Acorn Productions"
+  },
+  "creators": [
+    "Iridescent Acorn Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1; https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "15 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.833,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1",
+      "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "3 young siblings learn some hard life lessons when they're left to survive on the streets after a mysterious house fire. Now, they've been separated and must find their way back to each other. But life on the high seas isn't for the faint of heart - especially with a crazy bunch of merchant sailors...or are they? Join us on this interactive audio journey, as we navigate the meaning of found family, carve a path in destiny, and free ourselves in wild adventures!",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://redcircle.com/set-sail/donations",
+        "label": "Support This Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 42,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Iridescent Acorn Productions",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "bc27762a-7a90-41a4-a0da-a68c23b0f2f1",
+        "rssUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1",
+        "appleCollectionId": "1787064567",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1",
+          "fetchedAt": "2026-08-15T21:09:47.123Z",
+          "payloadHash": "d25f929b878d147a36bf76c456dbebd87a4aa695b4b042df0105f273294bd0f2"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4",
+          "fetchedAt": "2026-08-15T21:09:47.000Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/set-sail/id1787064567?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/bc27762a-7a90-41a4-a0da-a68c23b0f2f1"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:09:48.441Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "194889c55b5f247f477f48d97dc1dbbc5c713eca9a046da64ede3ca798deebf8",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "665431bec28ddfbf4baaf08b1c2415304a407276e4990d829b0cfc03563b2497",
+        "cover": "786d781d5cce9be222941129d5939cfbfdb08be030d8322fc71912132bc311b8",
+        "coverAlt": "d3d977cd03743269ba41ed53c433649a57d39c3fe54ef86938f3c199407fb534",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "5ebbe64539264b9c8b0e2109b621f9b12854845844db3ba64ea3b7e3bd2fe06f",
+        "officialLinks": "ae873004bb753569ebd50a53495011ee7a4310c1999d7745859521ae1b8a5cae",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "bbd5a60ce67a8cc10874dd8e3524e188972d8cadcd5ebf1a143799f0e80c0b51",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "e3d4e3ad74280112cc109aef74acd44a4b5146672ababfe16a994cdc21354056",
+        "releaseDates": "2e5c6c97f882875eacdee2c8997e17641332e03203827f72558e026c9886f32d",
+        "credits": "c6993c5586fdbf230809d8fd5252c6401cc95b8ea3baf4d515c9870b9fe01b9e",
+        "creators": "26aa9c2c401fe0e4c2afa60a0932e5734776eea58cbd20874eebc59e4ebd1019",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "7ce5643ef110135e4f430400f675a36036eecdca3be1644316d5c7224f3603ad",
+        "verification": "8a891628d5f107b07982ec026b54bd581bf63094940f586f03402ddf23130a72"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:09:48.539Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "iridescent-acorn-productions"
+}
