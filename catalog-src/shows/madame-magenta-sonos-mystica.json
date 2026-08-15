@@ -1,0 +1,660 @@
+{
+  "id": "madame-magenta-sonos-mystica",
+  "title": "Madame Magenta: Sonos Mystica",
+  "subtitle": "",
+  "description": "Join powerful but over-it medium Madame Magenta and her husband Bernard on their run-ins with spirits, fae, and annoying dead exes. Madame Magenta, psychic, medium, and inventor of the ‘drink-along’ audiobook, reads her memoirs, with support from her adoring husband Bernard. In Season 1, Magenta is forced into a bank heist by the ghost of her ex-husband. Season 2 sees Magenta pitted against a psychotic murderer hell-bent on destroying the mystic community. In Season 3, they ward off a demonic entity living in an unlikely object. And in Season 4... we're on the case with Magenta & Bernard's Paranormal Investigations! Magenta also uses the ancient art of bibliomancy to help solve real problems sent in by you, her Tragic Fans.",
+  "cover": "images/covers/madame-magenta-sonos-mystica.jpg",
+  "coverAlt": "Madame Magenta: Sonos Mystica cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4",
+    "website": "https://art19.com/shows/madame-magenta-sonos-mystica",
+    "rss": "https://rss.art19.com/madame-magenta-sonos-mystica",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Madame Magenta: Sonos Mystica"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "6 seasons observed • at least 157 full episodes • 23 min median",
+    "seasons": 6,
+    "episodes": 157,
+    "avgEpisodeMinutes": 29,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 100,
+    "totalObservedHours": 77.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 157,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-04-08",
+    "latest": "2026-08-11",
+    "latestFeedItem": "2026-08-11",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/madame-magenta-sonos-mystica",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Long Cat Media",
+    "ownerName": "Long Cat Media",
+    "network": "ART19"
+  },
+  "creators": [
+    "Long Cat Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/madame-magenta-sonos-mystica; https://rss.art19.com/madame-magenta-sonos-mystica; https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/madame-magenta-sonos-mystica",
+      "https://rss.art19.com/madame-magenta-sonos-mystica",
+      "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Comedy"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Join powerful but over-it medium Madame Magenta and her husband Bernard on their run-ins with spirits, fae, and annoying dead exes. Madame Magenta, psychic, medium, and inventor of the ‘drink-along’ audiobook, reads her memoirs, with support from her adoring husband Bernard. In Season 1, Magenta is forced into a bank heist by the ghost of her ex-husband. Season 2 sees Magenta pitted against a psychotic murderer hell-bent on destroying the mystic community. In Season 3, they ward off a demonic entity living in an unlikely object. And in Season 4... we're on the case with Magenta & Bernard's Paranormal Investigations! Magenta also uses the ancient art of bibliomancy to help solve real problems sent in by you, her Tragic Fans.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Copyright 2026 Long Cat Media",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/madame-magenta-sonos-mystica",
+        "appleCollectionId": "1506403751",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica",
+          "fetchedAt": "2026-08-15T19:33:08.078Z",
+          "payloadHash": "d7edc718e88b2780f0b1419477baab3537bf46c6a25f714cef50fb4b818d04ca"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica",
+          "fetchedAt": "2026-08-15T19:33:07.450Z",
+          "payloadHash": "ed14e13e0419bf75d501a63c7dbcf1f3c614550188e50c367caee43d1016b88e"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4",
+          "fetchedAt": "2026-08-15T19:33:04.656Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/madame-magenta-sonos-mystica/id1506403751?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/madame-magenta-sonos-mystica"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/madame-magenta-sonos-mystica"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:33:08.850Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "2404663a55f100c4b727f32b97e1a782da12bbc5b6fe8769149a440f6aa94dd5",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "f575fc866f1b3dadc3ab9d94a843a71e5873976eb3151670a3ac2d2558c27790",
+        "cover": "254a74c1df6ce17fed2852c416ced85fbc4bd33bc1a776b686dd5cadaa746a6f",
+        "coverAlt": "e9d6d29d22074a641a1241d4225e364533f045cef0c6a85360c890afa6f87e39",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "a0f20672bda98ecbd2f9e160ba22721a8f17aa96f72486d1a3b1461b197a62cf",
+        "officialLinks": "008b1ab27adf21f41825265858f270eaeaffe0bbbec3a894ba4a2c79ea21f6ec",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "920c97d5474e000a7ae9a80ec606faccbf15d69d7e59462ccc4b2b907beb28de",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "184b93c2e78919841cebdd460ad5c78bec2a7d45d7a1741ce24be9c173da1314",
+        "releaseDates": "d8db6ea9f8aeacf7ca69a82d71617a16d9cc54e169b2cec440356c74140a28b2",
+        "credits": "08a569bc523e93f9699daa53e46f1c7bef1ffd2f0d20191a2934f73eef19f579",
+        "creators": "c8537ed910cd993c2ce0a369d79c027ed79e59abc3b35e4dbf85db2133ceec5b",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "74d63bbfd6af8506326ca00cc55f81ab3b8e021b5892101872de5c93b1213d04"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:35:01.841Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "long-cat-media",
+  "networkId": "art19"
+}
