@@ -1,0 +1,818 @@
+{
+  "id": "sacred-hearts",
+  "title": "Sacred Hearts",
+  "subtitle": "",
+  "description": "In an all-girls Catholic high school, a queer 12th-grade student outs herself to take her girlfriend to the Christmas dance and faces backlash. Finding support in surprising places, can she reconcile her newly revealed truth with her faith, family, and friends?",
+  "cover": "images/covers/sacred-hearts.jpg",
+  "coverAlt": "Sacred Hearts cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3PrJ8dok5YhIWBfy3uAScs",
+    "apple": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760",
+    "website": "https://sacredhearts.buzzsprout.com/",
+    "rss": "https://rss.buzzsprout.com/1887628.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/7d223fb6-9e77-4a60-a4ad-1f9a4996ce56",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Sacred Hearts"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 4 full episodes • 16 min median",
+    "seasons": 1,
+    "episodes": 4,
+    "avgEpisodeMinutes": 16,
+    "medianEpisodeMinutes": 16,
+    "minEpisodeMinutes": 14,
+    "maxEpisodeMinutes": 18,
+    "totalObservedHours": 1.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 4,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-11-29",
+    "latest": "2021-12-19",
+    "latestFeedItem": "2021-12-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://sacredhearts.buzzsprout.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.facebook.com/jessica.dasteele",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "JL Pods",
+    "ownerName": "JL Pods",
+    "network": "Buzzsprout"
+  },
+  "creators": [
+    "JL Pods"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0; https://sacredhearts.buzzsprout.com/1887628/episodes?search=true; https://sacredhearts.buzzsprout.com/1887628/about; https://sacredhearts.buzzsprout.com/1887628/episodes; https://sacredhearts.buzzsprout.com/; https://rss.buzzsprout.com/1887628.rss; https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0",
+      "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true",
+      "https://sacredhearts.buzzsprout.com/1887628/about",
+      "https://sacredhearts.buzzsprout.com/1887628/episodes",
+      "https://sacredhearts.buzzsprout.com/",
+      "https://rss.buzzsprout.com/1887628.rss",
+      "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "Queer",
+      "Catholic",
+      "Love",
+      "Christmas"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "In an all-girls Catholic high school, a queer 12th-grade student outs herself to take her girlfriend to the Christmas dance and faces backlash. Finding support in surprising places, can she reconcile her newly revealed truth with her faith, family, and friends?",
+    "socialUrls": [
+      "https://www.facebook.com/jessica.dasteele",
+      "https://www.instagram.com/jessica_lemes_da_silva/",
+      "https://twitter.com/JLemesdaSilva"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 3
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Sacred Hearts",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "8eb3ccb1-d891-5146-b7c6-4bbc9c1021f3",
+        "rssUrl": "https://rss.buzzsprout.com/1887628.rss",
+        "appleCollectionId": "1595735760",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.buzzsprout.com/1887628.rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0",
+          "fetchedAt": "2026-08-15T21:15:33.343Z",
+          "payloadHash": "5b57844c2a17f68b49a9a94c86161b8658dca22781de6e3e585ba52a25063b89"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true",
+          "fetchedAt": "2026-08-15T21:15:33.341Z",
+          "payloadHash": "2de172668df3384da9d7797ec81637a3ada5e850a602b9479a1d74dfb3e5733a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about",
+          "fetchedAt": "2026-08-15T21:15:33.339Z",
+          "payloadHash": "5ecaadac34e62b750c1a5a5a0a9dc14306595c62ec09324c2bc0e122a29db88f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes",
+          "fetchedAt": "2026-08-15T21:15:33.337Z",
+          "payloadHash": "522fd8b1e4bcce2f05e74f3687947a0e4fc0dbb95a84f6d0d640bf42fbddce09"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://sacredhearts.buzzsprout.com/",
+          "fetchedAt": "2026-08-15T21:15:33.335Z",
+          "payloadHash": "6ebb8c2b77b11a096797386a062a65b944b0c65f2927f2f40df2495799924f20"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/1887628.rss",
+          "fetchedAt": "2026-08-15T21:15:32.179Z",
+          "payloadHash": "17f63507fecdb6a58157e7164ee3d3e7c86478552e2bd2800b91d7c9764f6ca8"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4",
+          "fetchedAt": "2026-08-15T21:15:31.750Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sacred-hearts/id1595735760?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes/9747378-a-queer-child-is-born?t=0"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://sacredhearts.buzzsprout.com/1887628/episodes?search=true"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/1887628.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:15:34.222Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a5a34ac61cefcfe3282a17aec14e8aebf439e12eba1ee4cc2c507bb08e71f8cf",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "6c6640db2eec6685955ce60b65c75f118f0ef43cb98782dcf693e8f7e7c602e6",
+        "cover": "3f1746fb0878858101becfef6264ebe6dcdf8f2969b85de398e3114aabd0fde8",
+        "coverAlt": "364c8499276068076fdeb26fd5adeb315f361bf4a76a88c0e2a93719e44e942d",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "89537c372dd5dae11598ebb4e7a4b0fcea51fdb10de07fd91a9f7efcf27afc67",
+        "officialLinks": "67588069c949e271da1c4b7d6e3b7f48f4bc00aadc9aa175260e6f48fb6351d7",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "986ac9f7463a20abe82d649371548892cdb3b885adb6d8039550932828ccc191",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "f4378e811f9512d2ae4e1ef3505084bb51455f6a27f5e13d786e8eb4ff92484e",
+        "releaseDates": "114f9acb6d69fd1d372db328ea23f7e87d18fdecf0042273c4eb60e4f9e10b18",
+        "credits": "fc14963ea6a19cdf03b913bf221fb5f8dca4d826df66c5b6e59152db4dc6bb2b",
+        "creators": "0bacef9cf5bbfdd0675f40d95cabd061fa5937dbf695a257dbb6311a721e6820",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ac213feb26dccc81077633a1e5e109600600d670798554b8ef4e33d702ff53d1"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:16:31.031Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "jl-pods",
+  "networkId": "buzzsprout"
+}

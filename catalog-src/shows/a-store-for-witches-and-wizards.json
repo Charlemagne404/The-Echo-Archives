@@ -1,0 +1,639 @@
+{
+  "id": "a-store-for-witches-and-wizards",
+  "title": "A Store for Witches and Wizards",
+  "subtitle": "",
+  "description": "A Witch, her Pet Raven, and her New Employee work everyday at their humble store, trying to get through another day. Welcome to A Store for Witches and Wizards! A slice of life narrative series set in a world of modern fantasy and academic whimsy. With a magic academy nearby, the store has an endless supply of patrons seeking wands, potions, components, spell books, familiars, brooms, and more! We follow Rachel, powerful witch and owner of the store, and witness her everyday juggle of managing the business, her tense relationships with other witches, and proving herself to the academy's watchful eye. As well as Max, a new employee at the store and student at the academy, trying to find their way in life and learn powerful magic. Our Website Socials: @astoreforWW YouTube Instagram Twitter TikTok",
+  "cover": "images/covers/a-store-for-witches-and-wizards.jpg",
+  "coverAlt": "A Store for Witches and Wizards cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4",
+    "website": "https://www.astoreforww.com/",
+    "rss": "https://media.rss.com/astoreforww/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "A Store for Witches and Wizards"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 5 full episodes • 13 min median",
+    "seasons": 1,
+    "episodes": 5,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 12,
+    "maxEpisodeMinutes": 14,
+    "totalObservedHours": 1.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 5,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-04-09",
+    "latest": "2025-05-07",
+    "latestFeedItem": "2025-05-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.astoreforww.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Miles Davis and Alex Lee",
+    "ownerName": "Miles Davis and Alex Lee"
+  },
+  "creators": [
+    "Miles Davis and Alex Lee"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://media.rss.com/astoreforww/feed.xml; https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "6 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 1,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://media.rss.com/astoreforww/feed.xml",
+      "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Comedy Fiction",
+      "cd893c60-0d85-11f0-8ccf-256f7f1f0a6b"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A Witch, her Pet Raven, and her New Employee work everyday at their humble store, trying to get through another day. Welcome to A Store for Witches and Wizards! A slice of life narrative series set in a world of modern fantasy and academic whimsy. With a magic academy nearby, the store has an endless supply of patrons seeking wands, potions, components, spell books, familiars, brooms, and more! We follow Rachel, powerful witch and owner of the store, and witness her everyday juggle of managing the business, her tense relationships with other witches, and proving herself to the academy's watchful eye. As well as Max, a new employee at the store and student at the academy, trying to find their way in life and learn powerful magic. Our Website Socials: @astoreforWW YouTube Instagram Twitter TikTok",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 4
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Miles Davis 2025",
+      "explicit": "false",
+      "license": {
+        "value": "Miles Davis 2025",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "a98b0bf0-6ea3-5f3b-aa0d-b8befbb0712a",
+        "rssUrl": "https://media.rss.com/astoreforww/feed.xml",
+        "appleCollectionId": "1805457331",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/astoreforww/feed.xml",
+          "fetchedAt": "2026-08-15T21:15:26.934Z",
+          "payloadHash": "75613c67f7d432a220c48b81b36c9f413c2fe459493558f3a03c8c50f4baed1b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4",
+          "fetchedAt": "2026-08-15T21:14:36.705Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/a-store-for-witches-and-wizards/id1805457331?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/astoreforww/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:15:27.079Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "2fb7bb88785854b62ba5362933bc0feef005667ddf603487bd3b1a51f03873ef",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3cd13ea7f84a7bb116a1afe1036c51d85105f5e90d9410893db18354a730bb82",
+        "cover": "d706d50f2c847134dcd8e8bccc5b92eaa995acefdca8736d7d71e4bb2075eac8",
+        "coverAlt": "481483a9698bcae2dc4554b921938cbaf06de715890e55821ecaf61695fd3764",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "1e7da82e48a3f322253fbab8ae8dc244d0d29a3d3f8064d5c55a63a885e9aca0",
+        "officialLinks": "9e092c4adc693278ba788cf8401ec0d550855695deb0ee51f27d23cdb76aa17d",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "554360ff66a4d986b208dd76f8892b5feb5229617f47de40bf7ab96d55dc0aa5",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "94f55a439dff219b9b6a2dd77b2c2919391a6f5e71e7773c1a24367fc2a52857",
+        "releaseDates": "d82bdbd3665f41644e06f3dc19e6733360dcac94d084387e492e676f3f047e9c",
+        "credits": "e753df7807817c987f5f207225b9f270361874c86fd1bee3a26a01d89d17c441",
+        "creators": "dc41d9be77cc9778d81e0b05c98b253a31b481da2c22437300a7378a5f770390",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "2ae415c7f0930fc30ff354fd090049dbe974a0d709cd1a539ff130d5e8ce20e3",
+        "verification": "cf40bd7752f6a88319df44174f84a5c870763f0072fc72d4d2e9e66e40fa4084"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:16:31.043Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "miles-davis-and-alex-lee"
+}

@@ -991,14 +991,14 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 991,P2,Popcorn for Dinner,,c79af212-852b-43b5-a387-db8a83f8c9b4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:16:40
 992,P2,The Shelf Life: A Podcast Sitcom,,9e453c1e-6a93-45a6-9ac9-30855ac1109a,published,published,,2026-08-15 20:18:46
 993,P2,TwentyOne 21: A Black AF Scripted Audio Comedy,,91ad00fb-3bb6-4119-ac8d-58dc8c1d39f6,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:21:53
-994,P3,Coma Guy,,,unattempted,,,
+994,P3,Coma Guy,,c41ba473-2679-46a8-9459-bb4814a7b064,needs-review,needs-review,source-conflict,2026-08-15 21:13:30
 995,P2,Feedback: a comedy of impeccable customer service,,dd96e036-2b0c-497f-b9a5-e3c617089742,published,published,,2026-08-15 20:22:16
-996,P3,Relying On Benjamins,,,unattempted,,,
-997,P3,RETREAT COMEDY,,,unattempted,,,
-998,P3,Riding Around,,,unattempted,,,
-999,P3,The Never Ending Armpit | Comedy Radio Play,,,unattempted,,,
+996,P3,Relying On Benjamins,,ea9ac86a-fd0a-460b-9c14-76a6d2e1616d,published,published,,2026-08-15 21:16:36
+997,P3,RETREAT COMEDY,,ee66d85e-831f-44be-ae4c-23cba191fdc0,published,published,,2026-08-15 21:16:36
+998,P3,Riding Around,,bc2bf2ff-844c-46c2-8562-98281a4119a3,needs-review,needs-review,scope-review; source-conflict,2026-08-15 21:15:29
+999,P3,The Never Ending Armpit | Comedy Radio Play,,757afd33-78f5-491f-9b9f-81bbd89434d9,needs-review,needs-review,source-conflict,2026-08-15 21:15:40
 1000,P2,Wireless Theatre Comedy,Wireless Theatre Ltd,8604ddb5-6cc0-44c0-a91e-3a9dc9761bca,needs-review,needs-review,scope-review,2026-08-15 20:22:12
-1001,P3,.CON,,,unattempted,,,
+1001,P3,.CON,,98433efe-4eb7-4340-92d4-a03082b3bb9c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:15:34
 1002,P2,Kicking the Bucket,,2dfdfac0-4a8f-4647-b917-1f6f49ffe9b8,published,published,,2026-08-15 20:22:16
 1003,P2,Baked Off!,,37474731-dd52-4490-9019-478712482f0b,published,published,,2026-08-15 20:22:16
 1004,P2,Unfuck Your Life with Tog Chesterfield,,385eff8f-acf8-442d-b1a5-d186a918728e,needs-review,needs-review,source-conflict,2026-08-15 20:19:55
@@ -1009,41 +1009,41 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1009,P2,Margaritas & Donuts,Observer Pictures,c3d24b2a-26f8-4314-b4d8-7386c4140547,published,published,,2026-08-15 20:22:16
 1010,P2,Greenhouse,Atypical Artists,8cb7b96d-57d5-47e6-8919-2333ff4f8435,published,published,,2026-08-15 20:22:16
 1011,P1,The Sound Of Home,Voyage Media,aa45b559-e8ec-40a4-be7e-51f736d9fece,needs-review,needs-review,source-conflict,2026-08-15 17:38:45
-1012,P3,In Every Universe,,,unattempted,,,
+1012,P3,In Every Universe,,a209574f-96b5-42f4-be42-1584a8e782ac,needs-review,needs-review,source-conflict,2026-08-15 21:13:36
 1013,P2,His Royal Fakin' Highness,Tandon Productions,6c7b718d-4447-468b-aa0a-0eebcd40bc18,needs-review,needs-review,source-conflict,2026-08-15 20:20:54
 1014,P2,Deck the Halls (with Matrimony!),Sassquach Radio,3861384a-967f-47b3-adff-dc267d023df2,needs-review,needs-review,invalid-website,2026-08-15 20:19:51
 1015,P2,Jules & James,Sassquach Radio,e287d8d4-4dd6-4af2-a26b-cadbbcee5612,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:22:08
 1016,P2,"A Feminist Romance Novel, Podcast! Temptations at Sweetwater Creek",,00fb1e36-d490-43cc-adc5-aa8d2653afd5,needs-review,needs-review,insufficient-discovery-signals,2026-08-15 20:19:56
-1017,P3,Sapphic Stories,,,unattempted,,,
+1017,P3,Sapphic Stories,,cc8630e9-0512-46fd-ad5d-d050ad0f272f,needs-review,needs-review,source-conflict,2026-08-15 21:15:36
 1018,P2,Roommates,,2a846718-43ea-44bb-a370-187b62679941,published,published,,2026-08-15 20:22:16
-1019,P3,Sacred Hearts,,,unattempted,,,
-1020,P3,"Claudia, A Viral Love Story",,,unattempted,,,
-1021,P3,CHOKKA,,,unattempted,,,
+1019,P3,Sacred Hearts,,2e45090d-fe13-443c-bc93-7cdf7b96d77d,published,published,,2026-08-15 21:16:36
+1020,P3,"Claudia, A Viral Love Story",,9629572f-bdfa-44fe-b9e0-dbbb1dca4e62,published,published,,2026-08-15 21:16:36
+1021,P3,CHOKKA,,0d38bf50-6612-44d5-8a1c-8330e4c73272,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:14:28
 1022,P2,Look Up,Atypical Artists,37616538-ba05-48f4-9313-12ba1a56e5a9,published,published,,2026-08-15 20:22:16
-1023,P3,Fruit,,,unattempted,,,
-1024,P3,The Single Squad,,,unattempted,,,
-1025,P3,Affairs of the Heart,,,unattempted,,,
+1023,P3,Fruit,,90a98c1f-74a7-4ada-8d67-c0af3e7eaae4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review; source-conflict,2026-08-15 21:13:29
+1024,P3,The Single Squad,,f5133f71-f268-4ad0-baaa-ab4e227acf52,published,published,,2026-08-15 21:16:36
+1025,P3,Affairs of the Heart,,e06c6338-e3fd-4095-ba1f-ee6a6c033f7f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:15:35
 1026,P2,As the Curtain Rises,Broadway Podcast Network,871c3a05-6913-47b7-8da2-0287b85e9ff7,needs-review,needs-review,source-conflict,2026-08-15 20:21:56
-1027,P3,The Third Place,,,unattempted,,,
-1028,P3,A Practical Guide to Death,,,unattempted,,,
-1029,P3,A Store for Witches and Wizards,,,unattempted,,,
+1027,P3,The Third Place,,e4d760f8-f979-4167-a8aa-373f71e10270,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:13:33
+1028,P3,A Practical Guide to Death,,8a05d4ff-f8c3-43ff-9a1e-ffda0695d4a6,published,published,,2026-08-15 21:16:36
+1029,P3,A Store for Witches and Wizards,,1c20e295-9716-47d2-bf0b-09a20d262f75,published,published,,2026-08-15 21:16:36
 1030,P2,America 2.0,J-Squared,0e0c1fe3-f29f-47bc-9fdd-d579581387f5,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:19:56
-1031,P3,Bondfire Radio Theater Ensemble,,,unattempted,,,
-1032,P3,Déjà-You,,,unattempted,,,
+1031,P3,Bondfire Radio Theater Ensemble,,c7c332e3-f05a-4aff-b53f-a20505d98ffa,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:15:26
+1032,P3,Déjà-You,,8c60c125-e3fc-43b1-802d-72efe717e810,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 21:15:29
 1033,P2,The Unmasked Podcast,,93656e40-d6e2-4bba-b73e-49c9cd287516,published,published,,2026-08-15 20:22:16
-1034,P3,13 Minutes Or Less,,,unattempted,,,
-1035,P3,Pan-Demon-Ium,,,unattempted,,,
-1036,P3,Centered,,,unattempted,,,
+1034,P3,13 Minutes Or Less,,ed6ada0c-4be7-48c5-b236-5b77e5e915aa,published,published,,2026-08-15 21:16:36
+1035,P3,Pan-Demon-Ium,,1ec5b3a0-56ce-466d-b95a-83cd0ccc57a5,needs-review,needs-review,source-conflict,2026-08-15 21:14:34
+1036,P3,Centered,,804192b2-c1b6-4f12-890c-a07d06f063ce,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:13:33
 1037,P2,Gossip,Allison Raskin,b744911c-7bb0-46bc-8d39-c431314d448c,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review,2026-08-15 20:19:52
-1038,P3,Grounds: A Blackcast,,,unattempted,,,
+1038,P3,Grounds: A Blackcast,,228c0c22-2b8c-4722-9061-f40dc385c431,published,published,,2026-08-15 21:16:36
 1039,P2,Remy's Life...Interrupted,Gen-Z Media,07f61bfe-d9c6-4449-8aa5-68c064d8b0f5,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:19:51
 1040,P2,The Sound Museum,,9afe5d53-3fb7-4b30-928a-2370470b7f7e,published,published,,2026-08-15 20:22:16
-1041,P3,The Ladies of Burdoo Springs,,,unattempted,,,
+1041,P3,The Ladies of Burdoo Springs,,7b87e1f8-ff17-4f17-a729-3d2bed893f2c,published,published,,2026-08-15 21:16:36
 1042,P2,Me & AU,Andrea Klassen,508c6b3c-3f23-4ba3-81a6-bcc9e32d9fe9,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 20:21:09
 1043,P2,Starfall,Dash of Daring,7db74c31-8221-45bd-b91b-f0e586843ad6,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:23:09
 1044,P2,Dirt - An Audio Drama,STUDIO5705,baea1486-c1e2-41a0-9536-ddebb0639e10,published,published,,2026-08-15 20:25:56
 1045,P2,Filthy '47,,9eab3619-f0a8-4595-8e56-ae08ad5a0fe4,needs-review,needs-review,source-conflict,2026-08-15 20:23:48
-1046,P3,Wicked Dames,,,unattempted,,,
+1046,P3,Wicked Dames,,94c49f32-5ab6-4ee2-804d-603e92286ea8,needs-review,needs-review,source-conflict,2026-08-15 21:13:29
 1047,P3,Moonlite,,,unattempted,,,
 1048,P3,Johnnie's Song,,,unattempted,,,
 1049,P3,Faithfully Yours Mozart: The Courtship,Faith Jacobs,,unattempted,,,

@@ -1,0 +1,641 @@
+{
+  "id": "13-minutes-or-less",
+  "title": "13 Minutes Or Less",
+  "subtitle": "Life, Pizza and Cryptids",
+  "description": "Pizza chef Ella doesn't like dealing with people, but with a short staffed pizzeria it's on her to do some deliveries. Though not always the most charismatic she does try her best, even if some of her routes are more spooky then expected. This is an anthology series of slice of life audio dramas about pizza delivery, customer service and the supernatural.",
+  "cover": "images/covers/13-minutes-or-less.jpg",
+  "coverAlt": "13 Minutes Or Less cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4",
+    "website": "https://redcircle.com/shows/13-minutes-or-less",
+    "rss": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "13 Minutes Or Less"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 7 full episodes • 7 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "avgEpisodeMinutes": 7,
+    "medianEpisodeMinutes": 7,
+    "minEpisodeMinutes": 5,
+    "maxEpisodeMinutes": 10,
+    "totalObservedHours": 0.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-10-03",
+    "latest": "2022-12-29",
+    "latestFeedItem": "2022-12-29",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/13-minutes-or-less",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Lynette Bacon-Nguyen",
+    "ownerName": "Lynette Bacon-Nguyen"
+  },
+  "creators": [
+    "Lynette Bacon-Nguyen"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20; https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20",
+      "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Pizza chef Ella doesn't like dealing with people, but with a short staffed pizzeria it's on her to do some deliveries. Though not always the most charismatic she does try her best, even if some of her routes are more spooky then expected. This is an anthology series of slice of life audio dramas about pizza delivery, customer service and the supernatural.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "1e478336-7124-415b-a3d1-692221ffca20",
+        "rssUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20",
+        "appleCollectionId": "1648830272",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20",
+          "fetchedAt": "2026-08-15T21:13:31.438Z",
+          "payloadHash": "ff9ab16f33afa6169b7970aef40ef1d595a7d0589680dc3008e0deb83edba04b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4",
+          "fetchedAt": "2026-08-15T21:13:31.282Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/13-minutes-or-less/id1648830272?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1e478336-7124-415b-a3d1-692221ffca20"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:13:32.654Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "2147268b4212c511b9f029e0d8cd56a7b463cef957c2ea2760e57cdfd13b4c37",
+        "subtitle": "8882dda6484d9c35f50cc8c7b1b4a7394fbf1290176ef3a22a569d03c8446390",
+        "description": "e27d485ff0ff8abc0d8066bebf403b60be181afaeb9ba6dab8b1fe54e421b373",
+        "cover": "aef331095dcaee8e4cf1fa11ab6861356c6c35aa116e61d4a4878fa04da86672",
+        "coverAlt": "0b60730e351259a19ac468a429513d410733496e92d630b228acda6b550b2391",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "adee1cf4d62207ab228bf5fd55d560251024945a25dbbc21dcd7e9388d2069ad",
+        "officialLinks": "ce00853393ba3dc4a7d8f7c6741c606ca60c5b51cd361757979ba40ab0abb422",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "504e9af04a8809ee4d25d69f5b8bd44cdb1d8eaafbf57b94b10d07a3d52f5b9c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "14c9ae696a687e96e95d286a80fc39fbed5a4713c407f786331770247c6b789f",
+        "releaseDates": "da66d93578627b257a9eaaa94c178107b6530d6135a028ad35ab8b28d428eae2",
+        "credits": "8120b3b5412731effd344669517c6d1ede17779b348ca3dd5758da1371501d5f",
+        "creators": "e50ae4b4d294e5748a48ff64fd0770b10609d72d87cb469c4bf662f50dd8a5fa",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "9857ed2bc303e43325b3968590ae6486d9d78c63c514dcddc5a522c525a51125"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:16:31.047Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "lynette-bacon-nguyen"
+}
