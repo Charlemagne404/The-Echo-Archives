@@ -1,0 +1,655 @@
+{
+  "id": "the-ballad-of-anne-mary",
+  "title": "The Ballad Of Anne & Mary",
+  "subtitle": "",
+  "description": "A rollicking and romantic musical adventure inspired by the lives of notorious pirates Anne Bonny and Mary Read. It's 1721, and London is abuzz with news of Bonny and Read, currently languishing in Newgate Prison. It’s the perfect time for debt-ridden journalist Nathaniel Mist to exploit the public appetite and ghost-write a sensational (and hopefully best-selling) history of pirates. But as the balladeers and gossips on the streets of London build myths around the blood-thirsty, perverse lady pirates, Mist is forced to reckon with the real Bonny & Read... Featuring musical sensation Christina Bianco, singer-comedian Sooz Kempner, Hamilton star Karl Queensborough, drag legend Le Gateau Chocolat, and more. BBC Audio Drama Awards - Best Podcast - Nominee 2022. British Podcast Awards - Best Fiction - Nominee 2022.",
+  "cover": "images/covers/the-ballad-of-anne-mary.jpg",
+  "coverAlt": "The Ballad Of Anne & Mary cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4",
+    "website": "https://art19.com/shows/the-ballad-of-anne-mary",
+    "rss": "https://rss.art19.com/the-ballad-of-anne-mary",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Ballad Of Anne & Mary"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 28 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 23,
+    "medianEpisodeMinutes": 28,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 40,
+    "totalObservedHours": 3.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-04-29",
+    "latest": "2026-07-27",
+    "latestFeedItem": "2026-07-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://art19.com/shows/the-ballad-of-anne-mary",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Long Cat Media",
+    "ownerName": "Long Cat Media",
+    "network": "ART19"
+  },
+  "creators": [
+    "Long Cat Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://art19.com/shows/the-ballad-of-anne-mary; https://rss.art19.com/the-ballad-of-anne-mary; https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://art19.com/shows/the-ballad-of-anne-mary",
+      "https://rss.art19.com/the-ballad-of-anne-mary",
+      "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A rollicking and romantic musical adventure inspired by the lives of notorious pirates Anne Bonny and Mary Read. It's 1721, and London is abuzz with news of Bonny and Read, currently languishing in Newgate Prison. It’s the perfect time for debt-ridden journalist Nathaniel Mist to exploit the public appetite and ghost-write a sensational (and hopefully best-selling) history of pirates. But as the balladeers and gossips on the streets of London build myths around the blood-thirsty, perverse lady pirates, Mist is forced to reckon with the real Bonny & Read... Featuring musical sensation Christina Bianco, singer-comedian Sooz Kempner, Hamilton star Karl Queensborough, drag legend Le Gateau Chocolat, and more. BBC Audio Drama Awards - Best Podcast - Nominee 2022. British Podcast Awards - Best Fiction - Nominee 2022.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Copyright 2026 Long Cat Media",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/the-ballad-of-anne-mary",
+        "appleCollectionId": "1552629052",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary",
+          "fetchedAt": "2026-08-15T16:47:50.394Z",
+          "payloadHash": "886152fff13b03480fa3b4eb2ac9585d5115cc91981b9f356f7bd23f8651cdb6"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary",
+          "fetchedAt": "2026-08-15T16:47:49.934Z",
+          "payloadHash": "5d73a866755d5e65b7fafb48f2d6aecfcce0c1699427ec9fe38ce50b1710df28"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4",
+          "fetchedAt": "2026-08-15T16:47:48.962Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-ballad-of-anne-mary/id1552629052?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://art19.com/shows/the-ballad-of-anne-mary"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/the-ballad-of-anne-mary"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:47:50.783Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "5353c7a83e1571c55d84b4eec62c8474fd5ac0ebf5b757f452cff876a4133275",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "2f2f73ee6bcd11c71e209a4bb4dbfe45eecd8ddd79bda556c5928e1920fed485",
+        "cover": "dcf42c5cd158be2e506e0516989fed1cda6e12d188f03b6f0e398b72a6beeddd",
+        "coverAlt": "5fdfcfb3c15bc96e7b6090d31ae2c7b92d2239ebdd3bf415277e6a7c53ec2077",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "d436bdacde3da6511bb00ff9b8aa2184e112d19c46867d477e4ce1c04a7113bf",
+        "officialLinks": "183ffe3d292e9d13f124f3206155588e1f0527a5556f5d2506d19699bb6f92c0",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "31737ad7ad17d1ae6e68f249f88167be8dcb0165555ce49dee06a41b2f9f2a8a",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "3e101b9dd489c0da9b0078ac9434561ebf41ad7e8c51b7c218b86732ef56d0b6",
+        "releaseDates": "90bdbf7fab9af0b67ca3ba502e22494124c8926dc6b23ab1067a7c3bfaa2e6c6",
+        "credits": "08a569bc523e93f9699daa53e46f1c7bef1ffd2f0d20191a2934f73eef19f579",
+        "creators": "c8537ed910cd993c2ce0a369d79c027ed79e59abc3b35e4dbf85db2133ceec5b",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "acbdd797015e9515139be45e78abf216f8973b63ea6a44e09e364ac31e2224f5"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:50:12.074Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "long-cat-media",
+  "networkId": "art19"
+}

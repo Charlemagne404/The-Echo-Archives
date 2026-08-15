@@ -1,0 +1,719 @@
+{
+  "id": "the-wicked-library",
+  "title": "The Wicked Library",
+  "subtitle": "The Wicked Library is a Parsec Award winning show featuring dramatic tellings of horror fiction stories from new, upcoming, independent and bestselling authors.",
+  "description": "The Wicked Library is a Parsec Award winning show featuring horror fiction stories from upcoming, new, independent and bestselling authors. Our Tales of terror are read by Host / Producer, Daniel Foytik and other popular voice actors and feature custom music to bring the stories to life. Each episode features the work of some of the best voices in independent horror fiction.",
+  "cover": "images/covers/the-wicked-library.jpg",
+  "coverAlt": "The Wicked Library cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3JmMABpaVs9cTIzqwYM3vx",
+    "apple": "https://itunes.apple.com/us/podcast/the-wicked-library/id595225514",
+    "website": "https://thewickedlibrary.com/",
+    "rss": "https://feedpress.me/TheWickedLibrary",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Wicked Library",
+    "The Wicked Library – a collection of dark tales"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "13 seasons observed • at least 187 full episodes • 56 min median",
+    "seasons": 13,
+    "episodes": 187,
+    "avgEpisodeMinutes": 58,
+    "medianEpisodeMinutes": 56,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 139,
+    "totalObservedHours": 179.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      13,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 187,
+      "bonus": 51,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2015-06-08",
+    "latest": "2025-06-11",
+    "latestFeedItem": "2025-11-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://thewickedlibrary.com/",
+    "patreon": "https://www.patreon.com/wickedlibrary",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/c/TheWickedLibraryPodcast",
+    "social": "https://www.facebook.com/TheWickedLibrary",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "9th Story Studios LLC",
+    "ownerName": "9th Story Studios LLC"
+  },
+  "creators": [
+    "9th Story Studios LLC"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://thewickedlibrary.com/contributors-and-collaborators/; https://thewickedlibrary.com/; https://feedpress.me/TheWickedLibrary; https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "23 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.097,
+    "transcriptFormats": [
+      "application/x-subrip",
+      "text/plain",
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://thewickedlibrary.com/contributors-and-collaborators/",
+      "https://thewickedlibrary.com/",
+      "https://feedpress.me/TheWickedLibrary",
+      "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Arts",
+      "Books"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Wicked Library is a Parsec Award winning show featuring horror fiction stories from upcoming, new, independent and bestselling authors. Our Tales of terror are read by Host / Producer, Daniel Foytik and other popular voice actors and feature custom music to bring the stories to life. Each episode features the work of some of the best voices in independent horror fiction.",
+    "socialUrls": [
+      "https://www.facebook.com/TheWickedLibrary",
+      "https://twitter.com/wickedlibrary",
+      "https://www.instagram.com/wickedlibrarypod/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 46,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "9th Story Studios LLC, Foytik",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feedpress.me/TheWickedLibrary",
+        "appleCollectionId": "595225514",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thewickedlibrary.com/contributors-and-collaborators/",
+          "fetchedAt": "2026-08-15T16:48:48.448Z",
+          "payloadHash": "4685a36be650e2e4ccdcbc6c511cb217ded6db63330b0458089cc7554e322701"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://thewickedlibrary.com/",
+          "fetchedAt": "2026-08-15T16:48:48.444Z",
+          "payloadHash": "666cddd392d5475f97cfa30f269a79ade52622ab9e23f160da2804b3e9c10a08"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feedpress.me/TheWickedLibrary",
+          "fetchedAt": "2026-08-15T16:48:46.783Z",
+          "payloadHash": "811d5ed1c83fedbaf5e07c5d11f788b885ade2066e81da0b278e61358461865b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4",
+          "fetchedAt": "2026-08-15T16:47:52.557Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/contributors-and-collaborators/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-wicked-library/id595225514?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/contributors-and-collaborators/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/contributors-and-collaborators/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/contributors-and-collaborators/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://thewickedlibrary.com/contributors-and-collaborators/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feedpress.me/TheWickedLibrary"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:48:48.562Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "871c3f039a965f2672e650cff3dcb9673a3c522128d1dd33652d40a05bbc75f2",
+        "subtitle": "42bae05fc64676b3d3ab5eb5b48fb72fd48830c1b346e27e0a28d748c3c009a8",
+        "description": "fab3db92d6d6f0cf40fec0622673d4713353adc1611c883f8c3713552d98b609",
+        "cover": "59602974a8bdd5d542081aaba1c886cec05daf9165b905a80495ff6cd205e419",
+        "coverAlt": "c28aea1f10b7e7faa09197e0ed9bed7b3549f595b8ad79f71eb1b1b48df560df",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "281698370bb4c5d17f5f45178d138e30ccb34a457f0d3c81c5611329810cfc3a",
+        "officialLinks": "75a33624b5a9a5be337e8b7b2ae38e5f9a15dd1b77020cbc9bd64fb76737de1d",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "e5dd331c4d3f34203f47e74bdd3ccb9891c2de5632546c20f1f5dc659d1f6ccc",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "ced8052d6a415fa2a363cc79c89ada56b535bfbe6cde0f9037c57370d38c5dba",
+        "releaseDates": "73c875db375599d7604b3781232bef432a4924c1a9239fd9bb617873a27a7085",
+        "credits": "df0ca20fee7fa1c7253b34f3fd1cb9d90d621bded0f80a50516ed828ac9a81b6",
+        "creators": "94de933c790a2530d5a07903b746eb25d022f0dfacb847c0db38b9ece82a152e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "07e0274aaa72413b926e5b87da968695f904335648e5f699e7da79d1f8f44a3d",
+        "verification": "a943d35155708115cab564d7a7fb483207ecbe1787f844eafd6b77d6832a4318"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:50:12.078Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "9th-story-studios-llc"
+}
