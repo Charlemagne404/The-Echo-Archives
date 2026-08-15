@@ -340287,5 +340287,4123 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "listen-with-other",
+    "title": "Listen with Other",
+    "subtitle": "Because grown-ups need storytime too.",
+    "description": "Short stories with a mystery or whimsical twist.",
+    "cover": "images/covers/listen-with-other.jpg",
+    "coverAlt": "Listen with Other cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4",
+      "website": "https://listenwithother.co.uk/",
+      "rss": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Listen with Other"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "9 seasons observed • at least 31 full episodes • 15 min median",
+      "seasons": 9,
+      "episodes": 31,
+      "avgEpisodeMinutes": 14,
+      "medianEpisodeMinutes": 15,
+      "minEpisodeMinutes": 6,
+      "maxEpisodeMinutes": 23,
+      "totalObservedHours": 7.3,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 31,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2025-09-27",
+      "latest": "2026-07-17",
+      "latestFeedItem": "2026-07-17"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://listenwithother.co.uk/"
+    },
+    "credits": {
+      "creatorName": "Giles Booth",
+      "ownerName": "Giles Booth"
+    },
+    "creators": [
+      "Giles Booth"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://listenwithother.co.uk/; http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml; https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://listenwithother.co.uk/",
+        "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+        "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Short stories with a mystery or whimsical twist.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 5,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2025-6 Giles Booth",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+          "appleCollectionId": "1842661048"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://listenwithother.co.uk/",
+            "fetchedAt": "2026-08-15T20:44:20.776Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+            "fetchedAt": "2026-08-15T20:44:20.393Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4",
+            "fetchedAt": "2026-08-15T20:44:19.711Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://listenwithother.co.uk/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://listenwithother.co.uk/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:44:21.965Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:44:25.723Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "giles-booth",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/listen-with-other",
+    "hasPage": true,
+    "image": "images/covers/listen-with-other.jpg",
+    "imageAlt": "Listen with Other cover art",
+    "summary": "Short stories with a mystery or whimsical twist.",
+    "finalRating": null,
+    "searchText": "listen with other because grown ups need storytime too short stories with a mystery or whimsical twist drama serialized listen with other giles booth english ongoing imported giles booth giles booth unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/listen-with-other-e1d59cf4a4-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/listen-with-other-e1d59cf4a4-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "signed-in-blood",
+    "title": "Signed in Blood",
+    "subtitle": "",
+    "description": "On the dark backroads of the American Midwest, a fugitive magician and his witch daughter help those in need... for a terrible price. Signed in Blood is a tale of family, love, and the lengths we'll go when monsters come to call. Signed in Blood is a serialized supernatural horror podcast set in early 2000s America, blending religious horror, dark fantasy, occult thriller, witchcraft, demon bargains, possession horror, small-town horror, cult horror, psychological suspense, gothic Americana, and folk horror. Perfect for fans of serialized audio drama, paranormal fiction, slow-burn supernatural thrillers, cosmic horror, dark fairy tales, and emotionally-driven dark fantasy. If you love the cosmic dread of The Magnus Archives or the rural folk horror of Old Gods of Appalachia, step onto the backroads with us… there’s no telling where the journey will take you.&nbsp; 🎙️SEASON 1 IS NOW COMPLETE. Season 2 premieres Halloween 2026. Created, Written, Performed, and Mixed by Evan O’Cuana Join our Discord: https://discord.gg/QwNcPXVRwZ Official site: https://www.signedinbloodcast.com Support the show: https://www.buymeacoffee.com/signedinblood",
+    "cover": "images/covers/signed-in-blood.jpg",
+    "coverAlt": "Signed in Blood cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/2Ezyu6kQzppOzpISz9E1XC",
+      "apple": "https://podcasts.apple.com/podcast/id1849988853",
+      "website": "https://www.signedinbloodcast.com/",
+      "rss": "https://rss.buzzsprout.com/2551662.rss",
+      "amazonMusic": "https://music.amazon.com/podcasts/3efceb2f-6452-446f-be3e-4faf2a1bfe3c"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Signed in Blood"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 20 full episodes • 33 min median",
+      "seasons": 1,
+      "episodes": 20,
+      "avgEpisodeMinutes": 34,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 25,
+      "maxEpisodeMinutes": 52,
+      "totalObservedHours": 11.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 20,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-10-31",
+      "latest": "2026-07-25",
+      "latestFeedItem": "2026-07-25"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.signedinbloodcast.com/",
+      "discord": "https://discord.gg/QwNcPXVRwZ",
+      "social": "http://www.facebook.com/sharer.php?u=https://www.buzzsprout.com/2551662/episodes/18111082"
+    },
+    "credits": {
+      "creatorName": "Evan O’Cuana",
+      "ownerName": "Evan O’Cuana",
+      "network": "Buzzsprout",
+      "people": [
+        {
+          "name": "Evan O’Cuana",
+          "role": "host",
+          "image": "https://storage.buzzsprout.com/ntbhcrd1fyl7bi2ujs4nq66ldo4l"
+        },
+        {
+          "name": "Jade ‘Soul’ Zuberi",
+          "role": "editor",
+          "href": "https://www.patreon.com/c/soul313/about",
+          "image": "https://storage.buzzsprout.com/keaidy2ry9p5ezqi14bg8f745do1"
+        }
+      ]
+    },
+    "creators": [
+      "Evan O’Cuana"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0; https://www.signedinbloodcast.com/2551662/episodes?search=true; https://www.signedinbloodcast.com/2551662/about; https://www.signedinbloodcast.com/2551662/episodes; https://www.signedinbloodcast.com/; https://rss.buzzsprout.com/2551662.rss; https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "10 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 0.5,
+      "transcriptFormats": [
+        "text/html",
+        "application/json",
+        "application/x-subrip",
+        "text/vtt"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0",
+        "https://www.signedinbloodcast.com/2551662/episodes?search=true",
+        "https://www.signedinbloodcast.com/2551662/about",
+        "https://www.signedinbloodcast.com/2551662/episodes",
+        "https://www.signedinbloodcast.com/",
+        "https://rss.buzzsprout.com/2551662.rss",
+        "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "sourceKeywords": [
+        "Horror podcast",
+        "audio drama",
+        "Midwestern Gothic",
+        "dark storytelling",
+        "supernatural podcast",
+        "dark fantasy",
+        "occult thriller",
+        "demon lore",
+        "folk horror",
+        "horror fiction",
+        "psychological horror",
+        "fiction podcast",
+        "serialized horror"
+      ],
+      "importOfficialSummary": "On the dark backroads of the American Midwest, a fugitive magician and his witch daughter help those in need... for a terrible price. Signed in Blood is a tale of family, love, and the lengths we'll go when monsters come to call. Signed in Blood is a serialized supernatural horror podcast set in early 2000s America, blending religious horror, dark fantasy, occult thriller, witchcraft, demon bargains, possession horror, small-town horror, cult horror, psychological suspense, gothic Americana, and folk horror. Perfect for fans of serialized audio drama, paranormal fiction, slow-burn supernatural thrillers, cosmic horror, dark fairy tales, and emotionally-driven dark fantasy. If you love the cosmic dread of The Magnus Archives or the rural folk horror of Old Gods of Appalachia, step onto the backroads with us… there’s no telling where the journey will take you.&nbsp; 🎙️SEASON 1 IS NOW COMPLETE. Season 2 premieres Halloween 2026. Created, Written, Performed, and Mixed by Evan O’Cuana Join our Discord: https://discord.gg/QwNcPXVRwZ Official site: https://www.signedinbloodcast.com Support the show: https://www.buymeacoffee.com/signedinblood",
+      "socialUrls": [
+        "http://www.facebook.com/sharer.php?u=https://www.buzzsprout.com/2551662/episodes/18111082",
+        "http://twitter.com/intent/tweet?text=Listening+to+%22Chapter+1%3A+In+Nebraska+No+One+Can+Hear+You+Scream%22+at+&url=https%3A%2F%2Fwww.buzzsprout.com%2F2551662%2"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2026 Signed in Blood",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "51bd109f-2006-56d3-8e8e-9a40ccad834b",
+          "rssUrl": "https://rss.buzzsprout.com/2551662.rss",
+          "appleCollectionId": "1849988853",
+          "feedRedirects": [
+            "https://feeds.buzzsprout.com/2551662.rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0",
+            "fetchedAt": "2026-08-15T20:43:21.792Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true",
+            "fetchedAt": "2026-08-15T20:43:21.790Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.signedinbloodcast.com/2551662/about",
+            "fetchedAt": "2026-08-15T20:43:21.788Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes",
+            "fetchedAt": "2026-08-15T20:43:21.786Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.signedinbloodcast.com/",
+            "fetchedAt": "2026-08-15T20:43:21.784Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/2551662.rss",
+            "fetchedAt": "2026-08-15T20:43:20.142Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4",
+            "fetchedAt": "2026-08-15T20:43:19.992Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/signed-in-blood/id1849988853?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "channelPeople": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0"
+              }
+            ]
+          },
+          "discordUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.signedinbloodcast.com/2551662/episodes/18111082-chapter-1-in-nebraska-no-one-can-hear-you-scream?t=0"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2551662.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:43:21.998Z",
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:44:25.735Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "evan-ocuana",
+    "networkId": "buzzsprout",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/signed-in-blood",
+    "hasPage": true,
+    "image": "images/covers/signed-in-blood.jpg",
+    "imageAlt": "Signed in Blood cover art",
+    "summary": "On the dark backroads of the American Midwest, a fugitive magician and his witch daughter help those in need... for a terrible price. Signed in Blood is a tale of family, love, and the lengths we'll go when monsters come to call. Signed in Blood is a serialized supernatural horror podcast set in early 2000s America, blending religious horror, dark fantasy, occult thriller, witchcraft, demon bargains, possession horror, small-town horror, cult horror, psychological suspense, gothic Americana, and folk horror. Perfect for fans of serialized audio drama, paranormal fiction, slow-burn supernatural thrillers, cosmic horror, dark fairy tales, and emotionally-driven dark fantasy. If you love the cosmic dread of The Magnus Archives or the rural folk horror of Old Gods of Appalachia, step onto the backroads with us… there’s no telling where the journey will take you.&nbsp; 🎙️SEASON 1 IS NOW COMPLETE. Season 2 premieres Halloween 2026. Created, Written, Performed, and Mixed by Evan O’Cuana Join our Discord: https://discord.gg/QwNcPXVRwZ Official site: https://www.signedinbloodcast.com Support the show: https://www.buymeacoffee.com/signedinblood",
+    "finalRating": null,
+    "searchText": "signed in blood on the dark backroads of the american midwest a fugitive magician and his witch daughter help those in need for a terrible price signed in blood is a tale of family love and the lengths we ll go when monsters come to call signed in blood is a serialized supernatural horror podcast set in early 2000s america blending religious horror dark fantasy occult thriller witchcraft demon bargains possession horror small town horror cult horror psychological suspense gothic americana and folk horror perfect for fans of serialized audio drama paranormal fiction slow burn supernatural thrillers cosmic horror dark fairy tales and emotionally driven dark fantasy if you love the cosmic dread of the magnus archives or the rural folk horror of old gods of appalachia step onto the backroads with us there s no telling where the journey will take you and nbsp season 1 is now complete season 2 premieres halloween 2026 created written performed and mixed by evan o cuana join our discord https discord gg qwncpxvrwz official site https www signedinbloodcast com support the show https www buymeacoffee com signedinblood drama serialized signed in blood evan o cuana english ongoing imported evan o cuana evan o cuana buzzsprout evan o cuana host https storage buzzsprout com ntbhcrd1fyl7bi2ujs4nq66ldo4l jade soul zuberi editor https www patreon com c soul313 about https storage buzzsprout com keaidy2ry9p5ezqi14bg8f745do1 10 observed episodes available in structured transcript data 0 5 text html application json application x subrip text vtt",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/signed-in-blood-cf7eb1dc54-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/signed-in-blood-cf7eb1dc54-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "engine-of-war",
+    "title": "Engine of War",
+    "subtitle": "A gritty, low fantasy serial in a war torn setting",
+    "description": "Engine of War is a gritty low-fantasy serial about power, morality, and machines. Across 22 bi-weekly episodes, three paths—creation, control, and sacrifice—lead toward a single, world-shaping goal. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/engine-of-war.jpg",
+    "coverAlt": "Engine of War cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4",
+      "website": "https://shows.acast.com/mikey-and-the-garden-arch",
+      "rss": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Engine of War",
+      "Engine of War Episode 2 - The Wilds | Engine of War",
+      "Engine of War Episode 1 - Copperspire | Engine of War",
+      "Engine of War Episode 0 - Ozone. Ash. Rain. | Engine of War"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 19 full episodes • 21 min median",
+      "seasons": 1,
+      "episodes": 19,
+      "avgEpisodeMinutes": 21,
+      "medianEpisodeMinutes": 21,
+      "minEpisodeMinutes": 5,
+      "maxEpisodeMinutes": 30,
+      "totalObservedHours": 6.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 19,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2025-10-28",
+      "latest": "2026-08-04",
+      "latestFeedItem": "2026-08-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/mikey-and-the-garden-arch",
+      "patreon": "https://www.patreon.com/cw/RustBeltStudio",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain"
+    },
+    "credits": {
+      "creatorName": "Rust Belt Studio",
+      "ownerName": "Bryan Foster"
+    },
+    "creators": [
+      "Rust Belt Studio"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-2-the-wilds; https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-1-copperspire; https://shows.acast.com/mikey-and-the-garden-arch/episodes; https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain; https://shows.acast.com/mikey-and-the-garden-arch; https://feeds.acast.com/public/shows/6900de0c928a898462a6559f; https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-2-the-wilds",
+        "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-1-copperspire",
+        "https://shows.acast.com/mikey-and-the-garden-arch/episodes",
+        "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain",
+        "https://shows.acast.com/mikey-and-the-garden-arch",
+        "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f",
+        "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Arts",
+        "Books"
+      ],
+      "sourceKeywords": [
+        "Audiodrama",
+        "low fantasy",
+        "Fantasy",
+        "Gritty",
+        "Dark",
+        "War",
+        "Steam Punk"
+      ],
+      "importOfficialSummary": "Engine of War is a gritty low-fantasy serial about power, morality, and machines. Across 22 bi-weekly episodes, three paths—creation, control, and sacrifice—lead toward a single, world-shaping goal. Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain&via=acast&text=Engine%20of%20War"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Rust Belt Studio",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f",
+          "appleCollectionId": "1849235503",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/mikey-and-the-garden-arch"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-2-the-wilds",
+            "fetchedAt": "2026-08-15T20:43:14.016Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-1-copperspire",
+            "fetchedAt": "2026-08-15T20:43:14.014Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes",
+            "fetchedAt": "2026-08-15T20:43:14.012Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain",
+            "fetchedAt": "2026-08-15T20:43:14.010Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch",
+            "fetchedAt": "2026-08-15T20:43:14.007Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f",
+            "fetchedAt": "2026-08-15T20:43:11.908Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4",
+            "fetchedAt": "2026-08-15T20:43:11.709Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/engine-of-war/id1849235503?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-0-ozone-ash-rain"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-1-copperspire"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/mikey-and-the-garden-arch/episodes/engine-of-war-episode-2-the-wilds"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900de0c928a898462a6559f"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:43:14.855Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:44:25.737Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "rust-belt-studio",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/engine-of-war",
+    "hasPage": true,
+    "image": "images/covers/engine-of-war.jpg",
+    "imageAlt": "Engine of War cover art",
+    "summary": "Engine of War is a gritty low-fantasy serial about power, morality, and machines. Across 22 bi-weekly episodes, three paths—creation, control, and sacrifice—lead toward a single, world-shaping goal. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "engine of war a gritty low fantasy serial in a war torn setting engine of war is a gritty low fantasy serial about power morality and machines across 22 bi weekly episodes three paths creation control and sacrifice lead toward a single world shaping goal hosted on acast see acast com privacy for more information drama serialized engine of war engine of war episode 2 the wilds engine of war engine of war episode 1 copperspire engine of war engine of war episode 0 ozone ash rain engine of war rust belt studio english ongoing imported rust belt studio bryan foster unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/engine-of-war-b93ba08592-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/engine-of-war-b93ba08592-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "mikey-and-the-garden-arch",
+    "title": "Mikey and the Garden Arch",
+    "subtitle": "A high Fantasy story set in 1990's Central Ohio",
+    "description": "Mikey and the Garden Arch is a first-person portal fantasy set in 1990s Central Ohio. Told across 22 episodes, it follows Mikey as he’s pulled into a hidden world and forced to navigate adventure, danger, and the cost of finding his way home. New episodes every other Tuesday. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/mikey-and-the-garden-arch.jpg",
+    "coverAlt": "Mikey and the Garden Arch cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4",
+      "website": "https://shows.acast.com/engine-of-war",
+      "rss": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Mikey and the Garden Arch",
+      "Mikey and the Garden Arch Chapter 2 - Johnson | Mikey and the Garden Arch",
+      "Mikey and the Garden Arch Chapter 1 - Lazy Summer Days | Mikey and the Garden Arch",
+      "Mikey and the Garden Arch Preface - Welcome to the Lot | Mikey and the Garden Arch"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 19 full episodes • 19 min median",
+      "seasons": 1,
+      "episodes": 19,
+      "avgEpisodeMinutes": 20,
+      "medianEpisodeMinutes": 19,
+      "minEpisodeMinutes": 16,
+      "maxEpisodeMinutes": 25,
+      "totalObservedHours": 6.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 19,
+        "bonus": 1,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2025-11-04",
+      "latest": "2026-08-11",
+      "latestFeedItem": "2026-08-11"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/engine-of-war",
+      "patreon": "https://www.patreon.com/cw/RustBeltStudio",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot"
+    },
+    "credits": {
+      "creatorName": "Rust Belt Studio",
+      "ownerName": "Bryan Foster"
+    },
+    "creators": [
+      "Rust Belt Studio"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-2-johnson; https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-1-lazy-summer-days; https://shows.acast.com/engine-of-war/episodes; https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot; https://shows.acast.com/engine-of-war; https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d; https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-2-johnson",
+        "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-1-lazy-summer-days",
+        "https://shows.acast.com/engine-of-war/episodes",
+        "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot",
+        "https://shows.acast.com/engine-of-war",
+        "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d",
+        "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "sourceKeywords": [
+        "Audiodrama",
+        "Fantasy",
+        "Serial",
+        "High Fantasy",
+        "Fiction",
+        "Ohio",
+        "1990's",
+        "Central Ohio"
+      ],
+      "importOfficialSummary": "Mikey and the Garden Arch is a first-person portal fantasy set in 1990s Central Ohio. Told across 22 episodes, it follows Mikey as he’s pulled into a hidden world and forced to navigate adventure, danger, and the cost of finding his way home. New episodes every other Tuesday. Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot&via=acast&text=Mikey%20and%2"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Rust Belt Studio",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d",
+          "appleCollectionId": "1849227559",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/engine-of-war"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-2-johnson",
+            "fetchedAt": "2026-08-15T20:44:12.991Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-1-lazy-summer-days",
+            "fetchedAt": "2026-08-15T20:44:12.988Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/engine-of-war/episodes",
+            "fetchedAt": "2026-08-15T20:44:12.986Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot",
+            "fetchedAt": "2026-08-15T20:44:12.985Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/engine-of-war",
+            "fetchedAt": "2026-08-15T20:44:12.982Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d",
+            "fetchedAt": "2026-08-15T20:44:11.002Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4",
+            "fetchedAt": "2026-08-15T20:43:23.454Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mikey-and-the-garden-arch/id1849227559?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-0-welcome-to-the-lot"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-1-lazy-summer-days"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/engine-of-war/episodes/mikey-and-the-garden-arch-episode-2-johnson"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6900dcefaee65e114abe665d"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:44:13.809Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:44:25.740Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "rust-belt-studio",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/mikey-and-the-garden-arch",
+    "hasPage": true,
+    "image": "images/covers/mikey-and-the-garden-arch.jpg",
+    "imageAlt": "Mikey and the Garden Arch cover art",
+    "summary": "Mikey and the Garden Arch is a first-person portal fantasy set in 1990s Central Ohio. Told across 22 episodes, it follows Mikey as he’s pulled into a hidden world and forced to navigate adventure, danger, and the cost of finding his way home. New episodes every other Tuesday. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "mikey and the garden arch a high fantasy story set in 1990 s central ohio mikey and the garden arch is a first person portal fantasy set in 1990s central ohio told across 22 episodes it follows mikey as he s pulled into a hidden world and forced to navigate adventure danger and the cost of finding his way home new episodes every other tuesday hosted on acast see acast com privacy for more information drama sci fi serialized mikey and the garden arch mikey and the garden arch chapter 2 johnson mikey and the garden arch mikey and the garden arch chapter 1 lazy summer days mikey and the garden arch mikey and the garden arch preface welcome to the lot mikey and the garden arch rust belt studio english ongoing imported rust belt studio bryan foster unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mikey-and-the-garden-arch-ba768a254a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/mikey-and-the-garden-arch-ba768a254a-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "how-it-falls-apart",
+    "title": "How It Falls Apart",
+    "subtitle": "",
+    "description": "In a dystopian society,&nbsp; The Authority &nbsp;enforces control through constant surveillance, propaganda, and mandatory, party-approved affirmations.&nbsp; Liberty , a naive supermarket worker, dreams of escaping to the utopian&nbsp; Caldera Country . However, that dream turns into a nightmare when she unwittingly clicks on a mysterious message, triggering events that thrust her into the heart of a deadly rebellion. Recruited by&nbsp; Rebels &nbsp;on the promise of a quicker path to Caldera Country, Liberty is exposed to the brutal reality of the city’s underbelly. She learns that her clean profile on&nbsp; The App &nbsp;makes her an ideal candidate for a mission to infiltrate Caldera Country and sabotage The Authority’s servers, an act that would cripple the regime.&nbsp; Despite her spiralling fears and growing doubts, Liberty is constantly pressured into action, and is morally torn between whose message to believe. The Rebels will sacrifice everything for freedom. The Authority will stop at nothing to maintain safe streets. As Liberty struggles to find her sense of self in the chaos of it all, one question remains... This isn't just a book, and it's not an audiobook either. It’s an immersive audio experience designed to imbue the feeling that you are right there, in the world of the characters, feeling what they feel, their joys and fears, hopes and hopelessness, and the creeping sense of psychological dread that permeates the plot. Designed for total immersion, headphones recommended. Whether you’re walking, commuting, settling down for the night, or&nbsp; hiding from surveillance , the audio experience has been designed to bring you closer to the very heartbeat of the book. Credits Written and created by Gary Colton Narrated by acclaimed voice artist, Maya Tuttle. Cinematic score and layered sound design by Gary Colton. If you'd like to support, you can buy the book here . Copyright Gary Colton 2026. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/how-it-falls-apart.jpg",
+    "coverAlt": "How It Falls Apart cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4",
+      "website": "https://shows.acast.com/how-it-falls-apart",
+      "rss": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "How It Falls Apart",
+      "How It Falls Apart | Chapter 31 | How It Falls Apart",
+      "How It Falls Apart | Chapter 32 | How It Falls Apart",
+      "How It Falls Apart | Chapter 33 | How It Falls Apart"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 34 full episodes • 15 min median",
+      "episodes": 34,
+      "avgEpisodeMinutes": 17,
+      "medianEpisodeMinutes": 15,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 51,
+      "totalObservedHours": 9.4,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 34,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-01-09",
+      "latest": "2026-03-23",
+      "latestFeedItem": "2026-03-23"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/how-it-falls-apart",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-33"
+    },
+    "credits": {
+      "creatorName": "Gary Colton",
+      "ownerName": "Gary Colton"
+    },
+    "creators": [
+      "Gary Colton"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-31; https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-32; https://shows.acast.com/how-it-falls-apart/episodes; https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-33; https://shows.acast.com/how-it-falls-apart; https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6; https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-31",
+        "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-32",
+        "https://shows.acast.com/how-it-falls-apart/episodes",
+        "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-33",
+        "https://shows.acast.com/how-it-falls-apart",
+        "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6",
+        "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+      ],
+      "sourceCategories": [
+        "Government",
+        "Fiction",
+        "Science Fiction",
+        "Arts",
+        "Books"
+      ],
+      "sourceKeywords": [
+        "Dystopian",
+        "Audiobook",
+        "Science Fiction",
+        "Thriller",
+        "Post-Apocalyptic",
+        "Society",
+        "Culture",
+        "Books",
+        "Totalitarianism",
+        "History",
+        "Rebellion",
+        "Hope",
+        "AI"
+      ],
+      "importOfficialSummary": "In a dystopian society,&nbsp; The Authority &nbsp;enforces control through constant surveillance, propaganda, and mandatory, party-approved affirmations.&nbsp; Liberty , a naive supermarket worker, dreams of escaping to the utopian&nbsp; Caldera Country . However, that dream turns into a nightmare when she unwittingly clicks on a mysterious message, triggering events that thrust her into the heart of a deadly rebellion. Recruited by&nbsp; Rebels &nbsp;on the promise of a quicker path to Caldera Country, Liberty is exposed to the brutal reality of the city’s underbelly. She learns that her clean profile on&nbsp; The App &nbsp;makes her an ideal candidate for a mission to infiltrate Caldera Country and sabotage The Authority’s servers, an act that would cripple the regime.&nbsp; Despite her spiralling fears and growing doubts, Liberty is constantly pressured into action, and is morally torn between whose message to believe. The Rebels will sacrifice everything for freedom. The Authority will stop at nothing to maintain safe streets. As Liberty struggles to find her sense of self in the chaos of it all, one question remains... This isn't just a book, and it's not an audiobook either. It’s an immersive audio experience designed to imbue the feeling that you are right there, in the world of the characters, feeling what they feel, their joys and fears, hopes and hopelessness, and the creeping sense of psychological dread that permeates the plot. Designed for total immersion, headphones recommended. Whether you’re walking, commuting, settling down for the night, or&nbsp; hiding from surveillance , the audio experience has been designed to bring you closer to the very heartbeat of the book. Credits Written and created by Gary Colton Narrated by acclaimed voice artist, Maya Tuttle. Cinematic score and layered sound design by Gary Colton. If you'd like to support, you can buy the book here . Copyright Gary Colton 2026. Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-33",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-33&via=acast&text=How%20It%20Falls%20Apart"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 3,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Gary Colton",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6",
+          "appleCollectionId": "1867227749",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/how-it-falls-apart"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-31",
+            "fetchedAt": "2026-08-15T20:44:21.848Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-32",
+            "fetchedAt": "2026-08-15T20:44:21.846Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/how-it-falls-apart/episodes",
+            "fetchedAt": "2026-08-15T20:44:21.844Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/how-it-falls-apart/episodes/how-it-falls-apart-chapter-33",
+            "fetchedAt": "2026-08-15T20:44:21.842Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/how-it-falls-apart",
+            "fetchedAt": "2026-08-15T20:44:21.840Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6",
+            "fetchedAt": "2026-08-15T20:44:19.946Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4",
+            "fetchedAt": "2026-08-15T20:44:19.760Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/how-it-falls-apart"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/how-it-falls-apart/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/how-it-falls-apart/id1867227749?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/how-it-falls-apart"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/how-it-falls-apart"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/695e64e699f603d24c8fb4a6"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:44:21.974Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:44:25.743Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "gary-colton",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/how-it-falls-apart",
+    "hasPage": true,
+    "image": "images/covers/how-it-falls-apart.jpg",
+    "imageAlt": "How It Falls Apart cover art",
+    "summary": "In a dystopian society,&nbsp; The Authority &nbsp;enforces control through constant surveillance, propaganda, and mandatory, party-approved affirmations.&nbsp; Liberty , a naive supermarket worker, dreams of escaping to the utopian&nbsp; Caldera Country . However, that dream turns into a nightmare when she unwittingly clicks on a mysterious message, triggering events that thrust her into the heart of a deadly rebellion. Recruited by&nbsp; Rebels &nbsp;on the promise of a quicker path to Caldera Country, Liberty is exposed to the brutal reality of the city’s underbelly. She learns that her clean profile on&nbsp; The App &nbsp;makes her an ideal candidate for a mission to infiltrate Caldera Country and sabotage The Authority’s servers, an act that would cripple the regime.&nbsp; Despite her spiralling fears and growing doubts, Liberty is constantly pressured into action, and is morally torn between whose message to believe. The Rebels will sacrifice everything for freedom. The Authority will stop at nothing to maintain safe streets. As Liberty struggles to find her sense of self in the chaos of it all, one question remains... This isn't just a book, and it's not an audiobook either. It’s an immersive audio experience designed to imbue the feeling that you are right there, in the world of the characters, feeling what they feel, their joys and fears, hopes and hopelessness, and the creeping sense of psychological dread that permeates the plot. Designed for total immersion, headphones recommended. Whether you’re walking, commuting, settling down for the night, or&nbsp; hiding from surveillance , the audio experience has been designed to bring you closer to the very heartbeat of the book. Credits Written and created by Gary Colton Narrated by acclaimed voice artist, Maya Tuttle. Cinematic score and layered sound design by Gary Colton. If you'd like to support, you can buy the book here . Copyright Gary Colton 2026. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "how it falls apart in a dystopian society and nbsp the authority and nbsp enforces control through constant surveillance propaganda and mandatory party approved affirmations and nbsp liberty a naive supermarket worker dreams of escaping to the utopian and nbsp caldera country however that dream turns into a nightmare when she unwittingly clicks on a mysterious message triggering events that thrust her into the heart of a deadly rebellion recruited by and nbsp rebels and nbsp on the promise of a quicker path to caldera country liberty is exposed to the brutal reality of the city s underbelly she learns that her clean profile on and nbsp the app and nbsp makes her an ideal candidate for a mission to infiltrate caldera country and sabotage the authority s servers an act that would cripple the regime and nbsp despite her spiralling fears and growing doubts liberty is constantly pressured into action and is morally torn between whose message to believe the rebels will sacrifice everything for freedom the authority will stop at nothing to maintain safe streets as liberty struggles to find her sense of self in the chaos of it all one question remains this isn t just a book and it s not an audiobook either it s an immersive audio experience designed to imbue the feeling that you are right there in the world of the characters feeling what they feel their joys and fears hopes and hopelessness and the creeping sense of psychological dread that permeates the plot designed for total immersion headphones recommended whether you re walking commuting settling down for the night or and nbsp hiding from surveillance the audio experience has been designed to bring you closer to the very heartbeat of the book credits written and created by gary colton narrated by acclaimed voice artist maya tuttle cinematic score and layered sound design by gary colton if you d like to support you can buy the book here copyright gary colton 2026 hosted on acast see acast com privacy for more information drama sci fi episodic how it falls apart how it falls apart chapter 31 how it falls apart how it falls apart chapter 32 how it falls apart how it falls apart chapter 33 how it falls apart gary colton english unclear imported gary colton gary colton unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/how-it-falls-apart-5e9ae9f402-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/how-it-falls-apart-5e9ae9f402-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "osciluna-lounge-stories",
+    "title": "Osciluna Lounge Stories",
+    "subtitle": "",
+    "description": "The spoken-word diary of the sea cottage. 🌊📖 Welcome to the quiet corners of the cottage. Osciluna Lounge Stories is the narrative heart of the lofi universe — a place for dreamers, students, and late-night thinkers to immerse themselves in the lore of Osci and Ky. Whether you're here to study in the library with Ky, wander the shoreline with Osci, or fall asleep to the soft purr of Tangerine, these original short stories are written to give you a moment of peace in a world that rarely slows down. The full experience lives across three places, the stories are here, the lo-fi music is on Spotify and Apple Music under Osciluna Lounge, and the world comes alive on YouTube and TikTok. Come find your corner of the cottage. Original fiction by Sela Ordaz · EachPage",
+    "cover": "images/covers/osciluna-lounge-stories.png",
+    "coverAlt": "Osciluna Lounge Stories cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/7yAQFwxQKoaxIugQFqt08w",
+      "apple": "https://podcasts.apple.com/podcast/id1878539712",
+      "website": "https://rss.com/podcasts/osciluna-lounge/",
+      "rss": "https://media.rss.com/osciluna-lounge/feed.xml",
+      "amazonMusic": "https://music.amazon.com/podcasts/c08923c3-3443-424c-82b3-ef7e034a9002"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Osciluna Lounge Stories"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 9 full episodes • 2 min median",
+      "episodes": 9,
+      "avgEpisodeMinutes": 4,
+      "medianEpisodeMinutes": 2,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 16,
+      "totalObservedHours": 0.6,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 9,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2026-02-19",
+      "latest": "2026-07-27",
+      "latestFeedItem": "2026-07-27"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rss.com/podcasts/osciluna-lounge/",
+      "youtube": "https://www.youtube.com/rsscom/",
+      "social": "https://www.facebook.com/rss.podcasting"
+    },
+    "credits": {
+      "creatorName": "Sela Ordaz",
+      "ownerName": "Sela Ordaz",
+      "network": "RSS.com",
+      "writers": [
+        "Sela Ordaz"
+      ],
+      "people": [
+        {
+          "name": "Sela Ordaz",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "Sela Ordaz"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.com/podcasts/osciluna-lounge/; https://media.rss.com/osciluna-lounge/feed.xml; https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.com/podcasts/osciluna-lounge/",
+        "https://media.rss.com/osciluna-lounge/feed.xml",
+        "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Music",
+        "403d2520-26d3-11f1-be26-013e6d987b21"
+      ],
+      "importOfficialSummary": "The spoken-word diary of the sea cottage. 🌊📖 Welcome to the quiet corners of the cottage. Osciluna Lounge Stories is the narrative heart of the lofi universe — a place for dreamers, students, and late-night thinkers to immerse themselves in the lore of Osci and Ky. Whether you're here to study in the library with Ky, wander the shoreline with Osci, or fall asleep to the soft purr of Tangerine, these original short stories are written to give you a moment of peace in a world that rarely slows down. The full experience lives across three places, the stories are here, the lo-fi music is on Spotify and Apple Music under Osciluna Lounge, and the world comes alive on YouTube and TikTok. Come find your corner of the cottage. Original fiction by Sela Ordaz · EachPage",
+      "socialUrls": [
+        "https://www.facebook.com/rss.podcasting",
+        "https://twitter.com/rss",
+        "https://www.instagram.com/rss_podcasting/"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 20,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Sela Ordaz 2026",
+        "explicit": "false",
+        "license": {
+          "value": "Sela Ordaz 2026"
+        },
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "71f353dd-3db4-5111-87df-78fdc8bb23c3",
+          "rssUrl": "https://media.rss.com/osciluna-lounge/feed.xml",
+          "appleCollectionId": "1878539712"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/",
+            "fetchedAt": "2026-08-15T20:44:23.733Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml",
+            "fetchedAt": "2026-08-15T20:44:23.362Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4",
+            "fetchedAt": "2026-08-15T20:44:22.965Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/osciluna-lounge-stories/id1878539712?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/osciluna-lounge/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/osciluna-lounge/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:44:24.886Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:44:25.744Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "sela-ordaz",
+    "networkId": "rss-com",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/osciluna-lounge-stories",
+    "hasPage": true,
+    "image": "images/covers/osciluna-lounge-stories.png",
+    "imageAlt": "Osciluna Lounge Stories cover art",
+    "summary": "The spoken-word diary of the sea cottage. 🌊📖 Welcome to the quiet corners of the cottage. Osciluna Lounge Stories is the narrative heart of the lofi universe — a place for dreamers, students, and late-night thinkers to immerse themselves in the lore of Osci and Ky. Whether you're here to study in the library with Ky, wander the shoreline with Osci, or fall asleep to the soft purr of Tangerine, these original short stories are written to give you a moment of peace in a world that rarely slows down. The full experience lives across three places, the stories are here, the lo-fi music is on Spotify and Apple Music under Osciluna Lounge, and the world comes alive on YouTube and TikTok. Come find your corner of the cottage. Original fiction by Sela Ordaz · EachPage",
+    "finalRating": null,
+    "searchText": "osciluna lounge stories the spoken word diary of the sea cottage welcome to the quiet corners of the cottage osciluna lounge stories is the narrative heart of the lofi universe a place for dreamers students and late night thinkers to immerse themselves in the lore of osci and ky whether you re here to study in the library with ky wander the shoreline with osci or fall asleep to the soft purr of tangerine these original short stories are written to give you a moment of peace in a world that rarely slows down the full experience lives across three places the stories are here the lo fi music is on spotify and apple music under osciluna lounge and the world comes alive on youtube and tiktok come find your corner of the cottage original fiction by sela ordaz eachpage drama episodic osciluna lounge stories sela ordaz english ongoing imported sela ordaz sela ordaz rss com sela ordaz sela ordaz author unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/osciluna-lounge-stories-8c358fed6c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/osciluna-lounge-stories-8c358fed6c-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

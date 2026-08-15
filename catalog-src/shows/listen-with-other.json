@@ -1,0 +1,637 @@
+{
+  "id": "listen-with-other",
+  "title": "Listen with Other",
+  "subtitle": "Because grown-ups need storytime too.",
+  "description": "Short stories with a mystery or whimsical twist.",
+  "cover": "images/covers/listen-with-other.jpg",
+  "coverAlt": "Listen with Other cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4",
+    "website": "https://listenwithother.co.uk/",
+    "rss": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Listen with Other"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "9 seasons observed • at least 31 full episodes • 15 min median",
+    "seasons": 9,
+    "episodes": 31,
+    "avgEpisodeMinutes": 14,
+    "medianEpisodeMinutes": 15,
+    "minEpisodeMinutes": 6,
+    "maxEpisodeMinutes": 23,
+    "totalObservedHours": 7.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 31,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-09-27",
+    "latest": "2026-07-17",
+    "latestFeedItem": "2026-07-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://listenwithother.co.uk/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Giles Booth",
+    "ownerName": "Giles Booth"
+  },
+  "creators": [
+    "Giles Booth"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://listenwithother.co.uk/; http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml; https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://listenwithother.co.uk/",
+      "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+      "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Short stories with a mystery or whimsical twist.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 5,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2025-6 Giles Booth",
+      "explicit": "",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+        "appleCollectionId": "1842661048",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://listenwithother.co.uk/",
+          "fetchedAt": "2026-08-15T20:44:20.776Z",
+          "payloadHash": "2b9bce418ca41f2f93ded1c591241146379a11bcafe2aefcffecd7a726645d70"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml",
+          "fetchedAt": "2026-08-15T20:44:20.393Z",
+          "payloadHash": "96a688206e0d176d16944d74cf4f346f89fb50faa713c87cf312b50009b1de1a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4",
+          "fetchedAt": "2026-08-15T20:44:19.711Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://listenwithother.co.uk/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/listen-with-other/id1842661048?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://listenwithother.co.uk/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://www.suppertime.co.uk/listen-with-other/audio/listen-with-other-rss.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:44:21.965Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d9c36eb5509a77b461e524ecc3721365f855258af6a54fecf1836a1b2fe8703f",
+        "subtitle": "e44399686a48c059dcf0ce5433af571ffd6ce09b03dde1cbfdc42ddef502dae2",
+        "description": "8fbedaf1c3eafd25c822993bc8420c094079d46a1650252fe1f59e469938e4cc",
+        "cover": "bd3d28cb6b52b0ff591d1ef05809802444bf1b9170652c10656e181ddc23931c",
+        "coverAlt": "9af18994a1ad8b059d699af378904680020e101e58e0f132e69b3de0bb7e94ef",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "3ef5d1681505a090efbf7bd5a2c90832aba46bcf058bf3aab850758fdb6ca99a",
+        "officialLinks": "809f15b60a3126204d8acba5e03d21b3a1fe4ce4a80caeaf1e571cd8d6713573",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "52aa397fa4a5d2bcf39a9277bee30d6152aba80e46a525c4599f2a1c876c7dc0",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "98959b3e4265685a61500da8794b88d38e5c21f5cf3acfde808ad0c5c0e68274",
+        "releaseDates": "a4ec245297998d9ca40a79fe3f1bad98975885f48c198d3415cc4197ac6acc8c",
+        "credits": "4231a149e2529346481c3259fae5d13153f8f84857c2f17f3e67219b33f3cdf7",
+        "creators": "6abda14e9ad36bfcb559d989691049515a7b3cd15a9c2457bea49760e4586943",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "9b9c3810047788bd030f8721825ac5d5b2647b4821e20c239ccb338da4686a57"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:44:25.723Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "giles-booth"
+}

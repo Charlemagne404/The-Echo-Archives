@@ -1338,25 +1338,25 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1338,P2,The Kingdom of The Father,Daniel Rangel,ee18fd31-58b2-40f8-b063-72c041fb5e2f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:42:31
 1339,P2,The Man and The Mirage,EFTV Productions,f366be80-cc7e-4721-ba28-180253918dd1,needs-review,needs-review,source-conflict,2026-08-15 20:42:25
 1340,P2,Hunters and Collectors,,00627821-4e6d-4fe8-9972-370a6ec41e95,needs-review,needs-review,placeholder-description; scope-review; source-conflict,2026-08-15 20:42:29
-1341,P2,Listen with Other,Giles Booth,,unattempted,,,
-1342,P2,Signed in Blood,Evan O'Cuana,,unattempted,,,
-1343,P2,"Written Works For You, By You",,,unattempted,,,
-1344,P2,Treasure Hunters,Lamplight Universe,,unattempted,,,
-1345,P2,An Angel Without a Name,,,unattempted,,,
-1346,P2,Doctor Who: True 15,Xenova Studios,,unattempted,,,
-1347,P2,Century Read,Oregon Voices Network,,unattempted,,,
-1348,P2,The Penny Dreadful Hour,Oregon Voices Network,,unattempted,,,
-1349,P2,Mystery Fiction Mondays,Michael Campling,,unattempted,,,
-1350,P2,Time-Travel Fiction Tuesdays,Michael Campling,,unattempted,,,
-1351,P2,The Dreaming Astronaut,Man and Robot Society,,unattempted,,,
-1352,P2,Engine of War,Rust Belt Studio,,unattempted,,,
-1353,P2,Mikey and the Garden Arch,Rust Belt Studio,,unattempted,,,
-1354,P2,How It Falls Apart,Gary Colton,,unattempted,,,
-1355,P2,The Big Red Balloon,Paul Malone,,unattempted,,,
-1356,P2,Osciluna Lounge Stories,,,unattempted,,,
-1357,P2,Claybourne,,,unattempted,,,
-1358,P2,First Light,Scott McGowan,,unattempted,,,
-1359,P2,The McSherry Cabinet,Paul McSherry,,unattempted,,,
+1341,P2,Listen with Other,Giles Booth,c0312fe5-af25-464a-8e69-48f0560fde71,published,published,,2026-08-15 20:44:28
+1342,P2,Signed in Blood,Evan O'Cuana,8e54b679-067b-42e5-95ca-8baaea55d176,published,published,,2026-08-15 20:44:28
+1343,P2,"Written Works For You, By You",,9dd44ed4-2e25-4fdd-a7d9-414f4a3a7d1a,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:44:13
+1344,P2,Treasure Hunters,Lamplight Universe,bd6e1c61-01e1-486c-b4a6-51a02a8a38dc,needs-review,needs-review,source-conflict,2026-08-15 20:43:21
+1345,P2,An Angel Without a Name,,cc6d5144-e722-43f5-9678-cba8da6d1878,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:43:15
+1346,P2,Doctor Who: True 15,Xenova Studios,41f1361d-8d27-47bc-9125-3b979eaeb5a8,needs-review,needs-review,source-conflict,2026-08-15 20:44:25
+1347,P2,Century Read,Oregon Voices Network,3b6eb71b-ee19-48d2-9db3-1327d6d98f01,needs-review,needs-review,source-conflict,2026-08-15 20:43:19
+1348,P2,The Penny Dreadful Hour,Oregon Voices Network,222ee592-9c54-4cb5-9868-434a1d78334c,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:43:22
+1349,P2,Mystery Fiction Mondays,Michael Campling,80d895ae-1f54-4d48-8233-cedc78080880,needs-review,needs-review,source-conflict,2026-08-15 20:44:20
+1350,P2,Time-Travel Fiction Tuesdays,Michael Campling,f57a683a-30ae-4e76-a94c-90c6d1208c57,needs-review,needs-review,source-conflict,2026-08-15 20:44:12
+1351,P2,The Dreaming Astronaut,Man and Robot Society,e7d589d5-9903-42c7-88e8-ba1ca915f7ee,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:43:26
+1352,P2,Engine of War,Rust Belt Studio,409d5c4f-feed-4ed8-9464-11ed3af7c967,published,published,,2026-08-15 20:44:28
+1353,P2,Mikey and the Garden Arch,Rust Belt Studio,8e402760-f100-4434-a297-e6ce0cfc0fbd,published,published,,2026-08-15 20:44:28
+1354,P2,How It Falls Apart,Gary Colton,db8d9fe0-d834-4584-9644-1c3d95e7fbab,published,published,,2026-08-15 20:44:28
+1355,P2,The Big Red Balloon,Paul Malone,aaed3ca3-df4c-4cfc-94c9-66779e0468f1,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:44:15
+1356,P2,Osciluna Lounge Stories,,c154cc35-a579-43f9-a131-5219743a5cce,published,published,,2026-08-15 20:44:28
+1357,P2,Claybourne,,69e17d7a-ec0b-45e9-ba41-30fc6c849f15,needs-review,needs-review,insufficient-discovery-signals,2026-08-15 20:43:20
+1358,P2,First Light,Scott McGowan,29a88a01-fb08-40fe-8b08-7f9dde705af7,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:43:12
+1359,P2,The McSherry Cabinet,Paul McSherry,8371fa6d-1695-487a-badf-f96e7ffbf583,needs-review,needs-review,source-conflict,2026-08-15 20:44:24
 1360,P3,In Dying Days,,,unattempted,,,
 1361,P3,Our Doris,Charles Heathcote,,unattempted,,,
 1362,P3,Fun Fiction Stories for Kids,Abel Studios,,unattempted,,,
