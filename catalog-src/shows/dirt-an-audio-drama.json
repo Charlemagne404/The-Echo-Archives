@@ -1,0 +1,725 @@
+{
+  "id": "dirt-an-audio-drama",
+  "title": "Dirt - An Audio Drama",
+  "subtitle": "",
+  "description": "A strange letter. An impossible sender. Secrets hidden in the ground. From STUDIO5705, a scripted fiction podcast set in present-day Washington State about a man’s journey to unlock a family mystery—and find things long ago buried. 2 million downloads. Season 4 now underway. Part of the Fable & Folly Network.",
+  "cover": "images/covers/dirt-an-audio-drama.jpg",
+  "coverAlt": "Dirt - An Audio Drama cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2n1yNo7UJMcQlVZhkbgsFz",
+    "apple": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306",
+    "website": "https://www.dirtaudiodrama.com/",
+    "rss": "https://feeds.megaphone.fm/dirtaudiodrama",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/d9e7501c-e1fa-4baf-93f3-0b1d077ca682/Dirt-An-Audio-Drama",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Dirt - An Audio Drama"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 34 full episodes • 37 min median",
+    "seasons": 4,
+    "episodes": 34,
+    "avgEpisodeMinutes": 38,
+    "medianEpisodeMinutes": 37,
+    "minEpisodeMinutes": 25,
+    "maxEpisodeMinutes": 58,
+    "totalObservedHours": 21.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 34,
+      "bonus": 15,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-09-21",
+    "latest": "2026-01-29",
+    "latestFeedItem": "2026-01-29",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.dirtaudiodrama.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/dirtaudiodrama/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "STUDIO5705",
+    "ownerName": "STUDIO5705",
+    "network": "Dirt - An Audio Drama"
+  },
+  "creators": [
+    "STUDIO5705"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.dirtaudiodrama.com/presskit; https://www.dirtaudiodrama.com/about; https://www.dirtaudiodrama.com/; https://feeds.megaphone.fm/dirtaudiodrama; https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.dirtaudiodrama.com/presskit",
+      "https://www.dirtaudiodrama.com/about",
+      "https://www.dirtaudiodrama.com/",
+      "https://feeds.megaphone.fm/dirtaudiodrama",
+      "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A strange letter. An impossible sender. Secrets hidden in the ground. From STUDIO5705, a scripted fiction podcast set in present-day Washington State about a man’s journey to unlock a family mystery—and find things long ago buried. 2 million downloads. Season 4 now underway. Part of the Fable & Folly Network.",
+    "socialUrls": [
+      "https://www.instagram.com/dirtaudiodrama/",
+      "https://www.facebook.com/Dirt-An-Audio-Drama-111575530667107/",
+      "https://twitter.com/dirtaudiodrama"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 44,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© STUDIO5705 LLC",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/dirtaudiodrama",
+        "appleCollectionId": "1532262306",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.dirtaudiodrama.com/presskit",
+          "fetchedAt": "2026-08-15T20:25:49.328Z",
+          "payloadHash": "12470a5ffcc5a193ead840583b64fb40e6d8fb86c508fe253454b5b5b447f130"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.dirtaudiodrama.com/about",
+          "fetchedAt": "2026-08-15T20:25:49.316Z",
+          "payloadHash": "a3f00dde95045095bb6ee636046dbab9fbf2d5749c7ef6758e0a61ae8104a48a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.dirtaudiodrama.com/",
+          "fetchedAt": "2026-08-15T20:25:49.302Z",
+          "payloadHash": "66589dfe980d52996176afc4c9a7241c2cfa200e4241d583d36f4080519c129b"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama",
+          "fetchedAt": "2026-08-15T20:25:47.089Z",
+          "payloadHash": "440507aa5fcb347a843d9aa33a91e10a1cb0863f6fdbf03a5a7017b6cc4cb966"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4",
+          "fetchedAt": "2026-08-15T20:25:16.830Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/presskit"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/presskit"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dirt-an-audio-drama/id1532262306?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/presskit"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/presskit"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.dirtaudiodrama.com/presskit"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/dirtaudiodrama"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:25:49.769Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "63df5830c27b5d7c2b84b10c370cf07ae2c7363febc063d4f21840c6428036f3",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "8d33681cc5a82850ad9b10350f32393d5f635900f82e9bcea3cb5919421af3c2",
+        "cover": "f8886582269a61ef98a138ad5604370aa26fd82218201baab97f8435685c005d",
+        "coverAlt": "c91c1a1438036f539ae151ba86f65ce32869c863316b9278bf137185e5d6666a",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "0fa290db8bd21bafcced31f19f9ae93f776eaea6f01daad351c9754ea310648f",
+        "officialLinks": "882f0ab45f8868f2ca9071f78bcfdb1c7d228f4d06bed6e83f48964fb13514c0",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "285249eaad446c3b155040611fd9c09e3192d687bcff509fdad6c59af0501f1b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "8ff07387ec2b777a61729920f28f7312e99c5ab9cacae5ee03d34e2865551455",
+        "releaseDates": "6c7abf5cc26425c80e78f39c5acbd7ddc725cfe43b6341aab94a1fcbc9fb6754",
+        "credits": "731f4bd79124e0891e4479f8181add7838f6422ae47e5a9e8ede3da7db29d883",
+        "creators": "c2f62d3cf8756f6c8df41c2c4fa3831750ddfc111560e63853a32f20dd488a1f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "8317f92bac3318ef426b217df8ee487d7b48544611bf992eca8bf75df4f69df0"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:25:53.198Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "studio5705",
+  "networkId": "dirt-an-audio-drama"
+}

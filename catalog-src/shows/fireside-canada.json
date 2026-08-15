@@ -1,0 +1,724 @@
+{
+  "id": "fireside-canada",
+  "title": "Fireside Canada",
+  "subtitle": "",
+  "description": "Settle in and get cozy for some spine-tingling Canadian folklore. Featuring stories of ghost ships, supernatural beings, larger-than-life heroes, mysterious spirits, and national myths. Host David Williams will tell you a tale, then bring you on a deep dive into its history and cultural significance.",
+  "cover": "images/covers/fireside-canada.jpg",
+  "coverAlt": "Fireside Canada cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/4EMGExnqnvrJHFMg0DDmqD",
+    "apple": "https://podcasts.apple.com/ca/podcast/fireside-canada/id1538251977",
+    "website": "https://firesidecanada.ca/",
+    "rss": "https://feeds.simplecast.com/IeVt31GZ",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Fireside Canada",
+    "Fireside Canada : A Podcast About Canadian Legends, Lies & Lore"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "4 seasons observed • at least 44 full episodes • 43 min median",
+    "seasons": 4,
+    "episodes": 44,
+    "avgEpisodeMinutes": 44,
+    "medianEpisodeMinutes": 43,
+    "minEpisodeMinutes": 27,
+    "maxEpisodeMinutes": 65,
+    "totalObservedHours": 32.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 44,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-08-27",
+    "latest": "2025-01-16",
+    "latestFeedItem": "2025-01-16",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://firesidecanada.ca/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://twitter.com/fireside_canada",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "David Williams/ Frequency Podcast Network",
+    "ownerName": "David Williams / Frequency Podcast Network"
+  },
+  "creators": [
+    "David Williams/ Frequency Podcast Network"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://firesidecanada.ca/the-fiddle-burning-priest-of-cape-breton-island/; https://firesidecanada.ca/about/; https://firesidecanada.ca/episodes/; https://firesidecanada.ca/; https://feeds.simplecast.com/IeVt31GZ; https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://firesidecanada.ca/the-fiddle-burning-priest-of-cape-breton-island/",
+      "https://firesidecanada.ca/about/",
+      "https://firesidecanada.ca/episodes/",
+      "https://firesidecanada.ca/",
+      "https://feeds.simplecast.com/IeVt31GZ",
+      "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4"
+    ],
+    "sourceCategories": [
+      "History",
+      "Arts",
+      "Books",
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Settle in and get cozy for some spine-tingling Canadian folklore. Featuring stories of ghost ships, supernatural beings, larger-than-life heroes, mysterious spirits, and national myths. Host David Williams will tell you a tale, then bring you on a deep dive into its history and cultural significance.",
+    "socialUrls": [
+      "https://twitter.com/fireside_canada",
+      "https://www.instagram.com/firesidecanadapodcast/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright © 2021 Rogers Sports & Media",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.simplecast.com/IeVt31GZ",
+        "appleCollectionId": "1538251977",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.firesidecanada.ca/feed/podcast/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://firesidecanada.ca/the-fiddle-burning-priest-of-cape-breton-island/",
+          "fetchedAt": "2026-08-15T20:25:06.132Z",
+          "payloadHash": "a9c5a8eaf0d32083b1accd245dbbdbb014238c9b4d643c093e6b26857b73dab4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://firesidecanada.ca/about/",
+          "fetchedAt": "2026-08-15T20:25:06.130Z",
+          "payloadHash": "8f74f055f54d87aba14433d68b1a1c0bd69ff9c34c8bb7ab2336e4e34238a4a6"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://firesidecanada.ca/episodes/",
+          "fetchedAt": "2026-08-15T20:25:06.128Z",
+          "payloadHash": "794619467ebdd680f57068353f64c40e5bb0ca0cf08db6887ee790d82fc1c44e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://firesidecanada.ca/",
+          "fetchedAt": "2026-08-15T20:25:06.125Z",
+          "payloadHash": "c5f3e95cc38d337e64dbc6caf603ff2db9d450061d8654d45371c986fa917260"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ",
+          "fetchedAt": "2026-08-15T20:25:02.677Z",
+          "payloadHash": "79f19997a1b834b1a1b9544cce70b1a17fe3e41d2af66a4ff047babbc121f60a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4",
+          "fetchedAt": "2026-08-15T20:24:47.198Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/the-fiddle-burning-priest-of-cape-breton-island/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fireside-canada/id1538251977?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/the-fiddle-burning-priest-of-cape-breton-island/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/about/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://firesidecanada.ca/the-fiddle-burning-priest-of-cape-breton-island/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/IeVt31GZ"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:25:06.393Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "14f78ddf71a489389ea211e30d1d0e01de3790786885577d983636d51156bf98",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "30443ba84b28ad2b026ef1b7cf43f1d58550ff31f0330f48aabf59ea26bd8108",
+        "cover": "ff9e60fcc1f5905bc2955b0d34c5a797b9090a8f913ede8701463cd278e81e1f",
+        "coverAlt": "cadcdba51806c01a329b931668620b8e4fbfd1773da9cfafbfa988215a55667d",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "13aaa514ace23545f0e47a104bb3b71011bab7b6d40ec41f8e8ac71e9f67329a",
+        "officialLinks": "8e0664585a49c3d67d2dea6b262ca04ed91ed4db8e847cc009d52a10bf969e0c",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "b6fea799650fb0a80af0309fb8e89df4fbbf19c3b58d3aa93872b0823c53ca53",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "496c76e4c4b22c4b1f47a7451aca84c3d37778a29aa6af3bc12639b931304f22",
+        "releaseDates": "a9c62064558e8f0645b4719abb50be40823db778a5139f2500c69b6aaa2adbcd",
+        "credits": "8106bef598feb1cd220ad47671f5db23beaab1c4bf77c48109da8cc3b1a7ec4c",
+        "creators": "64afdce2840016f4109ac00c92895de5a5bc2a58341a757487d9834115af3d46",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "590b87579078538691be3e4b1018f1ca2de09c0c5924bd9118f6b323b0eb80a9"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:25:53.235Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "david-williams-frequency-podcast-network"
+}

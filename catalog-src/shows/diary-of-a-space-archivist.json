@@ -1,0 +1,783 @@
+{
+  "id": "diary-of-a-space-archivist",
+  "title": "Diary of a Space Archivist",
+  "subtitle": "A light-hearted podcast about friendship, chocolate and space...",
+  "description": "Sam archives space. Yep. It's pretty boring... until she finds an alien-bat-thing hiding inside her robot companion. How will she keep the cute, and definitely not terrifying, creature safe from the very corporation that employs her? After all, she's just an archivist. Don't worry, everything will be fine... This podcast uses the following third-party services for analysis: Podcorn - https://podcorn.com/privacy",
+  "cover": "images/covers/diary-of-a-space-archivist.jpg",
+  "coverAlt": "Diary of a Space Archivist cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4",
+    "website": "https://space-archivist.captivate.fm/",
+    "rss": "https://feeds.captivate.fm/space-archivist/",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Diary of a Space Archivist"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 19 full episodes • 10 min median",
+    "seasons": 3,
+    "episodes": 19,
+    "avgEpisodeMinutes": 11,
+    "medianEpisodeMinutes": 10,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 19,
+    "totalObservedHours": 3.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 19,
+      "bonus": 6,
+      "trailer": 8
+    }
+  },
+  "releaseDates": {
+    "first": "2018-08-19",
+    "latest": "2023-02-21",
+    "latestFeedItem": "2023-02-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://space-archivist.captivate.fm/",
+    "patreon": "https://www.patreon.com/diaryofaspacearchivist",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.facebook.com/diaryofaspacearchivist",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Beccy Dye (nee Stirrup)",
+    "ownerName": "Beccy Dye (nee Stirrup)"
+  },
+  "creators": [
+    "Beccy Dye (nee Stirrup)"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://space-archivist.captivate.fm/episode/deviation; https://space-archivist.captivate.fm/episode/moonbeams; https://space-archivist.captivate.fm/episode/more-human-than-human; https://space-archivist.captivate.fm/episode/all-those-memories; https://space-archivist.captivate.fm/; https://feeds.captivate.fm/space-archivist/; https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://space-archivist.captivate.fm/episode/deviation",
+      "https://space-archivist.captivate.fm/episode/moonbeams",
+      "https://space-archivist.captivate.fm/episode/more-human-than-human",
+      "https://space-archivist.captivate.fm/episode/all-those-memories",
+      "https://space-archivist.captivate.fm/",
+      "https://feeds.captivate.fm/space-archivist/",
+      "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Sam archives space. Yep. It's pretty boring... until she finds an alien-bat-thing hiding inside her robot companion. How will she keep the cute, and definitely not terrifying, creature safe from the very corporation that employs her? After all, she's just an archivist. Don't worry, everything will be fine... This podcast uses the following third-party services for analysis: Podcorn - https://podcorn.com/privacy",
+    "socialUrls": [
+      "https://www.facebook.com/diaryofaspacearchivist",
+      "https://x.com/SpaceArchivePod",
+      "https://instagram.com/storytrailsuk"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 15,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "© 2020, Beccy Dye (nee Stirrup). All Rights Reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "a0c685f1-5577-5903-a195-49ef93452865",
+        "rssUrl": "https://feeds.captivate.fm/space-archivist/",
+        "appleCollectionId": "1431248725",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://space-archivist.captivate.fm/episode/deviation",
+          "fetchedAt": "2026-08-15T20:25:50.564Z",
+          "payloadHash": "7a510e0a50911b16dad98d23bd43b065bc0a674c2bcae1363a2c653fca07951c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://space-archivist.captivate.fm/episode/moonbeams",
+          "fetchedAt": "2026-08-15T20:25:50.562Z",
+          "payloadHash": "458e8b6cd74d1800209838fa1ce1d0bf1ef96d5e985a1aa9f6b43284f1e0d2a0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://space-archivist.captivate.fm/episode/more-human-than-human",
+          "fetchedAt": "2026-08-15T20:25:50.561Z",
+          "payloadHash": "e402c1428a1c18fe7e039a8f3cf6f8436cc890d16f52e4776c85dc07730ee177"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://space-archivist.captivate.fm/episode/all-those-memories",
+          "fetchedAt": "2026-08-15T20:25:50.558Z",
+          "payloadHash": "5295043f9037c59e69af1a6eb48a1cd92e0a4cbf5a77d116fbad4d440256998d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://space-archivist.captivate.fm/",
+          "fetchedAt": "2026-08-15T20:25:50.557Z",
+          "payloadHash": "51754bec94bc63e6f086548ad092fdf003b55b08951d999cb4a6bb11051a6f52"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.captivate.fm/space-archivist/",
+          "fetchedAt": "2026-08-15T20:25:47.036Z",
+          "payloadHash": "b1ada8a7b4e39b57134177b8e3ba2e50da47597905ec43d1df0f33cac7e353db"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4",
+          "fetchedAt": "2026-08-15T20:25:17.259Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/all-those-memories"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/more-human-than-human"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/moonbeams"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/deviation"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/diary-of-a-space-archivist/id1431248725?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/all-those-memories"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/more-human-than-human"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/moonbeams"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/deviation"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/all-those-memories"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/more-human-than-human"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/moonbeams"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/episode/deviation"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://space-archivist.captivate.fm/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/space-archivist/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:25:53.119Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a300d1fa7de0f44a00073ff27e26cdabe75e6e93c5b997ae4c0b094c46bc232e",
+        "subtitle": "3fba0044ea2dff6bbf8d7d933dbaa0c1a28002a0a63179682afb47605355482c",
+        "description": "ef717f14d260bd13ef872aebc94496887a07f508307fc73f2918fe7bc7e79b66",
+        "cover": "4a7418837afb1a5597800bd738f65c14af3ebc95660d433bbb5750e1a575fa90",
+        "coverAlt": "836fe2b7d74b2c89f79792d55ac542b27fa38bc02f14d2acb43fd2f1ddc0f34f",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "69c83f9a723edea4882e0327f88b5db7fdfc973db3be795607122ab9568e5f81",
+        "officialLinks": "fd2bedcbb55adff4a4154cdfd913cbce602004df9701eb0365972b2ea88c2063",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "e199b598b63e6d5478b6d69d7309d019f8c37edd6591f9b45a262c2ed2494647",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "aa9fa6f58c26ebb9897fec14e0cee4e7e3140a4ecafc13a9f4dfd0228f74b172",
+        "releaseDates": "e2e26fbb63d58ba6a525b0b8ae8e0cd88d356f57cb90f93171b559eeb3b37a58",
+        "credits": "45006732371c951560434beb7a6b7eb1439a1eb623b1a769994b93a0e9f83697",
+        "creators": "a5f639a2afff7522b7d14a9e82c712744ad9d8d3eb6d3c4793d43c5291397554",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b6538960815b2671db6a66c5e3eac63219f0cb3acc86bb5b70df60282f194208"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:25:53.224Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "beccy-dye-nee-stirrup"
+}
