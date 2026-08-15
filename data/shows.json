@@ -158329,5 +158329,3953 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "the-dex-legacy",
+    "title": "The Dex Legacy",
+    "subtitle": "",
+    "description": "Join Varian, Isra and Ren as they battle to maintain every ounce of their humanity against a despotic regime determined to turn them into monsters. As prototype enhanced soldiers they have been raised in the lab and on the training quad, and now it’s time to unleash them on the world. Their adopted father, President of the Dex Industries weapons corporation and the newly formed Dex Island nation, uses every asset at his disposal to steer world politics… but some assets are easier to control than others. Beyond the borders of Dex Island, Varian, Isra and Ren discover new dangers… and new levels of freedom. The Dex Legacy is an award-winning full cast audio drama written by Emily Inkpen and produced by Alternative Stories. Website: thedexlegacy.com",
+    "cover": "images/covers/the-dex-legacy.jpg",
+    "coverAlt": "The Dex Legacy cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4",
+      "website": "https://www.thedexlegacy.com/",
+      "rss": "https://feeds.megaphone.fm/thedexlegacy"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Dex Legacy"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 43 full episodes • 27 min median",
+      "seasons": 3,
+      "episodes": 43,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 27,
+      "minEpisodeMinutes": 11,
+      "maxEpisodeMinutes": 43,
+      "totalObservedHours": 17.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 43,
+        "bonus": 7,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2024-05-19",
+      "latest": "2025-10-17",
+      "latestFeedItem": "2026-04-19"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.thedexlegacy.com/"
+    },
+    "credits": {
+      "creatorName": "Alternative Stories",
+      "ownerName": "Alternative Stories"
+    },
+    "creators": [
+      "Alternative Stories"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/thedexlegacy; https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/thedexlegacy",
+        "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Join Varian, Isra and Ren as they battle to maintain every ounce of their humanity against a despotic regime determined to turn them into monsters. As prototype enhanced soldiers they have been raised in the lab and on the training quad, and now it’s time to unleash them on the world. Their adopted father, President of the Dex Industries weapons corporation and the newly formed Dex Island nation, uses every asset at his disposal to steer world politics… but some assets are easier to control than others. Beyond the borders of Dex Island, Varian, Isra and Ren discover new dangers… and new levels of freedom. The Dex Legacy is an award-winning full cast audio drama written by Emily Inkpen and produced by Alternative Stories. Website: thedexlegacy.com",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2024 The Dex Legacy",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/thedexlegacy",
+          "appleCollectionId": "1603811886"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy",
+            "fetchedAt": "2026-08-15T17:18:34.857Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4",
+            "fetchedAt": "2026-08-15T17:18:34.344Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-dex-legacy/id1603811886?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/thedexlegacy"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:18:35.602Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:20:07.495Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "alternative-stories",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-dex-legacy",
+    "hasPage": true,
+    "image": "images/covers/the-dex-legacy.jpg",
+    "imageAlt": "The Dex Legacy cover art",
+    "summary": "Join Varian, Isra and Ren as they battle to maintain every ounce of their humanity against a despotic regime determined to turn them into monsters. As prototype enhanced soldiers they have been raised in the lab and on the training quad, and now it’s time to unleash them on the world. Their adopted father, President of the Dex Industries weapons corporation and the newly formed Dex Island nation, uses every asset at his disposal to steer world politics… but some assets are easier to control than others. Beyond the borders of Dex Island, Varian, Isra and Ren discover new dangers… and new levels of freedom. The Dex Legacy is an award-winning full cast audio drama written by Emily Inkpen and produced by Alternative Stories. Website: thedexlegacy.com",
+    "finalRating": null,
+    "searchText": "the dex legacy join varian isra and ren as they battle to maintain every ounce of their humanity against a despotic regime determined to turn them into monsters as prototype enhanced soldiers they have been raised in the lab and on the training quad and now it s time to unleash them on the world their adopted father president of the dex industries weapons corporation and the newly formed dex island nation uses every asset at his disposal to steer world politics but some assets are easier to control than others beyond the borders of dex island varian isra and ren discover new dangers and new levels of freedom the dex legacy is an award winning full cast audio drama written by emily inkpen and produced by alternative stories website thedexlegacy com drama sci fi episodic the dex legacy alternative stories english unclear imported alternative stories alternative stories unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-dex-legacy-a4d109f906-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "the-lost-cat-podcast",
+    "title": "The Lost Cat Podcast",
+    "subtitle": "",
+    "description": "The entirely true adventures I have had while trying to find my cat.",
+    "cover": "images/covers/the-lost-cat-podcast.jpg",
+    "coverAlt": "The Lost Cat Podcast cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4",
+      "website": "https://thelostcat.libsyn.com/site/category/webpage",
+      "rss": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Lost Cat Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "5 seasons observed • at least 49 full episodes • 24 min median",
+      "seasons": 5,
+      "episodes": 49,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 14,
+      "maxEpisodeMinutes": 57,
+      "totalObservedHours": 20.3,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        5,
+        4,
+        3
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 49,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2014-07-01",
+      "latest": "2022-12-31",
+      "latestFeedItem": "2022-12-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://thelostcat.libsyn.com/site/category/webpage"
+    },
+    "credits": {
+      "creatorName": "A P Clarke",
+      "ownerName": "Andrew Clarke"
+    },
+    "creators": [
+      "A P Clarke"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://thelostcat.libsyn.com/site/category/webpage; https://rss.libsyn.com/shows/55719/destinations/206720.xml; https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://thelostcat.libsyn.com/site/category/webpage",
+        "https://rss.libsyn.com/shows/55719/destinations/206720.xml",
+        "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "The entirely true adventures I have had while trying to find my cat.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 13,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Copyright 2014, A P Clarke",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml",
+          "appleCollectionId": "1196323151"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://thelostcat.libsyn.com/site/category/webpage",
+            "fetchedAt": "2026-08-15T17:18:53.542Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml",
+            "fetchedAt": "2026-08-15T17:18:52.062Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4",
+            "fetchedAt": "2026-08-15T17:18:51.497Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thelostcat.libsyn.com/site/category/webpage"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-lost-cat-podcast/id1196323151?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thelostcat.libsyn.com/site/category/webpage"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://thelostcat.libsyn.com/site/category/webpage"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/55719/destinations/206720.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:18:55.354Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:20:07.500Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "a-p-clarke",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-lost-cat-podcast",
+    "hasPage": true,
+    "image": "images/covers/the-lost-cat-podcast.jpg",
+    "imageAlt": "The Lost Cat Podcast cover art",
+    "summary": "The entirely true adventures I have had while trying to find my cat.",
+    "finalRating": null,
+    "searchText": "the lost cat podcast the entirely true adventures i have had while trying to find my cat drama episodic the lost cat podcast a p clarke english unclear imported a p clarke andrew clarke unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-lost-cat-podcast-5e0a8f8181-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "tides",
+    "title": "Tides",
+    "subtitle": "",
+    "description": "Tides is the story of Dr. Winifred Eurus, a xenobiologist trapped on an unfamiliar planet with hostile tidal forces. She must use her wits, sarcasm and intellectual curiosity to survive long enough to be rescued. But there might be more to life on this planet than she expected. . .",
+    "cover": "images/covers/tides.png",
+    "coverAlt": "Tides cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://itunes.apple.com/us/podcast/tides-podcast/id1321808251?mt=2",
+      "website": "https://www.tidespodcast.com/",
+      "rss": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Tides"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 12 full episodes • 24 min median",
+      "seasons": 2,
+      "episodes": 12,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 20,
+      "maxEpisodeMinutes": 36,
+      "totalObservedHours": 5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 7,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2018-01-10",
+      "latest": "2021-03-01",
+      "latestFeedItem": "2021-03-01"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.tidespodcast.com/",
+      "patreon": "https://www.patreon.com/tidespodcast",
+      "discord": "https://discord.gg/9KknnZh",
+      "youtube": "https://www.youtube.com/channel/UCEEdPa7YG7zqtRwv6uoDttA",
+      "social": "https://twitter.com/TidesPodcast"
+    },
+    "credits": {
+      "creatorName": "Tides Podcast",
+      "ownerName": "Ayla Taylor",
+      "network": "Tides"
+    },
+    "creators": [
+      "Tides Podcast"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.tidespodcast.com/season1; https://www.tidespodcast.com/cast-and-crew; https://www.tidespodcast.com/mini-episodes; https://www.tidespodcast.com/; https://rss.libsyn.com/shows/111213/destinations/615425.xml; https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.tidespodcast.com/season1",
+        "https://www.tidespodcast.com/cast-and-crew",
+        "https://www.tidespodcast.com/mini-episodes",
+        "https://www.tidespodcast.com/",
+        "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+        "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Tides is the story of Dr. Winifred Eurus, a xenobiologist trapped on an unfamiliar planet with hostile tidal forces. She must use her wits, sarcasm and intellectual curiosity to survive long enough to be rescued. But there might be more to life on this planet than she expected. . .",
+      "socialUrls": [
+        "https://twitter.com/TidesPodcast",
+        "http://twitter.com/tidespodcast"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 28,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+          "appleCollectionId": "1321808251"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.tidespodcast.com/season1",
+            "fetchedAt": "2026-08-15T17:18:40.747Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.tidespodcast.com/cast-and-crew",
+            "fetchedAt": "2026-08-15T17:18:40.744Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.tidespodcast.com/mini-episodes",
+            "fetchedAt": "2026-08-15T17:18:40.740Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.tidespodcast.com/",
+            "fetchedAt": "2026-08-15T17:18:40.735Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+            "fetchedAt": "2026-08-15T17:18:39.789Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4",
+            "fetchedAt": "2026-08-15T17:18:39.266Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "discordUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.tidespodcast.com/season1"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:18:40.867Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:20:07.501Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "tides-podcast",
+    "networkId": "tides",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/tides",
+    "hasPage": true,
+    "image": "images/covers/tides.png",
+    "imageAlt": "Tides cover art",
+    "summary": "Tides is the story of Dr. Winifred Eurus, a xenobiologist trapped on an unfamiliar planet with hostile tidal forces. She must use her wits, sarcasm and intellectual curiosity to survive long enough to be rescued. But there might be more to life on this planet than she expected. . .",
+    "finalRating": null,
+    "searchText": "tides tides is the story of dr winifred eurus a xenobiologist trapped on an unfamiliar planet with hostile tidal forces she must use her wits sarcasm and intellectual curiosity to survive long enough to be rescued but there might be more to life on this planet than she expected drama sci fi serialized tides tides podcast english unclear imported tides podcast ayla taylor tides unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/tides-cfe294379a-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/tides-cfe294379a-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "chaika",
+    "title": "Chaika",
+    "subtitle": "",
+    "description": "A multi award-winning dystopian sci-fi drama of loss, isolation and hope, about a woman navigating a post-apocalyptic future.",
+    "cover": "images/covers/chaika.jpg",
+    "coverAlt": "Chaika cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4",
+      "website": "https://redcircle.com/shows/chaika",
+      "rss": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Chaika"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 17 full episodes • 27 min median",
+      "seasons": 2,
+      "episodes": 17,
+      "avgEpisodeMinutes": 26,
+      "medianEpisodeMinutes": 27,
+      "minEpisodeMinutes": 11,
+      "maxEpisodeMinutes": 33,
+      "totalObservedHours": 7.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 17,
+        "bonus": 17,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2022-04-08",
+      "latest": "2024-01-26",
+      "latestFeedItem": "2024-01-26"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://redcircle.com/shows/chaika"
+    },
+    "credits": {
+      "creatorName": "Karin Heimdahl",
+      "ownerName": "Karin Heimdahl"
+    },
+    "creators": [
+      "Karin Heimdahl"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb; https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "29 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.806,
+      "transcriptFormats": [
+        "text/html"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb",
+        "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama",
+        "Arts",
+        "Performing Arts"
+      ],
+      "importOfficialSummary": "A multi award-winning dystopian sci-fi drama of loss, isolation and hope, about a woman navigating a post-apocalyptic future.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Copyright 2022 Karin Heimdahl. All rights reserved.",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "fe055a51-5fa5-4452-a2f4-0ebb82882edb",
+          "rssUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb",
+          "appleCollectionId": "1603828302"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb",
+            "fetchedAt": "2026-08-15T17:18:38.031Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4",
+            "fetchedAt": "2026-08-15T17:18:37.960Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/chaika/id1603828302?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/fe055a51-5fa5-4452-a2f4-0ebb82882edb"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:18:38.238Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:20:07.507Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "karin-heimdahl",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/chaika",
+    "hasPage": true,
+    "image": "images/covers/chaika.jpg",
+    "imageAlt": "Chaika cover art",
+    "summary": "A multi award-winning dystopian sci-fi drama of loss, isolation and hope, about a woman navigating a post-apocalyptic future.",
+    "finalRating": null,
+    "searchText": "chaika a multi award winning dystopian sci fi drama of loss isolation and hope about a woman navigating a post apocalyptic future drama sci fi serialized chaika karin heimdahl english unclear imported karin heimdahl karin heimdahl 29 observed episodes unknown 0 806 text html",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/chaika-6e06d04a1f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/chaika-6e06d04a1f-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "josies-lonely-hearts-club",
+    "title": "Josie's Lonely Hearts Club",
+    "subtitle": "",
+    "description": "JOSIE'S LONELY HEARTS CLUB is a semi-scripted audio drama set in the best relationship call-in show in the greater New Mexico broadcast region. &nbsp; On-air, Josie mends the broken hearts of a weekly collection of hilarious improvisers. Off-air, listeners eavesdrop on Josie&rsquo;s secret identity: hapless, neurotic Joanne Holtzinger. Join Joanne and her puckish producer Frank as they navigate the pitfalls of love and fame as their show slowly becomes a national sensation.&nbsp; &nbsp; Night night, cuties. &nbsp; Created by Maximilian Clark and Rachel Music. Story editors Aliza Brugger, Jenny Snyder, and Lauren Grace Thompson. &nbsp; Directed by Maximilian Clark. &nbsp; Starring Rachel Music as Joanne Holtzinger and Maximilian Clark as Frank. &nbsp; Featuring a diverse cast of voices and talents. See episode details for more information. &nbsp; Produced by Simone Kisiel and Alexandra Grunberg. Executive produced by the Good Story Guild. &nbsp; JOSIE'S LONELY HEARTS CLUB is brought to you by the Good Story Guild . Keep track of us on Instagram @goodstoryguild , join our Discord , and support us on Patreon for ad-free episodes, early access to future episodes, and bonus content. &nbsp; If you enjoyed the show, consider leaving a rating and/or review on your preferred podcast listening platform.",
+    "cover": "images/covers/josies-lonely-hearts-club.png",
+    "coverAlt": "Josie's Lonely Hearts Club cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/2XHrs9JqpMGGu70jyJ8ZFf",
+      "apple": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513",
+      "website": "https://goodstoryguild.co/listen/josie_lonely_hearts",
+      "rss": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml",
+      "amazonMusic": "https://music.amazon.com/podcasts/79bd567a-609c-45c2-ba5e-6c97a15607e0/josie's-lonely-hearts-club"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Josie's Lonely Hearts Club"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "6 seasons observed • at least 57 full episodes • 31 min median",
+      "seasons": 6,
+      "episodes": 57,
+      "avgEpisodeMinutes": 32,
+      "medianEpisodeMinutes": 31,
+      "minEpisodeMinutes": 8,
+      "maxEpisodeMinutes": 51,
+      "totalObservedHours": 29.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 57,
+        "bonus": 12,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2024-01-17",
+      "latest": "2026-08-05",
+      "latestFeedItem": "2026-08-05"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://goodstoryguild.co/listen/josie_lonely_hearts",
+      "patreon": "https://www.patreon.com/GoodStoryGuild",
+      "discord": "https://discord.com/invite/wGsYUx9xJq",
+      "youtube": "https://www.youtube.com/channel/UCJZVxoPGyOa3NLtDytalaIA",
+      "social": "https://www.instagram.com/goodstoryguild/",
+      "funding": "https://www.patreon.com/GoodStoryGuild"
+    },
+    "credits": {
+      "creatorName": "Good Story Guild",
+      "ownerName": "Good Story Guild"
+    },
+    "creators": [
+      "Good Story Guild"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2; https://goodstoryguild.co/listen/josie_lonely_hearts/season-1; https://goodstoryguild.co/about; https://goodstoryguild.co/listen; https://goodstoryguild.co/listen/josie_lonely_hearts; https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml; https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2",
+        "https://goodstoryguild.co/listen/josie_lonely_hearts/season-1",
+        "https://goodstoryguild.co/about",
+        "https://goodstoryguild.co/listen",
+        "https://goodstoryguild.co/listen/josie_lonely_hearts",
+        "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml",
+        "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Comedy",
+        "Improv"
+      ],
+      "importOfficialSummary": "JOSIE'S LONELY HEARTS CLUB is a semi-scripted audio drama set in the best relationship call-in show in the greater New Mexico broadcast region. &nbsp; On-air, Josie mends the broken hearts of a weekly collection of hilarious improvisers. Off-air, listeners eavesdrop on Josie&rsquo;s secret identity: hapless, neurotic Joanne Holtzinger. Join Joanne and her puckish producer Frank as they navigate the pitfalls of love and fame as their show slowly becomes a national sensation.&nbsp; &nbsp; Night night, cuties. &nbsp; Created by Maximilian Clark and Rachel Music. Story editors Aliza Brugger, Jenny Snyder, and Lauren Grace Thompson. &nbsp; Directed by Maximilian Clark. &nbsp; Starring Rachel Music as Joanne Holtzinger and Maximilian Clark as Frank. &nbsp; Featuring a diverse cast of voices and talents. See episode details for more information. &nbsp; Produced by Simone Kisiel and Alexandra Grunberg. Executive produced by the Good Story Guild. &nbsp; JOSIE'S LONELY HEARTS CLUB is brought to you by the Good Story Guild . Keep track of us on Instagram @goodstoryguild , join our Discord , and support us on Patreon for ad-free episodes, early access to future episodes, and bonus content. &nbsp; If you enjoyed the show, consider leaving a rating and/or review on your preferred podcast listening platform.",
+      "socialUrls": [
+        "https://www.instagram.com/goodstoryguild/",
+        "https://bsky.app/profile/goodstoryguild.co",
+        "https://www.tiktok.com/@goodstoryguild"
+      ],
+      "funding": [
+        {
+          "url": "https://www.patreon.com/GoodStoryGuild",
+          "label": "Support the show!"
+        }
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Good Story Guild",
+        "explicit": "no",
+        "license": {
+          "value": "© by Good Story Guild"
+        },
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml",
+          "appleCollectionId": "1725223513"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2",
+            "fetchedAt": "2026-08-15T17:18:52.884Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-1",
+            "fetchedAt": "2026-08-15T17:18:52.880Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://goodstoryguild.co/about",
+            "fetchedAt": "2026-08-15T17:18:52.874Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://goodstoryguild.co/listen",
+            "fetchedAt": "2026-08-15T17:18:52.871Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts",
+            "fetchedAt": "2026-08-15T17:18:52.864Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml",
+            "fetchedAt": "2026-08-15T17:18:51.615Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4",
+            "fetchedAt": "2026-08-15T17:18:51.270Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/josies-lonely-hearts-club/id1725223513?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "funding": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "supportUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2"
+              }
+            ]
+          },
+          "discordUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-1"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://goodstoryguild.co/listen/josie_lonely_hearts/season-2"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feed.cdnstream1.com/zjb/feed/download/d5/01/14/d5011443-17be-47cf-9120-a8b64ae5ebf6.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:18:53.227Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:20:07.512Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "good-story-guild",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/josies-lonely-hearts-club",
+    "hasPage": true,
+    "image": "images/covers/josies-lonely-hearts-club.png",
+    "imageAlt": "Josie's Lonely Hearts Club cover art",
+    "summary": "JOSIE'S LONELY HEARTS CLUB is a semi-scripted audio drama set in the best relationship call-in show in the greater New Mexico broadcast region. &nbsp; On-air, Josie mends the broken hearts of a weekly collection of hilarious improvisers. Off-air, listeners eavesdrop on Josie&rsquo;s secret identity: hapless, neurotic Joanne Holtzinger. Join Joanne and her puckish producer Frank as they navigate the pitfalls of love and fame as their show slowly becomes a national sensation.&nbsp; &nbsp; Night night, cuties. &nbsp; Created by Maximilian Clark and Rachel Music. Story editors Aliza Brugger, Jenny Snyder, and Lauren Grace Thompson. &nbsp; Directed by Maximilian Clark. &nbsp; Starring Rachel Music as Joanne Holtzinger and Maximilian Clark as Frank. &nbsp; Featuring a diverse cast of voices and talents. See episode details for more information. &nbsp; Produced by Simone Kisiel and Alexandra Grunberg. Executive produced by the Good Story Guild. &nbsp; JOSIE'S LONELY HEARTS CLUB is brought to you by the Good Story Guild . Keep track of us on Instagram @goodstoryguild , join our Discord , and support us on Patreon for ad-free episodes, early access to future episodes, and bonus content. &nbsp; If you enjoyed the show, consider leaving a rating and/or review on your preferred podcast listening platform.",
+    "finalRating": null,
+    "searchText": "josie s lonely hearts club josie s lonely hearts club is a semi scripted audio drama set in the best relationship call in show in the greater new mexico broadcast region and nbsp on air josie mends the broken hearts of a weekly collection of hilarious improvisers off air listeners eavesdrop on josie and rsquo s secret identity hapless neurotic joanne holtzinger join joanne and her puckish producer frank as they navigate the pitfalls of love and fame as their show slowly becomes a national sensation and nbsp and nbsp night night cuties and nbsp created by maximilian clark and rachel music story editors aliza brugger jenny snyder and lauren grace thompson and nbsp directed by maximilian clark and nbsp starring rachel music as joanne holtzinger and maximilian clark as frank and nbsp featuring a diverse cast of voices and talents see episode details for more information and nbsp produced by simone kisiel and alexandra grunberg executive produced by the good story guild and nbsp josie s lonely hearts club is brought to you by the good story guild keep track of us on instagram goodstoryguild join our discord and support us on patreon for ad free episodes early access to future episodes and bonus content and nbsp if you enjoyed the show consider leaving a rating and or review on your preferred podcast listening platform drama comedy serialized josie s lonely hearts club good story guild english ongoing imported good story guild good story guild unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/josies-lonely-hearts-club-324435e297-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/josies-lonely-hearts-club-324435e297-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "last-dance",
+    "title": "Last Dance",
+    "subtitle": "",
+    "description": "The Great South was alone. A small rock formed atop the bones of dead gods and leviathans, drifting within an endless ocean. People left to their own petty wars and dogmas. But now, from that same ocean, comes a wave of death in the form of savage invaders, striking without cause against the Eightfold House of Holy Ichors and its 8 Bleeding Monks. In the wake of their eradication, a battlefield scavenger by the name of Jericho Raeke goes picking through the remnants and discovers something that puts him, and his unlikely allies, at the centre of&nbsp;the&nbsp;conflict. Produced in Belfast, Northern Ireland. Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/last-dance.jpg",
+    "coverAlt": "Last Dance cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/0Dm8lNhQv0SDYdbthpmgFX?si=3ce17a183bee4b39",
+      "apple": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436",
+      "website": "https://rustyquill.com/show/last-dance/",
+      "rss": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Last Dance",
+      "Last Dance - Rusty Quill"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 14 full episodes • 46 min median",
+      "seasons": 1,
+      "episodes": 14,
+      "avgEpisodeMinutes": 45,
+      "medianEpisodeMinutes": 46,
+      "minEpisodeMinutes": 33,
+      "maxEpisodeMinutes": 73,
+      "totalObservedHours": 10.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 14,
+        "bonus": 2,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2024-02-22",
+      "latest": "2026-04-25",
+      "latestFeedItem": "2026-06-23"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rustyquill.com/show/last-dance/",
+      "patreon": "https://www.patreon.com/rustyquill",
+      "youtube": "http://youtube.com/channel/UCAfn5ahWLpQmCIN7D0E1YQg/",
+      "social": "https://www.facebook.com/therustyquill"
+    },
+    "credits": {
+      "creatorName": "Blackabbey Productions",
+      "ownerName": "Blackabbey Productions",
+      "network": "Rusty Quill"
+    },
+    "creators": [
+      "Blackabbey Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rustyquill.com/about/; https://rustyquill.com/show/last-dance/; https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae; https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rustyquill.com/about/",
+        "https://rustyquill.com/show/last-dance/",
+        "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae",
+        "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Arts",
+        "Performing Arts"
+      ],
+      "sourceKeywords": [
+        "Fantasy",
+        "Celtic",
+        "Medival Fantasy",
+        "Mythology",
+        "Audio Drama",
+        "Audio Fiction",
+        "Mystery"
+      ],
+      "importOfficialSummary": "The Great South was alone. A small rock formed atop the bones of dead gods and leviathans, drifting within an endless ocean. People left to their own petty wars and dogmas. But now, from that same ocean, comes a wave of death in the form of savage invaders, striking without cause against the Eightfold House of Holy Ichors and its 8 Bleeding Monks. In the wake of their eradication, a battlefield scavenger by the name of Jericho Raeke goes picking through the remnants and discovers something that puts him, and his unlikely allies, at the centre of&nbsp;the&nbsp;conflict. Produced in Belfast, Northern Ireland. Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "https://www.facebook.com/therustyquill",
+        "https://twitter.com/therustyquill",
+        "https://www.instagram.com/rustyquilluk/?hl=en",
+        "https://www.threads.net/@rustyquilluk",
+        "https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frustyquill.com%2fshow%2flast-dance%2f&title=last-dance",
+        "https://twitter.com/share?url=https%3a%2f%2frustyquill.com%2fshow%2flast-dance%2f&text=last-dance",
+        "https://www.facebook.com/profile.php?id=61556410373676&mibextid=LQQJ4d",
+        "https://www.instagram.com/last_dance_media"
+      ],
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 58,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Blackabbey Productions",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae",
+          "appleCollectionId": "1732915436"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/about/",
+            "fetchedAt": "2026-08-15T17:18:34.744Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rustyquill.com/show/last-dance/",
+            "fetchedAt": "2026-08-15T17:18:34.740Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae",
+            "fetchedAt": "2026-08-15T17:18:34.339Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4",
+            "fetchedAt": "2026-08-15T17:18:34.264Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/last-dance/id1732915436?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.63,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/about/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rustyquill.com/show/last-dance/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/685ab95e7cd58072a507b6ae"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:18:34.876Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:20:07.517Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "blackabbey-productions",
+    "networkId": "rusty-quill",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/last-dance",
+    "hasPage": true,
+    "image": "images/covers/last-dance.jpg",
+    "imageAlt": "Last Dance cover art",
+    "summary": "The Great South was alone. A small rock formed atop the bones of dead gods and leviathans, drifting within an endless ocean. People left to their own petty wars and dogmas. But now, from that same ocean, comes a wave of death in the form of savage invaders, striking without cause against the Eightfold House of Holy Ichors and its 8 Bleeding Monks. In the wake of their eradication, a battlefield scavenger by the name of Jericho Raeke goes picking through the remnants and discovers something that puts him, and his unlikely allies, at the centre of&nbsp;the&nbsp;conflict. Produced in Belfast, Northern Ireland. Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "last dance the great south was alone a small rock formed atop the bones of dead gods and leviathans drifting within an endless ocean people left to their own petty wars and dogmas but now from that same ocean comes a wave of death in the form of savage invaders striking without cause against the eightfold house of holy ichors and its 8 bleeding monks in the wake of their eradication a battlefield scavenger by the name of jericho raeke goes picking through the remnants and discovers something that puts him and his unlikely allies at the centre of and nbsp the and nbsp conflict produced in belfast northern ireland hosted on acast see acast com privacy for more information drama episodic last dance last dance rusty quill blackabbey productions english ongoing imported blackabbey productions blackabbey productions rusty quill unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/last-dance-7c291544e5-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/last-dance-7c291544e5-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

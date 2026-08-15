@@ -1,0 +1,774 @@
+{
+  "id": "tides",
+  "title": "Tides",
+  "subtitle": "",
+  "description": "Tides is the story of Dr. Winifred Eurus, a xenobiologist trapped on an unfamiliar planet with hostile tidal forces. She must use her wits, sarcasm and intellectual curiosity to survive long enough to be rescued. But there might be more to life on this planet than she expected. . .",
+  "cover": "images/covers/tides.png",
+  "coverAlt": "Tides cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://itunes.apple.com/us/podcast/tides-podcast/id1321808251?mt=2",
+    "website": "https://www.tidespodcast.com/",
+    "rss": "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Tides"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 12 full episodes • 24 min median",
+    "seasons": 2,
+    "episodes": 12,
+    "avgEpisodeMinutes": 25,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 20,
+    "maxEpisodeMinutes": 36,
+    "totalObservedHours": 5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 12,
+      "bonus": 7,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2018-01-10",
+    "latest": "2021-03-01",
+    "latestFeedItem": "2021-03-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.tidespodcast.com/",
+    "patreon": "https://www.patreon.com/tidespodcast",
+    "koFi": "",
+    "discord": "https://discord.gg/9KknnZh",
+    "youtube": "https://www.youtube.com/channel/UCEEdPa7YG7zqtRwv6uoDttA",
+    "social": "https://twitter.com/TidesPodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Tides Podcast",
+    "ownerName": "Ayla Taylor",
+    "network": "Tides"
+  },
+  "creators": [
+    "Tides Podcast"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.tidespodcast.com/season1; https://www.tidespodcast.com/cast-and-crew; https://www.tidespodcast.com/mini-episodes; https://www.tidespodcast.com/; https://rss.libsyn.com/shows/111213/destinations/615425.xml; https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.tidespodcast.com/season1",
+      "https://www.tidespodcast.com/cast-and-crew",
+      "https://www.tidespodcast.com/mini-episodes",
+      "https://www.tidespodcast.com/",
+      "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+      "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Tides is the story of Dr. Winifred Eurus, a xenobiologist trapped on an unfamiliar planet with hostile tidal forces. She must use her wits, sarcasm and intellectual curiosity to survive long enough to be rescued. But there might be more to life on this planet than she expected. . .",
+    "socialUrls": [
+      "https://twitter.com/TidesPodcast",
+      "http://twitter.com/tidespodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 28,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+        "appleCollectionId": "1321808251",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.tidespodcast.com/season1",
+          "fetchedAt": "2026-08-15T17:18:40.747Z",
+          "payloadHash": "551e5720e42af5255634c8894e2e3c2e9015b2a617f21230724719da18b3dd9f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.tidespodcast.com/cast-and-crew",
+          "fetchedAt": "2026-08-15T17:18:40.744Z",
+          "payloadHash": "84bc42f0f60ccbd9064216d383101317967da0e37b302a1593eaf54c5ea54e68"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.tidespodcast.com/mini-episodes",
+          "fetchedAt": "2026-08-15T17:18:40.740Z",
+          "payloadHash": "31cc4921b94cae2132d2f82c5aad2d93a2c32155ec091ab5fbe90e16a6e82bcd"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.tidespodcast.com/",
+          "fetchedAt": "2026-08-15T17:18:40.735Z",
+          "payloadHash": "87f76c3b7352e4d28a76961f9077fc113419991f6381313e051ccb2477ab0a02"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml",
+          "fetchedAt": "2026-08-15T17:18:39.789Z",
+          "payloadHash": "f2bb0f71080d613b75478e9fdc7f280fb8acf255d64e2a8418acebec239ae85e"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4",
+          "fetchedAt": "2026-08-15T17:18:39.266Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tides/id1321808251?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "discordUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/cast-and-crew"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/mini-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.tidespodcast.com/season1"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.libsyn.com/shows/111213/destinations/615425.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:18:40.867Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d14fd56978a32171fb1fc11b1f5afcf718facee64ffa5e11917ec68a63824d14",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "4e47469c275133d7e29473c560e7884ebc5b59cc93f71a4cf32071f247a5c288",
+        "cover": "5ac2d0303c3173006439582eee70d1ba1bc2de5c16921c37cafc21f2e960d3fb",
+        "coverAlt": "86aa2f1e310d37d148e84e8b4e9e22d1d2b788debceae958cd282e9bc5b1edaf",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "5b36c1aed6e34b886b4a330ee5253139aa1f39c27554b23e4aad20179eb97a2f",
+        "officialLinks": "a55a09308c89da20b63fd756d6abf389c0d5db3c7f43f5381c2d62584d29bf48",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "67ce1718ed8ba9c4acf315ac0bf7d039bf798f451af7b6a3046aa2b87c2517d9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "a566eb15638e00a2bf45c8f1a2f6a9ea6bcade40c8c6d72972801c68e4117620",
+        "releaseDates": "3b8c8ea62ea0fa36fa9539cfaf110887649f6cc8d5d603de7f4c06951e9f654b",
+        "credits": "31318c95c5d22e0bc8a210a03ced47edde4652eb3a182427446e72f53da438e8",
+        "creators": "be244f340c809b0f23bfc037004fc7b7c4855929c9531dc20e1ce6e8296e20d3",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "2f37fa53628dc459798ebf9e136946b378720c3cef268a0ea4ea36982b7b3d59"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:20:07.501Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "tides-podcast",
+  "networkId": "tides"
+}
