@@ -602,34 +602,34 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 602,P2,Am I Old Yet?,Flloyd Kennedy,6c45832a-38c1-4ac7-87d4-430600951bc3,needs-review,needs-review,source-conflict,2026-08-15 19:53:54
 603,P2,Anoraks,,1fd05b9b-b22e-4d81-b6da-7236a507b640,published,published,,2026-08-15 19:53:59
 604,P2,Be Not Afraid,Faustian Nonsense,a11f9911-a1a1-46b9-8e8e-308f2b42877d,needs-review,needs-review,source-conflict,2026-08-15 19:52:29
-605,P2,Blood Rage Mode,,,unattempted,,,
-606,P2,Boom: A Serial Drama,Faith McQuinn / Observer Pictures,,unattempted,,,
-607,P2,Burnout: A Cyberpunk Thriller,Alternative Stories,,unattempted,,,
-608,P2,"Candy Claus, Private Eye",Ella Gale,,unattempted,,,
-609,P2,Care & Feeding of Werewolves,,,unattempted,,,
-610,P2,Cat/Person,,,unattempted,,,
+605,P2,Blood Rage Mode,,0ff3dab0-677b-4dbe-9342-d2af0ff40c00,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:54:35
+606,P2,Boom: A Serial Drama,Faith McQuinn / Observer Pictures,58e2ef33-ee6a-4dc9-b4aa-ba91415800b2,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 19:55:31
+607,P2,Burnout: A Cyberpunk Thriller,Alternative Stories,45e54369-7a53-4e52-9dcd-ea4e30624d7a,published,published,,2026-08-15 19:56:17
+608,P2,"Candy Claus, Private Eye",Ella Gale,3c1f5a78-ddba-4191-b082-e6529510027c,published,published,,2026-08-15 19:56:17
+609,P2,Care & Feeding of Werewolves,,c8af5ee1-4e3a-4a57-8929-db84f63fa794,needs-review,needs-review,source-conflict,2026-08-15 19:54:31
+610,P2,Cat/Person,,72339e15-9e2b-423f-ac76-81afe287ca12,published,published,,2026-08-15 19:56:17
 611,P1,Chaika,Karin Heimdahl,6a260295-c0ae-457d-be2c-0162adfbfbd5,published,published,,2026-08-15 17:20:09
 612,P1,Close Your Eyes,Cryptic Radio / Cryptic County,9b38eac8-8d2c-426f-bfc5-8a57a49d39f5,needs-review,needs-review,source-conflict,2026-08-15 17:18:52
-613,P2,Continuum Force,Transmissions From Atlantis Entertainment,,unattempted,,,
-614,P2,Curveballs,,,unattempted,,,
-615,P2,Dashing Onions Audio,Fiona Thraille,,unattempted,,,
-616,P2,Dean's Killer Joke,,,unattempted,,,
-617,P2,Deathless,,,unattempted,,,
-618,P2,Divorce Ranch,,,unattempted,,,
-619,P2,Dr. Goodvibes,,,unattempted,,,
-620,P2,Dying Breeds,,,unattempted,,,
-621,P2,Epsilon: Endings,,,unattempted,,,
-622,P2,Five Minute Fears,Darker Projects,,unattempted,,,
+613,P2,Continuum Force,Transmissions From Atlantis Entertainment,b9565c8f-4824-4630-af75-ac10fe3668fe,needs-review,needs-review,source-conflict,2026-08-15 19:54:37
+614,P2,Curveballs,,5efc14e0-a2d9-4665-82f0-839e55cb35a0,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:54:38
+615,P2,Dashing Onions Audio,Fiona Thraille,e8dd634c-9867-4655-8026-21e4a413cda3,published,published,,2026-08-15 19:56:17
+616,P2,Dean's Killer Joke,,8f2369ab-6f80-42ad-a3dc-4472e68c7a57,published,published,,2026-08-15 19:56:17
+617,P2,Deathless,,3ff8c50b-2cd6-44d7-b092-e98c2e6ccb7a,published,published,,2026-08-15 19:56:17
+618,P2,Divorce Ranch,,53be273d-ff5b-4196-b0e6-acd6fd5af831,published,published,,2026-08-15 19:56:17
+619,P2,Dr. Goodvibes,,f162a1fe-414b-466c-84e9-c64867e28ef8,published,published,,2026-08-15 19:56:17
+620,P2,Dying Breeds,,34428578-9e18-4165-b4a7-a9d231db6358,published,published,,2026-08-15 19:56:17
+621,P2,Epsilon: Endings,,f41acf2e-a295-4bd2-a4bd-b834db0f0b68,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:55:30
+622,P2,Five Minute Fears,Darker Projects,413f3d7c-3db4-4ec9-bb66-873132b1cba8,needs-review,needs-review,source-conflict,2026-08-15 19:55:27
 623,P1,Flyest Fables,Morgan Givens,551b7d55-8094-4b0c-ab1a-bb6ee817ca3d,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 17:20:05
-624,P2,From An Island,,,unattempted,,,
-625,P2,Gamma Radio,,,unattempted,,,
-626,P2,Garden Plots with Skeletor,,,unattempted,,,
-627,P2,GLITCH: Twisted Tech Tales,Obsidian Elephant Productions,,unattempted,,,
-628,P2,Gone,,,unattempted,,,
-629,P2,HAPPY & WE KNOW IT,,,unattempted,,,
-630,P2,Hearthbound: An Untelling of the Odyssey,,,unattempted,,,
-631,P2,Hearthfall: A Dark Fantasy Audio Drama,,,unattempted,,,
-632,P2,Homicide at Heavensgate,,,unattempted,,,
+624,P2,From An Island,,0ae5c3fb-8206-49b3-a9b2-cd364ca0a5e3,published,published,,2026-08-15 19:56:17
+625,P2,Gamma Radio,,8d91c6ba-c704-4eb6-902a-773a957f979d,needs-review,needs-review,source-conflict,2026-08-15 19:56:05
+626,P2,Garden Plots with Skeletor,,bc028964-b6bf-485e-bece-5c9775e61758,published,published,,2026-08-15 19:56:17
+627,P2,GLITCH: Twisted Tech Tales,Obsidian Elephant Productions,32b90322-5a6f-47c4-840f-150093a36365,published,published,,2026-08-15 19:56:17
+628,P2,Gone,,7674d918-dfa6-4006-8542-3437999195f4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:55:28
+629,P2,HAPPY & WE KNOW IT,,e5fe984b-e1de-4696-9d12-ac7827235765,published,published,,2026-08-15 19:56:17
+630,P2,Hearthbound: An Untelling of the Odyssey,,3e7ee6f9-857c-4aea-becf-c63b75431a31,published,published,,2026-08-15 19:56:17
+631,P2,Hearthfall: A Dark Fantasy Audio Drama,,2072fc65-7130-4586-84dd-5e1afd3ac8f6,published,published,,2026-08-15 19:56:17
+632,P2,Homicide at Heavensgate,,723e856b-6785-41b1-89ee-53c93bfa269b,published,published,,2026-08-15 19:56:17
 633,P2,Hovering,,,unattempted,,,
 634,P2,Howl,,,unattempted,,,
 635,P2,Human-B-Gon,,,unattempted,,,

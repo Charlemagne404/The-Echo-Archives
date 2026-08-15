@@ -1,0 +1,629 @@
+{
+  "id": "deans-killer-joke",
+  "title": "Dean's Killer Joke",
+  "subtitle": "",
+  "description": "After a night of drinking, canceled comedian Dean Blackshaw is found dead in a comedy club green room. Now his friend and fellow comic, Anne-Marie, has to put together the pieces of a blacked-out night, solve the crime, and wonder if it was all her fault. A murder mystery audio drama created by Brandon Rizzuto. Produced by Evagation Media.",
+  "cover": "images/covers/deans-killer-joke.jpg",
+  "coverAlt": "Dean's Killer Joke cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4",
+    "website": "https://redcircle.com/shows/deans-killer-joke",
+    "rss": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Dean's Killer Joke"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 7 full episodes • 32 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "avgEpisodeMinutes": 31,
+    "medianEpisodeMinutes": 32,
+    "minEpisodeMinutes": 25,
+    "maxEpisodeMinutes": 37,
+    "totalObservedHours": 3.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-11-12",
+    "latest": "2024-12-17",
+    "latestFeedItem": "2024-12-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/deans-killer-joke",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Evagation Media",
+    "ownerName": "Evagation Media"
+  },
+  "creators": [
+    "Evagation Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e; https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e",
+      "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Comedy Fiction",
+      "Comedy",
+      "Stand-Up"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "After a night of drinking, canceled comedian Dean Blackshaw is found dead in a comedy club green room. Now his friend and fellow comic, Anne-Marie, has to put together the pieces of a blacked-out night, solve the crime, and wonder if it was all her fault. A murder mystery audio drama created by Brandon Rizzuto. Produced by Evagation Media.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 5
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "c886e7f9-d23c-4367-a7a0-a832ace7b97e",
+        "rssUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e",
+        "appleCollectionId": "1777468205",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e",
+          "fetchedAt": "2026-08-15T19:56:02.867Z",
+          "payloadHash": "7eaeb581c2be3cd89b9b5c57957743bd8015cc097acceea16325ba3f472ebd82"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4",
+          "fetchedAt": "2026-08-15T19:56:02.798Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deans-killer-joke/id1777468205?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/c886e7f9-d23c-4367-a7a0-a832ace7b97e"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:56:03.111Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "db4a6aeb490cc9e9fd792c7ddfe0dea8d42adab0bcdc69c0f903016bc4b4267f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "fc0a82fc01773fc8f8f8093b12a7a25b5c63eb6b10e7e2df7a792516b193bb27",
+        "cover": "0c8f9174453007b01d1c62b203104451f6e616989693377227892c3d60c3f86d",
+        "coverAlt": "450e2ab549bf12aff633fa9d66fef055f8bed63463de8e24677eabac4244d661",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "19218dc091ffda0ad5d3180940918211660eecb6aa12a78e6b2c4783e7b25fab",
+        "officialLinks": "7ae4bc0da04a0b104100075c7ccae74a4995a56b43b538ea5f4dff81d2ff9a8b",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "35087f1f165ba9c1d1bd0c7ee821d9d730b4b58cddcb58fd9bd758ba22985f1d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "595290b510a5da8133be5db771bbe095515bc5d78a4fee17e7ddd24a67758f76",
+        "releaseDates": "0f3df45668a9c6a70909e8b3f608d429ab7f01d067a441c39588b566340ab313",
+        "credits": "1ad73eee5788465bc602608a6aa2dee46c3e89b819639ef3db78823e011a4466",
+        "creators": "59791d15cfaf457f4ba8f493aee024a3e4894ac3884882bc99ba4d5b849f90f5",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "136b276ac0a5e4721f59910ebf6207e7a6e87856f55c48d15992ff93b59a3d63"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.306Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "evagation-media"
+}

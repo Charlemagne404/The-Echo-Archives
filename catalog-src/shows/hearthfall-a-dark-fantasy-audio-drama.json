@@ -1,0 +1,666 @@
+{
+  "id": "hearthfall-a-dark-fantasy-audio-drama",
+  "title": "Hearthfall: A Dark Fantasy Audio Drama",
+  "subtitle": "Honor. Deceit. Ambition. Duty. Cows. Hearthfall is a cinematic, immersive audio drama of hard choices, darker consequences, and unforgettable adventure.",
+  "description": "Honor. Deceit. Ambition. Duty. Cows. Hearthfall is a cinematic, immersive audio drama of hard choices, darker consequences, and unforgettable adventure.",
+  "cover": "images/covers/hearthfall-a-dark-fantasy-audio-drama.png",
+  "coverAlt": "Hearthfall: A Dark Fantasy Audio Drama cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4",
+    "website": "https://www.hearthfall.com/",
+    "rss": "https://feeds.castos.com/4x6j8",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hearthfall: A Dark Fantasy Audio Drama"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 2 full episodes • 31 min median",
+    "seasons": 1,
+    "episodes": 2,
+    "avgEpisodeMinutes": 31,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 25,
+    "maxEpisodeMinutes": 37,
+    "totalObservedHours": 1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 2,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-10-14",
+    "latest": "2025-10-14",
+    "latestFeedItem": "2025-10-14",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.hearthfall.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Brian Kelly",
+    "ownerName": "Brian Kelly"
+  },
+  "creators": [
+    "Brian Kelly"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.hearthfall.com/cast/; https://www.hearthfall.com/; https://feeds.castos.com/4x6j8; https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.hearthfall.com/cast/",
+      "https://www.hearthfall.com/",
+      "https://feeds.castos.com/4x6j8",
+      "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Honor. Deceit. Ambition. Duty. Cows. Hearthfall is a cinematic, immersive audio drama of hard choices, darker consequences, and unforgettable adventure.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2025",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.castos.com/4x6j8",
+        "appleCollectionId": "1842895737",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.hearthfall.com/cast/",
+          "fetchedAt": "2026-08-15T19:54:26.152Z",
+          "payloadHash": "52bd82b23fe6fe57b3f441ff7fafc67eaed0f1aca46a42be5f54759da90251fa"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.hearthfall.com/",
+          "fetchedAt": "2026-08-15T19:54:26.150Z",
+          "payloadHash": "cf7fdf6738d79599ca98a7ab95b6556a014d142fab96dc4a1ee0a9ffc630d668"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.castos.com/4x6j8",
+          "fetchedAt": "2026-08-15T19:54:25.562Z",
+          "payloadHash": "b008c1766ae7910327ed15ba97f434c5ea779847f4d8630a656ab56709bb7d6c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4",
+          "fetchedAt": "2026-08-15T19:54:24.616Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hearthfall.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthfall-a-dark-fantasy-audio-drama/id1842895737?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hearthfall.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hearthfall.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.hearthfall.com/cast/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.castos.com/4x6j8"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:54:28.153Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "0a7cec7c6bc1cb3ebafb70a6e9d0977dda838ed4e359e57fdfbaa4503291ae68",
+        "subtitle": "fdc83eb7c3f0b0f7efe3128020503cfe33760901b90be60cdab63e0f47972ca1",
+        "description": "fdc83eb7c3f0b0f7efe3128020503cfe33760901b90be60cdab63e0f47972ca1",
+        "cover": "0694546d4c1c16137479a6147f77329c5282f173c88a4a485638828a15099405",
+        "coverAlt": "986d0f57dd2dc3f8ed4f419b6aa5bd90e89bd7d63a6c574e34b6d95001376e99",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "82e535ca9371038e6e32ef7ab7b8df1fbc587b77d95046aea1202f8d32d09488",
+        "officialLinks": "dba8e5f7a5a6bcb9359b101d0dcbcf6447476b17a885bc853d5a2a6a1afd591b",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "967f9ce14fadec604a132edd43ed8e97e7ef239c82ee1bcd9ba99a344ff966f6",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "bc7d91645f4d63155450e7e008f1b162c137f9cfd529de433ecd76e1109937e4",
+        "releaseDates": "1345c3cdebb359fbf7cb0dc8179bc9dd355caefa7eb1036728695028867dc6a6",
+        "credits": "ca4eab67133b83d61310edb13ef9081e7539719b3bb49d2d122693804ec513bd",
+        "creators": "91c62962f7979dd3f2459fc264b2821de417ff42f131a215179ed1260a9930a9",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "af2f673407c92f8d7a3d791e2cc6fd0c3d98b0d345404ae66603d5f8626e552e"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.339Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "brian-kelly"
+}

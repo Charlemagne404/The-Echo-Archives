@@ -1,0 +1,636 @@
+{
+  "id": "hearthbound-an-untelling-of-the-odyssey",
+  "title": "Hearthbound: An Untelling of the Odyssey",
+  "subtitle": "An Untelling of the Odyssey",
+  "description": "Odessa's just trying to get home to her wife, but along the Loneliest Road in America, she'll encounter strange hosts, stray souls, and echoes of the past she's running from... or running towards. Hearthbound is an award-winning folk musical audio drama, set across a post-apocalyptic Great Basin. It's a road trip, a queer love story, and a ballad for ecological restoration. You coming our way? Baltimore Next Media Web Festival - Best LGBTQ Audio Fiction, Best Score in a Podcast Winner | NYC Podcast Awards - Best Fiction Podcast Nominee | LA Webfest Awards - Best Script, Best Sound Design, Best Ensemble Cast Nominee",
+  "cover": "images/covers/hearthbound-an-untelling-of-the-odyssey.jpg",
+  "coverAlt": "Hearthbound: An Untelling of the Odyssey cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4",
+    "website": "https://redcircle.com/shows/hearthbound-an-untelling-of-the-odyssey",
+    "rss": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hearthbound: An Untelling of the Odyssey"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 24 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 33,
+    "totalObservedHours": 4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 3,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-06-03",
+    "latest": "2025-10-07",
+    "latestFeedItem": "2025-12-05",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/hearthbound-an-untelling-of-the-odyssey",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Stray Lungs",
+    "ownerName": "Stray Lungs"
+  },
+  "creators": [
+    "Stray Lungs"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae; https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "13 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.929,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae",
+      "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Odessa's just trying to get home to her wife, but along the Loneliest Road in America, she'll encounter strange hosts, stray souls, and echoes of the past she's running from... or running towards. Hearthbound is an award-winning folk musical audio drama, set across a post-apocalyptic Great Basin. It's a road trip, a queer love story, and a ballad for ecological restoration. You coming our way? Baltimore Next Media Web Festival - Best LGBTQ Audio Fiction, Best Score in a Podcast Winner | NYC Podcast Awards - Best Fiction Podcast Nominee | LA Webfest Awards - Best Script, Best Sound Design, Best Ensemble Cast Nominee",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "3944c967-ddac-48d5-ab57-a124287f8dae",
+        "rssUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae",
+        "appleCollectionId": "1807519201",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae",
+          "fetchedAt": "2026-08-15T19:55:26.520Z",
+          "payloadHash": "4ebcb4865bb76ee51bda58b8cf9c8e002cef04e454d0c24611a5038406013ecb"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4",
+          "fetchedAt": "2026-08-15T19:55:26.359Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hearthbound-an-untelling-of-the-odyssey/id1807519201?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/3944c967-ddac-48d5-ab57-a124287f8dae"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:55:26.752Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "edb98c1c215b948652df9d9245fe6338495a4ed2bb3c42866655a798fdaa178a",
+        "subtitle": "31b9fb90b97a85f822259dd048fbf2ebc98e9b398c002526a562aedaedf20dd6",
+        "description": "31985399d2fbc6aaf771a038891a4bceef16cfe7bc6c1e9bd78e579786b65d60",
+        "cover": "9ce6e89547dde532608a436005731f018a93550c5526f70fbe5ec0cb1ed94ee7",
+        "coverAlt": "0283f850e027340d848854eaae597b2c6bf086463972bfc61e8136ed8e728cf7",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "0f4d0a0b9de16f1efa49bd7995cd2b11b92bc44020745e5b8cedba7edcf3a03e",
+        "officialLinks": "78393d77c218ab8e5e35a5c114372e7004392681e00429d80854cd3278c424b7",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "8629e6ab7a623f6699dae10f1ba4004f3cad2cbd99003779f29bd44ad4f70272",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "790c4180e1d3a3789d64e6b673c391a9abf48e65f9f83f30af1744465451264e",
+        "releaseDates": "e18e5a5292b6dd08f3be8b2811e5580b8983c70eb2f2a21ae66eb412b1369f3e",
+        "credits": "0c286120454164251237440f3e726458ea0030372f00a8eec454b75d8a731617",
+        "creators": "52275ad97fe5231ec232b18995847e7f45ed3e314a57609e173d1cf311b78072",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "524d48b758719f05ef1b3ddfa62a272f5163cafffd1546110da026917ad4a990",
+        "verification": "525136211aefbca73b9947e51661ce75ff046625814d902074f9b783032634d7"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.335Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "stray-lungs"
+}

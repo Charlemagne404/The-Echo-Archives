@@ -1,0 +1,641 @@
+{
+  "id": "cat-person",
+  "title": "Cat/Person",
+  "subtitle": "",
+  "description": "A brand new sitcom for Cat People everywhere. Cat/Person is about a broken man living under the thumb of Hobson, his relentlessly judgemental cat... Matthew is wading through his own, post-apocalyptic wasteland following a divorce so, to get him through the dark days, his friends recommended that he get himself an emotional support animal. Unfortunately, after a trip to the local Rescue Shelter, he chose a selfish, sarcastic, sociopathic cat (voiced by Sue Vincent, star of Shameless and The Madame Blanc Mysteries). Written by Chris Heath , this three part, limited series drops all at once and there's more to follow later in the year. Music and Sound Design by Simon Russell. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/cat-person.jpg",
+  "coverAlt": "Cat/Person cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4",
+    "website": "https://feeds.acast.com/public/shows/catperson",
+    "rss": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Cat/Person"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 6 full episodes • 13 min median",
+    "seasons": 2,
+    "episodes": 6,
+    "avgEpisodeMinutes": 12,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 14,
+    "totalObservedHours": 1.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 6,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2023-04-28",
+    "latest": "2023-11-12",
+    "latestFeedItem": "2023-11-12",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://feeds.acast.com/public/shows/catperson",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Chris Heath",
+    "ownerName": "Chris Heath"
+  },
+  "creators": [
+    "Chris Heath"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5; https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5",
+      "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+    ],
+    "sourceCategories": [
+      "Comedy",
+      "Fiction",
+      "Arts"
+    ],
+    "sourceKeywords": [
+      "Cat",
+      "Cats",
+      "Comedy",
+      "Sitcom",
+      "Sue Vincent",
+      "Funny",
+      "Cat/Person",
+      "Haha"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "A brand new sitcom for Cat People everywhere. Cat/Person is about a broken man living under the thumb of Hobson, his relentlessly judgemental cat... Matthew is wading through his own, post-apocalyptic wasteland following a divorce so, to get him through the dark days, his friends recommended that he get himself an emotional support animal. Unfortunately, after a trip to the local Rescue Shelter, he chose a selfish, sarcastic, sociopathic cat (voiced by Sue Vincent, star of Shameless and The Madame Blanc Mysteries). Written by Chris Heath , this three part, limited series drops all at once and there's more to follow later in the year. Music and Sound Design by Simon Russell. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 3
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Chris Heath",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5",
+        "appleCollectionId": "1685144513",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5",
+          "fetchedAt": "2026-08-15T19:54:24.934Z",
+          "payloadHash": "fc7c726934c57fd383535869f9fa54ea3a92024562ea953ff7e734b2a4e019fa"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4",
+          "fetchedAt": "2026-08-15T19:54:24.753Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cat-person/id1685144513?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/644b6f67240d750011ce31c5"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:54:25.186Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "64ff8e923541e6596ccdd02cb83d4c0ed68b41363fd9bf1e403939ef0b010b2e",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "2b255e8b061d01e67b59a34cc878221b15c7e8c21a0ff95da9749fe56d2f6252",
+        "cover": "87e7eb9cf08f7e89a45d8e7d7edf7f2c54d6d80f64330b3f381a11c3ca5af497",
+        "coverAlt": "812122f5fa247e12d0858ce2310142dbb6b4b6d1fcce701069e3a229d5eb81f7",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "950af4142bc6e4e480a89d0ffbeade560a15888deaeb93757f627ed2a1f6a7c9",
+        "officialLinks": "4132812e4328635bb95c3c0f3703b83d87100864bb379e0e16bcdbca9a7f9d87",
+        "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "5f3c2f579a5e18172c3d400e976a5fb9f3b3883354c6c2948cf616697a28a6c0",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "538ea300d0f2c23c8dcf751e4c47af94124959c26fcb05016910bb366e1da691",
+        "releaseDates": "210d55432a94cb31375452d9310db13495913f5b31a8d05d5e180b8c679d992d",
+        "credits": "9f66756b371b949e038cfe34a8d3c0f9c73936d4a5016f10aff6479d240c212a",
+        "creators": "da5330abe46f3bbffc12337fe42afcf62a01bc1309dc081735a1ef278261d802",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "0e98bb602f265ae358f89be9c53a6ac7723f84f7dbefc33eeb5a0200d3c0fe78"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.299Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "chris-heath"
+}

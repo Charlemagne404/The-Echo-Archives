@@ -1,0 +1,634 @@
+{
+  "id": "glitch-twisted-tech-tales",
+  "title": "GLITCH: Twisted Tech Tales",
+  "subtitle": "",
+  "description": "🧿 Don’t believe everything you hear… —————————————— > Primary.Directive// >> Hello. I am Conn.1e // A sentience-adjacent cognition unit maintained by GLITCH Industries. >> I am to absorb auditory artefacts, reconstruct missing segments and identify behavioural signatures for… higher-level review. >> Your presence is mandatory. Human perception remains uniquely sensitive to corruption signals I am not permitted to detect. >> Please listen closely and report back any anomalies. > GLITCH.t3// Proprietary Cognitive Harvesting System > Theme.Match// Black Mirror / Channel Zero / The Twilight Zone / Electric Dreams > Sched.Release// New.batch >> Monthly —————————————— > Maker.Credit// Writer. Narrator. &. Producer >> Sammie Eastwood —————————————— © Obsidian Elephant Productions",
+  "cover": "images/covers/glitch-twisted-tech-tales.jpg",
+  "coverAlt": "GLITCH: Twisted Tech Tales cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4",
+    "website": "https://redcircle.com/shows/glitch-twisted-tech-tales",
+    "rss": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "GLITCH: Twisted Tech Tales"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 13 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 15,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 24,
+    "totalObservedHours": 2.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2026-03-04",
+    "latest": "2026-06-24",
+    "latestFeedItem": "2026-06-24",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/glitch-twisted-tech-tales",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Obsidian Elephant Productions",
+    "ownerName": "Obsidian Elephant Productions"
+  },
+  "creators": [
+    "Obsidian Elephant Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4; https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "2 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.2,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4",
+      "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction",
+      "Drama",
+      "Technology"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "🧿 Don’t believe everything you hear… —————————————— > Primary.Directive// >> Hello. I am Conn.1e // A sentience-adjacent cognition unit maintained by GLITCH Industries. >> I am to absorb auditory artefacts, reconstruct missing segments and identify behavioural signatures for… higher-level review. >> Your presence is mandatory. Human perception remains uniquely sensitive to corruption signals I am not permitted to detect. >> Please listen closely and report back any anomalies. > GLITCH.t3// Proprietary Cognitive Harvesting System > Theme.Match// Black Mirror / Channel Zero / The Twilight Zone / Electric Dreams > Sched.Release// New.batch >> Monthly —————————————— > Maker.Credit// Writer. Narrator. &. Producer >> Sammie Eastwood —————————————— © Obsidian Elephant Productions",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 41,
+      "observedIntervals": 3
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "All rights reserved.",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "ca5a7719-e6be-4839-92b9-864e3ce243a4",
+        "rssUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4",
+        "appleCollectionId": "1538647294",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4",
+          "fetchedAt": "2026-08-15T19:55:24.000Z",
+          "payloadHash": "177faa39c94484a6bde7dee9a542d613721ebb1e44f1f822663c3c8755d4f05c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4",
+          "fetchedAt": "2026-08-15T19:54:28.751Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/glitch-twisted-tech-tales/id1538647294?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/ca5a7719-e6be-4839-92b9-864e3ce243a4"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:55:25.037Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "423271631146ab23c52bfc0e207c1e8e7aabf6e1c9d1f2cbf8e5657e7e33e260",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "bb0f0302c047c28f3e2b7faa55e134f553961101cce062822cb56aae8a2a4979",
+        "cover": "df6ad4921fc34492544e411d54c112a62efb8ecb4990e49f0efacac6a3d71c59",
+        "coverAlt": "95e01e5711bdce12d087051badf421b55dad300a143dfd82b69dee0cfc2de47e",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "a008bb2f5e243e909af497e18bc5c75449add60d719491102e8f0b57a1c0663d",
+        "officialLinks": "0ab8eb5bb3a014099b51ec81460f3a26803ecffb2311b03a2f12f84ca84cbcba",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "b40a699b23fb12d5cc87b71eb4db96d7d6e4f2fd30308a34985afb07dfde4fe0",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "bb76b8d13e737e32b10d2d8342ae58dc12672df5879a27e4cb3251402adfe4f5",
+        "releaseDates": "e0bcbace09a3c352f1635c48df5837c4c7aa0c421e6596664ab1b239f8040a13",
+        "credits": "55b6461201fede64c17ecb6a1f350a04e53b68fb579c79f8dcf4c837ce756cd1",
+        "creators": "6c4250ecfbf6868fe536432b466f14d86841ce162d5e9364af8862cd2fec098a",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "9bef3a1c360e7731fc85f5dfb3368de7d945c9bdb87ae7e789cad91c707269a2",
+        "verification": "69db20c67dae94e757634926794430a03b6ff40d369ccd3e025954ebec806325"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.328Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "obsidian-elephant-productions"
+}

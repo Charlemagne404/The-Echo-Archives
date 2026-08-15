@@ -1,0 +1,675 @@
+{
+  "id": "dashing-onions-audio",
+  "title": "Dashing Onions Audio",
+  "subtitle": "",
+  "description": "Dashing Onions Audio creates original audio drama miniseries and one-off plays, focusing on stories with elements of oddness, mythology and the supernatural.",
+  "cover": "images/covers/dashing-onions-audio.jpg",
+  "coverAlt": "Dashing Onions Audio cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4",
+    "website": "http://www.thraille.co.uk/",
+    "rss": "https://rss.buzzsprout.com/252678.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Dashing Onions Audio"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 16 full episodes • 16 min median",
+    "seasons": 2,
+    "episodes": 16,
+    "avgEpisodeMinutes": 20,
+    "medianEpisodeMinutes": 16,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 94,
+    "totalObservedHours": 5.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 16,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2019-02-13",
+    "latest": "2026-06-17",
+    "latestFeedItem": "2026-06-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "http://www.thraille.co.uk/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://ko-fi.com/dashingonions"
+  },
+  "credits": {
+    "creatorName": "Fiona Thraille",
+    "ownerName": "Fiona Thraille"
+  },
+  "creators": [
+    "Fiona Thraille"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.buzzsprout.com/252678.rss; https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.056,
+    "transcriptFormats": [
+      "text/html"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.buzzsprout.com/252678.rss",
+      "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+    ],
+    "sourceCategories": [
+      "Arts",
+      "Performing Arts",
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "audio drama",
+      "audiodrama",
+      "radio drama",
+      "supernatural",
+      "thriller",
+      "drama",
+      "play",
+      "radio play",
+      "audio fiction",
+      "modern radio drama",
+      "miniseries"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Dashing Onions Audio creates original audio drama miniseries and one-off plays, focusing on stories with elements of oddness, mythology and the supernatural.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://ko-fi.com/dashingonions",
+        "label": "Support this Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 115,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Dashing Onions Audio",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "6883f890-29a0-5350-b978-7f83d440fd49",
+        "rssUrl": "https://rss.buzzsprout.com/252678.rss",
+        "appleCollectionId": "1451347248",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/252678.rss",
+          "fetchedAt": "2026-08-15T19:56:02.981Z",
+          "payloadHash": "6e6e219e0c316b9c9dc8811d5ef3853d10017068888f6d3abff6db0673d638bd"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4",
+          "fetchedAt": "2026-08-15T19:56:02.625Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dashing-onions-audio/id1451347248?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/252678.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:56:14.130Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "998084d8b1f346612a92b0a52a2050e39f1f0d31e8b0a0ff2a6c4bca2a199631",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "a6a800864eef5f38c51c3fda2d0817f4895c53cf1f375b6141391772dbbc77f3",
+        "cover": "3954565f464eaf647b3a718d8571f79c078b90b754cf5c4d5f3589f717fb6158",
+        "coverAlt": "b06ced19b58a5b786af94297725e0c6996f941b3bfbb09649a5259a01f6c1bf5",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "8144cc397eceb1958c9f7a3a9160d91847b60f3fd3ee838c3a547d1aed73deae",
+        "officialLinks": "a48bbd200e60a3edaaead601bdbd97eec1551b314c33a5015e2acc8b5fc98340",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "2fd615de9d06bd04d6f81f74572239c39f36590d8e59f12e7907de9375d96e32",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "57288be636c87be109df36b6de1548f7cfbd73c2bb6c389abd385ca51cabfe5a",
+        "releaseDates": "fd34f5505774185fdc953baa0c4e7d2d744721daffc5725a84c42c0f6e4374bf",
+        "credits": "ae154bfd5385914fa76c8ee516889d8c84ec1c57f2dfda4c030de719ab7485df",
+        "creators": "7bd0b39561b5529dc5406fabe1f3cd3f580951c6e5aefe0ac8c397e16107b76f",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "b90e7d141eaef95e5173d0d1f727cfb436c3f68319f9e8882a8b932a39fa2d45",
+        "verification": "e95631a7688ac7c8d75fcfd989937676d0ba47e9f20a12f57930d600650f4f91"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.304Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "fiona-thraille"
+}

@@ -1,0 +1,679 @@
+{
+  "id": "homicide-at-heavensgate",
+  "title": "Homicide at Heavensgate",
+  "subtitle": "Homicide at Heavensgate",
+  "description": "When a mysterious guest is found dead during the grand opening of a new lunar resort, two detectives are sent to investigate. What they find is a rich assortment of potential suspects, and the emergence of a mystery that goes deeper than they imagined. Season 2: Suicide in Santa Fe - coming soon! Homicide at Heavensgate is a Space Noir murder mystery series that fuses classic detective fiction with grounded sci-fi and esoteric underpinnings. It features a full cast and cinamatic sound design, and was made without the use of any Generative AI.",
+  "cover": "images/covers/homicide-at-heavensgate.jpg",
+  "coverAlt": "Homicide at Heavensgate cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4",
+    "website": "https://www.sentinelstudios.net/",
+    "rss": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Homicide at Heavensgate"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 6 full episodes • 31 min median",
+    "seasons": 1,
+    "episodes": 6,
+    "avgEpisodeMinutes": 31,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 28,
+    "maxEpisodeMinutes": 35,
+    "totalObservedHours": 3.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 6,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2023-06-02",
+    "latest": "2023-08-11",
+    "latestFeedItem": "2023-08-11",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.sentinelstudios.net/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://vault.sentinelstudios.net/access"
+  },
+  "credits": {
+    "creatorName": "Sentinel Studios",
+    "ownerName": "Sentinel Studios"
+  },
+  "creators": [
+    "Sentinel Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss; https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 0.167,
+    "transcriptFormats": [
+      "application/srt"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss",
+      "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [
+      "sci-fi",
+      "space",
+      "noir",
+      "esoteric",
+      "lunar",
+      "crime",
+      "audio",
+      "drama",
+      "mystery",
+      "full-cast",
+      "cinematic",
+      "Murder"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "When a mysterious guest is found dead during the grand opening of a new lunar resort, two detectives are sent to investigate. What they find is a rich assortment of potential suspects, and the emergence of a mystery that goes deeper than they imagined. Season 2: Suicide in Santa Fe - coming soon! Homicide at Heavensgate is a Space Noir murder mystery series that fuses classic detective fiction with grounded sci-fi and esoteric underpinnings. It features a full cast and cinamatic sound design, and was made without the use of any Generative AI.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://vault.sentinelstudios.net/access",
+        "label": "Support This Podcast!"
+      }
+    ],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 5
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026 by Sentinel Studios",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss",
+        "appleCollectionId": "1690810100",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss",
+          "fetchedAt": "2026-08-15T19:54:28.887Z",
+          "payloadHash": "d0a04984f38716c211fa8de1668b5f20c9cef73bce109f695c5b3e8ef1727dd5"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4",
+          "fetchedAt": "2026-08-15T19:54:28.799Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/homicide-at-heavensgate/id1690810100?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.podserve.fm/series/rss/7008/homicide-at-heavensgate.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:54:29.559Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "ae6013013e7c5ea12b751472312a6ca7ad020189fb3fc81dc1146098c7eba331",
+        "subtitle": "ae6013013e7c5ea12b751472312a6ca7ad020189fb3fc81dc1146098c7eba331",
+        "description": "bdd89d963ba962e4480fbc9565da9af17e874abd19b555070eb4c653df03811d",
+        "cover": "5e21cc53901c312d13a354fb22a7556f472726cdd19e7fd1016d2c05b9dea10e",
+        "coverAlt": "eba198d9c3041907d69911a02bd9df076af7222e373531f2bc7980d726ad3187",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "b7c2bbbdadabed962995a02818527b8a29b4874e757599227da563e0e624de60",
+        "officialLinks": "45b49540a628eed176ee341aa461f3ccfb510749dbc0f46fa9e03a48e67c1829",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "c0f4d1e838aab1f7fe19a15185c7a7b4c472699b4c8806bf8a86f5cb7fe3558b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "46abe74b81bb6a1958107daa48388729c670b9ad34e2cbda45fba8d3509e8ebf",
+        "releaseDates": "2bd5ac4153c87254ec13245aed206218ab8cf04b182afb745b9572d117c131a1",
+        "credits": "c183c655fd03623bcdbc6a3a899d2709b4d85e623543bcce61b89a4f58f274b9",
+        "creators": "b72c1bb0e25fb5197b984124350897f305b060e0277e4c87b26b7b8f2bd49622",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "42ca40a45c7d021e496daedaed7f05626b3e1d25cc2632902a0678c8df26677f",
+        "verification": "decb172134b11e8346260f405e6f8ee3e4661aa3a3672d80b1281eb27b95783c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.347Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "sentinel-studios"
+}

@@ -1,0 +1,685 @@
+{
+  "id": "deathless",
+  "title": "Deathless",
+  "subtitle": "",
+  "description": "It's been almost 10 years since we stopped dying. Let's talk about that. I interview people with unique relationships to immortality, attempting to answer the question of the decade: Does life still have meaning if it never ends?",
+  "cover": "images/covers/deathless.jpg",
+  "coverAlt": "Deathless cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4",
+    "website": "https://mrowanmeyer.my.canva.site/",
+    "rss": "https://rss.buzzsprout.com/2328004.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Deathless"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 49 full episodes • 23 min median",
+    "seasons": 3,
+    "episodes": 49,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 23,
+    "minEpisodeMinutes": 7,
+    "maxEpisodeMinutes": 49,
+    "totalObservedHours": 19.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 49,
+      "bonus": 0,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2024-04-15",
+    "latest": "2026-01-19",
+    "latestFeedItem": "2026-01-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://mrowanmeyer.my.canva.site/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "M. Rowan Meyer",
+    "ownerName": "M. Rowan Meyer",
+    "people": [
+      {
+        "name": "M. Rowan Meyer",
+        "role": "host",
+        "group": "",
+        "href": "http://www.mrowanmeyer.com/",
+        "image": "https://storage.buzzsprout.com/iingvd30ui23uudmof4n8fjlxvvd"
+      }
+    ]
+  },
+  "creators": [
+    "M. Rowan Meyer"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://mrowanmeyer.my.canva.site/; https://rss.buzzsprout.com/2328004.rss; https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://mrowanmeyer.my.canva.site/",
+      "https://rss.buzzsprout.com/2328004.rss",
+      "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [
+      "scifi",
+      "interview",
+      "comedy",
+      "gay",
+      "series",
+      "journalism",
+      "immortal",
+      "film",
+      "tv",
+      "pornography",
+      "cults"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "It's been almost 10 years since we stopped dying. Let's talk about that. I interview people with unique relationships to immortality, attempting to answer the question of the decade: Does life still have meaning if it never ends?",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 4,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Deathless",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "b5c0832d-7206-5d30-acd9-4def115d7e69",
+        "rssUrl": "https://rss.buzzsprout.com/2328004.rss",
+        "appleCollectionId": "1737889410",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://mrowanmeyer.my.canva.site/",
+          "fetchedAt": "2026-08-15T19:55:33.656Z",
+          "payloadHash": "482ce2dd9aab51f82c55d6a22b593ba1d2d1d7f28c919cf8622f7379719fe85b"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/2328004.rss",
+          "fetchedAt": "2026-08-15T19:55:32.847Z",
+          "payloadHash": "8b5355533369d3f0bfb80ae1f3944864a6e62ca34fa76d8fe6cb5bdc838ff81f"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4",
+          "fetchedAt": "2026-08-15T19:54:38.979Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/deathless/id1737889410?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://mrowanmeyer.my.canva.site/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "channelPeople": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2328004.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:55:34.568Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "7efe32604bf534b11e67bcd343b25cc3d79aa466dda141b8cd68b25ee9844ba9",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "982f4ad5896077f95709a266c3ec5039324dcc4894e7f8968c8031ea7edeae7a",
+        "cover": "543597b0ccb47bbb4d1c38b2c6cfb558597f937d9e74beb30563c67b87ac1d9e",
+        "coverAlt": "cc942992df6d7928b8bb1d49d2c6c3231939b5d6b146eb0aef9dc9410968ebcd",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "c178f0b9d54803e91d79a398dcb6301da6ffdffd5ac9ec860640edf9d389aaea",
+        "officialLinks": "bba5864cc89068487285bb3408690a31b6395554b37efb38150deeed4af87f20",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "04cea037cdbde18aedaa1bd7e2b4647df667521181a3ceea5253e28f7719c236",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "1ff89128e3b92d7e8e44fa524cb191a54711252036d9417d39388490bd60f250",
+        "releaseDates": "605f1d8d0a898d4f433bdd87669a3c47e8bef83a4b39feed4302cddea7c6bab4",
+        "credits": "773125a5abb9f04beaa13d58839321eddae28c63b25b01ca94f8b69268d1cfeb",
+        "creators": "0daff0c4a3d09a695a2d6ec8782c5d1bcae9f46b652a129c8b41ce28b7c217e5",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "10709b87a927450f834c89f14867c8202116602b6acb09376157c88ac626e35c"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:56:14.307Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "m-rowan-meyer"
+}
