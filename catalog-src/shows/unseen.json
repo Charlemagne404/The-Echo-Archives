@@ -1,0 +1,723 @@
+{
+  "id": "unseen",
+  "title": "Unseen",
+  "subtitle": "",
+  "description": "UNSEEN is the new urban fantasy audio fiction podcast by Long Story Short Productions. The premise behind it is simple: in a world where magic is real but invisible to almost everyone, for the few magical beings that exist every day is a struggle just to be seen. Season one of&nbsp;UNSEEN&nbsp;will feature ten different stories of identity, connection, and personhood (and, of course, magic) in the modern world. Some of them will be thrilling adventures. Others may be sad and melancholic. Some may be creepy and unsettling. Each of them will feature a single performer, guiding the audience through a new, original modern fantasy landscape.",
+  "cover": "images/covers/unseen.jpg",
+  "coverAlt": "Unseen cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/0Zn4addd0AjNGvJTwRxH5E?si=blj9COAxTHyVS-3ecq9Caw",
+    "apple": "https://podcasts.apple.com/us/podcast/unseen/id1536343148",
+    "website": "https://www.unseen.show/",
+    "rss": "https://feeds.megaphone.fm/unseen",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Unseen"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 15 full episodes • 45 min median",
+    "seasons": 1,
+    "episodes": 15,
+    "avgEpisodeMinutes": 47,
+    "medianEpisodeMinutes": 45,
+    "minEpisodeMinutes": 35,
+    "maxEpisodeMinutes": 58,
+    "totalObservedHours": 11.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2020-10-26",
+    "latest": "2021-06-25",
+    "latestFeedItem": "2025-04-24",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.unseen.show/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/c/DottieJames/",
+    "social": "https://twitter.com/lisettewalking",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Long Story Short Productions",
+    "ownerName": "Long Story Short Productions",
+    "network": "Unseen"
+  },
+  "creators": [
+    "Long Story Short Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.unseen.show/cast; https://www.unseen.show/episodes; https://www.unseen.show/; https://feeds.megaphone.fm/unseen; https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.unseen.show/cast",
+      "https://www.unseen.show/episodes",
+      "https://www.unseen.show/",
+      "https://feeds.megaphone.fm/unseen",
+      "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "UNSEEN is the new urban fantasy audio fiction podcast by Long Story Short Productions. The premise behind it is simple: in a world where magic is real but invisible to almost everyone, for the few magical beings that exist every day is a struggle just to be seen. Season one of&nbsp;UNSEEN&nbsp;will feature ten different stories of identity, connection, and personhood (and, of course, magic) in the modern world. Some of them will be thrilling adventures. Others may be sad and melancholic. Some may be creepy and unsettling. Each of them will feature a single performer, guiding the audience through a new, original modern fantasy landscape.",
+    "socialUrls": [
+      "https://twitter.com/lisettewalking",
+      "https://twitter.com/EliLizzieLizbet",
+      "https://twitter.com/inkphemeral",
+      "https://twitter.com/BethEyre",
+      "https://twitter.com/dotttiejames",
+      "https://www.instagram.com/dotttiejames/",
+      "https://twitter.com/bullshotuk?lang=en",
+      "https://instagram.com/cecilialynnjacobs/",
+      "https://twitter.com/juliamorizawa",
+      "https://twitter.com/TheGreatDilemma",
+      "https://www.instagram.com/thegreatdilemma/?hl=en",
+      "https://twitter.com/felixtrench",
+      "https://twitter.com/mkwiles"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2024 2020",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/unseen",
+        "appleCollectionId": "1536343148",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.unseen.show/cast",
+          "fetchedAt": "2026-08-15T16:29:22.674Z",
+          "payloadHash": "bcbe5ec015d313fcdb4a769d2cf9c5b93ec4893cf1fa6f5c665452de7763fd2d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.unseen.show/episodes",
+          "fetchedAt": "2026-08-15T16:29:22.665Z",
+          "payloadHash": "4aa64f735478ee96096ff6f6bb43d7f0291493bed186a7f3c253cc76d842b6ea"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.unseen.show/",
+          "fetchedAt": "2026-08-15T16:29:22.658Z",
+          "payloadHash": "360ce1dfefe07ef046c30658baf49f3bdddfdb8a4a24d8b7a3627e25d5e3d8c9"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/unseen",
+          "fetchedAt": "2026-08-15T16:29:21.085Z",
+          "payloadHash": "27ed7291b99ed77ff73dfa75782f0fa6b9b8fbc6648fca105b3d8431960c3926"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4",
+          "fetchedAt": "2026-08-15T16:29:20.655Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/cast"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/cast"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/cast"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/cast"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.unseen.show/cast"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/unseen"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:29:23.147Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "3b7a9465a638062dea0ffe659f0d18706df1d5c974927f9a2153491a3acd393c",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "53046fdd7e3206c2ddc1b609f7275888026ebe484ad531f8e8828a34d7a48910",
+        "cover": "9f1aa44cd93c11cfc58308f84a93e3f3e9f4a83575a8542ae32e266449cdd126",
+        "coverAlt": "fda410b64801de1839c59e904f2ca115b8c896c7e966b04b94716c79391966da",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "82e223c7b8f744ade2a8b581822b271aabdec5a38e417fd39efe758998373065",
+        "officialLinks": "d070789d8f5175f0de9eefd4bbafa4fd5e95e10796626d398ec0348031a3160d",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "cf3acb2d254f8f08232845a88be87310d62cf65cd8a0b14259ed378ca61a3850",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "4f0f7c0d877b3acf62e6be4d6e9822928e20e5cfbbf7da51669e1e6a0af3ad9b",
+        "releaseDates": "e33babaf3e3d559aad0597a6c7cc0a10b09a67a5e6b21acf2f4d645b19b5fe44",
+        "credits": "c1197ac7b2020d3acbddfd4fb0b705ccd7e0370ec7b9bbcd8da37a25b4c60cde",
+        "creators": "3db71528f8e7f3b9dc199c447ac96f89bbd124197c8efdb59a08f61120faa579",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "a1f43816738c6e07fff20a1ef5bdd4fe7097d0263962912e8432725caffd80aa"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:31:51.091Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "long-story-short-productions",
+  "networkId": "unseen"
+}

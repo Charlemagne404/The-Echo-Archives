@@ -96552,5 +96552,5053 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "almelem",
+    "title": "Almelem",
+    "subtitle": "",
+    "description": "ALMELEM&nbsp;is&nbsp;a&nbsp;biblical backstager, set in the first century C.E., about a small group of con artists and true disciples fumbling toward the greatest story ever told.",
+    "cover": "images/covers/almelem.jpg",
+    "coverAlt": "Almelem cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4",
+      "website": "https://www.gideonth.com/almelem",
+      "rss": "https://feeds.megaphone.fm/almelem"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Almelem",
+      "ALMELEM | gideon"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 7 full episodes • 32 min median",
+      "seasons": 1,
+      "episodes": 7,
+      "avgEpisodeMinutes": 33,
+      "medianEpisodeMinutes": 32,
+      "minEpisodeMinutes": 23,
+      "maxEpisodeMinutes": 42,
+      "totalObservedHours": 3.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2022-11-17",
+      "latest": "2024-12-23",
+      "latestFeedItem": "2024-12-23"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.gideonth.com/almelem",
+      "social": "http://www.facebook.com/wix"
+    },
+    "credits": {
+      "creatorName": "Sean Williams",
+      "ownerName": "Sean Williams",
+      "network": "gideon"
+    },
+    "creators": [
+      "Sean Williams"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.gideonth.com/about; https://www.gideonth.com/almelem; https://feeds.megaphone.fm/almelem; https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.gideonth.com/about",
+        "https://www.gideonth.com/almelem",
+        "https://feeds.megaphone.fm/almelem",
+        "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Religion & Spirituality"
+      ],
+      "importOfficialSummary": "ALMELEM&nbsp;is&nbsp;a&nbsp;biblical backstager, set in the first century C.E., about a small group of con artists and true disciples fumbling toward the greatest story ever told.",
+      "socialUrls": [
+        "http://www.facebook.com/wix",
+        "http://www.twitter.com/wix",
+        "https://www.facebook.com/gideonproductionstheater",
+        "https://twitter.com/gideonpth"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/almelem",
+          "appleCollectionId": "1654221355"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.gideonth.com/about",
+            "fetchedAt": "2026-08-15T16:29:21.734Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.gideonth.com/almelem",
+            "fetchedAt": "2026-08-15T16:29:21.723Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/almelem",
+            "fetchedAt": "2026-08-15T16:29:20.982Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4",
+            "fetchedAt": "2026-08-15T16:29:20.444Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/almelem/id1654221355?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/almelem"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/almelem"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/about"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.63,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/almelem"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/about"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/almelem"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.gideonth.com/about"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/almelem"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:29:22.223Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.078Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "sean-williams",
+    "networkId": "gideon",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/almelem",
+    "hasPage": true,
+    "image": "images/covers/almelem.jpg",
+    "imageAlt": "Almelem cover art",
+    "summary": "ALMELEM&nbsp;is&nbsp;a&nbsp;biblical backstager, set in the first century C.E., about a small group of con artists and true disciples fumbling toward the greatest story ever told.",
+    "finalRating": null,
+    "searchText": "almelem almelem and nbsp is and nbsp a and nbsp biblical backstager set in the first century c e about a small group of con artists and true disciples fumbling toward the greatest story ever told drama serialized almelem almelem gideon sean williams english unclear imported sean williams sean williams gideon unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/almelem-999e72c7d2-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/almelem-999e72c7d2-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "adventures-in-new-america",
+    "title": "Adventures in New America",
+    "subtitle": "",
+    "description": "Adventures in New America is the first sci-fi, political satire, Afrofuturistic buddy comedy, serialized for New Americans in a new and desperate time. Set a few years in the future, Adventures in New America follows the escapades of two mismatched African-New-American best friends — fat, lonely, curmudgeon IA and lesbian sneak-thief Simon Carr — who take on a series of increasingly wild heists to get quick cash to pay for IA’s medical treatment while attempting to survive the wilds of New New York City — and a secret cabal of Tetchy Terrorist Vampire Zombies from outer space. Intrigued? Good! Frequently, there will be musical numbers... and radical reflections on our dangerous, beautiful, heart-pounding world.",
+    "cover": "images/covers/adventures-in-new-america.jpg",
+    "coverAlt": "Adventures in New America cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4",
+      "website": "https://adventuresinnewamerica.com/",
+      "rss": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Adventures in New America"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 16 full episodes • 30 min median",
+      "episodes": 16,
+      "avgEpisodeMinutes": 28,
+      "medianEpisodeMinutes": 30,
+      "minEpisodeMinutes": 2,
+      "maxEpisodeMinutes": 41,
+      "totalObservedHours": 7.5,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 16,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2018-09-07",
+      "latest": "2019-10-17",
+      "latestFeedItem": "2019-10-17"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://adventuresinnewamerica.com/",
+      "youtube": "https://www.youtube.com/channel/UCH9AFSwY4WqgHoCLG2XIveg",
+      "social": "https://www.facebook.com/Kemdikbud.RI/"
+    },
+    "credits": {
+      "creatorName": "Night Vale Presents",
+      "ownerName": "Night Vale Presents",
+      "network": "Sekolah Penggerak"
+    },
+    "creators": [
+      "Night Vale Presents"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://adventuresinnewamerica.com/; https://anchor.fm/s/4bd40bfc/podcast/rss; https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://adventuresinnewamerica.com/",
+        "https://anchor.fm/s/4bd40bfc/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "Adventures in New America is the first sci-fi, political satire, Afrofuturistic buddy comedy, serialized for New Americans in a new and desperate time. Set a few years in the future, Adventures in New America follows the escapades of two mismatched African-New-American best friends — fat, lonely, curmudgeon IA and lesbian sneak-thief Simon Carr — who take on a series of increasingly wild heists to get quick cash to pay for IA’s medical treatment while attempting to survive the wilds of New New York City — and a secret cabal of Tetchy Terrorist Vampire Zombies from outer space. Intrigued? Good! Frequently, there will be musical numbers... and radical reflections on our dangerous, beautiful, heart-pounding world.",
+      "socialUrls": [
+        "https://www.facebook.com/Kemdikbud.RI/",
+        "https://twitter.com/Kemdikbud_RI",
+        "https://www.instagram.com/kemdikbud.ri/?hl=id"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Night Vale Presents",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss",
+          "appleCollectionId": "1434863731"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://adventuresinnewamerica.com/",
+            "fetchedAt": "2026-08-15T16:28:11.093Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss",
+            "fetchedAt": "2026-08-15T16:28:10.476Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4",
+            "fetchedAt": "2026-08-15T16:28:10.415Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/adventures-in-new-america/id1434863731?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://adventuresinnewamerica.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://adventuresinnewamerica.com/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://adventuresinnewamerica.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://adventuresinnewamerica.com/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/4bd40bfc/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:28:11.200Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.086Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "night-vale-presents",
+    "networkId": "sekolah-penggerak",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/adventures-in-new-america",
+    "hasPage": true,
+    "image": "images/covers/adventures-in-new-america.jpg",
+    "imageAlt": "Adventures in New America cover art",
+    "summary": "Adventures in New America is the first sci-fi, political satire, Afrofuturistic buddy comedy, serialized for New Americans in a new and desperate time. Set a few years in the future, Adventures in New America follows the escapades of two mismatched African-New-American best friends — fat, lonely, curmudgeon IA and lesbian sneak-thief Simon Carr — who take on a series of increasingly wild heists to get quick cash to pay for IA’s medical treatment while attempting to survive the wilds of New New York City — and a secret cabal of Tetchy Terrorist Vampire Zombies from outer space. Intrigued? Good! Frequently, there will be musical numbers... and radical reflections on our dangerous, beautiful, heart-pounding world.",
+    "finalRating": null,
+    "searchText": "adventures in new america adventures in new america is the first sci fi political satire afrofuturistic buddy comedy serialized for new americans in a new and desperate time set a few years in the future adventures in new america follows the escapades of two mismatched african new american best friends fat lonely curmudgeon ia and lesbian sneak thief simon carr who take on a series of increasingly wild heists to get quick cash to pay for ia s medical treatment while attempting to survive the wilds of new new york city and a secret cabal of tetchy terrorist vampire zombies from outer space intrigued good frequently there will be musical numbers and radical reflections on our dangerous beautiful heart pounding world drama comedy episodic adventures in new america night vale presents english unclear imported night vale presents night vale presents sekolah penggerak unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/adventures-in-new-america-df3c5a0745-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/adventures-in-new-america-df3c5a0745-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "valence",
+    "title": "VALENCE",
+    "subtitle": "An urban fantasy fiction podcast",
+    "description": "In the city of New Candler, magic is scarce by design. A tech mogul wants to keep it that way. And a magic user wants freedom. Welcome to New Candler, cultural epicenter of the United States. | VALENCE is an Audio Verse Award-winning serialized fiction podcast meant for adult audiences. See our website for transcripts and content warnings for each episode.",
+    "cover": "images/covers/valence.jpg",
+    "coverAlt": "VALENCE cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4",
+      "website": "https://hughouse.productions/podcasts/valence/",
+      "rss": "https://feeds.captivate.fm/valence/"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "VALENCE",
+      "valence episodes – Hug House Productions"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 37 full episodes • 32 min median",
+      "seasons": 3,
+      "episodes": 37,
+      "avgEpisodeMinutes": 32,
+      "medianEpisodeMinutes": 32,
+      "minEpisodeMinutes": 26,
+      "maxEpisodeMinutes": 39,
+      "totalObservedHours": 19.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 37,
+        "bonus": 2,
+        "trailer": 5
+      }
+    },
+    "releaseDates": {
+      "first": "2020-01-11",
+      "latest": "2023-03-31",
+      "latestFeedItem": "2023-04-14"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://hughouse.productions/podcasts/valence/",
+      "social": "https://twitter.com/HugHousePods"
+    },
+    "credits": {
+      "creatorName": "Hug House Productions",
+      "ownerName": "Hug House Productions",
+      "network": "Hug House Productions"
+    },
+    "creators": [
+      "Hug House Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://hughouse.productions/tag/valence-episodes/; https://hughouse.productions/about-us/; https://hughouse.productions/podcasts/valence/; https://feeds.captivate.fm/valence/; https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://hughouse.productions/tag/valence-episodes/",
+        "https://hughouse.productions/about-us/",
+        "https://hughouse.productions/podcasts/valence/",
+        "https://feeds.captivate.fm/valence/",
+        "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "In the city of New Candler, magic is scarce by design. A tech mogul wants to keep it that way. And a magic user wants freedom. Welcome to New Candler, cultural epicenter of the United States. | VALENCE is an Audio Verse Award-winning serialized fiction podcast meant for adult audiences. See our website for transcripts and content warnings for each episode.",
+      "socialUrls": [
+        "https://twitter.com/HugHousePods",
+        "https://facebook.com/hughousepods",
+        "https://www.instagram.com/hughousepods/"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Copyright 2024",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "ce96c380-1105-54aa-9974-1277564b013b",
+          "rssUrl": "https://feeds.captivate.fm/valence/",
+          "appleCollectionId": "1696527689",
+          "feedRedirects": [
+            "https://hughouse.productions/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hughouse.productions/tag/valence-episodes/",
+            "fetchedAt": "2026-08-15T16:27:09.225Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hughouse.productions/about-us/",
+            "fetchedAt": "2026-08-15T16:27:09.222Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hughouse.productions/podcasts/valence/",
+            "fetchedAt": "2026-08-15T16:27:09.217Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/valence/",
+            "fetchedAt": "2026-08-15T16:27:05.339Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4",
+            "fetchedAt": "2026-08-15T16:27:04.886Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/podcasts/valence/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/valence/id1696527689?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/podcasts/valence/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.66,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/podcasts/valence/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/about-us/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/tag/valence-episodes/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/podcasts/valence/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hughouse.productions/tag/valence-episodes/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/valence/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:27:10.185Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.088Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "hug-house-productions",
+    "networkId": "hug-house-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/valence",
+    "hasPage": true,
+    "image": "images/covers/valence.jpg",
+    "imageAlt": "VALENCE cover art",
+    "summary": "In the city of New Candler, magic is scarce by design. A tech mogul wants to keep it that way. And a magic user wants freedom. Welcome to New Candler, cultural epicenter of the United States. | VALENCE is an Audio Verse Award-winning serialized fiction podcast meant for adult audiences. See our website for transcripts and content warnings for each episode.",
+    "finalRating": null,
+    "searchText": "valence an urban fantasy fiction podcast in the city of new candler magic is scarce by design a tech mogul wants to keep it that way and a magic user wants freedom welcome to new candler cultural epicenter of the united states valence is an audio verse award winning serialized fiction podcast meant for adult audiences see our website for transcripts and content warnings for each episode drama sci fi serialized valence valence episodes hug house productions hug house productions english unclear imported hug house productions hug house productions hug house productions unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/valence-806dc68106-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/valence-806dc68106-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "unseen",
+    "title": "Unseen",
+    "subtitle": "",
+    "description": "UNSEEN is the new urban fantasy audio fiction podcast by Long Story Short Productions. The premise behind it is simple: in a world where magic is real but invisible to almost everyone, for the few magical beings that exist every day is a struggle just to be seen. Season one of&nbsp;UNSEEN&nbsp;will feature ten different stories of identity, connection, and personhood (and, of course, magic) in the modern world. Some of them will be thrilling adventures. Others may be sad and melancholic. Some may be creepy and unsettling. Each of them will feature a single performer, guiding the audience through a new, original modern fantasy landscape.",
+    "cover": "images/covers/unseen.jpg",
+    "coverAlt": "Unseen cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/0Zn4addd0AjNGvJTwRxH5E?si=blj9COAxTHyVS-3ecq9Caw",
+      "apple": "https://podcasts.apple.com/us/podcast/unseen/id1536343148",
+      "website": "https://www.unseen.show/",
+      "rss": "https://feeds.megaphone.fm/unseen"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Unseen"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 15 full episodes • 45 min median",
+      "seasons": 1,
+      "episodes": 15,
+      "avgEpisodeMinutes": 47,
+      "medianEpisodeMinutes": 45,
+      "minEpisodeMinutes": 35,
+      "maxEpisodeMinutes": 58,
+      "totalObservedHours": 11.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 15,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2020-10-26",
+      "latest": "2021-06-25",
+      "latestFeedItem": "2025-04-24"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.unseen.show/",
+      "youtube": "https://www.youtube.com/c/DottieJames/",
+      "social": "https://twitter.com/lisettewalking"
+    },
+    "credits": {
+      "creatorName": "Long Story Short Productions",
+      "ownerName": "Long Story Short Productions",
+      "network": "Unseen"
+    },
+    "creators": [
+      "Long Story Short Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.unseen.show/cast; https://www.unseen.show/episodes; https://www.unseen.show/; https://feeds.megaphone.fm/unseen; https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.unseen.show/cast",
+        "https://www.unseen.show/episodes",
+        "https://www.unseen.show/",
+        "https://feeds.megaphone.fm/unseen",
+        "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "UNSEEN is the new urban fantasy audio fiction podcast by Long Story Short Productions. The premise behind it is simple: in a world where magic is real but invisible to almost everyone, for the few magical beings that exist every day is a struggle just to be seen. Season one of&nbsp;UNSEEN&nbsp;will feature ten different stories of identity, connection, and personhood (and, of course, magic) in the modern world. Some of them will be thrilling adventures. Others may be sad and melancholic. Some may be creepy and unsettling. Each of them will feature a single performer, guiding the audience through a new, original modern fantasy landscape.",
+      "socialUrls": [
+        "https://twitter.com/lisettewalking",
+        "https://twitter.com/EliLizzieLizbet",
+        "https://twitter.com/inkphemeral",
+        "https://twitter.com/BethEyre",
+        "https://twitter.com/dotttiejames",
+        "https://www.instagram.com/dotttiejames/",
+        "https://twitter.com/bullshotuk?lang=en",
+        "https://instagram.com/cecilialynnjacobs/",
+        "https://twitter.com/juliamorizawa",
+        "https://twitter.com/TheGreatDilemma",
+        "https://www.instagram.com/thegreatdilemma/?hl=en",
+        "https://twitter.com/felixtrench",
+        "https://twitter.com/mkwiles"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "2024 2020",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/unseen",
+          "appleCollectionId": "1536343148"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.unseen.show/cast",
+            "fetchedAt": "2026-08-15T16:29:22.674Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.unseen.show/episodes",
+            "fetchedAt": "2026-08-15T16:29:22.665Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.unseen.show/",
+            "fetchedAt": "2026-08-15T16:29:22.658Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/unseen",
+            "fetchedAt": "2026-08-15T16:29:21.085Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4",
+            "fetchedAt": "2026-08-15T16:29:20.655Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/cast"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/unseen/id1536343148?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/cast"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/cast"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/cast"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.unseen.show/cast"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/unseen"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:29:23.147Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.091Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "long-story-short-productions",
+    "networkId": "unseen",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/unseen",
+    "hasPage": true,
+    "image": "images/covers/unseen.jpg",
+    "imageAlt": "Unseen cover art",
+    "summary": "UNSEEN is the new urban fantasy audio fiction podcast by Long Story Short Productions. The premise behind it is simple: in a world where magic is real but invisible to almost everyone, for the few magical beings that exist every day is a struggle just to be seen. Season one of&nbsp;UNSEEN&nbsp;will feature ten different stories of identity, connection, and personhood (and, of course, magic) in the modern world. Some of them will be thrilling adventures. Others may be sad and melancholic. Some may be creepy and unsettling. Each of them will feature a single performer, guiding the audience through a new, original modern fantasy landscape.",
+    "finalRating": null,
+    "searchText": "unseen unseen is the new urban fantasy audio fiction podcast by long story short productions the premise behind it is simple in a world where magic is real but invisible to almost everyone for the few magical beings that exist every day is a struggle just to be seen season one of and nbsp unseen and nbsp will feature ten different stories of identity connection and personhood and of course magic in the modern world some of them will be thrilling adventures others may be sad and melancholic some may be creepy and unsettling each of them will feature a single performer guiding the audience through a new original modern fantasy landscape drama episodic unseen long story short productions english unclear imported long story short productions long story short productions unseen unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/unseen-103c7b1246-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/unseen-103c7b1246-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "time-bombs",
+    "title": "Time:Bombs",
+    "subtitle": "",
+    "description": "Created, written, recorded, produced, and released in just one week, Time:Bombs is a new audio drama podcast about the hilarious world of bomb disposal. From the team behind the Webby Award nominated sci-fi audio drama Wolf 359, ride along with EOD technician Simon Teller on the busiest night of the year for him and his team - when business is, quite literally, booming. Learn more at http://timebombs.show & more about this and other creative experiments at http://fearofpublicshame.com",
+    "cover": "images/covers/time-bombs.jpg",
+    "coverAlt": "Time:Bombs cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4",
+      "website": "https://timebomb.show/",
+      "rss": "https://feeds.megaphone.fm/timebombs"
+    },
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Time:Bombs"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 4 full episodes • 20 min median",
+      "seasons": 1,
+      "episodes": 4,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 20,
+      "minEpisodeMinutes": 16,
+      "maxEpisodeMinutes": 43,
+      "totalObservedHours": 1.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 4,
+        "bonus": 1,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2018-10-17",
+      "latest": "2020-11-02",
+      "latestFeedItem": "2025-04-24"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://timebomb.show/"
+    },
+    "credits": {
+      "creatorName": "Long Story Short Productions",
+      "ownerName": "Fear of Public Shame Presents"
+    },
+    "creators": [
+      "Long Story Short Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/timebombs; https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/timebombs",
+        "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+      ],
+      "sourceCategories": [
+        "Arts",
+        "Performing Arts",
+        "Comedy",
+        "Fiction",
+        "Comedy Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Created, written, recorded, produced, and released in just one week, Time:Bombs is a new audio drama podcast about the hilarious world of bomb disposal. From the team behind the Webby Award nominated sci-fi audio drama Wolf 359, ride along with EOD technician Simon Teller on the busiest night of the year for him and his team - when business is, quite literally, booming. Learn more at http://timebombs.show & more about this and other creative experiments at http://fearofpublicshame.com",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "2024 Long Story Short Productions",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/timebombs",
+          "appleCollectionId": "1438675837"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/timebombs",
+            "fetchedAt": "2026-08-15T16:29:06.185Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4",
+            "fetchedAt": "2026-08-15T16:28:50.625Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/time-bombs/id1438675837?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/timebombs"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:29:06.559Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.094Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "long-story-short-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/time-bombs",
+    "hasPage": true,
+    "image": "images/covers/time-bombs.jpg",
+    "imageAlt": "Time:Bombs cover art",
+    "summary": "Created, written, recorded, produced, and released in just one week, Time:Bombs is a new audio drama podcast about the hilarious world of bomb disposal. From the team behind the Webby Award nominated sci-fi audio drama Wolf 359, ride along with EOD technician Simon Teller on the busiest night of the year for him and his team - when business is, quite literally, booming. Learn more at http://timebombs.show & more about this and other creative experiments at http://fearofpublicshame.com",
+    "finalRating": null,
+    "searchText": "time bombs created written recorded produced and released in just one week time bombs is a new audio drama podcast about the hilarious world of bomb disposal from the team behind the webby award nominated sci fi audio drama wolf 359 ride along with eod technician simon teller on the busiest night of the year for him and his team when business is quite literally booming learn more at http timebombs show and more about this and other creative experiments at http fearofpublicshame com comedy drama episodic time bombs long story short productions english unclear imported long story short productions fear of public shame presents unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/time-bombs-29a03326b0-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/time-bombs-29a03326b0-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "ostium-podcast",
+    "title": "Ostium Podcast",
+    "subtitle": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places.",
+    "description": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places. Support this show http://supporter.acast.com/ostium . Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/ostium-podcast.jpg",
+    "coverAlt": "Ostium Podcast cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4",
+      "website": "https://ostiumnetwork.com/",
+      "rss": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Ostium Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "6 seasons observed • at least 93 full episodes • 37 min median",
+      "seasons": 6,
+      "episodes": 93,
+      "avgEpisodeMinutes": 48,
+      "medianEpisodeMinutes": 37,
+      "minEpisodeMinutes": 9,
+      "maxEpisodeMinutes": 158,
+      "totalObservedHours": 74.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        6,
+        1,
+        5,
+        4,
+        3,
+        2
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 93,
+        "bonus": 217,
+        "trailer": 19
+      }
+    },
+    "releaseDates": {
+      "first": "2017-01-01",
+      "latest": "2025-04-06",
+      "latestFeedItem": "2026-08-02"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://ostiumnetwork.com/",
+      "patreon": "https://www.patreon.com/ostiumpodcast",
+      "youtube": "https://www.youtube.com/channel/UCWX8IL7wqZ4woxjAROZdgig",
+      "social": "https://twitter.com/ostiumpodcast"
+    },
+    "credits": {
+      "creatorName": "The Ostium Network",
+      "ownerName": "Alex C. Telander",
+      "network": "Some Doors Should Not be Opened"
+    },
+    "creators": [
+      "The Ostium Network"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://ostiumnetwork.com/about/; https://ostiumnetwork.com/transcripts/; https://ostiumnetwork.com/; https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd; https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://ostiumnetwork.com/about/",
+        "https://ostiumnetwork.com/transcripts/",
+        "https://ostiumnetwork.com/",
+        "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+        "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places. Support this show http://supporter.acast.com/ostium . Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "https://twitter.com/ostiumpodcast",
+        "https://www.instagram.com/ostiumpodcast/",
+        "https://www.facebook.com/ostiumpodcast"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 11,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Copyright Alex C. Telander",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+          "appleCollectionId": "1182787916",
+          "feedRedirects": [
+            "https://ostiumnetwork.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://ostiumnetwork.com/about/",
+            "fetchedAt": "2026-08-15T16:28:04.861Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://ostiumnetwork.com/transcripts/",
+            "fetchedAt": "2026-08-15T16:28:04.854Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://ostiumnetwork.com/",
+            "fetchedAt": "2026-08-15T16:28:04.845Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+            "fetchedAt": "2026-08-15T16:28:04.024Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4",
+            "fetchedAt": "2026-08-15T16:28:03.858Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/about/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.66,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/about/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/about/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/about/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ostiumnetwork.com/about/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:28:05.005Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.096Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "the-ostium-network",
+    "networkId": "some-doors-should-not-be-opened",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/ostium-podcast",
+    "hasPage": true,
+    "image": "images/covers/ostium-podcast.jpg",
+    "imageAlt": "Ostium Podcast cover art",
+    "summary": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places. Support this show http://supporter.acast.com/ostium . Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "ostium podcast ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places support this show http supporter acast com ostium hosted on acast see acast com privacy for more information drama sci fi serialized ostium podcast the ostium network english unclear imported the ostium network alex c telander some doors should not be opened unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/ostium-podcast-61275e2806-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/ostium-podcast-61275e2806-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "apollyon",
+    "title": "Apollyon",
+    "subtitle": "In the early 22nd century, the Apollyon virus wiped out 75% of the world’s population, and now most of the world is governed by the International Conglomerate of Research Scientists. Dr. Theo Ramsey is an ICRS research scientist who may hav",
+    "description": "In the early 22nd century, the Apollyon virus wiped out 75% of the world’s population, and now most of the world is governed by the International Conglomerate of Research Scientists. Dr. Theo Ramsey is an ICRS research scientist who may have just discovered an effective vaccine for Apollyon, but the stakes to get the vaccine to the public are higher than she ever imagined",
+    "cover": "images/covers/apollyon.jpg",
+    "coverAlt": "Apollyon cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4",
+      "website": "https://apollyon.observerpictures.com/",
+      "rss": "https://feeds.megaphone.fm/SBP3632336295"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Apollyon"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 26 full episodes • 29 min median",
+      "seasons": 3,
+      "episodes": 26,
+      "avgEpisodeMinutes": 30,
+      "medianEpisodeMinutes": 29,
+      "minEpisodeMinutes": 24,
+      "maxEpisodeMinutes": 38,
+      "totalObservedHours": 12.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 26,
+        "bonus": 18,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2021-11-17",
+      "latest": "2025-11-29",
+      "latestFeedItem": "2026-08-12"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://apollyon.observerpictures.com/",
+      "social": "https://instagram.com/apollyonpod"
+    },
+    "credits": {
+      "creatorName": "Observer Pictures | Realm",
+      "ownerName": "Faith McQuinn",
+      "network": "Apollyon"
+    },
+    "creators": [
+      "Observer Pictures | Realm"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://apollyon.observerpictures.com/; https://feeds.megaphone.fm/SBP3632336295; https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://apollyon.observerpictures.com/",
+        "https://feeds.megaphone.fm/SBP3632336295",
+        "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "In the early 22nd century, the Apollyon virus wiped out 75% of the world’s population, and now most of the world is governed by the International Conglomerate of Research Scientists. Dr. Theo Ramsey is an ICRS research scientist who may have just discovered an effective vaccine for Apollyon, but the stakes to get the vaccine to the public are higher than she ever imagined",
+      "socialUrls": [
+        "https://instagram.com/apollyonpod",
+        "https://bsky.app/profile/observerpix.bsky.social",
+        "https://www.facebook.com/groups/apollyonpod"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Copyright Observer Pictures",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/SBP3632336295",
+          "appleCollectionId": "1559430818"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://apollyon.observerpictures.com/",
+            "fetchedAt": "2026-08-15T16:26:52.152Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295",
+            "fetchedAt": "2026-08-15T16:26:51.359Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4",
+            "fetchedAt": "2026-08-15T16:26:50.616Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apollyon.observerpictures.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apollyon/id1559430818?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apollyon.observerpictures.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apollyon.observerpictures.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.6,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apollyon.observerpictures.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apollyon.observerpictures.com/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3632336295"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:26:52.661Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.099Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "observer-pictures-realm",
+    "networkId": "apollyon",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/apollyon",
+    "hasPage": true,
+    "image": "images/covers/apollyon.jpg",
+    "imageAlt": "Apollyon cover art",
+    "summary": "In the early 22nd century, the Apollyon virus wiped out 75% of the world’s population, and now most of the world is governed by the International Conglomerate of Research Scientists. Dr. Theo Ramsey is an ICRS research scientist who may have just discovered an effective vaccine for Apollyon, but the stakes to get the vaccine to the public are higher than she ever imagined",
+    "finalRating": null,
+    "searchText": "apollyon in the early 22nd century the apollyon virus wiped out 75 of the world s population and now most of the world is governed by the international conglomerate of research scientists dr theo ramsey is an icrs research scientist who may hav in the early 22nd century the apollyon virus wiped out 75 of the world s population and now most of the world is governed by the international conglomerate of research scientists dr theo ramsey is an icrs research scientist who may have just discovered an effective vaccine for apollyon but the stakes to get the vaccine to the public are higher than she ever imagined drama sci fi serialized apollyon observer pictures realm english unclear imported observer pictures realm faith mcquinn apollyon unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/apollyon-647d86c768-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/apollyon-647d86c768-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "relativity",
+    "title": "RELATIVITY",
+    "subtitle": "SCI-FI SERIAL FOR YOUR EARS AND MIND",
+    "description": "RELATIVITY is a science-fiction serial about a man marooned in space and the woman on Earth who struggles to keep him alive. Find out more at www.relativitypodcast.com!",
+    "cover": "images/covers/relativity.jpg",
+    "coverAlt": "RELATIVITY cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4",
+      "website": "https://relativitypodcast.com/",
+      "rss": "https://feeds.captivate.fm/relativity/"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "RELATIVITY"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 64 full episodes • 16 min median",
+      "episodes": 64,
+      "avgEpisodeMinutes": 16,
+      "medianEpisodeMinutes": 16,
+      "minEpisodeMinutes": 6,
+      "maxEpisodeMinutes": 33,
+      "totalObservedHours": 16.9,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 64,
+        "bonus": 17,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2017-01-16",
+      "latest": "2020-09-21",
+      "latestFeedItem": "2020-09-21"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://relativitypodcast.com/"
+    },
+    "credits": {
+      "creatorName": "Lee Shackleford",
+      "ownerName": "Lee Shackleford"
+    },
+    "creators": [
+      "Lee Shackleford"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.captivate.fm/relativity/; https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.captivate.fm/relativity/",
+        "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "RELATIVITY is a science-fiction serial about a man marooned in space and the woman on Earth who struggles to keep him alive. Find out more at www.relativitypodcast.com!",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Copyright 2023 Lee Shackleford",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.captivate.fm/relativity/",
+          "appleCollectionId": "1166647351"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/relativity/",
+            "fetchedAt": "2026-08-15T16:28:06.688Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4",
+            "fetchedAt": "2026-08-15T16:28:06.227Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/relativity/id1166647351?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/relativity/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:28:07.586Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:31:51.100Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "lee-shackleford",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/relativity",
+    "hasPage": true,
+    "image": "images/covers/relativity.jpg",
+    "imageAlt": "RELATIVITY cover art",
+    "summary": "RELATIVITY is a science-fiction serial about a man marooned in space and the woman on Earth who struggles to keep him alive. Find out more at www.relativitypodcast.com!",
+    "finalRating": null,
+    "searchText": "relativity sci fi serial for your ears and mind relativity is a science fiction serial about a man marooned in space and the woman on earth who struggles to keep him alive find out more at www relativitypodcast com drama sci fi serialized relativity lee shackleford english unclear imported lee shackleford lee shackleford unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/relativity-0d269ffc57-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/relativity-0d269ffc57-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

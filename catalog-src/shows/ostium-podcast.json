@@ -1,0 +1,755 @@
+{
+  "id": "ostium-podcast",
+  "title": "Ostium Podcast",
+  "subtitle": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places.",
+  "description": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places. Support this show http://supporter.acast.com/ostium . Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/ostium-podcast.jpg",
+  "coverAlt": "Ostium Podcast cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4",
+    "website": "https://ostiumnetwork.com/",
+    "rss": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Ostium Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "6 seasons observed • at least 93 full episodes • 37 min median",
+    "seasons": 6,
+    "episodes": 93,
+    "avgEpisodeMinutes": 48,
+    "medianEpisodeMinutes": 37,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 158,
+    "totalObservedHours": 74.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      6,
+      1,
+      5,
+      4,
+      3,
+      2
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 93,
+      "bonus": 217,
+      "trailer": 19
+    }
+  },
+  "releaseDates": {
+    "first": "2017-01-01",
+    "latest": "2025-04-06",
+    "latestFeedItem": "2026-08-02",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://ostiumnetwork.com/",
+    "patreon": "https://www.patreon.com/ostiumpodcast",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCWX8IL7wqZ4woxjAROZdgig",
+    "social": "https://twitter.com/ostiumpodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "The Ostium Network",
+    "ownerName": "Alex C. Telander",
+    "network": "Some Doors Should Not be Opened"
+  },
+  "creators": [
+    "The Ostium Network"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://ostiumnetwork.com/about/; https://ostiumnetwork.com/transcripts/; https://ostiumnetwork.com/; https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd; https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://ostiumnetwork.com/about/",
+      "https://ostiumnetwork.com/transcripts/",
+      "https://ostiumnetwork.com/",
+      "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+      "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Ostium is a fictional podcast about a man who discovers a secret town with many doors that lead him to strange and interesting places. Support this show http://supporter.acast.com/ostium . Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [
+      "https://twitter.com/ostiumpodcast",
+      "https://www.instagram.com/ostiumpodcast/",
+      "https://www.facebook.com/ostiumpodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 11,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright Alex C. Telander",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+        "appleCollectionId": "1182787916",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://ostiumnetwork.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ostiumnetwork.com/about/",
+          "fetchedAt": "2026-08-15T16:28:04.861Z",
+          "payloadHash": "446527ccfab4f866e4bf8be0746285abf54c99e50d13dd04183e0dbd9de59857"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ostiumnetwork.com/transcripts/",
+          "fetchedAt": "2026-08-15T16:28:04.854Z",
+          "payloadHash": "a98a4317f571aa8769bb9a5b816a304fb6fb379774fa354f5203b9e396ccf589"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ostiumnetwork.com/",
+          "fetchedAt": "2026-08-15T16:28:04.845Z",
+          "payloadHash": "72d14fc73a2024a93831d552be0256146abeb4cba0977af8eccd06a709f02e07"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd",
+          "fetchedAt": "2026-08-15T16:28:04.024Z",
+          "payloadHash": "bdc1fe39ee28951cfcffdef5b13ba7b220b4e87afc70c3b41b4bd480f25509fc"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4",
+          "fetchedAt": "2026-08-15T16:28:03.858Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/ostium-podcast/id1182787916?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/about/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.66,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/about/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/about/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/about/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/transcripts/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ostiumnetwork.com/about/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/cec1c6d9-5160-4ccc-898e-3f692e0358bd"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:28:05.005Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "85278fd56022ec15a4267d5c20f79bbce5c4e4d756bf80669580d685b8715bfc",
+        "subtitle": "45646f2a18f41f024c13244fb5a18811e5d7fb931befcc2eed1f591ede5644c9",
+        "description": "2785413acbc9fc92b4cd23d6ba3633d6f5adb686e9ebf23ae8c1ef0b387d2a7f",
+        "cover": "941b746295a11c041842679c9a8798f66925cf10593b697eb902ebd0295440ef",
+        "coverAlt": "765c3c9bf85299ba5708ffe45283d022bb1e74b790b6c7bfbf87326b6b19f63d",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "35b976d062fe1f95f43149719b7517b884e2d497cd94070d3fc8495f7cc5d533",
+        "officialLinks": "c187e3e69090c4a033c5d18b94bed67d3b97c38fae4d2624a6c59c5216301898",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "68a4fd1e4d7ba6cc36efc72e883971971c3f224382b47fb56385f2e213267e5b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "0b9041fd70d40ca997de79d1ff04fcff05374df8ed16cd865ee0df952e52018a",
+        "releaseDates": "0d08fcbcc4fddb64f9acdef48202800d8cb8c432b4cb9c97cd4ddf5a5f912036",
+        "credits": "fa1c98df6ab24dd9f03d4fe328857db4fd5023c03388924f50953d8a270a0a6a",
+        "creators": "d5bc3bf341484794837ee8c6c9bb6ee8d138e2e5c389e31ebf1020117ca1c804",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ebac49df66801dbc607574e1a69e655da310202e1d2ab048fa6ebf613996e7ed"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:31:51.096Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "the-ostium-network",
+  "networkId": "some-doors-should-not-be-opened"
+}
