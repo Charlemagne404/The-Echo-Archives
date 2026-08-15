@@ -397,31 +397,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1129,P1,The 200 Year Old,Sanlam (King James Group),6b90e71c-9e0b-42fc-94a5-8016fff2a1d6,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:38:46
 1131,P0,COLD TAPES,,7f0a2d6f-be1f-4dc1-93b2-53d65af8f50a,published,published,,2026-08-15 16:05:16
 1132,P0,TWO THOUSAND AND LATE,Lauren Shippen,99fd89dd-6f51-4cf4-80f0-92003dbcf2e3,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:31:45
-1133,P1,Whalefall,,,unattempted,,,
-1134,P1,Cicada,,,unattempted,,,
-1135,P1,The Inn at the End of Things,,,unattempted,,,
-1136,P1,A Murder in Montecito,Sonoro,,unattempted,,,
-1137,P1,Femme Future Perfect,,,unattempted,,,
-1138,P1,Yvain and the Lady of the Fountain,,,unattempted,,,
-1139,P1,Broken Veil,,,unattempted,,,
-1140,P1,Ramon Fear's Terror Tapes,,,unattempted,,,
-1141,P1,Buzz: The Man & The Moon,,,unattempted,,,
-1142,P1,Dragon Age: Vows & Vengeance,Electronic Arts | Pod People,,unattempted,,,
-1143,P1,The Justice,,,unattempted,,,
-1144,P1,The Last City,,,unattempted,,,
-1145,P1,The Seneschal: A Rebel Moon Story,,,unattempted,,,
-1146,P1,Tom Slick: Mystery Hunter,,,unattempted,,,
-1147,P1,Murder on Mars,,,unattempted,,,
-1148,P1,PURPLE HEART WARRIORS,,,unattempted,,,
-1149,P1,StanLand,,,unattempted,,,
-1150,P1,The Good Life,,,unattempted,,,
-1151,P1,Murder at the Patel Motel,Broadway Video | Audible,,unattempted,,,
-1152,P1,Game of Nines,,,unattempted,,,
-1153,P1,In Media Res,,,unattempted,,,
-1154,P1,The Left Arm Treasure Society,,,unattempted,,,
-1155,P1,The Skies Are Watching,,,unattempted,,,
-1156,P1,Yes We Cannabis,,,unattempted,,,
-1157,P1,The TEMP,,,unattempted,,,
+1133,P1,Whalefall,,08bff8fa-c03b-4f10-a0d1-d3e40ab2088d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:42:08
+1134,P1,Cicada,,1f755c15-1760-4448-b907-1f314356c277,needs-review,needs-review,placeholder-description; source-conflict,2026-08-15 17:43:11
+1135,P1,The Inn at the End of Things,,c3ca001f-4fed-4795-81e3-eee5070d8792,published,published,,2026-08-15 17:43:18
+1136,P1,A Murder in Montecito,Sonoro,53cab320-61d8-4f36-ac3d-179db566f382,published,published,,2026-08-15 17:43:18
+1137,P1,Femme Future Perfect,,224f1c86-6cff-455e-8ad7-8776ce9d441d,needs-review,needs-review,source-conflict,2026-08-15 17:42:08
+1138,P1,Yvain and the Lady of the Fountain,,26619f22-1214-4f24-9935-db38f3ab5e01,needs-review,needs-review,source-conflict,2026-08-15 17:43:11
+1139,P1,Broken Veil,,1d56cdbc-7287-4796-974b-c9e2872099a3,published,published,,2026-08-15 17:43:18
+1140,P1,Ramon Fear's Terror Tapes,,5e174180-c230-4a2c-a736-09e74bb3df90,published,published,,2026-08-15 17:43:18
+1141,P1,Buzz: The Man & The Moon,,4f64a30f-f731-4212-bdf0-57ffa7b263fa,published,published,,2026-08-15 17:43:18
+1142,P1,Dragon Age: Vows & Vengeance,Electronic Arts | Pod People,2e234eeb-d0fa-4bd5-9b10-9bd478cbfb9d,published,published,,2026-08-15 17:43:18
+1143,P1,The Justice,,36b5d3c3-f37d-4043-b640-2f04772f3ed4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:42:13
+1144,P1,The Last City,,a6a9ad7e-ef51-41db-a0f7-1abbd7b2157e,published,published,,2026-08-15 17:43:18
+1145,P1,The Seneschal: A Rebel Moon Story,,377e2236-ce12-43cd-b64b-8d0827a61ca8,needs-review,needs-review,source-conflict,2026-08-15 17:43:12
+1146,P1,Tom Slick: Mystery Hunter,,3f977bdd-9676-41a1-8b51-0e96137b9b17,needs-review,needs-review,source-conflict,2026-08-15 17:42:17
+1147,P1,Murder on Mars,,3ddb6a9b-8277-470d-8b3c-bc3ac79d46fb,needs-review,needs-review,source-conflict,2026-08-15 17:42:10
+1148,P1,PURPLE HEART WARRIORS,,20bd6b1d-216b-4b5f-84e1-b7c395e3f6b9,needs-review,needs-review,source-conflict,2026-08-15 17:42:12
+1149,P1,StanLand,,30289ae5-4040-4b7c-b13e-4c41f043ffce,published,published,,2026-08-15 17:43:18
+1150,P1,The Good Life,,3c84492a-b4e6-48f4-a089-86a2efea96e7,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:41:44
+1151,P1,Murder at the Patel Motel,Broadway Video | Audible,465575a0-8c79-45da-bb98-61697639c15b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:42:19
+1152,P1,Game of Nines,,e675c9f3-553b-4c17-996b-4c21a02e2323,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:41:45
+1153,P1,In Media Res,,169134ba-db9d-4b02-b5c2-1909478819fc,published,published,,2026-08-15 17:43:18
+1154,P1,The Left Arm Treasure Society,,093b559c-21c4-430e-bd7f-723caf489858,needs-review,needs-review,source-conflict,2026-08-15 17:42:19
+1155,P1,The Skies Are Watching,,72a93191-ec7d-4414-8b26-c617b9739dc6,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:43:09
+1156,P1,Yes We Cannabis,,27467692-15d6-4a58-ac6c-250bf160e725,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 17:42:40
+1157,P1,The TEMP,,c5504786-5d11-4a55-8a24-c5a49bb3d7c2,needs-review,needs-review,insufficient-discovery-signals; scope-review,2026-08-15 17:41:41
 1158,P1,Higher Grounds,YellaBird Media,,unattempted,,,
 1159,P1,Frequency - A Sci-Fi Horror Audio Drama,,,unattempted,,,
 1160,P1,The Midnight Hour,Crown Noir Studios,,unattempted,,,
