@@ -1121,13 +1121,13 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1121,P2,Project Briar Rose,,84138bf0-dbae-4022-99c0-ff96971e58ea,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:27:55
 1122,P2,Project STELLAR,,aca6b656-1b28-45f4-b3ac-8ae20ac257f8,needs-review,needs-review,scope-review,2026-08-15 20:27:53
 1123,P2,Pod to Pluto,Cornucopia Radio,6c55d012-a9f6-48ab-8f0c-1d0b7423fd78,needs-review,needs-review,source-conflict,2026-08-15 20:28:31
-1124,P2,Radio Room,,,unattempted,,,
-1125,P2,Sci-Fi Presents,,,unattempted,,,
-1126,P2,Starlight Radio Dreams,,,unattempted,,,
-1127,P2,Sumeria,,,unattempted,,,
-1128,P2,VRMP: The 5 People You Meet in Hell,,,unattempted,,,
+1124,P2,Radio Room,,0117e203-25d2-44f1-9704-72bf624d0699,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:30:37
+1125,P2,Sci-Fi Presents,,912209ff-bac8-412b-a9ba-7ee8148ed378,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:31:37
+1126,P2,Starlight Radio Dreams,,c609ecd2-b005-4409-aa65-9581a296bbe0,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:29:42
+1127,P2,Sumeria,,82957721-f0a9-4d15-be30-195c0714fef3,published,published,,2026-08-15 20:32:40
+1128,P2,VRMP: The 5 People You Meet in Hell,,676d6fa0-4b89-4e70-8458-40dfb6b8ce1a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:30:43
 1129,P1,The 200 Year Old,Sanlam (King James Group),6b90e71c-9e0b-42fc-94a5-8016fff2a1d6,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:38:46
-1130,P2,When The Page Talks Back,Connaixo Productions,,unattempted,,,
+1130,P2,When The Page Talks Back,Connaixo Productions,da347614-bab7-425d-b1da-b87549a7408e,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:29:35
 1131,P0,COLD TAPES,,7f0a2d6f-be1f-4dc1-93b2-53d65af8f50a,published,published,,2026-08-15 16:05:16
 1132,P0,TWO THOUSAND AND LATE,Lauren Shippen,99fd89dd-6f51-4cf4-80f0-92003dbcf2e3,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:31:45
 1133,P1,Whalefall,,08bff8fa-c03b-4f10-a0d1-d3e40ab2088d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:42:08
@@ -1164,25 +1164,25 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1164,P1,The Phantom of Ocean Park,,e2d68318-8c63-491a-805b-66eb7d88b2d4,published,published,,2026-08-15 17:44:19
 1165,P1,Subscript,,d06cada1-b463-46ed-bdcf-b47413857992,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:44:08
 1166,P1,The Dolos Project,,93a370f8-f625-4a33-9935-1c3e0e98d8c3,published,published,,2026-08-15 17:44:19
-1167,P2,The Diary of an Orange Cat,,,unattempted,,,
-1168,P2,Dustwalker,,,unattempted,,,
-1169,P2,Love in a Haze of Shock and Awe,,,unattempted,,,
-1170,P2,Fight Jack,,,unattempted,,,
-1171,P2,Store 236,,,unattempted,,,
-1172,P2,Syncopa,,,unattempted,,,
-1173,P2,Moose on a Highway,,,unattempted,,,
-1174,P2,Uneasy Listening,,,unattempted,,,
-1175,P2,Paranormal Passion,,,unattempted,,,
-1176,P2,Violet's Shadow,,,unattempted,,,
-1177,P2,Station 404,,,unattempted,,,
-1178,P2,The Marriage Show,,,unattempted,,,
-1179,P2,Unfuck Your Life: An Audio Drama,,,unattempted,,,
-1180,P2,Fate of Korr,,,unattempted,,,
-1181,P2,Ghost InSpectors,,,unattempted,,,
-1182,P2,Autumn - An Audio Drama,,,unattempted,,,
-1183,P2,Project: Daydream,,,unattempted,,,
-1184,P2,The Fifth Power,,,unattempted,,,
-1185,P2,The Transient Bliss of Death by Fallout,,,unattempted,,,
+1167,P2,The Diary of an Orange Cat,,884bb16b-25a3-4278-a8fb-34e5b4cd2aca,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:29:44
+1168,P2,Dustwalker,,a241ce3d-c3ba-4637-b5f7-f674b32ab034,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:31:37
+1169,P2,Love in a Haze of Shock and Awe,,07ca4434-2009-4828-8a8c-6d362bc70374,needs-review,needs-review,source-conflict,2026-08-15 20:30:42
+1170,P2,Fight Jack,,2ca08c92-2cb7-40b0-8765-efe3e2941ea9,published,published,,2026-08-15 20:32:40
+1171,P2,Store 236,,7db1ed56-ff59-4630-9a72-56f119d2a32c,needs-review,needs-review,source-conflict,2026-08-15 20:29:37
+1172,P2,Syncopa,,4619a1a5-343f-45cb-9330-39de281ee93d,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:29:39
+1173,P2,Moose on a Highway,,2491df38-eaa9-4ba6-a8d4-66ba2771150d,published,published,,2026-08-15 20:32:40
+1174,P2,Uneasy Listening,,b4acac41-e29b-4ee9-be7a-e6528e42848a,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:30:42
+1175,P2,Paranormal Passion,,adad070b-cdcc-4038-ab74-255cfa62f911,published,published,,2026-08-15 20:32:40
+1176,P2,Violet's Shadow,,077d365d-3a6f-48ed-90da-4dd3612d4c8d,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:29:40
+1177,P2,Station 404,,d7a0cf6a-7f91-440b-b6f6-34a6a4bfdda8,needs-review,needs-review,source-conflict,2026-08-15 20:32:37
+1178,P2,The Marriage Show,,8676448e-6f80-4a6d-95f5-46be777cb17b,published,published,,2026-08-15 20:32:40
+1179,P2,Unfuck Your Life: An Audio Drama,,e689e5c3-4cc6-4647-a9f4-da96eedfe57b,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 20:29:53
+1180,P2,Fate of Korr,,4b02c69c-767f-42b3-8017-0490cb371885,published,published,,2026-08-15 20:32:40
+1181,P2,Ghost InSpectors,,7dffbe68-9a20-4a40-a7c0-551ad19d7e15,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:31:36
+1182,P2,Autumn - An Audio Drama,,207244ed-e9c5-4878-b32b-14f292337eca,published,published,,2026-08-15 20:32:40
+1183,P2,Project: Daydream,,4df4721c-cd39-4ffd-b131-1ca223be18ef,published,published,,2026-08-15 20:32:40
+1184,P2,The Fifth Power,,3f6a2b93-3cbd-439d-8a5f-03494e832d81,needs-review,needs-review,source-conflict,2026-08-15 20:32:37
+1185,P2,The Transient Bliss of Death by Fallout,,9fe8ff4b-28e3-4365-b678-b63bb048d99f,needs-review,needs-review,source-conflict,2026-08-15 20:31:43
 1186,P2,The town of adaliah,,,unattempted,,,
 1187,P2,The Richard Osman Fan Club,,,unattempted,,,
 1188,P2,The Defense,,,unattempted,,,

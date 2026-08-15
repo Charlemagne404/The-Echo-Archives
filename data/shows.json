@@ -317952,5 +317952,5005 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "sumeria",
+    "title": "Sumeria",
+    "subtitle": "",
+    "description": "The Earth has been destroyed. For the crew of the Exodus, the planet Sumeria may be their last hope. This action-packed podcast is presented in thrilling surround sound. This is Sumeria.",
+    "cover": "images/covers/sumeria.jpg",
+    "coverAlt": "Sumeria cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4",
+      "website": "https://www.sumeriapodcast.com/",
+      "rss": "https://anchor.fm/s/ecaba58/podcast/rss"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Sumeria"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 7 full episodes • 31 min median",
+      "episodes": 7,
+      "avgEpisodeMinutes": 29,
+      "medianEpisodeMinutes": 31,
+      "minEpisodeMinutes": 21,
+      "maxEpisodeMinutes": 32,
+      "totalObservedHours": 3.4,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2018-10-30",
+      "latest": "2019-02-18",
+      "latestFeedItem": "2019-02-18"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.sumeriapodcast.com/"
+    },
+    "credits": {
+      "creatorName": "THR33 PM",
+      "ownerName": "THR33 PM"
+    },
+    "creators": [
+      "THR33 PM"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.sumeriapodcast.com/; https://anchor.fm/s/ecaba58/podcast/rss; https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.sumeriapodcast.com/",
+        "https://anchor.fm/s/ecaba58/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "The Earth has been destroyed. For the crew of the Exodus, the planet Sumeria may be their last hope. This action-packed podcast is presented in thrilling surround sound. This is Sumeria.",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 20,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "THR33 PM",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/ecaba58/podcast/rss",
+          "appleCollectionId": "1440646985"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.sumeriapodcast.com/",
+            "fetchedAt": "2026-08-15T20:31:35.875Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss",
+            "fetchedAt": "2026-08-15T20:31:35.113Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4",
+            "fetchedAt": "2026-08-15T20:30:52.846Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sumeria/id1440646985?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.sumeriapodcast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/ecaba58/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:31:37.675Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.116Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "thr33-pm",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/sumeria",
+    "hasPage": true,
+    "image": "images/covers/sumeria.jpg",
+    "imageAlt": "Sumeria cover art",
+    "summary": "The Earth has been destroyed. For the crew of the Exodus, the planet Sumeria may be their last hope. This action-packed podcast is presented in thrilling surround sound. This is Sumeria.",
+    "finalRating": null,
+    "searchText": "sumeria the earth has been destroyed for the crew of the exodus the planet sumeria may be their last hope this action packed podcast is presented in thrilling surround sound this is sumeria drama sci fi episodic sumeria thr33 pm english unclear imported thr33 pm thr33 pm unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/sumeria-6ac0f20ad0-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/sumeria-6ac0f20ad0-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "fight-jack",
+    "title": "Fight Jack",
+    "subtitle": "A rookie with a dream, a coach with a past, and a million-to-one shot at glory!",
+    "description": "Fight Jack! A coach with a past, a rookie with a dream, and a million-to-one shot at glory! Against all odds, a new summer job unites Hank with his rough-and-tumble coach Craig. Despite the challenges they face, this hard-driving mentor must mold the talented amateur into peak form in order to win it all. Against all comers, this up and comer must take on all comers and prove that at Fight Jack “Not everyone who comes wins, but everyone who wins comes\" Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/fight-jack.jpg",
+    "coverAlt": "Fight Jack cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4",
+      "website": "https://feeds.acast.com/public/shows/fight-jack",
+      "rss": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+    },
+    "genres": [
+      "comedy",
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Fight Jack"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 3 full episodes • 31 min median",
+      "seasons": 1,
+      "episodes": 3,
+      "avgEpisodeMinutes": 28,
+      "medianEpisodeMinutes": 31,
+      "minEpisodeMinutes": 22,
+      "maxEpisodeMinutes": 31,
+      "totalObservedHours": 1.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 3,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-10-25",
+      "latest": "2025-10-25",
+      "latestFeedItem": "2025-10-25"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://feeds.acast.com/public/shows/fight-jack"
+    },
+    "credits": {
+      "creatorName": "Dr. Francisco Confrijoles Jordan Frassino-Arte",
+      "ownerName": "Dr. Francisco Confrijoles Jordan Frassino-Arte"
+    },
+    "creators": [
+      "Dr. Francisco Confrijoles Jordan Frassino-Arte"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c; https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c",
+        "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+      ],
+      "sourceCategories": [
+        "Comedy",
+        "Sports",
+        "Fiction",
+        "Comedy Fiction"
+      ],
+      "sourceKeywords": [
+        "Comedy Sports Parody drama"
+      ],
+      "importOfficialSummary": "Fight Jack! A coach with a past, a rookie with a dream, and a million-to-one shot at glory! Against all odds, a new summer job unites Hank with his rough-and-tumble coach Craig. Despite the challenges they face, this hard-driving mentor must mold the talented amateur into peak form in order to win it all. Against all comers, this up and comer must take on all comers and prove that at Fight Jack “Not everyone who comes wins, but everyone who wins comes\" Hosted on Acast. See acast.com/privacy for more information.",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "Dr. Francisco Confrijoles Jordan Frassino-Arte",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c",
+          "appleCollectionId": "1846745902"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c",
+            "fetchedAt": "2026-08-15T20:31:43.502Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4",
+            "fetchedAt": "2026-08-15T20:31:43.348Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fight-jack/id1846745902?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/68dc47e27be17a7f0121c76c"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:31:43.741Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.125Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "dr-francisco-confrijoles-jordan-frassino-arte",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/fight-jack",
+    "hasPage": true,
+    "image": "images/covers/fight-jack.jpg",
+    "imageAlt": "Fight Jack cover art",
+    "summary": "Fight Jack! A coach with a past, a rookie with a dream, and a million-to-one shot at glory! Against all odds, a new summer job unites Hank with his rough-and-tumble coach Craig. Despite the challenges they face, this hard-driving mentor must mold the talented amateur into peak form in order to win it all. Against all comers, this up and comer must take on all comers and prove that at Fight Jack “Not everyone who comes wins, but everyone who wins comes\" Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "fight jack a rookie with a dream a coach with a past and a million to one shot at glory fight jack a coach with a past a rookie with a dream and a million to one shot at glory against all odds a new summer job unites hank with his rough and tumble coach craig despite the challenges they face this hard driving mentor must mold the talented amateur into peak form in order to win it all against all comers this up and comer must take on all comers and prove that at fight jack not everyone who comes wins but everyone who wins comes hosted on acast see acast com privacy for more information comedy drama serialized fight jack dr francisco confrijoles jordan frassino arte english unclear imported dr francisco confrijoles jordan frassino arte dr francisco confrijoles jordan frassino arte unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/fight-jack-a6b9d46ecd-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/fight-jack-a6b9d46ecd-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "moose-on-a-highway",
+    "title": "Moose on a Highway",
+    "subtitle": "",
+    "description": "Moose on a Highway is a new 7-Part comedy fiction podcast about what happens when seven stranded travelers are forced to face the open road together and fall head first into new, destined beginnings. Hop on in and join us for an uproarious adventure where the roads bend and the detours will certainly surprise you. Brought to you by Jupiter House Productions, Sidekick Productions, JAG42, Outtake Productions, and Tunks Productions Tune in for season to see if they arrive at their destinations unscathed, and what awaits them along the way.",
+    "cover": "images/covers/moose-on-a-highway.jpg",
+    "coverAlt": "Moose on a Highway cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "completed",
+    "completionStatus": "finished",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4",
+      "website": "https://mooseonahighway.com/",
+      "rss": "https://pinecast.com/feed/moose-on-a-highway"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Moose on a Highway",
+      "Moose On A Highway – Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • 7 full episodes • 12 min median",
+      "seasons": 1,
+      "episodes": 7,
+      "avgEpisodeMinutes": 12,
+      "medianEpisodeMinutes": 12,
+      "minEpisodeMinutes": 9,
+      "maxEpisodeMinutes": 15,
+      "totalObservedHours": 1.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "exact",
+      "episodeCounts": {
+        "full": 7,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2025-03-12",
+      "latest": "2025-07-29",
+      "latestFeedItem": "2025-07-29"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://mooseonahighway.com/"
+    },
+    "credits": {
+      "creatorName": "Wayne Tunks, Melissa Malone, Diann Gogerty, Jessica Alexandra Green, Laura Dowling Shea, Joshua R. Pangborn",
+      "ownerName": "Wayne Tunks, Melissa Malone, Diann Gogerty, Jessica Alexandra Green, Laura Dowling Shea, Joshua R. Pangborn"
+    },
+    "creators": [
+      "Wayne Tunks, Melissa Malone, Diann Gogerty, Jessica Alexandra Green, Laura Dowling Shea, Joshua R. Pangborn"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://mooseonahighway.com/; https://pinecast.com/feed/moose-on-a-highway; https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://mooseonahighway.com/",
+        "https://pinecast.com/feed/moose-on-a-highway",
+        "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "435ebe30-ff6f-11ef-b386-9f94944cc7f2"
+      ],
+      "importOfficialSummary": "Moose on a Highway is a new 7-Part comedy fiction podcast about what happens when seven stranded travelers are forced to face the open road together and fall head first into new, destined beginnings. Hop on in and join us for an uproarious adventure where the roads bend and the detours will certainly surprise you. Brought to you by Jupiter House Productions, Sidekick Productions, JAG42, Outtake Productions, and Tunks Productions Tune in for season to see if they arrive at their destinations unscathed, and what awaits them along the way.",
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 139,
+        "observedIntervals": 1
+      },
+      "podcast": {
+        "copyright": "Copyright 2026",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://pinecast.com/feed/moose-on-a-highway",
+          "appleCollectionId": "1800731007",
+          "feedRedirects": [
+            "https://mooseonahighway.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://mooseonahighway.com/",
+            "fetchedAt": "2026-08-15T20:31:41.605Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway",
+            "fetchedAt": "2026-08-15T20:31:41.182Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4",
+            "fetchedAt": "2026-08-15T20:31:40.952Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://mooseonahighway.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://mooseonahighway.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "complete": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.95,
+            "method": "explicit-completion"
+          },
+          "completionStatus": {
+            "confidence": 0.95,
+            "method": "explicit-completion"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:31:43.717Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.127Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "wayne-tunks-melissa-malone-diann-gogerty-jessica-alexandra-green-laura-dowling-shea-joshua-r-pangborn",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/moose-on-a-highway",
+    "hasPage": true,
+    "image": "images/covers/moose-on-a-highway.jpg",
+    "imageAlt": "Moose on a Highway cover art",
+    "summary": "Moose on a Highway is a new 7-Part comedy fiction podcast about what happens when seven stranded travelers are forced to face the open road together and fall head first into new, destined beginnings. Hop on in and join us for an uproarious adventure where the roads bend and the detours will certainly surprise you. Brought to you by Jupiter House Productions, Sidekick Productions, JAG42, Outtake Productions, and Tunks Productions Tune in for season to see if they arrive at their destinations unscathed, and what awaits them along the way.",
+    "finalRating": null,
+    "searchText": "moose on a highway moose on a highway is a new 7 part comedy fiction podcast about what happens when seven stranded travelers are forced to face the open road together and fall head first into new destined beginnings hop on in and join us for an uproarious adventure where the roads bend and the detours will certainly surprise you brought to you by jupiter house productions sidekick productions jag42 outtake productions and tunks productions tune in for season to see if they arrive at their destinations unscathed and what awaits them along the way drama comedy serialized moose on a highway moose on a highway podcast wayne tunks melissa malone diann gogerty jessica alexandra green laura dowling shea joshua r pangborn english finished imported wayne tunks melissa malone diann gogerty jessica alexandra green laura dowling shea joshua r pangborn wayne tunks melissa malone diann gogerty jessica alexandra green laura dowling shea joshua r pangborn unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/moose-on-a-highway-9b47354d7d-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "paranormal-passion",
+    "title": "Paranormal Passion",
+    "subtitle": "",
+    "description": "Welcome to \"Paranormal Passion,\" the podcast that intertwines the eerie with the erotic! Join your hosts, Sarah and Jay, as they take you on a thrilling journey through spooky short stories that will give you chills and tantalize your senses. Each episode delves into the world of the supernatural, through tales that explore the passion lurking just beyond the veil of the ordinary. Whether it's seductive specters, or cryptid caresses, \"Paranormal Passion\" promises a delightful mix of spine-tingling suspense and sultry storytelling.",
+    "cover": "images/covers/paranormal-passion.png",
+    "coverAlt": "Paranormal Passion cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4",
+      "website": "https://paranormalpassion.libsyn.com/",
+      "rss": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Paranormal Passion"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 4 full episodes • 35 min median",
+      "episodes": 4,
+      "avgEpisodeMinutes": 32,
+      "medianEpisodeMinutes": 35,
+      "minEpisodeMinutes": 20,
+      "maxEpisodeMinutes": 40,
+      "totalObservedHours": 2.1,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 4,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-02-14",
+      "latest": "2025-03-30",
+      "latestFeedItem": "2025-03-30"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://paranormalpassion.libsyn.com/"
+    },
+    "credits": {
+      "creatorName": "Sarah Henophy",
+      "ownerName": "Paranormal Passion"
+    },
+    "creators": [
+      "Sarah Henophy"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://paranormalpassion.libsyn.com/; https://rss.libsyn.com/shows/567690/destinations/4910105.xml; https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://paranormalpassion.libsyn.com/",
+        "https://rss.libsyn.com/shows/567690/destinations/4910105.xml",
+        "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Welcome to \"Paranormal Passion,\" the podcast that intertwines the eerie with the erotic! Join your hosts, Sarah and Jay, as they take you on a thrilling journey through spooky short stories that will give you chills and tantalize your senses. Each episode delves into the world of the supernatural, through tales that explore the passion lurking just beyond the veil of the ordinary. Whether it's seductive specters, or cryptid caresses, \"Paranormal Passion\" promises a delightful mix of spine-tingling suspense and sultry storytelling.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 3
+      },
+      "podcast": {
+        "copyright": "2025",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml",
+          "appleCollectionId": "1799066829"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://paranormalpassion.libsyn.com/",
+            "fetchedAt": "2026-08-15T20:29:52.142Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml",
+            "fetchedAt": "2026-08-15T20:29:41.585Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4",
+            "fetchedAt": "2026-08-15T20:29:41.123Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://paranormalpassion.libsyn.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://paranormalpassion.libsyn.com/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/paranormal-passion/id1799066829?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://paranormalpassion.libsyn.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://paranormalpassion.libsyn.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/567690/destinations/4910105.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:29:52.451Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.131Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "sarah-henophy",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/paranormal-passion",
+    "hasPage": true,
+    "image": "images/covers/paranormal-passion.png",
+    "imageAlt": "Paranormal Passion cover art",
+    "summary": "Welcome to \"Paranormal Passion,\" the podcast that intertwines the eerie with the erotic! Join your hosts, Sarah and Jay, as they take you on a thrilling journey through spooky short stories that will give you chills and tantalize your senses. Each episode delves into the world of the supernatural, through tales that explore the passion lurking just beyond the veil of the ordinary. Whether it's seductive specters, or cryptid caresses, \"Paranormal Passion\" promises a delightful mix of spine-tingling suspense and sultry storytelling.",
+    "finalRating": null,
+    "searchText": "paranormal passion welcome to paranormal passion the podcast that intertwines the eerie with the erotic join your hosts sarah and jay as they take you on a thrilling journey through spooky short stories that will give you chills and tantalize your senses each episode delves into the world of the supernatural through tales that explore the passion lurking just beyond the veil of the ordinary whether it s seductive specters or cryptid caresses paranormal passion promises a delightful mix of spine tingling suspense and sultry storytelling drama episodic paranormal passion sarah henophy english unclear imported sarah henophy paranormal passion unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/paranormal-passion-0815b55389-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/paranormal-passion-0815b55389-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-marriage-show",
+    "title": "The Marriage Show",
+    "subtitle": "",
+    "description": "An audio drama about Muslim contestants trying to get married. Full-cast. #thestruggleisworthit",
+    "cover": "images/covers/the-marriage-show.jpg",
+    "coverAlt": "The Marriage Show cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/2WgGRBtsDL8zfEh6oCP3CO",
+      "apple": "https://podcasts.apple.com/podcast/id1778769771",
+      "website": "https://themarriageshow.buzzsprout.com/",
+      "rss": "https://rss.buzzsprout.com/2422578.rss",
+      "amazonMusic": "https://music.amazon.com/podcasts/2bad2334-4b30-4eed-9320-1bbbce9ac554"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Marriage Show"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 5 full episodes • 25 min median",
+      "seasons": 1,
+      "episodes": 5,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 25,
+      "minEpisodeMinutes": 23,
+      "maxEpisodeMinutes": 28,
+      "totalObservedHours": 2.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 5,
+        "bonus": 0,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2024-12-23",
+      "latest": "2025-02-28",
+      "latestFeedItem": "2025-02-28"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://themarriageshow.buzzsprout.com/",
+      "social": "https://www.facebook.com/people/The-Marriage-Show/61565755283931/",
+      "funding": "https://buymeacoffee.com/waseeq"
+    },
+    "credits": {
+      "creatorName": "Unexpected Khayr",
+      "ownerName": "Unexpected Khayr",
+      "network": "Buzzsprout"
+    },
+    "creators": [
+      "Unexpected Khayr"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0; https://themarriageshow.buzzsprout.com/2422578/episodes?search=true; https://themarriageshow.buzzsprout.com/2422578/about; https://themarriageshow.buzzsprout.com/2422578/episodes; https://themarriageshow.buzzsprout.com/; https://rss.buzzsprout.com/2422578.rss; https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0",
+        "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true",
+        "https://themarriageshow.buzzsprout.com/2422578/about",
+        "https://themarriageshow.buzzsprout.com/2422578/episodes",
+        "https://themarriageshow.buzzsprout.com/",
+        "https://rss.buzzsprout.com/2422578.rss",
+        "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Society & Culture",
+        "Relationships",
+        "Religion & Spirituality",
+        "Islam",
+        "waseeqmohammad@gmail.com"
+      ],
+      "sourceKeywords": [
+        "marriage",
+        "nikkah",
+        "islam",
+        "audio drama",
+        "dating show",
+        "marriage show",
+        "muslims",
+        "contestants",
+        "relationships"
+      ],
+      "importOfficialSummary": "An audio drama about Muslim contestants trying to get married. Full-cast. #thestruggleisworthit",
+      "socialUrls": [
+        "https://www.facebook.com/people/The-Marriage-Show/61565755283931/",
+        "https://www.instagram.com/waseeqmohammad/",
+        "https://x.com/Th3MarriageShow"
+      ],
+      "funding": [
+        {
+          "url": "https://buymeacoffee.com/waseeq",
+          "label": "Support this Podcast"
+        }
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 11,
+        "observedIntervals": 3
+      },
+      "podcast": {
+        "copyright": "© 2026 The Marriage Show",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "e0be4623-ce46-5565-9c78-267ca726ae92",
+          "rssUrl": "https://rss.buzzsprout.com/2422578.rss",
+          "appleCollectionId": "1778769771",
+          "feedRedirects": [
+            "https://feeds.buzzsprout.com/2422578.rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0",
+            "fetchedAt": "2026-08-15T20:31:42.913Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true",
+            "fetchedAt": "2026-08-15T20:31:42.908Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about",
+            "fetchedAt": "2026-08-15T20:31:42.856Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes",
+            "fetchedAt": "2026-08-15T20:31:42.838Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://themarriageshow.buzzsprout.com/",
+            "fetchedAt": "2026-08-15T20:31:42.834Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.buzzsprout.com/2422578.rss",
+            "fetchedAt": "2026-08-15T20:31:41.275Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4",
+            "fetchedAt": "2026-08-15T20:31:40.960Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-marriage-show/id1778769771?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "funding": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "supportUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes/16332601-episode-1-of-the-marriage-show?t=0"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://themarriageshow.buzzsprout.com/2422578/episodes?search=true"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.buzzsprout.com/2422578.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:31:43.853Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.138Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "unexpected-khayr",
+    "networkId": "buzzsprout",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-marriage-show",
+    "hasPage": true,
+    "image": "images/covers/the-marriage-show.jpg",
+    "imageAlt": "The Marriage Show cover art",
+    "summary": "An audio drama about Muslim contestants trying to get married. Full-cast. #thestruggleisworthit",
+    "finalRating": null,
+    "searchText": "the marriage show an audio drama about muslim contestants trying to get married full cast thestruggleisworthit drama serialized the marriage show unexpected khayr english unclear imported unexpected khayr unexpected khayr buzzsprout unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-marriage-show-34f45116cb-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-marriage-show-34f45116cb-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "fate-of-korr",
+    "title": "Fate of Korr",
+    "subtitle": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case.",
+    "description": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case. What he finds inside shakes his loyalty to the country he has been fighting for.",
+    "cover": "images/covers/fate-of-korr.jpg",
+    "coverAlt": "Fate of Korr cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4",
+      "website": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+      "rss": "https://feeds.transistor.fm/fate-of-korr"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Fate of Korr"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 8 full episodes • 31 min median",
+      "episodes": 8,
+      "avgEpisodeMinutes": 33,
+      "medianEpisodeMinutes": 31,
+      "minEpisodeMinutes": 24,
+      "maxEpisodeMinutes": 42,
+      "totalObservedHours": 4.4,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 8,
+        "bonus": 16,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2024-11-22",
+      "latest": "2026-06-05",
+      "latestFeedItem": "2026-06-05"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+    },
+    "credits": {
+      "creatorName": "Glass Fox Productions",
+      "ownerName": "Glass Fox Productions"
+    },
+    "creators": [
+      "Glass Fox Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2); https://feeds.transistor.fm/fate-of-korr; https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+        "https://feeds.transistor.fm/fate-of-korr",
+        "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case. What he finds inside shakes his loyalty to the country he has been fighting for.",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 32,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "Copyright 2025 All Rights Reserved",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "40f3ea78-8d23-512b-9bc9-6b17ac55a177",
+          "rssUrl": "https://feeds.transistor.fm/fate-of-korr",
+          "appleCollectionId": "1795129251"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+            "fetchedAt": "2026-08-15T20:30:41.330Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.transistor.fm/fate-of-korr",
+            "fetchedAt": "2026-08-15T20:30:40.765Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4",
+            "fetchedAt": "2026-08-15T20:30:40.678Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "complete": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:30:41.695Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.140Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "glass-fox-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/fate-of-korr",
+    "hasPage": true,
+    "image": "images/covers/fate-of-korr.jpg",
+    "imageAlt": "Fate of Korr cover art",
+    "summary": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case. What he finds inside shakes his loyalty to the country he has been fighting for.",
+    "finalRating": null,
+    "searchText": "fate of korr dwarven navy lieutenant lel drozdov comes into the possession of a mysterious case dwarven navy lieutenant lel drozdov comes into the possession of a mysterious case what he finds inside shakes his loyalty to the country he has been fighting for drama episodic fate of korr glass fox productions english ongoing imported glass fox productions glass fox productions unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/fate-of-korr-abc79c3d3e-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "autumn-an-audio-drama",
+    "title": "Autumn - An Audio Drama",
+    "subtitle": "",
+    "description": "Jade Adler has worked for wellness influencer Autumn Gandara for years, believing that they're helping people feel healthier and making the world a better place. But when Autumn launches a new supplement powder without Jade's input and customers report strange side effects, Jade's belief in Autumn and their mission falters. The more she investigates, the stranger things become, pulling her into a dangerous and supernatural conspiracy where wellness has a price.",
+    "cover": "images/covers/autumn-an-audio-drama.jpg",
+    "coverAlt": "Autumn - An Audio Drama cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4",
+      "website": "https://autumnpodcast.libsyn.com/",
+      "rss": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Autumn - An Audio Drama"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 8 full episodes • 24 min median",
+      "seasons": 1,
+      "episodes": 8,
+      "avgEpisodeMinutes": 24,
+      "medianEpisodeMinutes": 24,
+      "minEpisodeMinutes": 21,
+      "maxEpisodeMinutes": 27,
+      "totalObservedHours": 3.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 8,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2024-10-28",
+      "latest": "2025-02-03",
+      "latestFeedItem": "2025-02-03"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://autumnpodcast.libsyn.com/"
+    },
+    "credits": {
+      "creatorName": "Madelyn Starr",
+      "ownerName": "Madelyn Starr"
+    },
+    "creators": [
+      "Madelyn Starr"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://autumnpodcast.libsyn.com/; https://rss.libsyn.com/shows/541462/destinations/4666417.xml; https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://autumnpodcast.libsyn.com/",
+        "https://rss.libsyn.com/shows/541462/destinations/4666417.xml",
+        "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Jade Adler has worked for wellness influencer Autumn Gandara for years, believing that they're helping people feel healthier and making the world a better place. But when Autumn launches a new supplement powder without Jade's input and customers report strange side effects, Jade's belief in Autumn and their mission falters. The more she investigates, the stranger things become, pulling her into a dangerous and supernatural conspiracy where wellness has a price.",
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "2024",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml",
+          "appleCollectionId": "1772366275"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://autumnpodcast.libsyn.com/",
+            "fetchedAt": "2026-08-15T20:29:42.113Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml",
+            "fetchedAt": "2026-08-15T20:29:41.355Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4",
+            "fetchedAt": "2026-08-15T20:29:40.946Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://autumnpodcast.libsyn.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/autumn-an-audio-drama/id1772366275?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://autumnpodcast.libsyn.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://autumnpodcast.libsyn.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/541462/destinations/4666417.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:29:42.298Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.142Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "madelyn-starr",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/autumn-an-audio-drama",
+    "hasPage": true,
+    "image": "images/covers/autumn-an-audio-drama.jpg",
+    "imageAlt": "Autumn - An Audio Drama cover art",
+    "summary": "Jade Adler has worked for wellness influencer Autumn Gandara for years, believing that they're helping people feel healthier and making the world a better place. But when Autumn launches a new supplement powder without Jade's input and customers report strange side effects, Jade's belief in Autumn and their mission falters. The more she investigates, the stranger things become, pulling her into a dangerous and supernatural conspiracy where wellness has a price.",
+    "finalRating": null,
+    "searchText": "autumn an audio drama jade adler has worked for wellness influencer autumn gandara for years believing that they re helping people feel healthier and making the world a better place but when autumn launches a new supplement powder without jade s input and customers report strange side effects jade s belief in autumn and their mission falters the more she investigates the stranger things become pulling her into a dangerous and supernatural conspiracy where wellness has a price drama serialized autumn an audio drama madelyn starr english unclear imported madelyn starr madelyn starr unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/autumn-an-audio-drama-05b8297e89-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/autumn-an-audio-drama-05b8297e89-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "project-daydream",
+    "title": "Project: Daydream",
+    "subtitle": "Investigate the Unknown, and uncover its secrets.",
+    "description": "A new-weird queer audio adventure podcast. Veteran of Agent 4815 is joined by Newcomer Agent 0626 as they work for the clandestine government organisation \"Project: Daydream\", investigating the strange, the supernatural, and the unexplainable. But in dealing with secrets and less, is everything all it seems, just who can you trust? Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/project-daydream.jpg",
+    "coverAlt": "Project: Daydream cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4",
+      "website": "https://shows.acast.com/project-daydream",
+      "rss": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Project: Daydream",
+      "Project Daydream - Orientation | Project: Daydream",
+      "Project: Daydream - The History of Daydream | Project: Daydream",
+      "Project: Daydream Trailer -  Welcome to the Company... | Project: Daydream"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 11 full episodes • 33 min median",
+      "seasons": 1,
+      "episodes": 11,
+      "avgEpisodeMinutes": 32,
+      "medianEpisodeMinutes": 33,
+      "minEpisodeMinutes": 20,
+      "maxEpisodeMinutes": 45,
+      "totalObservedHours": 5.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 11,
+        "bonus": 4,
+        "trailer": 6
+      }
+    },
+    "releaseDates": {
+      "first": "2024-10-31",
+      "latest": "2025-01-09",
+      "latestFeedItem": "2026-06-29"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/project-daydream",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/project-daydream/episodes/project-daydream-trailer-welcome-to-the-company"
+    },
+    "credits": {
+      "creatorName": "Project Daydream",
+      "ownerName": "Project Daydream"
+    },
+    "creators": [
+      "Project Daydream"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/project-daydream/episodes/project-daydream-orientation; https://shows.acast.com/project-daydream/episodes/project-daydream-the-history-of-daydream; https://shows.acast.com/project-daydream/episodes; https://shows.acast.com/project-daydream/episodes/project-daydream-trailer-welcome-to-the-company; https://shows.acast.com/project-daydream; https://feeds.acast.com/public/shows/66549671f9a48400127e306f; https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/project-daydream/episodes/project-daydream-orientation",
+        "https://shows.acast.com/project-daydream/episodes/project-daydream-the-history-of-daydream",
+        "https://shows.acast.com/project-daydream/episodes",
+        "https://shows.acast.com/project-daydream/episodes/project-daydream-trailer-welcome-to-the-company",
+        "https://shows.acast.com/project-daydream",
+        "https://feeds.acast.com/public/shows/66549671f9a48400127e306f",
+        "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "sourceKeywords": [
+        "queer",
+        "new weird",
+        "queer weird",
+        "sci-fi",
+        "weird fiction",
+        "horror",
+        "horror fiction",
+        "queer fiction",
+        "adventure",
+        "trans",
+        "transgeder",
+        "lgbtq",
+        "lgbtqia"
+      ],
+      "importOfficialSummary": "A new-weird queer audio adventure podcast. Veteran of Agent 4815 is joined by Newcomer Agent 0626 as they work for the clandestine government organisation \"Project: Daydream\", investigating the strange, the supernatural, and the unexplainable. But in dealing with secrets and less, is everything all it seems, just who can you trust? Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/project-daydream/episodes/project-daydream-trailer-welcome-to-the-company",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/project-daydream/episodes/project-daydream-trailer-welcome-to-the-company&via=acast&text=Project:%20Daydre"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Project Daydream",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f",
+          "appleCollectionId": "1771404769",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/project-daydream"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/project-daydream/episodes/project-daydream-orientation",
+            "fetchedAt": "2026-08-15T20:32:37.239Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/project-daydream/episodes/project-daydream-the-history-of-daydream",
+            "fetchedAt": "2026-08-15T20:32:37.237Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/project-daydream/episodes",
+            "fetchedAt": "2026-08-15T20:32:37.235Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/project-daydream/episodes/project-daydream-trailer-welcome-to-the-company",
+            "fetchedAt": "2026-08-15T20:32:37.232Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/project-daydream",
+            "fetchedAt": "2026-08-15T20:32:37.230Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f",
+            "fetchedAt": "2026-08-15T20:32:35.133Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4",
+            "fetchedAt": "2026-08-15T20:31:44.147Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/project-daydream"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/project-daydream/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/project-daydream/id1771404769?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/project-daydream"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/project-daydream"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/66549671f9a48400127e306f"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:32:38.042Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:32:38.144Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "project-daydream",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/project-daydream",
+    "hasPage": true,
+    "image": "images/covers/project-daydream.jpg",
+    "imageAlt": "Project: Daydream cover art",
+    "summary": "A new-weird queer audio adventure podcast. Veteran of Agent 4815 is joined by Newcomer Agent 0626 as they work for the clandestine government organisation \"Project: Daydream\", investigating the strange, the supernatural, and the unexplainable. But in dealing with secrets and less, is everything all it seems, just who can you trust? Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "project daydream investigate the unknown and uncover its secrets a new weird queer audio adventure podcast veteran of agent 4815 is joined by newcomer agent 0626 as they work for the clandestine government organisation project daydream investigating the strange the supernatural and the unexplainable but in dealing with secrets and less is everything all it seems just who can you trust hosted on acast see acast com privacy for more information drama sci fi serialized project daydream project daydream orientation project daydream project daydream the history of daydream project daydream project daydream trailer welcome to the company project daydream project daydream english unclear imported project daydream project daydream unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/project-daydream-334f43c953-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/project-daydream-334f43c953-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

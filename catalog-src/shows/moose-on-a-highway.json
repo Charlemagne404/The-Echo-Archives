@@ -1,0 +1,644 @@
+{
+  "id": "moose-on-a-highway",
+  "title": "Moose on a Highway",
+  "subtitle": "",
+  "description": "Moose on a Highway is a new 7-Part comedy fiction podcast about what happens when seven stranded travelers are forced to face the open road together and fall head first into new, destined beginnings. Hop on in and join us for an uproarious adventure where the roads bend and the detours will certainly surprise you. Brought to you by Jupiter House Productions, Sidekick Productions, JAG42, Outtake Productions, and Tunks Productions Tune in for season to see if they arrive at their destinations unscathed, and what awaits them along the way.",
+  "cover": "images/covers/moose-on-a-highway.jpg",
+  "coverAlt": "Moose on a Highway cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "completed",
+  "completionStatus": "finished",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4",
+    "website": "https://mooseonahighway.com/",
+    "rss": "https://pinecast.com/feed/moose-on-a-highway",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Moose on a Highway",
+    "Moose On A Highway – Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • 7 full episodes • 12 min median",
+    "seasons": 1,
+    "episodes": 7,
+    "avgEpisodeMinutes": 12,
+    "medianEpisodeMinutes": 12,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 15,
+    "totalObservedHours": 1.4,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "exact",
+    "episodeCounts": {
+      "full": 7,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-03-12",
+    "latest": "2025-07-29",
+    "latestFeedItem": "2025-07-29",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://mooseonahighway.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Wayne Tunks, Melissa Malone, Diann Gogerty, Jessica Alexandra Green, Laura Dowling Shea, Joshua R. Pangborn",
+    "ownerName": "Wayne Tunks, Melissa Malone, Diann Gogerty, Jessica Alexandra Green, Laura Dowling Shea, Joshua R. Pangborn"
+  },
+  "creators": [
+    "Wayne Tunks, Melissa Malone, Diann Gogerty, Jessica Alexandra Green, Laura Dowling Shea, Joshua R. Pangborn"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://mooseonahighway.com/; https://pinecast.com/feed/moose-on-a-highway; https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://mooseonahighway.com/",
+      "https://pinecast.com/feed/moose-on-a-highway",
+      "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "435ebe30-ff6f-11ef-b386-9f94944cc7f2"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Moose on a Highway is a new 7-Part comedy fiction podcast about what happens when seven stranded travelers are forced to face the open road together and fall head first into new, destined beginnings. Hop on in and join us for an uproarious adventure where the roads bend and the detours will certainly surprise you. Brought to you by Jupiter House Productions, Sidekick Productions, JAG42, Outtake Productions, and Tunks Productions Tune in for season to see if they arrive at their destinations unscathed, and what awaits them along the way.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 139,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/moose-on-a-highway",
+        "appleCollectionId": "1800731007",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://mooseonahighway.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://mooseonahighway.com/",
+          "fetchedAt": "2026-08-15T20:31:41.605Z",
+          "payloadHash": "14d3c8c0be9ceb642c5b8b7d9d5bec6d051f3d6c8eeaf3d4ca5a4871a2dda3df"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway",
+          "fetchedAt": "2026-08-15T20:31:41.182Z",
+          "payloadHash": "174dd6b47378bdf139d303a437a912b89cd784a97f32eca3a3cf80eb1258256c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4",
+          "fetchedAt": "2026-08-15T20:31:40.952Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/moose-on-a-highway/id1800731007?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://mooseonahighway.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://mooseonahighway.com/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.95,
+          "method": "explicit-completion",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/moose-on-a-highway"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:31:43.717Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "70585c529fb793844113c0dbf8a3a38029ad4deaa4f15277b694f4b274066a2a",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "6c5d92dc62237a1902e9a2a76ff18ce71142caed18f6d50a0daefad120a33408",
+        "cover": "dce2029a6440a3c6e2142bf8cb7c7ca58e7c3f7374087f07bbf2b1bd6781174d",
+        "coverAlt": "8a71628be58b773fb9d9babc505c13a9a0a521b355ad91d72be9246554e067c1",
+        "releaseStatus": "7093fda846e50b267da144f7b3683ee1dd8838506939f6052b7370dd01fa2ad0",
+        "completionStatus": "90fc64195972fafd281e48fad08e72110ae816975649efec66e63b1e8c7bc719",
+        "listenLinks": "3191b7e28accc4fa8c83a38d89d1eebd0c028f27ccc313f2892dc64db9e879a0",
+        "officialLinks": "92c5530f14410f84f4bdd0344159aa4a5ba64f3182f3f3f432869ec7d850e738",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "d7e369cdbad18c8997998d9cb157e454c7f501a92e7763d744fd24a441e9dbd9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "b6a5a04bdc7660cfc4d96480b6cd6d8dd84fdb8bfdc4b5e3b893224753cde9ce",
+        "releaseDates": "706ff6a519ca21d1ccb287e54f1ce2b752f542dab6995003ae81dad67624899e",
+        "credits": "bb7ac73a4d814f8d9dc8de97ffd42ab5544ac533cd3822a7290354ea575d0129",
+        "creators": "4df57239e12194e9853d44f1d26b6197e1314aee3c735ab8236dcdfcff24a902",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "af1d96f667cb45ed4dfbe8ecd1f1edc4fd9b7f29f5f283e7b0688e2ee3a8c5aa"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:32:38.127Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "wayne-tunks-melissa-malone-diann-gogerty-jessica-alexandra-green-laura-dowling-shea-joshua-r-pangborn"
+}

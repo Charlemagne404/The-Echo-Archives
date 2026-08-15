@@ -1,0 +1,641 @@
+{
+  "id": "fate-of-korr",
+  "title": "Fate of Korr",
+  "subtitle": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case.",
+  "description": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case. What he finds inside shakes his loyalty to the country he has been fighting for.",
+  "cover": "images/covers/fate-of-korr.jpg",
+  "coverAlt": "Fate of Korr cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4",
+    "website": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+    "rss": "https://feeds.transistor.fm/fate-of-korr",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Fate of Korr"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 8 full episodes • 31 min median",
+    "episodes": 8,
+    "avgEpisodeMinutes": 33,
+    "medianEpisodeMinutes": 31,
+    "minEpisodeMinutes": 24,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 4.4,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 8,
+      "bonus": 16,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2024-11-22",
+    "latest": "2026-06-05",
+    "latestFeedItem": "2026-06-05",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Glass Fox Productions",
+    "ownerName": "Glass Fox Productions"
+  },
+  "creators": [
+    "Glass Fox Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2); https://feeds.transistor.fm/fate-of-korr; https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+      "https://feeds.transistor.fm/fate-of-korr",
+      "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Dwarven Navy Lieutenant Lel Drozdov comes into the possession of a mysterious case. What he finds inside shakes his loyalty to the country he has been fighting for.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 32,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2025 All Rights Reserved",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "40f3ea78-8d23-512b-9bc9-6b17ac55a177",
+        "rssUrl": "https://feeds.transistor.fm/fate-of-korr",
+        "appleCollectionId": "1795129251",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)",
+          "fetchedAt": "2026-08-15T20:30:41.330Z",
+          "payloadHash": "c5c422e4bc6ce64ccc7089522e4db2ecd350b6e9ed37804d77195c687cf0bbbe"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.transistor.fm/fate-of-korr",
+          "fetchedAt": "2026-08-15T20:30:40.765Z",
+          "payloadHash": "ba6bf03fd0383431b0bee90c40012bab877b0e08da4b4aaac8088f104c61ebca"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4",
+          "fetchedAt": "2026-08-15T20:30:40.678Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/fate-of-korr/id1795129251?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.podbean.com/login?url=https%3A%2F%2Ffokpod.podbean.com%2F&error=Invalid%20Podbean%20Site(2)"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/fate-of-korr"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:30:41.695Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "511e1824cce43ecbb7e2f840e858a2850210c5927ea4d5e43e27208de987c312",
+        "subtitle": "a7c550754fceaa7f50971572df0bdc80584827b24cd5f736a09da2260630a00b",
+        "description": "b927d74a1e42bc57e9a3cdbc4999bd42c0dfad26d7fe7ce43b204f407922761e",
+        "cover": "5630aa559913553b2d90d58a9ae62062c7675bcfd662ad4dfd7d71c58534ba3f",
+        "coverAlt": "296c57e70a6024b969d75060dc38993c0d48d9eabf87235cc747c54249c657bd",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "48e80f068d5942029ea0aa224147f818bc9721a881f70e840c29911d323ab34b",
+        "officialLinks": "0d7c8a5c560c87fb5ab20ac6a848eedb7225a0abf734409a27bfba20d020dc76",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "3426c33fd90079438c76b9f7da979f621a489336da5a482d2fcd997885b6300d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "0d721751ea18f234ca9d6d1716b86e2f9fdb95c46be20af6fee915ff1fe371c8",
+        "releaseDates": "3cb6bf9ee083472167c9f84d00a017dd0f2c8a84d2f546df36f9f9773f1935f5",
+        "credits": "ea82686777d41a0433a5284313686d645383e99ae89dd0405cdfb12287099796",
+        "creators": "a6dc86a16757357c3874a162927aa68d08e2617c98d10a0def74e58cc566ac85",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "02432e629d1e486dc03e713bb9f6676b9efe7808f63644538e7e97c8060ffc6c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:32:38.140Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "glass-fox-productions"
+}
