@@ -1,16 +1,16 @@
 {
-  "totalShows": 217,
-  "publishedShows": 217,
+  "totalShows": 221,
+  "publishedShows": 221,
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
-  "indexedOnly": 193,
-  "imported": 17,
+  "indexedOnly": 194,
+  "imported": 20,
   "plannedReviews": 0,
   "collections": 29,
   "reviewCompanions": 7,
   "creatorVerified": 0,
-  "withRss": 214,
+  "withRss": 218,
   "missingObjectiveSources": 0,
   "withResearchGaps": 14,
   "phase2": {
@@ -22,7 +22,7 @@
     },
     "numericTargets": {
       "publishedShows": {
-        "actual": 217,
+        "actual": 221,
         "target": 129,
         "pass": true
       },
@@ -310,7 +310,8 @@
         "sorry-about-the-murder",
         "from-within-a-tale-of-the-macabre",
         "dreamboy",
-        "crooked-river"
+        "crooked-river",
+        "love-and-luck"
       ],
       "blockingErrors": []
     },
@@ -326,9 +327,9 @@
       "blockingErrors": []
     },
     "sparseIndexedOnly": {
-      "count": 130,
-      "outOfRangeSimilarLinks": 130,
-      "fewerThanTwoCollections": 130,
+      "count": 131,
+      "outOfRangeSimilarLinks": 131,
+      "fewerThanTwoCollections": 131,
       "editorialViolations": [],
       "informationalOnly": true
     },

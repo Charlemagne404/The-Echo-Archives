@@ -1,0 +1,779 @@
+{
+  "id": "love-and-luck",
+  "title": "Love and Luck",
+  "subtitle": "A queer slice of life romance story, with a touch of magic.",
+  "description": "A queer, slice of life love story audio drama.",
+  "cover": "images/covers/love-and-luck.webp",
+  "coverAlt": "Love and Luck cover art",
+  "status": "published",
+  "reviewStatus": "indexed-only",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1SKidKKFEeDNecO8ztbAut",
+    "apple": "https://itunes.apple.com/au/podcast/love-and-luck/id1271073009",
+    "website": "https://www.loveandluckpodcast.com/",
+    "rss": "https://pinecast.com/feed/loveandluckpodcast",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": "http://pca.st/04bJ"
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Love and Luck"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 100 full episodes • 10 min median",
+    "seasons": 2,
+    "episodes": 100,
+    "avgEpisodeMinutes": 11,
+    "medianEpisodeMinutes": 10,
+    "minEpisodeMinutes": 4,
+    "maxEpisodeMinutes": 54,
+    "totalObservedHours": 17.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1,
+      2
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 100,
+      "bonus": 13,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2017-09-19",
+    "latest": "2019-09-10",
+    "latestFeedItem": "2020-09-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.loveandluckpodcast.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCvPv87Xq5ppUBa4Oi6gMcgA",
+    "social": "http://www.facebook.com/loveandluckpodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Passer Vulpes Productions",
+    "ownerName": "Passer Vulpes Productions",
+    "network": "The Love and Luck Podcast"
+  },
+  "creators": [
+    "Passer Vulpes Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "maintainer-source-reviewed",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.loveandluckpodcast.com/transcripts; https://www.loveandluckpodcast.com/crossover-episodes; https://www.loveandluckpodcast.com/special-episodes; https://www.loveandluckpodcast.com/about; https://www.loveandluckpodcast.com/; https://pinecast.com/feed/loveandluckpodcast; https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4",
+    "note": "A maintainer reviewed factual source metadata only. This does not verify or endorse ratings, reviews, or recommendations."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.loveandluckpodcast.com/transcripts",
+      "https://www.loveandluckpodcast.com/crossover-episodes",
+      "https://www.loveandluckpodcast.com/special-episodes",
+      "https://www.loveandluckpodcast.com/about",
+      "https://www.loveandluckpodcast.com/",
+      "https://pinecast.com/feed/loveandluckpodcast",
+      "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A queer, slice of life love story audio drama.",
+    "socialUrls": [
+      "http://www.facebook.com/loveandluckpodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2017-2019 Passer Vulpes Productions. All rights reserved.",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/loveandluckpodcast",
+        "appleCollectionId": "1271073009",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.loveandluckpodcast.com/transcripts",
+          "fetchedAt": "2026-08-15T15:55:31.301Z",
+          "payloadHash": "f36589fb5c6b8347ee9881f5c2ef773b5c27cd4b0f4d279df75a8093b4cad7d8"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.loveandluckpodcast.com/crossover-episodes",
+          "fetchedAt": "2026-08-15T15:55:31.298Z",
+          "payloadHash": "d793851927df109554e12aff239b665ab30d0c7b3e30348bb8d85f98f212e58d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.loveandluckpodcast.com/special-episodes",
+          "fetchedAt": "2026-08-15T15:55:31.296Z",
+          "payloadHash": "21ba2fd91ca0c6609528518c6e86e2d3d60bb67da95963dfbaeeeb744bb9ed1f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.loveandluckpodcast.com/about",
+          "fetchedAt": "2026-08-15T15:55:31.293Z",
+          "payloadHash": "21b612fb6f3932e3d82622da4f8312f1ebb440cad93b6ed09c01b8d6772a3eef"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.loveandluckpodcast.com/",
+          "fetchedAt": "2026-08-15T15:55:31.289Z",
+          "payloadHash": "d5fba2d566cfdaf5de0b5e066a18f4418648402bb1ea6de6629999ebce027e7e"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast",
+          "fetchedAt": "2026-08-15T15:55:29.805Z",
+          "payloadHash": "175210a8e8fa922cf1b7da11fc684c1ea0b9dab75a1d2c792613db1d08de6eb7"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4",
+          "fetchedAt": "2026-08-15T15:54:45.337Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/love-and-luck/id1271073009?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/special-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/crossover-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/transcripts"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/special-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/crossover-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/transcripts"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/special-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/crossover-episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.loveandluckpodcast.com/transcripts"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/loveandluckpodcast"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:16:06.147Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "15c30ef5ee7639374cac7500fddd1a36300be5722c001fa3dfe14b224843de14",
+        "subtitle": "4ddf245753a17cc2f0633caff9b09a8e144822b9896bff9d3dea6357acbf9460",
+        "description": "9e0e3c1e5c03500d0482ddd914254fdfc4a596dc9b4d598b0b6d7b75e6bc3f36",
+        "cover": "5b3ad0eb7b4ec31fadd85c076f0ba1ab37ddcc39c556b6732fa5b5ee7e7c5bb9",
+        "coverAlt": "d46cd8785a326f96ed25336574b6a691a449392ed859de00e5fba3218137295b",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "168eb6009ce45b78571797963539778022e612dfd3c550a8027abc4e21612054",
+        "officialLinks": "47155804ac2e0e61f3b0ff55c0dee2734e62c69a92f3534a8168e0dad4b07e8a",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "99e4b9b5ce47448ee6941ad4dc50bd890722eb1e3adda05935f8613fdeefcc29",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "2def09588f174fe66a4c1dad8a2282ba8a37e2fafe33c43b98301d1a652ceb0c",
+        "releaseDates": "bdd41fab3f887c88e4690819a5e5c6476404d05d98f94f6d38668f32f49c1be6",
+        "credits": "7bc4d5bcf8a8cd4e5c473c4701fa078fd3fc9ec43934af285f1b0bfae5e70a81",
+        "creators": "e0ef8f14522f9f723881bb7db701e60626ed7ed4dfaeafd0b146c79c40633452",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ef45f8e41504473ea209b212b245df57d6d43848e2f14a0feb05dbf4dd1842e4"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "indexed-only",
+        "publishedAt": "2026-08-15T16:23:42.662Z"
+      },
+      "factualReview": {
+        "reviewedAt": "2026-08-15T16:23:42.656Z",
+        "reviewedBy": "catalogue-expansion-p0-factual-review",
+        "inputRevision": 2
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "passer-vulpes-productions",
+  "networkId": "the-love-and-luck-podcast"
+}

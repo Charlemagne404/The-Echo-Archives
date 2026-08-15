@@ -1,0 +1,712 @@
+{
+  "id": "the-fourth-ambit",
+  "title": "The Fourth Ambit",
+  "subtitle": "Gilles never wanted to be a tracker...",
+  "description": "The internet has grown into a fully immersive virtual world known as the Ambit. It's a chaotic conglomeration of parks where people can indulge in all kinds of games and fantasies – for a price.",
+  "cover": "images/covers/the-fourth-ambit.jpg",
+  "coverAlt": "The Fourth Ambit cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2ajLqyH8OzMh1eVGgFGkPb",
+    "apple": "https://itunes.apple.com/us/podcast/the-fourth-ambit/id1442591634?mt=2",
+    "website": "https://ambitgroup.com/",
+    "rss": "https://ambitgroup.com/podcast/",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Fourth Ambit"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 58 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 58,
+    "medianEpisodeMinutes": 58,
+    "minEpisodeMinutes": 58,
+    "maxEpisodeMinutes": 58,
+    "totalObservedHours": 8.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 2,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2021-04-02",
+    "latest": "2021-04-10",
+    "latestFeedItem": "2021-04-12",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://ambitgroup.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Dawson Nichols and Jim Horne",
+    "ownerName": "Jim Horne",
+    "network": "The Ambit Group",
+    "writers": [
+      "Dawson Nichols"
+    ],
+    "people": [
+      {
+        "name": "Dawson Nichols",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Dawson Nichols and Jim Horne",
+    "Dawson Nichols"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://ambitgroup.com/; https://ambitgroup.com/podcast/; https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://ambitgroup.com/",
+      "https://ambitgroup.com/podcast/",
+      "https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The internet has grown into a fully immersive virtual world known as the Ambit. It's a chaotic conglomeration of parks where people can indulge in all kinds of games and fantasies – for a price.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "1999-2001, The Ambit Group",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "c7576203-c0ae-5333-9f01-7f5aaca54bae",
+        "rssUrl": "https://ambitgroup.com/podcast/",
+        "appleCollectionId": "1442591634",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.ambitgroup.com/podcast/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://ambitgroup.com/",
+          "fetchedAt": "2026-08-15T16:03:15.196Z",
+          "payloadHash": "402ca23961ce45abe069dfa3b04611ce60b86da4136f09a043d7a70706db767d"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://ambitgroup.com/podcast/",
+          "fetchedAt": "2026-08-15T16:03:14.381Z",
+          "payloadHash": "8f62af8316e1d9c170ea8b1b67cd14c6c74b39f4fb71d9e2a468dc0222026f91"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4",
+          "fetchedAt": "2026-08-15T16:03:12.110Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 1,
+          "method": "reviewer-selected",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-fourth-ambit/id1442591634?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "channelPeople": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://ambitgroup.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://ambitgroup.com/podcast/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:16:14.679Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c6fa72b68239d96bff2291870ded3a6ac37499c394bdc1a8f90de8e190ce86d4",
+        "subtitle": "62650876e5b116e613b2889a608810d62f5f8c503d08f53adc3594d1ffd8d91c",
+        "description": "56370023ec003d2e861599ecd7beb1cbde12864984029c46c38a23dd170f573e",
+        "cover": "79e00f07ba6f101137316353323215afaa4e4d1ec087e386c63640e2a8212ad7",
+        "coverAlt": "e4ff06e1198fd19a5dc2afec1d0aa4191f72f5965d7f38c70fe195372fa382d3",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "9d4ed9b4ce092e74cbbbd775c21a767090079a91e92b5dfed4d4189e3271189d",
+        "officialLinks": "d68005161fcc56a2c877b817f1e16f4636884975631a435544c5a5b6d045d421",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "320702d63adc3901616fd3d1df46f6a3f15cc8bbf27171fba59e72d8c50bb286",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "80936031704441c016df1fa8d86861c7b1152eda92ed2cbd4b18412757952739",
+        "releaseDates": "b038843dc361d015bfc046f5ce62e1ad7035c6ebfafdb32adc4dc3960dad96b9",
+        "credits": "27f5c393dd31e7b038d6a97c367c781be5b431992f1d3ffda242d98dd9b0a48d",
+        "creators": "40144991559752bd5c38795e442e0c20ace5b7a5324bb9e339e1aca44f32ef05",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "cb9880c983420f14ce5c17f86d3bf00f56c236231ede72e1af0c3e5f81c91828"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:23:40.612Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "dawson-nichols-and-jim-horne",
+  "networkId": "the-ambit-group"
+}
