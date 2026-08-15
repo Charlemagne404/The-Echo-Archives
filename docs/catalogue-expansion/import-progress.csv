@@ -794,31 +794,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 794,P2,Heroics,,7cb93d01-7084-4a85-967f-e11dd6bcc75e,published,published,,2026-08-15 20:03:15
 795,P2,Earbud Theater,Earbud Theater,b88d0546-c06d-40d4-94be-599f7d2879a5,needs-review,needs-review,insufficient-discovery-signals; source-conflict,2026-08-15 20:03:11
 796,P2,Gallery of Curiosities,Kevin Frost,0bf9a8d4-f606-4764-a0c5-8b665379a317,needs-review,needs-review,source-conflict,2026-08-15 20:01:44
-797,P2,Apex Magazine Podcast,Apex Magazine,,unattempted,,,
-798,P2,Journey Into...,Marshal Latham,,unattempted,,,
-799,P2,Toasted Cake,Tina Connolly,,unattempted,,,
-800,P2,Space Casey,Christiana Ellis,,unattempted,,,
-801,P2,Aaron's World,Mike Meraz,,unattempted,,,
-802,P2,Hadron Gospel Hour,,,unattempted,,,
-803,P2,Billibub Baddings and the Case of the Singing Sword,Tee Morris,,unattempted,,,
-804,P2,Prometheus Radio Theatre,,,unattempted,,,
-805,P2,Variant Frequencies,Variant Frequencies,,unattempted,,,
-806,P2,Centromika - Kakuri Log: 'JUPITER',,,unattempted,,,
-807,P2,Desolate Eden,,,unattempted,,,
-808,P2,Solarity,,,unattempted,,,
-809,P2,LIFEBLOOD,,,unattempted,,,
-810,P2,A Fairy Tale for Adults,,,unattempted,,,
-811,P2,TwentyOne 21,,,unattempted,,,
-812,P2,Her Crown of Fire,,,unattempted,,,
-813,P2,Experiment 31E,,,unattempted,,,
-814,P2,Strange New Worlds and Spaced Out Tales,Jim Cogan,,unattempted,,,
-815,P2,Intragalactic Librarian,,,unattempted,,,
-816,P2,Travelling Light,Monstrous Productions,,unattempted,,,
-817,P2,The Last Post,,,unattempted,,,
-818,P2,2109: Black Sun Rising,BrokenSea Audio Productions,,unattempted,,,
-819,P2,Metropolis,Lux Radium,,unattempted,,,
-820,P2,Please Save the Space Bees,Dark Matter Podcasts,,unattempted,,,
-821,P2,The Corveil Cases,,,unattempted,,,
+797,P2,Apex Magazine Podcast,Apex Magazine,567eea44-7c63-4423-be48-6575ce29c060,published,published,,2026-08-15 20:05:14
+798,P2,Journey Into...,Marshal Latham,10936501-d456-4c9d-9af9-8c51a8630121,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:03:40
+799,P2,Toasted Cake,Tina Connolly,dedababb-3dbb-4f48-b5d4-68c55d5bdae8,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; source-conflict,2026-08-15 20:05:06
+800,P2,Space Casey,Christiana Ellis,853673b5-1838-4b0a-b408-5b4184e39aef,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review,2026-08-15 20:03:37
+801,P2,Aaron's World,Mike Meraz,5a92d6d3-95c6-44d1-a66f-ee65ad0bd8e4,needs-review,needs-review,insufficient-discovery-signals; missing-genre,2026-08-15 20:03:38
+802,P2,Hadron Gospel Hour,,1e90ff19-3649-4cef-9246-d0d7c2984250,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 20:03:37
+803,P2,Billibub Baddings and the Case of the Singing Sword,Tee Morris,6ab865a1-337b-4c37-944b-0ef8b7251136,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready,2026-08-15 20:03:42
+804,P2,Prometheus Radio Theatre,,714d0a81-2da3-4a13-8775-6d28c43b2553,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:04:42
+805,P2,Variant Frequencies,Variant Frequencies,48fae8f9-6ebf-41ab-8806-d954aa2fa052,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:03:41
+806,P2,Centromika - Kakuri Log: 'JUPITER',,3a415a88-2159-4179-aadb-133a87cc9c6d,needs-review,needs-review,invalid-website,2026-08-15 20:03:40
+807,P2,Desolate Eden,,e94f9245-c6ac-4d74-a54d-bec3167e9bba,needs-review,needs-review,source-conflict,2026-08-15 20:03:37
+808,P2,Solarity,,4417e3a1-6904-45f3-b4ce-f6a281c441aa,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:04:38
+809,P2,LIFEBLOOD,,efffafee-1d34-4c54-98ed-b2605f3b3a6d,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 20:03:37
+810,P2,A Fairy Tale for Adults,,f58351fc-f551-4604-b4b0-a59a0947f24a,published,published,,2026-08-15 20:05:14
+811,P2,TwentyOne 21,,917df98f-3805-4ba8-a264-97822b0949f2,needs-review,needs-review,source-conflict,2026-08-15 20:05:09
+812,P2,Her Crown of Fire,,32e91a81-a663-4488-99b6-e329085bedec,needs-review,needs-review,source-conflict,2026-08-15 20:05:10
+813,P2,Experiment 31E,,4b601b07-3169-4761-9160-56cac4fdedf5,published,published,,2026-08-15 20:05:14
+814,P2,Strange New Worlds and Spaced Out Tales,Jim Cogan,dbe78553-ea37-41fd-9a72-6e11d1380f85,published,published,,2026-08-15 20:05:14
+815,P2,Intragalactic Librarian,,18dd14d3-9df4-4519-8b83-313e310b8f97,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link,2026-08-15 20:03:40
+816,P2,Travelling Light,Monstrous Productions,7e5c9b36-faac-477a-a3f1-2cecf6123d20,needs-review,needs-review,source-conflict,2026-08-15 20:04:05
+817,P2,The Last Post,,d915ac9b-a793-49a3-a8ae-5ad538770c2d,needs-review,needs-review,source-conflict,2026-08-15 20:03:40
+818,P2,2109: Black Sun Rising,BrokenSea Audio Productions,4ec0f011-86a0-4d00-9420-5cfdff72652a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; scope-review; source-conflict,2026-08-15 20:05:11
+819,P2,Metropolis,Lux Radium,d588bc89-b942-4ee4-9d0a-eb559fa44737,needs-review,needs-review,source-conflict,2026-08-15 20:04:06
+820,P2,Please Save the Space Bees,Dark Matter Podcasts,512fc364-72f5-4ac0-821b-5aa2ba2fb7c3,needs-review,needs-review,insufficient-discovery-signals; source-conflict,2026-08-15 20:03:37
+821,P2,The Corveil Cases,,b30eb5b2-ae54-48de-a5d6-690cc2e50b4f,needs-review,needs-review,source-conflict,2026-08-15 20:05:08
 822,P2,KILLJAM XXX,,,unattempted,,,
 823,P2,Isfet Archives,,,unattempted,,,
 824,P2,Bones of the Land,Amelia Chisholm & Stasi Dimitrova,,unattempted,,,

@@ -1,0 +1,835 @@
+{
+  "id": "experiment-31e",
+  "title": "Experiment 31E",
+  "subtitle": "",
+  "description": "A scientist is attempting a dangerous experiment in this Frankenstein-inspired, speculative fiction podcast that takes place during an alternate version of the Victorian era. As the scientist seeks to perfect her formula and find a suitable specimen for testing, unexpected threats rear their heads while her own motives lurk in the dark. Written and performed by Lauren Triola, with music by Shannon Triola, new episodes will be released every other Monday. Transcripts available at www.experiment31e.com.",
+  "cover": "images/covers/experiment-31e.jpg",
+  "coverAlt": "Experiment 31E cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3ZqDYtVpx1Umx98rpJTRvb",
+    "apple": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007",
+    "website": "https://rss.com/podcasts/experiment31e/",
+    "rss": "https://media.rss.com/experiment31e/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/b2b3bca1-faac-476a-94d4-ab325db26d5c",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Experiment 31E"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 12 full episodes • 30 min median",
+    "seasons": 1,
+    "episodes": 12,
+    "avgEpisodeMinutes": 33,
+    "medianEpisodeMinutes": 30,
+    "minEpisodeMinutes": 23,
+    "maxEpisodeMinutes": 50,
+    "totalObservedHours": 6.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 12,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-10-03",
+    "latest": "2023-04-17",
+    "latestFeedItem": "2023-04-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://rss.com/podcasts/experiment31e/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/rsscom/",
+    "social": "https://www.facebook.com/rss.podcasting",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Lauren Triola",
+    "ownerName": "Lauren Triola",
+    "network": "RSS.com",
+    "writers": [
+      "Lauren Triola"
+    ],
+    "people": [
+      {
+        "name": "Lauren Triola",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Lauren Triola"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.com/podcasts/experiment31e/694678/; https://rss.com/podcasts/experiment31e/676457/; https://rss.com/podcasts/experiment31e/658555/; https://rss.com/podcasts/experiment31e/640898/; https://rss.com/podcasts/experiment31e/; https://media.rss.com/experiment31e/feed.xml; https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "12 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 1,
+    "transcriptFormats": [
+      "text/plain"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.com/podcasts/experiment31e/694678/",
+      "https://rss.com/podcasts/experiment31e/676457/",
+      "https://rss.com/podcasts/experiment31e/658555/",
+      "https://rss.com/podcasts/experiment31e/640898/",
+      "https://rss.com/podcasts/experiment31e/",
+      "https://media.rss.com/experiment31e/feed.xml",
+      "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A scientist is attempting a dangerous experiment in this Frankenstein-inspired, speculative fiction podcast that takes place during an alternate version of the Victorian era. As the scientist seeks to perfect her formula and find a suitable specimen for testing, unexpected threats rear their heads while her own motives lurk in the dark. Written and performed by Lauren Triola, with music by Shannon Triola, new episodes will be released every other Monday. Transcripts available at www.experiment31e.com.",
+    "socialUrls": [
+      "https://www.facebook.com/rss.podcasting",
+      "https://twitter.com/rss",
+      "https://www.instagram.com/rss_podcasting/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Lauren Triola 2022",
+      "explicit": "false",
+      "license": {
+        "value": "Lauren Triola 2022",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "b0a5a6a9-14da-5fcb-8fb2-37c25c954bc7",
+        "rssUrl": "https://media.rss.com/experiment31e/feed.xml",
+        "appleCollectionId": "1648077007",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/",
+          "fetchedAt": "2026-08-15T20:05:07.919Z",
+          "payloadHash": "17c0783e31d1a67f79c70cd6365e7405f385e17110180deef11e525ec3725794"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/",
+          "fetchedAt": "2026-08-15T20:05:07.913Z",
+          "payloadHash": "f7cddee04007555f913ca07f4d55a05083bd1a8839823b04895b0b3ff096478d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/",
+          "fetchedAt": "2026-08-15T20:05:07.907Z",
+          "payloadHash": "c4b3e6f1f0f9625731a3b4bb0f02bce9064153852d31d80439884219f09edf6b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/",
+          "fetchedAt": "2026-08-15T20:05:07.902Z",
+          "payloadHash": "07c937b6533b416c7ef11c62f362aede955ba0e84dc6c463bcb696341d020b8c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/experiment31e/",
+          "fetchedAt": "2026-08-15T20:05:07.893Z",
+          "payloadHash": "ec177b948b07142c4eccc7c18bd2411ee747fbdde9fe91dee2bd7b9e5fb4dc89"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/experiment31e/feed.xml",
+          "fetchedAt": "2026-08-15T20:05:06.411Z",
+          "payloadHash": "d8dd0d72d8339e3c7a914b3c74cf2615b532d0f8dc9ec0a11774a29f086ae71e"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4",
+          "fetchedAt": "2026-08-15T20:05:06.003Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:05:08.552Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "4531349ae5d6beb592067947af255ce33d2529a3be2b37324b4cbe4fd86f17aa",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "96a58eb57ce7f65b505fa9d1c5532cfbf07ad08af0dddc5a4623cf28961df61c",
+        "cover": "6abf4463e55352c2923483dadf94a401f1426d4868662c0795445e421dd65176",
+        "coverAlt": "4add2674b9d486e37c78022910dcd1df243dd254d0e7221d257203da47787118",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "1bc7b7ce581a5b5695eae6e7e8603932229acd921ffd7ea3092edf63b2326654",
+        "officialLinks": "0125fb64ecb04b6e5dae8cfb0dd369fab8981fa430ab11de07886d4357df4b84",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "b286fe86eb76755b0903e5746a7448ce7fced8e1d61bc588f736de6a12805bb9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "1c780d4695ffc7920bcf238db3aea078394e5abd9d8ab9b4d5998fbe95d701b2",
+        "releaseDates": "76096911c0a00af2a6edbebc6bcb15ca284f2e49294d95af2ec163a804155f54",
+        "credits": "2eb7eb282f970fa82a3f3ff9615022e410f5ee321796451633051e675da8f22b",
+        "creators": "d629b653b2619d7fc8dcb9acbfc10fe7cd62907d706f8e602bf2b9946adb11ce",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "7641cea02b7cd2a101029d70f86256ebd1fbbf7c1e664529d4814d3f62bb6d83",
+        "verification": "3ae4f9a9e428b367ea0eb3868ad83e43917ace96d1cd2a31f884c28ef4974519"
+      },
+      "optionalGaps": [
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:05:12.193Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "lauren-triola",
+  "networkId": "rss-com"
+}

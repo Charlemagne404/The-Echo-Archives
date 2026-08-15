@@ -34879,5 +34879,269 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "apex-magazine-podcast",
+    "title": "Apex Magazine Podcast",
+    "subtitle": "",
+    "description": "A monthly podcast of fiction from the Hugo award-nominated Apex Magazine",
+    "cover": "images/covers/apex-magazine-podcast.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/apex-magazine-podcast-cd39aef685-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/apex-magazine-podcast-cd39aef685-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Apex Magazine Podcast cover art",
+    "creators": [
+      "Apex Magazine"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Apex Magazine Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Apex Magazine",
+      "ownerName": "Apex Magazine"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "a-fairy-tale-for-adults",
+    "title": "A Fairy Tale for Adults",
+    "subtitle": "",
+    "description": "Put your headphones on and let's begin. A wholesome fantasy adventure to delight your inner child! On a family outing with their kids Colin and Nia are accidentally teleported to a dimension where magic is real. To get home, Colin and Nia must go on a quest to find a unicorn, and the lost pieces of themselves. A Tales of the Forgotten Fiction Network Audio Drama Production. To learn about our other shows visit: https://talesoftheforgotten.com/ | Cover Art by Gerald Ford - https://www.artofgee.com/",
+    "cover": "images/covers/a-fairy-tale-for-adults.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/a-fairy-tale-for-adults-9efa135f72-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/a-fairy-tale-for-adults-9efa135f72-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "A Fairy Tale for Adults cover art",
+    "creators": [
+      "Tales of the Forgotten Fiction Network"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "A Fairy Tale for Adults"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Tales of the Forgotten Fiction Network",
+      "ownerName": "Tales of the Forgotten Fiction Network"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "experiment-31e",
+    "title": "Experiment 31E",
+    "subtitle": "",
+    "description": "A scientist is attempting a dangerous experiment in this Frankenstein-inspired, speculative fiction podcast that takes place during an alternate version of the Victorian era. As the scientist seeks to perfect her formula and find a suitable specimen for testing, unexpected threats rear their heads while her own motives lurk in the dark. Written and performed by Lauren Triola, with music by Shannon Triola, new episodes will be released every other Monday. Transcripts available at www.experiment31e.com.",
+    "cover": "images/covers/experiment-31e.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/experiment-31e-5cb64378a6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/experiment-31e-5cb64378a6-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Experiment 31E cover art",
+    "creators": [
+      "Lauren Triola"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Experiment 31E"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Lauren Triola",
+      "ownerName": "Lauren Triola",
+      "network": "RSS.com",
+      "writers": [
+        "Lauren Triola"
+      ],
+      "people": [
+        {
+          "name": "Lauren Triola",
+          "role": "author"
+        }
+      ]
+    },
+    "availability": {
+      "transcripts": "12 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "text/plain"
+      ]
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "strange-new-worlds-and-spaced-out-tales",
+    "title": "Strange New Worlds And Spaced Out Tales",
+    "subtitle": "",
+    "description": "A Sci-Fi Anthology Audio Drama series, with full voice acting and sound design.",
+    "cover": "images/covers/strange-new-worlds-and-spaced-out-tales.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/strange-new-worlds-and-spaced-out-tales-97abbe5d30-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/strange-new-worlds-and-spaced-out-tales-97abbe5d30-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "Strange New Worlds And Spaced Out Tales cover art",
+    "creators": [
+      "Jim Cogan"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Strange New Worlds And Spaced Out Tales"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Jim Cogan",
+      "ownerName": "Jim Cogan"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]

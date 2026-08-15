@@ -270114,5 +270114,2585 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "apex-magazine-podcast",
+    "title": "Apex Magazine Podcast",
+    "subtitle": "",
+    "description": "A monthly podcast of fiction from the Hugo award-nominated Apex Magazine",
+    "cover": "images/covers/apex-magazine-podcast.jpg",
+    "coverAlt": "Apex Magazine Podcast cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/0ylldNw3OLnWXH3qBm9Q7S",
+      "apple": "https://itunes.apple.com/us/podcast/apex-magazine-podcast/id663571407?ls=1",
+      "website": "https://apexmagazinepodcast.libsyn.com/",
+      "rss": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Apex Magazine Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "5 seasons observed • at least 96 full episodes • 32 min median",
+      "seasons": 5,
+      "episodes": 96,
+      "avgEpisodeMinutes": 32,
+      "medianEpisodeMinutes": 32,
+      "minEpisodeMinutes": 7,
+      "maxEpisodeMinutes": 60,
+      "totalObservedHours": 51.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        5,
+        4,
+        3,
+        2
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 96,
+        "bonus": 3,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2013-10-01",
+      "latest": "2023-04-04",
+      "latestFeedItem": "2023-04-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://apexmagazinepodcast.libsyn.com/",
+      "youtube": "https://www.youtube.com/channel/UCNwztDNKd7-8qZ7HlhJBLUA",
+      "social": "https://www.facebook.com/apexmag"
+    },
+    "credits": {
+      "creatorName": "Apex Magazine",
+      "ownerName": "Apex Magazine"
+    },
+    "creators": [
+      "Apex Magazine"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://apexmagazinepodcast.libsyn.com/; https://rss.libsyn.com/shows/44205/destinations/141350.xml; https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://apexmagazinepodcast.libsyn.com/",
+        "https://rss.libsyn.com/shows/44205/destinations/141350.xml",
+        "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "A monthly podcast of fiction from the Hugo award-nominated Apex Magazine",
+      "socialUrls": [
+        "https://www.facebook.com/apexmag",
+        "http://twitter.com/apexmag"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 28,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Apex Publications",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml",
+          "appleCollectionId": "663571407",
+          "feedRedirects": [
+            "http://feeds.libsyn.com/44205/rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://apexmagazinepodcast.libsyn.com/",
+            "fetchedAt": "2026-08-15T20:05:11.882Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml",
+            "fetchedAt": "2026-08-15T20:05:06.694Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4",
+            "fetchedAt": "2026-08-15T20:05:05.905Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/apex-magazine-podcast/id663571407?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://apexmagazinepodcast.libsyn.com/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/44205/destinations/141350.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:05:12.088Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:05:12.186Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "apex-magazine",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/apex-magazine-podcast",
+    "hasPage": true,
+    "image": "images/covers/apex-magazine-podcast.jpg",
+    "imageAlt": "Apex Magazine Podcast cover art",
+    "summary": "A monthly podcast of fiction from the Hugo award-nominated Apex Magazine",
+    "finalRating": null,
+    "searchText": "apex magazine podcast a monthly podcast of fiction from the hugo award nominated apex magazine drama sci fi episodic apex magazine podcast apex magazine english unclear imported apex magazine apex magazine unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/apex-magazine-podcast-cd39aef685-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/apex-magazine-podcast-cd39aef685-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "a-fairy-tale-for-adults",
+    "title": "A Fairy Tale for Adults",
+    "subtitle": "",
+    "description": "Put your headphones on and let's begin. A wholesome fantasy adventure to delight your inner child! On a family outing with their kids Colin and Nia are accidentally teleported to a dimension where magic is real. To get home, Colin and Nia must go on a quest to find a unicorn, and the lost pieces of themselves. A Tales of the Forgotten Fiction Network Audio Drama Production. To learn about our other shows visit: https://talesoftheforgotten.com/ | Cover Art by Gerald Ford - https://www.artofgee.com/",
+    "cover": "images/covers/a-fairy-tale-for-adults.jpg",
+    "coverAlt": "A Fairy Tale for Adults cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4",
+      "website": "https://redcircle.com/shows/fairy-tale-for-adults",
+      "rss": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "A Fairy Tale for Adults"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 4 full episodes • 27 min median",
+      "seasons": 1,
+      "episodes": 4,
+      "avgEpisodeMinutes": 30,
+      "medianEpisodeMinutes": 27,
+      "minEpisodeMinutes": 22,
+      "maxEpisodeMinutes": 43,
+      "totalObservedHours": 2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 4,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2024-04-18",
+      "latest": "2024-07-06",
+      "latestFeedItem": "2024-07-06"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://redcircle.com/shows/fairy-tale-for-adults"
+    },
+    "credits": {
+      "creatorName": "Tales of the Forgotten Fiction Network",
+      "ownerName": "Tales of the Forgotten Fiction Network"
+    },
+    "creators": [
+      "Tales of the Forgotten Fiction Network"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423; https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423",
+        "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Put your headphones on and let's begin. A wholesome fantasy adventure to delight your inner child! On a family outing with their kids Colin and Nia are accidentally teleported to a dimension where magic is real. To get home, Colin and Nia must go on a quest to find a unicorn, and the lost pieces of themselves. A Tales of the Forgotten Fiction Network Audio Drama Production. To learn about our other shows visit: https://talesoftheforgotten.com/ | Cover Art by Gerald Ford - https://www.artofgee.com/",
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 35,
+        "observedIntervals": 3
+      },
+      "podcast": {
+        "copyright": "All rights reserved.",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "459e3bc8-43a3-4538-819f-f7d1f950a423",
+          "rssUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423",
+          "appleCollectionId": "1742287934"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423",
+            "fetchedAt": "2026-08-15T20:04:04.904Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4",
+            "fetchedAt": "2026-08-15T20:03:40.921Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/a-fairy-tale-for-adults/id1742287934?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.redcircle.com/459e3bc8-43a3-4538-819f-f7d1f950a423"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:04:05.232Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:05:12.188Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "tales-of-the-forgotten-fiction-network",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/a-fairy-tale-for-adults",
+    "hasPage": true,
+    "image": "images/covers/a-fairy-tale-for-adults.jpg",
+    "imageAlt": "A Fairy Tale for Adults cover art",
+    "summary": "Put your headphones on and let's begin. A wholesome fantasy adventure to delight your inner child! On a family outing with their kids Colin and Nia are accidentally teleported to a dimension where magic is real. To get home, Colin and Nia must go on a quest to find a unicorn, and the lost pieces of themselves. A Tales of the Forgotten Fiction Network Audio Drama Production. To learn about our other shows visit: https://talesoftheforgotten.com/ | Cover Art by Gerald Ford - https://www.artofgee.com/",
+    "finalRating": null,
+    "searchText": "a fairy tale for adults put your headphones on and let s begin a wholesome fantasy adventure to delight your inner child on a family outing with their kids colin and nia are accidentally teleported to a dimension where magic is real to get home colin and nia must go on a quest to find a unicorn and the lost pieces of themselves a tales of the forgotten fiction network audio drama production to learn about our other shows visit https talesoftheforgotten com cover art by gerald ford https www artofgee com drama serialized a fairy tale for adults tales of the forgotten fiction network english unclear imported tales of the forgotten fiction network tales of the forgotten fiction network unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/a-fairy-tale-for-adults-9efa135f72-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/a-fairy-tale-for-adults-9efa135f72-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "experiment-31e",
+    "title": "Experiment 31E",
+    "subtitle": "",
+    "description": "A scientist is attempting a dangerous experiment in this Frankenstein-inspired, speculative fiction podcast that takes place during an alternate version of the Victorian era. As the scientist seeks to perfect her formula and find a suitable specimen for testing, unexpected threats rear their heads while her own motives lurk in the dark. Written and performed by Lauren Triola, with music by Shannon Triola, new episodes will be released every other Monday. Transcripts available at www.experiment31e.com.",
+    "cover": "images/covers/experiment-31e.jpg",
+    "coverAlt": "Experiment 31E cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/3ZqDYtVpx1Umx98rpJTRvb",
+      "apple": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007",
+      "website": "https://rss.com/podcasts/experiment31e/",
+      "rss": "https://media.rss.com/experiment31e/feed.xml",
+      "amazonMusic": "https://music.amazon.com/podcasts/b2b3bca1-faac-476a-94d4-ab325db26d5c"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Experiment 31E"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 12 full episodes • 30 min median",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 33,
+      "medianEpisodeMinutes": 30,
+      "minEpisodeMinutes": 23,
+      "maxEpisodeMinutes": 50,
+      "totalObservedHours": 6.5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2022-10-03",
+      "latest": "2023-04-17",
+      "latestFeedItem": "2023-04-17"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rss.com/podcasts/experiment31e/",
+      "youtube": "https://www.youtube.com/rsscom/",
+      "social": "https://www.facebook.com/rss.podcasting"
+    },
+    "credits": {
+      "creatorName": "Lauren Triola",
+      "ownerName": "Lauren Triola",
+      "network": "RSS.com",
+      "writers": [
+        "Lauren Triola"
+      ],
+      "people": [
+        {
+          "name": "Lauren Triola",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "Lauren Triola"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.com/podcasts/experiment31e/694678/; https://rss.com/podcasts/experiment31e/676457/; https://rss.com/podcasts/experiment31e/658555/; https://rss.com/podcasts/experiment31e/640898/; https://rss.com/podcasts/experiment31e/; https://media.rss.com/experiment31e/feed.xml; https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "12 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "text/plain"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.com/podcasts/experiment31e/694678/",
+        "https://rss.com/podcasts/experiment31e/676457/",
+        "https://rss.com/podcasts/experiment31e/658555/",
+        "https://rss.com/podcasts/experiment31e/640898/",
+        "https://rss.com/podcasts/experiment31e/",
+        "https://media.rss.com/experiment31e/feed.xml",
+        "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "A scientist is attempting a dangerous experiment in this Frankenstein-inspired, speculative fiction podcast that takes place during an alternate version of the Victorian era. As the scientist seeks to perfect her formula and find a suitable specimen for testing, unexpected threats rear their heads while her own motives lurk in the dark. Written and performed by Lauren Triola, with music by Shannon Triola, new episodes will be released every other Monday. Transcripts available at www.experiment31e.com.",
+      "socialUrls": [
+        "https://www.facebook.com/rss.podcasting",
+        "https://twitter.com/rss",
+        "https://www.instagram.com/rss_podcasting/"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Lauren Triola 2022",
+        "explicit": "false",
+        "license": {
+          "value": "Lauren Triola 2022"
+        },
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "b0a5a6a9-14da-5fcb-8fb2-37c25c954bc7",
+          "rssUrl": "https://media.rss.com/experiment31e/feed.xml",
+          "appleCollectionId": "1648077007"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/",
+            "fetchedAt": "2026-08-15T20:05:07.919Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/",
+            "fetchedAt": "2026-08-15T20:05:07.913Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/",
+            "fetchedAt": "2026-08-15T20:05:07.907Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/",
+            "fetchedAt": "2026-08-15T20:05:07.902Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/experiment31e/",
+            "fetchedAt": "2026-08-15T20:05:07.893Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/experiment31e/feed.xml",
+            "fetchedAt": "2026-08-15T20:05:06.411Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4",
+            "fetchedAt": "2026-08-15T20:05:06.003Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/experiment-31e/id1648077007?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/640898/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/658555/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/676457/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/694678/"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/experiment31e/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/experiment31e/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:05:08.552Z",
+        "optionalGaps": [
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:05:12.193Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "lauren-triola",
+    "networkId": "rss-com",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/experiment-31e",
+    "hasPage": true,
+    "image": "images/covers/experiment-31e.jpg",
+    "imageAlt": "Experiment 31E cover art",
+    "summary": "A scientist is attempting a dangerous experiment in this Frankenstein-inspired, speculative fiction podcast that takes place during an alternate version of the Victorian era. As the scientist seeks to perfect her formula and find a suitable specimen for testing, unexpected threats rear their heads while her own motives lurk in the dark. Written and performed by Lauren Triola, with music by Shannon Triola, new episodes will be released every other Monday. Transcripts available at www.experiment31e.com.",
+    "finalRating": null,
+    "searchText": "experiment 31e a scientist is attempting a dangerous experiment in this frankenstein inspired speculative fiction podcast that takes place during an alternate version of the victorian era as the scientist seeks to perfect her formula and find a suitable specimen for testing unexpected threats rear their heads while her own motives lurk in the dark written and performed by lauren triola with music by shannon triola new episodes will be released every other monday transcripts available at www experiment31e com drama sci fi serialized experiment 31e lauren triola english unclear imported lauren triola lauren triola rss com lauren triola lauren triola author 12 observed episodes unknown 1 text plain",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/experiment-31e-5cb64378a6-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/experiment-31e-5cb64378a6-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "strange-new-worlds-and-spaced-out-tales",
+    "title": "Strange New Worlds And Spaced Out Tales",
+    "subtitle": "",
+    "description": "A Sci-Fi Anthology Audio Drama series, with full voice acting and sound design.",
+    "cover": "images/covers/strange-new-worlds-and-spaced-out-tales.jpg",
+    "coverAlt": "Strange New Worlds And Spaced Out Tales cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4",
+      "website": "https://snwasot.com/",
+      "rss": "https://anchor.fm/s/db0af1f0/podcast/rss"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Strange New Worlds And Spaced Out Tales"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 24 full episodes • 34 min median",
+      "seasons": 3,
+      "episodes": 24,
+      "avgEpisodeMinutes": 36,
+      "medianEpisodeMinutes": 34,
+      "minEpisodeMinutes": 16,
+      "maxEpisodeMinutes": 63,
+      "totalObservedHours": 14.5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 24,
+        "bonus": 15,
+        "trailer": 11
+      }
+    },
+    "releaseDates": {
+      "first": "2023-02-21",
+      "latest": "2025-05-22",
+      "latestFeedItem": "2025-07-24"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://snwasot.com/"
+    },
+    "credits": {
+      "creatorName": "Jim Cogan",
+      "ownerName": "Jim Cogan"
+    },
+    "creators": [
+      "Jim Cogan"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://anchor.fm/s/db0af1f0/podcast/rss; https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://anchor.fm/s/db0af1f0/podcast/rss",
+        "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "A Sci-Fi Anthology Audio Drama series, with full voice acting and sound design.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Jim Cogan",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://anchor.fm/s/db0af1f0/podcast/rss",
+          "appleCollectionId": "1674051669"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss",
+            "fetchedAt": "2026-08-15T20:03:35.806Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4",
+            "fetchedAt": "2026-08-15T20:03:35.778Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/strange-new-worlds-and-spaced-out-tales/id1674051669?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://anchor.fm/s/db0af1f0/podcast/rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T20:03:37.179Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T20:05:12.195Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "jim-cogan",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/strange-new-worlds-and-spaced-out-tales",
+    "hasPage": true,
+    "image": "images/covers/strange-new-worlds-and-spaced-out-tales.jpg",
+    "imageAlt": "Strange New Worlds And Spaced Out Tales cover art",
+    "summary": "A Sci-Fi Anthology Audio Drama series, with full voice acting and sound design.",
+    "finalRating": null,
+    "searchText": "strange new worlds and spaced out tales a sci fi anthology audio drama series with full voice acting and sound design drama sci fi episodic strange new worlds and spaced out tales jim cogan english unclear imported jim cogan jim cogan unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/strange-new-worlds-and-spaced-out-tales-97abbe5d30-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/strange-new-worlds-and-spaced-out-tales-97abbe5d30-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]
