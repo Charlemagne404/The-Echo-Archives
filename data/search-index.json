@@ -23664,5 +23664,128 @@
     "featured": false,
     "createdAt": "2026-08-15",
     "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "temujin",
+    "title": "Temujin",
+    "subtitle": "",
+    "description": "A Webby-nominated audio drama on the rise of Genghis Khan—and the fall of his closest friend.",
+    "cover": "images/covers/temujin.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/temujin-4d8a5ae3ef-320.webp",
+        "width": 320
+      }
+    ],
+    "coverAlt": "Temujin cover art",
+    "creators": [
+      "Andas Productions"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Temujin"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "Andas Productions",
+      "ownerName": "Andas Productions",
+      "network": "ART19"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
+  },
+  {
+    "id": "the-bridge",
+    "title": "The Bridge",
+    "subtitle": "",
+    "description": "It's an alternate 2016, and Watchtower 10 sits in the middle of the Atlantic Ocean, keeping lonely watch over the Transcontinental Bridge. Each watchtower sits hundreds of feet away from the Bridge, broadcasting regular traffic reports to ensure that proper safety precautions are taken. These lighthouses (for cars) are filled with a carefully selected (and very capable) crew. Watchtower 10's necessary personnel happen to be: a generalist DJ who spends her free time relaying folklore from abandoned parts of the Bridge, her supervisor (who's only there because he lost a bet), an unfailingly optimistic Bridge Travel Agent, and a groundskeeper who has a thing for romantic comedies. Unbeknownst to the general public (but totally knownst to each watchtower's crew), these stations also hold a secret that could potentially destroy the world...or save it. The Bridge is a fictional serialized fantasy podcast about the monsters we fear, the monsters we can become, and the stories we leave behind.",
+    "cover": "images/covers/the-bridge.jpg",
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-bridge-8e3fb75c22-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-bridge-8e3fb75c22-640.webp",
+        "width": 640
+      }
+    ],
+    "coverAlt": "The Bridge cover art",
+    "creators": [
+      "The Bridge Podcast"
+    ],
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Bridge"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "facts": {},
+    "credits": {
+      "creatorName": "The Bridge Podcast",
+      "ownerName": "Alex Brown",
+      "network": "The Bridge"
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "ratings": {},
+    "popularity": {},
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15"
   }
 ]
