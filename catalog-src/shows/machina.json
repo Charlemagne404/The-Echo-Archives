@@ -1,0 +1,546 @@
+{
+  "id": "machina",
+  "title": "Machina",
+  "subtitle": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and yes, robot dogs.",
+  "description": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and, yes, robot dogs.&nbsp; Ever since two DevLok employees left the company to start Watchover, the companies have been bitter enemies. So when a government competition to bring AI to Mars is announced, both teams begin vying for the honor. Perilous workplace romances, corporate espionage, and shady ethics mean even blowing off steam at the local bar is rife with conflict. Alliances will be forged and bridges burned in the race to space. Machina is a Realm production, created by Fran Wilde and written by&nbsp;Fran Wilde, Malka Older, and Curtis C. Chen, with Martha Wells. Listen Away. For more shows like this, visit Realm.fm",
+  "cover": "images/covers/machina.jpg",
+  "coverAlt": "Machina cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+    "website": "https://www.realm.fm/shows/machina",
+    "rss": "https://feeds.megaphone.fm/machina",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Machina"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "durationCoverage": 0,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 0,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-03-31",
+    "latest": "2021-03-31",
+    "latestFeedItem": "2021-03-31",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.realm.fm/shows/machina",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Realm",
+    "ownerName": "Realm"
+  },
+  "creators": [
+    "Realm"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.megaphone.fm/machina; https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/machina",
+      "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and, yes, robot dogs.&nbsp; Ever since two DevLok employees left the company to start Watchover, the companies have been bitter enemies. So when a government competition to bring AI to Mars is announced, both teams begin vying for the honor. Perilous workplace romances, corporate espionage, and shady ethics mean even blowing off steam at the local bar is rife with conflict. Alliances will be forged and bridges burned in the race to space. Machina is a Realm production, created by Fran Wilde and written by&nbsp;Fran Wilde, Malka Older, and Curtis C. Chen, with Martha Wells. Listen Away. For more shows like this, visit Realm.fm",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© Realm 2023",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/machina",
+        "appleCollectionId": "1560995601",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/machina",
+          "fetchedAt": "2026-08-15T17:35:27.115Z",
+          "payloadHash": "48f5ed926304a570cd04cabcedb9cb824ab1f04652f646ee65555c5e95bd3558"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+          "fetchedAt": "2026-08-15T17:35:26.596Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/machina"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:35:28.100Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bb83f0dd88c598b65c789635eb3a4d5d2bc194ae72707b832b7b1d49f20ed0f2",
+        "subtitle": "4f1ec80d924e7a9691e5daaba49da87d75b921a0d1837a368b60f915f910e4ee",
+        "description": "ff9be2dff02cb7089fe9034d3740db5684e8e68d8215669865e31ce970ada953",
+        "cover": "8a38bac6ee40c05975f36de67d61d276bd21e9465e5b52e37d5e649225b5fd1c",
+        "coverAlt": "074e90f4fe41c44f1cd96d27a5e0831d5e700cfc1b21688b99b08899b11677c9",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "15fb01639739868a0b809a6fa0f1c3bd49c442cdcbe90a7f1e42f31ec23f2d48",
+        "officialLinks": "e38006c9f70f348b7da75118f9ba25d78d4591953de6519d0a1a810d95520700",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "f14ed32d89e28952193b492cb6a9bf57388422758584d98f045c9399e3a37ef9",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "3523d26d3f69174ef91237cc2721ad2705649b7b36c4a88872f9b4cf90c8f492",
+        "releaseDates": "8ef14d4f4b911f6864aaf1d867451af2bb97914e7a0f3379d2acf6d8fe27a879",
+        "credits": "9649b649fbe772677ae392556caa798dc9abcd64c00e4024a0ebc78276ca4920",
+        "creators": "8a541748989a1ce4f72bf0279c5fa8103a43beb84f288b2ae1195427b6a31b42",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "92b4b2d124a041ccf07e720de0b33377c23a7b43b5f448333b66b62391f0d26d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:37:09.955Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "realm"
+}

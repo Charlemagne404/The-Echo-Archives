@@ -340,34 +340,34 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 769,P1,The Drabblecast,Norm Sherman,2ff6614f-3a27-4af4-9e96-2563faf46a87,needs-review,needs-review,source-conflict; duplicate-ambiguity,2026-08-15 17:29:05
 770,P1,Beneath Ceaseless Skies Audio Fiction Podcasts,Beneath Ceaseless Skies,3e40037e-47e7-4e99-a376-9c42ef819037,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre,2026-08-15 17:28:58
 771,P1,The Dunesteef Audio Fiction Magazine,Rish Outfield & Big Anklevich,1c299881-bf80-461e-b594-b9a944395468,needs-review,needs-review,insufficient-discovery-signals; source-conflict,2026-08-15 17:29:01
-772,P1,The Theatre of Tomorrow,Midnight Disease Productions,,unattempted,,,
-773,P1,Cobalt City Adventures Unlimited,,,unattempted,,,
-774,P1,"Six Stories, Told at Night",K.T. Bryski,,unattempted,,,
-775,P1,The Kingmaker Histories,We Are Not Alive,,unattempted,,,
-776,P1,Eliza: A Robot Story,,,unattempted,,,
-777,P1,Tales from the Afternow,Rantmedia,,unattempted,,,
-778,P1,Splintered Caravan,,,unattempted,,,
-779,P1,Once Upon a Wasteland: A Fallout Story,Brad Williams,,unattempted,,,
-780,P1,Evergreen,QCODE,,unattempted,,,
+772,P1,The Theatre of Tomorrow,Midnight Disease Productions,200361c4-66ca-4565-bca8-617b05bbf7f3,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:36:37
+773,P1,Cobalt City Adventures Unlimited,,b85b8d38-01a8-484e-9f55-06abd9ec2b51,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:37:09
+774,P1,"Six Stories, Told at Night",K.T. Bryski,ca04ad10-a501-4f37-8bf5-9453e1890132,needs-review,needs-review,source-conflict,2026-08-15 17:37:00
+775,P1,The Kingmaker Histories,We Are Not Alive,b343e203-9639-4b6e-9c09-1e5792033ae0,needs-review,needs-review,source-conflict,2026-08-15 17:36:27
+776,P1,Eliza: A Robot Story,,4e935780-0375-436e-afa8-e3b857302ae0,published,published,,2026-08-15 17:37:11
+777,P1,Tales from the Afternow,Rantmedia,90332944-f023-4948-8740-ca3db77d12e6,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 17:35:45
+778,P1,Splintered Caravan,,f5619a3f-8683-4c72-8ed1-bca57cbdf9c5,published,published,,2026-08-15 17:37:11
+779,P1,Once Upon a Wasteland: A Fallout Story,Brad Williams,7903ad6f-beb6-4780-be30-7fa50fc0725c,published,published,,2026-08-15 17:37:11
+780,P1,Evergreen,QCODE,dcd12fc3-a26b-4ca5-af4e-7b26d64441b5,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 17:36:33
 781,P1,Birds of Empire,QCODE,0b9b8dd4-42f6-4cc6-853a-e9a764f7e098,needs-review,needs-review,placeholder-description; missing-genre; scope-review; source-conflict,2026-08-15 17:23:07
-782,P1,ReMade,Realm,,unattempted,,,
-783,P1,Machina,Realm,,unattempted,,,
-784,P1,Ctrl-Alt-Destroy,Realm,,unattempted,,,
-785,P1,Mage and Machine,Pendant Audio,,unattempted,,,
-786,P1,Jump Leads,Ben Paddon,,unattempted,,,
-787,P1,Visionaries,Richard Seneque,,unattempted,,,
+782,P1,ReMade,Realm,59162175-96b8-4400-9919-8577b7948e5b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:35:33
+783,P1,Machina,Realm,998d1562-2d4b-4b54-8703-2841b87d2564,published,published,,2026-08-15 17:37:11
+784,P1,Ctrl-Alt-Destroy,Realm,7beccaa3-d750-4046-813a-0986f0380fe5,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:35:45
+785,P1,Mage and Machine,Pendant Audio,9defb699-af40-461b-a34d-11585b3bd0ab,needs-review,needs-review,source-conflict,2026-08-15 17:35:38
+786,P1,Jump Leads,Ben Paddon,5bbbc811-b494-4930-a67a-d67ff74e25a7,needs-review,needs-review,scope-review; source-conflict,2026-08-15 17:35:30
+787,P1,Visionaries,Richard Seneque,0eefa9fa-00dd-483d-80f0-84a6eb957597,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 17:35:41
 923,P0,Bronzeville,Wayland Productions,1205d867-fd6d-4a89-9794-47535803e98e,duplicate,duplicate,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:20:31
 924,P0,Meet Cute Originals,Meet Cute,5bdf9232-0cd0-4934-bedf-fb873490064b,published,published,,2026-08-15 16:05:16
-925,P1,Small Victories,WGC Productions,,unattempted,,,
-926,P1,Moriarty,Audible / Treefort Media,,unattempted,,,
-927,P1,Tara Tremendous,Wonkybot,,unattempted,,,
-928,P1,Girl Tales,Cordelia Studios,,unattempted,,,
-929,P1,Cultureverse,Studio Ochenta / TRAX,,unattempted,,,
-930,P1,Melon's House Party,Wondery,,unattempted,,,
-931,P1,Keyshawn Solves It,PBS Kids (WGBH) / GBH Kids / PBS KIDS,,unattempted,,,
-932,P1,The Arthur Podcast,GBH Kids,,unattempted,,,
-933,P1,Young Ben Franklin,Gen-Z Media / iHeartRadio,,unattempted,,,
-934,P1,Tomorrow,Gen-Z Media,,unattempted,,,
+925,P1,Small Victories,WGC Productions,14957acb-baac-4867-ac30-e426f9232277,published,published,,2026-08-15 17:37:11
+926,P1,Moriarty,Audible / Treefort Media,5914eb81-b16f-4e45-83b7-3b2f0c97c1bd,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:35:26
+927,P1,Tara Tremendous,Wonkybot,5530e96c-d02b-423a-a167-4503dece0763,needs-review,needs-review,source-conflict,2026-08-15 17:35:40
+928,P1,Girl Tales,Cordelia Studios,de08c3d5-e716-4f6e-a392-af35982791b4,published,published,,2026-08-15 17:37:11
+929,P1,Cultureverse,Studio Ochenta / TRAX,05adf7fe-e92f-43cc-b298-a1c59d139fd2,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 17:35:39
+930,P1,Melon's House Party,Wondery,dfb06dbc-8d5f-42a6-8679-d60c089556db,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 17:36:27
+931,P1,Keyshawn Solves It,PBS Kids (WGBH) / GBH Kids / PBS KIDS,e83fb4b6-28a1-464f-8bd8-199bdc93f160,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 17:35:45
+932,P1,The Arthur Podcast,GBH Kids,5111f556-053f-485b-a9be-ae4b01eedece,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 17:36:27
+933,P1,Young Ben Franklin,Gen-Z Media / iHeartRadio,b5fdca17-6e1e-485d-8b09-6897c4924d5b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:35:31
+934,P1,Tomorrow,Gen-Z Media,df03e2a8-0d0a-4f26-97ba-f2263d186bf2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:35:41
 935,P1,The Weirdness,Gen-Z Media,,unattempted,,,
 936,P1,The Hollow,Gen-Z Media,,unattempted,,,
 937,P1,Supernatural Sexuality with Dr. Seabrooke,Lee Davis-Thalbourne,,unattempted,,,

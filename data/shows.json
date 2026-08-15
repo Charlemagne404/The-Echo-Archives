@@ -165404,5 +165404,3911 @@
         "width": 640
       }
     ]
+  },
+  {
+    "id": "eliza-a-robot-story",
+    "title": "Eliza: A Robot Story",
+    "subtitle": "",
+    "description": "Tanya Reynolds (Sex Education) stars in a dark, near-future science fiction fairytale about a robot who can feel, and the world that attempts to control her. When a robot called Eliza falls in love with Him (Arthur Darvill, Doctor Who), they work together to make her fully sentient. But consciousness doesn’t come without consequences. As Eliza gets caught in a web of both loving and abusive relationships, she has to fight to survive.&nbsp;#OneVoiceRaisesAnother Eliza is a Crowd Network original made in partnership with The Pankhurst Trust / Manchester Women’s Aid. If you or someone you know is experiencing domestic abuse, help is available now. You can call the 24/7 national helpline on 0808 2000 247 and get free confidential advice at https://www.womensaid.org.uk &nbsp;If you want early episodes and behind the scenes content, subscribe now to the Crowd Stories channel. Full transcripts of all episodes are available on the Crowd website.",
+    "cover": "images/covers/eliza-a-robot-story.jpg",
+    "coverAlt": "Eliza: A Robot Story cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4",
+      "rss": "https://feeds.megaphone.fm/NSR4757638249"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Eliza: A Robot Story"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 9 full episodes • 43 min median",
+      "seasons": 1,
+      "episodes": 9,
+      "avgEpisodeMinutes": 42,
+      "medianEpisodeMinutes": 43,
+      "minEpisodeMinutes": 33,
+      "maxEpisodeMinutes": 49,
+      "totalObservedHours": 6.3,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 9,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2022-10-02",
+      "latest": "2023-02-03",
+      "latestFeedItem": "2024-02-29"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {},
+    "credits": {
+      "creatorName": "Crowd Network",
+      "ownerName": "Crowd Network"
+    },
+    "creators": [
+      "Crowd Network"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/NSR4757638249; https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/NSR4757638249",
+        "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction",
+        "Society & Culture",
+        "Relationships"
+      ],
+      "importOfficialSummary": "Tanya Reynolds (Sex Education) stars in a dark, near-future science fiction fairytale about a robot who can feel, and the world that attempts to control her. When a robot called Eliza falls in love with Him (Arthur Darvill, Doctor Who), they work together to make her fully sentient. But consciousness doesn’t come without consequences. As Eliza gets caught in a web of both loving and abusive relationships, she has to fight to survive.&nbsp;#OneVoiceRaisesAnother Eliza is a Crowd Network original made in partnership with The Pankhurst Trust / Manchester Women’s Aid. If you or someone you know is experiencing domestic abuse, help is available now. You can call the 24/7 national helpline on 0808 2000 247 and get free confidential advice at https://www.womensaid.org.uk &nbsp;If you want early episodes and behind the scenes content, subscribe now to the Crowd Stories channel. Full transcripts of all episodes are available on the Crowd website.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Crowd Network",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/NSR4757638249",
+          "appleCollectionId": "1646599673"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249",
+            "fetchedAt": "2026-08-15T17:35:37.648Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4",
+            "fetchedAt": "2026-08-15T17:35:37.089Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/eliza-a-robot-story/id1646599673?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/NSR4757638249"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:35:38.874Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:37:09.833Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "crowd-network",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/eliza-a-robot-story",
+    "hasPage": true,
+    "image": "images/covers/eliza-a-robot-story.jpg",
+    "imageAlt": "Eliza: A Robot Story cover art",
+    "summary": "Tanya Reynolds (Sex Education) stars in a dark, near-future science fiction fairytale about a robot who can feel, and the world that attempts to control her. When a robot called Eliza falls in love with Him (Arthur Darvill, Doctor Who), they work together to make her fully sentient. But consciousness doesn’t come without consequences. As Eliza gets caught in a web of both loving and abusive relationships, she has to fight to survive.&nbsp;#OneVoiceRaisesAnother Eliza is a Crowd Network original made in partnership with The Pankhurst Trust / Manchester Women’s Aid. If you or someone you know is experiencing domestic abuse, help is available now. You can call the 24/7 national helpline on 0808 2000 247 and get free confidential advice at https://www.womensaid.org.uk &nbsp;If you want early episodes and behind the scenes content, subscribe now to the Crowd Stories channel. Full transcripts of all episodes are available on the Crowd website.",
+    "finalRating": null,
+    "searchText": "eliza a robot story tanya reynolds sex education stars in a dark near future science fiction fairytale about a robot who can feel and the world that attempts to control her when a robot called eliza falls in love with him arthur darvill doctor who they work together to make her fully sentient but consciousness doesn t come without consequences as eliza gets caught in a web of both loving and abusive relationships she has to fight to survive and nbsp onevoiceraisesanother eliza is a crowd network original made in partnership with the pankhurst trust manchester women s aid if you or someone you know is experiencing domestic abuse help is available now you can call the 24 7 national helpline on 0808 2000 247 and get free confidential advice at https www womensaid org uk and nbsp if you want early episodes and behind the scenes content subscribe now to the crowd stories channel full transcripts of all episodes are available on the crowd website drama sci fi serialized eliza a robot story crowd network english unclear imported crowd network crowd network unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/eliza-a-robot-story-a374083e38-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "splintered-caravan",
+    "title": "Splintered Caravan",
+    "subtitle": "",
+    "description": "'Splintered Caravan' is a Cyberpunk themed Audio Drama. Influenced by Blade Runner, Shadowrun and heist stories of the past. This adventure story features a primarily female lead cast, multiple intense situations, and all original music!",
+    "cover": "images/covers/splintered-caravan.jpg",
+    "coverAlt": "Splintered Caravan cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/0fZpx7T12ap8kxXdLOBiIi",
+      "apple": "https://itunes.apple.com/us/podcast/splintered-caravan/id1275907518?mt=2",
+      "website": "https://www.splinteredcaravan.com/",
+      "rss": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Splintered Caravan"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 11 full episodes • 30 min median",
+      "seasons": 1,
+      "episodes": 11,
+      "avgEpisodeMinutes": 36,
+      "medianEpisodeMinutes": 30,
+      "minEpisodeMinutes": 21,
+      "maxEpisodeMinutes": 61,
+      "totalObservedHours": 6.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 11,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2017-08-26",
+      "latest": "2019-05-05",
+      "latestFeedItem": "2019-05-05"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.splinteredcaravan.com/",
+      "patreon": "http://www.patreon.com/splinteredcaravan",
+      "discord": "https://discord.gg/hh6CxsD",
+      "youtube": "https://www.youtube.com/channel/UChVgsyFbfuyPmAg7dESfq3w/featured",
+      "social": "https://twitter.com/JustTheClippy"
+    },
+    "credits": {
+      "creatorName": "Chris Garrett",
+      "ownerName": "Chris Garrett",
+      "network": "Splintered Caravan"
+    },
+    "creators": [
+      "Chris Garrett"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.splinteredcaravan.com/; https://rss.libsyn.com/shows/104964/destinations/563184.xml; https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.splinteredcaravan.com/",
+        "https://rss.libsyn.com/shows/104964/destinations/563184.xml",
+        "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "'Splintered Caravan' is a Cyberpunk themed Audio Drama. Influenced by Blade Runner, Shadowrun and heist stories of the past. This adventure story features a primarily female lead cast, multiple intense situations, and all original music!",
+      "socialUrls": [
+        "https://twitter.com/JustTheClippy",
+        "https://www.instagram.com/ariellelaguette/",
+        "https://www.instagram.com/mamasaidcomedy/",
+        "https://www.facebook.com/bhughesmusic/?__xts__%5B0%5D=68.ARCZ0fOreCnqLkVFR01-HYNIqHBKtxKPCBKXHYk3vwvCbGryX0mzE5wG8npEWMBvqNXKEzBfLBXDu0T4Add8302bgpZg-tI77rkZh6e",
+        "https://www.instagram.com/bhughesmusic/",
+        "https://www.instagram.com/datspideyreviews/",
+        "http://www.facebook.com/erinerror",
+        "https://www.instagram.com/ethancainsanto/"
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 35,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "Chris Garrett/Overtime Comics",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml",
+          "appleCollectionId": "1275907518",
+          "feedRedirects": [
+            "https://www.splinteredcaravan.com/home?format=rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.splinteredcaravan.com/",
+            "fetchedAt": "2026-08-15T17:35:34.647Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml",
+            "fetchedAt": "2026-08-15T17:35:33.726Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4",
+            "fetchedAt": "2026-08-15T17:35:32.462Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/splintered-caravan/id1275907518?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "discordUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.splinteredcaravan.com/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/104964/destinations/563184.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:35:34.776Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:37:09.951Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "chris-garrett",
+    "networkId": "splintered-caravan",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/splintered-caravan",
+    "hasPage": true,
+    "image": "images/covers/splintered-caravan.jpg",
+    "imageAlt": "Splintered Caravan cover art",
+    "summary": "'Splintered Caravan' is a Cyberpunk themed Audio Drama. Influenced by Blade Runner, Shadowrun and heist stories of the past. This adventure story features a primarily female lead cast, multiple intense situations, and all original music!",
+    "finalRating": null,
+    "searchText": "splintered caravan splintered caravan is a cyberpunk themed audio drama influenced by blade runner shadowrun and heist stories of the past this adventure story features a primarily female lead cast multiple intense situations and all original music drama sci fi serialized splintered caravan chris garrett english unclear imported chris garrett chris garrett splintered caravan unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/splintered-caravan-22bf47e69b-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/splintered-caravan-22bf47e69b-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "once-upon-a-wasteland-a-fallout-story",
+    "title": "Once Upon A Wasteland: A Fallout Story",
+    "subtitle": "",
+    "description": "Once upon a time, twenty-seven years after the bombs fell, there were two people: a Vault Dweller and a California girl. They met, and sparks flew. That's when things got interesting. This is their story. Join us as we follow the story of Elizabeth Kirby and Odessa Valdez - the spy and the Scribe - as they search for their \"happily ever after\" in the post-apocalyptic wasteland of Fallout 76. Their love affair blossoms as they race against the clock to try to solve a mystery that threatens not only the future of Appalachia, but the rest of what remains of civilization. Starring Letitia Lemon as Elizabeth Kirby and Vitriol Plays as Odessa Valdez. Our Patreon page is now live: https://patreon.com/onceuponawasteland We've been featured by Bethesda in a Community Spotlight article. Check it out here: https://fallout.bethesda.net/en/article/3AX4SlRcAT2rRbNPg0S6xX/fallout-76-community-spotlight-once-upon-a-wasteland Nine-time Signal Award winner! Contact us - info@onceuponawasteland.com Visit us on the web: https://onceuponawasteland.com IMDb: https://www.imdb.com/title/tt18245354/ Bluesky: https://bsky.app/profile/onceuponawasteland.com Instagram: https://instagram.com/onceuponawasteland",
+    "cover": "images/covers/once-upon-a-wasteland-a-fallout-story.jpg",
+    "coverAlt": "Once Upon A Wasteland: A Fallout Story cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4",
+      "website": "https://onceuponawasteland.com/",
+      "rss": "https://feeds.captivate.fm/onceupon/"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Once Upon A Wasteland: A Fallout Story"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 30 full episodes • 54 min median",
+      "seasons": 3,
+      "episodes": 30,
+      "avgEpisodeMinutes": 54,
+      "medianEpisodeMinutes": 54,
+      "minEpisodeMinutes": 43,
+      "maxEpisodeMinutes": 66,
+      "totalObservedHours": 27.1,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 30,
+        "bonus": 7,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-11-02",
+      "latest": "2024-05-20",
+      "latestFeedItem": "2026-03-13"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://onceuponawasteland.com/",
+      "funding": "https://patreon.com/onceuponawasteland"
+    },
+    "credits": {
+      "creatorName": "Brad Williams",
+      "ownerName": "Brad Williams"
+    },
+    "creators": [
+      "Brad Williams"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.captivate.fm/onceupon/; https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.captivate.fm/onceupon/",
+        "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Science Fiction",
+        "Drama",
+        "Leisure",
+        "Video Games"
+      ],
+      "importOfficialSummary": "Once upon a time, twenty-seven years after the bombs fell, there were two people: a Vault Dweller and a California girl. They met, and sparks flew. That's when things got interesting. This is their story. Join us as we follow the story of Elizabeth Kirby and Odessa Valdez - the spy and the Scribe - as they search for their \"happily ever after\" in the post-apocalyptic wasteland of Fallout 76. Their love affair blossoms as they race against the clock to try to solve a mystery that threatens not only the future of Appalachia, but the rest of what remains of civilization. Starring Letitia Lemon as Elizabeth Kirby and Vitriol Plays as Odessa Valdez. Our Patreon page is now live: https://patreon.com/onceuponawasteland We've been featured by Bethesda in a Community Spotlight article. Check it out here: https://fallout.bethesda.net/en/article/3AX4SlRcAT2rRbNPg0S6xX/fallout-76-community-spotlight-once-upon-a-wasteland Nine-time Signal Award winner! Contact us - info@onceuponawasteland.com Visit us on the web: https://onceuponawasteland.com IMDb: https://www.imdb.com/title/tt18245354/ Bluesky: https://bsky.app/profile/onceuponawasteland.com Instagram: https://instagram.com/onceuponawasteland",
+      "funding": [
+        {
+          "url": "https://patreon.com/onceuponawasteland",
+          "label": "Support \"Once Upon a Wasteland!\""
+        }
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 21,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "\"Once Upon a Wasteland\" © Brad Williams; Fallout ™ & © Bethesda Game Studios",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "f7f06ebf-ada7-59cb-966e-0b1042a3293c",
+          "rssUrl": "https://feeds.captivate.fm/onceupon/",
+          "appleCollectionId": "1591692944"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/onceupon/",
+            "fetchedAt": "2026-08-15T17:35:41.451Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4",
+            "fetchedAt": "2026-08-15T17:35:40.879Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/once-upon-a-wasteland-a-fallout-story/id1591692944?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "funding": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "supportUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/onceupon/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:35:44.088Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:37:09.952Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "brad-williams",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/once-upon-a-wasteland-a-fallout-story",
+    "hasPage": true,
+    "image": "images/covers/once-upon-a-wasteland-a-fallout-story.jpg",
+    "imageAlt": "Once Upon A Wasteland: A Fallout Story cover art",
+    "summary": "Once upon a time, twenty-seven years after the bombs fell, there were two people: a Vault Dweller and a California girl. They met, and sparks flew. That's when things got interesting. This is their story. Join us as we follow the story of Elizabeth Kirby and Odessa Valdez - the spy and the Scribe - as they search for their \"happily ever after\" in the post-apocalyptic wasteland of Fallout 76. Their love affair blossoms as they race against the clock to try to solve a mystery that threatens not only the future of Appalachia, but the rest of what remains of civilization. Starring Letitia Lemon as Elizabeth Kirby and Vitriol Plays as Odessa Valdez. Our Patreon page is now live: https://patreon.com/onceuponawasteland We've been featured by Bethesda in a Community Spotlight article. Check it out here: https://fallout.bethesda.net/en/article/3AX4SlRcAT2rRbNPg0S6xX/fallout-76-community-spotlight-once-upon-a-wasteland Nine-time Signal Award winner! Contact us - info@onceuponawasteland.com Visit us on the web: https://onceuponawasteland.com IMDb: https://www.imdb.com/title/tt18245354/ Bluesky: https://bsky.app/profile/onceuponawasteland.com Instagram: https://instagram.com/onceuponawasteland",
+    "finalRating": null,
+    "searchText": "once upon a wasteland a fallout story once upon a time twenty seven years after the bombs fell there were two people a vault dweller and a california girl they met and sparks flew that s when things got interesting this is their story join us as we follow the story of elizabeth kirby and odessa valdez the spy and the scribe as they search for their happily ever after in the post apocalyptic wasteland of fallout 76 their love affair blossoms as they race against the clock to try to solve a mystery that threatens not only the future of appalachia but the rest of what remains of civilization starring letitia lemon as elizabeth kirby and vitriol plays as odessa valdez our patreon page is now live https patreon com onceuponawasteland we ve been featured by bethesda in a community spotlight article check it out here https fallout bethesda net en article 3ax4slrcat2rrbnpg0s6xx fallout 76 community spotlight once upon a wasteland nine time signal award winner contact us info onceuponawasteland com visit us on the web https onceuponawasteland com imdb https www imdb com title tt18245354 bluesky https bsky app profile onceuponawasteland com instagram https instagram com onceuponawasteland drama sci fi serialized once upon a wasteland a fallout story brad williams english unclear imported brad williams brad williams unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/once-upon-a-wasteland-a-fallout-story-ff14276038-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/once-upon-a-wasteland-a-fallout-story-ff14276038-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "machina",
+    "title": "Machina",
+    "subtitle": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and yes, robot dogs.",
+    "description": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and, yes, robot dogs.&nbsp; Ever since two DevLok employees left the company to start Watchover, the companies have been bitter enemies. So when a government competition to bring AI to Mars is announced, both teams begin vying for the honor. Perilous workplace romances, corporate espionage, and shady ethics mean even blowing off steam at the local bar is rife with conflict. Alliances will be forged and bridges burned in the race to space. Machina is a Realm production, created by Fran Wilde and written by&nbsp;Fran Wilde, Malka Older, and Curtis C. Chen, with Martha Wells. Listen Away. For more shows like this, visit Realm.fm",
+    "cover": "images/covers/machina.jpg",
+    "coverAlt": "Machina cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+      "website": "https://www.realm.fm/shows/machina",
+      "rss": "https://feeds.megaphone.fm/machina"
+    },
+    "genres": [
+      "drama",
+      "sci-fi"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Machina"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "durationCoverage": 0,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 0,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-03-31",
+      "latest": "2021-03-31",
+      "latestFeedItem": "2021-03-31"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.realm.fm/shows/machina"
+    },
+    "credits": {
+      "creatorName": "Realm",
+      "ownerName": "Realm"
+    },
+    "creators": [
+      "Realm"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/machina; https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/machina",
+        "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Science Fiction"
+      ],
+      "importOfficialSummary": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and, yes, robot dogs.&nbsp; Ever since two DevLok employees left the company to start Watchover, the companies have been bitter enemies. So when a government competition to bring AI to Mars is announced, both teams begin vying for the honor. Perilous workplace romances, corporate espionage, and shady ethics mean even blowing off steam at the local bar is rife with conflict. Alliances will be forged and bridges burned in the race to space. Machina is a Realm production, created by Fran Wilde and written by&nbsp;Fran Wilde, Malka Older, and Curtis C. Chen, with Martha Wells. Listen Away. For more shows like this, visit Realm.fm",
+      "schedule": {
+        "label": "unknown",
+        "observedIntervals": 0
+      },
+      "podcast": {
+        "copyright": "© Realm 2023",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/machina",
+          "appleCollectionId": "1560995601"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/machina",
+            "fetchedAt": "2026-08-15T17:35:27.115Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4",
+            "fetchedAt": "2026-08-15T17:35:26.596Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/machina/id1560995601?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/machina"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:35:28.100Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:37:09.955Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "realm",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/machina",
+    "hasPage": true,
+    "image": "images/covers/machina.jpg",
+    "imageAlt": "Machina cover art",
+    "summary": "Two rival tech companies compete for the chance to bring AI to Mars in this workplace drama full of corporate espionage, high-stakes science, and, yes, robot dogs.&nbsp; Ever since two DevLok employees left the company to start Watchover, the companies have been bitter enemies. So when a government competition to bring AI to Mars is announced, both teams begin vying for the honor. Perilous workplace romances, corporate espionage, and shady ethics mean even blowing off steam at the local bar is rife with conflict. Alliances will be forged and bridges burned in the race to space. Machina is a Realm production, created by Fran Wilde and written by&nbsp;Fran Wilde, Malka Older, and Curtis C. Chen, with Martha Wells. Listen Away. For more shows like this, visit Realm.fm",
+    "finalRating": null,
+    "searchText": "machina two rival tech companies compete for the chance to bring ai to mars in this workplace drama full of corporate espionage high stakes science and yes robot dogs two rival tech companies compete for the chance to bring ai to mars in this workplace drama full of corporate espionage high stakes science and yes robot dogs and nbsp ever since two devlok employees left the company to start watchover the companies have been bitter enemies so when a government competition to bring ai to mars is announced both teams begin vying for the honor perilous workplace romances corporate espionage and shady ethics mean even blowing off steam at the local bar is rife with conflict alliances will be forged and bridges burned in the race to space machina is a realm production created by fran wilde and written by and nbsp fran wilde malka older and curtis c chen with martha wells listen away for more shows like this visit realm fm drama sci fi serialized machina realm english unclear imported realm realm unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/machina-4a65a919f9-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "small-victories",
+    "title": "Small Victories",
+    "subtitle": "A recently recovered drug addict tries to start her new lease on life, too bad life has it out for her.",
+    "description": "A recently recovered drug addict tries to start her new lease on life, too bad life has it out for her. This drama follows Marisol through the ups and downs of a year in her life. (2024 NAACP Image Award Nominee For Outstanding Scripted Podcast)",
+    "cover": "images/covers/small-victories.jpg",
+    "coverAlt": "Small Victories cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/5RWnIknHYoMNGYHrtozLPV",
+      "apple": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646",
+      "website": "https://www.wgcproductions.com/shows/small-victories",
+      "rss": "https://feeds.transistor.fm/small-victories"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Small Victories",
+      "Small Victories E106 Catch Up Transcript | WGC Productions",
+      "Small Victories E102 Transcript | WGCProductions",
+      "Small Victories | WGCProductions"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "3 seasons observed • at least 30 full episodes • 15 min median",
+      "seasons": 3,
+      "episodes": 30,
+      "avgEpisodeMinutes": 14,
+      "medianEpisodeMinutes": 15,
+      "minEpisodeMinutes": 5,
+      "maxEpisodeMinutes": 28,
+      "totalObservedHours": 7.2,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1,
+        2,
+        3
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 30,
+        "bonus": 2,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2022-02-03",
+      "latest": "2026-05-05",
+      "latestFeedItem": "2026-06-07"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.wgcproductions.com/shows/small-victories",
+      "patreon": "https://www.patreon.com/withgoodco",
+      "youtube": "https://youtu.be/qfFdGRlgKds?si=NwyIvP6qWAMuk9DG",
+      "social": "https://www.instagram.com/withgoodco/"
+    },
+    "credits": {
+      "creatorName": "WGC Productions",
+      "ownerName": "WGC Productions",
+      "network": "WGCProductions"
+    },
+    "creators": [
+      "WGC Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.wgcproductions.com/shows/small-victories/e106-catch-up; https://www.wgcproductions.com/shows/small-victories/e102-transcript-a-social-bump; https://www.wgcproductions.com/about; https://www.wgcproductions.com/shows/small-victories; https://feeds.transistor.fm/small-victories; https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "1 observed episodes",
+      "captions": "unknown",
+      "transcriptCoverage": 0.03,
+      "transcriptFormats": [
+        "text/plain"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.wgcproductions.com/shows/small-victories/e106-catch-up",
+        "https://www.wgcproductions.com/shows/small-victories/e102-transcript-a-social-bump",
+        "https://www.wgcproductions.com/about",
+        "https://www.wgcproductions.com/shows/small-victories",
+        "https://feeds.transistor.fm/small-victories",
+        "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "EF1861"
+      ],
+      "sourceKeywords": [
+        "Audio Drama",
+        "Fiction"
+      ],
+      "importOfficialSummary": "A recently recovered drug addict tries to start her new lease on life, too bad life has it out for her. This drama follows Marisol through the ups and downs of a year in her life. (2024 NAACP Image Award Nominee For Outstanding Scripted Podcast)",
+      "socialUrls": [
+        "https://www.instagram.com/withgoodco/",
+        "https://www.facebook.com/withgoodco/",
+        "http://www.twitter.com/withgoodco"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2026 WGC Productions",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "a1ff0d09-c2b4-545e-a995-7aa5b2c07c5b",
+          "rssUrl": "https://feeds.transistor.fm/small-victories",
+          "appleCollectionId": "1602584646"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e106-catch-up",
+            "fetchedAt": "2026-08-15T17:35:37.838Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e102-transcript-a-social-bump",
+            "fetchedAt": "2026-08-15T17:35:37.816Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.wgcproductions.com/about",
+            "fetchedAt": "2026-08-15T17:35:37.801Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.wgcproductions.com/shows/small-victories",
+            "fetchedAt": "2026-08-15T17:35:37.776Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.transistor.fm/small-victories",
+            "fetchedAt": "2026-08-15T17:35:32.523Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4",
+            "fetchedAt": "2026-08-15T17:35:32.411Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/small-victories/id1602584646?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "complete": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.69,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e102-transcript-a-social-bump"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e106-catch-up"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e102-transcript-a-social-bump"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e106-catch-up"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/about"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e102-transcript-a-social-bump"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.wgcproductions.com/shows/small-victories/e106-catch-up"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/small-victories"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:35:38.582Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:37:09.957Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "wgc-productions",
+    "networkId": "wgcproductions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/small-victories",
+    "hasPage": true,
+    "image": "images/covers/small-victories.jpg",
+    "imageAlt": "Small Victories cover art",
+    "summary": "A recently recovered drug addict tries to start her new lease on life, too bad life has it out for her. This drama follows Marisol through the ups and downs of a year in her life. (2024 NAACP Image Award Nominee For Outstanding Scripted Podcast)",
+    "finalRating": null,
+    "searchText": "small victories a recently recovered drug addict tries to start her new lease on life too bad life has it out for her a recently recovered drug addict tries to start her new lease on life too bad life has it out for her this drama follows marisol through the ups and downs of a year in her life 2024 naacp image award nominee for outstanding scripted podcast drama serialized small victories small victories e106 catch up transcript wgc productions small victories e102 transcript wgcproductions small victories wgcproductions wgc productions english ongoing imported wgc productions wgc productions wgcproductions 1 observed episodes unknown 0 03 text plain",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/small-victories-e3891ae11c-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "girl-tales",
+    "title": "Girl Tales",
+    "subtitle": "Feminist Stories for Kids",
+    "description": "Girl Tales is a podcast featuring reimagined fairytales. Damsels in distress? Princesses in need of protection? You won’t find those here. The girls in our stories take control of their own destinies, turning your favorite fairytales into exciting new adventures. With energetic voice actors and professional sound design, these stories burst to life at the touch of a button. Episodes air every Monday. Recommended for ages 5-10.",
+    "cover": "images/covers/girl-tales.png",
+    "coverAlt": "Girl Tales cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/08Q3C8edonuj67Rm5VZ0P8?si=k8XkSvDbRXuw3HGrvgZFcw",
+      "apple": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764",
+      "website": "https://girltalespodcast.com/",
+      "rss": "https://feeds.megaphone.fm/CST7403212167",
+      "amazonMusic": "https://music.amazon.com/podcasts/5b0b1fa0-d358-4a4a-b69f-acf6f01fe973/girl-tales?ref=dmm_art_US_pod_EA_CS_GT"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Girl Tales"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "8 seasons observed • at least 262 full episodes • 21 min median",
+      "seasons": 8,
+      "episodes": 262,
+      "avgEpisodeMinutes": 24,
+      "medianEpisodeMinutes": 21,
+      "minEpisodeMinutes": 6,
+      "maxEpisodeMinutes": 71,
+      "totalObservedHours": 103,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 262,
+        "bonus": 19,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2017-08-07",
+      "latest": "2026-02-09",
+      "latestFeedItem": "2026-02-09"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://girltalespodcast.com/",
+      "patreon": "https://www.patreon.com/join/girltales?&utm_content=site_sidebar_widget&utm_medium=patron_button_and_widgets_plugin&utm_campaign=&utm_term=&utm_source=https://girltalespodcast.com/",
+      "social": "https://www.facebook.com/girltalespodast/"
+    },
+    "credits": {
+      "creatorName": "Starglow Media / Cordelia Studios",
+      "ownerName": "Girl Tales",
+      "network": "Girl Tales",
+      "writers": [
+        "girltalespodcast"
+      ],
+      "people": [
+        {
+          "name": "girltalespodcast",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "Starglow Media / Cordelia Studios",
+      "girltalespodcast"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/; https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/; https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/; https://girltalespodcast.com/about/; https://girltalespodcast.com/; https://feeds.megaphone.fm/CST7403212167; https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/",
+        "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/",
+        "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/",
+        "https://girltalespodcast.com/about/",
+        "https://girltalespodcast.com/",
+        "https://feeds.megaphone.fm/CST7403212167",
+        "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4"
+      ],
+      "sourceCategories": [
+        "Kids & Family",
+        "Stories for Kids",
+        "Fiction"
+      ],
+      "importOfficialSummary": "Girl Tales is a podcast featuring reimagined fairytales. Damsels in distress? Princesses in need of protection? You won’t find those here. The girls in our stories take control of their own destinies, turning your favorite fairytales into exciting new adventures. With energetic voice actors and professional sound design, these stories burst to life at the touch of a button. Episodes air every Monday. Recommended for ages 5-10.",
+      "socialUrls": [
+        "https://www.facebook.com/girltalespodast/",
+        "https://www.instagram.com/girltales/"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "© 2019 Girl Tales",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/CST7403212167",
+          "appleCollectionId": "1269253764",
+          "feedRedirects": [
+            "https://girltalespodcast.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/",
+            "fetchedAt": "2026-08-15T17:35:37.287Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/",
+            "fetchedAt": "2026-08-15T17:35:37.281Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/",
+            "fetchedAt": "2026-08-15T17:35:37.277Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://girltalespodcast.com/about/",
+            "fetchedAt": "2026-08-15T17:35:37.274Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://girltalespodcast.com/",
+            "fetchedAt": "2026-08-15T17:35:37.267Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/CST7403212167",
+            "fetchedAt": "2026-08-15T17:35:34.188Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4",
+            "fetchedAt": "2026-08-15T17:35:32.546Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/girl-tales/id1269253764?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/09/nuras-magical-tatreez/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/02/02/the-day-that-wouldnt-end/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://girltalespodcast.com/2026/01/26/maryella-and-the-glass-hill/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/CST7403212167"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T17:35:38.017Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T17:37:09.959Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "starglow-media-cordelia-studios",
+    "networkId": "girl-tales",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/girl-tales",
+    "hasPage": true,
+    "image": "images/covers/girl-tales.png",
+    "imageAlt": "Girl Tales cover art",
+    "summary": "Girl Tales is a podcast featuring reimagined fairytales. Damsels in distress? Princesses in need of protection? You won’t find those here. The girls in our stories take control of their own destinies, turning your favorite fairytales into exciting new adventures. With energetic voice actors and professional sound design, these stories burst to life at the touch of a button. Episodes air every Monday. Recommended for ages 5-10.",
+    "finalRating": null,
+    "searchText": "girl tales feminist stories for kids girl tales is a podcast featuring reimagined fairytales damsels in distress princesses in need of protection you won t find those here the girls in our stories take control of their own destinies turning your favorite fairytales into exciting new adventures with energetic voice actors and professional sound design these stories burst to life at the touch of a button episodes air every monday recommended for ages 5 10 drama episodic girl tales starglow media cordelia studios girltalespodcast english unclear imported starglow media cordelia studios girl tales girl tales girltalespodcast girltalespodcast author unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/girl-tales-3270fa0496-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/girl-tales-3270fa0496-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]
