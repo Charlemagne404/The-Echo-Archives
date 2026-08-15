@@ -110716,5 +110716,3626 @@
         "width": 320
       }
     ]
+  },
+  {
+    "id": "ronstadt",
+    "title": "Ronstadt",
+    "subtitle": "",
+    "description": "RONSTADT, starring Rhett & Link, is a supernatural noir comedy set on the mean streets of LA about a 9-1-1 phone jockey whose night job, along with a self-described “Craydar,” leads him deep into Side B - a world filled with magic, monsters, and all things Mythical. RONSTADT was created by Jonathan Strailey & Brandon Bestenheider and produced by QCODE, Wood Elf, and Mythical.",
+    "cover": "images/covers/ronstadt.avif",
+    "coverAlt": "Ronstadt cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4",
+      "website": "https://ronstadt.simplecast.com/",
+      "rss": "https://feeds.megaphone.fm/QCD1877720224"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Ronstadt"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 9 full episodes • 40 min median",
+      "seasons": 1,
+      "episodes": 9,
+      "avgEpisodeMinutes": 40,
+      "medianEpisodeMinutes": 40,
+      "minEpisodeMinutes": 35,
+      "maxEpisodeMinutes": 44,
+      "totalObservedHours": 6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 9,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-06-01",
+      "latest": "2021-07-20",
+      "latestFeedItem": "2021-07-20"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://ronstadt.simplecast.com/"
+    },
+    "credits": {
+      "creatorName": "QCODE, Wood Elf, Mythical",
+      "ownerName": "QCODE"
+    },
+    "creators": [
+      "QCODE, Wood Elf, Mythical"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://ronstadt.simplecast.com/; https://feeds.megaphone.fm/QCD1877720224; https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://ronstadt.simplecast.com/",
+        "https://feeds.megaphone.fm/QCD1877720224",
+        "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction",
+        "Drama",
+        "Comedy"
+      ],
+      "importOfficialSummary": "RONSTADT, starring Rhett & Link, is a supernatural noir comedy set on the mean streets of LA about a 9-1-1 phone jockey whose night job, along with a self-described “Craydar,” leads him deep into Side B - a world filled with magic, monsters, and all things Mythical. RONSTADT was created by Jonathan Strailey & Brandon Bestenheider and produced by QCODE, Wood Elf, and Mythical.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "2021 QCODE Media",
+        "explicit": "no",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/QCD1877720224",
+          "appleCollectionId": "1566385702",
+          "feedRedirects": [
+            "https://rss.pdrl.fm/d6e113/feeds.megaphone.fm/QCD1877720224"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://ronstadt.simplecast.com/",
+            "fetchedAt": "2026-08-15T16:40:47.120Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224",
+            "fetchedAt": "2026-08-15T16:40:46.724Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4",
+            "fetchedAt": "2026-08-15T16:39:54.364Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/ronstadt/id1566385702?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ronstadt.simplecast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://ronstadt.simplecast.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD1877720224"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:40:47.866Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:40:49.065Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "qcode-wood-elf-mythical",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/ronstadt",
+    "hasPage": true,
+    "image": "images/covers/ronstadt.avif",
+    "imageAlt": "Ronstadt cover art",
+    "summary": "RONSTADT, starring Rhett & Link, is a supernatural noir comedy set on the mean streets of LA about a 9-1-1 phone jockey whose night job, along with a self-described “Craydar,” leads him deep into Side B - a world filled with magic, monsters, and all things Mythical. RONSTADT was created by Jonathan Strailey & Brandon Bestenheider and produced by QCODE, Wood Elf, and Mythical.",
+    "finalRating": null,
+    "searchText": "ronstadt ronstadt starring rhett and link is a supernatural noir comedy set on the mean streets of la about a 9 1 1 phone jockey whose night job along with a self described craydar leads him deep into side b a world filled with magic monsters and all things mythical ronstadt was created by jonathan strailey and brandon bestenheider and produced by qcode wood elf and mythical drama comedy serialized ronstadt qcode wood elf mythical english unclear imported qcode wood elf mythical qcode unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/ronstadt-fd4a7e96ab-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/ronstadt-fd4a7e96ab-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-foxes-of-hydesville",
+    "title": "The Foxes of Hydesville",
+    "subtitle": "",
+    "description": "Inspired by the true story of the Fox Sisters. This 9-episode swirling family epic (starring Carey Mulligan) follows the infamous mediums as they rise to fame in the 19th century when they begin conjuring up the dead... and inadvertently spawn a new religion: Spiritualism. ~~~ All 9 episodes will be available for free, but QCODE+ subscribers get early, uninterrupted access to new episodes. Learn more at https://qcodemedia.com/qcodeplus. ~~~ Produced by Criminal Content and distributed by QCODE. Starring Carey Mulligan, Phoebe Tonkin, Mckenna Grace, and Christina Brucato. Directed by Shawn Christensen.",
+    "cover": "images/covers/the-foxes-of-hydesville.jpg",
+    "coverAlt": "The Foxes of Hydesville cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4",
+      "rss": "https://feeds.megaphone.fm/QCD5424384032"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Foxes of Hydesville"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 9 full episodes • 25 min median",
+      "seasons": 1,
+      "episodes": 9,
+      "avgEpisodeMinutes": 25,
+      "medianEpisodeMinutes": 25,
+      "minEpisodeMinutes": 21,
+      "maxEpisodeMinutes": 27,
+      "totalObservedHours": 3.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 9,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2023-05-10",
+      "latest": "2023-06-28",
+      "latestFeedItem": "2023-06-28"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {},
+    "credits": {
+      "creatorName": "QCODE | Criminal Content",
+      "ownerName": "QCODE | Criminal Content"
+    },
+    "creators": [
+      "QCODE | Criminal Content"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://feeds.megaphone.fm/QCD5424384032; https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://feeds.megaphone.fm/QCD5424384032",
+        "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "Inspired by the true story of the Fox Sisters. This 9-episode swirling family epic (starring Carey Mulligan) follows the infamous mediums as they rise to fame in the 19th century when they begin conjuring up the dead... and inadvertently spawn a new religion: Spiritualism. ~~~ All 9 episodes will be available for free, but QCODE+ subscribers get early, uninterrupted access to new episodes. Learn more at https://qcodemedia.com/qcodeplus. ~~~ Produced by Criminal Content and distributed by QCODE. Starring Carey Mulligan, Phoebe Tonkin, Mckenna Grace, and Christina Brucato. Directed by Shawn Christensen.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "copyright": "Criminal Content, 2023",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/QCD5424384032",
+          "appleCollectionId": "1681856672",
+          "feedRedirects": [
+            "https://rss.pdrl.fm/9324df/feeds.megaphone.fm/QCD5424384032"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032",
+            "fetchedAt": "2026-08-15T16:37:49.593Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4",
+            "fetchedAt": "2026-08-15T16:37:49.098Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-foxes-of-hydesville/id1681856672?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/QCD5424384032"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:37:49.842Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:40:49.067Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "qcode-criminal-content",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-foxes-of-hydesville",
+    "hasPage": true,
+    "image": "images/covers/the-foxes-of-hydesville.jpg",
+    "imageAlt": "The Foxes of Hydesville cover art",
+    "summary": "Inspired by the true story of the Fox Sisters. This 9-episode swirling family epic (starring Carey Mulligan) follows the infamous mediums as they rise to fame in the 19th century when they begin conjuring up the dead... and inadvertently spawn a new religion: Spiritualism. ~~~ All 9 episodes will be available for free, but QCODE+ subscribers get early, uninterrupted access to new episodes. Learn more at https://qcodemedia.com/qcodeplus. ~~~ Produced by Criminal Content and distributed by QCODE. Starring Carey Mulligan, Phoebe Tonkin, Mckenna Grace, and Christina Brucato. Directed by Shawn Christensen.",
+    "finalRating": null,
+    "searchText": "the foxes of hydesville inspired by the true story of the fox sisters this 9 episode swirling family epic starring carey mulligan follows the infamous mediums as they rise to fame in the 19th century when they begin conjuring up the dead and inadvertently spawn a new religion spiritualism all 9 episodes will be available for free but qcode subscribers get early uninterrupted access to new episodes learn more at https qcodemedia com qcodeplus produced by criminal content and distributed by qcode starring carey mulligan phoebe tonkin mckenna grace and christina brucato directed by shawn christensen drama serialized the foxes of hydesville qcode criminal content english unclear imported qcode criminal content qcode criminal content unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-foxes-of-hydesville-b1473fd114-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-foxes-of-hydesville-b1473fd114-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "hunted",
+    "title": "Hunted",
+    "subtitle": "",
+    "description": "From Legendary producer Dick Wolf comes a new audio fiction series starring Parker Posey about the U.S. Marshals dedicated to capturing the country's most dangerous fugitives. When four convicts escape from a maximum security prison, Deputy Marshal Emily Barnes (Posey) is called in to pursue the criminals in one of the most treacherous and violent manhunts in United States history. Directed by Shawn Christensen (“Blackout”) and produced by Jenny Radelet Mast (Marvel’s “Wolverine”), HUNTED is the first in a slate of audio fiction series to be produced by Wolf Entertainment in partnership with Endeavor Content. Learn more at EndeavorAudio.com. To see how we use your data, visit https://www.endeavoraudio.com/privacy-policy.",
+    "cover": "images/covers/hunted.avif",
+    "coverAlt": "Hunted cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4",
+      "website": "https://hunted.simplecast.com/",
+      "rss": "https://feeds.megaphone.fm/SBP3252591133"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Hunted"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 8 full episodes • 22 min median",
+      "seasons": 1,
+      "episodes": 8,
+      "avgEpisodeMinutes": 22,
+      "medianEpisodeMinutes": 22,
+      "minEpisodeMinutes": 18,
+      "maxEpisodeMinutes": 26,
+      "totalObservedHours": 2.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 8,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2019-11-12",
+      "latest": "2019-12-17",
+      "latestFeedItem": "2021-11-08"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://hunted.simplecast.com/"
+    },
+    "credits": {
+      "creatorName": "Dick Wolf, Wolf Entertainment & Endeavor Content",
+      "ownerName": "Dick Wolf, Wolf Entertainment & Endeavor Content"
+    },
+    "creators": [
+      "Dick Wolf, Wolf Entertainment & Endeavor Content"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://hunted.simplecast.com/; https://feeds.megaphone.fm/SBP3252591133; https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://hunted.simplecast.com/",
+        "https://feeds.megaphone.fm/SBP3252591133",
+        "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Arts"
+      ],
+      "importOfficialSummary": "From Legendary producer Dick Wolf comes a new audio fiction series starring Parker Posey about the U.S. Marshals dedicated to capturing the country's most dangerous fugitives. When four convicts escape from a maximum security prison, Deputy Marshal Emily Barnes (Posey) is called in to pursue the criminals in one of the most treacherous and violent manhunts in United States history. Directed by Shawn Christensen (“Blackout”) and produced by Jenny Radelet Mast (Marvel’s “Wolverine”), HUNTED is the first in a slate of audio fiction series to be produced by Wolf Entertainment in partnership with Endeavor Content. Learn more at EndeavorAudio.com. To see how we use your data, visit https://www.endeavoraudio.com/privacy-policy.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 6
+      },
+      "podcast": {
+        "copyright": "362516",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.megaphone.fm/SBP3252591133",
+          "appleCollectionId": "1484428621"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://hunted.simplecast.com/",
+            "fetchedAt": "2026-08-15T16:39:52.597Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133",
+            "fetchedAt": "2026-08-15T16:39:52.139Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4",
+            "fetchedAt": "2026-08-15T16:39:51.722Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/hunted/id1484428621?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://hunted.simplecast.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.megaphone.fm/SBP3252591133"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:39:52.664Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:40:49.070Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "dick-wolf-wolf-entertainment-endeavor-content",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/hunted",
+    "hasPage": true,
+    "image": "images/covers/hunted.avif",
+    "imageAlt": "Hunted cover art",
+    "summary": "From Legendary producer Dick Wolf comes a new audio fiction series starring Parker Posey about the U.S. Marshals dedicated to capturing the country's most dangerous fugitives. When four convicts escape from a maximum security prison, Deputy Marshal Emily Barnes (Posey) is called in to pursue the criminals in one of the most treacherous and violent manhunts in United States history. Directed by Shawn Christensen (“Blackout”) and produced by Jenny Radelet Mast (Marvel’s “Wolverine”), HUNTED is the first in a slate of audio fiction series to be produced by Wolf Entertainment in partnership with Endeavor Content. Learn more at EndeavorAudio.com. To see how we use your data, visit https://www.endeavoraudio.com/privacy-policy.",
+    "finalRating": null,
+    "searchText": "hunted from legendary producer dick wolf comes a new audio fiction series starring parker posey about the u s marshals dedicated to capturing the country s most dangerous fugitives when four convicts escape from a maximum security prison deputy marshal emily barnes posey is called in to pursue the criminals in one of the most treacherous and violent manhunts in united states history directed by shawn christensen blackout and produced by jenny radelet mast marvel s wolverine hunted is the first in a slate of audio fiction series to be produced by wolf entertainment in partnership with endeavor content learn more at endeavoraudio com to see how we use your data visit https www endeavoraudio com privacy policy drama serialized hunted dick wolf wolf entertainment and endeavor content english unclear imported dick wolf wolf entertainment and endeavor content dick wolf wolf entertainment and endeavor content unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/hunted-e67a8f8c1f-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/hunted-e67a8f8c1f-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "deadly-manners",
+    "title": "Deadly Manners",
+    "subtitle": "",
+    "description": "Deadly Manners is a 10 episode, dark comedy murder-mystery series set in the winter of 1954. It follows the events during the night of the affluent Billings family annual dinner party with their distinguished, eccentric guests. However, all is not fun and games as shortly after the party starts, a snowstorm begins to rage outside, trapping all the partygoers inside their host's mansion. When a murderer starts killing off those in attendance, the guests must figure out who is responsible, or at least how to stay alive -- lest they be next. Deadly Manners was created by Ali Garfinkel and Alex Aldea. Deadly Manners stars Kristen Bell, Denis O'Hare, Alisha Boe, RuPaul, Anna Chlumsky, Timothy Simons, Michelle Visage, Alona Tal, David Cummings and is narrated by LeVar Burton. Artwork by Kina Lee.",
+    "cover": "images/covers/deadly-manners.png",
+    "coverAlt": "Deadly Manners cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4",
+      "website": "https://deadlymanners.libsyn.com/website",
+      "rss": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Deadly Manners"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 10 full episodes • 28 min median",
+      "seasons": 1,
+      "episodes": 10,
+      "avgEpisodeMinutes": 28,
+      "medianEpisodeMinutes": 28,
+      "minEpisodeMinutes": 24,
+      "maxEpisodeMinutes": 37,
+      "totalObservedHours": 4.7,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2017-10-03",
+      "latest": "2017-11-28",
+      "latestFeedItem": "2020-11-13"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://deadlymanners.libsyn.com/website",
+      "social": "https://www.facebook.com/deadlymanners"
+    },
+    "credits": {
+      "creatorName": "The Paragon Collective",
+      "ownerName": "The Paragon Collective"
+    },
+    "creators": [
+      "The Paragon Collective"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://deadlymanners.libsyn.com/website; https://rss.libsyn.com/shows/106958/destinations/578566.xml; https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://deadlymanners.libsyn.com/website",
+        "https://rss.libsyn.com/shows/106958/destinations/578566.xml",
+        "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "Deadly Manners is a 10 episode, dark comedy murder-mystery series set in the winter of 1954. It follows the events during the night of the affluent Billings family annual dinner party with their distinguished, eccentric guests. However, all is not fun and games as shortly after the party starts, a snowstorm begins to rage outside, trapping all the partygoers inside their host's mansion. When a murderer starts killing off those in attendance, the guests must figure out who is responsible, or at least how to stay alive -- lest they be next. Deadly Manners was created by Ali Garfinkel and Alex Aldea. Deadly Manners stars Kristen Bell, Denis O'Hare, Alisha Boe, RuPaul, Anna Chlumsky, Timothy Simons, Michelle Visage, Alona Tal, David Cummings and is narrated by LeVar Burton. Artwork by Kina Lee.",
+      "socialUrls": [
+        "https://www.facebook.com/deadlymanners",
+        "http://twitter.com/@deadlymanners",
+        "https://twitter.com/aligarchy/",
+        "https://twitter.com/paragonpodcast",
+        "https://twitter.com/levarburton?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "https://twitter.com/IMKristenBell?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "https://twitter.com/denisohare?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "https://twitter.com/AlishaBoe?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml",
+          "appleCollectionId": "1289105780",
+          "feedRedirects": [
+            "http://feeds.libsyn.com/106958/rss"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://deadlymanners.libsyn.com/website",
+            "fetchedAt": "2026-08-15T16:39:50.615Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml",
+            "fetchedAt": "2026-08-15T16:39:46.677Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4",
+            "fetchedAt": "2026-08-15T16:38:52.343Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deadlymanners.libsyn.com/website"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/deadly-manners/id1289105780?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deadlymanners.libsyn.com/website"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deadlymanners.libsyn.com/website"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://deadlymanners.libsyn.com/website"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://rss.libsyn.com/shows/106958/destinations/578566.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:39:50.911Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:40:49.072Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "the-paragon-collective",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/deadly-manners",
+    "hasPage": true,
+    "image": "images/covers/deadly-manners.png",
+    "imageAlt": "Deadly Manners cover art",
+    "summary": "Deadly Manners is a 10 episode, dark comedy murder-mystery series set in the winter of 1954. It follows the events during the night of the affluent Billings family annual dinner party with their distinguished, eccentric guests. However, all is not fun and games as shortly after the party starts, a snowstorm begins to rage outside, trapping all the partygoers inside their host's mansion. When a murderer starts killing off those in attendance, the guests must figure out who is responsible, or at least how to stay alive -- lest they be next. Deadly Manners was created by Ali Garfinkel and Alex Aldea. Deadly Manners stars Kristen Bell, Denis O'Hare, Alisha Boe, RuPaul, Anna Chlumsky, Timothy Simons, Michelle Visage, Alona Tal, David Cummings and is narrated by LeVar Burton. Artwork by Kina Lee.",
+    "finalRating": null,
+    "searchText": "deadly manners deadly manners is a 10 episode dark comedy murder mystery series set in the winter of 1954 it follows the events during the night of the affluent billings family annual dinner party with their distinguished eccentric guests however all is not fun and games as shortly after the party starts a snowstorm begins to rage outside trapping all the partygoers inside their host s mansion when a murderer starts killing off those in attendance the guests must figure out who is responsible or at least how to stay alive lest they be next deadly manners was created by ali garfinkel and alex aldea deadly manners stars kristen bell denis o hare alisha boe rupaul anna chlumsky timothy simons michelle visage alona tal david cummings and is narrated by levar burton artwork by kina lee drama comedy serialized deadly manners the paragon collective english unclear imported the paragon collective the paragon collective unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/deadly-manners-884a6ed53c-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/deadly-manners-884a6ed53c-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "aftershock",
+    "title": "Aftershock",
+    "subtitle": "",
+    "description": "Aftershock is a fast-paced thriller about a massive earthquake that destroys the West Coast, causing a mysterious island to rise up from the Pacific - with Sarah Wayne Callies (The Walking Dead), David Harbour (Stranger Things), Jeffrey Dean Morgan (The Walking Dead), and Tati Gabrielle (The 100). Hosted on Acast. See acast.com/privacy for more information.",
+    "cover": "images/covers/aftershock.jpg",
+    "coverAlt": "Aftershock cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4",
+      "website": "https://shows.acast.com/aftershock",
+      "rss": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Aftershock"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "2 seasons observed • at least 20 full episodes • 29 min median",
+      "seasons": 2,
+      "episodes": 20,
+      "avgEpisodeMinutes": 28,
+      "medianEpisodeMinutes": 29,
+      "minEpisodeMinutes": 22,
+      "maxEpisodeMinutes": 35,
+      "totalObservedHours": 9.4,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        2,
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 20,
+        "bonus": 2,
+        "trailer": 2
+      }
+    },
+    "releaseDates": {
+      "first": "2021-07-14",
+      "latest": "2023-09-27",
+      "latestFeedItem": "2023-10-04"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://shows.acast.com/aftershock",
+      "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717"
+    },
+    "credits": {
+      "creatorName": "Nomadic Engine",
+      "ownerName": "Nomadic Engine"
+    },
+    "creators": [
+      "Nomadic Engine"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://shows.acast.com/aftershock/episodes/6864aaf92afa19dc3deda315; https://shows.acast.com/aftershock/episodes/6864aaf921108b98c93921b9; https://shows.acast.com/aftershock/episodes; https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717; https://shows.acast.com/aftershock; https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5; https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://shows.acast.com/aftershock/episodes/6864aaf92afa19dc3deda315",
+        "https://shows.acast.com/aftershock/episodes/6864aaf921108b98c93921b9",
+        "https://shows.acast.com/aftershock/episodes",
+        "https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717",
+        "https://shows.acast.com/aftershock",
+        "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5",
+        "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama"
+      ],
+      "importOfficialSummary": "Aftershock is a fast-paced thriller about a massive earthquake that destroys the West Coast, causing a mysterious island to rise up from the Pacific - with Sarah Wayne Callies (The Walking Dead), David Harbour (Stranger Things), Jeffrey Dean Morgan (The Walking Dead), and Tati Gabrielle (The 100). Hosted on Acast. See acast.com/privacy for more information.",
+      "socialUrls": [
+        "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717",
+        "http://x.com/intent/tweet?url=https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717&via=acast&text=Aftershock"
+      ],
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "2024 Nomadic Engine, LLC © Any use of this intellectual property for text and data mining or computational analysis including as training material for artificial intelligence systems is strictly prohibited without express written consent.",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5",
+          "appleCollectionId": "1573594705",
+          "feedRedirects": [
+            "https://feeds.acast.com/public/shows/aftershock"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/aftershock/episodes/6864aaf92afa19dc3deda315",
+            "fetchedAt": "2026-08-15T16:39:48.144Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/aftershock/episodes/6864aaf921108b98c93921b9",
+            "fetchedAt": "2026-08-15T16:39:48.141Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/aftershock/episodes",
+            "fetchedAt": "2026-08-15T16:39:48.139Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717",
+            "fetchedAt": "2026-08-15T16:39:48.137Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://shows.acast.com/aftershock",
+            "fetchedAt": "2026-08-15T16:39:48.135Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5",
+            "fetchedAt": "2026-08-15T16:39:46.246Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4",
+            "fetchedAt": "2026-08-15T16:38:52.310Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/aftershock"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/aftershock/episodes"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/aftershock/id1573594705?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/aftershock"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/aftershock"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://shows.acast.com/aftershock/episodes/6864aaf2cc507bdab6661717"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.acast.com/public/shows/6864aae8cc507bdab66612e5"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:39:48.238Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:40:49.087Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "nomadic-engine",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/aftershock",
+    "hasPage": true,
+    "image": "images/covers/aftershock.jpg",
+    "imageAlt": "Aftershock cover art",
+    "summary": "Aftershock is a fast-paced thriller about a massive earthquake that destroys the West Coast, causing a mysterious island to rise up from the Pacific - with Sarah Wayne Callies (The Walking Dead), David Harbour (Stranger Things), Jeffrey Dean Morgan (The Walking Dead), and Tati Gabrielle (The 100). Hosted on Acast. See acast.com/privacy for more information.",
+    "finalRating": null,
+    "searchText": "aftershock aftershock is a fast paced thriller about a massive earthquake that destroys the west coast causing a mysterious island to rise up from the pacific with sarah wayne callies the walking dead david harbour stranger things jeffrey dean morgan the walking dead and tati gabrielle the 100 hosted on acast see acast com privacy for more information drama serialized aftershock nomadic engine english unclear imported nomadic engine nomadic engine unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/aftershock-88ebf60b81-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/aftershock-88ebf60b81-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "mordeo",
+    "title": "Mordeo",
+    "subtitle": "",
+    "description": "One month after two brothers disappear in the Monongahela Forest, the lone survivor of the pair emerges starving, disoriented, and traumatized. While attempting to re-establish a normal life, the harrowing events from the woods continue to haunt him–and his darkest secret threatens to turn him into the very monster he believed he had fled.",
+    "cover": "images/covers/mordeo.jpg",
+    "coverAlt": "Mordeo cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4",
+      "website": "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+      "rss": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Mordeo"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ],
+    "length": {
+      "label": "1 season observed • at least 10 full episodes • 27 min median",
+      "seasons": 1,
+      "episodes": 10,
+      "avgEpisodeMinutes": 27,
+      "medianEpisodeMinutes": 27,
+      "minEpisodeMinutes": 25,
+      "maxEpisodeMinutes": 29,
+      "totalObservedHours": 4.5,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 10,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2021-06-02",
+      "latest": "2021-08-04",
+      "latestFeedItem": "2025-08-19"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+    },
+    "credits": {
+      "creatorName": "iHeartPodcasts",
+      "ownerName": "iHeartPodcasts",
+      "network": "iHeart"
+    },
+    "creators": [
+      "iHeartPodcasts"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/; https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/; https://www.iheart.com/podcast/1119-mordeo-82896033/; https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rs; https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "12 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "application/srt",
+        "text/vtt",
+        "text/plain"
+      ],
+      "transcriptLanguages": [
+        "English"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/",
+        "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/",
+        "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+        "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rs",
+        "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction"
+      ],
+      "importOfficialSummary": "One month after two brothers disappear in the Monongahela Forest, the lone survivor of the pair emerges starving, disoriented, and traumatized. While attempting to re-establish a normal life, the harrowing events from the woods continue to haunt him–and his darkest secret threatens to turn him into the very monster he believed he had fled.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "copyright": "2026 iHeartMedia, Inc. © Any use of this intellectual property for text and data mining or computational analysis including as training material for artificial intelligence systems is strictly prohibited without express written consent from iHeartMedia",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "rssUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss",
+          "appleCollectionId": "1567069791",
+          "feedRedirects": [
+            "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rs"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/",
+            "fetchedAt": "2026-08-15T16:38:51.533Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/",
+            "fetchedAt": "2026-08-15T16:38:51.506Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+            "fetchedAt": "2026-08-15T16:38:51.496Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss",
+            "fetchedAt": "2026-08-15T16:38:48.965Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4",
+            "fetchedAt": "2026-08-15T16:38:48.697Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T16:38:51.632Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T16:40:49.089Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "iheartpodcasts",
+    "networkId": "iheart",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/mordeo",
+    "hasPage": true,
+    "image": "images/covers/mordeo.jpg",
+    "imageAlt": "Mordeo cover art",
+    "summary": "One month after two brothers disappear in the Monongahela Forest, the lone survivor of the pair emerges starving, disoriented, and traumatized. While attempting to re-establish a normal life, the harrowing events from the woods continue to haunt him–and his darkest secret threatens to turn him into the very monster he believed he had fled.",
+    "finalRating": null,
+    "searchText": "mordeo one month after two brothers disappear in the monongahela forest the lone survivor of the pair emerges starving disoriented and traumatized while attempting to re establish a normal life the harrowing events from the woods continue to haunt him and his darkest secret threatens to turn him into the very monster he believed he had fled drama serialized mordeo iheartpodcasts english english unclear imported iheartpodcasts iheartpodcasts iheart 12 observed episodes available in structured transcript data 1 application srt text vtt text plain english",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/mordeo-2a77f058ee-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/mordeo-2a77f058ee-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]

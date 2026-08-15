@@ -1,0 +1,686 @@
+{
+  "id": "mordeo",
+  "title": "Mordeo",
+  "subtitle": "",
+  "description": "One month after two brothers disappear in the Monongahela Forest, the lone survivor of the pair emerges starving, disoriented, and traumatized. While attempting to re-establish a normal life, the harrowing events from the woods continue to haunt him–and his darkest secret threatens to turn him into the very monster he believed he had fled.",
+  "cover": "images/covers/mordeo.jpg",
+  "coverAlt": "Mordeo cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4",
+    "website": "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+    "rss": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Mordeo"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 27 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 27,
+    "medianEpisodeMinutes": 27,
+    "minEpisodeMinutes": 25,
+    "maxEpisodeMinutes": 29,
+    "totalObservedHours": 4.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2021-06-02",
+    "latest": "2021-08-04",
+    "latestFeedItem": "2025-08-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "iHeartPodcasts",
+    "ownerName": "iHeartPodcasts",
+    "network": "iHeart"
+  },
+  "creators": [
+    "iHeartPodcasts"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/; https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/; https://www.iheart.com/podcast/1119-mordeo-82896033/; https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rs; https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "12 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 1,
+    "transcriptFormats": [
+      "application/srt",
+      "text/vtt",
+      "text/plain"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/",
+      "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/",
+      "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+      "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rs",
+      "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "One month after two brothers disappear in the Monongahela Forest, the lone survivor of the pair emerges starving, disoriented, and traumatized. While attempting to re-establish a normal life, the harrowing events from the woods continue to haunt him–and his darkest secret threatens to turn him into the very monster he believed he had fled.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2026 iHeartMedia, Inc. © Any use of this intellectual property for text and data mining or computational analysis including as training material for artificial intelligence systems is strictly prohibited without express written consent from iHeartMedia",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss",
+        "appleCollectionId": "1567069791",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rs"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/",
+          "fetchedAt": "2026-08-15T16:38:51.533Z",
+          "payloadHash": "aeba309e7056a1c70a65e3dc651f1474c9c211db065a5ee18c1a3b18d910aeb0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/",
+          "fetchedAt": "2026-08-15T16:38:51.506Z",
+          "payloadHash": "60c0fb017e0c19297c8aad43199bf3698bcb845d19c6265f14b5bcb501c35c01"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/",
+          "fetchedAt": "2026-08-15T16:38:51.496Z",
+          "payloadHash": "7ea7f0d1fe89eb8734613224531d095ace6fb3448a0f9fe9fce0b3389250c752"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss",
+          "fetchedAt": "2026-08-15T16:38:48.965Z",
+          "payloadHash": "d3ba3b1b49587d3492359649eed1745e2880e4b2e11831d93071e3149d59d00a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4",
+          "fetchedAt": "2026-08-15T16:38:48.697Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mordeo/id1567069791?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/introducing-mordeo-82896039/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.iheart.com/podcast/1119-mordeo-82896033/episode/is-this-really-me-83225536/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.omnycontent.com/d/playlist/e73c998e-6e60-432f-8610-ae210140c5b1/9800e67f-d3fa-432a-a27f-ae39006db2aa/7a56c675-d78d-4123-a69b-ae39006db2b8/podcast.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T16:38:51.632Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "7e3e4d92e42170ecc73d7bde23e98353a709d596de51b5ac86813e21fc5fca1b",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "b30150a361b7cd666b4bc0da4473a0e8392610d67786f85e0df2183036e76793",
+        "cover": "c9ba3aa06dd316a1486c7b7bbd52363c17c95d9eb2b8c2e2e12b9a7025eced45",
+        "coverAlt": "685d77d01e188b3a0865c99fc0eeaa79d18d4f9fee4b37f86f10b66a1e1bf76f",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "3c167858121c511142504f9d0b09baa4f89cfd6c6c47eb382dcfcc56df3db45d",
+        "officialLinks": "505102bf88eeb8ffe831646a7fd7008783b400ba743198af3293a12ae34b0240",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "5e13cfc9e18f99230773d21d22a4fdf9257a781f28cd139631565c028d5214a7",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "001c37291d7c83f0988937c0bf78bd1ad1853417ec19ee3b047628c6ef7b1cb2",
+        "releaseDates": "e1a827491f04c55f9a140eefdd2479b5e42b4bf0f950aaef60d4308564ac104a",
+        "credits": "8fdefe988337c75316bbd77647ad37d7a827b54f21bf3e007dfbe77dd5727bbf",
+        "creators": "cfa2ef880109dacb10532087aec4061d39225dc6ea31838358709f4dc2e319cb",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "8d748a81782f3f78df7198c6511fa0d830a0ad6587a776b5bc270927a0bfd50f",
+        "verification": "01b1d590fe565789914024e2ce682407b1b03132da30b4dfcc8e2e154868685c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T16:40:49.089Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "iheartpodcasts",
+  "networkId": "iheart"
+}

@@ -74,32 +74,32 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 100,P1,Bad Vibes,QCODE,26708451-fdbd-4819-a937-1fa7a2ff5426,needs-review,needs-review,source-conflict,2026-08-15 16:36:02
 101,P1,Beautiful Liar,QCODE,04634dd5-77d1-4513-9976-dbfbd148b867,needs-review,needs-review,source-conflict,2026-08-15 16:35:00
 102,P1,Bloodthirsty Hearts,QCODE,177faf28-4c4e-4458-a09c-6881bb64d831,needs-review,needs-review,source-conflict,2026-08-15 16:34:00
-103,P1,Classified,QCODE,,unattempted,,,
-104,P1,Cupid,QCODE,,unattempted,,,
-105,P1,Dirty Diana,QCODE,,unattempted,,,
-106,P1,Edith!,QCODE / Crooked Media,,unattempted,,,
-107,P1,Electric Easy,QCODE,,unattempted,,,
-108,P1,Gaslight,QCODE,,unattempted,,,
-109,P1,Ghost Tape,QCODE,,unattempted,,,
-110,P1,Last Known Position,QCODE,,unattempted,,,
-111,P1,Listening In,QCODE,,unattempted,,,
-112,P1,Narcissa,QCODE,,unattempted,,,
-113,P1,Ronstadt,QCODE,,unattempted,,,
-114,P1,Soft Voice,QCODE,,unattempted,,,
-115,P1,The Foxes of Hydesville,QCODE,,unattempted,,,
-116,P1,The Lower Bottoms,QCODE,,unattempted,,,
-117,P1,The Prophecy,QCODE,,unattempted,,,
-118,P1,Unwanted,QCODE,,unattempted,,,
-120,P1,Black Box,QCODE,,unattempted,,,
+103,P1,Classified,QCODE,a98ef188-b8df-4357-90ea-37c696c87002,needs-review,needs-review,source-conflict,2026-08-15 16:40:48
+104,P1,Cupid,QCODE,cad6b772-def3-44dd-9928-c44cd0eee90f,needs-review,needs-review,source-conflict,2026-08-15 16:37:48
+105,P1,Dirty Diana,QCODE,df7d2415-34f2-453b-807f-a2abe5867939,needs-review,needs-review,source-conflict,2026-08-15 16:38:48
+106,P1,Edith!,QCODE / Crooked Media,385b93e4-1d42-462b-a59f-f46b547aeb9d,needs-review,needs-review,source-conflict,2026-08-15 16:40:47
+107,P1,Electric Easy,QCODE,3bd54773-2b36-481b-b8d3-8e54347aaa2c,needs-review,needs-review,source-conflict,2026-08-15 16:39:47
+108,P1,Gaslight,QCODE,e998045f-c036-4b15-9670-a5b2d2d0c724,needs-review,needs-review,source-conflict,2026-08-15 16:37:49
+109,P1,Ghost Tape,QCODE,85347c65-4130-45c6-a321-ca722c0f1c65,needs-review,needs-review,source-conflict,2026-08-15 16:37:48
+110,P1,Last Known Position,QCODE,1edeb08f-1933-44f2-b6f4-f029c33aa527,needs-review,needs-review,source-conflict,2026-08-15 16:39:52
+111,P1,Listening In,QCODE,b6ba104c-d209-4d80-b8db-9fc88bf2c05e,needs-review,needs-review,source-conflict,2026-08-15 16:37:51
+112,P1,Narcissa,QCODE,2fe91603-b42c-444b-80b7-98946549cb53,needs-review,needs-review,source-conflict,2026-08-15 16:37:47
+113,P1,Ronstadt,QCODE,9f0a05ce-9c2a-419e-a0ca-f24281dd9439,published,published,,2026-08-15 16:40:51
+114,P1,Soft Voice,QCODE,1a9533c3-6b32-491a-a50d-d0ffa4e4cc53,needs-review,needs-review,source-conflict,2026-08-15 16:38:50
+115,P1,The Foxes of Hydesville,QCODE,cafee86a-ac81-4a56-af56-148fa5eaf600,published,published,,2026-08-15 16:40:51
+116,P1,The Lower Bottoms,QCODE,e619da78-a7d2-4bc0-aa4a-bf1caec38aed,needs-review,needs-review,source-conflict,2026-08-15 16:39:52
+117,P1,The Prophecy,QCODE,be574bac-c635-4b9c-a40a-1d28dd71a9d2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 16:40:48
+118,P1,Unwanted,QCODE,5ebe7617-100a-4efd-a166-6536bf6fc214,needs-review,needs-review,source-conflict,2026-08-15 16:39:53
+120,P1,Black Box,QCODE,88e67197-9c66-49e0-9bae-04e4971f1964,needs-review,needs-review,missing-genre; source-conflict,2026-08-15 16:37:47
 121,P0,1865,Airship / Wondery,e46092f0-ba57-49e2-b3c7-0a1b2052158c,published,published,,2026-08-15 15:56:22
-122,P1,Terms,Wondery,,unattempted,,,
-123,P1,Exeter,Sundance Now,,unattempted,,,
-124,P1,Hunted,Endeavor Audio,,unattempted,,,
-125,P1,Deadly Manners,The Paragon Collective,,unattempted,,,
-126,P1,13 Days of Halloween,Grim & Mild / iHeartPodcasts,,unattempted,,,
-127,P1,Aftershock,iHeartPodcasts,,unattempted,,,
-128,P1,Consumed,Grim & Mild / iHeartPodcasts,,unattempted,,,
-129,P1,Mordeo,Blumhouse Television / iHeartPodcasts,,unattempted,,,
+122,P1,Terms,Wondery,06bad4b5-4a75-49ba-ae95-4895ed09b74d,needs-review,needs-review,scope-review; source-conflict,2026-08-15 16:37:50
+123,P1,Exeter,Sundance Now,37c8cb67-06e5-4f43-84ce-f1d666e8e5ab,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 16:39:56
+124,P1,Hunted,Endeavor Audio,be02db53-007f-4913-8482-5242959e7e43,published,published,,2026-08-15 16:40:51
+125,P1,Deadly Manners,The Paragon Collective,428e227a-c4af-4601-9f1c-a988227c1f3a,published,published,,2026-08-15 16:40:51
+126,P1,13 Days of Halloween,Grim & Mild / iHeartPodcasts,7e62b5d4-97af-4976-aa38-279e7f0943f4,needs-review,needs-review,source-conflict,2026-08-15 16:38:50
+127,P1,Aftershock,iHeartPodcasts,1453e7b7-1608-47b6-8380-412a28e440f7,published,published,,2026-08-15 16:40:51
+128,P1,Consumed,Grim & Mild / iHeartPodcasts,febc0355-c859-4bc3-8883-1dd2a6e76149,needs-review,needs-review,source-conflict,2026-08-15 16:38:52
+129,P1,Mordeo,Blumhouse Television / iHeartPodcasts,1e01cd17-298a-4d02-b6e6-5ec45e527a3b,published,published,,2026-08-15 16:40:51
 130,P0,The Mantawauk Caves,iHeartPodcasts,36d2cd44-6e62-4513-9d06-43d6d69a0c61,published,published,,2026-08-15 16:05:16
 131,P1,Strawberry Spring,iHeartPodcasts,,unattempted,,,
 132,P1,Tomorrow's Monsters,iHeartPodcasts,,unattempted,,,
@@ -335,7 +335,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 764,P1,Superhuman Public Radio,,,unattempted,,,
 765,P1,Super Ordinary,Tandon Productions,,unattempted,,,
 766,P1,JOSEPH,Ear Epic,,unattempted,,,
-767,P1,Black Box,Reverb,,unattempted,,,
+767,P1,Black Box,Reverb,88e67197-9c66-49e0-9bae-04e4971f1964,needs-review,needs-review,missing-genre; source-conflict,2026-08-15 16:37:47
 768,P1,The Second Oil Age,iHeartPodcasts,,unattempted,,,
 769,P1,The Drabblecast,Norm Sherman,,unattempted,,,
 770,P1,Beneath Ceaseless Skies Audio Fiction Podcasts,Beneath Ceaseless Skies,,unattempted,,,
@@ -349,7 +349,7 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 778,P1,Splintered Caravan,,,unattempted,,,
 779,P1,Once Upon a Wasteland: A Fallout Story,Brad Williams,,unattempted,,,
 780,P1,Evergreen,QCODE,,unattempted,,,
-781,P1,Birds of Empire,QCODE,,unattempted,,,
+781,P1,Birds of Empire,QCODE,e619da78-a7d2-4bc0-aa4a-bf1caec38aed,needs-review,needs-review,source-conflict,2026-08-15 16:39:52
 782,P1,ReMade,Realm,,unattempted,,,
 783,P1,Machina,Realm,,unattempted,,,
 784,P1,Ctrl-Alt-Destroy,Realm,,unattempted,,,
