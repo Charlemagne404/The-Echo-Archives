@@ -1326,10 +1326,10 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1326,P3,High Seas,,7b86bd89-db12-4d58-9d5f-87b0b686d286,needs-review,needs-review,source-conflict,2026-08-15 21:50:57
 1327,P3,ArtSound Radio Theatre,,df878b1b-f56c-49c0-9aa8-e80e7cc433a4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 21:49:55
 1328,P3,The Mysteries of Dr. John Thorndyke,,49aeb188-88c7-4f91-a77a-644b1c96d750,needs-review,needs-review,source-conflict,2026-08-15 21:52:00
-1329,P3,Bite Size Tales,,,unattempted,,,
-1330,P3,Echoes of Shadows,Helen McKenna,,unattempted,,,
-1331,P3,Anime Audio Drama Surge Saga,,,unattempted,,,
-1332,P3,Spiked Eggs Podcast,,,unattempted,,,
+1329,P3,Bite Size Tales,,757e7f82-ca84-4cf5-ad0f-ee719dda06e3,needs-review,needs-review,placeholder-description,2026-08-15 21:53:16
+1330,P3,Echoes of Shadows,Helen McKenna,000fc85a-613e-4565-b4b8-6e4094b0a80c,published,published,,2026-08-15 21:58:17
+1331,P3,Anime Audio Drama Surge Saga,,2d3b5db5-e706-4554-ade6-4f43227be5a8,published,published,,2026-08-15 21:58:17
+1332,P3,Spiked Eggs Podcast,,7fb440d5-3ce7-4f93-a73e-1de4b033024f,published,published,,2026-08-15 21:58:17
 1333,P1,Burned by a Paper Sun,Rusty Quill,a8a2c91e-0e5f-48c6-bacc-5348a427ee49,needs-review,needs-review,source-conflict,2026-08-15 17:44:05
 1334,P1,Did Titanic Sink?,RNZ Originals,99642df0-15e8-4884-ac01-5fe64dce49d7,needs-review,needs-review,scope-review,2026-08-15 17:44:15
 1335,P1,The Plate Show,PBS (Thirteen/WNET),5670da8f-46e8-437a-a31b-a7adda9166cc,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:44:10
@@ -1357,27 +1357,27 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1357,P2,Claybourne,,69e17d7a-ec0b-45e9-ba41-30fc6c849f15,needs-review,needs-review,insufficient-discovery-signals,2026-08-15 20:43:20
 1358,P2,First Light,Scott McGowan,29a88a01-fb08-40fe-8b08-7f9dde705af7,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:43:12
 1359,P2,The McSherry Cabinet,Paul McSherry,8371fa6d-1695-487a-badf-f96e7ffbf583,needs-review,needs-review,source-conflict,2026-08-15 20:44:24
-1360,P3,In Dying Days,,,unattempted,,,
-1361,P3,Our Doris,Charles Heathcote,,unattempted,,,
-1362,P3,Fun Fiction Stories for Kids,Abel Studios,,unattempted,,,
-1363,P3,Home of Scares,,,unattempted,,,
-1364,P3,Back of Bourke,3P Widget,,unattempted,,,
-1365,P3,The Henchman’s Journal,,,unattempted,,,
-1366,P3,Wandering Into the Void,,,unattempted,,,
-1367,P3,The Accursed,Jo Anna Dane,,unattempted,,,
-1368,P3,The Romcom Formula,Susan Cooper,,unattempted,,,
-1369,P3,Journey (Emmett Forkin),,,unattempted,,,
-1370,P3,The Cold Plunge,,,unattempted,,,
-1371,P3,True Urban Legends,Rogue Media Network,,unattempted,,,
-1372,P3,Chongqing Punk,,,unattempted,,,
-1373,P3,Demonic Lover,,,unattempted,,,
-1374,P3,Spectral Stories,,,unattempted,,,
-1375,P3,Shhhtories,,,unattempted,,,
-1376,P3,The Shady Tree,,,unattempted,,,
-1377,P3,A Dream Too Heroic (The Hero of Korvalin),,,unattempted,,,
-1378,P3,Just Enough Dead,OutWrd,,unattempted,,,
-1379,P3,Strange Country,Seth Ervin,,unattempted,,,
-1380,P3,Hunter of the Setting Sun,,,unattempted,,,
+1360,P3,In Dying Days,,af630e02-fa54-45fd-adee-9b22e58bfab4,published,published,,2026-08-15 21:58:17
+1361,P3,Our Doris,Charles Heathcote,74a9949f-0dea-4cee-87e4-71881c919a56,needs-review,needs-review,source-conflict,2026-08-15 21:58:13
+1362,P3,Fun Fiction Stories for Kids,Abel Studios,9c02d16b-ac30-44a7-8e97-8787e070c73b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 21:55:20
+1363,P3,Home of Scares,,1d3ebe72-d050-4ce3-90c5-a189e32249da,needs-review,needs-review,source-conflict,2026-08-15 21:53:19
+1364,P3,Back of Bourke,3P Widget,560666ba-e9cd-4827-a786-3d285e19b363,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-apple-link; scope-review; source-conflict,2026-08-15 21:54:21
+1365,P3,The Henchman’s Journal,,cae9de64-9509-4818-95ab-359526e5bedb,published,published,,2026-08-15 21:58:17
+1366,P3,Wandering Into the Void,,b38546b2-2437-499c-90d4-9ddef38dd33a,needs-review,needs-review,insufficient-discovery-signals; missing-genre; invalid-website; scope-review; source-conflict,2026-08-15 21:55:22
+1367,P3,The Accursed,Jo Anna Dane,ee7360e0-6418-468d-86cd-eaee6cbda3ea,published,published,,2026-08-15 21:58:17
+1368,P3,The Romcom Formula,Susan Cooper,8c411902-981e-40db-8efb-d747a29c88b9,published,published,,2026-08-15 21:58:17
+1369,P3,Journey (Emmett Forkin),,903b21a5-fb19-4542-a22f-1d3a6cea3d4c,needs-review,needs-review,source-conflict,2026-08-15 21:54:19
+1370,P3,The Cold Plunge,,7610845e-40bf-4b64-8588-80da1008d903,published,published,,2026-08-15 21:58:17
+1371,P3,True Urban Legends,Rogue Media Network,ad618db9-417f-4246-99cc-cff4efb56c6f,published,published,,2026-08-15 21:58:17
+1372,P3,Chongqing Punk,,3eeb0d11-ffdc-4fd5-831c-6842f75d367a,published,published,,2026-08-15 21:58:17
+1373,P3,Demonic Lover,,852773e1-010f-4dcd-801b-f8285f0b6932,needs-review,needs-review,source-conflict,2026-08-15 21:55:18
+1374,P3,Spectral Stories,,69e95b1c-e858-40ab-a118-7d627177ed86,needs-review,needs-review,source-conflict,2026-08-15 21:55:22
+1375,P3,Shhhtories,,a07107bc-9b3d-4349-b4ff-455a756d763d,needs-review,needs-review,source-conflict,2026-08-15 21:55:45
+1376,P3,The Shady Tree,,f3acd235-5304-43e6-8626-a5be1c0a0d57,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 21:54:19
+1377,P3,A Dream Too Heroic (The Hero of Korvalin),,2faf1ed7-fc55-4bbc-bf3a-77ecd7256009,published,published,,2026-08-15 21:58:17
+1378,P3,Just Enough Dead,OutWrd,bb604081-7136-4aff-931b-54e5bff8d2ff,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 21:54:19
+1379,P3,Strange Country,Seth Ervin,1542edf2-a2d3-489f-baca-74ec4068fb92,needs-review,needs-review,source-conflict,2026-08-15 21:54:22
+1380,P3,Hunter of the Setting Sun,,33da0120-5342-4948-9eac-1707fe420f2f,needs-review,needs-review,source-conflict,2026-08-15 21:54:19
 1381,P3,Dreamstar Chasers,,,unattempted,,,
 1382,P3,HumorUs Stories,Short StoryVerses,,unattempted,,,
 1383,P3,A Ballad of Inferno and Ruin,,,unattempted,,,

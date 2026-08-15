@@ -1,0 +1,672 @@
+{
+  "id": "the-romcom-formula",
+  "title": "The Romcom Formula",
+  "subtitle": "",
+  "description": "She narrates romance novels for a living… so naturally, she thinks she can control one in real life. In The Romcom Formula , a trope-obsessed narrator meddles in her sister’s love life, determined to spark a perfect neighbors-to-lovers romance with the hot handyman next door. Armed with forced proximity, slow-burn strategy, and wildly misplaced confidence, she sets the story in motion. Unfortunately, real people don’t follow the script. This is a fully scripted romantic comedy audio drama about what happens when romcom logic collides with reality… and refuses to behave. Think Emily Henry meets Fleabag with a Hallmark twist and a narrator who won’t stop interfering. 🎧 Binge all 9 episodes now Format: 9 episodes, 20–30 minutes Style: Full-cast audio drama with narrator-driven commentary Romantic comedy podcast, audio drama, romance tropes, meet cute, forced proximity, slow burn, full-cast audio fiction, fiction podcast",
+  "cover": "images/covers/the-romcom-formula.png",
+  "coverAlt": "The Romcom Formula cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4",
+    "website": "https://susancoopervo.com/the-romcom-formula",
+    "rss": "https://media.rss.com/the-romcom-formula/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Romcom Formula"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 21 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 20,
+    "maxEpisodeMinutes": 33,
+    "totalObservedHours": 3.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2026-01-22",
+    "latest": "2026-03-19",
+    "latestFeedItem": "2026-03-19",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://susancoopervo.com/the-romcom-formula",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Susan Cooper",
+    "ownerName": "Susan Cooper",
+    "network": "Susan Cooper VO"
+  },
+  "creators": [
+    "Susan Cooper"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://susancoopervo.com/the-romcom-formula; https://media.rss.com/the-romcom-formula/feed.xml; https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "11 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 1,
+    "transcriptFormats": [
+      "text/vtt"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://susancoopervo.com/the-romcom-formula",
+      "https://media.rss.com/the-romcom-formula/feed.xml",
+      "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Drama",
+      "95058950-0dd1-11f1-ac6f-216719ceaff2"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "She narrates romance novels for a living… so naturally, she thinks she can control one in real life. In The Romcom Formula , a trope-obsessed narrator meddles in her sister’s love life, determined to spark a perfect neighbors-to-lovers romance with the hot handyman next door. Armed with forced proximity, slow-burn strategy, and wildly misplaced confidence, she sets the story in motion. Unfortunately, real people don’t follow the script. This is a fully scripted romantic comedy audio drama about what happens when romcom logic collides with reality… and refuses to behave. Think Emily Henry meets Fleabag with a Hallmark twist and a narrator who won’t stop interfering. 🎧 Binge all 9 episodes now Format: 9 episodes, 20–30 minutes Style: Full-cast audio drama with narrator-driven commentary Romantic comedy podcast, audio drama, romance tropes, meet cute, forced proximity, slow burn, full-cast audio fiction, fiction podcast",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Soozinsta, LLC, 2025",
+      "explicit": "true",
+      "license": {
+        "value": "Soozinsta, LLC, 2025",
+        "url": ""
+      },
+      "productionLocation": "Atlanta, Atlanta, Fulton County, Georgia, 30303, USA",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "3f8de5cc-f7f2-5b30-9e90-8ce9f75b9e66",
+        "rssUrl": "https://media.rss.com/the-romcom-formula/feed.xml",
+        "appleCollectionId": "1836937324",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://susancoopervo.com/the-romcom-formula",
+          "fetchedAt": "2026-08-15T21:54:17.645Z",
+          "payloadHash": "e4cc78dff53741a49b911a83c4c1d8c0d3f632685e34f1ea6a8fba6dbb3b53d3"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml",
+          "fetchedAt": "2026-08-15T21:54:17.086Z",
+          "payloadHash": "01e02797469039305c847dc2613c4aa26c082f202646f4b09b18ad8ed5604aff"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4",
+          "fetchedAt": "2026-08-15T21:54:16.698Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-romcom-formula/id1836937324?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://susancoopervo.com/the-romcom-formula"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "location": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://susancoopervo.com/the-romcom-formula"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/the-romcom-formula/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:54:17.843Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "a016a8aca69621d53d2e3e14e29ad453e5d08c58d8a427ccb08f67d9423e7ac9",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3492bafd6db87e504e314cff0529269aab9af034021ec25b6134bd349486cdc2",
+        "cover": "b759191b94857598fcee818a5ab392b1660cb36e223a52f70239f7399235c08d",
+        "coverAlt": "b0a8ac9217f34383c609e2f9989561947579184e536cbd42dafb7bdedf05a5c7",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "15cfadf40407f44f1e1574c1db4972535446a320e6571329c5b35ffbcbce4c73",
+        "officialLinks": "3715a7fad30ad60a728047f7d8bd9aae6976abe522328a8da99fa00796ae31bd",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "f250ec9ad78f3dba973c982d65185db1c3e07e0bb67c4e40c3f7bc46ecffa5a3",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "27294993ccffe732140dc712e71bfff838bd3a5d9816fd6db6990966c29f8763",
+        "releaseDates": "6d05689d35c9db852d6373088469276413808f51e3c90ff68ad6221fd17bd20c",
+        "credits": "5e5bff7ffce09e2ec82d69458190d9dd9761d06358534983a203d3ec46dc7ab9",
+        "creators": "7d4642f0a6314d886b250cbfdd8565fcae8da1f7a8890f44b2cda5f3db4de3d9",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "5cdc289a17af6774fd11b212324d1a718435bc9ba94adade208a1425ff0fb123",
+        "verification": "9cc6bd3cbe46372f6ac6cdc1e81ff730113b905aaca9576e111018ababb996a2"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:58:13.813Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "susan-cooper",
+  "networkId": "susan-cooper-vo"
+}

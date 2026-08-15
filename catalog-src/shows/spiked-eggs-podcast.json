@@ -1,0 +1,848 @@
+{
+  "id": "spiked-eggs-podcast",
+  "title": "Spiked Eggs Podcast",
+  "subtitle": "",
+  "description": "Deliciously twisted, darkly comic tales with a foot in both the present and the reimagined past",
+  "cover": "images/covers/spiked-eggs-podcast.jpg",
+  "coverAlt": "Spiked Eggs Podcast cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1QEP7M67I01smUMcJcblkH",
+    "apple": "https://podcasts.apple.com/podcast/id1722874630",
+    "website": "https://spikedeggspodcast.buzzsprout.com/",
+    "rss": "https://rss.buzzsprout.com/2282049.rss",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/516b786f-516f-42cc-b7d3-165cea5a74ca",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Spiked Eggs Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 10 full episodes • 22 min median",
+    "seasons": 2,
+    "episodes": 10,
+    "avgEpisodeMinutes": 23,
+    "medianEpisodeMinutes": 22,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 34,
+    "totalObservedHours": 3.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 3,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2024-01-05",
+    "latest": "2025-05-07",
+    "latestFeedItem": "2025-05-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://spikedeggspodcast.buzzsprout.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://youtube.com/@SpikedEggspodcast",
+    "social": "https://www.facebook.com/profile.php?id=61555699954773",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Spiked Eggs Productions",
+    "ownerName": "Spiked Eggs Productions",
+    "network": "Buzzsprout"
+  },
+  "creators": [
+    "Spiked Eggs Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0; https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true; https://spikedeggspodcast.buzzsprout.com/2282049/about; https://spikedeggspodcast.buzzsprout.com/2282049/episodes; https://spikedeggspodcast.buzzsprout.com/; https://rss.buzzsprout.com/2282049.rss; https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0",
+      "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true",
+      "https://spikedeggspodcast.buzzsprout.com/2282049/about",
+      "https://spikedeggspodcast.buzzsprout.com/2282049/episodes",
+      "https://spikedeggspodcast.buzzsprout.com/",
+      "https://rss.buzzsprout.com/2282049.rss",
+      "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Deliciously twisted, darkly comic tales with a foot in both the present and the reimagined past",
+    "socialUrls": [
+      "https://www.facebook.com/profile.php?id=61555699954773",
+      "https://www.instagram.com/spikedeggs",
+      "https://x.com/spikedeggs"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 22,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2026 Spiked Eggs Podcast",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "c3f53f66-dacd-5e0e-86e0-16b9dfba3de6",
+        "rssUrl": "https://rss.buzzsprout.com/2282049.rss",
+        "appleCollectionId": "1722874630",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.buzzsprout.com/2282049.rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0",
+          "fetchedAt": "2026-08-15T21:55:21.300Z",
+          "payloadHash": "359c7b74b08ba5cb75cbf22d13ab5dd460e34e326657a89b71a5ff8040066709"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true",
+          "fetchedAt": "2026-08-15T21:55:21.298Z",
+          "payloadHash": "2e839329607898819907c651102b4505927426c5df83dc1393104b40f81c8d08"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about",
+          "fetchedAt": "2026-08-15T21:55:21.296Z",
+          "payloadHash": "654e7cef7b614ba3800e0440f63543d4ba7292f09e03995782f313bb87dc6566"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes",
+          "fetchedAt": "2026-08-15T21:55:21.293Z",
+          "payloadHash": "bdfdf80d416b17c976a3455fce4c0fc60dc9a9f3c55f61a677d28b44fbd5ee3f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/",
+          "fetchedAt": "2026-08-15T21:55:21.291Z",
+          "payloadHash": "d2d332d833d4e1a905b816e102ab81fb8a29190de42c9e059abb4938e0281bdf"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.buzzsprout.com/2282049.rss",
+          "fetchedAt": "2026-08-15T21:55:20.213Z",
+          "payloadHash": "b627a997aa5348e5ac157246f6457ce9d8e6edc17f37eaa0c0553b983e03ada0"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4",
+          "fetchedAt": "2026-08-15T21:55:20.009Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/spiked-eggs-podcast/id1722874630?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes/17091629-dark-ellie?t=0"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://spikedeggspodcast.buzzsprout.com/2282049/episodes?search=true"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.buzzsprout.com/2282049.rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:55:21.424Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "9b0eec6fe39692b751dbda9500e25640d3f92323ba43c25fe7c8a670f765c055",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "cecba72c72739643f6f730cd1dc061f9d84c69932f739bffb583083ec4d2c1da",
+        "cover": "2f159b75ff00c7ce2283f836338d7c865aa55fc93572aa92c07243c5180bd665",
+        "coverAlt": "9a4a4bc50bd1e609b6a55b3e94a32ae12699973b5c40b50b3ff731697731b6d4",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "d16c7f8f17044cbd818c480eba39c0707d383228ae052f4188e220c9e0a4a926",
+        "officialLinks": "e2080265e8afc63b8018dcf72ef1f85b7e8a8a65ea4192fa1abf6e6ea0038052",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "1054ed7c4c37dacf9f3a17c9903f82b3e16839c4adb2faac7c5dff223930ce3e",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "4ed67b7ddae5f0a36f471ef09a5ffa476debd4cb3161d71cde0989f834479634",
+        "releaseDates": "0561bfb2bc3d4db5c16f1c076f5db85c1eacdf3a4dd47b0fda2b29910e37efc8",
+        "credits": "2fd1a33991761e3ecea230a1b2483a72b785f466eaf62c3540cc5d54bb641860",
+        "creators": "7361cdca35d4d1ceeb67fe2588eda4ed4610586833c6111b278aae194df0c7fb",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "697f7bfc34ac93bf582e45a04e37a903a6cf712cc75b64cd9df082bce7cc00ca"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:58:13.792Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "spiked-eggs-productions",
+  "networkId": "buzzsprout"
+}
