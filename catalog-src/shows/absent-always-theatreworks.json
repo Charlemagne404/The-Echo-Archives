@@ -1,0 +1,714 @@
+{
+  "id": "absent-always-theatreworks",
+  "title": "Absent, Always Theatreworks",
+  "subtitle": "Absent, Always Theatreworks is a collection of original audio dramas about memory, longing, connection, and the moments that define us.",
+  "description": "Absent, Always Theatreworks is a collection of original audio dramas about memory, longing, connection, and the moments that define us. Thoughtful, cinematic, and emotionally resonant, each episode invites you into a quiet space where every silence means something.",
+  "cover": "images/covers/absent-always-theatreworks.jpg",
+  "coverAlt": "Absent, Always Theatreworks cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4",
+    "website": "https://absentalwaystheatreworks.net/",
+    "rss": "https://feeds.transistor.fm/absent-always-theatreworks",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Absent, Always Theatreworks"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 3 full episodes • 8 min median",
+    "episodes": 3,
+    "avgEpisodeMinutes": 8,
+    "medianEpisodeMinutes": 8,
+    "minEpisodeMinutes": 6,
+    "maxEpisodeMinutes": 11,
+    "totalObservedHours": 0.4,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 3,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2026-05-13",
+    "latest": "2026-06-28",
+    "latestFeedItem": "2026-06-28",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://absentalwaystheatreworks.net/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/absentalwaystheatreworks/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Jeffrey Billard",
+    "ownerName": "Jeffrey Billard",
+    "network": "absent, always theatreworks"
+  },
+  "creators": [
+    "Jeffrey Billard"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://absentalwaystheatreworks.net/httpsabsentalwaystheatreworksnetlisten-to-shows; https://absentalwaystheatreworks.net/; https://feeds.transistor.fm/absent-always-theatreworks; https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://absentalwaystheatreworks.net/httpsabsentalwaystheatreworksnetlisten-to-shows",
+      "https://absentalwaystheatreworks.net/",
+      "https://feeds.transistor.fm/absent-always-theatreworks",
+      "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+    ],
+    "sourceCategories": [
+      "Arts",
+      "Performing Arts",
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "Theatre",
+      "Audio Drama",
+      "Audio Fiction",
+      "Drama",
+      "Comedy",
+      "Poetry",
+      "Shakespeare",
+      "Audio Plays",
+      "Audio Theater"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Absent, Always Theatreworks is a collection of original audio dramas about memory, longing, connection, and the moments that define us. Thoughtful, cinematic, and emotionally resonant, each episode invites you into a quiet space where every silence means something.",
+    "socialUrls": [
+      "https://www.instagram.com/absentalwaystheatreworks/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 23,
+      "observedIntervals": 2
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Absent, Always Theatreworks",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "61a95cf9-38ff-5e81-b1aa-fdea435f4fc3",
+        "rssUrl": "https://feeds.transistor.fm/absent-always-theatreworks",
+        "appleCollectionId": "1896639297",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://absentalwaystheatreworks.net/httpsabsentalwaystheatreworksnetlisten-to-shows",
+          "fetchedAt": "2026-08-15T21:46:23.354Z",
+          "payloadHash": "51442a2b668cd2ab3a6de0eb42efde6dac2fe2780137296080f76ab9e8624e25"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://absentalwaystheatreworks.net/",
+          "fetchedAt": "2026-08-15T21:46:23.350Z",
+          "payloadHash": "04a1143c6cf34c1c9adb69618bc3b3155e0fdfa0f6891226f1227b386a4a8c4b"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks",
+          "fetchedAt": "2026-08-15T21:46:22.530Z",
+          "payloadHash": "1b8cfd4000c1fc5eb379789e1e5341665e0c224277e83916008831b2da860c59"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4",
+          "fetchedAt": "2026-08-15T21:46:22.288Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/absent-always-theatreworks/id1896639297?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/httpsabsentalwaystheatreworksnetlisten-to-shows"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/httpsabsentalwaystheatreworksnetlisten-to-shows"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://absentalwaystheatreworks.net/httpsabsentalwaystheatreworksnetlisten-to-shows"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/absent-always-theatreworks"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:46:24.722Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d5a1bf4510789d604f99e8667cc2d524a11159f5051fa1965c1b578920b8bc3b",
+        "subtitle": "87c6509c7e22c813b8d0add4cb16cc8e90cfae5797f40a7a43a97cf0d50dde52",
+        "description": "fcebca5f924bcd804c6078152f52356aca0284b6bf7a68f5c36d867a719d6573",
+        "cover": "cb0fa4b29c30fa915688032705426fbe8f45f82d719d1e84ebdf3c325a2a1eda",
+        "coverAlt": "c0541989f545e4a6f9adb356a0ddc3332e09c1964419df4c51230e772432a36e",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "637eaec7f3c58d86837b91e87a6f5dc6563ed5e3644778f68c474a47e3a4c3cd",
+        "officialLinks": "594caec1d3fd6b60fc79d161671cfd947eba7bb6e5aa0a6de5686cd37574430e",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "e43638567da71cbcb6a565a0e6a1b4e11aa8fe511f6aa27b3899c9df1bfc68bb",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "e49d7356882e25bb197220b827527c87bb29222a54c11168c8880d82ad36ff93",
+        "releaseDates": "01433a98406c99ff24ab01c8f27d7ba8c5539430d23c8503a865a78c5880eb80",
+        "credits": "6f6d2a3774f75c548d53ad3a71cb2bf8d839b6facc48aada85abc815e29b3656",
+        "creators": "0a5e461aea418dcb8482fe69aa179a79df7b946147344aaaf93c1b3e2d9887b2",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "d5c306f0ad49dba5eb9d61bcb7350aaf651e723b91c7ac97e9b9d74986ddcd3f"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:49:29.742Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "jeffrey-billard",
+  "networkId": "absent-always-theatreworks"
+}

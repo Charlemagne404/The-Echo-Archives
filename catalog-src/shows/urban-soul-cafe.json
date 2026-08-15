@@ -1,0 +1,695 @@
+{
+  "id": "urban-soul-cafe",
+  "title": "Urban Soul Cafe",
+  "subtitle": "At Urban Soul Cafe we're serving up dramatic and humorous episodic fiction intended to uplift, motivate and inspire women everywhere.",
+  "description": "At Urban Soul Cafe we're serving up dramatic and humorous episodic fiction intended to uplift, motivate and inspire women everywhere.",
+  "cover": "images/covers/urban-soul-cafe.jpg",
+  "coverAlt": "Urban Soul Cafe cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4",
+    "website": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104",
+    "rss": "https://www.spreaker.com/show/4281104/episodes/feed",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Urban Soul Cafe"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 9 full episodes • 13 min median",
+    "episodes": 9,
+    "avgEpisodeMinutes": 13,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 25,
+    "totalObservedHours": 1.9,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-03-25",
+    "latest": "2023-06-26",
+    "latestFeedItem": "2023-06-26",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Dimitri Logan",
+    "ownerName": "Dimitri Logan",
+    "network": "Spreaker"
+  },
+  "creators": [
+    "Dimitri Logan"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.spreaker.com/episode/sunday-brunch-episode-2--32355787; https://www.spreaker.com/episode/you-feel-me--52459644; https://www.spreaker.com/episode/keeping-secrets-episode-2--52599208; https://www.spreaker.com/episode/keeping-secrets-episode-3--55158167; https://www.spreaker.com/podcast/urban-soul-cafe--4281104; https://www.spreaker.com/show/4281104/episodes/feed; https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.spreaker.com/episode/sunday-brunch-episode-2--32355787",
+      "https://www.spreaker.com/episode/you-feel-me--52459644",
+      "https://www.spreaker.com/episode/keeping-secrets-episode-2--52599208",
+      "https://www.spreaker.com/episode/keeping-secrets-episode-3--55158167",
+      "https://www.spreaker.com/podcast/urban-soul-cafe--4281104",
+      "https://www.spreaker.com/show/4281104/episodes/feed",
+      "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "At Urban Soul Cafe we're serving up dramatic and humorous episodic fiction intended to uplift, motivate and inspire women everywhere.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright Dimitri Logan",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.spreaker.com/show/4281104/episodes/feed",
+        "appleCollectionId": "1504377436",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/sunday-brunch-episode-2--32355787",
+          "fetchedAt": "2026-08-15T21:48:29.970Z",
+          "payloadHash": "92f7df3edad71c8dfd4519870a13bc778d18b7300c7cc1634d264b5b4c2016d5"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/you-feel-me--52459644",
+          "fetchedAt": "2026-08-15T21:48:29.961Z",
+          "payloadHash": "9f1b6e823d178a7af23856753a340f0d6f62d12278a85022405b6f55725bf341"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/keeping-secrets-episode-2--52599208",
+          "fetchedAt": "2026-08-15T21:48:29.952Z",
+          "payloadHash": "497eaad2f21c1986314b5580abea420921db68f94e0c475431f19853982785a4"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/episode/keeping-secrets-episode-3--55158167",
+          "fetchedAt": "2026-08-15T21:48:29.941Z",
+          "payloadHash": "299520a3b1e2f3de6179adf8afba43ace7bf76d6cb7ad9b5f15bbf4e58a87439"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104",
+          "fetchedAt": "2026-08-15T21:48:29.925Z",
+          "payloadHash": "2a9e2e5e37bc8277f5379ae52234dc79bbc31f85f997ad30231861f3255b1b03"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed",
+          "fetchedAt": "2026-08-15T21:48:26.707Z",
+          "payloadHash": "bed152a4e59cf497a7bf31d4190ed18aee1b1dc29f89b64948eb283414e02ae7"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4",
+          "fetchedAt": "2026-08-15T21:48:26.603Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/keeping-secrets-episode-3--55158167"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/keeping-secrets-episode-2--52599208"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/you-feel-me--52459644"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/sunday-brunch-episode-2--32355787"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/urban-soul-cafe/id1504377436?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/podcast/urban-soul-cafe--4281104"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/keeping-secrets-episode-3--55158167"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/keeping-secrets-episode-2--52599208"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/you-feel-me--52459644"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.spreaker.com/episode/sunday-brunch-episode-2--32355787"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4281104/episodes/feed"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:48:30.122Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "42f663d8a53343076d4f3d4e918b18ea5531daafc4a333fefb891a01896c9884",
+        "subtitle": "689cd1ef0fd0a24d3709e8f7217a3e8831e92d31fea628dc4d9186958f42fa45",
+        "description": "689cd1ef0fd0a24d3709e8f7217a3e8831e92d31fea628dc4d9186958f42fa45",
+        "cover": "4550cb63e30740206bc3219efa893ee01897c4db08d14cea28fbc6b645d0331f",
+        "coverAlt": "d159e3fa6f1f46871d0d3567e9666e3a65d04ac1ecb025993adae556fa14b6be",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "1aaf16b9adb2b4ccf82971b19b5a2a553b282efbe0c2a8d85a736ef83c433e69",
+        "officialLinks": "c4dfb30b61027b12ff0bda63c496755156a022831f257e0b2517d0ec3ac32ad3",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "a7b9d94899462f3e378930735967fb9a4cf6e9398174790a07a0f12c6624665b",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "9f5af258332fe10a6cbc4e2698668ea2da62f97e3b379d84859a211ec8cc0420",
+        "releaseDates": "47446e769cce5b0c8e61faaf9b64181fefae87f338ecba40cbebeec30acdbb03",
+        "credits": "6242986dfbb7ca98d339654ed36f557517e134699500bc44cc88b8df33fb6b79",
+        "creators": "3600f7e48839fb8f960a66b43ba9a25d0505c1df5766636573ad337ecf2e1513",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "1c2765340da3d684b319eb2e7247256990692d32eb18f89140df608c93a2b571"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:49:29.735Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "dimitri-logan",
+  "networkId": "spreaker"
+}

@@ -1,0 +1,786 @@
+{
+  "id": "aaveloura-studios",
+  "title": "AAVELOURA Studios",
+  "subtitle": "",
+  "description": "Audio Dramas, Audio Plays, and Read-Alongs produced and crafted by AAVELOURA Studios in association with Velour Audio Artistry.",
+  "cover": "images/covers/aaveloura-studios.png",
+  "coverAlt": "AAVELOURA Studios cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/033EgKfntZdDM9qUChOaDw",
+    "apple": "https://podcasts.apple.com/podcast/id6784068038",
+    "website": "https://rss.com/podcasts/aaveloura-studios/",
+    "rss": "https://media.rss.com/aaveloura-studios/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/c9150cad-f83f-4fbf-a94e-d9700166243e",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "AAVELOURA Studios"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 2 full episodes • 56 min median",
+    "seasons": 1,
+    "episodes": 2,
+    "avgEpisodeMinutes": 56,
+    "medianEpisodeMinutes": 56,
+    "minEpisodeMinutes": 51,
+    "maxEpisodeMinutes": 61,
+    "totalObservedHours": 1.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 2,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2026-06-25",
+    "latest": "2026-08-02",
+    "latestFeedItem": "2026-08-02",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://rss.com/podcasts/aaveloura-studios/",
+    "patreon": "",
+    "koFi": "https://ko-fi.com/aaveloura",
+    "discord": "",
+    "youtube": "https://www.youtube.com/rsscom/",
+    "social": "https://www.facebook.com/rss.podcasting",
+    "funding": "https://ko-fi.com/aaveloura"
+  },
+  "credits": {
+    "creatorName": "AAVELOURA",
+    "ownerName": "AAVELOURA",
+    "network": "RSS.com",
+    "writers": [
+      "AAVELOURA"
+    ],
+    "people": [
+      {
+        "name": "AAVELOURA",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "AAVELOURA"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.com/podcasts/aaveloura-studios/; https://media.rss.com/aaveloura-studios/feed.xml; https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.com/podcasts/aaveloura-studios/",
+      "https://media.rss.com/aaveloura-studios/feed.xml",
+      "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Arts",
+      "Performing Arts",
+      "false"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Audio Dramas, Audio Plays, and Read-Alongs produced and crafted by AAVELOURA Studios in association with Velour Audio Artistry.",
+    "socialUrls": [
+      "https://www.facebook.com/rss.podcasting",
+      "https://twitter.com/rss",
+      "https://www.instagram.com/rss_podcasting/"
+    ],
+    "funding": [
+      {
+        "url": "https://ko-fi.com/aaveloura",
+        "label": "Support Us"
+      }
+    ],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 39,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "AAVELOURA Studios 2026",
+      "explicit": "false",
+      "license": {
+        "value": "AAVELOURA Studios 2026",
+        "url": ""
+      },
+      "productionLocation": "Nevada, USA",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "8a7706d1-de6b-5863-899b-3b069668b5a1",
+        "rssUrl": "https://media.rss.com/aaveloura-studios/feed.xml",
+        "appleCollectionId": "6784068038",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/",
+          "fetchedAt": "2026-08-15T21:48:31.710Z",
+          "payloadHash": "83cf0d7b1fc5cfcc4ecb119dfaf84e8f76066808161918e0b0fc1b4d25cf1015"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml",
+          "fetchedAt": "2026-08-15T21:48:31.184Z",
+          "payloadHash": "7f6f6eb190271676dcbf7da0d51efb3f219185464302897f00ac28e4ab287a80"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4",
+          "fetchedAt": "2026-08-15T21:48:30.764Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/aaveloura-studios/id6784068038?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "location": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "koFiUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/aaveloura-studios/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/aaveloura-studios/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:48:32.714Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "eea1ef8c94a23a393c12179958c1c37d404ccad6dc36fb6d88481879f79e40d1",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "971a5eea76ea7a2e74658fa1e96022d8d71594ea4075eeae01451a10ac8324fa",
+        "cover": "8116ca4a09a8d81a5a6843248ae0253637928dec3ebdd4fd7b2c09595309f25e",
+        "coverAlt": "105cba481f487e9f13b574a03a3ba3a3a5033770182e31a15314cc317c5dd447",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "918952494cb77cffa2ccfc603225d4b9e03151b73514686310f499ff2e8140b7",
+        "officialLinks": "4428e73deca550508be3f8b57fce52aca5cbcbdc98fd4039b41f30ef44b7bee2",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "6c9a004ae8ada3c02606340e2d36670fc9d00dc5746a7d767b8fc28f8a6dfc83",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "fe7eff1436571f4814ff12158116a8beb67a48bb717c61234c3acdcaadf9700a",
+        "releaseDates": "3550652b785a73a5f1a924d8206a4b850367985a94d59669402add64ee8bbd8f",
+        "credits": "1b489fb27099c42a60d7b3b8ebfaccbe03219d4a8d4cf94605ee111a1576eb3e",
+        "creators": "6d892a27444412e1172fdcf26806931f45331355743dd23a99399a527cd59fed",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "343014f993ad937e8d5332bea61eb31923bba481546b9465b24be53c53a5fc7d"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T21:49:29.728Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "aaveloura",
+  "networkId": "rss-com"
+}

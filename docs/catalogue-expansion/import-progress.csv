@@ -1275,31 +1275,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1275,P3,Ghost Hunt Pacific,,1d5f150e-a510-41a1-95ff-a7ffac269563,published,published,,2026-08-15 21:46:06
 1276,P3,Feminist Fairytales,,521b3192-3b71-4005-ae02-8350d5b9b987,published,published,,2026-08-15 21:46:06
 1277,P3,The Grove,,50b70527-2e7e-4133-8240-90df7fde4176,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:45:37
-1278,P3,A Call to the Stars,,,unattempted,,,
-1279,P3,Of Gods and Lanterns,,,unattempted,,,
-1280,P3,Babalu,,,unattempted,,,
-1281,P3,Silva Lining's Care Plan,,,unattempted,,,
-1282,P3,Perswayssick Radio: Unearthly Comedy,,,unattempted,,,
-1283,P3,RADIO: Outcast,,,unattempted,,,
-1284,P3,AAVELOURA Studios,AAVELOURA Studios,,unattempted,,,
-1285,P3,Sizzle,,,unattempted,,,
-1286,P3,False Stories,,,unattempted,,,
-1287,P3,Urban Soul Cafe,,,unattempted,,,
-1288,P3,Begotten,,,unattempted,,,
-1289,P3,Project Super Crush,,,unattempted,,,
-1290,P3,Buckaroos of the Weird West,,,unattempted,,,
-1291,P3,Cursed Meditations,,,unattempted,,,
-1292,P3,Leo Ended Years Ago,,,unattempted,,,
-1293,P3,Green Mountain,,,unattempted,,,
-1294,P3,My Date With Lainey Lee,,,unattempted,,,
-1295,P3,The Closet,,,unattempted,,,
-1296,P3,Moondew Designs,,,unattempted,,,
-1297,P3,The Hypnotic Eye,,,unattempted,,,
-1298,P3,Atrophy's Eden,,,unattempted,,,
-1299,P3,Space Pickles,,,unattempted,,,
-1300,P3,"Absent, Always Theatreworks",,,unattempted,,,
-1301,P3,Possibly Astronauts,,,unattempted,,,
-1302,P3,Oblivion Girl,,,unattempted,,,
+1278,P3,A Call to the Stars,,a14daf01-ae21-422e-90ea-c9cc329f83d2,needs-review,needs-review,invalid-website; scope-review; source-conflict,2026-08-15 21:48:27
+1279,P3,Of Gods and Lanterns,,889ee23b-f276-4834-a4ce-23bc792f88e4,needs-review,needs-review,source-conflict,2026-08-15 21:46:29
+1280,P3,Babalu,,ceb3f3ac-9f45-430d-bde2-5a74898f452a,needs-review,needs-review,source-conflict,2026-08-15 21:48:23
+1281,P3,Silva Lining's Care Plan,,7b14a31f-326c-4757-a363-5021c0f30e29,needs-review,needs-review,source-conflict,2026-08-15 21:46:28
+1282,P3,Perswayssick Radio: Unearthly Comedy,,9c615719-c33e-4c61-8189-9a08ecdd2053,published,published,,2026-08-15 21:49:33
+1283,P3,RADIO: Outcast,,7374ab37-3118-43ed-bf5e-efbcb8fbe3b4,published,published,,2026-08-15 21:49:33
+1284,P3,AAVELOURA Studios,AAVELOURA Studios,3c5c2e7a-f8b3-4965-8629-d56e86f5bdbc,published,published,,2026-08-15 21:49:33
+1285,P3,Sizzle,,7d41a746-b83d-4342-9973-4b88991f1789,needs-review,needs-review,placeholder-description; source-conflict,2026-08-15 21:48:29
+1286,P3,False Stories,,244e2b4b-7447-4243-8dcb-52f28c99c808,needs-review,needs-review,scope-review,2026-08-15 21:48:28
+1287,P3,Urban Soul Cafe,,2ad0e1ff-4725-4df5-a8a0-fa76b453909f,published,published,,2026-08-15 21:49:33
+1288,P3,Begotten,,8bb78239-202d-4da9-a7e1-8e0ba35267c9,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 21:47:28
+1289,P3,Project Super Crush,,787ef451-3669-475f-bd74-ef01a7bbd30a,needs-review,needs-review,source-conflict,2026-08-15 21:46:24
+1290,P3,Buckaroos of the Weird West,,c7e6e384-1e6f-404d-a17c-bd4ce879a8d1,needs-review,needs-review,source-conflict,2026-08-15 21:49:29
+1291,P3,Cursed Meditations,,adf08578-316e-4ef9-857a-6e9120f807ba,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:47:26
+1292,P3,Leo Ended Years Ago,,f3518585-b8d2-4a22-8af3-b931ba181810,needs-review,needs-review,source-conflict,2026-08-15 21:46:28
+1293,P3,Green Mountain,,6a81e4f2-ebdc-45a1-a84a-4cc0b42da2ef,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:46:27
+1294,P3,My Date With Lainey Lee,,12c1f90b-91a9-4ef9-acd9-57a95aa3ef79,published,published,,2026-08-15 21:49:33
+1295,P3,The Closet,,998e2e34-8266-4907-9e5c-97c95240a90e,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 21:48:22
+1296,P3,Moondew Designs,,de5d9969-3681-4d93-abb0-90fc10e5b9a0,needs-review,needs-review,source-conflict,2026-08-15 21:46:23
+1297,P3,The Hypnotic Eye,,512d8ee1-837d-42f8-a193-effe32b017d7,needs-review,needs-review,source-conflict,2026-08-15 21:48:23
+1298,P3,Atrophy's Eden,,10618901-e20f-4cfe-9cab-8ce4751885ca,published,published,,2026-08-15 21:49:33
+1299,P3,Space Pickles,,ec41d957-b764-402f-ab15-c538daaa0ffe,needs-review,needs-review,source-conflict,2026-08-15 21:47:24
+1300,P3,"Absent, Always Theatreworks",,6885b692-ef25-44e6-8d76-77d73d6d1830,published,published,,2026-08-15 21:49:33
+1301,P3,Possibly Astronauts,,bc2fb438-4138-4383-a6ed-37a37f798a5f,needs-review,needs-review,source-conflict,2026-08-15 21:48:33
+1302,P3,Oblivion Girl,,487a24f4-e244-4f23-b6c0-4b5c297b3a10,needs-review,needs-review,source-conflict,2026-08-15 21:48:24
 1303,P3,Saturn Space Station,,,unattempted,,,
 1304,P3,Dist1nc7ive Stories,,,unattempted,,,
 1305,P3,Play On Words,,,unattempted,,,
