@@ -1,0 +1,722 @@
+{
+  "id": "mission-to-zyxx",
+  "title": "Mission To Zyxx",
+  "subtitle": "",
+  "description": "An improvised science fiction sitcom following a team of ambassadors as they attempt to establish diplomatic relations with planets in the remote and chaotic Zyxx Quadrant… better known as the \"ass end of space.\"",
+  "cover": "images/covers/mission-to-zyxx.jpg",
+  "coverAlt": "Mission To Zyxx cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/0SSOBoFWUehoDvpbTtRgHS",
+    "apple": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357",
+    "website": "https://www.missiontozyxx.space/",
+    "rss": "https://feeds.simplecast.com/ZL7iUDiH",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Mission To Zyxx"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "6 seasons observed • at least 105 full episodes • 44 min median",
+    "seasons": 6,
+    "episodes": 105,
+    "avgEpisodeMinutes": 46,
+    "medianEpisodeMinutes": 44,
+    "minEpisodeMinutes": 27,
+    "maxEpisodeMinutes": 102,
+    "totalObservedHours": 81,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 105,
+      "bonus": 50,
+      "trailer": 7
+    }
+  },
+  "releaseDates": {
+    "first": "2017-09-06",
+    "latest": "2026-06-24",
+    "latestFeedItem": "2026-08-05",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.missiontozyxx.space/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://youtube.com/playlist?list=PLJCqLSp36z9IjQ12ooSmiKmE_9uCsisQD&si=B1BFXwHHbFQmTUDf",
+    "social": "http://instagram.com/missiontozyxx",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Mission To Zyxx",
+    "ownerName": "Mission To Zyxx",
+    "network": "Mission to Zyxx"
+  },
+  "creators": [
+    "Mission To Zyxx"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.missiontozyxx.space/about; https://www.missiontozyxx.space/; https://feeds.simplecast.com/ZL7iUDiH; https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.missiontozyxx.space/about",
+      "https://www.missiontozyxx.space/",
+      "https://feeds.simplecast.com/ZL7iUDiH",
+      "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction",
+      "Comedy",
+      "Improv",
+      "470267"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "An improvised science fiction sitcom following a team of ambassadors as they attempt to establish diplomatic relations with planets in the remote and chaotic Zyxx Quadrant… better known as the \"ass end of space.\"",
+    "socialUrls": [
+      "http://instagram.com/missiontozyxx"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 42,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2017-2025 Zyxx Quadrant LLC",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.simplecast.com/ZL7iUDiH",
+        "appleCollectionId": "1276705357",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://www.missiontozyxx.space/home?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.missiontozyxx.space/about",
+          "fetchedAt": "2026-08-15T15:54:31.734Z",
+          "payloadHash": "b16c0f8624cb6d5533919df8c51640ec13edd074273b20bc2d568c588a571cbd"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.missiontozyxx.space/",
+          "fetchedAt": "2026-08-15T15:54:31.731Z",
+          "payloadHash": "6c1d90701be76ebff26c96cbb21a183701dc8161a6ebb5b37d10e8ea91276d13"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH",
+          "fetchedAt": "2026-08-15T15:54:31.008Z",
+          "payloadHash": "2407b4a0077fa9b5c6b65598dda85204ee12341b44638ea72534cc21b12866ad"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4",
+          "fetchedAt": "2026-08-15T15:54:30.891Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/about"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/about"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/mission-to-zyxx/id1276705357?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/about"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/about"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/about"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.missiontozyxx.space/about"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.simplecast.com/ZL7iUDiH"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T15:54:31.934Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b756d70e6fbda47731415575b9afc81ad926b6381951da5c96c638f2cd794eef",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "e04d58075ce2ce1ee253a3097860d1d284f9530de4e639ab549e61eee5aa3657",
+        "cover": "11608bb0d3aab61538a8ab35f8d151d517619e2df9ddad17ad6b4f27b14d3c17",
+        "coverAlt": "31aa33735f0240104b66f9dbb5278ac61f0c869376f66a08ef80aa6cae289174",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "a70794ac9a279a88ad54b3c1103f0adae7d2d9c5da3eca3c5f67ef728dde67e0",
+        "officialLinks": "7821a1e62ac9995a9bc5617d0a3271f59903126b4dbbdd7eb44d3584c4800509",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "688ce2e229e9474a23320941cdf3f4158e7d9f58c1852ae2fd311dd3891113f1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "54592fdaae054f3af804a03111198fc0f38ccc415064e53fc29228bb7f35525a",
+        "releaseDates": "b94af11714f15a3cb76a912caac80769230db489727478ce684a07e7c1394ac0",
+        "credits": "671a356ae4218dbb5b1541e430cdbe0ccb184517e0cb96265f9718205b7b631e",
+        "creators": "688ce2e229e9474a23320941cdf3f4158e7d9f58c1852ae2fd311dd3891113f1",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "d8e53c8af18f15fb32440c645ddf940dbe357a1a695e1b5b30338be9e97278e5"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T15:56:21.969Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "mission-to-zyxx",
+  "networkId": "mission-to-zyxx"
+}

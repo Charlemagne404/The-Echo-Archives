@@ -1,0 +1,756 @@
+{
+  "id": "kakos-industries",
+  "title": "Kakos Industries",
+  "subtitle": "Do Evil Better",
+  "description": "A deeply entertaining, R-rated, darkly satirical, sex-positive comedy audio drama with elements of horror. Congratulations! You are now a shareholder in Kakos Industries, a megacorporation that specializes in helping its clients to Do Evil Better. You are now entitled to listen to the shareholder announcements that keep you up to date on all of the advancements made in Evil and the bizarre occurrences inside of Kakos Industries itself. For fans of Welcome to Night Vale, Douglas Adams, Better Off Ted, the Venture Brothers, and Archer.",
+  "cover": "images/covers/kakos-industries.jpg",
+  "coverAlt": "Kakos Industries cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1hYR9QCgPhd89DK42w1BRN",
+    "apple": "https://itunes.apple.com/us/podcast/kakos-industries/id823315247?mt=2",
+    "website": "https://kakosindustries.com/",
+    "rss": "http://kakosindustries.com/feed/podcast",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Kakos Industries",
+    "Kakos Industries – Do Evil Better"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 258 full episodes • 24 min median",
+    "episodes": 258,
+    "avgEpisodeMinutes": 22,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 68,
+    "totalObservedHours": 92.7,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 258,
+      "bonus": 17,
+      "trailer": 10
+    }
+  },
+  "releaseDates": {
+    "first": "2014-02-15",
+    "latest": "2026-08-01",
+    "latestFeedItem": "2026-08-01",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://kakosindustries.com/",
+    "patreon": "http://www.patreon.com/kakosindustries",
+    "koFi": "",
+    "discord": "",
+    "youtube": "http://www.youtube.com/kakosindustries",
+    "social": "http://www.facebook.com/kakosindustries",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Kakos Industries",
+    "ownerName": "Kakos Industries"
+  },
+  "creators": [
+    "Kakos Industries"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://kakosindustries.com/episodes/182-looking-within/; https://kakosindustries.com/episodes/episode-183-vibe-shift/; https://kakosindustries.com/category/episodes/; https://kakosindustries.com/; http://kakosindustries.com/feed/podcast; https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://kakosindustries.com/episodes/182-looking-within/",
+      "https://kakosindustries.com/episodes/episode-183-vibe-shift/",
+      "https://kakosindustries.com/category/episodes/",
+      "https://kakosindustries.com/",
+      "http://kakosindustries.com/feed/podcast",
+      "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A deeply entertaining, R-rated, darkly satirical, sex-positive comedy audio drama with elements of horror. Congratulations! You are now a shareholder in Kakos Industries, a megacorporation that specializes in helping its clients to Do Evil Better. You are now entitled to listen to the shareholder announcements that keep you up to date on all of the advancements made in Evil and the bizarre occurrences inside of Kakos Industries itself. For fans of Welcome to Night Vale, Douglas Adams, Better Off Ted, the Venture Brothers, and Archer.",
+    "socialUrls": [
+      "http://www.facebook.com/kakosindustries",
+      "http://www.twitter.com/kakosindustries"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 31,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2022 Kakos Industries",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "http://kakosindustries.com/feed/podcast",
+        "appleCollectionId": "823315247",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://kakosindustries.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/",
+          "fetchedAt": "2026-08-15T15:54:35.990Z",
+          "payloadHash": "ede08652d1fcabb3493c1e6806e44f5a9a42e714aa15935e98db14df5d366211"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/",
+          "fetchedAt": "2026-08-15T15:54:35.987Z",
+          "payloadHash": "71d7d8b743d1d249d7765ce4af35c230c73b29fa9b5c2d2928e1a314ae004fbf"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://kakosindustries.com/category/episodes/",
+          "fetchedAt": "2026-08-15T15:54:35.983Z",
+          "payloadHash": "4d78a3ed668c54b32fa5e37196e2405a7af2ffa51926e7c3b9cd8bd8015a1a3a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://kakosindustries.com/",
+          "fetchedAt": "2026-08-15T15:54:35.979Z",
+          "payloadHash": "bd0b5b63f6381b6d520ca0ab80ffcd3b0145488265240157f2a5c7c350c17e8a"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "http://kakosindustries.com/feed/podcast",
+          "fetchedAt": "2026-08-15T15:54:34.192Z",
+          "payloadHash": "db27c53c6711d30cc734e3def502ba18bb2b0ca575bd094a3889b8ad9ff48d78"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4",
+          "fetchedAt": "2026-08-15T15:54:30.763Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/category/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/kakos-industries/id823315247?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/category/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/category/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/category/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/category/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/category/episodes/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/episode-183-vibe-shift/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://kakosindustries.com/episodes/182-looking-within/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "http://kakosindustries.com/feed/podcast"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T15:54:36.493Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "b5ffdd95337cf1c09c4aab6848326acc06c39a27d872736d6a01a46722385fc5",
+        "subtitle": "49d774ff89a5e5dda47c0331418951aabf99b1bb07eb05a5557a246b992c9bc8",
+        "description": "4813d34b76b3d09e3acf0c2a4f189996b78d477e85d1ef26b62933daf3fd5e5c",
+        "cover": "cf96a8dbaf0e8dce182204a2f028e0f7961889316c6ee9d182e330a8250ec3a3",
+        "coverAlt": "166774bc2605ff7052fa98098d7e62d705a5d2da4542d5a8e632cba2cacefcc9",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "4187c6e3f30cbe6df64fdc32855f17aadb1ef400fc252489b8bc4d3a41e53483",
+        "officialLinks": "506c61e35bc8573eb877c9ed5862513b0ac778a88a6caa4fd6d8d12b9d2d7d8f",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "c22241ca23a953445e2549d7496a2ec882496c3c0834e8558b2295eab9ce1a84",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "837eb86bad87b0e34f82ac34968d05b9357ebc39c416503b24deabfaf8b73f9a",
+        "releaseDates": "d029d6bb7ed61e5633518ce63f15cea87084b6a86a4002943853dd8791f8c07d",
+        "credits": "fddeb5de120a944d58026dcb0beb9729f08a4fe1dd69070a962678f5bbba0d8a",
+        "creators": "e2b9c138ecb051af7d7a5efc8698bd1b54441ccffb82c8bad1c919364509c9b9",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "b3f982aca95ee16aca7a8883c70403867e039c204aa1464ef04dd2c4bccf8fc8"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T15:56:21.966Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "kakos-industries"
+}

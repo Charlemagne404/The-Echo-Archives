@@ -1,0 +1,794 @@
+{
+  "id": "hello-from-the-magic-tavern",
+  "title": "Hello From The Magic Tavern",
+  "subtitle": "",
+  "description": "Arnie Niekamp fell through a dimensional portal behind a Burger King into the fantastical land of Foon. He's still getting a slight wifi signal, so he uploads a weekly podcast from the tavern the Vermilion Minotaur where he interviews wizards, monsters and adventurers. It's a major discovery!",
+  "cover": "images/covers/hello-from-the-magic-tavern.jpg",
+  "coverAlt": "Hello From The Magic Tavern cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/0FGOz929il130iXEwkInBa",
+    "apple": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285",
+    "website": "https://hellofromthemagictavern.com/",
+    "rss": "https://rss.art19.com/hello-from-magic-tavern",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "comedy",
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Hello From The Magic Tavern"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 595 full episodes • 49 min median",
+    "episodes": 595,
+    "avgEpisodeMinutes": 46,
+    "medianEpisodeMinutes": 49,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 82,
+    "totalObservedHours": 458.6,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 595,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2015-03-05",
+    "latest": "2026-08-10",
+    "latestFeedItem": "2026-08-10",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://hellofromthemagictavern.com/",
+    "patreon": "https://www.patreon.com/magictavern",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCUYdQY0I9hv1ZpH6PXbyzbQ",
+    "social": "https://bsky.app/profile/magictavern.bsky.social",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Arnie Niekamp",
+    "ownerName": "Arnie Niekamp",
+    "network": "Hello from the Magic Tavern",
+    "writers": [
+      "Garrett Schultz"
+    ],
+    "people": [
+      {
+        "name": "Garrett Schultz",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Arnie Niekamp",
+    "Garrett Schultz"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k; https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l; https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/; https://hellofromthemagictavern.com/episodes; https://hellofromthemagictavern.com/; https://rss.art19.com/hello-from-magic-tavern; https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k",
+      "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l",
+      "https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/",
+      "https://hellofromthemagictavern.com/episodes",
+      "https://hellofromthemagictavern.com/",
+      "https://rss.art19.com/hello-from-magic-tavern",
+      "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+    ],
+    "sourceCategories": [
+      "Comedy",
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Arnie Niekamp fell through a dimensional portal behind a Burger King into the fantastical land of Foon. He's still getting a slight wifi signal, so he uploads a weekly podcast from the tavern the Vermilion Minotaur where he interviews wizards, monsters and adventurers. It's a major discovery!",
+    "socialUrls": [
+      "https://bsky.app/profile/magictavern.bsky.social",
+      "https://www.instagram.com/officialmagictavern/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2022 Arnie Niekamp",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://rss.art19.com/hello-from-magic-tavern",
+        "appleCollectionId": "975078285",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://hellofromthemagictavern.com/episodes?format=rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k",
+          "fetchedAt": "2026-08-15T15:54:34.543Z",
+          "payloadHash": "ecb76b4ae36065634e818409a273eacc8c8fd394f436f8160c9e5f8562df08a1"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l",
+          "fetchedAt": "2026-08-15T15:54:34.540Z",
+          "payloadHash": "3742824e3358e1da881e264537124911fd4177c2d6a6f4c477727fe6eb6810d1"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/",
+          "fetchedAt": "2026-08-15T15:54:34.538Z",
+          "payloadHash": "873cf60e60bcd663bb34e56e80974cea86ce81169caf979a6b7f750ec72726f6"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hellofromthemagictavern.com/episodes",
+          "fetchedAt": "2026-08-15T15:54:34.533Z",
+          "payloadHash": "aad2bf50d87c7eb19d3c4ad8554ed8ff2e09d10608c143aae47ef3e5bb513059"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://hellofromthemagictavern.com/",
+          "fetchedAt": "2026-08-15T15:54:34.526Z",
+          "payloadHash": "1fb540cb1df8a8991db97557456f3f7da0a8255c5f819017a6d5293d39dd2032"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern",
+          "fetchedAt": "2026-08-15T15:54:32.740Z",
+          "payloadHash": "dc67d6b2b15ea3c29e7b28c755b8f1d5123702447cfa361fd4e7dba5d50934a7"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4",
+          "fetchedAt": "2026-08-15T15:54:30.137Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/hello-from-the-magic-tavern/id975078285?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2015/03/09/1-hello-from-the-magic-tavern/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/9/season-5-ep-600l"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://hellofromthemagictavern.com/episodes/2026/8/2/season-5-ep-600k"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://rss.art19.com/hello-from-magic-tavern"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T15:54:35.455Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e1f084d2657848a3f25755b67e03ee635345680147343190a0712dade8cfacf1",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "fae495d21e82dcbd48b2cb01493e4db66737c58d38b0620457307b346adc01d5",
+        "cover": "54fa17018a15c7e18a1226072caff714905562574f184e0431c958f108c90fab",
+        "coverAlt": "43f55801a94c6ea68d6d5e4b39820fcc9eac638aac8368b5d841f9cc6a9479d6",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "6ff08054ee1966ae7c71fe678fbc005cceada96d5c6b9974f33c8ec32a65e723",
+        "officialLinks": "022a8585cfd8d0c9eefa2c26876d6fa8c5ff1b1aefd21c910f467cfa93bcb4e1",
+        "genres": "d43a44c3885ca363e39a4f53c298e71bcb32009530bcab70ecf719f799bcd00a",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "294c6fbc23d7b50b2226092f053b96bcb2c05c13a332e3222086d8cb8f17a502",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d9bf9e011bfde15c37801c6fde35657d50c30012de840ab2adfb3c11d8c697d3",
+        "releaseDates": "8ee83dd458ea90316f8c6887edf71e4ff5569495f0c5c634fb69f8aaed066f3f",
+        "credits": "11c5a35139fbb1ecc32376be30d4f0d0745970de5b9c1c29d67321d412477f29",
+        "creators": "ef6acffcd4023689117f84b0248662e4bbf4df6b1dea1b078a07d244d2b8830c",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "d60bdf104a2c32c8d2f706cfc4167feee498085623bc2ca9640a43e4819b3311"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T15:56:21.968Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "arnie-niekamp",
+  "networkId": "hello-from-the-magic-tavern"
+}

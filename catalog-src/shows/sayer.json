@@ -1,0 +1,780 @@
+{
+  "id": "sayer",
+  "title": "SAYER",
+  "subtitle": "SAYER is a narrative fiction podcast set on Earth’s man-made second moon, Typhon. The eponymous SAYER is a highly advanced, self-aware AI created to help acclimate new residents to their new lives, and their new employment with Ærolith Dyna",
+  "description": "SAYER is a narrative fiction podcast set on Earth’s man-made second moon, Typhon. The eponymous SAYER is a highly advanced, self-aware AI created to help acclimate new residents to their new lives, and their new employment with Ærolith Dynamics. New episodes release every other week.",
+  "cover": "images/covers/sayer.jpg",
+  "coverAlt": "SAYER cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/76205UGOg15SPnNtijnv99",
+    "apple": "https://podcasts.apple.com/us/podcast/sayer/id831100527",
+    "website": "https://iamsayer.com/",
+    "rss": "https://feeds.feedburner.com/sayer",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "SAYER",
+    "SAYER - Episode 82 - A Place of Growth",
+    "SAYER - Episode 83 - Twin Voices",
+    "SAYER - Episode 84 - The Mistake",
+    "SAYER - Episode 85 - Magically Efficient",
+    "SAYER Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "6 seasons observed • at least 110 full episodes • 21 min median",
+    "seasons": 6,
+    "episodes": 110,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 21,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 114,
+    "totalObservedHours": 35,
+    "durationCoverage": 0.927,
+    "observedSeasons": [
+      6
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 110,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2014-02-28",
+    "latest": "2023-08-12",
+    "latestFeedItem": "2023-08-12",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://iamsayer.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.twitter.com/iamsayer",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Adam Bash",
+    "network": "SAYER Podcast"
+  },
+  "creators": [
+    "Adam Bash"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/; https://iamsayer.com/sayer-episode-83-twin-voices/; https://iamsayer.com/sayer-episode-84-the-mistake/; https://iamsayer.com/sayer-episode-85-magically-efficient/; https://iamsayer.com/; https://feeds.feedburner.com/sayer; https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://iamsayer.com/sayer-episode-82-a-place-of-growth/",
+      "https://iamsayer.com/sayer-episode-83-twin-voices/",
+      "https://iamsayer.com/sayer-episode-84-the-mistake/",
+      "https://iamsayer.com/sayer-episode-85-magically-efficient/",
+      "https://iamsayer.com/",
+      "https://feeds.feedburner.com/sayer",
+      "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "SAYER is a narrative fiction podcast set on Earth’s man-made second moon, Typhon. The eponymous SAYER is a highly advanced, self-aware AI created to help acclimate new residents to their new lives, and their new employment with Ærolith Dynamics. New episodes release every other week.",
+    "socialUrls": [
+      "http://www.twitter.com/iamsayer",
+      "http://www.twitter.com/theadambash"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 25,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "© 2014 - 2020 Adam Bash",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.feedburner.com/sayer",
+        "appleCollectionId": "831100527",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/",
+          "fetchedAt": "2026-08-15T15:54:29.429Z",
+          "payloadHash": "edbae8e2185e3b8921fec0c0cc3f0f7199d52ddd0ce9cef1d129c46dc884515c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://iamsayer.com/sayer-episode-83-twin-voices/",
+          "fetchedAt": "2026-08-15T15:54:29.427Z",
+          "payloadHash": "2d6d503fccf135da34ee2e50f1277477355bf7416aca638dac03a8584b41eb6c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://iamsayer.com/sayer-episode-84-the-mistake/",
+          "fetchedAt": "2026-08-15T15:54:29.426Z",
+          "payloadHash": "44c903a1afceb4de55681454ed93cba0480543ea44376139806b4e27b89e9385"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://iamsayer.com/sayer-episode-85-magically-efficient/",
+          "fetchedAt": "2026-08-15T15:54:29.424Z",
+          "payloadHash": "36e0ac205f1578a25866b5fa7c09da89068caae5c3df7d62193f45f2d8cf4666"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://iamsayer.com/",
+          "fetchedAt": "2026-08-15T15:54:29.420Z",
+          "payloadHash": "9df2e6f43eec7d05108c7952d03d4184c1de5ebf1d0e648b94cb06568188a6e6"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.feedburner.com/sayer",
+          "fetchedAt": "2026-08-15T15:54:25.226Z",
+          "payloadHash": "ebe6ed22c3df70dc12ac120666bdf8c08cb0149d4be852edb45c4a3292ad119a"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4",
+          "fetchedAt": "2026-08-15T15:54:24.692Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-85-magically-efficient/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-84-the-mistake/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-83-twin-voices/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/sayer/id831100527?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-85-magically-efficient/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-84-the-mistake/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-83-twin-voices/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-85-magically-efficient/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-84-the-mistake/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-83-twin-voices/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-85-magically-efficient/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-84-the-mistake/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-83-twin-voices/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-85-magically-efficient/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-84-the-mistake/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-83-twin-voices/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://iamsayer.com/sayer-episode-82-a-place-of-growth/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.feedburner.com/sayer"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T15:54:29.949Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "557f0f3417dd8c7367a7c89ce94bafe8e67e1f41ca9555d22b7299684a9ba747",
+        "subtitle": "b7873d781edb67c5e44625ca52e61d28d2c109cb6619656fcb663ede59677d45",
+        "description": "7e657213640bde9195ebc155e4c8e55c131d44fe67cad05e19ccaa620a4cf912",
+        "cover": "58c33cb94ea12ef6791e90439ba8e788e85dff9b9f151fd864a00f683d1f8e4d",
+        "coverAlt": "68bb7912a822a1968e7095370f5a01ccc27ed696dc9d1b4aaaefb8040f640363",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "a0c6ffb3d6c4d9671147a5226b631fdca8952d32b5f1f549c9c304485af8995e",
+        "officialLinks": "cb9b894608e8fe95f18d4c2ec38679a09c902bd39af492f6d2f20d966a54c186",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "61c62551039dbdd57d2c8154f5a922a85db6c2a13b298164d35bb304a4602d1c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "19b61774d510bfbcf34f2e279ec12b43b43f626fa7238d99f54640fdf619248e",
+        "releaseDates": "d2d52a12a2fdfe3aa50fb3c48b006017af327c7536c3323bd704ff3098cb769c",
+        "credits": "b17c29f2ddd26ec85ac28d6108b6878250a661ec2c1f677200b9ca5811c7b769",
+        "creators": "00aa5debe7c79ac5fd8b27fb87dd037cd3533394122513316e1332b1de6449ed",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ec62862c8e72d6370f922f016a7bdcfd971536eae5bcc7b7a623557f585bc1c7"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T15:56:21.973Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "adam-bash",
+  "networkId": "sayer-podcast"
+}

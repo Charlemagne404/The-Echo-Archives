@@ -9,6 +9,7 @@
     "backup:database": "node tools/backup-database.js",
     "check:backup": "node tools/check-database-backup.js",
     "report:catalog": "node tools/report-catalog.js",
+    "report:catalogue-expansion": "node tools/report-catalogue-expansion-progress.js",
     "catalog:new:show": "node tools/scaffold-catalog.js show",
     "catalog:new:collection": "node tools/scaffold-catalog.js collection",
     "build:pages": "node tools/build-pages.js",

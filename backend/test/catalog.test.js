@@ -69,11 +69,13 @@ test("loadCatalog reads the structured show catalog", async () => {
   assert.ok(Array.isArray(impactWinter.spoilerFreeReviewParagraphs));
 });
 
-test("existing importer-origin catalogue entries remain indexed-only", () => {
+test("importer-origin catalogue entries retain their publication tier", () => {
   const authoredShows = JSON.parse(fs.readFileSync(path.join(siteRoot, "data", "shows.json"), "utf8"));
   const importerOrigin = authoredShows.filter((show) => show.metadata?.import);
-  assert.equal(importerOrigin.length, 132);
-  assert.ok(importerOrigin.every((show) => show.reviewStatus === "indexed-only"));
+  assert.equal(importerOrigin.length, 140);
+  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "indexed-only").length, 132);
+  assert.equal(importerOrigin.filter((show) => show.reviewStatus === "imported").length, 8);
+  assert.ok(importerOrigin.every((show) => ["indexed-only", "imported"].includes(show.reviewStatus)));
 });
 
 test("confirmed broken external destinations are not reintroduced", async () => {

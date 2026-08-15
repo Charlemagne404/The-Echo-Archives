@@ -1,0 +1,765 @@
+{
+  "id": "arden",
+  "title": "Arden",
+  "subtitle": "",
+  "description": "On December 25th, 2007, movie star and heiress Julie Capsom crashed her car into a tree in Northern California, walked into a nearby clearing, and vanished, leaving behind a male torso in her trunk. 10 years later, reporter Bea Casely and private detective Brenda Bentley are going to reopen the case. Each has a personal tie to the story. Each thinks they know what happened. And each knows the other is going to screw this whole thing up. Join Bea, Brenda, and the rest of the Good People at Wheyface Radio as they attempt to answer once and for all: what happened to Julie Capsom?",
+  "cover": "images/covers/arden.jpg",
+  "coverAlt": "Arden cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/539VlaQqfuQ9Th62ddQ6q7?si=SXDaea6MSkWr_VWowwlCJA",
+    "apple": "https://itunes.apple.com/us/podcast/arden/id1435114916?mt=2",
+    "website": "https://www.ardenpodcast.com/",
+    "rss": "https://feeds.megaphone.fm/ardenpod",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Arden",
+    "Arden | Listen"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "3 seasons observed • at least 61 full episodes • 43 min median",
+    "seasons": 3,
+    "episodes": 61,
+    "avgEpisodeMinutes": 36,
+    "medianEpisodeMinutes": 43,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 91,
+    "totalObservedHours": 36.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      3,
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 61,
+      "bonus": 10,
+      "trailer": 8
+    }
+  },
+  "releaseDates": {
+    "first": "2018-09-24",
+    "latest": "2025-02-23",
+    "latestFeedItem": "2025-07-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.ardenpodcast.com/",
+    "patreon": "https://www.patreon.com/ArdenPod",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCVSCoTe4TVlO5d1O6rTK3bA",
+    "social": "https://twitter.com/ArdenPod",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Wheyface Radio",
+    "ownerName": "Christopher Dole",
+    "network": "Arden"
+  },
+  "creators": [
+    "Wheyface Radio"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.ardenpodcast.com/cast; https://www.ardenpodcast.com/transcripts; https://www.ardenpodcast.com/listen; https://www.ardenpodcast.com/listen-1; https://www.ardenpodcast.com/; https://feeds.megaphone.fm/ardenpod; https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.ardenpodcast.com/cast",
+      "https://www.ardenpodcast.com/transcripts",
+      "https://www.ardenpodcast.com/listen",
+      "https://www.ardenpodcast.com/listen-1",
+      "https://www.ardenpodcast.com/",
+      "https://feeds.megaphone.fm/ardenpod",
+      "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "On December 25th, 2007, movie star and heiress Julie Capsom crashed her car into a tree in Northern California, walked into a nearby clearing, and vanished, leaving behind a male torso in her trunk. 10 years later, reporter Bea Casely and private detective Brenda Bentley are going to reopen the case. Each has a personal tie to the story. Each thinks they know what happened. And each knows the other is going to screw this whole thing up. Join Bea, Brenda, and the rest of the Good People at Wheyface Radio as they attempt to answer once and for all: what happened to Julie Capsom?",
+    "socialUrls": [
+      "https://twitter.com/ArdenPod",
+      "https://instagram.com/ArdenPod/",
+      "https://www.facebook.com/ArdenPod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 46,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2018",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/ardenpod",
+        "appleCollectionId": "1435114916",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.ardenpodcast.com/cast",
+          "fetchedAt": "2026-08-15T15:54:35.340Z",
+          "payloadHash": "53131b7608adb3e6759262ad995861c5d1d7d20c3c0bbb7cca0e4634c40cd532"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.ardenpodcast.com/transcripts",
+          "fetchedAt": "2026-08-15T15:54:35.329Z",
+          "payloadHash": "b9a180d3bf928d95980fb010afd503dfb3a297d8bce342b56af0979a0a4945c3"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.ardenpodcast.com/listen",
+          "fetchedAt": "2026-08-15T15:54:35.310Z",
+          "payloadHash": "ca13da57fd03c57b203effd7bb85af47296c0ed7d5f224eaccdfb8b01e7d7392"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.ardenpodcast.com/listen-1",
+          "fetchedAt": "2026-08-15T15:54:35.251Z",
+          "payloadHash": "1d9a3492b8e131d0fee412c6035db335ee14ecd54399a173844666671a69747c"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.ardenpodcast.com/",
+          "fetchedAt": "2026-08-15T15:54:35.220Z",
+          "payloadHash": "88bc5d0c7e3b4e33afc054381702a60f8e2984f4b7626ae50fb642251eadc088"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/ardenpod",
+          "fetchedAt": "2026-08-15T15:54:30.948Z",
+          "payloadHash": "03557bb2cad83c61dfb68edd413ef895dddcf4ecf0853b819baa55e4dbe574b7"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4",
+          "fetchedAt": "2026-08-15T15:54:30.047Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/arden/id1435114916?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/cast"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/transcripts"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/cast"
+            }
+          ]
+        },
+        "patreonUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen-1"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.ardenpodcast.com/listen"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ardenpod"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T15:54:35.723Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "d81d860f51627a8894289269be6996c7284727a775412121a9ac2aa5d2ba85ca",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "4b34554a1db4aff2beacc15c6597a702416812f8f9f7cc8cbae4b3fa59965d65",
+        "cover": "efe32d31f9f99ced64ad949ff330e53e568131b84b943d68fe5bcb594bde7ca1",
+        "coverAlt": "0bb8adf04c8a3ccd1a3cb5fb5f2fdf16842f1b61597ead066b41ee00aefb0649",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "4537b14c218331885f6006d0bd2bee2723b80c4d2ca0d72ae0919b142e86187a",
+        "officialLinks": "f0cbbe8a53acbbc733ab31b606f24b0f7635a40131f2b12c982b0294994eaa4b",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "93f36bf3310e95dbc3e3f1e99f0f62dff1cb743db899a13d3e5b7bee6bd4992d",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "5e595e07a767e914a75da75e48696069de432135e80da50a2ce9399eafd4d9b0",
+        "releaseDates": "6145d1b09b6ff0029cd876460a82dd6b59f2db4ca5782d36b565d8b6e5f9e924",
+        "credits": "d34807ece1f57aecbc00863a496e68f3d8d99ba0092638d34ceee3c060411d67",
+        "creators": "ef585b6e138e70180315664405a50d5a80fe9c4b3c25f5884929af08b378b484",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "e43ba2997f9cb8e31d381b6004d7c462b6de678730d139629d337c122af084c9"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T15:56:21.967Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "wheyface-radio",
+  "networkId": "arden"
+}
