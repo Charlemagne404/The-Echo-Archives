@@ -1,0 +1,665 @@
+{
+  "id": "long-winter-nights",
+  "title": "Long Winter Nights",
+  "subtitle": "",
+  "description": "Long Winter Nights is a holiday horror advent calendar for the dark-hearted and the curious. For 25 nights in December, a new story waits behind each door, revealing ghostly folklore and modern terrors alike. Season 1 begins December 1, 2025.",
+  "cover": "images/covers/long-winter-nights.png",
+  "coverAlt": "Long Winter Nights cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4",
+    "website": "https://longwinternights.com/",
+    "rss": "https://media.rss.com/long-winter-nights/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Long Winter Nights"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 44 full episodes • 5 min median",
+    "seasons": 1,
+    "episodes": 44,
+    "avgEpisodeMinutes": 8,
+    "medianEpisodeMinutes": 5,
+    "minEpisodeMinutes": 3,
+    "maxEpisodeMinutes": 32,
+    "totalObservedHours": 5.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 44,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-12-02",
+    "latest": "2026-03-18",
+    "latestFeedItem": "2026-03-18",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://longwinternights.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Lisa Sanaye Dring, Matthew Hill, Chelsea Sutton",
+    "ownerName": "Lisa Sanaye Dring, Matthew Hill, Chelsea Sutton"
+  },
+  "creators": [
+    "Lisa Sanaye Dring, Matthew Hill, Chelsea Sutton"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://longwinternights.com/; https://media.rss.com/long-winter-nights/feed.xml; https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://longwinternights.com/",
+      "https://media.rss.com/long-winter-nights/feed.xml",
+      "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+    ],
+    "sourceCategories": [
+      "Arts",
+      "Performing Arts",
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Long Winter Nights is a holiday horror advent calendar for the dark-hearted and the curious. For 25 nights in December, a new story waits behind each door, revealing ghostly folklore and modern terrors alike. Season 1 begins December 1, 2025.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Long Winter Nights 2025",
+      "explicit": "false",
+      "license": {
+        "value": "Long Winter Nights 2025",
+        "url": ""
+      },
+      "productionLocation": "Los Angeles, Los Angeles, Los Angeles County, California, 90012, USA",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "dcddf457-1cbb-5205-b585-4b7edf60b350",
+        "rssUrl": "https://media.rss.com/long-winter-nights/feed.xml",
+        "appleCollectionId": "1852847757",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://longwinternights.com/",
+          "fetchedAt": "2026-08-15T21:59:38.506Z",
+          "payloadHash": "53132ade261a75f6bd1fdca46c15f3b9d665e8b44d9aebc7c8efa152febb9491"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml",
+          "fetchedAt": "2026-08-15T21:59:38.289Z",
+          "payloadHash": "51a06c18474e22a5b1665bdd336fb40378349174f43d4da9936bdc29006131ea"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4",
+          "fetchedAt": "2026-08-15T21:59:37.923Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://longwinternights.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://longwinternights.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://longwinternights.com/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "location": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:59:38.638Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "669813adfd18791f8f01d4409779a451b27463490605a87600252f3f71ab9595",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "df156a5b7ecbc1a889790fb8de2385e84e63d2eb54e25558e1514bc784a34c18",
+        "cover": "893cdab8ed2d5c486ba958eb0c880f737ca4cca91ba672ef431d2b6c6a5e45cc",
+        "coverAlt": "78a16981e97e64df32dc6d0e0f0edd99736fadbf20649328b3b7b8f08324c384",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "be6d11bb9250de5b9ad73f597888ab4763f9ecc69cca55c15f75212010d09ac0",
+        "officialLinks": "a7f7f6ff5c5d59a96168abc654adc0cdf0cbd2eff28307ce0664b8caab3462b6",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "4b6d2ed10500ecfbda19efdba3425bcb94dab38d9c88072d7b3269d220f16fc1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "58bc998985d7511da9dbb402b4b567cdbe6c136a1de3d981d0c90643e35a88a3",
+        "releaseDates": "4ac3f459cf71f67606441378f8de5af8f5ed55bdd4a569f04ee612ee0897bac5",
+        "credits": "bd5f85460fb151ad4cc7d83e8a59f978673598a058ac0effdc81cbe737c3d81b",
+        "creators": "e75df6dbde316ae2b896f393b927170b4402dc737aef451e5305892ed048c16e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "3bfdcac099c09ddb456b8dc8efd5fd117e19271856a55be4288f280b8d1de652"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T22:01:18.313Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "lisa-sanaye-dring-matthew-hill-chelsea-sutton"
+}

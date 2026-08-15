@@ -1,0 +1,756 @@
+{
+  "id": "nocturne-cipher",
+  "title": "Nocturne Cipher",
+  "subtitle": "Art of the Atmosphere",
+  "description": "At Nocturne Cipher, our passion is creating high-quality audio dramas that embody the art of the atmosphere. We bring great stories to life through immersive sound design and the talent of real voice actors—no AI, just authentic human emotion. From psychological thrillers to timeless mysteries, each episode is a fully-produced audio experience that draws you into another world. We adapt classic and public domain works alongside original stories, crafting character-driven dramas meant to be felt as much as heard. Press play, close your eyes, and step into the atmosphere",
+  "cover": "images/covers/nocturne-cipher.jpg",
+  "coverAlt": "Nocturne Cipher cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4",
+    "website": "https://nocturnecipher.com/",
+    "rss": "https://feeds.captivate.fm/nocturne-cipher/",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Nocturne Cipher",
+    "Nocturne Cipher | Audio Drama Podcast"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 2 full episodes • 19 min median",
+    "seasons": 1,
+    "episodes": 2,
+    "avgEpisodeMinutes": 19,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 16,
+    "maxEpisodeMinutes": 21,
+    "totalObservedHours": 0.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 2,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2026-06-12",
+    "latest": "2026-08-03",
+    "latestFeedItem": "2026-08-03",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://nocturnecipher.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCnAy4OzTL7u1iRGytIWG0gA",
+    "social": "https://x.com/nocturne_cipher",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "VanRen Studios",
+    "ownerName": "VanRen Studios"
+  },
+  "creators": [
+    "VanRen Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://nocturnecipher.com/episodes/1; https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama; https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama; https://nocturnecipher.com/; https://feeds.captivate.fm/nocturne-cipher/; https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://nocturnecipher.com/episodes/1",
+      "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama",
+      "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama",
+      "https://nocturnecipher.com/",
+      "https://feeds.captivate.fm/nocturne-cipher/",
+      "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Arts",
+      "Performing Arts",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "At Nocturne Cipher, our passion is creating high-quality audio dramas that embody the art of the atmosphere. We bring great stories to life through immersive sound design and the talent of real voice actors—no AI, just authentic human emotion. From psychological thrillers to timeless mysteries, each episode is a fully-produced audio experience that draws you into another world. We adapt classic and public domain works alongside original stories, crafting character-driven dramas meant to be felt as much as heard. Press play, close your eyes, and step into the atmosphere",
+    "socialUrls": [
+      "https://x.com/nocturne_cipher",
+      "https://www.instagram.com/nocturncipher"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 52,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Copyright 2026 VanRen Studios",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "4ca7369f-50df-58e6-b82e-03a623ea0f85",
+        "rssUrl": "https://feeds.captivate.fm/nocturne-cipher/",
+        "appleCollectionId": "1896917977",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nocturnecipher.com/episodes/1",
+          "fetchedAt": "2026-08-15T21:59:42.007Z",
+          "payloadHash": "99123fb724ceba4d904264c4ac4449cad81ffe6ef4a662c717a5f34cb67021d2"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama",
+          "fetchedAt": "2026-08-15T21:59:42.005Z",
+          "payloadHash": "bee1c9755bd3b39757a0005a007d829b138970de69dd2bf70940ceefa19f021a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama",
+          "fetchedAt": "2026-08-15T21:59:42.004Z",
+          "payloadHash": "92bac4d996aa98c27bd3e9ac6ce8ca7106dbe056bf4a689c876b61a3ae825121"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://nocturnecipher.com/",
+          "fetchedAt": "2026-08-15T21:59:42.002Z",
+          "payloadHash": "32268375f5c7079ace1f41bfea5a6666a058b974ad421dadd999fbcbaddabac3"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/",
+          "fetchedAt": "2026-08-15T21:59:38.647Z",
+          "payloadHash": "e31b1fa445180f654d01132f25298846027a50cc28ae9b91b86ef60419c90199"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4",
+          "fetchedAt": "2026-08-15T21:59:38.272Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episodes/1"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episodes/1"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episodes/1"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://nocturnecipher.com/episodes/1"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:59:42.653Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "68425e8200606f2f86b3b28e1b4a5954ce18dc04742c100aa1a8377118fa34e9",
+        "subtitle": "7aeb5b1196df4b41f5df1fb1475af7ec69b4b2380d424dedf829dc24d1a36679",
+        "description": "2fdb7995b54f4cf84f03c95a8133f7f3093f06c4b99d2e284e7e235d00075e1a",
+        "cover": "7776851783bb1eac54d6729a9935288f95a28c7ad8e7d5ad58d636316daaa4f9",
+        "coverAlt": "374a7d5db2a5b48806b9b3cf365f193a2381d1ec59bc266256001fdf20dbc1fa",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "1c6d44cd18a189d07ac3967a3e1ec6cdc3bafcbb7f57ce86f92c4d228857cdd3",
+        "officialLinks": "f24d25eaa9ac58a25bc9e75045a17f68f8a40e6f8fd9a43cee88cefb078d9a83",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "548790aae4c454344fe0893f2658dfaaba6e7092749863013e2eb18a86ac0b5c",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "18a30aee9111bf2663caa09627752b2981c711021e0450b9ab517e71d64c413f",
+        "releaseDates": "087d65450231f618e1c5427fd96c227c81c55a7790d4d3d8e31bc94cc740e5b1",
+        "credits": "3537444672f1f471a1820f7a1cfa9abf774375b92c95548f0e33fc6d0a4d866b",
+        "creators": "6aca8b573fc334ef62a5bbd9aa0c066b08e7749f2b5fc4e8bb4e31db4e4e2abf",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "33bc76149fa6562457d2ec1851fd228d085e47805814750ad415463e6490c51c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T22:01:18.307Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "vanren-studios"
+}

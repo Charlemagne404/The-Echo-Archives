@@ -1,0 +1,713 @@
+{
+  "id": "dreamstar-chasers",
+  "title": "Dreamstar Chasers",
+  "subtitle": "A Storyteller's Podcast",
+  "description": "Join Max and his friends in Cape KOTO, home of the Keepers of the Ocean, as they work to protect the sea and find a way to Overcome the Nightmare on the Horizon.",
+  "cover": "images/covers/dreamstar-chasers.jpg",
+  "coverAlt": "Dreamstar Chasers cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1BcHlKHNHmQwcmstikHXSu?si=DwGr8LzNRYa-OrM9ehVPSQ",
+    "apple": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010",
+    "website": "https://dreamstarchasers.com/",
+    "rss": "https://feeds.captivate.fm/dreamstarchasers/",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/9f8cb68d-5290-4c76-bfcb-1d1ed6461293/dreamstar-chasers?ref=dm_sh_nMiKPDFcQ7RVaW6zQSyJ1opao",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Dreamstar Chasers"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 12 full episodes • 34 min median",
+    "seasons": 1,
+    "episodes": 12,
+    "avgEpisodeMinutes": 34,
+    "medianEpisodeMinutes": 34,
+    "minEpisodeMinutes": 23,
+    "maxEpisodeMinutes": 42,
+    "totalObservedHours": 6.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 12,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2025-03-03",
+    "latest": "2026-06-05",
+    "latestFeedItem": "2026-06-05",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://dreamstarchasers.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/@dreamstar.chasers",
+    "social": "https://www.instagram.com/dreamstar.chasers/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Faded Plaid Productions",
+    "ownerName": "Faded Plaid Productions"
+  },
+  "creators": [
+    "Faded Plaid Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://dreamstarchasers.com/; https://feeds.captivate.fm/dreamstarchasers/; https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://dreamstarchasers.com/",
+      "https://feeds.captivate.fm/dreamstarchasers/",
+      "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Arts",
+      "Books",
+      "Kids & Family",
+      "Education for Kids"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Join Max and his friends in Cape KOTO, home of the Keepers of the Ocean, as they work to protect the sea and find a way to Overcome the Nightmare on the Horizon.",
+    "socialUrls": [
+      "https://www.instagram.com/dreamstar.chasers/",
+      "https://www.facebook.com/profile.php?id=61558815910045",
+      "https://x.com/dreamstarpod"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Copyright 2026 Faded Plaid Productions",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "66051102-d512-5518-849f-902ee543da66",
+        "rssUrl": "https://feeds.captivate.fm/dreamstarchasers/",
+        "appleCollectionId": "1747367010",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://dreamstarchasers.com/",
+          "fetchedAt": "2026-08-15T22:01:05.393Z",
+          "payloadHash": "4f840f619ca10f86f67b244d56bedfa58b8823d5ce941f275cfd72aaebcb4559"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/",
+          "fetchedAt": "2026-08-15T22:01:04.861Z",
+          "payloadHash": "99c91b10922381ea1f31753d54fc0d8a5952e68f72ac80d5515ef54b34d9d611"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4",
+          "fetchedAt": "2026-08-15T22:01:04.520Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://dreamstarchasers.com/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T22:01:06.634Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "e3f1969d7378b1419f2bfc03c14a91e2cec3f348388a96d63af14fe0f66b9c19",
+        "subtitle": "69ad6fb53129968261d9120066aeae42f9ef5b4f354f398148dad64bcf46e0d4",
+        "description": "3a83c1e1a51d27744ba8a4538fbc06f5e6db7e7984bf9e0eb0cfc75fcc6b4eb5",
+        "cover": "7e119bd30b80ec8ad8bc90de2d743680645213ae57909ba8b8a50b4a16eea410",
+        "coverAlt": "845525d50a6408c66986564d468c2c34e135208a8bb2861edc8720fb8552b35a",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "6563ed0cb21b520a5f50905f5ad3bfcb139a7d40da25e04ba082e48bd2ba3ffa",
+        "officialLinks": "8b4f75f2b2ee794e3a48b46329eca7714cfc485986f9bbd4a1706061866a8da7",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "84ba2e54e284303e6425200b6b7c04f723c439786ac8921fdeb8dcdad8aac5b1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "58e7dcf2f326292865979295857b127693910e2c47861d8c0e58b8b70498cbd9",
+        "releaseDates": "c5dfc07e073e38965990d80f781a8ac984c9506bd1d0da6f91c7081c6778f445",
+        "credits": "163869c5272aeef3dca856021fd74699ced5e46ebb6982990000c93175f51df2",
+        "creators": "332ebde999cda0bedcab1603cff50521a35abb3db9b84416935312c48d81a6f6",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "610fdd47590e1ee98323a6bedfb48f4d8938e7224e1bc5cd6fc5bcd44250a9cf"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T22:01:18.285Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "faded-plaid-productions"
+}

@@ -1378,31 +1378,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1378,P3,Just Enough Dead,OutWrd,bb604081-7136-4aff-931b-54e5bff8d2ff,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 21:54:19
 1379,P3,Strange Country,Seth Ervin,1542edf2-a2d3-489f-baca-74ec4068fb92,needs-review,needs-review,source-conflict,2026-08-15 21:54:22
 1380,P3,Hunter of the Setting Sun,,33da0120-5342-4948-9eac-1707fe420f2f,needs-review,needs-review,source-conflict,2026-08-15 21:54:19
-1381,P3,Dreamstar Chasers,,,unattempted,,,
-1382,P3,HumorUs Stories,Short StoryVerses,,unattempted,,,
-1383,P3,A Ballad of Inferno and Ruin,,,unattempted,,,
-1384,P3,Split Streams,,,unattempted,,,
-1385,P3,Towers Anthology,Ethene Studio,,unattempted,,,
-1386,P3,The Heart Bleeds Lavender,Shaymeless Studios,,unattempted,,,
-1387,P3,Borderlands: Dead ECHOs,,,unattempted,,,
-1388,P3,Sascha Martin's Ripping News,John Arthur Nichol,,unattempted,,,
-1389,P3,This Never Happened,,,unattempted,,,
-1390,P3,Per My Last Shift,,,unattempted,,,
-1391,P3,The Writer,Little Ear Productions,,unattempted,,,
-1392,P3,Nocturne Cipher,Nocturne Cipher,,unattempted,,,
-1393,P3,Panic,ElectraCast,,unattempted,,,
-1394,P3,The Podcast Against Giygas!,,,unattempted,,,
-1395,P3,Captain's Log,Rhys Normington,,unattempted,,,
-1396,P3,Project Atla,,,unattempted,,,
-1397,P3,Kirby's Fantasy Fiction Journal,Glen V C Kirby,,unattempted,,,
-1398,P3,Salmon's Run,,,unattempted,,,
-1399,P3,Welcome to the Labyrinth,,,unattempted,,,
-1400,P3,TRC Diaries,Mrigaank Singh,,unattempted,,,
-1401,P3,Enough for Four,,,unattempted,,,
-1402,P3,LowKey Storytime,Emmie Matthews,,unattempted,,,
-1403,P3,Fugative's Log,,,unattempted,,,
-1404,P3,Laura,Martin Whiskin,,unattempted,,,
-1405,P3,Long Winter Nights,,,unattempted,,,
+1381,P3,Dreamstar Chasers,,fc09f9c9-5f9c-4082-bca1-204c272c9e41,published,published,,2026-08-15 22:01:21
+1382,P3,HumorUs Stories,Short StoryVerses,c74b86a0-1792-43dd-bb91-bb46a1ff4260,needs-review,needs-review,source-conflict,2026-08-15 21:59:45
+1383,P3,A Ballad of Inferno and Ruin,,e5fe9663-59da-4df8-bae6-effa247b227b,needs-review,needs-review,source-conflict,2026-08-15 21:58:36
+1384,P3,Split Streams,,37cdd0a5-849e-4ef8-86ab-799df28869b7,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 21:59:47
+1385,P3,Towers Anthology,Ethene Studio,9ae6c2cb-474c-4442-845a-6e9454d1a50f,needs-review,needs-review,source-conflict,2026-08-15 22:01:18
+1386,P3,The Heart Bleeds Lavender,Shaymeless Studios,c3d899fc-68f6-45a4-a8d6-c9da964f8e35,published,published,,2026-08-15 22:01:21
+1387,P3,Borderlands: Dead ECHOs,,bb084535-072e-4cbc-b4e3-01740f931f58,needs-review,needs-review,source-conflict,2026-08-15 21:58:40
+1388,P3,Sascha Martin's Ripping News,John Arthur Nichol,97edafbf-abe4-43a3-b027-682b30aa1738,published,published,,2026-08-15 22:01:21
+1389,P3,This Never Happened,,12c36175-6af9-4db7-92dd-9071771f3a0f,needs-review,needs-review,invalid-website,2026-08-15 21:59:39
+1390,P3,Per My Last Shift,,5ee5e5c1-f20a-4e10-8727-3fb2e7e7e7e7,needs-review,needs-review,source-conflict,2026-08-15 21:58:45
+1391,P3,The Writer,Little Ear Productions,32bf581d-9944-4ad1-8333-99d1fd75a8eb,needs-review,needs-review,source-conflict,2026-08-15 22:00:47
+1392,P3,Nocturne Cipher,Nocturne Cipher,35f17612-b359-42f4-b2e0-c70722041071,published,published,,2026-08-15 22:01:21
+1393,P3,Panic,ElectraCast,4f2c0308-1157-4065-a261-2358cfe55843,needs-review,needs-review,scope-review; source-conflict,2026-08-15 21:58:37
+1394,P3,The Podcast Against Giygas!,,a718a87f-9b64-46a0-a21f-16923d2fa917,needs-review,needs-review,source-conflict,2026-08-15 21:59:45
+1395,P3,Captain's Log,Rhys Normington,9aff666a-e7fe-4c1d-91e3-35e4cfa4b592,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 21:58:38
+1396,P3,Project Atla,,ca00a6e4-3ecb-4f8f-ab06-c48df7e3cdb7,needs-review,needs-review,source-conflict,2026-08-15 22:01:09
+1397,P3,Kirby's Fantasy Fiction Journal,Glen V C Kirby,81a11cd9-a054-45d3-acca-bdb9b2c17311,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 21:58:37
+1398,P3,Salmon's Run,,13c922df-a624-41ea-8b3b-4667f132c51c,published,published,,2026-08-15 22:01:21
+1399,P3,Welcome to the Labyrinth,,6019a669-74f9-48f1-90d0-b9128ad22f33,needs-review,needs-review,source-conflict,2026-08-15 21:58:37
+1400,P3,TRC Diaries,Mrigaank Singh,65734048-793d-4cad-98cd-2863ef22b8f6,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 21:58:37
+1401,P3,Enough for Four,,0431f6b8-e62c-404a-85bf-9e688c2f0d11,needs-review,needs-review,insufficient-discovery-signals; missing-genre; cover-not-ready; source-conflict,2026-08-15 21:58:42
+1402,P3,LowKey Storytime,Emmie Matthews,62d44d02-6aa1-4d68-8032-9e948e6027a7,needs-review,needs-review,source-conflict,2026-08-15 21:58:45
+1403,P3,Fugative's Log,,f547ed1b-852d-4cb0-8459-ac363e03fb3d,needs-review,needs-review,source-conflict,2026-08-15 21:59:41
+1404,P3,Laura,Martin Whiskin,7daf5ede-417b-49c2-bc11-6b5e814ab359,needs-review,needs-review,source-conflict,2026-08-15 22:01:06
+1405,P3,Long Winter Nights,,afbdced5-08ed-4a27-8540-849b5aaac5c7,published,published,,2026-08-15 22:01:21
 1406,P3,The Light Left Behind,Justin D.,,unattempted,,,
 1407,P3,The Montana Incident,,,unattempted,,,
 1408,P3,Interviewing Stephen Haggard,Faith Jacobs,,unattempted,,,

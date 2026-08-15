@@ -1,0 +1,663 @@
+{
+  "id": "salmons-run",
+  "title": "Salmon's Run",
+  "subtitle": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history.",
+  "description": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history. WARNING: Salmon's Run is an entirely new form of entertainment that is tremendously difficult to describe. It's a dialogue between music and words, I guess. Come for the story, stay for the music, or because you've died.",
+  "cover": "images/covers/salmons-run.jpg",
+  "coverAlt": "Salmon's Run cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4",
+    "website": "https://salmonsrun.com/",
+    "rss": "https://feeds.transistor.fm/salmons-run",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Salmon's Run"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 2 full episodes • 26 min median",
+    "episodes": 2,
+    "avgEpisodeMinutes": 26,
+    "medianEpisodeMinutes": 26,
+    "minEpisodeMinutes": 19,
+    "maxEpisodeMinutes": 32,
+    "totalObservedHours": 0.8,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 2,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2026-07-09",
+    "latest": "2026-07-17",
+    "latestFeedItem": "2026-07-17",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://salmonsrun.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Nick Messitte",
+    "ownerName": "Nick Messitte"
+  },
+  "creators": [
+    "Nick Messitte"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://salmonsrun.com/; https://feeds.transistor.fm/salmons-run; https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://salmonsrun.com/",
+      "https://feeds.transistor.fm/salmons-run",
+      "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Music"
+    ],
+    "sourceKeywords": [
+      "Music",
+      "Fiction",
+      "Satire",
+      "Politics",
+      "Nick Messitte"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history. WARNING: Salmon's Run is an entirely new form of entertainment that is tremendously difficult to describe. It's a dialogue between music and words, I guess. Come for the story, stay for the music, or because you've died.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 8,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2026",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "0170b4ec-e7b5-570c-a9ac-7ee331d79627",
+        "rssUrl": "https://feeds.transistor.fm/salmons-run",
+        "appleCollectionId": "6789264747",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://salmonsrun.com/feed/"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://salmonsrun.com/",
+          "fetchedAt": "2026-08-15T21:59:46.241Z",
+          "payloadHash": "4abeb58aa1273ed8d2525b69578facbb7b0f1b61e1c5652a92f746612ef63bfa"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.transistor.fm/salmons-run",
+          "fetchedAt": "2026-08-15T21:59:44.083Z",
+          "payloadHash": "67f2a3009bbf1ea60579f8a8ce8b9c77a913e4690f6d2eb2f44da22e5f39f67c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4",
+          "fetchedAt": "2026-08-15T21:59:43.581Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://salmonsrun.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "complete": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T21:59:47.010Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "f01e3353b5375e50b2b4e8a5ffe96ce9d3b487c56a4d2260c5a420d8ad500af0",
+        "subtitle": "919eee9f393d26c9bec16d56311c2c72b3e9b8af6a59ad26f9686f717722a797",
+        "description": "36f1a43b393875f6591028fe870dc7ecaead3e2b35af15ed0c2bd4a2b730a9bf",
+        "cover": "9e70542489a504e829e7c7cf0dd5cd5e56b6e7f47c6ba9fa079cf35bbe6a3677",
+        "coverAlt": "8a946f2b50e80aaf7d6fd50d3260d5ba0d6bf5d70ec5c5353eb22f132c57b2b4",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "0fea569f5631b169e93e8279e60928878f597d8d251733dac73fa7a75106ea1a",
+        "officialLinks": "c2c9ede058ebae5cfbac32d7440f9e993a5adb66e332511a86cdd413d78ebe23",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "e297bb144a7979cd5d682c797d716fa217c12c327d4b9cb56169b4356dc31ece",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "ff7a8b0eda3146778a7d4c428aa68754a3a2e180f5b808222f64d259d7414e48",
+        "releaseDates": "50b680796bcb37c21d0c77c3b37b7769b6909711933e28b4aacda5a32cb986b7",
+        "credits": "40ee57f3df2eed26f025342a2f5ba2baae934bc253a57b684fe19517089f20a4",
+        "creators": "97faf939b84b3c2257b6d404b1c187b80bcdead6c9c8cfcffcaa7a62991a4b1e",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "4a3de542fe2b278a2a374e56301eb9d462e368c4b8bc6c909a9bfa4fc2fc7a6c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T22:01:18.312Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "nick-messitte"
+}

@@ -414807,5 +414807,4148 @@
         "width": 320
       }
     ]
+  },
+  {
+    "id": "dreamstar-chasers",
+    "title": "Dreamstar Chasers",
+    "subtitle": "A Storyteller's Podcast",
+    "description": "Join Max and his friends in Cape KOTO, home of the Keepers of the Ocean, as they work to protect the sea and find a way to Overcome the Nightmare on the Horizon.",
+    "cover": "images/covers/dreamstar-chasers.jpg",
+    "coverAlt": "Dreamstar Chasers cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "spotify": "https://open.spotify.com/show/1BcHlKHNHmQwcmstikHXSu?si=DwGr8LzNRYa-OrM9ehVPSQ",
+      "apple": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010",
+      "website": "https://dreamstarchasers.com/",
+      "rss": "https://feeds.captivate.fm/dreamstarchasers/",
+      "amazonMusic": "https://music.amazon.com/podcasts/9f8cb68d-5290-4c76-bfcb-1d1ed6461293/dreamstar-chasers?ref=dm_sh_nMiKPDFcQ7RVaW6zQSyJ1opao"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Dreamstar Chasers"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 12 full episodes • 34 min median",
+      "seasons": 1,
+      "episodes": 12,
+      "avgEpisodeMinutes": 34,
+      "medianEpisodeMinutes": 34,
+      "minEpisodeMinutes": 23,
+      "maxEpisodeMinutes": 42,
+      "totalObservedHours": 6.8,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 12,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2025-03-03",
+      "latest": "2026-06-05",
+      "latestFeedItem": "2026-06-05"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://dreamstarchasers.com/",
+      "youtube": "https://www.youtube.com/@dreamstar.chasers",
+      "social": "https://www.instagram.com/dreamstar.chasers/"
+    },
+    "credits": {
+      "creatorName": "Faded Plaid Productions",
+      "ownerName": "Faded Plaid Productions"
+    },
+    "creators": [
+      "Faded Plaid Productions"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://dreamstarchasers.com/; https://feeds.captivate.fm/dreamstarchasers/; https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://dreamstarchasers.com/",
+        "https://feeds.captivate.fm/dreamstarchasers/",
+        "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Arts",
+        "Books",
+        "Kids & Family",
+        "Education for Kids"
+      ],
+      "importOfficialSummary": "Join Max and his friends in Cape KOTO, home of the Keepers of the Ocean, as they work to protect the sea and find a way to Overcome the Nightmare on the Horizon.",
+      "socialUrls": [
+        "https://www.instagram.com/dreamstar.chasers/",
+        "https://www.facebook.com/profile.php?id=61558815910045",
+        "https://x.com/dreamstarpod"
+      ],
+      "schedule": {
+        "label": "biweekly",
+        "medianDays": 14,
+        "observedIntervals": 8
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Copyright 2026 Faded Plaid Productions",
+        "explicit": "false",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "66051102-d512-5518-849f-902ee543da66",
+          "rssUrl": "https://feeds.captivate.fm/dreamstarchasers/",
+          "appleCollectionId": "1747367010"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://dreamstarchasers.com/",
+            "fetchedAt": "2026-08-15T22:01:05.393Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/",
+            "fetchedAt": "2026-08-15T22:01:04.861Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4",
+            "fetchedAt": "2026-08-15T22:01:04.520Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/dreamstar-chasers/id1747367010?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          },
+          "spotifyUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.95,
+            "method": "unstructured",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://dreamstarchasers.com/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/dreamstarchasers/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T22:01:06.634Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:01:18.285Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "faded-plaid-productions",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/dreamstar-chasers",
+    "hasPage": true,
+    "image": "images/covers/dreamstar-chasers.jpg",
+    "imageAlt": "Dreamstar Chasers cover art",
+    "summary": "Join Max and his friends in Cape KOTO, home of the Keepers of the Ocean, as they work to protect the sea and find a way to Overcome the Nightmare on the Horizon.",
+    "finalRating": null,
+    "searchText": "dreamstar chasers a storyteller s podcast join max and his friends in cape koto home of the keepers of the ocean as they work to protect the sea and find a way to overcome the nightmare on the horizon drama episodic dreamstar chasers faded plaid productions english ongoing imported faded plaid productions faded plaid productions unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/dreamstar-chasers-162a705a94-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/dreamstar-chasers-162a705a94-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "the-heart-bleeds-lavender",
+    "title": "The Heart Bleeds Lavender",
+    "subtitle": "",
+    "description": "When a princess who's dissatisfied with her lot starts to rebel against her father's wishes with the help of her brother's sword instructor, strange tensions blossom between the two...",
+    "cover": "images/covers/the-heart-bleeds-lavender.png",
+    "coverAlt": "The Heart Bleeds Lavender cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/podcast/id6785667836",
+      "website": "https://rss.com/podcasts/the-heart-bleeds-lavender/",
+      "rss": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml",
+      "amazonMusic": "https://music.amazon.com/podcasts/c92c23c5-efe9-4b65-bdf5-18917c127f4d"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "The Heart Bleeds Lavender",
+      "The Heart Bleeds Lavender - Prologue",
+      "The Heart Bleeds Lavender - Seen And Not Heard",
+      "The Heart Bleeds Lavender - A Worm Will Turn"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 2 full episodes • 26 min median",
+      "seasons": 1,
+      "episodes": 2,
+      "avgEpisodeMinutes": 26,
+      "medianEpisodeMinutes": 26,
+      "minEpisodeMinutes": 25,
+      "maxEpisodeMinutes": 27,
+      "totalObservedHours": 0.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 2,
+        "bonus": 0,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2026-06-29",
+      "latest": "2026-07-20",
+      "latestFeedItem": "2026-07-20"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://rss.com/podcasts/the-heart-bleeds-lavender/",
+      "patreon": "https://www.patreon.com/c/ShaymelessStudios",
+      "youtube": "https://studio.youtube.com/channel/UCuwtFX0-2CEwIkr0lEM2teg",
+      "social": "https://www.facebook.com/rss.podcasting",
+      "funding": "https://www.patreon.com/c/ShaymelessStudios"
+    },
+    "credits": {
+      "creatorName": "Shaymeless Studios",
+      "ownerName": "Shaymeless Studios",
+      "network": "RSS.com",
+      "writers": [
+        "Shaymeless Studios"
+      ],
+      "people": [
+        {
+          "name": "Shaymeless Studios",
+          "role": "author"
+        }
+      ]
+    },
+    "creators": [
+      "Shaymeless Studios"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/; https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/; https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/; https://rss.com/podcasts/the-heart-bleeds-lavender/; https://media.rss.com/the-heart-bleeds-lavender/feed.xml; https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/",
+        "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/",
+        "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/",
+        "https://rss.com/podcasts/the-heart-bleeds-lavender/",
+        "https://media.rss.com/the-heart-bleeds-lavender/feed.xml",
+        "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "false"
+      ],
+      "importOfficialSummary": "When a princess who's dissatisfied with her lot starts to rebel against her father's wishes with the help of her brother's sword instructor, strange tensions blossom between the two...",
+      "socialUrls": [
+        "https://www.facebook.com/rss.podcasting",
+        "https://twitter.com/rss",
+        "https://www.instagram.com/rss_podcasting/"
+      ],
+      "funding": [
+        {
+          "url": "https://www.patreon.com/c/ShaymelessStudios",
+          "label": "Get Early Access!"
+        }
+      ],
+      "schedule": {
+        "label": "monthly",
+        "medianDays": 21,
+        "observedIntervals": 1
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Shaymeless Studios 2026",
+        "explicit": "false",
+        "license": {
+          "value": "Shaymeless Studios 2026"
+        },
+        "productionLocation": "Netherlands, Netherlands",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "4141234c-554a-5e7a-8902-3c5399bd572f",
+          "rssUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml",
+          "appleCollectionId": "6785667836"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/",
+            "fetchedAt": "2026-08-15T21:59:35.633Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/",
+            "fetchedAt": "2026-08-15T21:59:35.625Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/",
+            "fetchedAt": "2026-08-15T21:59:35.619Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/",
+            "fetchedAt": "2026-08-15T21:59:35.612Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml",
+            "fetchedAt": "2026-08-15T21:59:34.686Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4",
+            "fetchedAt": "2026-08-15T21:58:43.032Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/the-heart-bleeds-lavender/id6785667836?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "funding": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "supportUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "location": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/"
+              }
+            ]
+          },
+          "amazonMusicUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "patreonUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952573/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952560/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/2952539/"
+              }
+            ]
+          },
+          "people": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://rss.com/podcasts/the-heart-bleeds-lavender/"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/the-heart-bleeds-lavender/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:59:36.423Z",
+        "optionalGaps": [
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:01:18.289Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "shaymeless-studios",
+    "networkId": "rss-com",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/the-heart-bleeds-lavender",
+    "hasPage": true,
+    "image": "images/covers/the-heart-bleeds-lavender.png",
+    "imageAlt": "The Heart Bleeds Lavender cover art",
+    "summary": "When a princess who's dissatisfied with her lot starts to rebel against her father's wishes with the help of her brother's sword instructor, strange tensions blossom between the two...",
+    "finalRating": null,
+    "searchText": "the heart bleeds lavender when a princess who s dissatisfied with her lot starts to rebel against her father s wishes with the help of her brother s sword instructor strange tensions blossom between the two drama episodic the heart bleeds lavender the heart bleeds lavender prologue the heart bleeds lavender seen and not heard the heart bleeds lavender a worm will turn shaymeless studios english ongoing imported shaymeless studios shaymeless studios rss com shaymeless studios shaymeless studios author unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/the-heart-bleeds-lavender-c5c228a7a1-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/the-heart-bleeds-lavender-c5c228a7a1-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "sascha-martins-ripping-news",
+    "title": "Sascha Martin's Ripping News",
+    "subtitle": "",
+    "description": "Sascha Martin is a young inventor whose genius knows no responsibility. He attends Landfill Public School where, each week during News, he delights and traumatises, horrifies and endangers his classmates in 2M and the entire school community. Sascha's weekly inventions, and the chaos that follows, have won Landfill Public School the widest renown as a Centre of Excellence in Surprise. Now in Sascha Martin's Ripping News , the podcast, each boundary-pushing triumph of science, each inevitable, unanticipated consequence and every edge of your seat apocalypse comes appallingly to life, in the author's own humble narration. Take a few moments in your day. Join Sascha's misadventures with rocket-ships and flying saucers, aliens and dinosaurs, zombies, megafauna and exo-girls, plus his constant, ever critical, always demanding nemesis and not-friend, Mary-Alice Cooper. It's all great fun until somebody ... Well, we'll get to that.",
+    "cover": "images/covers/sascha-martins-ripping-news.jpg",
+    "coverAlt": "Sascha Martin's Ripping News cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4",
+      "website": "https://johnarthurnichol.com/",
+      "rss": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Sascha Martin's Ripping News",
+      "Sascha Martin's Ripping News, the Podcast: Episode 4 - John Arthur Nichol",
+      "Sascha Martin's Ripping News, the Podcast: Episode 5 - John Arthur Nichol",
+      "Sascha Martin's Ripping News, the Podcast: Episode 6 - John Arthur Nichol"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 6 full episodes • 9 min median",
+      "seasons": 1,
+      "episodes": 6,
+      "avgEpisodeMinutes": 10,
+      "medianEpisodeMinutes": 9,
+      "minEpisodeMinutes": 6,
+      "maxEpisodeMinutes": 13,
+      "totalObservedHours": 0.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 6,
+        "bonus": 0,
+        "trailer": 3
+      }
+    },
+    "releaseDates": {
+      "first": "2026-07-08",
+      "latest": "2026-08-12",
+      "latestFeedItem": "2026-08-12"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://johnarthurnichol.com/"
+    },
+    "credits": {
+      "creatorName": "John Arthur Nichol",
+      "ownerName": "John Arthur Nichol",
+      "network": "John Arthur Nichol"
+    },
+    "creators": [
+      "John Arthur Nichol"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://johnarthurnichol.com/2026/07/29/sascha-martins-ripping-news-the.html; https://johnarthurnichol.com/2026/08/05/sascha-martins-ripping-news-the.html; https://johnarthurnichol.com/2026/08/12/sascha-martins-ripping-news-the.html; https://johnarthurnichol.com/about/; https://johnarthurnichol.com/; https://media.rss.com/sascha-martin-s-ripping-news/feed.xml; https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "9 observed episodes",
+      "captions": "available in structured transcript data",
+      "transcriptCoverage": 1,
+      "transcriptFormats": [
+        "text/vtt"
+      ]
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://johnarthurnichol.com/2026/07/29/sascha-martins-ripping-news-the.html",
+        "https://johnarthurnichol.com/2026/08/05/sascha-martins-ripping-news-the.html",
+        "https://johnarthurnichol.com/2026/08/12/sascha-martins-ripping-news-the.html",
+        "https://johnarthurnichol.com/about/",
+        "https://johnarthurnichol.com/",
+        "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml",
+        "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+      ],
+      "sourceCategories": [
+        "Kids & Family",
+        "Stories for Kids",
+        "Fiction",
+        "Comedy Fiction",
+        "false"
+      ],
+      "importOfficialSummary": "Sascha Martin is a young inventor whose genius knows no responsibility. He attends Landfill Public School where, each week during News, he delights and traumatises, horrifies and endangers his classmates in 2M and the entire school community. Sascha's weekly inventions, and the chaos that follows, have won Landfill Public School the widest renown as a Centre of Excellence in Surprise. Now in Sascha Martin's Ripping News , the podcast, each boundary-pushing triumph of science, each inevitable, unanticipated consequence and every edge of your seat apocalypse comes appallingly to life, in the author's own humble narration. Take a few moments in your day. Join Sascha's misadventures with rocket-ships and flying saucers, aliens and dinosaurs, zombies, megafauna and exo-girls, plus his constant, ever critical, always demanding nemesis and not-friend, Mary-Alice Cooper. It's all great fun until somebody ... Well, we'll get to that.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 7,
+        "observedIntervals": 5
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "John Arthur Nichol 2026",
+        "explicit": "false",
+        "license": {
+          "value": "John Arthur Nichol 2026"
+        },
+        "productionLocation": "Sydney, New South Wales, Australia",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "0d24daf3-09d2-59e3-8b19-d3136b5a12ec",
+          "rssUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml",
+          "appleCollectionId": "1896938915",
+          "feedRedirects": [
+            "https://johnarthurnichol.com/feed.xml"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://johnarthurnichol.com/2026/07/29/sascha-martins-ripping-news-the.html",
+            "fetchedAt": "2026-08-15T21:59:36.166Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://johnarthurnichol.com/2026/08/05/sascha-martins-ripping-news-the.html",
+            "fetchedAt": "2026-08-15T21:59:36.165Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://johnarthurnichol.com/2026/08/12/sascha-martins-ripping-news-the.html",
+            "fetchedAt": "2026-08-15T21:59:36.156Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://johnarthurnichol.com/about/",
+            "fetchedAt": "2026-08-15T21:59:36.155Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://johnarthurnichol.com/",
+            "fetchedAt": "2026-08-15T21:59:36.152Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml",
+            "fetchedAt": "2026-08-15T21:59:34.681Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4",
+            "fetchedAt": "2026-08-15T21:58:42.854Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/sascha-martins-ripping-news/id1896938915?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/2026/08/12/sascha-martins-ripping-news-the.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/2026/08/05/sascha-martins-ripping-news-the.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/2026/07/29/sascha-martins-ripping-news-the.html"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "location": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          },
+          "networkName": {
+            "confidence": 0.72,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/about/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/2026/08/12/sascha-martins-ripping-news-the.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/2026/08/05/sascha-martins-ripping-news-the.html"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://johnarthurnichol.com/2026/07/29/sascha-martins-ripping-news-the.html"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/sascha-martin-s-ripping-news/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:59:37.256Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:01:18.292Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "john-arthur-nichol",
+    "networkId": "john-arthur-nichol",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/sascha-martins-ripping-news",
+    "hasPage": true,
+    "image": "images/covers/sascha-martins-ripping-news.jpg",
+    "imageAlt": "Sascha Martin's Ripping News cover art",
+    "summary": "Sascha Martin is a young inventor whose genius knows no responsibility. He attends Landfill Public School where, each week during News, he delights and traumatises, horrifies and endangers his classmates in 2M and the entire school community. Sascha's weekly inventions, and the chaos that follows, have won Landfill Public School the widest renown as a Centre of Excellence in Surprise. Now in Sascha Martin's Ripping News , the podcast, each boundary-pushing triumph of science, each inevitable, unanticipated consequence and every edge of your seat apocalypse comes appallingly to life, in the author's own humble narration. Take a few moments in your day. Join Sascha's misadventures with rocket-ships and flying saucers, aliens and dinosaurs, zombies, megafauna and exo-girls, plus his constant, ever critical, always demanding nemesis and not-friend, Mary-Alice Cooper. It's all great fun until somebody ... Well, we'll get to that.",
+    "finalRating": null,
+    "searchText": "sascha martin s ripping news sascha martin is a young inventor whose genius knows no responsibility he attends landfill public school where each week during news he delights and traumatises horrifies and endangers his classmates in 2m and the entire school community sascha s weekly inventions and the chaos that follows have won landfill public school the widest renown as a centre of excellence in surprise now in sascha martin s ripping news the podcast each boundary pushing triumph of science each inevitable unanticipated consequence and every edge of your seat apocalypse comes appallingly to life in the author s own humble narration take a few moments in your day join sascha s misadventures with rocket ships and flying saucers aliens and dinosaurs zombies megafauna and exo girls plus his constant ever critical always demanding nemesis and not friend mary alice cooper it s all great fun until somebody well we ll get to that drama comedy serialized sascha martin s ripping news sascha martin s ripping news the podcast episode 4 john arthur nichol sascha martin s ripping news the podcast episode 5 john arthur nichol sascha martin s ripping news the podcast episode 6 john arthur nichol john arthur nichol english ongoing imported john arthur nichol john arthur nichol john arthur nichol 9 observed episodes available in structured transcript data 1 text vtt",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/sascha-martins-ripping-news-cb60766f4d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/sascha-martins-ripping-news-cb60766f4d-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "nocturne-cipher",
+    "title": "Nocturne Cipher",
+    "subtitle": "Art of the Atmosphere",
+    "description": "At Nocturne Cipher, our passion is creating high-quality audio dramas that embody the art of the atmosphere. We bring great stories to life through immersive sound design and the talent of real voice actors—no AI, just authentic human emotion. From psychological thrillers to timeless mysteries, each episode is a fully-produced audio experience that draws you into another world. We adapt classic and public domain works alongside original stories, crafting character-driven dramas meant to be felt as much as heard. Press play, close your eyes, and step into the atmosphere",
+    "cover": "images/covers/nocturne-cipher.jpg",
+    "coverAlt": "Nocturne Cipher cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4",
+      "website": "https://nocturnecipher.com/",
+      "rss": "https://feeds.captivate.fm/nocturne-cipher/"
+    },
+    "genres": [
+      "drama",
+      "comedy"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Nocturne Cipher",
+      "Nocturne Cipher | Audio Drama Podcast"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 2 full episodes • 19 min median",
+      "seasons": 1,
+      "episodes": 2,
+      "avgEpisodeMinutes": 19,
+      "medianEpisodeMinutes": 19,
+      "minEpisodeMinutes": 16,
+      "maxEpisodeMinutes": 21,
+      "totalObservedHours": 0.6,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 2,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2026-06-12",
+      "latest": "2026-08-03",
+      "latestFeedItem": "2026-08-03"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://nocturnecipher.com/",
+      "youtube": "https://www.youtube.com/channel/UCnAy4OzTL7u1iRGytIWG0gA",
+      "social": "https://x.com/nocturne_cipher"
+    },
+    "credits": {
+      "creatorName": "VanRen Studios",
+      "ownerName": "VanRen Studios"
+    },
+    "creators": [
+      "VanRen Studios"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://nocturnecipher.com/episodes/1; https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama; https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama; https://nocturnecipher.com/; https://feeds.captivate.fm/nocturne-cipher/; https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://nocturnecipher.com/episodes/1",
+        "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama",
+        "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama",
+        "https://nocturnecipher.com/",
+        "https://feeds.captivate.fm/nocturne-cipher/",
+        "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Drama",
+        "Arts",
+        "Performing Arts",
+        "Comedy Fiction"
+      ],
+      "importOfficialSummary": "At Nocturne Cipher, our passion is creating high-quality audio dramas that embody the art of the atmosphere. We bring great stories to life through immersive sound design and the talent of real voice actors—no AI, just authentic human emotion. From psychological thrillers to timeless mysteries, each episode is a fully-produced audio experience that draws you into another world. We adapt classic and public domain works alongside original stories, crafting character-driven dramas meant to be felt as much as heard. Press play, close your eyes, and step into the atmosphere",
+      "socialUrls": [
+        "https://x.com/nocturne_cipher",
+        "https://www.instagram.com/nocturncipher"
+      ],
+      "schedule": {
+        "label": "irregular",
+        "medianDays": 52,
+        "observedIntervals": 1
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Copyright 2026 VanRen Studios",
+        "explicit": "true",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "4ca7369f-50df-58e6-b82e-03a623ea0f85",
+          "rssUrl": "https://feeds.captivate.fm/nocturne-cipher/",
+          "appleCollectionId": "1896917977"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://nocturnecipher.com/episodes/1",
+            "fetchedAt": "2026-08-15T21:59:42.007Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama",
+            "fetchedAt": "2026-08-15T21:59:42.005Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama",
+            "fetchedAt": "2026-08-15T21:59:42.004Z"
+          },
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://nocturnecipher.com/",
+            "fetchedAt": "2026-08-15T21:59:42.002Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/",
+            "fetchedAt": "2026-08-15T21:59:38.647Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4",
+            "fetchedAt": "2026-08-15T21:59:38.272Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episodes/1"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/nocturne-cipher/id1896917977?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episodes/1"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          },
+          "youtubeUrl": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episode/yesterday-s01-e02-audio-drama"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episode/the-reckoning-s01e01-audio-drama"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episodes/1"
+              }
+            ]
+          },
+          "socialUrls": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://nocturnecipher.com/episodes/1"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.captivate.fm/nocturne-cipher/"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:59:42.653Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:01:18.307Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "vanren-studios",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/nocturne-cipher",
+    "hasPage": true,
+    "image": "images/covers/nocturne-cipher.jpg",
+    "imageAlt": "Nocturne Cipher cover art",
+    "summary": "At Nocturne Cipher, our passion is creating high-quality audio dramas that embody the art of the atmosphere. We bring great stories to life through immersive sound design and the talent of real voice actors—no AI, just authentic human emotion. From psychological thrillers to timeless mysteries, each episode is a fully-produced audio experience that draws you into another world. We adapt classic and public domain works alongside original stories, crafting character-driven dramas meant to be felt as much as heard. Press play, close your eyes, and step into the atmosphere",
+    "finalRating": null,
+    "searchText": "nocturne cipher art of the atmosphere at nocturne cipher our passion is creating high quality audio dramas that embody the art of the atmosphere we bring great stories to life through immersive sound design and the talent of real voice actors no ai just authentic human emotion from psychological thrillers to timeless mysteries each episode is a fully produced audio experience that draws you into another world we adapt classic and public domain works alongside original stories crafting character driven dramas meant to be felt as much as heard press play close your eyes and step into the atmosphere drama comedy serialized nocturne cipher nocturne cipher audio drama podcast vanren studios english ongoing imported vanren studios vanren studios unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/nocturne-cipher-9acbdea89d-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/nocturne-cipher-9acbdea89d-640.webp",
+        "width": 640
+      }
+    ]
+  },
+  {
+    "id": "salmons-run",
+    "title": "Salmon's Run",
+    "subtitle": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history.",
+    "description": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history. WARNING: Salmon's Run is an entirely new form of entertainment that is tremendously difficult to describe. It's a dialogue between music and words, I guess. Come for the story, stay for the music, or because you've died.",
+    "cover": "images/covers/salmons-run.jpg",
+    "coverAlt": "Salmon's Run cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "active",
+    "completionStatus": "ongoing",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4",
+      "website": "https://salmonsrun.com/",
+      "rss": "https://feeds.transistor.fm/salmons-run"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "serialized"
+    ],
+    "tags": [],
+    "aliases": [
+      "Salmon's Run"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "at least 2 full episodes • 26 min median",
+      "episodes": 2,
+      "avgEpisodeMinutes": 26,
+      "medianEpisodeMinutes": 26,
+      "minEpisodeMinutes": 19,
+      "maxEpisodeMinutes": 32,
+      "totalObservedHours": 0.8,
+      "durationCoverage": 1,
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 2,
+        "bonus": 0,
+        "trailer": 0
+      }
+    },
+    "releaseDates": {
+      "first": "2026-07-09",
+      "latest": "2026-07-17",
+      "latestFeedItem": "2026-07-17"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://salmonsrun.com/"
+    },
+    "credits": {
+      "creatorName": "Nick Messitte",
+      "ownerName": "Nick Messitte"
+    },
+    "creators": [
+      "Nick Messitte"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://salmonsrun.com/; https://feeds.transistor.fm/salmons-run; https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://salmonsrun.com/",
+        "https://feeds.transistor.fm/salmons-run",
+        "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+      ],
+      "sourceCategories": [
+        "Fiction",
+        "Music"
+      ],
+      "sourceKeywords": [
+        "Music",
+        "Fiction",
+        "Satire",
+        "Politics",
+        "Nick Messitte"
+      ],
+      "importOfficialSummary": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history. WARNING: Salmon's Run is an entirely new form of entertainment that is tremendously difficult to describe. It's a dialogue between music and words, I guess. Come for the story, stay for the music, or because you've died.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 8,
+        "observedIntervals": 1
+      },
+      "podcast": {
+        "copyright": "2026",
+        "explicit": "yes",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "0170b4ec-e7b5-570c-a9ac-7ee331d79627",
+          "rssUrl": "https://feeds.transistor.fm/salmons-run",
+          "appleCollectionId": "6789264747",
+          "feedRedirects": [
+            "https://salmonsrun.com/feed/"
+          ]
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://salmonsrun.com/",
+            "fetchedAt": "2026-08-15T21:59:46.241Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://feeds.transistor.fm/salmons-run",
+            "fetchedAt": "2026-08-15T21:59:44.083Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4",
+            "fetchedAt": "2026-08-15T21:59:43.581Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/salmons-run/id6789264747?uo=4"
+              }
+            ]
+          },
+          "subtitle": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "previousRssUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://salmonsrun.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "keywords": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "complete": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "completionStatus": {
+            "confidence": 0.7,
+            "method": "recent-full-episode"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://feeds.transistor.fm/salmons-run"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:59:47.010Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:01:18.312Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "nick-messitte",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/salmons-run",
+    "hasPage": true,
+    "image": "images/covers/salmons-run.jpg",
+    "imageAlt": "Salmon's Run cover art",
+    "summary": "When a hapless young man tosses his cigarette in a trash can, it explodes, setting lower Manhattan ablaze, and changing the course of history. WARNING: Salmon's Run is an entirely new form of entertainment that is tremendously difficult to describe. It's a dialogue between music and words, I guess. Come for the story, stay for the music, or because you've died.",
+    "finalRating": null,
+    "searchText": "salmon s run when a hapless young man tosses his cigarette in a trash can it explodes setting lower manhattan ablaze and changing the course of history when a hapless young man tosses his cigarette in a trash can it explodes setting lower manhattan ablaze and changing the course of history warning salmon s run is an entirely new form of entertainment that is tremendously difficult to describe it s a dialogue between music and words i guess come for the story stay for the music or because you ve died drama serialized salmon s run nick messitte english ongoing imported nick messitte nick messitte unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/salmons-run-77a6f4f5d1-320.webp",
+        "width": 320
+      }
+    ]
+  },
+  {
+    "id": "long-winter-nights",
+    "title": "Long Winter Nights",
+    "subtitle": "",
+    "description": "Long Winter Nights is a holiday horror advent calendar for the dark-hearted and the curious. For 25 nights in December, a new story waits behind each door, revealing ghostly folklore and modern terrors alike. Season 1 begins December 1, 2025.",
+    "cover": "images/covers/long-winter-nights.png",
+    "coverAlt": "Long Winter Nights cover art",
+    "status": "published",
+    "reviewStatus": "imported",
+    "releaseStatus": "unknown",
+    "completionStatus": "unclear",
+    "listenLinks": {
+      "apple": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4",
+      "website": "https://longwinternights.com/",
+      "rss": "https://media.rss.com/long-winter-nights/feed.xml"
+    },
+    "genres": [
+      "drama"
+    ],
+    "tones": [],
+    "formats": [
+      "episodic"
+    ],
+    "tags": [],
+    "aliases": [
+      "Long Winter Nights"
+    ],
+    "themes": [],
+    "contentNotes": [],
+    "languages": [
+      "English"
+    ],
+    "transcriptLanguages": [],
+    "length": {
+      "label": "1 season observed • at least 44 full episodes • 5 min median",
+      "seasons": 1,
+      "episodes": 44,
+      "avgEpisodeMinutes": 8,
+      "medianEpisodeMinutes": 5,
+      "minEpisodeMinutes": 3,
+      "maxEpisodeMinutes": 32,
+      "totalObservedHours": 5.9,
+      "durationCoverage": 1,
+      "observedSeasons": [
+        1
+      ],
+      "countQualifier": "at-least",
+      "episodeCounts": {
+        "full": 44,
+        "bonus": 1,
+        "trailer": 1
+      }
+    },
+    "releaseDates": {
+      "first": "2025-12-02",
+      "latest": "2026-03-18",
+      "latestFeedItem": "2026-03-18"
+    },
+    "ratings": {},
+    "facts": {},
+    "bestFor": [],
+    "similarTo": [],
+    "similarReasons": {},
+    "archiveTake": "",
+    "spoilerFreeReview": "",
+    "thoughts": "",
+    "quote": {
+      "text": "",
+      "attribution": ""
+    },
+    "officialLinks": {
+      "website": "https://longwinternights.com/"
+    },
+    "credits": {
+      "creatorName": "Lisa Sanaye Dring, Matthew Hill, Chelsea Sutton",
+      "ownerName": "Lisa Sanaye Dring, Matthew Hill, Chelsea Sutton"
+    },
+    "creators": [
+      "Lisa Sanaye Dring, Matthew Hill, Chelsea Sutton"
+    ],
+    "cast": [],
+    "verification": {
+      "status": "automated-source-checked",
+      "verifiedAt": "2026-08-15",
+      "source": "https://longwinternights.com/; https://media.rss.com/long-winter-nights/feed.xml; https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4",
+      "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+    },
+    "availability": {
+      "transcripts": "unknown",
+      "captions": "unknown",
+      "transcriptCoverage": 0
+    },
+    "content": {},
+    "metadata": {
+      "objectiveSources": [
+        "https://longwinternights.com/",
+        "https://media.rss.com/long-winter-nights/feed.xml",
+        "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+      ],
+      "sourceCategories": [
+        "Arts",
+        "Performing Arts",
+        "Fiction"
+      ],
+      "importOfficialSummary": "Long Winter Nights is a holiday horror advent calendar for the dark-hearted and the curious. For 25 nights in December, a new story waits behind each door, revealing ghostly folklore and modern terrors alike. Season 1 begins December 1, 2025.",
+      "schedule": {
+        "label": "weekly",
+        "medianDays": 1,
+        "observedIntervals": 7
+      },
+      "podcast": {
+        "medium": "podcast",
+        "copyright": "Long Winter Nights 2025",
+        "explicit": "false",
+        "license": {
+          "value": "Long Winter Nights 2025"
+        },
+        "productionLocation": "Los Angeles, Los Angeles, Los Angeles County, California, 90012, USA",
+        "country": "USA",
+        "sourceFormat": "rss",
+        "directoryMarkedDead": false
+      },
+      "import": {
+        "pipelineVersion": "2.0",
+        "identifiers": {
+          "podcastGuid": "dcddf457-1cbb-5205-b585-4b7edf60b350",
+          "rssUrl": "https://media.rss.com/long-winter-nights/feed.xml",
+          "appleCollectionId": "1852847757"
+        },
+        "selectedSources": [
+          {
+            "sourceType": "website",
+            "sourceUrl": "https://longwinternights.com/",
+            "fetchedAt": "2026-08-15T21:59:38.506Z"
+          },
+          {
+            "sourceType": "rss",
+            "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml",
+            "fetchedAt": "2026-08-15T21:59:38.289Z"
+          },
+          {
+            "sourceType": "apple",
+            "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4",
+            "fetchedAt": "2026-08-15T21:59:37.923Z"
+          }
+        ],
+        "fields": {
+          "title": {
+            "confidence": 0.99,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://longwinternights.com/"
+              }
+            ]
+          },
+          "creatorName": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "description": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "rssUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+              },
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "appleUrl": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+              }
+            ]
+          },
+          "appleCollectionId": {
+            "confidence": 0.9,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+              }
+            ]
+          },
+          "artworkUrl": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "explicit": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "episodeCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "latestPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "country": {
+            "confidence": 0.75,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "apple",
+                "sourceUrl": "https://podcasts.apple.com/us/podcast/long-winter-nights/id1852847757?uo=4"
+              }
+            ]
+          },
+          "ownerName": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://longwinternights.com/"
+              }
+            ]
+          },
+          "language": {
+            "confidence": 0.98,
+            "method": "source-agreement",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              },
+              {
+                "sourceType": "website",
+                "sourceUrl": "https://longwinternights.com/"
+              }
+            ]
+          },
+          "copyright": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "categories": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "feedType": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "medium": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "podcastGuid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "podcastGuidIsValid": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "episodeCountObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "episodeCountExact": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "episodeCounts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "scheduledReleaseCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "firstPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "latestAnyPublicationDate": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "seasonCount": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "seasonsObserved": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "avgEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "medianEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "minEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "maxEpisodeMinutes": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "totalObservedHours": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "durationCoverage": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "cadence": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "transcripts": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "license": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "location": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "sourceFormat": {
+            "confidence": 0.95,
+            "method": "direct",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          },
+          "releaseStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "completionStatus": {
+            "confidence": 0,
+            "method": "unknown"
+          },
+          "formats": {
+            "confidence": 0.95,
+            "method": "deterministic-feed-type",
+            "sources": [
+              {
+                "sourceType": "rss",
+                "sourceUrl": "https://media.rss.com/long-winter-nights/feed.xml"
+              }
+            ]
+          }
+        },
+        "importedAt": "2026-08-15T21:59:38.638Z",
+        "optionalGaps": [
+          "Structured creator/cast/production credits were not exposed by the sources.",
+          "No structured transcript links were exposed by the feed.",
+          "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+          "No exact Spotify show URL was found on the official site."
+        ],
+        "publication": {
+          "tier": "imported",
+          "publishedAt": "2026-08-15T22:01:18.313Z"
+        }
+      }
+    },
+    "featured": false,
+    "createdAt": "2026-08-15",
+    "updatedAt": "2026-08-15",
+    "creatorId": "lisa-sanaye-dring-matthew-hill-chelsea-sutton",
+    "spoilerFreeReviewParagraphs": [],
+    "thoughtsParagraphs": [],
+    "officialDescription": {
+      "text": "",
+      "sourceLabel": "",
+      "sourceUrl": "",
+      "verifiedAt": ""
+    },
+    "popularity": {},
+    "href": "/shows/long-winter-nights",
+    "hasPage": true,
+    "image": "images/covers/long-winter-nights.png",
+    "imageAlt": "Long Winter Nights cover art",
+    "summary": "Long Winter Nights is a holiday horror advent calendar for the dark-hearted and the curious. For 25 nights in December, a new story waits behind each door, revealing ghostly folklore and modern terrors alike. Season 1 begins December 1, 2025.",
+    "finalRating": null,
+    "searchText": "long winter nights long winter nights is a holiday horror advent calendar for the dark hearted and the curious for 25 nights in december a new story waits behind each door revealing ghostly folklore and modern terrors alike season 1 begins december 1 2025 drama episodic long winter nights lisa sanaye dring matthew hill chelsea sutton english unclear imported lisa sanaye dring matthew hill chelsea sutton lisa sanaye dring matthew hill chelsea sutton unknown unknown 0",
+    "tagTokens": [],
+    "bestForTokens": [],
+    "coverVariants": [
+      {
+        "src": "/images/generated/covers/long-winter-nights-68f60073d0-320.webp",
+        "width": 320
+      },
+      {
+        "src": "/images/generated/covers/long-winter-nights-68f60073d0-640.webp",
+        "width": 640
+      }
+    ]
   }
 ]
