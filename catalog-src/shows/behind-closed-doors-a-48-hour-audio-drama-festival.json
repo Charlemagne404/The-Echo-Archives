@@ -1,0 +1,636 @@
+{
+  "id": "behind-closed-doors-a-48-hour-audio-drama-festival",
+  "title": "Behind Closed Doors: A 48 Hour Audio Drama Festival",
+  "subtitle": "",
+  "description": "Welcome to \"Behind Closed Doors\": A 48 Hour Audio Drama Festival, presented by Iridescent Acorn and Two Sober Dwarves Productions. Every story you are about to hear was conceived, written, recorded, and fully produced in a staggering 48-hour period. Guided by our central theme, our international teams of creators dared to turn the key on the secret deals, the quiet confessions, and the shocking truths that unfold when people think no one is watching. Prepare to listen to the whispers from the other side of the door.",
+  "cover": "images/covers/behind-closed-doors-a-48-hour-audio-drama-festival.jpg",
+  "coverAlt": "Behind Closed Doors: A 48 Hour Audio Drama Festival cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4",
+    "website": "https://redcircle.com/shows/behind-closed-doors-a-48-hour-audio-drama-festival",
+    "rss": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Behind Closed Doors: A 48 Hour Audio Drama Festival"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 8 full episodes • 20 min median",
+    "episodes": 8,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 37,
+    "totalObservedHours": 2.8,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 8,
+      "bonus": 1,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2025-10-27",
+    "latest": "2025-10-27",
+    "latestFeedItem": "2025-10-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://redcircle.com/shows/behind-closed-doors-a-48-hour-audio-drama-festival",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://redcircle.com/behind-closed-doors-a-48-hour-audio-drama-festival/donations"
+  },
+  "credits": {
+    "creatorName": "48 Hour Audio Drama Festival",
+    "ownerName": "48 Hour Audio Drama Festival"
+  },
+  "creators": [
+    "48 Hour Audio Drama Festival"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8; https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8",
+      "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Welcome to \"Behind Closed Doors\": A 48 Hour Audio Drama Festival, presented by Iridescent Acorn and Two Sober Dwarves Productions. Every story you are about to hear was conceived, written, recorded, and fully produced in a staggering 48-hour period. Guided by our central theme, our international teams of creators dared to turn the key on the secret deals, the quiet confessions, and the shocking truths that unfold when people think no one is watching. Prepare to listen to the whispers from the other side of the door.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://redcircle.com/behind-closed-doors-a-48-hour-audio-drama-festival/donations",
+        "label": "Support This Podcast"
+      }
+    ],
+    "schedule": {
+      "label": "unknown",
+      "medianDays": null,
+      "observedIntervals": 0
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "48 Hour Audio Drama Festival",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "1acd2403-2da1-42eb-8ed6-e3e2db4e88f8",
+        "rssUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8",
+        "appleCollectionId": "1887654983",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8",
+          "fetchedAt": "2026-08-15T17:44:09.549Z",
+          "payloadHash": "65d7b3310a4dde76164219d88c965f506e37835ee3fb1698ec5438208c9fbdd2"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4",
+          "fetchedAt": "2026-08-15T17:44:09.315Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/behind-closed-doors-a-48-hour-audio-drama-festival/id1887654983?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.redcircle.com/1acd2403-2da1-42eb-8ed6-e3e2db4e88f8"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:44:09.799Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "dbfaf9d9e1c4b05d27eddf433f58822e7b9af2c2d3e580402376891b5fe3b0a5",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "38bf0268cb71fdfbca8ffb05ecaff1b1315ceb464a82a0996af73e1167e7a287",
+        "cover": "8dfaa116a26bea15a5b3bed800628bc6994513963ca0c2e4cb446a5c4f77cbf2",
+        "coverAlt": "2835305a5ae80b2c94a7a0cc5af15c99d666af55426fe6f98ec3592a16ca7e69",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "b892f676cf61f34e44814f27ca82a0b16ec5194344ddc082d1579cd55d65c366",
+        "officialLinks": "844761b2b8f80fac85ce641184331bb85a53244f8047e1efc490e0e67ebedce2",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "d089c7cea06bb791fba20da731c4741de93dfeb51dc3e7906c5b81510c4160e5",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "1d8450ba6f599a02ed092e1dabad9adf6ebf6468447f4e020d9612a6be36c4aa",
+        "releaseDates": "b23b7e27e3c127fc1ab0a69d9c051947da87a76c95a052762dd5443a80b1bd80",
+        "credits": "404fc0cb852bd0693daf335a5d610c68cc830dc06b478d05e2cf0b1cb4c5774a",
+        "creators": "9ed19f286b92ffa3d0ba210c49bb7ff03a8917aa563a355746e65c30360c21e0",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "46c08ffbf57291226037c82605a2ae72777b5434b95606d23f6e19b26f6d2c16"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:44:17.486Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "48-hour-audio-drama-festival"
+}

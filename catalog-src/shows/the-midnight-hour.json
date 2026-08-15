@@ -1,0 +1,727 @@
+{
+  "id": "the-midnight-hour",
+  "title": "The Midnight Hour",
+  "subtitle": "",
+  "description": "When the phone rings at midnight, DJ Callie West answers and finds herself trapped in a deadly game with a caller who calls himself The Oracle. Each riddle uncovers old secrets, each voice on the line pulls her deeper into a mystery tied to fire, forgotten patients, and a killer who always plays by his own rules. From Crown Noir Studios comes The Midnight Hour, a chilling thriller where every call could be the last.",
+  "cover": "images/covers/the-midnight-hour.jpg",
+  "coverAlt": "The Midnight Hour cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "active",
+  "completionStatus": "ongoing",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3sgqMTgigquWmhPAkgEAcG",
+    "apple": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682",
+    "website": "https://themidnighthour.weebly.com/",
+    "rss": "https://anchor.fm/s/109fd6ec0/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/cfe2596d-cf29-4c94-b05d-0d2935e5ce4b/the-midnight-hour",
+    "pocketCasts": "https://pca.st/t4g4fdzn"
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Midnight Hour"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 15 full episodes • 14 min median",
+    "seasons": 2,
+    "episodes": 15,
+    "avgEpisodeMinutes": 17,
+    "medianEpisodeMinutes": 14,
+    "minEpisodeMinutes": 10,
+    "maxEpisodeMinutes": 36,
+    "totalObservedHours": 4.3,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 0,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2025-10-20",
+    "latest": "2026-08-11",
+    "latestFeedItem": "2026-08-11",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://themidnighthour.weebly.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/crown_noir_studios/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Crown Noir Studios",
+    "ownerName": "Crown Noir Studios",
+    "network": "THE MIDNIGHT HOUR"
+  },
+  "creators": [
+    "Crown Noir Studios"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://themidnighthour.weebly.com/episodes.html; https://themidnighthour.weebly.com/listen.html; https://themidnighthour.weebly.com/about-the-author.html; https://themidnighthour.weebly.com/cast.html; https://themidnighthour.weebly.com/; https://anchor.fm/s/109fd6ec0/podcast/rss; https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://themidnighthour.weebly.com/episodes.html",
+      "https://themidnighthour.weebly.com/listen.html",
+      "https://themidnighthour.weebly.com/about-the-author.html",
+      "https://themidnighthour.weebly.com/cast.html",
+      "https://themidnighthour.weebly.com/",
+      "https://anchor.fm/s/109fd6ec0/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "When the phone rings at midnight, DJ Callie West answers and finds herself trapped in a deadly game with a caller who calls himself The Oracle. Each riddle uncovers old secrets, each voice on the line pulls her deeper into a mystery tied to fire, forgotten patients, and a killer who always plays by his own rules. From Crown Noir Studios comes The Midnight Hour, a chilling thriller where every call could be the last.",
+    "socialUrls": [
+      "https://www.instagram.com/crown_noir_studios/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 15,
+      "observedIntervals": 4
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Crown Noir Studios",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss",
+        "appleCollectionId": "1846472682",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://themidnighthour.weebly.com/episodes.html",
+          "fetchedAt": "2026-08-15T17:44:14.800Z",
+          "payloadHash": "dc61dd180e633b66e8527d90360f48fc86c07914ac30f4651e6b96ac85675f60"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://themidnighthour.weebly.com/listen.html",
+          "fetchedAt": "2026-08-15T17:44:14.796Z",
+          "payloadHash": "4f11e92c83c63c85f005b584d3beb1bbd5553102ed31456abe660132e102990e"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://themidnighthour.weebly.com/about-the-author.html",
+          "fetchedAt": "2026-08-15T17:44:14.794Z",
+          "payloadHash": "619d1742d71d8abe42cee990394f451659fb32922770fa9d266cb707bb786e43"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://themidnighthour.weebly.com/cast.html",
+          "fetchedAt": "2026-08-15T17:44:14.791Z",
+          "payloadHash": "7c7d935b96116ae288c37b4115ab7a0a4d5190d0307c611621316d768bd52a1b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://themidnighthour.weebly.com/",
+          "fetchedAt": "2026-08-15T17:44:14.788Z",
+          "payloadHash": "538d7cd69e626d74c93c5c988f638da7e3d86c28f31f26a2c5dfed638bd009df"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss",
+          "fetchedAt": "2026-08-15T17:44:13.240Z",
+          "payloadHash": "1bae355641ef66afb82628b7278f3fbc495ae64943201c428d47562ee296f25f"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4",
+          "fetchedAt": "2026-08-15T17:44:13.177Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/listen.html"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-midnight-hour/id1846472682?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/cast.html"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/about-the-author.html"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/listen.html"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/episodes.html"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/listen.html"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/listen.html"
+            }
+          ]
+        },
+        "pocketCastsUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://themidnighthour.weebly.com/listen.html"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0.7,
+          "method": "recent-full-episode",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/109fd6ec0/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T17:44:16.264Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "46e808f097b631ec13b477deac82c779836acd4d9ee8c514ad3a3a8b59d4b108",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "3bb926fa6dede10ccccb69afd3eabcbaeb053c0a703b5725ed73fcaf3d4c0521",
+        "cover": "7f9bafbb9b198b8efa81bfa1aa2284652ac8cd83c31fc355c9ba31acaa662659",
+        "coverAlt": "337369862fafdf5b3a3ce5d0bc9d3599b9c4fb34587e244815b103aa390339f3",
+        "releaseStatus": "db0fb2bf5ebc424454c3e11b5ee8bfb43af24a52e561aa49e94143831dc6fd93",
+        "completionStatus": "25af55abd9733b4a44e08264a88a5da7699b432f9f869faf2427fae79e10423a",
+        "listenLinks": "6d17aae9e8b2b03fc5702499a94820eb4026524ddab606e356d199bfa5fe363a",
+        "officialLinks": "46896b81578a5e37be462483edc4a3ef22a093d692df179a4747d112cf14401a",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "925b7ec5f893261dbc660d59f6807d7371b716d8f27b9ff40c8cb8ffaa5148a1",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "72a39d2a8e15fc04282be4db1e28c047eb628db58132581ddc7e22dd4b8357fa",
+        "releaseDates": "276fb444afb8e3a768b01d96d591a63ea54066c92db2a60bde9b4ce8e387f952",
+        "credits": "dc0e50b20527b1b30ae0b53ea48ff1d4619a3c42414fb28e1a592db5f32004cb",
+        "creators": "7d9af4a76ab8897234fdbedfd7db2e80bce78150046f3d4227cf499750a365dd",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "25efb9df0c6acecd852647f7d20f62134627fe8ed4b31857a52203c9257d71df"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T17:44:17.478Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "crown-noir-studios",
+  "networkId": "the-midnight-hour"
+}

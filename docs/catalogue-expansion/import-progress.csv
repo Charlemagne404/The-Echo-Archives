@@ -422,15 +422,15 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 1155,P1,The Skies Are Watching,,72a93191-ec7d-4414-8b26-c617b9739dc6,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:43:09
 1156,P1,Yes We Cannabis,,27467692-15d6-4a58-ac6c-250bf160e725,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 17:42:40
 1157,P1,The TEMP,,c5504786-5d11-4a55-8a24-c5a49bb3d7c2,needs-review,needs-review,insufficient-discovery-signals; scope-review,2026-08-15 17:41:41
-1158,P1,Higher Grounds,YellaBird Media,,unattempted,,,
-1159,P1,Frequency - A Sci-Fi Horror Audio Drama,,,unattempted,,,
-1160,P1,The Midnight Hour,Crown Noir Studios,,unattempted,,,
-1161,P1,Behind Closed Doors: A 48 Hour Audio Drama Festival,,,unattempted,,,
-1162,P1,Sonic Leader Audio Dramas,Sonic Leader,,unattempted,,,
-1163,P1,Saigon,,,unattempted,,,
-1164,P1,The Phantom of Ocean Park,,,unattempted,,,
-1165,P1,Subscript,,,unattempted,,,
-1166,P1,The Dolos Project,,,unattempted,,,
-1333,P1,Burned by a Paper Sun,Rusty Quill,,unattempted,,,
-1334,P1,Did Titanic Sink?,RNZ Originals,,unattempted,,,
-1335,P1,The Plate Show,PBS (Thirteen/WNET),,unattempted,,,
+1158,P1,Higher Grounds,YellaBird Media,aec3c19a-8ce8-42de-8925-20c650c07cfd,needs-review,needs-review,source-conflict,2026-08-15 17:44:06
+1159,P1,Frequency - A Sci-Fi Horror Audio Drama,,3f59c1b9-c0a1-4037-91d6-85b7259954ac,published,published,,2026-08-15 17:44:19
+1160,P1,The Midnight Hour,Crown Noir Studios,37ad8b41-9cd0-4633-8ddc-24e4c7ff8315,published,published,,2026-08-15 17:44:19
+1161,P1,Behind Closed Doors: A 48 Hour Audio Drama Festival,,91bfe56b-547c-4332-83fe-555a5d8905ad,published,published,,2026-08-15 17:44:19
+1162,P1,Sonic Leader Audio Dramas,Sonic Leader,c4a60702-e3e5-4859-b1bc-902e1c48ed08,needs-review,needs-review,source-conflict,2026-08-15 17:44:06
+1163,P1,Saigon,,19690578-a154-42bc-b9e4-7ab241e36f4b,published,published,,2026-08-15 17:44:19
+1164,P1,The Phantom of Ocean Park,,e2d68318-8c63-491a-805b-66eb7d88b2d4,published,published,,2026-08-15 17:44:19
+1165,P1,Subscript,,d06cada1-b463-46ed-bdcf-b47413857992,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:44:08
+1166,P1,The Dolos Project,,93a370f8-f625-4a33-9935-1c3e0e98d8c3,published,published,,2026-08-15 17:44:19
+1333,P1,Burned by a Paper Sun,Rusty Quill,a8a2c91e-0e5f-48c6-bacc-5348a427ee49,needs-review,needs-review,source-conflict,2026-08-15 17:44:05
+1334,P1,Did Titanic Sink?,RNZ Originals,99642df0-15e8-4884-ac01-5fe64dce49d7,needs-review,needs-review,scope-review,2026-08-15 17:44:15
+1335,P1,The Plate Show,PBS (Thirteen/WNET),5670da8f-46e8-437a-a31b-a7adda9166cc,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 17:44:10
