@@ -1,0 +1,634 @@
+{
+  "id": "priced-to-sell",
+  "title": "Priced to Sell",
+  "subtitle": "A young couple gets more than they bargain for when they purchase a \"charming\" fixer-upper on the outskirts of Portland, Oregon. #fictionpodcast #audiodrama #horror #scifi #thriller & Fantastic #fungi for all! More info @mothersrevengetrilo",
+  "description": "A young couple gets more than they bargain for when they purchase a \"charming\" fixer-upper on the outskirts of Portland, Oregon. #fictionpodcast #audiodrama #horror #scifi #thriller & Fantastic #fungi for all! More info @mothersrevengetrilogy",
+  "cover": "images/covers/priced-to-sell.jpg",
+  "coverAlt": "Priced to Sell cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4",
+    "website": "https://www.animaleatdrum.com/",
+    "rss": "https://www.spreaker.com/show/4594522/episodes/feed",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Priced to Sell"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [
+    "English"
+  ],
+  "length": {
+    "label": "1 season observed • at least 10 full episodes • 10 min median",
+    "seasons": 1,
+    "episodes": 10,
+    "avgEpisodeMinutes": 11,
+    "medianEpisodeMinutes": 10,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 37,
+    "totalObservedHours": 1.8,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 10,
+      "bonus": 2,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2020-10-02",
+    "latest": "2020-10-13",
+    "latestFeedItem": "2020-10-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.animaleatdrum.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Katrina Salicrup",
+    "ownerName": "Katrina Salicrup"
+  },
+  "creators": [
+    "Katrina Salicrup"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.spreaker.com/show/4594522/episodes/feed; https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "12 observed episodes",
+    "captions": "available in structured transcript data",
+    "transcriptCoverage": 1,
+    "transcriptFormats": [
+      "application/x-subrip",
+      "text/plain",
+      "text/vtt"
+    ],
+    "transcriptLanguages": [
+      "English"
+    ]
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.spreaker.com/show/4594522/episodes/feed",
+      "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "A young couple gets more than they bargain for when they purchase a \"charming\" fixer-upper on the outskirts of Portland, Oregon. #fictionpodcast #audiodrama #horror #scifi #thriller & Fantastic #fungi for all! More info @mothersrevengetrilogy",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Katrina Salicrup",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://www.spreaker.com/show/4594522/episodes/feed",
+        "appleCollectionId": "1533334785",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed",
+          "fetchedAt": "2026-08-15T19:45:12.498Z",
+          "payloadHash": "18d82174f76bcce1a709f33c5ce7d3ee8268363c84534195b56923e7599343ca"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4",
+          "fetchedAt": "2026-08-15T19:45:12.316Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/priced-to-sell/id1533334785?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://www.spreaker.com/show/4594522/episodes/feed"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:45:12.909Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "ed3c53eabdeff4150d31a04c8830fd45878bf160695ddde76ff04e56de5de467",
+        "subtitle": "96805b98153ceeb584eecf9e995d33b8f3797ff64941e82fcf64948731679b10",
+        "description": "1ee3f5e6c16dafe95175fac34d0a209ed1d5489a02014083182d8ebb7932da20",
+        "cover": "aa72469c9b2a9a7b3407e5ff0c96ee52253890f0a4c7d2b7e0e22df9d5eb234b",
+        "coverAlt": "d16e370b344725b9ef81960893d7f984a80bc7902862c4cbe466a2b76a2edd5a",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "dbf2a85e2c31de1802076a99cdec0fe298b67c3e417e47db3473ee00bd157bf1",
+        "officialLinks": "9c5c57c9bbe24616eaca70787eac90c24ab1506a987bdaa1c2c3e85a7dd8a173",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "76d75eb9139d489251103c47f378995f7ba686533382e9b654be8308b3dd2b35",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "length": "ec9cdf4800221873e5c79f8bd4da356b489fe04eb38713a85cd0c3cb261fc2db",
+        "releaseDates": "2aa986a9f812f52f617ef52b720e73b6dc5590c575f44b058ffa0a95e4271745",
+        "credits": "e3a2fa304b1069622e9c5a0dbcca9f9ef7d8fc0b1d92eb1dc83767cf81d03da0",
+        "creators": "d7a6bd82d7c1a2b0ca0db27b3ae4aca1cba127d942e936d5278863e41a84cb38",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "9fcef95324551b327d39c9a5b6fb449e7cb491ba8c1589686f05d213d15986c7",
+        "verification": "d84b884ac89613dcf09ca33d83d7e95fe346b4641a0c2eac86908d1cf38cecf0"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:45:25.360Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "katrina-salicrup"
+}

@@ -1,0 +1,763 @@
+{
+  "id": "john-from-back-home",
+  "title": "John From Back Home",
+  "subtitle": "",
+  "description": "You haven’t been back home in years, but the old answering machine is filled with messages from a high school friend named John. John From Back Home is about leaving friends behind, keeping secrets hidden, and the dangers of trying to live someone else’s life. For fans of horror, mystery, and weird fiction.",
+  "cover": "images/covers/john-from-back-home.jpg",
+  "coverAlt": "John From Back Home cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/2nDCkG7Z8jcdmxr9Wt0hCH",
+    "apple": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757",
+    "website": "https://www.johnfrombackhome.com/",
+    "rss": "https://feed.podbean.com/johnfrombackhome/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "John From Back Home"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 9 full episodes • 17 min median",
+    "seasons": 1,
+    "episodes": 9,
+    "avgEpisodeMinutes": 17,
+    "medianEpisodeMinutes": 17,
+    "minEpisodeMinutes": 13,
+    "maxEpisodeMinutes": 20,
+    "totalObservedHours": 2.5,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 9,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2022-09-20",
+    "latest": "2022-11-15",
+    "latestFeedItem": "2022-11-15",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.johnfrombackhome.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCcbUWMGa8VPAQP2Sqhz3vcg",
+    "social": "https://twitter.com/backhomepodcast",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Scott McCarrey",
+    "ownerName": "Scott McCarrey",
+    "network": "John From Back Home"
+  },
+  "creators": [
+    "Scott McCarrey"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.johnfrombackhome.com/transcripts; https://www.johnfrombackhome.com/about; https://www.johnfrombackhome.com/listen; https://www.johnfrombackhome.com/; https://feed.podbean.com/johnfrombackhome/feed.xml; https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.johnfrombackhome.com/transcripts",
+      "https://www.johnfrombackhome.com/about",
+      "https://www.johnfrombackhome.com/listen",
+      "https://www.johnfrombackhome.com/",
+      "https://feed.podbean.com/johnfrombackhome/feed.xml",
+      "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Drama",
+      "Fiction:Drama"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "You haven’t been back home in years, but the old answering machine is filled with messages from a high school friend named John. John From Back Home is about leaving friends behind, keeping secrets hidden, and the dangers of trying to live someone else’s life. For fans of horror, mystery, and weird fiction.",
+    "socialUrls": [
+      "https://twitter.com/backhomepodcast"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2022 All rights reserved.",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml",
+        "appleCollectionId": "1643427757",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.johnfrombackhome.com/transcripts",
+          "fetchedAt": "2026-08-15T19:45:10.298Z",
+          "payloadHash": "e09b579165675ad56305ab1e0aa4ba55fff89581a418bd7cb545ddc59c8bbfbb"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.johnfrombackhome.com/about",
+          "fetchedAt": "2026-08-15T19:45:10.295Z",
+          "payloadHash": "dcee2bc03ddd5e565bcd6f59755e14b0e129579913dc41730cbae4506d679c3b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.johnfrombackhome.com/listen",
+          "fetchedAt": "2026-08-15T19:45:10.289Z",
+          "payloadHash": "bc8a7cd9125cfc43dc0dff6e114f6ee83a77b4b1463e5ac400210213a4a1ed94"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.johnfrombackhome.com/",
+          "fetchedAt": "2026-08-15T19:45:10.282Z",
+          "payloadHash": "255218a2b9d7edeaede872b4ac6663bfe2e4bb661f84b334f033952072545ca5"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml",
+          "fetchedAt": "2026-08-15T19:45:09.306Z",
+          "payloadHash": "96b003ef825dab3bdb46e90a30f970479d86d74f26c6c96cef41f5f249237e05"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4",
+          "fetchedAt": "2026-08-15T19:44:21.135Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/transcripts"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/transcripts"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/john-from-back-home/id1643427757?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/transcripts"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/transcripts"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/transcripts"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/listen"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.johnfrombackhome.com/transcripts"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feed.podbean.com/johnfrombackhome/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:45:11.405Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "900c89ad5baaac2f76ea1fc3fa8090ae0ebf0c208d9ce54b34692b795a50d51f",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "85771398a6303f4e65783e6334a495e26b3c9c265b6d099eafee692366ad3414",
+        "cover": "0cd9dcaa71bb24292375a5dbfb938e632b0ea7633aed3e3f0185c378734912f2",
+        "coverAlt": "447436c9c4b13776f86215ed8aec36d9479d2be0f650dc51e68a5098b344bd4e",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "d8cfb638ff976fd4f4429709807e87b1ca703467d1f72a68901814a629afd351",
+        "officialLinks": "046941a6f74926e4142a303abc02ceb7ba2a785697fbc00634cb1b4b78df795b",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "a87c8decd8f7030d71a2082e20db4de2e8f9ea068b81645931b4fb4eed628740",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "18e7d03aa8b6b66f065b47f4552b55f38b2b812fabde42738ac39c657c5dd0b2",
+        "releaseDates": "9bf5d77b30fcfab3ed69ceed0d87533e6fc2f6902516d16c3b937139548c0a06",
+        "credits": "6d1d2b04417e2c305811964122bc3ea1c44ccdc7cd6b34c052f910794ceb1b3d",
+        "creators": "6bd5617f9ba1ebd389520ae1c4c6e23d6b182b86d3beb3c14f2e52b4aab9bd76",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "8b19cb0630f663083181075515891a055d6a825ecd0fd6921de91e3c2550f32f"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:45:25.327Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "scott-mccarrey",
+  "networkId": "john-from-back-home"
+}

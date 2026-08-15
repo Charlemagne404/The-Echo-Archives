@@ -1,0 +1,654 @@
+{
+  "id": "on-asphalt-bones",
+  "title": "On Asphalt Bones",
+  "subtitle": "",
+  "description": "Full-Cast, Episodic Audio Drama by the [Listless] network. The world was fine until the Eye appeared - wasn't it? The Inquisitor wouldn't know; all they seem to do is read. Read, and learn, and try to prevent the world from getting any worse than it has already become. But there looms the ever-present threat of a new God - one with bones of asphalt and leathery flesh - who threatens to plunge the world into new chaos.",
+  "cover": "images/covers/on-asphalt-bones.jpg",
+  "coverAlt": "On Asphalt Bones cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4",
+    "website": "https://www.listlessnetwork.com/our-shows/on-asphalt-bones",
+    "rss": "https://anchor.fm/s/5acd6194/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "On Asphalt Bones"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 12 full episodes • 19 min median",
+    "seasons": 2,
+    "episodes": 12,
+    "avgEpisodeMinutes": 21,
+    "medianEpisodeMinutes": 19,
+    "minEpisodeMinutes": 12,
+    "maxEpisodeMinutes": 38,
+    "totalObservedHours": 4.2,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 12,
+      "bonus": 2,
+      "trailer": 4
+    }
+  },
+  "releaseDates": {
+    "first": "2021-10-13",
+    "latest": "2023-12-27",
+    "latestFeedItem": "2023-12-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.listlessnetwork.com/our-shows/on-asphalt-bones",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Scarlett Foster",
+    "ownerName": "Scarlett Foster"
+  },
+  "creators": [
+    "Scarlett Foster"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://www.listlessnetwork.com/our-shows/the-children-of-room-56/dyslexia-friendly-transcripts; https://www.listlessnetwork.com/our-shows/the-children-of-room-56/transcripts; https://www.listlessnetwork.com/our-shows/on-asphalt-bones/dyslexia-friendly-transcripts; https://www.listlessnetwork.com/our-shows/on-asphalt-bones/transcripts; https://www.listlessnetwork.com/our-shows/on-asphalt-bones; https://anchor.fm/s/5acd6194/podcast/rss; https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://www.listlessnetwork.com/our-shows/the-children-of-room-56/dyslexia-friendly-transcripts",
+      "https://www.listlessnetwork.com/our-shows/the-children-of-room-56/transcripts",
+      "https://www.listlessnetwork.com/our-shows/on-asphalt-bones/dyslexia-friendly-transcripts",
+      "https://www.listlessnetwork.com/our-shows/on-asphalt-bones/transcripts",
+      "https://www.listlessnetwork.com/our-shows/on-asphalt-bones",
+      "https://anchor.fm/s/5acd6194/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Full-Cast, Episodic Audio Drama by the [Listless] network. The world was fine until the Eye appeared - wasn't it? The Inquisitor wouldn't know; all they seem to do is read. Read, and learn, and try to prevent the world from getting any worse than it has already become. But there looms the ever-present threat of a new God - one with bones of asphalt and leathery flesh - who threatens to plunge the world into new chaos.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 28,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Scarlett Foster",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/5acd6194/podcast/rss",
+        "appleCollectionId": "1579713309",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.listlessnetwork.com/our-shows/the-children-of-room-56/dyslexia-friendly-transcripts",
+          "fetchedAt": "2026-08-15T19:45:24.133Z",
+          "payloadHash": "73c024a7e2cc221364871d1ab8972497853469cb3eee11ff74d5940acf2ea0a0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.listlessnetwork.com/our-shows/the-children-of-room-56/transcripts",
+          "fetchedAt": "2026-08-15T19:45:24.129Z",
+          "payloadHash": "10fe05eef55059d2ab684530f594924da64df79eed51bdad79c254874219f958"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.listlessnetwork.com/our-shows/on-asphalt-bones/dyslexia-friendly-transcripts",
+          "fetchedAt": "2026-08-15T19:45:24.125Z",
+          "payloadHash": "068749efb37c22b6f5b63e6d6a6f3da03539946beadc2b82c2b50905e4fccef0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.listlessnetwork.com/our-shows/on-asphalt-bones/transcripts",
+          "fetchedAt": "2026-08-15T19:45:24.121Z",
+          "payloadHash": "5470f0f2d85ff5e55acef49137b0d2185e3426e3725c6c1c2c6a7d3da195212f"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://www.listlessnetwork.com/our-shows/on-asphalt-bones",
+          "fetchedAt": "2026-08-15T19:45:24.115Z",
+          "payloadHash": "7dc407f887f76c23f688229e65d5799d2630c658010ec735904bd9702901a291"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss",
+          "fetchedAt": "2026-08-15T19:45:21.644Z",
+          "payloadHash": "16942a1f76f0604cc1826b0cb5a04ad50182e76eeff17adb99588bc08a3bca1f"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4",
+          "fetchedAt": "2026-08-15T19:45:21.623Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/on-asphalt-bones/id1579713309?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://www.listlessnetwork.com/our-shows/on-asphalt-bones"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/5acd6194/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:45:25.259Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "3895f6620307f744ce756cd1f6ab30f6f309b02ff7b00956754f0323db5c0c21",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "e030ab7c47717d70a59b6fa1f478b1cca7a61af606f86349512d429446c383b0",
+        "cover": "582ee3365e8399fe6055958941c45e54ea3943db4f7def86b78dc58f88ad39d0",
+        "coverAlt": "2e00ce479d81d6bc28ab1a479361f70840ebcd0a1f6d10b413fb4bbc6870191b",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "78e13cd2b583fac0c18fe6bc1ee917e82b01579b8608d21cc3df8749214f5261",
+        "officialLinks": "4848ca087059528d10ffb45090974591806ab8ee7cbe9ba70e43d0aa763dc0b4",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "9a77962a3f60a6a44ba252aedc70eb3e1934d7b7155f698d253b9f2ce3960848",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "2706c3987d305b78d895e70396c6ff8c17841aa36a46a4f29623cf6fae139167",
+        "releaseDates": "4649b927e5f6e22ff384434670ec5d995e155cce0692cde674e29d7f1c86d8bb",
+        "credits": "1e87a0d7600ff4b58772069ad19d408a263eefdd683e9b3774a101439ae3f662",
+        "creators": "a1eb1f02c313176f80b6177290f5305356be1c749e09ad147e0f751159289dae",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "ce9947fb786db4d5165d3f0b43823125e61bc38a627294b0eeae9b4e99169b4c"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:45:25.345Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "scarlett-foster"
+}

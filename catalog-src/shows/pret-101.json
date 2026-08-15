@@ -1,0 +1,745 @@
+{
+  "id": "pret-101",
+  "title": "Pret 101",
+  "subtitle": "A horror/comedy podcast",
+  "description": "(Horror/Comedy) Cryptid Revelation: The catastrophic event when all of the creatures of legend came out of hiding. Human Rights Alliance: An organization created to oppose cryptid rights. Preternatural Studies: The only college course currently offered that researches cryptid species. Group Project: The real Horror.",
+  "cover": "images/covers/pret-101.webp",
+  "coverAlt": "Pret 101 cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4",
+    "website": "https://pret-101.pinecast.co/",
+    "rss": "https://pinecast.com/feed/pret-101",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Pret 101"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 15 full episodes • 8 min median",
+    "seasons": 1,
+    "episodes": 15,
+    "avgEpisodeMinutes": 8,
+    "medianEpisodeMinutes": 8,
+    "minEpisodeMinutes": 2,
+    "maxEpisodeMinutes": 14,
+    "totalObservedHours": 1.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 0,
+      "trailer": 10
+    }
+  },
+  "releaseDates": {
+    "first": "2021-03-16",
+    "latest": "2021-12-07",
+    "latestFeedItem": "2021-12-07",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://pret-101.pinecast.co/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "CNM/Blackout Theatre",
+    "ownerName": "CNM/Blackout Theatre",
+    "network": "Pret 101"
+  },
+  "creators": [
+    "CNM/Blackout Theatre"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://pret-101.pinecast.co/episode/3ec1480a/legend-of-the-lizard-folk; https://pret-101.pinecast.co/episode/aa13b151e1994812/meet-the-squamata; https://pret-101.pinecast.co/episode/7a35aeb8284543d8/doctor-valic; https://pret-101.pinecast.co/episode/6ac3d49ef05345c4/welcome-to-the-human-rights-alliance; https://pret-101.pinecast.co/; https://pinecast.com/feed/pret-101; https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://pret-101.pinecast.co/episode/3ec1480a/legend-of-the-lizard-folk",
+      "https://pret-101.pinecast.co/episode/aa13b151e1994812/meet-the-squamata",
+      "https://pret-101.pinecast.co/episode/7a35aeb8284543d8/doctor-valic",
+      "https://pret-101.pinecast.co/episode/6ac3d49ef05345c4/welcome-to-the-human-rights-alliance",
+      "https://pret-101.pinecast.co/",
+      "https://pinecast.com/feed/pret-101",
+      "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction",
+      "Arts",
+      "Performing Arts"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "(Horror/Comedy) Cryptid Revelation: The catastrophic event when all of the creatures of legend came out of hiding. Human Rights Alliance: An organization created to oppose cryptid rights. Preternatural Studies: The only college course currently offered that researches cryptid species. Group Project: The real Horror.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Copyright 2026",
+      "explicit": "yes",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://pinecast.com/feed/pret-101",
+        "appleCollectionId": "1536852309",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://pret-101.pinecast.co/episode/3ec1480a/legend-of-the-lizard-folk",
+          "fetchedAt": "2026-08-15T19:44:15.321Z",
+          "payloadHash": "edc43653c6d3289707f918709289223b2b8512b9518c80a5aed619244b921cb5"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://pret-101.pinecast.co/episode/aa13b151e1994812/meet-the-squamata",
+          "fetchedAt": "2026-08-15T19:44:15.321Z",
+          "payloadHash": "c2b42b7fa19e20f21b411cc169fc7d76d238f89eb9f59cfa14ab4d9eb15b0d69"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://pret-101.pinecast.co/episode/7a35aeb8284543d8/doctor-valic",
+          "fetchedAt": "2026-08-15T19:44:15.320Z",
+          "payloadHash": "0285727522d35f9f5d0cf48ca282ccad398ff98fbe20018024cdf037ba35f3a0"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://pret-101.pinecast.co/episode/6ac3d49ef05345c4/welcome-to-the-human-rights-alliance",
+          "fetchedAt": "2026-08-15T19:44:15.318Z",
+          "payloadHash": "1dd0938ad1ee1679f467c55e2512edd7c32dad0ed3ef3d0c6273c3d4c637957d"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://pret-101.pinecast.co/",
+          "fetchedAt": "2026-08-15T19:44:15.315Z",
+          "payloadHash": "143698ae1d96835570bcce52f939e6abe36afcd70eb897244e1da0cf94b64961"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://pinecast.com/feed/pret-101",
+          "fetchedAt": "2026-08-15T19:44:13.831Z",
+          "payloadHash": "6e68d6159509ae9dd496edfd5b678a0a256f030ad24c9bd8ff1ad42e52a61d9c"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4",
+          "fetchedAt": "2026-08-15T19:44:13.602Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/6ac3d49ef05345c4/welcome-to-the-human-rights-alliance"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/7a35aeb8284543d8/doctor-valic"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/aa13b151e1994812/meet-the-squamata"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/3ec1480a/legend-of-the-lizard-folk"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/pret-101/id1536852309?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/6ac3d49ef05345c4/welcome-to-the-human-rights-alliance"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/7a35aeb8284543d8/doctor-valic"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/aa13b151e1994812/meet-the-squamata"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/3ec1480a/legend-of-the-lizard-folk"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.72,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/6ac3d49ef05345c4/welcome-to-the-human-rights-alliance"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/7a35aeb8284543d8/doctor-valic"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/aa13b151e1994812/meet-the-squamata"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://pret-101.pinecast.co/episode/3ec1480a/legend-of-the-lizard-folk"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://pinecast.com/feed/pret-101"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:44:15.709Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bd0e708edf6b03e4ef5fe8e3793066de2eca849972c009c53f26ff219b04f38a",
+        "subtitle": "99ecf2bea5caf0d24b2c94cc385148e82a3ecdc61e9b0970a9f0af2be35ce171",
+        "description": "c66b85233bd21886b3fbbcfd0fd825724fa50d938fc86522f4ff9d35e6158dd8",
+        "cover": "e9a19fca4aaf54fe407486462b74b74ab00499625f0a3121d7c55c4efe95f98c",
+        "coverAlt": "28526e36e4c993907de8cd0a90e7673c7b6c17455e9e020656d6a2c8edfd8607",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "d5106e049d97d081fa0dc16119f04c3ffb04cf841c995cbbb6c08ce1c32f50b8",
+        "officialLinks": "b9a355c2e4fe466d0820f26a93f8ec304ef9b72c3420d74c6f38dd327673b266",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "b9034b34eeb819f498623241d89582866682f37eff0962d754e47c997386f912",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "75297ca607184953f3be39a5fb1903b0882a5b4eae99fa2f52adc3f866d17cc3",
+        "releaseDates": "565a9274b3966ace8318e6d0dd2c4376813daa00be4d6df3dff3d4806cca315c",
+        "credits": "65e5528636d113a2dcbaa8a9370e600fe3fa12937911f5a9d919f0e10da83488",
+        "creators": "8a6c562840c7c9bd1fc73a755d0908821e98aaa52051f2cf4a405e038e22ce01",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "8428846e3e97a20c3d86cadbb440bf07ce5b0138f4e3ffd6e64cc7e7d9540654"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:45:25.356Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "cnm-blackout-theatre",
+  "networkId": "pret-101"
+}

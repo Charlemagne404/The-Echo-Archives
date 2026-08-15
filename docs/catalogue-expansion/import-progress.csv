@@ -414,31 +414,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 414,P2,Is Anybody Out There?,,b585d71e-819b-4dac-9c02-ccd3fd90fb9f,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:42:15
 415,P2,It Sees You When You're Sleeping!,,2574cfab-5f4e-47dd-9653-a82645fed181,needs-review,needs-review,scope-review,2026-08-15 19:42:07
 416,P2,It's All in the Cards Podcast,,b6349c0d-5e6f-457c-bbe2-4ed8a0219224,published,published,,2026-08-15 19:43:45
-417,P2,Jack of All Trades,Faustian Nonsense,,unattempted,,,
-418,P2,John From Back Home,,,unattempted,,,
-419,P2,Jollyland,,,unattempted,,,
-420,P2,Land's End: A Shepherd's Tale,Tin Can Audio,,unattempted,,,
-421,P2,Leftovers at the End of the World,,,unattempted,,,
-422,P2,"Longtime, First Time",,,unattempted,,,
-423,P2,Lost and Bound,,,unattempted,,,
-424,P2,Magmell,,,unattempted,,,
-425,P2,Night Shift,,,unattempted,,,
-426,P2,Nightscape,,,unattempted,,,
-427,P2,Nocturnum Collective,,,unattempted,,,
-428,P2,Oakbridge,,,unattempted,,,
-429,P2,On Asphalt Bones,,,unattempted,,,
-430,P2,Once Upon a Time in Zombieville,,,unattempted,,,
-431,P2,One By One,,,unattempted,,,
-432,P2,Overbrook,,,unattempted,,,
-433,P2,Poe: Evermore,,,unattempted,,,
-434,P2,Pressing the Flesh,,,unattempted,,,
-435,P2,Pret 101,,,unattempted,,,
-436,P2,Priced to Sell,,,unattempted,,,
-437,P2,Professor Pandemonium's Peculiar Panoply,,,unattempted,,,
-438,P2,PSST: Paranatural Support Services Team,,,unattempted,,,
-439,P2,Puppeteer's Farm,,,unattempted,,,
-440,P2,"Purgatory, Missouri",,,unattempted,,,
-441,P2,Radio Zed,,,unattempted,,,
+417,P2,Jack of All Trades,Faustian Nonsense,5f9a7a57-8a00-460f-8e84-e80541a32522,published,published,,2026-08-15 19:45:28
+418,P2,John From Back Home,,69f9fae3-72d2-4462-b7aa-41ad5aed2be1,published,published,,2026-08-15 19:45:28
+419,P2,Jollyland,,e3c54894-254f-40d7-8f30-083d42da0195,published,published,,2026-08-15 19:45:28
+420,P2,Land's End: A Shepherd's Tale,Tin Can Audio,8797520d-36fb-477b-9371-4ccaba6b6974,published,published,,2026-08-15 19:45:28
+421,P2,Leftovers at the End of the World,,9ceb411c-6762-435a-a162-504de5376235,published,published,,2026-08-15 19:45:28
+422,P2,"Longtime, First Time",,097b6ff6-fe06-4be4-bc30-5bc1051109fb,published,published,,2026-08-15 19:45:29
+423,P2,Lost and Bound,,13bdc6c0-4528-4788-873e-1a18a00df657,needs-review,needs-review,source-conflict,2026-08-15 19:45:24
+424,P2,Magmell,,6dd1fb64-2ee7-42c7-9d9f-e80919199ee8,published,published,,2026-08-15 19:45:29
+425,P2,Night Shift,,f2918752-a77c-48e2-a39f-99a0b77cc53b,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review,2026-08-15 19:44:22
+426,P2,Nightscape,,7ce1341a-101c-4fe6-975d-1eecf5e41165,needs-review,needs-review,source-conflict,2026-08-15 19:45:14
+427,P2,Nocturnum Collective,,c459e082-dba5-4975-abce-8c4ff32ce92f,needs-review,needs-review,source-conflict,2026-08-15 19:44:24
+428,P2,Oakbridge,,cf623986-c3b2-4f05-8b4d-51e3374be2ff,needs-review,needs-review,source-conflict,2026-08-15 19:45:12
+429,P2,On Asphalt Bones,,6e609d1d-bd63-4d29-b086-ea8ec3d0b9fb,published,published,,2026-08-15 19:45:29
+430,P2,Once Upon a Time in Zombieville,,7b01ecfa-df37-4bed-aa3e-ea0f72d0f512,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:44:14
+431,P2,One By One,,031ee3ef-8eb1-487b-a0c8-2abd85d53539,needs-review,needs-review,source-conflict,2026-08-15 19:45:14
+432,P2,Overbrook,,e3d4b629-9cb8-4afd-89ab-317840a060e9,published,published,,2026-08-15 19:45:29
+433,P2,Poe: Evermore,,fd45d1f0-081c-4eae-9f26-f8ddabd6748a,published,published,,2026-08-15 19:45:29
+434,P2,Pressing the Flesh,,eaad36c4-5960-4ed0-be99-5ed0f810b5cc,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 19:45:21
+435,P2,Pret 101,,d0a692a6-c794-492b-a926-043f69fc3448,published,published,,2026-08-15 19:45:29
+436,P2,Priced to Sell,,e1bbb1e7-eac7-4c2c-85b1-2506fb51625c,published,published,,2026-08-15 19:45:29
+437,P2,Professor Pandemonium's Peculiar Panoply,,f3a71439-3367-4492-8a2e-06e8731b7df1,needs-review,needs-review,invalid-apple-link,2026-08-15 19:44:11
+438,P2,PSST: Paranatural Support Services Team,,b484c816-25f4-4788-a7b2-84b1e2afedeb,needs-review,needs-review,invalid-website,2026-08-15 19:44:22
+439,P2,Puppeteer's Farm,,671e5387-9065-4bd0-bdfb-59558947b59f,needs-review,needs-review,source-conflict,2026-08-15 19:44:37
+440,P2,"Purgatory, Missouri",,c3d60ccc-4987-4f35-a58f-5ebf24238cdb,published,published,,2026-08-15 19:45:29
+441,P2,Radio Zed,,cb88d383-6691-48fe-a4ab-2d02557802d4,needs-review,needs-review,insufficient-discovery-signals; cover-not-ready; scope-review,2026-08-15 19:44:11
 442,P2,Red Riding Hoods,,,unattempted,,,
 443,P2,Room 11,,,unattempted,,,
 444,P2,Shadows of a Dark Past,,,unattempted,,,
