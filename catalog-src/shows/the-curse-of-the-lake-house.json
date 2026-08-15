@@ -1,0 +1,629 @@
+{
+  "id": "the-curse-of-the-lake-house",
+  "title": "The Curse of The Lake House",
+  "subtitle": "Dark comedy following two families as they try to break a curse that haunts them.",
+  "description": "The Curse of the Lake House is a one-act, anthology-style play by Michael Grover about family, relationships, and a lake house. 8 individual stories, The Curse of The Lake House is a dark comedy that follows two families over 450 years as they try to shake the curse that haunts them.",
+  "cover": "images/covers/the-curse-of-the-lake-house.jpg",
+  "coverAlt": "The Curse of The Lake House cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4",
+    "website": "https://www.michaelgrover.com/projects/curse-of-the-lake-house/",
+    "rss": "https://feeds.megaphone.fm/ECM1974777719",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "The Curse of The Lake House"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 8 full episodes • 13 min median",
+    "seasons": 1,
+    "episodes": 8,
+    "avgEpisodeMinutes": 12,
+    "medianEpisodeMinutes": 13,
+    "minEpisodeMinutes": 7,
+    "maxEpisodeMinutes": 19,
+    "totalObservedHours": 1.6,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 8,
+      "bonus": 4,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2022-05-28",
+    "latest": "2022-06-04",
+    "latestFeedItem": "2022-07-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://www.michaelgrover.com/projects/curse-of-the-lake-house/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Michael Grover",
+    "ownerName": "Michael Grover"
+  },
+  "creators": [
+    "Michael Grover"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://feeds.megaphone.fm/ECM1974777719; https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://feeds.megaphone.fm/ECM1974777719",
+      "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Comedy Fiction",
+      "Drama",
+      "Society & Culture",
+      "Relationships"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "The Curse of the Lake House is a one-act, anthology-style play by Michael Grover about family, relationships, and a lake house. 8 individual stories, The Curse of The Lake House is a dark comedy that follows two families over 450 years as they try to shake the curse that haunts them.",
+    "socialUrls": [],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 1,
+      "observedIntervals": 6
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "2022 All Rights Reserved",
+      "explicit": "no",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/ECM1974777719",
+        "appleCollectionId": "1625502643",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719",
+          "fetchedAt": "2026-08-15T19:45:59.348Z",
+          "payloadHash": "728886d1aaa63e5d1dabe7a34e9344045d5c70e4baa3aefb35130596df646311"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4",
+          "fetchedAt": "2026-08-15T19:45:58.700Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/the-curse-of-the-lake-house/id1625502643?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/ECM1974777719"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:46:03.889Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bf8f8130dd9a9269a1b67cc314a9bb08055ac423f858bbe4262a63c270dc8a0a",
+        "subtitle": "5515f44c27ba38642e7f17e2a7ae50e4a2fc29303066039c833016dac431e720",
+        "description": "2e9429cb881515be211cd82fb8b97cb62615d3d8cb6784cf5405daad9e8d62a9",
+        "cover": "a34091e506a933dc7d681e1e990b309fa5df3147b42fdbc87d49c730145ab59b",
+        "coverAlt": "8590b3f8b68acec09e4f462f715c78c4144dd0465d7207e4f48e26345ac6f9ad",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "76079cfe6ef6c146a128852b2e21ec0bcbb45fb73ceb70d55486d7c904e79605",
+        "officialLinks": "c05f825d940391348d17031ed0eae4a358318e3baeee776d73aacac19ab0b25c",
+        "genres": "aaac86f3836e82ef2bd8a558bb12d51047b1eea06ad5b3aa723e5d919266ab1f",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "ccd6cda34e5c9eb903f1cc8d76b93a67a93ac703011fa239b00b66df41229591",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "7669768a363093d70126c289dd07ba549cbcf60178e25d59f4aa87ff5923b826",
+        "releaseDates": "16b9414655c46f30af2f61b1f7ee77e3a41117f9b199505a62525c68a489661d",
+        "credits": "4352374787353ab751c3337513b2603ddc0dc05ab6887827e0f5a3639038f553",
+        "creators": "f8fbbe40fc4b11a73102d8f9eeb7ef42c7e6c69395a28e16370a40aa43474683",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "70e7a3062172141def156218e8773273f7aac6ccc5fd3541cceb00e718538f2d"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:47:27.857Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "michael-grover"
+}

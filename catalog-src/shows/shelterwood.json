@@ -1,0 +1,655 @@
+{
+  "id": "shelterwood",
+  "title": "Shelterwood",
+  "subtitle": "A Suburban Gothic",
+  "description": "Shelterwood: A Suburban Gothic is a Docu-Horror Podcast written and produced by Stephen Indrisano. Join one man’s quest to find his long-lost sister in an infinite, monster-infested suburb beyond the veil. Shelterwood is one part Gothic, one part Found Footage, and one hundred percent terrifying.",
+  "cover": "images/covers/shelterwood.avif",
+  "coverAlt": "Shelterwood cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3uJV4s1aVAo2JSPAxfIFaW?si=7a15b5ac455f4656&nd=1&dlsi=6ce61e57c33346db",
+    "apple": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725",
+    "website": "https://shelterwood.carrd.co/",
+    "rss": "https://feeds.megaphone.fm/BDA2155394596",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Shelterwood",
+    "Shelterwood: A Suburban Gothic"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 17 full episodes • 37 min median",
+    "seasons": 1,
+    "episodes": 17,
+    "avgEpisodeMinutes": 38,
+    "medianEpisodeMinutes": 37,
+    "minEpisodeMinutes": 28,
+    "maxEpisodeMinutes": 47,
+    "totalObservedHours": 10.9,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 17,
+      "bonus": 9,
+      "trailer": 2
+    }
+  },
+  "releaseDates": {
+    "first": "2024-08-15",
+    "latest": "2025-12-18",
+    "latestFeedItem": "2026-07-20",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://shelterwood.carrd.co/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "https://www.instagram.com/shelterwoodpod/",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Bloody FM",
+    "ownerName": "Stephen Indrisano",
+    "network": "Shelterwood: A Suburban Gothic"
+  },
+  "creators": [
+    "Bloody FM"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://shelterwood.carrd.co/; https://feeds.megaphone.fm/BDA2155394596; https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://shelterwood.carrd.co/",
+      "https://feeds.megaphone.fm/BDA2155394596",
+      "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Shelterwood: A Suburban Gothic is a Docu-Horror Podcast written and produced by Stephen Indrisano. Join one man’s quest to find his long-lost sister in an infinite, monster-infested suburb beyond the veil. Shelterwood is one part Gothic, one part Found Footage, and one hundred percent terrifying.",
+    "socialUrls": [
+      "https://www.instagram.com/shelterwoodpod/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "",
+      "explicit": "",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.megaphone.fm/BDA2155394596",
+        "appleCollectionId": "1758367725",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shelterwood.carrd.co/",
+          "fetchedAt": "2026-08-15T19:45:59.821Z",
+          "payloadHash": "635056918bffee68df91c68c238fcb519a00d2b4ddc10a04e36fa302afe3f8f1"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596",
+          "fetchedAt": "2026-08-15T19:45:59.142Z",
+          "payloadHash": "c288ac353a831dd94c828725814a9cbc418cead0d1cd6e063324a367bebea758"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4",
+          "fetchedAt": "2026-08-15T19:45:58.654Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shelterwood.carrd.co/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/shelterwood/id1758367725?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shelterwood.carrd.co/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shelterwood.carrd.co/"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.6,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shelterwood.carrd.co/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shelterwood.carrd.co/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "unstructured",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shelterwood.carrd.co/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.megaphone.fm/BDA2155394596"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:46:00.842Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "bbe1187a187007d3dcb2a330352d7aea1946bc1578177a6712c63486d8981860",
+        "subtitle": "ca8b4c20f94ed72bf95edff1287af3880b9ae3f23736f62e1d2443903632d689",
+        "description": "8e7f82406073e365c8cc5507292a0e2592999d2eab4209465f84839913124a15",
+        "cover": "660b6645c36965e33c5938de97d79a72fe8681a52f84b25569ddd25717460c77",
+        "coverAlt": "faf2b176a107c8a2af71c50738716a8444c427a6eacd85ead5c6d65d33e6555c",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "82a6d69b010c247a77f6072152590a68eece4595ce7322000958e22b7fd8b643",
+        "officialLinks": "6b5fc4c935024a7134200a944051a7e885aa9ca03c1dc3d8db8567172b34b686",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "3383d9550c654f8376ac26b04004786fbe7399fc9c6b98db57806601170b6b28",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "93c5c68d7e1f4a90a3dab118845b498e37c5764625813f15c71e4e723743af60",
+        "releaseDates": "196607a8580a333775a39615c57885afdd243bbe6304c4a29d5066791e097f0b",
+        "credits": "78dc2a367dd9c11903cc9bf1b4003e3044a74d24b23bbac0d0c9f9121165a1b9",
+        "creators": "1c85a894f19d6a1e42f459410b621293b1a4740cb5d23539f05cb201fb1afdd2",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "9f2f36d5bca1243bcf81b7fcfba970cf14c5a44a009d7066211cd244fc6326ac"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:47:27.845Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "bloody-fm",
+  "networkId": "shelterwood-a-suburban-gothic"
+}

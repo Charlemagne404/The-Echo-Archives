@@ -1,0 +1,770 @@
+{
+  "id": "tapes-from-beyond",
+  "title": "Tapes From Beyond",
+  "subtitle": "",
+  "description": "Since she was a child Jac has been receiving mysterious and disturbing cassette tapes in the mail from an unknown sender. This podcast listens to and discusses each tape while trying to discover who is sending these tapes and why they are sending them to Jac.",
+  "cover": "images/covers/tapes-from-beyond.jpg",
+  "coverAlt": "Tapes From Beyond cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/3RvTVd5pxBBmRbKYC2s8iu",
+    "apple": "https://podcasts.apple.com/podcast/id1555113058",
+    "website": "https://tapesfrombeyond.buzzsprout.com/",
+    "rss": "https://anchor.fm/s/10ee59174/podcast/rss",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/ad2c2ac2-cdbf-44b3-b9cd-a53c071c6387",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama"
+  ],
+  "tones": [],
+  "formats": [
+    "episodic"
+  ],
+  "tags": [],
+  "aliases": [
+    "Tapes From Beyond"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 15 full episodes • 24 min median",
+    "episodes": 15,
+    "avgEpisodeMinutes": 29,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 1,
+    "maxEpisodeMinutes": 126,
+    "totalObservedHours": 7.3,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 15,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2021-02-23",
+    "latest": "2024-11-24",
+    "latestFeedItem": "2024-11-24",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://tapesfrombeyond.buzzsprout.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/channel/UCwLFcgKKALOmWaLXk6MkJ9g",
+    "social": "https://www.facebook.com/TapesFromBeyond",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Palaver Media",
+    "ownerName": "Palaver Media",
+    "network": "Buzzsprout"
+  },
+  "creators": [
+    "Palaver Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true; https://tapesfrombeyond.buzzsprout.com/1431028/about; https://tapesfrombeyond.buzzsprout.com/1431028/episodes; https://tapesfrombeyond.buzzsprout.com/; https://anchor.fm/s/10ee59174/podcast/rss; https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true",
+      "https://tapesfrombeyond.buzzsprout.com/1431028/about",
+      "https://tapesfrombeyond.buzzsprout.com/1431028/episodes",
+      "https://tapesfrombeyond.buzzsprout.com/",
+      "https://anchor.fm/s/10ee59174/podcast/rss",
+      "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Since she was a child Jac has been receiving mysterious and disturbing cassette tapes in the mail from an unknown sender. This podcast listens to and discusses each tape while trying to discover who is sending these tapes and why they are sending them to Jac.",
+    "socialUrls": [
+      "https://www.facebook.com/TapesFromBeyond",
+      "https://twitter.com/TapesfromBeyond"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "monthly",
+      "medianDays": 21,
+      "observedIntervals": 7
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Palaver Media",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://anchor.fm/s/10ee59174/podcast/rss",
+        "appleCollectionId": "1555113058",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.buzzsprout.com/1431028.rss"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true",
+          "fetchedAt": "2026-08-15T19:46:21.847Z",
+          "payloadHash": "90279e4982a92dda29de56fe24231ef59f4a7869ab9dcaa6e358e735ad9d1ae6"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about",
+          "fetchedAt": "2026-08-15T19:46:21.846Z",
+          "payloadHash": "c3253d46238696f0eb8216c30780cf4e4be85851f1cb18163f1e3eb341cae636"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes",
+          "fetchedAt": "2026-08-15T19:46:21.845Z",
+          "payloadHash": "f7ab3bf15e1f9708b17059eba512a512a87895bc738db20873ca178bafb1a02a"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/",
+          "fetchedAt": "2026-08-15T19:46:21.842Z",
+          "payloadHash": "b7f64d38c7ed684702741c70539855035c4d7d7fb189217bb44c751168468ed9"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss",
+          "fetchedAt": "2026-08-15T19:46:20.955Z",
+          "payloadHash": "299c8cd1c1d83eff47848d063fe2312df7404d7ae872854c55e632f88cf64d9b"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4",
+          "fetchedAt": "2026-08-15T19:46:20.914Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/tapes-from-beyond/id1555113058?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.69,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/about"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://tapesfrombeyond.buzzsprout.com/1431028/episodes?search=true"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://anchor.fm/s/10ee59174/podcast/rss"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T19:46:21.927Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c7eed128150f75540cdab2ad90f69f00974d5331dfa77fec5147aab206e1fd3e",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "47ed5f671841d042dc0d923d880baecd0ead6775ef2b543df45cfc57b9c0e8c8",
+        "cover": "41c419ef1718e1045af0060acec07985ad8b7cf9805fe3a5d71f225112dc98bf",
+        "coverAlt": "24915d1c54efc5751cc958dd9f271a4f6c547c04cf6327e515796057f85be3f9",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "81c45b40eac043b69fe3deb80a31f61237e4b77fe0f98f4306f4f94165359988",
+        "officialLinks": "6a3025b8a88b9a6c5a749d6c33eb5fc9a8d06eeab29402e50738df217e7cd581",
+        "genres": "6622d62da884ea6da9425137a8d761ce6764ab863087e55fb0d1dba4a063a2c7",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "58b03f4f054184434d0359b395ad0e9d2bd2f75383131e39a28ea0b64abd6911",
+        "aliases": "2fe32d40d144979d6ed0243f7a3e0e803019f057a82309322506335ba3eebfae",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "9f74b8bfad97218752461800fcc1962960a34575f43dbe5846ccc4845b3f75e7",
+        "releaseDates": "74af4d49af37a130fb304a3b8c7bc98d485c05464d402d7f8621bb479ef682ec",
+        "credits": "99c7b291d126b2d4ad54a108aa203634ec173fbbd27ef7a66f14554a24d8ff68",
+        "creators": "8a29d8d8d25ae6fa52637ed12733435693fb8ba85771316ae58f0a5c56c8211d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "2b896dfe253431b991f152cd7cd3651691150191c54d74a4cd8e82db90913551"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T19:47:27.852Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "palaver-media",
+  "networkId": "buzzsprout"
+}

@@ -439,31 +439,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 439,P2,Puppeteer's Farm,,671e5387-9065-4bd0-bdfb-59558947b59f,needs-review,needs-review,source-conflict,2026-08-15 19:44:37
 440,P2,"Purgatory, Missouri",,c3d60ccc-4987-4f35-a58f-5ebf24238cdb,published,published,,2026-08-15 19:45:29
 441,P2,Radio Zed,,cb88d383-6691-48fe-a4ab-2d02557802d4,needs-review,needs-review,insufficient-discovery-signals; cover-not-ready; scope-review,2026-08-15 19:44:11
-442,P2,Red Riding Hoods,,,unattempted,,,
-443,P2,Room 11,,,unattempted,,,
-444,P2,Shadows of a Dark Past,,,unattempted,,,
-445,P2,Shelterwood,,,unattempted,,,
-446,P2,Skulduggery Pleasant: The Haunted House on Hollow Hill,,,unattempted,,,
-447,P2,Smile Grove,,,unattempted,,,
-448,P2,Station 13,,,unattempted,,,
-449,P2,Stay the Night,,,unattempted,,,
-450,P2,Tales from Davidstown,ROPicturesUK,,unattempted,,,
-451,P2,Tapes From Beyond,,,unattempted,,,
-452,P2,Tates and Graves: Paranormal Detectives,,,unattempted,,,
-453,P2,The Alnerwick Files,,,unattempted,,,
-454,P2,The Author's Anathema,,,unattempted,,,
-455,P2,The Backwoods Radio Show,,,unattempted,,,
-456,P2,The Beacon Jar Podcast,Doryen Chin,,unattempted,,,
-457,P2,The Blacklight Protocol,,,unattempted,,,
-458,P2,The Blood & Moone Files,,,unattempted,,,
-459,P2,The Call of Cthulhu,,,unattempted,,,
-460,P2,The Children of Room 56,,,unattempted,,,
-461,P2,The Cosmic Game,,,unattempted,,,
-462,P2,The Curse of The Lake House,,,unattempted,,,
-463,P2,The Custodians,,,unattempted,,,
-464,P2,The Demonic Detective,,,unattempted,,,
-465,P2,The Devil's Plaything,Tlacuache Theater,,unattempted,,,
-466,P2,The Disposers,,,unattempted,,,
+442,P2,Red Riding Hoods,,c66d1c31-163c-4968-9afb-538ebb24ccda,published,published,,2026-08-15 19:47:30
+443,P2,Room 11,,e555bfe5-b2dc-40a9-b59a-b79e3677d5ea,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:45:57
+444,P2,Shadows of a Dark Past,,00983c7c-ea72-482d-9388-3abd9778ee4d,published,published,,2026-08-15 19:47:30
+445,P2,Shelterwood,,1714fb70-2bbd-4f1e-94a7-80189eeb57df,published,published,,2026-08-15 19:47:30
+446,P2,Skulduggery Pleasant: The Haunted House on Hollow Hill,,21e298aa-962b-4656-a49b-e6b0d6af527d,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 19:47:27
+447,P2,Smile Grove,,680dbaef-cccf-4cce-b65a-c44475d021e2,needs-review,needs-review,source-conflict,2026-08-15 19:46:00
+448,P2,Station 13,,e25a2682-298f-425f-b232-a3733cc7873a,published,published,,2026-08-15 19:47:30
+449,P2,Stay the Night,,76d5c340-a9d2-477a-9370-5661c77770a4,needs-review,needs-review,scope-review,2026-08-15 19:46:59
+450,P2,Tales from Davidstown,ROPicturesUK,aee52b72-1e23-4ffb-a8b8-8f5f31a591ba,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 19:46:04
+451,P2,Tapes From Beyond,,7639879f-f677-4256-a6ca-c2f8b6459d4b,published,published,,2026-08-15 19:47:30
+452,P2,Tates and Graves: Paranormal Detectives,,f84d2fc9-1fc7-45e7-af1c-e655323e0368,needs-review,needs-review,source-conflict,2026-08-15 19:45:56
+453,P2,The Alnerwick Files,,94d04015-a7e2-41ba-9d12-12cb8c17c500,needs-review,needs-review,source-conflict,2026-08-15 19:47:27
+454,P2,The Author's Anathema,,2da51a56-e61c-46ea-99b2-f84578ae9c3a,needs-review,needs-review,source-conflict,2026-08-15 19:46:24
+455,P2,The Backwoods Radio Show,,e2143aa2-fffb-4a82-bdfa-28e09634ca65,needs-review,needs-review,source-conflict,2026-08-15 19:46:00
+456,P2,The Beacon Jar Podcast,Doryen Chin,692b7861-bf4d-485c-a101-de62b4825f13,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 19:47:16
+457,P2,The Blacklight Protocol,,85c67b7d-9e25-40dd-b67f-bc2ffb9a77c3,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 19:46:27
+458,P2,The Blood & Moone Files,,349c3843-1bab-4704-96eb-b52b0cfdbf93,published,published,,2026-08-15 19:47:30
+459,P2,The Call of Cthulhu,,388d7bac-14c4-4378-8b61-ea152ef328d4,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 19:47:22
+460,P2,The Children of Room 56,,225de0ef-dff1-4729-a0c5-5eba9ae98fc5,needs-review,needs-review,source-conflict,2026-08-15 19:47:00
+461,P2,The Cosmic Game,,0d88f74a-8078-4f7b-84f1-a8655c91820c,needs-review,needs-review,source-conflict,2026-08-15 19:47:10
+462,P2,The Curse of The Lake House,,f917efdc-68bb-4ac6-b261-49c1741345db,published,published,,2026-08-15 19:47:30
+463,P2,The Custodians,,8e444eed-9e03-43de-84c7-cdceaf574b67,published,published,,2026-08-15 19:47:30
+464,P2,The Demonic Detective,,6867289a-d89c-462a-8caa-2e55261ffd1e,needs-review,needs-review,source-conflict,2026-08-15 19:46:32
+465,P2,The Devil's Plaything,Tlacuache Theater,9df6f3dc-6c16-4ec2-96b3-ca78a87a1def,published,published,,2026-08-15 19:47:30
+466,P2,The Disposers,,bc77157d-025c-4863-88cc-b0c1cb02a3e1,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 19:45:57
 467,P2,The Endless Elsewhere Podcast,,,unattempted,,,
 468,P2,THE FORMIDDREAD HORROR,Owen Summer,,unattempted,,,
 469,P2,The Frankenstein Files,,,unattempted,,,
