@@ -555,20 +555,20 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 555,P3,The Nightstar Specters,,04a8acfb-14c4-4160-b9ca-0b91ae39790e,published,published,,2026-08-15 20:52:42
 556,P3,The Northwood Project,,f2e746d2-68e1-44b6-8fc7-e70619513789,published,published,,2026-08-15 20:52:42
 557,P2,The Occurrence in River Oaks,,24a8b99c-84b6-4f28-bcbc-a0dda51f0ee8,needs-review,needs-review,source-conflict,2026-08-15 19:52:30
-558,P3,The Override Protocol,,,unattempted,,,
-559,P3,THE REMAINS,,,unattempted,,,
-560,P3,The Rue Papers,,,unattempted,,,
-561,P3,The Seven Planes,,,unattempted,,,
-562,P3,"The Smell of Pines, Darkly",,,unattempted,,,
-563,P3,The Voicemail Box Is Full,,,unattempted,,,
-564,P3,Trouble In Mind,,,unattempted,,,
-565,P3,Twisted Curiosities,,,unattempted,,,
-566,P3,Unusual Happenings At Paradise,,,unattempted,,,
+558,P3,The Override Protocol,,0993c324-3243-4376-a456-a568d2422406,published,published,,2026-08-15 20:56:24
+559,P3,THE REMAINS,,5910e2a2-d68d-46b4-9c44-9f98022e2455,needs-review,needs-review,scope-review; source-conflict,2026-08-15 20:55:15
+560,P3,The Rue Papers,,204b170b-b06f-4b93-92ec-ed380f609dd8,needs-review,needs-review,source-conflict,2026-08-15 20:56:12
+561,P3,The Seven Planes,,45566fd8-800c-430e-a91a-cc5b31648b03,published,published,,2026-08-15 20:56:24
+562,P3,"The Smell of Pines, Darkly",,9e1b055c-4085-4f38-a518-9efce5c8d381,needs-review,needs-review,source-conflict,2026-08-15 20:54:16
+563,P3,The Voicemail Box Is Full,,5e63ca53-f422-45b7-b320-0c1fb24be9ab,published,published,,2026-08-15 20:56:24
+564,P3,Trouble In Mind,,a5f49e7e-0a9c-47c9-a867-a58781d1caeb,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:55:23
+565,P3,Twisted Curiosities,,b262eedf-bcbd-4bc5-91a7-93823c60e56b,published,published,,2026-08-15 20:56:24
+566,P3,Unusual Happenings At Paradise,,7ab2d55e-2c93-404d-a053-8c0113fccae8,published,published,,2026-08-15 20:56:24
 567,P2,Vault Veritas: SCP Files,,6bf6764f-fcfb-4759-9455-c55bd8327ba0,needs-review,needs-review,source-conflict,2026-08-15 19:52:34
-568,P3,Whispers of Delirium,,,unattempted,,,
-569,P3,Widdershins' Cove,,,unattempted,,,
-570,P3,WitherBurn After School News,,,unattempted,,,
-571,P3,You're the Last One,,,unattempted,,,
+568,P3,Whispers of Delirium,,d320aa31-d3b3-4e96-8f02-5180a7248d7e,published,published,,2026-08-15 20:56:24
+569,P3,Widdershins' Cove,,1bd775f1-355b-4456-9b1f-ec52def677c9,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:55:18
+570,P3,WitherBurn After School News,,408f06e2-74b5-4f3e-8d00-82437c0fa2f7,needs-review,needs-review,source-conflict,2026-08-15 20:53:13
+571,P3,You're the Last One,,b4e22b74-4349-4ad6-ac8b-e381157b7f7c,needs-review,needs-review,source-conflict,2026-08-15 20:55:25
 572,P0,"Alba Salix, Royal Physician",Forgery League,63476459-8988-4df0-8499-aa3285babe5f,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:31:36
 573,P1,Among the Stacks,Among the Stacks,4f964f61-110d-450b-b89b-de25d98bfc04,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 17:23:52
 574,P1,Chain of Being,Cai Gwilym Pritchard,4d8ab873-1deb-4035-acf7-33e7e5f54e53,published,published,,2026-08-15 17:14:59
@@ -698,19 +698,19 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 698,P2,Working Tidal,,48d330ba-8797-44be-a08e-35173f694397,needs-review,needs-review,source-conflict,2026-08-15 20:01:37
 699,P1,Y2K,Karin Heimdahl,920a373e-c5e2-457e-95ad-37a1302cf90e,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 17:21:19
 700,P2,A Fox's Guide to Deurbanisation,,d9a1b1ad-2be4-4a78-819e-a9b7a361cdec,needs-review,needs-review,invalid-website; source-conflict,2026-08-15 20:01:45
-701,P3,A Midsummer's Quarantine,Faustian Nonsense,,unattempted,,,
-702,P3,A Sherlock Holmes Christmas,,,unattempted,,,
-703,P3,Above and Below,,,unattempted,,,
-704,P3,Almost Tangible,,,unattempted,,,
+701,P3,A Midsummer's Quarantine,Faustian Nonsense,8ebf60c0-c424-47b7-b1f1-d1cb6508cc3b,published,published,,2026-08-15 20:56:24
+702,P3,A Sherlock Holmes Christmas,,3917de85-5850-4283-ab04-7583e5a7e0e2,needs-review,needs-review,scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:55:28
+703,P3,Above and Below,,81372a87-62ae-4f59-b008-8e01755e3200,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre,2026-08-15 20:53:13
+704,P3,Almost Tangible,,4b544b15-86a7-4de8-ab40-f3361670f5cb,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:56:14
 705,P2,American Afterlife,,51854c49-a223-4589-a0bb-1363dc9c70d1,published,published,,2026-08-15 20:03:15
-706,P3,Around the World in 90 Days,,,unattempted,,,
-707,P3,Bee Dubs AI Labs,,,unattempted,,,
-708,P3,Beneath Our Feet,Tin Can Audio / In The Works,,unattempted,,,
-709,P3,Blood Bunnies,,,unattempted,,,
-710,P3,Blueberries Hill,,,unattempted,,,
-711,P3,Bound,,,unattempted,,,
-712,P3,Cosmic Riff,,,unattempted,,,
-713,P3,Crap Noir,,,unattempted,,,
+706,P3,Around the World in 90 Days,,934c2690-1774-4f18-9c75-c7f7821997ef,needs-review,needs-review,source-conflict,2026-08-15 20:53:17
+707,P3,Bee Dubs AI Labs,,c7f19a81-31db-4039-8d21-1d62e2d8e004,published,published,,2026-08-15 20:56:24
+708,P3,Beneath Our Feet,Tin Can Audio / In The Works,4abcdc05-50f2-45fa-a8fe-55ce8a314f0d,needs-review,needs-review,insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:55:18
+709,P3,Blood Bunnies,,092a1143-4794-4697-ad04-8dd6d4eb320a,published,published,,2026-08-15 20:56:24
+710,P3,Blueberries Hill,,52f57b34-d8ee-4f2b-9a50-ca5832225b24,published,published,,2026-08-15 20:56:24
+711,P3,Bound,,cfa8bc7c-b9f5-4cb5-ab7b-41bbbbef4ac2,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict,2026-08-15 20:53:15
+712,P3,Cosmic Riff,,bd88415c-5753-43fa-bb5b-ff19bc92e685,published,published,,2026-08-15 20:56:24
+713,P3,Crap Noir,,8adc93c0-1b0e-4100-b3e1-aa5dd75a759d,published,published,,2026-08-15 20:56:24
 714,P3,Crime and Punsishment,,,unattempted,,,
 715,P3,Crown Jewels,,,unattempted,,,
 716,P3,Crumbleflan,,,unattempted,,,

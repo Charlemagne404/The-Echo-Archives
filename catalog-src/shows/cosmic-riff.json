@@ -1,0 +1,664 @@
+{
+  "id": "cosmic-riff",
+  "title": "Cosmic Riff",
+  "subtitle": "",
+  "description": "Welcome to the radio show at the end of the universe. Follow the mis-adventures of Unit 0518 and Chumash Legarde, a robot trucker and his spiteful baby companion, as they rocket through a wacky and unpredictable universe. Our first episode premieres July 13th, 2024.",
+  "cover": "images/covers/cosmic-riff.jpg",
+  "coverAlt": "Cosmic Riff cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4",
+    "website": "https://thecosmicriff.com/",
+    "rss": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi",
+    "comedy"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Cosmic Riff"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "1 season observed • at least 2 full episodes • 20 min median",
+    "seasons": 1,
+    "episodes": 2,
+    "avgEpisodeMinutes": 20,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 17,
+    "maxEpisodeMinutes": 23,
+    "totalObservedHours": 0.7,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 2,
+      "bonus": 0,
+      "trailer": 1
+    }
+  },
+  "releaseDates": {
+    "first": "2024-07-13",
+    "latest": "2024-07-27",
+    "latestFeedItem": "2024-07-27",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://thecosmicriff.com/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "",
+    "funding": "https://buymeacoffee.com/cosmicriff"
+  },
+  "credits": {
+    "creatorName": "Michael Demmendaal",
+    "ownerName": "Michael Demmendaal"
+  },
+  "creators": [
+    "Michael Demmendaal"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml; https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "1 observed episodes",
+    "captions": "unknown",
+    "transcriptCoverage": 0.333,
+    "transcriptFormats": [
+      "application/x-subrip"
+    ],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml",
+      "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction",
+      "Comedy Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Welcome to the radio show at the end of the universe. Follow the mis-adventures of Unit 0518 and Chumash Legarde, a robot trucker and his spiteful baby companion, as they rocket through a wacky and unpredictable universe. Our first episode premieres July 13th, 2024.",
+    "socialUrls": [],
+    "funding": [
+      {
+        "url": "https://buymeacoffee.com/cosmicriff",
+        "label": "Support"
+      }
+    ],
+    "schedule": {
+      "label": "biweekly",
+      "medianDays": 14,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "podcast",
+      "copyright": "Cosmic Riff 2024",
+      "explicit": "true",
+      "license": {
+        "value": "Cosmic Riff 2024",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "c09e309f-4679-5d5c-be23-e43e44597360",
+        "rssUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml",
+        "appleCollectionId": "1740786493",
+        "podcastIndexFeedId": "",
+        "feedRedirects": []
+      },
+      "selectedSources": [
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml",
+          "fetchedAt": "2026-08-15T20:54:15.413Z",
+          "payloadHash": "a811284cb736e0b37a58cd71e449f932637e3cce16ab30bcd5679ace4a56d0ab"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4",
+          "fetchedAt": "2026-08-15T20:54:15.206Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/cosmic-riff/id1740786493?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "medium": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "podcastGuid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "funding": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "supportUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://media.rss.com/httpsthecosmicriffcomcategoryseason-1feed/feed.xml"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:54:16.584Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "57fbed0fdacc0f07f7d9e6b6f83b790073d0305d00c9cd8574d1d1e0da83b406",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "90b0a22a705f5ddab79104aab33a6b6a09d8614fed26f0dcb645e3f9cb98698f",
+        "cover": "bf64d7d65f627c3b980874760ab28224d222ee2a960ed1013a7e35194eba8c65",
+        "coverAlt": "d165812d175ab4070e720ce803a0cb89fc18e78c0803b28b9b47fb6f2bce8113",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "e1a174978378d4a38c8b6989ebe66c532962259344657a774d26c7db2793a5bc",
+        "officialLinks": "425bfab97a01c8b7fd090887b08b2f866a9977687dbc8fc282358c82ea5b22e3",
+        "genres": "821180fff3b21544e41b758f314c5a8c5f9ed4f3c3d2e27d1acaf1686d42e588",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "76da5d135c1c5dd6e5d7d1d32254406620b1f802d3f1848ea1334b3defed6f37",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "c143bf6dc7e338cfea6dd08c00a3ea5c0121e03933c5889fb30f249303dde1fa",
+        "releaseDates": "be4eaf0c7d76ab7aa742e0d845e698a52204a1bbe75c714038bc9e799e5dbe2a",
+        "credits": "7b0a93145e487cac4cb81360f717a06fffd20711931263c30a40d8bc262884f5",
+        "creators": "a1684f4c84e60e6f26dccad08bf1b29a066e2d34d237013f7f893bb46d2334ca",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "dc3cd71524491991c53f6f27a6fadb53f754778a667dc578aeb515dae3d33c14",
+        "verification": "597023ab6b087f372938bd7663a9d96287a636338aacd8f5b823c0929a1df4f5"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:56:20.652Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "michael-demmendaal"
+}

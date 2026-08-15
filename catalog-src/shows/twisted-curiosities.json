@@ -1,0 +1,701 @@
+{
+  "id": "twisted-curiosities",
+  "title": "Twisted Curiosities",
+  "subtitle": "",
+  "description": "Welcome to the shop with only haunted items for sale, trinkets from another world. Each item in my shop holds a story, as equally horrifying as the last. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/twisted-curiosities.jpg",
+  "coverAlt": "Twisted Curiosities cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "https://open.spotify.com/show/1CbHU5yQySvsmxZZ4G7QZ2",
+    "apple": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068",
+    "website": "https://rss.com/podcasts/twistedcuriosities/",
+    "rss": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a",
+    "youtubeMusic": "",
+    "amazonMusic": "https://music.amazon.com/podcasts/013faf98-9ff7-4f79-9e64-573869c50195",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Twisted Curiosities"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "at least 2 full episodes • 20 min median",
+    "episodes": 2,
+    "avgEpisodeMinutes": 20,
+    "medianEpisodeMinutes": 20,
+    "minEpisodeMinutes": 15,
+    "maxEpisodeMinutes": 24,
+    "totalObservedHours": 0.7,
+    "durationCoverage": 1,
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 2,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2022-10-31",
+    "latest": "2022-12-21",
+    "latestFeedItem": "2022-12-21",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://rss.com/podcasts/twistedcuriosities/",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "https://www.youtube.com/rsscom/",
+    "social": "https://www.facebook.com/rss.podcasting",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "Delayed Reaction Media",
+    "ownerName": "Delayed Reaction Media",
+    "network": "RSS.com",
+    "writers": [
+      "Delayed Reaction Media"
+    ],
+    "people": [
+      {
+        "name": "Delayed Reaction Media",
+        "role": "author",
+        "url": ""
+      }
+    ]
+  },
+  "creators": [
+    "Delayed Reaction Media"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://rss.com/podcasts/twistedcuriosities/; https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a; https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://rss.com/podcasts/twistedcuriosities/",
+      "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a",
+      "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+    ],
+    "sourceCategories": [
+      "Fiction",
+      "Science Fiction"
+    ],
+    "sourceKeywords": [],
+    "sourceTags": [],
+    "importOfficialSummary": "Welcome to the shop with only haunted items for sale, trinkets from another world. Each item in my shop holds a story, as equally horrifying as the last. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [
+      "https://www.facebook.com/rss.podcasting",
+      "https://twitter.com/rss",
+      "https://www.instagram.com/rss_podcasting/"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "irregular",
+      "medianDays": 52,
+      "observedIntervals": 1
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Delayed Reaction Media 2022",
+      "explicit": "false",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a",
+        "appleCollectionId": "1652264068",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://media.rss.com/twistedcuriosities/feed.xml"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/",
+          "fetchedAt": "2026-08-15T20:54:15.497Z",
+          "payloadHash": "5670ea1f6c07836ffb6066912910c669f6a45d600765d46a5614733f9f8c2c00"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a",
+          "fetchedAt": "2026-08-15T20:54:15.123Z",
+          "payloadHash": "047e5caf10b358115d4824b1324b2faf41dca5eadf0c2bb2bffe2fe9e76927e4"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4",
+          "fetchedAt": "2026-08-15T20:54:14.961Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/twisted-curiosities/id1652264068?uo=4"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "previousRssUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        },
+        "networkName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "spotifyUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "amazonMusicUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "youtubeUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "people": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://rss.com/podcasts/twistedcuriosities/"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/639a921e7a98870011a05b8a"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:54:16.130Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "da860f9df94a661e269faaf16cca1cbf1b6038ed9c5a83b2640bd54751af704d",
+        "subtitle": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "description": "aebcd5e5781f09e6d2e22dc0f7a931cb5f3cd0b3d197f1c00a152e3cb2879496",
+        "cover": "da072e8222d28eb3e9b05718119a290bb818a8b116e9c630af634904a085fc20",
+        "coverAlt": "21af7095f61b949a6a4d7166e2f7d1ff1d356d80400c5fed361e16d5f81e5806",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "f61214b9800b01190b64d32a9e4472a03ae7c370aa5662a5e06bd65f5da8c636",
+        "officialLinks": "1b13540dd5032154b3619b5ce868f9eeb94836e73b6a897924afcd3ae2f01b39",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "c7156964f15f71e8517640b3b210fdfd08d90338999f26afb92df8ea41a904da",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "d31de544d378a022ffcc93f1f1b11aa2f4aa5c1f6c8534ebdae5abdfa611d029",
+        "releaseDates": "3a251596a0c9f75f42d1e706cea638b04e888f1444654fd9d765d902ab696bc6",
+        "credits": "41309bc14b8bd900ffef302c83f9de46cba42ec8a956e8905a37ef1a84505120",
+        "creators": "d4343ed246e14a6aa8978bc5594bfefad5c3c69f77c9284a410f0780cef9525d",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "549bff67856bab941798eda1837ad4fd14eaac15dc6467b36513bdd0eaa4ae9d"
+      },
+      "optionalGaps": [
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:56:20.614Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "delayed-reaction-media",
+  "networkId": "rss-com"
+}
