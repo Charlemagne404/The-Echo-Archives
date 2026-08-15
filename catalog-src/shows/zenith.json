@@ -1,0 +1,718 @@
+{
+  "id": "zenith",
+  "title": "Zenith",
+  "subtitle": "You could get lost in these hills.",
+  "description": "Seasons 1 & 2 streaming now! Charlotte Fitzgerald is missing. When her brother Dean and his girlfriend Thea set out to find her, they stumble upon the mysterious mountain town of Zenith, California, which is hiding more than a few secrets of its own. Hosted on Acast. See acast.com/privacy for more information.",
+  "cover": "images/covers/zenith.jpg",
+  "coverAlt": "Zenith cover art",
+  "status": "published",
+  "reviewStatus": "imported",
+  "releaseStatus": "unknown",
+  "completionStatus": "unclear",
+  "listenLinks": {
+    "start": "",
+    "spotify": "",
+    "apple": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4",
+    "website": "https://shows.acast.com/zenith",
+    "rss": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51",
+    "youtubeMusic": "",
+    "amazonMusic": "",
+    "pocketCasts": ""
+  },
+  "genres": [
+    "drama",
+    "sci-fi"
+  ],
+  "tones": [],
+  "formats": [
+    "serialized"
+  ],
+  "tags": [],
+  "aliases": [
+    "Zenith"
+  ],
+  "themes": [],
+  "contentNotes": [],
+  "languages": [
+    "English"
+  ],
+  "transcriptLanguages": [],
+  "length": {
+    "label": "2 seasons observed • at least 13 full episodes • 24 min median",
+    "seasons": 2,
+    "episodes": 13,
+    "avgEpisodeMinutes": 24,
+    "medianEpisodeMinutes": 24,
+    "minEpisodeMinutes": 9,
+    "maxEpisodeMinutes": 36,
+    "totalObservedHours": 5.1,
+    "durationCoverage": 1,
+    "observedSeasons": [
+      2,
+      1
+    ],
+    "countQualifier": "at-least",
+    "episodeCounts": {
+      "full": 13,
+      "bonus": 0,
+      "trailer": 0
+    }
+  },
+  "releaseDates": {
+    "first": "2024-07-08",
+    "latest": "2025-08-18",
+    "latestFeedItem": "2025-08-18",
+    "next": ""
+  },
+  "ratings": {},
+  "facts": {},
+  "bestFor": [],
+  "similarTo": [],
+  "similarReasons": {},
+  "archiveTake": "",
+  "spoilerFreeReview": "",
+  "thoughts": "",
+  "quote": {
+    "text": "",
+    "attribution": ""
+  },
+  "officialLinks": {
+    "website": "https://shows.acast.com/zenith",
+    "patreon": "",
+    "koFi": "",
+    "discord": "",
+    "youtube": "",
+    "social": "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing",
+    "funding": ""
+  },
+  "credits": {
+    "creatorName": "High Point Productions",
+    "ownerName": "Halle George"
+  },
+  "creators": [
+    "High Point Productions"
+  ],
+  "cast": [],
+  "verification": {
+    "status": "automated-source-checked",
+    "verifiedAt": "2026-08-15",
+    "source": "https://shows.acast.com/zenith/episodes/run; https://shows.acast.com/zenith/episodes/into-the-night; https://shows.acast.com/zenith/episodes; https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing; https://shows.acast.com/zenith; https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51; https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4",
+    "note": "Automated checks assembled factual metadata from publisher feeds and directories. This entry has not yet received an individual maintainer review."
+  },
+  "availability": {
+    "transcripts": "unknown",
+    "captions": "unknown",
+    "transcriptCoverage": 0,
+    "transcriptFormats": [],
+    "transcriptLanguages": []
+  },
+  "content": {},
+  "metadata": {
+    "objectiveSources": [
+      "https://shows.acast.com/zenith/episodes/run",
+      "https://shows.acast.com/zenith/episodes/into-the-night",
+      "https://shows.acast.com/zenith/episodes",
+      "https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing",
+      "https://shows.acast.com/zenith",
+      "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51",
+      "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+    ],
+    "sourceCategories": [
+      "Arts",
+      "Performing Arts",
+      "Fiction",
+      "Science Fiction",
+      "Drama"
+    ],
+    "sourceKeywords": [
+      "sci-fi",
+      "queer",
+      "dramedy",
+      "fiction",
+      "narrative fiction",
+      "serial",
+      "horror"
+    ],
+    "sourceTags": [],
+    "importOfficialSummary": "Seasons 1 & 2 streaming now! Charlotte Fitzgerald is missing. When her brother Dean and his girlfriend Thea set out to find her, they stumble upon the mysterious mountain town of Zenith, California, which is hiding more than a few secrets of its own. Hosted on Acast. See acast.com/privacy for more information.",
+    "socialUrls": [
+      "http://www.facebook.com/sharer/sharer.php?u=https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing",
+      "http://x.com/intent/tweet?url=https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing&via=acast&text=Zenith"
+    ],
+    "funding": [],
+    "schedule": {
+      "label": "weekly",
+      "medianDays": 7,
+      "observedIntervals": 8
+    },
+    "podcast": {
+      "medium": "",
+      "copyright": "Halle George",
+      "explicit": "true",
+      "license": {
+        "value": "",
+        "url": ""
+      },
+      "productionLocation": "",
+      "country": "USA",
+      "sourceFormat": "rss",
+      "contentType": "",
+      "directoryMarkedDead": false
+    },
+    "import": {
+      "pipelineVersion": "2.0",
+      "identifiers": {
+        "podcastGuid": "",
+        "rssUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51",
+        "appleCollectionId": "1755031684",
+        "podcastIndexFeedId": "",
+        "feedRedirects": [
+          "https://feeds.acast.com/public/shows/zenith"
+        ]
+      },
+      "selectedSources": [
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/zenith/episodes/run",
+          "fetchedAt": "2026-08-15T20:06:46.500Z",
+          "payloadHash": "841d284bdafad47df8f83a4be7f262f9e5cb0021fce514ecd117591a81f17e42"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/zenith/episodes/into-the-night",
+          "fetchedAt": "2026-08-15T20:06:46.498Z",
+          "payloadHash": "5aff53ea741bf59e3be2623f555a0459f5c57740c42404f89c3e26235f21157b"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/zenith/episodes",
+          "fetchedAt": "2026-08-15T20:06:46.497Z",
+          "payloadHash": "0ff1ce7c20a9f783994dc7c145be986a953679673b3ccfaf3f44fcf882acc409"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing",
+          "fetchedAt": "2026-08-15T20:06:46.495Z",
+          "payloadHash": "d87e9007ccf968b7b563ec5bfd382a28dcadd782a30569e7162ac5874d3991c1"
+        },
+        {
+          "sourceType": "website",
+          "sourceUrl": "https://shows.acast.com/zenith",
+          "fetchedAt": "2026-08-15T20:06:46.493Z",
+          "payloadHash": "3a88bf1ccdd900c0108af3c63a8ca253609ea198580554f5fcef093dd52497ae"
+        },
+        {
+          "sourceType": "rss",
+          "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51",
+          "fetchedAt": "2026-08-15T20:06:44.413Z",
+          "payloadHash": "b38e5acef1a58cde59d25e206a9458b70424da45349e1b957b1c71eeda3ebe91"
+        },
+        {
+          "sourceType": "apple",
+          "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4",
+          "fetchedAt": "2026-08-15T20:06:44.230Z",
+          "payloadHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "fields": {
+        "title": {
+          "confidence": 0.99,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/zenith"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/zenith/episodes"
+            }
+          ]
+        },
+        "creatorName": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "description": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "rssUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "appleUrl": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            }
+          ]
+        },
+        "appleCollectionId": {
+          "confidence": 0.9,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            }
+          ]
+        },
+        "artworkUrl": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "explicit": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "episodeCount": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            },
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "latestPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "country": {
+          "confidence": 0.75,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "apple",
+              "sourceUrl": "https://podcasts.apple.com/us/podcast/zenith/id1755031684?uo=4"
+            }
+          ]
+        },
+        "subtitle": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "ownerName": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "websiteUrl": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/zenith"
+            }
+          ]
+        },
+        "language": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "copyright": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "categories": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "keywords": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "feedType": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "podcastGuidIsValid": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "episodeCountObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "episodeCountExact": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "episodeCounts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "scheduledReleaseCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "firstPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "latestAnyPublicationDate": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "seasonCount": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "seasonsObserved": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "avgEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "medianEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "minEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "maxEpisodeMinutes": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "totalObservedHours": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "durationCoverage": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "cadence": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "transcripts": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "license": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "sourceFormat": {
+          "confidence": 0.95,
+          "method": "direct",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        },
+        "socialUrls": {
+          "confidence": 0.98,
+          "method": "source-agreement",
+          "sources": [
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/zenith"
+            },
+            {
+              "sourceType": "website",
+              "sourceUrl": "https://shows.acast.com/zenith/episodes/charlotte-fitzgerald-is-missing"
+            }
+          ]
+        },
+        "releaseStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "completionStatus": {
+          "confidence": 0,
+          "method": "unknown",
+          "sources": []
+        },
+        "formats": {
+          "confidence": 0.95,
+          "method": "deterministic-feed-type",
+          "sources": [
+            {
+              "sourceType": "rss",
+              "sourceUrl": "https://feeds.acast.com/public/shows/662fd703e9f4880011d5be51"
+            }
+          ]
+        }
+      },
+      "importedAt": "2026-08-15T20:06:46.615Z",
+      "humanOwnedFields": [
+        "ratings",
+        "archiveTake",
+        "spoilerFreeReview",
+        "thoughts",
+        "tones",
+        "bestFor",
+        "similarTo",
+        "similarReasons",
+        "featured",
+        "accent",
+        "content",
+        "themes",
+        "contentNotes",
+        "collectionMembership"
+      ],
+      "managedFingerprints": {
+        "title": "c92330c9bf2c32812f9d1e1e999dcc86f25a222c953042ca7155cd130b11e826",
+        "subtitle": "348f3f9d3f8def2f463d417ceadd80fa47d63fc3668e82295415ee57cdaa6cad",
+        "description": "cc9430b73d56f562e595edcfa1791e71129ae8c4bcf1d9afc551fd5538bac0cf",
+        "cover": "2a5e83540e4a4040759f0bf833b6e82b5958f97a79940d5678bcd12c44849050",
+        "coverAlt": "4a175a81e26d820e55f459d4f1ecb8c0301ddbe458f27701e41b99ee75c77556",
+        "releaseStatus": "eb8bf0d80db323992f6b634aab492b1e6d9e96a8e87a511c2a0db75ab929452c",
+        "completionStatus": "683144a12969e0fd85512737e57b4db93ed15ee760906165a5516d581a77889a",
+        "listenLinks": "6c55f5cde5bf051d6a7309a093863a03bba9a0cd8b9c5884e2fdaf34c5d6e073",
+        "officialLinks": "7d280ba1c1a18fcca4a110265f9bbd098ac60835ab60b9cb056df8739612bce8",
+        "genres": "0f8b1464521ec6dfc16faa01cebc7d8fffcc70d0b62e7064346fac4e71e5a57b",
+        "tags": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "formats": "ccaff2679ec0db605a0aeac580f22995748c5dd17e29543a880dac4383bdff9e",
+        "aliases": "24b9b5fcf1f6cf91cfd4cbf711e3e00bff5f73d78759e629ce729475e0609b24",
+        "languages": "3a8d42ad01e01492ef4f7a44baf50bbaa34184e82870e129a3bcdb499224e246",
+        "transcriptLanguages": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "length": "fbc3154d313e810d6660e3fcef449d5935b5056f6cea9557146b32d206210139",
+        "releaseDates": "e3af476032c6fc037abb4657686273c1e67b8c71aa73298c66be9aa18a8f2659",
+        "credits": "41a480b00fa52731c0024839be8d6a35aa851798c6705084050d905b6c82f3f3",
+        "creators": "c211b0bb606c9ce3c22b67185c320af135533765de764ba21a9aeedd62ef16e6",
+        "cast": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "availability": "4a026402c0761d5d1890d0b441d1216ac6b09aebd37753c585d4932564a0f4c5",
+        "verification": "cfe3ebc486a0270d68b3ee0c8b14ecda9c0acd5279ff02c1dd40c9b179e2c6ee"
+      },
+      "optionalGaps": [
+        "Structured creator/cast/production credits were not exposed by the sources.",
+        "No structured transcript links were exposed by the feed.",
+        "Release status remains unknown; old or dead feeds are not treated as cancelled or complete.",
+        "No exact Spotify show URL was found on the official site."
+      ],
+      "publication": {
+        "tier": "imported",
+        "publishedAt": "2026-08-15T20:08:07.303Z"
+      }
+    }
+  },
+  "featured": false,
+  "createdAt": "2026-08-15",
+  "updatedAt": "2026-08-15",
+  "creatorId": "high-point-productions"
+}

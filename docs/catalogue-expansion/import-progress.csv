@@ -819,31 +819,31 @@ backlog_row,priority,title,creator,candidate_id,current_outcome,importer_status,
 819,P2,Metropolis,Lux Radium,d588bc89-b942-4ee4-9d0a-eb559fa44737,needs-review,needs-review,source-conflict,2026-08-15 20:04:06
 820,P2,Please Save the Space Bees,Dark Matter Podcasts,512fc364-72f5-4ac0-821b-5aa2ba2fb7c3,needs-review,needs-review,insufficient-discovery-signals; source-conflict,2026-08-15 20:03:37
 821,P2,The Corveil Cases,,b30eb5b2-ae54-48de-a5d6-690cc2e50b4f,needs-review,needs-review,source-conflict,2026-08-15 20:05:08
-822,P2,KILLJAM XXX,,,unattempted,,,
-823,P2,Isfet Archives,,,unattempted,,,
-824,P2,Bones of the Land,Amelia Chisholm & Stasi Dimitrova,,unattempted,,,
-825,P2,The Grotto,Athena S. Kye,,unattempted,,,
-826,P2,Circè,Ostium Network,,unattempted,,,
-827,P2,Maeltopia,Maeltopia,,unattempted,,,
-828,P2,Dark Heights,,,unattempted,,,
-829,P2,Beatrix Greene,,,unattempted,,,
-830,P2,The Shadow Files of Morgan Knox,,,unattempted,,,
-831,P2,SILON: The Secret and Impossible League of the Noösphere,Pendant Audio,,unattempted,,,
-832,P2,The Line,Pendant Productions / Pendant Audio,,unattempted,,,
-833,P2,No Space for Heroes,,,unattempted,,,
-834,P2,Derry's New Direction,,,unattempted,,,
-835,P2,Last Resort,,,unattempted,,,
-836,P2,Dear Angel,,,unattempted,,,
-837,P2,Agent Stoker,,,unattempted,,,
-838,P2,Project Bläckfisk,,,unattempted,,,
-839,P2,Hindsight: The Fracture,,,unattempted,,,
-840,P2,The Bekkoning Noizemaker,,,unattempted,,,
-841,P2,Zenith,,,unattempted,,,
-842,P2,Proxy Zone Reboot,,,unattempted,,,
-843,P2,Starship Excelsior: A Starship Fan Production,Starship Excelsior Productions,,unattempted,,,
-844,P2,INFINITAS,,,unattempted,,,
-845,P2,How Not to Hitch a Ride with Chimps,,,unattempted,,,
-846,P2,Crime Of the Week,Dawn Irwin,,unattempted,,,
+822,P2,KILLJAM XXX,,ee59248d-813c-48e9-a65e-7d86635ecbc6,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:06:45
+823,P2,Isfet Archives,,1232480a-96a3-40b9-9162-42beb8e4aeb9,needs-review,needs-review,source-conflict,2026-08-15 20:07:41
+824,P2,Bones of the Land,Amelia Chisholm & Stasi Dimitrova,ad2cf556-f4ec-4872-ba1d-eb278bbc1ce3,published,published,,2026-08-15 20:08:09
+825,P2,The Grotto,Athena S. Kye,efff9f1e-7065-47e7-87cd-34944a420aab,needs-review,needs-review,missing-identity; weak-title; weak-description; insufficient-discovery-signals; missing-genre; cover-not-ready; missing-listen-link; scope-review,2026-08-15 20:05:48
+826,P2,Circè,Ostium Network,42ce369b-5eef-4c8e-bdd8-d6b1a0474372,needs-review,needs-review,source-conflict,2026-08-15 20:05:50
+827,P2,Maeltopia,Maeltopia,e4ed50e2-876b-480f-aa8c-7d337c51abac,needs-review,needs-review,invalid-apple-link; cover-not-ready; source-conflict,2026-08-15 20:07:42
+828,P2,Dark Heights,,8747be33-1318-4c98-b459-c63e5d0a599d,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; source-conflict; duplicate-ambiguity,2026-08-15 20:05:41
+829,P2,Beatrix Greene,,d5702792-b2ed-423a-9e84-9e8b8d3e8700,needs-review,needs-review,insufficient-discovery-signals; missing-genre; source-conflict,2026-08-15 20:05:40
+830,P2,The Shadow Files of Morgan Knox,,f070e37e-a385-4c20-87e2-ab91aa7806e5,needs-review,needs-review,placeholder-description; insufficient-discovery-signals; missing-genre; scope-review; source-conflict; duplicate-ambiguity,2026-08-15 20:06:36
+831,P2,SILON: The Secret and Impossible League of the Noösphere,Pendant Audio,d2d49f34-44bc-4efb-88a2-17912104f32b,needs-review,needs-review,source-conflict,2026-08-15 20:05:37
+832,P2,The Line,Pendant Productions / Pendant Audio,68a64526-2acb-401e-a5d8-c9f32d72fdec,needs-review,needs-review,source-conflict,2026-08-15 20:06:44
+833,P2,No Space for Heroes,,37f00727-c9b5-4967-b0a2-5936cbed9add,needs-review,needs-review,source-conflict,2026-08-15 20:06:50
+834,P2,Derry's New Direction,,920c3c52-bdf1-4f38-9476-9d4ed398fe21,needs-review,needs-review,source-conflict,2026-08-15 20:05:44
+835,P2,Last Resort,,d414715b-95f9-4ffd-bcfd-c369235dae1b,needs-review,needs-review,source-conflict,2026-08-15 20:05:38
+836,P2,Dear Angel,,ad95c336-6e80-4a4e-9e30-a8d5e0562270,needs-review,needs-review,source-conflict,2026-08-15 20:06:42
+837,P2,Agent Stoker,,2589df20-89bb-4019-bc70-e2fe09f4f032,published,published,,2026-08-15 20:08:09
+838,P2,Project Bläckfisk,,39e7329f-6a03-4720-9299-4eb6ff614c16,published,published,,2026-08-15 20:08:09
+839,P2,Hindsight: The Fracture,,ec08f3eb-d8cc-480b-87f6-8b6734838e0c,published,published,,2026-08-15 20:08:09
+840,P2,The Bekkoning Noizemaker,,73d81ed5-6244-4c44-8f71-826a4044080d,published,published,,2026-08-15 20:08:09
+841,P2,Zenith,,5ccd1452-353e-4221-98e6-f8da9ab7cbe8,published,published,,2026-08-15 20:08:09
+842,P2,Proxy Zone Reboot,,c3919c38-8bf2-4927-8d32-0eb9f57303c1,published,published,,2026-08-15 20:08:09
+843,P2,Starship Excelsior: A Starship Fan Production,Starship Excelsior Productions,101de186-28bb-4f89-9f67-d75099dc7dcc,needs-review,needs-review,invalid-apple-link; source-conflict,2026-08-15 20:06:40
+844,P2,INFINITAS,,d47d996e-b23c-4ad5-8071-ebeb2c4154ba,published,published,,2026-08-15 20:08:09
+845,P2,How Not to Hitch a Ride with Chimps,,6fb8f4b8-1dec-4851-90df-ca11833d58ea,needs-review,needs-review,source-conflict,2026-08-15 20:08:07
+846,P2,Crime Of the Week,Dawn Irwin,cabbb04b-2bcc-4951-abae-eba5af1af52a,needs-review,needs-review,source-conflict,2026-08-15 20:05:44
 847,P2,The Carrington Doctrine,,,unattempted,,,
 848,P2,Super Duper,,,unattempted,,,
 849,P2,Girls Night Out,,,unattempted,,,

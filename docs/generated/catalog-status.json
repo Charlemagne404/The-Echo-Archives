@@ -1,16 +1,16 @@
 {
-  "totalShows": 497,
-  "publishedShows": 497,
+  "totalShows": 505,
+  "publishedShows": 505,
   "draftShows": 0,
   "fullReviews": 7,
   "spotlightReviews": 0,
   "indexedOnly": 194,
-  "imported": 296,
+  "imported": 304,
   "plannedReviews": 0,
   "collections": 29,
   "reviewCompanions": 7,
   "creatorVerified": 0,
-  "withRss": 494,
+  "withRss": 502,
   "missingObjectiveSources": 0,
   "withResearchGaps": 14,
   "phase2": {
@@ -22,7 +22,7 @@
     },
     "numericTargets": {
       "publishedShows": {
-        "actual": 497,
+        "actual": 505,
         "target": 129,
         "pass": true
       },
